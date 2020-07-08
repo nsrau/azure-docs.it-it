@@ -4,15 +4,14 @@ description: Questo articolo fornisce una panoramica della riscrittura delle int
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562237"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248684"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Riscrivere le intestazioni HTTP con il gateway applicazione
 
@@ -62,28 +61,28 @@ Il gateway applicazione supporta queste variabili server:
 
 | Nome variabile | Descrizione                                                  |
 | -------------------------- | :----------------------------------------------------------- |
-| add_x_forwarded_for_proxy  | Il campo di intestazione della richiesta client X-Inoltred-for `client_ip` con la variabile (vedere la spiegazione più avanti in questa tabella) aggiunto ad esso nel formato IP1, IP2, IP3 e così via. Se il campo X-Inoltred-for non è incluso nell'intestazione della richiesta client `add_x_forwarded_for_proxy` , la variabile è uguale `$client_ip` alla variabile. Questa variabile è particolarmente utile quando si vuole riscrivere l'intestazione X-Inoltred-for impostata dal gateway applicazione in modo che l'intestazione contenga solo l'indirizzo IP senza le informazioni sulla porta. |
+| add_x_forwarded_for_proxy  | Il campo di intestazione della richiesta client X-Inoltred-for con la `client_ip` variabile (vedere la spiegazione più avanti in questa tabella) aggiunto ad esso nel formato IP1, IP2, IP3 e così via. Se il campo X-Inoltred-for non è incluso nell'intestazione della richiesta client, la `add_x_forwarded_for_proxy` variabile è uguale alla `$client_ip` variabile. Questa variabile è particolarmente utile quando si vuole riscrivere l'intestazione X-Inoltred-for impostata dal gateway applicazione in modo che l'intestazione contenga solo l'indirizzo IP senza le informazioni sulla porta. |
 | ciphers_supported          | Elenco di crittografie supportate dal client.          |
 | ciphers_used               | Stringa di crittografie utilizzata per una connessione TLS stabilita. |
 | client_ip                  | Indirizzo IP del client da cui il gateway applicazione ha ricevuto la richiesta. Se è presente un proxy inverso prima del gateway applicazione e del client di origine, *Client_IP* restituirà l'indirizzo IP del proxy inverso. |
 | client_port                | Porta client.                                                  |
 | client_tcp_rtt             | Informazioni sulla connessione TCP del client. Disponibile nei sistemi che supportano l'opzione socket TCP_INFO. |
 | client_user                | Quando si usa l'autenticazione HTTP, il nome utente specificato per l'autenticazione. |
-| host                       | In questo ordine di precedenza: il nome host dalla riga della richiesta, il nome host dal campo dell'intestazione della richiesta host o il nome del server corrispondente a una richiesta. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, il valore host sarà *contoso.com* |
+| host                       | In questo ordine di precedenza: il nome host dalla riga della richiesta, il nome host dal campo dell'intestazione della richiesta host o il nome del server corrispondente a una richiesta. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , il valore host sarà *contoso.com* |
 | *nome* cookie_              | Cookie del *nome* .                                            |
 | http_method                | Metodo utilizzato per effettuare la richiesta dell'URL. Ad esempio, GET o POST. |
 | http_status                | Stato della sessione. Ad esempio, 200, 400 o 403.                       |
 | http_version               | Protocollo della richiesta. In genere HTTP/1.0, HTTP/1.1 o HTTP/2.0. |
-| query_string               | Elenco di coppie variabile/valore che seguono "?" nell'URL richiesto. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*QUERY_STRING valore sarà *id = 123&title = Fabrikam* |
+| query_string               | Elenco di coppie variabile/valore che seguono "?" nell'URL richiesto. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* QUERY_STRING valore sarà *ID = 123&title = Fabrikam* |
 | received_bytes             | Lunghezza della richiesta, incluse la riga della richiesta, l'intestazione e il corpo della richiesta. |
 | request_query              | Argomenti nella riga della richiesta.                                |
 | request_scheme             | Schema di richiesta: http o HTTPS.                            |
-| request_uri                | URI completo della richiesta originale (con argomenti). Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*REQUEST_URI valore sarà */article.aspx? id = 123&title = Fabrikam*   |
+| request_uri                | URI completo della richiesta originale (con argomenti). Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* REQUEST_URI valore sarà */article.aspx? ID = 123&title = Fabrikam*   |
 | sent_bytes                 | Numero di byte inviati a un client.                             |
 | server_port                | Porta del server che ha accettato una richiesta.                 |
 | ssl_connection_protocol    | Protocollo di una connessione TLS stabilita.        |
 | ssl_enabled                | "On" se la connessione funziona in modalità TLS. In caso contrario, una stringa vuota. |
-| uri_path                   | Identifica la risorsa specifica nell'host a cui il client Web vuole accedere. Questa è la parte dell'URI della richiesta senza gli argomenti. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*uri_path valore sarà */article.aspx*  |
+| uri_path                   | Identifica la risorsa specifica nell'host a cui il client Web vuole accedere. Questa è la parte dell'URI della richiesta senza gli argomenti. Esempio: nella richiesta *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path valore sarà */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Riscrivere la configurazione
 
@@ -131,8 +130,8 @@ Quando il servizio app invia una risposta di reindirizzamento, USA lo stesso nom
 
 Ecco i passaggi per la sostituzione del nome host:
 
-1. Creare una regola di riscrittura con una condizione che valuta se l'intestazione Location nella risposta contiene azurewebsites.net. Immettere il modello `(https?):\/\/.*azurewebsites\.net(.*)$`.
-1. Eseguire un'azione per riscrivere l'intestazione del percorso in modo che includa il nome host del gateway applicazione. A tale scopo, `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` immettere come valore di intestazione.
+1. Creare una regola di riscrittura con una condizione che valuta se l'intestazione Location nella risposta contiene azurewebsites.net. Immettere il modello `(https?):\/\/.*azurewebsites\.net(.*)$` .
+1. Eseguire un'azione per riscrivere l'intestazione del percorso in modo che includa il nome host del gateway applicazione. A tale scopo, immettere `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` come valore di intestazione.
 
 ![Modifica intestazione percorso](media/rewrite-http-headers/app-service-redirection.png)
 
@@ -156,13 +155,13 @@ Potrebbe essere necessario rimuovere le intestazioni che consentono di rivelare 
 
 ## <a name="limitations"></a>Limitazioni
 
-- Se una risposta ha più di un'intestazione con lo stesso nome, la riscrittura del valore di una di queste intestazioni comporterà la rimozione delle altre intestazioni nella risposta. Questo problema si verifica in genere con l'intestazione set-cookie poiché è possibile avere più di un'intestazione set-cookie in una risposta. Uno di questi scenari è quando si usa un servizio app con un gateway applicazione e si è configurata l'affinità di sessione basata su cookie nel gateway applicazione. In questo caso, la risposta conterrà due intestazioni set-cookie: una usata dal servizio app, ad esempio: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e un'altra per l'affinità del gateway applicazione, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`ad esempio. La riscrittura di una delle intestazioni set-cookie in questo scenario può causare la rimozione dell'altra intestazione set-cookie dalla risposta.
+- Se una risposta ha più di un'intestazione con lo stesso nome, la riscrittura del valore di una di queste intestazioni comporterà la rimozione delle altre intestazioni nella risposta. Questo problema si verifica in genere con l'intestazione set-cookie poiché è possibile avere più di un'intestazione set-cookie in una risposta. Uno di questi scenari è quando si usa un servizio app con un gateway applicazione e si è configurata l'affinità di sessione basata su cookie nel gateway applicazione. In questo caso, la risposta conterrà due intestazioni set-cookie: una usata dal servizio app, ad esempio: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e un'altra per l'affinità del gateway applicazione, ad esempio `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . La riscrittura di una delle intestazioni set-cookie in questo scenario può causare la rimozione dell'altra intestazione set-cookie dalla risposta.
 
 - Le riscritture non sono supportate quando il gateway applicazione è configurato per reindirizzare le richieste o per visualizzare una pagina di errore personalizzata.
 
 - La riscrittura delle intestazioni di connessione, aggiornamento e host non è attualmente supportata.
 
-- I nomi delle intestazioni possono contenere qualsiasi carattere alfanumerico e simboli specifici, come definito nella [specifica RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Attualmente non è supportato il carattere speciale di\_sottolineatura () nei nomi di intestazione.
+- I nomi delle intestazioni possono contenere qualsiasi carattere alfanumerico e simboli specifici, come definito nella [specifica RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Attualmente non è supportato il carattere speciale di sottolineatura ( \_ ) nei nomi di intestazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,16 +3,15 @@ title: Controllo di manutenzione per macchine virtuali di Azure con CLI
 description: Informazioni su come controllare quando viene applicata la manutenzione alle VM di Azure usando il controllo di manutenzione e l'interfaccia della riga di comando.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 4843b4769e31748fd5f624005792c604db18f11e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 56f9873828e2f93008498beed986827a01872bf1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675860"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Controllare gli aggiornamenti con il controllo manutenzione e l'interfaccia della riga di comando di Azure
 
@@ -35,11 +34,11 @@ az maintenance configuration create \
 
 Copiare l'ID configurazione dall'output da usare in un secondo momento.
 
-L' `--maintenanceScope host` utilizzo di garantisce che la configurazione di manutenzione venga utilizzata per controllare gli aggiornamenti all'host.
+L'utilizzo di `--maintenanceScope host` garantisce che la configurazione di manutenzione venga utilizzata per controllare gli aggiornamenti all'host.
 
 Se si tenta di creare una configurazione con lo stesso nome, ma in un percorso diverso, si otterrà un errore. I nomi di configurazione devono essere univoci per la sottoscrizione.
 
-È possibile eseguire una query per le configurazioni `az maintenance configuration list`di manutenzione disponibili usando.
+È possibile eseguire una query per le configurazioni di manutenzione disponibili usando `az maintenance configuration list` .
 
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
@@ -51,7 +50,7 @@ Usare `az maintenance assignment create` per assegnare la configurazione alla ma
 
 ### <a name="isolated-vm"></a>VM isolata
 
-Applicare la configurazione a una macchina virtuale usando l'ID della configurazione. Specificare `--resource-type virtualMachines` e fornire il nome della macchina virtuale per `--resource-name`e il gruppo di risorse per la macchina virtuale in `--resource-group`e il percorso della VM per `--location`. 
+Applicare la configurazione a una macchina virtuale usando l'ID della configurazione. Specificare `--resource-type virtualMachines` e fornire il nome della macchina virtuale per `--resource-name` e il gruppo di risorse per la macchina virtuale in `--resource-group` e il percorso della VM per `--location` . 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -66,7 +65,7 @@ az maintenance assignment create \
 
 ### <a name="dedicated-host"></a>Host dedicato
 
-Per applicare una configurazione a un host dedicato, è necessario includere `--resource-type hosts`, `--resource-parent-name` con il nome del gruppo host, e. `--resource-parent-type hostGroups` 
+Per applicare una configurazione a un host dedicato, è necessario includere `--resource-type hosts` , `--resource-parent-name` con il nome del gruppo host, e `--resource-parent-type hostGroups` . 
 
 Il parametro `--resource-id` è l'ID dell'host. Per ottenere l'ID dell'host dedicato, è possibile usare il comando [AZ VM host Get-instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view) .
 
@@ -85,7 +84,7 @@ az maintenance assignment create \
 
 ## <a name="check-configuration"></a>Verificare la configurazione
 
-È possibile verificare che la configurazione sia stata applicata correttamente oppure controllare per verificare la configurazione attualmente applicata tramite `az maintenance assignment list`.
+È possibile verificare che la configurazione sia stata applicata correttamente oppure controllare per verificare la configurazione attualmente applicata tramite `az maintenance assignment list` .
 
 ### <a name="isolated-vm"></a>VM isolata
 
@@ -118,7 +117,7 @@ az maintenance assignment list \
 
 Usare `az maintenance update list` per verificare se sono presenti aggiornamenti in sospeso. Update--Subscription come ID della sottoscrizione che contiene la macchina virtuale.
 
-Se non sono presenti aggiornamenti, il comando restituirà un messaggio di errore che conterrà il testo: `Resource not found...StatusCode: 404`.
+Se non sono presenti aggiornamenti, il comando restituirà un messaggio di errore che conterrà il testo: `Resource not found...StatusCode: 404` .
 
 Se sono presenti aggiornamenti, ne verrà restituito solo uno, anche se sono in sospeso più aggiornamenti. I dati per questo aggiornamento verranno restituiti in un oggetto:
 
@@ -199,9 +198,9 @@ az maintenance applyupdate create \
 
 ## <a name="check-the-status-of-applying-updates"></a>Verificare lo stato dell'applicazione degli aggiornamenti 
 
-È possibile controllare lo stato di avanzamento degli aggiornamenti utilizzando `az maintenance applyupdate get`. 
+È possibile controllare lo stato di avanzamento degli aggiornamenti utilizzando `az maintenance applyupdate get` . 
 
-È possibile utilizzare `default` come nome dell'aggiornamento per visualizzare i risultati dell'ultimo aggiornamento oppure sostituire `myUpdateName` con il nome dell'aggiornamento restituito durante l'esecuzione `az maintenance applyupdate create`di.
+È possibile utilizzare `default` come nome dell'aggiornamento per visualizzare i risultati dell'ultimo aggiornamento oppure sostituire `myUpdateName` con il nome dell'aggiornamento restituito durante l'esecuzione di `az maintenance applyupdate create` .
 
 ```text
 Status         : Completed

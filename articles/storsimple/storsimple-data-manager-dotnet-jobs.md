@@ -3,15 +3,14 @@ title: Usare .NET SDK per Microsoft Azure StorSimple processi di Data Manager
 description: Informazioni su come usare .NET SDK per avviare i processi di StorSimple Data Manager
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 316eddc98de78974bb2583f91ced635b148686c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76270733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514902"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Usare .NET SDK per avviare la trasformazione dei dati
 

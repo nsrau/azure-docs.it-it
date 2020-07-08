@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: a1034eb47010da2b0e795ee8c79646f06151cac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77603275"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783232"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso delle raccomandazioni del Centro sicurezza di Azure per migliorare la sicurezza
 Configurando i criteri di sicurezza e implementando le raccomandazioni offerte dal Centro sicurezza di Azure, è possibile ridurre le probabilità di un importante evento di sicurezza. Questo articolo illustra come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza. 
@@ -57,7 +56,7 @@ Come parte delle attività di monitoraggio quotidiane, Jeff accede ad Azure e ap
 
 2. Jeff controlla il **Punteggio sicuro** per ottenere un'immagine complessiva della protezione delle sottoscrizioni e rileva che il punteggio è 548.
 
-3. Jeff deve decidere quali raccomandazioni gestire per prime. Quindi, Jeff fa clic su Punteggio sicuro e inizia a gestire le raccomandazioni in base al grado di miglioramento dell' [effetto del Punteggio sicuro](security-center-secure-score.md).
+3. Jeff deve decidere quali raccomandazioni gestire per prime. Quindi Jeff fa clic su Secure score e inizia a gestire le raccomandazioni in base al grado di miglioramento del [Punteggio sicuro](secure-score-security-controls.md).
 
 4. Poiché ha un numero elevato di server e macchine virtuali connesse, Jeff decide di concentrarsi su **Risorse di calcolo e app**.
 

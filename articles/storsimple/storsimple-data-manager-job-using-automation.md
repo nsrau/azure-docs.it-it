@@ -3,15 +3,14 @@ title: Usare automazione di Azure per avviare un processo in StorSimple Data Man
 description: Informazioni su come usare Automazione di Azure per attivare i processi di StorSimple Data Manager
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76274000"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514937"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Usare Automazione di Azure per attivare un processo
 
@@ -48,9 +47,9 @@ Prima di iniziare, assicurarsi di disporre di:
    1. Specificare il **nome** dell'account di automazione.
    2. Selezionare la **sottoscrizione** collegata al servizio StorSimple Data Manager.
    3. Creare un nuovo gruppo di risorse o selezionarne uno esistente.
-   4. Selezionare una **località**.
+   4. Selezionare un **percorso**.
    5. Lasciare selezionata l'opzione predefinita **Crea account RunAs**.
-   6. Per ottenere un collegamento per l'accesso rapido nel dashboard, selezionare **Aggiungi al dashboard**. Scegliere **Crea**.
+   6. Per ottenere un collegamento per l'accesso rapido nel dashboard, selezionare **Aggiungi al dashboard**. Fare clic su **Crea**.
 
       ![Creare un account di Automazione RunAs](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
@@ -86,7 +85,7 @@ Seguire questa procedura per importare, pubblicare ed eseguire il runbook per at
 
 2. In **Aggiungi runbook** fare clic su **Importa un runbook esistente**.
 
-3. Selezionare il file di script di Azure PowerShell `Trigger-DataTransformation-Job.ps1` in **Runbook file**. Il tipo di runbook viene selezionato automaticamente. Specificare un nome e una descrizione facoltativa per il runbook. Scegliere **Crea**.
+3. Selezionare il file di script di Azure PowerShell `Trigger-DataTransformation-Job.ps1` in **Runbook file**. Il tipo di runbook viene selezionato automaticamente. Specificare un nome e una descrizione facoltativa per il runbook. Fare clic su **Crea**.
 
     ![Aggiungere un runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 

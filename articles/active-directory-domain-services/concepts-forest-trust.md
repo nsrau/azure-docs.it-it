@@ -8,14 +8,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476431"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040334"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Come funzionano le relazioni di trust per le foreste di risorse in Azure Active Directory Domain Services
 
@@ -26,6 +25,10 @@ Per verificare la presenza di questa relazione di trust, il sistema di sicurezza
 I meccanismi di controllo degli accessi forniti da servizi di dominio Active Directory e il modello di sicurezza distribuita di Windows forniscono un ambiente per il funzionamento dei trust tra domini e foreste. Per il corretto funzionamento di tali Trust, ogni risorsa o computer deve disporre di un percorso di trust diretto a un controller di dominio nel dominio in cui si trova.
 
 Il percorso di trust viene implementato dal servizio Accesso rete utilizzando una connessione RPC (Remote Procedure Call) autenticata all'autorità di dominio attendibile. Un canale protetto si estende anche ad altri domini di servizi di dominio Active Directory tramite relazioni di trust tra domini. Questo canale protetto viene usato per ottenere e verificare le informazioni di sicurezza, inclusi gli identificatori di sicurezza (SID) per utenti e gruppi.
+
+Per una panoramica del modo in cui si applicano i trust a Azure AD DS, vedere [concetti e funzionalità della foresta di risorse][create-forest-trust].
+
+Per iniziare a usare i trust in Azure AD DS, [creare un dominio gestito che usa i trust tra foreste][tutorial-create-advanced].
 
 ## <a name="trust-relationship-flows"></a>Flussi relazione di trust
 
@@ -58,7 +61,7 @@ La transitività determina se un trust può essere esteso all'esterno dei due do
 
 Ogni volta che si crea un nuovo dominio in una foresta, viene creata automaticamente una relazione di trust transitiva bidirezionale tra il nuovo dominio e il relativo dominio padre. Se vengono aggiunti domini figlio al nuovo dominio, il percorso di attendibilità passa verso l'alto attraverso la gerarchia di domini che estende il percorso di attendibilità iniziale creato tra il nuovo dominio e il relativo dominio padre. Le relazioni di trust transitive si muovono verso l'alto all'interno di un albero di dominio man mano che esso viene creato, creando trust transitivi tra tutti i domini nell'albero di dominio.
 
-Le richieste di autenticazione seguono questi percorsi di trust, quindi gli account di qualsiasi dominio nella foresta possono essere autenticati da qualsiasi altro dominio nella foresta. Con un singolo processo di accesso, gli account con le autorizzazioni adeguate possono accedere alle risorse in qualsiasi dominio nella foresta.
+Le richieste di autenticazione seguono questi percorsi di trust, quindi gli account di qualsiasi dominio nella foresta possono essere autenticati da qualsiasi altro dominio nella foresta. Con un unico processo di accesso, gli account con le autorizzazioni appropriate possono accedere alle risorse in qualsiasi dominio della foresta.
 
 ## <a name="forest-trusts"></a>Trust tra foreste
 
@@ -70,7 +73,7 @@ Utilizzando i trust tra foreste, è possibile collegare due foreste diverse per 
 
 Nel diagramma seguente vengono illustrate due relazioni di trust tra foreste separate tra tre foreste di servizi di dominio Active Directory in una singola organizzazione.
 
-![Diagramma delle relazioni trust tra foreste all'interno di una singola organizzazione](./media/concepts-forest-trust/forest-trusts.png)
+![Diagramma delle relazioni trust tra foreste all'interno di una singola organizzazione](./media/concepts-forest-trust/forest-trusts-diagram.png)
 
 Questa configurazione di esempio fornisce l'accesso seguente:
 
@@ -152,7 +155,7 @@ Quando due foreste sono connesse da un trust tra foreste, le richieste di autent
 
 Quando viene stabilito per la prima volta un trust tra foreste, ogni foresta raccoglie tutti gli spazi dei nomi attendibili nella relativa foresta partner e archivia le informazioni in un [oggetto dominio trusted](#trusted-domain-object). Gli spazi dei nomi attendibili includono nomi di albero di dominio, suffissi del nome dell'entità utente (UPN), suffissi del nome dell'entità servizio (SPN) e spazi dei nomi ID di sicurezza (SID) usati nell'altra foresta. Gli oggetti TDO vengono replicati nel catalogo globale.
 
-Prima che i protocolli di autenticazione possano seguire il percorso di trust della foresta, il nome dell'entità servizio (SPN) del computer risorse deve essere risolto in un percorso nell'altra foresta. Un nome SPN può essere uno dei seguenti:
+Prima che i protocolli di autenticazione possano seguire il percorso di trust della foresta, il nome dell'entità servizio (SPN) del computer risorse deve essere risolto in un percorso nell'altra foresta. Un nome SPN può essere uno dei nomi seguenti:
 
 * Nome DNS di un host.
 * Nome DNS di un dominio.
@@ -162,7 +165,7 @@ Quando una workstation in una foresta tenta di accedere ai dati in un computer d
 
 Il diagramma e i passaggi seguenti forniscono una descrizione dettagliata del processo di autenticazione Kerberos usato quando i computer che eseguono Windows tentano di accedere alle risorse da un computer che si trova in un'altra foresta.
 
-![Diagramma del processo Kerberos su un trust tra foreste](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![Diagramma del processo Kerberos su un trust tra foreste](media/concepts-forest-trust/kerberos-over-forest-trust-process-diagram.png)
 
 1. *User1* accede a *Workstation1* usando le credenziali del dominio *Europe.tailspintoys.com* . L'utente tenta quindi di accedere a una risorsa condivisa in *FileServer1* che si trova nella foresta *USA.wingtiptoys.com* .
 
@@ -276,7 +279,7 @@ Gli amministratori possono utilizzare *Active Directory domini e trust*, *netdom
 
 Per altre informazioni sulle foreste di risorse, vedere [come funzionano i trust tra foreste in Azure AD DS?][concepts-trust]
 
-Per iniziare a creare un dominio gestito di Azure AD DS con una foresta di risorse, vedere [creare e configurare un dominio gestito di Azure AD DS][tutorial-create-advanced]. È quindi possibile [creare un trust tra foreste in uscita per un dominio locale (anteprima)][create-forest-trust].
+Per iniziare a creare un dominio gestito con una foresta di risorse, vedere [creare e configurare un dominio gestito di Azure AD DS][tutorial-create-advanced]. È quindi possibile [ Creare un trust tra foreste in uscita per un dominio locale (anteprima)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

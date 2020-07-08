@@ -3,29 +3,28 @@ title: Trasferire dati da e verso File di Azure usando AzCopy V10 | Microsoft Do
 description: Trasferire i dati con AzCopy e archiviazione file.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7f47dd05035772744fb212ef8914b25979af61e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514968"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Trasferire dati con AzCopy e l'archivio file 
 
-AzCopy è un'utilità da riga di comando che è possibile usare per copiare i BLOB o i file da e verso un account di archiviazione. Questo articolo contiene comandi di esempio che funzionano con File di Azure.
+AzCopy è un'utilità della riga di comando che è possibile usare per copiare i BLOB o i file da e verso un account di archiviazione. Questo articolo contiene comandi di esempio che funzionano con File di Azure.
 
 Prima di iniziare, vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-v10.md) per scaricare AzCopy e acquisire familiarità con lo strumento.
 
 > [!TIP]
-> Gli esempi in questo articolo racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd. exe). Se si usa una shell dei comandi di Windows (cmd. exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
+> Gli esempi in questo articolo racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd.exe). Se si usa una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
-## <a name="create-file-shares"></a>Crea condivisioni file
+## <a name="create-file-shares"></a>Creare condivisioni file
 
-È possibile usare il comando [azcopy make](storage-ref-azcopy-make.md) per creare una condivisione file. Nell'esempio riportato in questa sezione viene creata una condivisione `myfileshare`file denominata.
+È possibile usare il comando [azcopy make](storage-ref-azcopy-make.md) per creare una condivisione file. Nell'esempio riportato in questa sezione viene creata una condivisione file denominata `myfileshare` .
 
 |    |     |
 |--------|-----------|
@@ -51,15 +50,15 @@ Questa sezione contiene gli esempi seguenti:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni**=\[true\|false\]|
-> |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info**=\[true\|false\]|
-> |Caricare i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
-> |Caricare in un livello di accesso specifico, ad esempio il livello archivio.|**--blocco-BLOB-**=\[nessun\|Archivio Hot\|cool\|\]|
+> |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
+> |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
+> |Caricare i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
+> |Caricare in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
 > 
 > Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
-> AzCopy non calcola e archivia automaticamente il codice hash MD5 del file. Se si vuole eseguire questa operazione, aggiungere il `--put-md5` flag a ogni comando di copia di AzCopy. In questo modo, quando il file viene scaricato, AzCopy calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella `Content-md5` proprietà del file corrisponda all'hash calcolato.
+> AzCopy non calcola e archivia automaticamente il codice hash MD5 del file. Se si vuole eseguire questa operazione, aggiungere il `--put-md5` flag a ogni comando di copia di AzCopy. In questo modo, quando il file viene scaricato, AzCopy calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella proprietà del file `Content-md5` corrisponda all'hash calcolato.
 
 ### <a name="upload-a-file"></a>Caricare un file
 
@@ -68,7 +67,7 @@ Questa sezione contiene gli esempi seguenti:
 | **Sintassi** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name><SAS-token>'` |
 | **Esempio** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
-È anche possibile caricare un file usando un carattere jolly (*) in qualsiasi punto del percorso o del nome file. Ad esempio: `'C:\myDirectory\*.txt'`o `C:\my*\*.txt`.
+È anche possibile caricare un file usando un carattere jolly (*) in qualsiasi punto del percorso o del nome file. Ad esempio: `'C:\myDirectory\*.txt'` o `C:\my*\*.txt` .
 
 ### <a name="upload-a-directory"></a>Caricare una directory
 
@@ -105,29 +104,29 @@ Se si specifica il nome di una directory che non esiste nella condivisione file,
 
 #### <a name="specify-multiple-complete-file-names"></a>Specificare più nomi di file completi
 
-Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-path` opzione. Separare i singoli nomi di file usando un punto`;`e virgola ().
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-path` opzione. Separare i singoli nomi di file usando un punto e virgola ( `;` ).
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' --include-path <semicolon-separated-file-list>` |
 | **Esempio** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-path 'photos;documents\myFile.txt'` |
 
-In questo esempio, AzCopy trasferisce `C:\myDirectory\photos` la directory e `C:\myDirectory\documents\myFile.txt` il file. È necessario includere l' `--recursive` opzione per trasferire tutti i file nella `C:\myDirectory\photos` directory.
+In questo esempio, AzCopy trasferisce la `C:\myDirectory\photos` Directory e il `C:\myDirectory\documents\myFile.txt` file. È necessario includere l' `--recursive` opzione per trasferire tutti i file nella `C:\myDirectory\photos` Directory.
 
-È anche possibile escludere i file utilizzando `--exclude-path` l'opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
+È anche possibile escludere i file utilizzando l' `--exclude-path` opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
 #### <a name="use-wildcard-characters"></a>Usa caratteri jolly
 
-Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pattern` opzione. Specificare i nomi parziali che includono i caratteri jolly. Separare i nomi con semicolin (`;`).
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pattern` opzione. Specificare i nomi parziali che includono i caratteri jolly. Separare i nomi con semicolin ( `;` ).
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
 | **Esempio** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-pattern 'myFile*.txt;*.pdf*'` |
 
-È anche possibile escludere i file utilizzando `--exclude-pattern` l'opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
+È anche possibile escludere i file utilizzando l' `--exclude-pattern` opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
-Le `--include-pattern` opzioni `--exclude-pattern` e si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l' `–recursive` opzione per ottenere l'intero albero di directory e quindi utilizzare `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
+Le `--include-pattern` `--exclude-pattern` Opzioni e si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l' `–recursive` opzione per ottenere l'intero albero di directory e quindi utilizzare `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
 
 ## <a name="download-files"></a>Scaricare i file
 
@@ -146,14 +145,14 @@ Questa sezione contiene gli esempi seguenti:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni**=\[true\|false\]|
-> |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info**=\[true\|false\]|
+> |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
+> |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
 > |Decomprime automaticamente i file.|**--Decomprimi**|
 > 
 > Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
-> Se il `Content-md5` valore della proprietà di un file contiene un hash, AzCopy calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella `Content-md5` proprietà del file corrisponda all'hash calcolato. Se questi valori non corrispondono, il download ha esito negativo a meno che non si esegua l'override di questo comportamento accodando `--check-md5=NoCheck` o `--check-md5=LogOnly` al comando copy.
+> Se il `Content-md5` valore della proprietà di un file contiene un hash, AzCopy calcola un hash MD5 per i dati scaricati e verifica che l'hash MD5 archiviato nella proprietà del file `Content-md5` corrisponda all'hash calcolato. Se questi valori non corrispondono, il download ha esito negativo a meno che non si esegua l'override di questo comportamento accodando `--check-md5=NoCheck` o `--check-md5=LogOnly` al comando copy.
 
 ### <a name="download-a-file"></a>Scaricare un file
 
@@ -189,33 +188,33 @@ Questo esempio genera una directory denominata `C:\myDirectory\myFileShareDirect
 
 #### <a name="specify-multiple-complete-file-names"></a>Specificare più nomi di file completi
 
-Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-path` opzione. Separare i singoli nomi di file tramite semicolin (`;`).
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-path` opzione. Separare i singoli nomi di file tramite semicolin ( `;` ).
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
 | **Esempio** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 
-In questo esempio, AzCopy trasferisce `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` la directory e `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` il file. È necessario includere l' `--recursive` opzione per trasferire tutti i file nella `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` directory.
+In questo esempio, AzCopy trasferisce la `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` Directory e il `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` file. È necessario includere l' `--recursive` opzione per trasferire tutti i file nella `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` Directory.
 
-È anche possibile escludere i file utilizzando `--exclude-path` l'opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
+È anche possibile escludere i file utilizzando l' `--exclude-path` opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
 #### <a name="use-wildcard-characters"></a>Usa caratteri jolly
 
-Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pattern` opzione. Specificare i nomi parziali che includono i caratteri jolly. Separare i nomi con semicolin (`;`).
+Usare il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--include-pattern` opzione. Specificare i nomi parziali che includono i caratteri jolly. Separare i nomi con semicolin ( `;` ).
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name><SAS-token>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
 | **Esempio** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 
-È anche possibile escludere i file utilizzando `--exclude-pattern` l'opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
+È anche possibile escludere i file utilizzando l' `--exclude-pattern` opzione. Per altre informazioni, vedere la documentazione di riferimento per la [copia di azcopy](storage-ref-azcopy-copy.md) .
 
-Le `--include-pattern` opzioni `--exclude-pattern` e si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l' `–recursive` opzione per ottenere l'intero albero di directory e quindi utilizzare `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
+Le `--include-pattern` `--exclude-pattern` Opzioni e si applicano solo ai nomi file e non al percorso.  Se si desidera copiare tutti i file di testo presenti in un albero di directory, utilizzare l' `–recursive` opzione per ottenere l'intero albero di directory e quindi utilizzare `–include-pattern` e specificare `*.txt` per ottenere tutti i file di testo.
 
 ## <a name="copy-files-between-storage-accounts"></a>Copiare file tra account di archiviazione
 
-È possibile usare AzCopy per copiare i file in altri account di archiviazione. L'operazione di copia è sincrona, quindi quando il comando restituisce, che indica che tutti i file sono stati copiati.
+È possibile usare AzCopy per copiare i file in altri account di archiviazione. L'operazione di copia è sincrona, quindi se il comando restituisce il risultato ciò indica che tutti i file sono stati copiati.
 
 AzCopy usa le [API](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) [da server a server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , quindi i dati vengono copiati direttamente tra i server di archiviazione. Queste operazioni di copia non utilizzano la larghezza di banda di rete del computer. È possibile aumentare la velocità effettiva di queste operazioni impostando il valore della `AZCOPY_CONCURRENCY_VALUE` variabile di ambiente. Per altre informazioni, vedere [ottimizzare la velocità effettiva](storage-use-azcopy-configure.md#optimize-throughput).
 
@@ -232,10 +231,10 @@ Questa sezione contiene gli esempi seguenti:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni**=\[true\|false\]|
-> |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info**=\[true\|false\]|
-> |Copia i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
-> |Copiare in un livello di accesso specifico, ad esempio il livello archivio.|**--blocco-BLOB-**=\[nessun\|Archivio Hot\|cool\|\]|
+> |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
+> |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
+> |Copia i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
+> |Copiare in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
 > 
 > Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-copy.md#options).
 
@@ -276,16 +275,16 @@ Questa sezione contiene gli esempi seguenti:
 
 Il comando di [sincronizzazione](storage-ref-azcopy-sync.md) Confronta i nomi di file e i timestamp dell'Ultima modifica. Impostare il `--delete-destination` flag facoltativo sul valore `true` o `prompt` per eliminare i file nella directory di destinazione se tali file non sono più presenti nella directory di origine.
 
-Se si imposta il `--delete-destination` flag su `true` AzCopy Elimina i file senza fornire un messaggio di richiesta. Se si desidera che venga visualizzata una richiesta prima che AzCopy elimini un file `--delete-destination` , impostare `prompt`il flag su.
+Se si imposta il `--delete-destination` flag su `true` AzCopy Elimina i file senza fornire un messaggio di richiesta. Se si desidera che venga visualizzata una richiesta prima che AzCopy elimini un file, impostare il `--delete-destination` flag su `prompt` .
 
 > [!TIP]
 > È possibile modificare l'operazione di sincronizzazione usando i flag facoltativi. Ecco alcuni esempi.
 >
 > |Scenario|Flag|
 > |---|---|
-> |Consente di specificare il modo in cui devono essere convalidati gli hash MD5 durante il download.|**--Check-MD5**=\[NOCHECK\|\|FailIfDifferent\|FailIfDifferentOrMissing\]|
+> |Consente di specificare il modo in cui devono essere convalidati gli hash MD5 durante il download.|**--Check-MD5** = \[ NOCHECK \| loginly \| FailIfDifferent \| FailIfDifferentOrMissing\]|
 > |Escludere i file in base a un modello.|**--Exclude-Path**|
-> |Specificare il modo in cui si desidera che le voci di log correlate alla sincronizzazione siano disponibili.|**--**=\[\|\|informazioni\|sull'errore di avviso a livello di log nessuna\]|
+> |Specificare il modo in cui si desidera che le voci di log correlate alla sincronizzazione siano disponibili.|**--livello** = \[ di log informazioni sull'errore di avviso \| \| \| nessuno\]|
 > 
 > Per un elenco completo, vedere [Opzioni](storage-ref-azcopy-sync.md#options).
 

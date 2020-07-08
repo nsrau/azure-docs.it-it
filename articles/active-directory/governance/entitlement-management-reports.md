@@ -10,18 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 514f8e86d6bd28cc5212e0f0058f00e270f43e35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 86f2d5202a9b5439fcacca549659e4e181ffeca4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078140"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visualizzare report e log in Azure AD gestione dei diritti
 
@@ -79,17 +78,17 @@ Questo report consente di elencare le risorse attualmente assegnate a un utente 
 
 ## <a name="determine-the-status-of-a-users-request"></a>Determinare lo stato della richiesta di un utente
 
-Per ottenere ulteriori dettagli su come un utente ha richiesto e ricevuto l'accesso a un pacchetto di accesso, è possibile usare il registro di controllo Azure AD. In particolare, è possibile utilizzare i record del log nelle `EntitlementManagement` categorie `UserManagement` e per ottenere ulteriori dettagli sui passaggi di elaborazione per ogni richiesta.  
+Per ottenere ulteriori dettagli su come un utente ha richiesto e ricevuto l'accesso a un pacchetto di accesso, è possibile usare il registro di controllo Azure AD. In particolare, è possibile utilizzare i record del log nelle `EntitlementManagement` `UserManagement` categorie e per ottenere ulteriori dettagli sui passaggi di elaborazione per ogni richiesta.  
 
 1. Fare clic su **Azure Active Directory** e quindi su **log di controllo**.
 
-1. Nella parte superiore, modificare la **categoria** in `EntitlementManagement` o `UserManagement`, a seconda del record di controllo che si sta cercando.  
+1. Nella parte superiore, modificare la **categoria** in `EntitlementManagement` o `UserManagement` , a seconda del record di controllo che si sta cercando.  
 
-1. Fare clic su **Applica**.
+1. Fare clic su **Apply**.
 
 1. Per scaricare i log, fare clic su **download**.
 
-Quando Azure AD riceve una nuova richiesta, scrive un record di controllo, in cui la **categoria** è `EntitlementManagement` e l' **attività** è in `User requests access package assignment`genere.  Nel caso di un'assegnazione diretta creata nel portale di Azure, il campo **attività** del record di controllo è `Administrator directly assigns user to access package`e l'utente che esegue l'assegnazione viene identificato da **ActorUserPrincipalName**.
+Quando Azure AD riceve una nuova richiesta, scrive un record di controllo, in cui la **categoria** è `EntitlementManagement` e l' **attività** è in genere `User requests access package assignment` .  Nel caso di un'assegnazione diretta creata nel portale di Azure, il campo **attività** del record di controllo è `Administrator directly assigns user to access package` e l'utente che esegue l'assegnazione viene identificato da **ActorUserPrincipalName**.
 
 Azure AD scriverà record di controllo aggiuntivi mentre è in corso la richiesta, tra cui:
 
@@ -101,11 +100,11 @@ Azure AD scriverà record di controllo aggiuntivi mentre è in corso la richiest
 | `EntitlementManagement` | `Approve access package assignment request` | Richiesta approvata |
 | `EntitlementManagement` | `Ready to fulfill access package assignment request` |La richiesta è stata approvata o non richiede l'approvazione |
 
-Quando a un utente viene assegnato l'accesso, Azure AD scrive un record di `EntitlementManagement` controllo per la categoria con **Activity** `Fulfill access package assignment`.  L'utente che ha ricevuto l'accesso viene identificato dal campo **ActorUserPrincipalName** .
+Quando a un utente viene assegnato l'accesso, Azure AD scrive un record di controllo per la `EntitlementManagement` categoria con **Activity** `Fulfill access package assignment` .  L'utente che ha ricevuto l'accesso viene identificato dal campo **ActorUserPrincipalName** .
 
-Se l'accesso non è stato assegnato, Azure AD scrive un record di controllo `EntitlementManagement` per la categoria con `Deny access package assignment request` **attività** , se la richiesta è stata negata da un `Access package assignment request timed out (no approver action taken)`responsabile approvazione oppure, se la richiesta è scaduta prima che un responsabile approvazione possa approvare.
+Se l'accesso non è stato assegnato, Azure AD scrive un record di controllo per la `EntitlementManagement` categoria con **attività** `Deny access package assignment request` , se la richiesta è stata negata da un responsabile approvazione oppure `Access package assignment request timed out (no approver action taken)` , se la richiesta è scaduta prima che un responsabile approvazione possa approvare.
 
-Quando l'assegnazione del pacchetto di accesso dell'utente scade, viene annullata dall'utente o rimossa da un amministratore, quindi Azure AD scrive un record di `EntitlementManagement` controllo per la categoria `Remove access package assignment`con **attività** di.
+Quando l'assegnazione del pacchetto di accesso dell'utente scade, viene annullata dall'utente o rimossa da un amministratore, quindi Azure AD scrive un record di controllo per la `EntitlementManagement` categoria con **attività** di `Remove access package assignment` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

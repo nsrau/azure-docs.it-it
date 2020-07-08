@@ -5,17 +5,16 @@ description: Creazione di set di dati di Azure Machine Learning monitoraggi (ant
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: e49c621d92a8aa604b5f95291c5d80c0141f41dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 15cfa56f718290af3ae5fb87aadab70016cc8594
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682731"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430247"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Rileva Drift dei dati (anteprima) nei set di dati
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +56,7 @@ Con Azure Machine Learning monitoraggi del set di dati è possibile configurare 
 
 ### <a name="dataset-monitors"></a>Monitoraggi del set di dati 
 
-È possibile creare un monitor del set di dati per rilevare e inviare avvisi alla deviazione dei dati sui nuovi dati in un set di dati, analizzare i dati cronologici per la deriva e profilare nuovi dati nel tempo. L'algoritmo di drifting dei dati fornisce una misura complessiva del cambiamento dei dati e indica le funzionalità che sono responsabili di un'ulteriore analisi. I monitoraggi dei DataSet producono una serie di altre metriche tramite la `timeseries` profilatura di nuovi dati nel set di dati. Gli avvisi personalizzati possono essere impostati su tutte le metriche generate dal monitoraggio tramite [applicazione Azure informazioni dettagliate](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). I monitoraggi del set di dati possono essere usati per intercettare rapidamente i problemi di dati e ridurre il tempo necessario per eseguire il debug del problema identificando le cause probabili  
+È possibile creare un monitor del set di dati per rilevare e inviare avvisi alla deviazione dei dati sui nuovi dati in un set di dati, analizzare i dati cronologici per la deriva e profilare nuovi dati nel tempo. L'algoritmo di drifting dei dati fornisce una misura complessiva del cambiamento dei dati e indica le funzionalità che sono responsabili di un'ulteriore analisi. I monitoraggi dei DataSet producono una serie di altre metriche tramite la profilatura di nuovi dati nel set di dati `timeseries` . Gli avvisi personalizzati possono essere impostati su tutte le metriche generate dal monitoraggio tramite [applicazione Azure informazioni dettagliate](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). I monitoraggi del set di dati possono essere usati per intercettare rapidamente i problemi di dati e ridurre il tempo necessario per eseguire il debug del problema identificando le cause probabili  
 
 A livello concettuale, esistono tre scenari principali per la configurazione dei monitoraggi del set di dati in Azure Machine Learning.
 
@@ -77,7 +76,7 @@ Per il set di dati di destinazione `timeseries` è necessario impostare il tratt
 
 #### <a name="python-sdk"></a>Python SDK
 
-Il [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metodo della classe definisce la colonna timestamp per il set di dati. 
+Il [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metodo della classe [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) definisce la colonna timestamp per il set di dati. 
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -104,7 +103,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Per un esempio completo dell'uso del `timeseries` tratto dei set di impostazioni, vedere il [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la [documentazione di DataSets SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+Per un esempio completo dell'uso del `timeseries` tratto dei set di impostazioni, vedere il [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la documentazione di [DataSets SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 #### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
@@ -131,11 +130,11 @@ Questa tabella contiene le impostazioni di base utilizzate per il monitoraggio d
 
 | Impostazione | Descrizione | Suggerimenti | Modificabile | 
 | ------- | ----------- | ---- | ------- | 
-| Name | Nome del monitoraggio del set di dati. | | No |
+| Nome | Nome del monitoraggio del set di dati. | | No |
 | Set di dati Baseline | Set di dati tabulare che verrà usato come base per il confronto del set di dati di destinazione nel tempo. | Il set di dati di base deve avere funzionalità in comune con il set di dati di destinazione. In genere, la linea di base deve essere impostata sul set di dati di training di un modello o su una sezione del set di dati di destinazione. | No |
-| DataSet di destinazione | Set di dati tabulare con la colonna timestamp specificata, che verrà analizzata per la deriva dei dati. | Il set di dati di destinazione deve avere funzionalità in comune con il set di dati di base `timeseries` e deve essere un set di dati a cui vengono aggiunti nuovi dati. I dati cronologici nel set di dati di destinazione possono essere analizzati oppure è possibile monitorare nuovi dati. | No | 
+| DataSet di destinazione | Set di dati tabulare con la colonna timestamp specificata, che verrà analizzata per la deriva dei dati. | Il set di dati di destinazione deve avere funzionalità in comune con il set di dati di base e deve essere un `timeseries` set di dati a cui vengono aggiunti nuovi dati. I dati cronologici nel set di dati di destinazione possono essere analizzati oppure è possibile monitorare nuovi dati. | No | 
 | Frequenza | Frequenza che verrà usata per pianificare il processo della pipeline e analizzare i dati cronologici se si esegue un recupero dati. Le opzioni includono giornaliera, settimanale o mensile. | Modificare questa impostazione in modo da includere una dimensione paragonabile di dati alla linea di base. | No | 
-| Caratteristiche | Elenco di funzionalità che verranno analizzate per la deviazione dei dati nel tempo. | Impostare sulle funzionalità di output di un modello per misurare la tendenza del concetto. Non includere funzioni che si spostano naturalmente nel tempo (mese, anno, indice e così via). Dopo aver modificato l'elenco di funzionalità, è possibile indicizzazione e monitoraggio della deviazione dati esistente. | Sì | 
+| Funzionalità | Elenco di funzionalità che verranno analizzate per la deviazione dei dati nel tempo. | Impostare sulle funzionalità di output di un modello per misurare la tendenza del concetto. Non includere funzioni che si spostano naturalmente nel tempo (mese, anno, indice e così via). Dopo aver modificato l'elenco di funzionalità, è possibile indicizzazione e monitoraggio della deviazione dati esistente. | Sì | 
 | Destinazione del calcolo | Azure Machine Learning la destinazione di calcolo per eseguire i processi di monitoraggio del set di dati. | | Sì | 
 
 ### <a name="monitor-settings"></a>Impostazioni di monitoraggio
@@ -244,7 +243,7 @@ La sezione **Panoramica della deviazione** contiene informazioni di base sulla g
 | Grandezza della deviazione dati | Dato come percentuale tra il set di dati di base e di destinazione nel tempo. Compreso tra 0 e 100, dove 0 indica set di dati identici e 100 indica che la funzionalità di spostamento dei dati Azure Machine Learning può indicare completamente i due set di dati separati. | Il rumore nella percentuale esatta misurata è previsto a causa delle tecniche di Machine Learning usate per generare questa grandezza. | 
 | Contributo alla deriva per funzionalità | Contributo di ogni funzionalità nel set di dati di destinazione alla grandezza della deriva misurata. |  A causa di uno spostamento covariato, la distribuzione sottostante di una funzionalità non deve necessariamente essere modificata per avere un'importanza relativamente elevata della funzionalità. | 
 
-L'immagine seguente è un esempio di grafici visualizzati nei risultati della **Panoramica della deriva** in Azure Machine Learning Studio, risultante da un recupero [dati della superficie integrata NOAA](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). I dati sono stati campionati in, con gennaio 2019 usato come set di dati di `stationName contains 'FLORIDA'`base e tutti i dati 2019 usati come destinazione.
+L'immagine seguente è un esempio di grafici visualizzati nei risultati della **Panoramica della deriva** in Azure Machine Learning Studio, risultante da un recupero [dati della superficie integrata NOAA](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). I dati sono stati campionati in `stationName contains 'FLORIDA'` , con gennaio 2019 usato come set di dati di base e tutti i dati 2019 usati come destinazione.
  
 ![Panoramica della deviazione](./media/how-to-monitor-datasets/drift-overview.png)
 
@@ -295,7 +294,7 @@ Selezionare logs (Analytics) in monitoraggio nel riquadro sinistro:
 
 ![Panoramica di Application Insights](./media/how-to-monitor-datasets/ai-overview.png)
 
-Le metriche del monitoraggio del set di dati `customMetrics`vengono archiviate come. È possibile scrivere ed eseguire una query dopo aver configurato un monitor del set di dati per visualizzarli:
+Le metriche del monitoraggio del set di dati vengono archiviate come `customMetrics` . È possibile scrivere ed eseguire una query dopo aver configurato un monitor del set di dati per visualizzarli:
 
 [![Query di log Analytics](./media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
 

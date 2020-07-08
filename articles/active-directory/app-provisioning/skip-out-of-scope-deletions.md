@@ -2,31 +2,30 @@
 title: Ignora eliminazione di utenti fuori ambito
 description: Informazioni su come eseguire l'override del comportamento predefinito del deprovisioning fuori dagli utenti dell'ambito.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 5f17886736efb87cf44bc54c82ccca794482a093
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 719258933dfadf34b8678bf03ee07ee6cc76e331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789906"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignora l'eliminazione di account utente che non rientrano nell'ambito
 
-Per impostazione predefinita, il motore di provisioning di Azure AD elimina temporaneamente o Disabilita gli utenti che non rientrano nell'ambito. Tuttavia, per alcuni scenari come la giornata lavorativa ad Active Directory in ingresso, questo comportamento potrebbe non essere quello previsto e potrebbe essere necessario eseguire l'override di questo comportamento predefinito.  
+Per impostazione predefinita, il motore di provisioning di Azure AD elimina temporaneamente o Disabilita gli utenti che non rientrano nell'ambito. Tuttavia, per determinati scenari come la giornata lavorativa ad Active Directory in ingresso, questo comportamento potrebbe non essere quello previsto e potrebbe essere necessario eseguire l'override di questo comportamento predefinito.  
 
-Questa guida descrive come usare l'API Microsoft Graph e il Microsoft Graph Esplora API per impostare il flag ***SkipOutOfScopeDeletions*** che controlla l'elaborazione degli account che non rientrano nell'ambito. 
-* Se ***SkipOutOfScopeDeletions*** è impostato su 0 (false), gli account che non rientrano nell'ambito verranno disabilitati nella destinazione
-* Se ***SkipOutOfScopeDeletions*** è impostato su 1 (true), gli account che non rientrano nell'ambito non verranno disabilitati nella destinazione. questo flag viene impostato a livello di *app di provisioning* e può essere configurato usando il API Graph. 
+Questo articolo descrive come usare l'API Microsoft Graph e il Microsoft Graph Esplora API per impostare il flag ***SkipOutOfScopeDeletions*** che controlla l'elaborazione degli account che non rientrano nell'ambito. 
+* Se ***SkipOutOfScopeDeletions*** è impostato su 0 (false), gli account che non rientrano nell'ambito verranno disabilitati nella destinazione.
+* Se ***SkipOutOfScopeDeletions*** è impostato su 1 (true), gli account che non rientrano nell'ambito non verranno disabilitati nella destinazione. Questo flag viene impostato a livello di *app di provisioning* e può essere configurato usando il API Graph. 
 
-Poiché questa configurazione viene usata ampiamente con la *giornata lavorativa per Active Directory app di provisioning degli utenti* , la procedura seguente include schermate dell'applicazione per la giornata lavorativa. Può tuttavia essere usato anche con **tutte le altre app** , ad esempio ServiceNow, Salesforce, Dropbox e così via.
+Poiché questa configurazione viene usata ampiamente con la *giornata lavorativa per Active Directory app per il provisioning degli utenti* , i passaggi seguenti includono screenshot dell'applicazione per la giornata lavorativa. Tuttavia, la configurazione può essere usata anche con *tutte le altre app*, ad esempio ServiceNow, Salesforce e Dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Passaggio 1: recuperare l'ID dell'entità servizio dell'app di provisioning (ID oggetto)
 

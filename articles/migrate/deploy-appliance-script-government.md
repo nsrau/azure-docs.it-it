@@ -3,12 +3,11 @@ title: Configurare un'appliance Azure Migrate in Azure per enti pubblici
 description: Informazioni su come configurare un appliance Azure Migrate in Azure per enti pubblici
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: fd97161ffa075a6165ea963ef80bfabf8904576e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052483"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurare un'appliance in Azure per enti pubblici 
 
@@ -45,14 +44,14 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
 2. Eseguire il comando seguente per generare il codice hash per il file compresso
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
+    - Esempio: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip SHA256```
 
-3. Verificare i valori hash generati. Per la versione più recente del dispositivo:
+3. Verificare la versione più recente del dispositivo e il valore hash:
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
+    **Algoritmo** | **Scaricare** | **SHA256**
+    --- | --- | ---
+    VMware (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="run-the-script"></a>Eseguire lo script
 
@@ -71,7 +70,7 @@ Per eseguire lo script:
 1. Estrarre il file compresso in una cartella nel computer che ospiterà l'appliance. Assicurarsi di non eseguire lo script in un computer in un'appliance di Azure Migrate esistente.
 2. Avviare PowerShell nel computer con privilegi di amministratore (con privilegi elevati).
 3. Modificare la directory di PowerShell nella cartella che contiene il contenuto estratto dal file compresso scaricato.
-4. Eseguire lo script **AzureMigrateInstaller. ps1**, come indicato di seguito:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
 5. Dopo che lo script è stato eseguito correttamente, viene avviata l'applicazione Web Appliance per poter configurare l'appliance. Se si verificano problemi, esaminare i log di script in C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificare l'accesso
@@ -97,13 +96,14 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
 2. Eseguire il comando seguente per generare il codice hash per il file compresso
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - Esempio: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip SHA256```
 
-3. Verificare i valori hash generati. Per la versione più recente del dispositivo:
+3. Verificare la versione più recente del dispositivo e il valore hash:
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | 717f8b9185f565006b5aff0215ecadac
+    **Scenario** | **Scaricare** | **SHA256**
+    --- | --- | ---
+    Hyper-V (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
           
 
 ### <a name="run-the-script"></a>Eseguire lo script
@@ -123,7 +123,7 @@ Per eseguire lo script:
 1. Estrarre il file compresso in una cartella nel computer che ospiterà l'appliance. Assicurarsi di non eseguire lo script in un computer in un'appliance di Azure Migrate esistente.
 2. Avviare PowerShell nel computer con privilegi di amministratore (con privilegi elevati).
 3. Modificare la directory di PowerShell nella cartella che contiene il contenuto estratto dal file compresso scaricato.
-4. Eseguire lo script **AzureMigrateInstaller. ps1**, come indicato di seguito:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
+4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
 5. Dopo che lo script è stato eseguito correttamente, viene avviata l'applicazione Web Appliance per poter configurare l'appliance. Se si verificano problemi, esaminare i log di script in C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificare l'accesso
@@ -138,7 +138,7 @@ Per configurare l'appliance per VMware, scaricare un file compresso dal portale 
 ### <a name="download-the-script"></a>Scaricare lo script
 
 1.  In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** fare clic su **Individua**.
-2.  In **individua macchine** > **virtuali i computer sono virtualizzati?** selezionare **non virtualizzato/altro**.
+2.  In **individua macchine**  >  **virtuali i computer sono virtualizzati?** selezionare **non virtualizzato/altro**.
 3.  Fare clic su **download**per scaricare il file compresso. 
 
 
@@ -149,13 +149,13 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
 2. Eseguire il comando seguente per generare il codice hash per il file compresso
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5```
+    - Esempio: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256```
 
-3. Verificare i valori hash generati. Per la versione più recente del dispositivo:
+3. Verificare la versione più recente del dispositivo e il valore hash:
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | f81c155fc4a1409901caea948713913f
+    **Scenario** | **Download*** | **Valore hash**
+    --- | --- | ---
+    Dispositivi fisici (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
           
 
 ### <a name="run-the-script"></a>Eseguire lo script
@@ -175,7 +175,7 @@ Per eseguire lo script:
 1. Estrarre il file compresso in una cartella nel computer che ospiterà l'appliance. Assicurarsi di non eseguire lo script in un computer in un'appliance di Azure Migrate esistente.
 2. Avviare PowerShell nel computer con privilegi di amministratore (con privilegi elevati).
 3. Modificare la directory di PowerShell nella cartella che contiene il contenuto estratto dal file compresso scaricato.
-4. Eseguire lo script **AzureMigrateInstaller. ps1**, come indicato di seguito:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 5. Dopo che lo script è stato eseguito correttamente, viene avviata l'applicazione Web Appliance per poter configurare l'appliance. Se si verificano problemi, esaminare i log di script in C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificare l'accesso

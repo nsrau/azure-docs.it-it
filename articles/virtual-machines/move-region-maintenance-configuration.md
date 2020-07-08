@@ -1,19 +1,17 @@
 ---
 title: Spostare una configurazione di manutenzione in un'altra area di Azure
 description: Informazioni su come spostare una configurazione di manutenzione della macchina virtuale in un'altra area di Azure
-services: virtual-machines
 author: shants123
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: fe03bead238d3fb7bda3ee685bd5587c3e0dbc58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 86343e10f10b51f65764e16bbc1e485136bca162
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78304459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676813"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Spostare una configurazione del controllo di manutenzione in un'altra area
 
@@ -37,14 +35,14 @@ Prima di iniziare a trasferire una configurazione del controllo di manutenzione:
     - Risorse associate alla configurazione di manutenzione che si desidera spostare.
     - Verificare che le risorse nella nuova regione siano uguali a quelle associate alle configurazioni di manutenzione correnti. Le configurazioni possono avere gli stessi nomi nella nuova area, come nel caso precedente, ma ciò non è obbligatorio.
 
-## <a name="prepare-and-move"></a>Preparare e spostare 
+## <a name="prepare-and-move"></a>Preparazione e spostamento 
 
 1. Recuperare tutte le configurazioni di manutenzione in ogni sottoscrizione. Eseguire l'interfaccia della riga di comando [AZ Maintenance Configuration List](https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/configuration?view=azure-cli-latest#ext-maintenance-az-maintenance-configuration-list) per eseguire questa operazione, sostituendo $subId con l'ID sottoscrizione.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table
     ```
-2. Esaminare l'elenco di tabelle restituite dei record di configurazione all'interno della sottoscrizione. Di seguito è riportato un esempio. L'elenco conterrà i valori per l'ambiente specifico.
+2. Esaminare l'elenco di tabelle restituite dei record di configurazione all'interno della sottoscrizione. Ecco un esempio. L'elenco conterrà i valori per l'ambiente specifico.
 
     **Nome** | **Posizione** | **Gruppo di risorse**
     --- | --- | ---

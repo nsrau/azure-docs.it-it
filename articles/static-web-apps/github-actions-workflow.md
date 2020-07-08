@@ -2,17 +2,16 @@
 title: Flussi di lavoro di GitHub Actions per App Web statiche di Azure
 description: Informazioni su come usare i repository GitHub per configurare la distribuzione continua in App Web statiche di Azure.
 services: static-web-apps
-author: christiannwamba
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.author: chnwamba
-ms.openlocfilehash: 44472eb697a4d191d4ed99b7879654fcca61383b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.author: cshoe
+ms.openlocfilehash: 92d445991aa8b90a343ad7d015787cff35ddf183
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655198"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340935"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flussi di lavoro di GitHub Actions per App Web statiche di Azure (anteprima)
 
@@ -50,7 +49,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
     - name: Build And Deploy
       id: builddeploy
       uses: Azure/static-web-apps-deploy@v0.0.1-preview
@@ -105,7 +106,7 @@ Nel file del flusso di lavoro di App Web statiche sono disponibili due processi.
 | Nome  | Descrizione |
 |---------|---------|
 |`build_and_deploy_job` | Viene eseguito quando si effettua il push dei commit o si apre una richiesta pull nel ramo elencato nella proprietà `on`. |
-|`close_pull_request_job` | Viene eseguito SOLO quando si chiude una richiesta pull. |
+|`close_pull_request_job` | Viene eseguito solo quando si chiude una richiesta pull che rimuove l'ambiente di gestione temporanea creato dalle richieste pull. |
 
 ## <a name="steps"></a>Passaggi
 

@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 959f1e3f25602938d769c574ea975c4bba9300e1
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 584c03dc798bc21ddd5538e58d0f9047c55c5372
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71257994"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040453"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemi noti: avvisi di configurazione di rete in Azure Active Directory Domain Services
 
-Per consentire alle applicazioni e ai servizi di comunicare correttamente con Azure Active Directory Domain Services (Azure AD DS), è necessario aprire porte di rete specifiche per consentire il flusso del traffico. In Azure è possibile controllare il flusso di traffico usando i gruppi di sicurezza di rete. Lo stato di integrità di un dominio gestito di Azure AD DS Mostra un avviso se le regole del gruppo di sicurezza di rete richieste non sono presenti.
+Per consentire alle applicazioni e ai servizi di comunicare correttamente con un dominio gestito di Azure Active Directory Domain Services (Azure AD DS), è necessario aprire porte di rete specifiche per consentire il flusso del traffico. In Azure è possibile controllare il flusso di traffico usando i gruppi di sicurezza di rete. Lo stato di integrità di un dominio gestito di Azure AD DS Mostra un avviso se le regole del gruppo di sicurezza di rete richieste non sono presenti.
 
 Questo articolo aiuta a comprendere e risolvere gli avvisi comuni per i problemi di configurazione dei gruppi di sicurezza di rete.
 
@@ -30,11 +29,11 @@ Questo articolo aiuta a comprendere e risolvere gli avvisi comuni per i problemi
 
 *Microsoft non è in grado di raggiungere i controller di dominio per questo dominio gestito. Questo problema può verificarsi se un gruppo di sicurezza di rete (NSG) configurato nella rete virtuale blocca l'accesso al dominio gestito. Un altro motivo possibile è se è presente una route definita dall'utente che blocca il traffico in ingresso da Internet.*
 
-Le regole del gruppo di sicurezza di rete non valide sono le cause più comuni degli errori di rete per Azure AD DS. Il gruppo di sicurezza di rete per la rete virtuale deve consentire l'accesso a porte e protocolli specifici. Se queste porte sono bloccate, la piattaforma Azure non è in grado di monitorare o aggiornare il dominio gestito. Anche la sincronizzazione tra la directory Azure AD e il dominio gestito Azure AD DS è interessata. Assicurarsi di lasciare aperte le porte predefinite per evitare interruzioni del servizio.
+Le regole del gruppo di sicurezza di rete non valide sono le cause più comuni degli errori di rete per Azure AD DS. Il gruppo di sicurezza di rete per la rete virtuale deve consentire l'accesso a porte e protocolli specifici. Se queste porte sono bloccate, la piattaforma Azure non è in grado di monitorare o aggiornare il dominio gestito. Anche la sincronizzazione tra la directory di Azure AD e Azure AD DS ha un effetto. Assicurarsi di lasciare aperte le porte predefinite per evitare interruzioni del servizio.
 
 ## <a name="default-security-rules"></a>Regole di sicurezza predefinite
 
-Le seguenti regole di sicurezza predefinite in ingresso e in uscita vengono applicate al gruppo di sicurezza di rete per un dominio gestito Azure AD DS. Queste regole mantengono Azure AD DS sicuro e consentono alla piattaforma Azure di monitorare, gestire e aggiornare il dominio gestito. È anche possibile che si disponga di una regola aggiuntiva che consente il traffico in ingresso se si [Configura LDAP sicuro][configure-ldaps].
+Le seguenti regole di sicurezza predefinite in ingresso e in uscita vengono applicate al gruppo di sicurezza di rete per un dominio gestito. Queste regole mantengono Azure AD DS sicuro e consentono alla piattaforma Azure di monitorare, gestire e aggiornare il dominio gestito.
 
 ### <a name="inbound-security-rules"></a>Regole di sicurezza in ingresso
 
@@ -46,6 +45,9 @@ Le seguenti regole di sicurezza predefinite in ingresso e in uscita vengono appl
 | 65000    | AllVnetInBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Consenti |
 | 65001    | AllowAzureLoadBalancerInBound | Qualsiasi | Qualsiasi | AzureLoadBalancer | Qualsiasi | Consenti |
 | 65500    | DenyAllInBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Nega |
+
+> [!NOTE]
+> È anche possibile che si disponga di una regola aggiuntiva che consente il traffico in ingresso se si [Configura LDAP sicuro][configure-ldaps]. Questa regola aggiuntiva è obbligatoria per la comunicazione LDAPs corretta.
 
 ### <a name="outbound-security-rules"></a>Regole di sicurezza in uscita
 
@@ -68,7 +70,7 @@ Per verificare le regole di sicurezza esistenti e verificare che le porte predef
 
     Esaminare le regole in ingresso e in uscita e confrontare con l'elenco delle regole necessarie nella sezione precedente. Se necessario, selezionare e quindi eliminare eventuali regole personalizzate che bloccano il traffico necessario. Se mancano le regole necessarie, aggiungere una regola nella sezione successiva.
 
-    Dopo l'aggiunta o l'eliminazione di regole per consentire il traffico necessario, l'integrità del dominio gestito Azure AD DS si aggiorna automaticamente entro due ore e rimuove l'avviso.
+    Dopo l'aggiunta o l'eliminazione di regole per consentire il traffico necessario, l'integrità del dominio gestito si aggiorna automaticamente entro due ore e rimuove l'avviso.
 
 ### <a name="add-a-security-rule"></a>Aggiungere una regola di sicurezza
 
@@ -83,7 +85,7 @@ Sono necessari alcuni istanti per aggiungere la regola di sicurezza e visualizza
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si verificano ancora problemi, [aprire una richiesta di supporto tecnico di Azure][azure-support] per ulteriore assistenza per la risoluzione dei problemi.
+Se i problemi persistono, [aprire una richiesta di supporto tecnico di Azure][azure-support] per richiedere ulteriore assistenza per la risoluzione dei problemi.
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

@@ -4,12 +4,11 @@ description: Informazioni sulle API e gli strumenti disponibili per lo sviluppo 
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: c05ab55f087710028f51231aec6094b350aface2
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: 1a3b2bb080e80e5ddc5ac12413f312dcd930d03f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220355"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958022"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Panoramica delle API e degli strumenti di Batch
 
@@ -33,9 +32,9 @@ Azure Batch offre due set di API, uno per il livello di servizio e uno per il li
 
 Nel log attività vengono registrate solo le azioni delle API di gestione. Le API per il livello di servizio ignorano il livello di gestione delle risorse di Azure (management.azure.com) e non vengono registrate.
 
-L'[API di servizio Batch per eliminare un pool](https://docs.microsoft.com/rest/api/batchservice/pool/delete) è ad esempio indirizzata direttamente all'account Batch: `DELETE {batchUrl}/pools/{poolId}`
+L'[API di servizio Batch per eliminare un pool](/rest/api/batchservice/pool/delete) è ad esempio indirizzata direttamente all'account Batch: `DELETE {batchUrl}/pools/{poolId}`
 
-Mentre l'[API di gestione Batch per eliminare un pool](https://docs.microsoft.com/rest/api/batchmanagement/pool/delete) è indirizzata al livello management.azure.com: `DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/pools/{poolName}`
+Mentre l'[API di gestione Batch per eliminare un pool](/rest/api/batchmanagement/pool/delete) è indirizzata al livello management.azure.com: `DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/pools/{poolName}`
 
 ## <a name="batch-service-apis"></a>API di servizio Batch
 
@@ -43,11 +42,11 @@ Le applicazioni e i servizi possono rilasciare chiamate API REST dirette o usare
 
 | API | Informazioni di riferimento sulle API | Download | Esercitazione | Esempi di codice | Altre informazioni |
 | --- | --- | --- | --- | --- | --- |
-| **Batch REST** |[docs.microsoft.com](https://docs.microsoft.com/rest/api/batchservice/) |N/D |- |- | [Versioni supportate](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Esercitazione](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Note sulla versione](https://aka.ms/batch-net-dataplane-changelog) |
-| **Batch Python** |[docs.microsoft.com](https://docs.microsoft.com/python/api/overview/azure/batch/client?view=azure-python) |[PyPI](https://pypi.org/project/azure-batch/) |[Esercitazione](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [File Leggimi](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
-| **Batch Node.js** |[docs.microsoft.com](https://docs.microsoft.com/javascript/api/overview/azure/batch/client?view=azure-node-latest) |[npm](https://www.npmjs.com/package/azure-batch) |[Esercitazione](batch-nodejs-get-started.md) |- | [File Leggimi](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
-| **Batch Java** |[docs.microsoft.com](https://docs.microsoft.com/java/api/overview/azure/batch?view=azure-java-stable) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Java) | [File Leggimi](https://github.com/Azure/azure-batch-sdk-for-java)|
+| **Batch REST** |[API REST di Azure-docs](/rest/api/batchservice/) |N/D |- |- | [Versioni supportate](/rest/api/batchservice/batch-service-rest-api-versioning) |
+| **Batch .NET** |[Azure SDK per .NET-docs](/dotnet/api/overview/azure/batch?view=azure-dotnet) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Esercitazione](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Note sulla versione](https://aka.ms/batch-net-dataplane-changelog) |
+| **Batch Python** |[Azure SDK per Python-docs](/python/api/overview/azure/batch/client?view=azure-python) |[PyPI](https://pypi.org/project/azure-batch/) |[Esercitazione](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [File Leggimi](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
+| **Batch Node.js** |[Azure SDK per JavaScript-docs](/javascript/api/overview/azure/batch/client?view=azure-node-latest) |[npm](https://www.npmjs.com/package/azure-batch) |[Esercitazione](batch-nodejs-get-started.md) |- | [File Leggimi](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
+| **Batch Java** |[Azure SDK per Java-docs](/java/api/overview/azure/batch?view=azure-java-stable) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Java) | [File Leggimi](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## <a name="batch-management-apis"></a>API per la gestione di Batch
 
@@ -55,17 +54,17 @@ Le API di Azure Resource Manager per Batch forniscono l'accesso a livello di cod
 
 | API | Informazioni di riferimento sulle API | Download | Esercitazione | Esempi di codice |
 | --- | --- | --- | --- | --- |
-| **REST per la gestione di Batch** |[docs.microsoft.com](https://docs.microsoft.com/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **.NET per la gestione di Batch** |[docs.microsoft.com](https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Esercitazione](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
-| **Python per la gestione di Batch** |[docs.microsoft.com](https://docs.microsoft.com/python/api/overview/azure/batch/management?view=azure-python) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
-| **Node.js per la gestione di Batch** |[docs.microsoft.com](https://docs.microsoft.com/javascript/api/overview/azure/batch/management?view=azure-node-latest) |[npm](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
-| **Java per la gestione di Batch** |[docs.microsoft.com](https://docs.microsoft.com/java/api/overview/azure/batch/management?view=azure-java-stable) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
+| **REST per la gestione di Batch** |[API REST di Azure-docs](/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
+| **.NET per la gestione di Batch** |[Azure SDK per .NET-docs](/dotnet/api/overview/azure/batch/management?view=azure-dotnet) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Esercitazione](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
+| **Python per la gestione di Batch** |[Azure SDK per Python-docs](/python/api/overview/azure/batch/management?view=azure-python) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
+| **Node.js per la gestione di Batch** |[Azure SDK per JavaScript-docs](/javascript/api/overview/azure/batch/management?view=azure-node-latest) |[npm](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
+| **Java per la gestione di Batch** |[Azure SDK per Java-docs](/java/api/overview/azure/batch/management?view=azure-java-stable) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
 
 ## <a name="batch-command-line-tools"></a>Strumenti da riga di comando di Batch
 
 Questi strumenti da riga di comando forniscono le stesse funzionalità delle API del servizio Batch e di gestione di Batch: 
 
-- [Cmdlet di PowerShell per Batch](https://docs.microsoft.com/powershell/module/az.batch/): i cmdlet di Azure Batch nel modulo [Azure PowerShell](/powershell/azure/overview) consentono di gestire le risorse di Batch con PowerShell.
+- [Cmdlet di PowerShell per Batch](/powershell/module/az.batch/): i cmdlet di Azure Batch nel modulo [Azure PowerShell](/powershell/azure/overview) consentono di gestire le risorse di Batch con PowerShell.
 - [Interfaccia della riga di comando di Azure](/cli/azure): l'interfaccia della riga di comando di Azure è un set di strumenti multipiattaforma che offre comandi della shell per l'interazione con molti servizi di Azure, inclusi il servizio Batch e il servizio di gestione di Batch. Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con Batch, vedere [Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure](batch-cli-get-started.md).
 
 ## <a name="other-tools-for-application-development"></a>Altri strumenti per lo sviluppo di applicazioni

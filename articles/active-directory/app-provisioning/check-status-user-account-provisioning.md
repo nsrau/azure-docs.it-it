@@ -2,21 +2,20 @@
 title: Segnalare il provisioning automatico degli account utente alle applicazioni SaaS
 description: Informazioni su come controllare lo stato dei processi di provisioning automatico dell'account utente e risolvere i problemi di provisioning di singoli utenti.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/09/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 102a0b60c917d5ee24177ac4b52e97fe72c343e7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: a0c85226b5890fe0f5f2011110c1d7d20e3c2907
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782008"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Esercitazione: creazione di report sul provisioning automatico degli account utente
 
@@ -40,7 +39,7 @@ Questo articolo usa i termini seguenti, qui definiti:
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Ottenere i report di provisioning dal portale di Azure
 
-Per ottenere informazioni sui report di provisioning per una determinata applicazione, iniziare avviando il [portale di Azure](https://portal.azure.com) e **Azure Active Directory** &gt; **log di provisioning** delle **app** &gt; aziendali (anteprima) nella sezione **attività** . È anche possibile passare all'applicazione aziendale per la quale è stato configurato il provisioning. Ad esempio, se si esegue il provisioning di utenti in LinkedIn Elevate, il percorso di navigazione per i dettagli dell'applicazione è:
+Per ottenere informazioni sui report di provisioning per una determinata applicazione, iniziare avviando il [portale di Azure](https://portal.azure.com) e **Azure Active Directory** &gt; log di provisioning delle **app aziendali** &gt; **(anteprima)** nella sezione **attività** . È anche possibile passare all'applicazione aziendale per la quale è stato configurato il provisioning. Ad esempio, se si esegue il provisioning di utenti in LinkedIn Elevate, il percorso di navigazione per i dettagli dell'applicazione è:
 
 **Azure Active Directory &gt; Applicazioni aziendali &gt; All applications (Tutte le applicazioni) &gt; LinkedIn Elevate**
 
@@ -61,7 +60,7 @@ Lo **stato corrente** deve essere il primo aspetto degli amministratori per cont
 
 ## <a name="provisioning-logs-preview"></a>Log di provisioning (anteprima)
 
-Tutte le attività eseguite dal servizio di provisioning vengono registrate nei [log di provisioning](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)di Azure ad. È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; **log di provisioning** di **app** &gt; aziendali (anteprima) nella sezione **attività** . È possibile cercare i dati di provisioning in base al nome dell'utente o all'identificatore nel sistema di origine o nel sistema di destinazione. Per informazioni dettagliate, vedere [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). I tipi di eventi dell'attività registrati includono:
+Tutte le attività eseguite dal servizio di provisioning vengono registrate nei [log di provisioning](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)di Azure ad. È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; log di provisioning di **app aziendali** &gt; **(anteprima)** nella sezione **attività** . È possibile cercare i dati di provisioning in base al nome dell'utente o all'identificatore nel sistema di origine o nel sistema di destinazione. Per informazioni dettagliate, vedere [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). I tipi di eventi dell'attività registrati includono:
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -71,5 +70,5 @@ Per informazioni aggiuntive su come risolvere i problemi di provisioning automat
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)

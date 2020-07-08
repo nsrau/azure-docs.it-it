@@ -1,24 +1,13 @@
 ---
 title: Controllo di accesso del bus di servizio di Azure con firme di accesso condiviso
 description: Panoramica del controllo degli accessi del bus di servizio con firme di accesso condiviso, dettagli dell'autorizzazione con firme di accesso condiviso con il bus di servizio di Azure.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2019
-ms.author: aschhab
-ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: e0d8abcd5693ac20c79a1357eb066e3ae8dcdfe8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340975"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -82,7 +71,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`**: URI della risorsa a cui si accede.
 * **`sig`** Firma.
 
-`signature-string` È l'hash SHA-256 calcolato sull'URI della risorsa (**ambito** come descritto nella sezione precedente) e la rappresentazione di stringa dell'istante di scadenza del token, separate da LF.
+`signature-string`È l'hash SHA-256 calcolato sull'URI della risorsa (**ambito** come descritto nella sezione precedente) e la rappresentazione di stringa dell'istante di scadenza del token, separate da LF.
 
 Il calcolo del codice hash è simile allo pseudo codice seguente e restituisce un valore hash a 256 bit o 32 byte.
 
@@ -191,7 +180,7 @@ Nella sezione precedente, è stato illustrato come utilizzare il token SAS con u
 
 Prima di iniziare a inviare i dati al bus di servizio, il server di pubblicazione deve inviare il token di firma di accesso condiviso all'interno di un messaggio AMQP a un nodo AMQP ben definito denominato **"$cbs"**. Può essere visualizzato come una coda "speciale" usata dal servizio per acquisire e convalidare tutti i token di firma di accesso condiviso. Il server di pubblicazione deve specificare il campo **ReplyTo** all'interno del messaggio AMQP. Si tratta del nodo in cui il servizio invia una risposta al server di pubblicazione con il risultato della convalida del token. È un modello di richiesta/risposta semplice tra il server di pubblicazione e il servizio. Questo nodo risposta viene creato al momento in quanto "creazione dinamica di nodo remoto" come descritto nella specifica di AMQP 1.0. Dopo avere verificato che il token di firma di accesso condiviso è valido, il server di pubblicazione può andare avanti e iniziare a inviare dati al servizio.
 
-I passaggi seguenti illustrano come inviare il token SAS con il protocollo AMQP usando la libreria [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) . Questa operazione è utile se non è possibile usare l'SDK ufficiale del bus di servizio (ad esempio in WinRT, .NET Compact Framework, .NET Micro Framework e mono\#) che si sviluppa in C. Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non sono necessarie informazioni approfondite su AMQP, è possibile usare l'SDK ufficiale del bus di servizio con .NET Framework applicazioni, che lo eseguirà per l'utente.
+I passaggi seguenti illustrano come inviare il token SAS con il protocollo AMQP usando la libreria [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) . Questa operazione è utile se non è possibile usare l'SDK ufficiale del bus di servizio (ad esempio in WinRT, .NET Compact Framework, .NET Micro Framework e mono) che si sviluppa in C \# . Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non sono necessarie informazioni approfondite su AMQP, è possibile usare l'SDK ufficiale del bus di servizio con .NET Framework applicazioni, che lo eseguirà per l'utente.
 
 ### <a name="c35"></a>C&#35;
 
@@ -264,17 +253,17 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Operazione | Attestazione necessaria | Ambito attestazione |
 | --- | --- | --- |
 | **Namespace** | | |
-| Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
+| Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
 | **Service Registry** | | |
-| Enumerare i criteri privati |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
+| Enumerare i criteri privati |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
 | Iniziare l'attesa su uno spazio dei nomi del servizio |Attesa |Qualsiasi indirizzo dello spazio dei nomi |
 | Inviare messaggi a un listener in uno spazio dei nomi |Send |Qualsiasi indirizzo dello spazio dei nomi |
 | **Coda** | | |
-| Creare una coda |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare una coda |Gestire |Qualsiasi indirizzo valido della coda |
-| Enumerare le code |Gestire |/$Resources/Queues |
-| Ottenere la descrizione di una coda |Gestire |Qualsiasi indirizzo valido della coda |
-| Configurare le regole di autorizzazione per una coda |Gestire |Qualsiasi indirizzo valido della coda |
+| Creare una coda |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare una coda |Gestione |Qualsiasi indirizzo valido della coda |
+| Enumerare le code |Gestione |/$Resources/Queues |
+| Ottenere la descrizione di una coda |Gestione |Qualsiasi indirizzo valido della coda |
+| Configurare le regole di autorizzazione per una coda |Gestione |Qualsiasi indirizzo valido della coda |
 | Effettuare un invio alla coda |Send |Qualsiasi indirizzo valido della coda |
 | Ricevere messaggi da una coda |Attesa |Qualsiasi indirizzo valido della coda |
 | Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |Qualsiasi indirizzo valido della coda |
@@ -284,25 +273,25 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Impostare lo stato associato a una sessione della coda dei messaggi |Attesa |Qualsiasi indirizzo valido della coda |
 | Pianificare il recapito ritardato di un messaggio, ad esempio [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Attesa | Qualsiasi indirizzo valido della coda
 | **Argomento** | | |
-| Creare un argomento |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
-| Enumerare gli argomenti |Gestire |/$Resources/Topics |
-| Ottenere la descrizione di un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
-| Configurare le regole di autorizzazione per un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
+| Creare un argomento |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare un argomento |Gestione |Qualsiasi indirizzo valido dell'argomento |
+| Enumerare gli argomenti |Gestione |/$Resources/Topics |
+| Ottenere la descrizione di un argomento |Gestione |Qualsiasi indirizzo valido dell'argomento |
+| Configurare le regole di autorizzazione per un argomento |Gestione |Qualsiasi indirizzo valido dell'argomento |
 | Effettuare un invio all'argomento |Send |Qualsiasi indirizzo valido dell'argomento |
 | **Sottoscrizione** | | |
-| Creare una sottoscrizione |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare una sottoscrizione |Gestire |../myTopic/Subscriptions/mySubscription |
-| Enumerare le sottoscrizioni |Gestire |../myTopic/Subscriptions |
-| Ottenere la descrizione di una sottoscrizione |Gestire |../myTopic/Subscriptions/mySubscription |
+| Creare una sottoscrizione |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare una sottoscrizione |Gestione |../myTopic/Subscriptions/mySubscription |
+| Enumerare le sottoscrizioni |Gestione |../myTopic/Subscriptions |
+| Ottenere la descrizione di una sottoscrizione |Gestione |../myTopic/Subscriptions/mySubscription |
 | Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |../myTopic/Subscriptions/mySubscription |
 | Rinviare un messaggio per il successivo recupero |Attesa |../myTopic/Subscriptions/mySubscription |
 | Spostare un messaggio nella coda dei messaggi non recapitabili |Attesa |../myTopic/Subscriptions/mySubscription |
 | Ottenere lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
 | Impostare lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
 | **Regole** | | |
-| Creare una regola |Gestire |../myTopic/Subscriptions/mySubscription |
-| Eliminare una regola |Gestire |../myTopic/Subscriptions/mySubscription |
+| Creare una regola |Gestione |../myTopic/Subscriptions/mySubscription |
+| Eliminare una regola |Gestione |../myTopic/Subscriptions/mySubscription |
 | Enumerare le regole |Manage o Listen |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Passaggi successivi

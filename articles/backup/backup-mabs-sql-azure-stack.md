@@ -3,12 +3,11 @@ title: Eseguire il backup di carichi di lavoro di SQL Server in Azure Stack
 description: Questo articolo illustra come configurare Backup di Microsoft Azure Server (MAB) per proteggere i database di SQL Server in Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74172301"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84192971"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Eseguire il backup di SQL Server in Azure Stack
 
@@ -38,7 +37,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     ![Selezione del tipo di gruppo di protezione "Server"](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. Nell'elenco Membri disponibili della schermata **Selezione membri del gruppo** sono visualizzate le varie origini dati. Fare **+** clic per espandere una cartella e visualizzare le sottocartelle. Fare clic sulla casella di controllo per selezionare un elemento.
+4. Nell'elenco Membri disponibili della schermata **Selezione membri del gruppo** sono visualizzate le varie origini dati. Fare clic **+** per espandere una cartella e visualizzare le sottocartelle. Fare clic sulla casella di controllo per selezionare un elemento.
 
     ![Selezione del database SQL](./media/backup-azure-backup-sql/pg-databases.png)
 
@@ -65,7 +64,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     ![Metodo di replica iniziale](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copia di backup iniziale richiede il trasferimento dell'intera origine dati (database SQL Server) dal server di produzione (macchina SQL Server) al server di Backup di Azure. Tali dati potrebbero essere di grandi dimensioni e trasferimento dei dati sulla rete potrebbe superare la larghezza di banda. Per questo motivo, l'utente può scegliere di trasferire il backup iniziale: **manualmente** (usando supporti rimovibili) per evitare la congestione della larghezza di banda o **automaticamente attraverso la rete** (ad un orario specificato).
+    La copia di backup iniziale richiede il trasferimento dell'intera origine dati (SQL Server database) dal server di produzione (SQL Server computer) a server di Backup di Azure. Tali dati potrebbero essere di grandi dimensioni e trasferimento dei dati sulla rete potrebbe superare la larghezza di banda. Per questo motivo, l'utente può scegliere di trasferire il backup iniziale: **manualmente** (usando supporti rimovibili) per evitare la congestione della larghezza di banda o **automaticamente attraverso la rete** (ad un orario specificato).
 
     Una volta completato il backup iniziale, quelli successivi saranno backup incrementali della copia di backup iniziale. I backup incrementali tendono a essere di piccole dimensioni e facilmente trasferibili sulla rete.
 
@@ -73,7 +72,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     ![Verifica coerenza](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Il server di Backup di Azure esegue una verifica di coerenza per controllare l'integrità del punto di backup. Il server di Backup di Azure calcola il checksum del file di backup nel server di produzione (computer SQL Server in questo scenario) e i dati di cui è stato eseguito il backup per quel file. Se si verifica un conflitto, si presume che il file di cui è stato eseguito il backup nel server di Backup di Azure sia danneggiato. Il server di Backup di Azure corregge i dati di backup inviando i blocchi che equivalgono alla mancata corrispondenza del checksum. Poiché le verifiche della coerenza sono esigenti in termini di prestazioni, è possibile pianificarle o eseguirle automaticamente.
+    Il server di Backup di Azure esegue una verifica di coerenza per controllare l'integrità del punto di backup. Server di Backup di Azure calcola il checksum del file di backup nel server di produzione (SQL Server computer in questo scenario) e i dati di cui è stato eseguito il backup per tale file. Se si verifica un conflitto, si presume che il file di cui è stato eseguito il backup nel server di Backup di Azure sia danneggiato. Il server di Backup di Azure corregge i dati di backup inviando i blocchi che equivalgono alla mancata corrispondenza del checksum. Poiché le verifiche della coerenza sono esigenti in termini di prestazioni, è possibile pianificarle o eseguirle automaticamente.
 
 10. Per specificare la protezione online delle origini dati, selezionare i database da proteggere in Azure e fare clic su **Avanti**.
 

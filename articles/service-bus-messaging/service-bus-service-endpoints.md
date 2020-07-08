@@ -1,21 +1,13 @@
 ---
 title: Configurare gli endpoint del servizio di rete virtuale per il bus di servizio di Azure
 description: Questo articolo fornisce informazioni su come aggiungere un endpoint di servizio Microsoft. ServiceBus a una rete virtuale.
-services: service-bus
-documentationcenter: ''
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
-ms.author: aschhab
-ms.openlocfilehash: d1766ffb579bb1a86da91ac73a396ce0d008f89e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 2b3e7d23dcfd3f932aefa3809ebd13b9cfee0c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117625"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340989"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Configurare gli endpoint del servizio di rete virtuale per il bus di servizio di Azure
 
@@ -63,10 +55,10 @@ La regola di rete virtuale è un'associazione tra lo spazio dei nomi del bus di 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure
 Questa sezione illustra come usare portale di Azure per aggiungere un endpoint del servizio rete virtuale. Per limitare l'accesso, è necessario integrare l'endpoint del servizio rete virtuale per questo spazio dei nomi di hub eventi.
 
-1. Passare allo **spazio dei nomi del bus di servizio** nel [portale di Azure](https://portal.azure.com).
-2. Nel menu a sinistra selezionare opzione di **rete** . Per impostazione predefinita, è selezionata l'opzione **tutte le reti** . Lo spazio dei nomi accetta connessioni da qualsiasi indirizzo IP. Questa impostazione predefinita equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0. 
+1. Passare allo  **spazio dei nomi del bus di servizio** nel [portale di Azure](https://portal.azure.com).
+2. Nel menu a sinistra selezionare l'opzione **Rete**. Per impostazione predefinita, è selezionata l'opzione **Tutte le reti**. Lo spazio dei nomi accetta connessioni da qualsiasi indirizzo IP. Questa impostazione predefinita equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0. 
 
-    ![Opzione Firewall-tutte le reti selezionata](./media/service-endpoints/firewall-all-networks-selected.png)
+    ![Opzione Firewall - Tutte le reti selezionata](./media/service-endpoints/firewall-all-networks-selected.png)
 1. Selezionare l'opzione **reti selezionate** nella parte superiore della pagina.
 2. Nella sezione **rete virtuale** della pagina selezionare **+ Aggiungi rete virtuale esistente**. 
 
@@ -94,7 +86,7 @@ Parametri del modello:
 * **virtualNetworkingSubnetId**: percorso completo di Resource Manager per la subnet della rete virtuale. Ad esempio, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
 
 > [!NOTE]
-> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"**, che non limita le connessioni.
+> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
 > da

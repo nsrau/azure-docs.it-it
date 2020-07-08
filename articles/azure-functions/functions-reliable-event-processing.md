@@ -5,12 +5,11 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75561868"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676132"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Elaborazione di eventi affidabili di funzioni di Azure
 
@@ -55,7 +54,7 @@ Questo comportamento rivela alcuni aspetti importanti:
 
 ## <a name="handling-exceptions"></a>Gestione delle eccezioni
 
-Come regola generale, ogni funzione deve includere un [blocco try/catch](./functions-bindings-error-pages.md) al massimo livello di codice. In particolare, tutte le funzioni che utilizzano eventi di hub eventi `catch` devono avere un blocco. In questo modo, quando viene generata un'eccezione, il blocco catch gestisce l'errore prima che il puntatore avanza.
+Come regola generale, ogni funzione deve includere un [blocco try/catch](./functions-bindings-error-pages.md) al massimo livello di codice. In particolare, tutte le funzioni che utilizzano eventi di hub eventi devono avere un `catch` blocco. In questo modo, quando viene generata un'eccezione, il blocco catch gestisce l'errore prima che il puntatore avanza.
 
 ### <a name="retry-mechanisms-and-policies"></a>Meccanismi di ripetizione dei tentativi e criteri
 
@@ -91,7 +90,7 @@ Per implementare un interruttore in un processo di evento sono necessari due ele
 
 I dettagli di implementazione possono variare, ma per condividere lo stato tra le istanze è necessario un meccanismo di archiviazione. È possibile scegliere di archiviare lo stato in archiviazione di Azure, in una cache Redis o in qualsiasi altro account accessibile da una raccolta di funzioni.
 
-[App](../logic-apps/logic-apps-overview.md) per la logica di Azure o [entità durevoli](./durable/durable-functions-overview.md) sono una soluzione naturale per gestire il flusso di lavoro e lo stato del circuito. Anche altri servizi possono funzionare, ma per questo esempio vengono usate le app per la logica. Usando le app per la logica, è possibile sospendere e riavviare l'esecuzione di una funzione che fornisce il controllo necessario per implementare il modello di interruttore.
+[App](../logic-apps/logic-apps-overview.md) per la logica di Azure o [funzioni permanenti](./durable/durable-functions-overview.md) sono una soluzione naturale per gestire il flusso di lavoro e lo stato del circuito. Anche altri servizi possono funzionare, ma per questo esempio vengono usate le app per la logica. Usando le app per la logica, è possibile sospendere e riavviare l'esecuzione di una funzione che fornisce il controllo necessario per implementare il modello di interruttore.
 
 ### <a name="define-a-failure-threshold-across-instances"></a>Definire una soglia di errore tra le istanze
 
@@ -123,7 +122,7 @@ Con questo approccio, nessun messaggio viene perso, tutti i messaggi vengono ela
 ## <a name="resources"></a>Risorse
 
 - [Esempi di elaborazione di eventi affidabili](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Interruttore di Azure Durable Functions](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Interruttore di circuito dell'entità durevole di Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

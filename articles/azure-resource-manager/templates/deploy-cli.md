@@ -2,13 +2,12 @@
 title: Distribuire le risorse con l'interfaccia della riga di comando di Azure
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/04/2020
+ms.openlocfilehash: a2a1c1fe63d0a841f57407ed5402d7ddca3fcea4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432074"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuire risorse con modelli ARM e l'interfaccia della riga di comando di Azure
 
@@ -20,43 +19,43 @@ I comandi di distribuzione modificati nell'interfaccia della riga di comando di 
 
 Se l'interfaccia della riga di comando di Azure non è installata, è possibile usare [Cloud Shell](#deploy-template-from-cloud-shell).
 
-## <a name="deployment-scope"></a>Ambito di distribuzione
+## <a name="deployment-scope"></a>Ambito della distribuzione
 
 La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. Nella maggior parte dei casi, la distribuzione verrà destinata a un gruppo di risorse. Per applicare criteri e assegnazioni di ruolo in un ambito più ampio, usare la sottoscrizione, il gruppo di gestione o le distribuzioni tenant. Quando si esegue la distribuzione in una sottoscrizione, è possibile creare un gruppo di risorse e distribuirvi risorse.
 
-A seconda dell'ambito della distribuzione, si utilizzano comandi diversi.
+A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
-Per eseguire la distribuzione in un **gruppo di risorse**, usare [AZ Deployment Group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
+* Per eseguire la distribuzione in un **gruppo di risorse**, usare [AZ Deployment Group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
 
-```azurecli-interactive
-az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+  ```
 
-Per eseguire la distribuzione in una **sottoscrizione**, usare [AZ Deployment Sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
+* Per eseguire la distribuzione in una **sottoscrizione**, usare [AZ Deployment Sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
 
-```azurecli-interactive
-az deployment sub create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment sub create --location <location> --template-file <path-to-template>
+  ```
 
-Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
+  Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
-Per eseguire la distribuzione in un **gruppo di gestione**, usare [AZ Deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+* Per eseguire la distribuzione in un **gruppo di gestione**, usare [AZ Deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
 
-```azurecli-interactive
-az deployment mg create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment mg create --location <location> --template-file <path-to-template>
+  ```
 
-Per ulteriori informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [creazione di risorse a livello di gruppo di gestione](deploy-to-management-group.md).
+  Per altre informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [Creare risorse a livello di gruppo di gestione](deploy-to-management-group.md).
 
-Per eseguire la distribuzione in un **tenant**, usare [AZ Deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+* Per eseguire la distribuzione in un **tenant**, usare [AZ Deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
 
-```azurecli-interactive
-az deployment tenant create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment tenant create --location <location> --template-file <path-to-template>
+  ```
 
-Per altre informazioni sulle distribuzioni a livello di tenant, vedere [creare risorse a livello di tenant](deploy-to-tenant.md).
+  Per altre informazioni sulle distribuzioni a livello di tenant, vedere [Creare risorse a livello di tenant](deploy-to-tenant.md).
 
-Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse.
+Gli esempi contenuti in questo articolo usano distribuzioni di gruppi di risorse.
 
 ## <a name="deploy-local-template"></a>Distribuire un modello locale
 
@@ -102,6 +101,10 @@ az deployment group create \
 
 L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati sensibili. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Se invece si preferisce che il modello usato non sia accessibile pubblicamente, è possibile proteggerlo archiviandolo in un contenitore di archiviazione privato. Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso (SAS), vedere [Distribuire un modello privato con un token di firma di accesso condiviso](secure-template-with-sas-token.md).
 
+## <a name="preview-changes"></a>Anteprima modifiche
+
+Prima di distribuire il modello, è possibile visualizzare in anteprima le modifiche che il modello apporterà all'ambiente. Usare l' [operazione](template-deploy-what-if.md) di simulazione per verificare che il modello apporti le modifiche previste. Cosa-se anche il modello viene convalidato per gli errori.
+
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../../includes/resource-manager-cloud-shell-deploy.md)]
 
 Immettere i comandi seguenti in Cloud Shell:
@@ -128,7 +131,7 @@ az deployment group create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-Se si usa l'interfaccia della riga di comando di Azure con il prompt dei comandi di Windows (CMD) o PowerShell `exampleArray="['value1','value2']"`, passare la matrice nel formato:.
+Se si usa l'interfaccia della riga di comando di Azure con il prompt dei comandi di Windows (CMD) o PowerShell, passare la matrice nel formato: `exampleArray="['value1','value2']"` .
 
 È anche possibile ottenere i contenuti del file e fornire il contenuto come un parametro inline.
 
@@ -154,7 +157,7 @@ Il formato arrayContent.json è:
 
 Invece di passare i parametri come valori inline nello script, può risultare più facile usare un file JSON che contenga i valori dei parametri. Il file dei parametri deve essere un file locale. I file dei parametri esterni non sono supportati con l'interfaccia della riga di comando di Azure.
 
-Per altre informazioni sul file dei parametri, vedere [creare Gestione risorse file di parametri](parameter-files.md).
+Per altre informazioni sul file dei parametri, vedere [Creare il file di parametri di Resource Manager](parameter-files.md).
 
 Per passare un file dei parametri locale, usare `@` per specificare un file locale denominato storage.parameters.json.
 
@@ -168,7 +171,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Gestire il formato JSON esteso
 
-Per distribuire un modello con stringhe a più righe o commenti usando l'interfaccia della riga di comando di Azure con la versione 2.3.0 `--handle-extended-json-format` o precedente, è necessario usare l'opzione.  Ad esempio:
+Per distribuire un modello con stringhe a più righe o commenti usando l'interfaccia della riga di comando di Azure con la versione 2.3.0 o precedente, è necessario usare l' `--handle-extended-json-format` opzione.  Ad esempio:
 
 ```json
 {
@@ -188,62 +191,10 @@ Per distribuire un modello con stringhe a più righe o commenti usando l'interfa
   ],
 ```
 
-## <a name="test-a-template-deployment"></a>Testare una distribuzione del modello
-
-Per testare il modello e i valori dei parametri senza distribuire effettivamente le risorse, usare [AZ Deployment Group Validate](/cli/azure/group/deployment).
-
-```azurecli-interactive
-az deployment group validate \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters @storage.parameters.json
-```
-
-Se non vengono rilevati errori, il comando restituisce informazioni sulla distribuzione di test. Si noti nello specifico che il valore dell'**errore** è null.
-
-```output
-{
-  "error": null,
-  "properties": {
-      ...
-```
-
-Se viene rilevato un errore, il comando restituisce un messaggio di errore. Ad esempio, passare un valore non corretto per lo SKU dell'account di archiviazione restituisce l'errore seguente:
-
-```output
-{
-  "error": {
-    "code": "InvalidTemplate",
-    "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter
-      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed
-      value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
-    "target": null
-  },
-  "properties": null
-}
-```
-
-Se il modello contiene un errore di sintassi, il comando restituisce un errore che indica l'impossibilità di analizzare il modello. Il messaggio contiene il numero di riga e la posizione dell'errore di analisi.
-
-```output
-{
-  "error": {
-    "code": "InvalidTemplate",
-    "details": null,
-    "message": "Deployment template parse failed: 'After parsing a value an unexpected character was encountered:
-      \". Path 'variables', line 31, position 3.'.",
-    "target": null
-  },
-  "properties": null
-}
-```
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per eseguire il rollback a una distribuzione corretta quando viene visualizzato un errore, vedere eseguire [il rollback in caso di errore di distribuzione riuscita](rollback-on-error.md).
+- Per eseguire il rollback a una distribuzione corretta quando viene restituito un errore, vedere [Rollback alla distribuzione corretta in caso di errore](rollback-on-error.md).
 - Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
 - Per informazioni su come definire i parametri nel modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
 - Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
 - Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](secure-template-with-sas-token.md).
-- Per implementare in modo sicuro il servizio in più di un'area, vedere [Azure Deployment Manager](deployment-manager-overview.md).

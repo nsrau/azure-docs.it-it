@@ -7,12 +7,11 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 79f85261115dbddcb0b04cd2863a90912de2ab87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 87a8291387d50fae7027d007eedf49fa55b39b74
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052778"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 

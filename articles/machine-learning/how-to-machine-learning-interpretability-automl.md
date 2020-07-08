@@ -5,16 +5,15 @@ description: Informazioni su come ottenere spiegazioni sul modo in cui il modell
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.date: 03/11/2020
-ms.openlocfilehash: e0ec6cbc4cea926dfc50cdae247aea5d765c20ca
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691214"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430522"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretazione: spiegazione del modello in Machine Learning automatizzato
 
@@ -22,7 +21,7 @@ ms.locfileid: "82691214"
 
 Questo articolo illustra come ottenere spiegazioni per Machine Learning automatizzato (ML) in Azure Machine Learning. Automatizzato ML consente di comprendere l'importanza della funzionalità progettata. 
 
-Tutte le versioni dell'SDK dopo `model_explainability=True` 1.0.85 impostate per impostazione predefinita. Nella versione SDK 1.0.85 e nelle versioni precedenti, gli utenti `model_explainability=True` devono impostare `AutoMLConfig` nell'oggetto per poter usare l'interpretazione del modello. 
+Tutte le versioni dell'SDK dopo 1.0.85 impostate `model_explainability=True` per impostazione predefinita. Nella versione SDK 1.0.85 e nelle versioni precedenti, gli utenti devono impostare `model_explainability=True` nell'oggetto per poter `AutoMLConfig` usare l'interpretazione del modello. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -37,11 +36,11 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretazione durante il training per il modello migliore
 
-Recuperare la spiegazione da, `best_run`che include le spiegazioni per le funzionalità progettate.
+Recuperare la spiegazione da `best_run` , che include le spiegazioni per le funzionalità progettate.
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Scarica l'importanza della funzionalità progettata dall'archivio elementi
 
-È possibile usare `ExplanationClient` per scaricare le spiegazioni delle funzionalità progettate dall'archivio di artefatti di `best_run`. 
+È possibile usare `ExplanationClient` per scaricare le spiegazioni delle funzionalità progettate dall'archivio di artefatti di `best_run` . 
 
 ```python
 from azureml.explain.model._internal.explanation_client import ExplanationClient
@@ -63,13 +62,13 @@ automl_run, fitted_model = local_run.get_output(metric='accuracy')
 
 ### <a name="set-up-the-model-explanations"></a>Configurare le spiegazioni del modello
 
-Usare `automl_setup_model_explanations` per ottenere le spiegazioni progettate. `fitted_model` Può generare gli elementi seguenti:
+Usare `automl_setup_model_explanations` per ottenere le spiegazioni progettate. `fitted_model`Può generare gli elementi seguenti:
 
 - Dati in primo piano da esempi di training o di test
 - Elenchi di nomi di funzionalità progettati
 - Classi trovabili nella colonna con etichetta negli scenari di classificazione
 
-`automl_explainer_setup_obj` Contiene tutte le strutture dall'elenco precedente.
+`automl_explainer_setup_obj`Contiene tutte le strutture dall'elenco precedente.
 
 ```python
 from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
@@ -81,11 +80,11 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 
 ### <a name="initialize-the-mimic-explainer-for-feature-importance"></a>Inizializzare il Explainer MIME per l'importanza della funzionalità
 
-Per generare una spiegazione per i modelli AutoML, usare `MimicWrapper` la classe. È possibile inizializzare MimicWrapper con questi parametri:
+Per generare una spiegazione per i modelli AutoML, usare la `MimicWrapper` classe. È possibile inizializzare MimicWrapper con questi parametri:
 
 - Oggetto di installazione di Explainer
 - Area di lavoro
-- Modello surrogato per spiegare il `fitted_model` modello di Machine Learning automatico
+- Modello surrogato per spiegare il modello di Machine Learning `fitted_model` automatico
 
 Il MimicWrapper accetta anche l' `automl_run` oggetto in cui verranno caricate le spiegazioni progettate.
 
@@ -117,7 +116,7 @@ Questa sezione descrive come rendere operativo un modello di Machine Learning au
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>Registrare il modello e il spiegazione del Punteggio
 
-Usare `TreeScoringExplainer` per creare il Explainer di assegnazione dei punteggi che calcolerà i valori di importanza della funzionalità progettata in fase di inferenza. Si inizializza il Explainer di assegnazione dei `feature_map` punteggi con il che è stato calcolato in precedenza. 
+Usare `TreeScoringExplainer` per creare il Explainer di assegnazione dei punteggi che calcolerà i valori di importanza della funzionalità progettata in fase di inferenza. Si inizializza il Explainer di assegnazione dei punteggi con il `feature_map` che è stato calcolato in precedenza. 
 
 Salvare il Explainer di assegnazione dei punteggi, quindi registrare il modello e il Explainer di assegnazione dei punteggi con il servizio Gestione modelli. Eseguire il codice seguente:
 

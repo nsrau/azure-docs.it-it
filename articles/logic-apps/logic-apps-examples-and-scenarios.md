@@ -6,16 +6,15 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: ad5cc696892764ce68d4714ead98b8afd9c37669
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 786655f8e8ee7e21f2615361b0bb1ea336ccb479
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84190728"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scenari comuni, esempi, esercitazioni e procedure dettagliate per le app per la logica di Azure
 
-[App](../logic-apps/logic-apps-overview.md) per la logica di Azure ti permette di orchestrare e integrare servizi diversi grazie a [centinaia di connettori pronti per l'uso](../connectors/apis-list.md), che vanno da SQL Server locali o da SAP a servizi cognitivi di Azure. Il servizio delle App per la logica è "senza server", quindi non è necessario preoccuparsi per la scala o le istanze. È necessario solo definire il flusso di lavoro con un trigger e le azioni eseguite dal flusso di lavoro. La piattaforma sottostante gestisce scalabilità, disponibilità e prestazioni. App per la logica è particolarmente utile per casi d'uso e scenari in cui è necessario coordinare le azioni tra più sistemi e servizi.
+[App](../logic-apps/logic-apps-overview.md) per la logica di Azure ti permette di orchestrare e integrare servizi diversi, offrendo [centinaia di connettori pronti per l'uso](../connectors/apis-list.md), che vanno da SQL Server o da SAP a servizi cognitivi di Azure. Il servizio delle App per la logica è "senza server", quindi non è necessario preoccuparsi per la scala o le istanze. È necessario solo definire il flusso di lavoro con un trigger e le azioni eseguite dal flusso di lavoro. La piattaforma sottostante gestisce scalabilità, disponibilità e prestazioni. App per la logica è particolarmente utile per casi d'uso e scenari in cui è necessario coordinare le azioni tra più sistemi e servizi.
 
 Per informazioni sulle funzionalità e sui modelli supportati da app per la logica di Azure, questo articolo descrive i punti di partenza, gli esempi e gli scenari comuni.
 
@@ -39,7 +38,7 @@ Ecco alcuni esempi che descrivono i trigger usati di frequente:
   * Il trigger **quando viene ricevuto un messaggio di posta elettronica** consente all'app per la logica di verificare la presenza di nuovi messaggi di posta elettronica da qualsiasi provider di posta elettronica supportato dalle app per la logica, ad esempio [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/)e così via.
 
     > [!IMPORTANT]
-    > Se si vuole usare il connettore Gmail, solo gli account aziendali G-Suite possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account utente Gmail, è possibile usare questo connettore solo con specifici servizi approvati da Google oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [sicurezza dei dati e criteri di privacy per i connettori Google in app per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+    > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
     Per altre informazioni, vedere gli argomenti seguenti:<p>
 
@@ -86,7 +85,7 @@ Per i sistemi e i servizi che non hanno connettori pubblicati, è anche possibil
 Per le soluzioni di integrazione aziendale e la comunicazione trasparente tra le organizzazioni, è possibile creare flussi di lavoro scalabili automatizzati per questi scenari usando il Enterprise Integration Pack (PEI) con app per la logica di Azure. Le organizzazioni potranno scambiarsi messaggi elettronicamente pur usando formati e protocolli diversi. Il PEI trasforma formati diversi in un formato che i sistemi delle organizzazioni possono elaborare e supportano i protocolli standard del settore, tra cui AS2, X12, EDIFACT e RosettaNet. Per compilare queste soluzioni, si crea un account di integrazione, ovvero una risorsa di Azure separata che fornisce un contenitore sicuro, scalabile e gestibile per gli elementi che si definiscono e si usano con i flussi di lavoro delle app per la logica. Ad esempio, gli artefatti includono partner commerciali, contratti, mappe, schemi, certificati e configurazioni batch.
 
 * [Panoramica: soluzioni di integrazione aziendale B2B con app per la logica di Azure e Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Creare e gestire gli account di integrazione per B2B Enterprise Integrations in app per la logica di Azure](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* [Creare e gestire account di integrazione per integrazioni aziendali B2B in App per la logica di Azure](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 ## <a name="access-azure-virtual-network-resources"></a>Accedere alle risorse di rete virtuale di Azure
 
@@ -99,37 +98,37 @@ A volte, le app per la logica e gli account di integrazione devono accedere alle
 
 È possibile sviluppare e distribuire interamente app per la logica con Visual Studio, Azure DevOps o qualsiasi altro strumento di controllo del codice sorgente e compilazione automatica. Per supportare la distribuzione per i flussi di lavoro e le connessioni dipendenti in un modello di risorse, le app per la logica usano i modelli di distribuzione delle risorse di Azure. Gli strumenti di Visual Studio generano automaticamente questi modelli, che è possibile archiviare per il controllo del codice sorgente finalizzato al controllo delle versioni. Per i log di notifica e di diagnostica per lo stato di esecuzione dei flussi di lavoro, le app per la logica di Azure forniscono inoltre monitoraggio e avvisi.
 
-### <a name="deploy"></a>Distribuisci
+### <a name="deploy"></a>Distribuire
 
 * [Guida introduttiva: creare attività, processi e flussi di lavoro automatizzati usando app per la logica di Azure-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Panoramica: automatizzare la distribuzione delle app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Creare modelli di Azure Resource Manager per automatizzare la distribuzione per le app per la logica di Azure](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Distribuire modelli di Azure Resource Manager per app per la logica di Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Creare modelli di Azure Resource Manager per automatizzare la distribuzione di App per la logica di Azure](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
+* [Implementare modelli di Azure Resource Manager per App per la logica di Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 * [Esempio: connettersi alle code del bus di servizio di Azure da app per la logica di Azure e distribuirle con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Esempio: connettersi agli account di archiviazione di Azure da app per la logica di Azure e distribuirli con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Esempio: configurare un'azione dell'app per le funzioni per app per la logica di Azure e distribuirla con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Esempio: connettersi a un account di integrazione da app per la logica di Azure e distribuirlo con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 * [Esempio: orchestrare Azure Pipelines usando app per la logica di Azure](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
 
-### <a name="manage"></a>Gestire
+### <a name="manage"></a>Gestione
 
 * [Gestire app per la logica con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 * [Creare e gestire gli account di integrazione per B2B Enterprise Integrations](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 * [Gestire Integration Services Environment (ISE) in app per la logica di Azure](../logic-apps/ise-manage-integration-service-environment.md)
 
-### <a name="monitor"></a>Monitoraggio
+### <a name="monitor"></a>Monitorare
 
-* [Monitorare lo stato di esecuzione, rivedere la cronologia dei trigger e configurare gli avvisi per le app per la logica di Azure](../logic-apps/monitor-logic-apps.md)
+* [Monitorare lo stato di esecuzione, rivedere la cronologia dei trigger e configurare gli avvisi per App per la logica di Azure](../logic-apps/monitor-logic-apps.md)
 * [Configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di Azure](../logic-apps/monitor-logic-apps-log-analytics.md)
-* [Configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per i messaggi B2B nelle app per la logica di Azure](../logic-apps/monitor-b2b-messages-log-analytics.md)
+* [Configurare i log di Monitoraggio di Azure e raccogliere i dati di diagnostica per i messaggi B2B in App per la logica di Azure](../logic-apps/monitor-b2b-messages-log-analytics.md)
 * [Visualizzare e creare query per il monitoraggio e il rilevamento nei log di monitoraggio di Azure per app per la logica di Azure](../logic-apps/create-monitoring-tracking-queries.md)
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>Gestire tipi di contenuto, conversioni e trasformazioni
 
 È possibile accedere, convertire e trasformare più tipi di contenuto usando le numerose funzioni del [linguaggio di definizione del flusso di lavoro](https://aka.ms/logicappsdocs) delle app per la logica di Azure. Ad esempio, è possibile eseguire la conversione tra una stringa, il formato JSON e il formato XML con le espressioni del flusso di lavoro `@json()` e `@xml()`. Il motore delle app per la logica mantiene i tipi di contenuto per supportare il trasferimento del contenuto senza perdita di dati tra i servizi.
 
-* [Gestire i tipi di contenuto nelle app per](../logic-apps/logic-apps-content-type.md)la `application/`logica di `application/octet-stream`Azure, ad esempio, e`multipart/formdata`
-* [Guida di riferimento all'uso di funzioni nelle espressioni per app per la logica di Azure e Power automatizzate](../logic-apps/workflow-definition-language-functions-reference.md)
+* [Gestire i tipi di contenuto nelle app per la logica di Azure](../logic-apps/logic-apps-content-type.md), ad esempio `application/` , `application/octet-stream` e`multipart/formdata`
+* [Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Schema del linguaggio di definizione del flusso di lavoro per App per la logica di Azure](../logic-apps/logic-apps-workflow-definition-language.md)
 
 ## <a name="other-integrations-and-capabilities"></a>Altre integrazioni e funzionalità
@@ -141,7 +140,7 @@ App per la logica di Azure si integra con molti servizi, ad esempio funzioni di 
 * [Esercitazione: creare un dashboard di streaming Customer Insights con app per la logica di Azure e funzioni di Azure](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Esercitazione: creare una funzione che si integra con app per la logica di Azure e servizi cognitivi di Azure per analizzare i sentimenti post di Twitter](../azure-functions/functions-twitter-email.md)
 * [Esercitazione: creare un dashboard di social networking basato su intelligenza artificiale usando Power BI e app per la logica di Azure](https://aka.ms/logicappsdemo)
-* [Esercitazione: monitorare le modifiche della macchina virtuale usando griglia di eventi di Azure e app per la logica](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Esercitazione: Monitorare le modifiche delle macchine virtuali tramite Griglia di eventi e App per la logica di Azure](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [Esercitazione: Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: chiamare i servizi SOAP usando app per la logica di Azure](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 

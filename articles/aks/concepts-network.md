@@ -2,14 +2,13 @@
 title: Concetti - Funzionalità di rete nel servizio Azure Kubernetes
 description: Informazioni sulle funzionalità di rete nel servizio Azure Kubernetes, tra cui funzionalità di rete kubenet e Azure CNI, controller di ingresso, bilanciamento del carico e indirizzi IP statici.
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ae1c2b95a948f2344119af234539b6fab4edaaac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789498"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
@@ -129,6 +128,8 @@ I *controller di ingresso* operano sul livello 7 e possono usare regole più int
 
 Nel servizio Azure Kubernetes è possibile creare una risorsa di ingresso usando uno strumento come NGINX o la funzionalità di routing delle applicazioni HTTP del servizio Azure Kubernetes. Quando si abilita il routing delle applicazioni HTTP per un cluster servizio Azure Kubernetes, la piattaforma Azure crea il controller di ingresso e un controller *DNS esterno*. Quando vengono create le risorse di ingresso in Kubernetes, i record A DNS necessari vengono creati in una zona DNS specifica del cluster. Per altre informazioni, vedere [Routing di applicazioni HTTP][aks-http-routing].
 
+Il componente aggiuntivo controller di ingresso del gateway applicazione (AGIC) consente ai clienti di AKS di sfruttare il servizio di bilanciamento del carico del gateway applicazione nativo di Azure per esporre il software cloud a Internet. AGIC monitora il cluster Kubernetes in cui è ospitato e aggiorna continuamente un gateway applicazione, in modo che i servizi selezionati siano esposti a Internet. Per altre informazioni sul componente aggiuntivo AGIC per AKS, vedere [che cos'è il controller di ingresso del gateway applicazione?][agic-overview]
+
 Un'altra funzionalità comune per il traffico in ingresso è la terminazione SSL/TLS. In applicazioni Web di grandi dimensioni a cui si accede tramite HTTPS, la terminazione TLS può essere gestita dalla risorsa di ingresso invece che all'interno dell'applicazione stessa. Per garantire la generazione e la configurazione automatiche della certificazione TLS, è possibile configurare la risorsa di ingresso per l'uso di provider, ad esempio Let's Encrypt. Per altre informazioni sulla configurazione di un controller di ingresso NGINX con Let's Encrypt, vedere [Traffico in ingresso e TLS][aks-ingress-tls].
 
 È anche possibile configurare il controller di ingresso per mantenere l'IP di origine del client nelle richieste ai contenitori nel cluster AKS. Quando la richiesta di un client viene indirizzata a un contenitore nel cluster AKS tramite il controller di ingresso, l'indirizzo IP di origine della richiesta non sarà disponibile per il contenitore di destinazione. Quando si Abilita la *conservazione dell'indirizzo IP di origine client*, l'indirizzo IP di origine per il client è disponibile nell'intestazione della richiesta in *X-inoltred-for*. Se si usa la conservazione dell'indirizzo IP di origine client sul controller di ingresso, non è possibile usare il pass-through TLS. La conservazione IP di origine client e il pass-through TLS possono essere usati con altri servizi, ad esempio il tipo *LoadBalancer* .
@@ -153,11 +154,11 @@ Per le procedure consigliate associate, vedere procedure consigliate [per la con
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Cluster e carichi di lavoro di Kubernetes/servizio Azure Kubernetes][aks-concepts-clusters-workloads]
+- [Kubernetes/Cluster e carichi di lavoro del servizio Azure Kubernetes][aks-concepts-clusters-workloads]
 - [Accesso e identità per Kubernetes/servizio Azure Kubernetes][aks-concepts-identity]
 - [Sicurezza di Kubernetes/servizio Azure Kubernetes][aks-concepts-security]
-- [Archiviazione in Kubernetes/servizio Azure Kubernetes][aks-concepts-storage]
-- [Ridimensionamento in Kubernetes/servizio Azure Kubernetes][aks-concepts-scale]
+- [Kubernetes/Archiviazione nel servizio Azure Kubernetes][aks-concepts-storage]
+- [Kubernetes/Ridimensionamento nel servizio Azure Kubernetes][aks-concepts-scale]
 
 <!-- IMAGES -->
 [aks-clusterip]: ./media/concepts-network/aks-clusterip.png
@@ -180,6 +181,7 @@ Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al serv
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[agic-overview]: ../application-gateway/ingress-controller-overview.md
 [use-network-policies]: use-network-policies.md
 [operator-best-practices-network]: operator-best-practices-network.md
 [support-policies]: support-policies.md

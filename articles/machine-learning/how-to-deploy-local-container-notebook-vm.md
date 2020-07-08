@@ -1,21 +1,20 @@
 ---
-title: Come distribuire i modelli nelle istanze di calcolo
+title: Modelli HDeploy per le istanze di calcolo
 titleSuffix: Azure Machine Learning
 description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando le istanze di calcolo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 09164580b8bdb249fc12d14e827ad799d51cab34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 07afeba8ab481da6a23862dee187c8c72df19f3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84429577"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuire un modello per Azure Machine Learning istanze di calcolo
 
@@ -39,17 +38,17 @@ Un notebook di esempio che illustra le distribuzioni locali è incluso nell'ista
 
 1. Da [Azure Machine Learning Studio](https://ml.azure.com)selezionare le istanze di calcolo Azure Machine Learning.
 
-1. Aprire la `samples-*` sottodirectory e quindi aprire `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Una volta aperto, Esegui il notebook.
+1. Aprire la `samples-*` sottodirectory e quindi aprire `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb` . Una volta aperto, Esegui il notebook.
 
     ![Screenshot del servizio locale in esecuzione nel notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio: `https://localhost:6789`. È anche possibile eseguire la cella che `print('Local service port: {}'.format(local_service.port))` contiene per visualizzare la porta.
+1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio: `https://localhost:6789`. È anche possibile eseguire la cella che contiene `print('Local service port: {}'.format(local_service.port))` per visualizzare la porta.
 
     ![Screenshot della porta del servizio locale in esecuzione](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 
 1. Per testare il servizio da un'istanza di calcolo, usare l' `https://localhost:<local_service.port>` URL. Per eseguire il test da un client remoto, ottenere l'URL pubblico del servizio in esecuzione nell'istanza di calcolo. È possibile determinare l'URL pubblico utilizzando la formula seguente. 
-    * VM notebook: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
-    * Istanza di calcolo: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
+    * VM notebook: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score` . 
+    * Istanza di calcolo: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
     Ad esempio, 
     * VM notebook:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
@@ -60,7 +59,7 @@ Un notebook di esempio che illustra le distribuzioni locali è incluso nell'ista
 Per inviare dati di esempio al servizio in esecuzione, usare il codice seguente. Sostituire il valore di `service_url` con l'URL di nel passaggio precedente:
 
 > [!NOTE]
-> Quando si esegue l'autenticazione a una distribuzione nell'istanza di calcolo, l'autenticazione viene eseguita utilizzando Azure Active Directory. La chiamata a `interactive_auth.get_authentication_header()` nel codice di esempio esegue l'autenticazione con AAD e restituisce un'intestazione che può essere usata per eseguire l'autenticazione nel servizio nell'istanza di calcolo. Per altre informazioni, vedere [configurare l'autenticazione per Azure Machine Learning risorse e flussi di lavoro](how-to-setup-authentication.md#interactive-authentication).
+> Quando si esegue l'autenticazione a una distribuzione nell'istanza di calcolo, l'autenticazione viene eseguita utilizzando Azure Active Directory. La chiamata a `interactive_auth.get_authentication_header()` nel codice di esempio esegue l'autenticazione con AAD e restituisce un'intestazione che può essere usata per eseguire l'autenticazione nel servizio nell'istanza di calcolo. Per altre informazioni, vedere [Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning](how-to-setup-authentication.md#interactive-authentication).
 >
 > Quando si esegue l'autenticazione a una distribuzione in Azure Kubernetes Service o in istanze di contenitore di Azure, viene usato un metodo di autenticazione diverso. Per altre informazioni su, vedere [configurare l'autenticazione per Azure Machine Learning risorse e flussi di lavoro](how-to-setup-authentication.md#web-service-authentication).
 

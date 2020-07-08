@@ -5,12 +5,11 @@ author: jakrams
 ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8c471687579dfe30b913197c6f080a450f5f3449
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 082148ecfd4332abb42f96afcd94032d428069ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82107446"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782518"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Opzioni di supporto per il rendering remoto di Azure
 
@@ -52,6 +51,11 @@ Nella parte inferiore di ogni articolo della documentazione è possibile aprire 
 ## <a name="provide-product-feedback"></a>Inviare commenti e suggerimenti per il prodotto
 
 Per fornire commenti e suggerimenti, condividere un'idea o un suggerimento per il rendering remoto di Azure o votare le idee inviate da altri utenti, visitare il forum relativo ai commenti e suggerimenti per il [rendering remoto di Azure](https://feedback.azure.com/forums/928696-azure-remote-rendering).
+
+
+## <a name="microsoft-qa"></a>Domande e risposte Microsoft
+
+Per ricevere risposte rapide e affidabili a domande di carattere tecnico sui prodotti, è possibile interagire con tecnici Microsoft, con MVP (Most Valuable Professional) di Azure o con la community di esperti nella pagina [Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-remote-rendering.html), la destinazione ideale di Azure per il supporto della community.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

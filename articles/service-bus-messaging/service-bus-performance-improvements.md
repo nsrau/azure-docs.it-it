@@ -1,21 +1,13 @@
 ---
 title: Procedure consigliate per migliorare le prestazioni con il bus di servizio di Azure
 description: Descrive come usare il bus di servizio per ottimizzare le prestazioni durante gli scambi di messaggi negoziati.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 03/12/2020
-ms.author: aschhab
-ms.openlocfilehash: 267965ee41280a677050d1676285dda8734bc044
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: e0a6e54c1e941d7b7ff244ac40066a564e2ebbc4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341102"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 
@@ -53,11 +45,11 @@ Per ulteriori informazioni sul supporto della piattaforma .NET Standard minima, 
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft. Azure. ServiceBus SDK](#tab/net-standard-sdk)
 
-Gli oggetti client del bus di servizio, ad esempio [`IQueueClient`][QueueClient] le [`IMessageSender`][MessageSender]implementazioni di o, devono essere registrati per l'inserimento di dipendenze come singleton (o per cui è stata creata un'istanza una volta e condivise). È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio per crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare gli oggetti del client per operazioni asincrone simultanee e da più thread.
+Gli oggetti client del bus di servizio, ad esempio le implementazioni di [`IQueueClient`][QueueClient] o [`IMessageSender`][MessageSender] , devono essere registrati per l'inserimento di dipendenze come singleton (o per cui è stata creata un'istanza una volta e condivise). È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio per crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare gli oggetti del client per operazioni asincrone simultanee e da più thread.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. ServiceBus SDK](#tab/net-framework-sdk)
 
-Gli oggetti client del bus di servizio `QueueClient` , `MessageSender`ad esempio o, vengono creati tramite un oggetto [MessagingFactory][MessagingFactory] , che fornisce anche la gestione interna delle connessioni. È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio per crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare gli oggetti del client per operazioni asincrone simultanee e da più thread.
+Gli oggetti client del bus di servizio, ad esempio `QueueClient` o `MessageSender` , vengono creati tramite un oggetto [MessagingFactory][MessagingFactory] , che fornisce anche la gestione interna delle connessioni. È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio per crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare gli oggetti del client per operazioni asincrone simultanee e da più thread.
 
 ---
 
@@ -115,7 +107,7 @@ Il codice seguente è un esempio di operazione di ricezione in modalità asincro
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft. Azure. ServiceBus SDK](#tab/net-standard-sdk)
 
-Per <a href="https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues" target="_blank">esempi <span class="docon docon-navigate-external x-hidden-focus"> </span>completi di codice sorgente </a>, vedere il repository GitHub:
+Per <a href="https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues" target="_blank">esempi <span class="docon docon-navigate-external x-hidden-focus"></span> completi di codice sorgente </a>, vedere il repository GitHub:
 
 ```csharp
 var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
@@ -139,11 +131,11 @@ receiver.RegisterMessageHandler(
     });
 ```
 
-Viene `MessageReceiver` creata un'istanza dell'oggetto con la stringa di connessione, il nome della coda e una modalità di ricezione Peek-look. Successivamente, l' `receiver` istanza viene utilizzata per registrare il gestore di messaggi.
+`MessageReceiver`Viene creata un'istanza dell'oggetto con la stringa di connessione, il nome della coda e una modalità di ricezione Peek-look. Successivamente, l' `receiver` istanza viene utilizzata per registrare il gestore di messaggi.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. ServiceBus SDK](#tab/net-framework-sdk)
 
-Per <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues" target="_blank">esempi <span class="docon docon-navigate-external x-hidden-focus"> </span>completi di codice sorgente </a>, vedere il repository GitHub:
+Per <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues" target="_blank">esempi <span class="docon docon-navigate-external x-hidden-focus"></span> completi di codice sorgente </a>, vedere il repository GitHub:
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString(connectionString);
@@ -163,7 +155,7 @@ receiver.OnMessageAsync(
     });
 ```
 
-Tramite `MessagingFactory` viene creato `factory` un oggetto dalla stringa di connessione. Con l' `factory` istanza viene creata `MessageReceiver` un'istanza di un oggetto. Successivamente, l' `receiver` istanza viene utilizzata per registrare il gestore di messaggi.
+`MessagingFactory`Tramite viene creato un `factory` oggetto dalla stringa di connessione. Con l' `factory` istanza viene creata un'istanza di un oggetto `MessageReceiver` . Successivamente, l' `receiver` istanza viene utilizzata per registrare il gestore di messaggi.
 
 ---
 
@@ -203,7 +195,7 @@ var factory = MessagingFactory.Create(namespaceUri, settings);
 L'invio in batch non influisce sul numero di operazioni di messaggistica fatturabili ed è disponibile solo per il protocollo client del bus di servizio usando la libreria [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Il protocollo HTTP non supporta l'invio in batch.
 
 > [!NOTE]
-> L' `BatchFlushInterval` impostazione garantisce che il batch sia implicito dal punto di vista dell'applicazione. i.e. l'applicazione effettua `SendAsync` e `CompleteAsync` chiama e non effettua chiamate batch specifiche.
+> `BatchFlushInterval`L'impostazione garantisce che il batch sia implicito dal punto di vista dell'applicazione. i.e. l'applicazione effettua `SendAsync` e `CompleteAsync` chiama e non effettua chiamate batch specifiche.
 >
 > L'invio in batch sul lato client esplicito può essere implementato usando la chiamata al metodo seguente:
 > ```csharp
@@ -226,7 +218,7 @@ Quando si crea una nuova coda, un nuovo argomento o una nuova sottoscrizione, l'
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft. Azure. ServiceBus SDK](#tab/net-standard-sdk)
 
-Per disabilitare l'accesso in batch all'archivio, è necessaria un'istanza di `ManagementClient`. Creare una coda da una descrizione della coda che imposta `EnableBatchedOperations` la proprietà `false`su.
+Per disabilitare l'accesso in batch all'archivio, è necessaria un'istanza di `ManagementClient` . Creare una coda da una descrizione della coda che imposta la `EnableBatchedOperations` proprietà su `false` .
 
 ```csharp
 var queueDescription = new QueueDescription(path)
@@ -243,7 +235,7 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. ServiceBus SDK](#tab/net-framework-sdk)
 
-Per disabilitare l'accesso in batch all'archivio, è necessaria un'istanza di `NamespaceManager`. Creare una coda da una descrizione della coda che imposta `EnableBatchedOperations` la proprietà `false`su.
+Per disabilitare l'accesso in batch all'archivio, è necessaria un'istanza di `NamespaceManager` . Creare una coda da una descrizione della coda che imposta la `EnableBatchedOperations` proprietà su `false` .
 
 ```csharp
 var queueDescription = new QueueDescription(path)
@@ -264,11 +256,11 @@ L'accesso in batch all'archivio non influisce sul numero di operazioni di messag
 
 ## <a name="prefetching"></a>Prelettura
 
-La [prelettura](service-bus-prefetch.md) consente al client di accodamento o sottoscrizione di caricare messaggi aggiuntivi dal servizio quando esegue un'operazione di ricezione. Il client archivia i messaggi in una cache locale. Le dimensioni della cache sono determinate dalle proprietà `QueueClient.PrefetchCount` o. `SubscriptionClient.PrefetchCount` Ogni client che abilita la prelettura mantiene la propria cache. La cache non è condivisa tra i client. Se il client avvia un'operazione di ricezione e la relativa cache è vuota, il servizio trasmette un batch di messaggi. Le dimensioni del batch corrispondono alle dimensioni della cache o a 256 KB, a seconda del valore minore. Se il client avvia un'operazione di ricezione e la cache contiene un messaggio, il messaggio viene recuperato dalla cache.
+La [prelettura](service-bus-prefetch.md) consente al client di accodamento o sottoscrizione di caricare messaggi aggiuntivi dal servizio quando esegue un'operazione di ricezione. Il client archivia i messaggi in una cache locale. Le dimensioni della cache sono determinate dalle `QueueClient.PrefetchCount` `SubscriptionClient.PrefetchCount` proprietà o. Ogni client che abilita la prelettura mantiene la propria cache. La cache non è condivisa tra i client. Se il client avvia un'operazione di ricezione e la relativa cache è vuota, il servizio trasmette un batch di messaggi. Le dimensioni del batch corrispondono alle dimensioni della cache o a 256 KB, a seconda del valore minore. Se il client avvia un'operazione di ricezione e la cache contiene un messaggio, il messaggio viene recuperato dalla cache.
 
 Quando un messaggio viene sottoposto a prelettura, il servizio lo blocca. Con il blocco, il messaggio non potrà essere ricevuto da un ricevitore diverso. Se il ricevitore non può completare il messaggio prima della scadenza del blocco, il messaggio diventa disponibile per altri ricevitori. La copia del messaggio sottoposta a prelettura resta nella cache. Il ricevitore che usa la copia scaduta memorizzata nella cache riceve un'eccezione quando prova a completare il messaggio. Per impostazione predefinita, il blocco del messaggio scade dopo 60 secondi. Questo valore può essere esteso a 5 minuti. Per evitare che vengano usati messaggi scaduti, la dimensione della cache dovrebbe essere sempre inferiore al numero di messaggi che possono essere usati da un client nell'intervallo di timeout del blocco.
 
-Se si usa l'impostazione predefinita di 60 secondi per la scadenza del blocco, è consigliabile impostare `PrefetchCount` su un valore pari a 20 volte la velocità massima di elaborazione di tutti i ricevitori della factory. Ad esempio, una factory crea tre ricevitori e ogni ricevitore può elaborare al massimo 10 messaggi al secondo. Il conteggio prelettura non deve superare 20 X 3 X 10 = 600. Per impostazione predefinita `PrefetchCount` , è impostato su 0, il che significa che non vengono recuperati altri messaggi dal servizio.
+Se si usa l'impostazione predefinita di 60 secondi per la scadenza del blocco, è consigliabile impostare `PrefetchCount` su un valore pari a 20 volte la velocità massima di elaborazione di tutti i ricevitori della factory. Ad esempio, una factory crea tre ricevitori e ogni ricevitore può elaborare al massimo 10 messaggi al secondo. Il conteggio prelettura non deve superare 20 X 3 X 10 = 600. Per impostazione predefinita, `PrefetchCount` è impostato su 0, il che significa che non vengono recuperati altri messaggi dal servizio.
 
 La prelettura dei messaggi comporta un aumento della velocità effettiva globale per una coda o una sottoscrizione perché riduce il numero complessivo di operazioni sui messaggi, o round trip. Il recupero del primo messaggio tuttavia richiede più tempo (a causa della dimensione del messaggio aumentata). La ricezione di messaggi sottoposti a prelettura sarà più rapida perché questi messaggi sono stati già scaricati dal client.
 
@@ -278,14 +270,14 @@ La prelettura non influisce sul numero di operazioni di messaggistica fatturabil
 
 # <a name="microsoftazureservicebus-sdk"></a>[Microsoft. Azure. ServiceBus SDK](#tab/net-standard-sdk)
 
-Per ulteriori informazioni, vedere le proprietà `PrefetchCount` seguenti:
+Per ulteriori informazioni, vedere le `PrefetchCount` proprietà seguenti:
 
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 # <a name="windowsazureservicebus-sdk"></a>[WindowsAzure. ServiceBus SDK](#tab/net-framework-sdk)
 
-Per ulteriori informazioni, vedere le proprietà `PrefetchCount` seguenti:
+Per ulteriori informazioni, vedere le `PrefetchCount` proprietà seguenti:
 
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
@@ -297,13 +289,13 @@ Per ulteriori informazioni, vedere le proprietà `PrefetchCount` seguenti:
 > [!NOTE]
 > Questa sezione si applica solo a WindowsAzure. ServiceBus SDK, perché Microsoft. Azure. ServiceBus SDK non espone le funzioni batch.
 
-Sebbene i concetti relativi alla prelettura di più messaggi abbiano una semantica analoga all'elaborazione dei messaggi in`ReceiveBatch`un batch (), è necessario tenere presenti alcune differenze minime quando si utilizza questi elementi insieme.
+Sebbene i concetti relativi alla prelettura di più messaggi abbiano una semantica analoga all'elaborazione dei messaggi in un batch ( `ReceiveBatch` ), è necessario tenere presenti alcune differenze minime quando si utilizza questi elementi insieme.
 
-La prelettura è una configurazione (o modalità) nel client (`QueueClient` e `SubscriptionClient`) ed `ReceiveBatch` è un'operazione (con semantica di richiesta-risposta).
+La prelettura è una configurazione (o modalità) nel client ( `QueueClient` e `SubscriptionClient` ) ed `ReceiveBatch` è un'operazione (con semantica di richiesta-risposta).
 
 Quando si usano questi elementi, tenere presente i casi seguenti:
 
-* La prelettura deve essere maggiore o uguale al numero di messaggi che si prevede di ricevere `ReceiveBatch`.
+* La prelettura deve essere maggiore o uguale al numero di messaggi che si prevede di ricevere `ReceiveBatch` .
 * La prelettura può essere fino a n/3 volte il numero di messaggi elaborati al secondo, dove n è la durata predefinita del blocco.
 
 Ci sono alcune difficoltà nell'avere un approccio greedy (ad esempio, mantenere il conteggio prelettura molto elevato), perché implica che il messaggio è bloccato a un destinatario specifico. Si consiglia di provare a eseguire la prelettura dei valori tra le soglie indicate in precedenza e identificare in modo empirico l'elemento appropriato.
@@ -317,7 +309,7 @@ Se il carico previsto non può essere gestito da una singola coda o argomento, �
 > [!NOTE]
 > Questa sezione si applica solo a WindowsAzure. ServiceBus SDK, perché Microsoft. Azure. ServiceBus SDK non espone questa funzionalità.
 
-Il bus di servizio dispone di una funzionalità, usata specificamente per lo sviluppo, che **non deve mai essere usata nelle configurazioni di produzione**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering].
+Il bus di servizio dispone di una funzionalità, usata specificamente per lo sviluppo, che **non deve mai essere usata nelle configurazioni di produzione**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] .
 
 Quando vengono aggiunti nuovi filtri o regole all'argomento, è possibile utilizzare [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] per verificare che la nuova espressione di filtro funzioni come previsto.
 
@@ -355,7 +347,7 @@ Obiettivo: ridurre la latenza end-to-end di una coda o di un argomento. Il numer
 
 Obiettivo: aumentare la velocità effettiva di una coda o di un argomento con un numero elevato di mittenti. Ogni mittente invia messaggi con una velocità moderata. Il numero di ricevitori è limitato.
 
-Il bus di servizio consente un massimo di 1000 connessioni simultanee a un'entità di messaggistica (o 5000 con AMQP). Questo limite viene applicato a livello di spazio dei nomi e le code, le sottoscrizioni o gli argomenti sono limitati in base al numero massimo di connessioni simultanee per spazio dei nomi. Per le code, questo numero è condiviso tra mittenti e ricevitori. Se sono necessarie tutte e 1000 le connessioni per i mittenti, sostituire la coda con un argomento e una singola sottoscrizione. Un argomento accetta fino a 1000 connessioni simultanee dai mittenti, mentre la sottoscrizione accetta altre 1000 connessioni simultanee dai ricevitori. Se sono necessari più di 1000 mittenti simultanei, i mittenti devono inviare i messaggi al protocollo del bus di servizio tramite HTTP.
+Il bus di servizio consente fino a 1000 connessioni simultanee a un'entità di messaggistica. Questo limite viene applicato a livello di spazio dei nomi e le code, le sottoscrizioni o gli argomenti sono limitati in base al numero massimo di connessioni simultanee per spazio dei nomi. Per le code, questo numero è condiviso tra mittenti e ricevitori. Se sono necessarie tutte e 1000 le connessioni per i mittenti, sostituire la coda con un argomento e una singola sottoscrizione. Un argomento accetta fino a 1000 connessioni simultanee dai mittenti, mentre la sottoscrizione accetta altre 1000 connessioni simultanee dai ricevitori. Se sono necessari più di 1000 mittenti simultanei, i mittenti devono inviare i messaggi al protocollo del bus di servizio tramite HTTP.
 
 Per ottimizzare la velocità effettiva, seguire questa procedura:
 

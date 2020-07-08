@@ -1,23 +1,13 @@
 ---
 title: Sicurezza di rete per il bus di servizio di Azure
 description: Questo articolo descrive le funzionalità di sicurezza di rete, ad esempio tag di servizio, regole del firewall IP, endpoint di servizio ed endpoint privati.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.author: aschhab
-ms.openlocfilehash: 95f8c2a3b47b59bab7df909be43dacdb1f9c58f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79479280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341139"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Sicurezza di rete per il bus di servizio di Azure 
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con il bus di servizio di Azure: 
@@ -29,21 +19,24 @@ Questo articolo descrive come usare le funzionalità di sicurezza seguenti con i
 
 
 ## <a name="service-tags"></a>Tag di servizio
-Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi, riducendo al minimo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per altre informazioni sui tag di servizio, vedere [Cenni preliminari sui tag di servizio](../virtual-network/service-tags-overview.md).
+Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per altre informazioni sui tag di servizio, vedere [Cenni preliminari sui tag di servizio](../virtual-network/service-tags-overview.md).
 
-È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md). Usare i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **ServiceBus**) nel campo di *origine* o di *destinazione* appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
+È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **ServiceBus**) nel campo di *origine* o di *destinazione* appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
 
-| Tag servizio | Scopo | È possibile usare in ingresso o in uscita? | Può essere regionale? | È possibile usare con il firewall di Azure? |
+| Tag di servizio | Scopo | È possibile usarlo in ingresso o in uscita? | Può essere regionale? | È possibile usarlo con Firewall di Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ServiceBus** | Traffico del bus di servizio di Azure che usa il livello di servizio Premium. | In uscita | Sì | Sì |
+| **Bus di servizio** | Traffico del bus di servizio di Azure che usa il livello di servizio Premium. | In uscita | Sì | Sì |
 
+
+> [!NOTE]
+> È possibile usare i tag del servizio solo per gli spazi dei nomi **Premium** . Se si utilizza uno spazio dei nomi **standard** , utilizzare l'indirizzo IP visualizzato quando si esegue il comando seguente: `nslookup <host name for the namespace>` . Ad esempio: `nslookup contosons.servicebus.windows.net`. 
 
 ## <a name="ip-firewall"></a>Firewall IP 
-Per impostazione predefinita, gli spazi dei nomi del bus di servizio sono accessibili da Internet, purché la richiesta venga fornita con autenticazione e autorizzazione valide. Con il firewall IP, è possibile limitarlo ulteriormente a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (instradamento tra domini senza classi)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+Per impostazione predefinita, gli spazi dei nomi del bus di servizio sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Questa funzionalità è utile negli scenari in cui il bus di servizio di Azure deve essere accessibile solo da determinati siti noti. Le regole del firewall consentono di configurare regole per accettare il traffico originato da indirizzi IPv4 specifici. Ad esempio, se si usa il bus di servizio con [Azure Express Route] [Express-Route], è possibile creare una **regola del firewall** per consentire il traffico solo da indirizzi IP o indirizzi IP dell'infrastruttura locale di un gateway NAT aziendale. 
+Questa funzionalità è utile negli scenari in cui il bus di servizio deve essere accessibile solo da siti noti specifici. Le regole del firewall consentono di configurare regole di ammissione del traffico proveniente da indirizzi IPv4 specifici. Ad esempio, se si usa il bus di servizio con [Azure Express Route] [Express-Route], è possibile creare una **regola del firewall** per consentire il traffico solo da indirizzi IP o indirizzi IP dell'infrastruttura locale di un gateway NAT aziendale. 
 
-Le regole del firewall IP vengono applicate al livello dello spazio dei nomi del bus di servizio. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato. Qualsiasi tentativo di connessione proveniente da un indirizzo IP che non corrisponde a una regola di indirizzi IP consentiti nello spazio dei nomi di bus di servizio di Microsoft Azure viene rifiutato come non autorizzato. Nella risposta non viene fatto riferimento alla regola IP. Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
+Le regole del firewall IP vengono applicate a livello dello spazio dei nomi del bus di servizio. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato. Qualsiasi tentativo di connessione proveniente da un indirizzo IP che non corrisponde a una regola di indirizzi IP consentiti nello spazio dei nomi di bus di servizio di Microsoft Azure viene rifiutato come non autorizzato. Nella risposta non viene fatto riferimento alla regola IP. Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
 
 Per ulteriori informazioni, vedere [come configurare un firewall IP per uno spazio dei nomi del bus di servizio](service-bus-ip-filtering.md)
 
@@ -79,16 +72,16 @@ Per ulteriori informazioni, vedere [come configurare gli endpoint del servizio r
 
 ## <a name="private-endpoints"></a>Endpoint privati
 
-Il servizio di collegamento privato di Azure consente di accedere ai servizi di Azure (ad esempio, il bus di servizio di Azure, archiviazione di Azure e Azure Cosmos DB) e i servizi cliente/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
+Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio al bus di servizio di Azure, ad Archiviazione di Azure e ad Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
 
-Un endpoint privato è un'interfaccia di rete che si connette privatamente e in modo sicuro a un servizio basato sul collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
+Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
 Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
 > [!NOTE]
-> Questa funzionalità è supportata con il livello **Premium** del bus di servizio di Azure. Per ulteriori informazioni sul livello Premium, vedere l'articolo relativo ai [livelli di messaggistica standard e Premium del bus di servizio](service-bus-premium-messaging.md) .
+> Questa funzionalità è supportata con il livello **Premium** del bus di servizio di Azure. Per altre informazioni sul livello Premium, vedere l'articolo [Livelli di messaggistica Premium e Standard del bus di servizio](service-bus-premium-messaging.md).
 >
-> Questa funzionalità è attualmente disponibile in **Anteprima**. 
+> Questa funzionalità è attualmente disponibile in **anteprima**. 
 
 
 Per altre informazioni, vedere [come configurare gli endpoint privati per uno spazio dei nomi del bus di servizio](private-link-service.md)

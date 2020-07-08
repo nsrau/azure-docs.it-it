@@ -2,20 +2,19 @@
 title: Eseguire il provisioning delle app con filtri di ambito | Microsoft Docs
 description: Informazioni su come usare i filtri di ambito per evitare che venga eseguito il provisioning degli oggetti inclusi nelle app che supportano il provisioning automatico degli utenti se un oggetto non soddisfa i requisiti aziendali.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: mimart
-ms.openlocfilehash: 71c2e3a83c3d63d375935294a25a369ca7e54d80
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.topic: how-to
+ms.date: 06/08/2020
+ms.author: kenwith
+ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593745"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781957"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -29,7 +28,7 @@ I filtri di ambito possono essere usati in modo diverso a seconda del tipo di co
 * **Provisioning in uscita da Azure AD ad applicazioni SaaS**. Quando Azure AD è il sistema di origine, le [assegnazioni di utenti e gruppi](../manage-apps/assign-user-or-group-access-portal.md) sono il metodo più comune per determinare quali utenti sono inclusi nell'ambito per il provisioning. Queste assegnazioni vengono usate anche per l'abilitazione dell'accesso Single Sign-On e offrono un unico metodo per gestire l'accesso e il provisioning. I filtri di ambito possono essere usati facoltativamente, oltre o in sostituzione delle assegnazioni, per filtrare gli utenti in base ai valori di attributo.
 
     >[!TIP]
-    > È possibile disabilitare il provisioning in base alle assegnazioni per un'applicazione aziendale modificando le impostazioni nel menu [Ambito](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) nelle impostazioni di provisioning su **Sincronizza tutti gli utenti e i gruppi**. L'uso di questa opzione insieme ai filtri di ambito basati su attributi offre prestazioni più veloci rispetto all'uso di assegnazioni basate su gruppo.  
+    > È possibile disabilitare il provisioning in base alle assegnazioni per un'applicazione aziendale modificando le impostazioni nel menu [Ambito](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) nelle impostazioni di provisioning su **Sincronizza tutti gli utenti e i gruppi**. 
 
 * **Provisioning in ingresso dalle applicazioni di Gestione connessione ibrida ad Azure AD e Active Directory**. Quando il sistema di origine è un'[applicazione di Gestione connessione ibrida come Workday](../saas-apps/workday-tutorial.md), i filtri di ambito sono il metodo principale per determinare gli utenti che devono eseguire il provisioning dall'applicazione Gestione connessione ibrida ad Active Directory o Azure AD.
 
@@ -64,7 +63,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
 2. Selezionare l'applicazione per cui è stato configurato il provisioning automatico, ad esempio "ServiceNow".
 
-3. Selezionare la scheda **provisioning** .
+3. Selezionare la scheda **Provisioning**.
 
 4. Nella sezione **Mapping** selezionare il mapping per cui si vuole configurare un filtro di ambito, ad esempio "Synchronize Azure Active Directory Users to ServiceNow" (Sincronizzare gli utenti di Azure Active Directory in ServiceNow).
 
@@ -119,7 +118,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 | Target Attribute| Operatore | valore | Descrizione|
 |----|----|----|----|
 |userPrincipalName|CORRISPONDENZA REGEX|.\*@domain.com |Tutti gli utenti con userPrincipal con il dominio @domain.com saranno nell'ambito per il provisioning|
-|userPrincipalName|NON CORRISPONDENZA REGEX|.\*@domain.com|Tutti gli utenti con userPrincipal che possiede il @domain.com dominio saranno fuori dall'ambito per il provisioning|
+|userPrincipalName|NON CORRISPONDENZA REGEX|.\*@domain.com|Tutti gli utenti con userPrincipal che possiede il dominio @domain.com saranno fuori dall'ambito per il provisioning|
 |department|EQUALS|sales|Tutti gli utenti del reparto vendite rientrano nell'ambito del provisioning|
 |workerID|CORRISPONDENZA REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Tutti i dipendenti con workerIDs compreso tra 1 milione e 2 milioni rientrano nell'ambito del provisioning.|
 
@@ -129,5 +128,5 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 * [Scrivere espressioni per il mapping degli attributi](functions-for-customizing-application-data.md)
 * [Notifiche relative al provisioning dell'account](../app-provisioning/user-provisioning.md)
 * [Usare SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](../app-provisioning/use-scim-to-provision-users-and-groups.md)
-* [Elenco delle esercitazioni su come integrare le app SaaS](../saas-apps/tutorial-list.md)
+* [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)
 

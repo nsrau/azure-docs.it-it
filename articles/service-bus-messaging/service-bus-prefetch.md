@@ -1,24 +1,13 @@
 ---
 title: Prelettura di messaggi del bus di servizio di Azure | Microsoft Docs
 description: Migliorare le prestazioni tramite la prelettura del bus di servizio di Azure. I messaggi sono immediatamente disponibili per il recupero locale prima che vengano richiesti dall'applicazione.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 80717ab940d27e9bf108b3740309bcd7d71668fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 05e23b0590f0c04171efda8fb561b4c2664ed096
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76760658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341055"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prelettura dei messaggi del bus di servizio di Azure
 
@@ -32,7 +21,7 @@ Con .NET è possibile abilitare la funzionalità Prelettura impostando la propri
 
 È possibile aggiungere con facilità questa impostazione sul lato di ricezione delle impostazioni degli esempi [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) o [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) per verificare l'effetto in questi contesti.
 
-Mentre i messaggi sono disponibili nel buffer di prelettura, le successive chiamate**ReceiveAsync** di **ricezione**/vengono soddisfatte immediatamente dal buffer e il buffer viene riempito in background quando lo spazio diventa disponibile. Se non sono presenti messaggi disponibili per il recapito, l'operazione di ricezione svuota il buffer e quindi attende o si blocca, in base a quanto previsto.
+Mentre i messaggi sono disponibili nel buffer di prelettura, le **Receive**successive / chiamate**ReceiveAsync** di ricezione vengono soddisfatte immediatamente dal buffer e il buffer viene riempito in background quando lo spazio diventa disponibile. Se non sono presenti messaggi disponibili per il recapito, l'operazione di ricezione svuota il buffer e quindi attende o si blocca, in base a quanto previsto.
 
 La prelettura funziona allo stesso modo anche con le API [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e [OnMessageAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync).
 

@@ -2,20 +2,19 @@
 title: Personalizzazione dei mapping degli attributi di Azure AD | Microsoft Docs
 description: Informazioni sui mapping degli attributi per app SaaS in Azure Active Directory e su come è possibile modificarli in base alle esigenze aziendali.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2019
-ms.author: mimart
-ms.openlocfilehash: 9697bc2abd147a501466ba134f96512fe15173c0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.author: kenwith
+ms.openlocfilehash: 70795c703810212c3b46d06254a0c3ebdcb418f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639041"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782042"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory
 

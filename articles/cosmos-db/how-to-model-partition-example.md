@@ -3,19 +3,18 @@ title: Modellare e partizionare i dati in Azure Cosmos DB con un esempio reale
 description: Informazioni su come modellare e partizionare un esempio reale usando l'API Core di Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: af5211e82820c1052b9ea17ce1fbdb0ebd5b9f3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75445385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800376"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
 
-Questo articolo si basa su alcuni concetti di Azure Cosmos DB, ad esempio la [modellazione di dati](modeling-data.md), il [partizionamento](partitioning-overview.md) e la [velocità effettiva con provisioning](request-units.md), per illustrare come affrontare un esercizio di progettazione dei dati reali.
+Questo articolo si basa su diversi concetti Azure Cosmos DB come la [modellazione dei dati](modeling-data.md), il [partizionamento](partitioning-overview.md)e la [velocità effettiva con provisioning](request-units.md) per illustrare come affrontare un esercizio di progettazione dei dati reale.
 
 Se in genere si lavora con i database relazionali, saranno già state implementate abitudini e intuizioni su come progettare un modello di dati. A causa dei vincoli specifici, ma anche grazie ai punti di forza di Azure Cosmos DB, la maggior parte di queste procedure consigliate non produce il risultato auspicato e può condurre a soluzioni meno che ottimali. L'obiettivo di questo articolo è guidare l'utente attraverso il processo completo di un caso di utilizzo reale di modellazione in Azure Cosmos DB, dalla modellazione degli elementi alla condivisione del percorso delle entità e al partizionamento del contenitore.
 
@@ -65,10 +64,12 @@ Si inizia con due contenitori: `users` e `posts`.
 
 In questo contenitore vengono archiviati solo gli elementi utente:
 
-    {
-      "id": "<user-id>",
-      "username": "<username>"
-    }
+```json
+{
+    "id": "<user-id>",
+    "username": "<username>"
+}
+```
 
 Il contenitore viene partizionato in base a `id`, cioè ogni partizione logica al suo interno conterrà un solo elemento.
 
@@ -76,32 +77,34 @@ Il contenitore viene partizionato in base a `id`, cioè ogni partizione logica a
 
 Questo contenitore ospita post, commenti e Mi piace:
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "creationDate": "<post-creation-date>"
+}
 
-    {
-      "id": "<comment-id>",
-      "type": "comment",
-      "postId": "<post-id>",
-      "userId": "<comment-author-id>",
-      "content": "<comment-content>",
-      "creationDate": "<comment-creation-date>"
-    }
+{
+    "id": "<comment-id>",
+    "type": "comment",
+    "postId": "<post-id>",
+    "userId": "<comment-author-id>",
+    "content": "<comment-content>",
+    "creationDate": "<comment-creation-date>"
+}
 
-    {
-      "id": "<like-id>",
-      "type": "like",
-      "postId": "<post-id>",
-      "userId": "<liker-id>",
-      "creationDate": "<like-creation-date>"
-    }
+{
+    "id": "<like-id>",
+    "type": "like",
+    "postId": "<post-id>",
+    "userId": "<liker-id>",
+    "creationDate": "<like-creation-date>"
+}
+```
 
 Il contenitore viene partizionato in base a `postId`, cioè ogni partizione logica al suo interno conterrà un solo post, tutti i commenti per tale post e tutti i Mi piace per tale post.
 
@@ -122,9 +125,9 @@ A questo punto verranno valutate le prestazioni e la scalabilità della prima ve
 
 Questa richiesta è semplice da implementare in quanto è sufficiente creare o aggiornare un elemento nel contenitore `users`. Le richieste si suddivideranno perfettamente in tutte le partizioni grazie alla chiave di partizione `id`.
 
-![Scrittura di un singolo elemento nel contenitore utenti](./media/how-to-model-partition-example/V1-C1.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C1.png" alt-text="Scrittura di un singolo elemento nel contenitore utenti" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 7 ms | 5,71 UR | ✅ |
 
@@ -132,9 +135,9 @@ Questa richiesta è semplice da implementare in quanto è sufficiente creare o a
 
 Per recuperare un utente si legge l'elemento corrispondente dal contenitore `users`.
 
-![Recupero di un singolo elemento dal contenitore utenti](./media/how-to-model-partition-example/V1-Q1.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="Recupero di un singolo elemento dal contenitore utenti" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 2 ms | 1 UR | ✅ |
 
@@ -142,9 +145,9 @@ Per recuperare un utente si legge l'elemento corrispondente dal contenitore `use
 
 Analogamente a **[C1]**, occorre solo scrivere nel contenitore `posts`.
 
-![Scrittura di un singolo elemento nel contenitore post](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Scrittura di un singolo elemento nel contenitore post" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 9 ms | 8,76 UR | ✅ |
 
@@ -152,11 +155,11 @@ Analogamente a **[C1]**, occorre solo scrivere nel contenitore `posts`.
 
 Si inizia con il recupero del documento corrispondente dal contenitore `posts`. Dal momento che non è sufficiente, in base alla specifica è anche necessario aggregare il nome utente dell'autore del post e il numero di commenti e di Mi piace ricevuti da questo post, per cui occorre eseguire tre query SQL aggiuntive.
 
-![Recupero di un post e aggregazione dei dati aggiuntivi](./media/how-to-model-partition-example/V1-Q2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="Recupero di un post e aggregazione dei dati aggiuntivi" border="false":::
 
 Ognuna delle query aggiuntive filtra la chiave di partizione del rispettivo contenitore, che è proprio ciò che si vuole ottenere per ottimizzare le prestazioni e la scalabilità. Tuttavia, alla fine sarà necessario eseguire quattro operazioni per restituire un singolo post, perciò si procederà a migliorarlo nella prossima iterazione.
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 9 ms | 19,54 UR | ⚠ |
 
@@ -164,14 +167,14 @@ Ognuna delle query aggiuntive filtra la chiave di partizione del rispettivo cont
 
 In primo luogo, è necessario recuperare i post desiderati con una query SQL che recupera i post corrispondenti a tale utente specifico. Ma è anche necessario eseguire query aggiuntive per aggregare il nome utente dell'autore e i numeri di commenti e Mi piace.
 
-![Recupero di tutti i post di un utente e aggregazione dei dati aggiuntivi](./media/how-to-model-partition-example/V1-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="Recupero di tutti i post di un utente e aggregazione dei dati aggiuntivi" border="false":::
 
 Questa implementazione presenta numerosi svantaggi:
 
 - è necessario eseguire le query che aggregano i numeri di commenti e Mi piace per ogni post restituito dalla prima query
 - la query principale non filtra la chiave di partizione del contenitore `posts`, causando un fan-out e un'analisi della partizione nell'intero contenitore.
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 130 ms | 619,41 UR | ⚠ |
 
@@ -179,9 +182,9 @@ Questa implementazione presenta numerosi svantaggi:
 
 Per creare un commento basta scrivere l'elemento corrispondente nel contenitore `posts`.
 
-![Scrittura di un singolo elemento nel contenitore post](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Scrittura di un singolo elemento nel contenitore post" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 7 ms | 8,57 UR | ✅ |
 
@@ -189,11 +192,11 @@ Per creare un commento basta scrivere l'elemento corrispondente nel contenitore 
 
 Per iniziare, si esegue una query che recupera tutti i commenti per tale post e, anche in questo caso, è necessario aggregare i nomi utente separatamente per ogni commento.
 
-![Recupero di tutti i commenti a un post e aggregazione dei dati aggiuntivi](./media/how-to-model-partition-example/V1-Q4.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="Recupero di tutti i commenti a un post e aggregazione dei dati aggiuntivi" border="false":::
 
 Anche se la query principale filtra la chiave di partizione del contenitore, aggregare separatamente i nomi utente penalizza le prestazioni complessive. Sarà possibile migliorarle in un secondo momento.
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 23 ms | 27,72 UR | ⚠ |
 
@@ -201,9 +204,9 @@ Anche se la query principale filtra la chiave di partizione del contenitore, agg
 
 Come per **[C3]**, basta scrivere l'elemento corrispondente nel contenitore `posts`.
 
-![Scrittura di un singolo elemento nel contenitore post](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Scrittura di un singolo elemento nel contenitore post" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 6 ms | 7,05 UR | ✅ |
 
@@ -211,9 +214,9 @@ Come per **[C3]**, basta scrivere l'elemento corrispondente nel contenitore `pos
 
 Analogamente a **[Q4]**, si esegue una query per i Mi piace ricevuti da tale post, quindi si aggregano i relativi nomi utente.
 
-![Recupero di tutti i Mi piace ricevuti da un post e aggregazione dei dati aggiuntivi](./media/how-to-model-partition-example/V1-Q5.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Recupero di tutti i Mi piace ricevuti da un post e aggregazione dei dati aggiuntivi" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 59 ms | 58,92 UR | ⚠ |
 
@@ -221,11 +224,11 @@ Analogamente a **[Q4]**, si esegue una query per i Mi piace ricevuti da tale pos
 
 Si recuperano i post più recenti eseguendo la query del contenitore `posts` per data di creazione decrescente, quindi si aggregano i nomi utente e il numero di commenti e Mi piace per ciascuno dei post.
 
-![Recupero dei post più recenti e aggregazione dei dati aggiuntivi](./media/how-to-model-partition-example/V1-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="Recupero dei post più recenti e aggregazione dei dati aggiuntivi" border="false":::
 
 Ancora una volta, la query iniziale non filtra sulla chiave di partizione del `posts` contenitore, che attiva un fan-out costoso. Questo è ancora peggio quando si fa riferimento a un set di risultati molto più ampio e si ordinano i risultati con una `ORDER BY` clausola, il che rende più costosa in termini di unità richiesta.
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 306 ms | 2063,54 UR | ⚠ |
 
@@ -244,39 +247,43 @@ Il motivo per cui in alcuni casi è necessario eseguire richieste aggiuntive è 
 
 In questo esempio, si modificano i post aggiungendo il nome utente del relativo autore, il numero di commenti e il numero di Mi piace:
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 Si modificano anche i commenti e i Mi piace aggiungendo il nome utente del relativo autore:
 
-    {
-      "id": "<comment-id>",
-      "type": "comment",
-      "postId": "<post-id>",
-      "userId": "<comment-author-id>",
-      "userUsername": "<comment-author-username>",
-      "content": "<comment-content>",
-      "creationDate": "<comment-creation-date>"
-    }
+```json
+{
+    "id": "<comment-id>",
+    "type": "comment",
+    "postId": "<post-id>",
+    "userId": "<comment-author-id>",
+    "userUsername": "<comment-author-username>",
+    "content": "<comment-content>",
+    "creationDate": "<comment-creation-date>"
+}
 
-    {
-      "id": "<like-id>",
-      "type": "like",
-      "postId": "<post-id>",
-      "userId": "<liker-id>",
-      "userUsername": "<liker-username>",
-      "creationDate": "<like-creation-date>"
-    }
+{
+    "id": "<like-id>",
+    "type": "like",
+    "postId": "<post-id>",
+    "userId": "<liker-id>",
+    "userUsername": "<liker-username>",
+    "creationDate": "<like-creation-date>"
+}
+```
 
 ### <a name="denormalizing-comment-and-like-counts"></a>Denormalizzazione del numero di commenti e Mi piace
 
@@ -328,7 +335,7 @@ I nomi utente richiedono un approccio diverso in quanto gli utenti non solo si t
 
 In questo esempio, si usa il feed delle modifiche del contenitore `users` per reagire ogni volta che gli utenti aggiornano i propri nomi utente. In questo caso, si propaga la modifica chiamando un'altra stored procedure sul contenitore `posts`:
 
-![Denormalizzazione dei nomi utente nel contenitore post](./media/how-to-model-partition-example/denormalization-1.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="Denormalizzazione dei nomi utente nel contenitore post" border="false":::
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -368,9 +375,9 @@ Questa stored procedure accetta l'ID dell'utente e il nuovo nome utente come par
 
 Ora che la denormalizzazione è stata applicata, è necessario solo recuperare un singolo elemento per gestire tale richiesta.
 
-![Recupero di un singolo elemento dal contenitore post](./media/how-to-model-partition-example/V2-Q2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="Recupero di un singolo elemento dal contenitore post" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 2 ms | 1 UR | ✅ |
 
@@ -378,9 +385,9 @@ Ora che la denormalizzazione è stata applicata, è necessario solo recuperare u
 
 Anche in questo caso, è possibile fare a meno delle richieste aggiuntive che recuperavano i nomi utente e terminare con una singola query che filtra la chiave di partizione.
 
-![Recupero di tutti i commenti per un post](./media/how-to-model-partition-example/V2-Q4.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="Recupero di tutti i commenti per un post" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 4 ms | 7,72 UR | ✅ |
 
@@ -388,9 +395,9 @@ Anche in questo caso, è possibile fare a meno delle richieste aggiuntive che re
 
 La stessa esatta situazione di quando si elencano i Mi piace.
 
-![Recupero di tutti i Mi piace per un post](./media/how-to-model-partition-example/V2-Q5.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Recupero di tutti i Mi piace per un post" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 4 ms | 8,92 UR | ✅ |
 
@@ -402,7 +409,7 @@ Esaminando i miglioramenti delle prestazioni complessivi, ci sono ancora due ric
 
 Questa richiesta trae già vantaggio dai miglioramenti introdotti nella V2, permettendo di evitare query aggiuntive.
 
-![Recupero di tutti i post per un utente](./media/how-to-model-partition-example/V2-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Recupero di tutti i post per un utente" border="false":::
 
 Tuttavia, la query rimanente continua a non filtrare la chiave di partizione del contenitore `posts`.
 
@@ -417,25 +424,27 @@ Quindi, si introduce un secondo livello di denormalizzazione duplicando interi p
 
 Il contenitore `users` ora contiene due tipi di elementi:
 
-    {
-      "id": "<user-id>",
-      "type": "user",
-      "userId": "<user-id>",
-      "username": "<username>"
-    }
+```json
+{
+    "id": "<user-id>",
+    "type": "user",
+    "userId": "<user-id>",
+    "username": "<username>"
+}
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 Tenere presente quanto segue:
 
@@ -444,13 +453,13 @@ Tenere presente quanto segue:
 
 Per conseguire tale denormalizzazione, si usa ancora una volta il feed di modifiche. Questa volta, si risponde al feed di modifiche del contenitore `posts` per inviare post nuovi o aggiornati al contenitore `users`. In più, dal momento che per elencare i post non è necessario restituirne il contenuto completo, è possibile troncarli nel processo.
 
-![Denormalizzazione dei post nel contenitore utenti](./media/how-to-model-partition-example/denormalization-2.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="Denormalizzazione dei post nel contenitore utenti" border="false":::
 
 A questo punto è possibile indirizzare la query al contenitore `users`, filtrando la chiave di partizione del contenitore.
 
-![Recupero di tutti i post per un utente](./media/how-to-model-partition-example/V3-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="Recupero di tutti i post per un utente" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 4 ms | 6,46 UR | ✅ |
 
@@ -458,30 +467,32 @@ A questo punto è possibile indirizzare la query al contenitore `users`, filtran
 
 In questo caso è necessario affrontare una situazione analoga: anche dopo aver evitato le query aggiuntive, rese superflue dalla denormalizzazione introdotta nella V2, la query rimanente non filtra la chiave di partizione del contenitore:
 
-![Recupero dei post più recenti](./media/how-to-model-partition-example/V2-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Recupero dei post più recenti" border="false":::
 
 Seguendo lo stesso approccio, per ottimizzare le prestazioni e la scalabilità di questa richiesta, è necessario inviarla a una sola partizione. Ciò è plausibile perché occorre restituire solo un numero limitato di elementi; per poter popolare la home page della piattaforma di blog, è sufficiente ottenere i 100 post più recenti, senza la necessità di eseguire la paginazione attraverso l'intero set di dati.
 
 Dunque, per ottimizzare quest'ultima richiesta, si introduce nella progettazione un terzo contenitore, interamente dedicato a rispondere a questa richiesta. Si esegue la denormalizzazione dei post nel nuovo contenitore `feed`:
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 Questo contenitore è suddiviso in partizioni per `type`, che sarà sempre `post` negli elementi di questo esempio. Questa operazione assicura che tutti gli elementi in questo contenitore si troveranno nella stessa partizione.
 
 Per ottenere la denormalizzazione, è sufficiente utilizzare la pipeline del feed di modifiche introdotta in precedenza per inviare i post al nuovo contenitore. È importante ricordare che è necessario assicurarsi che vengano archiviati solo i 100 post più recenti. In caso contrario, il contenuto del contenitore può eccedere le dimensioni massime di una partizione. Per eseguire questa operazione si chiama un [post-trigger](stored-procedures-triggers-udfs.md#triggers) ogni volta che viene aggiunto un documento al contenitore:
 
-![Denormalizzazione dei post nel contenitore feed](./media/how-to-model-partition-example/denormalization-3.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="Denormalizzazione dei post nel contenitore feed" border="false":::
 
 Di seguito è riportato il corpo del post-trigger che tronca la raccolta:
 
@@ -532,9 +543,9 @@ function truncateFeed() {
 
 Il passaggio finale consiste nel reindirizzare la query al nuovo contenitore `feed`:
 
-![Recupero dei post più recenti](./media/how-to-model-partition-example/V3-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="Recupero dei post più recenti" border="false":::
 
-| **Latenza** | **Addebito UR** | **Prestazioni** |
+| **Latency** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
 | 9 ms | 16,97 UR | ✅ |
 
@@ -547,7 +558,7 @@ Verranno ora esaminati i miglioramenti complessivi delle prestazioni e della sca
 | **C1** | 7 ms/5,71 UR | 7 ms/5,71 UR | 7 ms/5,71 UR |
 | **Q1** | 2 ms/1 UR | 2 ms/1 UR | 2 ms/1 UR |
 | **C2** | 9 ms/8,76 UR | 9 ms/8,76 UR | 9 ms/8,76 UR |
-| **[Q2]** | 9 ms/ 19,54 UR | 2 ms/1 UR | 2 ms/1 UR |
+| **Q2** | 9 ms/ 19,54 UR | 2 ms/1 UR | 2 ms/1 UR |
 | **Q3** | 130 ms/619,41 UR | 28 ms/201,54 UR | 4 ms/6,46 UR |
 | **C3** | 7 ms/8,57 UR | 7 ms /15.27 RU | 7 ms /15.27 RU |
 | **[Q4]** | 23 ms/27,72 UR | 4 ms/7,72 UR | 4 ms/7,72 UR |
@@ -574,5 +585,5 @@ Il feed di modifiche usato per distribuire gli aggiornamenti negli altri conteni
 Dopo questa introduzione pratica alla modellazione di dati e al partizionamento, consultare gli articoli seguenti per rivedere i concetti che sono stati trattati:
 
 - [Usare database, contenitori ed elementi](databases-containers-items.md)
-- [Partizionamento in Azure Cosmos DB](partitioning-overview.md)
-- [Feed di modifiche in Azure Cosmos DB](change-feed.md)
+- [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partizionamento in Azure Cosmos DB)
+- [Feed delle modifiche in Azure Cosmos DB](change-feed.md)

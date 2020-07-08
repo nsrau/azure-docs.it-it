@@ -5,16 +5,15 @@ services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f264a62428f919fe23797171926ddf63c585c42b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: 628631fb7fddbc07dcb865e3d3badbfb608ad097
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234137"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214452"
 ---
 # <a name="query-csv-files"></a>Eseguire query su file CSV
 
@@ -179,6 +178,37 @@ WHERE
 
 > [!NOTE]
 > Questa query avrà esito negativo se il parametro ESCAPECHAR non è specificato perché la virgola in "Slov,enia" verrebbe considerata come delimitatore di campo anziché come parte del nome del Paese/dell'area. "Slov,enia" verrebbe considerato come composto da due colonne. La riga specifica avrà quindi una colonna in più rispetto alle altre righe e una colonna in più rispetto a quelle definite nella clausola WITH.
+
+### <a name="escaping-quoting-characters"></a>Escape di caratteri di virgolette
+
+Nella query seguente viene illustrato come leggere un file con una riga di intestazione, con una nuova riga di tipo UNIX, colonne delimitate da virgole e un carattere di virgolette doppie con caratteri di escape all'interno dei valori. Si noti la posizione diversa del file rispetto agli altri esempi.
+
+Anteprima file:
+
+![Nella query seguente viene illustrato come leggere un file con una riga di intestazione, con una nuova riga di tipo UNIX, colonne delimitate da virgole e un carattere di virgolette doppie con caratteri di escape all'interno dei valori.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+
+```sql
+SELECT *
+FROM OPENROWSET(
+        BULK 'csv/population-unix-hdr-escape-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIELDTERMINATOR =',',
+        ROWTERMINATOR = '0x0a',
+        FIRSTROW = 2
+    )
+    WITH (
+        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+        [year] smallint,
+        [population] bigint
+    ) AS [r]
+WHERE
+    country_name = 'Slovenia';
+```
+
+> [!NOTE]
+> Il carattere di virgolette deve essere impostato come escape con un altro carattere di virgolette. Il carattere di virgolette può essere visualizzato all'interno del valore della colonna solo se il valore è incapsulato con caratteri di virgolette.
 
 ## <a name="tab-delimited-files"></a>File delimitati da tabulazioni
 

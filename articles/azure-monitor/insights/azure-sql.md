@@ -7,12 +7,11 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 921a05c4dc6c1d5cfa663ac71b469573b8f1925b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249416"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
@@ -41,13 +40,13 @@ Analisi SQL di Azure è una soluzione di monitoraggio solo cloud che supporta la
 
 ## <a name="azure-sql-analytics-options"></a>Opzioni di Analisi SQL di Azure
 
-Nella tabella seguente sono descritte le opzioni supportate per due versioni del dashboard di Analisi SQL di Azure, una per i database singoli e in pool e i pool elastici e l'altra per le istanze gestite e i database dell'istanza.
+La tabella seguente descrive le opzioni supportate per due versioni del dashboard di Analisi SQL di Azure, una per il database SQL di Azure e l'altra per i database di Istanza gestita di Azure SQL.
 
-| Opzione Analisi SQL di Azure | Descrizione | Supporto per pool elastici e database singoli e in pool | Istanze gestite e supporto per database di istanze |
+| Opzione Analisi SQL di Azure | Descrizione | Supporto per database SQL | Supporto di SQL Istanza gestita |
 | --- | ------- | ----- | ----- |
 | Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | Sì | Sì |
 | Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | Sì | Sì |
-| Errors | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | Sì | Sì |
+| Errori | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | Sì | Sì |
 | Timeout | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. | Sì | No |
 | Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. | Sì | No |
 | Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |Sì | No |
@@ -58,11 +57,11 @@ Nella tabella seguente sono descritte le opzioni supportate per due versioni del
 
 Usare la procedura descritta in [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](../../azure-monitor/insights/solutions.md) per aggiungere analisi SQL di Azure (anteprima) all'area di lavoro log Analytics.
 
-### <a name="configure-azure-sql-databases-to-stream-diagnostics-telemetry"></a>Configurare i database SQL di Azure per eseguire lo streaming della telemetria di diagnostica
+### <a name="configure-azure-sql-database-to-stream-diagnostics-telemetry"></a>Configurare il database SQL di Azure per lo streaming della telemetria di diagnostica
 
 Dopo aver creato Analisi SQL di Azure soluzione nell'area di lavoro, è necessario **configurare ogni** risorsa che si vuole monitorare per trasmettere i dati di telemetria di diagnostica al analisi SQL di Azure. Seguire le istruzioni dettagliate in questa pagina:
 
-- Abilitare Diagnostica di Azure per il database SQL di Azure per [trasmettere i dati di telemetria di diagnostica ad Analisi SQL di Azure](../../sql-database/sql-database-metrics-diag-logging.md).
+- Abilitare Diagnostica di Azure per il database per trasmettere i dati di [telemetria di diagnostica ai analisi SQL di Azure](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
 La pagina sopra indicata include anche le istruzioni per abilitare il supporto per il monitoraggio di più sottoscrizioni di Azure da una singola area di lavoro di Analisi SQL di Azure come singola finestra.
 
@@ -72,13 +71,13 @@ Quando si aggiungono Analisi SQL di Azure all'area di lavoro, il riquadro Analis
 
 ![Riquadro di riepilogo Analisi SQL di Azure](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Una volta caricato, il riquadro Mostra il numero di database singoli e in pool, i pool elastici, le istanze gestite e i database dell'istanza gestita da cui Analisi SQL di Azure riceve la telemetria di diagnostica.
+Una volta caricato, il riquadro Mostra il numero di database e pool elastici nel database SQL e le istanze gestite e i database di istanza in SQL Istanza gestita da cui Analisi SQL di Azure riceve la telemetria di diagnostica.
 
 ![Riquadro Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
-In Analisi SQL di Azure sono disponibili due visualizzazioni separate, una per il monitoraggio di database singoli e database in pool e pool elastici, nonché l'altra visualizzazione per il monitoraggio di istanze gestite e database dell'istanza.
+In Analisi SQL di Azure sono disponibili due visualizzazioni separate, una per il monitoraggio del database SQL e l'altra per il monitoraggio di SQL Istanza gestita.
 
-Per visualizzare il dashboard di monitoraggio Analisi SQL di Azure per i database singoli e in pool e i pool elastici, fare clic sulla parte superiore del riquadro. Per visualizzare il dashboard di monitoraggio Analisi SQL di Azure per le istanze gestite e i database di istanza, fare clic sulla parte inferiore del riquadro.
+Per visualizzare il dashboard di monitoraggio Analisi SQL di Azure per il database SQL, fare clic sulla parte superiore del riquadro. Per visualizzare il dashboard di monitoraggio Analisi SQL di Azure per SQL Istanza gestita, fare clic sulla parte inferiore del riquadro.
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Visualizzazione dei dati di Analisi SQL di Azure
 
@@ -86,7 +85,7 @@ Il dashboard include la panoramica di tutti i database monitorati tramite prospe
 
 Se alcune metriche o log non vengono trasmessi in monitoraggio di Azure, i riquadri in Analisi SQL di Azure non vengono popolati con le informazioni di monitoraggio.
 
-### <a name="single-and-pooled-databases-and-elastic-pools-view"></a>Database singoli e in pool e visualizzazione dei pool elastici
+### <a name="sql-database-view"></a>Vista del database SQL
 
 Una volta selezionato il riquadro di Analisi SQL di Azure per il database, viene visualizzato il dashboard di monitoraggio.
 
@@ -98,7 +97,7 @@ La selezione di uno dei riquadri consente di visualizzare un report drill-down n
 
 Ogni prospettiva in questa vista fornisce riepiloghi a livello di sottoscrizione, server, pool elastico e database. Inoltre ogni prospettiva mostra una prospettiva specifica del report a destra. Selezionando una sottoscrizione, un server, un pool o un database nell'elenco, il drilldown continua.
 
-### <a name="managed-instance-and-instances-databases-view"></a>Visualizzazione database istanza e istanze gestite
+### <a name="sql-managed-instance-view"></a>Visualizzazione Istanza gestita SQL
 
 Una volta selezionato il riquadro di Analisi SQL di Azure per i database, viene visualizzato il dashboard di monitoraggio.
 
@@ -106,13 +105,13 @@ Una volta selezionato il riquadro di Analisi SQL di Azure per i database, viene 
 
 La selezione di uno dei riquadri consente di visualizzare un report drill-down nella prospettiva specifica. Dopo che la prospettiva è stata selezionata, viene aperto il report drilldown.
 
-Selezionando la visualizzazione istanza gestita, vengono visualizzati i dettagli sull'utilizzo dell'istanza gestita, i database in esso contenuti e i dati di telemetria sulle query eseguite nell'istanza.
+Selezionando la vista Istanza gestita SQL, vengono visualizzati i dettagli sull'utilizzo dell'istanza gestita, i database in esso contenuti e i dati di telemetria sulle query eseguite nell'istanza.
 
 ![Timeout di Analisi SQL di Azure](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
 ### <a name="intelligent-insights-report"></a>Report di Intelligent Insights
 
-[Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md) per il database SQL di Azure assicura un maggior controllo sulle prestazioni di tutti i database SQL di Azure. È possibile visualizzare e accedere a tutti i dati di Intelligent Insights raccolti tramite la prospettiva di Intelligent Insights.
+[Intelligent Insights](../../azure-sql/database/intelligent-insights-overview.md) per il database SQL di Azure assicura un maggior controllo sulle prestazioni di tutti i database SQL di Azure. È possibile visualizzare e accedere a tutti i dati di Intelligent Insights raccolti tramite la prospettiva di Intelligent Insights.
 
 ![Informazioni dettagliate di Analisi SQL di Azure](./media/azure-sql/azure-sql-sol-insights.png)
 
@@ -170,7 +169,7 @@ Dopo aver creato il nuovo ruolo, assegnarlo a ogni utente a cui è necessario co
 
 ## <a name="analyze-data-and-create-alerts"></a>Analizzare i dati e creare avvisi
 
-L'analisi dei dati in Analisi SQL di Azure è basata sul [linguaggio di Log Analytics](../log-query/get-started-queries.md) per la creazione di report e di query personalizzati. Per una descrizione dei dati disponibili raccolti dalla risorsa del database per la creazione di query personalizzate, vedere [Le metriche e i log disponibili](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+L'analisi dei dati in Analisi SQL di Azure è basata sul [linguaggio di Log Analytics](../log-query/get-started-queries.md) per la creazione di report e di query personalizzati. Per una descrizione dei dati disponibili raccolti dalla risorsa del database per la creazione di query personalizzate, vedere [Le metriche e i log disponibili](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
 
 Gli avvisi automatici in Analisi SQL di Azure si basano sulla scrittura di una query Log Analytics che attiva un avviso in seguito a una condizione soddisfatta. Di seguito sono riportati alcuni esempi di Log Analytics query su cui è possibile configurare gli avvisi in Analisi SQL di Azure.
 
@@ -178,7 +177,7 @@ Gli avvisi automatici in Analisi SQL di Azure si basano sulla scrittura di una q
 
 È possibile [creare avvisi](../platform/alerts-metric.md) facilmente con i dati provenienti dalle risorse del database SQL di Azure. Di seguito sono riportate alcune utili [query su log](../log-query/log-query-overview.md) che è possibile usare con un avviso log:
 
-#### <a name="high-cpu-on-azure-sql-database"></a>Elevato utilizzo della CPU nel database SQL di Azure
+#### <a name="high-cpu"></a>CPU elevata
 
 ```
 AzureMetrics
@@ -194,7 +193,7 @@ AzureMetrics
 > - Il prerequisito per la configurazione di questo avviso è che i database monitorati inviano metriche di base a Analisi SQL di Azure.
 > - Sostituire il valore cpu_percent di MetricName con dtu_consumption_percent per ottenere risultati di DTU elevati.
 
-#### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Elevato utilizzo della CPU nei pool elastici del database SQL di Azure
+#### <a name="high-cpu-on-elastic-pools"></a>CPU elevata nei pool elastici
 
 ```
 AzureMetrics
@@ -210,7 +209,7 @@ AzureMetrics
 > - Il prerequisito per la configurazione di questo avviso è che i database monitorati inviano metriche di base a Analisi SQL di Azure.
 > - Sostituire il valore cpu_percent di MetricName con dtu_consumption_percent per ottenere risultati di DTU elevati.
 
-#### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Archiviazione di database SQL di Azure in media superiore al 95% nell'ultima ora
+#### <a name="storage-in-average-above-95-in-the-last-1-hr"></a>Archiviazione in media superiore al 95% nelle ultime 1 hr
 
 ```
 let time_range = 1h;
@@ -254,9 +253,9 @@ AzureDiagnostics
 | distinct rootCauseAnalysis_s
 ```
 
-### <a name="creating-alerts-for-managed-instances"></a>Creazione di avvisi per le istanze gestite
+### <a name="creating-alerts-for-sql-managed-instance"></a>Creazione di avvisi per SQL Istanza gestita
 
-#### <a name="managed-instance-storage-is-above-90"></a>Archiviazione istanza gestita superiore al 90%
+#### <a name="storage-is-above-90"></a>Archiviazione superiore al 90%
 
 ```
 let storage_percentage_threshold = 90;
@@ -272,7 +271,7 @@ AzureDiagnostics
 > - Il requisito preliminare per la configurazione di questo avviso è che il monitoraggio dell'istanza gestita ha lo streaming del log ResourceUsageStats abilitato per Analisi SQL di Azure.
 > - Questa query richiede la configurazione di una regola di avviso per attivare un avviso quando sono presenti risultati (> 0 Risultati) dalla query, che indica che la condizione esiste nell'istanza gestita. L'output corrisponde al consumo percentuale di archiviazione nell'istanza gestita.
 
-#### <a name="managed-instance-cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Il consumo medio della CPU dell'istanza gestita è superiore al 95% nelle ultime 1 hr
+#### <a name="cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Il consumo medio della CPU è superiore al 95% nelle ultime 1 hr
 
 ```
 let cpu_percentage_threshold = 95;

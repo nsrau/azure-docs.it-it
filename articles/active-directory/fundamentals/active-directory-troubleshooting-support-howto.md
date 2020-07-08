@@ -7,7 +7,7 @@ author: msaburnley
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
@@ -15,15 +15,14 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1193bfc08ccbd86d4da09c4de472f09bb49208f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c49d795b80ed5e9536740e0d8fe877d070da87a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049930"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799369"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Trovare informazioni e aprire un ticket di supporto per Azure Active Directory
-Microsoft fornisce supporto tecnico, pre-vendita, per la fatturazione e per le sottoscrizioni per Azure Active Directory (Azure AD) a livello globale. Il supporto è disponibile sia online che telefonicamente per le sottoscrizioni di Microsoft Azure di valutazione e a pagamento. Il supporto telefonico e il supporto online per la fatturazione sono disponibili in altre lingue. 
+Microsoft fornisce supporto tecnico, pre-vendita, per la fatturazione e per le sottoscrizioni per Azure Active Directory (Azure AD) a livello globale. Il supporto è disponibile sia online che telefonicamente per le sottoscrizioni di Microsoft Azure di valutazione e a pagamento. Il supporto telefonico e il supporto online per la fatturazione sono disponibili anche in altre lingue. 
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>Ottenere assistenza senza aprire un ticket di supporto
 
@@ -46,30 +45,29 @@ In caso non si riesca a trovare le informazioni desiderate attraverso le risorse
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire **Azure Active Directory**.
    
-2. Scorrere verso il basso fino a **Risoluzione dei problemi e supporto tecnico** e selezionare **Nuova richiesta di supporto**.
+1. Scorrere verso il basso fino a **Risoluzione dei problemi e supporto tecnico** e selezionare **Nuova richiesta di supporto**.
    
-3. Nel pannello **Generale** per **Tipo di problema** selezionare **Tecnico**.
+1. Nel pannello **Generale** per **Tipo di problema** selezionare **Tecnico**.
 
-4. Selezionare la **sottoscrizione**.
+1. Selezionare la **sottoscrizione**.
 
-5. Per **servizio**selezionare **Azure Active Directory**.
+1. Per **servizio**selezionare **Azure Active Directory**.
 
-6. Creare un **Riepilogo** per la richiesta. Il riepilogo deve essere inferiore a 140 caratteri.
+1. Creare un **Riepilogo** per la richiesta. Il riepilogo deve essere inferiore a 140 caratteri.
   
-7. Selezionare un **tipo di problema**e quindi selezionare una categoria per quel tipo. A questo punto, vengono anche visualizzate informazioni self-help per la categoria del problema corrispondente.
+1. Selezionare un **tipo di problema**e quindi selezionare una categoria per quel tipo. A questo punto, vengono anche visualizzate informazioni self-help per la categoria del problema corrispondente.
   
-7. Aggiungere le informazioni restanti sul problema e fare clic su **Avanti**. 
+1. Aggiungere le informazioni restanti sul problema e fare clic su **Avanti**. 
 
-8. A questo punto, vengono offerte soluzioni e documentazione self-help nel pannello **soluzioni** . Se nessuna delle soluzioni risolve il problema, fare clic su **Avanti**. 
+1. A questo punto, vengono offerte soluzioni e documentazione self-help nel pannello **soluzioni** . Se nessuna delle soluzioni risolve il problema, fare clic su **Avanti**. 
 
-9. Nel pannello dei **Dettagli** compilare i dettagli richiesti e selezionare un livello di [gravità](https://azure.microsoft.com/support/plans/response/). 
+1. Nel pannello dei **Dettagli** compilare i dettagli richiesti e selezionare un livello di [gravità](https://azure.microsoft.com/support/plans/response/). 
  
-![image](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
+    ![image](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
  
-10. Fornire le informazioni di contatto e fare clic su **Avanti**. 
+1. Fornire le informazioni di contatto e fare clic su **Avanti**. 
 
-
-8. Specificare le informazioni di contatto e selezionare **Crea**.
+1. Specificare le informazioni di contatto e selezionare **Crea**.
   ![Schermata Self-Help della categoria problema](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Come aprire un ticket di supporto per Azure AD nell'interfaccia di amministrazione di Microsoft 365
@@ -79,19 +77,19 @@ In caso non si riesca a trovare le informazioni desiderate attraverso le risorse
 
 1. Accedere al centro di [amministrazione di Microsoft 365](https://admin.microsoft.com) con un account che disponga di una licenza di Enterprise Mobility + Security (EMS).
 
-2. Nel riquadro **Supporto** selezionare **Nuova richiesta di assistenza**:
+1. Nel riquadro **Supporto** selezionare **Nuova richiesta di assistenza**:
 
-3. Nella pagina **Panoramica del supporto** selezionare **Gestione delle identità** o **Gestione di utenti e domini**:
+1. Nella pagina **Panoramica del supporto** selezionare **Gestione delle identità** o **Gestione di utenti e domini**:
 
-4. Per **Funzionalità** selezionare la funzionalità di Azure AD per cui è necessario ottenere assistenza.
+1. Per **Funzionalità** selezionare la funzionalità di Azure AD per cui è necessario ottenere assistenza.
 
-5. Per **Sintomo** selezionare un sintomo appropriato, riepilogare il problema, fornire i dettagli pertinenti e quindi selezionare **Avanti**.
+1. Per **Sintomo** selezionare un sintomo appropriato, riepilogare il problema, fornire i dettagli pertinenti e quindi selezionare **Avanti**.
 
-6. Selezionare una delle risorse self-help disponibili oppure selezionare **Sì, continua** o **No, annulla la richiesta**.
+1. Selezionare una delle risorse self-help disponibili oppure selezionare **Sì, continua** o **No, annulla la richiesta**.
 
-7. Se si continua, vengono richiesti altri dettagli. È possibile allegare qualsiasi file utile per illustrare il problema e quindi selezionare **Avanti**.
+1. Se si continua, vengono richiesti altri dettagli. È possibile allegare qualsiasi file utile per illustrare il problema e quindi selezionare **Avanti**.
 
-8. Specificare le informazioni di contatto e selezionare **Invia richiesta**.
+1. Specificare le informazioni di contatto e selezionare **Invia richiesta**.
 
 ## <a name="get-phone-support"></a>Ottenere supporto tecnico telefonico
 

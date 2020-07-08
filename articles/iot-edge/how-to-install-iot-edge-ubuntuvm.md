@@ -7,14 +7,13 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.openlocfilehash: 64e2787aa282e75893fa34e6de1373e6afed09fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 050631731a04e4c2ea89d8c7792ec093d6ab316e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800563"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Eseguire Azure IoT Edge in macchine virtuali Ubuntu
 
@@ -34,7 +33,7 @@ Il [pulsante Distribuisci in Azure](../azure-resource-manager/templates/deploy-t
 
 1. Si distribuirà una VM Linux abilitata per Azure IoT Edge usando il modello di Azure Resource Manager iotedge-VM-deploy.  Per iniziare, fare clic sul pulsante seguente:
 
-    [![Pulsante Distribuisci in Azure per iotedge-VM-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+    [![Pulsante Distribuisci in Azure per iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
 1. Nella finestra appena avviata compilare i campi del modulo disponibili:
 
@@ -63,7 +62,7 @@ Il [pulsante Distribuisci in Azure](../azure-resource-manager/templates/deploy-t
 
     Dopo aver compilato tutti i campi, selezionare la casella di controllo nella parte inferiore della pagina per accettare i termini e selezionare **Acquista** per iniziare la distribuzione.
 
-1. Verificare che la distribuzione sia stata completata correttamente.  Una risorsa della macchina virtuale dovrebbe essere stata distribuita nel gruppo di risorse selezionato.  Prendere nota del nome del computer, che deve essere nel formato `vm-0000000000000`. Prendere nota anche del **nome DNS**associato, che deve essere nel formato `<dnsLabelPrefix>`. `<location>`. cloudapp.Azure.com.
+1. Verificare che la distribuzione sia stata completata correttamente.  Una risorsa della macchina virtuale dovrebbe essere stata distribuita nel gruppo di risorse selezionato.  Prendere nota del nome del computer, che deve essere nel formato `vm-0000000000000` . Prendere nota anche del **nome DNS**associato, che deve essere nel formato `<dnsLabelPrefix>` . `<location>` cloudapp.azure.com.
 
     Il **nome DNS** può essere ottenuto dalla sezione **Panoramica** della macchina virtuale appena distribuita all'interno del portale di Azure.
 
@@ -108,11 +107,10 @@ Il [pulsante Distribuisci in Azure](../azure-resource-manager/templates/deploy-t
 
 1. Creare una nuova macchina virtuale:
 
-    Per usare un **AuthenticationType** di `password`, vedere l'esempio seguente:
+    Per usare un **AuthenticationType** di `password` , vedere l'esempio seguente:
 
    ```azurecli-interactive
-   az group deployment create \
-   --name edgeVm \
+   az deployment group create \
    --resource-group IoTEdgeResources \
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
@@ -122,15 +120,14 @@ Il [pulsante Distribuisci in Azure](../azure-resource-manager/templates/deploy-t
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
 
-    Per eseguire l'autenticazione con una chiave SSH, è possibile eseguire questa operazione specificando un `sshPublicKey` **AuthenticationType** di, quindi specificare il valore della chiave SSH nel parametro **adminPasswordOrKey** .  Di seguito è illustrato un esempio.
+    Per eseguire l'autenticazione con una chiave SSH, è possibile eseguire questa operazione specificando un **AuthenticationType** di `sshPublicKey` , quindi specificare il valore della chiave SSH nel parametro **adminPasswordOrKey** .  Di seguito è illustrato un esempio.
 
     ```azurecli-interactive
     #Generate the SSH Key
     ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
 
     #Create a VM using the iotedge-vm-deploy script
-    az group deployment create \
-    --name edgeVm \
+    az deployment group create \
     --resource-group IoTEdgeResources \
     --template-uri "https://aka.ms/iotedge-vm-deploy" \
     --parameters dnsLabelPrefix='my-edge-vm1' \
@@ -138,10 +135,9 @@ Il [pulsante Distribuisci in Azure](../azure-resource-manager/templates/deploy-t
     --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
-     
     ```
 
-1. Verificare che la distribuzione sia stata completata correttamente.  Una risorsa della macchina virtuale dovrebbe essere stata distribuita nel gruppo di risorse selezionato.  Prendere nota del nome del computer, che deve essere nel formato `vm-0000000000000`. Prendere nota anche del **nome DNS**associato, che deve essere nel formato `<dnsLabelPrefix>`. `<location>`. cloudapp.Azure.com.
+1. Verificare che la distribuzione sia stata completata correttamente.  Una risorsa della macchina virtuale dovrebbe essere stata distribuita nel gruppo di risorse selezionato.  Prendere nota del nome del computer, che deve essere nel formato `vm-0000000000000` . Prendere nota anche del **nome DNS**associato, che deve essere nel formato `<dnsLabelPrefix>` . `<location>` cloudapp.azure.com.
 
     Il **nome DNS** può essere ottenuto dall'output in formato JSON del passaggio precedente, all'interno della sezione **Outputs** come parte della voce **SSH pubblica** .  Il valore di questa voce può essere usato per SSH nel computer appena distribuito.
 

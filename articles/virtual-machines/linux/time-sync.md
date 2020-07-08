@@ -12,12 +12,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 7c93c1f525713a90abd71c30a21401b9d1cfcb9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 25e8be28903d490a7a8c17e16d2beddc44c95c41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782773"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronizzazione dell'ora per le macchine virtuali Linux in Azure
 
@@ -25,10 +24,10 @@ La sincronizzazione dell'ora è importante per la sicurezza e la correlazione de
 
 Azure è supportato da un'infrastruttura che esegue Windows Server 2016. Windows Server 2016 ha migliorato gli algoritmi usati per correggere l'ora e imporre all'orologio locale la sincronizzazione con l'ora UTC.  La funzionalità dell'ora esatta di Windows Server 2016 ha notevolmente migliorato il modo in cui il servizio VMICTimeSync gestisce le macchine virtuali con l'host per l'ora esatta. I miglioramenti includono un'ora iniziale più accurata per l'avvio o il ripristino della macchina virtuale e la correzione della latenza di interrupt. 
 
->[!NOTE]
->Per una rapida panoramica del servizio Ora di Windows, guarda questo [video di panoramica generale](https://aka.ms/WS2016TimeVideo).
+> [!NOTE]
+> Per una rapida panoramica del servizio Ora di Windows, guarda questo [video di panoramica generale](https://aka.ms/WS2016TimeVideo).
 >
-> Per altre informazioni, vedere [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time) (Ora esatta per Windows Server 2016). 
+> Per altre informazioni, vedere [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time) (Ora esatta per Windows Server 2016). 
 
 ## <a name="overview"></a>Panoramica
 
@@ -140,13 +139,13 @@ refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 
 Per ulteriori informazioni su Ubuntu e NTP, vedere [sincronizzazione dell'ora](https://help.ubuntu.com/lts/serverguide/NTP.html).
 
-Per ulteriori informazioni su Red Hat e NTP, vedere [configurare NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+Per ulteriori informazioni su Red Hat e NTP, vedere [configurare NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
 
-Per ulteriori informazioni su Chrony, vedere [utilizzo di Chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
+Per ulteriori informazioni su Chrony, vedere [utilizzo di Chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
 
 Se entrambe le origini Chrony e TimeSync sono abilitate simultaneamente, è possibile contrassegnarne una come **preferita**, impostando l'altra origine come backup. Poiché i servizi NTP non aggiornano l'orologio in caso di sfasamenti di grandi dimensioni, se non dopo un lungo periodo, VMICTimeSync ripristinerà l'orologio dagli eventi della macchina virtuale messi in pausa molto più rapidamente rispetto ai soli strumenti basati su NTP.
 
-Per impostazione predefinita, chronyd accelera o rallenta il clock di sistema per correggere eventuali deviazioni temporali. Se la deriva diventa troppo grande, Chrony non riesce a correggere la tendenza. Per ovviare a questo `makestep` problema, è possibile modificare il parametro in **/etc/Chrony.conf** in modo da forzare un TimeSync se la deriva supera la soglia specificata.
+Per impostazione predefinita, chronyd accelera o rallenta il clock di sistema per correggere eventuali deviazioni temporali. Se la deriva diventa troppo grande, Chrony non riesce a correggere la tendenza. Per ovviare a questo problema, `makestep` è possibile modificare il parametro in **/etc/Chrony.conf** in modo da forzare un TimeSync se la deriva supera la soglia specificata.
 
  ```bash
 makestep 1.0 -1
@@ -164,6 +163,6 @@ Nelle versioni SUSE e Ubuntu prima del 19,10, la sincronizzazione dell'ora viene
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time) (Ora esatta per Windows Server 2016).
+Per altre informazioni, vedere [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time) (Ora esatta per Windows Server 2016).
 
 

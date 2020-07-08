@@ -1,18 +1,17 @@
 ---
 title: Serie Lsv2-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie Lsv2.
-services: virtual-machines
 author: sasha-melamed
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: bdb9e346b8deea71ef2af9f9f271ffa446be624e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: 9db5f391635505c18c7fe7c868431a0abc943730
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594339"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675979"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -33,9 +32,9 @@ Archiviazione Premium: supportata
 
 Caching archiviazione Premium: non supportato
 
-Live Migration: non supportato
+Live Migration: Non supportato
 
-Aggiornamenti con mantenimento della memoria: non supportato
+Manutenzione con mantenimento della memoria: Non supportato
 
 | Dimensione | vCPU | Memoria (GiB) | Disco temporaneo<sup>1</sup> (GiB) | Dischi NVMe<sup>2</sup> | Velocità effettiva del disco NVMe<sup>3</sup> (letture IOPS/Mbps) | Velocità effettiva del disco dati non memorizzata nella cache (IOPs/MBps)<sup>4</sup> | Velocità effettiva massima del disco dati non memorizzato nella cache (IOPs/MBps)<sup>5</sup>| Numero massimo di dischi dati | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|

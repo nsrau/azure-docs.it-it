@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 850ace7af15ab37ab9a4a124d20ed4588771f4d4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 0b278841fc3693d79821d25caf7c9a208341dea1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242121"
 ---
 ## <a name="common-scenarios"></a>Scenari comuni
 Gli scenari seguenti possono trarre molto vantaggio dall'espansione:
@@ -24,9 +23,11 @@ Gli scenari seguenti possono trarre molto vantaggio dall'espansione:
 ## <a name="bursting-flow"></a>Flusso di espansione
 Il sistema di credito in espansione si applica allo stesso modo a livello di macchina virtuale e disco. La risorsa, ovvero una macchina virtuale o un disco, inizierà con crediti completamente disponibili. Questi crediti consentiranno di aumentare di 30 minuti al massimo della velocità di espansione. I crediti di espansione si accumulano quando la risorsa è in esecuzione con i limiti di archiviazione su disco delle prestazioni. Per tutte le operazioni di i/o al secondo e i MB/s usati dalla risorsa al di sotto del limite delle prestazioni, si inizia ad accumulare crediti. Se la risorsa ha accumulato crediti da usare per l'espansione e il carico di lavoro richiede le prestazioni aggiuntive, la risorsa può usare tali crediti per superare il limite di prestazioni per fornire le prestazioni di i/o su disco necessarie per soddisfare la domanda.
 
+
+
 ![Diagramma di bucket in sequenza](media/managed-disks-bursting/bucket-diagram.jpg)
 
-Un aspetto da considerare sull'accumulo di picchi è che è diverso per ogni risorsa, perché si basa sulle operazioni di i/o al secondo e di MB/s al di sotto degli importi delle prestazioni. Ciò significa che i prodotti per le prestazioni di base più elevati possono accumulare i propri importi di espansione più velocemente rispetto ai prodotti di base più bassi. Ad esempio, un disco P1 di minimo senza attività accumulerà 120 IOPS al secondo, mentre un disco P20 accumula 2.300 IOPS al secondo mentre è inattivo senza attività.
+Fino a quando si desidera utilizzare i 30 minuti di incrementi. È possibile usarlo per 30 minuti consecutivamente o sporadicamente nel corso della giornata. Quando si distribuisce il prodotto, è possibile ottenere crediti completi e, quando si esauriscono i crediti, è necessario meno di un giorno per ottenere una disponibilità completa dei crediti. È possibile accumulare e spendere i crediti di espansione a propria discrezione e non è necessario che il bucket di 30 minuti venga nuovamente esaurito. Un aspetto da considerare sull'accumulo di picchi è che è diverso per ogni risorsa, perché si basa sulle operazioni di i/o al secondo e di MB/s al di sotto degli importi delle prestazioni. Ciò significa che i prodotti per le prestazioni di base più elevati possono accumulare i propri importi di espansione più velocemente rispetto ai prodotti di base più bassi. Ad esempio, un disco P1 di minimo senza attività accumulerà 120 IOPS al secondo, mentre un disco P20 accumula 2.300 IOPS al secondo mentre è inattivo senza attività.
 
 ## <a name="bursting-states"></a>Stati con picchi
 È possibile che la risorsa si trovi in tre stati con la funzionalità di espansione abilitata:
@@ -70,7 +71,7 @@ Quindi, l'applicazione deve elaborare un processo in batch che richiede 192 MB/s
 - 2 dischi dati P10 
     - MB/s di cui è stato effettuato il provisioning: 250
 
- Dopo l'avvio iniziale, un'applicazione viene eseguita nella macchina virtuale e ha un carico di lavoro non critico. Questo carico di lavoro richiede 30 MB/s distribuiti in modo uniforme tra tutti i dischi ![: espansione del disco non di espansione della macchina virtuale inattiva](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ Dopo l'avvio iniziale, un'applicazione viene eseguita nella macchina virtuale e ha un carico di lavoro non critico. Questo carico di lavoro richiede 30 MB/s distribuiti in modo uniforme tra tutti i dischi: espansione del ![ disco non di espansione della macchina virtuale inattiva](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
 Quindi, l'applicazione deve elaborare un processo in batch che richiede 600 MB/s. Il Standard_L8s_v2 è in grado di soddisfare questa richiesta e quindi le richieste ai dischi vengono distribuite uniformemente nei dischi P50:
 

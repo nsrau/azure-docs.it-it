@@ -1,38 +1,37 @@
 ---
 title: Serie M-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie M.
-services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 7b84537693b3ffc3f7398c6eb84615a96bf8e7df
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: 4050a74dfef1fb31939ba716cfbaf78577f1aaef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675945"
 ---
 # <a name="m-series"></a>Serie M
 
-La serie M offre un numero elevato di vCPU (fino a 128 vCPU) e una grande quantità di memoria (fino a 3,8 TiB). È ideale anche per database di dimensioni molto grandi o altre applicazioni che traggono vantaggio da conteggi vCPU elevati e grandi quantità di memoria. Le dimensioni della serie M sono supportate sia sulla CPU&reg; Intel&reg; Xeon E7-8890 V3 a 2.50 GHz che su Intel&reg; Xeon&reg; Platinum 8280M (Cascade Lake).
+La serie M offre un elevato numero di vCPU (fino a 128 vCPU) e una grande quantità di memoria (fino a 3,8 TiB). È ideale anche per database molto grandi o altre applicazioni che traggono vantaggio da un elevato numero di vCPU e una grande quantità di memoria. Le dimensioni della serie M sono supportate sia sulla &reg; CPU Intel Xeon &reg; E7-8890 V3 a 2.50 GHz che su Intel &reg; Xeon &reg; Platinum 8280M (Cascade Lake).
 
-Funzionalità della VM della serie M,&reg; tecnologia Intel Hyper-Threading.
+Funzionalità della VM della serie M, &reg; tecnologia Intel Hyper-Threading.
 
 ACU: 160-180
 
-Archiviazione Premium: supportata
+Archiviazione Premium:  Supportato
 
-Caching archiviazione Premium: supportato
+Memorizzazione nella cache Archiviazione Premium:  Supportato
 
-Live Migration: non supportato
+Live Migration: Non supportato
 
-Aggiornamenti con mantenimento della memoria: non supportato
+Manutenzione con mantenimento della memoria: Non supportato
 
 Acceleratore di scrittura: [supportato](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | NIC massimo/larghezza di banda di rete prevista (Mbps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | NIC massimo/larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_M8ms                    | 8   | 218,75 | 256   | 8  | 10000/100 (793)     | 5000/125   | 4/2000  |
 | Standard_M16ms                   | 16  | 437,5  | 512   | 16 | 20000/200 (1587)    | 10000/250  | 8/4000  |

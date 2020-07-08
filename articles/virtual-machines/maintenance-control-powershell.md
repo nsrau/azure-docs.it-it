@@ -3,16 +3,15 @@ title: Controllo di manutenzione per macchine virtuali di Azure con PowerShell
 description: Informazioni su come controllare quando viene applicata la manutenzione alle VM di Azure usando il controllo di manutenzione e PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 834ff39b0ffd8ee38156e468008c332971b742d0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: e0bb3586d637c9399db057b7cd3225bf8cd36e2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996483"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675843"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Controllare gli aggiornamenti con il controllo di manutenzione e Azure PowerShell
 
@@ -57,7 +56,7 @@ $config = New-AzMaintenanceConfiguration `
    -Location  eastus
 ```
 
-L' `-MaintenanceScope host` utilizzo di garantisce che la configurazione di manutenzione venga utilizzata per controllare gli aggiornamenti all'host.
+L'utilizzo di `-MaintenanceScope host` garantisce che la configurazione di manutenzione venga utilizzata per controllare gli aggiornamenti all'host.
 
 Se si tenta di creare una configurazione con lo stesso nome, ma in un percorso diverso, si otterrà un errore. I nomi di configurazione devono essere univoci per la sottoscrizione.
 
@@ -73,7 +72,7 @@ Usare [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/modu
 
 ### <a name="isolated-vm"></a>VM isolata
 
-Applicare la configurazione a una macchina virtuale usando l'ID della configurazione. Specificare `-ResourceType VirtualMachines` e fornire il nome della macchina virtuale per `-ResourceName`e il gruppo di risorse della VM per `-ResourceGroupName`. 
+Applicare la configurazione a una macchina virtuale usando l'ID della configurazione. Specificare `-ResourceType VirtualMachines` e fornire il nome della macchina virtuale per `-ResourceName` e il gruppo di risorse della VM per `-ResourceGroupName` . 
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -88,7 +87,7 @@ New-AzConfigurationAssignment `
 
 ### <a name="dedicated-host"></a>Host dedicato
 
-Per applicare una configurazione a un host dedicato, è inoltre necessario includere `-ResourceType hosts`, `-ResourceParentName` con il nome del gruppo host, e. `-ResourceParentType hostGroups` 
+Per applicare una configurazione a un host dedicato, è inoltre necessario includere `-ResourceType hosts` , `-ResourceParentName` con il nome del gruppo host, e `-ResourceParentType hostGroups` . 
 
 
 ```azurepowershell-interactive

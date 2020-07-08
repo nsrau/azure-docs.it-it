@@ -2,21 +2,20 @@
 title: Scoprire quando un utente specifico sarà in grado di accedere a un'app
 description: Come identificare se un utente fondamentale è in grado di accedere a un'applicazione configurata per il provisioning utenti con Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9d976785340e1a032aa4484dd2e8fd6cb2915129
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782025"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificare lo stato del provisioning utenti
 
@@ -35,7 +34,7 @@ Quando si configura per la prima volta il provisioning automatico, la sezione **
 
 Al termine di un ciclo di provisioning, nella sezione **statistiche per data** vengono visualizzati i numeri cumulativi di utenti e gruppi di cui è stato effettuato il provisioning in data, insieme alla data di completamento e alla durata dell'ultimo ciclo. L' **ID attività** identifica in modo univoco il ciclo di provisioning più recente. L' **ID del processo** è un identificatore univoco per il processo di provisioning ed è specifico dell'app nel tenant.
 
-Lo stato di avanzamento del provisioning può essere visualizzato nella portale di Azure, nella scheda **provisioning &gt; del nome &gt; \[\] &gt; dell'applicazione Azure Active Directory app aziendali** .
+Lo stato di avanzamento del provisioning può essere visualizzato nella portale di Azure, nella scheda ** &gt; &gt; \[ \] &gt; provisioning del nome dell'applicazione Azure Active Directory app aziendali** .
 
 ![Indicatore di stato della pagina di provisioning](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -43,7 +42,7 @@ Lo stato di avanzamento del provisioning può essere visualizzato nella portale 
 
 Per visualizzare lo stato di provisioning per un utente selezionato, consultare i [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) in Azure ad. Tutte le operazioni eseguite dal servizio di provisioning utenti vengono registrate nei log di provisioning di Azure AD. Sono incluse tutte le operazioni di lettura e scrittura effettuate nei sistemi di origine e di destinazione e i dati utente letti o scritti durante ogni operazione.
 
-È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; **log di provisioning** di **app** &gt; aziendali (anteprima) nella sezione **attività** . È possibile cercare i dati di provisioning in base al nome dell'utente o all'identificatore nel sistema di origine o nel sistema di destinazione. Per informazioni dettagliate, vedere [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; log di provisioning di **app aziendali** &gt; **(anteprima)** nella sezione **attività** . È possibile cercare i dati di provisioning in base al nome dell'utente o all'identificatore nel sistema di origine o nel sistema di destinazione. Per informazioni dettagliate, vedere [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 I log di provisioning registrano tutte le operazioni eseguite dal servizio di provisioning, tra cui:
 

@@ -9,15 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9613b74b727d27bd47a05fadc1398bf898f667a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675203"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorare le esecuzioni e le metriche degli esperimenti di Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,6 +126,8 @@ Usare il modulo __Execute Python script__ per aggiungere la logica di registrazi
         run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
 
         # Log the mean absolute error to the parent run to see the metric in the run details page.
+        # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
+        # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
         run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
     
         return dataframe1,
@@ -207,9 +208,11 @@ Il training e il monitoraggio del modello si verificano in background, pertanto 
 
 Al termine dell'esecuzione di un esperimento, è possibile passare al record esecuzione dell'esperimento registrato. È possibile accedere alla cronologia di [Azure Machine Learning Studio](https://ml.azure.com).
 
-Passare alla scheda Esperimenti e selezionare l'esperimento. Viene visualizzato il dashboard di esecuzione dell'esperimento, in cui è possibile visualizzare le metriche monitorate e i grafici registrati per ogni esecuzione. In questo caso sono stati registrati i valori alfa e MSE.
+Passare alla scheda Esperimenti e selezionare l'esperimento. Viene visualizzato il dashboard di esecuzione dell'esperimento, in cui è possibile visualizzare le metriche monitorate e i grafici registrati per ogni esecuzione. 
 
-  ![Dettagli dell'esecuzione in Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
+È possibile modificare la tabella elenco di esecuzione per visualizzare l'ultimo valore registrato minimo o massimo per le esecuzioni. È possibile selezionare o deselezionare più esecuzioni nell'elenco di esecuzione e le esecuzioni selezionate popolano i grafici con i dati. È anche possibile aggiungere nuovi grafici o modificare i grafici per confrontare le metriche registrate (minimo, massimo, ultimo o tutti i valori) tra più esecuzioni. Per esplorare i dati in modo più efficace, è anche possibile ottimizzare i grafici.
+
+:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Dettagli dell'esecuzione in Azure Machine Learning Studio":::
 
 È possibile visualizzare i dettagli di un'esecuzione specifica in merito a output o log oppure scaricare lo snapshot dell'esperimento inviato in modo da condividere la cartella dell'esperimento con altri utenti.
 

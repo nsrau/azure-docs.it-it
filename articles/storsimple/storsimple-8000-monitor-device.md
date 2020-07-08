@@ -3,15 +3,14 @@ title: Monitorare il dispositivo StorSimple serie 8000
 description: Viene descritto come usare il servizio Gestione dispositivi di StorSimple per monitorare uso, prestazioni I/O e uso della capacità.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: b3b77024606c5cdb02ff7bdd357c2d14a2415efa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514696"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usare il servizio Gestione dispositivi di StorSimple per monitorare il dispositivo StorSimple
 
@@ -20,7 +19,7 @@ ms.locfileid: "76277048"
 
 Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, nel portale di Azure selezionare il servizio Gestione dispositivi di StorSimple. Selezionare il dispositivo dall'elenco dei dispositivi e passare a **Monitoraggio**. Sarà quindi possibile visualizzare i grafici **Capacità**, **Utilizzo** e **Prestazioni** per il dispositivo selezionato.
 
-## <a name="capacity"></a>Capacity
+## <a name="capacity"></a>Capacità
 Il grafico **Capacità** tiene traccia dello spazio disponibile e dello spazio restante sul dispositivo. La capacità residua viene quindi visualizzata come aggiunta in locale o a livelli.
 
 La capacità fornita e quella residua sono ulteriormente suddivise in volumi aggiunti in locale e a più livelli. Per ogni volume sono mostrate la capacità di cui è stato eseguito il provisioning e la capacità residua nel dispositivo.

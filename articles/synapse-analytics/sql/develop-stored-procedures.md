@@ -1,23 +1,22 @@
 ---
-title: Uso delle stored procedure
+title: Utilizzare stored procedure
 description: Suggerimenti per l'implementazione di stored procedure nel pool SQL sinapsi (data warehouse) per lo sviluppo di soluzioni.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a431df1ff4ef0984d1197933e7ca78979fa23089
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430981"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958379"
 ---
-# <a name="using-stored-procedures-in-sql-pool"></a>Utilizzo di stored procedure nel pool SQL
+# <a name="use-stored-procedures-in-sql-pool"></a>Usare stored procedure nel pool SQL
 
 Suggerimenti per l'implementazione di stored procedure nel pool SQL sinapsi (data warehouse) per lo sviluppo di soluzioni.
 
@@ -68,7 +67,7 @@ EXEC prc_nesting
 ```
 
 > [!NOTE]
-> Il pool SQL attualmente non supporta [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). È necessario tenere traccia del livello di annidamento. È improbabile superare il limite di otto livelli di annidamento, ma se lo si fa, è necessario rielaborare il codice per adattare i livelli di annidamento entro tale limite.
+> Il pool SQL attualmente non supporta [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). È necessario tenere traccia del livello di annidamento. È improbabile superare il limite di otto livelli di annidamento, ma se lo si fa, è necessario rielaborare il codice per adattare i livelli di annidamento entro tale limite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 

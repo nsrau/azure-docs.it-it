@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8faff37e127e80447e0f066ef17e2885d4bcb597
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80435640"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799735"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteggi le tue macchine e le tue applicazioni
 Quando il Centro sicurezza di Azure identifica le potenziali vulnerabilità di sicurezza, viene creato un Consiglio che guida l'utente nel processo di configurazione dei controlli necessari per rafforzare e proteggere le risorse.
@@ -84,7 +83,7 @@ Qui sono visualizzasti i dettagli sulla sicurezza relativi alla macchina virtual
 
 
 
-### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Set di scalabilità di macchine virtuali
+### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>set di scalabilità di macchine virtuali
 Il Centro sicurezza rileva automaticamente se sono presenti set di scalabilità e consiglia di installare l'agente di Log Analytics su di essi.
 
 Per installare l'agente di Log Analytics: 
@@ -163,15 +162,13 @@ Quando si apre la scheda **contenitori** , a seconda dell'ambiente, è possibile
 
 ![Host contenitore](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png) Host contenitore-macchine virtuali che eseguono Docker 
 
-![Servizio Kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Cluster Azure Kubernetes Service (AKS)
+![Cluster del ](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) servizio Kubernetes di Azure Kubernetes (AKS). [Informazioni sul bundle AKS del Centro sicurezza](azure-kubernetes-service-integration.md)
 
-![Registro contenitori](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Registri di Azure Container Registry (ACR): visualizzati solo quando si usa il piano tariffario standard e quando si dispone del bundle di Container Registry di Azure abilitato.
+![Registri contenitori di ](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure container Registry (ACR). [Informazioni sul bundle ACR del Centro sicurezza](azure-container-registry-integration.md)
 
 Per istruzioni su come usare le funzionalità di sicurezza del contenitore, vedere [monitoraggio della sicurezza dei contenitori](monitor-container-security.md).
 
-I vantaggi del bundle di Container Registry di Azure sono illustrati [qui](azure-container-registry-integration.md)
 
-I vantaggi del bundle di servizi Kubernetes sono descritti [qui](azure-kubernetes-service-integration.md)
 
 [![Scheda contenitori](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
 
@@ -199,7 +196,7 @@ Il Centro sicurezza analizza le configurazioni di Docker e mostra le configurazi
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sui suggerimenti applicabili ad altri tipi di risorse di Azure, vedere gli articoli seguenti:
+Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli articoli seguenti:
 
 * [Elenco di riferimento completo delle raccomandazioni sulla sicurezza del Centro sicurezza di Azure](recommendations-reference.md)
 * [Monitoraggio dell'identità e dell'accesso nel Centro sicurezza di Azure](security-center-identity-access.md)

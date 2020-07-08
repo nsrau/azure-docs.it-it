@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 650798fdb884e6494990efb533335a1dd8b4d89f
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67875385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514906"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
 
@@ -177,7 +176,7 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
    - _RecoveryPlanName_**-DeviceIpAddress**: l'indirizzo IP del dispositivo (reperibile nella scheda **Dispositivi** della sezione Gestione dispositivi StorSimple &gt; **Impostazioni** &gt; **Rete** &gt; **gruppo Impostazioni DNS Settings**).
    - _RecoveryPlanName_**-VolumeContainers**: stringa delimitata da virgole di contenitori di volumi presente nel dispositivo di cui è necessario eseguire il failover. ad esempio: volcon1, volcon2, volcon3.
    - _RecoveryPlanName_**-TargetDeviceName**: l'appliance cloud StorSimple in cui deve essere eseguito il failover dei contenitori.
-   - _RecoveryPlanName_**-TargetDeviceIpAddress**: l'indirizzo IP del dispositivo di destinazione (disponibile nella scheda &gt; **rete** del gruppo di **Impostazioni** della &gt; **macchina virtuale** ).
+   - _RecoveryPlanName_**-TargetDeviceIpAddress**: l'indirizzo IP del dispositivo di destinazione (disponibile nella scheda rete del gruppo di impostazioni della **macchina virtuale** &gt; **Settings** &gt; **Networking** ).
    - _RecoveryPlanName_**-StorageAccountName**: nome dell'account di archiviazione in cui verrà archiviato lo script (che deve essere eseguito nella macchina virtuale di cui è stato effettuato il failover). Può trattarsi di qualsiasi account di archiviazione in cui sia disponibile spazio per l'archiviazione temporanea dello script.
    - _RecoveryPlanName_**-StorageAccountKey**: chiave di accesso per l'account di archiviazione precedente.
    - _RecoveryPlanName_**-VMGUIDS**: quando si protegge una macchina virtuale, Azure Site Recovery assegna a ogni macchina virtuale un ID univoco che fornisce i dettagli della macchina virtuale sottoposta a failover. Per ottenere VMGUID, selezionare la scheda **Servizi di ripristino** e quindi fare clic su **Elemento protetto** &gt; **Gruppi di protezione** &gt; **Macchine** &gt; **Proprietà**. Se sono presenti più VM, aggiungere i GUID come stringa con valori delimitati da virgole.
@@ -361,5 +360,5 @@ La pianificazione della capacità prevede almeno due processi importanti:
   > Rieseguire il piano di ripristino al termine del failover dell'appliance.
 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Usando Azure Site Recovery è possibile creare un piano di ripristino di emergenza automatizzato completo per una VM del server file con condivisioni file ospitate nell'archiviazione StorSimple. È possibile avviare il failover in pochi secondi da qualsiasi luogo in caso di un'interruzione e fare in modo che l'applicazione sia operativa in pochi minuti.

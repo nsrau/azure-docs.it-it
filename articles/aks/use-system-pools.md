@@ -3,17 +3,17 @@ title: Usare i pool di nodi di sistema in Azure Kubernetes Service (AKS)
 description: Informazioni su come creare e gestire i pool di nodi di sistema in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/28/2020
-ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.date: 06/18/2020
+ms.author: mlearned
+ms.openlocfilehash: 9b6270f81e7af8bd508d29510698e6cf9a5a2010
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125248"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052659"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gestire i pool di nodi di sistema in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS) i nodi della stessa configurazione sono raggruppati in pool di *nodi*. I pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. I pool di nodi di sistema e i pool di nodi utente sono due diverse modalità di pool di nodi per i cluster AKS. I pool di nodi di sistema servono lo scopo principale di ospitare i pod di sistema critici, ad esempio CoreDNS e tunnelfront. I pool di nodi utente servono lo scopo principale di ospitare i pod dell'applicazione. Tuttavia, i pod dell'applicazione possono essere pianificati nei pool di nodi di sistema se si vuole avere un solo pool nel cluster AKS. Ogni cluster AKS deve contenere almeno un pool di nodi di sistema con almeno un nodo. 
+In Azure Kubernetes Service (AKS) i nodi della stessa configurazione sono raggruppati in pool di *nodi*. I pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. I pool di nodi di sistema e i pool di nodi utente sono due diverse modalità di pool di nodi per i cluster AKS. I pool di nodi di sistema servono lo scopo principale di ospitare i pod di sistema critici, ad esempio CoreDNS e tunnelfront. I pool di nodi utente servono lo scopo principale di ospitare i pod dell'applicazione. Tuttavia, i pod dell'applicazione possono essere pianificati nei pool di nodi di sistema se si vuole avere un solo pool nel cluster AKS. Ogni cluster AKS deve contenere almeno un pool di nodi di sistema con almeno un nodo.
 
 > [!Important]
 > Se si esegue un singolo pool di nodi di sistema per il cluster AKS in un ambiente di produzione, è consigliabile usare almeno tre nodi per il pool di nodi.
@@ -29,7 +29,7 @@ Quando si creano e si gestiscono cluster AKS che supportano i pool di nodi di si
 * Vedere [quote, restrizioni sulle dimensioni delle macchine virtuali e disponibilità di aree in Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * Il cluster AKS deve essere compilato con i set di scalabilità di macchine virtuali come tipo di VM.
 * Il nome di un pool di nodi può contenere solo caratteri alfanumerici minuscoli e deve iniziare con una lettera minuscola. Per i pool di nodi Linux, la lunghezza deve essere compresa tra 1 e 12 caratteri. Per i pool di nodi di Windows, la lunghezza deve essere compresa tra 1 e 6 caratteri.
-* Per impostare una modalità del pool di nodi, è necessario usare una versione API di 2020-03-01 o successiva.
+* Per impostare una modalità del pool di nodi, è necessario usare una versione API di 2020-03-01 o successiva. I cluster creati nelle versioni API precedenti alla 2020-03-01 contengono solo pool di nodi utente, ma è possibile eseguirne la migrazione in modo che contengano pool di nodi di sistema seguendo la [procedura di aggiornamento del pool](#update-existing-cluster-system-and-user-node-pools).
 * La modalità di un pool di nodi è una proprietà obbligatoria e deve essere impostata in modo esplicito quando si usano modelli ARM o chiamate API dirette.
 
 ## <a name="system-and-user-node-pools"></a>Pool di nodi di sistema e utente
@@ -56,7 +56,7 @@ Con i pool di nodi è possibile eseguire le operazioni seguenti:
 
 Quando si crea un nuovo cluster AKS, viene creato automaticamente un pool di nodi di sistema con un solo nodo. Per impostazione predefinita, il pool di nodi iniziale è una modalità di tipo System. Quando si creano nuovi pool di nodi con AZ AKS nodepool Add, i pool di nodi sono pool di nodi utente a meno che non si specifichi in modo esplicito il parametro mode.
 
-Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* .
+L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -115,7 +115,10 @@ Per i pool di nodi di sistema è definita una modalità di tipo **System** e per
 }
 ```
 
-## <a name="update-system-and-user-node-pools"></a>Aggiornare i pool di nodi di sistema e utente
+## <a name="update-existing-cluster-system-and-user-node-pools"></a>Aggiornare i pool di nodi utente e di sistema cluster esistenti
+
+> [!NOTE]
+> Per impostare una modalità del pool di nodi di sistema, è necessario usare una versione API di 2020-03-01 o successiva. I cluster creati nelle versioni API precedenti alla 2020-03-01 contengono solo pool di nodi utente di conseguenza. Per ricevere le funzionalità del pool di nodi di sistema e i vantaggi nei cluster meno recenti, aggiornare la modalità dei pool di nodi esistenti con i comandi seguenti nella versione più recente dell'interfaccia della riga di comando di Azure.
 
 È possibile modificare le modalità per i pool di nodi del sistema e dell'utente. È possibile modificare un pool di nodi di sistema in un pool di utenti solo se nel cluster AKS è già presente un altro pool di nodi di sistema.
 

@@ -2,21 +2,20 @@
 title: Usare API di Microsoft Graph per configurare il provisioning-Azure Active Directory | Microsoft Docs
 description: È necessario impostare il provisioning per più istanze di un'applicazione? Informazioni su come risparmiare tempo usando le API Microsoft Graph per automatizzare la configurazione del provisioning automatico.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 585cafc548b3458c6e9cc0ef91c44f163fb7fa2f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 01d4475e73fd436fd0cd2a8aca1e7a946cdd7562
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782059"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configurare il provisioning usando le API di Microsoft Graph
 
@@ -34,21 +33,21 @@ Il portale di Azure è un modo pratico per configurare il provisioning per le si
 |[Passaggio 5. Monitorare il provisioning](#step-5-monitor-provisioning)     |Verificare lo stato del processo di provisioning <br> Recuperare i log di provisioning         |
 
 > [!NOTE]
-> Gli oggetti risposta illustrati in questo articolo possono essere abbreviati per migliorare la leggibilità. Tutte le proprietà verranno restituite da una chiamata effettiva.
+> Gli oggetti risposta illustrati in questo articolo potrebbero essere stati abbreviati per migliorare la leggibilità. Tutte le proprietà verranno restituite da una chiamata effettiva.
 
-## <a name="step-1-create-the-gallery-application"></a>Passaggio 1: creare l'applicazione della raccolta
+## <a name="step-1-create-the-gallery-application"></a>Passaggio 1: Creare l'applicazione della raccolta
 
-### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Accedere a Microsoft Graph Explorer (scelta consigliata), postazione o qualsiasi altro client API usato
+### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Accedere a Microsoft Graph Explorer (scelta consigliata), Postman o un altro client API preferito
 
 1. Avviare [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Selezionare il pulsante "Accedi con Microsoft" e accedere usando Azure AD amministratore globale o le credenziali di amministratore dell'app.
 
     ![Accedere a Graph](./media/application-provisioning-configure-api/wd_export_02.png)
 
-1. Al termine dell'accesso, verranno visualizzati i dettagli dell'account utente nel riquadro a sinistra.
+1. Una volta eseguito l'accesso, verranno visualizzati i dettagli dell'account utente nel riquadro sinistro.
 
 ### <a name="retrieve-the-gallery-application-template-identifier"></a>Recuperare l'identificatore del modello di applicazione della raccolta
-Le applicazioni nella raccolta di applicazioni Azure AD dispongono ognuna di un [modello di applicazione](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) che descrive i metadati per l'applicazione. Usando questo modello, è possibile creare un'istanza dell'applicazione e dell'entità servizio nel tenant per la gestione.
+Le applicazioni nella raccolta di applicazioni di Azure AD presentano un [modello di applicazione](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) che descrive i metadati per l'applicazione in questione. Usando questo modello, è possibile creare un'istanza dell'applicazione e un'entità servizio nel tenant per la gestione.
 
 #### <a name="request"></a>*Richiesta*
 

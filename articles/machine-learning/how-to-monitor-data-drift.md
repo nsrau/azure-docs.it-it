@@ -5,17 +5,16 @@ description: Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: d1da7309b296b57db0c28d5b52fe91efa86709c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0f56ab853983ebf9b3e27f38ae1737c0c2bce4ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75537006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430289"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -64,7 +63,7 @@ Con Azure Machine Learning, la deriva dei dati viene monitorata tramite set di d
 
 - Creare un [set](how-to-create-register-datasets.md) di dati dai dati di training del modello.
 
-- Specificare il set di dati di training durante la [registrazione](concept-model-management-and-deployment.md) del modello. Nell'esempio seguente viene illustrato l' `datasets` utilizzo del parametro per specificare il set di dati di training:
+- Specificare il set di dati di training durante la [registrazione](concept-model-management-and-deployment.md) del modello. Nell'esempio seguente viene illustrato l'utilizzo del `datasets` parametro per specificare il set di dati di training:
 
     ```python
     model = Model.register(model_path=model_file,
@@ -75,7 +74,7 @@ Con Azure Machine Learning, la deriva dei dati viene monitorata tramite set di d
     print(model_name, image_name, service_name, model)
     ```
 
-- [Abilitare la raccolta dei dati del modello](how-to-enable-data-collection.md) per raccogliere dati dalla distribuzione di AKS del modello e verificare che i dati vengano `modeldata` raccolti nel contenitore BLOB.
+- [Abilitare la raccolta dei dati del modello](how-to-enable-data-collection.md) per raccogliere dati dalla distribuzione di AKS del modello e verificare che i dati vengano raccolti nel `modeldata` contenitore BLOB.
 
 ## <a name="configure-data-drift"></a>Configurare la tendenza dei dati
 Per configurare la tendenza dei dati per l'esperimento, importare le dipendenze come illustrato nell'esempio Python seguente. 
@@ -98,7 +97,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>Inviare un'esecuzione DataDriftDetector
 
-Con l' `DataDriftDetector` oggetto configurato, è possibile inviare un' [esecuzione della deviazione dati](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) in una data specifica per il modello. Come parte dell'esecuzione, abilitare gli avvisi DataDriftDetector impostando il `drift_threshold` parametro. Se la [datadrift_coefficient](#visualize-drift-metrics) è superiore a quella `drift_threshold`specificata, viene inviato un messaggio di posta elettronica.
+Con l' `DataDriftDetector` oggetto configurato, è possibile inviare un' [esecuzione della deviazione dati](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) in una data specifica per il modello. Come parte dell'esecuzione, abilitare gli avvisi DataDriftDetector impostando il `drift_threshold` parametro. Se la [datadrift_coefficient](#visualize-drift-metrics) è superiore a quella specificata `drift_threshold` , viene inviato un messaggio di posta elettronica.
 
 ```python
 # adhoc run today
@@ -152,7 +151,7 @@ drift_figures = datadrift.show(with_details=True)
 
 ## <a name="schedule-data-drift-scans"></a>Pianifica analisi della deviazione dati 
 
-Quando si Abilita il rilevamento della tendenza dei dati, viene eseguito un DataDriftDetector alla frequenza pianificata specificata. Se il datadrift_coefficient raggiunge l'oggetto `drift_threshold`specificato, viene inviato un messaggio di posta elettronica con ogni esecuzione pianificata. 
+Quando si Abilita il rilevamento della tendenza dei dati, viene eseguito un DataDriftDetector alla frequenza pianificata specificata. Se il datadrift_coefficient raggiunge l'oggetto specificato `drift_threshold` , viene inviato un messaggio di posta elettronica con ogni esecuzione pianificata. 
 
 ```python
 datadrift.enable_schedule()

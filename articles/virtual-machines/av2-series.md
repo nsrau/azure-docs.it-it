@@ -1,18 +1,17 @@
 ---
-title: Serie AV2-macchine virtuali di Azure
+title: Serie Av2
 description: Specifiche per le macchine virtuali della serie AV2.
-services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: fe27a1cc78d1f37d535f364c03803a5196090a3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: 7d2064ec89e107aa219f34520f71ed8704bb7aeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78163948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676931"
 ---
 # <a name="av2-series"></a>Serie Av2
 
@@ -20,13 +19,13 @@ Le macchine virtuali di serie Av2 possono essere distribuite su una vasta gamma 
 
 ACU: 100
 
-Archiviazione Premium: non supportata
+Archiviazione Premium:  Non supportato
 
-Caching archiviazione Premium: non supportato
+Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
-Live Migration: supportato
+Live Migration: Supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Manutenzione con mantenimento della memoria: Supportato
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/Mbps di scrittura | Numero massimo di dischi dati/velocità effettiva: IOPS | NIC massimo/larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|
