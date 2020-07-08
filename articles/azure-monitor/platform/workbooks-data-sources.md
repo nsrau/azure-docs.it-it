@@ -8,14 +8,14 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: d57910ae31d4db9be17b3dc46b5920a925ab4fcf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560133"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Origini dati delle cartelle di lavoro di monitoraggio di Azure
 
@@ -42,24 +42,30 @@ Le risorse di Azure emettono [metriche](data-platform-metrics.md) a cui è possi
 
 ![Screenshot dell'interfaccia della metrica cartella di lavoro](./media/workbooks-overview/metrics.png)
 
-## <a name="azure-resource-graph"></a>Diagramma delle risorse di Azure 
+## <a name="azure-resource-graph"></a>Diagramma delle risorse di Azure
 
 Le cartelle di lavoro supportano l'esecuzione di query per le risorse e i relativi metadati tramite Azure Resource Graph (ARG). Questa funzionalità viene utilizzata principalmente per creare ambiti di query personalizzati per i report. L'ambito della risorsa viene espresso tramite un subset di KQL supportato da ARG, che è spesso sufficiente per i casi d'uso comuni.
 
 Per fare in modo che un controllo query usi questa origine dati, usare l'elenco a discesa tipo di query per scegliere Azure Resource Graph e selezionare le sottoscrizioni di destinazione. Usare il controllo query per aggiungere il subset di KQL ARG che seleziona un subset di risorse interessante.
 
-
 ![Screenshot della query KQL Graph di risorse di Azure](./media/workbooks-overview/azure-resource-graph.png)
 
-## <a name="alerts-preview"></a>Avvisi (anteprima)
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Le cartelle di lavoro consentono agli utenti di visualizzare gli avvisi attivi correlati alle relative risorse. Questa funzionalità consente la creazione di report che riuniscono i dati di notifica (avviso) e le informazioni di diagnostica (metriche, log) in un unico report. Queste informazioni possono anche essere unite per creare report avanzati che combinano informazioni dettagliate su tali origini dati.
+La cartella di lavoro supporta le operazioni REST Azure Resource Manager. In questo modo è possibile eseguire query sull'endpoint management.azure.com senza dover fornire il proprio token di intestazione dell'autorizzazione.
 
-Per fare in modo che un controllo query usi questa origine dati, usare l'elenco a discesa tipo di query per scegliere gli avvisi e selezionare le sottoscrizioni, i gruppi di risorse o le risorse di destinazione. Usare gli elenchi a discesa del filtro avvisi per selezionare un subset interessante di avvisi per le proprie esigenze analitiche.
+Per fare in modo che un controllo query usi questa origine dati, usare l'elenco a discesa origine dati per scegliere Azure Resource Manager. Fornire i parametri appropriati, ad esempio il metodo HTTP, il percorso URL, le intestazioni, i parametri URL e/o il corpo.
 
-![Screenshot della query degli avvisi](./media/workbooks-overview/alerts.png)
+> [!NOTE]
+> `GET` `POST` `HEAD` Attualmente sono supportate solo le operazioni, e.
 
-## <a name="workload-health-preview"></a>Stato del carico di lavoro (anteprima)
+## <a name="azure-data-explorer"></a>Esplora dati di Azure
+
+Le cartelle di lavoro ora includono il supporto per l'esecuzione di query da cluster [Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/) con il potente linguaggio di query [kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+
+![Screenshot della finestra di query kusto](./media/workbooks-overview/data-explorer.png)
+
+## <a name="workload-health"></a>Stato del carico di lavoro
 
 Monitoraggio di Azure offre funzionalità che monitora in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux. Monitoraggio di Azure modella i componenti chiave e le relative relazioni, i criteri per misurare l'integrità di tali componenti e i componenti che inviano un avviso quando viene rilevata una condizione di tipo non integro. Le cartelle di lavoro consentono agli utenti di usare queste informazioni per creare report interattivi avanzati.
 
@@ -67,7 +73,7 @@ Per fare in modo che un controllo query usi questa origine dati, usare l'elenco 
 
 ![Screenshot della query degli avvisi](./media/workbooks-overview/workload-health.png)
 
-## <a name="azure-resource-health"></a>Integrità risorse di Azure 
+## <a name="azure-resource-health"></a>Integrità risorse di Azure
 
 Le cartelle di lavoro supportano l'ottenimento di integrità delle risorse di Azure e la combinazione con altre origini dati per creare report di integrità avanzati e interattivi
 
@@ -75,13 +81,37 @@ Per fare in modo che un controllo query usi questa origine dati, usare l'elenco 
 
 ![Screenshot della query degli avvisi](./media/workbooks-overview/resource-health.png)
 
-## <a name="azure-data-explorer-preview"></a>Esplora dati di Azure (anteprima)
+## <a name="json"></a>JSON
 
-Le cartelle di lavoro ora includono il supporto per l'esecuzione di query da cluster [Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/) con il potente linguaggio di query [kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+Il provider JSON consente di creare un risultato di query dal contenuto JSON statico. Viene in genere usato nei parametri per creare parametri a discesa di valori statici. Le matrici o gli oggetti semplici JSON verranno convertiti automaticamente in righe e colonne della griglia.  Per comportamenti più specifici, è possibile usare la scheda risultati e le impostazioni JSONPath per configurare le colonne.
 
-![Screenshot della finestra di query kusto](./media/workbooks-overview/data-explorer.png)
+## <a name="alerts-preview"></a>Avvisi (anteprima)
+
+> [!NOTE]
+> Il modo consigliato per eseguire query per le informazioni sugli avvisi di Azure consiste nell'usare l'origine dati [Graph di risorse di Azure](#azure-resource-graph) , eseguendo una query sulla `AlertsManagementResources` tabella.
+>
+> Per esempi, vedere il [riferimento alla tabella del grafo delle risorse di Azure](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)o il modello di [avviso](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) .
+>
+> L'origine dati degli avvisi rimarrà disponibile per un determinato periodo di tempo mentre gli autori passano a utilizzando ARG. L'uso di questa origine dati nei modelli è sconsigliato. 
+
+Le cartelle di lavoro consentono agli utenti di visualizzare gli avvisi attivi correlati alle relative risorse. Limitazioni: l'origine dati degli avvisi richiede l'accesso in lettura alla sottoscrizione per eseguire query sulle risorse e potrebbe non visualizzare tipi più recenti di avvisi. 
+
+Per fare in modo che un controllo query usi questa origine dati, usare l'elenco a discesa _origine dati_ per scegliere _avvisi (anteprima)_ e selezionare le sottoscrizioni, i gruppi di risorse o le risorse di destinazione. Usare gli elenchi a discesa del filtro avvisi per selezionare un subset interessante di avvisi per le proprie esigenze analitiche.
+
+## <a name="custom-endpoint"></a>Endpoint personalizzato
+
+Le cartelle di lavoro supportano il recupero di dati da qualsiasi origine esterna. Se i dati si trovano all'esterno di Azure, è possibile portarli nelle cartelle di lavoro usando questo tipo di origine dati.
+
+Per fare in modo che un controllo query usi questa origine dati, usare l'elenco a discesa _origine dati_ per scegliere _endpoint personalizzato_. Fornire i parametri appropriati, ad esempio `Http method` ,, `url` `headers` `url parameters` e/o `body` . Verificare che l'origine dati supporti [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in caso contrario, la richiesta avrà esito negativo.
+
+Per evitare di effettuare automaticamente chiamate a host non attendibili quando si usano i modelli, l'utente deve contrassegnare gli host usati come attendibili. A tale scopo, è possibile fare clic sul pulsante _Aggiungi come attendibile_ oppure aggiungerlo come host attendibile nelle impostazioni della cartella di lavoro. Queste impostazioni verranno salvate nei browser che supportano IndexDb con i Web Worker. [qui](https://caniuse.com/#feat=indexeddb)sono disponibili altre informazioni.
+
+> [!NOTE]
+> Non scrivere alcun segreto in nessuno dei campi (,, `headers` `parameters` `body` , `url` ), perché saranno visibili a tutti gli utenti della cartella di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per [iniziare ad](workbooks-visualizations.md) apprendere altre informazioni sulle cartelle di lavoro, sono disponibili molte opzioni di visualizzazione avanzate.
 * [Controllare](workbooks-access-control.md) e condividere l'accesso alle risorse della cartella di lavoro.
+* [Suggerimenti per l'ottimizzazione delle query Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801774"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561578"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
 
@@ -28,7 +28,7 @@ Mentre un documento di ricerca può essere costituito da un numero elevato di ca
 I campi che funzionano meglio includono quelli che si differenziano e distinguono tra i documenti, fornendo informazioni sufficienti per invitare una risposta click-through sulla parte dell'utente. In un sito di e-commerce può essere un nome di prodotto, una descrizione, un marchio, un colore, una dimensione, un prezzo e una classificazione. Per l'esempio di Hotel-sample-index incorporato, potrebbe trattarsi di campi nell'esempio seguente:
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
     {  
       "search": "sandy beaches",
       "select": "HotelId, HotelName, Description, Rating, Address/City"
@@ -43,15 +43,15 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 
 Per impostazione predefinita, il motore di ricerca restituisce fino alle prime 50 corrispondenze, come determinato dal punteggio di ricerca se la query è una ricerca full-text o in un ordine arbitrario per le query di corrispondenza esatte.
 
-Per restituire un numero diverso di documenti corrispondenti, aggiungere `$top` i `$skip` parametri e alla richiesta di query. Nell'elenco seguente viene illustrata la logica.
+Per restituire un numero diverso di documenti corrispondenti, aggiungere `$top` `$skip` i parametri e alla richiesta di query. Nell'elenco seguente viene illustrata la logica.
 
 + Aggiungere `$count=true` per ottenere un conteggio del numero totale di documenti corrispondenti all'interno di un indice.
 
 + Restituisce il primo set di 15 documenti corrispondenti, oltre a un conteggio delle corrispondenze totali:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Restituisce il secondo set, ignorando le prime 15 per ottenere i successivi 15: `$top=15&$skip=15`. Eseguire la stessa operazione per il terzo set di 15:`$top=15&$skip=30`
++ Restituisce il secondo set, ignorando le prime 15 per ottenere i successivi 15: `$top=15&$skip=15` . Eseguire la stessa operazione per il terzo set di 15:`$top=15&$skip=30`
 
-I risultati delle query impaginate non sono necessariamente stabili se l'indice sottostante viene modificato. Il paging modifica il valore `$skip` di per ogni pagina, ma ogni query è indipendente e opera sulla visualizzazione corrente dei dati presenti nell'indice in fase di query (in altre parole, non è presente alcuna memorizzazione nella cache o snapshot dei risultati, ad esempio quelli presenti in un database per utilizzo generico).
+I risultati delle query impaginate non sono necessariamente stabili se l'indice sottostante viene modificato. Il paging modifica il valore di `$skip` per ogni pagina, ma ogni query è indipendente e opera sulla visualizzazione corrente dei dati presenti nell'indice in fase di query (in altre parole, non è presente alcuna memorizzazione nella cache o snapshot dei risultati, ad esempio quelli presenti in un database per utilizzo generico).
  
 Di seguito è riportato un esempio di come si potrebbero ottenere i duplicati. Si supponga che un indice con quattro documenti:
 
@@ -60,12 +60,12 @@ Di seguito è riportato un esempio di come si potrebbero ottenere i duplicati. S
     { "id": "3", "rating": 2 }
     { "id": "4", "rating": 1 }
  
-Si supponga ora di voler restituire i risultati due alla volta, ordinati in base alla classificazione. Eseguire questa query per ottenere la prima pagina di risultati: `$top=2&$skip=0&$orderby=rating desc`, producendo i risultati seguenti:
+Si supponga ora di voler restituire i risultati due alla volta, ordinati in base alla classificazione. Eseguire questa query per ottenere la prima pagina di risultati: `$top=2&$skip=0&$orderby=rating desc` , producendo i risultati seguenti:
 
     { "id": "1", "rating": 5 }
     { "id": "2", "rating": 3 }
  
-Nel servizio, si supponga che un quinto documento venga aggiunto all'indice in tra le chiamate di `{ "id": "5", "rating": 4 }`query:.  Successivamente, si esegue una query per recuperare la seconda pagina: `$top=2&$skip=2&$orderby=rating desc`e ottenere i risultati seguenti:
+Nel servizio, si supponga che un quinto documento venga aggiunto all'indice in tra le chiamate di query: `{ "id": "5", "rating": 4 }` .  Successivamente, si esegue una query per recuperare la seconda pagina: `$top=2&$skip=2&$orderby=rating desc` e ottenere i risultati seguenti:
 
     { "id": "2", "rating": 3 }
     { "id": "3", "rating": 2 }
@@ -98,16 +98,16 @@ Per abilitare l'evidenziazione dei riscontri, aggiungere `highlight=[comma-delim
 
 Per impostazione predefinita, Azure ricerca cognitiva restituisce fino a cinque evidenziazioni per ogni campo. È possibile modificare questo numero accodando il campo a un trattino seguito da un numero intero. Ad esempio, `highlight=Description-10` restituisce fino a 10 evidenziazioni sul contenuto corrispondente nel campo Descrizione.
 
-La formattazione viene applicata alle query a termini interi. Il tipo di formattazione è determinato dai tag, `highlightPreTag` e `highlightPostTag`e il codice gestisce la risposta, ad esempio applicando un tipo di carattere in grassetto o uno sfondo giallo.
+La formattazione viene applicata alle query a termini interi. Il tipo di formattazione è determinato dai tag, `highlightPreTag` e e `highlightPostTag` il codice gestisce la risposta, ad esempio applicando un tipo di carattere in grassetto o uno sfondo giallo.
 
 Nell'esempio seguente, i termini "Sandy", "Sand", "beaches", "Beach" trovati all'interno del campo Description sono contrassegnati per l'evidenziazione. Le query che attivano l'espansione di query nel motore, ad esempio fuzzy e la ricerca con caratteri jolly, hanno un supporto limitato per l'evidenziazione dei risultati.
 
 ```http
-GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2020-06-30 
 ```
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
     {  
       "search": "sandy beaches",  
       "highlight": "Description"
@@ -126,8 +126,6 @@ Con il nuovo comportamento:
     '<em>super bowl</em> is super awesome with a bowl of chips'
     ```
   Si noti che il termine *ciotola di chip* non presenta alcuna evidenziazione perché non corrisponde alla frase completa.
-  
-* Sarà possibile specificare la dimensione del frammento restituita per l'evidenziazione. La dimensione del frammento è specificata come numero di caratteri (il valore massimo è 1000 caratteri).
 
 Quando si scrive codice client che implementa l'evidenziazione dei riscontri, tenere presente questa modifica. Si noti che questa operazione non avrà alcun effetto a meno che non si crei un servizio di ricerca completamente nuovo.
 

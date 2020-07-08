@@ -1,6 +1,6 @@
 ---
 title: Connettersi Azure Information Protection ad Azure Sentinel
-description: Informazioni su come connettere Azure Information Protection dati in Sentinel di Azure.
+description: Trasmettere le informazioni di registrazione da Azure Information Protection in Sentinel di Azure configurando il connettore dati Azure Information Protection. 
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 396fd7c4289c9d02d451b26f5fb6299acd31e2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f06f8d3450f8907aa1be34b738565ac55e5e3d2d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588553"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559133"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Connettere i dati da Azure Information Protection
 
@@ -38,10 +38,10 @@ Tuttavia, se le informazioni di registrazione da Azure Information Protection pa
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Uno dei seguenti ruoli di amministratore Azure AD per il tenant: 
-    - Amministratore Azure Information Protection
+    - Amministratore di Azure Information Protection
     - Amministratore della protezione
     - Amministratore di conformità
-    - Amministratore dati di conformità
+    - Amministratore dei dati sulla conformità
     - Amministratore globale
     
     > [!NOTE]

@@ -1,7 +1,7 @@
 ---
-title: Configurare una connessione a un database SQL di Azure usando un'identità gestita (anteprima)
+title: Configurare una connessione al database SQL di Azure usando un'identità gestita (anteprima)
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come configurare una connessione dell'indicizzatore a un database SQL di Azure usando un'identità gestita (anteprima)
+description: Informazioni su come configurare una connessione dell'indicizzatore al database SQL di Azure usando un'identità gestita (anteprima)
 manager: luisca
 author: markheff
 ms.author: maheff
@@ -9,22 +9,23 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 87389651707a3bdcc18ae7eb03b88681b5303c4d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559940"
 ---
-# <a name="set-up-an-indexer-connection-to-an-azure-sql-database-using-a-managed-identity-preview"></a>Configurare una connessione dell'indicizzatore a un database SQL di Azure usando un'identità gestita (anteprima)
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurare una connessione dell'indicizzatore al database SQL di Azure usando un'identità gestita (anteprima)
 
 > [!IMPORTANT] 
 > Il supporto per la configurazione di una connessione a un'origine dati tramite un'identità gestita è attualmente disponibile in un'anteprima pubblica gestita. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
 > È possibile richiedere l'accesso all'anteprima compilando [questo modulo](https://aka.ms/azure-cognitive-search/mi-preview-request).
 
-Questa pagina descrive come configurare una connessione dell'indicizzatore a un database SQL di Azure usando un'identità gestita invece di immettere le credenziali nella stringa di connessione dell'oggetto origine dati.
+Questa pagina descrive come configurare una connessione dell'indicizzatore al database SQL di Azure usando un'identità gestita anziché fornire le credenziali nella stringa di connessione dell'oggetto origine dati.
 
 Prima di acquisire maggiore familiarità con questa funzionalità, è consigliabile sapere che cos'è un indicizzatore e come lo si configura per l'origine dati. Altre informazioni sono disponibili nei collegamenti seguenti:
+
 * [Panoramica degli indicizzatori](search-indexer-overview.md)
 * [Indicizzatore di Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -39,7 +40,7 @@ Quando un'identità gestita assegnata dal sistema è abilitata, Azure crea un'id
 Dopo aver selezionato **Salva**, viene visualizzato un ID oggetto che è stato assegnato al servizio di ricerca.
 
 ![ID oggetto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID dell'oggetto.")
- 
+
 ### <a name="2---provision-azure-active-directory-admin-for-sql-server"></a>2 - Effettuare il provisioning di un amministratore di Azure Active Directory per SQL Server
 
 Durante la connessione al database nel passaggio successivo, sarà necessario connettersi con un account di Azure Active Directory (Azure AD) che disponga di accesso amministrativo al database, allo scopo di concedere al servizio di ricerca l'autorizzazione per l'accesso al database.
@@ -102,7 +103,7 @@ Quando si esegue l'indicizzazione da un database SQL, l'origine dati deve avere 
 * **name** è il nome univoco dell'origine dati all'interno del servizio di ricerca.
 * **type** è `azuresql`
 * **credentials**
-    * Quando si usa un'identità gestita per l'autenticazione, il formato delle **credenziali** è diverso rispetto alla situazione in cui non viene usata un'identità gestita. In questo caso, si fornirà un nome di database o di catalogo iniziale e un valore ResourceId senza chiave o password dell'account. ResourceId deve includere l'ID sottoscrizione del database SQL di Azure, il gruppo di risorse del database SQL e il nome del database SQL. 
+    * Quando si usa un'identità gestita per l'autenticazione, il formato delle **credenziali** è diverso rispetto alla situazione in cui non viene usata un'identità gestita. In questo caso, si fornirà un nome di database o di catalogo iniziale e un valore ResourceId senza chiave o password dell'account. Il ResourceId deve includere l'ID sottoscrizione del database SQL di Azure, il gruppo di risorse del database SQL e il nome del database SQL. 
     * Formato della stringa di connessione con identità gestita:
         * *Initial Catalog|Database=**nome del database**;ResourceId=/subscriptions/**ID sottoscrizione**/resourceGroups/**nome del gruppo di risorse**/providers/Microsoft.Sql/servers/**nome del server SQL**/;Connection Timeout=**durata del timeout per la connessione**;*
 * **container** specifica il nome della tabella o della vista da indicizzare.
@@ -110,7 +111,7 @@ Quando si esegue l'indicizzazione da un database SQL, l'origine dati deve avere 
 Esempio di creazione di un oggetto origine dati di Azure SQL usando l'[API REST ](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -131,7 +132,7 @@ L'indice consente di specificare i campi in un documento, gli attributi e altri 
 Ecco come creare un indice con un campo `booktitle` ricercabile:   
 
 ```
-POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -155,7 +156,7 @@ Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore.
 Esempio di definizione dell'indicizzatore per un indicizzatore di Azure SQL:
 
 ```
-POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 

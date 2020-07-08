@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e3692920c35a6965a23c0305aeeebfc80505d85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79db94298d190f646393410ec73ba1a25bb48270
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560399"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Risoluzione dei problemi comuni dell'indicizzatore in Azure ricerca cognitiva
 
@@ -28,18 +28,18 @@ Gli indicizzatori possono rientrare in una serie di problemi durante l'indicizza
 > [!NOTE]
 > Gli indicizzatori hanno un supporto limitato per l'accesso alle origini dati e ad altre risorse protette dai meccanismi di sicurezza di rete di Azure. Attualmente, gli indicizzatori possono accedere alle origini dati solo tramite meccanismi di restrizione dell'intervallo di indirizzi IP corrispondenti o regole NSG quando applicabile. I dettagli per accedere a ogni origine dati supportata sono disponibili di seguito.
 >
-> È possibile trovare l'indirizzo IP del servizio di ricerca eseguendo il ping del nome di dominio completo (ad esempio, `<your-search-service-name>.search.windows.net`).
+> È possibile trovare l'indirizzo IP del servizio di ricerca eseguendo il ping del nome di dominio completo (ad esempio, `<your-search-service-name>.search.windows.net` ).
 >
 > È possibile trovare l'intervallo di indirizzi IP del `AzureCognitiveSearch` [tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) usando [file JSON scaricabili](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) o tramite l' [API di individuazione dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). L'intervallo di indirizzi IP viene aggiornato settimanalmente.
 
 ### <a name="configure-firewall-rules"></a>Configurare le regole del firewall
 
-Archiviazione di Azure, CosmosDB e SQL di Azure forniscono un firewall configurabile. Non vengono visualizzati messaggi di errore specifici quando il firewall è abilitato. In genere, gli errori del firewall sono generici e hanno un aspetto simile a `The remote server returned an error: (403) Forbidden` o `Credentials provided in the connection string are invalid or have expired`.
+Archiviazione di Azure, CosmosDB e SQL di Azure forniscono un firewall configurabile. Non vengono visualizzati messaggi di errore specifici quando il firewall è abilitato. In genere, gli errori del firewall sono generici e hanno un aspetto simile a `The remote server returned an error: (403) Forbidden` o `Credentials provided in the connection string are invalid or have expired` .
 
 Sono disponibili 2 opzioni per consentire agli indicizzatori di accedere a queste risorse in un'istanza di questo tipo:
 
 * Disabilitare il firewall consentendo l'accesso da **tutte le reti** (se possibile).
-* In alternativa, è possibile consentire l'accesso per l'indirizzo IP del servizio di ricerca e l'intervallo di indirizzi `AzureCognitiveSearch` IP del [tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) nelle regole del firewall della risorsa (restrizione intervallo di indirizzi IP).
+* In alternativa, è possibile consentire l'accesso per l'indirizzo IP del servizio di ricerca e l'intervallo di indirizzi IP del `AzureCognitiveSearch` [tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) nelle regole del firewall della risorsa (restrizione intervallo di indirizzi IP).
 
 Per informazioni dettagliate sulla configurazione delle restrizioni dell'intervallo di indirizzi IP per ogni tipo di origine dati, vedere i collegamenti seguenti:
 
@@ -76,7 +76,7 @@ Il ricerca cognitiva di Azure ha una dipendenza implicita dall'indicizzazione Co
 L'indicizzatore BLOB [registra i formati di documento supportati in modo esplicito](search-howto-indexing-azure-blob-storage.md#SupportedFormats). In alcuni casi, un contenitore di archiviazione BLOB contiene documenti non supportati. In altri casi potrebbero essere presenti documenti problematici. È possibile evitare di arrestare l'indicizzatore su questi documenti [modificando le opzioni di configurazione](search-howto-indexing-azure-blob-storage.md#DealingWithErrors):
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -94,7 +94,7 @@ L'indicizzatore BLOB [trova ed estrae il testo dai BLOB in un contenitore](searc
 * L'indicizzatore BLOB è configurato solo per i metadati dell'indice. Per estrarre il contenuto, l'indicizzatore BLOB deve essere configurato per [estrarre sia il contenuto che i metadati](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -111,6 +111,7 @@ api-key: [admin key]
 Gli indicizzatori trovano i documenti da un'[origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source). In alcuni casi un documento dell'origine dati che dovrebbe essere stato indicizzato non è presente in un indice. Esistono alcuni motivi comuni per cui questi errori possono verificarsi:
 
 * Il documento non è stato indicizzato. Cercare nel portale un'esecuzione dell'indicizzatore riuscita.
+* Controllare il valore di [rilevamento delle modifiche](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) . Se il valore del limite massimo è una data impostata su un'ora futura, eventuali documenti con una data inferiore a questa verranno ignorati dall'indicizzatore. È possibile comprendere lo stato di rilevamento delle modifiche dell'indicizzatore usando i campi ' initialTrackingState ' è finalTrackingState ' nello [stato dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status#indexer-execution-result).
 * Il documento è stato aggiornato dopo l'esecuzione dell'indicizzatore. Se l'indicizzatore fa parte di una [pianificazione](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), a un certo punto verrà eseguito nuovamente e selezionerà il documento.
 * La [query](/rest/api/searchservice/create-data-source) specificata nell'origine dati esclude il documento. Gli indicizzatori non possono indicizzare i documenti che non fanno parte dell'origine dati.
 * I [mapping dei campi](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) o l' [arricchimento di intelligenza artificiale](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) hanno modificato il documento e hanno un aspetto diverso dal previsto.

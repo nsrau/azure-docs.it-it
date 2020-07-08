@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati Barracuda ad Azure Sentinel | Microsoft Docs
-description: Informazioni su come connettere i dati di Barracuda ad Azure Sentinel.
+description: Informazioni su come usare il connettore Barracuda Web Application Firewall (WAF) per connettere i log di Barracuda con Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 4e87bb57e6bdfea6307a166383da9dea187eea4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f28243be6b4f998e8bdea0ce02da3ceedde23e02
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559125"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Connettere l'appliance Barracuda 
 
@@ -50,6 +50,6 @@ Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log A
 In questo documento si è appreso come connettere Appliance Barracuda ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 
 

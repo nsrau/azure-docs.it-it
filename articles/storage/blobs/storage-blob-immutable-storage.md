@@ -9,24 +9,24 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: bb66e90f1d835a6341b47bb698cf05bc442e0ac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69c921ba67159d28a913173cee5e90fb04dcbf0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561034"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
-L'archiviazione non modificabile per l'archiviazione BLOB di Azure consente agli utenti di archiviare oggetti dati cruciali per l'azienda in un WORM (scrivere una sola volta, leggere molti) stato. Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente. Per la durata dell'intervallo di conservazione, è possibile creare e leggere i BLOB, ma non modificarli o eliminarli. L'archiviazione non modificabile è disponibile per gli account per utilizzo generico V1, per utilizzo generico V2, BlobStorage e BlockBlobStorage in tutte le aree di Azure.
+L'archiviazione non modificabile per BLOB di Azure consente agli utenti di archiviare oggetti dati critici per l'azienda nello stato WORM (Write Once, Read Many). Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente. Per tutta la durata dell'intervallo di conservazione, i BLOB possono essere creati e letti, ma non modificati o eliminati. L'archiviazione non modificabile è disponibile per gli account per utilizzo generico V1, per utilizzo generico V2, BlobStorage e BlockBlobStorage in tutte le aree di Azure.
 
 Per informazioni su come impostare e cancellare le condizioni legali o creare criteri di conservazione basati sul tempo usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure, vedere [impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](storage-blob-immutability-policies-manage.md).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="about-immutable-blob-storage"></a>Informazioni sull'archiviazione BLOB non modificabile
 
-L'archiviazione non modificabile aiuta l'organizzazione sanitaria, gli istituti&mdash;finanziari e i settori correlati&mdash;, in particolare le organizzazioni broker-dealer a archiviare i dati in modo sicuro. L'archiviazione non modificabile può essere sfruttata anche in qualsiasi scenario per proteggere i dati critici da modifiche o eliminazioni.
+L'archiviazione non modificabile aiuta l'organizzazione sanitaria, gli istituti finanziari e i settori correlati, &mdash; in particolare le organizzazioni broker-dealer &mdash; a archiviare i dati in modo sicuro. L'archiviazione non modificabile può essere sfruttata anche in qualsiasi scenario per proteggere i dati critici da modifiche o eliminazioni.
 
 Le applicazioni tipiche includono:
 
@@ -78,15 +78,15 @@ Ai criteri di conservazione si applicano i limiti seguenti:
 
 I BLOB di Accodamento sono costituiti da blocchi di dati e ottimizzati per le operazioni di Accodamento dei dati richieste dagli scenari di controllo e registrazione. Per impostazione predefinita, i BLOB di accodamento consentono solo l'aggiunta di nuovi blocchi alla fine del BLOB. Indipendentemente dall'immutabilità, la modifica o l'eliminazione di blocchi esistenti in un BLOB di Accodamento non è sostanzialmente consentita. Per ulteriori informazioni sui BLOB di Accodamento, vedere [informazioni sui BLOB di Accodamento](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Solo i criteri di conservazione basati sul tempo `allowProtectedAppendWrites` hanno un'impostazione che consente di scrivere nuovi blocchi in un BLOB di Accodamento mantenendo la protezione e la conformità dell'immutabilità. Se abilitata, è possibile creare un BLOB di Accodamento direttamente nel contenitore protetto da criteri e continuare ad aggiungere nuovi blocchi di dati alla fine dei BLOB di Accodamento esistenti usando l'API *AppendBlock* . È possibile aggiungere solo nuovi blocchi ed eventuali blocchi esistenti non possono essere modificati o eliminati. Viene comunque applicata la protezione dell'immutabilità del periodo di conservazione, impedendo l'eliminazione del BLOB di Accodamento finché non è trascorso il periodo di conservazione effettivo. L'abilitazione di questa impostazione non influisce sul comportamento di immutabilità di BLOB in blocchi o BLOB di pagine.
+Solo i criteri di conservazione basati sul tempo hanno un' `allowProtectedAppendWrites` impostazione che consente di scrivere nuovi blocchi in un BLOB di Accodamento mantenendo la protezione e la conformità dell'immutabilità. Se abilitata, è possibile creare un BLOB di Accodamento direttamente nel contenitore protetto da criteri e continuare ad aggiungere nuovi blocchi di dati alla fine dei BLOB di Accodamento esistenti usando l'API *AppendBlock* . È possibile aggiungere solo nuovi blocchi ed eventuali blocchi esistenti non possono essere modificati o eliminati. Viene comunque applicata la protezione dell'immutabilità del periodo di conservazione, impedendo l'eliminazione del BLOB di Accodamento finché non è trascorso il periodo di conservazione effettivo. L'abilitazione di questa impostazione non influisce sul comportamento di immutabilità di BLOB in blocchi o BLOB di pagine.
 
 Poiché questa impostazione fa parte di un criterio di conservazione basato sul tempo, i BLOB di Accodamento rimangono nello stato non modificabile per la durata del periodo di conservazione *effettivo* . Poiché i nuovi dati possono essere aggiunti oltre la creazione iniziale del BLOB di Accodamento, esiste una lieve differenza nel modo in cui viene determinato il periodo di conservazione. La conservazione effettiva è la differenza tra l'ora dell' **Ultima modifica** del BLOB e l'intervallo di conservazione specificato dall'utente. Analogamente, quando l'intervallo di conservazione viene esteso, l'archiviazione non modificabile usa il valore più recente dell'intervallo di conservazione specificato dall'utente per calcolare il periodo di conservazione effettivo.
 
-Si supponga, ad esempio, che un utente crei un criterio di conservazione basato `allowProtectedAppendWrites` sul tempo con abilitato e un intervallo di conservazione di 90 giorni. Un BLOB di Accodamento, _logblob1_, viene creato oggi nel contenitore. i nuovi log continuano a essere aggiunti al BLOB di Accodamento per i successivi 10 giorni. il periodo di conservazione effettivo per il _logblob1_ è quindi di 100 giorni da oggi (l'ora dell'ultimo Accodamento + 90 giorni).
+Si supponga, ad esempio, che un utente crei un criterio di conservazione basato sul tempo con `allowProtectedAppendWrites` abilitato e un intervallo di conservazione di 90 giorni. Un BLOB di Accodamento, _logblob1_, viene creato oggi nel contenitore. i nuovi log continuano a essere aggiunti al BLOB di Accodamento per i successivi 10 giorni. il periodo di conservazione effettivo per il _logblob1_ è quindi di 100 giorni da oggi (l'ora dell'ultimo Accodamento + 90 giorni).
 
-I criteri di conservazione basati sul tempo sbloccati consentono di abilitare e disabilitare l' `allowProtectedAppendWrites` impostazione in qualsiasi momento. Quando il criterio di conservazione basato sul tempo è bloccato, `allowProtectedAppendWrites` l'impostazione non può essere modificata.
+I criteri di conservazione basati sul tempo sbloccati consentono `allowProtectedAppendWrites` di abilitare e disabilitare l'impostazione in qualsiasi momento. Quando il criterio di conservazione basato sul tempo è bloccato, l' `allowProtectedAppendWrites` impostazione non può essere modificata.
 
-I criteri di esenzione `allowProtectedAppendWrites` legale non possono essere abilitati e le eventuali esenzioni legali determinino la proprietà' allowProtectedAppendWrites '. Se viene applicata una tenuta legale a un criterio di conservazione basato sul tempo `allowProtectedAppendWrites` con abilitato, l'API *AppendBlock* non riuscirà fino a quando non viene sollevata la tenuta legale.
+I criteri di esenzione legale non possono essere abilitati `allowProtectedAppendWrites` e le eventuali esenzioni legali determinino la proprietà' allowProtectedAppendWrites '. Se viene applicata una tenuta legale a un criterio di conservazione basato sul tempo con `allowProtectedAppendWrites` abilitato, l'API *AppendBlock* non riuscirà fino a quando non viene sollevata la tenuta legale.
 
 ## <a name="legal-holds"></a>Blocchi a fini giudiziari
 
@@ -112,7 +112,7 @@ La tabella seguente illustra i tipi di operazioni di archiviazione BLOB disabili
 
 <sup>1</sup> il servizio BLOB consente a queste operazioni di creare un nuovo BLOB una sola volta. Non sono consentite tutte le operazioni di sovrascrittura successive in un percorso BLOB esistente in un contenitore non modificabile.
 
-<sup>2</sup> il blocco Append è consentito solo per i criteri di conservazione basati sul `allowProtectedAppendWrites` tempo con la proprietà abilitata. Per ulteriori informazioni, vedere la sezione [Consenti le scritture di Accodamento BLOB protetti](#allow-protected-append-blobs-writes) .
+<sup>2</sup> il blocco Append è consentito solo per i criteri di conservazione basati sul tempo con la `allowProtectedAppendWrites` proprietà abilitata. Per ulteriori informazioni, vedere la sezione [Consenti le scritture di Accodamento BLOB protetti](#allow-protected-append-blobs-writes) .
 
 ## <a name="pricing"></a>Prezzi
 

@@ -1,5 +1,5 @@
 ---
-title: Eseguire il debug di un set di competenze per l'arricchimento tramite intelligenza artificiale (anteprima)
+title: Concetti relativi alle sessioni di debug (anteprima)
 titleSuffix: Azure Cognitive Search
 description: Le sessioni di debug, accessibili tramite il portale di Azure, forniscono un ambiente di tipo IDE in cui è possibile identificare e correggere gli errori, convalidare le modifiche ed effettuare il push delle modifiche ai set di competenze nella pipeline di arricchimento tramite intelligenza artificiale. Le sessioni di debug sono disponibili in anteprima.
 manager: nitinme
@@ -8,21 +8,20 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 04b221d772abf923d7aabfe767a6424b72ed8fb2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662409"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560371"
 ---
-# <a name="debug-sessions"></a>Sessioni di debug
+# <a name="debug-sessions-in-azure-cognitive-search"></a>Sessioni di debug in Azure ricerca cognitiva
 
 Sessioni di debug è un editor visivo che funziona con un set di competenze esistente nel portale di Azure. All'interno di una sessione di debug è possibile identificare e risolvere gli errori, convalidare le modifiche ed effettuare il push delle modifiche a un set di competenze di produzione nella pipeline di arricchimento tramite intelligenza artificiale.
 
 > [!Important]
-> Il supporto delle sessioni di debug per Ricerca cognitiva di Azure è disponibile [su richiesta](https://aka.ms/DebugSessions) come anteprima con accesso limitato. Le funzionalità di anteprima vengono messe a disposizione senza contratto di servizio e non sono consigliate per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Sessioni di debug è una funzionalità di anteprima fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Dopo aver ottenuto l'accesso all'anteprima, sarà possibile accedere alle sessioni di debug e usarle per il servizio tramite il portale di Azure.
 
 ## <a name="using-debug-sessions"></a>Uso delle sessioni di debug
 
@@ -86,6 +85,10 @@ L'**analizzatore di espressioni** permette di controllare rapidamente il valore 
 ## <a name="errorswarnings"></a>Errori/Avvisi
 
 In questa finestra vengono visualizzati tutti gli errori e gli avvisi generati dal set di competenze durante l'esecuzione sul documento nella sessione di debug.
+
+## <a name="limitations"></a>Limitazioni
+
+Il debug di sesisons funziona con tutte le origini dati disponibili a livello generale AMD per l'anteprima. L'API MongoDB (anteprima) e la API Cassandra (anteprima) di Cosmos DB non sono attualmente supportate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,15 +4,15 @@ description: Informazioni sulla generazione e la ricezione di lead dei clienti p
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 89b73fd98ca773668d2eb53892d0c21397e9abf3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559582"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Lead di clienti tramite l'offerta del marketplace commerciale
 
@@ -87,10 +87,12 @@ Le informazioni sul cliente vengono inviate tramite più campi. L'esempio seguen
 
 ## <a name="best-practices-for-lead-management"></a>Procedure consigliate per la gestione dei lead
 
+Di seguito sono riportati alcuni suggerimenti per guidare i lead nel ciclo di vendita:
+
 - **Processo**: definire un processo di vendita chiaro, con attività cardine, analisi e una chiara proprietà del team.
 - **Qualificazione**: definire i prerequisiti, che indicano se un lead era completo. Assicurarsi che i rappresentanti di vendita o marketing qualifichino i lead con attenzione prima di prenderli in considerazione per il processo di vendita completo.
-- **Completamento**: non dimenticare di completare la procedura. Si prevede che la transazione tipica richieda da 5 a 12 chiamate di completamento.
-- **Seguire**: consolidare i lead in modo da raggiungere un margine di profitto superiore.
+- **Completamento**: non dimenticare di seguirli entro 24 ore. Si otterrà il lead nel CRM preferito immediatamente dopo la distribuzione di un test drive da parte del cliente; inviare un messaggio di posta elettronica all'interno di mentre sono ancora a caldo. Richiede la pianificazione di una telefonata per comprendere meglio se il prodotto è una soluzione ottimale per il problema. Si prevede che la transazione tipica richieda numerose chiamate di completamento.
+- **Seguire**: consolidare i lead in modo da raggiungere un margine di profitto superiore. Archiviarli senza bombardarli. Si consiglia di inviare messaggi di posta elettronica almeno alcune volte prima di chiuderli; non abbandonarsi dopo il primo tentativo. Tenere presente che questi clienti hanno partecipato direttamente al prodotto e hanno dedicato tempo a una versione di valutazione gratuita; sono ottime prospettive.
 
 ## <a name="common-questions-about-lead-management"></a>Domande frequenti sulla gestione dei lead
 

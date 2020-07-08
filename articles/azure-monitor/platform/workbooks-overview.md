@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658235"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560158"
 ---
 # <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di Monitoraggio di Azure
 
@@ -31,24 +31,24 @@ Le cartelle di lavoro sono attualmente compatibili con le origini dati seguenti:
 * [Metriche](workbooks-data-sources.md#metrics)
 * [Diagramma delle risorse di Azure](workbooks-data-sources.md#azure-resource-graph)
 * [Avvisi (anteprima)](workbooks-data-sources.md#alerts-preview)
-* [Stato del carico di lavoro (anteprima)](workbooks-data-sources.md#workload-health-preview)
-* [Integrità risorse di Azure (anteprima)](workbooks-data-sources.md#azure-resource-health)
-* [Esplora dati di Azure (anteprima)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [Stato del carico di lavoro](workbooks-data-sources.md#workload-health)
+* [Integrità risorse di Azure](workbooks-data-sources.md#azure-resource-health)
+* [Esplora dati di Azure](workbooks-data-sources.md#azure-data-explorer)
 
 ## <a name="visualizations"></a>Visualizzazioni
 
 Le cartelle di lavoro di offrono un set completo di funzionalità per la visualizzazione dei dati. Per esempi dettagliati di ogni tipo di visualizzazione, è possibile consultare i collegamenti di esempio seguenti:
 
-* [Text](workbooks-visualizations.md#text)
+* [Testo](workbooks-visualizations.md#text)
 * [Grafici](workbooks-visualizations.md#charts)
 * [Griglie](workbooks-visualizations.md#grids)
-* [Riquadri](workbooks-visualizations.md#tiles)
+* [Piastrelle](workbooks-visualizations.md#tiles)
 * [Trees](workbooks-visualizations.md#trees)
 * [Grafici](workbooks-visualizations.md#graphs)
 
 ![Visualizzazioni di cartelle di lavoro di esempio](./media/workbooks-overview/visualizations.png)
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Per esplorare l'esperienza delle cartelle di lavoro, passare prima al servizio monitoraggio di Azure. Questa operazione può essere eseguita digitando **monitoraggio** nella casella cerca della portale di Azure.
 
@@ -56,7 +56,7 @@ Selezionare quindi **cartelle di lavoro (anteprima)**.
 
 ![Screenshot del pulsante di anteprima delle cartelle di lavoro evidenziato in una casella rossa](./media/workbooks-overview/workbooks-preview.png)
 
-### <a name="gallery"></a>Gallery
+### <a name="gallery"></a>Raccolta
 
 In questo modo si passa alla raccolta cartelle di lavoro:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 464e2c14fa238160ca198b9f1c8a9808e70933f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60779836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560979"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
 
@@ -29,7 +29,7 @@ Completare la [Guida introduttiva](https://docs.microsoft.com/azure/iot-hub/iot-
 
 Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registrarsi tramite uno di questi metodi:
 
-* Attivare una [versione di valutazione gratuita di 30 giorni Microsoft Azure account](https://azure.microsoft.com/free/)
+* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azure.microsoft.com/free/)
 * Richiedi il tuo [credito Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se sei un abbonato a MSDN o a Visual Studio
 
 ## <a name="open-the-project-folder"></a>Aprire la cartella del progetto
@@ -92,7 +92,7 @@ Compilare e caricare quindi il codice del dispositivo.
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
 
-2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, procedere nel seguente modo:
+2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, procedere come indicato di seguito:
 
    * Tenere premuto il pulsante A
 
@@ -151,7 +151,7 @@ Dopo l'inizializzazione dell'app, premere e rilasciare il pulsante A, quindi scu
 - Premere di nuovo il pulsante A, quindi scuotere per visualizzare un nuovo tweet.
 - Premere il pulsante B per scorrere nella parte restante del tweet.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 ![diagramma](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
@@ -196,8 +196,6 @@ Può anche capitare che, durante l'esecuzione del codice, si verifichi un proble
 2. Nel [portale di Azure](https://portal.azure.com/) trovare l'app Funzioni di Azure creata e riavviarla:
 
    ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
-
-### <a name="feedback"></a>Commenti e suggerimenti
 
 Se si verificano altri problemi, fare riferimento alle [domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o contattare i canali seguenti:
 
