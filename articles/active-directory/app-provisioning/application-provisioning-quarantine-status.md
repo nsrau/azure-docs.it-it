@@ -2,21 +2,21 @@
 title: Stato del provisioning dell'applicazione della quarantena | Microsoft Docs
 description: Quando è stata configurata un'applicazione per il provisioning utenti automatico, scoprire che cosa significa lo stato di provisioning della quarantena e come eliminarlo.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/28/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c1e0039133b7f9a7ae827e348640f6379b7f10ac
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: e5c0b00873cd97b255eff7e001f8b54cf0397462
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593931"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024571"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisioning dell'applicazione in stato di quarantena
 
@@ -28,11 +28,11 @@ Durante la quarantena, la frequenza dei cicli incrementali viene gradualmente ri
 
 Esistono tre modi per verificare se un'applicazione è in quarantena:
   
-- Nella portale di Azure passare a **Azure Active Directory** > **applicazioni** > &lt;*aziendali nome*&gt; > applicazione**provisioning** ed esaminare l'indicatore di stato per un messaggio di quarantena.   
+- Nella portale di Azure passare a **Azure Active Directory**  >  **applicazioni aziendali**  >  &lt; *nome applicazione* &gt;  >  **provisioning** ed esaminare l'indicatore di stato per un messaggio di quarantena.   
 
   ![Barra di stato del provisioning che mostra lo stato della quarantena](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
-- Nella portale di Azure passare a **Azure Active Directory** > **log di controllo** > filtro per **attività: quarantena** e verificare la cronologia di quarantena. Mentre la visualizzazione nell'indicatore di stato, come descritto in precedenza, Mostra se il provisioning è attualmente in quarantena, i log di controllo consentono di visualizzare la cronologia di quarantena per un'applicazione. 
+- Nella portale di Azure passare a **Azure Active Directory**  >  **log di controllo** > filtro per **attività: quarantena** e verificare la cronologia di quarantena. Mentre la visualizzazione nell'indicatore di stato, come descritto in precedenza, Mostra se il provisioning è attualmente in quarantena, i log di controllo consentono di visualizzare la cronologia di quarantena per un'applicazione. 
 
 - Usare la richiesta Microsoft Graph [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) per ottenere lo stato del processo di provisioning a livello di codice:
 
@@ -66,7 +66,7 @@ Per prima cosa, risolvere il problema che ha causato la messa in quarantena dell
 
 - Controllare le impostazioni di provisioning dell'applicazione per verificare di avere [immesso credenziali amministrative valide](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD deve essere in grado di stabilire una relazione di trust con l'applicazione di destinazione. Assicurarsi di aver immesso le credenziali valide e che l'account disponga delle autorizzazioni necessarie.
 
-- Esaminare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per esaminare in modo approfondito gli errori che causano la quarantena e risolvere l'errore. Per accedere ai log di provisioning nel portale di Azure, passare **a Azure Active Directory** &gt; **log di provisioning** di **app** &gt; aziendali (anteprima) nella sezione **attività** .
+- Esaminare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per esaminare in modo approfondito gli errori che causano la quarantena e risolvere l'errore. Per accedere ai log di provisioning nel portale di Azure, passare a **Azure Active Directory** &gt; log di provisioning di **app aziendali** &gt; **(anteprima)** nella sezione **attività** .
 
 Dopo aver risolto il problema, riavviare il processo di provisioning. Alcune modifiche apportate alle impostazioni di provisioning dell'applicazione, ad esempio i mapping degli attributi o i filtri di ambito, riavvieranno automaticamente il provisioning. L'indicatore di stato nella pagina di **provisioning** dell'applicazione indica il momento dell'ultimo avvio del provisioning. Se è necessario riavviare manualmente il processo di provisioning, usare uno dei metodi seguenti:  
 
@@ -75,3 +75,6 @@ Dopo aver risolto il problema, riavviare il processo di provisioning. Alcune mod
 - Usare Microsoft Graph per [riavviare il processo di provisioning](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Si avrà il controllo completo su ciò che viene riavviato. È possibile scegliere di cancellare i riconoscimenti (per riavviare il contatore del deposito per lo stato di quarantena), cancellare la quarantena (per rimuovere l'applicazione dalla quarantena) o cancellare le filigrane. Usare la richiesta seguente:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+       
+Sostituire "{ID}" con il valore dell'ID applicazione e sostituire "{jobId}" con l' [ID del processo di sincronizzazione](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
+
