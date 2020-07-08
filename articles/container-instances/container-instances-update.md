@@ -4,10 +4,9 @@ description: Informazioni su come aggiornare i contenitori in esecuzione nei gru
 ms.topic: article
 ms.date: 04/17/2020
 ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82928721"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aggiornare i contenitori in Istanze di Azure Container
@@ -84,7 +83,7 @@ In questo articolo è menzionato più volte il **gruppo di contenitori**. Ogni c
 
 [Distribuire un gruppo multi-contenitore](container-instances-multi-container-group.md)
 
-[Arrestare o avviare manualmente i contenitori nelle istanze di contenitore di Azure](container-instances-stop-start.md)
+[Arrestare o avviare manualmente i contenitori in Istanze di Azure Container](container-instances-stop-start.md)
 
 <!-- LINKS - External -->
 

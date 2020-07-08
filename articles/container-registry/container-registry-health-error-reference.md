@@ -4,10 +4,9 @@ description: Codici di errore e possibili soluzioni per i problemi rilevati medi
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978315"
 ---
 # <a name="health-check-error-reference"></a>Riferimento errore controllo integrità
@@ -22,13 +21,13 @@ Questo errore indica che non è stato possibile trovare il client Docker per l'i
 
 ## <a name="docker_daemon_error"></a>DOCKER_DAEMON_ERROR
 
-Questo errore indica che lo stato del daemon Docker non è disponibile o che non è stato possibile raggiungerlo tramite l'interfaccia della riga di comando. Di conseguenza, le operazioni di Docker, ad `docker login` esempio `docker pull`e, non sono disponibili tramite l'interfaccia della riga di comando.
+Questo errore indica che lo stato del daemon Docker non è disponibile o che non è stato possibile raggiungerlo tramite l'interfaccia della riga di comando. Di conseguenza, le operazioni di Docker, ad esempio e, non `docker login` `docker pull` sono disponibili tramite l'interfaccia della riga di comando.
 
 *Possibili soluzioni*: riavviare il daemon Docker o verificare che sia installato correttamente.
 
 ## <a name="docker_version_error"></a>DOCKER_VERSION_ERROR
 
-Questo errore indica che l'interfaccia della riga di comando non è `docker --version`stata in grado di eseguire il comando.
+Questo errore indica che l'interfaccia della riga di comando non è stata in grado di eseguire il comando `docker --version` .
 
 *Possibili soluzioni*: provare a eseguire il comando manualmente, verificare di avere la versione più recente dell'interfaccia della riga di comando ed esaminare il messaggio di errore.
 
@@ -58,7 +57,7 @@ Questo errore indica che il DNS per il server di accesso del registro di sistema
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Questo errore indica che l'endpoint di richiesta per il registro di sistema specificato ha risposto con uno stato HTTP non consentito 403. Questo errore indica che gli utenti non hanno accesso al registro di sistema, probabilmente a causa di una configurazione di rete virtuale o perché non è consentito l'accesso all'endpoint pubblico del registro di sistema. Per visualizzare le regole del firewall attualmente configurate, eseguire `az acr show --query networkRuleSet --name <registry>`.
+Questo errore indica che l'endpoint di richiesta per il registro di sistema specificato ha risposto con uno stato HTTP non consentito 403. Questo errore indica che gli utenti non hanno accesso al registro di sistema, probabilmente a causa di una configurazione di rete virtuale o perché non è consentito l'accesso all'endpoint pubblico del registro di sistema. Per visualizzare le regole del firewall attualmente configurate, eseguire `az acr show --query networkRuleSet --name <registry>` .
 
 *Possibili soluzioni*: rimuovere le regole della rete virtuale o aggiungere l'indirizzo IP del client corrente all'elenco degli indirizzi consentiti.
 
@@ -66,13 +65,13 @@ Questo errore indica che l'endpoint di richiesta per il registro di sistema spec
 
 Questo errore indica che l'endpoint di verifica del registro di sistema di destinazione non ha emesso una richiesta di verifica.
 
-*Possibili soluzioni*: riprovare tra qualche minuto. Se l'errore persiste, aprire un problema in https://aka.ms/acr/issues.
+*Possibili soluzioni*: riprovare tra qualche minuto. Se l'errore persiste, aprire un problema in https://aka.ms/acr/issues .
 
 ## <a name="connectivity_aad_login_error"></a>CONNECTIVITY_AAD_LOGIN_ERROR
 
 Questo errore indica che l'endpoint di verifica del registro di sistema di destinazione ha emesso una richiesta, ma il registro di sistema non supporta l'autenticazione Azure Active Directory.
 
-*Possibili soluzioni*: provare un modo diverso per eseguire l'autenticazione, ad esempio, con le credenziali di amministratore. Se gli utenti devono eseguire l'autenticazione con Azure Active Directory, aprire un problema https://aka.ms/acr/issuesin.
+*Possibili soluzioni*: provare un modo diverso per eseguire l'autenticazione, ad esempio, con le credenziali di amministratore. Se gli utenti devono eseguire l'autenticazione con Azure Active Directory, aprire un problema in https://aka.ms/acr/issues .
 
 ## <a name="connectivity_refresh_token_error"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
 
@@ -100,7 +99,7 @@ Questo errore indica che l'interfaccia della riga di comando non è stata in gra
 
 ## <a name="notary_version_error"></a>NOTARY_VERSION_ERROR
 
-Questo errore indica che l'interfaccia della riga di comando non è compatibile con la versione attualmente installata di Docker/notary. Provare a eseguire il downgrade della versione di notary. exe a una versione precedente a 0.6.0 sostituendo manualmente il client notary dell'installazione di Docker per risolvere il problema.
+Questo errore indica che l'interfaccia della riga di comando non è compatibile con la versione attualmente installata di Docker/notary. Provare a eseguire il downgrade della versione di notary.exe a una versione precedente a 0.6.0 sostituendo manualmente il client notary dell'installazione di Docker per risolvere il problema.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

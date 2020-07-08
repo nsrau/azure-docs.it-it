@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/07/2020
 ms.openlocfilehash: 805b51bf4e6d8feab9539f660dfc72ca78b82d5c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982633"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Trasformazione EXISTS nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La trasformazione EXISTS è una trasformazione filtro di riga che controlla se i dati esistono in un'altra origine o in un altro flusso. Il flusso di output include tutte le righe nel flusso a sinistra che esistono o non esistono nel flusso di destra. La trasformazione EXISTS è simile ```SQL WHERE EXISTS``` a ```SQL WHERE NOT EXISTS```e.
+La trasformazione EXISTS è una trasformazione filtro di riga che controlla se i dati esistono in un'altra origine o in un altro flusso. Il flusso di output include tutte le righe nel flusso a sinistra che esistono o non esistono nel flusso di destra. La trasformazione EXISTS è simile a ```SQL WHERE EXISTS``` e ```SQL WHERE NOT EXISTS``` .
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vZKz]
 
@@ -28,7 +27,7 @@ La trasformazione EXISTS è una trasformazione filtro di riga che controlla se i
 1. Scegliere il flusso di dati che si sta controllando di esistere nell'elenco a discesa **flusso destro** .
 1. Specificare se si desidera che i dati esistano o non esistano nell'impostazione del **tipo exist** .
 1. Specificare se si desidera un' **espressione personalizzata**.
-1. Consente di scegliere le colonne chiave da confrontare con le condizioni esistenti. Per impostazione predefinita, il flusso di dati cerca l'uguaglianza tra una colonna in ogni flusso. Per eseguire il confronto tramite un valore calcolato, passare il puntatore del mouse sull'elenco a discesa della colonna e selezionare **colonna calcolata**.
+1. Consente di scegliere le colonne chiave da confrontare con le condizioni esistenti. Per impostazione predefinita, il flusso di dati cerca l'uguaglianza tra una colonna per ogni flusso. Per eseguire il confronto tramite un valore calcolato, passare il puntatore del mouse sull'elenco a discesa della colonna e selezionare **Colonna calcolata**.
 
 ![Impostazioni exists](media/data-flow/exists.png "esistente 1")
 
@@ -44,13 +43,13 @@ Per creare un'espressione in formato libero che contenga operatori diversi da "e
 
 ![Impostazioni personalizzate exists](media/data-flow/exists1.png "esistente personalizzato")
 
-## <a name="broadcast-optimization"></a>Ottimizzazione broadcast
+## <a name="broadcast-optimization"></a>Ottimizzazione della trasmissione
 
-![Join broadcast](media/data-flow/broadcast.png "Join broadcast")
+![Join di trasmissione](media/data-flow/broadcast.png "Join di trasmissione")
 
-In join, ricerche ed esiste una trasformazione, se uno o entrambi i flussi di dati rientrano nella memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione**. Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato. Per scegliere manualmente il lato da trasmettere, selezionare **fisso**.
+Nella trasformazione di join, ricerche ed exists, se uno o entrambi i flussi di dati rientrano nella memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione**. Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato. Per scegliere manualmente il lato da trasmettere, selezionare **Fisso**.
 
-Non è consigliabile disabilitare la trasmissione tramite l'opzione **off** a meno che i join non siano in errore di timeout.
+Non è consigliabile disabilitare la trasmissione tramite l'opzione **Off** a meno che i join non siano in errore di timeout.
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 
@@ -67,7 +66,7 @@ Non è consigliabile disabilitare la trasmissione tramite l'opzione **off** a me
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente è una trasformazione Exists `checkForChanges` denominata che accetta il `NameNorm2` flusso sinistro e `TypeConversions`il flusso destro.  La condizione EXISTS è l' `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` espressione che restituisce true se entrambe `EMPID` le `Region` colonne e in ogni flusso corrispondono. Mentre viene verificata l'esistenza, `negate` è false. Non è abilitata alcuna trasmissione nella scheda Ottimizza, `broadcast` quindi il `'none'`valore è.
+L'esempio seguente è una trasformazione exists denominata `checkForChanges` che accetta il flusso sinistro `NameNorm2` e il flusso destro `TypeConversions` .  La condizione EXISTS è l'espressione `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` che restituisce true se entrambe `EMPID` le `Region` colonne e in ogni flusso corrispondono. Mentre viene verificata l'esistenza, `negate` è false. Non è abilitata alcuna trasmissione nella scheda Ottimizza, quindi il `broadcast` valore è `'none'` .
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

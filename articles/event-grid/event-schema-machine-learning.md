@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82928874"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning come origine griglia di eventi
@@ -32,11 +31,11 @@ Azure Machine Learning emette i tipi di evento seguenti:
 | Microsoft. MachineLearningServices. DatasetDriftDetected | Generato quando il monitoraggio della deriva del set di dati rileva la deriva. |
 | Microsoft. MachineLearningServices. RunStatusChanged | Generato quando lo stato di un'esecuzione diventa ' failed '. |
 
-### <a name="the-contents-of-an-event-response"></a>Contenuto di una risposta di evento
+### <a name="the-contents-of-an-event-response"></a>Contenuto della risposta di un evento
 
-Quando viene attivato un evento, il servizio griglia di eventi invia i dati relativi all'evento all'endpoint di sottoscrizione.
+Quando viene attivato un evento, il servizio Griglia di eventi invia i dati relativi all'evento all'endpoint di sottoscrizione.
 
-Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento.
+Questa sezione contiene un esempio che illustra l'aspetto dei dati per ogni evento.
 
 ### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>Evento Microsoft. MachineLearningServices. ModelRegistered
 
@@ -196,7 +195,7 @@ Un evento presenta i seguenti dati di primo livello:
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| ID | string | Identificatore univoco dell'evento. |
+| id | string | Identificatore univoco dell'evento. |
 | data | object | Dati relativi all'evento di archiviazione BLOB. |
 | dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
 | metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
@@ -205,7 +204,7 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | ModelName | string | Nome del modello registrato. |
 | ModelVersion | string | Versione del modello registrato. |
@@ -214,7 +213,7 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | ServiceName | string | Nome del servizio distribuito. |
 | ServiceComputeType | string | Tipo di calcolo (ad esempio, ACI, AKS) del servizio distribuito. |

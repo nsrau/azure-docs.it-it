@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927395"
 ---
 # <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Aggiornare i modelli ML Studio (classico) v usando l'attività Aggiorna risorsa
@@ -33,7 +32,7 @@ La ripetizione del training può avvenire di frequente. Con le attività Esecuzi
 
 L'immagine seguente illustra la relazione tra training e servizi Web predittivi.
 
-![SERVIZI WEB](./media/update-machine-learning-models/web-services.png)
+![Servizi Web](./media/update-machine-learning-models/web-services.png)
 
 ## <a name="ml-studio-classic-update-resource-activity"></a>Attività della risorsa di aggiornamento ML Studio (classica)
 

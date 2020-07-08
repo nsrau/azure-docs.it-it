@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/06/2020
 ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982650"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Trasformazione alter Row nel flusso di dati del mapping
@@ -29,12 +28,12 @@ Le trasformazioni alter Row funzioneranno solo sui sink di database o CosmosDB n
 
 ## <a name="specify-a-default-row-policy"></a>Specificare un criterio di riga predefinito
 
-Creare una trasformazione alter Row e specificare un criterio di `true()`riga con la condizione. Ogni riga che non corrisponde ad alcuna espressione definita in precedenza verrà contrassegnata per i criteri di riga specificati. Per impostazione predefinita, ogni riga che non corrisponde ad alcuna espressione condizionale verrà `Insert`contrassegnata per.
+Creare una trasformazione alter Row e specificare un criterio di riga con la condizione `true()` . Ogni riga che non corrisponde ad alcuna espressione definita in precedenza verrà contrassegnata per i criteri di riga specificati. Per impostazione predefinita, ogni riga che non corrisponde ad alcuna espressione condizionale verrà contrassegnata per `Insert` .
 
 ![Alter Row Policy](media/data-flow/alter-row4.png "Alter Row Policy")
 
 > [!NOTE]
-> Per contrassegnare tutte le righe con un criterio, è possibile creare una condizione per quel criterio e specificare la `true()`condizione come.
+> Per contrassegnare tutte le righe con un criterio, è possibile creare una condizione per quel criterio e specificare la condizione come `true()` .
 
 ## <a name="view-policies-in-data-preview"></a>Visualizzare i criteri nell'anteprima dei dati
 
@@ -67,7 +66,7 @@ Ecco alcuni modi per risolvere il problema:
 
 1. Passare alle impostazioni di trasformazione del sink e impostare "Ignora scrittura colonne chiave". Questo consentirà a ADF di non scrivere la colonna selezionata come valore chiave per il mapping.
 
-2. Se tale colonna chiave non è la colonna che causa il problema per le colonne Identity, è possibile utilizzare l'opzione SQL di pre-elaborazione della trasformazione sink ```SET IDENTITY_INSERT tbl_content ON```:. Quindi, disattivarla con la proprietà SQL di post-elaborazione ```SET IDENTITY_INSERT tbl_content OFF```:.
+2. Se tale colonna chiave non è la colonna che causa il problema per le colonne Identity, è possibile utilizzare l'opzione SQL di pre-elaborazione della trasformazione sink: ```SET IDENTITY_INSERT tbl_content ON``` . Quindi, disattivarla con la proprietà SQL di post-elaborazione: ```SET IDENTITY_INSERT tbl_content OFF``` .
 
 3. Sia per il caso di identità che per la colonna di distribuzione, è possibile cambiare la logica da Upsert a utilizzando una condizione di aggiornamento separata e una condizione di inserimento separata utilizzando una trasformazione Suddivisione condizionale. In questo modo, è possibile impostare il mapping sul percorso di aggiornamento per ignorare il mapping delle colonne chiave.
 
@@ -87,7 +86,7 @@ Ecco alcuni modi per risolvere il problema:
 
 ### <a name="example"></a>Esempio
 
-Nell'esempio seguente viene illustrata una trasformazione ALTER `CleanData` Row denominata che accetta un flusso `SpecifyUpsertConditions` in ingresso e crea tre condizioni alter Row. Nella trasformazione precedente viene calcolata una colonna `alterRowCondition` denominata che determina se una riga viene inserita, aggiornata o eliminata nel database. Se il valore della colonna ha un valore stringa corrispondente alla regola alter Row, viene assegnato a tale criterio.
+Nell'esempio seguente viene illustrata una trasformazione alter Row denominata `CleanData` che accetta un flusso in ingresso `SpecifyUpsertConditions` e crea tre condizioni alter Row. Nella trasformazione precedente `alterRowCondition` viene calcolata una colonna denominata che determina se una riga viene inserita, aggiornata o eliminata nel database. Se il valore della colonna ha un valore stringa corrispondente alla regola alter Row, viene assegnato a tale criterio.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

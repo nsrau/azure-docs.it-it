@@ -7,21 +7,20 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: 2132dc464ee404339d9de03c0c797426aea04ce2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927140"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurare un singolo indirizzo IP per uno o più ambienti del servizio di integrazione in app per la logica di Azure
 
 Quando si lavora con app per la logica di Azure, è possibile configurare un [ *ambiente di Integration Services* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per l'hosting di app per la logica che richiedono l'accesso alle risorse in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Quando si hanno più istanze di ISE che devono accedere ad altri endpoint con restrizioni IP, distribuire un [firewall di Azure](../firewall/overview.md) o un' [appliance di rete virtuale](../virtual-network/virtual-networks-overview.md#filter-network-traffic) nella rete virtuale e indirizzare il traffico in uscita attraverso il firewall o l'appliance virtuale di rete. È quindi possibile fare in modo che tutte le istanze di ISE nella rete virtuale usino un solo indirizzo IP pubblico, statico e prevedibile per comunicare con i sistemi di destinazione desiderati. In questo modo, non è necessario configurare ulteriori aperture del firewall nei sistemi di destinazione per ogni ISE.
 
-Questo argomento illustra come instradare il traffico in uscita attraverso un firewall di Azure, ma è possibile applicare concetti simili a un'appliance virtuale di rete, ad esempio un firewall di terze parti da Azure Marketplace. Sebbene questo argomento sia incentrato sul programma di installazione di più istanze di ISE, è possibile usare questo approccio anche per un singolo ISE quando lo scenario richiede la limitazione del numero di indirizzi IP a cui è necessario accedere. Valutare se i costi aggiuntivi per il firewall o l'appliance di rete virtuale hanno senso per lo scenario. Scopri di più sui [prezzi di Azure firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
+Questo argomento illustra come instradare il traffico in uscita attraverso un firewall di Azure, ma è possibile applicare concetti simili a un'appliance virtuale di rete, ad esempio un firewall di terze parti da Azure Marketplace. Sebbene questo argomento sia incentrato sul programma di installazione di più istanze di ISE, è possibile usare questo approccio anche per un singolo ISE quando lo scenario richiede la limitazione del numero di indirizzi IP a cui è necessario accedere. Valutare se i costi aggiuntivi per il firewall o l'appliance di rete virtuale hanno senso per lo scenario. Altre informazioni su [Prezzi del servizio Firewall di Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un firewall di Azure in esecuzione nella stessa rete virtuale di ISE. Se non si dispone di un firewall, [aggiungere](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) prima di tutto una subnet `AzureFirewallSubnet` denominata alla rete virtuale. È quindi possibile [creare e distribuire un firewall](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) nella rete virtuale.
+* Un firewall di Azure in esecuzione nella stessa rete virtuale di ISE. Se non si dispone di un firewall, aggiungere prima di tutto [una subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) denominata `AzureFirewallSubnet` alla rete virtuale. È quindi possibile [creare e distribuire un firewall](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) nella rete virtuale.
 
 * Tabella di [Route](../virtual-network/manage-route-table.md)di Azure. Se non si dispone di un, [creare innanzitutto una tabella di route](../virtual-network/manage-route-table.md#create-a-route-table). Per ulteriori informazioni sul routing, vedere [routing del traffico di rete virtuale](../virtual-network/virtual-networks-udr-overview.md).
 
@@ -31,7 +30,7 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
 
    ![Selezionare la tabella di route con la regola per indirizzare il traffico in uscita](./media/connect-virtual-network-vnet-set-up-single-ip-address/select-route-table-for-virtual-network.png)
 
-1. Per [aggiungere una nuova route](../virtual-network/manage-route-table.md#create-a-route), scegliere **Route** > **Aggiungi**dal menu tabella di route.
+1. Per [aggiungere una nuova route](../virtual-network/manage-route-table.md#create-a-route), scegliere **Route**  >  **Aggiungi**dal menu tabella di route.
 
    ![Aggiungi route per indirizzare il traffico in uscita](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-route-to-route-table.png)
 
@@ -61,13 +60,13 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
 
 ## <a name="set-up-network-rule"></a>Configurare la regola di rete
 
-1. Nella portale di Azure individuare e selezionare il firewall. Nel menu Firewall, in **Impostazioni**, selezionare **regole**. Nel riquadro regole selezionare **raccolta** > regole di rete**Aggiungi raccolta regole di rete**.
+1. Nella portale di Azure individuare e selezionare il firewall. Nel menu Firewall, in **Impostazioni**, selezionare **regole**. Nel riquadro regole selezionare **raccolta regole di rete**  >  **Aggiungi raccolta regole di rete**.
 
    ![Aggiungi raccolta regole di rete al firewall](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-network-rule-collection.png)
 
 1. Nella raccolta aggiungere una regola che consenta il traffico verso il sistema di destinazione.
 
-   Si supponga, ad esempio, di avere un'app per la logica che viene eseguita in ISE e che deve comunicare con un server SFTP. Si crea una raccolta di regole di rete denominata `LogicApp_ISE_SFTP_Outbound`che contiene una regola di rete denominata `ISE_SFTP_Outbound`. Questa regola consente il traffico dall'indirizzo IP di qualsiasi subnet in cui ISE viene eseguito nella rete virtuale al server SFTP di destinazione usando l'indirizzo IP privato del firewall.
+   Si supponga, ad esempio, di avere un'app per la logica che viene eseguita in ISE e che deve comunicare con un server SFTP. Si crea una raccolta di regole di rete denominata che `LogicApp_ISE_SFTP_Outbound` contiene una regola di rete denominata `ISE_SFTP_Outbound` . Questa regola consente il traffico dall'indirizzo IP di qualsiasi subnet in cui ISE viene eseguito nella rete virtuale al server SFTP di destinazione usando l'indirizzo IP privato del firewall.
 
    ![Configurare la regola di rete per il firewall](./media/connect-virtual-network-vnet-set-up-single-ip-address/set-up-network-rule-for-firewall.png)
 

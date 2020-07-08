@@ -10,10 +10,9 @@ ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
 ms.openlocfilehash: 013001eebeec232cc60e31f1a850aeab4fd6c905
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982242"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Trigger di riscaldamento di funzioni di Azure
@@ -76,7 +75,7 @@ namespace WarmupSample
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 
-L'esempio seguente mostra un trigger di riscaldamento in un file *Function. JSON* e una [funzione script C#](functions-reference-csharp.md) che verrà eseguita in ogni nuova istanza quando viene aggiunta all'app.
+Nell'esempio seguente viene illustrato un trigger di riscaldamento in un *function.jssu* file e una [funzione script C#](functions-reference-csharp.md) che verrà eseguita in ogni nuova istanza quando viene aggiunta all'app.
 
 La funzione deve essere denominata ```warmup``` (senza distinzione tra maiuscole e minuscole) ed è possibile che esista una sola funzione di riscaldamento per ogni app.
 
@@ -107,7 +106,7 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-L'esempio seguente mostra un trigger di riscaldamento in un file *Function. JSON* e una [funzione JavaScript](functions-reference-node.md) che verrà eseguita in ogni nuova istanza quando viene aggiunta all'app.
+Nell'esempio seguente viene illustrato un trigger di riscaldamento in un *function.jssu* file e una [funzione JavaScript](functions-reference-node.md) che verrà eseguita in ogni nuova istanza quando viene aggiunta all'app.
 
 La funzione deve essere denominata ```warmup``` (senza distinzione tra maiuscole e minuscole) ed è possibile che esista una sola funzione di riscaldamento per ogni app.
 
@@ -137,7 +136,7 @@ module.exports = async function (context, warmupContext) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-L'esempio seguente mostra un trigger di riscaldamento in un file *Function. JSON* e una [funzione Python](functions-reference-python.md) che verrà eseguita in ogni nuova istanza quando viene aggiunta all'app.
+L'esempio seguente mostra un trigger di riscaldamento in un *function.jssu* file e una [funzione Python](functions-reference-python.md) che verrà eseguita in ogni nuova istanza quando viene aggiunta all'app.
 
 La funzione deve essere denominata ```warmup``` (senza distinzione tra maiuscole e minuscole) ed è possibile che esista una sola funzione di riscaldamento per ogni app.
 
@@ -185,13 +184,13 @@ public void run( ExecutionContext context) {
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
-Nelle [librerie di classi C#](functions-dotnet-class-library.md), `WarmupTrigger` l'attributo è disponibile per configurare la funzione.
+Nelle [librerie di classi C#](functions-dotnet-class-library.md), l' `WarmupTrigger` attributo è disponibile per configurare la funzione.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
 Questo esempio illustra come usare l'attributo [riscaldamento](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) .
 
-Si noti che la funzione deve essere ```Warmup``` chiamata e che può essere presente una sola funzione di riscaldamento per app.
+Si noti che la funzione deve essere chiamata ```Warmup``` e che può essere presente una sola funzione di riscaldamento per app.
 
 ```csharp
  [FunctionName("Warmup")]
@@ -202,11 +201,11 @@ Si noti che la funzione deve essere ```Warmup``` chiamata e che può essere pres
         }
 ```
 
-Per un esempio completo, vedere l' [esempio di trigger](#trigger---example).
+Per un esempio completo, vedere l’[esempio di trigger](#trigger---example).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script C#.
+Gli attributi non sono supportati da Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -224,13 +223,13 @@ Il trigger di riscaldamento non è supportato in Java come attributo.
 
 ## <a name="trigger---configuration"></a>Trigger - configurazione
 
-La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `WarmupTrigger` attributo.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `WarmupTrigger`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 | **type** | n/d| Obbligatoria. Deve essere impostata su `warmupTrigger`. |
-| **direzione** | n/d| Obbligatoria. Deve essere impostata su `in`. |
-| **name** | n/d| Obbligatoria: nome della variabile usato nel codice della funzione.|
+| **direction** | n/d| Obbligatoria. Deve essere impostata su `in`. |
+| **nome** | n/d| Obbligatoria: nome della variabile usato nel codice della funzione.|
 
 ## <a name="trigger---usage"></a>Trigger - uso
 

@@ -12,10 +12,9 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 777f3de8f2872e378fe30cc50ee0a5eb3823a625
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82900323"
 ---
 # <a name="single-page-application-move-to-production"></a>Applicazione a pagina singola: sposta in produzione
@@ -32,17 +31,17 @@ Testare l'integrazione seguendo l'[elenco di controllo per l'integrazione di Mic
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Approfondimento dell'esempio di Guida introduttiva, che illustra il codice per l'accesso degli utenti e ottenere un token di accesso per chiamare l'API Microsoft Graph usando MSAL. js:
+Approfondimento dell'esempio di avvio rapido, che illustra il codice per l'accesso degli utenti e ottenere un token di accesso per chiamare l'API Microsoft Graph usando MSAL.js:
 
 > [!div class="nextstepaction"]
 > [Esercitazione su JavaScript SPA](./tutorial-v2-javascript-spa.md)
 
-Esempio che illustra come ottenere i token per la propria API Web back-end usando MSAL. js:
+Esempio che illustra come ottenere i token per la propria API Web back-end usando MSAL.js:
 
 > [!div class="nextstepaction"]
 > [SPA con un back-end ASP.NET](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
 
-Esempio che illustra come usare MSAL. js per accedere agli utenti in un'app registrata con Azure Active Directory B2C (Azure AD B2C):
+Esempio che illustra come usare MSAL.js per l'accesso degli utenti in un'app registrata con Azure Active Directory B2C (Azure AD B2C):
 
 > [!div class="nextstepaction"]
 > [SPA con Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)

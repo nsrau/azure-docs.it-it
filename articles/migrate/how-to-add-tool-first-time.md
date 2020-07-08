@@ -4,10 +4,9 @@ description: Viene descritto come creare un progetto Azure Migrate e aggiungere 
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82901173"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Aggiungere uno strumento di valutazione/migrazione per la prima volta
@@ -58,8 +57,8 @@ Configurare un nuovo progetto di Azure Migrate in una sottoscrizione di Azure e 
     > [!NOTE]
     > Quando si crea un progetto, è necessario aggiungere almeno uno strumento di valutazione o migrazione.
 
-5. In **Seleziona strumento di valutazione**aggiungere uno strumento di valutazione. Se non è necessario uno strumento di valutazione, selezionare **Ignora l'aggiunta di uno strumento di valutazione per il momento** > **successivo**. 
-2. In **selezione strumento di migrazione**aggiungere uno strumento di migrazione come richiesto. Se non è necessario uno strumento di migrazione in questo momento, selezionare **Ignora l'aggiunta di uno strumento di migrazione per il momento** > **successivo**.
+5. In **Seleziona strumento di valutazione**aggiungere uno strumento di valutazione. Se non è necessario uno strumento di valutazione, selezionare **Ignora l'aggiunta di uno strumento di valutazione per il momento**  >  **successivo**. 
+2. In **selezione strumento di migrazione**aggiungere uno strumento di migrazione come richiesto. Se non è necessario uno strumento di migrazione in questo momento, selezionare **Ignora l'aggiunta di uno strumento di migrazione per il momento**  >  **successivo**.
 3. In **Rivedi e aggiungi strumenti** rivedere le impostazioni e fare clic su **Aggiungi strumenti**.
 
 Dopo aver creato il progetto, è possibile selezionare strumenti aggiuntivi per la valutazione e la migrazione di server e carichi di lavoro, database e app Web.

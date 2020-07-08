@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
 ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82926232"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Panoramica dei record di alias DNS di Azure
@@ -20,7 +19,7 @@ I record di alias DNS di Azure sono qualifiche su un set di record DNS. Possono 
 
 Un set di record alias è supportato per i tipi di record seguenti in una zona DNS di Azure: 
 
-- Una 
+- Una
 - AAAA
 - CNAME
 
@@ -60,13 +59,13 @@ Questa restrizione presenta un problema per i proprietari delle applicazioni che
 
 Questo problema viene risolto utilizzando i record alias. A differenza dei record CNAME, i record di alias vengono creati nel vertice della zona e i proprietari dell'applicazione possono usarli per puntare il record Apex della zona a un profilo di gestione traffico con endpoint esterni. I proprietari dell'applicazione puntano allo stesso profilo di gestione traffico usato per qualsiasi altro dominio nella zona DNS.
 
-Ad esempio, contoso.com e www\.contoso.com possono puntare allo stesso profilo di gestione traffico. Per altre informazioni sull'uso di record alias con i profili di Gestione traffico di Azure, vedere la sezione Passaggi successivi.
+Ad esempio, contoso.com e www \. contoso.com possono puntare allo stesso profilo di gestione traffico. Per altre informazioni sull'uso di record alias con i profili di Gestione traffico di Azure, vedere la sezione Passaggi successivi.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Apice della zona punto per gli endpoint della rete CDN di Azure
 
 Analogamente a un profilo di gestione traffico, è anche possibile usare record alias per puntare il vertice della zona DNS agli endpoint della rete CDN di Azure. Questa operazione è utile quando si creano siti web statici usando archiviazione di Azure e la rete CDN di Azure. È quindi possibile accedere al sito Web senza anteporre "www" al nome DNS.
 
-Ad esempio, se il sito Web statico è `www.contoso.com`denominato, gli utenti possono accedere al sito `contoso.com` usando senza che sia necessario anteporre www al nome DNS.
+Ad esempio, se il sito Web statico è denominato `www.contoso.com` , gli utenti possono accedere al sito usando `contoso.com` senza che sia necessario anteporre www al nome DNS.
 
 Come descritto in precedenza, i record CNAME non sono supportati nel vertice della zona. Non è quindi possibile usare un record CNAME per puntare contoso.com all'endpoint della rete CDN. In alternativa, è possibile usare un record alias per puntare direttamente il vertice della zona a un endpoint della rete CDN.
 

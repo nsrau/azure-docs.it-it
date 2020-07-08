@@ -4,10 +4,9 @@ description: Informazioni su come usare la portale di Azure per ripristinare un'
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.openlocfilehash: 5668328637ae9b5a5dd3db02085a7f15de2a2456
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82980656"
 ---
 # <a name="restore-azure-file-shares"></a>Ripristinare le condivisioni file di Azure

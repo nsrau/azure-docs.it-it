@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e8c235cd204b86573746be4bce615939f3b072fa
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82977907"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Disponibilità elevata multi-SID dell'istanza SAP ASCS/SCS con Windows Server Failover Clustering e i dischi condivisi in Azure
@@ -28,7 +27,7 @@ ms.locfileid: "82977907"
 > ![Windows][Logo_Windows] Windows
 >
 
-Nel settembre 2016 Microsoft ha rilasciato una funzionalità che consente di gestire più indirizzi IP virtuali usando un servizio di [bilanciamento del carico interno di Azure][load-balancer-multivip-overview]. Questa funzionalità esiste già nel servizio di bilanciamento del carico esterno di Azure. 
+A settembre 2016 Microsoft ha rilasciato una funzionalità con cui è possibile gestire più indirizzi IP virtuali usando un [servizio di bilanciamento del carico interno di Azure][load-balancer-multivip-overview]. Questa funzionalità esiste già nel servizio di bilanciamento del carico esterno di Azure. 
 
 Se si dispone di una distribuzione SAP, usare un servizio di bilanciamento del carico interno per creare una configurazione cluster Windows per istanze di SAP Central Services, ovvero ASCS/SCS.
 
@@ -228,7 +227,7 @@ La procedura di alto livello è la seguente:
 1. [Installare SAP con un'istanza di ASC/SCS a disponibilità elevata][sap-high-availability-installation-wsfc-shared-disk-install-ascs].  
  In questo passaggio si sta installando SAP con un'istanza di ASCS/SCS a disponibilità elevata nel nodo 1 del cluster WSFC esistente.
 
-2. [Modificare il profilo SAP dell'istanza di ASC/SCS][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
+2. [Modificare il profilo SAP dell'istanza di ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
 
 3. [Configurare una porta probe][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].  
  In questo passaggio si sta configurando una porta probe SAP-SID2-IP della risorsa nel cluster SAP tramite PowerShell. Eseguire questa configurazione in uno dei nodi del cluster SAP ASCS/SCS.
@@ -252,11 +251,11 @@ La procedura di alto livello è la seguente:
 
 9. Installare il server dell'applicazione SAP aggiuntivo nella nuova macchina virtuale dedicata come descritto nella guida all'installazione SAP.
 
-10. [Testare il failover e la replica dell'istanza di SAP ASC/SCS][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
+10. [Testare il failover e la replica SIOS dell'istanza di SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Limiti relativi alle reti: Azure Resource Manager][networking-limits-azure-resource-manager]
+- [Limiti relativi alla rete: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Più indirizzi VIP per Azure Load Balancer][load-balancer-multivip-overview]
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533

@@ -1,6 +1,6 @@
 ---
 title: Usare Azure Image Builder con una raccolta immagini per macchine virtuali Linux (anteprima)
-description: Creare immagini di VM Linux con Azure Image Builder e la raccolta di immagini condivise.
+description: Creare immagini di macchina virtuale Linux con Azure Image Builder e la Raccolta immagini condivise.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2019
@@ -9,20 +9,19 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
 ms.openlocfilehash: ccb622f786e6df5271684cf2aabba36cd2f5184f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82930693"
 ---
-# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: creare un'immagine Linux e distribuirla in una raccolta di immagini condivise 
+# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: Creare un'immagine Linux e distribuirla a una Raccolta immagini condivise 
 
-Questo articolo illustra come usare il generatore di immagini di Azure e l'interfaccia della riga di comando di Azure per creare una versione di immagine in una [raccolta di immagini condivise](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), quindi distribuire l'immagine a livello globale. Questa operazione può essere eseguita anche usando [Azure PowerShell](../windows/image-builder-gallery.md).
+Questo articolo illustra come usare Image Builder e l'interfaccia della riga di comando di Azure per creare una versione dell'immagine in una [Raccolta immagini condivise](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), quindi come distribuire l'immagine globalmente. Questa operazione può essere eseguita anche tramite [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
-Per configurare l'immagine verrà usato un modello Sample. JSON. Il file con estensione JSON usato è il seguente: [helloImageTemplateforSIG. JSON](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
+Per configurare l'immagine si userà un modello di esempio con estensione json. Il file con estensione json usato è il seguente: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
-Per distribuire l'immagine in una raccolta di immagini condivise, il modello USA [sharedImage](image-builder-json.md#distribute-sharedimage) come valore per la `distribute` sezione del modello.
+Per distribuire l'immagine in una Raccolta immagini condivise, il modello usa [sharedImage](image-builder-json.md#distribute-sharedimage) come valore per la sezione `distribute`.
 
 > [!IMPORTANT]
 > Azure Image Builder è attualmente disponibile in anteprima pubblica.
@@ -41,7 +40,7 @@ Verificare lo stato della registrazione della funzionalità.
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Controllare la registrazione.
+Verificare la registrazione.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -50,7 +49,7 @@ az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Se non sono registrati, eseguire le operazioni seguenti:
+Se non visualizzano Registered, eseguire le operazioni seguenti:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -61,9 +60,9 @@ az provider register -n Microsoft.Storage
 
 ## <a name="set-variables-and-permissions"></a>Impostare variabili e autorizzazioni 
 
-Le informazioni verranno utilizzate ripetutamente, quindi verranno create alcune variabili per archiviare tali informazioni.
+Alcune informazioni verranno usate ripetutamente, pertanto si creano variabili per archiviare tali informazioni.
 
-Per l'anteprima, Image Builder supporterà solo la creazione di immagini personalizzate nello stesso gruppo di risorse dell'immagine gestita di origine. Aggiornare il nome del gruppo di risorse in questo esempio in modo che sia lo stesso gruppo di risorse dell'immagine gestita di origine.
+Per l'anteprima, Image Builder supporta la creazione di immagini personalizzate solo nello stesso gruppo di risorse dell'immagine gestita di origine. Aggiornare il nome del gruppo di risorse in questo esempio in modo che sia uguale a quello del gruppo di risorse dell'immagine gestita di origine.
 
 ```azurecli-interactive
 # Resource group name - we are using ibLinuxGalleryRG in this example
@@ -80,7 +79,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Creare una variabile per l'ID sottoscrizione. È possibile ottenerlo usando `az account show | grep id`.
+Creare una variabile per l'ID di sottoscrizione. Per ottenere questo risultato, usare `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -92,8 +91,8 @@ Creare il gruppo di risorse.
 az group create -n $sigResourceGroup -l $location
 ```
 
-## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Creare un'identità assegnata dall'utente e impostare le autorizzazioni per il gruppo di risorse
-Image Builder userà l' [identità utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) specificata per inserire l'immagine nella raccolta immagini condivise di Azure. In questo esempio si creerà una definizione di ruolo di Azure con le azioni granulari per eseguire la distribuzione dell'immagine al SIG. La definizione del ruolo verrà quindi assegnata all'identità utente.
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Creare un'identità assegnata dall'utente e impostare autorizzazioni per il gruppo di risorse
+Image Builder userà l'[identità utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) specificata per inserire l'immagine nella raccolta immagini condivise di Azure. In questo esempio si creerà una definizione di ruolo di Azure che include azioni granulari per eseguire la distribuzione dell'immagine nella raccolta immagini condivise. La definizione del ruolo verrà quindi assegnata all'identità utente.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -127,11 +126,11 @@ az role assignment create \
 ```
 
 
-## <a name="create-an-image-definition-and-gallery"></a>Creare una definizione di immagine e una raccolta
+## <a name="create-an-image-definition-and-gallery"></a>Creare una definizione dell'immagine e una raccolta
 
-Per usare Image Builder con una raccolta di immagini condivise, è necessario disporre di una raccolta immagini esistente e di una definizione di immagine. Image Builder non creerà la raccolta immagini e la definizione di immagine.
+Per usare Image Builder con una raccolta di immagini condivise, è necessario avere una raccolta immagini esistente e una definizione di immagine. Image Builder non crea autonomamente la raccolta immagini e la definizione di immagine.
 
-Se non si dispone già di una raccolta e di una definizione di immagine da usare, iniziare creandoli. Per prima cosa, creare una raccolta di immagini.
+Se non si ha già una raccolta e una definizione di immagine da usare, iniziare creando questi elementi. In primo luogo creare un raccolta di immagini.
 
 ```azurecli-interactive
 az sig create \
@@ -139,7 +138,7 @@ az sig create \
     --gallery-name $sigName
 ```
 
-Quindi, creare una definizione di immagine.
+Creare una definizione dell'immagine.
 
 ```azurecli-interactive
 az sig image-definition create \
@@ -153,9 +152,9 @@ az sig image-definition create \
 ```
 
 
-## <a name="download-and-configure-the-json"></a>Scaricare e configurare il file con estensione JSON
+## <a name="download-and-configure-the-json"></a>Scaricare e configurare il file con estensione json
 
-Scaricare il modello con estensione JSON e configurarlo con le variabili.
+Scaricare il modello con estensione json e configurarlo con le variabili.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json -o helloImageTemplateforSIG.json
@@ -169,11 +168,11 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIG.json
 sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIG.json
 ```
 
-## <a name="create-the-image-version"></a>Creare la versione dell'immagine
+## <a name="create-the-image-version"></a>Creare la versione di immagine
 
-Questa parte successiva creerà la versione dell'immagine nella raccolta. 
+In questa parte viene creata la versione dell'immagine nella raccolta. 
 
-Inviare la configurazione dell'immagine al servizio Generatore di immagini di Azure.
+Inviare la configurazione dell'immagine al servizio Image Builder di Azure.
 
 ```azurecli-interactive
 az resource create \
@@ -194,7 +193,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-La creazione dell'immagine e la relativa replica in entrambe le aree possono richiedere alcuni minuti. Attendere il completamento di questa parte prima di procedere alla creazione di una macchina virtuale.
+La creazione dell'immagine e la sua replica in entrambe le aree possono richiedere un certo tempo. Attendere il completamento di questa parte prima di procedere alla creazione di una macchina virtuale.
 
 
 ## <a name="create-the-vm"></a>Creare la VM
@@ -217,7 +216,7 @@ Accedere tramite SSH alla macchina virtuale.
 ssh aibuser@<publicIpAddress>
 ```
 
-Si noterà che l'immagine è stata personalizzata con un *messaggio del giorno* non appena viene stabilita la connessione SSH.
+Si noterà che l'immagine viene personalizzata con un *messaggio del giorno* non appena viene stabilita la connessione SSH.
 
 ```console
 *******************************************************
@@ -229,12 +228,12 @@ Si noterà che l'immagine è stata personalizzata con un *messaggio del giorno* 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si vuole provare a ripersonalizzare la versione dell'immagine per creare una nuova versione della stessa immagine, ignorare i passaggi successivi e passare a [usare il generatore di immagini di Azure per creare un'altra versione](image-builder-gallery-update-image-version.md)dell'immagine.
+Se si vuole provare a ripersonalizzare la versione dell'immagine per creare una nuova versione della stessa immagine, ignorare i passaggi successivi e passare a [Usare Azure Image Builder per creare un'altra versione dell'immagine](image-builder-gallery-update-image-version.md).
 
 
-Questa operazione eliminerà l'immagine creata insieme a tutti gli altri file di risorse. Assicurarsi che la distribuzione sia stata completata prima di eliminare le risorse.
+Questa operazione eliminerà l'immagine creata e tutti gli altri file di risorse. Assicurarsi che la distribuzione sia stata completata prima di eliminare le risorse.
 
-Quando si eliminano le risorse della raccolta immagini, è necessario eliminare tutte le versioni dell'immagine prima di poter eliminare la definizione di immagine usata per crearle. Per eliminare una raccolta, è prima di tutto necessario eliminare tutte le definizioni di immagine nella raccolta.
+Quando si eliminano risorse della raccolta immagini, è necessario eliminare tutte le versioni dell'immagine prima di poter eliminare la definizione immagine usata per creare le risorse. Per eliminare una raccolta, è prima di tutto necessario eliminare tutte le definizioni immagine nella raccolta.
 
 Eliminare il modello di generatore di immagini.
 
@@ -257,7 +256,7 @@ az role definition delete --name "$imageRoleDefName"
 az identity delete --ids $imgBuilderId
 ```
 
-Ottenere la versione dell'immagine creata da Image Builder, che inizia sempre `0.`con e quindi Elimina la versione dell'immagine
+Ottenere la versione dell'immagine creata da Image Builder, che inizia sempre con `0.`, quindi eliminare la versione dell'immagine
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \
@@ -274,7 +273,7 @@ az sig image-version delete \
 ```   
 
 
-Eliminare la definizione dell'immagine.
+Eliminare la definizione immagine.
 
 ```azurecli-interactive
 az sig image-definition delete \

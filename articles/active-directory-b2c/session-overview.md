@@ -11,10 +11,9 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927038"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C sessione
@@ -37,7 +36,7 @@ L'integrazione con Azure AD B2C prevede tre tipi di sessioni SSO:
 
 ### <a name="azure-ad-b2c-sso"></a>Azure AD B2C SSO 
 
-Quando un utente esegue l'autenticazione con un account locale o di social networking, Azure AD B2C archivia una sessione basata su cookie nel browser dell'utente. Il cookie viene archiviato con il nome di dominio del tenant Azure AD B2C, `https://contoso.b2clogin.com`ad esempio.
+Quando un utente esegue l'autenticazione con un account locale o di social networking, Azure AD B2C archivia una sessione basata su cookie nel browser dell'utente. Il cookie viene archiviato con il nome di dominio del tenant Azure AD B2C, ad esempio `https://contoso.b2clogin.com` .
 
 Se un utente accede inizialmente con un account federato e quindi durante l'intervallo di tempo della sessione (time-to-Live o TTL) accede alla stessa app o a un'altra app, Azure AD B2C tenta di acquisire un nuovo token di accesso dal provider di identità federato. Se la sessione del provider di identità federata è scaduta o non è valida, il provider di identità federato richiede le credenziali dell'utente. Se la sessione è ancora attiva (o se l'utente ha eseguito l'accesso con un account locale anziché un account federato), Azure AD B2C autorizza l'utente ed Elimina ulteriori richieste.
 
@@ -45,7 +44,7 @@ Se un utente accede inizialmente con un account federato e quindi durante l'inte
 
 ### <a name="federated-identity-provider-sso"></a>SSO del provider di identità federato
 
-Un provider di identità di social networking o aziendale gestisce la propria sessione. Il cookie viene archiviato nel nome di dominio del provider di identità, ad `https://login.salesforce.com`esempio. Azure AD B2C non controlla la sessione del provider di identità federato. Al contrario, il comportamento della sessione è determinato dal provider di identità federato. 
+Un provider di identità di social networking o aziendale gestisce la propria sessione. Il cookie viene archiviato nel nome di dominio del provider di identità, ad esempio `https://login.salesforce.com` . Azure AD B2C non controlla la sessione del provider di identità federato. Al contrario, il comportamento della sessione è determinato dal provider di identità federato. 
 
 Si consideri lo scenario seguente:
 
@@ -57,7 +56,7 @@ Si consideri lo scenario seguente:
 
 Un'applicazione Web, per dispositivi mobili o a pagina singola può essere protetta tramite l'accesso OAuth, i token ID o i token SAML. Quando un utente tenta di accedere a una risorsa protetta nell'app, l'app controlla se è presente una sessione attiva sul lato applicazione. Se non è presente alcuna sessione dell'app o la sessione è scaduta, l'app consente all'utente di Azure AD B2C alla pagina di accesso.
 
-La sessione dell'applicazione può essere una sessione basata su cookie archiviata con il nome di dominio dell' `https://contoso.com`applicazione, ad esempio. Le applicazioni per dispositivi mobili potrebbero archiviare la sessione in modo diverso, ma con un approccio simile.
+La sessione dell'applicazione può essere una sessione basata su cookie archiviata con il nome di dominio dell'applicazione, ad esempio `https://contoso.com` . Le applicazioni per dispositivi mobili potrebbero archiviare la sessione in modo diverso, ma con un approccio simile.
 
 ## <a name="azure-ad-b2c-session-configuration"></a>Configurazione della sessione di Azure AD B2C
 
@@ -95,8 +94,8 @@ In seguito a una richiesta di disconnessione, Azure AD B2C:
 
 1. Invalida la sessione basata su cookie Azure AD B2C.
 1. Tenta di disconnettersi dai provider di identità federati:
-   - OpenId Connect: se l'endpoint di configurazione noto del provider di identità specifica `end_session_endpoint` un percorso.
-   - SAML: se i metadati del provider di identità `SingleLogoutService` contengono il percorso.
+   - OpenId Connect: se l'endpoint di configurazione noto del provider di identità specifica un `end_session_endpoint` percorso.
+   - SAML: se i metadati del provider di identità contengono il `SingleLogoutService` percorso.
 1. Facoltativamente, si disconnette da altre applicazioni. Per altre informazioni, vedere la sezione [Single Sign-out](#single-sign-out) .
 
 La disconnessione Cancella lo stato di Single Sign-On dell'utente con Azure AD B2C, ma potrebbe non disconnettersi l'utente dalla propria sessione del provider di identità di social networking. Se l'utente seleziona lo stesso provider di identità durante un accesso successivo, potrebbe eseguire nuovamente l'autenticazione senza immettere le credenziali. Se un utente vuole disconnettersi dall'applicazione, non significa necessariamente che voglia disconnettersi dal proprio account Facebook. Tuttavia, se vengono utilizzati account locali, la sessione dell'utente termina correttamente.
@@ -107,7 +106,7 @@ La disconnessione Cancella lo stato di Single Sign-On dell'utente con Azure AD B
 > [!NOTE]
 > Questa funzionalità è limitata ai [criteri personalizzati](custom-policy-overview.md).
 
-Quando si reindirizza l'utente all'endpoint di disconnessione Azure AD B2C (per i protocolli OAuth2 e SAML), Azure AD B2C Cancella la sessione dell'utente dal browser. Tuttavia, l'utente potrebbe ancora essere connesso ad altre applicazioni che usano Azure AD B2C per l'autenticazione. Per consentire a tali applicazioni di disconnettersi l'utente contemporaneamente, Azure AD B2C invia una richiesta HTTP GET all'oggetto `LogoutUrl` registrato di tutte le applicazioni a cui l'utente è attualmente connesso.
+Quando si reindirizza l'utente all'endpoint di disconnessione Azure AD B2C (per i protocolli OAuth2 e SAML), Azure AD B2C Cancella la sessione dell'utente dal browser. Tuttavia, l'utente potrebbe ancora essere connesso ad altre applicazioni che usano Azure AD B2C per l'autenticazione. Per consentire a tali applicazioni di disconnettersi l'utente contemporaneamente, Azure AD B2C invia una richiesta HTTP GET all'oggetto registrato `LogoutUrl` di tutte le applicazioni a cui l'utente è attualmente connesso.
 
 
 Le applicazioni devono rispondere a questa richiesta cancellando qualsiasi sessione che identifica l'utente e restituendo una risposta `200`. Se si vuole supportare l'accesso Single Sign-out nell'applicazione, è necessario implementare `LogoutUrl` nel codice dell'applicazione. 
@@ -115,4 +114,4 @@ Le applicazioni devono rispondere a questa richiesta cancellando qualsiasi sessi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [configurare il comportamento della sessione nel flusso utente](session-behavior.md).
-- Informazioni su come [configurare il comportamento della sessione nei criteri personalizzati](session-behavior-custom-policy.md).
+- Informazioni su come [configurare il comportamento delle sessioni in criteri personalizzati](session-behavior-custom-policy.md).

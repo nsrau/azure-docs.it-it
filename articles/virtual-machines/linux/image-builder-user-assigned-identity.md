@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.openlocfilehash: 0c0e688c628d553c8b732081f1a8b8debff8846e
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82930659"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Creare un'immagine e usare un'identità gestita assegnata dall'utente per accedere ai file in archiviazione di Azure 
@@ -40,7 +39,7 @@ Verificare lo stato della registrazione della funzionalità.
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Controllare la registrazione.
+Verificare la registrazione.
 
 
 ```azurecli-interactive
@@ -50,7 +49,7 @@ az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Se non sono registrati, eseguire le operazioni seguenti:
+Se non visualizzano Registered, eseguire le operazioni seguenti:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -62,7 +61,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Le informazioni verranno utilizzate ripetutamente, quindi verranno create alcune variabili per archiviare tali informazioni.
+Alcune informazioni verranno usate ripetutamente, pertanto verranno create alcune variabili in cui archiviarle.
 
 
 ```console
@@ -78,7 +77,7 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-Creare una variabile per l'ID sottoscrizione. È possibile ottenerlo usando `az account show | grep id`.
+Creare una variabile per l'ID di sottoscrizione. Per ottenere questo risultato, usare `az account show | grep id`.
 
 ```console
 subscriptionID=<Your subscription ID>
@@ -179,7 +178,7 @@ sed -i -e "s%<runOutputName>%$runOutputName%g" helloImageTemplateMsi.json
 
 ## <a name="create-the-image"></a>Creare l'immagine
 
-Inviare la configurazione dell'immagine al servizio Generatore di immagini di Azure.
+Inviare la configurazione dell'immagine al servizio Image Builder di Azure.
 
 ```azurecli-interactive
 az resource create \
@@ -222,7 +221,7 @@ Dopo aver creato la macchina virtuale, avviare una sessione SSH con la macchina 
 ssh aibuser@<publicIp>
 ```
 
-Si noterà che l'immagine è stata personalizzata con un messaggio del giorno non appena viene stabilita la connessione SSH.
+Si noterà che l'immagine viene personalizzata con un messaggio del giorno non appena viene stabilita la connessione SSH.
 
 ```output
 

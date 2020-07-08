@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: a93f4ff2ddc0737692de9e5619cf7a7521936224
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82980814"
 ---
 # <a name="createuidefinition-functions"></a>Funzioni di CreateUiDefinition
@@ -446,7 +445,7 @@ L'esempio seguente restituisce `false`:
 "[and(equals(0, 0), greater(1, 2))]"
 ```
 
-### <a name="or"></a>oppure
+### <a name="or"></a>o
 Restituisce `true` se almeno uno dei parametri restituisce `true`. Questa funzione supporta solo due o più parametri di tipo booleano.
 
 L'esempio seguente restituisce `true`:
@@ -487,7 +486,7 @@ Si supponga che `element1` e `element2` non siano definiti. L'esempio seguente r
 
 Questa funzione è particolarmente utile nel contesto della chiamata facoltativa che si verifica a causa dell'azione dell'utente dopo il caricamento della pagina. Un esempio è se i vincoli posizionati su un campo nell'interfaccia utente dipendono dal valore attualmente selezionato di un altro campo **inizialmente non visibile** . In questo caso, `coalesce()` può essere usato per consentire alla funzione di essere sintatticamente valida in fase di caricamento della pagina, con l'effetto desiderato quando l'utente interagisce con il campo.
 
-Si consideri questo `DropDown`, che consente all'utente di scegliere tra diversi tipi di database:
+Si consideri questo `DropDown` , che consente all'utente di scegliere tra diversi tipi di database:
 
 ```
 {
@@ -516,7 +515,7 @@ Si consideri questo `DropDown`, che consente all'utente di scegliere tra diversi
     },
 ```
 
-Per condizionare l'azione di un altro campo sul valore selezionato corrente di questo campo, `coalesce()`usare, come illustrato di seguito:
+Per condizionare l'azione di un altro campo sul valore selezionato corrente di questo campo, usare `coalesce()` , come illustrato di seguito:
 
 ```
 "regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
@@ -726,7 +725,7 @@ L'esempio seguente restituisce `2`:
 "[mod(6, 4)]"
 ```
 
-### <a name="min"></a>Min
+### <a name="min"></a>min
 Restituisce il più piccolo di due numeri.
 
 L'esempio seguente restituisce `1`:

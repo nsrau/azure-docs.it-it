@@ -8,10 +8,9 @@ ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
 ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82981222"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Come usare le identità gestite per la configurazione di app Azure
@@ -32,7 +31,7 @@ La creazione di un archivio di configurazione dell'app con un'identità assegnat
 Per configurare un'identità gestita usando l'interfaccia della riga di comando di Azure, usare il comando [AZ appconfig Identity Assign] per un archivio di configurazione esistente. Sono disponibili tre opzioni per l'esecuzione degli esempi di questa sezione:
 
 - Usare [Azure Cloud Shell](../cloud-shell/overview.md) dal portale di Azure.
-- Usare il Azure Cloud Shell incorporato tramite il pulsante "prova", che si trova nell'angolo superiore destro di ogni blocco di codice riportato di seguito.
+- Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", situato nell'angolo in alto a destra di ogni blocco di codice indicato di seguito.
 - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2,1 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 La procedura seguente illustra la creazione di un archivio di configurazione dell'app e l'assegnazione di un'identità usando l'interfaccia della riga di comando:
@@ -65,7 +64,7 @@ Per creare un archivio di configurazione dell'app con un'identità assegnata dal
 Per configurare un'identità gestita usando l'interfaccia della riga di comando di Azure, usare il comando [AZ appconfig Identity Assign] per un archivio di configurazione esistente. Sono disponibili tre opzioni per l'esecuzione degli esempi di questa sezione:
 
 - Usare [Azure Cloud Shell](../cloud-shell/overview.md) dal portale di Azure.
-- Usare il Azure Cloud Shell incorporato tramite il pulsante "prova", che si trova nell'angolo superiore destro di ogni blocco di codice riportato di seguito.
+- Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", situato nell'angolo in alto a destra di ogni blocco di codice indicato di seguito.
 - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 La procedura seguente illustra come creare un'identità assegnata dall'utente e un archivio di configurazione dell'app e quindi assegnare l'identità all'archivio usando l'interfaccia della riga di comando:
@@ -83,15 +82,15 @@ La procedura seguente illustra come creare un'identità assegnata dall'utente e 
     az appconfig create --name myTestAppConfigStore --location eastus --resource-group myResourceGroup --sku Free
     ```
 
-1. Creare un'identità assegnata dall'utente `myUserAssignedIdentity` chiamata usando l'interfaccia della riga di comando.
+1. Creare un'identità assegnata dall'utente chiamata `myUserAssignedIdentity` usando l'interfaccia della riga di comando.
 
     ```azurecli-interactive
     az identity create -resource-group myResourceGroup --name myUserAssignedIdentity
     ```
 
-    Nell'output di questo comando, prendere nota del valore della `id` proprietà.
+    Nell'output di questo comando, prendere nota del valore della `id` Proprietà.
 
-1. Eseguire il comando [AZ appconfig Identity Assign] per assegnare la nuova identità assegnata dall'utente a questo archivio di configurazione. Usare il valore della `id` proprietà annotato nel passaggio precedente.
+1. Eseguire il comando [AZ appconfig Identity Assign] per assegnare la nuova identità assegnata dall'utente a questo archivio di configurazione. Usare il valore della `id` Proprietà annotato nel passaggio precedente.
 
     ```azurecli-interactive
     az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup --identities /subscriptions/[subscription id]/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity

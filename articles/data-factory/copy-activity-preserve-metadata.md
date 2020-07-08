@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: jingwang
 ms.openlocfilehash: a1527195296237eb8c9c309f8ac4a5911136cf77
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82891760"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Mantenere i metadati e gli ACL usando l'attività di copia in Azure Data Factory
@@ -31,15 +30,15 @@ Quando si esegue la migrazione dei dati da un data Lake a un altro, tra cui [Ama
 L'attività di copia supporta la conservazione dei seguenti attributi durante la copia dei dati:
 
 - **Tutti i metadati specificati dal cliente** 
-- E le **cinque proprietà di sistema predefinite dell'archivio dati**seguenti: `contentType`, `contentLanguage` (ad eccezione di Amazon S3) `contentEncoding`, `contentDisposition`, `cacheControl`,.
+- E le **cinque proprietà di sistema predefinite dell'archivio dati**seguenti: `contentType` , `contentLanguage` (ad eccezione di Amazon S3), `contentEncoding` ,, `contentDisposition` `cacheControl` .
 
 **Gestire le differenze nei metadati:** Amazon S3 e archiviazione di Azure consentono diversi set di caratteri nelle chiavi dei metadati specificati dal cliente. Quando si sceglie di mantenere i metadati usando Copy attività, ADF sostituisce automaticamente i caratteri non validi con ' _'.
 
-Quando si copiano i file così come sono da Amazon S3/Azure Data Lake storage Gen2/BLOB di Azure al BLOB di Azure Data Lake storage Gen2/Azure con formato binario, è possibile trovare l'opzione **Mantieni** nella scheda**Impostazioni** **attività** > di copia per la creazione di attività o la pagina **Impostazioni** in copia dati strumento.
+Quando si copiano i file così come sono da Amazon S3/Azure Data Lake storage Gen2/BLOB di Azure al BLOB di Azure Data Lake storage Gen2/Azure con formato binario, è possibile trovare l'opzione **Mantieni** nella **Copy Activity**  >  scheda**Impostazioni** attività di copia per la creazione di attività o la pagina **Impostazioni** in copia dati strumento.
 
 ![Conserva metadati dell'attività di copia](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 
-Di seguito è riportato un esempio di configurazione JSON dell'attività `preserve`di copia (vedere): 
+Di seguito è riportato un esempio di configurazione JSON dell'attività di copia (vedere `preserve` ): 
 
 ```json
 "activities":[
@@ -90,7 +89,7 @@ L'attività di copia supporta la conservazione dei seguenti tipi di ACL durante 
 - **Proprietario**: copiare e mantenere l'utente proprietario dei file e delle directory. È necessario l'accesso con privilegi avanzati ai Data Lake Storage Gen2 sink.
 - **Gruppo**: copiare e mantenere il gruppo proprietario di file e directory. È necessario l'accesso con privilegi avanzati a sink Data Lake Storage Gen2 o all'utente proprietario (se l'utente proprietario è anche membro del gruppo di destinazione).
 
-Se si specifica di copiare da una cartella, Data Factory replica gli ACL per la cartella specificata e i file e le directory al suo interno, `recursive` se è impostato su true. Se si specifica di copiare da un singolo file, vengono copiati gli ACL in tale file.
+Se si specifica di copiare da una cartella, Data Factory replica gli ACL per la cartella specificata e i file e le directory al suo interno, se `recursive` è impostato su true. Se si specifica di copiare da un singolo file, vengono copiati gli ACL in tale file.
 
 >[!NOTE]
 >Quando si usa ADF per mantenere gli ACL da Data Lake Storage Gen1/Gen2 a Gen2, gli ACL esistenti in sink Gen2's cartella/file corrispondenti verranno sovrascritti.
@@ -98,11 +97,11 @@ Se si specifica di copiare da una cartella, Data Factory replica gli ACL per la 
 >[!IMPORTANT]
 >Quando si sceglie di mantenere gli ACL, assicurarsi di concedere autorizzazioni sufficientemente elevate affinché Data Factory funzionino con l'account di Data Lake Storage Gen2 del sink. Ad esempio, usare l'autenticazione con chiave dell'account o assegnare il ruolo di proprietario dei dati BLOB di archiviazione all'entità servizio o all'identità gestita.
 
-Quando si configura l'origine come data Lake storage Gen1/Gen2 con il formato binario o l'opzione di copia binaria e si esegue il sink come data Lake storage Gen2 con formato binario o l'opzione di copia binaria, è possibile trovare l'opzione **Mantieni** nella pagina **Impostazioni** in copia dati strumento o nella scheda**Impostazioni** **attività** > di copia per la creazione di attività.
+Quando si configura l'origine come data Lake storage Gen1/Gen2 con il formato binario o l'opzione di copia binaria e si esegue il sink come data Lake storage Gen2 con formato binario o l'opzione di copia binaria, è possibile trovare l'opzione **Mantieni** nella pagina **Impostazioni** in copia dati strumento o nella scheda Impostazioni **attività di copia**  >  **Settings** per la creazione di attività.
 
 ![Data Lake Storage Gen1/Gen2 a Gen2 Mantieni ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 
-Di seguito è riportato un esempio di configurazione JSON dell'attività `preserve`di copia (vedere): 
+Di seguito è riportato un esempio di configurazione JSON dell'attività di copia (vedere `preserve` ): 
 
 ```json
 "activities":[

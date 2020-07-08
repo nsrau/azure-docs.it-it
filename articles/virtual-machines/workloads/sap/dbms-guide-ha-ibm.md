@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
 ms.openlocfilehash: a9041b373c215ac226764b737ee3bf35b008e5db
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978383"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker
@@ -35,12 +34,12 @@ Prima di iniziare un'installazione, vedere le note e la documentazione SAP segue
 
 | Nota SAP | Descrizione |
 | --- | --- |
-| [1928533] | Applicazioni SAP in Azure: prodotti supportati e tipi di macchine virtuali di Azure |
+| [1928533] | Applicazioni SAP in Azure: Prodotti e tipi di macchine virtuali di Azure supportati |
 | [2015553] | SAP in Azure: prerequisiti per il supporto |
 | [2178632] | Metriche di monitoraggio principali per SAP in Azure |
-| [2191498] | SAP in Linux con Azure: monitoraggio avanzato |
+| [2191498] | SAP in Linux con Azure: Monitoraggio avanzato |
 | [2243692] | VM Linux in Azure (IaaS): problemi di licenza SAP |
-| [1984787] | SUSE LINUX Enterprise Server 12: note di installazione |
+| [1984787] | SUSE LINUX Enterprise Server 12: Note sull'installazione |
 | [1999351] | Risoluzione dei problemi del monitoraggio avanzato di Azure per SAP |
 | [2233094] | DB6: applicazioni SAP in Azure che usano IBM DB2 per Linux, UNIX e Windows-informazioni aggiuntive |
 | [1612105] | DB6: domande frequenti su DB2 con HADR |
@@ -55,7 +54,7 @@ Prima di iniziare un'installazione, vedere le note e la documentazione SAP segue
 | [Elenco di controllo per la pianificazione e la distribuzione di carichi di lavoro SAP in Azure][azr-sap-plancheck] |
 | [SUSE Linux Enterprise Server per le guide alle procedure consigliate di SAP Applications 12 SP4][sles-for-sap-bp] |
 | [Estensione di SUSE Linux Enterprise High Availability 12 SP4][sles-ha-guide] |
-| [Distribuzione DBMS di macchine virtuali di Azure IBM DB2 per il carico di lavoro SAP][dbms-db2] |
+| [Distribuzione DBMS per IBM DB2 di macchine virtuali di Azure per un carico di lavoro SAP][dbms-db2] |
 | [IBM DB2 HADR 11,1][db2-hadr-11.1] |
 | [IBM DB2 HADR R 10,5][db2-hadr-10.5] |
 
@@ -174,7 +173,7 @@ Per configurare l'istanza primaria del database IBM DB2 LUW:
 
 Per configurare il server di database di standby usando la procedura di copia di sistema omogenea di SAP, eseguire questi passaggi:
 
-1. Selezionare l'opzione **copia di sistema** >**istanza database****distribuito** > di **sistemi** > di destinazione.
+1. Selezionare l'opzione **copia di sistema** > **Target systems**  >  **Distributed**  >  **istanza database**distribuito di sistemi di destinazione.
 1. Come metodo di copia, selezionare **sistema omogeneo** in modo da poter utilizzare il backup per ripristinare un backup nell'istanza del server di standby.
 1. Quando si raggiunge il passaggio di uscita per ripristinare il database per la copia di sistema omogenea, uscire dal programma di installazione. Ripristinare il database da un backup dell'host primario. Tutte le fasi di installazione successive sono già state eseguite sul server di database primario.
 1. Configurare HADR per IBM DB2.
@@ -314,20 +313,20 @@ Gli elementi seguenti sono preceduti da uno dei seguenti elementi:
 - **[2]**: applicabile solo al nodo 2
 
 **[A]** prerequisiti per la configurazione di pacemaker:
-1. Arrestare entrambi i server di database con l'\<utente db2 SID> con db2stop.
-1. Modificare l'ambiente della Shell per\<db2 SID> utente in */bin/ksh*. Si consiglia di usare lo strumento YaST. 
+1. Arrestare entrambi i server di database con l'utente DB2 \<sid> con db2stop.
+1. Modificare l'ambiente della Shell per l' \<sid> utente DB2 in */bin/ksh*. Si consiglia di usare lo strumento YaST. 
 
 
 ### <a name="pacemaker-configuration"></a>Configurazione pacemaker
 
 > [!IMPORTANT]
-> Sono state rilevate situazioni di test recenti, in cui netcat smette di rispondere alle richieste dovute al backlog e alla limitazione della gestione di una sola connessione. La risorsa netcat smette di restare in ascolto delle richieste del servizio di bilanciamento del carico di Azure e l'IP mobile diventa non disponibile.  
-> Per i cluster Pacemaker esistenti, è consigliabile sostituire Netcat con socat in passato. Attualmente è consigliabile usare l'agente di risorse di Azure-lb, che fa parte degli agenti di risorse del pacchetto, con i seguenti requisiti di versione del pacchetto:
-> - Per SLES 12 SP4/SP5, la versione deve essere almeno Resource-Agents-4.3.018. a7fb5035-3.30.1.  
-> - Per SLES 15/15 SP1, la versione deve essere almeno Resource-Agents-4.3.0184.6 ee15eb2-4.13.1.  
+> Sono state rilevate situazioni di test recenti, in cui netcat smette di rispondere alle richieste dovute al backlog e alla limitazione della gestione di una sola connessione. La risorsa netcat smette di essere in ascolto delle richieste del servizio di bilanciamento del carico di Azure e l'IP mobile diventa non disponibile.  
+> Per i cluster Pacemaker esistenti, in passato era consigliabile sostituire netcat con socat. Attualmente è consigliabile usare l'agente di risorse azure-lb, che fa parte degli agenti di risorse del pacchetto, con i requisiti di versione del pacchetto seguenti:
+> - Per SLES 12 SP4/SP5 la versione deve essere almeno resource-agents-4.3.018.a7fb5035-3.30.1.  
+> - Per SLES 15/15 SP1 la versione deve essere almeno resource-agents-4.3.0184.6ee15eb2-4.13.1.  
 >
 > Si noti che la modifica richiederà un breve tempo di inattività.  
-> Per i cluster Pacemaker esistenti, se la configurazione è stata già modificata per usare socat come descritto in [protezione avanzata del rilevamento](https://www.suse.com/support/kb/doc/?id=7024128)del servizio di bilanciamento del carico di Azure, non è necessario passare immediatamente all'agente di risorse Azure-lb.
+> Per i cluster Pacemaker esistenti, se la configurazione è stata già modificata per usare socat, come descritto in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128) (Protezione avanzata dei rilevamenti del servizio di bilanciamento del carico di Azure), non è necessario passare immediatamente all'agente delle risorse azure-lb.
 
 **[1]** configurazione pacemaker specifica di IBM DB2 HADR:
 <pre><code># Put Pacemaker into maintenance mode
@@ -457,12 +456,12 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Apportare modifiche ai profili SAP per l'uso dell'indirizzo IP virtuale per la connessione
 Per connettersi all'istanza primaria della configurazione HADR, il livello dell'applicazione SAP deve usare l'indirizzo IP virtuale definito e configurato per la Azure Load Balancer. Sono necessarie le seguenti modifiche:
 
-SID\</Sapmnt/>/profile/default. PFL
+\<SID>/profile/default./sapmnt/ PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-SID\</sapmnt/>/Global/DB6/db2cli.ini
+/sapmnt/ \<SID> /global/db6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -480,7 +479,7 @@ Usare lo strumento di configurazione J2EE per controllare o aggiornare l'URL JDB
  
 1. Accedere al server applicazioni primario dell'istanza di J2EE ed eseguire:`sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. Nel riquadro a sinistra scegliere **Archivio sicurezza**.
-1. Nel riquadro destro scegliere la chiave JDBC/pool/\<SAPSID>/URL.
+1. Nel riquadro destro scegliere la chiave JDBC/pool/ \<SAPSID> /URL.
 1. Modificare il nome host nell'URL JDBC per il nome host virtuale.
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. Selezionare **Aggiungi**.
@@ -541,7 +540,7 @@ Lo stato originale in un sistema SAP è documentato in Transaction DBACOCKPIT > 
 > Prima di iniziare il test, assicurarsi che:
 > * Pacemaker non ha azioni non riuscite (stato CRM).
 > * Nessun vincolo di posizione (avanzi del test di migrazione)
-> * La sincronizzazione IBM DB2 HADR funziona. Verificare con l'utente\<db2 SID> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * La sincronizzazione IBM DB2 HADR funziona. Verifica con l'utente DB2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Eseguire la migrazione del nodo che esegue il database DB2 primario eseguendo il comando seguente:
@@ -575,9 +574,9 @@ Eseguire di nuovo la migrazione della risorsa a *azibmdb01* e cancellare i vinco
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **migrazione \<di risorse crm RES_NAME \<>> host:** Crea vincoli di posizione e può causare problemi con l'acquisizione
-- **cancellazione \<di risorse CRM RES_NAME>**: Cancella i vincoli di posizione
-- **Pulitura \<risorse CRM RES_NAME>**: Cancella tutti gli errori della risorsa
+- **migrazione di risorse CRM \<res_name> \<host> :** crea vincoli di posizione e può causare problemi di acquisizione
+- **cancellazione \<res_name> risorse CRM **: Cancella i vincoli di posizione
+- **Pulitura \<res_name> risorse CRM **: Cancella tutti gli errori della risorsa
 
 ### <a name="test-the-fencing-agent"></a>Testare l'agente di schermatura
 
@@ -750,7 +749,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-Come utente DB2\<SID> Execute Command db2stop Force:
+Come utente DB2 \<sid> Execute Command db2stop Force:
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 
