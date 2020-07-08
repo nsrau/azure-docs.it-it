@@ -7,16 +7,19 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: f5a7f372f286a7b26a4a9916ed9df913b151e967
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: f9b5380fa219d768651703eeb9fe445fcd215332
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628470"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921771"
 ---
 # <a name="prepare-data-with-wrangling-data-flow"></a>Preparare i dati con il flusso di dati disputato
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+> [!NOTE]
+> Il flusso di dati in corso è attualmente avilable in anteprima pubblica
 
 ## <a name="create-a-wrangling-data-flow"></a>Creazione di un flusso di dati di cui litigare
 

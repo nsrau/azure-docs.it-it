@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: b4840ed30eb1f6dc8d6e6cef47da17807f9644d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f4b914fe5851df0928df9ccc41ca3b20c5d3469
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658575"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955956"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtri nelle viste di monitoraggio di Azure
 Un **filtro** in una [vista di monitoraggio di Azure](view-designer.md) consente agli utenti di filtrare i dati nella vista in base al valore di una proprietà specifica senza modificare la vista stessa.  È ad esempio possibile consentire agli utenti della vista di filtrare solo i dati di un computer o un set di computer specifico.  È possibile creare più filtri in una singola vista per consentire agli utenti di filtrare in base a più proprietà.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.
@@ -21,7 +21,7 @@ Fare clic sull'intervallo di tempo della data nella parte superiore di una visua
 
 ![Esempio di filtro](media/view-designer-filters/filters-example-time.png)
 
-Fare clic **+** su per aggiungere un filtro utilizzando filtri personalizzati definiti per la visualizzazione. Selezionare un valore per il filtro dall'elenco a discesa. Continuare ad aggiungere filtri facendo clic sul **+** pulsante. 
+Fare clic su **+** per aggiungere un filtro utilizzando filtri personalizzati definiti per la visualizzazione. Selezionare un valore per il filtro dall'elenco a discesa. Continuare ad aggiungere filtri facendo clic sul pulsante **+** . 
 
 
 ![Esempio di filtro](media/view-designer-filters/filters-example-custom.png)
@@ -61,15 +61,19 @@ Affinché un filtro abbia effetto, è necessario modificare le query nella vista
 
 La sintassi per l'uso di un valore di filtro in una query è: 
 
-    where ${filter name}  
+`where ${filter name}`  
 
 Se, ad esempio, nella vista è presente una query che restituisce eventi e utilizza un filtro denominato _computer_, è possibile utilizzare la query seguente.
 
-    Event | where ${Computers} | summarize count() by EventLevelName
+```kusto
+Event | where ${Computers} | summarize count() by EventLevelName
+```
 
 Se si aggiunge un altro filtro denominato Severity, è possibile usare la query seguente per applicare entrambi i filtri.
 
-    Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
+```kusto
+Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere altre informazioni sulle [parti di visualizzazione](view-designer-parts.md) che è possibile aggiungere alla vista personalizzata.

@@ -5,15 +5,16 @@ description: Informazioni dettagliate sugli strumenti inclusi in Ubuntu Data Sci
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 34b4bbd9c2ed088aca10801c22c5f189264fdb1f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161282"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955540"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Informazioni di riferimento: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -142,7 +143,7 @@ Il server Notebook di Jupyter è stato preconfigurato con Python 2, Python 3 e i
 > [!NOTE]
 > Se vengono visualizzati avvisi relativi al certificato, scegliere di continuare.
 
-È possibile accedere al server Jupyter Notebook da qualsiasi host, immettendo **https://\<nome DNS o indirizzo IP della VM\>:8000/**.
+È possibile accedere al server Jupyter Notebook da qualsiasi host, Immettere **https:// \<VM DNS name or IP address\> : 8000/**.
 
 > [!NOTE]
 > La porta 8000 è aperta nel firewall per impostazione predefinita quando viene effettuato il provisioning della VM. 
@@ -207,7 +208,7 @@ Anche nel pacchetto driver ODBC per SQL Server sono disponibili due strumenti da
 
 - **bcp**: lo strumento bcp esegue operazioni di copia bulk di dati tra un'istanza di Microsoft SQL Server e un file di dati in un formato specificato dall'utente. È possibile usarlo per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati delle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file in un formato creato per tale tabella. In alternativa, è necessario conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
 
-  Per altre informazioni, vedere [Connessione a bcp](https://msdn.microsoft.com/library/hh568446.aspx).
+  Per ulteriori informazioni, vedere [connessione con bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
 - **SQLCMD**: è possibile immettere istruzioni Transact-SQL utilizzando lo strumento sqlcmd. È anche possibile immettere procedure di sistema e file di script al prompt dei comandi. Questo strumento usa ODBC per eseguire batch Transact-SQL.
 
@@ -254,7 +255,7 @@ Per informazioni su come distribuire i modelli in R e Python in Azure Machine Le
 
 ## <a name="machine-learning-tools"></a>Strumenti di Machine Learning
 
-La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. incluse le seguenti:
+La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. Tra queste sono incluse:
 
 * **Vowpal Wabbit**: algoritmo di apprendimento rapido online.
 * **xgboost**: strumento che fornisce algoritmi di albero con boosting ottimizzati.
@@ -262,8 +263,10 @@ La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e pr
 * **Python**: Anaconda Python integra algoritmi Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
 * **LightGBM**: un framework rapido, distribuito e a prestazioni elevate di boosting a gradienti basato su algoritmi dell'albero delle decisioni.
 * **R**: è disponibile una ricca libreria di funzioni di machine learning per R. le librerie pre-installate includono LM, GLM, randomForest e rpart. È possibile installare altre librerie eseguendo questo comando:
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 Ecco alcune informazioni aggiuntive sui primi tre strumenti di Machine Learning nell'elenco.
 
@@ -329,16 +332,16 @@ Si apre un'interfaccia grafica con un set di schede. Seguire questi passaggi di 
 > [!NOTE]
 > Se non si ha accesso per installare il pacchetto nella directory di sistema (impostazione predefinita), è possibile che nella finestra della console R venga visualizzata la richiesta di installare i pacchetti nella libreria personale. Se vengono visualizzate queste richieste, rispondere **y** (Sì).
 
-1. Selezionare **Esegui**.
+1. Scegliere **Execute**(Esegui).
 1. Viene visualizzata una finestra di dialogo in cui viene chiesto se si vuole usare il set di dati meteo di esempio. Selezionare **Yes** (Sì) per caricare l'esempio.
-1. Selezionare la scheda **Model** (Modello).
+1. Selezionare la scheda **modello** .
 1. Selezionare **Execute** (Esegui) per creare un albero delle decisioni.
 1. Selezionare **Draw** (Progetta) per visualizzare l'albero delle decisioni.
 1. Selezionare l'opzione **Forest** (Foresta) e quindi **Execute** per creare una foresta casuale.
 1. Selezionare la scheda **Evaluate** (Valuta).
 1. Selezionare l'opzione **Risk** (Rischio) e quindi **Execute** per visualizzare due tracciati delle prestazioni per **Risk (Cumulative)** (Rischio cumulativo).
 1. Selezionare la scheda **Log** per visualizzare il codice R generato per le operazioni precedenti.
-   (A causa di un bug nella versione corrente di Rattle, è necessario inserire un **#** carattere davanti a **Esporta questo log** nel testo del log).
+   (A causa di un bug nella versione corrente di Rattle, è necessario inserire un carattere davanti a **#** **Esporta questo log** nel testo del log).
 1. Selezionare il pulsante **Export** (Esporta) per salvare il file di script R denominato *weather_script.R* nella home directory.
 
 È possibile uscire da Rattle e R. A questo punto è possibile modificare lo script R generato. In alternativa, usare lo script così com'è ed eseguirlo in qualsiasi momento per ripetere tutti i passaggi eseguiti nell'interfaccia utente di Rattle. Si tratta di un modo rapido, specialmente per gli utenti meno esperti di R, per eseguire funzioni di analisi e Machine Learning in un'interfaccia grafica semplice, generando automaticamente codice in R da modificare o per l'apprendimento.

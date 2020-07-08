@@ -4,20 +4,16 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/19/2020
-ms.openlocfilehash: 13fb00a7d82639c8f51744b6c2e5374d08d9bb03
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cb50e5a009b63bebd1656513d2b58c4ec61a8060
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869808"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85806018"
 ---
 ## <a name="create-an-azure-resource"></a>Creare una risorsa di Azure
 
 Per iniziare a usare l'API Controllo ortografico Bing, creare una delle seguenti risorse di Azure:
-
-[Risorsa di valutazione](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api-v7)
-   * non richiede una sottoscrizione di Azure,
-   * è gratuita e valida sette giorni. Dopo aver eseguito l'iscrizione, una chiave di valutazione e un endpoint sono disponibili sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
 [Risorsa Controllo ortografico Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)
    * disponibile tramite il portale di Azure fino a quando la risorsa non viene eliminata.

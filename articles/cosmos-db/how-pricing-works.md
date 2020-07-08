@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/29/2020
+ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75977532"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955813"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modello di determinazione dei prezzi di Azure Cosmos DB 
 
@@ -28,18 +28,18 @@ La velocità effettiva sottoposta a provisioning, specificata come [unità richi
 
 Per altre informazioni, vedere la [pagina dei prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) e [Informazioni sulla fattura di Azure Cosmos DB](understand-your-bill.md).
 
-Il modello di prezzi in Azure Cosmos DB è coerente in tutte le API. Per altre informazioni, vedere [Costo totale di proprietà (TCO) con Azure Cosmos DB](total-cost-ownership.md). È prevista una velocità effettiva minima necessaria in un database o un contenitore per garantire il rispetto dei contratti di servizio e assicurarsi che l'utente possa aumentare o diminuire la velocità effettiva sottoposta a provisioning di $6 per ogni 100 UR/s.
+Il modello di prezzi in Azure Cosmos DB è coerente in tutte le API. Per altre informazioni, vedere [Costo totale di proprietà (TCO) con Azure Cosmos DB](total-cost-ownership.md). È necessaria una velocità effettiva minima in un database o in un contenitore per garantire i contratti di contratto ed è possibile aumentare o ridurre la velocità effettiva con provisioning per ogni 100 ur/sec.
 
-Il prezzo minimo per la velocità effettiva basata sia su contenitori che su database è attualmente di $24/mese (vedere la [pagina dei prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) per informazioni aggiornate). Se il carico di lavoro usa più contenitori, è possibile ottimizzare i costi tramite la velocità effettiva a livello di database, che consente di disporre di un numero qualsiasi di contenitori in un database che condividono la velocità effettiva. La tabella seguente riepiloga la velocità effettiva sottoposta a provisioning e i costi per diverse entità:
+Se si distribuisce l'account Azure Cosmos DB in un'area non governativa degli Stati Uniti, attualmente il prezzo minimo per entrambi i database e la velocità effettiva basata su contenitori è di circa 24 dollari al mese. I prezzi variano a seconda dell'area in uso. per informazioni aggiornate sui prezzi, vedere la pagina relativa ai [prezzi Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) . Se il carico di lavoro usa più contenitori, è possibile ottimizzare i costi tramite la velocità effettiva a livello di database, che consente di disporre di un numero qualsiasi di contenitori in un database che condividono la velocità effettiva. La tabella seguente riepiloga la velocità effettiva sottoposta a provisioning e i costi per diverse entità:
 
-|**Entità**  | **Velocità effettiva minima e costi** |**Incrementi per il ridimensionamento e costi** |**Ambito di provisioning** |
+|**Entità**  | **Velocità effettiva minima** |**Incrementi di scala** |**Ambito di provisioning** |
 |---------|---------|---------|-------|
-|Database    | 400 UR/s ($24/mese)    | 100 UR/s ($6/mese)   |La velocità effettiva viene riservata per il database e viene condivisa dai contenitori all'interno del database |
-|Contenitore     | 400 UR/s ($24/mese)    | 100 UR/s ($6/mese)  |La velocità effettiva viene riservata per un contenitore specifico |
+|Database    | 400 UR/sec    | 100 ur/sec   |La velocità effettiva viene riservata per il database e viene condivisa dai contenitori all'interno del database |
+|Contenitore     | 400 UR/sec   | 100 ur/sec  |La velocità effettiva viene riservata per un contenitore specifico |
 
-Come illustrato nella tabella precedente, la velocità effettiva minima in Azure Cosmos DB inizia a un prezzo di $24/mese. Se si inizia con la velocità effettiva minima, eseguendo un ridimensionamento nel corso del tempo per supportare i carichi di lavoro di produzione, i costi saliranno in modo graduale, con incrementi di $6 al mese. Il modello tariffario<di prezzi di Azure Cosmos DB è elastico e prevede aumenti o riduzioni graduali man mano che si esegue un ridimensionamento verso l'alto o verso il basso.
+Come illustrato nella tabella precedente, la velocità effettiva minima in Azure Cosmos DB inizia a un prezzo di circa 24 dollari al mese. Se si inizia con la velocità effettiva minima e si aumentano le prestazioni nel tempo per supportare i carichi di lavoro di produzione, i costi aumenteranno senza problemi, con incrementi di circa 6 dollari al mese. I prezzi variano a seconda dell'area in uso. per informazioni aggiornate sui prezzi, vedere la pagina relativa ai [prezzi Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) . Il modello tariffario<di prezzi di Azure Cosmos DB è elastico e prevede aumenti o riduzioni graduali man mano che si esegue un ridimensionamento verso l'alto o verso il basso.
 
-## <a name="try-azure-cosmos-db-for-free"></a>Prova gratuitamente Azure Cosmos DB 
+## <a name="try-azure-cosmos-db-for-free"></a>Prova gratuitamente Azure Cosmos DB
 
 Azure Cosmos DB offre diverse opzioni gratuite per gli sviluppatori. Tali opzioni includono:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75771258"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956373"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Più front-end per Azure Load Balancer
 
@@ -102,20 +102,31 @@ Per ogni macchina virtuale nel pool back-end, eseguire i comandi seguenti al pro
 
 Per ottenere l'elenco dei nomi di interfaccia presenti nella macchina virtuale, digitare il comando seguente:
 
-    netsh interface show interface 
+```console
+netsh interface show interface 
+```
 
 Per la scheda di interfaccia di rete della VM (gestione di Azure), digitare il comando seguente:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (sostituire interfacet con il nome di questa interfaccia)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(sostituire interfacet con il nome di questa interfaccia)
 
 Per ogni interfaccia di loopback aggiunta, ripetere i comandi seguenti:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (sostituire InterfaceName con il nome di questa interfaccia di loopback)
-     
-    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (sostituire InterfaceName con il nome di questa interfaccia di loopback)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(sostituire InterfaceName con il nome di questa interfaccia di loopback)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(sostituire InterfaceName con il nome di questa interfaccia di loopback)
 
 > [!IMPORTANT]
 > La configurazione delle interfacce di loopback viene eseguita all'interno del sistema operativo guest. Questa configurazione non viene eseguita o gestita da Azure. Senza questa configurazione, le regole non funzionano. Le definizioni dei probe di integrità usano il DIP della macchina virtuale anziché l'interfaccia di loopback che rappresenta il front-end DSR. Il servizio deve quindi mettere a disposizione le risposte probe su una porta DIP che rifletta lo stato del servizio offerto nell'interfaccia di loopback che rappresenta il front-end DSR.
@@ -146,7 +157,7 @@ La destinazione del flusso in ingresso è l'indirizzo IP del front-end nell'inte
 
 Si noti che in questo esempio non viene modificata la porta di destinazione. Anche se questo è uno scenario con indirizzo IP mobile, Azure Load Balancer supporta anche la definizione di una regola per la riscrittura della porta di destinazione back-end e per differenziarla dalla porta di destinazione front-end.
 
-Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di configurazione del servizio di bilanciamento di carico. Un esempio attualmente disponibile è la configurazione [SQL AlwaysOn con più listener](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) . Altri scenari di questo tipo verranno documentati nel tempo.
+Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di configurazione del servizio di bilanciamento di carico. Un esempio attualmente disponibile è la configurazione [SQL AlwaysOn con più listener](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) . Altri scenari di questo tipo verranno documentati nel tempo.
 
 ## <a name="limitations"></a>Limitazioni
 

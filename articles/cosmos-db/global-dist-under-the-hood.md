@@ -4,21 +4,21 @@ description: In questo articolo vengono forniti i dettagli tecnici relativi alla
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: a46a69476a2ad6550bc7b3a533fd09565d461db3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74872129"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955914"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuzione globale dei dati con Azure Cosmos DB - informazioni sul funzionamento
 
 Azure Cosmos DB è un servizio di base in Azure, che viene quindi distribuito in tutte le aree di Azure in tutto il mondo, tra cui Public, Sovereign, Department of Defense (DoD) e cloud governativi. All'interno di un data center, distribuiamo e gestiamo Azure Cosmos DB su moltissimi tipi di computer, ognuno con risorse di archiviazione locali dedicate. All'interno di un data center, Azure Cosmos DB viene distribuito tra vari cluster, ognuno dei quali esegue potenzialmente più generazioni di hardware. I computer all'interno di un cluster vengono in genere distribuiti tra 10-20 domini di errore per la disponibilità elevata all'interno di un'area. L'immagine seguente mostra la topologia del sistema di distribuzione globale di Cosmos DB:
 
-![Topologia del sistema](./media/global-dist-under-the-hood/distributed-system-topology.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distributed-system-topology.png" alt-text="Topologia del sistema" border="false":::
 
 **La distribuzione globale in Azure Cosmos DB è chiavi in mano:** In qualsiasi momento, con pochi clic o a livello di codice con una singola chiamata API, è possibile aggiungere o rimuovere le aree geografiche associate al database Cosmos. Un database Cosmos, a sua volta, è costituito da un set di contenitori Cosmos. In Cosmos DB, i contenitori fungono da unità logiche di distribuzione e scalabilità. Le raccolte, le tabelle e i grafici che vengono creati sono (internamente) solo contenitori Cosmos. I contenitori sono completamente indipendenti dallo schema e forniscono un ambito per una query. I dati in un contenitore Cosmos vengono indicizzati automaticamente al momento dell'inserimento. L'indicizzazione automatica consente agli utenti di eseguire query sui dati senza problemi di gestione degli schemi o degli indici, soprattutto in una configurazione distribuita a livello globale.  
 
@@ -30,7 +30,7 @@ Quando un'app che usa Cosmos DB ridimensiona in modo elastico la velocità effet
 
 Come illustrato nell'immagine seguente, i dati all'interno di un contenitore vengono distribuiti lungo due dimensioni, all'interno di un'area e tra aree, in tutto il mondo:  
 
-![partizioni fisiche](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="partizioni fisiche" border="false":::
 
 Una partizione fisica viene implementata da un gruppo di repliche, denominato *set di repliche*. Ogni computer ospita centinaia di repliche che corrispondono a diverse partizioni fisiche all'interno di un set fisso di processi, come illustrato nell'immagine precedente. Le repliche corrispondenti alle partizioni fisiche vengono posizionate in modo dinamico e con carico bilanciato nei computer all'interno di un cluster e nei data center all'interno di un'area.  
 
@@ -52,7 +52,7 @@ Una partizione fisica viene materializzata come un gruppo di repliche con bilanc
 
 Un gruppo di partizioni fisiche, una per ogni configurata con le aree del database Cosmos, è costituito per gestire lo stesso set di chiavi replicate in tutte le aree configurate. Questa primitiva di coordinamento più elevata è detta *set* di partizioni, ovvero una sovrapposizione dinamica distribuita geograficamente di partizioni fisiche che gestiscono un determinato set di chiavi. Mentre una determinata partizione fisica (un set di repliche) ha come ambito un cluster, un set di partizioni può estendersi a cluster, Data Center e aree geografiche, come illustrato nell'immagine seguente:  
 
-![Set di partizioni](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Set di partizioni" border="false":::
 
 È possibile considerare un set di partizioni come un "super set di repliche" geograficamente disperso, composto da più set di repliche che dispongono dello stesso numero di chiavi. Analogamente a un set di repliche, l'appartenenza a un set di partizioni è anche dinamica, ma varia in base alle operazioni implicite di gestione delle partizioni fisiche per aggiungere/rimuovere nuove partizioni da e verso un determinato set di partizioni (ad esempio, quando si aumenta la velocità effettiva in un contenitore, si aggiunge o rimuove un'area nel database Cosmos o quando si verificano errori). Poiché ogni partizione (di un set di partizioni) gestisce l'appartenenza al set di partizioni all'interno del proprio set di repliche, l'appartenenza è completamente decentralizzata e a disponibilità elevata. Durante la riconfigurazione di un set di partizioni, viene specificata anche la topologia della sovrapposizione tra le partizioni fisiche. La topologia viene selezionata in modo dinamico in base al livello di coerenza, alla distanza geografica e alla larghezza di banda di rete disponibile tra le partizioni fisiche di origine e di destinazione.  
 

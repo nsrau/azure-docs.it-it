@@ -4,7 +4,6 @@ description: Questo articolo offre risposta ad alcune domande frequenti sull'ese
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: felixwu
 editor: ''
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -14,21 +13,21 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 278f3a5109e638530a55f4b2a77cd6d28aa7ca54
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: 7a44e9c6b0545bce83f17c3bf85149d4ebe95dc1
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84035262"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955676"
 ---
-# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure
+# <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Domande frequenti per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](frequently-asked-questions-faq.md)
 > * [Linux](../linux/frequently-asked-questions-faq.md)
 
-Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'esecuzione di [SQL Server in macchine virtuali Windows in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'esecuzione di [SQL Server in macchine virtuali (VM) di Windows Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -51,15 +50,15 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
    Sì, con PowerShell. Per altre informazioni sulla distribuzione di macchine virtuali di SQL Server usando PowerShell, consultare [Come eseguire il provisioning di macchine virtuali di SQL Server con Azure PowerShell](create-sql-vm-powershell.md).
    
-1. **È possibile creare un'immagine generalizzata di SQL Server da Azure Marketplace sulla macchina virtuale di SQL Server e usarla per distribuire le VM?**
+1. **È possibile creare un'immagine generalizzata di Azure Marketplace SQL Server della macchina virtuale SQL Server e usarla per distribuire le VM?**
 
    Sì, ma è necessario [registrare ogni macchina virtuale di SQL Server con il provider di risorse di VM di SQL Server](sql-vm-resource-provider-register.md) per gestire la macchina virtuale di SQL Server nel portale, nonché usare funzionalità come l'applicazione automatica di patch e i backup automatici. Quando si esegue la registrazione con il provider di risorse, è necessario specificare anche il tipo di licenza per ogni macchina virtuale di SQL Server.
 
 1. **Come è possibile generalizzare SQL Server nella macchina virtuale di Azure al fine di usarlo per distribuire nuove VM?**
 
-   È possibile distribuire una macchina virtuale di Windows Server (senza SQL Server installato) e usare il processo [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) per generalizzare SQL Server nella VM di Azure (Windows) con il supporto di installazione di SQL Server. I clienti che dispongono di [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) possono ottenere il supporto di installazione dal [Centro per i contratti multilicenza](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare i supporti di configurazione da un'immagine della VM di SQL Server del Marketplace che abbia l'edizione desiderata.
+   È possibile distribuire una macchina virtuale di Windows Server (senza SQL Server installato) e usare il processo [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) per generalizzare SQL Server nella VM di Azure (Windows) con il supporto di installazione di SQL Server. I clienti che usano [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) possono ottenere il supporto di installazione dal [Centro per i contratti multilicenza](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di installazione di Azure Marketplace SQL Server immagine di macchina virtuale con l'edizione desiderata.
 
-   In alternativa, è possibile usare una delle immagini di SQL Server da Azure Marketplace per generalizzare SQL Server nella macchina virtuale di Azure. Si noti che è necessario eliminare la chiave del Registro di sistema seguente nell'immagine di origine prima di creare un'immagine personalizzata. In caso contrario, è possibile che si verifichi il blot della cartella di bootstrap di installazione di SQL Server e/o che l'estensione SQL IaaS sia in stato di errore.
+   In alternativa, è possibile usare una delle immagini SQL Server di Azure Marketplace per generalizzare SQL Server nella macchina virtuale di Azure. Si noti che è necessario eliminare la chiave del Registro di sistema seguente nell'immagine di origine prima di creare un'immagine personalizzata. In caso contrario, è possibile che si verifichi il blot della cartella di bootstrap di installazione di SQL Server e/o che l'estensione SQL IaaS sia in stato di errore.
 
    Percorso della chiave del Registro di sistema:  
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
@@ -71,18 +70,18 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
    Sì, ma è necessario [registrare ogni macchina virtuale di SQL Server con il provider di risorse di VM di SQL Server](sql-vm-resource-provider-register.md) per gestire la macchina virtuale di SQL Server nel portale, nonché usare funzionalità come l'applicazione automatica di patch e i backup automatici.
 
-1. **È possibile impostare configurazioni non visualizzate nella raccolta di macchine virtuali, ad esempio Windows 2008 R2 + SQL Server 2012?**
+1. **È possibile configurare configurazioni non visualizzate nella raccolta di macchine virtuali (ad esempio Windows 2008 R2 + SQL Server 2012)?**
 
-   No. Per le raccolte di macchine virtuali che includono SQL Server è necessario selezionare una delle immagini disponibili sia dal portale di Azure che tramite [PowerShell](create-sql-vm-powershell.md). Tuttavia, si ha la possibilità di distribuire una macchina virtuale Windows e installarvi automaticamente SQL Server. È quindi necessario [registrare la macchina virtuale di SQL Server con il provider di risorse di VM di SQL Server](sql-vm-resource-provider-register.md) per gestire la macchina virtuale di SQL Server nel portale, nonché usare funzionalità come l'applicazione automatica di patch e i backup automatici. 
+   No. Per le raccolte di macchine virtuali che includono SQL Server è necessario selezionare una delle immagini disponibili sia dal portale di Azure che tramite [PowerShell](create-sql-vm-powershell.md). Tuttavia, si ha la possibilità di distribuire una macchina virtuale Windows e installarvi automaticamente SQL Server. È quindi necessario [registrare la macchina virtuale di SQL Server con il provider di risorse SQL Server VM](sql-vm-resource-provider-register.md) per gestire la macchina virtuale SQL Server nel portale di Azure, nonché usare funzionalità come l'applicazione automatica di patch e i backup automatici. 
 
 
 ## <a name="creation"></a>Creazione
 
 1. **Come si crea una macchina virtuale di Azure con SQL Server?**
 
-   Il metodo più semplice consiste nel creare una macchina virtuale che include SQL Server. Per un'esercitazione sulla registrazione in Azure e sulla creazione di una macchina virtuale di SQL Server dal portale, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](create-sql-vm-portal.md). È possibile selezionare un'immagine di macchina virtuale che usa la licenza di SQL Server con costo al secondo oppure usare un'immagine che consente di trasferire la licenza di SQL Server dell'utente. È anche possibile installare manualmente in una macchina virtuale un'edizione di SQL Server con licenza gratuita (Developer o Express) o riutilizzando una licenza locale. Verificare di [registrare la macchina virtuale di SQL Server con il provider di risorse di VM di SQL Server](sql-vm-resource-provider-register.md) per gestire la macchina virtuale di SQL Server nel portale, nonché usare funzionalità come l'applicazione automatica di patch e i backup automatici. Se si usa la funzionalità Bring Your Own License, è necessario avere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Per altre informazioni, vedere [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
+   Il metodo più semplice consiste nel creare una macchina virtuale che includa SQL Server. Per un'esercitazione sulla registrazione in Azure e sulla creazione di una macchina virtuale di SQL Server dal portale, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](create-sql-vm-portal.md). È possibile selezionare un'immagine di macchina virtuale che usa la licenza di SQL Server con costo al secondo oppure usare un'immagine che consente di trasferire la licenza di SQL Server dell'utente. È anche possibile installare manualmente in una macchina virtuale un'edizione di SQL Server con licenza gratuita (Developer o Express) o riutilizzando una licenza locale. Verificare di [registrare la macchina virtuale di SQL Server con il provider di risorse di VM di SQL Server](sql-vm-resource-provider-register.md) per gestire la macchina virtuale di SQL Server nel portale, nonché usare funzionalità come l'applicazione automatica di patch e i backup automatici. Se si usa la funzionalità Bring Your Own License, è necessario avere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Per altre informazioni, vedere [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
 
-1. **Come si esegue la migrazione di un database SQL Server locale nel cloud?**
+1. **Come è possibile eseguire la migrazione del database di SQL Server locale al cloud?**
 
    Creare prima una macchina virtuale di Azure con un'istanza di SQL Server, quindi eseguire la migrazione dei database locali in tale istanza. Per alcune strategie di migrazione dei dati, vedere [Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure](migrate-to-vm-from-sql-server.md).
 
@@ -90,7 +89,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Come si installa una copia di SQL Server con licenza in una VM di Azure?**
 
-   Questa operazione può essere eseguita in tre modi. I clienti con Contratto Enterprise (EA) possono effettuare il provisioning di una delle [immagini della macchina virtuale con supporto delle licenze](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), un'operazione nota anche come Bring Your Own License (BYOL). Se si dispone di [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), è possibile abilitare il [Vantaggio Azure Hybrid](licensing-model-azure-hybrid-benefit-ahb-change.md) su un'immagine esistente con pagamento in base al consumo. Oppure è possibile copiare il supporto di installazione di SQL Server nella macchina virtuale di Windows Server e quindi installare SQL Server nella macchina virtuale. Verificare di registrare la macchina virtuale di SQL Server con il [provider di risorse](sql-vm-resource-provider-register.md) per ottenere funzionalità quali gestione del portale, backup automatizzato e applicazione di patch automatica. 
+   Questa operazione può essere eseguita in tre modi. Se si è un cliente Enterprise Agreement (EA), è possibile effettuare il provisioning di una delle [Immagini di macchina virtuale che supporta le licenze](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), nota anche come Bring-your-own-License (BYOL). Se si dispone di [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), è possibile abilitare il [vantaggio Azure Hybrid](licensing-model-azure-hybrid-benefit-ahb-change.md) su un'immagine con pagamento in base al consumo (PAYG) esistente. Oppure è possibile copiare il supporto di installazione di SQL Server nella macchina virtuale di Windows Server e quindi installare SQL Server nella macchina virtuale. Verificare di registrare la macchina virtuale di SQL Server con il [provider di risorse](sql-vm-resource-provider-register.md) per ottenere funzionalità quali gestione del portale, backup automatizzato e applicazione di patch automatica. 
 
 1. **È possibile modificare una VM per l'uso di una licenza di SQL Server, se è stata creata da una delle immagini della raccolta con pagamento in base al consumo?**
 
@@ -100,9 +99,9 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
    No. Per [modificare il modello di licenza](licensing-model-azure-hybrid-benefit-ahb-change.md) non è necessario alcun tempo di inattività di SQL Server perché la modifica ha effetto immediato e non richiede un riavvio della macchina virtuale. Tuttavia, per registrare la macchina virtuale di SQL Server con il provider di risorse di macchine virtuali di SQL Server, l'[estensione IaaS di SQL](sql-server-iaas-agent-extension-automate-management.md) costituisce un prerequisito e l'installazione dell'estensione SQL IaaS in modalità _estesa_ comporta il riavvio del servizio SQL Server. Di conseguenza, se è necessario installare l'estensione SQL IaaS, è possibile scegliere la modalità _leggera_ per ottenere funzionalità limitate oppure installarla in modalità _estesa_ durante una finestra di manutenzione. L'estensione SQL IaaS installata in modalità _leggera_ può essere aggiornata alla modalità _estesa_ in qualsiasi momento, ma richiede il riavvio del servizio SQL Server. 
    
-1. **È possibile cambiare il modello di licenza in una macchina virtuale di SQL Server distribuita con il modello classico?**
+1. **È possibile cambiare i modelli di licenza in una macchina virtuale SQL Server distribuita con il modello classico?**
 
-   No. La modifica del modello di licenza in una macchina virtuale classica non è supportata. È possibile eseguire la migrazione della macchina virtuale al modello di Azure Resource Manager e registrarsi con il provider di risorse della macchina virtuale di SQL Server. Dopo che la macchina virtuale è stata registrata con il provider di risorse della macchina virtuale di SQL Server, le modifiche al modello di licenza saranno disponibili nella macchina virtuale.
+   No. La modifica di modelli di licenza non è supportata in una macchina virtuale classica. È possibile eseguire la migrazione della macchina virtuale al modello di Azure Resource Manager e registrarsi con il provider di risorse della macchina virtuale di SQL Server. Dopo che la macchina virtuale è stata registrata con il provider di risorse della macchina virtuale di SQL Server, le modifiche al modello di licenza saranno disponibili nella macchina virtuale.
 
 1. **È possibile usare il portale di Azure per gestire più istanze nella stessa macchina virtuale?**
 
@@ -133,7 +132,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Quali sottoscrizioni supportano il Vantaggio Ripristino di emergenza?**
 
-   I programmi completi che offrono diritti di sottoscrizione equivalenti a Software Assurance come vantaggio fisso supportano il Vantaggio Ripristino di emergenza. Sono inclusi, senza limitazioni, Open Value (OV), Open Value Subscription (OVS), Contratto Enterprise (EA), Contratto Enterprise Subscription (EAS) e Server and Cloud Enrollment (SCE). Per altre informazioni fare riferimento alle [condizioni del prodotto](https://www.microsoft.com/licensing/product-licensing/products) e comunicare con i contatti della licenza o con l'account manager. 
+   I programmi completi che offrono diritti di sottoscrizione equivalenti a Software Assurance come vantaggio fisso supportano il Vantaggio Ripristino di emergenza. Sono inclusi, ma non è limitato a, il valore aperto (OV), la sottoscrizione Open Value (OVS), il Enterprise Agreement (EA), la sottoscrizione Enterprise Agreement (EAS) e la registrazione del server e del cloud (SCE). Per altre informazioni fare riferimento alle [condizioni del prodotto](https://www.microsoft.com/licensing/product-licensing/products) e comunicare con i contatti della licenza o con l'account manager. 
 
    
  ## <a name="resource-provider"></a>Provider di risorse
@@ -183,13 +182,13 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
    
 ## <a name="updating-and-patching"></a>Aggiornamento e applicazione di patch
 
-1. **Come si passa a una versione/un'edizione diversa di SQL Server in una macchina virtuale di Azure?**
+1. **Ricerca per categorie modificare una versione o un'edizione diversa di SQL Server in una macchina virtuale di Azure?**
 
    I clienti possono cambiare versione/edizione di SQL Server usando supporti di configurazione che contengono la versione o l'edizione desiderata di SQL Server. Dopo aver cambiato edizione, usare il portale di Azure per modificare la proprietà dell'edizione della macchina virtuale in modo che rispecchi correttamente la fatturazione per la macchina virtuale. Per altre informazioni, consultare l'articolo su come [cambiare edizione di una VM di SQL Server](change-sql-server-edition.md). Non esiste una differenza di fatturazione per versioni diverse di SQL Server, quindi dopo aver modificato la versione di SQL Server, non sono necessarie altre azioni.
 
 1. **Dove posso trovare il supporto di configurazione per modificare l'edizione o la versione di SQL Server?**
 
-   I clienti che dispongono di [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) possono ottenere il supporto di installazione dal [Centro per i contratti multilicenza](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di configurazione da un'immagine della VM di SQL Server del Marketplace che abbia l'edizione desiderata.
+   I clienti che usano [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) possono ottenere il supporto di installazione dal [Centro per i contratti multilicenza](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di installazione di Azure Marketplace SQL Server immagine di macchina virtuale con l'edizione desiderata.
    
 1. **Come si applicano gli aggiornamenti e i Service Pack a una VM di SQL Server?**
 
@@ -201,7 +200,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Come posso ottenere aggiornamenti della sicurezza estesi e gratuiti per la fine del supporto di SQL Server 2008 e le istanze di SQL Server 2008 R2?**
 
-   È possibile ottenere [aggiornamenti della sicurezza estesa e gratuiti](sql-server-2008-extend-end-of-support.md) spostando SQL Server così com'è in una macchina virtuale SQL di Azure. Per altre informazioni, consultare le [opzioni di fine del supporto](/sql/sql-server/end-of-support/sql-server-end-of-life-overview). 
+   È possibile ottenere [aggiornamenti della sicurezza estesi gratuiti](sql-server-2008-extend-end-of-support.md) spostando il SQL Server così com'è in una macchina virtuale di Azure. Per altre informazioni, consultare le [opzioni di fine del supporto](/sql/sql-server/end-of-support/sql-server-end-of-life-overview). 
   
    
 
@@ -209,14 +208,14 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Le istanze del cluster di failover di SQL Server sono supportate nelle macchine virtuali di Azure?**
 
-   Sì. È possibile installare un'istanza del cluster di failover usando [condivisioni file Premium (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) o [Spazi di archiviazione diretta (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) per il sottosistema di archiviazione. Le condivisioni file Premium offrono capacità di operazioni di I/O al secondo e velocità effettiva in grado di soddisfare le esigenze di molti carichi di lavoro. Per i carichi di lavoro con I/O elevato, è consigliabile usare spazi di archiviazione diretta in base a dischi Premium o Ultra gestiti. In alternativa, è possibile usare soluzioni di clustering o archiviazione di terze parti come descritto in [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
+   Sì. È possibile installare un'istanza del cluster di failover usando [condivisioni file Premium (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) o [Spazi di archiviazione diretta (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) per il sottosistema di archiviazione. Le condivisioni file Premium offrono capacità di operazioni di I/O al secondo e velocità effettiva in grado di soddisfare le esigenze di molti carichi di lavoro. Per i carichi di lavoro con I/O elevato, è consigliabile usare spazi di archiviazione diretta in base a dischi Premium o Ultra gestiti. In alternativa, è possibile usare soluzioni di clustering o archiviazione di terze parti come descritto in [disponibilità elevata e ripristino di emergenza per SQL Server in macchine virtuali di Azure](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
    > A questo punto, l'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) in modalità _estesa_ è supportato per le istanze del cluster di failover di SQL Server in Azure. Si consiglia di disinstallare l'estensione in modalità _estesa_ dalle macchine virtuali che fanno parte dell'istanza del cluster di failover e di installare l'estensione in modalità _leggera_. Questa estensione supporta funzionalità quali Backup automatizzato, Applicazione automatica delle patch e alcune funzionalità del portale per SQL Server. Queste funzionalità non funzioneranno per le macchine virtuali di SQL Server dopo la disinstallazione dell'agente in modalità _estesa_.
 
 1. **Qual è la differenza tra VM di SQL Server e servizio Database SQL?**
 
-   Dal punto di vista concettuale l'esecuzione di SQL Server in una macchina virtuale di Azure non è diversa dall'esecuzione di SQL Server in un centro dati remoto. Per contro, il servizio [Database SQL](../../database/sql-database-paas-overview.md) offre una soluzione DaaS (Database-as-a-service). Con Database SQL non si ha accesso ai computer che ospitano i database. Per un confronto completo, vedere [Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in macchine virtuali di Azure (IaaS)](../../azure-sql-iaas-vs-paas-what-is-overview.md).
+   Dal punto di vista concettuale l'esecuzione di SQL Server in una macchina virtuale di Azure non è diversa dall'esecuzione di SQL Server in un centro dati remoto. Al contrario, il [database SQL di Azure](../../database/sql-database-paas-overview.md) offre database come servizio. Con Database SQL non si ha accesso ai computer che ospitano i database. Per un confronto completo, vedere [Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in macchine virtuali di Azure (IaaS)](../../azure-sql-iaas-vs-paas-what-is-overview.md).
 
 1. **Come si installa SQL Server Data Tools in una VM di Azure?**
 
@@ -230,16 +229,16 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 **Macchine virtuali Windows**:
 
-* [Panoramica di SQL Server in una macchina virtuale Windows](sql-server-on-azure-vm-iaas-what-is-overview.md).
-* [Effettuare il provisioning di una macchina virtuale Windows di SQL Server](create-sql-vm-portal.md)
+* [Panoramica di SQL Server in una macchina virtuale Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
+* [Effettuare il provisioning di SQL Server in una macchina virtuale Windows](create-sql-vm-portal.md)
 * [Migrazione di un database a SQL Server su una macchina virtuale di Azure](migrate-to-vm-from-sql-server.md)
-* [Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](business-continuity-high-availability-disaster-recovery-hadr-overview.md)
-* [Performance best practices for SQL Server in Azure Virtual Machines](performance-guidelines-best-practices.md) (Procedure consigliate sulle prestazioni per SQL Server nelle macchine virtuali di Azure)
-* [Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](application-patterns-development-strategies.md)
+* [Disponibilità elevata e ripristino di emergenza per SQL Server in macchine virtuali di Azure](business-continuity-high-availability-disaster-recovery-hadr-overview.md)
+* [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](performance-guidelines-best-practices.md)
+* [Modelli di applicazione e strategie di sviluppo per SQL Server in macchine virtuali di Azure](application-patterns-development-strategies.md)
 
 **Macchine virtuali Linux**:
 
 * [Panoramica di SQL Server in una macchina virtuale Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
-* [Effettuare il provisioning di una macchina virtuale Linux con SQL Server](../linux/sql-vm-create-portal-quickstart.md)
+* [Effettuare il provisioning di SQL Server in una VM Linux](../linux/sql-vm-create-portal-quickstart.md)
 * [Domande frequenti (Linux)](../linux/frequently-asked-questions-faq.md)
 * [Documentazione di SQL Server in Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

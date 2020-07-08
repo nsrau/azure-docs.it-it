@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: 9810d29750e7c741c84b11b296099a37d67fc595
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267614"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955166"
 ---
 # <a name="monitor-azure-storage"></a>Monitoraggio di Archiviazione di Azure
 
@@ -78,7 +78,9 @@ Tutte le altre richieste anonime non riuscite non vengono registrate. Per un ele
 
 Le metriche della piattaforma e il log attività vengono raccolti automaticamente, ma è necessario creare un'impostazione di diagnostica per raccogliere i log delle risorse o per inviarli all'esterno di Monitoraggio di Azure. Per consentire al processo di creare un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell, vedere [Creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Quando si crea un'impostazione di diagnostica, scegliere il tipo di archiviazione per il quale abilitare i log, ad esempio BLOB, coda, tabella o file. Una volta creata l'impostazione di diagnostica nel portale di Azure è possibile selezionare la risorsa da un elenco. Se si utilizza PowerShell o l'interfaccia della riga di comando di Azure è necessario usare l'ID della risorsa del tipo di archiviazione. L'ID della risorsa si trova nel portale di Azure, nella **pagina delle proprietà** del proprio account di archiviazione.
+Quando si crea un'impostazione di diagnostica, scegliere il tipo di archiviazione per il quale abilitare i log, ad esempio BLOB, coda, tabella o file. Data Lake Storage Gen2 non viene visualizzato come tipo di archiviazione. Questo perché Data Lake Storage Gen2 è un set di funzionalità disponibili per l'archiviazione BLOB. 
+
+Una volta creata l'impostazione di diagnostica nel portale di Azure è possibile selezionare la risorsa da un elenco. Se si utilizza PowerShell o l'interfaccia della riga di comando di Azure è necessario usare l'ID della risorsa del tipo di archiviazione. L'ID della risorsa si trova nel portale di Azure, nella **pagina delle proprietà** del proprio account di archiviazione.
 
 È anche necessario specificare le categorie di operazioni per cui si vogliono raccogliere i log. In questa tabella sono elencate le categorie di Archiviazione di Azure.
 
@@ -343,6 +345,8 @@ I dati vengono archiviati in queste tabelle.
 |StorageFileLogs | Log che descrivono attività nelle condivisioni di file. |
 |StorageQueueLogs | Log che descrivono attività nelle code.|
 |StorageTableLogs| Log che descrivono l'attività nelle tabelle.|
+
+I log per Data Lake Storage Gen2 non vengono visualizzati in una tabella dedicata. Questo perché Data Lake Storage Gen2 non è un servizio. Si tratta di un set di funzionalità che è possibile abilitare in un account di archiviazione BLOB. Se queste funzionalità sono state abilitate, i log continueranno a essere visualizzati nella tabella StorageBlobLogs. 
 
 ### <a name="azure-storage-log-analytics-queries-in-azure-monitor"></a>Query di Log Analytics per Archiviazione di Azure in Monitoraggio di Azure
 

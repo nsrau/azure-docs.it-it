@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30ca3bb86426b144fa6cbf5c63888d9546919ebf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76514222"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954690"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC 
 
@@ -242,10 +242,12 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 > 
 >   La sintassi dei campi definiti in questa sezione, specificata in ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) è la seguente:
 
-    FileType = MajorBrand MinorVersion CompatibleBrands
-    MajorBrand = STRING_UINT32
-    MinorVersion = STRING_UINT32
-    CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```properties
+FileType = MajorBrand MinorVersion CompatibleBrands
+MajorBrand = STRING_UINT32
+MinorVersion = STRING_UINT32
+CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```
 
 **Nota**: i marchi di compatibilità 'ccff' e 'iso8' indicano che i frammenti sono conformi a "Common Container File Format", Common Encryption [ISO/IEC 23001 7] e ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
 
@@ -288,14 +290,18 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 > 
 >   Le presentazioni con i flussi HEVC devono contenere le impostazioni seguenti:
 
-    MajorVersion = 2
-    MinorVersion = 2
+```properties
+MajorVersion = 2
+MinorVersion = 2
+```
 
 >   LookaheadCount = 0 (Nota: riquadri deprecati)
 > 
 >   Le presentazioni devono contenere anche l'impostazione seguente:
 
-    TimeScale = 90000
+```properties
+TimeScale = 90000
+```
 
 >   Stream Collection: raccolta di elementi dati Stream Description, come specificato nella sezione *3.1.1.1.2*.
 > 
@@ -385,7 +391,7 @@ I riquadri seguenti possono essere presenti nelle risposte frammento quando vien
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
