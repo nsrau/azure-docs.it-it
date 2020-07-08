@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 03333e853a2ab7606ebe60cc3f68bcb5facfbdb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f2eb7cff5d8fe77a56117a0be57f0edb86889a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77191008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562297"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtri in ricerca cognitiva di Azure 
 
@@ -71,10 +71,10 @@ Gli esempi seguenti rappresentano definizioni di filtro prototipo in diverse API
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
+GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2020-06-30&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
 
 # Option 2: Use filter for POST and pass it in the request body
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "*",
     "filter": "Rooms/any(room: room/BaseRate lt 150.0)",
@@ -109,7 +109,7 @@ Negli esempi seguenti vengono illustrati diversi modelli di utilizzo per gli sce
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
    ```
 
-+ Query composte, separate da "or", ciascuna con i propri criteri di filtro (ad esempio, 'beagle' in 'cane' or 'siamese' in 'gatto'). Le espressioni combinate con `or` vengono valutate singolarmente, con l'Unione di documenti corrispondenti a ogni espressione restituita nella risposta. Questo modello di utilizzo viene effettuato tramite `search.ismatchscoring` la funzione. È anche possibile usare la versione senza punteggio, `search.ismatch`.
++ Query composte, separate da "or", ciascuna con i propri criteri di filtro (ad esempio, 'beagle' in 'cane' or 'siamese' in 'gatto'). Le espressioni combinate con `or` vengono valutate singolarmente, con l'Unione di documenti corrispondenti a ogni espressione restituita nella risposta. Questo modello di utilizzo viene effettuato tramite la `search.ismatchscoring` funzione. È anche possibile usare la versione senza punteggio, `search.ismatch` .
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -119,7 +119,7 @@ Negli esempi seguenti vengono illustrati diversi modelli di utilizzo per gli sce
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  È `search.ismatchscoring` inoltre possibile combinare la ricerca full-text tramite con i filtri utilizzando `and` anziché `or`, ma ciò equivale dal punto di vista funzionale all'utilizzo `search` dei `$filter` parametri e in una richiesta di ricerca. Ad esempio, le due query seguenti producono lo stesso risultato:
+  È inoltre possibile combinare la ricerca full-text tramite `search.ismatchscoring` con i filtri utilizzando `and` anziché `or` , ma ciò equivale dal punto di vista funzionale all'utilizzo `search` dei `$filter` parametri e in una richiesta di ricerca. Ad esempio, le due query seguenti producono lo stesso risultato:
 
   ```
   $filter=search.ismatchscoring('pool') and Rating ge 4
@@ -137,7 +137,7 @@ Leggere gli articoli seguenti per indicazioni complete sui casi d'uso specifici:
 
 Nell'API REST *, il filtro è attivo* per impostazione predefinita per i campi semplici. I campi filtrabili causano un aumento delle dimensioni dell'indice. Assicurarsi di impostare `"filterable": false` per i campi che non si prevede di usare in un filtro. Per altre informazioni sulle impostazioni delle definizioni di campo, vedere l'articolo relativo all'operazione [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-In .NET SDK la proprietà filterable è *disattivata* per impostazione predefinita. È possibile rendere un campo filtrabile impostando la [proprietà di filtro](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) dell'oggetto [campo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) corrispondente su `true`. È anche possibile eseguire questa operazione in modo dichiarativo usando l' [attributo di filtro](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). Nell'esempio seguente l'attributo viene impostato sulla `BaseRate` proprietà di una classe di modello che esegue il mapping alla definizione dell'indice.
+In .NET SDK la proprietà filterable è *disattivata* per impostazione predefinita. È possibile rendere un campo filtrabile impostando la [proprietà di filtro](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) dell'oggetto [campo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) corrispondente su `true` . È anche possibile eseguire questa operazione in modo dichiarativo usando l' [attributo di filtro](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). Nell'esempio seguente l'attributo viene impostato sulla `BaseRate` proprietà di una classe di modello che esegue il mapping alla definizione dell'indice.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -150,7 +150,7 @@ Non è possibile modificare i campi esistenti per renderli filtrabili. È invece
 
 ## <a name="text-filter-fundamentals"></a>Concetti fondamentali sui filtri di testo
 
-I filtri di testo corrispondono ai campi stringa rispetto alle stringhe letterali fornite nel filtro. Diversamente dalla ricerca full-text, non esiste alcuna analisi lessicale o suddivisione in parole per i filtri di testo, quindi i confronti sono solo per corrispondenze esatte. Si supponga, ad esempio, che un campo *f* contenga " `$filter=f eq 'Sunny'` Sunny Day", non `$filter=f eq 'sunny day'` corrisponda a, ma a. 
+I filtri di testo corrispondono ai campi stringa rispetto alle stringhe letterali fornite nel filtro. Diversamente dalla ricerca full-text, non esiste alcuna analisi lessicale o suddivisione in parole per i filtri di testo, quindi i confronti sono solo per corrispondenze esatte. Si supponga, ad esempio, che un campo *f* contenga "Sunny Day", non `$filter=f eq 'Sunny'` corrisponda a, ma a `$filter=f eq 'sunny day'` . 
 
 Per le stringhe di testo viene fatta distinzione tra maiuscole e minuscole. Non sono presenti maiuscole e minuscole di parole maiuscole: `$filter=f eq 'Sunny day'` non troverà "Sunny Day".
 
@@ -158,7 +158,7 @@ Per le stringhe di testo viene fatta distinzione tra maiuscole e minuscole. Non 
 
 | Approccio | Descrizione | Utilizzo |
 |----------|-------------|-------------|
-| [`search.in`](search-query-odata-search-in-function.md) | Funzione che corrisponde a un campo rispetto a un elenco di stringhe delimitato. | Consigliato per i [filtri di sicurezza](search-security-trimming-for-azure-search.md) e per tutti i filtri in cui è necessario trovare una corrispondenza per molti valori di testo non elaborati con un campo stringa. La funzione **search.in** è progettata per la velocità ed è molto più veloce rispetto a confrontare in modo esplicito il `eq` campo `or`con ogni stringa utilizzando e. | 
+| [`search.in`](search-query-odata-search-in-function.md) | Funzione che corrisponde a un campo rispetto a un elenco di stringhe delimitato. | Consigliato per i [filtri di sicurezza](search-security-trimming-for-azure-search.md) e per tutti i filtri in cui è necessario trovare una corrispondenza per molti valori di testo non elaborati con un campo stringa. La funzione **search.in** è progettata per la velocità ed è molto più veloce rispetto a confrontare in modo esplicito il campo con ogni stringa utilizzando `eq` e `or` . | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Funzione che consente di combinare le operazioni di ricerca full-text con operazioni di filtro esclusivamente booleane nella stessa espressione filtro. | Usare **search. IsMatch** (o l'equivalente di assegnazione dei punteggi, **search. ismatchscoring**) quando si desiderano più combinazioni di filtri di ricerca in un'unica richiesta. Può essere usata anche con un filtro *contains* per applicare un filtro su una stringa parziale all'interno di una stringa più grande. |
 | [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Espressione definita dall'utente composta da campi, operatori e valori. | Utilizzare questo valore quando si desidera trovare corrispondenze esatte tra un campo stringa e un valore stringa. |
 

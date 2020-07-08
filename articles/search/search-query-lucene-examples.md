@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bc691299f38d562aee5c08a89e10372331663f8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c344d7bd7007dfbea366ea597ec622e35bf1e2eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262809"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561779"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Usare la sintassi di ricerca Lucene "completa" (query avanzate in Azure ricerca cognitiva)
 
@@ -53,7 +53,7 @@ La composizione dell'URL presenta i seguenti elementi:
 + **`https://azs-playground.search.windows.net/`** è un servizio di ricerca sandbox gestito dal team di sviluppo di Azure ricerca cognitiva. 
 + **`indexes/nycjobs/`** è l'indice dei processi NYC nella raccolta Indexes di tale servizio. Il nome e l'indice del servizio sono entrambi necessari sulla richiesta.
 + **`docs`** raccolta documenti che contiene tutti i contenuti disponibili per la ricerca. La chiave API della query fornita nell'intestazione della richiesta funziona solo nelle operazioni di lettura destinate alla raccolta di documenti.
-+ **`api-version=2019-05-06`** imposta la versione API, che è un parametro obbligatorio per ogni richiesta.
++ **`api-version=2020-06-30`** imposta la versione API, che è un parametro obbligatorio per ogni richiesta.
 + **`search=*`** stringa di query, che nella query iniziale è null, che restituisce i primi 50 risultati (per impostazione predefinita).
 
 ## <a name="send-your-first-query"></a>Inviare la prima query
@@ -63,10 +63,10 @@ Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **I
 Incollare l'URL in un client REST come passaggio di convalida e visualizzare la struttura del documento.
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*
   ```
 
-La stringa di query **`search=*`**,, è una ricerca non specificata equivalente a null o a una ricerca vuota. Si tratta della ricerca più semplice che è possibile eseguire.
+La stringa di query, **`search=*`** , è una ricerca non specificata equivalente a null o a una ricerca vuota. Si tratta della ricerca più semplice che è possibile eseguire.
 
 Facoltativamente, è possibile aggiungere **`$count=true`** all'URL per restituire un conteggio dei documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, sono tutti i documenti nell'indice (circa 2800 nel caso di NYC Jobs).
 
@@ -75,7 +75,7 @@ Facoltativamente, è possibile aggiungere **`$count=true`** all'URL per restitui
 Aggiungere **queryType=full** per richiamare la sintassi di query completa che sostituisce la sintassi di query semplice predefinita. 
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&search=*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&search=*
 ```
 
 Tutti gli esempi in questo articolo specificano il parametro di ricerca **queryType=full**, che indica che la sintassi completa viene gestita dal parser di query Lucene. 
@@ -101,12 +101,12 @@ search=*&searchFields=business_title, posting_type&$select=business_title, posti
 Gli spazi dopo le virgole sono facoltativi.
 
 > [!Tip]
-> Quando si usa l'API REST dal codice dell'applicazione, non dimenticare i parametri di codifica URL `$select` , `searchFields`ad esempio e.
+> Quando si usa l'API REST dal codice dell'applicazione, non dimenticare i parametri di codifica URL, ad esempio `$select` e `searchFields` .
 
 ### <a name="full-url"></a>URL completo
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
 ```
 
 La risposta per questa query dovrebbe essere simile alla seguente schermata.
@@ -134,7 +134,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 ### <a name="full-url"></a>URL completo
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
   ![Risposta di esempio di Postman](media/search-query-lucene-examples/intrafieldfilter.png)
@@ -145,12 +145,12 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 - `state:("New York" OR "New Jersey")`
 - `business_title:(senior NOT junior) AND posting_type:external`
 
-Assicurarsi di inserire più stringhe tra virgolette se si desidera che entrambe le stringhe vengano valutate come una singola entità, come in questo caso la `state` ricerca di due posizioni distinte nel campo. Assicurarsi anche che l'operatore sia in lettere maiuscole, come NOT e AND.
+Assicurarsi di inserire più stringhe tra virgolette se si desidera che entrambe le stringhe vengano valutate come una singola entità, come in questo caso la ricerca di due posizioni distinte nel `state` campo. Assicurarsi anche che l'operatore sia in lettere maiuscole, come NOT e AND.
 
 Il campo specificato in **FieldName: searchExpression** deve essere un campo ricercabile. Per informazioni dettagliate sull'uso degli attributi di indice nelle definizioni di campo, vedere [create index (API REST di Azure ricerca cognitiva)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
 
 > [!NOTE]
-> Nell'esempio precedente non è stato necessario usare il `searchFields` parametro perché ogni parte della query ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile utilizzare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti hanno come ambito un campo specifico e il resto può essere applicato a più campi. La query `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` , ad esempio, corrisponderà `senior NOT junior` solo al `business_title` campo, mentre corrisponderebbe a "External" con il `posting_type` campo. Il nome del campo specificato in **FieldName: searchExpression** ha sempre la precedenza `searchFields` sul parametro, motivo per cui in questo esempio non è necessario includere `business_title` nel `searchFields` parametro.
+> Nell'esempio precedente non è stato necessario usare il `searchFields` parametro perché ogni parte della query ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile utilizzare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti hanno come ambito un campo specifico e il resto può essere applicato a più campi. La query, ad esempio, `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` corrisponderà `senior NOT junior` solo al `business_title` campo, mentre corrisponderebbe a "External" con il `posting_type` campo. Il nome del campo specificato in **FieldName: searchExpression** ha sempre la precedenza sul `searchFields` parametro, motivo per cui in questo esempio non è necessario includere `business_title` nel `searchFields` parametro.
 
 ## <a name="example-3-fuzzy-search"></a>Esempio 3: ricerca fuzzy
 
@@ -174,7 +174,7 @@ searchFields=business_title&$select=business_title&search=business_title:asosiat
 Questa query cerca le opportunità di lavoro con il termine "associate" (scritto erroneamente di proposito):
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
   ![Risposta di Ricerca fuzzy](media/search-query-lucene-examples/fuzzysearch.png)
 
@@ -197,14 +197,14 @@ searchFields=business_title&$select=business_title&search=business_title:%22seni
 In questa query per le opportunità di lavoro contenenti il termine "senior analyst" separato da non più di una parola:
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
   ![Query di prossimità](media/search-query-lucene-examples/proximity-before.png)
 
 Riprovare rimuovendo le parole tra il termine "senior analyst". Si noti che vengono restituiti 8 documenti per questa query, rispetto ai 10 per la query precedente.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
 ```
 
 ## <a name="example-5-term-boosting"></a>Esempio 5: aumento priorità termine
@@ -215,14 +215,14 @@ Questa definizione si riferisce alla termine si riferisce alla classificazione p
 In questa query "before" cercare le opportunità di lavoro con il termine *computer analyst* e si noti che non vi sono risultati con le parole *computer* e *analyst*, eppure i lavori *computer* sono i primi risultati.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
   ![Aumento priorità termini "before"](media/search-query-lucene-examples/termboostingbefore.png)
 
 Nella query "after", ripetere la ricerca, questa volta aumentando la priorità dei risultati con il termine *analyst* rispetto al termine *computer* se nessuna delle due parole esiste. 
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
 ```
 Una versione maggiormente leggibile della query precedente è `search=business_title:computer analyst^2`. Per una query di lavoro `^2` viene codificato come `%5E2`, più difficile da vedere.
 
@@ -247,10 +247,10 @@ searchFields=business_title&$select=business_title&search=business_title:/(Sen|J
 
 ### <a name="full-url"></a>URL completo
 
-In questa query cercare i processi con il termine senior o Junior: `search=business_title:/(Sen|Jun)ior/`.
+In questa query cercare i processi con il termine senior o Junior: `search=business_title:/(Sen|Jun)ior/` .
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
   ![Query Regex](media/search-query-lucene-examples/regex.png)
@@ -273,7 +273,7 @@ searchFields=business_title&$select=business_title&search=business_title:prog*
 In questa query cercare le opportunità di lavoro che contengono il prefisso 'prog' che include le qualifiche professionali con i termini programming e programmer. Non è possibile usare un carattere * o ? come primo carattere di una ricerca.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
   ![Query con caratteri jolly](media/search-query-lucene-examples/wildcard.png)
 

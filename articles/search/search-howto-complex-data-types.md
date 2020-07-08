@@ -9,31 +9,31 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fe61cf2a53b8e128a6cb58465cbb4785faa89d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562036"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Come modellare tipi di dati complessi in Azure ricerca cognitiva
 
 I set di impostazioni esterni usati per popolare un indice di ricerca cognitiva di Azure possono essere disponibili in molte forme. A volte includono sottostrutture gerarchiche o nidificate. Esempi possono includere più indirizzi per un singolo cliente, più colori e dimensioni per un singolo SKU, più autori di un singolo libro e così via. Nei termini di modellazione, è possibile visualizzare queste strutture denominate tipi di dati *complessi*, *composti* *, composti*o *aggregati* . Il termine utilizzo di Azure ricerca cognitiva per questo concetto è di **tipo complesso**. In ricerca cognitiva di Azure, i tipi complessi vengono modellati usando **campi complessi**. Un campo complesso è un campo che contiene elementi figlio (campi secondari) che possono essere di qualsiasi tipo di dati, inclusi altri tipi complessi. Funziona in modo analogo ai tipi di dati strutturati in un linguaggio di programmazione.
 
-I campi complessi rappresentano un singolo oggetto nel documento o una matrice di oggetti, a seconda del tipo di dati. I campi di `Edm.ComplexType` tipo rappresentano singoli oggetti, mentre i campi `Collection(Edm.ComplexType)` di tipo rappresentano matrici di oggetti.
+I campi complessi rappresentano un singolo oggetto nel documento o una matrice di oggetti, a seconda del tipo di dati. I campi di tipo `Edm.ComplexType` rappresentano singoli oggetti, mentre i campi di tipo `Collection(Edm.ComplexType)` rappresentano matrici di oggetti.
 
 Azure ricerca cognitiva supporta in modo nativo i tipi e le raccolte complesse. Questi tipi consentono di modellare praticamente qualsiasi struttura JSON in un indice di ricerca cognitiva di Azure. Nelle versioni precedenti delle API di Azure ricerca cognitiva, è possibile importare solo set di righe bidimensionali. Nella versione più recente, l'indice può ora corrispondere più strettamente ai dati di origine. In altre parole, se i dati di origine hanno tipi complessi, l'indice può avere anche tipi complessi.
 
 Per iniziare, si consiglia il [set di dati degli Alberghi](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), che è possibile caricare nella procedura guidata **importa dati** nel portale di Azure. La procedura guidata rileva i tipi complessi nell'origine e suggerisce uno schema dell'indice basato sulle strutture rilevate.
 
 > [!Note]
-> Il supporto per i tipi complessi è disponibile `api-version=2019-05-06`a livello generale in. 
+> Il supporto per i tipi complessi è diventato disponibile a livello generale a partire da `api-version=2019-05-06` . 
 >
 > Se la soluzione di ricerca è basata sulle soluzioni alternative precedenti dei set di impostazioni flat in una raccolta, è necessario modificare l'indice per includere i tipi complessi come supportato nella versione più recente dell'API. Per altre informazioni sull'aggiornamento delle versioni dell'API, vedere [eseguire l'aggiornamento alla versione più recente dell'API REST](search-api-migration.md) o [eseguire l'aggiornamento alla versione più recente di .NET SDK](search-dotnet-sdk-migration-version-9.md).
 
 ## <a name="example-of-a-complex-structure"></a>Esempio di struttura complessa
 
-Il documento JSON seguente è costituito da campi semplici e campi complessi. I campi complessi, ad `Address` esempio `Rooms`e, presentano sottocampi. `Address`dispone di un singolo set di valori per quei sottocampi, poiché si tratta di un singolo oggetto nel documento. Al contrario, `Rooms` dispone di più set di valori per i relativi sottocampi, uno per ogni oggetto nella raccolta.
+Il documento JSON seguente è costituito da campi semplici e campi complessi. I campi complessi, ad esempio `Address` e `Rooms` , presentano sottocampi. `Address`dispone di un singolo set di valori per quei sottocampi, poiché si tratta di un singolo oggetto nel documento. Al contrario, `Rooms` dispone di più set di valori per i relativi sottocampi, uno per ogni oggetto nella raccolta.
 
 ```json
 {
@@ -97,13 +97,13 @@ Tutte le [regole di reindicizzazione](search-howto-reindex.md) applicabili ai ca
 
 ### <a name="structural-updates-to-the-definition"></a>Aggiornamenti strutturali alla definizione
 
-È possibile aggiungere nuovi campi secondari a un campo complesso in qualsiasi momento senza la necessità di una ricompilazione dell'indice. Ad esempio, l'aggiunta di "Cap `Address` " a o "comforts" a `Rooms` è consentita, proprio come l'aggiunta di un campo di primo livello a un indice. I documenti esistenti hanno un valore null per i nuovi campi finché i campi non vengono popolati in modo esplicito tramite l'aggiornamento dei dati.
+È possibile aggiungere nuovi campi secondari a un campo complesso in qualsiasi momento senza la necessità di una ricompilazione dell'indice. Ad esempio, l'aggiunta di "Cap" a `Address` o "comforts" a `Rooms` è consentita, proprio come l'aggiunta di un campo di primo livello a un indice. I documenti esistenti hanno un valore null per i nuovi campi finché i campi non vengono popolati in modo esplicito tramite l'aggiornamento dei dati.
 
 Si noti che all'interno di un tipo complesso ogni sottocampo dispone di un tipo e può avere attributi, così come i campi di primo livello
 
 ### <a name="data-updates"></a>Aggiornamenti dei dati
 
-L'aggiornamento dei documenti esistenti in un indice `upload` con l'azione funziona allo stesso modo per i campi complessi e semplici: tutti i campi vengono sostituiti. Tuttavia, `merge` o `mergeOrUpload` se applicato a un documento esistente, non funziona allo stesso modo in tutti i campi. In particolare `merge` , non supporta l'Unione di elementi all'interno di una raccolta. Questa limitazione esiste per le raccolte di tipi primitivi e raccolte complesse. Per aggiornare una raccolta, è necessario recuperare il valore completo della raccolta, apportare modifiche e quindi includere la nuova raccolta nella richiesta dell'API index.
+L'aggiornamento dei documenti esistenti in un indice con l' `upload` azione funziona allo stesso modo per i campi complessi e semplici: tutti i campi vengono sostituiti. Tuttavia, `merge` o `mergeOrUpload` se applicato a un documento esistente, non funziona allo stesso modo in tutti i campi. In particolare, `merge` non supporta l'Unione di elementi all'interno di una raccolta. Questa limitazione esiste per le raccolte di tipi primitivi e raccolte complesse. Per aggiornare una raccolta, è necessario recuperare il valore completo della raccolta, apportare modifiche e quindi includere la nuova raccolta nella richiesta dell'API index.
 
 ## <a name="searching-complex-fields"></a>Ricerca di campi complessi
 
@@ -117,11 +117,11 @@ Query come questa non sono *correlate* per la ricerca full-text, a differenza de
 
 ## <a name="selecting-complex-fields"></a>Selezione di campi complessi
 
-Il `$select` parametro viene usato per scegliere i campi che vengono restituiti nei risultati della ricerca. Per usare questo parametro per selezionare sottocampi specifici di un campo complesso, includere il campo padre e il campo secondario separati da una barra (`/`).
+Il `$select` parametro viene usato per scegliere i campi che vengono restituiti nei risultati della ricerca. Per usare questo parametro per selezionare sottocampi specifici di un campo complesso, includere il campo padre e il campo secondario separati da una barra ( `/` ).
 
     $select=HotelName, Address/City, Rooms/BaseRate
 
-I campi devono essere contrassegnati come recuperabili nell'indice se desiderati nei risultati della ricerca. In un' `$select` istruzione è possibile utilizzare solo i campi contrassegnati come recuperabili.
+I campi devono essere contrassegnati come recuperabili nell'indice se desiderati nei risultati della ricerca. In un'istruzione è possibile utilizzare solo i campi contrassegnati come recuperabili `$select` .
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Campi di filtro, facet e di ordinamento complessi
 
@@ -129,15 +129,15 @@ La stessa [sintassi del percorso OData](query-odata-filter-orderby-syntax.md) us
 
 ### <a name="faceting-sub-fields"></a>Sottocampi facet
 
-Qualsiasi campo secondario può essere contrassegnato come facet a meno che non sia di tipo `Edm.GeographyPoint` o `Collection(Edm.GeographyPoint)`.
+Qualsiasi campo secondario può essere contrassegnato come facet a meno che non sia di tipo `Edm.GeographyPoint` o `Collection(Edm.GeographyPoint)` .
 
-Il conteggio dei documenti restituiti nei risultati dei facet viene calcolato per il documento padre (un hotel), non per i documenti secondari in una raccolta complessa (chat). Si supponga, ad esempio, che un hotel disponga di 20 camere di tipo "Suite". Dato questo parametro `facet=Rooms/Type`facet, il numero di facet sarà uno per l'hotel, non 20 per le chat room.
+Il conteggio dei documenti restituiti nei risultati dei facet viene calcolato per il documento padre (un hotel), non per i documenti secondari in una raccolta complessa (chat). Si supponga, ad esempio, che un hotel disponga di 20 camere di tipo "Suite". Dato questo parametro facet `facet=Rooms/Type` , il numero di facet sarà uno per l'hotel, non 20 per le chat room.
 
 ### <a name="sorting-complex-fields"></a>Ordinamento di campi complessi
 
 Le operazioni di ordinamento si applicano ai documenti (Alberghi) e non ai documenti secondari (chat). Quando si dispone di una raccolta di tipi complessi, ad esempio chat room, è importante tenere presente che non è possibile eseguire l'ordinamento in chat. In realtà, non è possibile eseguire l'ordinamento in una raccolta.
 
-Le operazioni di ordinamento funzionano quando i campi hanno un solo valore per documento, se il campo è un campo semplice o un campo secondario in un tipo complesso. Ad esempio, `Address/City` può essere ordinabile perché esiste un solo indirizzo per ogni albergo, quindi `$orderby=Address/City` Ordina gli hotel per città.
+Le operazioni di ordinamento funzionano quando i campi hanno un solo valore per documento, se il campo è un campo semplice o un campo secondario in un tipo complesso. Ad esempio, può `Address/City` essere ordinabile perché esiste un solo indirizzo per ogni albergo, quindi Ordina gli `$orderby=Address/City` Hotel per città.
 
 ### <a name="filtering-on-complex-fields"></a>Applicazione di filtri a campi complessi
 
@@ -145,7 +145,7 @@ Le operazioni di ordinamento funzionano quando i campi hanno un solo valore per 
 
     $filter=Address/Country eq 'Canada'
 
-Per filtrare in un campo di raccolta complesso, è possibile usare un' **espressione lambda** con [ `any` gli `all` operatori e](search-query-odata-collection-operators.md). In tal caso, la **variabile di intervallo** dell'espressione lambda è un oggetto con campi secondari. È possibile fare riferimento a questi campi secondari con la sintassi del percorso OData standard. Ad esempio, il filtro seguente restituirà tutti gli alberghi con almeno una stanza Deluxe e tutte le camere non fumanti:
+Per filtrare in un campo di raccolta complesso, è possibile usare un' **espressione lambda** con gli [ `any` `all` operatori e](search-query-odata-collection-operators.md). In tal caso, la **variabile di intervallo** dell'espressione lambda è un oggetto con campi secondari. È possibile fare riferimento a questi campi secondari con la sintassi del percorso OData standard. Ad esempio, il filtro seguente restituirà tutti gli alberghi con almeno una stanza Deluxe e tutte le camere non fumanti:
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 
