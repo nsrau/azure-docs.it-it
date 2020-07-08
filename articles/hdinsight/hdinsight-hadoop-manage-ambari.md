@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3244ec3f85d5085d3dbc2e503eab59af5572c56
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82232854"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075757"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
 
@@ -58,7 +58,7 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 |Servizi|Informazioni e impostazioni di configurazione per i servizi nel cluster.|
 |Hosts|Impostazioni di configurazione e informazioni per i nodi nel cluster.|
 |Avvisi|Log di informazioni, avvisi e avvisi critici.|
-|Amministrativi|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
+|Amministratore|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
 |Pulsante amministratore|Gestione Ambari, impostazioni utente e disconnessione.|
 
 ## <a name="monitoring"></a>Monitoraggio

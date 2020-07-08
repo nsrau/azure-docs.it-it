@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 4a947c01d63e3842ead91481e480024a54380144
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a09d672f44ce8835571277ab35f7545c7f5f33e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69015062"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058283"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introduzione alla distribuzione di contenuto on demand tramite il portale di Azure
 
@@ -106,19 +106,19 @@ Perché l'utente possa avere a disposizione un URL da usare per scaricare o ripr
 
 Per creare un URL di streaming HLS, aggiungere *(format=m3u8-aapl)* all'URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+`{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)`
 
 Per creare un URL di streaming per la riproduzione di asset Smooth Streaming, usare il formato URL seguente:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+`{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest`
 
 Per creare un URL di streaming MPEG DASH, aggiungere *(format=mpd-time-csf)* all'URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+`{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)`
 
 Un URL di firma di accesso condiviso ha il formato seguente:
 
-    {blob container name}/{asset name}/{file name}/{shared access signature}
+`{blob container name}/{asset name}/{file name}/{shared access signature}`
 
 > [!NOTE]
 > I localizzatori creati nel portale di Azure prima di marzo 2015 hanno una data di scadenza di due anni.  

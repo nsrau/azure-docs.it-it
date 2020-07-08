@@ -5,11 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per l'uso delle f
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: f63db0efb509223715efd4848a91d0435ab54af7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340853"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077848"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -100,7 +101,7 @@ Taint e tolleranze vengono usati per isolare in modo logico le risorse con un li
 Verrà ora preso in esame un esempio di nodi con una quantità elevata di memoria. Questi nodi possono dare priorità ai pod che richiedono una quantità elevata di memoria. Per assicurarsi che le risorse non rimangano inattive, consentono anche l'esecuzione di altri pod.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
 Una specifica del pod aggiunge quindi la proprietà `nodeSelector` per definire un selettore di nodo corrispondente all'etichetta impostata su un nodo:

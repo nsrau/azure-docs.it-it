@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ad06d0e37b7cf464c311e28e546e1b7f1ebd183
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74968766"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058249"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteggere il contenuto HLS con Apple FairPlay o Microsoft PlayReady
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 >
 
 Servizi multimediali di Azure consente di crittografare dinamicamente il contenuto di HTTP Live Streaming (HLS) usando i formati seguenti:  
@@ -127,7 +127,7 @@ Di seguito sono indicati i passaggi generali per la protezione degli asset con F
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>Usare la distribuzione delle chiavi FairPlay con applicazioni lettore
 È possibile sviluppare applicazioni lettore usando l'SDK per iOS. Per riprodurre contenuto FairPlay, è necessario implementare il protocollo di scambio delle licenze. Questo protocollo non è specificato da Apple. Spetta a ogni app scegliere come inviare le richieste di distribuzione delle chiavi. Il servizio di distribuzione delle chiavi FairPlay di Servizi multimediali prevede che SPC venga indicato in un messaggio codificato come www-form-url nel formato seguente:
 
-    spc=<Base64 encoded SPC>
+`spc=<Base64 encoded SPC>`
 
 > [!NOTE]
 > Azure Media Player supporta la riproduzione FairPlay. Vedere la [documentazione di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) per altre informazioni.
@@ -149,7 +149,7 @@ Si applicano le considerazioni seguenti:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-1. Configurare l'ambiente di sviluppo e popolare il file app. config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+1. Configurare l'ambiente di sviluppo e popolare il file di app.config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
 
     ```xml
@@ -562,5 +562,5 @@ namespace DynamicEncryptionWithFairPlay
 ## <a name="next-steps-media-services-learning-paths"></a>Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

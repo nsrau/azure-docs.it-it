@@ -2,25 +2,21 @@
 title: Procedure consigliate per i modelli
 description: Descrive gli approcci consigliati per la creazione di modelli di Azure Resource Manager. Offre suggerimenti per evitare problemi comuni quando si usano i modelli.
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156413"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058062"
 ---
 # <a name="arm-template-best-practices"></a>Procedure consigliate per il modello ARM
 
-Questo articolo fornisce indicazioni su come creare il modello di Azure Resource Manager (ARM). Questi consigli consentono di evitare problemi comuni quando si usa un modello ARM per distribuire una soluzione.
-
-Per consigli su come gestire le sottoscrizioni di Azure, vedere la pagina relativa alla [governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)delle sottoscrizioni di Azure Enterprise.
-
-Per indicazioni su come compilare modelli funzionanti in tutti gli ambienti cloud di Azure, vedere [Sviluppare modelli di Azure Resource Manager per la coerenza del cloud](templates-cloud-consistency.md).
+Questo articolo illustra come usare le procedure consigliate per la creazione del modello ARM. Questi consigli consentono di evitare problemi comuni quando si usa un modello ARM per distribuire una soluzione.
 
 ## <a name="template-limits"></a>Limiti del modello
 
-Limitare le dimensioni del modello a 4 MB e ogni file di parametri a 64 KB. Il limite di 4 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni di risorse iterative e i valori per variabili e parametri. 
+Limitare le dimensioni del modello a 4 MB e ogni file di parametri a 64 KB. Il limite di 4 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni di risorse iterative e i valori per variabili e parametri.
 
 Esistono anche i limiti seguenti:
 
@@ -234,7 +230,7 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](templ
    * [Configurare l'accesso WinRM per le macchine virtuali in Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Consentire l'accesso esterno alla macchina virtuale tramite il portale di Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Consentire l'accesso esterno alla macchina virtuale tramite PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Consentire l'accesso esterno alla macchina virtuale Linux tramite l'interfaccia della riga di comando di Azure](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Consentire l'accesso esterno alla macchina virtuale Linux tramite l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/nsg-quickstart.md)
 
 * La proprietà **domainNameLabel** deve essere univoca per gli indirizzi IP pubblici. Il valore **domainNameLabel** deve avere una lunghezza compresa tra 3 e 63 caratteri e seguire le regole specificate dall'espressione regolare seguente: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Dato che la funzione **uniqueString** genera una stringa lunga 13 caratteri, il parametro **dnsPrefixString** non deve superare 50 caratteri:
 
@@ -275,7 +271,12 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](templ
    > [!NOTE]
    > Per garantire che i segreti passati come parametri a macchine virtuali ed estensioni siano crittografati, usare la proprietà **protectedSettings** delle estensioni pertinenti.
    > 
-   > 
+
+## <a name="use-test-toolkit"></a>USA test Toolkit
+
+ARM template test Toolkit è uno script che controlla se il modello usa le procedure consigliate. Quando il modello non è conforme alle procedure consigliate, restituisce un elenco di avvisi con le modifiche suggerite. Il Toolkit di test può essere utile per apprendere come implementare le procedure consigliate nel modello.
+
+Una volta completato il modello, eseguire il Toolkit di test per verificare se è possibile migliorare l'implementazione it. Per altre informazioni, vedere [ARM template test Toolkit](test-toolkit.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

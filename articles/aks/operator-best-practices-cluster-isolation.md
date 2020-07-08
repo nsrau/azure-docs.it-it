@@ -5,11 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per l'isolamento 
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80668349"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077765"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'isolamento cluster nel servizio Azure Kubernetes (AKS)
 
@@ -29,7 +30,7 @@ Kubernetes offre funzionalità che consentono di isolare in modo logico team e c
   * Le funzionalità più avanzate dell'utilità di pianificazione includono taint e tolleranze, selettori di nodo e affinità tra nodi e tra pod o anti-affinità. Per altre informazioni su queste funzionalità, vedere [Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione in servizio Azure Kubernetes][aks-best-practices-advanced-scheduler].
 * La **rete** include l'uso di criteri di rete per controllare il flusso del traffico in ingresso e in uscita dai pod.
 * L'**autenticazione e l'autorizzazione** includono l'utente del controllo degli accessi in base al ruolo e l'integrazione di Azure Active Directory (AD), le identità del pod e i segreti in Azure Key Vault. Per altre informazioni su queste funzionalità, vedere [Procedure consigliate per l'autenticazione e l'autorizzazione in servizio Azure Kubernetes][aks-best-practices-identity].
-* I **contenitori** includono i criteri di sicurezza del pod, i contesti di sicurezza del pod e l'analisi di immagini e runtime per le vulnerabilità. Prevedono inoltre l'uso di App Armor o Seccomp (Secure Computing) per limitare l'accesso del contenitore al nodo sottostante.
+* I **contenitori** includono il componente aggiuntivo di criteri di Azure per AKS per applicare la sicurezza Pod, l'uso di contesti di sicurezza di Pod e l'analisi di immagini e Runtime per le vulnerabilità. Prevedono inoltre l'uso di App Armor o Seccomp (Secure Computing) per limitare l'accesso del contenitore al nodo sottostante.
 
 ## <a name="logically-isolate-clusters"></a>Isolare i cluster in modo logico
 

@@ -4,19 +4,23 @@ description: Informazioni su come aggiungere un'entità servizio di automazione 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697525"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077559"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
 
- Per automatizzare le attività di PowerShell, un'entità servizio deve avere privilegi di **amministratore del server** nel server Analysis Services gestito. Questo articolo descrive come aggiungere un'entità servizio al ruolo di amministratore del server in un server Azure Analysis Services. A questo scopo, è possibile usare SQL Server Management Studio o un modello di Resource Manager.
+ Per automatizzare le attività di PowerShell, un'entità servizio deve avere privilegi di **amministratore del server** nel server Analysis Services gestito. Questo articolo descrive come aggiungere un'entità servizio al ruolo di amministratore del server in un server Azure Analysis Services. A questo scopo, è possibile usare SQL Server Management Studio o un modello di Resource Manager. 
+
+> [!NOTE]
+> Le entità servizio devono essere aggiunte direttamente al ruolo di amministratore del server. L'aggiunta di un'entità servizio a un gruppo di sicurezza e l'aggiunta del gruppo di sicurezza al ruolo di amministratore del server non è supportata. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Prima di completare questa attività, è necessario aver creato un'entità servizio registrata in Azure Active Directory.

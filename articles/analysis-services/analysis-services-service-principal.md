@@ -4,15 +4,15 @@ description: Informazioni su come creare un'entità servizio per l'automazione d
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 638ba26c8c8aed9385e10242b86a7587c1d9a7c5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871164"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077372"
 ---
 # <a name="automation-with-service-principals"></a>Automazione con le entità servizio
 
@@ -20,7 +20,7 @@ Le entità servizio sono una risorsa dell'applicazione Azure Active Directory cr
 
 In Analysis Services le entità servizio vengono usate con Automazione di Azure, la modalità automatica di PowerShell, le applicazioni client personalizzate e le app Web per automatizzare le attività comuni. Ad esempio, il provisioning dei server, la distribuzione di modelli, l'aggiornamento dei dati, l'aumento/riduzione delle prestazioni e la sospensione/ripresa possono essere automatizzati usando le entità servizio. Le autorizzazioni vengono assegnate alle entità servizio tramite l'appartenenza a un ruolo, in modo analogo ai normali account UPN di Azure AD.
 
-Analysis Services supporta anche le operazioni eseguite dalle identità gestite tramite entità servizio. Per altre informazioni, vedere [Identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) e [Servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).  
+Analysis Services supporta anche le operazioni eseguite dalle identità gestite tramite entità servizio. Per altre informazioni, vedere [Identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) e [Servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).    
 
 ## <a name="create-service-principals"></a>Creare entità servizio
  
@@ -38,7 +38,7 @@ I certificati e le credenziali delle entità servizio possono essere archiviati 
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Aggiungere le entità servizio al ruolo di amministratore del server
 
-Prima di poter usare un'entità servizio per le operazioni di gestione del server Analysis Services, è necessario aggiungerla al ruolo di amministratore del server. Per altre informazioni, vedere [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md).
+Prima di poter usare un'entità servizio per le operazioni di gestione del server Analysis Services, è necessario aggiungerla al ruolo di amministratore del server. Le entità servizio devono essere aggiunte direttamente al ruolo di amministratore del server. L'aggiunta di un'entità servizio a un gruppo di sicurezza e l'aggiunta del gruppo di sicurezza al ruolo di amministratore del server non è supportata. Per altre informazioni, vedere [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md).
 
 ## <a name="service-principals-in-connection-strings"></a>Entità servizio nelle stringhe di connessione
 
@@ -48,7 +48,7 @@ L'ID app e la password o il certificato dell'entità servizio possono essere usa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Uso del modulo Az.AnalysisServices
+#### <a name="using-azanalysisservices-module"></a><a name="azmodule"></a>Uso del modulo Az.AnalysisServices
 
 Quando si usa un'entità servizio per le operazioni di gestione delle risorse con il modulo [Az.AnalysisServices](/powershell/module/az.analysisservices), usare il cmdlet `Connect-AzAccount`. 
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO e ADOMD 
 
-Quando ci si connette ad applicazioni client e app Web, i pacchetti installabili delle [librerie client AMO e ADOMD](analysis-services-data-providers.md) versione 15.0.2 e successive di NuGet supportano le entità servizio nelle stringhe di connessione con la sintassi seguente: `app:AppID` e password o `cert:thumbprint`. 
+Quando ci si connette ad applicazioni client e app Web, i pacchetti installabili delle [librerie client AMO e ADOMD](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) versione 15.0.2 e successive di NuGet supportano le entità servizio nelle stringhe di connessione con la sintassi seguente: `app:AppID` e password o `cert:thumbprint`. 
 
 Nell'esempio seguente vengono usati `appID` e una `password` per eseguire un'operazione di aggiornamento del database modello:
 

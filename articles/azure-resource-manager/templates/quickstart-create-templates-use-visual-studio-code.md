@@ -5,18 +5,18 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: cd107db5220a96d75092a94736e060ae46672926
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686620"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058147"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Guida introduttiva: Creare modelli di Azure Resource Manager con Visual Studio Code
 
 Gli strumenti di Azure Resource Manager per Visual Studio Code forniscono supporto per i linguaggi, frammenti di risorse e completamento automatico delle risorse. Questi strumenti consentono di creare e convalidare i modelli di Azure Resource Manager. In questa guida di avvio rapido si userà l'estensione per creare un modello di Azure Resource Manager da zero. In questo modo è possibile sperimentare le funzionalità delle estensioni, come i frammenti di modelli di Resource Manager, la convalida, i completamenti e il supporto per i file di parametri.
 
-Per completare questo argomento di avvio rapido, è necessario avere [Visual Studio Code](https://code.visualstudio.com/) con l'[estensione degli strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installata. È inoltre necessario aver installato e autenticato l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) o il [modulo di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0).
+Per completare questo argomento di avvio rapido, è necessario avere [Visual Studio Code](https://code.visualstudio.com/) con l'[estensione degli strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installata. È inoltre necessario aver installato e autenticato l'[interfaccia della riga di comando di Azure](/cli/azure/?view=azure-cli-latest) o il [modulo di Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

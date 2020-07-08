@@ -2,33 +2,33 @@
 title: Autenticazione esterna dall'attività ACR
 description: Configurare un'attività Container Registry di Azure (attività ACR) per leggere le credenziali dell'hub Docker archiviate in un insieme di credenziali delle chiavi di Azure usando un'identità gestita per le risorse di Azure.
 ms.topic: article
-ms.date: 01/14/2020
-ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/06/2020
+ms.openlocfilehash: 0bc43f958a14016146160a06372af0b36a9fff75
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842521"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058130"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticazione esterna in un'attività ACR usando un'identità gestita da Azure 
 
-In un' [attività ACR](container-registry-tasks-overview.md)è possibile [abilitare un'identità gestita per le risorse di Azure](container-registry-tasks-authentication-managed-identity.md). L'attività può usare l'identità per accedere ad altre risorse di Azure, senza dover fornire o gestire le credenziali. 
+In un'[attività del Registro Azure Container](container-registry-tasks-overview.md) è possibile [abilitare un'identità gestita per le risorse di Azure](container-registry-tasks-authentication-managed-identity.md). L'attività può usare l'identità per accedere ad altre risorse di Azure, senza la necessità di specificare o gestire credenziali. 
 
 Questo articolo illustra come abilitare un'identità gestita in un'attività che accede ai segreti archiviati in un insieme di credenziali delle chiavi di Azure. 
 
-Per creare le risorse di Azure, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.68 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+Per creare le risorse di Azure, questo articolo richiede che venga eseguita l'interfaccia della riga di comando di Azure versione 2.0.68 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
 ## <a name="scenario-overview"></a>Panoramica dello scenario
 
 L'attività di esempio legge le credenziali dell'hub Docker archiviate in Azure Key Vault. Le credenziali si rimandano a un account Docker Hub con autorizzazioni di scrittura (push) per un repository Docker Hub privato. Per leggere le credenziali, configurare l'attività con un'identità gestita e assegnarvi le autorizzazioni appropriate. L'attività associata all'identità compila un'immagine e accede all'hub Docker per eseguire il push dell'immagine nel repository privato. 
 
-Questo esempio illustra i passaggi che usano un'identità gestita assegnata dall'utente o assegnata dal sistema. La scelta dell'identità dipende dalle esigenze della propria organizzazione.
+Questo esempio illustra i passaggi con un'identità gestita assegnata dall'utente o dal sistema. La scelta dell'identità dipende dalle esigenze della propria organizzazione.
 
 In uno scenario reale, un'azienda potrebbe pubblicare immagini in un repository privato nell'hub Docker come parte di un processo di compilazione. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario un registro contenitori di Azure in cui eseguire l'attività. In questo articolo il registro di sistema è denominato *Registro*di sistema. Sostituire con il nome del registro di sistema nei passaggi successivi.
+È necessario un registro contenitori di Azure in cui eseguire l'attività. In questo articolo questo registro è denominato *myregistry*. Sostituire con il nome del registro di sistema nei passaggi successivi.
 
 Se non si ha già un registro contenitori di Azure, vedere [Guida introduttiva: creare un registro contenitori privato usando l'interfaccia della](container-registry-get-started-azure-cli.md)riga di comando di Azure. Non è ancora necessario eseguire il push delle immagini nel registro.
 
@@ -96,15 +96,15 @@ I passaggi dell'attività eseguono le operazioni seguenti:
 * Eseguire il push dell'immagine nel repository dell'hub Docker privato.
 
 
-## <a name="option-1-create-task-with-user-assigned-identity"></a>Opzione 1: creare un'attività con identità assegnata dall'utente
+## <a name="option-1-create-task-with-user-assigned-identity"></a>Opzione 1: Creare un'attività con un'identità assegnata dall'utente
 
-Nei passaggi di questa sezione viene creata un'attività e viene abilitata un'identità assegnata dall'utente. Se invece si desidera abilitare un'identità assegnata dal sistema, vedere l' [opzione 2: creare un'attività con l'identità assegnata dal sistema](#option-2-create-task-with-system-assigned-identity). 
+I passaggi di questa sezione creano un'attività e abilitano un'identità assegnata dall'utente. Per abilitare invece un'identità assegnata dal sistema, vedere [Opzione 2: Creare un'attività con un'identità assegnata dal sistema](#option-2-create-task-with-system-assigned-identity). 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
 ### <a name="create-task"></a>Creare un'attività
 
-Creare l'attività *dockerhubtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. L'attività viene eseguita senza un contesto del codice sorgente e il comando fa riferimento `dockerhubtask.yaml` al file nella directory di lavoro. Il `--assign-identity` parametro passa l'ID risorsa dell'identità assegnata dall'utente. 
+Creare l'attività *dockerhubtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. L'attività viene eseguita senza un contesto del codice sorgente e il comando fa riferimento al file `dockerhubtask.yaml` nella directory di lavoro. Il parametro `--assign-identity` passa l'ID risorsa dell'identità assegnata dall'utente. 
 
 ```azurecli
 az acr task create \
@@ -117,13 +117,27 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
-## <a name="option-2-create-task-with-system-assigned-identity"></a>Opzione 2: creare un'attività con identità assegnata dal sistema
 
-Nei passaggi di questa sezione viene creata un'attività e viene abilitata un'identità assegnata dal sistema. Se invece si desidera abilitare un'identità assegnata dall'utente, vedere l' [opzione 1: creare un'attività con l'identità assegnata dall'utente](#option-1-create-task-with-user-assigned-identity). 
+### <a name="grant-identity-access-to-key-vault"></a>Concedere l'accesso all'identità a Key Vault
+
+Eseguire il comando [AZ Key Vault set-Policy][az-keyvault-set-policy] seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità di leggere i segreti dall'insieme di credenziali delle chiavi. 
+
+```azurecli
+az keyvault set-policy --name mykeyvault \
+  --resource-group myResourceGroup \
+  --object-id $principalID \
+  --secret-permissions get
+```
+
+Passare a [eseguire manualmente l'attività](#manually-run-the-task).
+
+## <a name="option-2-create-task-with-system-assigned-identity"></a>Opzione 2: Creare un'attività con un'identità assegnata dal sistema
+
+I passaggi di questa sezione creano un'attività e abilitano un'identità assegnata dal sistema. Per abilitare invece un'identità assegnata dall'utente, vedere [Opzione 1: Creare un'attività con un'identità assegnata dall'utente](#option-1-create-task-with-user-assigned-identity). 
 
 ### <a name="create-task"></a>Creare un'attività
 
-Creare l'attività *dockerhubtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. L'attività viene eseguita senza un contesto del codice sorgente e il comando fa riferimento `dockerhubtask.yaml` al file nella directory di lavoro. Il `--assign-identity` parametro senza valore Abilita l'identità assegnata dal sistema nell'attività.  
+Creare l'attività *dockerhubtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. L'attività viene eseguita senza un contesto del codice sorgente e il comando fa riferimento al file `dockerhubtask.yaml` nella directory di lavoro. Il parametro `--assign-identity` senza valori abilita l'identità gestita assegnata dal sistema nell'attività.  
 
 ```azurecli
 az acr task create \
@@ -136,7 +150,7 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="grant-identity-access-to-key-vault"></a>Concedere l'accesso all'identità a Key Vault
+### <a name="grant-identity-access-to-key-vault"></a>Concedere l'accesso all'identità a Key Vault
 
 Eseguire il comando [AZ Key Vault set-Policy][az-keyvault-set-policy] seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità di leggere i segreti dall'insieme di credenziali delle chiavi. 
 
@@ -149,7 +163,7 @@ az keyvault set-policy --name mykeyvault \
 
 ## <a name="manually-run-the-task"></a>Eseguire manualmente l'attività
 
-Per verificare che l'attività in cui è stata abilitata un'identità gestita venga eseguita correttamente, attivare manualmente l'attività con il comando [AZ ACR task run][az-acr-task-run] . Il `--set` parametro viene usato per passare il nome del repository privato all'attività. In questo esempio il nome del repository segnaposto è *hubuser/hubrepo*.
+Per verificare che l'attività in cui è stata abilitata un'identità gestita venga eseguita correttamente, attivarla manualmente con il comando [az acr task run][az-acr-task-run]. Il `--set` parametro viene usato per passare il nome del repository privato all'attività. In questo esempio il nome del repository segnaposto è *hubuser/hubrepo*.
 
 ```azurecli
 az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo
@@ -202,12 +216,12 @@ Sending build context to Docker daemon    129kB
 Run ID: cf24 was successful after 15s
 ```
 
-Per confermare che l'immagine viene inserita, cercare il tag (`cf24` in questo esempio) nel repository dell'hub Docker privato.
+Per confermare che l'immagine viene inserita, cercare il tag ( `cf24` in questo esempio) nel repository dell'hub Docker privato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sull' [Abilitazione di un'identità gestita in un'attività ACR](container-registry-tasks-authentication-managed-identity.md).
-* Vedere le informazioni di riferimento su YAML per le [attività ACR](container-registry-tasks-reference-yaml.md)
+* Altre informazioni sull'[abilitazione di un'identità gestita in un'attività del Registro Azure Container](container-registry-tasks-authentication-managed-identity.md).
+* Vedere le [informazioni di riferimento sul file YAML delle attività del Registro Azure Container](container-registry-tasks-reference-yaml.md)
 
 
 <!-- LINKS - Internal -->

@@ -11,11 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983379"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075434"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -42,6 +43,16 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 L'anteprima di analisi video in tempo reale su IoT Edge è stata pubblica. Per ulteriori informazioni, vedere [Note sulla versione](../live-video-analytics-edge/release-notes.md).
 
 Analisi video in tempo reale su IoT Edge è un'espansione alla famiglia di servizi multimediali. Consente di analizzare video in tempo reale con i modelli di intelligenza artificiale scelti nei propri dispositivi perimetrali e, facoltativamente, di acquisire e registrare il video. È ora possibile creare app con analisi video in tempo reale al perimetro senza doversi preoccupare della complessità della creazione e della gestione di una pipeline video live.
+
+### <a name="search-by-topics"></a>Cerca per argomenti
+
+È ora possibile usare l'API di ricerca per cercare video con argomenti specifici (solo API).
+
+Gli argomenti vengono aggiunti come parte del `textScope` (parametro facoltativo). Per informazioni dettagliate, vedere l' [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) .  
+
+### <a name="labels-enhancement"></a>Miglioramento delle etichette
+
+Il contrassegno etichetta è stato aggiornato e ora include più etichette visive che possono essere identificate.
 
 ## <a name="may-2020"></a>Maggio 2020
 
@@ -70,7 +81,7 @@ Aggiunta del supporto della rete CDN per le intestazioni *Origin-Assist Prefetch
 
 |Intestazione HTTP|Valori|Mittente|Ricevitore|Scopo|
 | ---- | ---- | ---- | ---- | ----- |
-|Funzionalità CDN-Origin-Assist-Prefetch abilitata | 1 (valore predefinito) o 0 |RETE CDN|Origine|Per indicare che sulla rete CDN è abilitata la prelettura|
+|Funzionalità CDN-Origin-Assist-Prefetch abilitata | 1 (valore predefinito) o 0 |Rete CDN|Origine|Per indicare che sulla rete CDN è abilitata la prelettura|
 |CDN-Origin-Assist-Prefetch-Path| Esempio: <br/>Frammenti (video=1400000000,format=mpd-time-cmaf)|Origine|RETE CDN|Per fornire il percorso di prelettura alla rete CDN|
 |CDN-Origin-Assist-Prefetch-Request|1 (richiesta di prelettura) o 0 (richiesta normale)|RETE CDN|Origine|Per indicare che la richiesta dalla rete CDN è una richiesta di prelettura|
 

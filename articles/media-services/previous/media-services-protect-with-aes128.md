@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c55d8201d00daedaf87f270f365573040d799fba
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269731"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058198"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "79269731"
 >  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 È possibile usare Servizi multimediali per distribuire flussi HTTP Live Streaming (HLS) e Smooth Streaming crittografati con AES usando chiavi di crittografia a 128 bit. Servizi multimediali fornisce anche il servizio di distribuzione delle chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. Per consentire a Servizi multimediali di crittografare un asset, è necessario associare una chiave di crittografia all'asset e configurare anche i criteri di autorizzazione per la chiave. Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente il contenuto mediante AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per determinare se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati per la chiave.
 
@@ -159,30 +159,34 @@ Il client deve estrarre il valore URL (che contiene anche l'ID della chiave simm
 
 Nel caso di HLS, il manifesto radice viene suddiviso in file di segmento. 
 
-Ad esempio, il manifesto radice è: http:\//test001.Origin.MediaServices.Windows.NET/8bfe7d6f-34e3-4d1a-B289-3e48a8762490/BigBuckBunny.ISM/manifest (format = m3u8-aapl). e contiene un elenco di nomi di file di segmento.
+Ad esempio, il manifesto radice è: http: \/ /test001.Origin.MediaServices.Windows.NET/8bfe7d6f-34e3-4d1a-B289-3e48a8762490/BigBuckBunny.ISM/manifest (format = m3u8-aapl). e contiene un elenco di nomi di file di segmento.
 
-    . . . 
-    #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
-    QualityLevels(514369)/Manifest(video,format=m3u8-aapl)
-    #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=965441,RESOLUTION=636x356,CODECS="avc1.4d401e,mp4a.40.2",AUDIO="audio"
-    QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
-    …
+```text
+. . . 
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
+QualityLevels(514369)/Manifest(video,format=m3u8-aapl)
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=965441,RESOLUTION=636x356,CODECS="avc1.4d401e,mp4a.40.2",AUDIO="audio"
+QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
+…
+```
 
-Se si apre uno dei file di segmenti in un editor di testo (ad esempio, http\/:/test001.Origin.MediaServices.Windows.NET/8bfe7d6f-34e3-4d1a-B289-3e48a8762490/BigBuckBunny.ISM/QualityLevels (514369)/manifest (video, format = m3u8-aapl), contiene #EXT-X-Key, che indica che il file è crittografato.
+Se si apre uno dei file di segmenti in un editor di testo (ad esempio, http: \/ /test001.Origin.MediaServices.Windows.NET/8bfe7d6f-34e3-4d1a-B289-3e48a8762490/BigBuckBunny.ISM/QualityLevels (514369)/manifest (video, format = m3u8-aapl), contiene #EXT-X-Key, che indica che il file è crittografato.
 
-    #EXTM3U
-    #EXT-X-VERSION:4
-    #EXT-X-ALLOW-CACHE:NO
-    #EXT-X-MEDIA-SEQUENCE:0
-    #EXT-X-TARGETDURATION:9
-    #EXT-X-KEY:METHOD=AES-128,
-    URI="https://wamsbayclus001kd-hs.cloudapp.net/HlsHandler.ashx?
-         kid=da3813af-55e6-48e7-aa9f-a4d6031f7b4d",
-            IV=0XD7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7
-    #EXT-X-PROGRAM-DATE-TIME:1970-01-01T00:00:00.000+00:00
-    #EXTINF:8.425708,no-desc
-    Fragments(video=0,format=m3u8-aapl)
-    #EXT-X-ENDLIST
+```text
+#EXTM3U
+#EXT-X-VERSION:4
+#EXT-X-ALLOW-CACHE:NO
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:9
+#EXT-X-KEY:METHOD=AES-128,
+URI="https://wamsbayclus001kd-hs.cloudapp.net/HlsHandler.ashx?
+        kid=da3813af-55e6-48e7-aa9f-a4d6031f7b4d",
+        IV=0XD7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7
+#EXT-X-PROGRAM-DATE-TIME:1970-01-01T00:00:00.000+00:00
+#EXTINF:8.425708,no-desc
+Fragments(video=0,format=m3u8-aapl)
+#EXT-X-ENDLIST
+```
 
 >[!NOTE] 
 >Se si prevede di eseguire un flusso HLS crittografato con AES in Safari, vedere [questo blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
@@ -260,5 +264,5 @@ Assicurarsi di aggiornare le variabili in modo da puntare alle cartelle in cui s
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -11,12 +11,12 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 344112e19adbfaa1b06eebab309f31ed4e070c7d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976745"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076998"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per l'inferenza con GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -161,6 +161,9 @@ channels:
 Per questo esempio, il file viene salvato come `myenv.yml` .
 
 ## <a name="define-the-deployment-configuration"></a>Definire la configurazione della distribuzione
+
+> [!IMPORTANT]
+> AKS non consente ai pod di condividere le GPU. è possibile avere solo il numero di repliche di un servizio Web abilitato per GPU, perché sono presenti GPU nel cluster.
 
 La configurazione della distribuzione definisce l'ambiente del servizio Kubernetes di Azure usato per eseguire il servizio Web:
 

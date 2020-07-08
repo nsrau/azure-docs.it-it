@@ -1,36 +1,36 @@
 ---
-title: Serie Fsv2-macchine virtuali di Azure
+title: Serie Fsv2
 description: Specifiche per le macchine virtuali della serie Fsv2.
-services: virtual-machines
 author: brbell
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: f28c6b61aee3c8cbc078db1c2cfb48ed1fba4554
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: 44f9261c8054ea0575f2fcab0dc8bb6c0d6f0ce4
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164849"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058266"
 ---
 # <a name="fsv2-series"></a>Serie Fsv2
 
-La serie Fsv2 è basata sul processore Intel® Xeon® Platinum 8168. Include una velocità di clock di base di livello principale di 3,4 GHz e una frequenza Turbo Single Core massima di 3,7 GHz. Le istruzioni Intel® AVX-512 sono nuove per i processori Intel scalabili. Queste istruzioni forniscono fino a un incremento delle prestazioni di 2X ai carichi di lavoro di elaborazione vettoriali nelle operazioni a virgola mobile a precisione singola e doppia. In altre parole, sono molto veloci per qualsiasi carico di lavoro di calcolo.
+La serie Fsv2 viene eseguita sui processori Intel® Xeon® Platinum 8272CL (Cascade Lake) e Intel® Xeon® Platinum 8168 (Skylake). Include una velocità di clock di base di livello principale di 3,4 GHz e una frequenza Turbo Single Core massima di 3,7 GHz. Le istruzioni Intel® AVX-512 sono nuove per i processori Intel scalabili. Queste istruzioni forniscono fino a un incremento delle prestazioni di 2X ai carichi di lavoro di elaborazione vettoriali nelle operazioni a virgola mobile a precisione singola e doppia. In altre parole, sono molto veloci per qualsiasi carico di lavoro di calcolo.
 
 Le macchine virtuali serie Fsv2 includono tecnologia Intel® Hyper-Threading.
 
 ACU: 195 - 210
 
-Archiviazione Premium: supportata
+Archiviazione Premium:  Supportato
 
-Caching archiviazione Premium: supportato
+Memorizzazione nella cache Archiviazione Premium:  Supportato
 
-Live Migration: supportato
+Live Migration: Supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Manutenzione con mantenimento della memoria: Supportato
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | NIC massimo/larghezza di banda di rete prevista (Mbps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | NIC massimo/larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_F2s_v2  | 2  | 4   | 16  | 4  | 4000/31 (32)       | 3200/47    | 2/875   |
 | Standard_F4s_v2  | 4  | 8   | 32  | 8  | 8000/63 (64)       | 6400/95    | 2/1750  |

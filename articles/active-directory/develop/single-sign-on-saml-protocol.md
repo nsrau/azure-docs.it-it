@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 155816a9cd171b42e1def5cafa09cb9e310d5ee7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.openlocfilehash: a68c0248ce364be486610c406388586b69cbb3f4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771673"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076947"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
 
@@ -46,10 +46,10 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parametro |  | Descrizione |
+| Parametro | Type | Descrizione |
 | --- | --- | --- |
-| ID | Obbligatoria | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
-| Versione | Obbligatoria | Questo parametro deve essere impostato su **2.0**. |
+| ID | Necessario | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
+| Versione | Necessario | Questo parametro deve essere impostato su **2.0**. |
 | IssueInstant | Obbligatoria | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
 | AssertionConsumerServiceUrl | Facoltativo | Se specificato, il parametro deve corrispondere al valore `RedirectUri` del servizio cloud in Azure AD. |
 | ForceAuthn | Facoltativo | Si tratta di un valore booleano. Se è True, significa che l'utente dovrà ripetere l'autenticazione, anche se ha una sessione valida con Azure AD. |
@@ -86,6 +86,8 @@ Se viene specificato `NameIDPolicy` è possibile includere l'attributo facoltati
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: Questo valore consente ad Azure Active Directory di selezionare il formato dell'attestazione. Azure Active Directory rilascia NameID come identificatore pairwise.
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory rilascia l'attestazione NameID come valore generato in modo casuale che è univoco per l'operazione di SSO corrente. Ciò significa che il valore è temporaneo e non può essere usato per identificare l'utente che esegue l'autenticazione.
 
+Se `SPNameQualifier` si specifica, Azure ad includerà lo stesso `SPNameQualifier` nella risposta.
+
 Azure AD ignora l'attributo `AllowCreate` .
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
@@ -97,7 +99,7 @@ L'elemento `Scoping`, che include un elenco di provider di identità, è facolta
 Se viene specificato, non includere l'attributo `ProxyCount` e l'elemento `IDPListOption` o `RequesterID` perché non sono supportati.
 
 ### <a name="signature"></a>Firma
-Non includere un elemento `Signature` negli elementi `AuthnRequest`. Azure AD non convalida le richieste di autenticazione firmate. La verifica del richiedente viene fornita solo rispondendo agli URL del servizio consumer di asserzione registrati.
+Un `Signature` elemento negli `AuthnRequest` elementi è facoltativo. Azure AD non convalida le richieste di autenticazione firmate se è presente una firma. La verifica del richiedente viene fornita solo rispondendo agli URL del servizio consumer di asserzione registrati.
 
 ### <a name="subject"></a>Oggetto
 Non includere un elemento `Subject`. Azure AD non supporta la specifica di un oggetto per una richiesta e restituirà un errore se ne viene fornito uno.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e0a970df680df43a7bd303636b3d81bda3e141
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a0bac96c3daa0d81786b1a3facf6ccd328cd579
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085706"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076760"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Script di esempio per la crittografia dischi di Azure 
 
@@ -76,22 +76,30 @@ Configurare l'impostazione **Crittografia unità BitLocker** di Criteri di grupp
 ### <a name="install-bitlocker-feature-components"></a>Installare i componenti della funzionalità BitLocker
 Per Windows Server 2012 e versioni successive, usare il comando seguente:
 
-    dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```console
+dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```
 
 Per Windows Server 2008 R2, usare il comando seguente:
 
-    ServerManagerCmd -install BitLockers
+```console
+ServerManagerCmd -install BitLockers
+```
 
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Preparare il volume del sistema operativo per BitLocker tramite `bdehdcfg`
 Per comprimere la partizione del sistema operativo e preparare il computer per BitLocker, eseguire il comando [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment), se necessario:
 
-    bdehdcfg -target c: shrink -quiet 
+```console
+bdehdcfg -target c: shrink -quiet 
+```
 
 ### <a name="protect-the-os-volume-by-using-bitlocker"></a>Proteggere il volume del sistema operativo usando BitLocker
 Usare il [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) comando per abilitare la crittografia sul volume di avvio usando una protezione con chiave esterna. Salvare anche la chiave esterna (file con estensione bek) nell'unità o nel volume esterno. La crittografia viene abilitata nel volume di sistema/di avvio al riavvio successivo.
 
-    manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
-    reboot
+```console
+manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
+reboot
+```
 
 > [!NOTE]
 > Preparare la macchina virtuale con un disco rigido virtuale dati/di risorse separato per recuperare la chiave esterna usando BitLocker.

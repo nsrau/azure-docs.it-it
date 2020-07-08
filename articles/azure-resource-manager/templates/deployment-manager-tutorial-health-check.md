@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 765c73a3ab8d5fa8939abe597d0141b24b59ac52
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76152478"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058028"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Esercitazione: Usare il controllo integrità in Azure Deployment Manager (anteprima pubblica)
 
@@ -35,7 +35,7 @@ Questa esercitazione illustra le attività seguenti:
 
 Risorse aggiuntive:
 
-* Il [riferimento all'API REST di Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* Il [riferimento all'API REST di Azure Deployment Manager](/rest/api/deploymentmanager/).
 * [Usare un esempio di Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -58,7 +58,7 @@ Aprire CreateADMRollout.Parameters.json e aggiornare i valori di **projectName**
 
 ## <a name="create-a-health-check-service-simulator"></a>Creare un simulatore del servizio di controllo integrità
 
-Nell'ambiente di produzione, è in genere necessario usare uno o più provider di monitoraggio. Per rendere il più semplice possibile l'integrazione dell'integrità, Microsoft collabora con alcune delle principali società di monitoraggio dell'integrità dei servizi per fornire una semplice soluzione copia/incolla per integrare i controlli integrità con le distribuzioni. Per un elenco di queste società, vedere [Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers) (Provider di monitoraggio integrità). Ai fini di questa esercitazione, si crea una [funzione di Azure](/azure/azure-functions/) per simulare un servizio di monitoraggio dello stato. Questa funzione accetta un codice di stato e restituisce lo stesso codice. Il modello di Azure Deployment Manager usa il codice di stato per determinare come procedere con la distribuzione.
+Nell'ambiente di produzione, è in genere necessario usare uno o più provider di monitoraggio. Per rendere il più semplice possibile l'integrazione dell'integrità, Microsoft collabora con alcune delle principali società di monitoraggio dell'integrità dei servizi per fornire una semplice soluzione copia/incolla per integrare i controlli integrità con le distribuzioni. Per un elenco di queste società, vedere [Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers) (Provider di monitoraggio integrità). Ai fini di questa esercitazione, si crea una [funzione di Azure](../../azure-functions/index.yml) per simulare un servizio di monitoraggio dello stato. Questa funzione accetta un codice di stato e restituisce lo stesso codice. Il modello di Azure Deployment Manager usa il codice di stato per determinare come procedere con la distribuzione.
 
 I due file seguenti vengono usati per la distribuzione della funzione di Azure. Non è necessario scaricare questi file per completare l'esercitazione.
 
@@ -369,4 +369,4 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come usare la funzionalità di controllo integrità di Azure Deployment Manager. Per altre informazioni, vedere la [documentazione di Azure Resource Manager](/azure/azure-resource-manager/).
+In questa esercitazione è stato illustrato come usare la funzionalità di controllo integrità di Azure Deployment Manager. Per altre informazioni, vedere la [documentazione di Azure Resource Manager](../index.yml).

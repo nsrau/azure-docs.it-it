@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8580bafd4d68ef6567b09fefcaa01c682ae2cafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b81d58bbb79b05ea54af8b3f06f29b4a45a6555
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74968791"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058164"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configurare i criteri di autorizzazione di una chiave simmetrica
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -33,7 +33,7 @@ Questo articolo illustra come usare il Portale di Azure per configurare i criter
 
 Quando un lettore richiede un flusso impostato per la crittografia dinamica, Servizi multimediali usa la chiave configurata per crittografare dinamicamente i contenuti tramite crittografia DRM o AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per determinare se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati per la chiave.
 
-Se si prevede di usare più chiavi simmetriche o si desidera specificare un URL per il servizio di distribuzione di chiavi/licenze diverso dal servizio di distribuzione delle chiavi di Servizi multimediali, usare le API REST o l'SDK di Servizi multimediali per .NET. Per altre informazioni, vedi:
+Se si prevede di usare più chiavi simmetriche o si desidera specificare un URL per il servizio di distribuzione di chiavi/licenze diverso dal servizio di distribuzione delle chiavi di Servizi multimediali, usare le API REST o l'SDK di Servizi multimediali per .NET. Per altre informazioni, vedere:
 
 * [Configurare criteri di autorizzazione di una chiave simmetrica tramite l'SDK di Servizi multimediali per .NET](media-services-dotnet-configure-content-key-auth-policy.md)
 * [Configurare criteri di autorizzazione di una chiave simmetrica tramite le API REST di Servizi multimediali](media-services-rest-configure-content-key-auth-policy.md)
@@ -66,17 +66,19 @@ Quando si configurano i criteri di restrizione del token, è necessario specific
 ### <a name="playready"></a>PlayReady
 Quando si protegge il contenuto con PlayReady, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il modello di licenza PlayReady. Per impostazione predefinita, vengono definiti i seguenti criteri:
 
-    <PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
-          <LicenseTemplates>
-            <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
-              <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-              <LicenseType>Nonpersistent</LicenseType>
-              <PlayRight>
-                <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
-              </PlayRight>
-            </PlayReadyLicenseTemplate>
-          </LicenseTemplates>
-        </PlayReadyLicenseResponseTemplate>
+```xml
+<PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
+  <LicenseTemplates>
+    <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
+      <ContentKey i:type="ContentEncryptionKeyFromHeader" />
+      <LicenseType>Nonpersistent</LicenseType>
+      <PlayRight>
+        <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
+      </PlayRight>
+    </PlayReadyLicenseTemplate>
+  </LicenseTemplates>
+</PlayReadyLicenseResponseTemplate>
+```
 
 È possibile selezionare il pulsante **importa xml criterio** e fornire un codice XML diverso conforme allo schema XML definito in [Panoramica del modello di licenza PlayReady di Servizi multimediali](media-services-playready-license-template-overview.md).
 
@@ -87,7 +89,7 @@ Quando si protegge il contenuto con PlayReady, è necessario includere nei crite
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png

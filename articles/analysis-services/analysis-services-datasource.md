@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 71df537535003fe23902949c70b086a30a6b5049
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698146"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077440"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -23,7 +23,7 @@ Le origini dati e i connettori visualizzati per l'opzione Recupera dati o l'Impo
 |Origine dati  |In memoria  |DirectQuery  |Note |
 |---------|---------|---------|---------|
 |database SQL di Azure      |   Sì      |    Sì      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL Data Warehouse)      |   Sì      |   Sì       |<sup>[2](#azprovider)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Sì      |   Sì       |<sup>[2](#azprovider)</sup>|
 |Archiviazione BLOB di Azure      |   Sì       |    No      | <sup>[1](#tab1400a)</sup> |
 |Archiviazione tabelle di Azure     |   Sì       |    No      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Sì        |  No        |<sup>[1](#tab1400a)</sup> |
@@ -33,12 +33,13 @@ Le origini dati e i connettori visualizzati per l'opzione Recupera dati o l'Impo
 |Azure HDInsight Spark     |   Sì       |   No       |<sup>[1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>|
 ||||
 
-**Note:**    
+**Note:**
+
 <a name="tab1400a">1</a> - Solo modelli tabulari 1400 e superiori.  
-<a name="azprovider">2</a> - Quando l'origine dati viene specificata come origine dati del *provider* nei modelli tabulari 1200 e superiori, sia i modelli in memoria che DirectQuery richiedono Microsoft OLE DB Driver per SQL Server MSOLEDBSQL (consigliato), SQL Server Native Client 11.0 o il provider di dati .NET Framework per SQL Server.    
-<a name="azsqlmanaged">3</a> - È supportata l'opzione Istanza gestita di database SQL di Azure. Poiché l'istanza gestita viene eseguita nella rete virtuale di Azure con un indirizzo IP privato, è necessario che l'endpoint pubblico sia abilitato nell'istanza. Se non è abilitato, è necessario un [gateway dati locale](analysis-services-gateway.md).    
-<a name="databricks">4</a> - Azure Databricks con il connettore Spark non è attualmente supportato.   
-<a name="gen2">5</a> - Il connettore ADLS Gen2 non è attualmente supportato, tuttavia è possibile usare il connettore di Archiviazione BLOB di Azure con un'origine dati ADLS Gen2.   
+<a name="azprovider">2</a> - Quando l'origine dati viene specificata come origine dati del *provider* nei modelli tabulari 1200 e superiori, sia i modelli in memoria che DirectQuery richiedono Microsoft OLE DB Driver per SQL Server MSOLEDBSQL (consigliato), SQL Server Native Client 11.0 o il provider di dati .NET Framework per SQL Server.  
+<a name="azsqlmanaged">3</a> -istanza gestita SQL di Azure è supportata. Poiché SQL Istanza gestita viene eseguito all'interno di Azure VNet con un indirizzo IP privato, è necessario abilitare l'endpoint pubblico nell'istanza. Se non è abilitato, è necessario un [gateway dati locale](analysis-services-gateway.md).  
+<a name="databricks">4</a> - Azure Databricks con il connettore Spark non è attualmente supportato.  
+<a name="gen2">5</a> - Il connettore ADLS Gen2 non è attualmente supportato, tuttavia è possibile usare il connettore di Archiviazione BLOB di Azure con un'origine dati ADLS Gen2.
 
 ## <a name="other-data-sources"></a>Altre origini dati
 
@@ -67,7 +68,7 @@ Le origini dati e i connettori visualizzati per l'opzione Recupera dati o l'Impo
 |SAP HANA     |  Sì | No |  |
 |SAP Business Warehouse    |  Sì | No | <sup>[6](#tab1400b)</sup> |
 |Elenco SharePoint      |   Sì | No | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
-|SQL Server |Sì   | Sì  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> | 
+|SQL Server |Sì   | Sì  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
 |SQL Server Data Warehouse |Sì   | Sì  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
 |Database di Sybase     |  Sì | No |  |
 |Teradata | Sì  | Sì  | <sup>[10](#teradata)</sup> |
@@ -75,19 +76,19 @@ Le origini dati e i connettori visualizzati per l'opzione Recupera dati o l'Impo
 |Tabella XML    |  Sì | No | <sup>[6](#tab1400b)</sup> |
 | | | |
 
-**Note:**    
+**Note:**  
 <a name="tab1400b">6</a> - Solo modelli tabulari 1400 e superiori.  
 <a name="sqlim">7</a> - Quando l'origine dati viene specificata come origine dati del *provider* nei modelli tabulari 1200 e superiori, specificare Microsoft OLE DB Driver per SQL Server MSOLEDBSQL (consigliato), SQL Server Native Client 11.0 o il provider di dati .NET Framework per SQL Server.  
 <a name="instgw">8</a> - Se si specifica MSOLEDBSQL come provider di dati, può essere necessario scaricare e installare [Microsoft OLE DB Driver per SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) nello stesso computer del gateway dati locale.  
 <a name="oracle">9</a> - Per i modelli tabulari 1200 o come origine dati del *provider* nei modelli tabulari 1400 o superiori, specificare Oracle Data Provider for .NET.  
-<a name="teradata">10</a> - Per i modelli tabulari 1200 o come origine dati del *provider* nei modelli tabulari 1400 o superiori, specificare Teradata Data Provider for .NET.   
+<a name="teradata">10</a> - Per i modelli tabulari 1200 o come origine dati del *provider* nei modelli tabulari 1400 o superiori, specificare Teradata Data Provider for .NET.  
 <a name="filesSP">11</a> - I file nelle istanze locali di SharePoint non sono supportati.
 
-La connessione alle origini dati locali da un server Azure Analysis Services richiede un [gateway locale](analysis-services-gateway.md). Quando si usa un gateway, sono necessari i provider a 64 bit. 
+La connessione alle origini dati locali da un server Azure Analysis Services richiede un [gateway locale](analysis-services-gateway.md). Quando si usa un gateway, sono necessari i provider a 64 bit.
 
 ## <a name="understanding-providers"></a>Informazioni sui provider
 
-Quando si creano progetti di modelli tabulari 1400 e superiori in Visual Studio, per impostazione predefinita non viene specificato un provider di dati quando ci si connette a un'origine dati usando l'opzione **Recupera dati**. I modelli tabulari 1400 e superiori usano i connettori [Power Query](/power-query/power-query-what-is-power-query) per gestire connessioni, query di dati e mashup tra l'origine dati e Analysis Services. In questo caso talvolta si parla di connessioni alle origini dati *strutturate* in cui le impostazioni delle proprietà di connessione sono definite automaticamente. È tuttavia possibile abilitare origini dati legacy per un progetto di modello in Visual Studio. Se l'opzione è abilitata, è possibile usare l'**Importazione guidata tabella** per connettersi a determinate origini dati tradizionalmente supportate nei modelli tabulari 1200 e inferiori come le origini dati *legacy* o del *provider*. Quando viene specificata come origine dati del provider, è possibile indicare un provider di dati specifico e altre proprietà di connessione avanzate. È ad esempio possibile connettersi a un data warehouse SQL Server locale o anche a un database SQL di Azure come origine dati legacy. È quindi possibile selezionare il provider di dati OLE DB Driver per SQL Server MSOLEDBSQL. In questo caso, la selezione di un provider di dati OLE DB può offrire prestazioni migliori rispetto al connettore Power Query. 
+Quando si creano progetti di modelli tabulari 1400 e superiori in Visual Studio, per impostazione predefinita non viene specificato un provider di dati quando ci si connette a un'origine dati usando l'opzione **Recupera dati**. I modelli tabulari 1400 e superiori usano i connettori [Power Query](/power-query/power-query-what-is-power-query) per gestire connessioni, query di dati e mashup tra l'origine dati e Analysis Services. In questo caso talvolta si parla di connessioni alle origini dati *strutturate* in cui le impostazioni delle proprietà di connessione sono definite automaticamente. È tuttavia possibile abilitare origini dati legacy per un progetto di modello in Visual Studio. Se l'opzione è abilitata, è possibile usare l'**Importazione guidata tabella** per connettersi a determinate origini dati tradizionalmente supportate nei modelli tabulari 1200 e inferiori come le origini dati *legacy* o del *provider*. Quando viene specificata come origine dati del provider, è possibile indicare un provider di dati specifico e altre proprietà di connessione avanzate. Ad esempio, è possibile connettersi a un'istanza di data warehouse SQL Server o anche a un database SQL di Azure come origine dati legacy. È quindi possibile selezionare il provider di dati OLE DB Driver per SQL Server MSOLEDBSQL. In questo caso, la selezione di un provider di dati OLE DB può offrire prestazioni migliori rispetto al connettore Power Query. 
 
 Quando si usa l'Importazione guidata tabella in Visual Studio, le connessioni a qualsiasi origine dati richiedono un provider di dati. Viene selezionato automaticamente un provider di dati predefinito. Se necessario, è possibile modificare tale provider. Il tipo di provider scelto può dipendere dalle prestazioni, dal fatto che il modello usi o meno l'archiviazione in memoria o DirectQuery e dalla piattaforma Analysis Services in cui si distribuisce il modello.
 
@@ -105,7 +106,6 @@ Analogamente a quanto avviene con i progetti di modelli tabulari 1200, usare l'*
 
 ![Proprietà avanzate delle origini dati legacy](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
-
 ## <a name="impersonation"></a>Rappresentazione
 In alcuni casi può essere necessario specificare un account di rappresentazione differente. L'account di rappresentazione può essere specificato in Visual Studio o SQL Server Management Studio (SSMS).
 
@@ -120,11 +120,11 @@ Per le origini dati cloud:
 
 ## <a name="oauth-credentials"></a>Credenziali OAuth
 
-Per i modelli tabulari con livello di compatibilità 1400 e superiore che usano la modalità in memoria, il database SQL di Azure, Azure Synapse Analytics (SQL Data Warehouse), Dynamics 365 e l'elenco SharePoint supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali tramite SSMS.
+Per i modelli tabulari con livello di compatibilità 1400 e superiore con la modalità in memoria, il database SQL di Azure, la sinapsi di Azure (in precedenza SQL Data Warehouse), Dynamics 365 e l'elenco di SharePoint supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali tramite SSMS.
 
 La modalità DirectQuery non è supportata con le credenziali OAuth.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Gateway locale](analysis-services-gateway.md)   
-[Gestire il server](analysis-services-manage.md)   
 
+* [Gateway locale](analysis-services-gateway.md)
+* [Gestire il server](analysis-services-manage.md)

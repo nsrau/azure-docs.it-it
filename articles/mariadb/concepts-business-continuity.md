@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c01e0df1f420c8489ca3445d9fa025b251a870f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532392"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076573"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Comprendere la continuità aziendale nel database di Azure per MariaDB
 
@@ -48,11 +48,12 @@ La seconda opzione consiste nell'usare la funzionalità di ripristino geografico
 > [!IMPORTANT]
 > Il ripristino geografico è possibile solo se è stato effettuato il provisioning del server con l'archivio di backup con ridondanza geografica.
 
+## <a name="cross-region-read-replicas"></a>Repliche Read tra aree
+
+È possibile usare le repliche di lettura tra aree per migliorare la continuità aziendale e la pianificazione del ripristino di emergenza. Le repliche di lettura vengono aggiornate in modo asincrono utilizzando la tecnologia di replica dei log binari di MariaDB. Altre informazioni sulle repliche di lettura, le aree disponibili e su come eseguire il failover dall' [articolo leggere i concetti relativi alle repliche](concepts-read-replicas.md). 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sui backup automatizzati, vedere [Backup in Database di Azure per MariaDB](concepts-backup.md).
-- Per eseguire il ripristino temporizzato con il portale di Azure, vedere l'articolo su come  [ripristinare un database a un momento specifico con il portale di Azure](howto-restore-server-portal.md).
-
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md). 
--->
+- Altre informazioni sui [backup automatici nel database di Azure per MariaDB](concepts-backup.md).
+- Informazioni su come effettuare il ripristino usando il [portale di Azure](howto-restore-server-portal.md) o l'[interfaccia della riga di comando di Azure](howto-restore-server-cli.md).
+- Informazioni sulle [repliche di lettura nel database di Azure per MariaDB](concepts-read-replicas.md).

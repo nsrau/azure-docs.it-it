@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 48602cb65430bcf6720b4d6f4ba05c771a7bd55b
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 03ef1708f836eb016d8f2fce530b9588cc61cd35
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559954"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075706"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gestire i cluster HDInsight mediante l'API REST Apache Ambari
 
@@ -27,7 +27,7 @@ Apache Ambari semplifica la gestione e il monitoraggio dei cluster Hadoop fornen
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Hadoop in HDInsight. Vedere [Introduzione a HDInsight in Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 * Bash in Ubuntu in Windows 10.  Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).  Gli esempi, con alcune piccole modifiche, possono funzionare in un prompt dei comandi di Windows.  In alternativa, è possibile usare Windows PowerShell.
 
@@ -37,13 +37,13 @@ Apache Ambari semplifica la gestione e il monitoraggio dei cluster Hadoop fornen
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Uniform Resource Identifier di base per l'API REST di Ambari
 
- Il Uniform Resource Identifier di base (URI) per l'API REST Ambari in HDInsight `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`è, `CLUSTERNAME` dove è il nome del cluster.  I nomi dei cluster negli URI fanno **distinzione tra maiuscole e**minuscole.  Mentre il nome del cluster nella parte relativa al nome di dominio completo (FQDN) dell'URI`CLUSTERNAME.azurehdinsight.net`() non fa distinzione tra maiuscole e minuscole, altre occorrenze nell'URI fanno distinzione tra maiuscole e minuscole.
+ Il Uniform Resource Identifier di base (URI) per l'API REST Ambari in HDInsight è `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , dove `CLUSTERNAME` è il nome del cluster.  I nomi dei cluster negli URI fanno **distinzione tra maiuscole e**minuscole.  Mentre il nome del cluster nella parte relativa al nome di dominio completo (FQDN) dell'URI () non fa distinzione tra maiuscole e minuscole `CLUSTERNAME.azurehdinsight.net` , altre occorrenze nell'URI fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="authentication"></a>Authentication
 
 La connessione ad Ambari su HDInsight richiede HTTPS. Usare il nome dell'account amministratore (il valore predefinito è **admin**) e la password forniti durante la creazione del cluster.
 
-Per i cluster Enterprise Security Package, anziché `admin`usare un nome utente completo, ad esempio `username@domain.onmicrosoft.com`.
+Per i cluster Enterprise Security Package, anziché `admin` usare un nome utente completo, ad esempio `username@domain.onmicrosoft.com` .
 
 ## <a name="examples"></a>Esempi
 
@@ -68,7 +68,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 
 L'involucro effettivo del nome del cluster può essere diverso da quello previsto.  I passaggi qui illustrano la combinazione di maiuscole e minuscole e quindi lo archiviano in una variabile per tutti gli esempi successivi.
 
-Modificare gli script riportati di seguito `CLUSTERNAME` per sostituire con il nome del cluster. Immettere quindi il comando. (Il nome del cluster per il nome di dominio completo non distingue tra maiuscole e minuscole).
+Modificare gli script riportati di seguito per sostituire `CLUSTERNAME` con il nome del cluster. Immettere quindi il comando. (Il nome del cluster per il nome di dominio completo non distingue tra maiuscole e minuscole).
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -87,7 +87,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Analisi dei dati JSON
 
-Nell'esempio seguente viene usato [JQ](https://stedolan.github.io/jq/) o [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) per analizzare il documento di risposta JSON e visualizzare `health_report` solo le informazioni dai risultati.
+Nell'esempio seguente viene usato [JQ](https://stedolan.github.io/jq/) o [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) per analizzare il documento di risposta JSON e visualizzare solo le `health_report` informazioni dai risultati.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -364,11 +364,13 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
 2. Modificare `newconfig.json`.  
    Aprire il documento `newconfig.json` e modificare o aggiungere i valori nell'oggetto `properties`. L'esempio seguente modifica il valore di `"livy.server.csrf_protection.enabled"` da `"true"` a `"false"`.
 
-        "livy.server.csrf_protection.enabled": "false",
+    ```json
+    "livy.server.csrf_protection.enabled": "false",
+    ```
 
     Dopo aver apportato le modifiche, salvare il file.
 
-3. Inviare `newconfig.json`.  
+3. Inviare `newconfig.json` .  
    Usare i comandi seguenti per inviare la configurazione aggiornata ad Ambari.
 
     ```bash
@@ -385,7 +387,7 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
     $resp.Content
     ```  
 
-    Questi comandi inviano il contenuto del file **NewConfig. JSON** al cluster come nuova configurazione. La richiesta restituisce un documento JSON. L'elemento **versionTag** di questo documento deve corrispondere alla versione inviata, mentre l'oggetto **configs** conterrà le modifiche di configurazione richieste.
+    Questi comandi inviano il contenuto del **newconfig.jssul** file al cluster come nuova configurazione. La richiesta restituisce un documento JSON. L'elemento **versionTag** di questo documento deve corrispondere alla versione inviata, mentre l'oggetto **configs** conterrà le modifiche di configurazione richieste.
 
 ### <a name="restart-a-service-component"></a>Riavviare un componente del servizio
 

@@ -4,21 +4,21 @@ description: Questo articolo descrive come gestire gli amministratori del server
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9edc43f9b2b62a3d9da9d6fba5ab52318e8b6427
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454238"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077508"
 ---
 # <a name="manage-server-administrators"></a>Gestire gli amministratori del server
 
-Gli amministratori del server devono essere un utente o un gruppo di sicurezza valido in Azure Active Directory (Azure AD) per il tenant in cui si trova il server. È possibile usare **Amministratori di Analysis Services** per il server nel portale di Azure, in Proprietà server in SSMS, PowerShell o API REST per gestire gli amministratori del server. 
+Gli amministratori del server devono essere un utente, un'entità servizio o un gruppo di sicurezza valido nel Azure Active Directory (Azure AD) per il tenant in cui risiede il server. È possibile usare **Amministratori di Analysis Services** per il server nel portale di Azure, in Proprietà server in SSMS, PowerShell o API REST per gestire gli amministratori del server. 
 
-Quando si aggiunge un **gruppo di sicurezza**, utilizzare `obj:groupid@tenantid` .
+Quando si aggiunge un **gruppo di sicurezza**, utilizzare `obj:groupid@tenantid` . Le entità servizio non sono supportate nei gruppi di sicurezza aggiunti al ruolo di amministratore del server.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Per aggiungere amministratori del server usando il portale di Azure
 

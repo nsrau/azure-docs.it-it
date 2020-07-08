@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: c6d33158b581bf4394a0d1bac2b277830328e110
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1830ddef44ef33d19c953622951779632e33e71
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495943"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076743"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurare il backup e la replica per Apache HBase e Apache Phoenix in HDInsight
 
@@ -36,19 +36,15 @@ Con questo approccio si copiano tutti i dati di HBase, senza la possibilità di 
 
 HBase in HDInsight usa l'archivio predefinito selezionato quando si crea il cluster, ovvero BLOB del servizio di archiviazione di Azure oppure Azure Data Lake Storage. In entrambi i casi HBase archivia i file di dati e metadati nel percorso seguente:
 
-    /hbase
+`/hbase`
 
 * In un account di archiviazione di Azure la cartella `hbase` si trova nella radice del contenitore BLOB:
 
-    ```
-    wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
-    ```
+  `wasbs://<containername>@<accountname>.blob.core.windows.net/hbase`
 
 * In Azure Data Lake Storage la `hbase` cartella si trova nel percorso radice specificato durante il provisioning di un cluster. Questo percorso radice ha in genere una cartella `clusters` con una sottocartella denominata in base al cluster HDInsight:
 
-    ```
-    /clusters/<clusterName>/hbase
-    ```
+  `/clusters/<clusterName>/hbase`
 
 In entrambi i casi, la cartella `hbase` contiene tutti i dati che HBase ha scaricato su disco, ma potrebbe non contenere i dati in memoria. Per assicurarsi che la cartella sia una rappresentazione accurata dei dati HBase, è necessario arrestare il cluster.
 
@@ -64,31 +60,37 @@ Nel cluster HDInsight di origine usare l' [utilità di esportazione](https://hba
 
 Per esportare i dati della tabella, prima SSH nel nodo head del cluster HDInsight di origine, quindi eseguire il `hbase` comando seguente:
 
-    hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
+```console
+hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
+```
 
 La directory di esportazione non deve essere già esistente. Il nome della tabella fa distinzione tra maiuscole e minuscole.
 
-Per importare i dati della tabella, connettersi tramite SSH al nodo head del cluster HDInsight di destinazione e quindi `hbase` eseguire il comando seguente:
+Per importare i dati della tabella, connettersi tramite SSH al nodo head del cluster HDInsight di destinazione e quindi eseguire il `hbase` comando seguente:
 
-    hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+```console
+hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+```
 
 La tabella deve essere già esistente.
 
 Specificare il percorso di esportazione completo per l'archivio predefinito o per uno degli archivi collegati. Ad esempio, in Archiviazione di Azure:
 
-    wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
+`wasbs://<containername>@<accountname>.blob.core.windows.net/<path>`
 
 In Azure Data Lake Storage Gen2 la sintassi è:
 
-    abfs://<containername>@<accountname>.dfs.core.windows.net/<path>
+`abfs://<containername>@<accountname>.dfs.core.windows.net/<path>`
 
 In Azure Data Lake Storage Gen1 la sintassi è:
 
-    adl://<accountName>.azuredatalakestore.net:443/<path>
+`adl://<accountName>.azuredatalakestore.net:443/<path>`
 
 Questo approccio offre granularità a livello di tabella. È anche possibile specificare un intervallo di date per le righe da includere, per eseguire il processo in modo incrementale. Ogni data è espressa in millisecondi dall'epoca Unix.
 
-    hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
+```console
+hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
+```
 
 Si noti che è necessario specificare il numero di versioni di ogni riga da esportare. Per includere tutte le versioni nell'intervallo di date, impostare `<numberOfVersions>` su un valore maggiore rispetto al numero massimo possibile di versioni di riga, ad esempio 100.000.
 
@@ -98,16 +100,19 @@ L' [utilità CopyTable](https://hbase.apache.org/book.html#copy.table) copia i d
 
 Per usare CopyTable in un cluster, connettersi tramite SSH al nodo head del cluster HDInsight di origine e quindi eseguire questo comando `hbase`:
 
-    hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
-
+```console
+hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
+```
 
 Per usare CopyTable per copiare una tabella in un cluster diverso, aggiungere l'opzione `peer` con l'indirizzo del cluster di destinazione:
 
-    hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> --peer.adr=<destinationAddress> <srcTableName>
+```console
+hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> --peer.adr=<destinationAddress> <srcTableName>
+```
 
 L'indirizzo di destinazione è costituito dalle tre parti seguenti:
 
-    <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
+`<destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>`
 
 * `<ZooKeeperQuorum>` è un elenco delimitato da virgole di nodi Apache ZooKeeper, ad esempio:
 
@@ -121,7 +126,9 @@ Vedere [Raccogliere manualmente l'elenco di quorum di Apache ZooKeeper](#manuall
 
 L'utilità CopyTable supporta anche i parametri per specificare l'intervallo di tempo delle righe da copiare e per specificare il subset di famiglie di colonne in una tabella da copiare. Per visualizzare l'elenco completo dei parametri supportati da CopyTable, eseguire il comando CopyTable senza parametri:
 
-    hbase org.apache.hadoop.hbase.mapreduce.CopyTable
+```console
+hbase org.apache.hadoop.hbase.mapreduce.CopyTable
+```
 
 CopyTable analizza il contenuto dell'intera tabella di origine che verrà copiato nella tabella di destinazione. Ciò potrebbe ridurre le prestazioni del cluster HBase mentre CopyTable è in esecuzione.
 
@@ -134,29 +141,35 @@ Quando entrambi i cluster HDInsight sono nella stessa rete virtuale, come descri
 
 Per acquisire i nomi host del quorum, eseguire il comando curl seguente:
 
-    curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/configurations?type=hbase-site&tag=TOPOLOGY_RESOLVED" | grep "hbase.zookeeper.quorum"
+```console
+curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/configurations?type=hbase-site&tag=TOPOLOGY_RESOLVED" | grep "hbase.zookeeper.quorum"
+```
 
 Il comando curl recupera un documento JSON contenente le informazioni di configurazione di HBase e il comando grep restituisce solo la voce "hbase.zookeeper.quorum", ad esempio:
 
-    "hbase.zookeeper.quorum" : "zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
+```output
+"hbase.zookeeper.quorum" : "zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
+```
 
 Il valore relativo ai nomi host del quorum è l'intera stringa a destra dei due punti.
 
 Per recuperare gli indirizzi IP di questi host, usare il comando curl seguente per ogni host nell'elenco precedente:
 
-    curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/hosts/<zookeeperHostFullName>" | grep "ip"
+```console
+curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/hosts/<zookeeperHostFullName>" | grep "ip"
+```
 
 In questo comando curl `<zookeeperHostFullName>` è il nome DNS completo di un host ZooKeeper, ad esempio `zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net`. L'output del comando contiene l'indirizzo IP per l'host specificato, ad esempio:
 
-    100    "ip" : "10.0.0.9",
+`100    "ip" : "10.0.0.9",`
 
 Dopo aver raccolto gli indirizzi IP per tutti i nodi ZooKeeper nel quorum, ricreare l'indirizzo di destinazione:
 
-    <destinationAddress>  = <Host_1_IP>,<Host_2_IP>,<Host_3_IP>:<Port>:<ZnodeParent>
+`<destinationAddress>  = <Host_1_IP>,<Host_2_IP>,<Host_3_IP>:<Port>:<ZnodeParent>`
 
 Nell'esempio:
 
-    <destinationAddress> = 10.0.0.9,10.0.0.8,10.0.0.12:2181:/hbase-unsecure
+`<destinationAddress> = 10.0.0.9,10.0.0.8,10.0.0.12:2181:/hbase-unsecure`
 
 ## <a name="snapshots"></a>Snapshot
 
@@ -164,29 +177,41 @@ Gli [snapshot](https://hbase.apache.org/book.html#ops.snapshots) consentono di e
 
 Per creare uno snapshot, connettersi tramite SSH al nodo head del cluster HBase in HDInsight e avviare la shell `hbase`:
 
-    hbase shell
+```console
+hbase shell
+```
 
 All'interno della shell hbase usare il comando snapshot con i nomi della tabella e dello snapshot:
 
-    snapshot '<tableName>', '<snapshotName>'
+```console
+snapshot '<tableName>', '<snapshotName>'
+```
 
 Per ripristinare uno snapshot in base al nome nella shell `hbase`, disabilitare prima di tutto la tabella, quindi ripristinare lo snapshot e riabilitare la tabella:
 
-    disable '<tableName>'
-    restore_snapshot '<snapshotName>'
-    enable '<tableName>'
+```console
+disable '<tableName>'
+restore_snapshot '<snapshotName>'
+enable '<tableName>'
+```
 
 Per ripristinare uno snapshot in una nuova tabella, usare clone_snapshot:
 
-    clone_snapshot '<snapshotName>', '<newTableName>'
+```console
+clone_snapshot '<snapshotName>', '<newTableName>'
+```
 
 Per esportare uno snapshot in HDFS per consentirne l'uso da parte di un altro cluster, creare prima di tutto lo snapshot come descritto in precedenza e quindi usare l'utilità ExportSnapshot. Eseguire questa utilità dalla sessione SSH nel nodo head, non all'interno della shell `hbase`:
 
-     hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -copy-to <hdfsHBaseLocation>
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -copy-to <hdfsHBaseLocation>
+```
 
 `<hdfsHBaseLocation>` può essere qualsiasi posizione di archiviazione accessibile dal cluster di origine e deve puntare alla cartella hbase usata dal cluster di destinazione. Se, ad esempio, si ha un account di archiviazione di Azure secondario collegato al cluster di origine e tale account consente l'accesso al contenitore usato dall'archivio predefinito del cluster di destinazione, è possibile usare questo comando:
 
-    hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
 
 Dopo l'esportazione dello snapshot, connettersi tramite SSH al nodo head del cluster di destinazione e ripristinare lo snapshot usando il comando restore_snapshot come descritto in precedenza.
 

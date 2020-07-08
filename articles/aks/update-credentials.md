@@ -5,12 +5,12 @@ description: Informazioni su come aggiornare o reimpostare l'entità servizio o 
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 914e043e2c0cf39c18480b5ca5e34332398806f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dcbd91063d4f36c4d78023b6548db0c968eda74
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84905375"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077695"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Aggiornare o ruotare le credenziali per il servizio Azure Kubernetes (AKS)
 
@@ -30,6 +30,16 @@ Quando si desidera aggiornare le credenziali per un cluster del servizio Azure K
 
 * aggiornare le credenziali per l'entità servizio esistente usata dal cluster o
 * creare un'entità servizio e aggiornare il cluster per usare le nuove credenziali.
+
+### <a name="check-the-expiration-date-of-your-service-principal"></a>Controllare la data di scadenza dell'entità servizio
+
+Per controllare la data di scadenza dell'entità servizio, usare il comando [AZ ad SP Credential list][az-ad-sp-credential-list] . Nell'esempio seguente viene ottenuto l'ID dell'entità servizio per il cluster denominato *myAKSCluster* nel gruppo di risorse *myResourceGroup* usando il comando [AZ AKS Show][az-aks-show] . L'ID entità servizio è impostato come variabile denominata *SP_ID* per l'uso con il comando [AZ ad SP Credential list][az-ad-sp-credential-list] .
+
+```azurecli
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+```
 
 ### <a name="reset-existing-service-principal-credential"></a>Reimposta le credenziali dell'entità servizio esistente
 
@@ -88,7 +98,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret $SP_SECRET
+    --client-secret "$SP_SECRET"
 ```
 
 Sono necessari alcuni istanti affinché le credenziali dell'entità servizio vengano aggiornate nel servizio Azure Kubernetes.
@@ -120,4 +130,5 @@ In questo articolo è stata aggiornata l'entità servizio per il cluster AKS e l
 [aad-integration]: azure-ad-integration.md
 [create-aad-app]: azure-ad-integration.md#create-the-server-application
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
