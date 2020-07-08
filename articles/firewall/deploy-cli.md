@@ -6,13 +6,13 @@ author: vhorne
 ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
-ms.topic: article
-ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 3087b01e849aaa4d1f3c2b6b4060cf202927f55f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73831973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602636"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuire e configurare il firewall di Azure con l'interfaccia della riga di comando
 
@@ -25,7 +25,7 @@ Il controllo dell'accesso alla rete in uscita è un componente importante di un 
 
 Il traffico di rete è sottoposto alle regole del firewall configurate quando si instrada il traffico di rete al firewall come gateway predefinito della subnet.
 
-Per questo articolo, si crea un VNet singolo semplificato con tre subnet per semplificare la distribuzione. Per le distribuzioni di produzione, è consigliabile usare un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . Il firewall si trova nel proprio VNet. I server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
+Per questo articolo, si crea un VNet singolo semplificato con tre subnet per semplificare la distribuzione. Per le distribuzioni di produzione è consigliabile un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), in cui il firewall si trova nella propria rete virtuale. I server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
 
 * **AzureFirewallSubnet**: in questa subnet si trova il firewall.
 * **Workload-SN**: in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
@@ -284,7 +284,7 @@ A questo punto testare il firewall per verificare che funzioni come previsto.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Le `www.google.com` richieste avranno esito positivo e `www.microsoft.com` le richieste avranno esito negativo. Ciò dimostra che le regole del firewall funzionano come previsto.
+   Le `www.google.com` richieste avranno esito positivo e le `www.microsoft.com` richieste avranno esito negativo. Ciò dimostra che le regole del firewall funzionano come previsto.
 
 A questo punto si è verificato che le regole del firewall funzionano:
 
@@ -302,4 +302,4 @@ az group delete \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)
+* [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)

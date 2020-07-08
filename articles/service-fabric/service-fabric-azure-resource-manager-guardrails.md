@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8d8d5ae677ea438de4baed7d6636c2087277427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602704"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric Guardrails 
 Quando si distribuisce un cluster di Service Fabric, vengono messi a posto Guardrails, che non riusciranno a eseguire una distribuzione Azure Resource Manager in caso di configurazione del cluster non valida. Nelle sezioni seguenti viene fornita una panoramica dei problemi comuni di configurazione del cluster e dei passaggi necessari per attenuare tali problemi. 
@@ -55,12 +55,12 @@ La sezione seguente contiene un esempio di una mancata corrispondenza di durabil
 }
 ```
 
-### <a name="error-messages"></a>messaggi di errore
+### <a name="error-messages"></a>Messaggi di errore
 * La mancata corrispondenza della durabilità del set di scalabilità di macchine virtuali non corrisponde al livello di durabilità del tipo di nodo Service Fabric corrente
 * La durabilità del set di scalabilità di macchine virtuali non corrisponde al livello di durabilità del tipo di nodo Service Fabric di destinazione
 * La durabilità del set di scalabilità di macchine virtuali corrisponde al livello di durabilità del Service Fabric corrente o al livello di durabilità del tipo di nodo Service Fabric di destinazione 
 
-### <a name="mitigation"></a>Misura di prevenzione
+### <a name="mitigation"></a>Strategia di riduzione del rischio
 Per correggere una mancata corrispondenza di durabilità, indicata da uno dei messaggi di errore seguenti:
 1. Aggiornare il livello di durabilità nella sezione estensione del set di scalabilità di macchine virtuali o tipo di nodo Service Fabric del modello di Azure Resource Manager per assicurarsi che i valori corrispondano.
 2. Ridistribuire il modello di Azure Resource Manager con i valori aggiornati.
@@ -68,14 +68,14 @@ Per correggere una mancata corrispondenza di durabilità, indicata da uno dei me
 
 ## <a name="seed-node-deletion"></a>Eliminazione del nodo di inizializzazione 
 ### <a name="overview"></a>Panoramica
-Un cluster Service Fabric dispone di una proprietà del [livello di affidabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) che consente di determinare il numero di repliche dei servizi di sistema in esecuzione sul tipo di nodo primario del cluster. Il numero di repliche necessarie determinerà il numero minimo di nodi che devono essere mantenuti nel tipo di nodo primario del cluster. Se il numero di nodi nel tipo di nodo primario scende al di sotto del valore minimo necessario per il livello di affidabilità, il cluster diventerà instabile.  
+Un cluster Service Fabric dispone di una proprietà del [livello di affidabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) che consente di determinare il numero di repliche dei servizi di sistema in esecuzione sul tipo di nodo primario del cluster. Il numero di repliche necessarie determinerà il numero minimo di nodi che devono essere mantenuti nel tipo di nodo primario del cluster. Se il numero di nodi nel tipo di nodo primario scende al di sotto del valore minimo necessario per il livello di affidabilità, il cluster diventerà instabile.  
 
-### <a name="error-messages"></a>messaggi di errore 
+### <a name="error-messages"></a>Messaggi di errore 
 L'operazione di rimozione del nodo di inizializzazione è stata rilevata e verrà rifiutata. 
-* Questa operazione comporterebbe la {0} permanenza solo dei nodi di inizializzazione potenziali nel {1} cluster, mentre sono necessari come minimo.
-* La {0} rimozione dei nodi di {1} inizializzazione da comporterebbe il rallentamento del cluster a causa della perdita del quorum del nodo di inizializzazione. Il numero massimo di nodi di inizializzazione che è possibile rimuovere alla {2}volta è.
+* Questa operazione comporterebbe {0} la permanenza solo dei nodi di inizializzazione potenziali nel cluster, mentre {1} sono necessari come minimo.
+* La rimozione dei {0} nodi di inizializzazione da {1} comporterebbe il rallentamento del cluster a causa della perdita del quorum del nodo di inizializzazione. Il numero massimo di nodi di inizializzazione che è possibile rimuovere alla volta è {2} .
  
-### <a name="mitigation"></a>Misura di prevenzione 
+### <a name="mitigation"></a>Strategia di riduzione del rischio 
 Verificare che il tipo di nodo primario disponga di macchine virtuali sufficienti per l'affidabilità specificata nel cluster. Non sarà possibile rimuovere una macchina virtuale se il set di scalabilità di macchine virtuali sarà inferiore al numero minimo di nodi per il livello di affidabilità specificato.
 * Se il livello di affidabilità è specificato correttamente, assicurarsi di disporre di un numero sufficiente di nodi nel tipo di nodo primario secondo le esigenze per il livello di affidabilità. 
 * Se il livello di affidabilità non è corretto, avviare una modifica nella risorsa Service Fabric per abbassare il livello di affidabilità prima di avviare qualsiasi operazione del set di scalabilità di macchine virtuali e attenderne il completamento.

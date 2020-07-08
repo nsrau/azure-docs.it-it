@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: ddd34295bfe64fdd336d8b237482b45f02e30201
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602585"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
@@ -74,11 +74,17 @@ Ad esempio, se le reti virtuali interne VNet1 e VNet2 devono connettersi alle ar
 
 Per iniziare, creare una risorsa ambito collegamento privato di Monitoraggio di Azure.
 
-1. Andare a **Crea una risorsa** nel portale di Azure e cercare **Ambito collegamento privato di Monitoraggio di Azure**. 
-2. Fare clic su **Create** (Crea). 
-3. Selezionare un gruppo di sottoscrizioni e risorse. 
-4. Assegnare un nome alla risorsa AMPLS. È preferibile usare un nome che indichi chiaramente lo scopo e il limite di sicurezza per cui verrà usato l'ambito, in modo che qualcuno non interrompa accidentalmente i limiti di sicurezza della rete. Ad esempio, "AppServerProdTelem". 
+1. Andare a **Crea una risorsa** nel portale di Azure e cercare **Ambito collegamento privato di Monitoraggio di Azure**.
+
+   ![Trova ambito collegamento privato di monitoraggio di Azure](./media/private-link-security/ampls-find-1c.png)
+
+2. Fare clic su **Create** (Crea).
+3. Selezionare un gruppo di sottoscrizioni e risorse.
+4. Assegnare un nome alla risorsa AMPLS. È preferibile usare un nome che indichi chiaramente lo scopo e il limite di sicurezza per cui verrà usato l'ambito, in modo che qualcuno non interrompa accidentalmente i limiti di sicurezza della rete. Ad esempio, "AppServerProdTelem".
 5. Fare clic su **Rivedi e crea**. 
+
+   ![Creare un ambito di collegamento privato di monitoraggio di Azure](./media/private-link-security/ampls-create-1d.png)
+
 6. Superare la convalida, quindi fare clic su **Crea**.
 
 ## <a name="connect-azure-monitor-resources"></a>Connettere le risorse di Monitoraggio di Azure
@@ -117,7 +123,7 @@ Ora che sono disponibili delle risorse connesse alla risorsa AMPLS, creare un en
 
    a.    Scegliere la **rete virtuale** e la **subnet** da connettere alle risorse di Monitoraggio di Azure. 
  
-   b.    Scegliere **Sì** per **Integra con la zona DNS privato** e consentire la creazione automatica di una nuova zona DNS privato. 
+   b.    Scegliere **Sì** per **Integra con la zona DNS privato** e consentire la creazione automatica di una nuova zona DNS privato. Le zone DNS effettive potrebbero essere diverse da quelle illustrate nella schermata seguente. 
  
    c.    Fare clic su **Rivedi e crea**.
  
@@ -162,9 +168,8 @@ Questo tipo di limitazione dell'accesso si applica solo ai dati nella risorsa Ap
 
 > [!NOTE]
 > Per proteggere in modo completo Application Insights basato sull'area di lavoro, è necessario bloccare l'accesso alla risorsa Application Insights e all'area di lavoro Log Analytics sottostante.
-
-> [!NOTE]
-> La diagnostica a livello di codice (profiler/debugger) attualmente non supporta il collegamento privato.
+>
+> Per la diagnostica a livello di codice (Profiler/Debugger) è necessario fornire un proprio account di archiviazione per il supporto del collegamento privato. Ecco la [documentazione](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) per informazioni su come eseguire questa operazione.
 
 ## <a name="use-apis-and-command-line"></a>Usare le API e la riga di comando
 
@@ -174,7 +179,7 @@ Per creare e gestire ambiti collegamento privato, usare [az monitor private-link
 
 Per gestire l'accesso alla rete, usare i flag `[--ingestion-access {Disabled, Enabled}]` e `[--query-access {Disabled, Enabled}]` in [Aree di lavoro Log Analytics](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) o [Componenti Application Insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
-## <a name="collect-custom-logs-over-private-link"></a>Raccogliere log personalizzati sul collegamento privato
+## <a name="collect-custom-logs-over-private-link"></a>Raccogli log personalizzati sul collegamento privato
 
 Gli account di archiviazione vengono usati nel processo di inserimento dei log personalizzati. Per impostazione predefinita, vengono usati gli account di archiviazione gestiti dal servizio. Tuttavia, per inserire i log personalizzati nei collegamenti privati, è necessario usare gli account di archiviazione personali e associarli alle aree di lavoro Log Analytics. Per ulteriori informazioni su come configurare tali account, utilizzare la [riga di comando](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
@@ -188,7 +193,7 @@ Le versioni più recenti degli agenti Windows e Linux devono essere usate nelle 
 
 **Agente Windows di Log Analytics**
 
-Usare la versione dell'agente di Log Analytics 18.20.18038.0 o successiva.
+Usare l'agente di Log Analytics versione 10.20.18038.0 o successiva.
 
 **Agente Linux di Log Analytics**
 
@@ -201,7 +206,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per usare le esperienze del portale di Monitoraggio di Azure, ad esempio Application Insights e Log Analytics, è necessario consentire l'accesso alle estensioni del portale di Azure e di Monitoraggio di Azure nelle reti private. Aggiungere le [tag del servizio](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty e **AzureFrontdoor.Frontend** al firewall.
+Per usare le esperienze del portale di Monitoraggio di Azure, ad esempio Application Insights e Log Analytics, è necessario consentire l'accesso alle estensioni del portale di Azure e di Monitoraggio di Azure nelle reti private. Aggiungere i [tag del servizio](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**e **AzureFrontDoor. frontend** al firewall.
 
 ### <a name="programmatic-access"></a>Accesso a livello di codice
 
@@ -220,7 +225,14 @@ Per consentire all'agente di Log Analytics di scaricare i pacchetti di soluzioni
 
 | Ambiente cloud | Risorsa agente | Porte | Direction |
 |:--|:--|:--|:--|
-|Azure Public     | scadvisor.blob.core.windows.net         | 443 | In uscita
+|Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | In uscita
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  In uscita
 |21Vianet per Azure Cina      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | In uscita
 
+### <a name="browser-dns-settings"></a>Impostazioni DNS del browser
+
+Se ci si connette alle risorse di monitoraggio di Azure tramite un collegamento privato, il traffico verso queste risorse deve passare attraverso l'endpoint privato configurato nella rete. Per abilitare l'endpoint privato, aggiornare le impostazioni DNS come illustrato in [connettersi a un endpoint privato](#connect-to-a-private-endpoint). Alcuni browser usano le proprie impostazioni DNS anziché quelle impostate. Il browser potrebbe tentare di connettersi agli endpoint pubblici di monitoraggio di Azure e ignorare completamente il collegamento privato. Verificare che le impostazioni del browser non sostituiscano o memorizzano nella cache le impostazioni DNS precedenti. 
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Informazioni sull' [archiviazione privata](private-storage.md)
