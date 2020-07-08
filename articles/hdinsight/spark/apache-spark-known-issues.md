@@ -8,12 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: eec5de7521c98e8147a8439844fd2a2a6b1bd2bc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73494534"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037495"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemi noti del cluster Apache Spark in HDInsight
 
@@ -30,13 +29,17 @@ Seguire questa procedura per risolvere il problema:
 
 2. Eseguire il comando seguente per trovare gli ID applicazione dei processi interattivi avviati tramite Livy.
 
-        yarn application –list
+   ```bash
+   yarn application –list
+   ```
 
     I nomi di processo predefiniti sono Livy se i processi sono stati avviati con una sessione interattiva di Livy senza nomi espliciti specificati. Per la sessione di Livio avviata da [Jupyter notebook](https://jupyter.org/), il nome del processo inizia con `remotesparkmagics_*` .
 
 3. Eseguire il comando seguente per terminare questi processi.
 
-        yarn application –kill <Application ID>
+   ```bash
+   yarn application –kill <Application ID>
+   ```
 
 Vengono avviati nuovi processi.
 

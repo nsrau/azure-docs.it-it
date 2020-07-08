@@ -4,16 +4,15 @@ description: Informazioni su come creare processi di importazione nel portale di
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cbff2cbed37a4cff91116596f1c20dc3d170cae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268301"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513478"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usare il servizio Importazione/Esportazione di Azure per importare i dati in File di Azure
 
@@ -30,7 +29,7 @@ Prima di creare un processo di importazione per trasferire dati in File di Azure
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks).
 - Predisporre un sistema Windows con una [versione del sistema operativo supportata](storage-import-export-requirements.md#supported-operating-systems).
 - [Scaricare WAImportExport versione 2](https://aka.ms/waiev2) nel sistema Windows. Decomprimere la cartella predefinita `waimportexport`. Ad esempio: `C:\WaImportExport`.
-- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com`.  
+- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com` .  
     - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
     - Generare un numero di tracciabilità per il processo di esportazione.
     - Ogni processo deve avere un numero di tracciabilità separato. Più processi con lo stesso numero di tracciabilità non sono supportati.

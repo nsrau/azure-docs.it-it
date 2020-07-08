@@ -14,12 +14,11 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 70d53bf3d97f27caae7d3dee7cd03a4606d6761c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921757"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -173,7 +172,7 @@ gestisce le [richieste Customer Lockbox](https://docs.microsoft.com/office365/ad
 
 Gli utenti in questo ruolo possono gestire Desktop Analytics, il Servizio criteri e lo Strumento di personalizzazione di Office. Per Desktop Analytics, è inclusa la possibilità di visualizzare l'inventario degli asset, creare piani di distribuzione e visualizzare lo stato della distribuzione e dell'integrità. Per il Servizio criteri e lo Strumento di personalizzazione di Office, questo ruolo consente agli utenti di gestire i criteri di Office.
 
-### <a name="device-administrator"></a>[Amministratore di dispositivi](#device-administrators-permissions)
+### <a name="device-administrators"></a>[Amministratori dispositivo](#device-administrators-permissions)
 
 questo ruolo è disponibile per l'assegnazione solo come amministratore locale aggiuntivo in [Impostazioni dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gli utenti con questo ruolo diventano amministratori del computer locale in tutti i dispositivi Windows 10 aggiunti ad Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory.
 
@@ -209,7 +208,7 @@ gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Exchange O
 
 ### <a name="external-id-user-flow-administrator"></a>[ID esterno - Amministratore dei flussi utente](#external-id-user-flow-administrator-permissions)
 
-Gli utenti con questo ruolo possono creare e gestire flussi utente B2C (detti anche criteri "predefiniti") nel portale di Azure. Creando o modificando i flussi utente, questi utenti possono modificare il contenuto HTML/CSS/JavaScript dell'esperienza utente, modificare i requisiti MFA per ogni flusso utente, modificare le attestazioni nel token e modificare le impostazioni di sessione per tutti i criteri dell'organizzazione Azure AD. D'altra parte, questo ruolo non include la possibilità di esaminare i dati dell'utente o di apportare modifiche agli attributi inclusi nello schema dell'organizzazione. Anche le modifiche ai criteri di Identity Experience Framework (noti anche come criteri personalizzati) non rientrano nell'ambito di questo ruolo.
+Gli utenti con questo ruolo possono creare e gestire i flussi utente (detti anche criteri "predefiniti") nell'portale di Azure. Questi utenti possono personalizzare il contenuto HTML/CSS/JavaScript, modificare i requisiti dell'autenticazione a più fattori, selezionare attestazioni nel token, gestire i connettori API e configurare le impostazioni di sessione per tutti i flussi utente nell'organizzazione Azure AD. D'altra parte, questo ruolo non include la possibilità di esaminare i dati dell'utente o di apportare modifiche agli attributi inclusi nello schema dell'organizzazione. Anche le modifiche ai criteri del Framework dell'esperienza di identità (noti anche come criteri personalizzati) non rientrano nell'ambito di questo ruolo.
 
 ### <a name="external-id-user-flow-attribute-administrator"></a>[ID esterno - Amministratore degli attributi dei flussi utente](#external-id-user-flow-attribute-administrator-permissions)
 
@@ -224,7 +223,7 @@ Questo amministratore gestisce la federazione tra le organizzazioni Azure AD e i
 
 ### <a name="global-administrator--company-administrator"></a>[Amministratore globale/Amministratore società](#company-administrator-permissions)
 
-gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative in Azure Active Directory, nonché ai servizi che usano identità di Azure Active Directory come Centro sicurezza Microsoft 365, Centro conformità Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. La persona che effettua l'iscrizione per l'organizzazione Azure AD diventa amministratore globale. In una società possono essere presenti più amministratori globali. Gli amministratori globali possono reimpostare la password per qualsiasi utente e per tutti gli altri amministratori.
+gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative in Azure Active Directory, nonché ai servizi che usano identità di Azure Active Directory come Centro sicurezza Microsoft 365, Centro conformità Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. Inoltre, gli amministratori globali possono [elevare l'accesso](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure. Ciò consente agli amministratori globali di ottenere l'accesso completo a tutte le risorse di Azure usando il rispettivo tenant Azure AD. La persona che effettua l'iscrizione per l'organizzazione Azure AD diventa amministratore globale. In una società possono essere presenti più amministratori globali. Gli amministratori globali possono reimpostare la password per qualsiasi utente e per tutti gli altri amministratori.
 
 > [!NOTE]
 > Nell'API Microsoft Graph e in Azure AD PowerShell questo ruolo è identificato come "Amministratore società". È l'"amministratore globale" nel [portale di Azure](https://portal.azure.com).
@@ -238,6 +237,7 @@ Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni am
 > [!NOTE]
 > Il ruolo con autorizzazioni di lettura globali presenta al momento alcune limitazioni:
 >
+>- Interfaccia di [amministrazione di OneDrive](https://admin.onedrive.com/) : l'interfaccia di amministrazione di OneDrive non supporta il ruolo di lettore globale
 >- [Interfaccia di amministrazione di M365](https://admin.microsoft.com/Adminportal/Home#/homepage) - Il ruolo con autorizzazioni di lettura globali non è in grado di leggere le richieste di Customer Lockbox. Non è possibile trovare la scheda **Richieste di Customer Lockbox** in **Supporto** nel riquadro sinistro dell'interfaccia di amministrazione di M365.
 >- [Centro sicurezza e conformità Office](https://sip.protection.office.com/homepage) - Il ruolo con autorizzazioni di lettura globali non può leggere i log di controllo di Centro sicurezza e conformità, eseguire la ricerca di contenuto o visualizzare Secure Store.
 >- [Interfaccia di amministrazione di Teams](https://admin.teams.microsoft.com) - Il ruolo con autorizzazioni di lettura globali non può leggere **Teams Lifecycle**, **Teams Reporting & Call Analytics**, **Teams IP Phone Device Management** e **Teams App Catalog**.
@@ -388,7 +388,7 @@ Gli utenti con questo ruolo possono visualizzare i dati dei report sull'utilizzo
 
 ### <a name="search-administrator"></a>[Amministratore della ricerca](#search-administrator-permissions)
 
-Gli utenti con questo ruolo hanno accesso completo a tutte le funzionalità di gestione di Microsoft Search nell'interfaccia di amministrazione di Microsoft 365. Gli amministratori della ricerca possono delegare i ruoli Amministratori della ricerca ed Editor della ricerca agli utenti, nonché creare e gestire contenuto, ad esempio segnalibri, domande e risposte e posizioni. Questi utenti possono anche visualizzare il centro messaggi, monitorare l'integrità del servizio e creare richieste di servizio.
+Gli utenti con questo ruolo hanno accesso completo a tutte le funzionalità di gestione di Microsoft Search nell'interfaccia di amministrazione di Microsoft 365. Questi utenti possono anche visualizzare il centro messaggi, monitorare l'integrità del servizio e creare richieste di servizio.
 
 ### <a name="search-editor"></a>[Editor della ricerca](#search-editor-permissions)
 
@@ -403,7 +403,7 @@ In ingresso | Operazione consentita
 [Centro sicurezza Microsoft 365](https://protection.office.com) | Monitorare i criteri correlati alla sicurezza in tutti i servizi di Microsoft 365<br>Gestire gli avvisi e le minacce alla sicurezza<br>Visualizzazione di report
 Centro di Identity Protection | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Inoltre, eseguire tutte le operazioni di Identity Protection Center, tranne la reimpostazione delle password
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>**Non è consentito** gestire le assegnazioni di ruolo o le impostazioni di Azure AD
-[Centro sicurezza e conformità di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gestire i criteri di sicurezza<br>Visualizzare, analizzare e rispondere alle minacce alla sicurezza<br>Visualizzazione di report
+[Centro sicurezza e conformità di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gestire i criteri di sicurezza<br>Visualizzare, analizzare e rispondere alle minacce alla sicurezza<br>Visualizzare i report
 Azure Advanced Threat Protection | Monitorare e rispondere alle attività sospette dal punto di vista della sicurezza
 Windows Defender ATP ed EDR | Assegnare ruoli<br>Gestire i gruppi di computer<br>Configurare il rilevamento delle minacce agli endpoint e le funzionalità automatizzate di correzione<br>Visualizzare, analizzare e rispondere agli avvisi
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visualizzare le informazioni relative a utenti, dispositivi e applicazioni e i dati di registrazione e configurazione<br>Non è consentito apportare modifiche a Intune
@@ -434,7 +434,7 @@ gli utenti con questo ruolo hanno accesso globale di sola lettura alle funzional
 
 In ingresso | Operazione consentita
 --- | ---
-[Centro sicurezza Microsoft 365](https://protection.office.com) | Visualizzare i criteri correlati alla sicurezza in tutti i servizi di Microsoft 365<br>Visualizzare gli avvisi e le minacce alla sicurezza<br>Visualizzazione di report
+[Centro sicurezza Microsoft 365](https://protection.office.com) | Visualizzare i criteri correlati alla sicurezza in tutti i servizi di Microsoft 365<br>Visualizzare gli avvisi e le minacce alla sicurezza<br>Visualizzare i report
 Centro di Identity Protection | Leggere tutte le informazioni sulle impostazioni e sui report di sicurezza per le funzionalità di sicurezza<br><ul><li>Filtro posta indesiderata<li>Crittografia<li>Prevenzione della perdita dei dati<li>Antimalware<li>Protezione avanzata dalle minacce<li>Anti-phishing<li>Regole del flusso di posta
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Ha accesso in sola lettura a tutte le informazioni presentate in Azure AD Privileged Identity Management: Criteri e report per le assegnazioni di ruolo e le verifiche della sicurezza di Azure AD.<br>**Non è possibile** iscriversi per Azure AD Privileged Identity Management o apportare modifiche. Nel portale di Privileged Identity Management o tramite PowerShell, un utente con questo ruolo può attivare altri ruoli, ad esempio Amministratore globale o Amministratore di ruoli con privilegi, se è idoneo per questi ruoli.
 [Centro sicurezza e conformità di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Visualizzare i criteri di sicurezza<br>Visualizzare e analizzare le minacce alla sicurezza<br>Visualizzazione di report
@@ -457,6 +457,9 @@ gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsof
 
 > [!NOTE]
 > Nell'API Microsoft Graph e in Azure AD PowerShell questo ruolo è identificato come "Amministratore del servizio SharePoint". È l'"Amministratore di SharePoint" nel [portale di Azure](https://portal.azure.com).
+
+> [!NOTE]
+> Questo ruolo concede anche le autorizzazioni con ambito per l'API Microsoft Graph per Microsoft Intune, consentendo la gestione e la configurazione dei criteri correlati alle risorse SharePoint e OneDrive.
 
 ### <a name="skype-for-business--lync-administrator"></a>[Amministratore di Skype for Business o Lync](#lync-service-administrator-permissions)
 
@@ -1023,7 +1026,7 @@ Può gestire tutti gli aspetti del prodotto Exchange.
 | microsoft.directory/groups/unified/members/update | Aggiornare l'appartenenza ai gruppi di Office 365. |
 | microsoft.directory/groups/unified/owners/update | Aggiornare la proprietà dei gruppi di Office 365. |
 | microsoft.office365.exchange/allEntities/allTasks | Gestire tutti gli aspetti di Exchange Online. |
-| microsoft.office365.network/performance/allProperties/read | Leggere le pagine sulle prestazioni di rete nell'Interfaccia di amministrazione di M365. |
+| microsoft.office365.network/performance/allProperties/read | Leggere le pagine sulle prestazioni di rete nell'interfaccia di amministrazione di M365. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
@@ -1345,8 +1348,7 @@ Può gestire gli acquisti commerciali per una società, un reparto o un team.
 | --- | --- |
 | microsoft.commerce.billing/partners/read | Leggere la proprietà partner della fatturazione O365. |
 | microsoft.commerce.volumeLicenseServiceCenter/allEntities/allTasks | Gestire tutti gli aspetti di Volume Licensing Service Center. |
-| microsoft.directory/organization/basic/update | Aggiornare le proprietà di base sull'organizzazione in Azure Active Directory. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Creare e visualizzare i ticket di supporto di Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 
 
@@ -1939,4 +1941,4 @@ Aggiunta di dispositivi all'area di lavoro | Deprecato | [Documentazione dei ruo
 
 * Per altre informazioni su come assegnare un utente come amministratore di una sottoscrizione di Azure, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
 * Per altre informazioni sul controllo dell'accesso alle risorse in Microsoft Azure, vedere le [informazioni sui diversi ruoli](../../role-based-access-control/rbac-and-directory-admin-roles.md).
-* Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* Per informazioni dettagliate sulla relazione tra le sottoscrizioni e un tenant di Azure AD oppure per istruzioni su come associare o aggiungere una sottoscrizione, vedere [associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

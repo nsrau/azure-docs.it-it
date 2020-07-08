@@ -2,41 +2,46 @@
 title: Configurare l'analisi delle dipendenze basate su agente in Azure Migrate server Assessment
 description: Questo articolo descrive come configurare l'analisi delle dipendenze basate su agente in Azure Migrate server assessment.
 ms.topic: how-to
-ms.date: 2/24/2020
-ms.openlocfilehash: 47fd7e7c864e82400288bb67da952a18b648849e
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.date: 6/09/2020
+ms.openlocfilehash: 1271a45843a3775d4e1444321faad194edad2f23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770578"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurare la visualizzazione delle dipendenze
 
-Questo articolo descrive come configurare l'analisi delle dipendenze basate su agente in Azure Migrate: server assessment. L' [analisi delle dipendenze](concepts-dependency-visualization.md) consente di identificare e comprendere le dipendenze tra i computer di cui si vuole valutare e migrare in Azure.
+Questo articolo descrive come configurare l'analisi delle dipendenze senza agente in Azure Migrate: server assessment. L' [analisi delle dipendenze](concepts-dependency-visualization.md) consente di identificare e comprendere le dipendenze tra i computer di cui si vuole valutare e migrare in Azure.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-- Informazioni [sull'analisi delle](concepts-dependency-visualization.md#agent-based-analysis) dipendenze basate su agenti.
-- Esaminare i prerequisiti e i requisiti di supporto per la configurazione della visualizzazione di dipendenza basata su agenti per [macchine virtuali VMware](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [server fisici](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)e [macchine virtuali Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
-- Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
-- Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server assessment.
-- Assicurarsi di aver configurato un' [appliance Azure migrate](migrate-appliance.md) per individuare i computer locali. Informazioni su come configurare un'appliance per [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md)o [server fisici](how-to-set-up-appliance-physical.md). L'appliance individua i computer locali e invia i metadati, i dati sulle prestazioni a Azure Migrate: server assessment.
+- Esaminare i requisiti di supporto e distribuzione per l'analisi delle dipendenze basate su agente per:
+    - [VM VMware](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
+    - [Server fisici](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
+    - [Macchine virtuali Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+- Assicurarsi di:
+    - Avere un progetto Azure Migrate. In caso contrario, [crearne](how-to-add-tool-first-time.md) uno ora.
+    - Verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server Assessment al progetto.
+    - Configurare un' [appliance Azure migrate](migrate-appliance.md) per individuare i computer locali. L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. Configurare un'appliance per:
+        - [VMware](how-to-set-up-appliance-vmware.md) Macchine virtuali.
+        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) Macchine virtuali.
+        - [Server fisici](how-to-set-up-appliance-physical.md).
 - Per usare la visualizzazione delle dipendenze, è necessario associare un' [area di lavoro log Analytics](../azure-monitor/platform/manage-access.md) a un progetto Azure migrate:
     - È possibile aggiungere un'area di lavoro solo dopo aver configurato il dispositivo Azure Migrate e individuando i computer nel progetto Azure Migrate.
     - Assicurarsi di disporre di un'area di lavoro nella sottoscrizione che contiene il progetto Azure Migrate.
-    - L'area di lavoro deve trovarsi nelle aree Stati Uniti orientali, Asia sudorientale o Europa occidentale. Le aree di lavoro in altre aree non possono essere associate a un progetto.
-    - L'area di lavoro deve trovarsi in un'area in cui [mapping dei servizi è supportato](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+    - L'area di lavoro deve trovarsi nelle aree Stati Uniti orientali, Asia sud-orientale o Europa occidentale. Non è possibile associare a un progetto aree di lavoro di altre regioni.
+    - L'area di lavoro deve trovarsi in una regione in cui la soluzione [Mapping dei servizi è supportata](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
     - È possibile associare un'area di lavoro Log Analytics nuova o esistente a un progetto Azure Migrate.
-    - L'area di lavoro viene collegata la prima volta che si configura la visualizzazione delle dipendenze per un computer. Non è possibile modificare l'area di lavoro per un progetto di Azure Migrate dopo che è stata aggiunta.
-    - In Log Analytics, l'area di lavoro associata a Azure Migrate è contrassegnata con la chiave del progetto di migrazione e il nome del progetto.
+    - L'area di lavoro viene collegata la prima volta che si configura la visualizzazione delle dipendenze per un computer. Non è possibile modificare l'area di lavoro per un progetto Azure Migrate dopo che è stata aggiunta.
+    - In Log Analytics, l'area di lavoro associata ad Azure Migrate è contrassegnata con la chiave di migrazione progetto e con il nome del progetto.
 
 ## <a name="associate-a-workspace"></a>Associare un'area di lavoro
 
-1. Dopo aver individuato i computer per la valutazione, in **Server** > **Azure migrate: server Assessment**, fare clic su **Panoramica**.  
+1. Dopo aver individuato i computer per la valutazione, in **Server**  >  **Azure migrate: server Assessment**, fare clic su **Panoramica**.  
 2. In **Azure migrate: server Assessment**fare clic su **Essentials**.
 3. Nell' **area di lavoro di OMS**fare clic su **richiede la configurazione**.
 
-     ![Configurare Log Analytics area di lavoro](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
+     ![Configurare un'area di lavoro Log Analytics](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
 
 4. In **Configura area di lavoro OMS**specificare se si desidera creare una nuova area di lavoro o utilizzarne una esistente.
     - È possibile selezionare un'area di lavoro esistente da tutte le aree di lavoro nella sottoscrizione migrate Project.
@@ -70,7 +75,7 @@ Installare MMA in ogni computer Windows o Linux che si vuole analizzare.
 Per installare l'agente in un computer Windows:
 
 1. Fare doppio clic sull'agente scaricato.
-2. Nella pagina introduttiva**** fare clic su **Avanti**. Nella pagina **condizioni di licenza** **fare clic su Accetto per** accettare la licenza.
+2. Nella pagina di **benvenuto** fare clic su **Avanti**. Nella pagina **condizioni di licenza** **fare clic su Accetto per** accettare la licenza.
 3. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
 5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.

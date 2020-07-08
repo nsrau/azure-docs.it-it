@@ -3,16 +3,15 @@ title: Trovare ed eliminare dischi gestiti e non gestiti di Azure scollegati
 description: Come trovare ed eliminare dischi gestiti e non gestiti di Azure (dischi rigidi virtuali/BLOB di pagine) scollegati tramite l'interfaccia della riga di comando di Azure.
 author: roygara
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b4a46e79b3bb2feabe7af739086b8e0166c4ac55
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.openlocfilehash: 87fe277bbd2fa618d43ce3274c1d2c05a5d7b396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296290"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660161"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Trovare ed eliminare dischi gestiti e non gestiti di Azure che non sono collegati tramite l'interfaccia della riga di comando di Azure
 Quando si elimina una macchina virtuale (VM) in Azure, per impostazione predefinita, nessun disco collegato alla macchina virtuale viene eliminato. Questa funzionalità consente di prevenire la perdita di dati a causa dell'eliminazione accidentale di macchine virtuali. Dopo l'eliminazione di una macchina virtuale, si continuerà a pagare per i dischi scollegati. Questo articolo illustra come trovare ed eliminare tutti i dischi scollegati e ridurre i costi non necessari. 

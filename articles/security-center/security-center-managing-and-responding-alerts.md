@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 8e44ce594375deeac47f037515d96c57d15c8359
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398396"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769778"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -58,21 +57,26 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 
 1. Dopo aver esaminato le informazioni, fare clic su una risorsa che è stata attaccata.
 
+    Il riquadro sinistro della pagina avviso di sicurezza Mostra informazioni di alto livello relative all'avviso di sicurezza: titolo, gravità, stato, tempo attività, descrizione dell'attività sospetta e la risorsa interessata. Insieme alla risorsa interessata sono i tag di Azure rilevanti per la risorsa. Usare questi per dedurre il contesto aziendale della risorsa quando si esamina l'avviso.
+
+    Il riquadro destro include la scheda **Dettagli avviso** che contiene ulteriori dettagli dell'avviso che consentono di esaminare il problema: indirizzi IP, file, processi e altro ancora.
+     
     ![Suggerimenti sulle operazioni da eseguire per gli avvisi di sicurezza](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    La sezione **informazioni generali fornisce informazioni** dettagliate su ciò che ha attivato l'avviso di sicurezza. Vengono visualizzate informazioni quali la risorsa di destinazione, l'indirizzo IP di origine (se applicabile), se l'avviso è ancora attivo e consigli su come correggere il problema.  
+    Inoltre, nel riquadro di destra è presente la scheda **azione** . utilizzare questa scheda per eseguire ulteriori azioni relative all'avviso di sicurezza. Azioni come:
+    - *Attenuazione della minaccia* : fornisce la procedura di correzione manuale per questo avviso di sicurezza
+    - *Impedisci attacchi futuri* : fornisce consigli sulla sicurezza che consentono di ridurre la superficie di attacco, aumentare il comportamento di sicurezza e prevenire quindi attacchi futuri
+    - *Attiva risposta automatica* : consente di attivare un'app per la logica come risposta a questo avviso di sicurezza
+    - Non *visualizzare avvisi simili* : consente di disattivare gli avvisi futuri con caratteristiche simili se l'avviso non è pertinente per l'organizzazione
 
-    > [!NOTE]
-    >In alcuni casi, l'indirizzo IP di origine non è disponibile, alcuni log eventi di sicurezza di Windows non includono l'indirizzo IP.
+    ![Scheda azione](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
-1. La procedura di correzione consigliata dal Centro sicurezza varia in base all'avviso di sicurezza. Seguirli per ogni avviso. 
 
-    In alcuni casi, per mitigare un avviso di sicurezza, potrebbe essere necessario usare altri controlli o servizi di Azure per implementare la correzione consigliata. 
+
 
 ## <a name="see-also"></a>Vedere anche
 
-In questo documento si è appreso come configurare i criteri di sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
+In questo documento si è appreso come visualizzare gli avvisi di sicurezza. Vedere le pagine seguenti per il materiale correlato:
 
-- [Il modulo Microsoft Learn su come usare le funzionalità di avviso del Centro sicurezza di Azure per controllare e rispondere alle minacce](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
-* [Avvisi di sicurezza nel centro sicurezza di Azure](security-center-alerts-overview.md).
-* [Gestione degli eventi imprevisti della sicurezza](security-center-incident.md)
+- [Configurare le regole di eliminazione degli avvisi](alerts-suppression-rules.md)
+- [Automatizzare le risposte agli avvisi e alle raccomandazioni con l'automazione dei flussi di lavoro](workflow-automation.md)

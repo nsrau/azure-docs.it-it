@@ -3,15 +3,14 @@ title: Modelli di Resource Manager per l'API di Azure Cosmos DB per MongoDB
 description: Usare i modelli di Azure Resource Manager per creare e configurare l'API di Azure Cosmos DB per MongoDB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 1fe2c96e3c469e41e12d64f27a6a3b3d16a1174d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: b0a6bf3dd6585b600ff7283f6fd47cb87b68feda
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684784"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028171"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Gestire le risorse dell'API di Azure Cosmos DB per MongoDB con modelli di Azure Resource Manager
 
@@ -33,7 +32,7 @@ Per creare una delle risorse di Azure Cosmos DB seguenti, copiare il modello di 
 
 Questo modello creerà un account Azure Cosmos per l'API MongoDB (3.2 o 3.6) con due raccolte che condividono la velocità effettiva a scalabilità automatica a livello di database. Questo modello è disponibile anche per la distribuzione con un clic dalla raccolta Modelli di avvio rapido di Azure.
 
-[![Distribuzione in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb-autoscale%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuzione in Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-mongodb-autoscale/azuredeploy.json":::
 
@@ -43,7 +42,7 @@ Questo modello creerà un account Azure Cosmos per l'API MongoDB (3.2 o 3.6) con
 
 Questo modello creerà un account Azure Cosmos per l'API MongoDB (3.2 o 3.6) con due raccolte che condividono una velocità effettiva standard (manuale) di 400 RU/s a livello di database. Questo modello è disponibile anche per la distribuzione con un clic dalla raccolta Modelli di avvio rapido di Azure.
 
-[![Distribuzione in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuzione in Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json":::
 

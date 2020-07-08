@@ -11,13 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/10/2020
+ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414134"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770959"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Risolvere i problemi delle prestazioni dell'attività di copia
 
@@ -40,6 +39,7 @@ Come riferimento, attualmente i suggerimenti per l'ottimizzazione delle prestazi
 | Specifico dell'archivio dati   | Caricamento dei dati in **Azure Synpase Analytics (noto in precedenza come SQL DW)**: è consigliabile usare l'istruzione di base o di copia se non viene usata. |
 | &nbsp;                | Copia dei dati da/in un **database SQL di Azure**: quando DTU è in un utilizzo elevato, Suggerisci l'aggiornamento a un livello superiore. |
 | &nbsp;                | Copia dei dati da/in **Azure Cosmos DB**: quando ur è sottoposto a un utilizzo elevato, suggerire l'aggiornamento a ur più grandi. |
+|                       | Copia dei dati dalla tabella SAP: quando si **copiano**grandi quantità di dati, suggerire di usare l'opzione di partizione del connettore SAP per abilitare il carico parallelo e aumentare il numero massimo di partizioni. |
 | &nbsp;                | Inserimento di dati da **Amazon spostamento**: suggerire l'uso di Unload se non viene usato. |
 | Limitazione dell'archivio dati | Se durante la copia un numero di operazioni di lettura/scrittura viene limitato dall'archivio dati, è consigliabile controllare e aumentare la frequenza di richieste consentite per l'archivio dati o ridurre il carico di lavoro simultaneo. |
 | Runtime di integrazione  | Se si usa un **Integration Runtime self-hosted (IR)** e l'attività di copia resta in attesa lungo nella coda fino a quando il runtime di integrazione non dispone di risorse per l'esecuzione, suggerire la scalabilità orizzontale o verticale del runtime di integrazione. |
@@ -56,7 +56,7 @@ I dettagli e le durate di esecuzione nella parte inferiore della visualizzazione
 | --------------- | ------------------------------------------------------------ |
 | Coda           | Tempo trascorso fino a quando l'attività di copia non inizia effettivamente sul runtime di integrazione. |
 | Script di pre-copia | Tempo trascorso tra l'attività di copia a partire da IR e l'attività di copia che termina l'esecuzione dello script di pre-copia nell'archivio dati sink. Applicare quando si configura lo script di pre-copia per i sink di database, ad esempio durante la scrittura di dati nel database SQL di Azure, eseguire la pulizia prima di copiare nuovi dati. |
-| Trasferimento        | Il tempo trascorso tra la fine del passaggio precedente e l'IR che trasferisce tutti i dati dall'origine al sink. I passaggi SubStep in "Transfer" vengono eseguiti in parallelo.<br><br>- **Tempo per il primo byte:** Tempo trascorso tra la fine del passaggio precedente e l'ora in cui il runtime di integrazione riceve il primo byte dall'archivio dati di origine. Si applica alle origini non basate su file.<br>- **Origine elenco:** Quantità di tempo impiegato per l'enumerazione di file di origine o partizioni di dati. Quest'ultimo si applica quando si configurano le opzioni di partizione per le origini del database, ad esempio quando si copiano dati da database come Oracle/SAP HANA/Teradata/Netezza e così via.<br/>-**Lettura dall'origine:** Quantità di tempo impiegato per il recupero dei dati dall'archivio dati di origine.<br/>- **Scrittura nel sink:** Quantità di tempo impiegato per la scrittura dei dati nell'archivio dati sink. |
+| Trasferimento        | Il tempo trascorso tra la fine del passaggio precedente e l'IR che trasferisce tutti i dati dall'origine al sink. <br/>Si noti che i passaggi secondari in transfer vengono eseguiti in parallelo e alcune operazioni non vengono visualizzate, ad esempio, il formato di file di analisi o di generazione.<br><br/>- **Tempo per il primo byte:** Tempo trascorso tra la fine del passaggio precedente e l'ora in cui il runtime di integrazione riceve il primo byte dall'archivio dati di origine. Si applica alle origini non basate su file.<br>- **Origine elenco:** Quantità di tempo impiegato per l'enumerazione di file di origine o partizioni di dati. Quest'ultimo si applica quando si configurano le opzioni di partizione per le origini del database, ad esempio quando si copiano dati da database come Oracle/SAP HANA/Teradata/Netezza e così via.<br/>-**Lettura dall'origine:** Quantità di tempo impiegato per il recupero dei dati dall'archivio dati di origine.<br/>- **Scrittura nel sink:** Quantità di tempo impiegato per la scrittura dei dati nell'archivio dati sink. Si noti che alcuni connettori attualmente non hanno questa metrica, tra cui Azure ricerca cognitiva, Azure Esplora dati, archiviazione tabelle di Azure, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Salesforce Service Cloud. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Risolvere i problemi relativi all'attività di copia in Azure IR
 
@@ -69,8 +69,7 @@ Quando le prestazioni dell'attività di copia non soddisfano le aspettative, per
 - **"Trasferimento-tempi per il primo byte" ha avuto una durata di lavoro prolungata**: significa che la query di origine impiega molto tempo per restituire i dati. Controllare e ottimizzare la query o il server. Se è necessaria ulteriore assistenza, contattare il team dell'archivio dati.
 
 - **"Trasferimento-listato di origine" ha sperimentato una lunga durata del lavoro**: significa che l'enumerazione dei file di origine o delle partizioni di dati del database di origine è lenta.
-
-  - Quando si copiano dati da un'origine basata su file, se si usa il **filtro con caratteri jolly** per`wildcardFolderPath` il `wildcardFileName`percorso o il nome di file (o) oppure`modifiedDatetimeStart` si`modifiedDatetimeEnd`usa il filtro dell'ora dell' **Ultima modifica del file** (o), si noti che tale filtro comporterebbe l'inserimento dell'attività di copia nell'elenco di tutti i file nella cartella specificata sul lato client, quindi applica Questa enumerazione di file potrebbe diventare il collo di bottiglia soprattutto quando solo un piccolo set di file soddisfa la regola di filtro.
+  - Quando si copiano dati da un'origine basata su file, se si usa il **filtro con caratteri jolly** per il percorso o il nome di file ( `wildcardFolderPath` o `wildcardFileName` ) oppure si usa il **filtro dell'ora dell'Ultima modifica del file** ( `modifiedDatetimeStart` o `modifiedDatetimeEnd` ), si noti che tale filtro comporterebbe l'inserimento dell'attività di copia nell'elenco di tutti i file nella cartella specificata sul lato client, quindi applica Questa enumerazione di file potrebbe diventare il collo di bottiglia soprattutto quando solo un piccolo set di file soddisfa la regola di filtro.
 
     - Controllare se è possibile [copiare i file in base al percorso o al nome del file partizionato DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). In questo modo non viene imposto alcun onere sul lato di origine dell'elenco.
 
@@ -124,7 +123,7 @@ Quando le prestazioni di copia non soddisfano le aspettative, per risolvere i pr
 
   - Controllare se il computer del runtime di integrazione self-hosted presenta una bassa latenza per la connessione all'archivio dati di origine. Se l'origine è in Azure, è possibile usare [questo strumento](http://www.azurespeed.com/Azure/Latency) per controllare la latenza dal computer IR self-hosted all'area di Azure, minore sarà il livello di prestazioni migliore.
 
-  - Quando si copiano dati da un'origine basata su file, se si usa il **filtro con caratteri jolly** per`wildcardFolderPath` il `wildcardFileName`percorso o il nome di file (o) oppure`modifiedDatetimeStart` si`modifiedDatetimeEnd`usa il filtro dell'ora dell' **Ultima modifica del file** (o), si noti che tale filtro comporterebbe l'inserimento dell'attività di copia nell'elenco di tutti i file nella cartella specificata sul lato client, quindi applica Questa enumerazione di file potrebbe diventare il collo di bottiglia soprattutto quando solo un piccolo set di file soddisfa la regola di filtro.
+  - Quando si copiano dati da un'origine basata su file, se si usa il **filtro con caratteri jolly** per il percorso o il nome di file ( `wildcardFolderPath` o `wildcardFileName` ) oppure si usa il **filtro dell'ora dell'Ultima modifica del file** ( `modifiedDatetimeStart` o `modifiedDatetimeEnd` ), si noti che tale filtro comporterebbe l'inserimento dell'attività di copia nell'elenco di tutti i file nella cartella specificata sul lato client, quindi applica Questa enumerazione di file potrebbe diventare il collo di bottiglia soprattutto quando solo un piccolo set di file soddisfa la regola di filtro.
 
     - Controllare se è possibile [copiare i file in base al percorso o al nome del file partizionato DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). In questo modo non viene imposto alcun onere sul lato di origine dell'elenco.
 
@@ -181,11 +180,11 @@ Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione
 * Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-single-database-monitor.md) e controllare la percentuale di unità di transazione di database (DTU).
 * Azure SQL Data Warehouse: la relativa funzionalità viene misurata in unità di data warehouse (DWU). Vedere [gestire la potenza di calcolo in Azure SQL data warehouse (panoramica)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server locale: [monitoraggio e ottimizzazione delle prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
+* SQL Server: [monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
 * File server locale: [ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli altri articoli sull'attività di copia:
+Vedere gli altri articoli relativi all'attività di copia:
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
 - [Guida alla scalabilità e alle prestazioni dell'attività di copia](copy-activity-performance.md)

@@ -5,16 +5,15 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 69774c0014aac26c7266620bbe7d06ba37d6023b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: f4c49be5f5a0f2c89831891dc2640b64fee9fc44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758810"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022419"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigazione dell'effetto Z-fighting
 
-Quando due superfici si sovrappongono, non è chiaro di quale deve essere eseguito il rendering sull'altra. Il risultato varia anche per pixel, con artefatti dipendenti dalla visualizzazione. Di conseguenza, quando la camera o la mesh si sposta, questi modelli emettono uno sfarfallio evidente. Questo artefatto è detto *z-fighting*. Per le applicazioni di realtà aumentata e realtà virtuale il problema è più accentuato, perché, com'è naturale, i caschi si muovono sempre. Per evitare disagio a chi guarda, è disponibile una funzionalità di mitigazione dell'effetto z-fighting in Rendering remoto di Azure.
+Quando due superfici si sovrappongono, non è chiaro di quale deve essere eseguito il rendering sull'altra. Il risultato varia anche per ogni pixel, ottenendo gli artefatti dipendenti dalla visualizzazione della fotocamera. Di conseguenza, quando la camera o la mesh si sposta, questi modelli emettono uno sfarfallio evidente. Questo artefatto è detto *z-fighting*. Per le applicazioni di realtà aumentata e realtà virtuale il problema è più accentuato, perché, com'è naturale, i caschi si muovono sempre. Per evitare disagio a chi guarda, è disponibile una funzionalità di mitigazione dell'effetto z-fighting in Rendering remoto di Azure.
 
 ## <a name="z-fighting-mitigation-modes"></a>Modalità di mitigazione dell'effetto Z-fighting
 

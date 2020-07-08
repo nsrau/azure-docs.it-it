@@ -2,22 +2,21 @@
 title: Impostazioni dei cookie in Application Proxy - Azure Active Directory  | Microsoft Docs
 description: Azure Active Directory (Azure AD) dispone di cookie di sessione e accesso per accedere ad applicazioni locali tramite Application Proxy. In questo articolo vengono fornite informazioni su come usare e configurare le impostazioni dei cookie.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcedb24a0efdbabaaef150fc3d5aff07d210ce23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764894"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie settings for accessing on-premises applications in Azure Active Directory (Impostazioni dei cookie per l'accesso alle applicazioni locali in Azure Active Directory)
 
@@ -27,7 +26,7 @@ Azure Active Directory (Azure AD) dispone di cookie di sessione e accesso per ac
 
 [Application Proxy](application-proxy.md) utilizza le seguenti impostazioni cookie di sessione e accesso.
 
-| Impostazione dei cookie | Predefinito | Descrizione | Indicazioni |
+| Impostazione dei cookie | Predefinito | Descrizione | Consigli |
 | -------------- | ------- | ----------- | --------------- |
 | Usa cookie solo HTTP | **No** | **Sì** consente ad Application Proxy di includere il contrassegno HTTPOnly nelle intestazioni di risposta HTTP. Questo contrassegno offre vantaggi aggiuntivi di sicurezza, ad esempio, impedisce agli scripting del client (CSS) di copiare o modificare i cookie.<br></br><br></br>Prima di supportare l'impostazione solo HTTP, il proxy di applicazione crittografato e trasmesso cookie su un canale TLS protetto per proteggersi da eventuali modifiche. | Usare **Sì** per i vantaggi aggiuntivi di sicurezza.<br></br><br></br>Usare **No** per i client o gli agenti utente che richiedono l'accesso per il cookie di sessione. Ad esempio, usare **No** per un client RDP o MTSC che si connette a un server Gateway Desktop remoto tramite Application Proxy.|
 | Usa cookie protetti | **No** | **Sì** consente ad Application Proxy di includere il contrassegno Protetto nelle intestazioni di risposta HTTP. Cookie protetti migliorano la sicurezza mediante la trasmissione di cookie su un canale TLS protetto, ad esempio HTTPS. Ciò impedisce che i cookie vengano esaminati da parti non autorizzate dovuta alla trasmissione di cookie in testo non crittografato. | Usare **Sì** per i vantaggi aggiuntivi di sicurezza.|
@@ -49,7 +48,7 @@ Inoltre, se l'applicazione back-end presenta cookie che devono essere disponibil
 Configurare le impostazioni dei cookie con il portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. Passare a **Azure Active Directory** >> **applicazioni** aziendali **tutte le applicazioni**.
+2. Passare a **Azure Active Directory**   >  **applicazioni aziendali**   >  **tutte le applicazioni**.
 3. Selezionare l'applicazione per cui si desidera abilitare l'impostazione dei cookie.
 4. Fare clic su **proxy di applicazione**.
 5. All'interno di **Impostazioni aggiuntive**, sregolare l'impostazione dei cookie su **Sì** oppure **No**.

@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770493"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Connettersi alle macchine virtuali di Azure dopo il failover da locale 
 
@@ -62,7 +61,7 @@ Dopo il failover, eseguire le operazioni seguenti nelle macchine virtuali di Azu
 
 1. Per connettersi alla macchina virtuale tramite Internet, assegnare alla macchina virtuale un indirizzo IP pubblico. Per la macchina virtuale di Azure non è possibile usare lo stesso indirizzo IP pubblico usato in precedenza per il computer locale. [Altre informazioni](../virtual-network/virtual-network-public-ip-address.md)
 2. Verificare che le regole del gruppo di sicurezza di rete nella macchina virtuale consentano le connessioni in ingresso alla porta RDP o SSH.
-3. Controllare la [Diagnostica di avvio](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) per visualizzare la macchina virtuale.
+3. Controllare la [diagnostica di avvio](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) per visualizzare la macchina virtuale.
 
 
 > [!NOTE]
@@ -149,11 +148,21 @@ Prima del failover, specificare le impostazioni di rete e l'indirizzo IP per la 
 
 ## <a name="get-new-ip-addresses"></a>Ottenere nuovi indirizzi IP
 
-In questo scenario, la macchina virtuale di Azure ottiene un nuovo indirizzo IP dopo il failover. Un aggiornamento DNS per aggiornare i record per i computer di cui è stato eseguito il failover in modo che puntino all'indirizzo IP della macchina virtuale di Azure.
+In questo scenario, la macchina virtuale di Azure ottiene un nuovo indirizzo IP dopo il failover. Per configurare un nuovo indirizzo IP per la macchina virtuale creata dopo il failover, è possibile fare riferimento alla procedura seguente:
 
+1. Passare a **elementi replicati**.
+2. Selezionare la macchina virtuale di Azure desiderata.
+3. Selezionare **calcolo e rete** e quindi **modifica**.
 
+     ![Personalizzare le configurazioni di rete di failover](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+
+4. Per aggiornare le impostazioni della rete di failover, selezionare **modifica** per la scheda di interfaccia di rete che si desidera configurare. Nella pagina successiva visualizzata, fornire l'indirizzo IP già creato corrispondente nel failover di test e nel percorso di failover.
+
+    ![Modificare la configurazione della scheda di interfaccia di rete](media/azure-to-azure-customize-networking/nic-drilldown.png)
+
+5. Selezionare **OK**.
+
+Site Recovery ora rispetta queste impostazioni e garantisce che la macchina virtuale in caso di failover sia connessa alla risorsa selezionata tramite l'indirizzo IP corrispondente, se disponibile nell'intervallo di indirizzi IP di destinazione. In questo scenario non è necessario eseguire il failover dell'intera subnet. Verrà richiesto un aggiornamento DNS per aggiornare i record per il computer di cui è stato eseguito il failover in modo che punti al nuovo indirizzo IP della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni [sulla](site-recovery-active-directory.md) replica di Active Directory locali e DNS in Azure.
-
-

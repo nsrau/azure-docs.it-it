@@ -7,17 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83a48ad13fe4ae217319b2aa85adf976aa6a7ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dd5fc389ccb52c4a5eeec0e0f544a17b011333a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77149848"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604523"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Aggiungere o rimuovere i proprietari dei gruppi in Azure Active Directory
 I gruppi di Azure Active Directory (Azure AD) sono di proprietà e gestiti dai proprietari del gruppo. I proprietari del gruppo possono essere utenti o entità servizio e sono in grado di gestire il gruppo, inclusa l'appartenenza. Solo i proprietari del gruppo o gli amministratori di gestione dei gruppi esistenti possono assegnare i proprietari del gruppo. Non è necessario che il proprietario del gruppo sia un membro del gruppo.
@@ -61,7 +60,7 @@ Rimuovere un proprietario da un gruppo con Azure AD.
     Dopo aver rimosso il proprietario, è possibile tornare alla pagina **Proprietari** e verificare che il nome sia stato rimosso dall'elenco dei proprietari.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
+- [Gestione dell'accesso alle risorse con gruppi di Azure Active Directory](active-directory-manage-groups.md)
 
 - [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-cmdlets.md)
 

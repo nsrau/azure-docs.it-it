@@ -6,12 +6,11 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: ae27aba9fb6dc1421d224dab0c36373753acd5a2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: f56d3a364e38d13931f8e07d749d3a5958dcee67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322518"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integrazione di Azure Data Lake Storage Gen1 con altri servizi di Azure
 Azure Data Lake Storage Gen1 può essere usato in combinazione con altri servizi di Azure per abilitare il supporto di una gamma più ampia di scenari. L'articolo seguente elenca i servizi con cui Data Lake Storage Gen1 può essere integrato.
@@ -39,7 +38,7 @@ Per istruzioni su come usare Azure Data Factory con Data Lake Storage Gen1, vede
 Azure Data Lake Storage Gen1 offre uno strumento da riga di comando, AdlCopy, che consente di copiare dati da Archiviazione BLOB di Azure a un account di Data Lake Storage Gen1. Per altre informazioni, vedere [Copiare i dati da BLOB di archiviazione di Azure a Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="copy-data-between-azure-sql-database-and-data-lake-storage-gen1"></a>Copiare i dati tra un database SQL di Azure e Data Lake Storage Gen1
-È possibile usare Apache Sqoop per importare ed esportare dati tra un database SQL di Azure e Data Lake Storage Gen1. Per altre informazioni, vedere [Copiare i dati tra Data Lake Storage Gen1 e un database SQL di Azure usando Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
+È possibile usare Apache Sqoop per importare ed esportare dati tra un database SQL di Azure e Data Lake Storage Gen1. Per altre informazioni, vedere [copiare dati tra data Lake storage Gen1 e il database SQL di Azure con Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
 
 ## <a name="use-data-lake-storage-gen1-with-stream-analytics"></a>Usare Data Lake Storage Gen1 con l'analisi di flusso
 È possibile usare Data Lake Storage Gen1 come uno degli output per archiviare dati di flusso usando l'analisi di flusso di Azure. Per altre informazioni, vedere [Trasmettere i dati dal BLOB di archiviazione di Azure a Data Lake Storage Gen1 usando l'analisi di flusso di Azure](data-lake-store-stream-analytics.md).

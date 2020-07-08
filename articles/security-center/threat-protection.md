@@ -8,14 +8,13 @@ manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744169"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037189"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protezione dalle minacce nel Centro sicurezza di Azure
 
@@ -106,36 +105,18 @@ Per altre informazioni sui piani di servizio app, vedere [Piani del servizio app
 
 
 
-## <a name="threat-protection-for-azure-containers"></a>Protezione dalle minacce per i contenitori di Azure <a name="azure-containers"></a>
+## <a name="threat-protection-for-containers"></a>Protezione dalle minacce per i contenitori<a name="azure-containers"></a>
 
-> [!NOTE]
-> Questo servizio non è attualmente disponibile nelle aree di cloud sovrano e Azure per enti pubblici.
+### <a name="availability"></a>Disponibilità
 
-Il Centro sicurezza offre protezione dalle minacce in tempo reale per gli ambienti basati su contenitori e genera avvisi per le attività sospette. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
+- Stato versione: **disponibilità generale**
+- Ruoli necessari: l' **amministratore della sicurezza** può ignorare gli avvisi. Il **ruolo con autorizzazioni di lettura per la sicurezza** può visualizzare i risultati.
+- Cloud:<br>
+    ✔ Cloud commerciali<br>
+    US Gov ✘<br>
+    ✘ Cina, altro gov
 
-Il Centro sicurezza offre protezione dalle minacce a diversi livelli: 
-
-* **Livello host** - L'agente del Centro sicurezza (disponibile nel livello standard, vedere [Prezzi](security-center-pricing.md) per dettagli) monitora Linux per rilevare attività sospette. L'agente attiva avvisi per le attività sospette che hanno origine dal nodo o da un contenitore in esecuzione su di esso. Esempi di attività di questo tipo includono rilevamento web shell e connessione con indirizzi IP sospetti noti.
-
-    Per informazioni più dettagliate sulla sicurezza dell'ambiente in contenitori, l'agente monitora l'analisi dei contenitori. Attiverà avvisi per eventi quali la creazione di contenitori con privilegi, l'accesso sospetto ai server API e la presenza di server SSH (Secure Shell) in esecuzione all'interno di un contenitore Docker.
-
-    >[!IMPORTANT]
-    > Se si sceglie di non installare gli agenti negli host, si riceverà solo una parte dei vantaggi della protezione dalle minacce e degli avvisi di sicurezza. Si riceveranno comunque gli avvisi relativi all'analisi di rete e alle comunicazioni con server dannosi.
-
-    Per un elenco degli avvisi a livello di host, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-containerhost).
-
-
-* A **livello di cluster del servizio Azure Kubernetes**, la protezione dalle minacce si basa sull'analisi dei log di controllo di Kubernetes. Per abilitare questo monitoraggio **senza agente**, aggiungere l'opzione Kubernetes alla sottoscrizione dalla pagina **Prezzi e impostazioni** (vedere [Prezzi](security-center-pricing.md)). Per generare avvisi a questo livello, il Centro sicurezza monitora i servizi gestiti dal servizio Azure Kubernetes usando i log recuperati da quest'ultimo. Esempi di eventi a questo livello includono dashboard di Kubernetes esposti, creazione di ruoli con privilegi elevati e creazione di montaggi sensibili.
-
-    >[!NOTE]
-    > Il Centro sicurezza genera avvisi di sicurezza per le azioni e le distribuzioni del servizio Azure Kubernetes che si verificano dopo l'abilitazione dell'opzione Kubernetes nelle impostazioni della sottoscrizione. 
-
-    Per un elenco degli avvisi a livello di cluster del servizio Azure Kubernetes, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-akscluster).
-
-Inoltre, il team globale di ricercatori Microsoft che si occupano di sicurezza monitora costantemente il panorama delle minacce. Aggiungono avvisi e vulnerabilità specifici dei contenitori man mano che vengono individuati.
-
-> [!TIP]
-> È possibile simulare gli avvisi relativi ai contenitori seguendo le istruzioni riportate in [questo post di blog](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+[!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
 
@@ -150,7 +131,7 @@ Advanced Threat Protection per il database SQL di Azure rileva le attività anom
 
 Si vedranno avvisi su attività di database sospette, potenziali vulnerabilità o attacchi SQL injection, oltre che anomalie negli accessi al database e nei modelli di query.
 
-Advanced Threat Protection per il database SQL di Azure e SQL fa parte di [Sicurezza dei dati avanzata](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), un pacchetto unificato che raccoglie le funzionalità di sicurezza avanzate di SQL che copre database SQL di Azure, istanze gestite del database SQL di Azure, database di Azure SQL Data Warehouse e server SQL in Macchine virtuali di Azure.
+Advanced Threat Protection per il database SQL di Azure e SQL fa parte del pacchetto unificato Advanced [Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) per funzionalità di sicurezza avanzate di SQL, che include il database SQL di Azure, le istanze gestite di SQL di Azure, i database Azure SQL data warehouse e i server SQL in macchine virtuali di Azure.
 
 Per altre informazioni, vedere:
 
@@ -162,11 +143,44 @@ Per altre informazioni, vedere:
 
 ## <a name="threat-protection-for-azure-storage"></a>Protezione dalle minacce per Archiviazione di Azure <a name="azure-storage"></a>
 
-Advanced Threat Protection per l'archiviazione rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit degli account di archiviazione. Questo livello di protezione consente di affrontare le minacce senza dover essere esperti di sicurezza e semplifica la gestione dei sistemi di monitoraggio della sicurezza.
+### <a name="availability"></a>Disponibilità
 
-Advanced Threat Protection per Archiviazione di Microsoft Azure è attualmente disponibile solo per l'[archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/). 
+- Stato versione:
+    - [Archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/) (disponibilità generale)
+    - [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (anteprima)
+    - [Azure Data Lake storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (anteprima)
+- Cloud:<br>
+    ✔ Cloud commerciali<br>
+    ✔ US Gov<br>
+    ✘ Cina, altro gov
 
-Questo servizio è disponibile in tutti i cloud pubblici e US Government, ma non in altre aree di cloud sovrano o Azure per enti pubblici.
+### <a name="whats-protected"></a>Cosa è protetto?
+
+La protezione dalle minacce per archiviazione di Azure rileva attività potenzialmente dannose negli account di archiviazione di Azure. I dati possono essere protetti indipendentemente dal fatto che vengano archiviati come contenitori BLOB, condivisioni file o data Lake.
+
+Questo livello di protezione consente di risolvere le minacce *senza* che sia necessario essere un esperto di sicurezza e consente di gestire i sistemi di monitoraggio della sicurezza.
+
+Gli account di archiviazione sono protetti 
+
+### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>Che tipo di avvisi offre la protezione dalle minacce per archiviazione di Azure?
+
+Gli avvisi di sicurezza vengono attivati quando sono presenti:
+
+- **Attività sospetta** . ad esempio, l'accesso all'account di archiviazione è stato eseguito correttamente da un indirizzo IP noto come nodo di uscita attivo di Tor
+- **Comportamento anomalo** , ad esempio modifiche nel modello di accesso a un account di archiviazione
+- **Potenziale malware caricato** : l'analisi della reputazione hash indica che un file caricato contiene malware
+
+Gli avvisi includono i dettagli dell'evento imprevisto che li ha attivati, nonché indicazioni su come individuare e correggere le minacce.
+
+### <a name="what-is-hash-reputation-analysis-for-malware"></a>Che cos'è l'analisi della reputazione hash per malware?
+
+Per determinare se un file caricato è sospetto, la protezione dalle minacce per archiviazione di Azure usa l'analisi della reputazione hash supportata da [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). Gli strumenti di protezione dalle minacce non analizzano i file caricati, bensì esaminano i log di archiviazione e confrontano gli hash dei file appena caricati con quelli di virus, Trojan, spyware e ransomware noti. 
+
+Quando si sospetta che un file contenga malware, il Centro sicurezza Visualizza un avviso e può facoltativamente inviare tramite posta elettronica al proprietario dell'archiviazione l'approvazione per eliminare il file sospetto. Per configurare questa rimozione automatica dei file che l'analisi della reputazione hash indica che contengono malware, distribuire un' [automazione del flusso di lavoro per attivare gli avvisi che contengono "malware potenziale caricato in un account di archiviazione"](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-respond-to-potential-malware-uploaded-to-azure-storage/ba-p/1452005).
+
+
+
+### <a name="next-steps"></a>Passaggi successivi 
 
 Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la [pagina dei prezzi del Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -174,9 +188,13 @@ Per altre informazioni, vedere:
 
 * [Come abilitare Advanced Threat Protection per Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [L'elenco di avvisi di protezione dalle minacce per Archiviazione di Azure](alerts-reference.md#alerts-azurestorage)
+* [Funzionalità di intelligence per le minacce di Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684)
 
 > [!TIP]
-> È possibile simulare gli avvisi relativi ad Archiviazione di Azure seguendo le istruzioni riportate in [questo post di blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> È possibile simulare gli avvisi di archiviazione seguendo le istruzioni riportate in [questo post di Blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+
+
+
 
 
 
@@ -224,14 +242,17 @@ Per un elenco degli avvisi di Azure Resource Manager (anteprima), vedere la [tab
 >[!NOTE]
 > Alcune delle analisi precedenti sono basate su Microsoft Cloud App Security. Per usufruire di queste analisi è necessario attivare una licenza di Cloud App Security. Se si ha una licenza di Cloud App Security, questi avvisi sono abilitati per impostazione predefinita. Per disabilitare gli avvisi:
 >
-> 1. Nel pannello **Centro sicurezza** selezionare **Criteri di sicurezza**. Per la sottoscrizione che si vuole modificare, selezionare **Modifica impostazioni**.
-> 2. Selezionare **Rilevamento delle minacce**.
-> 3. In **Abilita le integrazioni** deselezionare **Consenti a Microsoft Cloud App Security di accedere ai dati** e selezionare **Salva**.
+> 1. Dal menu del Centro sicurezza selezionare **prezzi & impostazioni**.
+> 1. Selezionare la sottoscrizione da modificare.
+> 1. Selezionare **Rilevamento delle minacce**.
+> 1. Deselezionare **consenti Microsoft cloud app Security per accedere ai dati**e selezionare **Salva**.
 
 >[!NOTE]
 >Il Centro sicurezza archivia i dati dei clienti correlati alla sicurezza nella stessa area geografica della risorsa. Se Microsoft non ha ancora distribuito il Centro sicurezza nell'area geografica della risorsa, archivia i dati nel Stati Uniti. Quando è abilitato Cloud App Security, queste informazioni vengono archiviate in base alle regole relative alla posizione geografica di Cloud App Security. Per altre informazioni, vedere [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/) (Archiviazione dei dati per i servizi non a livello di area).
 
+1. Impostare l'area di lavoro in cui si sta installando l'agente. Assicurarsi che l'area di lavoro si trovi nella stessa sottoscrizione che si usa nel Centro sicurezza e di disporre delle autorizzazioni di lettura/scrittura nell'area di lavoro.
 
+1. Impostare il piano tariffario standard e selezionare **Salva**.
 
 
 

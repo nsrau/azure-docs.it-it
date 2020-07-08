@@ -5,19 +5,19 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: security-center
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: eec07a01edc6b126bb7cd3a814912ea5c5b14195
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529104"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769874"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Connettere i dati dai provider di intelligence per le minacce
 
@@ -70,7 +70,7 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
 2. [Configurare le autorizzazioni dell'API](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) per l'applicazione registrata: aggiungere l'autorizzazione dell'applicazione Microsoft Graph **ThreatIndicators. ReadWrite. OwnedBy** all'applicazione registrata.
 
-3. Chiedere al Azure Active Directory amministratore tenant di concedere il consenso dell'amministratore all'applicazione registrata per l'organizzazione. Dal portale di Azure: **Azure Active Directory** > **registrazioni app** > **\<_app name_nome>** > dell'app**visualizzare le autorizzazioni** > dell'API**concedere il \<consenso dell'amministratore per il _nome_>del tenant**.
+3. Chiedere al Azure Active Directory amministratore tenant di concedere il consenso dell'amministratore all'applicazione registrata per l'organizzazione. Dalla portale di Azure: **Azure Active Directory**  >  **registrazioni app**  >  **\<_app name_>**  >  **visualizzare le autorizzazioni dell'API**  >  **per concedere il \<_tenant name_> consenso dell'amministratore per **.
 
 4. Configurare il prodotto TIP o l'app che usa l'integrazione diretta con Microsoft Graph Security tiIndicators API per inviare indicatori ad Azure Sentinel specificando quanto segue:
     
@@ -80,11 +80,11 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
     
     c. Per l'azione, specificare Alert.
 
-5. Nella portale di Azure passare a**connettori dati** **sentinella** > di Azure e quindi selezionare il connettore delle piattaforme di intelligence per le **minacce (anteprima)** .
+5. Nella portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore delle piattaforme di intelligence per le **minacce (anteprima)** .
 
 6. Selezionare **Apri connettore pagina**, quindi **Connetti**.
 
-7. Per visualizzare gli indicatori di minaccia importati in Sentinel di Azure, passare ad **Azure Sentinel-logs** > **SecurityInsights**, quindi espandere **ThreatIntelligenceIndicator**.
+7. Per visualizzare gli indicatori di minaccia importati in Sentinel di Azure, passare ad **Azure Sentinel-logs**  >  **SecurityInsights**, quindi espandere **ThreatIntelligenceIndicator**.
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Connettere Azure Sentinel ai server TAXI
 
@@ -96,7 +96,7 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
 ## <a name="instructions"></a>Istruzioni
 
-1. Nella portale di Azure passare a**connettori dati** **sentinella** > di Azure e quindi selezionare il connettore Intelligence per le **minacce-Taxii (anteprima)** .
+1. Nella portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore Intelligence per le **minacce-Taxii (anteprima)** .
 
 2. Selezionare **Apri connettore pagina**.
 
@@ -106,7 +106,7 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
 5. Se sono presenti altri server TAXIi 2,0: ripetere i passaggi 3 e 4.
 
-6. Per visualizzare gli indicatori di minaccia importati in Sentinel di Azure, passare ad **Azure Sentinel-logs** > **SecurityInsights**, quindi espandere **ThreatIntelligenceIndicator**.
+6. Per visualizzare gli indicatori di minaccia importati in Sentinel di Azure, passare ad **Azure Sentinel-logs**  >  **SecurityInsights**, quindi espandere **ThreatIntelligenceIndicator**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

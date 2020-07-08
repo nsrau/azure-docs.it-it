@@ -4,25 +4,24 @@ description: Questo articolo consente di comprendere i modi per superare il limi
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: alzam
-ms.openlocfilehash: 5500d993a4bf3c664f14182d983f9abed8ebb08a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e98fd0d57219599fb1c3934638a928542e4311a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983346"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transizione al protocollo OpenVPN o IKEv2 da SSTP
 
 Una connessione gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. Una connessione da punto a sito viene stabilita avviandola dal computer client. Questo articolo si applica al modello di distribuzione Gestione risorse e illustra i modi per superare il limite di 128 connessione simultanea di SSTP mediante la transizione al protocollo OpenVPN o a IKEv2.
 
-## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>Protocollo usato nelle connessioni da punto a sito
+## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>Quale protocollo viene usato da P2S?
 
 Per la VPN da punto a sito può essere usato uno dei protocolli seguenti:
 
-* **Protocollo&reg; OpenVPN**, un protocollo VPN basato su SSL/TLS. Una soluzione VPN SSL può penetrare i firewall, perché la maggior parte dei firewall apre la porta TCP 443 in uscita, che usa SSL. OpenVPN può essere usato per la connessione da Android, iOS (versioni 11,0 e successive), da dispositivi Windows, Linux e Mac (versioni OSX 10,13 e successive).
+* **OpenVPN &reg; Protocollo**, un protocollo VPN basato su SSL/TLS. Una soluzione VPN SSL può penetrare i firewall, perché la maggior parte dei firewall apre la porta TCP 443 in uscita, che usa SSL. OpenVPN può essere usato per la connessione da Android, iOS (versioni 11,0 e successive), da dispositivi Windows, Linux e Mac (versioni OSX 10,13 e successive).
 
 * Protocollo **SSTP (Secure Socket Tunneling Protocol)**, un protocollo VPN proprietario basato su SSL. Una soluzione VPN SSL può penetrare i firewall, perché la maggior parte dei firewall apre la porta TCP 443 in uscita, che usa SSL. SSTP è supportato solo nei dispositivi Windows. Azure supporta tutte le versioni di Windows che hanno SSTP (Windows 7 e versioni successive). **SSTP supporta fino a 128 connessioni simultanee solo indipendentemente dallo SKU del gateway**.
 

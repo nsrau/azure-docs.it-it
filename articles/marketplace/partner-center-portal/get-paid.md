@@ -5,13 +5,12 @@ author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/09/2020
+ms.openlocfilehash: 57a5f3046ce7a1f968bb823a0e13008d076b78c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636564"
 ---
 # <a name="getting-paid-in-the-commercial-marketplace"></a>Come ottenere i pagamenti nel marketplace commerciale
 
@@ -27,21 +26,6 @@ Quando si [registra un account sviluppatore](https://go.microsoft.com/fwlink/p/?
 Le commissioni sono definite ufficialmente nel [Contratto per editori di Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560). Consultare questo documento per qualsiasi domanda.
 
 Tali commissioni vengono applicate a tutte le vendite di offerte raccolte dal marketplace commerciale, inclusi i componenti aggiuntivi.
-
-## <a name="price-tiers"></a>Livelli di prezzo
-
-I livelli di prezzo selezionati stabiliscono il prezzo di vendita in tutti i paesi e/o le aree geografiche in cui si sceglie di distribuire l'offerta. È anche possibile usare funzionalità aggiuntive, per consentire ad esempio la scelta di prezzi diversi per i singoli mercati.
-
-È possibile offrire un'app gratuitamente o selezionare un prezzo che i clienti devono pagare per l'acquisto dell'offerta. I livelli di prezzo partono da 0,99 USD, con incrementi aggiuntivi (1,09 USD, 1,19 USD e così via). Gli incrementi tra i livelli di prezzo aumentano in modo proporzionale al prezzo.
-
-> [!NOTE] 
-> Questi livelli di prezzo si applicano anche ai componenti aggiuntivi disponibili nell'offerta.
-
-A ogni livello di prezzo corrisponde un valore in ciascuna delle valute offerte dallo Store. Tali valori vengono usati per consentire di vendere l'offerta a un punto di prezzo equivalente in tutto il mondo. Tuttavia, a causa delle variazioni dei tassi di cambio, l'importo di vendita esatto può variare leggermente da una valuta all'altra.
-
-È anche possibile specificare un prezzo in formato libero di propria scelta nella valuta locale di un mercato specifico. In questo caso, il prezzo non verrà adeguato (neanche in caso di variazione dei tassi di conversione), a meno che non venga inviato un aggiornamento con un nuovo prezzo. 
-
-Tenere presente che il prezzo selezionato può includere l'imposta sulla vendita o sul valore aggiunto a carico dei clienti. Per informazioni dettagliate, vedere [Dettagli sulle imposte per le offerte pagate](tax-details-paid-transactions.md).
 
 ## <a name="payout-reporting"></a>Segnalazioni sui proventi
 

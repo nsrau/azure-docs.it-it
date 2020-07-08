@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 6deb5714a43d61f5ceb793757d49bd099f09f2b7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977651"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027563"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
@@ -50,7 +49,9 @@ Un singolo indirizzo IP front-end sopravviverà in caso di errore della zona. L'
 
 L'indirizzo IP del front-end viene servito simultaneamente da più distribuzioni di infrastrutture indipendenti in più zone di disponibilità. Eventuali tentativi o ristabilimenti riusciranno in altre zone non interessate dall'errore della zona. 
 
-:::image type="content" source="./media/az-zonal/zone-redundant-lb-1.svg" alt-text="Con ridondanza della zona" border="true":::
+<p align="center">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" width="512" title="NAT di rete virtuale">
+</p>
 
 *Figura: bilanciamento del carico con ridondanza della zona*
 
@@ -60,7 +61,12 @@ L'indirizzo IP del front-end viene servito simultaneamente da più distribuzioni
 
 Inoltre, è supportato l'uso diretto dei front-end di zona per gli endpoint con carico bilanciato all'interno di ogni zona. È possibile usare questa configurazione per esporre gli endpoint con carico bilanciato per zona per monitorare singolarmente ogni zona. Per gli endpoint pubblici, è possibile integrarli con un prodotto di bilanciamento del carico DNS come [Gestione traffico](../traffic-manager/traffic-manager-overview.md) e usare un singolo nome DNS.
 
-:::image type="content" source="./media/az-zonal/zonal-lb-1.svg" alt-text="Con ridondanza della zona" border="true":::
+
+<p align="center">
+  <img src="./media/az-zonal/zonal-lb-1.svg" width="512" title="NAT di rete virtuale">
+</p>
+
+*Figura: bilanciamento del carico con ridondanza della zona*
 
 Per un approfondimento di questi concetti (con ridondanza della zona e di zona per lo stesso back-end), consultare [Più front-end per Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -98,7 +104,7 @@ Altre zone che sono in grado di raggiungere questa macchina virtuale possono con
 
 Il servizio di bilanciamento del carico è flessibile nel contesto delle zone di disponibilità. È possibile scegliere di allinearsi alle zone o essere con ridondanza della zona per ogni regola. Una maggiore disponibilità può essere il prezzo di una maggiore complessità. Progettazione per la disponibilità per ottenere prestazioni ottimali.
 
-### <a name="automatic-zone-redundancy"></a>Ridondanza automatica della zona
+### <a name="zone-redundancy"></a>Ridondanza della zona
 
 Con Load Balancer è più semplice avere un singolo IP come front-end con ridondanza della zona. Un indirizzo IP con ridondanza della zona può gestire una risorsa di zona in qualsiasi area.  L'IP può sopravvivere a uno o più errori di zona, purché una zona rimanga integra all'interno dell'area.  Un front-end di zona è invece una riduzione del servizio in una singola zona e condivide il destino con la rispettiva zona.
 

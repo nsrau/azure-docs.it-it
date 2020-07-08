@@ -9,12 +9,11 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 7c2c14a937b4ef55d0e5f71e7b20214428ecd68c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158198"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660136"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estendi IoT Central di Azure con analisi personalizzate con Azure Databricks
 
@@ -31,7 +30,7 @@ In questa guida dettagliata si apprenderà come:
 
 Per completare la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ### <a name="iot-central-application"></a>Applicazione IoT Central
 
@@ -45,7 +44,7 @@ Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Applicatio
 | URL | Accettare l'impostazione predefinita o scegliere il prefisso URL univoco |
 | Directory | Tenant di Azure Active Directory |
 | Sottoscrizione di Azure | Sottoscrizione di Azure |
-| Area | Area geografica più vicina |
+| Region | Area geografica più vicina |
 
 Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
 
@@ -109,12 +108,12 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
     | Impostazione | valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Attivato | Attivato |
+    | Abilitato | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
-    | Misurazioni | Attivato |
-    | Dispositivi | Disattivato |
-    | Modelli di dispositivo | Disattivato |
+    | Misurazioni | On |
+    | Dispositivi | Off |
+    | Modelli di dispositivo | Off |
 
 ![Configurazione esportazione dati](media/howto-create-custom-analytics/cde-configuration.png)
 
@@ -231,4 +230,4 @@ In questa guida procedurale si è appreso come:
 * Trasmettere i dati di telemetria da un'applicazione IoT Central usando l' *esportazione continua dei dati*.
 * Creare un ambiente di Azure Databricks per analizzare e tracciare i dati di telemetria.
 
-Ora che si è appreso come creare analisi personalizzate, il passaggio successivo suggerito consiste nell'apprendere come [gestire l'applicazione](howto-administer.md).
+Ora che si è appreso come creare analisi personalizzate, il passaggio successivo suggerito consiste nell'apprendere come [visualizzare e analizzare i dati di IOT Central di Azure in un dashboard Power bi](howto-connect-powerbi.md).

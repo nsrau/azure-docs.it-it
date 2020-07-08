@@ -3,25 +3,24 @@ title: Convertire collegamenti e URL - Proxy di app di Azure AD| Microsoft Docs
 description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/15/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69533693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764843"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
 
@@ -88,7 +87,7 @@ Esistono due tipi comuni di collegamenti interni nelle applicazioni locali:
 
 L'elenco completo dei tag di codice HTML che il proxy di applicazione supporta la conversione dei collegamenti per includono:
 * a
-* audio
+* Audio
 * base
 * Pulsante
 * div
@@ -103,11 +102,11 @@ L'elenco completo dei tag di codice HTML che il proxy di applicazione supporta l
 * link
 * MenuItem
 * meta
-* oggetto
+* object
 * script
 * source
 * track
-* video
+* Video
 
 Inoltre, all'interno di CSS viene convertito anche l'attributo URL.
 
@@ -137,7 +136,7 @@ Se è necessario supportare uno di questi due scenari, usare gli stessi URL inte
 Per iniziare con la conversione dei collegamenti, è sufficiente fare clic su un pulsante:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Passare a **Azure Active Directory** > **applicazioni** > aziendali**tutte le applicazioni** > selezionare l'app che si vuole gestire > **proxy di applicazione**.
+2. Passare a **Azure Active Directory**  >  **applicazioni aziendali**  >  **tutte le applicazioni** > selezionare l'app che si vuole gestire > **proxy di applicazione**.
 3. Impostare l'opzione di **conversione URL nel corpo dell'applicazione** su **Sì**.
 
    ![Selezionare Sì per convertire gli URL nel corpo dell'applicazione](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
@@ -145,7 +144,7 @@ Per iniziare con la conversione dei collegamenti, è sufficiente fare clic su un
 
 Ora, quando gli utenti accedono a questa applicazione, il proxy esegue automaticamente un'analisi per individuare gli URL interni che sono stati pubblicati tramite il proxy di applicazione nel tenant.
 
-## <a name="send-feedback"></a>Inviare un feedback
+## <a name="send-feedback"></a>Invia commenti
 
 Abbiamo bisogno dell'intervento dell'utente per rendere questa funzionalità operante per tutte le app. La ricerca viene eseguita in oltre 30 tag del codice HTML e CSS. Se si hanno esempi di collegamenti generati che non vengono convertiti, inviare un frammento di codice all'area [commenti sul proxy di applicazione](mailto:aadapfeedback@microsoft.com). 
 

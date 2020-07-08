@@ -8,15 +8,14 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.custom: seodec18
-ms.openlocfilehash: a58ea58ebf6fdc7d8521d204ac42fcbadeca39a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 93418369724286e8b8c967754b2fb37135094008
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189301"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027591"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ottimizzazione degli iperparametri per il modello con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -109,6 +108,7 @@ Nel campionamento casuale i valori degli iperparametri vengono selezionati in mo
 
 ```Python
 from azureml.train.hyperdrive import RandomParameterSampling
+from azureml.train.hyperdrive import normal, uniform, choice
 param_sampling = RandomParameterSampling( {
         "learning_rate": normal(10, 3),
         "keep_probability": uniform(0.05, 0.1),
@@ -123,6 +123,7 @@ Il [campionamento Grid](https://docs.microsoft.com/python/api/azureml-train-core
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
+from azureml.train.hyperdrive import choice
 param_sampling = GridParameterSampling( {
         "num_hidden_layers": choice(1, 2, 3),
         "batch_size": choice(16, 32)
@@ -136,10 +137,11 @@ Il [campionamento bayesiano](https://docs.microsoft.com/python/api/azureml-train
 
 Quando si usa il campionamento bayesiano, il numero di esecuzioni simultanee influisce sull'efficacia del processo di ottimizzazione. In genere, un numero minore di esecuzioni simultanee può migliorare la convergenza di campionamento, poiché il minor grado di parallelismo aumenta il numero di esecuzioni che traggono vantaggio dalle esecuzioni precedentemente completate.
 
-Il campionamento bayesiano `choice`supporta `uniform`solo le `quniform` distribuzioni, e tramite lo spazio di ricerca.
+Il campionamento bayesiano supporta solo `choice` `uniform` `quniform` le distribuzioni, e tramite lo spazio di ricerca.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
+from azureml.train.hyperdrive import uniform, choice
 param_sampling = BayesianParameterSampling( {
         "learning_rate": uniform(0.05, 0.1),
         "batch_size": choice(16, 32, 64, 128)
@@ -313,7 +315,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name`è il nome assegnato all'esperimento di ottimizzazione iperparametri e `workspace` è l'area di lavoro in cui si desidera creare l'esperimento. per ulteriori informazioni sugli esperimenti, vedere la pagina relativa al funzionamento di [Azure Machine Learning.](concept-azure-machine-learning-architecture.md)
+`experiment_name`è il nome assegnato all'esperimento di ottimizzazione iperparametri e `workspace` è l'area di lavoro in cui si desidera creare l'esperimento. per ulteriori informazioni sugli esperimenti, vedere la pagina relativa al [funzionamento di Azure Machine Learning.](concept-azure-machine-learning-architecture.md)
 
 ## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>Avvio a caldo dell'esperimento di ottimizzazione iperparametri (facoltativo)
 
@@ -329,7 +331,7 @@ warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
 warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
 ```
 
-In alcuni casi, inoltre, è possibile che le singole esecuzioni di training di un esperimento di ottimizzazione di iperparametri vengano annullate a causa di vincoli di budget o non riuscite per altri motivi. A questo punto è possibile riprendere l'esecuzione di questo training individuale dall'ultimo checkpoint (presupponendo che lo script di training gestisca i checkpoint). La ripresa di una singola esecuzione di training utilizzerà la stessa configurazione di iperparametri e installerà la cartella degli output utilizzata per l'esecuzione. Lo script di training deve accettare `resume-from` l'argomento, che contiene il checkpoint o i file del modello da cui riprendere l'esecuzione del training. È possibile riprendere le esecuzioni di training individuali usando il frammento di codice seguente:
+In alcuni casi, inoltre, è possibile che le singole esecuzioni di training di un esperimento di ottimizzazione di iperparametri vengano annullate a causa di vincoli di budget o non riuscite per altri motivi. A questo punto è possibile riprendere l'esecuzione di questo training individuale dall'ultimo checkpoint (presupponendo che lo script di training gestisca i checkpoint). La ripresa di una singola esecuzione di training utilizzerà la stessa configurazione di iperparametri e installerà la cartella degli output utilizzata per l'esecuzione. Lo script di training deve accettare l' `resume-from` argomento, che contiene il checkpoint o i file del modello da cui riprendere l'esecuzione del training. È possibile riprendere le esecuzioni di training individuali usando il frammento di codice seguente:
 
 ```Python
 from azureml.core.run import Run
@@ -339,7 +341,7 @@ resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
 child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
 ```
 
-È possibile configurare l'esperimento di ottimizzazione iperparametri per iniziare a caldo da un esperimento precedente o riprendere le esecuzioni di training `resume_from` individuali `resume_child_runs` usando i parametri facoltativi e nella configurazione:
+È possibile configurare l'esperimento di ottimizzazione iperparametri per iniziare a caldo da un esperimento precedente o riprendere le esecuzioni di training individuali usando i parametri facoltativi `resume_from` e `resume_child_runs` nella configurazione:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig

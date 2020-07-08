@@ -8,12 +8,11 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920074"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
 Questo articolo fornisce alcuni esempi relativi alle attività di avvio comuni che è possibile eseguire nel servizio cloud. È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata. 
@@ -300,7 +299,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 
 Per eseguire nell'emulatore di calcolo azioni diverse da quelle eseguite nel cloud, è necessario creare una variabile di ambiente nel file [ServiceDefinition.csdef] e testare la variabile di ambiente su un valore durante l'attività di avvio.
 
-Per creare la variabile di ambiente, aggiungere l'elemento [Variable]/[RoleInstanceValue] e creare un valore XPath `/RoleEnvironment/Deployment/@emulated`pari a. Il valore della variabile di ambiente **%ComputeEmulatorRunning%** è `true` durante l'esecuzione nell'emulatore di calcolo e `false` durante l'esecuzione nel cloud.
+Per creare la variabile di ambiente, aggiungere l'elemento [Variable] / [RoleInstanceValue] e creare un valore XPath pari a `/RoleEnvironment/Deployment/@emulated` . Il valore della variabile di ambiente **%ComputeEmulatorRunning%** è `true` durante l'esecuzione nell'emulatore di calcolo e `false` durante l'esecuzione nel cloud.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -377,9 +376,7 @@ EXIT /B 0
 Di seguito sono riportate alcune procedure consigliate da seguire durante la configurazione dell'attività per il ruolo Web o di lavoro.
 
 ### <a name="always-log-startup-activities"></a>Registrare sempre le attività di avvio
-In Visual Studio non è previsto un debugger per analizzare i file batch, pertanto è buona pratica ottenere quanti più dati possibile sul funzionamento di tali file. La registrazione dell'output dei file batch, sia **stdout** che **stderr**, può fornire informazioni importanti quando si tenta di eseguire il debug e correggere i file batch. Per registrare sia **stdout** che **stderr** nel file StartupLog.txt nella directory a cui fa riferimento la variabile di ambiente **%TEMP%**, aggiungere il testo `>>  "%TEMP%\\StartupLog.txt" 2>&1` alla fine delle righe specifiche che si desidera registrare. Ad esempio, per eseguire setup.exe nella directory **%PathToApp1Install%** :
-
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+In Visual Studio non è previsto un debugger per analizzare i file batch, pertanto è buona pratica ottenere quanti più dati possibile sul funzionamento di tali file. La registrazione dell'output dei file batch, sia **stdout** che **stderr**, può fornire informazioni importanti quando si tenta di eseguire il debug e correggere i file batch. Per registrare sia **stdout** che **stderr** nel file StartupLog.txt nella directory a cui fa riferimento la variabile di ambiente **%TEMP%**, aggiungere il testo `>>  "%TEMP%\\StartupLog.txt" 2>&1` alla fine delle righe specifiche che si desidera registrare. Ad esempio, per eseguire setup.exe nella directory **% PathToApp1Install%** :`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 Per semplificare il xml, è possibile creare un file wrapper *cmd* che chiama tutte le attività di avvio insieme alla registrazione e assicura che ogni attività figlio condivida le stesse variabili di ambiente.
 
@@ -483,7 +480,7 @@ Il ruolo verrà avviato solo se il valore di **errorlevel** di ognuna delle atti
 L'assenza di `EXIT /B 0` alla fine di un file batch di avvio è una causa comune del mancato avvio dei ruoli.
 
 > [!NOTE]
-> Ho notato che a volte i file batch nidificati si bloccano se si usa il parametro `/B`. È possibile garantire che non si verifichi il blocco se un altro file batch chiama il file batch corrente, ad esempio se si usa il [wrapper log](#always-log-startup-activities). In questo caso non è possibile omettere il parametro `/B`.
+> Ho notato che i file batch nidificati a volte smettono di rispondere quando si usa il `/B` parametro. Potrebbe essere necessario assicurarsi che questo problema non si verifichi se un altro file batch chiama il file batch corrente, ad esempio se si usa il [wrapper di log](#always-log-startup-activities). In questo caso non è possibile omettere il parametro `/B`.
 > 
 > 
 
@@ -508,10 +505,7 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 [Variabile]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Endpoint]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Endpoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-
-
-

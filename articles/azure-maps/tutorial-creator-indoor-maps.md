@@ -3,17 +3,16 @@ title: Usare Creator per creare piante di interni
 description: Usare Creator di Mappe di Azure per creare piante di interni.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745929"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027872"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Usare Creator per creare piante di interni
 
@@ -39,6 +38,9 @@ Per creare piante di interni è necessario:
 
 Questa esercitazione usa l'applicazione [Postman](https://www.postman.com/), tuttavia è possibile scegliere un ambiente di sviluppo API diverso.
 
+>[!IMPORTANT]
+> Gli URL dell'API in questo documento possono essere modificati in base alla posizione della risorsa dell'autore. Per altri dettagli, vedere [accesso ai servizi Creator](how-to-manage-creator.md#access-to-creator-services).
+
 ## <a name="upload-a-drawing-package"></a>Caricare un pacchetto di disegno
 
 Usare l'[API Data Upload](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) per caricare un pacchetto di disegno nelle risorse di Mappe di Azure.
@@ -61,25 +63,30 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
 
 5. Fare clic sul pulsante blu **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda di risposta **Headers** (Intestazioni). Copiare il valore della chiave **Location** (Posizione), ovvero lo `status URL`.
 
-6. Per controllare lo stato della chiamata API, creare una richiesta HTTP GET sullo `status URL`. È necessario accodare la chiave di sottoscrizione primaria all'URL per l'autenticazione.
+6. Per controllare lo stato della chiamata API, creare una richiesta HTTP **Get** in `status URL` . È necessario accodare la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **Get** dovrebbe essere simile all'URL seguente:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationsId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. Quando la richiesta HTTP **GET** viene completata correttamente è possibile usare l'URL `resourceLocation` per recuperare i metadati da questa risorsa nel passaggio successivo.
+7. Quando la richiesta **Get** http viene completata correttamente, viene restituito `resourceLocation` . `resourceLocation`Contiene l'oggetto univoco `udid` per il contenuto caricato. Facoltativamente, è possibile usare l' `resourceLocation` URL per recuperare i metadati da questa risorsa nel passaggio successivo.
 
     ```json
     {
-        "operationId": "{operationId}",
         "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{upload-udid}?api-version=1.0"
+        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
     }
     ```
 
-8. Per recuperare i metadati del contenuto, creare una richiesta HTTP **GET** sull'URL `resourceLocation` copiato nel passaggio 7. Il corpo della risposta contiene un `udid` univoco per il contenuto caricato, il percorso per accedere al contenuto in futuro e scaricarlo e altri metadati sul contenuto, come data di creazione/aggiornamento, dimensioni e così via. Un esempio di risposta complessiva è:
+8. Per recuperare i metadati del contenuto, creare una richiesta HTTP **Get** sull' `resourceLocation` URL recuperato nel passaggio 7. Assicurarsi di aggiungere la chiave di sottoscrizione primaria all'URL per l'autenticazione. La richiesta **Get** dovrebbe essere simile all'URL seguente:
 
-     ```json
+    ```http
+   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+9. Quando la richiesta **Get** http viene completata correttamente, il corpo della risposta conterrà l' `udid` oggetto specificato nel `resourceLocation` passaggio 7, il percorso per accedere/scaricare il contenuto in futuro e altri metadati sul contenuto, ad esempio la data di creazione/aggiornamento, le dimensioni e così via. Un esempio di risposta complessiva è:
+
+    ```json
     {
         "udid": "{udid}",
         "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
@@ -99,8 +106,10 @@ L'API Data Upload è una transazione a esecuzione prolungata che implementa il m
 2. Selezionare il metodo HTTP **POST** nella scheda del generatore e immettere l'URL seguente per convertire il pacchetto di disegno caricato in dati della pianta. Usare `udid` per il pacchetto caricato.
 
     ```http
-    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={upload-udid}&inputType=DWG
+    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+    >[!IMPORTANT]
+    > Gli URL dell'API in questo documento possono essere modificati in base alla posizione della risorsa dell'autore. Per altri dettagli, vedere [accesso ai servizi Creator](how-to-manage-creator.md#access-to-creator-services).
 
 3. Fare clic su **Send** (Invia) e attendere l'elaborazione della richiesta. Al completamento della richiesta, passare alla scheda della risposta **Headers** (Intestazioni) e cercare la chiave **Location** (Posizione). Copiare il valore della chiave **Location** (Posizione), che è lo `status URL` per la richiesta di conversione.
 
@@ -160,7 +169,7 @@ Il set di dati è una raccolta di funzionalità della pianta come edifici, livel
 4. Effettuare una richiesta **GET** allo `statusURL` per ottenere il `datasetId`. Accodare la chiave di sottoscrizione primaria di Mappe di Azure per l'autenticazione. La richiesta deve essere simile all'URL seguente:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 5. Quando la richiesta HTTP **GET** viene completata correttamente, l'intestazione della risposta conterrà il `datasetId` per il set di dati creato. Copiare `datasetId`. Per creare un set di tessere è necessario usare `datasetId`.
@@ -189,7 +198,7 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 3. Effettuare una richiesta **GET** allo `statusURL` per il set di tessere. Accodare la chiave di sottoscrizione primaria di Mappe di Azure per l'autenticazione. La richiesta deve essere simile all'URL seguente:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. Quando la richiesta HTTP **GET** viene completata correttamente, l'intestazione della risposta conterrà il `tilesetId` per il set di tessere creato. Copiare `tilesetId`.

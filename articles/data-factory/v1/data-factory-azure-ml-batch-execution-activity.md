@@ -11,26 +11,25 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c40b58dfb63ac6bf1b5532eb06bfd2ad0cdccde9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73683134"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84022028"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
 > * [Attività hive](data-factory-hive-activity.md)
-> * [Attività di Pig](data-factory-pig-activity.md)
+> * [Attività Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
-> * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
 > * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics attività U-SQL](data-factory-usql-activity.md)
-> * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
+> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>Introduzione
 > [!NOTE]
@@ -44,7 +43,7 @@ ms.locfileid: "73683134"
 2. **Convertirlo in un esperimento predittivo**. Dopo aver eseguito il training del modello con i dati esistenti, preparare e semplificare l'esperimento di assegnazione dei punteggi quando si è pronti a usarlo per valutare nuovi dati.
 3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. È possibile inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.
 
-### <a name="azure-data-factory"></a>Data factory di Azure
+### <a name="azure-data-factory"></a>Azure Data Factory
 Data Factory è un servizio di integrazione dei dati basato sul cloud che orchestra e automatizza lo **spostamento** e la **trasformazione** dei dati. È possibile creare soluzioni di integrazione dei dati usando Azure Data Factory che può inserire dati da diversi archivi dati, trasformare/elaborare i dati e pubblicare i dati risultanti negli archivi dati.
 
 Il servizio Data Factory consente di creare pipeline di dati che spostano e trasformano i dati e quindi di eseguire le pipeline in base a una pianificazione specificata (ogni ora, ogni giorno, ogni settimana e così via). Offre anche viste avanzate per visualizzare la derivazione e le dipendenze tra le pipeline di dati e monitorare tutte le pipeline di dati da una singola visualizzazione unificata per individuare facilmente i problemi e configurare avvisi di monitoraggio.
@@ -80,7 +79,7 @@ Il questo scenario il servizio Web Azure Machine Learning esegue stime usando da
 > [!IMPORTANT]
 > Se il servizio Web accetta più input, usare la proprietà **webServiceInputs** invece di **webServiceInput**. Vedere la sezione [Il servizio Web richiede più input](#web-service-requires-multiple-inputs) per un esempio di uso della proprietà webServiceInputs.
 >
-> I set di elementi a cui fanno riferimento le proprietà**webServiceInputs** e **webServiceOutputs** di **webServiceInput**/(in **typeProperties**) devono essere inclusi anche negli **input** e negli **output**dell'attività.
+> I set di elementi a cui fanno riferimento le **webServiceInput** / **Proprietà webServiceInputs** e **webServiceOutputs** di webServiceInput (in **typeProperties**) devono essere inclusi anche negli **input** e negli **output**dell'attività.
 >
 > Nell'esperimento di Azure Machine Learning Studio, le porte e i parametri globali di input e output del servizio Web hanno nomi predefiniti ("input1", "input2") che è possibile personalizzare. I nomi scelti per le impostazioni webServiceInputs, webServiceOutputs e globalParameters devono corrispondere esattamente ai nomi negli esperimenti. Per verificare il mapping previsto, è possibile visualizzare il payload della richiesta di esempio nella pagina della Guida relativa all'esecuzione in batch per l'endpoint di Azure Machine Learning Studio.
 >
@@ -311,7 +310,7 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
 ### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scenario: Esperimenti di uso dei moduli Reader e Writer per fare riferimento ai dati in diversi archivi
 Un altro scenario comune durante la creazione di esperimenti di Azure Machine Learning Studio è quello relativo all'uso dei moduli Reader e Writer. Il modulo Reader consente di caricare i dati in un esperimento, mentre il modulo Writer consente di salvare i dati derivanti dagli esperimenti. Per informazioni dettagliate sui moduli Reader e Writer, vedere gli argomenti [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) in MSDN Library.
 
-Quando si usano i moduli Reader e Writer, è consigliabile usare un parametro del servizio Web per ciascuna proprietà di tali moduli. Questi parametri Web consentono di configurare i valori durante il runtime. Ad esempio, è possibile creare un esperimento con un modulo Reader che usa un database SQL di Azure: XXX.database.windows.net. Dopo aver distribuito il servizio Web, si desidera consentire ai consumer del servizio Web di specificare un altro server SQL di Azure denominato YYY.database.windows.net. È possibile usare un parametro del servizio Web per consentire la configurazione di questo valore.
+Quando si usano i moduli Reader e Writer, è consigliabile usare un parametro del servizio Web per ciascuna proprietà di tali moduli. Questi parametri Web consentono di configurare i valori durante il runtime. Ad esempio, è possibile creare un esperimento con un modulo Reader che usa un database SQL di Azure: XXX.database.windows.net. Dopo aver distribuito il servizio Web, si desidera consentire ai consumer del servizio Web di specificare un altro server logico SQL denominato YYY.database.windows.net. È possibile usare un parametro del servizio Web per consentire la configurazione di questo valore.
 
 > [!NOTE]
 > L'input e l'output del servizio Web sono diversi dai parametri del servizio Web. Nel primo scenario è stato illustrato come è possibile specificare un input e un output per un servizio Web di Azure Machine Learning Studio. In questo scenario si passano i parametri per un servizio Web corrispondenti alle proprietà dei moduli Reader e Writer.

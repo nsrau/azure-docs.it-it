@@ -6,15 +6,14 @@ keywords: impostazioni, timeout, lingua, regione
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310680"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763959"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Impostare le preferenze del portale di Azure
 
@@ -70,7 +69,7 @@ L'impostazione di visualizzazione predefinita controlla quale visualizzazione po
 
 La modalità predefinita per il menu del portale controlla la quantità di spazio occupata dal menu del portale nella pagina.
 
-* Quando il menu del portale è in modalità a **comparsa** , è nascosto fino a quando non è necessario. Selezionare l'icona di menu per aprire o chiudere il menu.
+* Quando il menu del portale è in modalità a **comparsa** , è nascosto fino a quando non è necessario. Selezionare l'icona del menu per aprire o chiudere il menu.
 * Se si sceglie modalità **ancorata** per il menu del portale, è sempre visibile. È possibile comprimere il menu per fornire maggiore spazio di lavoro. 
 
 ### <a name="choose-a-theme"></a>Scegli un tema
@@ -79,7 +78,7 @@ Il tema scelto influiscono sui colori dello sfondo e del carattere visualizzati 
 
    ![Screenshot che mostra le impostazioni di portale di Azure con i temi evidenziati](./media/set-preferences/theme.png)
 
-È invece possibile scegliere uno dei temi a contrasto elevato. Le impostazioni a contrasto elevato rendono più semplice la lettura del portale di Azure per gli utenti con problemi di visione ed eseguono l'override di tutte le altre selezioni del tema. Per altre informazioni, vedere [attivare un contrasto elevato o cambiare tema](azure-portal-change-theme-high-contrast.md).
+È invece possibile scegliere uno dei temi a contrasto elevato. Le impostazioni a contrasto elevato rendono più semplice la lettura del portale di Azure per gli utenti che hanno una compromissione visiva ed eseguono l'override di tutte le altre selezioni di tema. Per altre informazioni, vedere [attivare un contrasto elevato o cambiare tema](azure-portal-change-theme-high-contrast.md).
 
 ### <a name="enable-or-disable-pop-up-notifications"></a>Abilitare o disabilitare le notifiche popup
 

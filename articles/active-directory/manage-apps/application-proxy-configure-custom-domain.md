@@ -3,25 +3,24 @@ title: Domini personalizzati nel proxy di applicazione di Azure AD | Documentazi
 description: Configurare e gestire domini personalizzati in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
-ms.reviewer: harshja
+ms.author: kenwith
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 646a32509921709711b208c263ac6b077555eac5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764911"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurare domini personalizzati con Azure AD Application Proxy
 
@@ -138,7 +137,7 @@ Non è consigliabile usare un'autorità di certificazione radice privata, poich�
 
 La gestione di tutti i certificati avviene nelle singole pagine dell'applicazione. Passare alla pagina **Proxy dell'applicazione** per la specifica applicazione e accedere al campo **Certificato**.
 
-È possibile usare lo stesso certificato per più applicazioni. Se un certificato caricato funziona con un'altra applicazione, verrà applicato automaticamente. Non verrà richiesto di caricarlo di nuovo quando si aggiunge o si configura l'app. 
+Una volta caricato un certificato per un'applicazione, questo verrà applicato automaticamente anche alle **nuove** app configurate che usano lo stesso certificato. Sarà necessario caricare di nuovo il certificato per le app esistenti nel tenant.
 
 Quando un certificato scade, un avviso richiede di caricarne un altro. Se il certificato viene revocato, gli utenti potrebbero vedere un avviso di sicurezza quando accedono all'app. Per aggiornare il certificato per un'app, passare alla pagina **Proxy dell'applicazione** per l'app, selezionare **Certificato** e caricare un nuovo certificato. Se il certificato precedente non è usato da altre app, viene eliminato automaticamente. 
 

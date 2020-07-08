@@ -11,12 +11,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dd7a74ff775e6e07d1c32ed198ff028765fce45d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254248"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037291"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Time Series Insights usando un hub eventi
 
@@ -55,13 +54,13 @@ Questo articolo illustra come creare e configurare un hub eventi in hub eventi d
 
 ## <a name="add-a-time-series-insights-instance"></a>Aggiungere un'istanza di Time Series Insights
 
-L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati contestuali ai dati di telemetria in ingresso. I dati sono uniti in fase di query tramite un **ID serie temporale**. L' **ID della serie temporale** per il progetto mulini di esempio usato più avanti in questo `id`articolo è. Per ulteriori informazioni sulle istanze di Time Series Insight e sull' **ID della serie**temporale, vedere [modelli Time Series](./time-series-insights-update-tsm.md).
+L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati contestuali ai dati di telemetria in ingresso. I dati sono uniti in fase di query tramite un **ID serie temporale**. L' **ID della serie temporale** per il progetto mulini di esempio usato più avanti in questo articolo è `id` . Per ulteriori informazioni sulle istanze di Time Series Insight e sull' **ID della serie**temporale, vedere [modelli Time Series](./concepts-model-overview.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Creare un'origine evento di Time Series Insights
 
 1. Completare i passaggi per [creare un'origine evento](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub) se non ne è stata ancora creata una.
 
-1. Impostare un valore per `timeSeriesId`. Per ulteriori informazioni sull' **ID della serie temporale**, vedere [modelli Time Series](./time-series-insights-update-tsm.md).
+1. Impostare un valore per `timeSeriesId`. Per ulteriori informazioni sull' **ID della serie temporale**, vedere [modelli Time Series](./concepts-model-overview.md).
 
 ### <a name="push-events-to-windmills-sample"></a>Esempio di push di eventi a mulini a vento
 
@@ -69,7 +68,7 @@ L'aggiornamento di Time Series Insights usa le istanze per aggiungere dati conte
 
 1. Selezionare l'istanza di hub eventi.
 
-1. Passare a **criteri** > di accesso condiviso**MySendPolicy**. Copiare il valore per **stringa di connessione-chiave primaria**.
+1. Passare a **criteri di accesso condiviso**  >  **MySendPolicy**. Copiare il valore per **stringa di connessione-chiave primaria**.
 
     [![Copiare il valore per la stringa di connessione della chiave primaria](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 

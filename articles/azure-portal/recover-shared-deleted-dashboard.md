@@ -5,15 +5,14 @@ services: azure-portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 01/21/2020
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: af0c72f0bc5dd8f3a3cbae7b82b1ac56447cbb08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7b3cc088a87731d2a118a4fe5183831e4d1bd6cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77133281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763976"
 ---
 # <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Ripristinare un dashboard eliminato nel portale di Azure
 
@@ -21,7 +20,7 @@ Se ci si trova nel cloud pubblico di Azure e si elimina un dashboard _pubblicato
 
 1. Dal menu portale di Azure selezionare gruppi di **risorse**, quindi selezionare il gruppo di risorse in cui è stato pubblicato il dashboard (per impostazione predefinita, i dashboard sono denominati **Dashboard**).
 
-1. In **log attività**espandere l'operazione **Elimina dashboard** . Selezionare la scheda **cronologia modifiche** , quindi selezionare ** \<risorsa\>eliminata**.
+1. In **log attività**espandere l'operazione **Elimina dashboard** . Selezionare la scheda **cronologia modifiche** , quindi selezionare **\<deleted resource\>** .
 
     ![Screenshot della scheda cronologia modifiche](media/recover-shared-deleted-dashboard/change-history-tab.png)
 
