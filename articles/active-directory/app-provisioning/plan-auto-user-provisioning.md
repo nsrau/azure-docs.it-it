@@ -2,21 +2,20 @@
 title: Pianificare una distribuzione automatica del provisioning utenti per Azure Active Directory
 description: Linee guida per la pianificazione e l'esecuzione del provisioning utenti automatico
 services: active-directory
-author: martincoetzer
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
-ms.author: martinco
+ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 4f391a2fce669c2684ac5001e3659247adfeb4f6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781634"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -26,7 +25,7 @@ Azure Active Directory (Azure AD) il provisioning utenti automatico semplifica q
 
 Vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md) per comprendere meglio le funzionalità.
 
-## <a name="learn"></a>Informazioni
+## <a name="learn"></a>Learn
 
 Il provisioning degli utenti crea una base per la governance delle identità in corso e migliora la qualità dei processi aziendali basati sui dati di identità autorevoli.
 
@@ -42,7 +41,7 @@ I vantaggi principali dell'abilitazione del provisioning utenti automatico sono:
 
 * **Ridurre i costi**. Il provisioning utenti automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate, script e log di controllo.
 
-### <a name="licensing"></a>Gestione licenze
+### <a name="licensing"></a>Gestione delle licenze
 
 Azure AD fornisce l'integrazione self-service di qualsiasi applicazione usando i modelli forniti nel menu della raccolta di applicazioni. Per un elenco completo dei requisiti di licenza, vedere la pagina relativa alla [gestione delle licenze Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -133,7 +132,7 @@ Quando i progetti tecnologici hanno esito negativo, è in genere dovuto a una ma
 
 ### <a name="plan-communications"></a>Pianificare le comunicazioni
 
-La comunicazione è fondamentale per il successo di un nuovo servizio. Comunica in modo proattivo con gli utenti in che modo cambiano l'esperienza, quando verrà modificata e come ottenere supporto in caso di problemi.
+La comunicazione è fondamentale per il successo di un nuovo servizio. Comunica in modo proattivo con gli utenti su come cambierà l'esperienza, quando verrà modificata, e su come ottenere supporto in caso di problemi.
 
 ### <a name="plan-a-pilot"></a>Pianificare un progetto pilota
 
@@ -171,7 +170,7 @@ La configurazione del provisioning utenti automatico è un processo in base all'
 
 L'immagine seguente mostra una versione delle credenziali amministrative richieste:
 
-![Schermata di provisioning per gestire le impostazioni di provisioning degli account utente](./media/plan-auto-user-provisioning/userprovisioning-admincredentials.png)
+![Schermata Provisioning per la gestione delle impostazioni di provisioning degli account utente](./media/plan-auto-user-provisioning/userprovisioning-admincredentials.png)
 
 Mentre alcune applicazioni richiedono il nome utente e la password dell'amministratore, altre possono richiedere un bearer token.
 
@@ -217,13 +216,13 @@ Per ridurre i problemi di post-distribuzione, tenere presente quanto segue:
 
 * Per il corretto funzionamento del provisioning degli utenti, le applicazioni possono presentare restrizioni e/o requisiti specifici che devono essere soddisfatti. Ad esempio, Slack tronca i valori per determinati attributi. Vedere le [esercitazioni di provisioning utenti automatico](../saas-apps/tutorial-list.md) specifiche per ogni applicazione.
 
-* Verificare la coerenza dello schema tra i sistemi di origine e di destinazione. I problemi comuni includono attributi come UPN o messaggi non corrispondenti. Ad esempio, UPN in Azure AD impostato come *john_smith@contoso.com* e nell'app, è *jsmith@contoso.com*. Per ulteriori informazioni, vedere il [riferimento allo schema user and Group](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+* Verificare la coerenza dello schema tra i sistemi di origine e di destinazione. I problemi comuni includono attributi come UPN o messaggi non corrispondenti. Ad esempio, UPN in Azure AD impostato come *john_smith@contoso.com* e nell'app, è *jsmith@contoso.com* . Per ulteriori informazioni, vedere il [riferimento allo schema user and Group](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ## <a name="plan-testing-and-security"></a>Pianificare test e sicurezza
 
 In ogni fase della distribuzione verificare che i risultati siano quelli previsti e controllare i cicli di provisioning.
 
-### <a name="plan-testing"></a>Test del piano
+### <a name="plan-testing"></a>Panificare i test
 
 Dopo aver configurato il provisioning utenti automatico per l'applicazione, si eseguiranno i test case per verificare che la soluzione soddisfi i requisiti dell'organizzazione.
 
@@ -238,7 +237,7 @@ Dopo aver configurato il provisioning utenti automatico per l'applicazione, si e
 
 Come parte di una distribuzione, è normale che sia necessaria una revisione della sicurezza. Se è necessaria una verifica della sicurezza, vedere i molti Azure AD [white paper](https://www.microsoft.com/download/details.aspx?id=36391) che fornisce una panoramica dell'identità come servizio.
 
-### <a name="plan-rollback"></a>Rollback del piano
+### <a name="plan-rollback"></a>Pianificare il rollback
 
 Se l'implementazione del provisioning utenti automatico non funziona nel modo desiderato nell'ambiente di produzione, i passaggi di rollback seguenti possono risultare utili per il ripristino di uno stato valido noto precedente:
 

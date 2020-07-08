@@ -1,18 +1,17 @@
 ---
 title: Serie HBv2-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie HBv2.
-services: virtual-machines
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: amverma
-ms.openlocfilehash: eea649610ca53ccbb98b5ca361555280dcd3dafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 730065333fde7431b7018ef0a6e614e12727d7ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673854"
 ---
 # <a name="hbv2-series"></a>Serie HBv2
 
@@ -20,9 +19,9 @@ Le macchine virtuali della serie HBv2 sono ottimizzate per le applicazioni basat
 
 Archiviazione Premium: supportata
 
-Live Migration: non supportato
+Live Migration: Non supportato
 
-Aggiornamenti con mantenimento della memoria: non supportato
+Manutenzione con mantenimento della memoria: Non supportato
 
 | Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | NIC Ethernet max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

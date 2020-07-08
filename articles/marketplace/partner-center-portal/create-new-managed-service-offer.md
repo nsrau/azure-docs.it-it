@@ -8,16 +8,15 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 9ab2122fe1dd71a06127cad5ecc064fc42845390
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 3099c73849a63ebf490d026db95cedfd1278d735
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847720"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957580"
 ---
 # <a name="create-a-managed-service-offer"></a>Creare un'offerta di servizi gestiti
 
-Il servizio gestito offre assistenza per abilitare scenari di [Azure Lighthouse](../../lighthouse/overview.md). Quando un cliente accetta un'offerta di servizio gestito, potrà eseguire l'onboarding delle risorse per la [gestione delle risorse delegata di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
+Il servizio gestito offre assistenza per abilitare scenari di [Azure Lighthouse](../../lighthouse/overview.md). Quando un cliente accetta un'offerta di servizio gestito, potrà eseguire l'onboarding delle risorse per la [gestione delle risorse delegata di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](create-account.md), se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
 
 Per pubblicare un'offerta di servizio gestito, è necessario avere un [livello di competenza Silver o Gold Cloud Platform](https://partner.microsoft.com/membership/cloud-platform-competency) o essere un [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp).
 
@@ -80,6 +79,17 @@ Questa pagina consente di definire i dettagli del marketplace, ad esempio il nom
 > [!NOTE]
 > Non è necessario usare l'inglese per i contenuti di presentazione dell'offerta (ad esempio descrizione, documenti, screenshot e condizioni per l'utilizzo), purché la descrizione dell'offerta inizi con la frase "Questa applicazione è disponibile solo in [lingua non inglese]". È anche possibile specificare un *URL a collegamenti utili* per offrire contenuti in una lingua diversa da quella usata nei contenuti di presentazione dell'offerta.
 
+Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
+
+:::image type="content" source="media/example-managed-services.png" alt-text="Viene illustrato il modo in cui questa offerta viene visualizzata nel portale di Azure.":::
+
+#### <a name="call-out-descriptions"></a>Descrizioni di chiamata
+
+1. Titolo
+2. Descrizione
+3. Collegamenti utili
+4. Screenshots (Schermate)
+
 ### <a name="name"></a>Nome
 
 Il nome immesso qui verrà visualizzato ai clienti come titolo della presentazione dell'offerta. Questo campo viene precompilato con il testo immesso per **Alias offerta** quando è stata creata l'offerta, ma è possibile modificarne il valore. Questo nome può essere un marchio registrato (ed è possibile includere i simboli di marchio o copyright). Il nome non può essere costituito da più di 50 caratteri e non può includere emoji.
@@ -127,9 +137,9 @@ In questa sezione è possibile specificare logo e immagini che verranno usati qu
 
 Specificare il logo dell'offerta in quattro dimensioni in pixel:
 
-- **Piccolo** (40 x 40)
+- **Piccola** (48 x 48)
 - **Media** (90 x 90)
-- **Grande** (115 x 115)
+- **Grande** (216 x 216)
 - **Molto grande** (255 X 115)
 
 Seguire queste linee guida per i logo:
@@ -151,7 +161,7 @@ Facoltativamente, è possibile aggiungere fino a cinque video che descrivono l'o
 
 #### <a name="additional-marketplace-listing-resources"></a>Risorse aggiuntive per la presentazione nel marketplace
 
-- [Procedure consigliate per la presentazione di offerte nel marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Procedure consigliate per la presentazione di offerte nel marketplace](../gtm-offer-listing-best-practices.md)
 
 Prima di continuare, selezionare **Salva bozza**.
 

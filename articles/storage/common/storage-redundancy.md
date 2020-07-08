@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d14c21174f9631a1ad72489d4c0bafe013572c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213993"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -62,8 +61,8 @@ La tabella seguente illustra i tipi di account di archiviazione che supportano l
 |    Tipo di account di archiviazione    |    Aree supportate    |    Servizi supportati    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Utilizzo generico v2<sup>1</sup>    | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Sudafrica settentrionale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2    |    BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Europa occidentale<br /> Stati Uniti orientali    |    Solo BLOB in blocchi    |
-|    FileStorage    | Europa occidentale<br /> Stati Uniti orientali    |    Solo File di Azure    |
+|    BlockBlobStorage<sup>1</sup>    | Asia sudorientale<br /> Europa occidentale<br /> Stati Uniti orientali    |    Solo BLOB in blocchi    |
+|    FileStorage    | Asia sudorientale<br /> Europa occidentale<br /> Stati Uniti orientali    |    Solo File di Azure    |
 
 <sup>1</sup> Il livello di archiviazione non è attualmente supportato per gli account ZRS.<br />
 <sup>2</sup> Gli account di archiviazione contenenti i dischi gestiti di Azure per le macchine virtuali usano sempre con l'archiviazione con ridondanza locale. I dischi non gestiti di Azure devono usare anche l'archiviazione con ridondanza locale. È possibile creare un account di archiviazione per i dischi non gestiti di Azure che usa l'archiviazione con ridondanza geografica, ma non è consigliabile a causa di possibili problemi di coerenza della replica geografica asincrona. Né i dischi gestiti e né quelli non gestiti supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [Prezzi per i dischi gestiti di Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -81,7 +80,7 @@ Archiviazione di Azure offre due opzioni per la copia dei dati in un'area second
 - L'**archiviazione con ridondanza geografica (GRS)** copia i dati in modo sincrono tre volte all'interno di un'unica posizione fisica nell'area primaria usando l'archiviazione con ridondanza locale. Copia quindi i dati in modo asincrono in un'unica posizione fisica nell'area secondaria.
 - L'**archiviazione con ridondanza geografica della zona (GZRS)** copia i dati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria usando l'archiviazione con ridondanza della zona. Copia quindi i dati in modo asincrono in un'unica posizione fisica nell'area secondaria.
 
-La differenza principale tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica della zona è il modo in cui i dati vengono replicati nell'area primaria. All'interno della posizione secondaria, i dati vengono sempre replicati in modo sincrono tre volte usando l'archiviazione con ridondanza locale.
+La differenza principale tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica della zona è il modo in cui i dati vengono replicati nell'area primaria. All'interno della posizione secondaria, i dati vengono sempre replicati in modo sincrono tre volte usando l'archiviazione con ridondanza locale. CON ridondanza locale nell'area secondaria protegge i dati da errori hardware.
 
 Con l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica della zona, i dati nella posizione secondaria non sono disponibili per la lettura o la scrittura a meno che non ci sia un failover nell'area secondaria. Per l'accesso in lettura all'area secondaria, configurare l'account di archiviazione per l'uso dell'archiviazione con ridondanza geografica e accesso in lettura(RA-GRS) o l'archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS). Per altre informazioni, vedere [Accesso in lettura ai dati nell'area secondaria](#read-access-to-data-in-the-secondary-region).
 
@@ -120,13 +119,15 @@ Per informazioni sui prezzi, vedere i dettagli sui prezzi per i [BLOB](https://a
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>Accesso in lettura ai dati nell'area secondaria
 
-L'archiviazione con ridondanza geografica, con GRS o GZRS, consente di replicare i dati in un'altra posizione fisica dell'area secondaria per proteggerli da interruzioni a livello di area. Tuttavia, i dati possono essere letti solo se il cliente o Microsoft avvia un failover dall'area primaria a quella secondaria. Quando si abilita l'accesso in lettura all'area secondaria, i dati possono essere letti nel caso in cui l'area primaria non sia disponibile. Per l'accesso in lettura all'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) o l'archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS).
+L'archiviazione con ridondanza geografica, con GRS o GZRS, consente di replicare i dati in un'altra posizione fisica dell'area secondaria per proteggerli da interruzioni a livello di area. Tuttavia, i dati possono essere letti solo se il cliente o Microsoft avvia un failover dall'area primaria a quella secondaria. Quando si Abilita l'accesso in lettura all'area secondaria, i dati sono disponibili per la lettura in qualsiasi momento, anche in una situazione in cui l'area primaria diventa non disponibile. Per l'accesso in lettura all'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) o l'archiviazione con ridondanza geografica della zona e accesso in lettura (RA-GZRS).
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Progettare le applicazioni per l'accesso in lettura all'area secondaria
 
-Se l'account di archiviazione è configurato per l'accesso in lettura all'area secondaria, è possibile progettare le applicazioni in modo da passare facilmente alla lettura dei dati dell'area secondaria se l'area primaria, per un qualsiasi motivo, non è più disponibile. L'area secondaria è sempre disponibile per l'accesso in lettura, quindi è possibile testare l'applicazione per assicurarsi che legga l'area secondaria in caso di interruzione. Per altre informazioni sulla progettazione di applicazioni con disponibilità elevata, vedere [Usare la ridondanza geografica per progettare applicazioni a disponibilità elevata](geo-redundant-design.md).
+Se l'account di archiviazione è configurato per l'accesso in lettura all'area secondaria, è possibile progettare le applicazioni in modo da passare facilmente alla lettura dei dati dell'area secondaria se l'area primaria, per un qualsiasi motivo, non è più disponibile. 
 
-Quando è abilitato l'accesso in lettura al database secondario, i dati possono essere letti dall'endpoint secondario oltre che dall'endpoint primario per l'account di archiviazione. L'endpoint secondario accoda il suffisso *–secondary* al nome dell'account. Se ad esempio l'endpoint primario per l'archiviazione BLOB è `myaccount.blob.core.windows.net`, l'endpoint secondario sarà `myaccount-secondary.blob.core.windows.net`. Le chiavi di accesso per l'account di archiviazione sono identiche per gli endpoint primario e secondario.
+L'area secondaria è disponibile per l'accesso in lettura dopo l'abilitazione di RA-GRS o RA-GZRS, in modo che sia possibile testare l'applicazione in anticipo per assicurarsi che venga letta correttamente dal database secondario in caso di interruzione. Per altre informazioni sulla progettazione di applicazioni con disponibilità elevata, vedere [Usare la ridondanza geografica per progettare applicazioni a disponibilità elevata](geo-redundant-design.md).
+
+Quando è abilitato l'accesso in lettura al database secondario, l'applicazione può essere letta dall'endpoint secondario e dall'endpoint primario. L'endpoint secondario accoda il suffisso *–secondary* al nome dell'account. Se ad esempio l'endpoint primario per l'archiviazione BLOB è `myaccount.blob.core.windows.net`, l'endpoint secondario sarà `myaccount-secondary.blob.core.windows.net`. Le chiavi di accesso per l'account di archiviazione sono identiche per gli endpoint primario e secondario.
 
 ### <a name="check-the-last-sync-time-property"></a>Controllare la proprietà Ora ultima sincronizzazione
 

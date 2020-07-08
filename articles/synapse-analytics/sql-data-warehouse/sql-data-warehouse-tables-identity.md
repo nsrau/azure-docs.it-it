@@ -6,21 +6,20 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213976"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Uso di IDENTITY per la creazione di chiavi surrogate nel pool SQL sinapsi
 
-Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle nel pool SQL sinapsi.
+In questo articolo sono disponibili indicazioni ed esempi per l'uso della proprietà IDENTITY per la creazione di chiavi surrogate nelle tabelle nel pool SQL sinapsi.
 
 ## <a name="what-is-a-surrogate-key"></a>Che cos'è una chiave surrogata
 
@@ -100,7 +99,7 @@ CREATE TABLE AS SELECT (CTAS) ha lo stesso comportamento di SQL Server documenta
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserimento in modo esplicito di valori in una colonna IDENTITY
 
-Il pool SQL sinapsi `SET IDENTITY_INSERT <your table> ON|OFF` supporta la sintassi. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
+Il pool SQL sinapsi supporta la `SET IDENTITY_INSERT <your table> ON|OFF` sintassi. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
 
 Molti progettisti di modelli di dati preferiscono usare valori negativi predefiniti per alcune righe nelle dimensioni. Un esempio è la riga -1 o "membro sconosciuto".
 

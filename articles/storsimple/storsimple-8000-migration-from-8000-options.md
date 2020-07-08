@@ -4,15 +4,14 @@ description: Viene fornita una panoramica delle opzioni per la migrazione dei da
 services: storsimple
 author: priestlg
 ms.service: storsimple
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: v-grpr
-ms.openlocfilehash: 974bcc657b811a10e28b41150439e83d26a208d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 39c78e1dc579f74207ba828f2f6a49ad44dd4a43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514708"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opzioni per la migrazione dei dati da StorSimple serie 8000
 
@@ -41,6 +40,12 @@ StorSimple serie 5000-7000 e i clienti della serie StorSimple 8000 possono scegl
 
 Questa migrazione è supportata da Panzura e per iniziare i clienti possono richiedere supporto per la migrazione dal [sito Web Panzura](https://panzura.com/migrate-storsimple-panzura/).
 
+#### <a name="migrate-to-nasuni"></a>Eseguire la migrazione a Nasuni
+
+Il passaggio dell'intero ambiente StorSimple a una piattaforma di servizi file stabile, sicura e ad alte prestazioni è facile con Nasuni. Nasuni offre la sicurezza e le prestazioni dell'archiviazione file locale, combinando la scalabilità e la durabilità di Azure.  In qualità di fornitore di software indipendente (ISV) di Azure, Nasuni offre tutti gli strumenti necessari per spostare i dati di StorSimple in una piattaforma moderna che consente di condividere e collaborare con i file in più posizioni.
+
+Inizia subito: [sito Web Nasuni](https://info.nasuni.com/storsimple8000-webinar).
+
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity
 
@@ -65,23 +70,23 @@ Learn more about how to evolve to a cloud-consolidated enterprise at https://www
 
 ### <a name="q-when-do-the-storsimple-8000-series-devices-reach-end-of-service"></a>Q. Quando i dispositivi della serie StorSimple 8000 raggiungono la fine del servizio?
 
-A. Il [supporto di](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) StorSimple serie 8000 della serie è stato raggiunto nel dicembre 2022. La fine del supporto implica che Microsoft non sarà più in grado di fornire supporto per l'hardware e il software di questi dispositivi dopo il 2022 dicembre. Si consiglia di iniziare adesso la preparazione di un piano per la migrazione dei dati dai dispositivi.
+R. Il [supporto di](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) StorSimple serie 8000 della serie è stato raggiunto nel dicembre 2022. La fine del supporto implica che Microsoft non sarà più in grado di fornire supporto per l'hardware e il software di questi dispositivi dopo il 2022 dicembre. Si consiglia di iniziare adesso la preparazione di un piano per la migrazione dei dati dai dispositivi.
 
 ### <a name="q-what-happens-to-the-data-i-have-stored-in-azure"></a>Q. Cosa accade ai dati archiviati in Azure?  
 
-A. È possibile continuare a usare i dati in Azure quando si esegue la migrazione a un servizio più recente.
+R. È possibile continuare a usare i dati in Azure quando si esegue la migrazione a un servizio più recente.
 
 ### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>Q. Cosa accade ai dati archiviati localmente nel dispositivo StorSimple?
 
-A. Possono essere copiati i dati nel dispositivo locale al servizio più recente, come descritto nei documenti di migrazione.
+R. Possono essere copiati i dati nel dispositivo locale al servizio più recente, come descritto nei documenti di migrazione.
 
 ### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-8000-series-appliance"></a>Q. Che cosa accade se si vuole proteggere il dispositivo StorSimple serie 8000?
 
-A. Mentre i servizi potrebbero continuare a funzionare, Microsoft non sarà in grado di fornire supporto per hardware e software. La migrazione è fortemente consigliata per la continuità aziendale.
+R. Mentre i servizi potrebbero continuare a funzionare, Microsoft non sarà in grado di fornire supporto per hardware e software. La migrazione è fortemente consigliata per la continuità aziendale.
 
 ### <a name="q-what-options-are-available-to-migrate-data-from-storsimple-8000-series-devices"></a>Q. Quali opzioni sono disponibili per la migrazione dei dati dai dispositivi StorSimple serie 8000?
 
-A. A seconda dello scenario, gli utenti della serie StorSimple 8000 hanno le opzioni di migrazione seguenti:
+R. A seconda dello scenario, gli utenti della serie StorSimple 8000 hanno le opzioni di migrazione seguenti:
 
 * **Eseguire la migrazione a Sincronizzazione file di Azure**: usare questa opzione quando si desidera passare al formato nativo di Azure. È possibile usare Sincronizzazione file di Azure per la gestione centralizzata delle condivisioni file.
 
@@ -89,19 +94,19 @@ A. A seconda dello scenario, gli utenti della serie StorSimple 8000 hanno le opz
 
 ### <a name="q-is-migration-to-other-storage-solutions-supported"></a>Q. La migrazione ad altre soluzioni di archiviazione è supportata?
 
-A. Sì. La migrazione da altre soluzioni di archiviazione tramite copia host dei dati è supportata.
+R. Sì. La migrazione da altre soluzioni di archiviazione tramite copia host dei dati è supportata.
 
 ### <a name="q-is-migration-supported-by-microsoft"></a>Q. La migrazione è supportata da Microsoft?
 
-A. La migrazione dalla serie 8000 è un'operazione completamente supportata. Infatti, Microsoft consiglia di rivolgersi al supporto tecnico prima di iniziare la migrazione. La migrazione è attualmente un'operazione assistita. Se si intende eseguire la migrazione dei dati dal dispositivo StorSimple serie 8000, [contattare il supporto di StorSimple](mailto:storsimp@microsoft.com).
+R. La migrazione dalla serie 8000 è un'operazione completamente supportata. Infatti, Microsoft consiglia di rivolgersi al supporto tecnico prima di iniziare la migrazione. La migrazione è attualmente un'operazione assistita. Se si intende eseguire la migrazione dei dati dal dispositivo StorSimple serie 8000, [contattare il supporto di StorSimple](mailto:storsimp@microsoft.com).
 
 ### <a name="q-what-is-the-pricing-model-for-migration-to-azure-file-sync"></a>Q. Qual è il modello di determinazione dei prezzi per la migrazione a Sincronizzazione file di Azure?
 
-A. Quando si utilizza Sincronizzazione file di Azure, è possibile che vengano applicate le tariffe di sottoscrizione per il servizio. I clienti dovranno anche pagare i costi di archiviazione in corso. Per una stima, vedere [prezzi di AFS]( https://azure.microsoft.com/pricing/details/storage/files/) .
+R. Quando si utilizza Sincronizzazione file di Azure, è possibile che vengano applicate le tariffe di sottoscrizione per il servizio. I clienti dovranno anche pagare i costi di archiviazione in corso. Per una stima, vedere [prezzi di AFS]( https://azure.microsoft.com/pricing/details/storage/files/) .
 
 ### <a name="q-how-long-does-it-take-to-complete-a-migration"></a>Q. Quanto tempo ci vuole per completare una certificazione?
 
-A. Il tempo necessario per la migrazione dei dati varia a seconda della quantità di dati e dall'opzione di aggiornamento selezionata.
+R. Il tempo necessario per la migrazione dei dati varia a seconda della quantità di dati e dall'opzione di aggiornamento selezionata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

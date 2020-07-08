@@ -1,23 +1,13 @@
 ---
 title: Eseguire la migrazione degli spazi dei nomi del bus di servizio di Azure-standard a Premium
 description: Guida per consentire la migrazione degli spazi dei nomi standard del bus di servizio di Azure esistenti a Premium
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2019
-ms.author: aschhab
-ms.openlocfilehash: 27e3260b91bebee14ff12188a7dbd6c7cf76355c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385028"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340744"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Eseguire la migrazione degli spazi dei nomi standard del bus di servizio di Azure esistenti al livello Premium
 
@@ -187,8 +177,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Portale di Azure
 
-![Abort Flow-Abort Sync][]
-![Abort Flow-Abort complete][]
+![Abort Flow-Abort Sync ][]
+ ![ Abort Flow-Abort complete][]
 
 Quando il processo di migrazione viene interrotto, interrompe il processo di copia delle entità (argomenti, sottoscrizioni e filtri) dallo spazio dei nomi standard allo spazio dei nomi premium e interrompe l'associazione.
 

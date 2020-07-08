@@ -6,12 +6,11 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: ed398e12ee90f2eef2cfa78e2ed02701e6012517
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658881"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340875"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Log di monitoraggio di Azure per i provider di servizi
 
@@ -19,7 +18,7 @@ Log Analytics le aree di lavoro in monitoraggio di Azure possono aiutare i provi
 
 Le aziende di grandi dimensioni hanno molti punti in comune con i provider di servizi, soprattutto quando c'è un team IT centralizzato che si occupa della gestione dell'IT per molte business unit diverse tra loro. Per semplicità, in questo documento si usa il termine *provider di servizi* ma la stessa funzionalità è disponibile anche per le aziende e gli altri clienti.
 
-Per i partner e i provider di servizi che fanno parte del programma [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) , log Analytics in monitoraggio di Azure è uno dei servizi di Azure disponibili nelle sottoscrizioni di Azure CSP.
+Per i partner e i provider di servizi che fanno parte del programma [Cloud Solution Provider (CSP)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) , log Analytics in monitoraggio di Azure è uno dei servizi di Azure disponibili nelle sottoscrizioni di Azure CSP.
 
 Log Analytics in monitoraggio di Azure può essere usato anche da un provider di servizi che gestisce le risorse dei clienti tramite la funzionalità di gestione delle risorse delegate di Azure nel [Faro di Azure](https://docs.microsoft.com/azure/lighthouse/overview).
 
@@ -64,7 +63,7 @@ I vantaggi dell'architettura centralizzata sono i seguenti:
 Gli svantaggi dell'architettura centralizzata sono:
 
 * Questa architettura è applicabile solo ai dati di macchine virtuale basati su agenti e non può essere usata con origini dati PaaS, SaaS e dell'infrastruttura di Microsoft Azure.
-* Potrebbe essere difficile separare i dati tra i clienti quando sono uniti in una singola area di lavoro. L'unico metodo per eseguire questa operazione è quello di usare il nome di dominio completo del computer (FQDN) o l'ID sottoscrizione di Azure. 
+* Potrebbe essere difficile separare i dati tra i clienti quando sono uniti in una singola area di lavoro. L'unico metodo per eseguire questa operazione è quello di usare il nome di dominio completo del computer (FQDN) o l'ID sottoscrizione di Azure.
 * Tutti i dati di tutti i clienti verranno archiviati nella stessa area con un'unica fattura e con le stesse impostazioni di conservazione e di configurazione.
 * Per i servizi PaaS e di infrastruttura di Microsoft Azure, ad esempio Diagnostica di Azure e log di controllo di Azure, l'area di lavoro deve essere nello stesso tenant della risorsa in modo che i logo non vengano inviati all'area di lavoro centrale.
 * Tutti gli agenti di macchine virtuali di tutti i clienti vengono autenticati nell'area di lavoro centrale usando lo stesso ID e la stessa chiave dell'area di lavoro. Non esiste alcun metodo per bloccare i log di un cliente specifico senza interrompere l'attività di altri clienti.
@@ -77,13 +76,13 @@ Sono disponibili due opzioni per implementare i log in una posizione centrale:
 
 1. Area di lavoro centrale: il provider di servizi può creare un'area di lavoro nel proprio tenant e usare uno script che usi l'[API di query](https://dev.loganalytics.io/) con l'[API di raccolta dati](../../azure-monitor/platform/data-collector-api.md) per spostare i dati dalle diverse aree di lavoro nella posizione centrale. Un'alternativa all'uso degli script consiste nell'usare le [app per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI come posizione centrale: Power BI può fungere da posizione centrale quando le varie aree di lavoro esportano i dati usando l'integrazione tra l'area di lavoro di Log Analytics e [Power bi](../../azure-monitor/platform/powerbi.md). 
+2. Power BI come posizione centrale: Power BI può fungere da posizione centrale quando le varie aree di lavoro esportano i dati usando l'integrazione tra l'area di lavoro di Log Analytics e [Power bi](../../azure-monitor/platform/powerbi.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Automatizzare la creazione e la configurazione delle aree di lavoro usando i [modelli di Resource Manager](template-workspace-configuration.md)
 
-* Automatizzare la creazione delle aree di lavoro usando [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
+* Automatizzare la creazione delle aree di lavoro usando [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)
 
 * Usare la funzione [Avvisi](../../azure-monitor/platform/alerts-overview.md) per l'integrazione con i sistemi esistenti
 

@@ -3,19 +3,18 @@ title: Inserimento di dati nella cache HPC di Azure-script di copia parallela
 description: Come usare uno script di copia parallela per spostare i dati in una destinazione di archiviazione BLOB nella cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 90e05ad3d42b1009b631630fe476669a9f418d33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5db04b3ee89ab5a0a4f85f3b833ea513310dce18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74166887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514789"
 ---
 # <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Inserimento di dati nella cache HPC di Azure-metodo script di copia parallela
 
-Questo articolo fornisce le istruzioni per creare ``parallelcp`` lo script e usarlo per spostare i dati in un contenitore di archiviazione BLOB per l'uso con la cache HPC di Azure.
+Questo articolo fornisce le istruzioni per creare lo ``parallelcp`` script e usarlo per spostare i dati in un contenitore di archiviazione BLOB per l'uso con la cache HPC di Azure.
 
 Per altre informazioni sullo spostamento dei dati nell'archiviazione BLOB per la cache HPC di Azure, vedere [spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md).
 
@@ -75,7 +74,7 @@ EOM
 
 ## <a name="parallel-copy-example"></a>Esempio di copia parallela
 
-Questo esempio usa lo script di copia parallela ``glibc`` per compilare usando i file di origine nella cache HPC di Azure.
+Questo esempio usa lo script di copia parallela per compilare ``glibc`` usando i file di origine nella cache HPC di Azure.
 
 I file di origine vengono memorizzati nella cache nel punto di montaggio della cache HPC di Azure e i file oggetto vengono archiviati sul disco rigido locale.
 

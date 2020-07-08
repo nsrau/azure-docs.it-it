@@ -5,13 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 2de04bbb1523151ac566b78bf99eba34c437fccd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/25/2020
+ms.openlocfilehash: 803437cc45fce9ab850682cf4725c0bf0d21bed6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79537092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414114"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoraggio in Database di Azure per MySQL
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per MySQL offre varie metriche che consentono di ottenere informazioni approfondite sul comportamento del server.
@@ -26,7 +25,7 @@ Per Database di Azure per MySQL sono disponibili le metriche seguenti:
 |---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
-|io_consumption_percent|Percentuale IO|Percentuale|Percentuale di I/O in uso.|
+|io_consumption_percent|Percentuale IO|Percentuale|Percentuale di I/O in uso. (Non applicabile ai server di livello Basic).|
 |storage_percent|Percentuale archiviazione|Percentuale|Percentuale di spazio di archiviazione usata rispetto al massimo del server.|
 |storage_used|Uso archiviazione|Byte|Quantità di spazio di archiviazione in uso. Lo spazio di archiviazione usato dal servizio può includere file di database, log delle transazioni e log del server.|
 |serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percentuale|Percentuale di spazio di archiviazione dei log del server usata rispetto allo spazio di archiviazione massimo dei log del server per il server.|
@@ -73,7 +72,7 @@ Le **notifiche di manutenzione pianificata** consentono di ricevere avvisi per l
 Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio**, vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Le notifiche di manutenzione pianificata sono attualmente in anteprima
+> Le notifiche di manutenzione pianificata sono attualmente disponibili in anteprima in tutte le aree **ad eccezione** degli Stati Uniti centro-occidentali
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-on-metric.md).

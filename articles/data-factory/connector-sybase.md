@@ -9,14 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 06/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 495d16efcc26fc336a87c0f2d88f5202ab0b4a3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ac9dff4b16d8ba1b346a2827f3b5487dbf97392e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669835"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiare dati da Sybase usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -30,15 +29,17 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Questo connettore Sybase è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da un database Sybase in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 In particolare, il connettore Sybase supporta:
 
-- SAP Sybase SQL Anywhere (ASA) **versione 16 e successive**. IQ e ASE non sono supportati.
+- SAP Sybase SQL Anywhere (ASA) **versione 16 e successive**.
 - La copia di dati usando l'autenticazione **Di base** o **Windows**.
+
+Sybase IQ e ASE non sono supportati. È invece possibile usare il connettore ODBC generico con il driver Sybase.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,7 +48,7 @@ Per usare questo connettore Sybase, è necessario:
 - Configurare un runtime di integrazione self-hosted. Per informazioni dettagliate, vedere l'articolo relativo alla [Integration Runtime self-hosted](create-self-hosted-integration-runtime.md) .
 - Installare il [provider di dati per Sybase iAnywhere.Data.SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) versione 16 o successiva nel computer del runtime di integrazione.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -63,8 +64,8 @@ Per il servizio collegato di Sybase sono supportate le proprietà seguenti:
 | server | Nome del server Sybase. |Sì |
 | database | Nome del database Sybase. |Sì |
 | authenticationType | Tipo di autenticazione usato per connettersi al database Sybase.<br/>I valori consentiti sono: **Di base** e **Windows**. |Sì |
-| nomeutente | Specificare il nome utente per la connessione al database Sybase. |Sì |
-| password | Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
+| username | Specificare il nome utente per la connessione al database Sybase. |Sì |
+| password | Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
 **Esempio:**
@@ -120,7 +121,7 @@ Per copiare dati da Sybase, sono supportate le proprietà seguenti:
 }
 ```
 
-Se si usa `RelationalTable` un set di dati tipizzato, è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+Il set di dati tipizzato `RelationalTable` è ancora supportato senza modifiche, ma è consigliato l'uso del nuovo per il futuro.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
@@ -167,7 +168,7 @@ Per copiare dati da Sybase, nella sezione **origine** dell'attività di copia so
 ]
 ```
 
-Se si usa `RelationalSource` l'origine tipizzata, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+L'origine tipizzata `RelationalSource` è ancora supportata senza modifiche, ma è consigliato l'uso della nuova per il futuro.
 
 ## <a name="data-type-mapping-for-sybase"></a>Mapping dei tipi di dati per Sybase
 
@@ -175,9 +176,9 @@ Quando si copiano dati da Sybase, vengono usati i mapping seguenti tra i tipi di
 
 Sybase supporta i tipi T-SQL. Per una tabella di mapping dai tipi SQL ai tipi di dati provvisori di Azure Data Factory, vedere la sezione [Connettore Database SQL di Azure - Mapping dei tipi di dati](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database).
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
 
 

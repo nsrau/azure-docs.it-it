@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fa94b7461907a2337ba448a91d67fe93c5ab2f8f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75612258"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957563"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
@@ -27,7 +26,9 @@ Per altre informazioni, vedere le [informazioni di riferimento su Protocol Buffe
 
 Il driver Microsoft .NET per Apache Phoenix Query Server è disponibile come pacchetto NuGet, che è possibile installare dalla **Console di Gestione pacchetti NuGet** di Visual Studio con il comando seguente:
 
-    Install-Package Microsoft.Phoenix.Client
+```console
+Install-Package Microsoft.Phoenix.Client
+```
 
 ## <a name="instantiate-new-phoenixclient-object"></a>Creare un'istanza di un nuovo oggetto PhoenixClient
 
@@ -94,7 +95,7 @@ Ecco i valori di `TransactionIsolation`:
 
 HBase, come qualsiasi altro sistema RDBMS, archivia i dati nelle tabelle. Phoenix usa query SQL standard per creare nuove tabelle, definendo la chiave primaria e i tipi di colonna.
 
-Questo esempio e tutti gli esempi successivi usano l' `PhoenixClient` oggetto di cui è stata creata un'istanza come definito in creare un'istanza di [un nuovo oggetto PhoenixClient](#instantiate-new-phoenixclient-object).
+Questo esempio e tutti gli esempi successivi usano l'oggetto di cui è stata creata un'istanza `PhoenixClient` come definito in [creare un'istanza di un nuovo oggetto PhoenixClient](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -494,7 +495,7 @@ finally
 
 L'output delle istruzioni `select` dovrebbe fornire il risultato seguente:
 
-```
+```output
 id0 first0
 id1 first1
 id10 first10

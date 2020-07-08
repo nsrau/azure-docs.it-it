@@ -3,17 +3,18 @@ title: Cronologia di distribuzione
 description: Questo articolo descrive come visualizzare le operazioni di distribuzione di Azure Resource Manager tramite il portale, PowerShell, l'interfaccia della riga di comando di Azure e l'API REST.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: HT
+ms.date: 05/26/2020
+ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816285"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84117844"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visualizzare la cronologia delle distribuzioni con Azure Resource Manager
 
-Azure Resource Manager consente di visualizzare la cronologia delle distribuzioni ed esaminare operazioni specifiche nelle distribuzioni precedenti. È possibile visualizzare le risorse che sono state distribuite e ottenere informazioni su eventuali errori.
+Azure Resource Manager consente di visualizzare la cronologia di distribuzione. È possibile esaminare operazioni specifiche nelle distribuzioni precedenti e vedere quali risorse sono state distribuite. Questa cronologia contiene informazioni su eventuali errori.
+
+La cronologia di distribuzione per un gruppo di risorse è limitata a 800 distribuzioni. Quando si avvicina il limite, le distribuzioni vengono eliminate automaticamente dalla cronologia. Per altre informazioni, vedere [eliminazioni automatiche dalla cronologia di distribuzione](deployment-history-deletions.md).
 
 Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
 
@@ -117,7 +118,7 @@ Ogni distribuzione può includere più operazioni. Per visualizzare più dettagl
 
 1. Nel riepilogo di una distribuzione selezionare **Dettagli operazione**.
 
-    ![Selezionare le operazioni di distribuzione](./media/deployment-history/get-operation-details.png)
+    ![Selezionare i dettagli dell'operazione](./media/deployment-history/get-operation-details.png)
 
 1. Vengono visualizzati i dettagli per il passaggio della distribuzione. Quando si verifica un errore, i dettagli includono il messaggio di errore.
 
@@ -210,6 +211,6 @@ La risposta include un messaggio di errore.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
-* Per altre informazioni sull'uso dei log attività per monitorare altri tipi di azioni, vedere [Visualizzare i log attività per gestire le risorse di Azure](../management/view-activity-logs.md).
+* Per informazioni sul modo in cui vengono gestite le distribuzioni nella cronologia, vedere l'articolo relativo alle [eliminazioni automatiche dalla cronologia di distribuzione](deployment-history-deletions.md).
 * Per convalidare la distribuzione prima di eseguirla, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](deploy-powershell.md).
 

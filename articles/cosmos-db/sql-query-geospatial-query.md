@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 08b12bd9d35aaa61c79d35a55068983cdc0f1b83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77566322"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764979"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Esecuzione di query su dati geospaziali con Azure Cosmos DB
 
@@ -29,14 +28,14 @@ Di seguito è riportato un elenco di funzioni di sistema geospaziale utili per l
 |ST_ISVALID| Restituisce un valore booleano che indica se l'espressione GeoJSON punto, poligono o LineString specificata è valida.|
 | ST_ISVALIDDETAILED| Restituisce un valore JSON che contiene un valore booleano se l'espressione GEOJSON punto, poligono o LineString specificata è valida. Se non è valido, restituisce il motivo come valore stringa.|
 
-Le funzioni spaziali possono essere utilizzate per eseguire query di prossimità rispetto ai dati spaziali. Ecco, ad esempio, una query che restituisce tutti i documenti della famiglia che rientrano in 30 km della località `ST_DISTANCE` specificata usando la funzione predefinita.
+Le funzioni spaziali possono essere utilizzate per eseguire query di prossimità rispetto ai dati spaziali. Ecco, ad esempio, una query che restituisce tutti i documenti della famiglia che rientrano in 30 km della località specificata usando la `ST_DISTANCE` funzione predefinita.
 
 **Query**
 
 ```sql
     SELECT f.id
     FROM Families f
-    WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+    WHERE ST_DISTANCE(f.location, {"type": "Point", "coordinates":[31.9, -4.8]}) < 30000
 ```
 
 **Risultati**
@@ -51,7 +50,7 @@ Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "quer
 
 `ST_WITHIN`può essere usato per verificare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente usati per rappresentare limiti come codici postali, confini di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le query "within" verranno servite in modo efficiente tramite l'indice.
 
-Gli argomenti Polygon `ST_WITHIN` in possono contenere solo un anello singolo, ovvero i poligoni non devono contenere buchi.
+Gli argomenti Polygon in `ST_WITHIN` possono contenere solo un anello singolo, ovvero i poligoni non devono contenere buchi.
 
 **Query**
 
@@ -59,8 +58,8 @@ Gli argomenti Polygon `ST_WITHIN` in possono contenere solo un anello singolo, o
     SELECT *
     FROM Families f
     WHERE ST_WITHIN(f.location, {
-        'type':'Polygon',
-        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        "type":"Polygon",
+        "coordinates": [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 ```
 
@@ -73,7 +72,7 @@ Gli argomenti Polygon `ST_WITHIN` in possono contenere solo un anello singolo, o
 ```
 
 > [!NOTE]
-> Come per il funzionamento di tipi non corrispondenti nella query di Azure Cosmos DB, se il valore di località specificato in un argomento non è corretto o non è valido, viene restituito **undefined** e il documento valutato viene omesso nei risultati della query. Se la query non restituisce alcun risultato, `ST_ISVALIDDETAILED` eseguire per eseguire il debug del tipo spaziale non valido.
+> Come per il funzionamento di tipi non corrispondenti nella query di Azure Cosmos DB, se il valore di località specificato in un argomento non è corretto o non è valido, viene restituito **undefined** e il documento valutato viene omesso nei risultati della query. Se la query non restituisce alcun risultato, eseguire `ST_ISVALIDDETAILED` per eseguire il debug del tipo spaziale non valido.
 >
 >
 
@@ -84,7 +83,7 @@ Azure Cosmos DB supporta anche l'esecuzione di query inverse. In altre parole, �
 ```sql
     SELECT *
     FROM Areas a
-    WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
+    WHERE ST_WITHIN({"type": "Point", "coordinates":[31.9, -4.8]}, a.location)
 ```
 
 **Risultati**
@@ -115,7 +114,7 @@ Azure Cosmos DB supporta anche l'esecuzione di query inverse. In altre parole, �
     }]
 ```
 
-Queste funzioni possono essere usate anche per convalidare i poligoni. Qui, ad esempio, si `ST_ISVALIDDETAILED` USA per convalidare un poligono che non è chiuso.
+Queste funzioni possono essere usate anche per convalidare i poligoni. Qui, ad esempio, si usa `ST_ISVALIDDETAILED` per convalidare un poligono che non è chiuso.
 
 **Query**
 
@@ -140,7 +139,7 @@ Queste funzioni possono essere usate anche per convalidare i poligoni. Qui, ad e
 
 SQL .NET SDK è anche dotato di metodi stub `Distance()` e `Within()` per l'uso all'interno di espressioni LINQ. Il provider LINQ SQL converte le chiamate di questo metodo nelle chiamate delle funzioni SQL predefinite equivalenti (ST_DISTANCE e ST_WITHIN rispettivamente).
 
-Di seguito è riportato un esempio di query LINQ che consente di trovare tutti i documenti nel contenitore `location` Azure Cosmos il cui valore è entro un raggio di 30 km dal punto specificato con LINQ.
+Di seguito è riportato un esempio di query LINQ che consente di trovare tutti i documenti nel contenitore Azure Cosmos il cui `location` valore è entro un raggio di 30 km dal punto specificato con LINQ.
 
 **Query LINQ per Distance**
 
@@ -152,7 +151,7 @@ Di seguito è riportato un esempio di query LINQ che consente di trovare tutti i
     }
 ```
 
-Analogamente, ecco una query per trovare tutti i documenti il `location` cui si trova all'interno della casella o del poligono specificato.
+Analogamente, ecco una query per trovare tutti i documenti il cui `location` si trova all'interno della casella o del poligono specificato.
 
 **Query LINQ per Within**
 

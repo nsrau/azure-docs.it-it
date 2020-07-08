@@ -10,12 +10,11 @@ ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
 ms.date: 05/15/2020
-ms.openlocfilehash: 79b89c6a6a7598dd3fbdfc5030fd59fe1aab6625
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832782"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343115"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creazione di oggetti visivi in Azure Data Factory
 
@@ -42,6 +41,12 @@ Per le risorse di livello superiore, ad esempio pipeline, i set di dati e i flus
 ![Area di disegno di creazione](media/author-visually/properties-pane.png)
 
 Il riquadro delle proprietà si apre per impostazione predefinita solo per la creazione di risorse. Per modificarlo, fare clic sull'icona del riquadro delle proprietà che si trova nell'angolo in alto a destra dell'area di disegno.
+
+## <a name="management-hub"></a>Hub di gestione
+
+L'hub di gestione, a cui si accede tramite la scheda *Gestisci* nel Azure Data Factory UX, è un portale che ospita le azioni di gestione globali per il data factory. Qui è possibile gestire le connessioni agli archivi dati e ai calcoli esterni, alla configurazione del controllo del codice sorgente e alle impostazioni del trigger. Per altre informazioni, vedere informazioni sulle funzionalità dell' [Hub di gestione](author-management-hub.md).
+
+![Gestisci servizi collegati](media/author-management-hub/management-hub-linked-services.png)
 
 ## <a name="expressions-and-functions"></a>Espressioni e funzioni
 

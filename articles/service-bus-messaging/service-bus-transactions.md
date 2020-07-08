@@ -1,24 +1,13 @@
 ---
 title: Panoramica dell'elaborazione delle transazioni nel bus di servizio di Azure
 description: Questo articolo offre una panoramica dell'elaborazione delle transazioni e della funzionalità di invio tramite il bus di servizio di Azure.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 90ee3e4f7cd6465d6297406d1d28d4ea34f88ac4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260904"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340502"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Panoramica dell'elaborazione delle transazioni del bus di servizio
 
@@ -36,8 +25,8 @@ Il bus di servizio supporta le operazioni di raggruppamento in una singola entit
 
 È possibile eseguire le operazioni nell'ambito di una transazione come indicato di seguito:
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: `Complete` , `CompleteAsync` , `Abandon` , `AbandonAsync` , `Deadletter` , `DeadletterAsync` , `Defer` , `DeferAsync` , `RenewLock` ,`RenewLockAsync` 
 
 Le operazioni di ricezione non vengono incluse perché si presuppone che l'applicazione acquisisca i messaggi usando la modalità [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode), all'interno di alcuni cicli di ricezione o di un callback [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage), e solo successivamente apra un ambito di transazione per l'elaborazione del messaggio.
 
@@ -45,7 +34,7 @@ La ricezione del messaggio (completamento, abbandono, non recapitabilità, rinvi
 
 ## <a name="transfers-and-send-via"></a>Trasferimenti e "invia tramite"
 
-Per abilitare il passaggio transazionale dei dati da una coda a un processore e successivamente a un'altra coda, il bus di servizio supporta i *trasferimenti*. In un'operazione di trasferimento, un mittente invia innanzitutto un messaggio a una *coda di trasferimento*e la coda di trasferimento sposta immediatamente il messaggio alla coda di destinazione desiderata utilizzando la stessa implementazione di trasferimento affidabile su cui si basa la funzionalità di avanzamento automatico. Non viene mai eseguito il commit del messaggio al log della coda di trasferimento in modo che diventi visibile agli utenti della coda di trasferimento.
+Per abilitare il passaggio transazionale dei dati da una coda a un processore e successivamente a un'altra coda, il bus di servizio supporta i *trasferimenti*. In un'operazione di trasferimento, un mittente invia innanzitutto un messaggio a una *coda di trasferimento*e la coda di trasferimento sposta immediatamente il messaggio alla coda di destinazione desiderata utilizzando la stessa implementazione di trasferimento affidabile su cui si basa la funzionalità di Autoindirizzamento. Non viene mai eseguito il commit del messaggio al log della coda di trasferimento in modo che diventi visibile agli utenti della coda di trasferimento.
 
 L'efficacia di questa funzionalità transazionale diventa evidente quando la coda di trasferimento stessa è l'origine dei messaggi di input del mittente. In altri termini, il bus di servizio può trasferire il messaggio alla coda di destinazione "tramite" la coda di trasferimento, durante l'esecuzione di un'operazione di completamento (o rinvio o non recapitabilità) nel messaggio di input, il tutto in una singola operazione atomica. 
 
@@ -97,13 +86,16 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 }
 ```
 
+## <a name="timeout"></a>Timeout
+Si verifica il timeout di una transazione dopo 2 minuti. Il timer di transazione viene avviato all'avvio della prima operazione nella transazione. 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle code del bus di servizio, vedere gli articoli seguenti:
 
 * [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
-* [Concatenamento di entità del bus di servizio con l'invio automatico](service-bus-auto-forwarding.md)
-* [Esempio di inoltro automatico](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
+* [Concatenamento di entità del bus di servizio con l'inoltro automatico](service-bus-auto-forwarding.md)
+* [Esempio di autoinoltr](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
 * [Esempio di transazioni atomiche con il bus di servizio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

@@ -3,12 +3,11 @@ title: Configurare un'appliance Azure Migrate con uno script
 description: Informazioni su come configurare un'appliance Azure Migrate con uno script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c4d85909bbfa623b5ad8590e973250474d9d95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d5603aaef0a1c3e784f455777302c23e6724fbe7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676304"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052471"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurare un'appliance con uno script
 
@@ -24,19 +23,19 @@ Seguire questo articolo per creare un' [appliance Azure migrate](deploy-applianc
 
 Lo script configura l'appliance Azure Migrate in un computer fisico o una macchina virtuale esistente.
 
-- Il computer che fungerà da dispositivo deve eseguire Windows Server 2016, con 32 GB di memoria, otto vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno. Richiede un indirizzo IP statico o dinamico e l'accesso a Internet.
-- Prima di distribuire il dispositivo, esaminare i requisiti dettagliati dell'appliance per le [macchine virtuali VMware](migrate-appliance.md#appliance---vmware), [Hyper-V](migrate-appliance.md#appliance---hyper-v)e i [server fisici](migrate-appliance.md#appliance---physical).
+- Il computer che fungerà da appliance deve soddisfare i requisiti hardware e del sistema operativo seguenti:
+
+Scenario | Requisiti
+--- | ---
+VMware | Windows Server 2016, con 32 GB di memoria, otto vCPU, circa 80 GB di spazio di archiviazione su disco
+Hyper-V | Windows Server 2016, con 16 GB di memoria, otto vCPU, circa 80 GB di spazio di archiviazione su disco
+- Il computer necessita anche di un Commuter virtuale esterno. Richiede un indirizzo IP statico o dinamico e l'accesso a Internet.
+- Prima di distribuire il dispositivo, esaminare i requisiti dettagliati dell'appliance per le [macchine virtuali VMware](migrate-appliance.md#appliance---vmware)e [Hyper-V](migrate-appliance.md#appliance---hyper-v).
 - Non eseguire lo script in un'appliance Azure Migrate esistente.
 
 ## <a name="set-up-the-appliance-for-vmware"></a>Configurare l'appliance per VMware
 
-Per configurare l'appliance per VMware, scaricare un file compresso dal portale di Azure ed estrarre il contenuto. Eseguire lo script di PowerShell per avviare l'app Web Appliance. Si configura l'appliance e la si configura per la prima volta. Si registra quindi l'appliance con il progetto Azure Migrate.
-
-### <a name="download-the-script"></a>Scaricare lo script
-
-1.  In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** fare clic su **Individua**.
-2.  In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con VMware vSphere Hypervisor**.
-3.  Fare clic su **download**per scaricare il file compresso. 
+Per configurare l'appliance per VMware, scaricare il file compresso denominato AzureMigrateInstaller.zip da [qui](https://go.microsoft.com/fwlink/?linkid=2105112)ed estrarre il contenuto. Eseguire lo script di PowerShell per avviare l'app Web Appliance. Si configura l'appliance e la si configura per la prima volta. Si registra quindi l'appliance con il progetto Azure Migrate.
 
 
 ### <a name="verify-file-security"></a>Verificare la sicurezza del file
@@ -47,12 +46,11 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare il codice hash per il file compresso
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-3. Verificare il valore hash generato. Per la versione più recente del dispositivo:
+3. Verificare la versione più recente del dispositivo e lo script per il cloud pubblico di Azure:
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    **Algoritmo** | **Scaricare** | **SHA256**
+    --- | --- | ---
+    VMware (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
 
 
@@ -73,7 +71,7 @@ Per eseguire lo script:
 1. Estrarre il file compresso in una cartella nel computer che ospiterà l'appliance. Assicurarsi di non eseguire lo script in un computer in un'appliance di Azure Migrate esistente.
 2. Avviare PowerShell nel computer con privilegi di amministratore (con privilegi elevati).
 3. Modificare la directory di PowerShell nella cartella che contiene il contenuto estratto dal file compresso scaricato.
-4. Eseguire lo script **AzureMigrateInstaller. ps1**, come indicato di seguito:
+4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito:
 
     ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
    
@@ -85,13 +83,7 @@ Assicurarsi che l'appliance possa connettersi agli URL di Azure per il cloud [pu
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Configurare l'appliance per Hyper-V
 
-Per configurare l'appliance per Hyper-V, è possibile scaricare un file compresso dal portale di Azure ed estrarre il contenuto. Eseguire lo script di PowerShell per avviare l'app Web Appliance. Si configura l'appliance e la si configura per la prima volta. Si registra quindi l'appliance con il progetto Azure Migrate.
-
-### <a name="download-the-script"></a>Scaricare lo script
-
-1.  In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** fare clic su **Individua**.
-2.  In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
-3.  Fare clic su **download**per scaricare il file compresso. 
+Per configurare l'appliance per Hyper-V, scaricare il file compresso denominato AzureMigrateInstaller.zip da [qui](https://go.microsoft.com/fwlink/?linkid=2105112)ed estrarre il contenuto. Eseguire lo script di PowerShell per avviare l'app Web Appliance. Si configura l'appliance e la si configura per la prima volta. Si registra quindi l'appliance con il progetto Azure Migrate.
 
 
 ### <a name="verify-file-security"></a>Verificare la sicurezza del file
@@ -103,12 +95,11 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 
-3. Verificare i valori hash generati. Per la versione più recente del dispositivo:
+3. Verificare la versione più recente del dispositivo e lo script per il cloud pubblico di Azure:
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    **Scenario** | **Scaricare** | **SHA256**
+    --- | --- | ---
+    Hyper-V (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2105112) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
 ### <a name="run-the-script"></a>Eseguire lo script
 
@@ -127,7 +118,7 @@ Per eseguire lo script:
 1. Estrarre il file compresso in una cartella nel computer che ospiterà l'appliance. Assicurarsi di non eseguire lo script in un computer in un'appliance di Azure Migrate esistente.
 2. Avviare PowerShell nel computer con privilegi di amministratore (con privilegi elevati).
 3. Modificare la directory di PowerShell nella cartella che contiene il contenuto estratto dal file compresso scaricato.
-4. Eseguire lo script **AzureMigrateInstaller. ps1**, come indicato di seguito:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
+4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
    
 5. Dopo che lo script è stato eseguito correttamente, viene avviata l'applicazione Web Appliance per poter configurare l'appliance. Se si verificano problemi, esaminare i log di script in C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 

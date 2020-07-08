@@ -3,25 +3,24 @@ title: Home page personalizzati per le app pubblicate-Azure AD proxy di applicaz
 description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1621b273f617955a374ed46d9c215ba99e5b2913
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e7e3a6666d467045b733b5401476fd83c93be19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275605"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764877"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Impostare una home page personalizzata per le app pubblicate tramite il proxy applicazione di Azure AD
 
@@ -31,9 +30,9 @@ Quando un utente avvia l'app, viene indirizzata per impostazione predefinita all
 
 Ecco uno scenario che spiega perché l'azienda potrebbe impostare un home page personalizzato:
 
-- All'interno della rete aziendale, un utente passa `https://ExpenseApp/login/login.aspx` a per accedere all'app.
-- Poiché sono presenti altre risorse (ad esempio immagini) a cui il proxy di applicazione deve accedere al livello superiore della struttura di cartelle, l'app viene pubblicata `https://ExpenseApp` con come URL interno.
-- L'URL esterno predefinito è `https://ExpenseApp-contoso.msappproxy.net`, che non porta un utente esterno alla pagina di accesso.
+- All'interno della rete aziendale, un utente passa a `https://ExpenseApp/login/login.aspx` per accedere all'app.
+- Poiché sono presenti altre risorse (ad esempio immagini) a cui il proxy di applicazione deve accedere al livello superiore della struttura di cartelle, l'app viene pubblicata con `https://ExpenseApp` come URL interno.
+- L'URL esterno predefinito è `https://ExpenseApp-contoso.msappproxy.net` , che non porta un utente esterno alla pagina di accesso.
 - Si vuole impostare `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` invece come URL di Home page, in modo che un utente esterno veda prima la pagina di accesso.
 
 > [!NOTE]
@@ -45,7 +44,7 @@ Prima di impostare l'URL della home page, tenere presente i requisiti presenti:
 
 - Il percorso specificato deve essere un percorso di sottodominio dell'URL del dominio radice.
 
-  Ad esempio, se l'URL del dominio radice è `https://apps.contoso.com/app1/`, l'URL Home page configurato deve iniziare con `https://apps.contoso.com/app1/`.
+  Ad esempio, se l'URL del dominio radice è `https://apps.contoso.com/app1/` , l'url Home page configurato deve iniziare con `https://apps.contoso.com/app1/` .
 
 - Se si apporta una modifica all'app pubblicata, la modifica potrebbe reimpostare il valore dell'URL della home page. Quando si decide di aggiornare l'app è quindi necessario verificare ed eventualmente aggiornare l'URL della home page.
 
@@ -105,7 +104,7 @@ Per ottenere il valore ObjectId dell'app, cercare l'app in base al relativo nome
    Connect-AzureAD
    ```
 
-1. Trovare l'app. Questo esempio USA PowerShell per trovare l'ObjectId cercando l'app con il nome visualizzato `SharePoint`.
+1. Trovare l'app. Questo esempio USA PowerShell per trovare l'ObjectId cercando l'app con il nome visualizzato `SharePoint` .
 
    ```powershell
    Get-AzureADApplication | Where-Object { $_.DisplayName -eq "SharePoint" } | Format-List DisplayName, Homepage, ObjectId
@@ -127,7 +126,7 @@ Per ottenere il valore ObjectId dell'app, cercare l'app in base al relativo nome
 
 ### <a name="update-the-home-page-url"></a>Aggiornare l'URL della home page
 
-Creare l'URL home page e aggiornare l'app con tale valore. Continuare a usare la stessa finestra di PowerShell o, se si usa una nuova finestra di PowerShell, accedere nuovamente al modulo Azure AD usando `Connect-AzureAD`. Seguire quindi questa procedura:
+Creare l'URL home page e aggiornare l'app con tale valore. Continuare a usare la stessa finestra di PowerShell o, se si usa una nuova finestra di PowerShell, accedere nuovamente al modulo Azure AD usando `Connect-AzureAD` . Seguire quindi questa procedura:
 
 1. Creare una variabile che contenga il valore ObjectId copiato nella sezione precedente. Sostituire il valore ObjectId usato per in questo esempio di SharePoint con il valore ObjectId dell'app.
 
@@ -181,4 +180,4 @@ Creare l'URL home page e aggiornare l'app con tale valore. Continuare a usare la
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD](application-proxy-integrate-with-sharepoint-server.md)
-- [Esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)

@@ -5,14 +5,13 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 06/08/2020
 ms.author: dsindona
-ms.openlocfilehash: da2588125b455deaf18110687d54adc04a7dd4c0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 1267225f6b8557efc7ce36a973daef0a46aaba2d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799869"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957988"
 ---
 # <a name="consulting-service-offers"></a>Offerte di servizi di consulenza
 
@@ -22,20 +21,11 @@ Queste offerte di servizi di consulenza sono engagement specifici del cliente. G
 
 ## <a name="compare-consulting-services"></a>Confrontare i servizi di consulenza
 
-Le vetrine del marketplace commerciale, Microsoft AppSource e Azure Marketplace, sono organizzate in base a gruppi di destinatari e prodotti cloud per consentire ai clienti di trovare la soluzione di cui hanno bisogno. Ogni vetrina ha specifiche opzioni di pubblicazione che consentono di sfruttare al massimo l'investimento nella pubblicazione, come illustrato in sintesi nella tabella seguente:
-
-|         |Azure Marketplace  |Microsoft AppSource |
-|---------|---------|---------|
-|Destinatari      |Professionisti IT e sviluppatori cloud|Utenti aziendali e decision maker line-of-business|
-|Pertinenza delle soluzioni      |Applicazioni tecniche create per o in Azure|App aziendali che usano o estendono Dynamics 365, Power BI, Office 365, Azure (applicazioni completate per componente aggiuntivo)|
-|Opzioni di pubblicazione      |Contatta, Versione di valutazione, Transazione o Servizi per Azure|Contatta, Valutazione o Servizi per Dynamics 365 e Power BI|
-|Esperienza all'interno del prodotto      |Portale di Azure|Dynamics 365, Office 365, app client di Office| 
-|Altri      |Pubblicazione locale tramite Azure Stack, servizi di consulenza per Azure, servizi gestiti per Azure|Servizi di consulenza per Dynamics 365 e Power BI|
-||
+Le vetrine del marketplace commerciale, Microsoft AppSource e Azure Marketplace, sono organizzate in base a gruppi di destinatari e prodotti cloud per consentire ai clienti di trovare la soluzione di cui hanno bisogno. Ogni vetrina ha specifiche opzioni di pubblicazione che consentono di sfruttare al massimo l'investimento nella pubblicazione, Per ulteriori informazioni sulla differenza tra le due vetrine, vedere [confronto tra Microsoft AppSource e Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Le offerte di servizi di consulenza basate su Dynamics 365, Power Apps e Power BI sono idonee alla presentazione in AppSource. Per altre informazioni, scaricare il file PDF [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) (Linee guida alla presentazione dei servizi di consulenza in Microsoft AppSource).
 
-Le offerte di servizi di consulenza e servizi gestiti basate su Microsoft Azure sono idonee alla presentazione in Azure Marketplace. Per altre informazioni, vedere [Pubblicare un'offerta di servizio di consulenza di Azure](./partner-center-portal/create-consulting-service-offer.md) e [Pubblicare un'offerta di servizi gestiti in Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+Le offerte di servizi di consulenza e servizi gestiti basate su Microsoft Azure sono idonee alla presentazione in Azure Marketplace. Per altre informazioni, vedere [Pubblicare un'offerta di servizio di consulenza di Azure](./partner-center-portal/create-consulting-service-offer.md) e [Pubblicare un'offerta di servizi gestiti in Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
 > I servizi di consulenza in Azure Marketplace devono concentrarsi su offerte rivolte a un pubblico tecnico ed evidenziare le soluzioni e i servizi tecnici di Azure.
@@ -79,21 +69,20 @@ Risorse aggiuntive e supporto:
 
 Per altre informazioni sulle competenze, passare alla pagina [Competenze di Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
 
-I partner integratori di sistemi possono inviare offerte di servizi di consulenza per i 21 paesi/aree seguenti:
+I partner System-Integrator possono inviare offerte di servizi di consulenza per i 20 paesi/aree geografiche seguenti:
 
-|   |   |   |   |
+| Paesi  | (continua)   | (continua)  | (continua)  |
 |---------|----------|----------|----------|
 | Australia | Belgio | Canada | Danimarca |
 | Finlandia  | Francia | Germania  | India   |
 | Italia    | Giappone  |  Messico  |  Paesi Bassi  |
 |  Nuova Zelanda  |  Norvegia  |  Polonia  | Sud Africa |
-|  Spagna  | Svezia  | Svizzera  |  Stati Uniti  |
-| Regno Unito  |
+|  Svezia  | Svizzera  |  Stati Uniti  | Regno Unito  |
 ||
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Effettuare la registrazione ai servizi di consulenza nel marketplace commerciale
 
-Iniziare [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) le informazioni sulla società nel marketplace. Per un elenco di controllo completo dei requisiti di registrazione, vedere [Diventare un editore nel marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
+Iniziare [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) le informazioni sulla società nel marketplace. Per un elenco di controllo completo dei requisiti di registrazione, vedere [Diventare un editore nel marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparare la pubblicazione degli elementi
 Prima della registrazione è possibile iniziare a raccogliere e preparare il contenuto che consentirà di specificare chiaramente il valore del servizio e della soluzione per il cliente di destinazione. 

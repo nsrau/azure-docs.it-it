@@ -5,14 +5,13 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849655"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414148"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -55,6 +54,7 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
 |Nome risorsa di collegamento privato  |Tipo di risorsa   |Sottorisorse  |
 |---------|---------|---------|
 |**Servizio di collegamento privato** (servizio dell'utente)   |  Microsoft.Network/privateLinkServices       | empty |
+|**Automazione di Azure** |  Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 |**Database SQL di Azure** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        | 
 |**Archiviazione di Azure**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondari)<BR> Tabella (tabella, tabella_secondaria)<BR> Coda (coda, cosa_secondaria)<BR> File (file, file_secondario)<BR> Web (Web, web_secondario)        |
@@ -75,7 +75,7 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
 |**Inoltro di Azure** | Microsoft.Relay/namespaces | spazio dei nomi |
 |**Griglia di eventi di Azure** | Microsoft.EventGrid/topics    | argomento |
 |**Griglia di eventi di Azure** | Microsoft.EventGrid/domains    | dominio |
-|**App Web di Azure** | Microsoft.Web/sites    | site |
+|**App Web di Azure** | Microsoft.Web/sites    | siti |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | area di lavoro |
   
  
@@ -86,7 +86,7 @@ Quando si usano endpoint privati per i servizi di Azure, il traffico viene prote
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Accedere a una risorsa di collegamento privato tramite il flusso di lavoro di approvazione 
 È possibile connettersi a una risorsa di collegamento privato tramite i metodi di approvazione della connessione seguenti:
-- Approvazione **automatica** approvata quando si è proprietari della risorsa di collegamento privato specifica o si dispone delle autorizzazioni appropriate. L'autorizzazione richiesta è basata sul tipo di risorsa di collegamento privato nel formato seguente: Microsoft.\<Provider>/<tipo_risorsa>/ApprovazioneConnessioneEndpointPrivato/azione
+- Approvazione **automatica** approvata quando si è proprietari della risorsa di collegamento privato specifica o si dispone delle autorizzazioni appropriate. L'autorizzazione richiesta è basata sul tipo di risorsa collegamento privato nel formato seguente: Microsoft. \<Provider> /<resource_type>/privateEndpointConnectionApproval/action
 - Richiesta **manuale** quando non si dispone dell'autorizzazione necessaria e si desidera richiedere l'accesso. Viene avviato un flusso di lavoro di approvazione. L'endpoint privato e la successiva connessione verranno creati con lo stato "In sospeso". Il proprietario della risorsa di collegamento privato ha la responsabilità di approvare la connessione. Dopo l'approvazione, l'endpoint privato è abilitato per l'invio normale del traffico, come mostrato nel diagramma sul flusso di lavoro di approvazione seguente.  
 
 ![approvazione del flusso di lavoro](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -124,9 +124,9 @@ La tabella seguente contiene un elenco di limitazioni note quando si usano gli e
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Creare un endpoint privato per il server di database SQL con il portale ](create-private-endpoint-portal.md)
-- [Creare un endpoint privato per il server di database SQL con PowerShell ](create-private-endpoint-powershell.md)
-- [Creare un endpoint privato per il server di database SQL con l'interfaccia della riga di comando ](create-private-endpoint-cli.md)
+- [Creare un endpoint privato per il database SQL tramite il portale](create-private-endpoint-portal.md)
+- [Creare un endpoint privato per il database SQL con PowerShell](create-private-endpoint-powershell.md)
+- [Creare un endpoint privato per il database SQL usando l'interfaccia della riga di comando](create-private-endpoint-cli.md)
 - [Creare un endpoint privato per l'account di archiviazione con il portale ](create-private-endpoint-storage-portal.md)
 - [Creare un endpoint privato per l'account Azure Cosmos con il portale ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creare un servizio Collegamento privato con Azure PowerShell](create-private-link-service-powershell.md)

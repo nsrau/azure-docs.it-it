@@ -5,18 +5,17 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 867dfae570a1e2006b7eea568e3450050f485d9d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 6e34e0ef9035882a32ff46222686db4a948d7997
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726469"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957461"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funzionalità di rendering di Azure Batch
 
 Le funzionalità standard di Azure Batch vengono usate per eseguire applicazioni e carichi di lavoro di rendering. Batch include anche funzionalità specifiche per supportare i carichi di lavoro di rendering.
 
-Per una panoramica dei concetti di Batch, inclusi pool, processi e attività, vedere [questo articolo](https://docs.microsoft.com/azure/batch/batch-api-basics).
+Per una panoramica dei concetti di Batch, inclusi pool, processi e attività, vedere [questo articolo](./batch-service-workflow-features.md).
 
 ## <a name="batch-pools"></a>Pool di Batch
 
@@ -26,7 +25,7 @@ Se è necessario usare solo le applicazioni pre-installate, è possibile specifi
 
 Sono disponibili un'immagine Windows 2016 e un'immagine CentOS.  In [Azure Marketplace](https://azuremarketplace.microsoft.com) cercare "rendering di batch" per trovare le immagini di VM.
 
-Per una configurazione pool di esempio, vedere l'[esercitazione sul rendering nell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Il portale di Azure e Batch Explorer forniscono strumenti dell'interfaccia utente grafica per selezionare un'immagine di VM di rendering quando si crea un pool.  Se si usa un'API Batch, specificare i valori della proprietà seguenti per [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) quando si crea un pool:
+Per una configurazione pool di esempio, vedere l'[esercitazione sul rendering nell'interfaccia della riga di comando di Azure](./tutorial-rendering-cli.md).  Il portale di Azure e Batch Explorer forniscono strumenti dell'interfaccia utente grafica per selezionare un'immagine di VM di rendering quando si crea un pool.  Se si usa un'API Batch, specificare i valori della proprietà seguenti per [ImageReference](/rest/api/batchservice/pool/add#imagereference) quando si crea un pool:
 
 | Editore | Offerta | Sku | Versione |
 |---------|---------|---------|--------|
@@ -37,16 +36,16 @@ Sono disponibili altre opzioni se sono necessarie applicazioni aggiuntive nelle 
 
 * Un'immagine personalizzata dalla Raccolta immagini condivise:
   * Con questa opzione, è possibile configurare la macchina virtuale esattamente con le applicazioni e le versioni specifiche necessarie. Per altre informazioni, vedere [Creare un pool con Raccolta immagini condivise](batch-sig-images.md). Autodesk e Chaos Group hanno modificato, rispettivamente, Arnold e V-Ray per eseguire la convalida in base al servizio di licenze di Azure Batch. Verificare di avere le versioni di queste applicazioni con questo supporto. In caso contrario, le licenze con pagamento in base al consumo non funzioneranno. Le versioni correnti di Maya o 3ds Max non richiedono un server licenze durante l'esecuzione headless (in modalità batch/riga di comando). In caso di dubbi su come procedere con questa opzione, contattare il supporto di Azure.
-* [Pacchetti dell'applicazione](https://docs.microsoft.com/azure/batch/batch-application-packages):
+* [Pacchetti dell'applicazione](./batch-application-packages.md):
   * Includere in un pacchetto i file dell'applicazione usando uno o più file ZIP, caricarlo tramite il portale di Azure e specificare il pacchetto nella configurazione pool. Quando vengono create le VM del pool, i file ZIP vengono scaricati e i file vengono estratti.
 * File di risorse:
-  * I file dell'applicazione vengono caricati nell'archivio BLOB di Azure, quindi si specificano i riferimenti ai file nell'[attività di avvio del pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). Quando vengono create le VM del pool, i file di risorse vengono scaricati in ogni VM.
+  * I file dell'applicazione vengono caricati nell'archivio BLOB di Azure, quindi si specificano i riferimenti ai file nell'[attività di avvio del pool](/rest/api/batchservice/pool/add#starttask). Quando vengono create le VM del pool, i file di risorse vengono scaricati in ogni VM.
 
 ### <a name="pay-for-use-licensing-for-pre-installed-applications"></a>Licenze con pagamento in base al consumo per le applicazioni pre-installate
 
 Le applicazioni che verranno usate e hanno una tariffa per le licenze devono essere specificate nella configurazione del pool.
 
-* Specificare la proprietà `applicationLicenses` quando si [crea un pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  I valori seguenti possono essere specificati nella matrice di stringhe: "v-ray", "arnold", "3dsmax", "maya".
+* Specificare la proprietà `applicationLicenses` quando si [crea un pool](/rest/api/batchservice/pool/add#request-body).  I valori seguenti possono essere specificati nella matrice di stringhe: "v-ray", "arnold", "3dsmax", "maya".
 * Quando si specifica una o più applicazioni, il costo di tali applicazioni viene aggiunto al costo delle VM.  I prezzi delle applicazioni sono elencati nella [pagina dei prezzi di Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 > [!NOTE]
@@ -58,7 +57,7 @@ Se viene fatto un tentativo di usare un'applicazione, ma l'applicazione non è s
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Variabili di ambiente per le applicazioni pre-installate
 
-Per poter creare la riga di comando per le attività di rendering, è necessario specificare il percorso di installazione dei file eseguibili delle applicazioni di rendering.  Nelle immagini di VM di Azure Marketplace sono state create variabili di ambiente di sistema, che possono essere usate invece di dover specificare i percorsi effettivi.  Queste variabili di ambiente si aggiungono alle [variabili di ambiente di Batch standard](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) create per ogni attività.
+Per poter creare la riga di comando per le attività di rendering, è necessario specificare il percorso di installazione dei file eseguibili delle applicazioni di rendering.  Nelle immagini di VM di Azure Marketplace sono state create variabili di ambiente di sistema, che possono essere usate invece di dover specificare i percorsi effettivi.  Queste variabili di ambiente si aggiungono alle [variabili di ambiente di Batch standard](./batch-compute-node-environment-variables.md) create per ogni attività.
 
 |Applicazione|File eseguibile dell'applicazione|Variabile di ambiente|
 |---------|---------|---------|
@@ -75,13 +74,13 @@ Riga di comando di Arnold 2017|kick.exe|ARNOLD_2017_EXEC|
 
 Come con altri carichi di lavoro, i requisiti di sistema delle applicazioni di rendering sono diversi e i requisiti delle prestazioni variano a seconda dei progetti e dei processi.  In Azure è disponibile un'ampia gamma di famiglie di VM a seconda dei requisiti: costo più basso, miglior rapporto prezzo/prestazioni, migliori prestazioni e così via.
 Alcune applicazioni di rendering, ad esempio Arnold, sono basate sulla CPU, altre, ad esempio V-Ray e Blender Cycles, possono usare CPU e/o GPU.
-Per una descrizione delle famiglie di VM e delle dimensioni di VM disponibili, [vedere i tipi e le dimensioni delle VM](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+Per una descrizione delle famiglie di VM e delle dimensioni di VM disponibili, [vedere i tipi e le dimensioni delle VM](../virtual-machines/windows/sizes.md).
 
 ### <a name="low-priority-vms"></a>Macchine virtuali con priorità bassa
 
 Come con altri carichi di lavoro, le VM con priorità bassa possono essere utilizzate nei pool di Batch per il rendering.  Le VM con priorità bassa funzionano come le normali VM dedicate, ma utilizzano la capacità in eccesso di Azure e sono disponibili a un prezzo fortemente scontato.  Il compromesso per l'uso di macchine virtuali con priorità bassa è che queste macchine virtuali possono non essere disponibili per l'allocazione o essere interrotte in qualsiasi momento, a seconda della capacità disponibile. Per questo motivo, le VM con priorità bassa non saranno idonee per tutti i processi di rendering. Se ad esempio il rendering delle immagini richiede diverse ore, è probabile che l'interruzione e il riavvio del rendering di tali immagini a causa della terminazione delle VM non sarà accettabile.
 
-Per altre informazioni sulle caratteristiche delle VM con priorità bassa e sui diversi modi di configurarle usando Batch, vedere [Usare le macchine virtuali con priorità bassa in Batch](https://docs.microsoft.com/azure/batch/batch-low-pri-vms).
+Per altre informazioni sulle caratteristiche delle VM con priorità bassa e sui diversi modi di configurarle usando Batch, vedere [Usare le macchine virtuali con priorità bassa in Batch](./batch-low-pri-vms.md).
 
 ## <a name="jobs-and-tasks"></a>Processi e attività
 
@@ -92,5 +91,5 @@ Quando vengono usate le immagini di VM di Azure Marketplace, la procedura consig
 
 Per esempi del rendering di Batch provare le due esercitazioni:
 
-* [Eseguire il rendering con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Eseguire il rendering con Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Eseguire il rendering con l'interfaccia della riga di comando di Azure](./tutorial-rendering-cli.md)
+* [Eseguire il rendering con Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)

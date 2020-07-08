@@ -2,13 +2,12 @@
 title: Archiviazione immagini del contenitore
 description: Contiene informazioni dettagliate sulla modalità di archiviazione delle immagini del contenitore Docker in Registro Azure Container, tra cui sicurezza, ridondanza e capacità.
 ms.topic: article
-ms.date: 03/21/2018
-ms.openlocfilehash: b738556e5a4f764cd47c72d964ee188d1344b336
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.date: 06/18/2020
+ms.openlocfilehash: d51014e9e0769091aba42682cce3a6a01cfa19de
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214061"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Archiviazione immagini del contenitore in Registro Azure Container
 
@@ -16,7 +15,7 @@ Ogni Registro Azure Container [Basic, Standard e Premium](container-registry-sku
 
 ## <a name="encryption-at-rest"></a>Crittografia dei dati inattivi
 
-Tutte le immagini del contenitore presenti nel registro vengono crittografate a riposo. Azure esegue automaticamente la crittografia di un'immagine prima di archiviarla e la decrittografa in tempo reale quando l'utente, un'applicazione o un servizio eseguono il pull dell'immagine.
+Tutte le immagini del contenitore presenti nel registro vengono crittografate a riposo. Azure esegue automaticamente la crittografia di un'immagine prima di archiviarla e la decrittografa in tempo reale quando l'utente, un'applicazione o un servizio eseguono il pull dell'immagine. Facoltativamente, applicare un livello di crittografia aggiuntivo con una [chiave gestita dal cliente](container-registry-customer-managed-keys.md).
 
 ## <a name="geo-redundant-storage"></a>Archiviazione con ridondanza geografica
 
@@ -26,19 +25,11 @@ Azure usa uno schema di archiviazione con ridondanza geografica per evitare la p
 
 Per gli scenari che richiedono una disponibilità ancora più elevata, è consigliabile usare la funzione di [replica geografica](container-registry-geo-replication.md) dei registri Premium. La replica geografica scongiura la perdita dell'accesso al registro in caso di guasto *totale* a livello regionale, non solo di un guasto nel sistema di archiviazione. La replica geografica offre anche altri vantaggi, come l'archiviazione immagini vicina alla rete per push/pull più rapidi negli scenari di distribuzione o sviluppo distribuiti.
 
-## <a name="image-limits"></a>Limiti delle immagini
+## <a name="scalable-storage"></a>Archiviazione scalabile:
 
-Nella tabella seguente vengono descritti i limiti di archiviazione e di immagine del contenitore applicati al Registro contenitori di Azure.
+Azure Container Registry consente di creare tutti i repository, le immagini, i livelli o i tag necessari, fino al [limite di archiviazione del registro di sistema](container-registry-skus.md#service-tier-features-and-limits). 
 
-| Risorsa | Limite |
-| -------- | :---- |
-| Repository | Nessun limite |
-| Immagini | Nessun limite |
-| Livelli | Nessun limite |
-| Tag | Nessun limite|
-| Archiviazione | 5 TB |
-
-Un numero molto elevato di repository e tag può compromettere le prestazioni del registro. Eliminare periodicamente i repository inutilizzati, tag e le immagini come parte di una routine di manutenzione del registro. Le risorse del registro eliminate, come repository, immagini e tag, *non possono* essere recuperate dopo l'eliminazione. Per altre informazioni sull'eliminazione delle risorse del registro, vedere [Eliminare le immagini del contenitore in Registro Azure Container](container-registry-delete.md).
+Un numero molto elevato di repository e tag può compromettere le prestazioni del registro. Eliminare periodicamente i repository, i tag e le immagini non usati come parte della routine di manutenzione del registro di sistema e, facoltativamente, impostare un [criterio di conservazione](container-registry-retention-policy.md) per i manifesti senza tag. Le risorse del registro di sistema eliminate, ad esempio repository, immagini e tag, *non possono* essere recuperate dopo l'eliminazione. Per altre informazioni sull'eliminazione delle risorse del registro, vedere [Eliminare le immagini del contenitore in Registro Azure Container](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Costo di archiviazione
 

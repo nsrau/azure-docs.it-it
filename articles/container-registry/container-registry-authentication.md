@@ -4,11 +4,10 @@ description: Opzioni di autenticazione per un registro contenitori di Azure priv
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 5459ac29c1264b18404cb2863b9d4209907ac029
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712038"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Eseguire l'autenticazione con un Registro Azure Container
 
@@ -23,11 +22,11 @@ Nella tabella seguente sono elencati i metodi di autenticazione disponibili e gl
 | Metodo                               | Come eseguire l'autenticazione                                           | Scenari                                                            | Controllo degli accessi in base al ruolo                             | Limitazioni                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Identità di Active Directory singola](#individual-login-with-azure-ad)                | `az acr login` nell'interfaccia della riga di comando di Azure                             | Push/pull interattivo da parte di sviluppatori e tester                                    | Sì                              | Il token AD deve essere rinnovato ogni 3 ore     |
-| [Entità servizio Active Directory](#service-principal)                  | `docker login`<br/><br/>`az acr login`nell'interfaccia della riga di comando di Azure<br/><br/> Impostazioni di accesso del registro di sistema nelle API o negli strumenti<br/><br/> [Kubernetes segreto pull](container-registry-auth-kubernetes.md)                                           | Push automatico dalla pipeline CI/CD<br/><br/> Pull automatico in Azure o servizi esterni  | Sì                              | La scadenza predefinita della password SP è 1 anno       |                                                           
+| [Entità servizio Active Directory](#service-principal)                  | `docker login`<br/><br/>`az acr login` nell'interfaccia della riga di comando di Azure<br/><br/> Impostazioni di accesso del registro di sistema nelle API o negli strumenti<br/><br/> [Kubernetes segreto pull](container-registry-auth-kubernetes.md)                                           | Push automatico dalla pipeline CI/CD<br/><br/> Pull automatico in Azure o servizi esterni  | Sì                              | La scadenza predefinita della password SP è 1 anno       |                                                           
 | [Eseguire l'integrazione con AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Connetti il registro di sistema durante la creazione o l'aggiornamento del cluster AKS  | Pull automatico nel cluster AKS                                                  | No, solo accesso pull             | Disponibile solo con il cluster AKS            |
 | [Identità gestita per le risorse di Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` nell'interfaccia della riga di comando di Azure                                       | Push automatico dalla pipeline CI/CD di Azure<br/><br/> Pull automatico nei servizi di Azure<br/><br/>   | Sì                              | Usare solo da servizi di Azure che [supportano identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
 | [Utente amministratore](#admin-account)                            | `docker login`                                          | Push/pull interattivo per singolo sviluppatore o tester                           | No, sempre pull e Push Access  | Account singolo per registro di sistema, non consigliato per più utenti         |
-| [Token di accesso con ambito repository](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login`nell'interfaccia della riga di comando di Azure   | Push/pull interattivo nel repository per singolo sviluppatore o tester<br/><br/> Push/Pull automatico nel repository da un singolo sistema o dispositivo esterno                  | Sì                              | Attualmente non integrato con identità di Active Directory  |
+| [Token di accesso con ambito repository](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` nell'interfaccia della riga di comando di Azure   | Push/pull interattivo nel repository per singolo sviluppatore o tester<br/><br/> Push/Pull automatico nel repository da un singolo sistema o dispositivo esterno                  | Sì                              | Attualmente non integrato con identità di Active Directory  |
 
 ## <a name="individual-login-with-azure-ad"></a>Accesso individuale con Azure AD
 
@@ -40,10 +39,10 @@ az acr login --name <acrName>
 Quando si accede con `az acr login`, l'interfaccia della riga di comando usa il token creato quando si è eseguito [az login](/cli/azure/reference-index#az-login) per l'autenticazione semplificata della sessione al registro. Per completare il flusso di autenticazione, è necessario che Docker sia installato e in esecuzione nell'ambiente in uso. `az acr login`Usa il client Docker per impostare un token di Azure Active Directory nel `docker.config` file. Dopo aver effettuato l'accesso in questo modo, le credenziali vengono memorizzate nella cache e i successivi comandi `docker` nella sessione non richiedono il nome utente o la password.
 
 > [!TIP]
-> Usare `az acr login` anche per autenticare una singola identità quando si desidera effettuare il push o il pull di elementi diversi dalle immagini Docker nel registro di sistema, ad esempio gli [artefatti OCI](container-registry-oci-artifacts.md).  
+> Usare anche `az acr login` per autenticare una singola identità quando si desidera effettuare il push o il pull di elementi diversi dalle immagini Docker nel registro di sistema, ad esempio gli [artefatti OCI](container-registry-oci-artifacts.md).  
 
 
-Per l'accesso al registro di sistema, `az acr login` il token usato da è valido per **3 ore**, quindi è consigliabile accedere sempre al registro di sistema prima `docker` di eseguire un comando. In caso di scadenza del token, è possibile aggiornarlo usando di nuovo il comando `az acr login` per eseguire nuovamente l'autenticazione. 
+Per l'accesso al registro di sistema, il token usato da `az acr login` è valido per **3 ore**, quindi è consigliabile accedere sempre al registro di sistema prima di eseguire un `docker` comando. In caso di scadenza del token, è possibile aggiornarlo usando di nuovo il comando `az acr login` per eseguire nuovamente l'autenticazione. 
 
 L'uso di `az acr login` con le identità di Azure offre l'[accesso in base al ruolo](../role-based-access-control/role-assignments-portal.md). Per alcuni scenari, potrebbe essere necessario accedere a un registro con la propria identità personale in Azure AD. Per gli scenari tra servizi o per gestire le esigenze di un gruppo di lavoro o di un flusso di lavoro di sviluppo in cui non si vuole gestire l'accesso singolo, è anche possibile accedere con un' [identità gestita per le risorse di Azure](container-registry-authentication-managed-identity.md).
 

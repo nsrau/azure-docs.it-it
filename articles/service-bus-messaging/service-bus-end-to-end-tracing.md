@@ -1,24 +1,13 @@
 ---
 title: Diagnostica e analisi end-to-end di Azure Service Bus | Microsoft Docs
 description: Panoramica della diagnostica del client del bus di servizio e della traccia end-to-end (client tramite tutti i servizi interessati nell'elaborazione).
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 7c2efc9c736097873201505f280af5d47bed4847
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 6138d3d6424364f28f55f81044768acb894bc651
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294187"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340722"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Correlazione e analisi distribuita tramite la messaggistica del bus di servizio
 
@@ -145,7 +134,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 In questo esempio il listener registra durata, risultato, identificatore univoco e ora di inizio di ogni operazione del bus di servizio.
 
-#### <a name="events"></a>Events
+#### <a name="events"></a>Eventi
 
 Per ogni operazione vengono inviati due eventi, ovvero 'Start' e 'Stop'. Molto probabilmente si è interessati solo agli eventi di tipo 'Stop'. Forniscono il risultato dell'operazione, oltre all'ora di inizio e alla durata come proprietà dell'attività.
 

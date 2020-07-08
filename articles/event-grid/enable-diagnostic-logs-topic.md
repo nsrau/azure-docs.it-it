@@ -5,14 +5,13 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/27/2020
+ms.date: 06/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 13a2168c854475b841b0ebc52bb678c7ca22a1bb
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 253d1fb933c32735f68cf6a2d471a7687caf5301
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626463"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84670169"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Abilitare i log di diagnostica per gli argomenti o i domini di griglia di eventi di Azure
 Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di acquisire e visualizzare i log degli **errori di pubblicazione e recapito** in un account di archiviazione, un hub eventi o un'area di lavoro log Analytics. In questo articolo vengono fornite istruzioni dettagliate per l'abilitazione di queste impostazioni in un argomento di griglia di eventi.
@@ -25,15 +24,19 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
     - Hub eventi
     - Area di lavoro Log Analytics
 
-## <a name="steps-for-enabling-diagnostic-logs-for-a-topic"></a>Passaggi per l'abilitazione dei log di diagnostica per un argomento
+## <a name="enable-diagnostic-logs-for-a-custom-topic"></a>Abilitare i log di diagnostica per un argomento personalizzato
 
 > [!NOTE]
 > Nella procedura riportata di seguito vengono fornite istruzioni dettagliate per l'abilitazione dei log di diagnostica per un argomento. I passaggi per l'abilitazione dei log di diagnostica per un dominio sono molto simili. Nel passaggio 2 passare al **dominio** di griglia di eventi nel portale di Azure.  
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'argomento di griglia di eventi per il quale si desidera abilitare le impostazioni del log di diagnostica. 
-3. Selezionare **impostazioni di diagnostica** in **monitoraggio** nel menu a sinistra.
-4. Nella pagina **impostazioni di diagnostica** selezionare **Aggiungi nuova impostazione di diagnostica**. 
+    1. Nella barra di ricerca nella parte superiore cercare gli **argomenti di griglia di eventi**. 
+    
+        ![Ricerca di argomenti personalizzati](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+    1. Selezionare l' **argomento** dall'elenco per il quale si desidera configurare le impostazioni di diagnostica. 
+1. Selezionare **impostazioni di diagnostica** in **monitoraggio** nel menu a sinistra.
+1. Nella pagina **impostazioni di diagnostica** selezionare **Aggiungi nuova impostazione di diagnostica**. 
     
     ![Pulsante Aggiungi impostazione diagnostica](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Specificare un **nome** per l'impostazione di diagnostica. 
@@ -53,6 +56,38 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
 
      È anche possibile abilitare la raccolta di tutte le metriche per l'argomento. 
 
+## <a name="enable-diagnostic-logs-for-a-system-topic"></a>Abilitare i log di diagnostica per un argomento di sistema
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Passare all'argomento di griglia di eventi per il quale si desidera abilitare le impostazioni del log di diagnostica. 
+    1. Nella barra di ricerca nella parte superiore cercare gli **argomenti di sistema di griglia di eventi**. 
+    
+        ![Cerca argomenti di sistema](./media/enable-diagnostic-logs-topic/search-system-topics.png)
+    1. Selezionare l' **argomento di sistema** per il quale si desidera configurare le impostazioni di diagnostica. 
+    
+        ![Seleziona argomento sistema](./media/enable-diagnostic-logs-topic/select-system-topic.png)
+3. Selezionare **impostazioni di diagnostica** in **monitoraggio** nel menu a sinistra e quindi selezionare **Aggiungi impostazioni di diagnostica**. 
+
+    ![Pulsante Aggiungi impostazioni di diagnostica-pulsante](./media/enable-diagnostic-logs-topic/system-topic-add-diagnostic-settings-button.png)
+4. Specificare un **nome** per l'impostazione di diagnostica. 
+7. Selezionare **DeliveryFailures** nella sezione **log** . 
+    ![Seleziona errori di recapito](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
+6. Abilitare una o più destinazioni di acquisizione per i log, quindi configurarle selezionando una risorsa di acquisizione creata in precedenza. 
+    - Se si seleziona **Invia a log Analytics**, selezionare l'area di lavoro log Analytics.
+        ![Invia a Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png) 
+    - Se si seleziona **archivia in un account di archiviazione**, selezionare **account di archiviazione-configura**e quindi selezionare l'account di archiviazione nella sottoscrizione di Azure. 
+
+        ![Archivia in un account di archiviazione di Azure](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
+    - Se si seleziona **flusso in un hub eventi**, selezionare **Hub eventi-configura**, quindi selezionare lo spazio dei nomi di hub eventi, l'hub eventi e i criteri di accesso. 
+        ![Trasmettere a un hub eventi](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
+8. Selezionare **Salva**. Selezionare quindi **X** nell'angolo destro per chiudere la pagina. 
+9. A questo punto, nella pagina **impostazioni di diagnostica** , verificare che venga visualizzata una nuova voce nella tabella impostazioni di **diagnostica** . 
+    ![Impostazione diagnostica nell'elenco](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
+
+     È anche possibile abilitare la raccolta di tutte le **metriche** per l'argomento di sistema.
+
+    ![Argomento di sistema-Abilita tutte le metriche](./media/enable-diagnostic-logs-topic/system-topics-metrics.png)
+
 ## <a name="view-diagnostic-logs-in-azure-storage"></a>Visualizzare i log di diagnostica in archiviazione di Azure 
 
 1. Quando si Abilita un account di archiviazione come destinazione di acquisizione e griglia di eventi avvia la creazione dei log di diagnostica, verranno visualizzati i nuovi contenitori denominati **Insights-logs-deliveryfailures** e **Insights-logs-publishfailures** nell'account di archiviazione. 
@@ -60,7 +95,7 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
     ![Contenitori di archiviazione per i log di diagnostica](./media/enable-diagnostic-logs-topic/storage-containers.png)
 2. Quando si Esplora uno dei contenitori, si otterrà un BLOB in formato JSON. Il file contiene le voci di log per un errore di recapito o per un errore di pubblicazione. Il percorso di navigazione rappresenta il **resourceId** dell'argomento di griglia di eventi e il timestamp (livello minuto) a partire dal momento in cui sono state emesse le voci di log. Il file BLOB/JSON, che è scaricabile, al termine aderisce allo schema descritto nella sezione successiva. 
 
-    [![File JSON nell'archiviazione](./media/enable-diagnostic-logs-topic/select-json.png)](./media/enable-diagnostic-logs-topic/select-json.png)
+    [![File JSON nell'archiviazione ](./media/enable-diagnostic-logs-topic/select-json.png)](./media/enable-diagnostic-logs-topic/select-json.png)
 3. Nel file JSON dovrebbe essere visualizzato contenuto simile all'esempio seguente: 
 
     ```json

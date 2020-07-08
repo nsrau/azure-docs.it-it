@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: a6dc55138977727dc5399ec9653340225bcc3901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "66159170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514647"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controllo degli accessi in base al ruolo per StorSimple
 
@@ -165,7 +164,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione che costituisce l'ambito dell'assegnazione di ruolo. Quando si concede l'accesso, tenere presente che l'accesso concesso al nodo padre viene ereditato dal figlio. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
 
-1. Selezionare **Controllo di accesso (IAM)**. Fare clic su **+Aggiungi** nel pannello Controllo di accesso.
+1. Passare a **controllo di accesso (IAM)**. Fare clic su **+Aggiungi** nel pannello Controllo di accesso.
 
     ![Aggiungere l'accesso al ruolo di controllo degli accessi in base al ruolo](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 

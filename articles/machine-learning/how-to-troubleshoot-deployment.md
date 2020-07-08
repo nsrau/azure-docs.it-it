@@ -1,40 +1,25 @@
 ---
-title: Guida alla risoluzione dei problemi di distribuzione
+title: Risoluzione dei problemi di distribuzione di Docker
 titleSuffix: Azure Machine Learning
-description: Di seguito viene descritto come risolvere e trovare soluzioni alternative per gli errori di distribuzione più comuni di Docker con il servizio Azure Kubernetes e Istanze di Azure Container quando si usa Azure Machine Learning.
+description: Informazioni su come risolvere, risolvere e risolvere i problemi relativi agli errori di distribuzione comuni di Docker con il servizio Azure Kubernetes e le istanze di contenitore di Azure con Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: seodec18
-ms.openlocfilehash: d51fd5af5ce553bbe9325154e3f854cdf5410d4d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214367"
 ---
-# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi alla distribuzione del servizio Azure Kubernetes e di Istanze di Azure Container di Azure Machine Learning
+# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Risolvere i problemi di distribuzione Docker dei modelli con il servizio Azure Kubernetes e le istanze di contenitore di Azure 
 
-Di seguito viene descritto come risolvere o trovare soluzioni alternative per gli errori comuni di distribuzione di Docker con Istanze di Azure Container (ACI) e il servizio Azure Kubernetes (AKS) usando Azure Machine Learning.
-
-Durante la distribuzione di un modello in Azure Machine Learning, il sistema esegue una serie di attività.
-
-L'approccio consigliato e quello più aggiornato per la distribuzione di modelli è tramite l'API [Model.Deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) usando un oggetto [Ambiente](how-to-use-environments.md) come parametro di input. In questo caso il servizio creerà un'immagine Docker di base per l'utente durante la fase di distribuzione e monterà tutti i modelli richiesti in un'unica chiamata. Le attività di distribuzione di base sono le seguenti:
-
-1. Registrare il modello nel registro dei modelli dell'area di lavoro.
-
-2. Definire la configurazione dell'inferenza:
-    1. Creare un oggetto [Ambiente](how-to-use-environments.md) in base alle dipendenze specificate nel file YAML dell'ambiente o usare uno degli ambienti di approvvigionamento.
-    2. Creare una configurazione dell'inferenza (oggetto InferenceConfig) in base all'ambiente e allo script di assegnazione dei punteggi.
-
-3. Distribuire il modello nel servizio Istanze di Azure Container (ACI) o nel servizio Azure Kubernetes (AKS).
-
-Per altre informazioni su questa procedura, vedere [Gestire e distribuire modelli con il servizio Azure Machine Learning](concept-model-management-and-deployment.md).
+Informazioni su come risolvere e risolvere gli errori comuni di distribuzione Docker con istanze di contenitore di Azure (ACI) e Azure Kubernetes Service (AKS) con Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,6 +30,22 @@ Per altre informazioni su questa procedura, vedere [Gestire e distribuire modell
 * Per eseguire il debug localmente, è necessario disporre di un'installazione Docker funzionante nel sistema locale.
 
     Per verificare l'installazione Docker, usare il comando `docker run hello-world` da un terminale o da un prompt dei comandi. Per informazioni sull'installazione Docker o sulla risoluzione dei problemi relativi agli errori Docker, vedere la [Documentazione di Docker](https://docs.docker.com/).
+
+## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Passaggi per la distribuzione di Docker dei modelli di Machine Learning
+
+Durante la distribuzione di un modello in Azure Machine Learning, il sistema esegue una serie di attività.
+
+L'approccio consigliato per la distribuzione del modello è tramite l'API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) usando un oggetto [Environment](how-to-use-environments.md) come parametro di input. In questo caso, il servizio crea un'immagine Docker di base durante la fase di distribuzione e monta i modelli richiesti in una sola chiamata. Le attività di distribuzione di base sono le seguenti:
+
+1. Registrare il modello nel registro dei modelli dell'area di lavoro.
+
+2. Definire la configurazione dell'inferenza:
+    1. Creare un oggetto [Ambiente](how-to-use-environments.md) in base alle dipendenze specificate nel file YAML dell'ambiente o usare uno degli ambienti di approvvigionamento.
+    2. Creare una configurazione dell'inferenza (oggetto InferenceConfig) in base all'ambiente e allo script di assegnazione dei punteggi.
+
+3. Distribuire il modello nel servizio Istanze di Azure Container (ACI) o nel servizio Azure Kubernetes (AKS).
+
+Per altre informazioni su questa procedura, vedere [Gestire e distribuire modelli con il servizio Azure Machine Learning](concept-model-management-and-deployment.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -124,7 +125,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Si noti che se si definisce uno YAML delle specifiche Conda, è necessario elencare azureml-defaults con la versione >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web.
+Se si definisce YAML specifiche conda, è necessario elencare azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web.
 
 A questo punto, è possibile usare il servizio come di consueto. Ad esempio, il codice seguente dimostra l'invio di dati al servizio:
 
@@ -182,9 +183,9 @@ print(ws.webservices['mysvc'].get_logs())
 ```
 ## <a name="container-cannot-be-scheduled"></a>Non è possibile pianificare il contenitore
 
-Quando si distribuisce un servizio in una destinazione di calcolo del servizio Kubernetes di Azure, Azure Machine Learning tenterà di pianificare il servizio con la quantità di risorse richiesta. Se, dopo 5 minuti, non sono disponibili nodi nel cluster con la quantità appropriata di risorse disponibili, la distribuzione avrà esito negativo con il messaggio `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. Per risolvere questo errore, è possibile aggiungere più nodi, modificare lo SKU dei nodi o modificare i requisiti di risorse del servizio. 
+Quando si distribuisce un servizio in una destinazione di calcolo del servizio Kubernetes di Azure, Azure Machine Learning tenterà di pianificare il servizio con la quantità di risorse richiesta. Se dopo 5 minuti non sono disponibili nodi nel cluster con la quantità appropriata di risorse disponibili, la distribuzione avrà esito negativo con il messaggio `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Per risolvere questo errore, è possibile aggiungere più nodi, modificare lo SKU dei nodi o modificare i requisiti di risorse del servizio. 
 
-Il messaggio di errore indicherà in genere la risorsa non sufficiente. Ad esempio, se viene visualizzato un messaggio di errore che indica `0/3 nodes are available: 3 Insufficient nvidia.com/gpu`, che significa che il servizio richiede GPU e che nel cluster sono presenti 3 nodi che non hanno GPU disponibili. È possibile risolvere questo problema aggiungendo altri nodi se si usa uno SKU GPU, passando a uno SKU abilitato per GPU in caso contrario, o modificando l'ambiente in modo da non richiedere GPU.  
+Il messaggio di errore indicherà in genere la risorsa necessaria. ad esempio, se viene visualizzato un messaggio di errore `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` che indica che il servizio richiede GPU e sono presenti tre nodi nel cluster che non hanno GPU disponibili. È possibile risolvere questo problema aggiungendo altri nodi se si usa uno SKU GPU, passando a uno SKU abilitato per GPU in caso contrario, o modificando l'ambiente in modo da non richiedere GPU.  
 
 ## <a name="service-launch-fails"></a>Errore di avvio del servizio
 
@@ -275,7 +276,7 @@ Per altre informazioni sull'impostazione di `autoscale_target_utilization`, `aut
 
 Un codice di stato 504 indica che si è verificato il timeout della richiesta. Il timeout predefinito è 1 minuto.
 
-È possibile aumentare il timeout o provare ad accelerare il servizio modificando il file score.py per rimuovere le chiamate non necessarie. Se queste azioni non consentono di risolvere il problema, usare le informazioni in questo articolo per eseguire il debug del file score.py. Il codice potrebbe trovarsi in uno stato bloccato o in un ciclo infinito.
+È possibile aumentare il timeout o provare ad accelerare il servizio modificando il file score.py per rimuovere le chiamate non necessarie. Se queste azioni non consentono di risolvere il problema, usare le informazioni in questo articolo per eseguire il debug del file score.py. Il codice potrebbe trovarsi in uno stato non reattivo o in un ciclo infinito.
 
 ## <a name="advanced-debugging"></a>Debug avanzato
 

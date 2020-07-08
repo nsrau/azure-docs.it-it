@@ -3,15 +3,14 @@ title: Spostare una rete virtuale di Azure in un'altra area di Azure usando Azur
 description: Spostare una rete virtuale di Azure da un'area di Azure a un'altra usando un modello di Gestione risorse e Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e13164c3ec6049a8ae3954528a02d20e313dd883
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711460"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Spostare una rete virtuale di Azure in un'altra area usando Azure PowerShell
 
@@ -60,7 +59,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. Il file scaricato ha lo stesso nome del gruppo di risorse da cui è stata esportata la risorsa. Individuare il * \<file Resource-Group-Name>. JSON* , che è stato esportato con il comando e aprirlo nell'Editor:
+1. Il file scaricato ha lo stesso nome del gruppo di risorse da cui è stata esportata la risorsa. Individuare il file con * \<resource-group-name> estensione JSON* esportato con il comando e aprirlo nell'Editor:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -98,16 +97,16 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
     ```
   
-1. Per ottenere i codici di posizione dell'area, è possibile usare il cmdlet Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) eseguendo il comando seguente:
+1. Per ottenere i codici di posizione dell'area, è possibile usare il cmdlet di Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) eseguendo questo comando:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     ```
 
-1. Opzionale È anche possibile modificare altri parametri nel file * \<Resource-Group-Name>. JSON* , a seconda dei requisiti:
+1. Opzionale È anche possibile modificare altri parametri nel file con * \<resource-group-name> estensione JSON* , a seconda dei requisiti:
 
-    * **Spazio degli indirizzi**: prima di salvare il file, è possibile modificare lo spazio degli indirizzi della rete virtuale modificando la sezione **Resources** > **addressSpace** e modificando la proprietà **addressPrefixes** :
+    * **Spazio degli indirizzi**: prima di salvare il file, è possibile modificare lo spazio degli indirizzi della rete virtuale modificando la sezione **Resources**  >  **addressSpace** e modificando la proprietà **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -193,7 +192,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
          ]
         ```
 
-1. Salvare il * \<file Resource-Group-Name>. JSON* .
+1. Salvare il file *\<resource-group-name>.json*.
 
 1. Creare un gruppo di risorse nell'area di destinazione per la distribuzione della rete virtuale di destinazione usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -201,7 +200,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Distribuire il * \<nome del gruppo di risorse modificato>* file con estensione JSON al gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Distribuire il file * \<resource-group-name> JSON* modificato nel gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

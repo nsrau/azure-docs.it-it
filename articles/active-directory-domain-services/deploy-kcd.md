@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 07aa9ade25d1d986833b6da2f3907d07b752b662
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0d2d5a9a6d897e3dde039f6124a1b6c1b356a29a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655437"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040096"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurare la delega vincolata Kerberos (delega vincolata Kerberos) in Azure Active Directory Domain Services
 
-Quando si eseguono le applicazioni, potrebbe essere necessario che tali applicazioni accedano alle risorse nel contesto di un altro utente. Active Directory Domain Services (AD DS) supporta un meccanismo denominato *delega Kerberos* che consente il caso d'uso. La delega *vincolata* Kerberos (delega vincolata Kerberos) si basa quindi su questo meccanismo per definire risorse specifiche a cui è possibile accedere nel contesto dell'utente. Azure Active Directory Domain Services (Azure AD DS) i domini gestiti sono bloccati in modo più sicuro rispetto agli ambienti locali di servizi di dominio Active Directory tradizionali, quindi usare un delega vincolata Kerberos più sicuro *basato sulle risorse* .
+Quando si eseguono le applicazioni, potrebbe essere necessario che tali applicazioni accedano alle risorse nel contesto di un altro utente. Active Directory Domain Services (AD DS) supporta un meccanismo denominato *delega Kerberos* che consente il caso d'uso. La delega *vincolata* Kerberos (delega vincolata Kerberos) si basa quindi su questo meccanismo per definire risorse specifiche a cui è possibile accedere nel contesto dell'utente.
+
+Azure Active Directory Domain Services (Azure AD DS) i domini gestiti sono bloccati in modo più sicuro rispetto agli ambienti locali di servizi di dominio Active Directory tradizionali, quindi usare un delega vincolata Kerberos più sicuro *basato sulle risorse* .
 
 Questo articolo illustra come configurare la delega vincolata Kerberos basata sulle risorse in un dominio gestito di Azure AD DS.
 
@@ -33,7 +34,7 @@ Per completare l'esercitazione di questo articolo, sono necessarie le risorse se
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
-    * Se necessario, [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessario, [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una macchina virtuale di gestione di Windows Server aggiunta al dominio gestito di Azure AD DS.
     * Se necessario, completare l'esercitazione per [creare una macchina virtuale Windows Server e aggiungerla a un dominio gestito e][create-join-windows-vm] quindi [installare gli strumenti di gestione di servizi di dominio Active Directory][tutorial-create-management-vm].
 * Un account utente membro del gruppo di *amministratori dei controller di dominio di Azure AD* nel tenant di Azure AD.
@@ -42,11 +43,11 @@ Per completare l'esercitazione di questo articolo, sono necessarie le risorse se
 
 La delega Kerberos consente a un account di rappresentare un altro account per accedere alle risorse. Ad esempio, un'applicazione Web che accede a un componente Web back-end può essere rappresentata come un account utente diverso quando effettua la connessione back-end. La delega Kerberos non è protetta perché non limita le risorse a cui l'account di rappresentazione può accedere.
 
-La delega vincolata Kerberos (delega vincolata Kerberos) limita i servizi o le risorse che un server o un'applicazione specificata può connettere quando rappresenta un'altra identità. Per la delega vincolata Kerberos tradizionale sono necessari privilegi di amministratore di dominio per configurare un account di dominio per un servizio e l'account viene limitato per l'esecuzione in un singolo dominio.
+La delega *vincolata* Kerberos (delega vincolata Kerberos) limita i servizi o le risorse che un server o un'applicazione specificata può connettere quando rappresenta un'altra identità. Per la delega vincolata Kerberos tradizionale sono necessari privilegi di amministratore di dominio per configurare un account di dominio per un servizio e l'account viene limitato per l'esecuzione in un singolo dominio.
 
 Il delega vincolata Kerberos tradizionale presenta anche alcuni problemi. Ad esempio, nei sistemi operativi precedenti, l'amministratore del servizio non aveva alcun modo utile per individuare i servizi front-end delegati ai servizi delle risorse di cui è proprietario. Qualsiasi servizio front-end che può delegare a un servizio risorse è un potenziale punto di attacco. Se un server che ospita un servizio front-end configurato per delegare i servizi risorse è stato compromesso, è possibile che anche i servizi risorse siano compromessi.
 
-In un dominio gestito Azure AD DS, non si dispone dei privilegi di amministratore di dominio. Di conseguenza, il delega vincolata Kerberos tradizionale basato su account non può essere configurato in un dominio gestito di Azure AD DS. È invece possibile usare il delega vincolata Kerberos basato su risorse, che è anche più sicuro.
+In un dominio gestito non si dispone dei privilegi di amministratore di dominio. Di conseguenza, il delega vincolata Kerberos tradizionale basato su account non può essere configurato in un dominio gestito. È invece possibile usare il delega vincolata Kerberos basato su risorse, che è anche più sicuro.
 
 ### <a name="resource-based-kcd"></a>Delega vincolata Kerberos basata su risorse
 
@@ -56,15 +57,21 @@ Windows Server 2012 e versioni successive offre agli amministratori dei servizi 
 
 ## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Configurare delega vincolata Kerberos basati sulle risorse per un account computer
 
-In questo scenario si supponga di avere un'app Web in esecuzione nel computer denominato *Contoso-webapp.aaddscontoso.com*. L'app Web deve accedere a un'API Web in esecuzione nel computer denominato *Contoso-API.aaddscontoso.com* nel contesto degli utenti del dominio. Per configurare questo scenario, completare i passaggi seguenti:
+In questo scenario si supponga di avere un'app Web in esecuzione nel computer denominato *Contoso-webapp.aaddscontoso.com*.
 
-1. [Creare un'unità organizzativa personalizzata](create-ou.md). È possibile delegare le autorizzazioni per gestire questa OU personalizzata agli utenti all'interno del dominio gestito Azure AD DS.
-1. [Aggiungere un dominio alle macchine virtuali][create-join-windows-vm], sia quello che esegue l'app Web, che quello che esegue l'API Web, nel dominio gestito di Azure AD DS. Creare questi account computer nell'unità organizzativa personalizzata nel passaggio precedente.
+L'app Web deve accedere a un'API Web in esecuzione nel computer denominato *Contoso-API.aaddscontoso.com* nel contesto degli utenti del dominio.
+
+Per configurare questo scenario, completare i passaggi seguenti:
+
+1. [Creare un'unità organizzativa personalizzata](create-ou.md). È possibile delegare le autorizzazioni per gestire questa unità organizzativa agli utenti appartenenti al dominio gestito.
+1. [Aggiungere un dominio alle macchine virtuali][create-join-windows-vm], sia quella che esegue l'app Web, che quella che esegue l'API Web, nel dominio gestito. Creare questi account computer nell'unità organizzativa personalizzata nel passaggio precedente.
 
     > [!NOTE]
     > Gli account computer per l'app Web e l'API Web devono trovarsi in un'unità organizzativa personalizzata in cui si hanno le autorizzazioni per configurare delega vincolata Kerberos basati sulle risorse. Non è possibile configurare delega vincolata Kerberos basato su risorse per un account computer nel contenitore dei *computer DC di AAD* incorporato.
 
-1. Infine, configurare delega vincolata Kerberos basati sulle risorse usando il cmdlet di PowerShell [set-ADComputer][Set-ADComputer] . Eseguire i cmdlet seguenti dalla macchina virtuale di gestione aggiunta al dominio e connessi come account utente membro del gruppo di *amministratori di Azure ad DC* . Specificare i nomi dei computer in base alle esigenze:
+1. Infine, configurare delega vincolata Kerberos basati sulle risorse usando il cmdlet di PowerShell [set-ADComputer][Set-ADComputer] .
+
+    Eseguire i cmdlet seguenti dalla macchina virtuale di gestione aggiunta al dominio e connessi come account utente membro del gruppo di *amministratori di Azure ad DC* . Specificare i nomi dei computer in base alle esigenze:
     
     ```powershell
     $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aaddscontoso.com
@@ -75,14 +82,16 @@ In questo scenario si supponga di avere un'app Web in esecuzione nel computer de
 
 In questo scenario si supponga di avere un'app Web che viene eseguita come account del servizio denominato *appsvc*. L'app Web deve accedere a un'API Web che viene eseguita come account del servizio denominato *backendsvc* nel contesto degli utenti del dominio. Per configurare questo scenario, completare i passaggi seguenti:
 
-1. [Creare un'unità organizzativa personalizzata](create-ou.md). È possibile delegare le autorizzazioni per gestire questa OU personalizzata agli utenti all'interno del dominio gestito Azure AD DS.
-1. [Aggiungere un dominio alle macchine virtuali][create-join-windows-vm] che eseguono la risorsa/API Web back-end nel dominio gestito di Azure AD DS. Creare l'account del computer all'interno dell'unità organizzativa personalizzata.
-1. Creare l'account del servizio, ad esempio appsvc, usato per eseguire l'app Web all'interno dell'unità organizzativa personalizzata.
+1. [Creare un'unità organizzativa personalizzata](create-ou.md). È possibile delegare le autorizzazioni per gestire questa unità organizzativa agli utenti appartenenti al dominio gestito.
+1. Aggiungere al dominio gestito le [macchine virtuali][create-join-windows-vm] che eseguono l'API Web back-end o la risorsa. Creare l'account del computer all'interno dell'unità organizzativa personalizzata.
+1. Creare l'account del servizio (ad esempio, *appsvc*) usato per eseguire l'app Web all'interno dell'unità organizzativa personalizzata.
 
     > [!NOTE]
     > Anche in questo caso, l'account computer per la VM dell'API Web e l'account del servizio per l'app Web devono trovarsi in un'unità organizzativa personalizzata in cui si hanno le autorizzazioni per configurare delega vincolata Kerberos basati sulle risorse. Non è possibile configurare il delega vincolata Kerberos basato sulle risorse per gli account nei contenitori di *computer DC AAD* o di *utenti di AAD DC* . Ciò significa anche che non è possibile usare gli account utente sincronizzati da Azure AD per configurare delega vincolata Kerberos basati sulle risorse. È necessario creare e utilizzare gli account del servizio creati in modo specifico in Azure AD DS.
 
-1. Infine, configurare delega vincolata Kerberos basati sulle risorse usando il cmdlet di PowerShell [set-aduser][Set-ADUser] . Eseguire i cmdlet seguenti dalla macchina virtuale di gestione aggiunta al dominio e connessi come account utente membro del gruppo di *amministratori di Azure ad DC* . Specificare i nomi di servizio in base alle esigenze:
+1. Infine, configurare delega vincolata Kerberos basati sulle risorse usando il cmdlet di PowerShell [set-aduser][Set-ADUser] .
+
+    Eseguire i cmdlet seguenti dalla macchina virtuale di gestione aggiunta al dominio e connessi come account utente membro del gruppo di *amministratori di Azure ad DC* . Specificare i nomi di servizio in base alle esigenze:
 
     ```powershell
     $ImpersonatingAccount = Get-ADUser -Identity appsvc

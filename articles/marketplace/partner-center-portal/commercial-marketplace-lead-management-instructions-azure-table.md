@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: fb53b0fe28f48f5f240e470aa5256ac1c277686e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848016"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957342"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usare l'archiviazione tabelle di Azure per gestire i lead del marketplace commerciale
 
@@ -26,11 +25,11 @@ Se il sistema CRM (Customer Relationship Management, Gestione rapporti con clien
 
     1. Selezionare **Crea una risorsa** nella barra del menu a sinistra. Sulla destra viene visualizzato il riquadro **Nuovo**.
     1. Selezionare **Archiviazione** nel riquadro **Nuovo**. A destra viene visualizzato un elenco **In primo piano**.
-    1. Selezionare **Account di archiviazione** per iniziare la creazione dell'account. Seguire le istruzioni in [Crea un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. Selezionare **Account di archiviazione** per iniziare la creazione dell'account. Seguire le istruzioni in [Crea un account di archiviazione](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
         ![Procedura di creazione di un account di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
-        Per altre informazioni sugli account di archiviazione, vedere [Documentazione di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/). Per altre informazioni sui prezzi delle risorse di archiviazione, vedere [Panoramica dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+        Per altre informazioni sugli account di archiviazione, vedere [Documentazione di Archiviazione di Azure](../../storage/index.yml). Per altre informazioni sui prezzi delle risorse di archiviazione, vedere [Panoramica dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 1. Attendere fino a quando non viene eseguito il provisioning dell'account di archiviazione. Questo processo in genere richiede qualche minuto. 
 
@@ -107,7 +106,7 @@ In questo esempio viene creato un flusso per l’invio automatico di una notific
 
    Dopo aver selezionato **Crea**, viene visualizzata la finestra **Recupera entità**. Da qui selezionare **Mostra le opzioni avanzate** e specificare informazioni per le caselle seguenti:
 
-   * **Tabella**: selezionare il nome della tabella da [Crea una tabella](#create-a-table-in-your-storage-account). La figura seguente illustra la richiesta quando viene selezionata la tabella "marketplaceleads" per questo esempio.
+   * **Tabella**: selezionare il nome della tabella da [Crea una tabella](#create-a-table-in-your-storage-account). La figura seguente mostra la richiesta quando la `marketplaceleads` tabella è selezionata per questo esempio.
 
      ![Finestra Recupera entità](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 

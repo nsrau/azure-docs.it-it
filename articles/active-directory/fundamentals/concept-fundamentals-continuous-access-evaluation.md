@@ -11,12 +11,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f0cb402741163c657b3e7961eb5a4f9c8e18dafd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673021"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -40,6 +39,7 @@ La valutazione dell'accesso continuo viene implementata consentendo ai servizi (
 
 - L'account utente è stato eliminato o disabilitato
 - La password per un utente è stata modificata o reimpostata
+- Autenticazione a più fattori abilitata per l'utente
 - L'amministratore revoca in modo esplicito tutti i token di aggiornamento per un utente
 - Rischi utente elevati rilevati da Azure AD Identity Protection
 
@@ -50,13 +50,13 @@ In futuro ci auguriamo di aggiungere altri eventi, inclusi eventi come la posizi
 Prima della valutazione dell'accesso continuo, i client tentavano sempre di riprodurre il token di accesso dalla cache, purché non fosse scaduto. Con CAE, viene introdotto un nuovo caso che un provider di risorse può rifiutare un token anche quando non è scaduto. Per informare i client di ignorare la cache anche se i token memorizzati nella cache non sono scaduti, viene introdotto un meccanismo denominato **Challenge Claim**. CAE richiede un aggiornamento del client per comprendere la richiesta di attestazione. La versione più recente delle seguenti applicazioni supporta la richiesta di attestazione:
 
 - Outlook per Windows 
-- Outlook iOS 
-- Outlook Android 
-- Outlook Mac 
+- Outlook per iOS 
+- Outlook per Android 
+- Outlook per Mac 
 - Team per Windows
-- Team iOS 
-- Teams Android 
-- Mac Teams 
+- Team per iOS 
+- Team per Android 
+- Team per Mac 
 
 ## <a name="token-lifetime"></a>Durata del token
 
@@ -76,7 +76,7 @@ Si aumenterà la durata del token di accesso a 24 ore nelle sessioni CAE. La rev
 1. Un token di accesso viene presentato al provider di risorse. Il provider di risorse valuta la validità del token e controlla se è presente un evento di revoca per l'utente. Il provider di risorse utilizza queste informazioni per decidere di concedere l'accesso alla risorsa.
 1. In questo caso, il provider di risorse nega l'accesso e invia una richiesta di attestazione 401 + al client
 1. Il client in grado di supportare CAE riconosce la richiesta di attestazione 401 +. Ignora le cache e torna al passaggio 1, inviando il token di aggiornamento insieme alla richiesta di attestazione al Azure AD. Azure AD valuterà quindi tutte le condizioni e chiederà all'utente di eseguire nuovamente l'autenticazione in questo caso.
- 
+
 ## <a name="faqs"></a>Domande frequenti
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>Qual è la durata del token di accesso?

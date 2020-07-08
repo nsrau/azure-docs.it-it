@@ -8,15 +8,14 @@ ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/25/2020
+ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f78ef7ddf48612728c0409b0f904c0964e2272b5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: b13de16b2080d28d3b779921456cfb20d99f0af9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84416000"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account usando l'app Microsoft Authenticator
 
@@ -73,54 +72,36 @@ Prima di poter eseguire il backup delle proprie credenziali, è necessario avere
 
 Dopo aver completato il ripristino, è possibile notare che i codici di verifica dell'account Microsoft personale nell'app Microsoft Authenticator sono diversi nel telefono vecchio e in quello nuovo. I codici sono diversi perché ogni dispositivo ha credenziali univoche, ma sono entrambi validi e funzionanti durante l'accesso con il telefono associato.
 
-## <a name="recover-additional-accounts-requiring-more-verification"></a>Ripristinare altri account che richiedono ulteriori verifiche
+## <a name="recover-accounts-requiring-more-verification"></a>Ripristinare gli account che richiedono una maggiore verifica
 
 Se si usano le notifiche push con gli account personali, aziendali o dell'istituto di istruzione, verrà visualizzato un avviso su schermo che indica che è necessario fornire un'ulteriore verifica prima che sia possibile recuperare le informazioni. Dato che le notifiche push richiedono l'uso di credenziali associate al dispositivo specifico e che non vengono mai inviate in rete, è necessario dimostrare la propria identità prima della creazione delle credenziali nel dispositivo.
 
 Per gli account Microsoft personali, è possibile provare la propria identità immettendo la password insieme a un numero di telefono o posta elettronica alternativo. Per gli account aziendali o dell'istituto di istruzione, è necessario eseguire la scansione di un codice a matrice fornito dal provider dell'account.
 
-### <a name="to-provide-additional-verification-for-personal-accounts"></a>Per fornire un'ulteriore verifica per gli account personali
+### <a name="to-provide-more-verification-for-personal-accounts"></a>Per fornire una maggiore verifica per gli account personali
 
-1. Nella schermata **Account** dell'app Microsoft Authenticator selezionare l'account da ripristinare. In un dispositivo Android selezionare la freccia accanto all'account che si desidera ripristinare.
+1. Nella schermata **account** dell'app Microsoft Authenticator toccare l'account che si vuole ripristinare per aprire la visualizzazione a schermo intero dell'account.
 
-    ![App Microsoft Authenticator che mostra gli account disponibili con le frecce in giù associate](./media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png)
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="App Microsoft Authenticator, che mostra i riquadri degli account disponibili" border="true":::
 
-    In un dispositivo iOS toccare l'account che si vuole ripristinare per aprire la visualizzazione a schermo intero dell'account.
+1. Toccare il riquadro per l'account che si sta ripristinando e quindi toccare l'opzione per eseguire l'accesso per il ripristino. Immettere la password e quindi confermare l'indirizzo di posta elettronica o il numero di telefono come verifica aggiuntiva.
 
-    ![App Microsoft Authenticator che mostra gli account disponibili con le frecce in giù associate](./media/user-help-auth-app-backup-recovery/ios-select-account-to-recover.png)
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="L'autenticatore presenta una password monouso come codice di verifica" border="true":::
 
-2. Accedere per ripristinare l'account. In un dispositivo Android selezionare **Accedi per ripristinare**.
+### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>Per fornire una maggiore verifica per gli account aziendali o dell'Istituto di istruzione
 
-    ![App Microsoft Authenticator per immettere le informazioni di accesso su Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
+1. Nella schermata **account** dell'app Microsoft Authenticator toccare l'account che si vuole ripristinare per aprire la visualizzazione a schermo intero dell'account.
 
-    In un dispositivo iOS toccare il riquadro dell'account che si desidera ripristinare e quindi toccare l'opzione per eseguire l'accesso e il ripristino. Quindi digitare la password e confermare l'indirizzo di posta elettronica o il numero di telefono come ulteriore verifica.
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="App Microsoft Authenticator, che mostra i riquadri degli account disponibili" border="true":::
 
-    ![App Microsoft Authenticator per immettere le informazioni di accesso su iOS](./media/user-help-auth-app-backup-recovery/ios-sign-in-to-recover.png)
+1. Nella visualizzazione a schermo intero toccare l'opzione per eseguire la scansione di un codice a matrice per il ripristino completo.
 
-### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Per fornire un'ulteriore verifica per gli account aziendali o dell'istituto di istruzione
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="L'autenticatore presenta una password monouso come codice di verifica" border="true":::
 
-1. Accedere per ripristinare l'account. In un dispositivo Android selezionare **Accedi per ripristinare**.
-
-    ![App Microsoft Authenticator per ripristinare un account aziendale o dell'istituto di istruzione in Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
-
-    In un dispositivo iOS toccare l'account che si vuole ripristinare per aprire la visualizzazione a schermo intero dell'account.
-
-    ![App Microsoft Authenticator per ripristinare un account aziendale o dell'istituto di istruzione in iOS](./media/user-help-auth-app-backup-recovery/ios-recover-work-or-school-account.png)
-
-2. Per ripristinare un account, è possibile usare un codice a matrice. Selezionare **Scansione codice QR per ripristinare** e quindi eseguire la scansione del codice a matrice.
-
-    In Android:
-
-    ![App Microsoft Authenticator in Android che consente di eseguire la scansione del codice a matrice](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
-
-    In iOS:
-
-    ![App Microsoft Authenticator in iOS che consente di eseguire la scansione del codice a matrice](./media/user-help-auth-app-backup-recovery/ios-scan-qr-code.png)
-
-    >[!NOTE]
-    >Per altre informazioni sui codici a matrice e su come ottenerne uno, vedere [Introduzione all'app Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) o [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), a seconda che l'amministratore abbia attivato o meno le informazioni di sicurezza.
-    >
-    >Se si configura l'app Microsoft Authenticator per la prima volta, è possibile che venga visualizzato un messaggio in cui viene richiesto se consentire all'app di accedere alla fotocamera (iOS) o se consentire all'app di scattare foto e registrare video (Android). Selezionare **Consenti** per consentire all'app Authenticator di accedere alla fotocamera per scattare una foto del codice a matrice nel passaggio successivo. Se non si consente l'accesso alla fotocamera, è comunque possibile configurare l'app Authenticator, ma sarà necessario aggiungere le informazioni sul codice manualmente. Per altre informazioni su come aggiungere manualmente un codice, vedere [Aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
+>[!NOTE]
+>Per altre informazioni sui codici a matrice e su come ottenerne uno, vedere [Introduzione all'app Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) o [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), a seconda che l'amministratore abbia attivato o meno le informazioni di sicurezza.
+>
+>Se si configura l'app Microsoft Authenticator per la prima volta, è possibile che venga visualizzato un messaggio in cui viene richiesto se consentire all'app di accedere alla fotocamera (iOS) o se consentire all'app di scattare foto e registrare video (Android). Selezionare **Consenti** per consentire all'app Authenticator di accedere alla fotocamera per scattare una foto del codice a matrice nel passaggio successivo. Se non si consente l'accesso alla fotocamera, è comunque possibile configurare l'app Authenticator, ma sarà necessario aggiungere le informazioni sul codice manualmente. Per altre informazioni su come aggiungere manualmente un codice, vedere [Aggiungere manualmente un account all'app](user-help-auth-app-add-account-manual.md).
 
 ## <a name="troubleshoot-backup-and-recovery-problems"></a>Risoluzione dei problemi di backup e ripristino
 
@@ -136,7 +117,7 @@ Esistono diversi motivi per cui il backup potrebbe non essere disponibile
 
 - **Account Microsoft Authenticator esistenti**: Se sono già stati configurati account nell'app Microsoft Authenticator, l'app non sarà in grado di recuperare gli account di backup. Impedendo il ripristino ci si assicura che i dettagli dell'account non vengano sovrascritti con informazioni non aggiornate. In questo caso, è necessario rimuovere eventuali informazioni sugli account esistenti dagli account esistenti configurati nell'app Authenticator prima di poter ripristinare il backup.
 
-- **Backup non aggiornato**: se le informazioni di backup non sono aggiornate, è possibile che venga richiesto di aggiornare le informazioni eseguendo di nuovo l'accesso all'account Microsoft Recovery. L'account di ripristino è l'account Microsoft personale usato inizialmente per archiviare il backup. Se è necessario effettuare l'accesso, verrà visualizzato un punto rosso sul menu o sulla barra delle azioni oppure verrà visualizzato un punto esclamativo che richiede di eseguire l'accesso per completare il ripristino dal backup. Dopo aver selezionato l'icona, verrà chiesto di eseguire di nuovo l'accesso per aggiornare le informazioni.
+- **Backup non aggiornato**: se le informazioni di backup non sono aggiornate, è possibile che venga richiesto di aggiornare le informazioni eseguendo di nuovo l'accesso all'account Microsoft Recovery. L'account di ripristino è l'account Microsoft personale usato inizialmente per archiviare il backup. Se è necessario un accesso, verrà visualizzato un punto rosso sul menu o sulla barra delle azioni oppure verrà visualizzata un'icona con il punto esclamativo che richiede di eseguire l'accesso per completare il ripristino dal backup. Dopo aver selezionato l'icona appropriata, verrà chiesto di eseguire di nuovo l'accesso per aggiornare le informazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

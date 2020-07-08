@@ -1,28 +1,26 @@
 ---
-title: Copertura della mobilità (transito) | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come coprire la mobilità in Microsoft Azure Maps
-author: philmea
-ms.author: philmea
-ms.date: 06/05/2019
+title: Copertura della mobilità (transito)
+description: In questo articolo si apprenderà come coprire il traffico pubblico in Microsoft Azure Maps Mobility Service.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85988d74d21c411586a368e12972450116259a45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2959a930ef2b3683cbd822eaee61a037fa0e9e29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673643"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Copertura della mobilità di Maps di Azure
 
-Azure Maps offre un [servizio di mobilità](https://aka.ms/AzureMapsMobilityService). Il servizio Mobility migliora il tempo di sviluppo per le applicazioni con funzionalità di trasporto pubblico, bike Share e scooter. Le funzionalità per il trasporto pubblico includono la ricerca di stazioni adiacenti, la ricerca di arresti, la ricerca di linee di transito, il recupero delle informazioni sulla pianificazione, il recupero di arrivi in tempo reale in transito, l'elenco delle interruzioni e le guide alle route. Il servizio restituisce informazioni sulla disponibilità statica e in tempo reale ai veicoli condivisi, ad esempio automobili, biciclette e scooter. Inoltre, il servizio Mobility fornisce funzionalità di routing con le opzioni di pianificazione dei viaggi multimodali. La pianificazione dei viaggi multimodali incorpora le opzioni di ciclismo, trasmissione e trasmissione, in un unico viaggio. Gli utenti della camma accedono agli itinerari dettagliati e multimodali e agli avvisi del servizio.
+Il [servizio Mobility](https://aka.ms/AzureMapsMobilityService) di Azure Maps migliora il tempo di sviluppo per le applicazioni con funzionalità di transito pubblico, ad esempio il routing di transito e la ricerca di interruzioni del traffico pubblico nelle vicinanze. Gli utenti possono recuperare informazioni dettagliate su interruzioni di transito, linee e pianificazioni. Il servizio Mobility consente inoltre agli utenti di recuperare le geometrie di interruzione e di linea, gli avvisi per le interruzioni, le linee e le aree di servizio, nonché gli arrivi e gli avvisi del servizio in tempo reale. Inoltre, il servizio Mobility fornisce funzionalità di routing con le opzioni di pianificazione dei viaggi multimodali. La pianificazione dei viaggi multimodali incorpora le opzioni di esplorazione, biciclismo e trasporto pubblico, in un unico viaggio. Gli utenti possono anche accedere a itinerari dettagliati multimodali. 
 
-Le mappe di Azure non hanno lo stesso livello di informazioni e accuratezza per tutte le città e i paesi o le aree geografiche. La possibilità di chiamare i dati di transito dipende dalla città. I dati potrebbero non includere tutte le opzioni di transito pubblico e le agenzie che svolgono la città.
+Azure Maps non fornisce lo stesso livello di informazioni e accuratezza per tutte le città e i paesi o le aree geografiche. La possibilità di chiamare i dati di transito pubblici dipende dall'area metro. Inoltre, i dati della mappa potrebbero non includere tutte le opzioni di transito pubblico e le agenzie che svolgono l'area metropolitana.
 
 La tabella seguente contiene informazioni sulla copertura per il servizio Mobility di Azure maps.
-
 
 | Simbolo | Significato |
 |--------|---------|
@@ -30,7 +28,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="americas"></a>Americhe
 
-| Paese/area geografica |  Città (area metro) |
+| Paese/Area geografica |  Città (area metro) |
 |----------------|---------|
 | Argentina       | <p>Bahía Blanca, Buenos Aires, Caleta Olivia, Chivilcoy, Comodoro Rivadavia, Cordova, Corrientes, generale Pico, la Rioja, Mar del Plata, Mendoza, Miramar, Neuquén, Oberá, Olavarría, Paraná, Posadas, Rio Tercero, Rosario, salta, San Carlos de Bariloche, San Luis, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Villa María</p>|
 | Barbados       |  Barbados |
@@ -52,7 +50,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="asia-pacific"></a>Asia Pacifico
 
-| Paese/area geografica |  Città (area metro) |
+| Paese/Area geografica |  Città (area metro) |
 |--------|---------|
 | Australia      | <p>Adelaide, Alice Springs, Bowen, Brisbane, Bundaberg QLD, Burnie, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay, isola magnetica, Maryborough-Hervey Bay, Melbourne, New South Wales, Perth, RockHampton, South East Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | Cina | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Beijing, Guangzhou, Shenzhen, Zhengzhou</P>| 
@@ -73,7 +71,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="europe"></a>Europa
 
-| Paese/area geografica |  Città (area metro) |
+| Paese/Area geografica |  Città (area metro) |
 |----------------|---------|
 | Andorra        | Andorra la Vella |
 | Atene         | Chios | 
@@ -85,7 +83,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Bulgaria       | <p>Balchik, Blagoevgrad, Burgas, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Veliko, Sofia</P> |
 | Croazia | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, Zagabria | 
 | Cipro | Larnaca, Limassol, Nicosia | 
-| Repubblica ceca | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Praga | 
+| Repubblica Ceca | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Praga | 
 | Danimarca   | Danimarca |
 | Estonia   | Estonia |   
 | Finlandia   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola-Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
@@ -124,9 +122,9 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="middle-east-and-africa"></a>Medio Oriente e Africa
 
-| Paese/area geografica |  Città (area metro) |
+| Paese/Area geografica |  Città (area metro) |
 |---------|---------|
-| Bahrain | Bahrain |
+| Bahrein | Bahrain |
 | Egitto | Cairo    |
 | Israele| Israele  |
 | Kenya | Nairobi  | 
@@ -134,7 +132,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Marocco | Casablanca, Khouribga, Tétouan|
 | Qatar| Doha|
 | Arabia Saudita | Thuwal |
-| Sud Africa | Città del Capo |
+| Sudafrica | Città del Capo |
 | Tunisia | Kairouan |
 | Emirati Arabi Uniti  | Abu Dhabi, Dubai |
 

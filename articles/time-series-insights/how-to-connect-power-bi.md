@@ -7,13 +7,12 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: ea46f37b0c09ca655b29ac3cfa2f168e18c85590
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75863843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052443"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizzare i dati da Time Series Insights in Power BI
 
@@ -67,7 +66,7 @@ Attività iniziali
        > [!NOTE]
        > È previsto un limite di numero di eventi 100-K per i dati a livello di evento non elaborato.
 
-       [![Connessione](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![Connettersi](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
    1. Se non è stata configurata l'istanza di Time Series Insights per **warm Store**, verrà visualizzato un avviso.
 
@@ -111,8 +110,10 @@ Ora che i dati sono stati importati in Power BI, è possibile creare un report c
     [![Selezionare la visualizzazione report](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
 1.  Nella colonna **visualizzazioni** selezionare l'oggetto visivo scelto. Ad esempio, selezionare **grafico a linee**. Verrà aggiunto un grafico a linee vuoto nell'area di disegno.
- 
-1.  Nell'elenco **campi** selezionare **timestamp** e trascinarlo nel campo **asse** per visualizzare gli elementi lungo l'asse X.
+
+1.  Nell'elenco **campi** selezionare **_Timestamp** e trascinarlo nel campo **asse** per visualizzare gli elementi lungo l'asse X. Assicurarsi di passare a **_Timestamp** a come valore per l' **asse** (l'impostazione predefinita è **gerarchia data**).
+
+    [![Selezionare la visualizzazione report](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
 1.  Anche in questo caso, nell'elenco **campi** selezionare **TimeSeriesId** e trascinarlo nel campo **valori** per visualizzare gli elementi lungo l'asse Y.
 

@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849791"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85798154"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indicizzazione in Azure Cosmos DB - Panoramica
 
@@ -41,7 +40,7 @@ Ad esempio, considerare questo elemento:
 
 Verrà rappresentato dall'albero seguente:
 
-![Elemento precedente rappresentato sotto forma di albero](./media/index-overview/item-as-tree.png)
+:::image type="content" source="./media/index-overview/item-as-tree.png" alt-text="Elemento precedente rappresentato sotto forma di albero" border="false":::
 
 Si noti il modo in cui le matrici vengono codificate nell'albero: ogni voce in una matrice ottiene un nodo intermedio etichettato con l'indice di tale voce all'interno della matrice (0, 1 e così via).
 
@@ -51,14 +50,14 @@ Azure Cosmos DB trasforma gli elementi in alberi perché ciò consente di fare r
 
 Ecco i percorsi per ogni proprietà dell'elemento di esempio descritto in precedenza:
 
-    /locations/0/country: "Germany"
-    /locations/0/city: "Berlin"
-    /locations/1/country: "France"
-    /locations/1/city: "Paris"
-    /headquarters/country: "Belgium"
-    /headquarters/employees: 250
-    /exports/0/city: "Moscow"
-    /exports/1/city: "Athens"
+- /Locations/0/Country: "Germania"
+- /Locations/0/City: "Berlino"
+- /Locations/1/Country: "Francia"
+- /Locations/1/City: "Parigi"
+- /Headquarters/Country: "Belgio"
+- /Headquarters/Employees: 250
+- /exports/0/City: "Mosca"
+- /exports/1/City: "Atene"
 
 Quando viene scritto un elemento, Azure Cosmos DB indicizza in modo efficace il percorso di ogni proprietà e il relativo valore corrispondente.
 
@@ -181,7 +180,7 @@ I percorsi estratti durante l'indicizzazione dei dati facilitano la ricerca dell
 
 Si consideri ad esempio la query seguente: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Il predicato della query (filtro sugli elementi la cui posizione contiene "France" come paese/area geografica) corrisponderà al percorso evidenziato in rosso sotto:
 
-![Corrispondenza di un percorso specifico all'interno di un albero](./media/index-overview/matching-path.png)
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Corrispondenza di un percorso specifico all'interno di un albero" border="false":::
 
 > [!NOTE]
 > Una clausola `ORDER BY` che ordina in base a una singola proprietà necessita *sempre* di un indice di intervallo e avrà esito negativo se il percorso a cui fa riferimento non ne ha uno. In modo analogo, una query `ORDER BY` che ordina in base a più proprietà necessita *sempre* di un indice composto.

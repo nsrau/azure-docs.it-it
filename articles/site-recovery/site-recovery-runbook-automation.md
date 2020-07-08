@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 123ef7de338bfe872948db60c68c0c5743f5cda1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345139"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
 
@@ -56,6 +55,9 @@ Quando viene eseguito uno script, inserisce un contesto del piano di ripristino 
 | CloudServiceName |Nome del servizio cloud di Azure in cui è stata creata la macchina virtuale. |
 | RoleName |Nome della macchina virtuale di Azure. |
 | RecoveryPointId|Timestamp per il ripristino della macchina virtuale. |
+
+>[!Note]
+>Il valore per la variabile ' FailoverDirection ' sarà' PrimaryToSecondary ' in caso di failover è SecondaryToPrimary ' in caso di failback.
 
 L'esempio seguente mostra una variabile di contesto:
 
@@ -117,7 +119,7 @@ Il Blog di Aman Sharma sulla [raccolta di cloud](http://harvestingclouds.com) è
 
     ![Fare clic sul pulsante Personalizza](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Fare clic sui puntini di sospensione (...) accanto al **gruppo 1: avviare** > **Aggiungi post azione**.
+2. Fare clic sui puntini di sospensione (...) accanto al **gruppo 1: avviare**  >  **Aggiungi post azione**.
 3. In **Inserisci azione**verificare che sia selezionato **script** e specificare un nome per lo script (**Hello World**).
 4. Specificare un account di automazione e selezionare un Runbook. Fare clic su **OK** per salvare lo script. Lo script viene aggiunto a **Gruppo 1: passaggi successivi**.
 

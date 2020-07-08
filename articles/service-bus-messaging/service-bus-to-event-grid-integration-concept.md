@@ -1,24 +1,16 @@
 ---
 title: Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi | Microsoft Docs
 description: Questo articolo fornisce una descrizione del modo in cui la messaggistica del bus di servizio di Azure si integra con griglia di eventi di Azure.
-services: service-bus-messaging
 documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
+author: spelluru
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 009e6a1b98e72d9618dc8ed3437d7ea90ab4afac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773468"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340579"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi
 
@@ -118,7 +110,7 @@ Se si vogliono ottenere eventi solo da una coda o una sottoscrizione nello spazi
 È possibile creare sottoscrizioni di Griglia di eventi per gli spazi dei nomi del bus di servizio in tre diversi modi:
 
 * Nel portale di Azure
-* Nell'[interfaccia della riga di comando di Azure](#azure-cli-instructions)
+* Nell' [interfaccia](#azure-cli-instructions) della riga di comando di Azure
 * In [PowerShell](#powershell-instructions)
 
 ## <a name="azure-portal-instructions"></a>Istruzioni del portale di Azure

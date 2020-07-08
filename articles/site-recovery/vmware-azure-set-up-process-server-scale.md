@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711953"
 ---
 # <a name="scale-with-additional-process-servers"></a>Scalabilità con server di elaborazione aggiuntivi
 
@@ -52,9 +51,9 @@ Nella tabella seguente sono riepilogati i prerequisiti per il server di elaboraz
 Scaricare il file di installazione del server di elaborazione come indicato di seguito:
 
 1. Accedere al portale di Azure e passare all'insieme di credenziali di servizi di ripristino.
-2. Aprire **Site Recovery infrastruttura** > **VMware e computer** > fisici**server di configurazione** (in per VMware & computer fisici).
+2. Aprire **Site Recovery infrastruttura**  >  **VMware e computer fisici**  >  **server di configurazione** (in per VMware & computer fisici).
 3. Selezionare il server di configurazione per eseguire il drill-down della relativa pagina delle informazioni. Fare clic su **+ Server di elaborazione**.
-4. In **Aggiungi server** >  di elaborazione**scegliere la posizione in cui si vuole distribuire il server di elaborazione**, selezionare **Distribuisci un server di elaborazione con scalabilità orizzontale in locale**.
+4. In **Aggiungi server di elaborazione**  >   **scegliere la posizione in cui si vuole distribuire il server di elaborazione**, selezionare **Distribuisci un server di elaborazione con scalabilità orizzontale in locale**.
 
    ![Pagina di aggiunta server](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Scaricare il programma di **installazione unificata di Microsoft Azure Site Recovery**. Viene scaricata la versione più recente del file di installazione.

@@ -7,12 +7,11 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 05/20/2020
-ms.openlocfilehash: dc93121d7565b95b9bd604160028659f3a741b0c
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 9038630a2623a8b20ddfcf98899ce9a89f16bdc1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860495"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673361"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Il server Apache ZooKeeper non è in grado di formare un quorum in Azure HDInsight
 
@@ -27,7 +26,7 @@ Questo articolo descrive le procedure di risoluzione dei problemi e le possibili
 
 ## <a name="sample-log"></a>Log di esempio
 
-Potrebbe essere visualizzato un messaggio di errore simile al seguente:
+È possibile che venga visualizzato un messaggio di errore simile al seguente nei log yarn (/var/log/Hadoop-Yarn/Yarn/Yarn-Yarn *. log in nodi head):
 
 ```output
 2020-05-05 03:17:18.3916720|Lost contact with Zookeeper. Transitioning to standby in 10000 ms if connection is not reestablished.
@@ -116,6 +115,7 @@ Node count: 133212
 
 ## <a name="cancelledkeyexception-in-the-zookeeper-server-log-doesnt-require-snapshot-cleanup"></a>CancelledKeyException nel server Zookeeper non richiede la pulizia degli snapshot
 
+* Questa eccezione verrà visualizzata nei file Zookeeper (/var/log/Zookeeper/Zookeeper-Zookeeper-* o/var/log/HDInsight-Zookeeper/Zookeeper *)
 * Questa eccezione in genere indica che il client non è più attivo e il server non è in grado di inviare un messaggio
 * Questa eccezione indica anche che il client Zookeeper chiude le sessioni prematuramente
 * Cercare gli altri sintomi illustrati in questo documento

@@ -2,20 +2,19 @@
 title: Scrivere espressioni per i mapping degli attributi in Azure Active Directory
 description: Informazioni su come usare i mapping di espressioni per trasformare i valori degli attributi in un formato accettabile durante il provisioning automatizzato di oggetti SaaS in Azure Active Directory.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/05/2020
-ms.author: mimart
-ms.openlocfilehash: c8573f9151ac59178b19bbf354da43990405b3e0
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.author: kenwith
+ms.openlocfilehash: 47f0502226e4227c6b94920da6f040004beb41f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781668"
 ---
 # <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Procedura: scrivere espressioni per i mapping degli attributi in Azure AD
 
@@ -26,18 +25,18 @@ Quando si configura il provisioning in un'applicazione SaaS, come mapping degli 
 La sintassi per le espressioni per i mapping degli attributi è simile a quella delle funzioni di Visual Basic for Applications (VBA).
 
 * L'intera espressione deve essere definita in termini di funzioni, che sono costituite da un nome seguito da argomenti racchiusi tra parentesi:  <br>
-  *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
-* È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *Funzioneuno (Funzionedue (`<<argument1>>`))*
+  *FunctionName ( `<<argument 1>>` , `<<argument N>>` )*
+* È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *Funzioneuno (Funzionedue ( `<<argument1>>` ))*
 * È possibile passare tre tipi diversi di argomenti nelle funzioni:
   
   1. Attributi, che devono essere racchiusi tra parentesi quadre. Ad esempio: [NomeAttributo]
   2. Costanti di stringa, che devono essere racchiuse tra virgolette doppie. Ad esempio: "Stati Uniti"
-  3. Altre funzioni. Ad esempio: Funzioneuno (`<<argument1>>`, funzionedue (`<<argument2>>`))
-* Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio: "nome società: \\" Contoso\\""
+  3. Altre funzioni. Ad esempio: Funzioneuno ( `<<argument1>>` , funzionedue ( `<<argument2>>` ))
+* Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio: "nome società: \\ " Contoso \\ ""
 
 ## <a name="list-of-functions"></a>Elenco di funzioni
 
-[Append](#append) &nbsp; &nbsp; [IsPresent](#ispresent) [FormatDateTime](#formatdatetime) [CBool](#cbool) &nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) [BitAnd](#bitand) &nbsp; [Replace](#replace) [Count](#count) &nbsp; [ConvertToBase64](#converttobase64) &nbsp; [Join](#join) [Mid](#mid) [CStr](#cstr) [RemoveDuplicates](#removeduplicates) [IIF](#iif) [Item](#item) [IsNullOrEmpty](#isnullorempty) [IsString](#isstring) [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; [Left](#left) [SelectUniqueValue](#selectuniquevalue) [DateFromNum](#datefromnum) [IsNull](#isnull) [Guid](#guid) [Coalesce](#coalesce) &nbsp; [InStr](#instr) BitAnd &nbsp; CBool COALESCE &nbsp; ConvertToBase64 ConvertToUTF8Hex count CStr DateFromNum &nbsp; FormatDateTime GUID &nbsp; IIF InStr IsNull &nbsp; IsNullOrEmpty &nbsp; è il &nbsp; join &nbsp; di elemento &nbsp; di stringa &nbsp; Left Mid &nbsp; NormalizeDiacritics Not&nbsp; RemoveDuplicates Replace SelectUniqueValue&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Word](#word) [ToLower](#tolower) [StripSpaces](#stripspaces) [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; [Switch](#switch) [Split](#split) [ToUpper](#toupper) SingleAppRoleAssignment&nbsp; &nbsp; Split &nbsp; StripSpaces Switch&nbsp; ToUpper&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+[Append](#append) &nbsp; &nbsp; Accoda &nbsp; &nbsp; [BitAnd](#bitand) &nbsp; &nbsp; BitAnd &nbsp; &nbsp; [CBool](#cbool) &nbsp; &nbsp; CBool &nbsp; &nbsp; [COALESCE](#coalesce) &nbsp; &nbsp; &nbsp; &nbsp; [ConvertToBase64](#converttobase64) &nbsp; &nbsp; ConvertToBase64 &nbsp; &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; &nbsp; ConvertToUTF8Hex &nbsp; &nbsp; [Numero](#count) &nbsp; &nbsp; di &nbsp; &nbsp; [CStr](#cstr) &nbsp; &nbsp; CStr &nbsp; &nbsp; [DateFromNum](#datefromnum) &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; FormatDateTime &nbsp; &nbsp; [Guid](#guid) &nbsp; &nbsp; GUID &nbsp; &nbsp; [IIF](#iif) &nbsp; &nbsp; IIf &nbsp; &nbsp; [InStr](#instr) &nbsp; &nbsp; InStr &nbsp; &nbsp; [IsNull](#isnull) &nbsp; &nbsp; IsNull &nbsp; &nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp; &nbsp; IsNullOrEmpty &nbsp; &nbsp; [Presenza](#ispresent) &nbsp; &nbsp; di &nbsp; &nbsp; [Stringa](#isstring) &nbsp; &nbsp; di &nbsp; &nbsp; [Elemento](#item) &nbsp; &nbsp; di &nbsp; &nbsp; [Aggiungi](#join) &nbsp; &nbsp; a &nbsp; &nbsp; [Left](#left) &nbsp; &nbsp; A &nbsp; sinistra &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [not](#not) &nbsp; &nbsp; &nbsp; &nbsp; [RemoveDuplicates](#removeduplicates) &nbsp; &nbsp; &nbsp; &nbsp; [Replace](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Split](#split) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper) &nbsp; &nbsp; &nbsp; &nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Accoda
@@ -50,8 +49,8 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **suffix** |Necessario |string |Stringa da aggiungere alla fine del valore di origine. |
+| **source** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **suffisso** |Necessario |string |Stringa da aggiungere alla fine del valore di origine. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -102,7 +101,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source1 … sourceN** | Necessario | string |Obbligatorio, numero variabile di volte. In genere è il nome dell'attributo dell'oggetto di origine. |
-| **defaultValue** | Facoltativo | string | Valore predefinito da utilizzare quando tutti i valori di origine sono NULL. Può essere una stringa vuota ("").
+| **defaultValue** | Facoltativo | String | Valore predefinito da utilizzare quando tutti i valori di origine sono NULL. Può essere una stringa vuota ("").
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -114,7 +113,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |Stringa da convertire in base 64|
+| **source** |Necessario |string |Stringa da convertire in base 64|
 
 **Esempio:**<br>
 ConvertToBase64("Hello world!")                                                                                                        
@@ -130,7 +129,7 @@ ConvertToBase64("Hello world!")
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |Stringa da convertire in esadecimale UTF8|
+| **source** |Necessario |string |Stringa da convertire in esadecimale UTF8|
 
 **Esempio:**<br>
 ConvertToUTF8Hex("Hello world!")                                                                                                         
@@ -146,7 +145,7 @@ ConvertToUTF8Hex("Hello world!")
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **attributo** |Necessario |attributo |Attributo multivalore che avrà elementi conteggiati|
+| **attributo** |Necessario |Attributo |Attributo multivalore che avrà elementi conteggiati|
 
 ---
 ### <a name="cstr"></a>CStr
@@ -191,8 +190,8 @@ DateFromNum(129699324000000000)
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **inputFormat** |Necessario |string |Formato previsto del valore source. Per i formati supportati, [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)vedere. |
+| **source** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **inputFormat** |Necessario |string |Formato previsto del valore source. Per i formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) . |
 | **outputFormat** |Necessario |string |Formato della data di output. |
 
 ---
@@ -230,8 +229,8 @@ IIF ([Country] = "USA", [paese], [reparto])
 | --- | --- | --- | --- |
 | **value1** |Necessario |string |Stringa da cercare |
 | **Value2** |Necessario |string |Stringa da trovare |
-| **start** |Facoltativo |Integer |Posizione iniziale per trovare la sottostringa|
-| **compareType** |Facoltativo |Enum |Può essere vbTextCompare o vbBinaryCompare |
+| **start** |Facoltativo |Intero |Posizione iniziale per trovare la sottostringa|
+| **compareType** |Facoltativo |Enumerazione |Può essere vbTextCompare o vbBinaryCompare |
 
 **Esempio:**<br>
 InStr("The quick brown fox","quick")                                                                             
@@ -311,7 +310,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **attributo** |Necessario |Attributo |Attributo multivalore da cercare |
-| **Indice** |Necessario |Integer | Indice di un elemento nella stringa multivalore|
+| **Indice** |Obbligatoria |Intero | Indice di un elemento nella stringa multivalore|
 
 **Esempio:**<br>
 Elemento ([proxyAddresses], 1)
@@ -332,7 +331,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 | **source1 … sourceN** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
 
 ---
-### <a name="left"></a>Left
+### <a name="left"></a>Sinistra
 **Funzione**<br> Left (stringa, NumChars)
 
 **Descrizione:**<br>  La funzione Left restituisce un numero di caratteri specificato a partire da sinistra di una stringa. Se numChars = 0, restituisce una stringa vuota.
@@ -345,7 +344,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **Stringa** |Necessario |Attributo | Stringa da cui restituire i caratteri |
-| **NumChars** |Necessario |Integer | Numero che identifica il numero di caratteri da restituire dall'inizio (sinistra) della stringa|
+| **NumChars** |Obbligatoria |Intero | Numero che identifica il numero di caratteri da restituire dall'inizio (sinistra) della stringa|
 
 **Esempio:**<br>
 Left ("John Doe", 3)                                                            
@@ -361,7 +360,7 @@ Restituisce "Joh"
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |Corrisponde in genere al nome dell'attributo. |
+| **source** |Necessario |string |Corrisponde in genere al nome dell'attributo. |
 | **start** |Necessario |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
 | **length** |Necessario |integer |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
@@ -375,7 +374,7 @@ Restituisce "Joh"
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string | In genere un attributo nome o cognome. |
+| **source** |Necessario |string | In genere un attributo nome o cognome. |
 
 ---
 ### <a name="not"></a>Not
@@ -387,7 +386,7 @@ Restituisce "Joh"
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
+| **source** |Necessario |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
 ---
 ### <a name="numfromdate"></a>NumFromDate
@@ -455,13 +454,13 @@ Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |In genere il nome dell'attributo dall'oggetto di **origine** . |
-| **oldValue** |Facoltativo |string |Valore da sostituire in **source** o **template**. |
-| **regexPattern** |Facoltativo |string |Modello Regex per il valore da sostituire in **source**. Se invece si usa **replacementPropertyName**, corrisponde al modello usato per estrarre il valore da **replacementPropertyName**. |
-| **regexGroupName** |Facoltativo |string |Nome del gruppo in **regexPattern**. Solo se si usa **replacementPropertyName**, il valore di questo gruppo verrà estratto come **replacementValue** da **replacementPropertyName**. |
-| **replacementValue** |Facoltativo |string |Nuovo valore con cui sostituire il precedente. |
-| **replacementAttributeName** |Facoltativo |string |Nome dell'attributo da usare per il valore di sostituzione |
-| **modello** |Facoltativo |string |Quando viene specificato il valore del **modello** , si cercherà **OldValue** all'interno del modello e lo si sostituirà con il valore **source** . |
+| **source** |Necessario |string |In genere il nome dell'attributo dall'oggetto di **origine** . |
+| **oldValue** |Facoltativo |String |Valore da sostituire in **source** o **template**. |
+| **regexPattern** |Facoltativo |String |Modello Regex per il valore da sostituire in **source**. Se invece si usa **replacementPropertyName**, corrisponde al modello usato per estrarre il valore da **replacementPropertyName**. |
+| **regexGroupName** |Facoltativo |String |Nome del gruppo in **regexPattern**. Solo se si usa **replacementPropertyName**, il valore di questo gruppo verrà estratto come **replacementValue** da **replacementPropertyName**. |
+| **replacementValue** |Facoltativo |String |Nuovo valore con cui sostituire il precedente. |
+| **replacementAttributeName** |Facoltativo |String |Nome dell'attributo da usare per il valore di sostituzione |
+| **modello** |Facoltativo |String |Quando viene specificato il valore del **modello** , si cercherà **OldValue** all'interno del modello e lo si sostituirà con il valore **source** . |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -505,8 +504,8 @@ Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |**Valore source** da aggiornare. |
-| **delimitatore** |Necessario |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
+| **source** |Necessario |string |**Valore source** da aggiornare. |
+| **delimiter** |Necessario |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -518,7 +517,7 @@ Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |**Valore source** da aggiornare. |
+| **source** |Necessario |string |**Valore source** da aggiornare. |
 
 ---
 ### <a name="switch"></a>Opzione
@@ -530,8 +529,8 @@ Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |**Source** da aggiornare. |
-| **defaultValue** |Facoltativo |string |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
+| **source** |Necessario |string |**Source** da aggiornare. |
+| **defaultValue** |Facoltativo |String |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
 | **key** |Necessario |string |Parametro **key** con cui confrontare il valore di **source**. |
 | **value** |Necessario |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
@@ -545,8 +544,8 @@ Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
+| **source** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -558,8 +557,8 @@ Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **origine** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
+| **source** |Necessario |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
 ### <a name="word"></a>Word
@@ -576,7 +575,7 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **Stringa** |Necessario |Attributo multivalore |Stringa da cui restituire una parola.|
-| **WordNumber** |Necessario | Integer | Numero che identifica il numero di parola da restituire|
+| **WordNumber** |Obbligatoria | Intero | Numero che identifica il numero di parola da restituire|
 | **delimitatori** |Necessario |string| Stringa che rappresenta i delimitatori da usare per identificare le parole|
 
 **Esempio:**<br>
@@ -610,7 +609,7 @@ Se si usa un ambiente sandbox Salesforce, potrebbe essere necessario aggiungere 
 **Input/output di esempio:** <br>
 
 * **INPUT** (userPrincipalName): "John.Doe@contoso.com"
-* **Output**: "John.Doe@contoso.com.test"
+* **Output**: " John.Doe@contoso.com.test "
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generare un alias utente concatenando parti del nome e del cognome
 Occorre generare un alias utente contenente le prime tre lettere del nome e le prime cinque lettere del cognome dell'utente.
@@ -693,7 +692,7 @@ Nell'esempio seguente il valore UPN viene generato concatenando i campi di origi
 
 * **INPUT** (PreferredFirstName): "John"
 * **INPUT** (PreferredLastName): "Smith"
-* **Output**: "john.smith@contoso.com"
+* **Output**: " john.smith@contoso.com "
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generare un valore univoco per l'attributo userPrincipalName (UPN)
 In base al nome, al secondo nome e al cognome dell'utente, è necessario generare un valore per l'attributo UPN e verificarne l'univocità nella directory di AD di destinazione prima di assegnare il valore all'attributo UPN.
@@ -710,9 +709,9 @@ In base al nome, al secondo nome e al cognome dell'utente, è necessario generar
 
 * **INPUT** (PreferredFirstName): "John"
 * **INPUT** (PreferredLastName): "Smith"
-* **Output**: "John.Smith@contoso.com" Se il valore UPN John.Smith@contoso.com di non esiste già nella directory
-* **Output**: "J.Smith@contoso.com" Se il valore UPN John.Smith@contoso.com di esiste già nella directory
-* **Output**: "Jo.Smith@contoso.com" se i due valori UPN precedenti sono già presenti nella directory
+* **Output**: " John.Smith@contoso.com " Se il valore UPN di John.Smith@contoso.com non esiste già nella directory
+* **Output**: " J.Smith@contoso.com " Se il valore UPN di John.Smith@contoso.com esiste già nella directory
+* **Output**: " Jo.Smith@contoso.com " se i due valori UPN precedenti sono già presenti nella directory
 
 ### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Valore della posta del flusso se non NULL; in caso contrario, Flow userPrincipalName
 Si desidera che il flusso dell'attributo mail sia presente. In caso contrario, si vuole invece propagare il valore di userPrincipalName.
@@ -723,12 +722,12 @@ Si desidera che il flusso dell'attributo mail sia presente. In caso contrario, s
 **Input/output di esempio:** <br>
 
 * **Input** (mail): null
-* **Input** (userPrincipalName): "John.Doe@contoso.com"
-* **Output**: "John.Doe@contoso.com"
+* **Input** (userPrincipalName): " John.Doe@contoso.com "
+* **Output**: " John.Doe@contoso.com "
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](../app-provisioning/user-provisioning.md)
-* [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](../app-provisioning/customize-application-attributes.md)
+* [Personalizzazione dei mapping degli attributi per il provisioning degli utenti](../app-provisioning/customize-application-attributes.md)
 * [Ambito dei filtri per il Provisioning utente](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Notifiche relative al provisioning degli account](../app-provisioning/user-provisioning.md)

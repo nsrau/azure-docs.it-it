@@ -11,18 +11,23 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: 713acbd098255af2869d7a462c9990f3d7e10bf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309194"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987243"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Domande frequenti su servizi multimediali V3
 
 Questo articolo fornisce le risposte alle domande frequenti su servizi multimediali di Azure V3.
 
 ## <a name="general"></a>Generale
+
+### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Quali sono le limitazioni portale di Azure per Media Services V3?
+
+È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire gli eventi live V3, visualizzare asset e processi V3, ottenere informazioni sull'accesso alle API, crittografare il contenuto. <br/>Per tutte le altre attività di gestione (ad esempio, la gestione di trasformazioni e processi o l'analisi del contenuto V3), usare l' [API REST](https://aka.ms/ams-v3-rest-ref), l' [interfaccia](https://aka.ms/ams-v3-cli-ref)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
+
+Se il video è stato caricato in precedenza nell'account di Servizi multimediali tramite l'API di Servizi multimediali v3 oppure il contenuto è stato generato in base a un output live, non sarà possibile visualizzare i pulsanti **Codifica**, **Analizza** o **Crittografa** nel portale di Azure. Usare le API di Servizi multimediali v3 per eseguire queste attività.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Quali ruoli di Azure possono eseguire azioni sulle risorse di servizi multimediali di Azure? 
 
@@ -95,7 +100,7 @@ I sistemi DRM come PlayReady, Widevine e FairPlay forniscono tutti un livello ag
 
 Non è necessario usare un provider di token specifico, ad esempio Azure Active Directory (Azure AD). È possibile creare un provider [JWT](https://jwt.io/) personalizzato, denominato servizio token di sicurezza o STS, usando la crittografia a chiave asimmetrica. Nel servizio token di protezione personalizzato è possibile aggiungere attestazioni in base alla logica di business.
 
-Verificare che l'autorità emittente, il gruppo di destinatari e tutte le attestazioni corrispondano esattamente tra gli elementi di `ContentKeyPolicyRestriction` JWT e il `ContentKeyPolicy`valore utilizzato in.
+Verificare che l'autorità emittente, il gruppo di destinatari e tutte le attestazioni corrispondano esattamente tra gli elementi di JWT e il `ContentKeyPolicyRestriction` valore utilizzato in `ContentKeyPolicy` .
 
 Per altre informazioni, vedere [proteggere il contenuto usando la crittografia dinamica di servizi multimediali](content-protection-overview.md).
 
@@ -113,7 +118,7 @@ L'approccio corretto consiste nell'usare il servizio token di sicurezza. In STS,
 
 Usare le API di servizi multimediali di Azure per la configurazione del recapito di licenze/chiavi e la crittografia degli asset (come illustrato in [questo esempio](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 - [Panoramica della protezione del contenuto](content-protection-overview.md)
 - [Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso](design-multi-drm-system-with-access-control.md)
@@ -140,7 +145,7 @@ L'applicazione lettore ASP.NET usa il protocollo HTTPS come procedura consigliat
 Spesso i clienti hanno investito in una licenza server farm nel proprio Data Center o in uno ospitato da provider di servizi DRM. Con la protezione del contenuto di Servizi multimediali, è possibile operare in modalità ibrida. I contenuti possono essere ospitati e protetti in modo dinamico in servizi multimediali, mentre le licenze DRM vengono distribuite dai server all'esterno di servizi multimediali. In questo caso, tenere presenti le modifiche seguenti:
 
 * Il servizio token di sicurezza deve rilasciare token che siano accettabili e verificabili dalla farm di server licenze. Ad esempio, i server licenze Widevine forniti da Axinom richiedono uno specifico token JWT contenente un elemento "entitlement message". È necessario disporre di un STS per emettere un JWT. 
-* Non è più necessario configurare il servizio di distribuzione delle licenze in Servizi multimediali. Quando si configura `ContentKeyPolicy`, è necessario fornire gli URL di acquisizione delle licenze (per PlayReady, Widevine e Fairplay).
+* Non è più necessario configurare il servizio di distribuzione delle licenze in Servizi multimediali. Quando si configura, è necessario fornire gli URL di acquisizione delle licenze (per PlayReady, Widevine e FairPlay) `ContentKeyPolicy` .
 
 > [!NOTE]
 > Widevine è un servizio fornito da Google e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google.
@@ -197,7 +202,7 @@ La prima cartella con un nome che termina con un trattino seguito da un numero c
 
 ![Struttura di file offline per l'app di esempio FairPlay iOS](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
 
-Ecco un file Boot. XML di esempio:
+Ecco un file di boot.xml di esempio:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -231,10 +236,10 @@ Ecco un file Boot. XML di esempio:
 
 #### <a name="how-can-i-deliver-persistent-licenses-offline-enabled-for-some-clientsusers-and-non-persistent-licenses-offline-disabled-for-others-do-i-have-to-duplicate-the-content-and-use-separate-content-keys"></a>Come è possibile distribuire licenze permanenti (non in linea abilitate) per alcuni client/utenti e licenze non permanenti (offline disabilitate) per gli altri? È necessario duplicare il contenuto e usare chiavi simmetriche separate?
 
-Poiché Media Services v3 consente a un asset di avere `StreamingLocator` più istanze, è possibile avere:
+Poiché Media Services v3 consente a un asset di avere più `StreamingLocator` istanze, è possibile avere:
 
-* Un' `ContentKeyPolicy` istanza con `license_type = "persistent"`, `ContentKeyPolicyRestriction` con attestazione `"persistent"`su e il `StreamingLocator`relativo oggetto.
-* Un' `ContentKeyPolicy` altra istanza `license_type="nonpersistent"`con `ContentKeyPolicyRestriction` , con attestazione su `"nonpersistent`"e `StreamingLocator`la relativa.
+* Un' `ContentKeyPolicy` istanza con `license_type = "persistent"` , `ContentKeyPolicyRestriction` con attestazione su `"persistent"` e il relativo oggetto `StreamingLocator` .
+* Un'altra `ContentKeyPolicy` istanza con `license_type="nonpersistent"` , `ContentKeyPolicyRestriction` con attestazione su `"nonpersistent` "e la relativa `StreamingLocator` .
 * Due `StreamingLocator` istanze con valori diversi `ContentKey` .
 
 In base alla logica di business del servizio token di sicurezza personalizzato, nel token JWT vengono rilasciate diverse attestazioni. Con il token, può essere ottenuta solo la licenza corrispondente e può essere usato solo il relativo URL.
@@ -243,7 +248,7 @@ In base alla logica di business del servizio token di sicurezza personalizzato, 
 
 "Panoramica dell'architettura DRM Widevine" di Google definisce tre livelli di sicurezza. Tuttavia, la [documentazione di servizi multimediali di Azure nel modello di licenza Widevine](widevine-license-template-overview.md) delinea cinque livelli di sicurezza (requisiti di affidabilità client per la riproduzione). In questa sezione viene illustrato il mapping dei livelli di sicurezza.
 
-Entrambi i set di livelli di sicurezza sono definiti da Google Widevine. La differenza si trova nel livello di utilizzo: architettura o API. I cinque livelli di sicurezza vengono usati nell'API Widevine. L' `content_key_specs` oggetto, che contiene `security_level`, viene deserializzato e passato al servizio di recapito globale Widevine dal servizio di licenza Widevine di servizi multimediali di Azure. Nella tabella seguente viene illustrato il mapping tra i due set di livelli di sicurezza.
+Entrambi i set di livelli di sicurezza sono definiti da Google Widevine. La differenza si trova nel livello di utilizzo: architettura o API. I cinque livelli di sicurezza vengono usati nell'API Widevine. L' `content_key_specs` oggetto, che contiene `security_level` , viene deserializzato e passato al servizio di recapito globale Widevine dal servizio di licenza Widevine di servizi multimediali di Azure. Nella tabella seguente viene illustrato il mapping tra i due set di livelli di sicurezza.
 
 | **Livelli di sicurezza definiti nell'architettura Widevine** |**Livelli di sicurezza usati nell'API Widevine**|
 |---|---| 

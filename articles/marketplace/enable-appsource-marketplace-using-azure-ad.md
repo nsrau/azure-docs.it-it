@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e2fff55fd9161aa41411dcb1abbf8ae0c1bae49c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658036"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957835"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrare l'inserzione del marketplace commerciale con Azure Active Directory
 
@@ -29,11 +28,10 @@ I clienti di Microsoft AppSource e Azure Marketplace usano esperienze nel prodot
 
 ## <a name="offers-that-require-azure-ad"></a>Offerte che richiedono Azure AD
 
-I diversi [tipi di offerta e opzioni di inserzione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) per il marketplace commerciale hanno requisiti differenti per quanto riguarda l'implementazione di Azure AD. Per informazioni dettagliate, vedere la tabella seguente.
+I diversi [tipi di offerta e opzioni di inserzione](determine-your-listing-type.md) per il marketplace commerciale hanno requisiti differenti per quanto riguarda l'implementazione di Azure AD. Per informazioni dettagliate, vedere la tabella seguente.
 
-| **Tipo di offerta**    | **SSO di AAD necessario?**  |  |   |  |
+| Tipo di offerta    | Azure AD SSO è necessario per contattarmi?  | Azure AD SSO è necessario per la versione di valutazione? | Azure AD SSO necessario per test drive?  | Azure AD SSO necessario per Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-|  | Contattami | Versione di valutazione | Test drive | Transazione |
 | Macchina virtuale | N/D | No | No | No |
 | App di Azure (modello di soluzione)  | N/D | N/D | N/D | N/D |
 | App gestite  | N/D | N/D | N/D | No |
@@ -41,18 +39,18 @@ I diversi [tipi di offerta e opzioni di inserzione](https://docs.microsoft.com/a
 | Contenitori  | N/D | N/D | N/D | No |
 | Servizi di consulenza  | No | N/D | N/D | N/D |
 
-Per altre informazioni sui requisiti tecnici SaaS, vedere la [Guida alla pubblicazione dell'offerta di applicazioni SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
+Per altre informazioni sui requisiti tecnici SaaS, vedere la [Guida alla pubblicazione dell'offerta di applicazioni SaaS](marketplace-saas-applications-technical-publishing-guide.md).
 
 ## <a name="azure-ad-integration"></a>Integrazione di Azure AD
 
-- Per informazioni su come abilitare l'accesso Single Sign-On mediante l'integrazione di Azure AD nell'inserzione, vedere [Azure Active Directory per sviluppatori]( https://docs.microsoft.com/azure/active-directory/develop/).
-- Per informazioni dettagliate sull'accesso Single Sign-On di Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+- Per informazioni su come abilitare l'accesso Single Sign-On mediante l'integrazione di Azure AD nell'inserzione, vedere [Azure Active Directory per sviluppatori](../active-directory/develop/index.yml).
+- Per informazioni dettagliate sull'accesso Single Sign-On di Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../active-directory/manage-apps/what-is-single-sign-on.md).
 
 ## <a name="enable-a-trial-listing"></a>Abilitare un'inserzione relativa a una versione di valutazione
 
 La configurazione automatica dei clienti può aumentare le probabilità di conversione. Se il cliente seleziona l'inserzione relativa a una versione di valutazione e viene reindirizzato all'ambiente di prova, è possibile configurare il cliente direttamente senza bisogno di altri passaggi di accesso.
 
-Durante l'autenticazione, Azure AD invia un token all'app o all'offerta. Le informazioni utente fornite dal token consentono la creazione di un account utente nell'app o nell'offerta. Per altre informazioni, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Durante l'autenticazione, Azure AD invia un token all'app o all'offerta. Le informazioni utente fornite dal token consentono la creazione di un account utente nell'app o nell'offerta. Per altre informazioni, vedere [Token di esempio](../active-directory/develop/id-tokens.md).
 
 Se si usa Azure AD per abilitare l'autenticazione con un solo clic nell'app o nell'inserzione relativa alla versione di valutazione, è possibile:
 
@@ -67,20 +65,20 @@ Se si usa Azure AD per abilitare l'autenticazione con un solo clic nell'app o ne
 
 Usare Azure AD per supportare le azioni seguenti:
 
-- Registrare l'app in una delle vetrine del Marketplace. Per altre informazioni, vedere [Registrazione delle app](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) o [Certificazione AppSource](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
+- Registrare l'app in una delle vetrine del Marketplace. Per altre informazioni, vedere [Registrazione delle app](../active-directory/develop/quickstart-register-app.md) o [Certificazione AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md).
 - Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per ottenere un'esperienza di valutazione con un solo clic.
 
 Se non si ha familiarità con l'uso dell'accesso Single Sign-On (SSO) federato di Azure AD, seguire questa procedura:
 
 1. Registrare l'app nel Marketplace.
-1. Sviluppare l'accesso Single Sign-On con Azure AD usando [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) o [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+1. Sviluppare l'accesso Single Sign-On con Azure AD usando [OAuth 2.0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) o [OpenID Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per fornire un'esperienza di valutazione con un solo clic.
 
 ### <a name="single-tenant-solutions"></a>Soluzioni a tenant singolo
 
 Usare Azure AD per supportare una delle azioni seguenti:
 
-- Aggiungere utenti guest alla directory tramite [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Aggiungere utenti guest alla directory tramite [Azure AD B2B](../active-directory/b2b/what-is-b2b.md).
 - Configurare manualmente le versioni di valutazione per i clienti mediante l'opzione di pubblicazione **Contattami**.
 - Sviluppare una test drive per ogni cliente.
 - Creare un'app demo di esempio multi-tenant che usa SSO.

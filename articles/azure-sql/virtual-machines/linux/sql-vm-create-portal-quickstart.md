@@ -3,7 +3,6 @@ title: 'Avvio rapido: Creare una VM di SQL Server Linux in Azure'
 description: Questa esercitazione illustra come creare una macchina virtuale Linux di SQL Server 2017 nel portale di Azure.
 services: virtual-machines-linux
 author: MashaMSFT
-manager: craigg
 ms.date: 10/22/2019
 tags: azure-service-management
 ms.topic: conceptual
@@ -11,14 +10,13 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac7a836f339e86ce3705d64d04cad143f1043a81
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: HT
+ms.openlocfilehash: 41f39c7e60e79e034d4c855a77bfee0f6fa2094d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259525"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669512"
 ---
-# <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale Linux di SQL Server nel portale di Azure
+# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale Linux che esegue SQL Server nel portale di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -28,7 +26,7 @@ ms.locfileid: "84259525"
 In questa esercitazione di avvio rapido si usa il portale di Azure per creare una macchina virtuale Linux con SQL Server 2017 installato. Verranno illustrate le operazioni seguenti: 
 
 
-* [Creare una VM Linux di SQL dalla raccolta](#create)
+* [Creare una VM Linux che esegue SQL Server dalla raccolta](#create)
 * [Connettersi alla nuova VM con ssh](#connect)
 * [Modificare la password dell'amministratore di sistema](#password)
 * [Configurare connessioni remote](#remote)
@@ -125,7 +123,7 @@ Se l'esecuzione avviene in Windows e non si ha una shell BASH, installare un cli
 
 Per altre informazioni sulla connessione alle VM Linux, vedere l'articolo su come [creare una VM Linux in Azure con il portale](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
 
-> [!Note]
+> [!NOTE]
 > Se viene visualizzato un avviso di sicurezza PuTTY relativo alla mancata memorizzazione nella cache della chiave host del server, scegliere tra le opzioni seguenti. Se si considera attendibile l'host, selezionare **Sì** per aggiungere la chiave nella cache di PuTTy e continuare a la procedura di connessione. Se si vuole eseguire la connessione una sola volta, senza aggiungere la chiave nella cache, selezionare **No**. Se non si considera attendibile l'host, selezionare **Annulla** per abbandonare la connessione.
 
 ## <a name="change-the-sa-password"></a><a id="password"></a> Cambiare la password dell'amministratore di sistema

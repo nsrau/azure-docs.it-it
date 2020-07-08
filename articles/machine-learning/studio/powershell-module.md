@@ -9,16 +9,13 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 6afd222730a9864e0b8edd681b1ce919b03c3be8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 21bb8253d94ca91ee1baffb6de1f47ca34e9a7d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84117553"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Moduli di PowerShell per Azure Machine Learning Studio (versione classica)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Usando i moduli di PowerShell, è possibile gestire a livello di codice le risorse di studio (classiche) e gli asset, ad esempio aree di lavoro, set di impostazioni e servizi Web.
 
@@ -53,7 +50,7 @@ Per iniziare a usare il modulo classico di PowerShell, scaricare il [pacchetto d
 ## <a name="powershell-support-table"></a><a name="support-table"></a> Tabella relativa al supporto di PowerShell
 
 
-| | **Modulo Az** |  **PowerShell - Classica** |
+| | **AZ** |  **PowerShell - Classica** |
 | --- | --- | --- |
 | Creare/eliminare aree di lavoro | [Modelli di Gestione risorse](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Gestire i piani di impegno dell'area di lavoro | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
@@ -68,4 +65,4 @@ Per iniziare a usare il modulo classico di PowerShell, scaricare il [pacchetto d
 ## <a name="next-steps"></a>Passaggi successivi
 Consultare la documentazione completa di questi moduli di PowerShell:
 * [PowerShell - Classica](https://aka.ms/amlps)
-* [Modulo Azure PowerShell Az](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)
+* [Azure PowerShell Az](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)

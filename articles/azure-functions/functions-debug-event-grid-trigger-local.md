@@ -5,12 +5,11 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bfb502e42e41ac530851766db87bcebf3c94c371
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74227076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340857"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Debug locale del trigger della Griglia di eventi di Funzioni di Azure
 
@@ -62,7 +61,7 @@ Aprire il portale di Azure, passare a un account di archiviazione e fare clic su
 
 ![Aggiungere un evento dell'account di archiviazione](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-Nella finestra *Eventi* fare clic sul pulsante **Sottoscrizione di eventi**. Nella finestra *Sottoscrizione di eventi* fare clic sull'elenco a discesa *Tipo di endpoint* e selezionare **Webhook**.
+Nella finestra *Eventi* fare clic sul pulsante **Sottoscrizione di eventi**. Nella finestra *sottoscrizione evento* fare clic sull'elenco a discesa *tipo di endpoint* e selezionare **webhook**.
 
 ![Selezionare il tipo di sottoscrizione](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 

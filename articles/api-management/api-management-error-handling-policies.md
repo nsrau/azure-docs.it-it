@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 2c021a6d10c95b58ac444de8ea895ca01371a2b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75902448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674262"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
 
@@ -71,20 +70,24 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
+-   [limita concorrenza](api-management-advanced-policies.md#LimitConcurrency)
+-   [mock-response](api-management-advanced-policies.md#mock-response)
+-   [tentativi](api-management-advanced-policies.md#Retry)
+-   [traccia](api-management-advanced-policies.md#Trace)
 
 ## <a name="lasterror"></a>lastError
 
-Quando si verifica un errore e il controllo passa `on-error` alla sezione dei criteri, l'errore viene archiviato nel [contesto. Proprietà LastError](api-management-policy-expressions.md#ContextVariables) , a cui è possibile accedere dai criteri nella `on-error` sezione. LastError ha le seguenti proprietà.
+Quando si verifica un errore e il controllo passa alla `on-error` sezione dei criteri, l'errore viene archiviato nel [contesto. Proprietà LastError](api-management-policy-expressions.md#ContextVariables) , a cui è possibile accedere dai criteri nella `on-error` sezione. LastError ha le seguenti proprietà.
 
 | Nome       | Type   | Descrizione                                                                                               | Obbligatoria |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | stringa | Indica l'elemento in cui si è verificato l'errore. Può essere un criterio o un nome di passaggio della pipeline predefinito.      | Sì      |
-| `Reason`   | stringa | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No       |
-| `Message`  | stringa | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
-| `Scope`    | stringa | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No       |
-| `Section`  | stringa | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".      | No       |
-| `Path`     | stringa | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                 | No       |
-| `PolicyId` | stringa | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No       |
+| `Source`   | string | Indica l'elemento in cui si è verificato l'errore. Può essere un criterio o un nome di passaggio della pipeline predefinito.      | Sì      |
+| `Reason`   | string | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No       |
+| `Message`  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
+| `Scope`    | string | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No       |
+| `Section`  | string | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".      | No       |
+| `Path`     | string | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                 | No       |
+| `PolicyId` | string | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No       |
 
 > [!TIP]
 > È possibile accedere al codice di stato tramite context.Response.StatusCode.

@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ce910b553e14d09eefa35efc5f2973337dfa1309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c86f98fb20af2cd5ac969867cabfdc5dcb62db54
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654669"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039892"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Abilitare i controlli di sicurezza per Azure Active Directory Domain Services
 
@@ -25,11 +24,11 @@ I controlli di sicurezza di Azure Active Directory Domain Services (Azure AD DS)
 È possibile archiviare gli eventi in archiviazione di Azure e trasmettere gli eventi in un software di gestione di informazioni ed eventi di sicurezza (o equivalente) usando hub eventi di Azure oppure eseguire un'analisi personalizzata e usare le aree di lavoro di Azure Log Analytics dalla portale di Azure.
 
 > [!IMPORTANT]
-> I controlli di sicurezza Azure AD DS sono disponibili solo per le istanze basate su Azure Resource Manager. Per informazioni su come eseguire la migrazione, vedere [eseguire la migrazione di Azure AD DS dal modello di rete virtuale classica al gestione risorse][migrate-azure-adds].
+> I controlli di sicurezza Azure AD DS sono disponibili solo per i domini gestiti basati su Azure Resource Manager. Per informazioni su come eseguire la migrazione, vedere [eseguire la migrazione di Azure AD DS dal modello di rete virtuale classica al gestione risorse][migrate-azure-adds].
 
 ## <a name="security-audit-destinations"></a>Destinazioni del controllo di sicurezza
 
-È possibile usare archiviazione di Azure, Hub eventi di Azure o aree di lavoro di Azure Log Analytics come risorsa di destinazione per i controlli di sicurezza di Azure AD DS. Queste destinazioni possono essere combinate. Ad esempio, è possibile usare archiviazione di Azure per archiviare gli eventi di controllo di sicurezza, ma un'area di lavoro di Azure Log Analytics per analizzare e creare report sulle informazioni a breve termine.
+È possibile usare archiviazione di Azure, Hub eventi di Azure o aree di lavoro di Azure Log Analytics come risorsa di destinazione per i controlli di sicurezza di Azure AD DS. Queste destinazioni possono essere combinate. Ad esempio, è possibile usare archiviazione di Azure per archiviare gli eventi di controllo di sicurezza, ma un'area di lavoro di Azure Log Analytics per analizzare e creare un report delle informazioni a breve termine.
 
 Nella tabella seguente vengono illustrati gli scenari per ogni tipo di risorsa di destinazione.
 
@@ -94,13 +93,13 @@ Per abilitare gli eventi di controllo di sicurezza Azure AD DS usando Azure Powe
 
 1. Creare la risorsa di destinazione per gli eventi di controllo di sicurezza.
 
-    * **Archiviazione** - [di Azure creare un account di archiviazione usando Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * **Hub eventi di Azure** - [Crea un hub eventi usando Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Potrebbe anche essere necessario usare il cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) per creare una regola di autorizzazione che conceda le autorizzazioni di Azure AD DS allo *spazio dei nomi*dell'hub eventi. La regola di autorizzazione deve includere i diritti di **gestione**, **ascolto**e **trasmissione** .
+    * **Archiviazione**  -  di Azure [Creare un account di archiviazione usando Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
+    * Hub eventi di **Azure**  -  [Creare un hub eventi usando Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Potrebbe anche essere necessario usare il cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) per creare una regola di autorizzazione che conceda le autorizzazioni di Azure AD DS allo *spazio dei nomi*dell'hub eventi. La regola di autorizzazione deve includere i diritti di **gestione**, **ascolto**e **trasmissione** .
 
         > [!IMPORTANT]
         > Assicurarsi di impostare la regola di autorizzazione nello spazio dei nomi dell'hub eventi e non nell'hub eventi stesso.
 
-    * **Le aree di lavoro** - di analisi dei log[di Azure creano un'area di lavoro log Analytics con Azure PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+    * **Aree di lavoro**  -  analisi log di Azure [Creare un'area di lavoro log Analytics con Azure PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 1. Ottenere l'ID di risorsa per il dominio gestito di Azure AD DS usando il cmdlet [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) . Creare una variabile denominata *$aadds. ResourceId* per conservare il valore:
 
@@ -159,11 +158,11 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Query di esempio 2
 
-Visualizzare tutti gli eventi di blocco degli account (*4740*) tra il 3 febbraio 2020 alle 9.00. e il 10 febbraio 2020 mezzanotte, ordinati in ordine crescente in base alla data e all'ora:
+Visualizzare tutti gli eventi di blocco degli account (*4740*) tra il 3 giugno 2020 alle 9.00. e il 10 giugno 2020 mezzanotte, ordinati in ordine crescente in base alla data e all'ora:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
+| where TimeGenerated >= datetime(2020-06-03 09:00) and TimeGenerated <= datetime(2020-06-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
@@ -227,7 +226,7 @@ Sono disponibili le categorie di eventi di controllo seguenti:
 |Accesso a oggetti| I controlli tentano di accedere a oggetti specifici o a tipi di oggetti in una rete o in un computer. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Generato dall'applicazione](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-generated)</li><li>[Controlla Servizi di certificazione](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-certification-services)</li><li>[Controlla condivisione file dettagliata](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-detailed-file-share)</li><li>[Controlla Condivisione file](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-file-share)</li><li>[Controllo del file System](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-file-system)</li><li>[Controlla Connessione a Piattaforma filtro Windows](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection)</li><li>[Controlla Mancata elaborazione pacchetti Piattaforma filtro Windows](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-packet-drop)</li><li>[Controllo Manipolazione handle](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-handle-manipulation)</li><li>[Controlla oggetto kernel](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kernel-object)</li><li>[Controlla Altri eventi di accesso agli oggetti](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-object-access-events)</li><li>[Registro di controllo](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-registry)</li><li>[Controlla archivi rimovibili](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-removable-storage)</li><li>[Controlla SAM](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-sam)</li><li>[Controlla Gestione temporanea Criteri di accesso centrale](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-central-access-policy-staging)</li></ul>|
 |Modifica dei criteri|Controlla le modifiche apportate ai criteri di sicurezza importanti in un sistema locale o in una rete. I criteri vengono in genere stabiliti dagli amministratori per proteggere le risorse di rete. Il monitoraggio delle modifiche o dei tentativi di modifica di questi criteri può essere un aspetto importante della gestione della sicurezza per una rete. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Controlla modifica ai criteri](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-audit-policy-change)</li><li>[Controlla Modifica criteri di autenticazione](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-authentication-policy-change)</li><li>[Controlla Modifica criteri di autorizzazione](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-authorization-policy-change)</li><li>[Controlla Modifica criteri Piattaforma filtro Windows](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-policy-change)</li><li>[Controlla Modifica criteri a livello di regola MPSSVC](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-mpssvc-rule-level-policy-change)</li><li>[Controlla altre modifiche ai criteri](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-policy-change-events)</li></ul>|
 |Uso dei privilegi| Controlla l'uso di determinate autorizzazioni in uno o più sistemi. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Utilizzo privilegi non sensibili](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-non-sensitive-privilege-use)</li><li>[Controlla Utilizzo privilegi sensibili](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-sensitive-privilege-use)</li><li>[Controlla Altri eventi di utilizzo dei privilegi](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-privilege-use-events)</li></ul>|
-|Sistema| Controlla le modifiche a livello di sistema in un computer non incluso in altre categorie e con possibili implicazioni di sicurezza. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Driver IPSec](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[Controlla Altri eventi di sistema](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[Controlla Modifica stato sicurezza](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[Controlla Estensione sistema di sicurezza](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[Controlla Integrità sistema](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
+|System| Controlla le modifiche a livello di sistema in un computer non incluso in altre categorie e con possibili implicazioni di sicurezza. Questa categoria include le sottocategorie seguenti:<ul><li>[Controlla Driver IPSec](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[Controlla Altri eventi di sistema](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[Controlla Modifica stato sicurezza](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[Controlla Estensione sistema di sicurezza](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[Controlla Integrità sistema](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
 
 ## <a name="event-ids-per-category"></a>ID evento per categoria
 

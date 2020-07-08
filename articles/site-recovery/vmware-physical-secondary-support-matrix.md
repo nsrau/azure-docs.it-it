@@ -9,11 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79256796"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711885"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario
 
@@ -66,7 +65,7 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> CentOs 6.5, 
 
 ## <a name="network-configuration---hostguest-vm"></a>Configurazione di rete - Macchine virtuali host/guest
 
-**Configurazione** | **Supportato**  
+**Configuration** | **Supportato**  
 --- | --- 
 Host - Gruppo NIC | Sì 
 Host - VLAN | Sì 
@@ -92,7 +91,7 @@ Percorsi multipli (MPIO) | Sì
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
-**Configurazione** | **Supportato** 
+**Configuration** | **Supportato** 
 --- | --- 
 VMDK | Sì 
 VHD/VHDX | N/D 
@@ -121,7 +120,7 @@ Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di r
 
 Il servizio Mobility coordina la replica fra server VMware locali/server fisici e sito secondario. Quando si configura la replica, accertarsi di disporre dell'ultima versione del servizio Mobility e di altri componenti.
 
-| **Aggiornamento** | **Dettagli** |
+| **Update** | **Dettagli** |
 | --- | --- |
 |Aggiornamenti di Scout | Gli aggiornamenti di Scout sono cumulativi. <br/><br/> [Informazioni introduttive e su come scaricare](vmware-physical-secondary-disaster-recovery.md#updates) gli aggiornamenti più recenti di Scout |
 |Aggiornamenti dei componenti | Gli aggiornamenti di Scout includono gli aggiornamenti di tutti i componenti, tra cui server RX, server di configurazione, server di destinazione di elaborazione e master, server vContinuum e server di origine che si vuole proteggere.<br/><br/> [Altre informazioni](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)|

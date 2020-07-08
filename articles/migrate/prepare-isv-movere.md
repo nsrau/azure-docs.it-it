@@ -2,13 +2,12 @@
 title: Preparare Azure Migrate per il funzionamento con uno strumento ISV e Movere
 description: Questo articolo descrive come preparare Azure Migrate per il funzionamento con uno strumento ISV o con Movere e come iniziare a usare lo strumento.
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.openlocfilehash: 9513e783d4f9d7be83f1434d4dd9011844af8993
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.date: 06/10/2020
+ms.openlocfilehash: d414c3db92315f7ca1b60bf43fa35b7880c34ccf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682654"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770374"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Predisporre l'uso di uno strumento ISV o di Movere
 
@@ -37,7 +36,19 @@ Nella sottoscrizione di Azure l'account deve avere l'accesso a **Microsoft.Autho
 2. Selezionare la sottoscrizione pertinente. Se non è visualizzata, selezionare il **filtro per le sottoscrizioni globali**. 
 3. Selezionare **Autorizzazioni personali**. Selezionare quindi **Fare clic qui per visualizzare i dettagli di accesso completi per questa compilazione**.
 4. Verificare le autorizzazioni in **Assegnazioni di ruolo** > **Visualizzazione**. Se l'account non ha le autorizzazioni necessarie, chiedere all'amministratore della sottoscrizione di aggiungere l'utente al ruolo [Amministratore Accesso utenti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) o al ruolo [Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
- 
+
+## <a name="allow-access-to-urls"></a>Consentire l'accesso agli URL
+
+Per gli strumenti ISV e Migration Assistant di database di Azure, consentire l'accesso agli URL del cloud pubblico riepilogati nella tabella. Se si usa un proxy basato su URL per eseguire la connessione a Internet, verificare che il proxy risolva tutti i record CNAME ricevuti durante la ricerca degli URL. 
+
+**URL** | **Dettagli**
+--- | ---
+*.portal.azure.com  | Passare al portale di Azure. 
+*.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *.live.com   | Accedere alla sottoscrizione di Azure. 
+*.microsoftonline.com<br/> *.microsoftonline-p.com | Creare app Azure Active Directory (AD) affinché l'appliance comunichi con Azure Migrate. 
+management.azure.com | Effettuare chiamate Azure Resource Manager al progetto Azure Migrate.
+*.servicebus.windows.net | Comunicazione tra il dispositivo e EventHub per l'invio dei messaggi.
+
 
 ## <a name="start-using-the-tool"></a>Iniziare a usare lo strumento
 

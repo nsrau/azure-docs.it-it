@@ -2,21 +2,20 @@
 title: USA SCIM, Microsoft Graph e Azure AD per eseguire il provisioning degli utenti e arricchire le app con i dati
 description: Usare SCIM e il Microsoft Graph insieme per eseguire il provisioning degli utenti e arricchire l'applicazione con i dati necessari.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/26/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 0b2c8e6bb71e00ccb6eda33ecb1b087d09ce5de7
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 612663c2edc8aa7bc1eb3a2e4c8106b3e778a961
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626191"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781685"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Uso di SCIM e Microsoft Graph insieme per eseguire il provisioning degli utenti e arricchire l'applicazione con i dati necessari
 
@@ -38,7 +37,7 @@ Azure AD offre un servizio predefinito per il provisioning e una piattaforma est
 ## <a name="scenario-1-automatically-create-users-in-my-app"></a>Scenario 1: creare automaticamente gli utenti nell'app
 Attualmente, gli amministratori IT eseguono il provisioning degli utenti creando manualmente gli account utente o caricando periodicamente i file CSV nell'applicazione. Il processo richiede molto tempo per i clienti e rallenta l'adozione dell'applicazione. Sono necessarie informazioni di base sull'utente, ad esempio nome, indirizzo di posta elettronica e userPrincipalName per creare un utente. 
 
-**Consiglio**: 
+**Raccomandazione**: 
 * Se i clienti utilizzano diversi IDP e non si desidera mantenere un motore di sincronizzazione per l'integrazione con ognuno di essi, supportare un endpoint [/Users](https://aka.ms/scimreferencecode) conforme a scim. I clienti saranno in grado di usare facilmente questo endpoint per integrarsi con il servizio di provisioning Azure AD e creare automaticamente gli account utente quando devono accedere. È possibile compilare l'endpoint una sola volta e sarà compatibile con tutti gli IDP. Vedere la richiesta di esempio seguente per la modalità di creazione di un utente con SCIM.
 * Se sono necessari dati utente trovati nell'oggetto utente in Azure AD e altri dati da Microsoft, è consigliabile creare un endpoint SCIM per il provisioning degli utenti e chiamare il Microsoft Graph per ottenere il resto dei dati. 
 
@@ -68,7 +67,7 @@ I clienti che usano l'applicazione sono incentrati sulla sicurezza e hanno requi
 
 **Raccomandazione:** Supporta un endpoint/Users conforme a SCIM. Il servizio di provisioning Azure AD invierà le richieste di disabilitazione ed eliminazione quando l'utente non deve più avere accesso. È consigliabile supportare sia la disabilitazione che l'eliminazione degli utenti. Vedere gli esempi riportati di seguito per informazioni sull'aspetto di una richiesta di disabilitazione ed eliminazione. 
 
-Disabilitare l'utente
+Disabilita utente
 ```json
 PATCH /Users/5171a35d82074e068ce2 HTTP/1.1
 {

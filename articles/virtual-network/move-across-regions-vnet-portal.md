@@ -3,15 +3,14 @@ title: Spostare una rete virtuale di Azure in un'altra area di Azure usando il p
 description: Spostare una rete virtuale di Azure da un'area di Azure a un'altra usando un modello di Gestione risorse e il portale di Azure.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ed3da649ba65484a79b42ba5bb45431839e123d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75640789"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711443"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Spostare una rete virtuale di Azure in un'altra area usando il portale di Azure
 
@@ -42,9 +41,9 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 1. Accedere al [portale di Azure](https://portal.azure.com), quindi selezionare **gruppi di risorse**.
 1. Individuare il gruppo di risorse che contiene la rete virtuale di origine e quindi selezionarlo.
-1. Selezionare **Impostazioni** > **Esporta modello**.
+1. Selezionare **Impostazioni**  >  **Esporta modello**.
 1. Nel riquadro **Esporta modello** selezionare **Distribuisci**.
-1. Per aprire il file *Parameters. JSON* nell'editor online, selezionare **modelli** > **modifica parametri**.
+1. Per aprire il *parameters.js* nel file nell'editor online, selezionare **modelli**  >  **modifica parametri**.
 1. Per modificare il parametro del nome della rete virtuale, modificare la proprietà **value** in **Parameters**:
 
     ```json
@@ -63,7 +62,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 1. Selezionare **Save (Salva** ) nell'editor.
 
-1. Per aprire il file *template. JSON* nell'editor online, selezionare **modello** > **modifica modello**.
+1. Per aprire il *template.js* nel file nell'editor online, selezionare **modello**  >  **modifica modello**.
 
 1. Nell'editor online per modificare l'area di destinazione in cui verrà spostata la rete virtuale, modificare la proprietà **location** in **Resources**:
 
@@ -85,11 +84,11 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
     ```
 
-1. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/). Il codice di un'area è il nome dell'area, senza spazi, ad esempio **Stati Uniti** = **centralus**centrali.
+1. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/). Il codice di un'area è il nome dell'area, senza spazi, ad esempio **Stati Uniti centrali**  =  **centralus**.
 
 1. Opzionale È anche possibile modificare altri parametri nel modello, a seconda dei requisiti:
 
-    * **Spazio degli indirizzi**: prima di salvare il file, è possibile modificare lo spazio degli indirizzi della rete virtuale modificando la sezione **Resources** > **addressSpace** e modificando la proprietà **addressPrefixes** :
+    * **Spazio degli indirizzi**: prima di salvare il file, è possibile modificare lo spazio degli indirizzi della rete virtuale modificando la sezione **Resources**  >  **addressSpace** e modificando la proprietà **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -140,7 +139,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
                 ]
         ```
 
-        Per modificare il prefisso dell'indirizzo nel file *template. JSON* , modificarlo in due posizioni: nel codice della sezione precedente e nella sezione **Type** del codice seguente. Modificare la proprietà **addressPrefix** nel codice seguente in modo che corrisponda alla proprietà **addressPrefix** nel codice della sezione precedente.
+        Per modificare il prefisso dell'indirizzo nella *template.jssu* file, modificarlo in due posizioni: nel codice della sezione precedente e nella sezione **tipo** del codice seguente. Modificare la proprietà **addressPrefix** nel codice seguente in modo che corrisponda alla proprietà **addressPrefix** nel codice della sezione precedente.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -178,13 +177,13 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 1. Nell'editor online selezionare **Salva**.
 
-1. Per scegliere la sottoscrizione in cui verrà distribuita la rete virtuale di destinazione, selezionare**sottoscrizione**di **base** > .
+1. Per scegliere la sottoscrizione in cui verrà distribuita la rete virtuale di destinazione, selezionare sottoscrizione di **base**  >  **Subscription**.
 
-1. Per scegliere il gruppo di risorse in cui verrà distribuita la rete virtuale di destinazione, selezionare**gruppo di risorse** **nozioni di base** > . 
+1. Per scegliere il gruppo di risorse in cui verrà distribuita la rete virtuale di destinazione, selezionare gruppo di risorse **nozioni di base**  >  **Resource group**. 
 
     Se è necessario creare un nuovo gruppo di risorse per la rete virtuale di destinazione, selezionare **Crea nuovo**. Verificare che il nome non sia uguale al nome del gruppo di risorse di origine nella rete virtuale esistente.
 
-1. Verificare che il**percorso** di **base** > sia impostato sul percorso di destinazione in cui si desidera distribuire la rete virtuale.
+1. Verificare che **Basics**il  >  **percorso** di base sia impostato sul percorso di destinazione in cui si desidera distribuire la rete virtuale.
 
 1. In **Impostazioni**verificare che il nome corrisponda al nome immesso in precedenza nell'editor dei parametri.
 
@@ -194,13 +193,13 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 ## <a name="delete-the-target-virtual-network"></a>Eliminare la rete virtuale di destinazione
 
-Per rimuovere la rete virtuale di destinazione, eliminare il gruppo di risorse che contiene la rete virtuale di destinazione. A tale scopo, procedere nel seguente modo:
+Per rimuovere la rete virtuale di destinazione, eliminare il gruppo di risorse che contiene la rete virtuale di destinazione. A tale scopo, procedere come indicato di seguito:
 1. Nel dashboard portale di Azure selezionare il gruppo di risorse.
 1. Nella parte superiore del riquadro **Panoramica** selezionare **Elimina**.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
-Per eseguire il commit delle modifiche e completare lo spostamento della rete virtuale, eliminare la rete virtuale o il gruppo di risorse di origine. A tale scopo, procedere nel seguente modo:
+Per eseguire il commit delle modifiche e completare lo spostamento della rete virtuale, eliminare la rete virtuale o il gruppo di risorse di origine. A tale scopo, procedere come indicato di seguito:
 1. Nel dashboard portale di Azure selezionare la rete virtuale o il gruppo di risorse.
 1. Nella parte superiore di ogni riquadro selezionare **Elimina**.
 

@@ -4,15 +4,14 @@ description: Informazioni sulla funzionalità di suddivisione in livelli nel clo
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e8a8502b40410df221886cde2fa5f3db15bf3eed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549166"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413978"
 ---
 # <a name="cloud-tiering-overview"></a>Panoramica della suddivisione in livelli nel cloud
 La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file archiviato a livelli include sia l'attributo "offline" sia l'attributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS impostato in NTFS, in modo che le applicazioni di terze parti possano identificare in modo sicuro questo tipo di file.
@@ -31,11 +30,38 @@ Quando un utente apre un file a livelli, Sincronizzazione file di Azure richiama
 ### <a name="how-does-cloud-tiering-work"></a>Come funziona la suddivisione in livelli nel cloud?
 Il filtro di sistema di Sincronizzazione file di Azure genera una "mappa termica" dello spazio dei nomi in ogni endpoint server. Monitora gli accessi (operazioni di lettura e scrittura) nel tempo e quindi, in base alla frequenza e alla recency di accesso, assegna un punteggio heat a ogni file. Un file usato frequentemente e aperto di recente viene considerato ad accesso frequente, mentre un file aggiornato appena e che non è stato usato per un determinato periodo di tempo viene considerato ad accesso sporadico. Quando il volume dei file in un server supera la soglia di spazio disponibile impostata, i file ad accesso molto sporadico vengono archiviati a livelli in File di Azure fino a quando non viene raggiunta la percentuale di spazio disponibile specificata.
 
-Nell'agente di Sincronizzazione file di Azure versione 4.0 e successive è possibile specificare anche un criterio di data su ogni endpoint server che archivierà a livelli i file non aperti o modificati in un numero di giorni specificato.
+Inoltre, è possibile specificare un criterio di data su ogni endpoint server che effettuerà il livello di tutti i file a cui non si accede entro un numero specificato di giorni, indipendentemente dalla capacità di archiviazione locale disponibile. Si tratta di una scelta ottimale per liberare in modo proattivo lo spazio su disco locale se si è certi che i file in tale endpoint server non devono essere conservati localmente oltre una determinata età. Questo consente di liberare la capacità del disco locale utile per altri endpoint nello stesso volume, per memorizzare nella cache più file.
+
+Il mappa termica di suddivisione in livelli cloud è essenzialmente un elenco ordinato di tutti i file sincronizzati e si trovano in una posizione in cui è abilitata la suddivisione in livelli nel cloud. Per determinare la posizione relativa di un singolo file in tale mappa termica, il sistema usa il numero massimo di uno dei timestamp seguenti, in questo ordine: MAX (ora dell'ultimo accesso, ora dell'Ultima modifica, ora di creazione). In genere, l'ora dell'ultimo accesso viene rilevata e disponibile. Tuttavia, quando viene creato un nuovo endpoint server, con la suddivisione in livelli nel cloud abilitata, inizialmente non è stato sufficiente tempo per osservare l'accesso ai file. In assenza di una data e ora dell'ultimo accesso, l'ora dell'Ultima modifica viene utilizzata per valutare la posizione relativa in mappa termica. Lo stesso fallback è applicabile ai criteri relativi alla data. Senza l'ora dell'ultimo accesso, il criterio di data agirà sull'ora dell'Ultima modifica. Se non è disponibile, verrà eseguito il fallback all'ora di creazione di un file. Nel corso del tempo, il sistema osserverà sempre più richieste di accesso ai file e pivot per usare in modo predominante l'ora dell'ultimo accesso con rilevamento automatico.
+
+La suddivisione in livelli cloud non dipende dalla funzionalità NTFS per il rilevamento dell'ora dell'ultimo accesso. Questa funzionalità NTFS è disattivata per impostazione predefinita e, a causa delle considerazioni sulle prestazioni, non è consigliabile abilitare manualmente questa funzionalità. La suddivisione in livelli nel cloud tiene traccia dell'ora dell'ultimo accesso separatamente ed efficiente.
 
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual è la dimensione minima del file per un file a livello?
-Per le versioni di Agent 9. x e successive, le dimensioni minime del file per un file a livello sono basate sulle dimensioni del cluster file system (raddoppiare le dimensioni del cluster file system). Se, ad esempio, la dimensione del cluster file system NTFS è 4KB, le dimensioni minime del file risultante per un file a livello sono 8KB. Per gli agenti versioni 8. x e precedenti, le dimensioni minime del file per un file a livello sono 64KB.
+
+Per gli agenti versione 9 e successive, le dimensioni minime del file per un file a livello sono basate sulle dimensioni del cluster file system. La tabella seguente illustra le dimensioni minime dei file che possono essere suddivise a livelli, in base alle dimensioni del cluster di volumi:
+
+|Dimensioni cluster del volume (byte) |I file di questa dimensione o di dimensioni maggiori possono essere a livelli  |
+|----------------------------|---------|
+|4 KB (4096)                 | 8 KB    |
+|8 KB (8192)                 | 16 KB   |
+|16 KB (16384)               | 32 KB   |
+|32 KB (32768) e superiori    | 64 KB   |
+
+Tutti i file System usati da Windows organizzano il disco rigido in base alle dimensioni del cluster, note anche come dimensioni dell'unità di allocazione. Dimensioni del cluster rappresenta la quantità minima di spazio su disco che può essere usata per contenere un file. Quando le dimensioni dei file non vengono riportate a un multiplo pari delle dimensioni del cluster, è necessario usare spazio aggiuntivo per contenere il file (fino al multiplo successivo delle dimensioni del cluster).
+
+Sincronizzazione file di Azure è supportato nei volumi NTFS con Windows Server 2012 R2 e versioni successive. Nella tabella seguente vengono descritte le dimensioni predefinite del cluster quando si crea un nuovo volume NTFS. 
+
+|Dimensioni del volume    |Windows Server 2012R2 e versioni successive |
+|---------------|---------------|
+|7 MB – 16 TB   | 4 KB          |
+|16TB-32 TB   | 8 KB          |
+|32 TB-64 TB   | 16 KB         |
+|64 TB-128 TB  | 32 KB         |
+|128TB-256 TB | 64 KB         |
+|> 256 TB       | Non supportato |
+
+Al momento della creazione del volume, è possibile che il volume sia stato formattato manualmente con una dimensione del cluster (unità di allocazione) diversa. Se il volume deriva da una versione precedente di Windows, le dimensioni predefinite del cluster possono essere diverse. [Questo articolo contiene informazioni più dettagliate sulle dimensioni predefinite del cluster.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Come funzionano i criteri di suddivisione in livelli dello spazio disponibile nel volume?
@@ -53,7 +79,7 @@ Quando in un volume sono presenti più endpoint server, la soglia valida dello s
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Come funzionano i criteri di suddivisione in livelli in base alla data insieme ai criteri di suddivisione in livelli in base allo spazio disponibile nel volume? 
 Quando si abilita il cloud a livelli in un endpoint server, si imposta un criterio di spazio disponibile nel volume, che ha sempre la precedenza su qualsiasi altro criterio, incluso il criterio di data. Facoltativamente, è possibile abilitare un criterio di data per ogni endpoint server in tale volume. Questo criterio gestisce che solo i file a cui si accede, ovvero letti o scritti, entro l'intervallo di giorni descritti da questo criterio verranno mantenuti locali. I file a cui non si accede con il numero di giorni specificato verranno suddivisi in livelli. 
 
-La suddivisione in livelli cloud usa l'ora dell'ultimo accesso per determinare quali file devono essere a livelli. Il driver del filtro di suddivisione in livelli cloud (StorageSync. sys) tiene traccia dell'ora dell'ultimo accesso e registra le informazioni nell'archivio termico di suddivisione in livelli nel cloud. È possibile visualizzare l'archivio di calore usando un cmdlet di PowerShell locale.
+La suddivisione in livelli cloud usa l'ora dell'ultimo accesso per determinare quali file devono essere a livelli. Il driver del filtro di suddivisione in livelli cloud (storagesync.sys) tiene traccia dell'ora dell'ultimo accesso e registra le informazioni nell'archivio termico di suddivisione in livelli nel cloud. È possibile visualizzare l'archivio di calore usando un cmdlet di PowerShell locale.
 
 ```powershell
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
@@ -78,7 +104,11 @@ Tenere in locale una maggior quantità di dati significa ridurre i costi in usci
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Ho aggiunto un nuovo endpoint server. Quanto tempo deve trascorrere prima di vedere i file in questo livello server?
-Nelle versioni 4,0 e successive dell'agente di Sincronizzazione file di Azure, dopo che i file sono stati caricati nella condivisione file di Azure, verranno suddivisi a livelli in base ai criteri non appena viene eseguita la sessione di suddivisione in livelli successiva, che si verifica una volta all'ora. Negli agenti di versioni precedenti la suddivisione in livelli può richiedere fino a 24 ore.
+
+Il fatto che i file debbano o meno essere suddivisi in livelli per ogni criterio di set viene valutato una volta all'ora. Quando viene creato un nuovo endpoint server, è possibile riscontrare due situazioni:
+
+1. Quando si aggiunge un nuovo endpoint server, spesso i file sono presenti nel percorso del server. Prima di iniziare la suddivisione in livelli cloud, è necessario caricarli per primi. Il criterio di spazio disponibile del volume non inizierà a funzionare fino al completamento del caricamento iniziale di tutti i file. Tuttavia, il criterio di data facoltativo inizierà a funzionare in base a un singolo file, non appena un file viene caricato. L'intervallo di un'ora si applica anche qui. 
+2. Quando si aggiunge un nuovo endpoint server, è possibile connettere un percorso server vuoto a una condivisione file di Azure con i dati in esso contenuti. Indica se si tratta di un secondo server o durante una situazione di ripristino di emergenza. Se si sceglie di scaricare lo spazio dei nomi e di richiamare il contenuto durante il download iniziale nel server, dopo che lo spazio dei nomi si è arrestato, i file verranno richiamati in base al timestamp dell'Ultima modifica. Solo il numero di file verrà richiamato in base ai criteri di spazio libero del volume e ai criteri di data facoltativi.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Come si può stabilire se un file è archiviato a livelli?
@@ -112,7 +142,6 @@ Esistono diversi modi per verificare se un file è archiviato a livelli in una c
         > Il comando dell'utilità `fsutil reparsepoint` offre anche la possibilità di eliminare un reparse point. Non eseguire questo comando, a meno che non venga richiesto dal team di progettazione di Sincronizzazione file di Azure. L'esecuzione di questo comando può causare la perdita di dati. 
 
 <a id="afs-recall-file"></a>
-
 ### <a name="a-file-i-want-to-use-has-been-tiered-how-can-i-recall-the-file-to-disk-to-use-it-locally"></a>Un file da usare è stato archiviato a livelli. Come è possibile richiamare il file su disco per usarlo in locale?
 Il modo più semplice per richiamare un file su disco è aprirlo. Il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) scarica automaticamente il file dalla condivisione file di Azure senza che sia necessario eseguire alcuna operazione. Per i tipi di file che possono essere letti parzialmente, ad esempio i file ZIP o multimediali, l'apertura di un file non comporta il download dell'intero file.
 
@@ -123,13 +152,22 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 Parametri facoltativi:
-* `-Order CloudTieringPolicy`richiamerà prima i file modificati più di recente.  
+* `-Order CloudTieringPolicy`richiamerà prima i file modificati o a cui si accede più di recente ed è consentito dai criteri di suddivisione in livelli correnti. 
+    * Se è configurato un criterio di spazio disponibile nel volume, i file verranno richiamati finché non viene raggiunta l'impostazione dei criteri di spazio libero del volume. Se, ad esempio, l'impostazione dei criteri volume Free è 20%, il richiamo verrà interrotto quando lo spazio disponibile nel volume raggiunge il 20%.  
+    * Se lo spazio disponibile nel volume e i criteri di data sono configurati, i file verranno richiamati fino a quando non viene raggiunta l'impostazione di spazio disponibile del volume o data. Se, ad esempio, l'impostazione dei criteri di volume Free è 20% e il criterio relativo alla data è 7 giorni, il richiamo verrà interrotto quando lo spazio disponibile nel volume raggiunge il 20% oppure tutti i file a cui si accede o modificati entro 7 giorni sono locali.
 * `-ThreadCount`determina il numero di file che possono essere richiamati in parallelo.
 * `-PerFileRetryCount`determina la frequenza con cui viene eseguito il tentativo di richiamo di un file attualmente bloccato.
 * `-PerFileRetryDelaySeconds`determina il tempo in secondi tra i tentativi per richiamare i tentativi e deve essere sempre utilizzato in combinazione con il parametro precedente.
 
+Esempio:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
+``` 
+
 > [!Note]  
-> Se il volume locale che ospita il server non ha abbastanza spazio libero per richiamare tutti i dati archiviati a livelli, il cmdlet `Invoke-StorageSyncFileRecall` ha esito negativo.  
+> - Il cmdlet Invoke-StorageSyncFileRecall può essere usato anche per migliorare le prestazioni di download dei file quando si aggiunge un nuovo endpoint server a un gruppo di sincronizzazione esistente.  
+>- Se il volume locale che ospita il server non ha abbastanza spazio libero per richiamare tutti i dati archiviati a livelli, il cmdlet `Invoke-StorageSyncFileRecall` ha esito negativo.  
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Perché la proprietà *Dimensioni su disco* per un file non corrisponde alla proprietà *Dimensioni* dopo l'uso di Sincronizzazione file di Azure? 
@@ -137,6 +175,10 @@ Esplora file di Windows espone due proprietà per rappresentare le dimensioni di
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Come è possibile forzare l'archiviazione a livelli di un file o una directory?
+
+> [!NOTE]
+> Quando si seleziona una directory a livelli, solo i file attualmente presenti nella directory vengono suddivisi in livelli. Tutti i file creati dopo tale periodo non vengono automaticamente suddivisi in livelli.
+
 Quando la funzionalità di suddivisione in livelli nel cloud è abilitata, i file vengono archiviati automaticamente a livelli in base all'ora dell'ultimo accesso e dell'ultima modifica per ottenere la percentuale di spazio disponibile nel volume specificata nell'endpoint cloud. Tuttavia, a volte potrebbe essere necessario forzare manualmente l'archiviazione a livelli di un file. Ciò potrebbe essere utile se si salva un file di grandi dimensioni che non si intende riutilizzare per molto tempo e si vuole destinare lo spazio libero sul volume ad altri file e cartelle. È possibile forzare la suddivisione in livelli con i comandi seguenti di PowerShell:
 
 ```powershell
@@ -149,6 +191,15 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 Per i file a livelli, le anteprime e le anteprime non saranno visibili nell'endpoint server. Questo comportamento è previsto perché la funzionalità della cache delle anteprime in Windows ignora intenzionalmente la lettura dei file con l'attributo offline. Con la suddivisione in livelli nel cloud abilitata, la lettura tramite file a livelli ne determina il download (richiamata).
 
 Questo comportamento non è specifico per Sincronizzazione file di Azure, in Esplora risorse viene visualizzata una "X grigia" per tutti i file in cui è impostato l'attributo offline. Quando si accede ai file tramite SMB, viene visualizzata l'icona X. Per una spiegazione dettagliata di questo comportamento, vedere[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
+<a id="afs-tiering-disabled"></a>
+### <a name="i-have-cloud-tiering-disabled-why-are-there-tiered-files-in-the-server-endpoint-location"></a>La suddivisione in livelli nel cloud è disabilitata perché sono presenti file a livelli nel percorso dell'endpoint server?
+
+Esistono due motivi per cui i file a livelli possono esistere nel percorso dell'endpoint server:
+
+- Quando si aggiunge un nuovo endpoint server a un gruppo di sincronizzazione esistente, i metadati vengono innanzitutto sincronizzati con il server e i file vengono quindi scaricati nel server in background. I file verranno visualizzati a livelli fino a quando non vengono scaricati localmente. Per migliorare le prestazioni di download dei file quando si aggiunge un nuovo server a un gruppo di sincronizzazione, usare il cmdlet [Invoke-StorageSyncFileRecall](storage-sync-cloud-tiering.md#afs-recall-file) .
+
+- Se la suddivisione in livelli nel cloud è stata abilitata nell'endpoint server e quindi disabilitata, i file rimarranno a livelli fino a quando non saranno accessibili.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,6 +1,6 @@
 ---
 title: Funzionalità supportate di SQL Edge di Azure (anteprima)
-description: Informazioni dettagliate sulle funzionalità supportate da SQL Edge di Azure (anteprima)
+description: Informazioni dettagliate sulle funzionalità supportate da Azure SQL Edge (anteprima).
 keywords: introduzione a SQL Edge, informazioni su SQL Edge, panoramica di SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,106 +9,107 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: e3bac1cbb0e57f9be4a489207f2fe8b30b5d457e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: HT
+ms.openlocfilehash: 34d2ba05b00ab92066bc7fa3ccd0b7b2aa59e15c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233219"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669638"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Funzionalità supportate di SQL Edge di Azure (anteprima) 
 
-Questo articolo fornisce informazioni dettagliate sulle funzionalità supportate da SQL Edge di Azure. SQL Edge di Azure è basato sulla versione più recente del motore di database di Microsoft SQL Server in Linux e supporta un subset delle funzionalità supportate in SQL Server 2019 per Linux, oltre ad alcune funzionalità attualmente non supportate o disponibili in SQL Server 2019 in Linux o in Windows. Per un elenco completo delle funzionalità supportate in SQL Server in Linux, vedere [Edizioni e funzionalità supportate di SQL Server 2019 in Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). Per le edizioni e le funzionalità supportate di SQL Server in Windows, vedere [Edizioni e funzionalità supportate di SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
+Azure SQL Edge è basato sulla versione più recente di Microsoft SQL Server motore di database in Linux. Supporta un subset delle funzionalità supportate in SQL Server 2019 in Linux, oltre ad alcune funzionalità attualmente non supportate o disponibili in SQL Server 2019 in Linux (o in SQL Server in Windows).
+
+Per un elenco completo delle funzionalità supportate in SQL Server in Linux, vedere [Edizioni e funzionalità supportate di SQL Server 2019 in Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). Per le edizioni e le funzionalità supportate di SQL Server in Windows, vedere [edizioni e funzionalità supportate di SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
 
 > [!NOTE]
-> SQL Edge di Azure è attualmente in anteprima e pertanto NON deve essere usato in ambienti di produzione. Microsoft può consigliare l'esecuzione di SQL Edge di Azure in ambienti di produzione dopo la convalida della distribuzione e degli scenari dei casi d'uso.
+> Azure SQL Edge è attualmente disponibile in anteprima e non deve essere usato in ambienti di produzione. Microsoft potrebbe consigliare l'esecuzione di Azure SQL Edge negli ambienti di produzione, a seconda della convalida della distribuzione e degli scenari dei casi d'uso.
 
-## <a name="azure-sql-edge-editions"></a>Edizioni di SQL Edge di Azure
+## <a name="azure-sql-edge-editions"></a>Edizioni di Azure SQL Edge
 
-SQL Edge di Azure è disponibile con due diverse edizioni o piani software. Queste edizioni hanno set di funzionalità identici e si differenziano solo in termini di diritti di utilizzo e per la quantità di CPU/memoria accessibile nel sistema host.
+SQL Edge di Azure è disponibile con due diverse edizioni o piani software. Queste edizioni hanno set di funzionalità identici e si differenziano solo in termini di diritti di utilizzo e della quantità di memoria e dei core a cui possono accedere sul sistema host.
 
    |**Pianificare**  |**Descrizione**  |
    |---------|---------|
-   |SQL Edge di Azure Developer  |  SKU solo per lo sviluppo, ogni contenitore SQL Edge di Azure Developer è limitato a un massimo di 4 core e 32 GB di memoria  |
-   |SQL Edge di Azure    |  SKU di produzione, ogni contenitore SQL Edge di Azure è limitato a 8 core e 64 GB di memoria  |
+   |SQL Edge di Azure Developer  |  Solo per lo sviluppo. Ogni contenitore di sviluppatori Azure SQL Edge è limitato a un massimo di 4 core e 32 GB di memoria.  |
+   |SQL Edge di Azure    |  Per la produzione. Ogni contenitore Edge di Azure SQL è limitato a un massimo di 8 core e 64 GB di memoria.  |
 
 ## <a name="operating-system"></a>Sistema operativo
 
-I contenitori di SQL Edge di Azure sono attualmente basati su Ubuntu 16.04 e, di conseguenza, sono supportati solo per l'esecuzione in host Docker che eseguono Ubuntu 16.04 (versione consigliata) o 18.04. SQL Edge di Azure può essere eseguito anche in altri host del sistema operativo, ad esempio altre distribuzioni di Linux o in Windows (tramite Docker CE o Docker EE), tuttavia queste configurazioni non vengono testate in modo esteso da Microsoft.
+I contenitori Edge di Azure SQL sono attualmente basati su Ubuntu 16,04 e, di conseguenza, sono supportati solo per l'esecuzione in host Docker che eseguono Ubuntu 16,04 (scelta consigliata) o Ubuntu 18,04. Azure SQL Edge può essere eseguito anche in altri host del sistema operativo. Ad esempio, può essere eseguito in altre distribuzioni di Linux o in Windows (usando Docker CE o Docker EE). Si noti, tuttavia, che Microsoft non ha testato ampiamente queste configurazioni.
 
-SQL Edge di Azure è attualmente supportato solo per la distribuzione tramite Azure IoT Edge. Per altre informazioni sui sistemi supportati per Azure IoT Edge, vedere [Sistemi supportati da Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support).
+SQL Edge di Azure è attualmente supportato solo per la distribuzione tramite Azure IoT Edge. Per ulteriori informazioni, vedere [Azure IOT Edge sistemi supportati](https://docs.microsoft.com/azure/iot-edge/support).
 
-La configurazione consigliata per l'esecuzione di SQL Edge di Azure in Windows prevede la configurazione di una macchina virtuale Ubuntu nell'host Windows e quindi l'esecuzione di SQL Edge nella macchina virtuale Linux.
+La configurazione consigliata per l'esecuzione di Azure SQL Edge in Windows consiste nel configurare una VM Ubuntu nell'host Windows, quindi eseguire Azure SQL Edge all'interno della VM Linux.
 
-## <a name="hardware-support"></a>Supporto hardware
+## <a name="hardware-support"></a>Supporto per l'hardware
 
-SQL Edge di Azure richiede un processore a 64 bit (Intel, AMD o ARM) con almeno un processore e un GB di RAM nell'host. Sebbene il footprint della memoria di avvio di SQL Edge di Azure sia prossimo a 500 MB, l'ulteriore memoria è necessaria per gli altri moduli IoT Edge in esecuzione nel dispositivo perimetrale.
+Azure SQL Edge richiede un processore a 64 bit, che può provenire da Intel, AMD o ARM, con almeno un processore e un GB di RAM nell'host. Sebbene il footprint della memoria di avvio di SQL Edge di Azure sia prossimo a 500 MB, l'ulteriore memoria è necessaria per gli altri moduli IoT Edge in esecuzione nel dispositivo perimetrale.
 
-## <a name="azure-sql-edge-components"></a>Componenti di SQL Edge di Azure
+## <a name="azure-sql-edge-components"></a>Componenti di Azure SQL Edge
 
-SQL Edge di Azure supporta solo il motore di database e non include il supporto per altri componenti disponibili con SQL Server 2019 in Windows o con SQL Server 2019 in Linux. In particolare, SQL Edge di Azure non supporta componenti di SQL Server come Analysis Services, Reporting Services, Integration Services, Master Data Services, Machine Learning Services (In-Database) e Machine Learning Server (Standalone).
+Azure SQL Edge supporta solo il motore di database. Non include il supporto per altri componenti disponibili con SQL Server 2019 in Windows o con SQL Server 2019 in Linux. In particolare, Azure SQL Edge non supporta componenti SQL Server come Analysis Services, Reporting Services, Integration Services, Master Data Services, Machine Learning Services (in-database) e Machine Learning Server (standalone).
 
-## <a name="supported-features"></a>Funzionalità supportate
+## <a name="supported-features"></a>Caratteristiche supportate
 
-Oltre a supportare un subset di funzionalità di SQL Server in Linux, SQL Edge di Azure include il supporto per le nuove funzionalità seguenti. 
+Oltre a supportare un subset di funzionalità di SQL Server in Linux, Azure SQL Edge include il supporto per le nuove funzionalità seguenti: 
 
-- Streaming SQL, basato sullo stesso motore alla base di Analisi di flusso di Azure, offre funzionalità di streaming dei dati in tempo reale in SQL Edge di Azure. 
-- Nuova chiamata di funzione T-SQL Date_Bucket per l'analisi dei dati di serie temporali.
-- Funzionalità di Machine Learning tramite il runtime ONNX, incluso con il motore di SQL.
+- Lo streaming SQL, basato sullo stesso motore che consente l'analisi di flusso di Azure, offre funzionalità di streaming dei dati in tempo reale in Azure SQL Edge. 
+- Chiamata di funzione T-SQL `Date_Bucket` per l'analisi dei dati di serie temporali.
+- Funzionalità di Machine Learning tramite il runtime ONNX, incluso con il motore SQL.
 
-## <a name="sql-server-on-linux-features-not-supported-in-azure-sql-edge"></a>Funzionalità di SQL Server in Linux non supportate in SQL Edge di Azure
+## <a name="unsupported-features"></a>Funzionalità non supportate
 
-L'elenco seguente include le funzionalità di SQL Server 2019 in Linux attualmente non supportate in SQL Edge di Azure.
+L'elenco seguente include le SQL Server 2019 in funzionalità Linux che non sono attualmente supportate in Azure SQL Edge.
 
 | Area | Funzionalità o servizio non supportato |
 |-----|-----|
-| **Progettazione di database** | OLTP in memoria con comandi DDL e funzioni, viste del catalogo e DMV Transact-SQL correlati |
-| &nbsp; | Tipo di dati HierarchyID con comandi DDL e funzioni, viste del catalogo e DMV Transact-SQL correlati |
-| &nbsp; | Tipo di dati spaziali con comandi DDL e funzioni, viste del catalogo e DMV Transact-SQL correlati |
-| &nbsp; | Stretch Database con comandi DDL e funzioni, viste del catalogo e DMV Transact-SQL correlati |
-| &nbsp; | Indici e ricerca full-text con comandi DDL e funzioni, viste del catalogo e DMV Transact-SQL correlati|
-| &nbsp; | FileTable, FILESTREAM con comandi DDL e funzioni, viste del catalogo e DMV Transact-SQL correlati|
-| **Motore di database** | Replica. SQL Edge di Azure può essere comunque configurato come sottoscrittore push di una topologia di replica. |
-| &nbsp; | Polybase. SQL Edge di Azure può essere comunque configurato come destinazione per le tabelle esterne in Polybase |
-| &nbsp; | Estendibilità del linguaggio tramite Java e Spark |
-| &nbsp; | Integrazione di Active Directory |
-| &nbsp; | Snapshot del database |
-| &nbsp; | Supporto della memoria persistente |
-| &nbsp; | Microsoft Distributed Transaction Coordinator |
-| &nbsp; | Resource Governor e governance delle risorse di I/O |
-| &nbsp; | Estensione pool di buffer |
-| &nbsp; | Query distribuita con connessioni di terze parti |
-| &nbsp; | Server collegati |
-| &nbsp; | Stored procedure estese di sistema (XP_CMDSHELL e così via) |
-| &nbsp; | Assembly CLR con comandi DDL e funzioni, viste del catalogo e DMV Transact-SQL correlati |
-| &nbsp; | Funzioni T-SQL dipendenti da CLR come ASSEMBLYPROPERTY, FORMAT, PARSE, TRY_PARSE |
-| &nbsp; | Viste del catalogo, funzioni e clausole di query di data e ora dipendenti da CLR |
-| &nbsp; | Estensione pool di buffer |
-| &nbsp; | Posta elettronica database |
-| **SQL Server Agent** |  Sottosistemi: CmdExec, PowerShell, Agente di lettura coda, SSIS, SSAS, SSRS |
-| &nbsp; | Avvisi |
-| &nbsp; | Backup gestito |
-| **Disponibilità elevata** | Gruppi di disponibilità AlwaysOn  |
-| &nbsp; | Gruppi di disponibilità di base |
-| &nbsp; | Istanza del cluster di failover AlwaysOn |
-| &nbsp; | Mirroring del database |
-| &nbsp; | Aggiunta di memoria a caldo e CPU |
-| **Sicurezza** | Extensible Key Management |
-| &nbsp; | Integrazione in Active Directory|
-| &nbsp; | Supporto per le enclave sicure|
-| **Services** | SQL Server Browser |
-| &nbsp; | Machine Learning tramite R e Python |
-| &nbsp; | StreamInsight |
-| &nbsp; | Analysis Services |
-| &nbsp; | Reporting Services |
-| &nbsp; | Data Quality Services |
-| &nbsp; | Master Data Services |
-| &nbsp; | Distributed Replay |
-| **Gestione** | Punto di controllo dell'Utilità SQL Server |
+| **Progettazione di database** | OLTP in memoria e comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
+| &nbsp; | `HierarchyID`tipo di dati e comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
+| &nbsp; | `Spatial`tipo di dati e comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
+| &nbsp; | Stretch DB, nonché comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
+| &nbsp; | Ricerca e indici full-text, nonché comandi DDL correlati, funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica.|
+| &nbsp; | `FileTable`, `FILESTREAM` e comandi DDL correlati, funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica.|
+| **Motore di database** | Replica. Si noti che è possibile configurare Azure SQL Edge come Sottoscrittore push di una topologia di replica. |
+| &nbsp; | Polybase. Si noti che è possibile configurare Azure SQL Edge come destinazione per le tabelle esterne in polibase. |
+| &nbsp; | Estendibilità del linguaggio tramite Java e Spark. |
+| &nbsp; | Active Directory l'integrazione. |
+| &nbsp; | Snapshot del database. |
+| &nbsp; | Supporto per la memoria persistente. |
+| &nbsp; | Microsoft Distributed Transaction Coordinator. |
+| &nbsp; | Governance delle risorse di Resource Governor e IO. |
+| &nbsp; | Estensione del pool di buffer. |
+| &nbsp; | Query distribuita con connessioni di terze parti. |
+| &nbsp; | Server collegati. |
+| &nbsp; | Stored procedure estese di sistema, ad esempio `XP_CMDSHELL` . |
+| &nbsp; | Assembly CLR, comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
+| &nbsp; | Funzioni T-SQL dipendenti da CLR, ad esempio `ASSEMBLYPROPERTY` , `FORMAT` , `PARSE` e `TRY_PARSE` . |
+| &nbsp; | Viste, funzioni e clausole di query del catalogo di data e ora dipendenti da CLR. |
+| &nbsp; | Estensione del pool di buffer. |
+| &nbsp; | Posta elettronica database. |
+| **SQL Server Agent** |  Sottosistemi: CmdExec, PowerShell, lettura coda, SSIS, SSAS e SSRS. |
+| &nbsp; | Avvisi. |
+| &nbsp; | Backup gestito. |
+| **Disponibilità elevata** | Gruppi di disponibilità Always On.  |
+| &nbsp; | Gruppi di disponibilità di base. |
+| &nbsp; | Always On istanza del cluster di failover. |
+| &nbsp; | Mirroring del database. |
+| &nbsp; | Aggiunta di memoria e CPU a caldo. |
+| **Sicurezza** | Extensible Key Management. |
+| &nbsp; | Active Directory l'integrazione.|
+| &nbsp; | Supporto per le enclavi sicure.|
+| **Services** | Browser SQL Server. |
+| &nbsp; | Machine Learning tramite R e Python. |
+| &nbsp; | StreamInsight. |
+| &nbsp; | Analysis Services. |
+| &nbsp; | Reporting Services. |
+| &nbsp; | Data Quality Services. |
+| &nbsp; | Master Data Services. |
+| &nbsp; | Riesecuzione distribuita. |
+| **Gestione** | Punto di controllo Utilità SQL Server. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Distribuire SQL Edge di Azure](deploy-portal.md)
 - [Configurare SQL Edge di Azure](configure.md)
 - [Connettersi a un'istanza di SQL Edge di Azure usando gli strumenti client di SQL Server](connect.md)
-- [Eseguire il backup e il ripristino di database in SQL Edge di Azure](backup-restore.md)
+- [Eseguire il backup e il ripristino di database in Azure SQL Edge](backup-restore.md)

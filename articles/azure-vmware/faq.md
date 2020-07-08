@@ -4,12 +4,11 @@ description: Risposte ad alcune domande comuni sulla soluzione Azure VMware (AVS
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873310"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84112693"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Domande frequenti sull'anteprima della soluzione Azure VMware (AVS)
 
@@ -67,34 +66,7 @@ Non sono state apportate modifiche alla soluzione Azure VMware di CloudSimple es
 
 Sì. La soluzione Azure VMware supporta la migrazione con strumenti VMware noti come HCX. I clienti interessati alla migrazione alla nuova soluzione sono invitati a collaborare con il team dell'account Microsoft per esplorare le opzioni e il supporto disponibile.
 
-<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**Come si richiede un aumento della quota di host per una soluzione Azure VMware esistente?**
 
-È possibile richiedere un aumento della quota [inviando una richiesta di supporto](..\azure-portal\supportability\how-to-create-azure-support-request.md). Il team responsabile della gestione delle quote valuterà la richiesta e la approverà entro tre giorni lavorativi.  
-
-> [!IMPORTANT]
-> Per poter richiedere un aumento della quota, assicurarsi prima di tutto di [registrare il provider di risorse **Microsoft.AVS**](tutorial-create-private-cloud.md) nel portale di Azure.  
-> ```azurecli-interactive
-> az provider register -n Microsoft.AVS --subscription <your subscription ID>
-> ```
-> Per informazioni su come registrare il provider di risorse in altri modi, vedere [Provider e tipi di risorse di Azure](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
-
-1. Nel portale di Azure creare una richiesta di supporto in **Guida e supporto** selezionando **Nuova richiesta di supporto** e quindi specificare le informazioni seguenti per il ticket.
-   - **Tipo di problema:** Tecnici
-   - **Sottoscrizione:** ID sottoscrizione
-   - **Service:**  Soluzione Azure VMware 
-   - **Riepilogo:** Aumento di quota
-   - **Tipo di problema:** Capacity Management Issues (Problemi di gestione della capacità)
-   - **Sottotipo del problema:** Customer Request for Additional Host Quota/Capacity (Richiesta del cliente di capacità/quota host aggiuntiva)
-
-1. Nella descrizione del ticket di supporto specificare le informazioni seguenti nella scheda Dettagli:
-   - Numero di nodi aggiuntivi   
-   - SKU nodi
-   - Region
-
-   > [!NOTE] 
-   > Per impostazione predefinita, verrà concesso un minimo di quattro nodi.
-
-1. Fare clic su **Rivedi e crea** per inviare la richiesta.
 
 ## <a name="compute-network-and-storage"></a>Calcolo, rete e archiviazione
 
@@ -164,7 +136,7 @@ No. Non è necessario usare NSX in locale.
 
 **Come sono pianificati gli aggiornamenti del software VMware in un cloud privato?**
 
-Gli aggiornamenti del bundle software del cloud privato vengono eseguiti in modo che il software possa essere indietro al massimo di una versione rispetto alla versione più recente del modulo del bundle software VMware. Le versioni del software del cloud privato possono differire dalle versioni più recenti dei singoli componenti software (ESXi, NSX-T, vCenter, VSAN).
+Gli aggiornamenti del bundle software del cloud privato vengono eseguiti per preservare il software all'interno di una versione della versione più recente del bundle software da VMware. Le versioni del software del cloud privato possono differire dalle versioni più recenti dei singoli componenti software (ESXi, NSX-T, vCenter, VSAN).
 
 **Con quale frequenza verrà aggiornato lo stack software del cloud privato?**
 
@@ -233,6 +205,35 @@ Il supporto per AVS è offerto da Microsoft. Si noti che, in base alle linee gui
 **Quali account sono necessari per creare un cloud privato AVS?**
 
 Sarà necessario un account Azure in una sottoscrizione di Azure.
+
+<a name="how-to-request-a-quota-increase-for-avs"></a>**Ricerca per categorie richiedere un aumento della quota host per la soluzione VMware di Azure?**
+
+È possibile richiedere un aumento della quota [inviando una richiesta di supporto](..\azure-portal\supportability\how-to-create-azure-support-request.md). Il team responsabile della gestione delle quote valuterà la richiesta e la approverà entro tre giorni lavorativi.  
+
+> [!IMPORTANT]
+> Per poter richiedere un aumento della quota, assicurarsi prima di tutto di registrare il provider di risorse **Microsoft.AVS** nel portale di Azure.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Per informazioni su come registrare il provider di risorse in altri modi, vedere [Provider e tipi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. Nel portale di Azure creare una richiesta di supporto in **Guida e supporto** selezionando **Nuova richiesta di supporto** e quindi specificare le informazioni seguenti per il ticket.
+   - **Tipo di problema:** Tecnici
+   - **Sottoscrizione:** ID sottoscrizione
+   - **Service:**  Soluzione Azure VMware 
+   - **Riepilogo:** Aumento di quota
+   - **Tipo di problema:** Capacity Management Issues (Problemi di gestione della capacità)
+   - **Sottotipo del problema:** Customer Request for Additional Host Quota/Capacity (Richiesta del cliente di capacità/quota host aggiuntiva)
+
+1. Nella descrizione del ticket di supporto specificare le informazioni seguenti nella scheda Dettagli:
+   - Numero di nodi aggiuntivi   
+   - SKU nodi
+   - Region
+
+   > [!NOTE] 
+   > Per impostazione predefinita, verrà concesso un minimo di quattro nodi.
+
+1. Fare clic su **Rivedi e crea** per inviare la richiesta.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952

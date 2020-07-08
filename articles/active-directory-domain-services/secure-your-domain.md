@@ -9,16 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 581963c94129c36acbd8761d93e369281797fa9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6c5e0779ce0dfe2730a60873316c66184e038a35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654728"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039875"
 ---
-# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Disabilitare le crittografie vulnerabili e la sincronizzazione degli hash delle password per proteggere un dominio gestito Azure AD Domain Services
+# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Disabilitare le crittografie vulnerabili e la sincronizzazione degli hash delle password per proteggere un dominio gestito Azure Active Directory Domain Services
 
 Per impostazione predefinita, Azure Active Directory Domain Services (Azure AD DS) consente l'utilizzo di crittografie come NTLM v1 e TLS v1. Queste crittografie potrebbero essere necessarie per alcune applicazioni legacy, ma sono considerate vulnerabili e possono essere disabilitate se non sono necessarie. Se si dispone di connettività ibrida locale con Azure AD Connect, è anche possibile disabilitare la sincronizzazione degli hash delle password NTLM.
 
@@ -33,7 +32,7 @@ Per completare l'esercitazione di questo articolo, sono necessarie le risorse se
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
-    * Se necessario, [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessario, [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Installare e configurare Azure PowerShell.
     * Se necessario, seguire le istruzioni nell'articolo per [installare il modulo Azure PowerShell e connettersi alla sottoscrizione di Azure](/powershell/azure/install-az-ps).
     * Assicurarsi di accedere alla sottoscrizione di Azure usando il cmdlet [Connect-AzAccount][Connect-AzAccount].
@@ -67,17 +66,17 @@ Definire quindi *DomainSecuritySettings* per configurare le opzioni di sicurezza
 $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
 ```
 
-Infine, applicare le impostazioni di sicurezza definite al dominio gestito di Azure AD DS usando il cmdlet [set-AzResource][Set-AzResource] . Specificare la risorsa Azure AD DS dal primo passaggio e le impostazioni di sicurezza del passaggio precedente.
+Infine, applicare le impostazioni di sicurezza definite al dominio gestito usando il cmdlet [set-AzResource][Set-AzResource] . Specificare la risorsa Azure AD DS dal primo passaggio e le impostazioni di sicurezza del passaggio precedente.
 
 ```powershell
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
 
-Per applicare le impostazioni di sicurezza al dominio gestito di Azure AD DS sono necessari alcuni istanti.
+Sono necessari alcuni istanti per applicare le impostazioni di sicurezza al dominio gestito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sul processo di sincronizzazione, vedere la sincronizzazione [di oggetti e credenziali in un dominio gestito Azure AD DS][synchronization].
+Per ulteriori informazioni sul processo di sincronizzazione, vedere l'articolo relativo alla sincronizzazione [di oggetti e credenziali in un dominio gestito][synchronization].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

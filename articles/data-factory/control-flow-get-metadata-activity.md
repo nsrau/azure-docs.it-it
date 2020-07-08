@@ -12,12 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a59d9291d1eaa4aa87d40914679e39c9cbf29cee
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417117"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84112632"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ottenere l'attività dei metadati in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,7 +31,7 @@ La funzionalità seguente è disponibile nel flusso di controllo:
 - Per eseguire la convalida, è possibile utilizzare l'output dell'attività Ottieni metadati nelle espressioni condizionali.
 - È possibile attivare una pipeline quando una condizione viene soddisfatta tramite do until loop.
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 
 L'attività Ottieni metadati accetta un set di dati come input e restituisce informazioni sui metadati come output. Attualmente sono supportati i seguenti connettori e i metadati recuperabili corrispondenti. Le dimensioni massime dei metadati restituiti sono pari a 2 MB.
 
@@ -47,7 +46,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Archiviazione BLOB di Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Archivio BLOB di Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [File di Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -57,7 +56,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 - Quando si usa l'attività Ottieni metadati in una cartella, assicurarsi di disporre dell'autorizzazione di elenco/esecuzione per la cartella specificata.
 - Per Amazon S3 e Google Cloud Storage, `lastModified` si applica al bucket e alla chiave ma non alla cartella virtuale e `exists` si applica al bucket e alla chiave, ma non al prefisso o alla cartella virtuale.
-- Per l'archiviazione BLOB di `lastModified` Azure, si applica al contenitore e al BLOB, ma non alla cartella virtuale.
+- Per l'archiviazione BLOB di Azure, `lastModified` si applica al contenitore e al BLOB, ma non alla cartella virtuale.
 - `lastModified`Filter attualmente si applica per filtrare gli elementi figlio ma non la cartella o il file specificato.
 - Il filtro con caratteri jolly per le cartelle o i file non è supportato per l'attività Ottieni metadati.
 
@@ -66,7 +65,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 | Connettore/Metadati | structure | columnCount | esiste |
 |:--- |:--- |:--- |:--- |
 | [Database SQL di Azure](connector-azure-sql-database.md) | √ | √ | √ |
-| [Istanza gestita di database SQL di Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Istanza gestita di database SQL di Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
 | [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
@@ -77,7 +76,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 | Tipo di metadati | Descrizione |
 |:--- |:--- |
 | itemName | Nome del file o della cartella. |
-| itemType | Tipo di file o di cartella. Il valore restituito `File` è `Folder`o. |
+| itemType | Tipo di file o di cartella. Il valore restituito è `File` o `Folder` . |
 | size | Dimensioni del file, in byte. Applicabile solo ai file. |
 | created | Data/ora di creazione del file o della cartella. |
 | LastModified | Data/ora dell'ultima modifica del file o della cartella. |
@@ -85,13 +84,13 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 | contentMD5 | MD5 del file. Applicabile solo ai file. |
 | structure | Struttura dei dati del file o della tabella di database relazionale. Il valore restituito è un elenco di nomi di colonna e di colonne. |
 | columnCount | Numero di colonne nel file o nella tabella relazionale. |
-| esiste| Indica se esiste un file, una cartella o una tabella. Si noti che `exists` se è specificato nell'elenco dei campi Get Metadata, l'attività non avrà esito negativo anche se il file, la cartella o la tabella non esiste. `exists: false` Viene invece restituito nell'output. |
+| esiste| Indica se esiste un file, una cartella o una tabella. Si noti che se `exists` è specificato nell'elenco dei campi Get Metadata, l'attività non avrà esito negativo anche se il file, la cartella o la tabella non esiste. Viene invece `exists: false` restituito nell'output. |
 
 >[!TIP]
->Quando si desidera convalidare l'esistenza di un file, una cartella o una `exists` tabella, specificare nell'elenco dei campi attività Ottieni metadati. È quindi possibile controllare il `exists: true/false` risultato nell'output dell'attività. Se `exists` non è specificato nell'elenco dei campi, l'attività Ottieni metadati avrà esito negativo se l'oggetto non viene trovato.
+>Quando si desidera convalidare l'esistenza di un file, una cartella o una tabella, specificare `exists` nell'elenco dei campi attività Ottieni metadati. È quindi possibile controllare il `exists: true/false` risultato nell'output dell'attività. Se `exists` non è specificato nell'elenco dei campi, l'attività Ottieni metadati avrà esito negativo se l'oggetto non viene trovato.
 
 >[!NOTE]
->Quando si ottengono metadati da archivi di file e `modifiedDatetimeStart` si `modifiedDatetimeEnd`configura o `childItems` , nell'output includerà solo i file nel percorso specificato con l'ora dell'Ultima modifica nell'intervallo specificato. In non includerà gli elementi nelle sottocartelle.
+>Quando si ottengono metadati da archivi di file e si configura `modifiedDatetimeStart` o `modifiedDatetimeEnd` , nell' `childItems` output includerà solo i file nel percorso specificato con l'ora dell'Ultima modifica nell'intervallo specificato. In non includerà gli elementi nelle sottocartelle.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -146,7 +145,7 @@ storeSettings | Applicare quando si usa il tipo di formato DataSet. | No
 
 ## <a name="sample-output"></a>Output di esempio
 
-I risultati di Get Metadata vengono visualizzati nell'output dell'attività. Di seguito sono riportati due esempi che mostrano opzioni di metadati estese. Per usare i risultati in un'attività successiva, usare questo modello: `@{activity('MyGetMetadataActivity').output.itemName}`.
+I risultati di Get Metadata vengono visualizzati nell'output dell'attività. Di seguito sono riportati due esempi che mostrano opzioni di metadati estese. Per usare i risultati in un'attività successiva, usare questo modello: `@{activity('MyGetMetadataActivity').output.itemName}` .
 
 ### <a name="get-a-files-metadata"></a>Ottenere i metadati di un file
 
@@ -198,7 +197,7 @@ I risultati di Get Metadata vengono visualizzati nell'output dell'attività. Di 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni sulle altre attività del flusso di controllo supportate da Data Factory:
 
-- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
+- [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md)
 - [Attività ForEach](control-flow-for-each-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)

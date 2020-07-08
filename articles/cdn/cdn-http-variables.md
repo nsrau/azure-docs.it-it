@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 57a3bab06e4c0a1e4fd8df5d0794a89904a88954
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747644"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84340675"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variabili HTTP per il motore regole della rete CDN di Azure
 Le variabili HTTP forniscono gli strumenti per recuperare i metadati di richiesta e di risposta HTTP. Questi metadati possono essere quindi usati per modificare in modo dinamico una richiesta o una risposta. L'uso di variabili HTTP è limitato alle funzionalità del motore regole seguenti:
 
-- [Cache-Key Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite) (Riscrittura chiave cache)
-- [Modify Client Request Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header) (Modifica intestazione richiesta client)
-- [Modify Client Response Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header) (Modifica intestazione risposta client)
-- [URL Redirect](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) (Reindirizzamento URL)
-- [URL Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite) (Riscrittura URL)
+- [Cache-Key Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) (Riscrittura chiave cache)
+- [Modify Client Request Header](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Request-Header.htm) (Modifica intestazione richiesta client)
+- [Modify Client Response Header](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Response-Header.htm) (Modifica intestazione risposta client)
+- [URL Redirect](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm) (Reindirizzamento URL)
+- [URL Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm) (Riscrittura URL)
 
 ## <a name="definitions"></a>Definizioni
 La tabella seguente descrive le variabili HTTP supportate. Quando i metadati di tipo GEO (ad esempio, il codice postale) non sono disponibili per una particolare richiesta, viene restituito un valore vuoto.

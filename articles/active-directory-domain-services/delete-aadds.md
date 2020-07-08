@@ -9,22 +9,24 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 595436daa2efbd8e706a539d0a89c3ea98be31ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bece22fa0b9d41f29f8829d47a26f4ae2075feac
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655472"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040113"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Eliminare un Azure Active Directory Domain Services dominio gestito utilizzando il portale di Azure
 
-Se un dominio gestito non è più necessario, è possibile eliminare un'istanza di Azure Active Directory Domain Services (Azure AD DS). Non è possibile disattivare o disabilitare temporaneamente un dominio gestito di Azure AD DS. L'eliminazione del dominio gestito Azure AD DS non elimina o influisce negativamente sul tenant del Azure AD. Questo articolo illustra come usare la portale di Azure per eliminare un dominio gestito Azure AD DS.
+Se non è più necessario un dominio gestito di Azure Active Directory Domain Services (Azure AD DS), è possibile eliminarlo. Non è possibile disattivare o disabilitare temporaneamente un dominio gestito di Azure AD DS. L'eliminazione del dominio gestito non comporta l'eliminazione o influisce negativamente sul tenant Azure AD.
+
+Questo articolo illustra come usare la portale di Azure per eliminare un dominio gestito.
 
 > [!WARNING]
 > **L'eliminazione è permanente e non può essere invertita.**
-> Quando si elimina un dominio gestito Azure AD DS, si verificano i passaggi seguenti:
+> 
+> Quando si elimina un dominio gestito, si verificano i passaggi seguenti:
 >   * Viene effettuato il deprovisioning dei controller di dominio per il dominio gestito e vengono rimossi dalla rete virtuale.
 >   * I dati del dominio gestito vengono eliminati definitivamente, Questi dati includono unità organizzative personalizzate, oggetti Criteri di gruppo, record DNS personalizzati, entità servizio, servizi gestiti e così via, creati dall'utente.
 >   * I computer aggiunti al dominio gestito perdono la relazione di trust con il dominio e devono essere separati dal dominio.
@@ -32,19 +34,19 @@ Se un dominio gestito non è più necessario, è possibile eliminare un'istanza 
 
 ## <a name="delete-the-managed-domain"></a>Eliminare il dominio gestito
 
-Per eliminare un dominio gestito di Azure AD DS, completare i passaggi seguenti:
+Per eliminare un dominio gestito, attenersi alla procedura seguente:
 
 1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**.
-1. Selezionare il nome del dominio gestito di Azure AD DS, ad esempio *aaddscontoso.com*.
+1. Selezionare il nome del dominio gestito, ad esempio *aaddscontoso.com*.
 1. Nella pagina **Panoramica** selezionare **Elimina**. Per confermare l'eliminazione, digitare di nuovo il nome di dominio del dominio gestito e quindi selezionare **Elimina**.
 
-L'eliminazione del dominio gestito di Azure AD DS può richiedere più di 15-20 minuti.
+Per eliminare il dominio gestito può essere necessario più di 15-20 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Valutare la possibilità di [condividere commenti e suggerimenti][feedback] per le funzionalità che si desidera visualizzare in Azure AD DS.
 
-Per iniziare a usare nuovamente Azure AD DS, vedere [creare e configurare un'istanza di Azure Active Directory Domain Services][create-instance].
+Per iniziare a usare nuovamente Azure AD DS, vedere [creare e configurare un dominio gestito Azure Active Directory Domain Services][create-instance].
 
 <!-- INTERNAL LINKS -->
 [feedback]: contact-us.md

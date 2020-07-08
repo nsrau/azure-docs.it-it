@@ -8,12 +8,11 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: f31c084be2fb017c0db521328e4ccdff9dd2aa25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e33cd64da32dcb918d30cd44f413748f719023b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80810464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84771292"
 ---
 # <a name="planning-and-operations-guide"></a>Guida alla pianificazione e alle operazioni
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che pianificano l'uso del Centro sicurezza di Azure.
@@ -175,33 +174,17 @@ La panoramica del Centro sicurezza fornisce una visualizzazione unificata della 
 > [!NOTE]
 > Il Centro sicurezza non interferisce con le normali procedure operative, esegue un monitoraggio passivo delle distribuzioni e fornisce raccomandazioni in base ai criteri di sicurezza abilitati.
 
-Quando si acconsente esplicitamente per la prima volta all'uso del Centro sicurezza per l'ambiente Azure corrente, assicurarsi di esaminare tutte le raccomandazioni nel riquadro **Raccomandazioni** o nelle singole risorse (**Calcolo**, **Rete**, **Archiviazione e dati** e **Applicazione**).
-
-Dopo avere applicato tutte le raccomandazioni, la sezione **Prevenzione** sarà verde per tutte le risorse che sono state corrette. Il monitoraggio continuo a questo punto risulta più semplice perché le azioni da intraprendere dipendono unicamente dalle modifiche apportate nei riquadri Integrità sicurezza delle risorse e Raccomandazioni.
-
-La sezione **Rilevamento** è più reattiva e contiene avvisi relativi a problemi in corso o che si sono verificati in precedenza e sono stati rilevati dai controlli del Centro sicurezza e da sistemi di terze parti. Nel riquadro avvisi di sicurezza vengono visualizzati i grafici a barre che rappresentano il numero di avvisi che sono stati trovati ogni giorno e la relativa distribuzione tra le diverse categorie di gravità (bassa, media, alta). Per altre informazioni sugli avvisi di sicurezza, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
+Quando si opta per la prima volta per usare il Centro sicurezza per l'ambiente Azure corrente, assicurarsi di esaminare tutte le raccomandazioni, che possono essere eseguite nella pagina **raccomandazioni** .
 
 Pianificare una verifica dell'opzione Intelligence per le minacce come parte delle operazioni di sicurezza giornaliere. Questa opzione consente di identificare le minacce alla sicurezza per l'ambiente specifico, ad esempio determinare se un computer specifico fa parre di un botnet.
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Monitoraggio di risorse nuove o modificate
+
 La maggior parte degli ambienti Azure è dinamica e le risorse vengono create regolarmente, riconfigurate e modificate. Il Centro sicurezza contribuisce a garantire la visibilità dello stato di sicurezza delle nuove risorse.
 
 Quando si aggiungono nuove risorse all'ambiente Azure, come VM o database SQL, il Centro sicurezza le individua automaticamente e iniziare a monitorarne la sicurezza. Ciò include anche i ruoli di lavoro e i ruoli Web PaaS. Se la raccolta dati è abilitata nei [criteri di sicurezza](tutorial-security-policy.md), vengono abilitate automaticamente funzionalità di monitoraggio aggiuntive per le macchine virtuali.
 
-![Aree principali](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
-
-1. Per le macchine virtuali, fare clic su **calcolo & app**nella sezione **igiene della sicurezza delle risorse** . Gli eventuali problemi di abilitazione dei dati e le relative raccomandazioni verranno visualizzati nella scheda **Panoramica**, nella sezione **Raccomandazioni sul monitoraggio**.
-2. Per conoscere gli eventuali rischi di sicurezza identificati per la nuova risorsa, vedere **Raccomandazioni** .
-3. Accade spesso che nelle nuove macchine virtuali aggiunte all'ambiente inizialmente sia installato solo il sistema operativo. Il proprietario della risorsa potrebbe avere bisogno di tempo per distribuire altre app per l'uso da parte delle macchine virtuali.  È preferibile conoscere la finalità del carico di lavoro, ad esempio se verrà usato come server applicazioni. In base alla finalità del nuovo carico di lavoro, è possibile abilitare i **Criteri di sicurezza** appropriati, che rappresentano il terzo passaggio del flusso di lavoro.
-4. Con l'aggiunta di nuove risorse all'ambiente Azure, è possibile che vengano visualizzati nuovi avvisi nel riquadro **avvisi di sicurezza** . Cercare nuovi avvisi in questo riquadro e seguire le indicazioni.
-
-È inoltre consigliabile monitorare regolarmente le risorse esistenti per apportare modifiche alla configurazione che potrebbero avere creato rischi per la sicurezza, derivare da linee di base consigliate e avvisi di sicurezza. Avviare il dashboard del Centro sicurezza. Da qui sono disponibili tre aree principali da esaminare in modo coerente.
-
-![Operazioni](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
-
-1. La sezione **Prevenzione** consente di accedere rapidamente alle risorse chiave. Usare questa opzione per monitorare Calcolo, Rete, Archiviazione e dati e Applicazioni.
-2. Il pannello **Raccomandazioni** consente di esaminare le raccomandazioni del Centro sicurezza. Durante il monitoraggio continuo, è possibile che non si disponga di consigli su base giornaliera, che è normale perché sono stati risolti tutti i consigli sulla configurazione iniziale del Centro sicurezza. Per questo motivo, in questa sezione potrebbero non essere presenti nuove informazioni ogni giorno e sarà sufficiente accedervi solo quando necessario.
-3. La sezione **Rilevamento** potrebbe cambiare molto di frequente o solo saltuariamente. Esaminare sempre gli avvisi di sicurezza e intraprendere le azioni necessarie in base alle raccomandazioni del Centro sicurezza.
+È inoltre consigliabile monitorare regolarmente le risorse esistenti per apportare modifiche alla configurazione che potrebbero avere creato rischi per la sicurezza, derivare da linee di base consigliate e avvisi di sicurezza. 
 
 ### <a name="hardening-access-and-applications"></a>Applicare la protezione avanzata all'accesso e alle applicazioni
 
@@ -251,6 +234,6 @@ In questo documento è stato descritto come pianificare l'adozione del Centro si
 
 * [Gestione e risposta agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
 * [Monitoraggio dell'integrità della sicurezza nel centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
-* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
+* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
 * Domande frequenti sul [Centro sicurezza di Azure](faq-general.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di Blog sulla sicurezza e sulla conformità di Azure.
