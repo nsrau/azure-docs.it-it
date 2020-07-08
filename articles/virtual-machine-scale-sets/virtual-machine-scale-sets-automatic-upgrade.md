@@ -6,15 +6,15 @@ ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 04/14/2020
+ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: c06ad5ab2688bd62fdf898950a8f64cd655a9fcc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: af0dea5297cca02b12aecdc8252e62030032b93e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124976"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601344"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure
 
@@ -46,15 +46,15 @@ Il processo di aggiornamento funziona nel modo seguente:
 L'agente di orchestrazione dell'aggiornamento del sistema operativo del set di scalabilità verifica l'integrità complessiva del set di scalabilità prima di aggiornare ogni batch. Durante l'aggiornamento di un batch, possono essere in corso altre attività di manutenzione pianificate o non pianificate che potrebbero influire sull'integrità delle istanze del set di scalabilità. In questi casi, se più del 20% delle istanze del set di scalabilità diventa non integro, l'aggiornamento del set di scalabilità si interrompe alla fine del batch corrente.
 
 ## <a name="supported-os-images"></a>Immagini del sistema operativo supportate
-Attualmente sono supportate solo alcune immagini della piattaforma del sistema operativo. Il supporto dell'immagine personalizzata è disponibile [in anteprima](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images-preview) per le immagini personalizzate tramite la [raccolta di immagini condivise](shared-image-galleries.md).
+Attualmente sono supportate solo alcune immagini della piattaforma del sistema operativo. Le immagini personalizzate [sono supportate](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) se il set di scalabilità usa immagini personalizzate tramite la [raccolta di immagini condivise](shared-image-galleries.md).
 
 Gli SKU di piattaforma seguenti sono attualmente supportati e altri vengono aggiunti periodicamente:
 
-| Editore               | Offerta sistema operativo      |  Sku               |
+| Publisher               | Offerta sistema operativo      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
-| Rogue Wave (OpenLogic)  | CentOS        | 7.5                |
+| Rogue Wave (OpenLogic)  | CentOS        | 7,5                |
 | CoreOS                  | CoreOS        | Stable             |
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
@@ -77,90 +77,25 @@ Gli SKU di piattaforma seguenti sono attualmente supportati e altri vengono aggi
 ### <a name="service-fabric-requirements"></a>Requisiti di Service Fabric
 
 Se si usa Service Fabric, assicurarsi che siano soddisfatte le condizioni seguenti:
--   Service Fabric [livello di durabilità](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) è Silver o Gold e non Bronze.
+-   Service Fabric [livello di durabilità](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) è Silver o Gold e non Bronze.
 -   L'estensione Service Fabric nella definizione del modello del set di scalabilità deve avere TypeHandlerVersion 1,1 o versione successiva.
 -   Il livello di durabilità deve essere lo stesso in Service Fabric cluster e Service Fabric estensione nella definizione del modello del set di scalabilità.
+- Non è necessario un probe di integrità aggiuntivo o l'uso dell'estensione di integrità dell'applicazione.
 
 Verificare che le impostazioni di durabilità non corrispondano a quelle del cluster Service Fabric e dell'estensione Service Fabric, in quanto la mancata corrispondenza provocherà errori di aggiornamento. I livelli di durabilità possono essere modificati in base alle linee guida descritte in [Questa pagina](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
 
-## <a name="automatic-os-image-upgrade-for-custom-images-preview"></a>Aggiornamento automatico dell'immagine del sistema operativo per immagini personalizzate (anteprima)
+## <a name="automatic-os-image-upgrade-for-custom-images"></a>Aggiornamento automatico delle immagini del sistema operativo per le immagini personalizzate
 
-> [!IMPORTANT]
-> L'aggiornamento automatico delle immagini del sistema operativo per le immagini personalizzate è attualmente disponibile in anteprima pubblica. Per usare la funzionalità di anteprima pubblica descritta di seguito, è necessaria una procedura di consenso esplicito.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-L'aggiornamento automatico delle immagini del sistema operativo è disponibile in anteprima per le immagini personalizzate distribuite tramite la [raccolta di immagini condivise](shared-image-galleries.md). Altre immagini personalizzate non sono supportate per gli aggiornamenti automatici delle immagini del sistema operativo.
-
-Per abilitare la funzionalità di anteprima, è necessario un unico consenso esplicito per la funzionalità *AutomaticOSUpgradeWithGalleryImage* per sottoscrizione, come descritto di seguito.
-
-### <a name="rest-api"></a>API REST
-Nell'esempio seguente viene descritto come abilitare l'anteprima per la sottoscrizione:
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage/register?api-version=2015-12-01`
-```
-
-La registrazione delle funzionalità può richiedere fino a 15 minuti. Per verificare lo stato della registrazione:
-
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage?api-version=2015-12-01`
-```
-
-Una volta registrata la funzionalità per la sottoscrizione, completare il processo di consenso esplicito propagando la modifica nel provider di risorse di calcolo.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
-```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-Usare il cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) per abilitare l'anteprima per la sottoscrizione.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
-```
-
-La registrazione delle funzionalità può richiedere fino a 15 minuti. Per verificare lo stato della registrazione:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
-```
-
-Una volta registrata la funzionalità per la sottoscrizione, completare il processo di consenso esplicito propagando la modifica nel provider di risorse di calcolo.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare [AZ feature Register](/cli/azure/feature#az-feature-register) per abilitare l'anteprima per la sottoscrizione.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
-```
-
-La registrazione delle funzionalità può richiedere fino a 15 minuti. Per verificare lo stato della registrazione:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
-```
-
-Una volta registrata la funzionalità per la sottoscrizione, completare il processo di consenso esplicito propagando la modifica nel provider di risorse di calcolo.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+L'aggiornamento automatico delle immagini del sistema operativo è supportato per le immagini personalizzate distribuite tramite la [raccolta di immagini condivise](shared-image-galleries.md). Altre immagini personalizzate non sono supportate per gli aggiornamenti automatici delle immagini del sistema operativo.
 
 ### <a name="additional-requirements-for-custom-images"></a>Requisiti aggiuntivi per le immagini personalizzate
-- Il processo di consenso esplicito descritto in precedenza deve essere completato solo una volta per ogni sottoscrizione. Dopo il completamento del consenso esplicito, gli aggiornamenti automatici del sistema operativo possono essere abilitati per qualsiasi set di scalabilità nella sottoscrizione.
-- La raccolta di immagini condivise può trovarsi in qualsiasi sottoscrizione e non è necessario che venga esplicitamente scelto separatamente. Solo la sottoscrizione del set di scalabilità richiede il consenso esplicito per la funzionalità.
-- Il processo di configurazione per l'aggiornamento automatico delle immagini del sistema operativo è lo stesso per tutti i set di scalabilità, come descritto in dettaglio nella [sezione di configurazione](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) di questa pagina.
+- Il processo di installazione e configurazione per l'aggiornamento automatico delle immagini del sistema operativo è lo stesso per tutti i set di scalabilità, come descritto in dettaglio nella [sezione di configurazione](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) di questa pagina.
 - Le istanze dei set di scalabilità configurate per gli aggiornamenti automatici delle immagini del sistema operativo verranno aggiornate alla versione più recente dell'immagine della raccolta di immagini condivise quando viene pubblicata una nuova versione dell'immagine e [replicata](shared-image-galleries.md#replication) nell'area del set di scalabilità. Se la nuova immagine non viene replicata nell'area in cui viene distribuita la scala, le istanze del set di scalabilità non verranno aggiornate alla versione più recente. La replica di immagini internazionali consente di controllare l'implementazione della nuova immagine per i set di scalabilità.
 - La nuova versione dell'immagine non deve essere esclusa dalla versione più recente dell'immagine della raccolta. Le versioni delle immagini escluse dalla versione più recente dell'immagine della raccolta non vengono implementate nel set di scalabilità tramite l'aggiornamento automatico delle immagini del sistema operativo.
 
 > [!NOTE]
->Il set di scalabilità può richiedere fino a 3 ore per attivare la prima implementazione dell'aggiornamento dell'immagine dopo la configurazione del set di scalabilità per gli aggiornamenti automatici del sistema operativo. Si tratta di un ritardo di una sola volta per set di scalabilità. I rollout di immagine successivi vengono attivati nel set di scalabilità entro 30 minuti.
+>Il set di scalabilità può richiedere fino a 3 ore per attivare la prima implementazione dell'aggiornamento dell'immagine dopo che il set di scalabilità è stato configurato per la prima volta per gli aggiornamenti automatici del sistema operativo. Si tratta di un ritardo di una sola volta per set di scalabilità. I rollout di immagine successivi vengono attivati nel set di scalabilità entro 30-60 minuti.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configurare l'aggiornamento automatico dell'immagine del sistema operativo
@@ -193,11 +128,14 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare il comando [AZ vmss Update](/cli/azure/vmss#az-vmss-update) per configurare gli aggiornamenti automatici delle immagini del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente configura gli aggiornamenti automatici per il set di scalabilità denominato set di scalabilità *nel gruppo* di risorse denominato *myResourceGroup*:
+Usare `[az vmss update](/cli/azure/vmss#az-vmss-update)` per configurare gli aggiornamenti automatici delle immagini del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente configura gli aggiornamenti automatici per il set di scalabilità denominato set di scalabilità *nel gruppo* di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
 ```
+
+> [!NOTE]
+>Dopo aver configurato gli aggiornamenti automatici delle immagini del sistema operativo per il set di scalabilità, è necessario portare le VM del set di scalabilità al modello di set di scalabilità più recente se il set di scalabilità usa i [criteri di aggiornamento](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)"manuali".
 
 ## <a name="using-application-health-probes"></a>Uso dei probe di integrità dell'applicazione
 

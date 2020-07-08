@@ -8,14 +8,14 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282939"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565919"
 ---
-# <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Funzionamento della ricerca full-text in Ricerca cognitiva di Azure
+# <a name="full-text-search-in-azure-cognitive-search"></a>Ricerca full-text in Azure ricerca cognitiva
 
 Questo articolo è per gli sviluppatori che necessitano di una conoscenza più approfondita del funzionamento della ricerca full-text di Lucene in Azure ricerca cognitiva. Per le query di testo, Ricerca cognitiva di Azure fornirà i risultati previsti nella maggior parte degli scenari, ma in alcuni casi è possibile ottenere un risultato che sembrerà in qualche modo "strano". In questi casi, la presenza di uno sfondo nelle quattro fasi dell'esecuzione di query di Lucene (analisi delle query, analisi lessicale, abbinamento dei documenti, assegnazione dei punteggi) consente di identificare le modifiche specifiche per i parametri di query o per la configurazione di indice che garantirà il risultato desiderato. 
 
@@ -52,7 +52,7 @@ Una richiesta di ricerca è una specifica completa di ciò che deve essere resti
 L'esempio seguente è una richiesta di ricerca che è possibile inviare ad Azure ricerca cognitiva usando l' [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -69,7 +69,7 @@ Per questa richiesta, il motore di ricerca esegue le operazioni seguenti:
 2. Esegue la query. In questo esempio la query di ricerca è costituita da frasi e termini: `"Spacious, air-condition* +\"Ocean view\""` (gli utenti in genere non immettono segni di punteggiatura, ma includerli nell'esempio consente di spiegare come la gestiscono gli analizzatori). Per questa query, il motore di ricerca esegue la scansione della descrizione e dei campi del titolo specificati in `searchFields` per i documenti che contengono "Vista sull'Oceano" e anche il termine "spazioso" o i termini che iniziano con il prefisso "aria condizionata". Il parametro `searchMode` viene usato per l'abbinamento con qualsiasi termine (impostazione predefinita) o con tutti i termini, per i casi in cui un termine non è esplicitamente richiesto (`+`).
 3. Ordina il set risultante degli hotel in prossimità di una posizione geografica specificata e quindi restituita all'applicazione chiamante. 
 
-La maggior parte di questo articolo riguarda l'elaborazione della *query*di ricerca `"Spacious, air-condition* +\"Ocean view\""`:. Il filtro e l'ordinamento non appartengono all'ambito. Per altre informazioni, vedere la [Documentazione di riferimento dell'API di Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+La maggior parte di questo articolo riguarda l'elaborazione della *query di ricerca*: `"Spacious, air-condition* +\"Ocean view\""` . Il filtro e l'ordinamento non appartengono all'ambito. Per altre informazioni, vedere la [Documentazione di riferimento dell'API di Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
 ## <a name="stage-1-query-parsing"></a>Fase 1: Analisi della query 
@@ -96,7 +96,7 @@ Il parser della query ristruttura le sottoquery in un *albero della query* (una 
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>Parser supportati: Lucene semplice e completa 
 
- Azure ricerca cognitiva espone due linguaggi di query diversi `simple` , (impostazione predefinita `full`) e. Impostando il parametro `queryType` con la richiesta di ricerca, si indica al parser della query quale linguaggio di query si sceglie in modo che sappia come interpretare gli operatori e la sintassi. Il [linguaggio semplice della query](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) è intuitivo e potente, spesso adatto a interpretare l'input dell'utente così come si presenta, senza elaborazione dal lato client. Supporta operatori di query familiari dai motori di ricerca Web. Il [Linguaggio di query Lucene Full](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), che si ottiene impostando `queryType=full`, estende il linguaggio di query semplice di impostazione predefinita aggiungendo il supporto per più operatori e tipi di query quali carattere jolly, fuzzy, regex e query con ambito campo. Ad esempio, un'espressione regolare inviata nella sintassi di query semplice verrebbe interpretata come una stringa di query e non come un'espressione. La richiesta di esempio in questo articolo usa il linguaggio di query Lucene Full.
+ Azure ricerca cognitiva espone due linguaggi di query diversi, `simple` (impostazione predefinita) e `full` . Impostando il parametro `queryType` con la richiesta di ricerca, si indica al parser della query quale linguaggio di query si sceglie in modo che sappia come interpretare gli operatori e la sintassi. Il [linguaggio semplice della query](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) è intuitivo e potente, spesso adatto a interpretare l'input dell'utente così come si presenta, senza elaborazione dal lato client. Supporta operatori di query familiari dai motori di ricerca Web. Il [Linguaggio di query Lucene Full](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), che si ottiene impostando `queryType=full`, estende il linguaggio di query semplice di impostazione predefinita aggiungendo il supporto per più operatori e tipi di query quali carattere jolly, fuzzy, regex e query con ambito campo. Ad esempio, un'espressione regolare inviata nella sintassi di query semplice verrebbe interpretata come una stringa di query e non come un'espressione. La richiesta di esempio in questo articolo usa il linguaggio di query Lucene Full.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>Impatto di searchMode sul parser 
 
@@ -239,13 +239,13 @@ Comprendere il recupero è utile per conoscere alcune nozioni di base sull'indic
 Per produrre i termini in un indice inverso, il motore di ricerca esegue l'analisi lessicale del contenuto dei documenti, analogamente a quanto accade durante l'elaborazione delle query:
 
 1. Gli *input di testo* vengono passati a un analizzatore, in lettere minuscole, prive di punteggiatura e così via, a seconda della configurazione dell'analizzatore. 
-2. I *token* costituiscono l'output dell'analisi del testo.
+2. I *token* sono l'output dell'analisi lessicale.
 3. I *termini* vengono aggiunti all'indice.
 
 È comune, ma non obbligatorio, usare gli stessi analizzatori per la ricerca e le operazioni di indicizzazione in modo che i termini di query assomiglino di più ai termini contenuti nell'indice.
 
 > [!Note]
-> Ricerca cognitiva di Azure consente di specificare analizzatori diversi per l'indicizzazione e `indexAnalyzer` la `searchAnalyzer` ricerca tramite parametri aggiuntivi e di campo. Se non è specificato, l'analizzatore impostato con la proprietà `analyzer` viene usato per l'indicizzazione e la ricerca.  
+> Ricerca cognitiva di Azure consente di specificare analizzatori diversi per l'indicizzazione e la ricerca tramite `indexAnalyzer` parametri aggiuntivi e di `searchAnalyzer` campo. Se non è specificato, l'analizzatore impostato con la proprietà `analyzer` viene usato per l'indicizzazione e la ricerca.  
 
 **Indice invertito per i documenti di esempio**
 
@@ -309,7 +309,7 @@ Durante l'esecuzione delle query, le singole query vengono eseguite sulla base d
 + La PhraseQuery "vista sull'oceano" cerca i termini "oceano" e "vista" e controlla la prossimità dei termini nel documento originale. I documenti 1, 2 e 3 abbinano questa query nel campo della descrizione. Si noti che il documento 4 contiene il termine oceano, ma non è considerata una corrispondenza poiché stiamo cercando la frase "vista sull'oceano" e non le singole parole. 
 
 > [!Note]
-> Una query di ricerca viene eseguita in modo indipendente su tutti i campi disponibili per la ricerca nell'indice ricerca cognitiva di Azure, a meno che `searchFields` non si limitino i campi impostati con il parametro, come illustrato nella richiesta di ricerca di esempio. Vengono restituiti i documenti corrispondenti in uno dei campi selezionati. 
+> Una query di ricerca viene eseguita in modo indipendente su tutti i campi disponibili per la ricerca nell'indice ricerca cognitiva di Azure, a meno che non si limitino i campi impostati con il `searchFields` parametro, come illustrato nella richiesta di ricerca di esempio. Vengono restituiti i documenti corrispondenti in uno dei campi selezionati. 
 
 Nel complesso, per la query in questione, i documenti corrispondenti sono 1, 2, 3. 
 
@@ -360,7 +360,7 @@ Un esempio illustra il motivo per cui questo risulta importante. Le ricerche con
 Esistono due modi per ottimizzare i punteggi di pertinenza in Azure ricerca cognitiva:
 
 1. I **profili di punteggio** promuovono i documenti nell'elenco di pertinenza dei risultati in base a un set di regole. Nel nostro esempio è possibile considerare i documenti che corrispondono al campo del titolo più rilevanti rispetto ai documenti corrispondenti al campo della descrizione. In aggiunta, se l'indice dispone di un campo prezzo per ogni albergo, è possibile promuovere i documenti con prezzo inferiore. Informazioni su come [ aggiungere profili di punteggio a un indice di ricerca](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
-2. **Aumento priorità dei termini** (disponibile solo nella sintassi di query Lucene Full) offre un aumento della priorità dell'operatore `^` che può essere applicato a qualsiasi parte dell'albero della query. In questo esempio, invece di cercare il prefisso *aria condizionata*\*, è possibile cercare il termine esatto *aria condizionata* o il prefisso, ma i documenti che corrispondono al termine esatto vengono classificati in un livello superiore applicando un Boost al termine query: * aria condizionata ^ 2 | | condizione aria * *. Altre informazioni sull'[aumento della priorità dei termini](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. **Aumento priorità dei termini** (disponibile solo nella sintassi di query Lucene Full) offre un aumento della priorità dell'operatore `^` che può essere applicato a qualsiasi parte dell'albero della query. In questo esempio, invece di cercare il prefisso *aria condizionata* \* , è possibile cercare il termine esatto *aria condizionata* o il prefisso, ma i documenti che corrispondono al termine esatto vengono classificati in un livello superiore applicando un Boost al termine query: * aria condizionata ^ 2 | | condizione aria * *. Altre informazioni sull'[aumento della priorità dei termini](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Assegnazione dei punteggi in un indice distribuito

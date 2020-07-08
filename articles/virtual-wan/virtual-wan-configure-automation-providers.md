@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190424"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565951"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Linee guida di automazione per partner WAN virtuali
 
@@ -27,7 +27,7 @@ Un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN
 * Testare l'esperienza nel portale della rete WAN virtuale di Azure.
 * Decidere quindi quale parte della procedura della connettività si vuole automatizzare. È consigliabile automatizzare almeno i seguenti passaggi:
 
-  * Controllo dell’accesso
+  * Controllo di accesso
   * Caricamento delle informazioni sul dispositivo di branch nella rete WAN virtuale di Azure
   * Download della configurazione di Azure e configurazione della connettività dal dispositivo di branch alla rete WAN virtuale di Azure
 
@@ -38,7 +38,7 @@ Un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) per connettere una VPNSite a un hub VPN di Azure
 * [Criteri IPsec predefiniti](#default)
 
-## <a name="customer-experience"></a><a name ="ae"></a>Esperienza del cliente
+## <a name="customer-experience"></a><a name ="ae"></a>Esperienza dei clienti
 
 Comprendere l'esperienza utente prevista in combinazione con la rete WAN virtuale di Azure.
 
@@ -54,7 +54,7 @@ Comprendere l'esperienza utente prevista in combinazione con la rete WAN virtual
 
 ###  <a name="access-control"></a><a name="access"></a>Controllo di accesso
 
-I clienti devono essere in grado di impostare il controllo degli accessi appropriato per la rete WAN virtuale nell'interfaccia utente del dispositivo. Questa operazione è consigliabile usando un'entità servizio di Azure. L'accesso basato su entità servizio fornisce al dispositivo un'autenticazione adeguata al controller per caricare le informazioni sul branch. Per altre informazioni, vedere [Create service principal](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) (Creare un'entità servizio). Anche se questa funzionalità non è inclusa nell'offerta della rete WAN virtuale di Azure, di seguito vengono elencati i passaggi tipici eseguiti per configurare l'accesso in Azure dopo il quale vengono inseriti i dettagli rilevanti nel dashboard di gestione del dispositivo.
+I clienti devono essere in grado di impostare il controllo degli accessi appropriato per la rete WAN virtuale nell'interfaccia utente del dispositivo. Questa operazione è consigliabile usando un'entità servizio di Azure. L'accesso basato su entità servizio fornisce al dispositivo un'autenticazione adeguata al controller per caricare le informazioni sul branch. Per altre informazioni, vedere [Create service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) (Creare un'entità servizio). Anche se questa funzionalità non è inclusa nell'offerta della rete WAN virtuale di Azure, di seguito vengono elencati i passaggi tipici eseguiti per configurare l'accesso in Azure dopo il quale vengono inseriti i dettagli rilevanti nel dashboard di gestione del dispositivo.
 
 * Creare un'applicazione di Azure Active Directory per il controller del dispositivo locale.
 * Ottenere l'ID applicazione e la chiave di autenticazione

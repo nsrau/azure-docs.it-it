@@ -1,22 +1,20 @@
 ---
-title: Eseguire la migrazione delle configurazioni del firewall di Azure ai criteri del firewall di Azure (anteprima) con PowerShell
-description: Informazioni su come eseguire la migrazione delle configurazioni del firewall di Azure ai criteri del firewall di Azure (anteprima)
+title: Eseguire la migrazione delle configurazioni del firewall di Azure ai criteri del firewall di Azure tramite PowerShell
+description: Informazioni su come eseguire la migrazione delle configurazioni del firewall di Azure ai criteri del firewall di Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: how-to
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9dadc875e5e6d35a78930b4a02c48e9cbb6f6ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601327"
 ---
-# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Eseguire la migrazione delle configurazioni del firewall di Azure ai criteri del firewall di Azure (anteprima) con PowerShell
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-using-powershell"></a>Eseguire la migrazione delle configurazioni del firewall di Azure ai criteri del firewall di Azure tramite PowerShell
 
 È possibile usare uno script di Azure PowerShell per eseguire la migrazione delle configurazioni del firewall di Azure esistenti a una risorsa di criteri del firewall di Azure. È quindi possibile usare gestione firewall di Azure per distribuire il criterio.
 
@@ -161,4 +159,4 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sulla distribuzione di Azure Firewall Manager: [Panoramica della distribuzione di anteprima di Azure Firewall Manager](deployment-overview.md).
+Scopri di più sulla distribuzione di Azure Firewall Manager: [panoramica sulla distribuzione di gestione firewall di Azure](deployment-overview.md).

@@ -1,24 +1,24 @@
 ---
 title: Informazioni sui dispositivi gemelli nell'hub IoT di Azure | Documentazione Microsoft
 description: Guida per gli sviluppatori - Usare dispositivi gemelli per sincronizzare stato e dati di configurazione tra l'hub IoT e i dispositivi
-author: wesmc7777
+author: ash2017
 manager: philmea
-ms.author: wesmc
+ms.author: asrastog
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.custom: mqtt
-ms.openlocfilehash: 3bec3d19ed68b7eb8bb50baa8f6c11135ef778cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f61748a0a0d3d999670b6129e0e58758715ba3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601854"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 
-I *dispositivi gemelli* sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi, ad esempio metadati, configurazioni e condizioni. L'hub IoT di Azure mantiene un dispositivo gemello per ogni dispositivo che viene connesso all'hub IoT. 
+I *dispositivi gemelli* sono documenti JSON che archiviano le informazioni sullo stato del dispositivo, inclusi metadati, configurazioni e condizioni. L'hub IoT di Azure mantiene un dispositivo gemello per ogni dispositivo che viene connesso all'hub IoT. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -59,7 +59,7 @@ Un dispositivo gemello è un documento JSON che include:
 
 * **Proprietà segnalate**. Sono usate insieme alle proprietà desiderate per sincronizzare la configurazione o le condizioni del dispositivo. L'app per dispositivo è in grado di impostare le proprietà segnalate, mentre il back-end della soluzione è in grado di fare delle query.
 
-* **Proprietà di identità del dispositivo**. La radice del documento JSON del dispositivo gemello contiene le proprietà di sola lettura dell'identità del dispositivo corrispondente archiviata nel [registro delle identità](iot-hub-devguide-identity-registry.md). Le `connectionStateUpdatedTime` proprietà `generationId` e non verranno incluse.
+* **Proprietà di identità del dispositivo**. La radice del documento JSON del dispositivo gemello contiene le proprietà di sola lettura dell'identità del dispositivo corrispondente archiviata nel [registro delle identità](iot-hub-devguide-identity-registry.md). `connectionStateUpdatedTime`Le proprietà e `generationId` non verranno incluse.
 
 ![Screenshot delle proprietà del dispositivo gemello](./media/iot-hub-devguide-device-twins/twin.png)
 
@@ -288,7 +288,7 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
 
 ## <a name="device-twin-size"></a>Dimensioni del dispositivo gemello
 
-L'hub Internet delle cose impone un limite di dimensioni di 8 KB sul `tags`valore di e una dimensione di 32 KB per ogni valore di `properties/desired` e `properties/reported`. Questi totali sono esclusivi di elementi di sola lettura come `$etag`, `$version`e. `$metadata/$lastUpdated`
+L'hub Internet delle cose impone un limite di dimensioni di 8 KB sul valore di `tags` e una dimensione di 32 KB per ogni valore di `properties/desired` e `properties/reported` . Questi totali sono esclusivi di elementi di sola lettura come `$etag` , `$version` e `$metadata/$lastUpdated` .
 
 Le dimensioni del dispositivo gemello vengono calcolate come segue:
 
@@ -302,7 +302,7 @@ Le dimensioni del dispositivo gemello vengono calcolate come segue:
 
 * I valori di proprietà complesse (oggetti annidati) vengono calcolati in base alle dimensioni aggregate delle chiavi di proprietà e dei valori delle proprietà in essi contenuti.
 
-L'hub cose rifiuta con un errore tutte le operazioni che aumentano le dimensioni dei `tags`documenti `properties/desired`, o `properties/reported` oltre il limite.
+L'hub cose rifiuta con un errore tutte le operazioni che aumentano le dimensioni dei `tags` `properties/desired` documenti, o `properties/reported` oltre il limite.
 
 ## <a name="device-twin-metadata"></a>Metadati del dispositivo gemello
 

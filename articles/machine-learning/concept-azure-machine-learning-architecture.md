@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 49c23774fe16c24ba90daa02cdda1688b79b12d3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 8cfa7a7b251f2aa74230d8883a0335582387aa06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602517"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Modalità di funzionamento di Azure Machine Learning: Architettura e concetti
 
@@ -45,9 +45,9 @@ Il flusso di lavoro del modello di Machine Learning, in genere, segue questa seq
 Usare i seguenti strumenti per Azure Machine Learning:
 
 +  Interagire con il servizio in qualsiasi ambiente Python con l'[SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ Interagire con il servizio in qualsiasi ambiente R con l'[SDK Azure Machine Learning per R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ Interagisci con il servizio in qualsiasi ambiente R con [Azure Machine Learning SDK per r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (anteprima).
 + Automatizzare le attività di apprendimento automatico con l'[interfaccia della riga di comando di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
-+ Usare la [finestra di progettazione di Azure Machine Learning (anteprima)](concept-designer.md) per eseguire i passaggi del flusso di lavoro senza scrivere alcun codice.
++ Usare la [finestra di progettazione di Azure Machine Learning (anteprima)](concept-designer.md) per eseguire i passaggi del flusso di lavoro senza scrivere alcun codice. Per usare la finestra di progettazione è necessaria un' [area di lavoro aziendale](concept-workspace.md#upgrade).
 + L'[acceleratore di soluzione molti modelli](https://aka.ms/many-models) (anteprima) si basa su Azure Machine Learning consente di eseguire il training, utilizzare e gestire centinaia o addirittura migliaia di modelli di Machine Learning.
 
 > [!NOTE]
@@ -212,7 +212,7 @@ Se il monitoraggio è abilitato, Azure raccoglie i dati di telemetria dal modell
 Azure IoT Edge garantisce che il modulo sia in esecuzione e monitora il dispositivo che lo ospita.
 
 
-### <a name="compute-instance-preview"></a><a name="compute-instance"></a>Istanza di calcolo (anteprima)
+### <a name="compute-instance"></a><a name="compute-instance"></a>Istanza di calcolo
 
 Un'**istanza di calcolo di Azure Machine Learning** (in precedenza macchina virtuale Notebook) è una workstation basata su cloud completamente gestita che include più strumenti e ambienti installati per l'apprendimento automatico. Le istanze di calcolo possono essere usate come destinazione di calcolo per il training e l'inferenza dei processi. Per le attività di grandi dimensioni, [i cluster di elaborazione di Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con funzionalità di scalabilità a più nodi rappresentano una scelta migliore per la destinazione di calcolo.
 

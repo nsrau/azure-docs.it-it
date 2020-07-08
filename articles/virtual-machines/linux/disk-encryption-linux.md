@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1ec7328363cf835c733a4d0c266732c6748c829
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218622"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601387"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di Crittografia dischi di Azure in macchine virtuali Linux
 
@@ -388,23 +388,7 @@ A differenza della sintassi di PowerShell, l'interfaccia della riga di comando n
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>Disabilitare la crittografia per le macchine virtuali Linux
-È possibile disabilitare la crittografia usando Azure PowerShell, l'interfaccia della riga di comando di Azure oppure un modello di Resource Manager. 
-
->[!IMPORTANT]
->La disabilitazione della crittografia con Crittografia dischi di Azure nelle macchine virtuali Linux è supportata solo per i volumi di dati. Non è supportata nei dati o nei volumi del sistema operativo, se il volume del sistema operativo è stato crittografato.  
-
-- **Disabilitare la crittografia dei dischi con Azure PowerShell:** per disabilitare la crittografia, usare il cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType DATA]
-     ```
-
-- **Disabilitare la crittografia con l'interfaccia della riga di comando di Azure:** per disabilitare la crittografia, usare il comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
-     ```
-- **Disabilitare la crittografia con un modello di Resource Manager:** usare il modello per [disabilitare la crittografia in una macchina virtuale Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad).
-     1. Fare clic su **Distribuzione in Azure**.
-     2. Selezionare la sottoscrizione, il gruppo di risorse, la posizione, la macchina virtuale, i termini legali e il contratto.
+[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
 
 ## <a name="unsupported-scenarios"></a>Scenari non supportati
 
@@ -420,12 +404,15 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e la
 - Volumi dinamici.
 - Dischi del sistema operativo temporanei.
 - Crittografia di file system condivisi/distribuiti quali ad esempio: DFS, GFS, DRDB e CephFS.
-- Trasferimento di una macchina virtuale crittografata a un'altra sottoscrizione.
+- Trasferimento di una macchina virtuale crittografata in un'altra sottoscrizione o in un'altra area.
+- Creare un'immagine o uno snapshot di una macchina virtuale crittografata e usarla per distribuire altre macchine virtuali.
 - Dump di arresto anomalo del kernel (kdump).
 - Oracle ACFS (file system cluster ASM).
 - Macchine virtuali di seconda generazione (vedere: [Supporto per le macchine virtuali di seconda generazione in Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Macchine virtuali della serie Lsv2 (vedere: [Serie Lsv2](../lsv2-series.md)).
 - Una macchina virtuale con "punti di montaggio nidificati", ovvero con più punti di montaggio in un singolo percorso, ad esempio "/1stmountpoint/data/2stmountpoint".
+- Una macchina virtuale con un'unità dati montata su una cartella del sistema operativo.
+- VM serie M con dischi acceleratore di scrittura.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

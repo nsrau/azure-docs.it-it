@@ -1,24 +1,21 @@
 ---
-title: Visualizzare un archivio informazioni (anteprima) con Storage Explorer
+title: Visualizzare un archivio conoscenze con Storage Explorer
 titleSuffix: Azure Cognitive Search
-description: Visualizzare e analizzare un archivio conoscenze di Ricerca cognitiva di Azure con lo strumento Storage Explorer del portale di Azure. Archivio informazioni è attualmente disponibile in anteprima pubblica.
+description: Visualizzare e analizzare un archivio conoscenze di Ricerca cognitiva di Azure con lo strumento Storage Explorer del portale di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/30/2019
-ms.openlocfilehash: 167316eca1f85530a040d4543f98ae34a9fb93c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: ba0b02067c032f9038051c169866588ded44af73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75754076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566026"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visualizzare un archivio conoscenze con Storage Explorer
-
-> [!IMPORTANT] 
-> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
 In questo articolo si apprenderà ad esempio come connettersi ed esplorare un archivio informazioni usando Storage Explorer nel portale di Azure.
 
@@ -61,5 +58,5 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 Connettere questo archivio informazioni a Power BI per un'analisi più approfondita o procedere con il codice, usando l'API REST e l'impostore per creare un archivio informazioni diverso.
 
 > [!div class="nextstepaction"]
-> [Connettersi con Power bi](knowledge-store-connect-power-bi.md)
-> [creare un archivio informazioni in Rest](knowledge-store-create-rest.md)
+> [Connetti con Power bi](knowledge-store-connect-power-bi.md) 
+>  [Creazione di un archivio informazioni in Rest](knowledge-store-create-rest.md)

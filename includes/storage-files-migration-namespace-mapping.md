@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 948090d0ee956ca1798d7b0f46bb33276c4d6354
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0d963d6491574bf630061749ba4d3538549fa34
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570126"
 ---
 In questo passaggio si sta valutando il numero di condivisioni file di Azure necessarie. Una singola istanza di Windows Server (o cluster) può sincronizzare fino a 30 condivisioni file di Azure.
 
@@ -58,7 +58,7 @@ Un altro aspetto importante della Sincronizzazione file di Azure e delle prestaz
 > [!IMPORTANT]
 > Il vettore di scala più importante per Sincronizzazione file di Azure è il numero di elementi (file e cartelle) che devono essere sincronizzati.
 
-Sincronizzazione file di Azure supporta la sincronizzazione di un massimo di 100.000 elementi in una singola condivisione file di Azure. Questo limite può essere superato e Mostra solo i test eseguiti regolarmente dal team Sincronizzazione file di Azure.
+Sincronizzazione file di Azure supporta la sincronizzazione di un massimo di 100 milioni elementi in una singola condivisione file di Azure. Questo limite può essere superato e Mostra solo i test eseguiti regolarmente dal team Sincronizzazione file di Azure.
 
 È consigliabile evitare che il numero di elementi per ogni ambito di sincronizzazione sia basso. Questo è un fattore importante da considerare nel mapping delle cartelle alle condivisioni file di Azure.
 

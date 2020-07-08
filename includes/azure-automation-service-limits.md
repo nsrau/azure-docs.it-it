@@ -1,19 +1,19 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: automation
-author: georgewallace
+author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 12/13/2018
-ms.author: gwallace
+ms.date: 06/29/2020
+ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: d700dfcf5a7b6e9ada2a755335689ffa571e4c3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa7b997fe112be5d974d0e82597e786fa219e1f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570191"
 ---
 #### <a name="process-automation"></a>Automazione dei processi
 
@@ -22,7 +22,7 @@ ms.locfileid: "80334914"
 | Numero massimo di nuovi processi che possono essere inviati ogni 30 secondi per ogni account di automazione di Azure (processi non pianificati) |100 |Quando viene raggiunto questo limite, le successive richieste di creazione di un processo hanno esito negativo. Il client riceve una risposta di errore.|
 | Numero massimo di processi in esecuzione simultanei nella stessa istanza di tempo per account di automazione (processi non pianificati) |200 |Quando viene raggiunto questo limite, le successive richieste di creazione di un processo hanno esito negativo. Il client riceve una risposta di errore.|
 | Dimensioni massime di archiviazione dei metadati del processo per un periodo in sequenza di 30 giorni | 10 GB (circa 4 milioni processi)|Quando viene raggiunto questo limite, le successive richieste di creazione di un processo hanno esito negativo. |
-| Limite massimo di flussi di processi|1 MB|Un singolo flusso non può essere maggiore di 1 MB.|
+| Limite massimo di flussi di processi|1 MiB|Un singolo flusso non può essere maggiore di 1 MB.|
 | Numero massimo di moduli che possono essere importati ogni 30 secondi per account di automazione |5 ||
 | Dimensioni massime di un modulo |100 MB ||
 | Tempo di esecuzione processo, livello gratuito |500 minuti per sottoscrizione al mese di calendario ||
@@ -33,9 +33,9 @@ ms.locfileid: "80334914"
 | Numero massimo di account di automazione in una sottoscrizione |Nessun limite ||
 | Numero massimo di gruppi di lavoro ibridi per account di automazione|4.000||
 |Numero massimo di processi simultanei che possono essere eseguiti in un singolo ruolo di lavoro ibrido per Runbook|50 ||
-| Dimensioni massime parametro processo Runbook   | 512 kilobit||
+| Dimensioni massime parametro processo Runbook   | 512 kilobyte||
 | Numero massimo di parametri Runbook   | 50|Se si raggiunge il limite di 50 parametri, è possibile passare una stringa JSON o XML a un parametro e analizzarla con Runbook.|
-| Dimensioni massime del payload del webhook |  512 kilobit|
+| Dimensioni massime del payload del webhook |  512 kilobyte|
 | Numero massimo di giorni per cui vengono conservati i dati del processo|30 giorni|
 | Dimensioni massime stato del flusso di lavoro PowerShell |5 MB| Si applica ai manuali operativi del flusso di lavoro PowerShell durante il checkpoint del flusso di lavoro.|
 

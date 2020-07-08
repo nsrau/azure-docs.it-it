@@ -2,13 +2,13 @@
 title: Conservazione e archiviazione dei dati in Azure Application Insights | Microsoft Docs
 description: Informativa sulla conservazione e sulla privacy
 ms.topic: conceptual
-ms.date: 09/29/2019
-ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275997"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601361"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione dei dati in Application Insights
 
@@ -18,8 +18,8 @@ Innanzitutto, chiariamo alcuni aspetti:
 
 * È improbabile che i moduli di telemetria standard che seguono un comportamento predefinito possano inviare dati sensibili al servizio. I dati di telemetria riguardano metriche di carico, prestazioni e utilizzo, report di eccezioni e altri dati di diagnostica. I principali dati utente visibili nei report di diagnostica sono URL, ma l'app non deve in ogni caso inserire dati sensibili in testo normale in un URL.
 * È possibile scrivere codice che invia dati di telemetria personalizzati aggiuntivi per agevolare la diagnostica e il monitoraggio dell'utilizzo. Questa estendibilità è un'ottima funzionalità di Application Insights. Sarebbe possibile, per errore, scrivere questo codice in modo che includa dati personali e altri dati sensibili. Se l'applicazione funziona con tali dati, è necessario applicare un processo di revisione completa a tutto il codice scritto.
-* Durante lo sviluppo e il test dell'app, è facile controllare ciò che viene inviato dall’SDK. I dati vengono visualizzati nelle finestre di output del debug dell’IDE e del browser. 
-* I dati vengono archiviati nei server di [Microsoft Azure](https://azure.com) negli Stati Uniti o in Europa. (Ma l'app può essere eseguita in qualsiasi posizione). Azure offre [processi di sicurezza avanzati e soddisfa un'ampia gamma di standard di conformità](https://azure.microsoft.com/support/trust-center/). Solo lo sviluppatore dell’app e il team designato hanno accesso ai dati. Il personale Microsoft può avere accesso limitato ai dati solo in determinate circostanze con il consenso dello sviluppatore. È crittografato in transito e inattivo.
+* Durante lo sviluppo e il test dell'app, è facile controllare ciò che viene inviato dall’SDK. I dati vengono visualizzati nelle finestre di output del debug dell’IDE e del browser.
+* È possibile selezionare la località quando si crea una nuova risorsa di Application Insights. Per altre informazioni sulla disponibilità Application Insights per area, vedere [qui](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 *   Esaminare i dati raccolti, in quanto possono includere dati consentiti in alcune circostanze, ma non altri.  Un esempio valido è il nome del dispositivo. Il nome del dispositivo da un server non ha alcun effetto sulla privacy ed è utile, ma un nome di dispositivo da un telefono o portatile potrebbe avere un effetto sulla privacy e risultare meno utile. Un SDK sviluppato principalmente nei server di destinazione, raccoglie il nome del dispositivo per impostazione predefinita e potrebbe essere necessario sovrascriverlo sia negli eventi normali che nelle eccezioni.
 
 Nella parte restante di questo articolo verranno elaborate ulteriormente queste risposte. Questa parte è progettata per essere indipendente dal resto, pertanto è possibile mostrarla ai colleghi che non fanno parte del proprio team.
@@ -52,7 +52,7 @@ Le categorie principali sono:
 * [Pagine Web](../../azure-monitor/app/javascript.md): numero di pagine, utenti e sessioni, tempo di caricamento della pagina, eccezioni, chiamate AJAX.
 * Contatori delle prestazioni: memoria, CPU, IO, occupazione della rete.
 * Contesto client e server: sistema operativo, impostazioni locali, tipo di dispositivo, browser, risoluzione dello schermo.
-* [Eccezioni](../../azure-monitor/app/asp-net-exceptions.md) e arresti anomali: **dump dello stack**, `build id`, tipo di CPU. 
+* [Eccezioni](../../azure-monitor/app/asp-net-exceptions.md) e arresti anomali: **dump dello stack**, `build id` , tipo di CPU. 
 * [Dipendenze](../../azure-monitor/app/asp-net-dependencies.md): chiamate ai servizi esterni, ad esempio REST, SQL, AJAX; URI o stringa di connessione, durata, esito positivo, comando.
 * [Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) : durata del test e passaggi, risposte.
 * [Log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) e [telemetria personalizzata](../../azure-monitor/app/api-custom-events-metrics.md) - **tutto ciò che viene codificato nei log o nella telemetria**.
@@ -173,13 +173,13 @@ Il prefisso della cartella `appInsights-node` può essere sostituito modificando
 
 ### <a name="javascript-browser"></a>JavaScript (browser)
 
-L' [archiviazione della sessione HTML5](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) viene utilizzata per salvare in modo permanente i dati. Vengono utilizzati due buffer distinti: `AI_buffer` e. `AI_sent_buffer` I dati di telemetria in batch e in attesa di essere inviati `AI_buffer`vengono archiviati in. La telemetria appena inviata viene inserita in `AI_sent_buffer` fino a quando il server di inserimento non risponde che è stato ricevuto correttamente. Quando la telemetria viene ricevuta correttamente, viene rimossa da tutti i buffer. In caso di errori temporanei (ad esempio, un utente perde la connettività di rete) `AI_buffer` , la telemetria rimane in fino a quando non viene ricevuta correttamente o il server di inserimento risponde che i dati di telemetria non sono validi, ad esempio uno schema errato o troppo vecchio.
+L' [archiviazione della sessione HTML5](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) viene utilizzata per salvare in modo permanente i dati. Vengono utilizzati due buffer distinti: `AI_buffer` e `AI_sent_buffer` . I dati di telemetria in batch e in attesa di essere inviati vengono archiviati in `AI_buffer` . La telemetria appena inviata viene inserita in `AI_sent_buffer` fino a quando il server di inserimento non risponde che è stato ricevuto correttamente. Quando la telemetria viene ricevuta correttamente, viene rimossa da tutti i buffer. In caso di errori temporanei (ad esempio, un utente perde la connettività di rete), la telemetria rimane in `AI_buffer` fino a quando non viene ricevuta correttamente o il server di inserimento risponde che i dati di telemetria non sono validi, ad esempio uno schema errato o troppo vecchio.
 
-I buffer di telemetria possono essere [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) disabilitati `false`impostando su. Quando l'archiviazione della sessione è disattivata, viene invece utilizzata una matrice locale come archivio permanente. Poiché JavaScript SDK viene eseguito in un dispositivo client, l'utente ha accesso a questa posizione di archiviazione tramite gli strumenti di sviluppo del browser.
+I buffer di telemetria possono essere disabilitati impostando [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) su `false` . Quando l'archiviazione della sessione è disattivata, viene invece utilizzata una matrice locale come archivio permanente. Poiché JavaScript SDK viene eseguito in un dispositivo client, l'utente ha accesso a questa posizione di archiviazione tramite gli strumenti di sviluppo del browser.
 
 ### <a name="opencensus-python"></a>Python OpenCensus
 
-Per impostazione predefinita, OpenCensus Python SDK usa la cartella `%username%/.opencensus/.azure/`dell'utente corrente. Le autorizzazioni per accedere a questa cartella sono limitate all'utente corrente e agli amministratori. (Vedere [implementazione](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) qui). La cartella con i dati salvati in permanenza verrà denominata dopo il file Python che ha generato i dati di telemetria.
+Per impostazione predefinita, OpenCensus Python SDK usa la cartella dell'utente corrente `%username%/.opencensus/.azure/` . Le autorizzazioni per accedere a questa cartella sono limitate all'utente corrente e agli amministratori. (Vedere [implementazione](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) qui). La cartella con i dati salvati in permanenza verrà denominata dopo il file Python che ha generato i dati di telemetria.
 
 È possibile modificare il percorso del file di archiviazione passando il `storage_path` parametro nel costruttore dell'utilità di esportazione in uso.
 
@@ -202,11 +202,11 @@ Non è consigliabile impostare in modo esplicito l'applicazione in modo che usi 
 
 |Piattaforma/linguaggio | Supporto | Altre informazioni |
 | --- | --- | --- |
-| Servizi app di Azure  | Supportato, potrebbe essere necessaria la configurazione. | Supporto annunciato in aprile 2018. Leggere l'annuncio per [informazioni dettagliate sulla configurazione](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| App per le funzioni di Azure | Supportato, potrebbe essere necessaria la configurazione. | Supporto annunciato in aprile 2018. Leggere l'annuncio per [informazioni dettagliate sulla configurazione](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+| Servizi app di Azure  | Supportato, potrebbe essere necessaria la configurazione. | Supporto annunciato in aprile 2018. Leggere l'annuncio per [informazioni dettagliate sulla configurazione](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
+| App per le funzioni di Azure | Supportato, potrebbe essere necessaria la configurazione. | Supporto annunciato in aprile 2018. Leggere l'annuncio per [informazioni dettagliate sulla configurazione](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Supportato, la configurazione varia a seconda della versione. | Per informazioni dettagliate sulla configurazione di .NET 4,7 e versioni precedenti, fare riferimento a [queste istruzioni](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitoraggio stato | Supportato, è necessaria la configurazione | Status Monitor si basa sulla configurazione[.NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) del [sistema operativo](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + per il supporto di TLS 1,2.
-|Node.js |  Supportato, nella versione 10.5.0, potrebbe essere necessaria la configurazione. | Usare la [documentazione ufficiale di TLS/SSL per node. js](https://nodejs.org/api/tls.html) per qualsiasi configurazione specifica dell'applicazione. |
+|Monitoraggio stato | Supportato, è necessaria la configurazione | Status Monitor si basa sulla configurazione .NET del [sistema operativo](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  +  [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) per il supporto di TLS 1,2.
+|Node.js |  Supportato, nella versione 10.5.0, potrebbe essere necessaria la configurazione. | Usare la [documentazione ufficiale Node.js TLS/SSL](https://nodejs.org/api/tls.html) per qualsiasi configurazione specifica dell'applicazione. |
 |Java | Supportato, supporto JDK per TLS 1.2 aggiunto in [JDK 6 aggiornamento 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 usa [TLS 1.2 per impostazione predefinita](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Le distribuzioni Linux si basano generalmente su [OpenSSL](https://www.openssl.org) per supportare TLS 1.2.  | Controllare nel [log delle modifiche di OpenSSL](https://www.openssl.org/news/changelog.html) per assicurarsi che la versione di OpenSSL sia supportata.|
 | Windows 8.0 - 10 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora in uso.  |
@@ -247,9 +247,9 @@ Gli SDK sono diversi a seconda delle piattaforme e sono disponibili vari compone
 
 | Azione | Classi di dati raccolte (vedere la tabella seguente) |
 | --- | --- |
-| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Eccezioni**<br/>sessione<br/>user |
+| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Eccezioni**<br/>sessione<br/>users |
 | [Installare Status Monitor in IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
-| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>sessione<br/>user |
+| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>sessione<br/>users |
 | [Aggiungere JavaScript SDK a una pagina Web][client] |ClientContext  <br/>Inferred<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Definire le proprietà predefinite][apiproperties] |**Properties** in tutti gli eventi standard e personalizzati |
 | [Chiamare TrackMetric][api] |Valori numerici<br/>**Proprietà** |
@@ -270,14 +270,14 @@ Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi
 | ServerContext |Nome computer, impostazioni locali, sistema operativo, dispositivo, sessione utente, contesto utente, operazione. |
 | Inferred |Area geografica in base a indirizzo IP, timestamp, sistema operativo, browser. |
 | Metriche |Nome e valore della metrica. |
-| Events |Nome e valore dell'evento. |
+| Eventi |Nome e valore dell'evento. |
 | PageViews |URL e nome della pagina o della schermata. |
 | Client perf |URL/nome pagina, tempo di caricamento del browser. |
 | Ajax |Chiamate HTTP dalla pagina Web al server |
 | Requests |URL, durata, codice di risposta. |
 | Dependencies |Tipo (SQL, HTTP,...), stringa di connessione o URI, Sync/async, Duration, Success, istruzione SQL (con Status Monitor) |
 | **Eccezioni** |Tipo, **messaggio**, stack di chiamate, file di origine, numero di riga,`thread id` |
-| Crashes |`Process id`, `parent process id`, `crash thread id`; patch applicazione, `id`, compilazione;  tipo di eccezione, indirizzo, motivo; simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU |
+| Crashes |`Process id`, `parent process id` , `crash thread id` ; patch applicazione, `id` , compilazione;  tipo di eccezione, indirizzo, motivo; simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU |
 | Trace |**Messaggio** e livello di gravità. |
 | Perf counters |Tempo processore, memoria disponibile, frequenza di richieste, frequenza di eccezioni, byte privati del processo, velocità di I/O, durata richiesta, lunghezza coda richiesta. |
 | Disponibilità |Codice di risposta del test Web, durata di ogni passo del test, nome del test, timestamp, esito positivo, tempo di risposta, posizione del test |
@@ -289,7 +289,7 @@ Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi
 > Il client IP viene utilizzato per dedurre la posizione geografica, tuttavia per impostazione predefinita i dati IP non vengono più memorizzati e tutti gli zeri vengono scritti nel campo associato. Per comprendere meglio la gestione dei dati personali si consiglia questo [articolo](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Se è necessario archiviare i dati degli indirizzi IP, l' [articolo raccolta indirizzi IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) illustra le opzioni disponibili.
 
 ## <a name="credits"></a>Credits
-Questo prodotto include i dati GeoLite2 creati da MaxMind, disponibili [https://www.maxmind.com](https://www.maxmind.com)da.
+Questo prodotto include i dati GeoLite2 creati da MaxMind, disponibili da [https://www.maxmind.com](https://www.maxmind.com) .
 
 
 

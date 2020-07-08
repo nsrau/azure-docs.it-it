@@ -5,17 +5,17 @@ description: Informazioni su come spiegare il motivo per cui il modello esegue s
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
-ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/30/2020
+ms.openlocfilehash: 97401b2bdbcc2dc1379505f8dade443a4f1eb318
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601684"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretazione del modello in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,13 +44,11 @@ Le classi di interpretazione vengono rese disponibili tramite più pacchetti SDK
 
 * `azureml.contrib.interpret`, l'anteprima e le funzionalità sperimentali che è possibile provare.
 
-* `azureml.train.automl.automlexplainer`pacchetto per interpretare i modelli automatici di machine learning.
-
-Usare `pip install azureml-interpret` e `pip install azureml-interpret-contrib` per uso generale e `pip install azureml-interpret-contrib` per AutoML usare per ottenere i pacchetti di interpretazione.
+Usare `pip install azureml-interpret` e `pip install azureml-interpret-contrib` per uso generale e `pip install azureml-contrib-interpret` per AutoML usare per ottenere i pacchetti di interpretazione.
 
 
 > [!IMPORTANT]
-> Il `contrib` contenuto dello spazio dei nomi non è completamente supportato. Man mano che le funzionalità sperimentali diventano mature, verranno spostate gradualmente nello spazio dei nomi principale.
+> Il contenuto dello `contrib` spazio dei nomi non è completamente supportato. Man mano che le funzionalità sperimentali diventano mature, verranno spostate gradualmente nello spazio dei nomi principale.
 .
 
 
@@ -84,7 +82,7 @@ Per informazioni sulle tecniche di interpretazione supportate, sui modelli di ap
 
 
 
-Oltre alle tecniche di interpretazione descritte in precedenza, è supportato un altro Explainer basato su SHAP `TabularExplainer`, denominato. A seconda del modello, `TabularExplainer` usa uno dei Shap Explainer supportati:
+Oltre alle tecniche di interpretazione descritte in precedenza, è supportato un altro Explainer basato su SHAP, denominato `TabularExplainer` . A seconda del modello, `TabularExplainer` Usa uno dei Shap Explainer supportati:
 
 * TreeExplainer per tutti i modelli basati su albero
 * DeepExplainer per modelli DNN
@@ -109,7 +107,7 @@ Il `azureml.interpret` pacchetto dell'SDK supporta i modelli sottoposti a traini
 - `iml.datatypes.DenseData`
 - `scipy.sparse.csr_matrix`
 
-Le funzioni di spiegazione accettano sia i modelli sia le pipeline come input. Se viene fornito un modello, il modello deve implementare la funzione `predict` di stima o `predict_proba` conforme alla convenzione Scikit. Se il modello non supporta questa operazione, è possibile eseguire il wrapping del modello in una funzione che genera lo stesso `predict` risultato `predict_proba` di o in Scikit e utilizzare tale funzione wrapper con il Explainer selezionato. Se viene fornita una pipeline, la funzione di spiegazione presuppone che lo script della pipeline in esecuzione restituisca una stima. Con questa tecnica di wrapping `azureml.interpret` , può supportare i modelli sottoposti a training tramite i Framework di apprendimento avanzato PyTorch, TensorFlow e keras, oltre ai modelli di apprendimento automatico classici.
+Le funzioni di spiegazione accettano sia i modelli sia le pipeline come input. Se viene fornito un modello, il modello deve implementare la funzione di stima `predict` o `predict_proba` conforme alla convenzione Scikit. Se il modello non supporta questa operazione, è possibile eseguire il wrapping del modello in una funzione che genera lo stesso risultato di `predict` o `predict_proba` in Scikit e utilizzare tale funzione wrapper con il Explainer selezionato. Se viene fornita una pipeline, la funzione di spiegazione presuppone che lo script della pipeline in esecuzione restituisca una stima. Con questa tecnica di wrapping, può supportare i modelli sottoposti a `azureml.interpret` training tramite i Framework di apprendimento avanzato PyTorch, TensorFlow e keras, oltre ai modelli di apprendimento automatico classici.
 
 ## <a name="local-and-remote-compute-target"></a>Destinazione di calcolo locale e remota
 

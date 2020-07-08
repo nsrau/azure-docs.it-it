@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601633"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
@@ -46,7 +46,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Abilitare i metodi di autenticazione per l'accesso tramite telefono senza password
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Cercare e selezionare *Azure Active Directory*. Selezionare i**Metodi** > di autenticazione di **sicurezza** > **criterio metodo di autenticazione (anteprima)**
+1. Cercare e selezionare *Azure Active Directory*. Selezionare i metodi di autenticazione di **sicurezza**  >  **Authentication methods**  >  **criterio metodo di autenticazione (anteprima)**
 1. In **accesso con telefono senza password**scegliere le opzioni seguenti
    1. **Abilita** -Sì o no
    1. **Destinazione** -tutti gli utenti o utenti selezionati
@@ -82,9 +82,9 @@ L'amministratore può scegliere di consentire all'utente di usare l'accesso tram
 
 ### <a name="ad-fs-integration"></a>Integrazione di AD FS
 
-Se un utente ha abilitato le credenziali senza password di Microsoft Authenticator, per impostazione predefinita l'autenticazione per l'utente invierà sempre una notifica di approvazione. Questa logica impedisce agli utenti di un tenant ibrido di essere indirizzati ad ADFS per la verifica dell'accesso senza che l'utente stia eseguendo un passaggio aggiuntivo per fare clic su "usa la password". Questo processo, inoltre, ignorerà eventuali criteri di accesso condizionale e flussi di autenticazione pass-through. 
+Se un utente ha abilitato le credenziali senza password di Microsoft Authenticator, per impostazione predefinita l'autenticazione per l'utente invierà sempre una notifica di approvazione. Questa logica impedisce agli utenti di un tenant ibrido di essere indirizzati a AD FS per la verifica dell'accesso senza che l'utente stia eseguendo un passaggio aggiuntivo per fare clic su "usa la password". Questo processo, inoltre, ignorerà eventuali criteri di accesso condizionale e flussi di autenticazione pass-through. 
 
-Se un utente dispone di una verifica di accesso tramite telefono senza password senza risposta in sospeso e tenta di accedere di nuovo, è possibile che l'utente venga immesso in ADFS per immettere una password.  
+Se un utente dispone di una verifica di accesso tramite telefono senza password senza risposta in sospeso e tenta di eseguire di nuovo l'accesso, è possibile che l'utente venga immesso AD FS per immettere una password.  
 
 ### <a name="azure-mfa-server"></a>Server di Azure MFA
 
@@ -103,7 +103,7 @@ Gli utenti finali soggetti a criteri che richiedono la gestione di applicazioni 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni sull'accesso senza password](concept-authentication-passwordless.md)
+[Informazioni sul funzionamento dell'autenticazione con password](concept-authentication-passwordless.md)
 
 [Informazioni sulla registrazione dei dispositivi](../devices/overview.md#getting-devices-in-azure-ad)
 

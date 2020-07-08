@@ -8,14 +8,14 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 96e37afd8bf7d59eef4a4c0c831f535faa36d34d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 06/27/2020
+ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681450"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601455"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,10 +51,12 @@ Per creare un nuovo notebook:
 1. Selezionare una directory di file.
 1. Selezionare **Create** (Crea).
 
-> [!TIP]
-> È anche possibile creare file di testo.  Selezionare **Text** (Testo) come tipo di file e aggiungere l'estensione al nome (ad esempio, myfile.py o myfile.txt)  
+È anche possibile creare file di testo.  Selezionare **Text** (Testo) come tipo di file e aggiungere l'estensione al nome (ad esempio, myfile.py o myfile.txt)  
 
 È anche possibile caricare cartelle e file, inclusi i notebook, con gli strumenti disponibili nella parte superiore della pagina Notebooks (Notebook).  I notebook e la maggior parte dei tipi di file di testo vengono visualizzati nella sezione di anteprima.  Non sono disponibili anteprime per la maggior parte degli altri tipi di file.
+
+> [!IMPORTANT]
+> Il contenuto di notebook e script può potenzialmente leggere i dati delle sessioni e accedere ai dati senza l'organizzazione in Azure.  Caricare solo file da origini attendibili. Per altre informazioni, vedere [procedure consigliate per il codice protetto](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
 
 ### <a name="clone-samples"></a>Clonare gli esempi
 
@@ -95,15 +97,37 @@ Copiare e incollare l'URL per condividere un notebook o un file.  Solo gli altri
 
 Per modificare un notebook, aprire un notebook nella sezione **User files** (File utente) dell'area di lavoro. Fare clic sulla cella che si vuole modificare. 
 
-Quando è in esecuzione un'istanza di calcolo, è anche possibile usare il completamento del codice di [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) in qualsiasi notebook Python.
+È possibile modificare il notebook senza connettersi a un'istanza di calcolo.  Quando si desidera eseguire le celle nel notebook, selezionare o creare un'istanza di calcolo.  Se si seleziona un'istanza di calcolo arrestata, questa verrà avviata automaticamente quando si esegue la prima cella.
+
+Quando un'istanza di calcolo è in esecuzione, è anche possibile usare il completamento del codice, alimentato da [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), in qualsiasi notebook di Python.
 
 È anche possibile avviare Jupyter o JupyterLab dalla barra degli strumenti del notebook.  Azure Machine Learning non offre aggiornamenti e correzioni di bug di Jupyter o JupyterLab poiché sono prodotti open source non coperti dal supporto tecnico Microsoft.
 
+### <a name="use-intellisense"></a>Usare IntelliSense
+
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) è un supporto per il completamento del codice che include numerose funzionalità: Elenca membri, informazioni sul parametro, informazioni rapide e completa parola. Queste funzionalità consentono di acquisire altre informazioni sul codice in uso, tengono traccia dei parametri che si digitano e aggiungono le chiamate a proprietà e metodi con poche sequenze di tasti.  
+
+Quando si digita il codice, premere CTRL + barra spaziatrice per attivare IntelliSense.
+
+### <a name="save-and-checkpoint-a-notebook"></a>Salvare e Checkpoint un notebook
+
+Azure Machine Learning crea un file del checkpoint quando si crea un file *ipynb*   .
+
+Nella barra degli strumenti del notebook selezionare il menu e quindi **file &gt; Salva e Checkpoint** per salvare manualmente il notebook. verrà aggiunto un file del checkpoint associato al notebook.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot dello strumento Salva nella barra degli strumenti del notebook":::
+
+Ogni notebook viene salvato in automatico ogni 30 secondi.Salvataggio automatico aggiorna solo il file *ipynb*iniziale   , non il file del checkpoint.
+ 
+Selezionare **Checkpoint** dal menu notebook per creare un checkpoint denominato e ripristinare il blocco appunti a un checkpoint salvato.
+
+
 ### <a name="useful-keyboard-shortcuts"></a>Tasti di scelta rapida
 
-|Tastiera  |Azione  |
+|Tastiera  |Action  |
 |---------|---------|
 |MAIUSC+INVIO     |  Eseguire una cella       |
+|CTRL+SPAZIO | Attiva IntelliSense |
 |CTRL+M (Windows)     |  Abilitare/disabilitare il trapping delle schede nel notebook.       |
 |CTRL+MAIUSC+M (Mac e Linux)     |    Abilitare/disabilitare il trapping tramite TAB nel notebook.     |
 |TAB (quando il trapping tramite TAB è abilitato) | Aggiungere un carattere '\t' (rientro)

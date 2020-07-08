@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati Cisco ad Azure Sentinel | Microsoft Docs
-description: Informazioni su come connettere i dati Cisco a Sentinel di Azure.
+description: Informazioni su come connettere il dispositivo Cisco ASA ad Azure Sentinel per visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 264dab4fabc890ffe03d911f8ee3c08ef51375d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8a64dd3e47384ba2bf7579f8052177252634622
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566035"
 ---
 # <a name="connect-cisco-asa-to-azure-sentinel"></a>Connettere Cisco ASA ad Azure Sentinel
 
@@ -38,9 +38,9 @@ Cisco ASA non supporta CEF, quindi i log vengono inviati come syslog e l'agente 
     - Impostare la **porta** su 514 o la porta impostata nell'agente.
     - Impostare **syslog_ip** sull'indirizzo IP dell'agente.
 
-1. Per utilizzare lo schema pertinente in Log Analytics per gli eventi Cisco, cercare `CommonSecurityLog`.
+1. Per utilizzare lo schema pertinente in Log Analytics per gli eventi Cisco, cercare `CommonSecurityLog` .
 
-1. Continuare con il [passaggio 3: convalidare la connettività](connect-cef-verify.md).
+1. Continuare con il [PASSAGGIO 3: Convalidare la connettività](connect-cef-verify.md).
 
 
 
@@ -49,6 +49,6 @@ Cisco ASA non supporta CEF, quindi i log vengono inviati come syslog e l'agente 
 In questo documento si è appreso come connettere Appliance Cisco ASA ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 
 

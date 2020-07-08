@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c227c6ab24d6b71445354d1b17d238e80bf6313
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 75e469b30632bb7e7e8f6445db78acda784ac5da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655857"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601276"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
@@ -64,10 +64,9 @@ Le distribuzioni di server Linux non approvate da Azure non supportano Crittogra
 | Canonical | Ubuntu 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | Disco del sistema operativo e dati |
 | Canonical | Ubuntu 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | Disco del sistema operativo e dati |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
-| RedHat | RHEL 7.7 | 7-RAW | RedHat:RHEL:7-RAW:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
-| RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
+| RedHat | RHEL 7.5 | 7,5 | RedHat:RHEL:7.5:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.3 | 7.3 | RedHat:RHEL:7.3:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
@@ -94,7 +93,7 @@ Le distribuzioni di server Linux non approvate da Azure non supportano Crittogra
 
 ## <a name="additional-vm-requirements"></a>Requisiti aggiuntivi delle macchine virtuali
 
-Crittografia dischi di Azure richiede la presenza nel sistema dei moduli dm-crypt e vfat. La rimozione o la disabilitazione di vfat dall'immagine predefinita impedirà al sistema di leggere la chiave del volume e ottenere quella necessaria per sbloccare i dischi ai successivi riavvii. I passaggi per la protezione avanzata dei sistemi che rimuovono il modulo vfat dal sistema non sono compatibili con Crittografia dischi di Azure. 
+Crittografia dischi di Azure richiede la presenza nel sistema dei moduli dm-crypt e vfat. La rimozione o la disabilitazione di vfat dall'immagine predefinita impedirà al sistema di leggere la chiave del volume e ottenere quella necessaria per sbloccare i dischi ai successivi riavvii. I passaggi per la protezione avanzata del sistema che rimuovono il modulo VFAT dal sistema o applicano l'espansione delle montaggio/cartelle del sistema operativo nelle unità dati non sono compatibili con crittografia dischi di Azure. 
 
 Prima di abilitare la crittografia, i dischi dati da crittografare devono essere elencati correttamente in /etc/fstab. Durante la creazione delle voci usare l'opzione "nofail" e scegliere un nome di dispositivo a blocchi permanente. I nomi di dispositivo nel formato "/dev/sdX" potrebbero infatti non essere associati allo stesso disco nei vari riavvii, in particolare dopo la crittografia. Per altre informazioni su questo comportamento, vedere [Risolvere il problema dei cambi di nome dei dispositivi nelle macchine virtuali Linux](troubleshoot-device-names-problems.md).
 
