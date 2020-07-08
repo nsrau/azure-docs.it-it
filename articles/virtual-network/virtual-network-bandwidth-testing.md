@@ -14,6 +14,7 @@ ms.date: 07/21/2017
 ms.author: steveesp
 ms.openlocfilehash: 964b0bd543e887cce304d785d18a651f50bd4c45
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708247"

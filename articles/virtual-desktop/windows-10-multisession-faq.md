@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d6aa1fc1e5978f59fc01dd41a89800629fa60ded
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735099"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Domande frequenti su Windows 10 Enterprise multisessione
 
@@ -53,7 +53,7 @@ La multisessione Enterprise di Windows 10 è attualmente supportata come ibrido 
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Dove è possibile trovare l'immagine multisessione di Windows 10 Enterprise?
 
-La funzionalità multisessione di Windows 10 Enterprise è presente nella raccolta di Azure. Per trovarlo, passare alla portale di Azure e cercare la versione Windows 10 Enterprise per desktop virtuali. Per un'immagine integrata con Office Pro Plus, passare alla portale di Azure e cercare Microsoft Windows 10 + Office 365 ProPlus.
+La funzionalità multisessione di Windows 10 Enterprise è presente nella raccolta di Azure. Per trovarlo, passare alla portale di Azure e cercare la versione Windows 10 Enterprise per desktop virtuali. Per un'immagine integrata con Microsoft 365 app per Enterprise, passare al portale di Azure e cercare **Microsoft Windows 10 + Microsoft 365 app per Enterprise**.
 
 ## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>Quale immagine di Windows 10 Enterprise per più sessioni è consigliabile usare?
 
@@ -92,7 +92,7 @@ La maggior parte degli ambienti virtualizzati viene configurata per impostazione
 Per disabilitare l'app dello Store:
 
 1. Creare una nuova Criteri di gruppo.
-2. Selezionare **configurazione** > **computer modelli amministrativi** > **componenti di Windows**.
+2. Selezionare **Configurazione computer**  >  **modelli amministrativi**  >  **componenti di Windows**.
 3. Selezionare **Store**.
 4. Selezionare **Store Application**.
 5. Selezionare **disabilitato**, quindi fare clic su **OK**.

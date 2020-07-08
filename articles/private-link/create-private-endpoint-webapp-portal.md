@@ -1,19 +1,19 @@
 ---
-title: Connettersi privatamente a un'app Web usando un endpoint privato di Azure
-description: Connettersi privatamente a un'app Web usando un endpoint privato di Azure
+title: Connettersi in privato a un'app Web usando un endpoint privato di Azure
+description: Connettersi in privato a un'app Web usando un endpoint privato di Azure
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
-ms.topic: article
-ms.date: 03/12/2020
+ms.topic: how-to
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 2f10c7378ae7681b14df6e96b6a6f1adac832d1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80287816"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737394"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Connettersi privatamente a un'app Web usando l'endpoint privato di Azure (anteprima)
 
@@ -23,7 +23,7 @@ In questa Guida introduttiva si apprenderà come distribuire un'app Web con un e
 Per altre informazioni, vedere [uso di endpoint privati per l'app Web di Azure][privatenedpointwebapp].
 
 > [!Note]
->L'anteprima è disponibile nelle aree Stati Uniti orientali e Stati Uniti occidentali 2 per tutte le app Web PremiumV2 Windows e Linux. 
+>L'anteprima è disponibile nelle aree pubbliche per le app Web PremiumV2 Windows e Linux e le funzioni Premium elastiche. 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -37,7 +37,7 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
 
 Questa sezione illustra come creare una rete virtuale e una subnet.
 
-1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa** > **Networking** > rete**rete virtuale** o Cerca **rete virtuale** nella casella di ricerca.
+1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **rete**  >  **rete virtuale** o Cerca **rete virtuale** nella casella di ricerca.
 
 1. In **Crea rete virtuale**immettere o selezionare queste informazioni nella scheda nozioni di base:
 
@@ -60,7 +60,7 @@ Questa sezione illustra come creare una rete virtuale e una subnet.
 
 ### <a name="create-virtual-machine"></a>Creare macchina virtuale
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale**
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa**  >  **calcolo**  >  **macchina virtuale**
 
 1. In Creare una macchina virtuale - Informazioni di base, immettere o selezionare queste informazioni:
 
@@ -89,7 +89,7 @@ In questa sezione si creerà un'app Web privata con un endpoint privato.
 
 ### <a name="web-app"></a>App Web
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **Web** > Web**app** Web
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa**Web  >  **Web**  >  **app** Web
 
 1. In Crea app Web-Nozioni di base immettere o selezionare queste informazioni:
 
@@ -102,7 +102,7 @@ In questa sezione si creerà un'app Web privata con un endpoint privato.
 
 ### <a name="create-the-private-endpoint"></a>Creare l'endpoint privato
 
-1. Nelle proprietà dell'app Web selezionare **Impostazioni** > **rete** e fare clic su **"Configura connessioni endpoint privato"** .
+1. Nelle proprietà dell'app Web selezionare **Impostazioni**  >  **rete** e fare clic su **"Configura connessioni endpoint privato"** .
 
    > [!div class="mx-imgBorder"]
    >![Rete di app Web][7]
@@ -120,8 +120,8 @@ In questa sezione si creerà un'app Web privata con un endpoint privato.
 1. Esaminare la creazione dell'endpoint privato
 
    > [!div class="mx-imgBorder"]
-   >![Esaminare][10]
-   >![la visualizzazione finale dell'endpoint privato][11]
+   >![Esaminare ][10]
+   > ![ la visualizzazione finale dell'endpoint privato][11]
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
@@ -174,7 +174,7 @@ In questa sezione si effettuerà la connessione privata all'app Web usando l'end
 1. In myVM verificare che l'app Web non sia accessibile tramite l'indirizzo IP pubblico. Aprire un browser e incollare il nome dell'app Web. è necessario disporre di una pagina di errore 403-accesso negato
 
    > [!div class="mx-imgBorder"]
-   >![Accesso negato][17]
+   >![Non consentito][17]
 
 > [!Important]
 > Poiché questa funzionalità è in anteprima, è necessario gestire manualmente la voce DNS.

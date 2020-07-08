@@ -11,18 +11,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 81eec19cb4af3a6b668bbfc26105085b4eec2a19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d43c12681c7230dc4959261ffd6d96f74ea095d7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734725"
 ---
-# <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito di Servizi di dominio Azure AD
+# <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito Azure Active Directory Domain Services
 
-Per consentire agli utenti di accedere a macchine virtuali (VM) in Azure usando un unico set di credenziali, è possibile aggiungere macchine virtuali a un dominio gestito di Azure Active Directory Domain Services (AD DS). Quando si aggiunge una macchina virtuale a un dominio gestito di Azure AD DS, è possibile usare gli account utente e le credenziali del dominio per l'accesso e la gestione dei server. Vengono inoltre applicate le appartenenze ai gruppi dal dominio gestito Azure AD DS per consentire il controllo dell'accesso ai file o ai servizi nella macchina virtuale.
+Per consentire agli utenti di accedere a macchine virtuali (VM) in Azure usando un unico set di credenziali, è possibile aggiungere macchine virtuali a un dominio gestito di Azure Active Directory Domain Services (Azure AD DS). Quando si aggiunge una macchina virtuale a un dominio gestito di Azure AD DS, è possibile usare gli account utente e le credenziali del dominio per l'accesso e la gestione dei server. Le appartenenze ai gruppi dal dominio gestito vengono applicate anche per consentire di controllare l'accesso ai file o ai servizi nella macchina virtuale.
 
-Questo articolo illustra come aggiungere una macchina virtuale Red Hat Enterprise Linux (RHEL) a un dominio gestito di Azure AD DS.
+Questo articolo illustra come aggiungere una macchina virtuale Red Hat Enterprise Linux (RHEL) a un dominio gestito.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,8 +33,8 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
-    * Se necessario, seguire la prima esercitazione per [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Un account utente che fa parte del dominio gestito di Azure AD DS.
+    * Se necessario, seguire la prima esercitazione per [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Un account utente che fa parte del dominio gestito.
 
 ## <a name="create-and-connect-to-a-rhel-linux-vm"></a>Creare e connettersi a una macchina virtuale RHEL Linux
 
@@ -46,10 +46,10 @@ Se è necessario creare una macchina virtuale RHEL Linux o si vuole creare una m
 * [Interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-Quando si crea la VM, prestare attenzione alle impostazioni della rete virtuale per assicurarsi che la macchina virtuale sia in grado di comunicare con il dominio gestito di Azure AD DS:
+Quando si crea la VM, prestare attenzione alle impostazioni della rete virtuale per assicurarsi che la macchina virtuale sia in grado di comunicare con il dominio gestito:
 
 * Distribuire la macchina virtuale nella stessa rete virtuale con peering, in cui è stata abilitata Azure AD Domain Services.
-* Distribuire la macchina virtuale in una subnet diversa da quella dell'istanza di Azure AD Domain Services.
+* Distribuire la macchina virtuale in una subnet diversa da quella Azure AD Domain Services dominio gestito.
 
 Dopo aver distribuito la macchina virtuale, seguire la procedura per connettersi alla macchina virtuale tramite SSH.
 
@@ -63,7 +63,7 @@ sudo vi /etc/hosts
 
 Nel file *host* aggiornare l'indirizzo *localhost* . Nell'esempio seguente:
 
-* *aaddscontoso.com* è il nome di dominio DNS del dominio gestito di Azure AD DS.
+* *aaddscontoso.com* è il nome di dominio DNS del dominio gestito.
 * *RHEL* è il nome host della macchina virtuale RHEL che si sta aggiungendo al dominio gestito.
 
 Aggiornare questi nomi con valori personalizzati:
@@ -76,7 +76,7 @@ Al termine, salvare e chiudere il file *host* usando il `:wq` comando dell'edito
 
 ## <a name="install-required-packages"></a>Installare i pacchetti necessari
 
-La VM necessita di alcuni pacchetti aggiuntivi per aggiungere la macchina virtuale al dominio gestito di Azure AD DS. Per installare e configurare questi pacchetti, aggiornare e installare gli strumenti di aggiunta al dominio `yum`usando. Esistono alcune differenze tra RHEL 7. x e RHEL 6. x, quindi usare i comandi appropriati per la versione della distribuzione nelle sezioni rimanenti di questo articolo.
+La VM necessita di alcuni pacchetti aggiuntivi per aggiungere la macchina virtuale al dominio gestito. Per installare e configurare questi pacchetti, aggiornare e installare gli strumenti di aggiunta al dominio usando `yum` . Esistono alcune differenze tra RHEL 7. x e RHEL 6. x, quindi usare i comandi appropriati per la versione della distribuzione nelle sezioni rimanenti di questo articolo.
 
 **RHEL 7**
 
@@ -92,37 +92,37 @@ sudo yum install adcli sssd authconfig krb5-workstation
 
 ## <a name="join-vm-to-the-managed-domain"></a>Aggiungere una macchina virtuale al dominio gestito
 
-Ora che i pacchetti necessari sono installati nella macchina virtuale, aggiungere la macchina virtuale al dominio gestito di Azure AD DS. Anche in questo caso, usare la procedura appropriata per la versione di RHEL distro.
+Ora che i pacchetti necessari sono installati nella macchina virtuale, aggiungere la macchina virtuale al dominio gestito. Anche in questo caso, usare la procedura appropriata per la versione di RHEL distro.
 
 ### <a name="rhel-7"></a>RHEL 7
 
-1. Usare il `realm discover` comando per individuare il dominio gestito di Azure AD DS. Nell'esempio seguente viene individuato il *AADDSCONTOSO.com*dell'area di autenticazione. Specificare il proprio nome di dominio gestito di Azure AD DS in tutte le lettere maiuscole:
+1. Usare il `realm discover` comando per individuare il dominio gestito. Nell'esempio seguente viene individuato il *AADDSCONTOSO.com*dell'area di autenticazione. Specificare il nome di dominio gestito in lettere maiuscole:
 
     ```console
     sudo realm discover AADDSCONTOSO.COM
     ```
 
-   Se il `realm discover` comando non riesce a trovare il dominio gestito di Azure AD DS, esaminare i passaggi per la risoluzione dei problemi seguenti:
+   Se il `realm discover` comando non riesce a trovare il dominio gestito, esaminare i passaggi seguenti per la risoluzione dei problemi:
 
     * Verificare che il dominio sia raggiungibile dalla macchina virtuale. Provare `ping aaddscontoso.com` a verificare se viene restituita una risposta positiva.
-    * Verificare che la macchina virtuale sia distribuita nello stesso o in una rete virtuale con peering in cui è disponibile il dominio gestito di Azure AD DS.
-    * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate in modo che puntino ai controller di dominio del dominio gestito Azure AD DS.
+    * Verificare che la macchina virtuale sia distribuita nello stesso o in una rete virtuale con peering in cui è disponibile il dominio gestito.
+    * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate in modo che puntino ai controller di dominio del dominio gestito.
 
-1. A questo punto, inizializzare Kerberos usando il `kinit` comando. Specificare un utente che fa parte del dominio gestito di Azure AD DS. Se necessario, [aggiungere un account utente a un gruppo in Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. A questo punto, inizializzare Kerberos usando il `kinit` comando. Specificare un utente che fa parte del dominio gestito. Se necessario, [aggiungere un account utente a un gruppo in Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Anche in questo caso, è necessario immettere il nome di dominio gestito Azure AD DS in tutti i caratteri maiuscoli. Nell'esempio seguente viene usato l'account denominato `contosoadmin@aaddscontoso.com` per inizializzare Kerberos. Immettere il proprio account utente che fa parte del dominio gestito di Azure AD DS:
+    Anche in questo caso, il nome di dominio gestito deve essere specificato in MAIUSCOLo. Nell'esempio seguente viene usato l'account denominato `contosoadmin@aaddscontoso.com` per inizializzare Kerberos. Immettere il proprio account utente che fa parte del dominio gestito:
 
     ```console
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Aggiungere infine il computer al dominio gestito di Azure AD DS usando il `realm join` comando. Usare lo stesso account utente che fa parte del dominio gestito Azure AD DS specificato nel comando precedente `kinit` , ad esempio: `contosoadmin@AADDSCONTOSO.COM`
+1. Infine, aggiungere il computer al dominio gestito utilizzando il `realm join` comando. Usare lo stesso account utente che fa parte del dominio gestito specificato nel `kinit` comando precedente, ad esempio `contosoadmin@AADDSCONTOSO.COM` :
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
     ```
 
-Per aggiungere la macchina virtuale al dominio gestito di Azure AD DS sono necessari alcuni minuti. L'output di esempio seguente mostra che la macchina virtuale è stata aggiunta correttamente al dominio gestito di Azure AD DS:
+Sono necessari alcuni istanti per aggiungere la macchina virtuale al dominio gestito. L'output di esempio seguente mostra che la macchina virtuale è stata aggiunta correttamente al dominio gestito:
 
 ```output
 Successfully enrolled machine in realm
@@ -130,19 +130,19 @@ Successfully enrolled machine in realm
 
 ### <a name="rhel-6"></a>RHEL 6
 
-1. Usare il `adcli info` comando per individuare il dominio gestito di Azure AD DS. Nell'esempio seguente viene individuato il *ADDDSCONTOSO.com*dell'area di autenticazione. Specificare il proprio nome di dominio gestito di Azure AD DS in tutte le lettere maiuscole:
+1. Usare il `adcli info` comando per individuare il dominio gestito. Nell'esempio seguente viene individuato il *ADDDSCONTOSO.com*dell'area di autenticazione. Specificare il nome di dominio gestito in lettere maiuscole:
 
     ```console
     sudo adcli info aaddscontoso.com
     ```
 
-   Se il `adcli info` comando non riesce a trovare il dominio gestito di Azure AD DS, esaminare i passaggi per la risoluzione dei problemi seguenti:
+   Se il `adcli info` comando non riesce a trovare il dominio gestito, esaminare i passaggi seguenti per la risoluzione dei problemi:
 
     * Verificare che il dominio sia raggiungibile dalla macchina virtuale. Provare `ping aaddscontoso.com` a verificare se viene restituita una risposta positiva.
-    * Verificare che la macchina virtuale sia distribuita nello stesso o in una rete virtuale con peering in cui è disponibile il dominio gestito di Azure AD DS.
-    * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate in modo che puntino ai controller di dominio del dominio gestito Azure AD DS.
+    * Verificare che la macchina virtuale sia distribuita nello stesso o in una rete virtuale con peering in cui è disponibile il dominio gestito.
+    * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate in modo che puntino ai controller di dominio del dominio gestito.
 
-1. Per prima cosa, aggiungere il dominio `adcli join` usando il comando. questo comando creerà anche il keytab per autenticare il computer. Usare un account utente che fa parte del dominio gestito di Azure AD DS.
+1. Per prima cosa, aggiungere il dominio usando il `adcli join` comando. questo comando creerà anche il keytab per autenticare il computer. Usare un account utente che fa parte del dominio gestito.
 
     ```console
     sudo adcli join aaddscontoso.com -U contosoadmin
@@ -223,7 +223,7 @@ Successfully enrolled machine in realm
     sudo chkconfig sssd on
     ```
 
-Se la macchina virtuale non riesce a completare il processo di aggiunta al dominio, verificare che il gruppo di sicurezza di rete della macchina virtuale consenta il traffico Kerberos in uscita sulla porta TCP + UDP 464 alla subnet della rete virtuale per il dominio gestito di Azure AD DS.
+Se la macchina virtuale non riesce a completare il processo di aggiunta al dominio, verificare che il gruppo di sicurezza di rete della macchina virtuale consenta il traffico Kerberos in uscita sulla porta TCP + UDP 464 alla subnet della rete virtuale per il dominio gestito.
 
 A questo punto, verificare se è possibile eseguire query sulle informazioni sull'utente usando`getent`
 
@@ -233,7 +233,7 @@ sudo getent passwd contosoadmin
 
 ## <a name="allow-password-authentication-for-ssh"></a>Consenti l'autenticazione tramite password per SSH
 
-Per impostazione predefinita, gli utenti possono accedere a una VM solo usando l'autenticazione basata su chiave pubblica SSH. L'autenticazione basata su password ha esito negativo. Quando si aggiunge la macchina virtuale a un dominio gestito Azure AD DS, gli account di dominio devono usare l'autenticazione basata su password. Aggiornare la configurazione SSH per consentire l'autenticazione basata su password, come indicato di seguito.
+Per impostazione predefinita, gli utenti possono accedere a una VM solo usando l'autenticazione basata su chiave pubblica SSH. L'autenticazione basata su password ha esito negativo. Quando si aggiunge la macchina virtuale a un dominio gestito, è necessario che gli account di dominio usino l'autenticazione basata su password. Aggiornare la configurazione SSH per consentire l'autenticazione basata su password, come indicato di seguito.
 
 1. Aprire il file di *sshd_conf* con un editor:
 
@@ -247,7 +247,7 @@ Per impostazione predefinita, gli utenti possono accedere a una VM solo usando l
     PasswordAuthentication yes
     ```
 
-    Al termine, salvare e chiudere il file di *sshd_conf* usando `:wq` il comando dell'editor.
+    Al termine, salvare e chiudere il file di *sshd_conf* usando il `:wq` comando dell'editor.
 
 1. Per applicare le modifiche e consentire agli utenti di accedere con una password, riavviare il servizio SSH per la versione di RHEL distro:
 
@@ -265,7 +265,7 @@ Per impostazione predefinita, gli utenti possono accedere a una VM solo usando l
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Concedere i privilegi sudo al gruppo "Amministratori di AAD DC"
 
-Per concedere ai membri degli *amministratori di AAD DC* i privilegi amministrativi per la VM RHEL, è necessario aggiungere una voce a */etc/sudoers*. Una volta aggiunti, i membri del gruppo *AAD DC Administrators* possono usare `sudo` il comando nella macchina virtuale RHEL.
+Per concedere ai membri degli *amministratori di AAD DC* i privilegi amministrativi per la VM RHEL, è necessario aggiungere una voce a */etc/sudoers*. Una volta aggiunti, i membri del gruppo *AAD DC Administrators* possono usare il `sudo` comando nella macchina virtuale RHEL.
 
 1. Aprire il file *sudoers* per la modifica:
 
@@ -284,7 +284,7 @@ Per concedere ai membri degli *amministratori di AAD DC* i privilegi amministrat
 
 ## <a name="sign-in-to-the-vm-using-a-domain-account"></a>Accedere alla macchina virtuale usando un account di dominio
 
-Per verificare che la macchina virtuale sia stata aggiunta correttamente al dominio gestito di Azure AD DS, avviare una nuova connessione SSH usando un account utente di dominio. Verificare che sia stata creata una home directory e che sia stata applicata l'appartenenza al gruppo dal dominio.
+Per verificare che la macchina virtuale sia stata aggiunta correttamente al dominio gestito, avviare una nuova connessione SSH usando un account utente di dominio. Verificare che sia stata creata una home directory e che sia stata applicata l'appartenenza al gruppo dal dominio.
 
 1. Creare una nuova connessione SSH dalla console di. Usare un account di dominio appartenente al dominio gestito usando il `ssh -l` comando, ad esempio `contosoadmin@aaddscontoso.com` e quindi immettere l'indirizzo della macchina virtuale, ad esempio *RHEL.aaddscontoso.com*. Se si usa la Azure Cloud Shell, usare l'indirizzo IP pubblico della macchina virtuale anziché il nome DNS interno.
 
@@ -306,9 +306,9 @@ Per verificare che la macchina virtuale sia stata aggiunta correttamente al domi
     id
     ```
 
-    Le appartenenze ai gruppi verranno visualizzate dal dominio gestito di Azure AD DS.
+    Le appartenenze a gruppi verranno visualizzate dal dominio gestito.
 
-1. Se è stato effettuato l'accesso alla macchina virtuale come membro del gruppo di *amministratori di AAD DC* , verificare che sia possibile usare `sudo` correttamente il comando:
+1. Se è stato effettuato l'accesso alla macchina virtuale come membro del gruppo di *amministratori di AAD DC* , verificare che sia possibile usare correttamente il `sudo` comando:
 
     ```console
     sudo yum update
@@ -316,7 +316,7 @@ Per verificare che la macchina virtuale sia stata aggiunta correttamente al domi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si verificano problemi durante la connessione della macchina virtuale al dominio gestito di Azure AD DS o l'accesso con un account di dominio, vedere [risoluzione dei](join-windows-vm.md#troubleshoot-domain-join-issues)problemi di aggiunta a un dominio.
+Se si verificano problemi durante la connessione della macchina virtuale al dominio gestito o l'accesso con un account di dominio, vedere [risoluzione dei](join-windows-vm.md#troubleshoot-domain-join-issues)problemi di aggiunta a un dominio.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

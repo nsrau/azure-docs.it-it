@@ -8,17 +8,17 @@ author: damendo
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738057"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
 
@@ -120,7 +120,7 @@ Per usare i cmdlet PowerShell di Network Watcher, caricare il modulo PowerShell 
 
      ![Cartelle di PowerShell][functions5]
 
-1. Selezionare **impostazioni dell'app** > **per le funzioni vai a editor del servizio app**.
+1. Selezionare **impostazioni dell'app per le funzioni**  >  **Vai a editor del servizio app**.
 
     ![Impostazioni dell'app per le funzioni][functions2]
 
@@ -148,7 +148,7 @@ Per usare i cmdlet PowerShell di Network Watcher, caricare il modulo PowerShell 
 
     ![File di PowerShell][functions7]
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 Per usare i cmdlet PowerShell, è necessario eseguire l'autenticazione, L'autenticazione viene configurata nell'app per le funzioni. Per configurare l'autenticazione è necessario definire le variabili di ambiente e caricare un file di chiave crittografata nell'app per le funzioni.
 
@@ -246,13 +246,13 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>Archiviare le variabili di ambiente
 
-1. Passare all'app per le funzioni. Selezionare quindi **impostazioni app per le** > funzioni**Configura impostazioni app**.
+1. Passare all'app per le funzioni. Selezionare quindi **impostazioni app per le funzioni**  >  **Configura impostazioni app**.
 
     ![Configurare le impostazioni applicazione][functions11]
 
 1. Aggiungere le variabili di ambiente e i relativi valori alle impostazioni dell'app e quindi fare clic su **Salva**.
 
-    ![Impostazioni delle app][functions12]
+    ![Impostazioni app][functions12]
 
 ### <a name="add-powershell-to-the-function"></a>Aggiunta di PowerShell alla funzione
 
@@ -350,7 +350,7 @@ Passare a una macchina virtuale esistente, quindi aggiungere una regola di avvis
   |**Condizione**|Maggiore di| La condizione da utilizzare per valutare la metrica.|
   |**Soglia**|100| Valore della metrica che attiva l'avviso. Deve trattarsi di un valore valido per l'ambiente in uso.|
   |**Periodo**|Negli ultimi cinque minuti| Determina il periodo in cui cercare la soglia per la metrica.|
-  |**Webhook**|[URL webhook dell'app per le funzioni]| URL webhook dall'app per le funzioni creata nei passaggi precedenti.|
+  |**webhook**|[URL webhook dell'app per le funzioni]| URL webhook dall'app per le funzioni creata nei passaggi precedenti.|
 
 > [!NOTE]
 > La metrica di segmenti TCP non è abilitata per impostazione predefinita. Per altre informazioni su come abilitare metriche aggiuntive, vedere [Abilitare il monitoraggio e la diagnostica](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
@@ -367,7 +367,7 @@ Per istruzioni relative al download di file dagli account di archiviazione di Az
 
 Dopo il download dell'acquisizione, è possibile visualizzarla con qualsiasi strumento per la lettura di un file **.cap**. Di seguito i collegamenti a due di questi strumenti:
 
-- [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
+- [Analizzatore messaggi Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Passaggi successivi

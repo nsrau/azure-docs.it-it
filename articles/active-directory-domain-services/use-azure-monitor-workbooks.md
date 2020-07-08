@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: iainfou
-ms.openlocfilehash: bdfc7d37d99dc5511f47e33d1848c3f142a9693e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654462"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84733399"
 ---
-# <a name="review-security-audit-events-in-azure-ad-domain-services-using-azure-monitor-workbooks"></a>Esaminare gli eventi di controllo di sicurezza in Azure AD Domain Services usando le cartelle di lavoro di monitoraggio di Azure
+# <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Esaminare gli eventi di controllo di sicurezza in Azure Active Directory Domain Services usando le cartelle di lavoro di monitoraggio di Azure
 
 Per comprendere lo stato del dominio gestito di Azure Active Directory Domain Services (Azure AD DS), è possibile abilitare gli eventi di controllo di sicurezza. Questi eventi di controllo di sicurezza possono essere quindi esaminati usando le cartelle di lavoro di monitoraggio di Azure che combinano testo, query di analisi e parametri in report interattivi avanzati. Azure AD DS include modelli di cartella di lavoro per la panoramica della sicurezza e l'attività dell'account che consentono di analizzare gli eventi di controllo e di gestire l'ambiente.
 
@@ -24,14 +24,14 @@ Questo articolo illustra come usare le cartelle di lavoro di monitoraggio di Azu
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare questo articolo, sono necessari i privilegi e le risorse seguenti:
+Per completare le procedure descritte in questo articolo, sono necessari i privilegi e le risorse seguenti:
 
 * Una sottoscrizione di Azure attiva.
     * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
-    * Se necessario, completare l'esercitazione per [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessario, completare l'esercitazione per [creare e configurare un Azure Active Directory Domain Services dominio gestito][create-azure-ad-ds-instance].
 * Eventi del controllo di sicurezza abilitati per il dominio gestito Azure Active Directory Domain Services che trasmettono i dati in un'area di lavoro Log Analytics.
     * Se necessario, [abilitare i controlli di sicurezza per Azure Active Directory Domain Services][enable-security-audits].
 

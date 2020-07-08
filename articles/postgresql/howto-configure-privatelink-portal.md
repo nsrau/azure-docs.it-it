@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 72dcf95c8ae8d8da34532fa96e3bf0371f5112fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40e30d4011a52342c6fb610b19f70c8523a0331f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736714"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo con il portale
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato.  Questo articolo illustra come usare la portale di Azure per creare una VM in una rete virtuale di Azure e un singolo server di database di Azure per PostgreSQL con un endpoint privato di Azure.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > Questa funzionalità è disponibile in tutte le aree di Azure in cui il server singolo database di Azure per PostgreSQL supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
@@ -32,7 +32,7 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la VM usata per accedere alla risorsa Collegamento privato.
 
-1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa** > **Networking** > **rete rete virtuale**.
+1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
 2. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
@@ -41,7 +41,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Percorso | Selezionare **Europa occidentale**.|
+    | Location | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
@@ -95,11 +95,15 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
+> [!NOTE]
+> In alcuni casi, Database di Azure per PostgreSQL e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
+> - Assicurarsi che per entrambe le sottoscrizioni sia registrato il provider di risorse **Microsoft. DBforPostgreSQL** . Per altre informazioni, fare riferimento a [resource-manager-registration][resource-manager-portal].
+
 ## <a name="create-an-azure-database-for-postgresql-single-server"></a>Creare un server singolo per database di Azure per PostgreSQL
 
 In questa sezione verrà creato un database di Azure per il server PostgreSQL in Azure. 
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **Databases** > database di**Azure per PostgreSQL**.
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa**database di  >  **Databases**  >  **Azure per PostgreSQL**.
 
 1. Nell' **opzione di distribuzione database di Azure per PostgreSQL**selezionare **server singolo** e specificare le informazioni seguenti:
 
@@ -126,7 +130,7 @@ In questa sezione verrà creato un database di Azure per il server PostgreSQL in
 
 In questa sezione si creerà un server PostgreSQL a cui verrà aggiunto un endpoint privato. 
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **rete** > **privato collegamento**.
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa**  >  **rete**  >  **privato collegamento**.
 2. In **Centro collegamento privato - Informazioni generali** selezionare **Avvia** per l'opzione **Crea una connessione privata a un servizio**.
 
     ![Panoramica sul collegamento privato](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
@@ -154,7 +158,7 @@ In questa sezione si creerà un server PostgreSQL a cui verrà aggiunto un endpo
     |Sottorisorsa di destinazione |Seleziona *postgresqlServer*|
     |||
 7. Selezionare **Avanti: Configurazione**.
-8. In **Crea un endpoint privato-configurazione**immettere o selezionare queste informazioni:
+8. In **Crea un endpoint privato - Configurazione** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
@@ -165,6 +169,9 @@ In questa sezione si creerà un server PostgreSQL a cui verrà aggiunto un endpo
     |Integra con la zona DNS privato |Selezionare **Sì**. |
     |Zona DNS privato |Select *(nuovo) privatelink. postgres. database. Azure. com* |
     |||
+
+    > [!Note] 
+    > Usare la zona DNS privata predefinita per il servizio o specificare il nome della zona DNS preferita. Per informazioni dettagliate, vedere la [configurazione della zona DNS dei servizi di Azure](../private-link/private-endpoint-dns.md) .
 
 1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
 2. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**. 
@@ -223,7 +230,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
     | ------- | ----- |
     | Tipo di server| Selezionare **PostgreSQL**.|
     | Nome server| Seleziona *mydemopostgresserver.privatelink.postgres.database.Azure.com* |
-    | Nome utente | Immettere username ( username@servername nome utente) come specificato durante la creazione del server PostgreSQL. |
+    | Nome utente | Immettere username (nome utente) come username@servername specificato durante la creazione del server PostgreSQL. |
     |Password |Immettere una password specificata durante la creazione del server PostgreSQL. |
     |SSL|Selezionare **required**.|
     ||
@@ -236,13 +243,16 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 
 8. Chiudere la connessione Desktop remoto a myVm.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 Al termine dell'uso dell'endpoint privato, del server PostgreSQL e della macchina virtuale, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 
-1. Immettere *myResourceGroup* nella casella di **ricerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca.
+1. Immettere *myResourceGroup*   nella casella di **ricerca** nella parte superiore del portale e selezionare *myResourceGroup*nei   Risultati della ricerca.
 2. Selezionare **Elimina gruppo di risorse**.
 3. Immettere myResourceGroup per **digitare il nome del gruppo di risorse** e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa procedura è stata creata una VM in una rete virtuale, un database di Azure per PostgreSQL-server singolo e un endpoint privato per l'accesso privato. È stata effettuata la connessione a una VM da Internet e la comunicazione protetta con il server PostgreSQL è stata effettuata tramite un collegamento privato. Per altre informazioni sugli endpoint privati, vedere [che cos'è endpoint privato di Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

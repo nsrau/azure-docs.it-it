@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 92b3fd2453a4fb121c97f8f25f1d3ca129826092
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4a9081b3d3c1c925efb4cc80201e6154752dc628
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734776"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
@@ -58,6 +58,8 @@ Sì. Per altre informazioni, vedere [How to enable Azure ad Domain Services in A
 ### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>È possibile abilitare Azure AD Domain Services in una directory di Azure AD federata? Gli hash delle password non vengono sincronizzati in Azure AD. È possibile abilitare Azure AD Domain Services per questa directory?
 No. Per autenticare gli utenti tramite NTLM o Kerberos, Azure AD Domain Services necessario accedere agli hash delle password degli account utente. In una directory federata gli hash delle password non vengono archiviati nella directory Azure AD. Pertanto, Azure AD Domain Services non funziona con tali directory di Azure AD.
 
+Tuttavia, se si usa Azure AD Connect per la sincronizzazione dell'hash delle password, è possibile usare Azure AD Domain Services perché i valori hash della password sono archiviati in Azure AD.
+
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>È possibile rendere disponibile Servizi di dominio Azure AD in più reti virtuali all'interno della sottoscrizione?
 Il servizio stesso non supporta direttamente questo scenario. Il dominio gestito è disponibile in una sola rete virtuale alla volta. Tuttavia, è possibile configurare la connettività tra più reti virtuali per esporre Azure AD Domain Services ad altre reti virtuali. Per altre informazioni, vedere [come connettere reti virtuali in Azure tramite gateway VPN](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) o [peering di rete virtuale](../virtual-network/virtual-network-peering-overview.md).
 
@@ -74,7 +76,7 @@ No. Il dominio fornito da Servizi di dominio Azure Active Directory è un domini
 No. Gli utenti guest invitati a una directory di Azure AD tramite la procedura di invito [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) vengono sincronizzati nel dominio gestito di Azure AD Domain Services. Tuttavia, le password per questi utenti non vengono archiviate nella directory Azure AD. Pertanto, Azure AD Domain Services non è in grado di sincronizzare gli hash NTLM e Kerberos per questi utenti nel dominio gestito. Tali utenti non possono accedere o aggiungere computer al dominio gestito.
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>È possibile spostare un dominio gestito Azure AD Domain Services esistente in una sottoscrizione, un gruppo di risorse, un'area o una rete virtuale diversi?
-No. Dopo aver creato un Azure AD Domain Services dominio gestito, non è possibile spostare l'istanza di in un gruppo di risorse, una rete virtuale, una sottoscrizione e così via. Quando si distribuisce l'istanza di Azure AD DS, prestare attenzione a selezionare la sottoscrizione, il gruppo di risorse, l'area e la rete virtuale più appropriati.
+No. Dopo aver creato un Azure AD Domain Services dominio gestito, non è possibile spostare il dominio gestito in un gruppo di risorse, una rete virtuale, una sottoscrizione e così via. Quando si distribuisce il dominio gestito, prestare attenzione a selezionare la sottoscrizione, il gruppo di risorse, l'area e la rete virtuale più appropriati.
 
 ### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Azure AD Domain Services includono opzioni di disponibilità elevata?
 
@@ -97,7 +99,7 @@ Sì. Ogni dominio gestito Azure AD Domain Services include due controller di dom
 No. Non si dispone delle autorizzazioni necessarie per connettersi ai controller di dominio per il dominio gestito utilizzando Desktop remoto. I membri del gruppo *AAD DC Administrators* possono amministrare il dominio gestito usando gli strumenti di amministrazione di ad, ad esempio Active Directory Administration Center (ADAC) o ad PowerShell. Questi strumenti vengono installati utilizzando la funzionalità *strumenti di amministrazione remota del server* in un server Windows aggiunto al dominio gestito. Per altre informazioni, vedere [creare una macchina virtuale di gestione per configurare e amministrare un Azure ad Domain Services dominio gestito](tutorial-create-management-vm.md).
 
 ### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>Ho abilitato Azure AD Domain Services. quale account utente è necessario usare per aggiungere i computer a questo dominio?
-Tutti gli account utente che fanno parte del dominio gestito Azure AD DS possono aggiungere una macchina virtuale. Ai membri del gruppo *AAD DC Administrators* viene concesso l'accesso desktop remoto ai computer che sono stati aggiunti al dominio gestito.
+Tutti gli account utente che fanno parte del dominio gestito possono aggiungere una macchina virtuale. Ai membri del gruppo *AAD DC Administrators* viene concesso l'accesso desktop remoto ai computer che sono stati aggiunti al dominio gestito.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>È possibile esercitare i privilegi di amministratore di dominio per il dominio gestito fornito da Azure AD Domain Services?
 No. Non sono concessi privilegi amministrativi per il dominio gestito. I privilegi di amministratore di *dominio* e di *amministratore dell'organizzazione* non sono disponibili per l'uso all'interno del dominio. Ai membri dei gruppi di amministratori di dominio o di amministratori dell'organizzazione nell'Active Directory locale non sono inoltre concessi privilegi di amministratore di dominio o dell'organizzazione per il dominio gestito.
@@ -133,7 +135,7 @@ No. File system distribuito (DFS) e la replica non sono disponibili quando si us
 * [In quale aree di Azure è disponibile il servizio?](#can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services)
 
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Servizi di dominio Azure AD è a pagamento?
-Sì. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/active-directory-ds/).
+Sì. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
 ### <a name="is-there-a-free-trial-for-the-service"></a>È disponibile una versione di valutazione gratuita per il servizio?
 Azure AD Domain Services è incluso nella versione di valutazione gratuita di Azure. È possibile iscriversi per una [valutazione gratuita di un mese di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -158,4 +160,4 @@ Per soluzioni relative ai problemi comuni di configurazione o amministrazione di
 
 Per ulteriori informazioni su Azure AD Domain Services, vedere [che cos'è Azure Active Directory Domain Services?](overview.md).
 
-Per iniziare, vedere [creare e configurare un'istanza di Azure Active Directory Domain Services](tutorial-create-instance.md).
+Per iniziare, vedere [creare e configurare un Azure Active Directory Domain Services dominio gestito](tutorial-create-instance.md).

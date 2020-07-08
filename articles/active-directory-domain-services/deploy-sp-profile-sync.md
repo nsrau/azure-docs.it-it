@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: a684a669c491e35b5c6b62dd318b4fe61edeb52b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c45921b75fff000185c7e24b998b761ecc088d9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655391"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734793"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configurare Azure Active Directory Domain Services per supportare la sincronizzazione dei profili utente per SharePoint Server
 
@@ -26,14 +26,14 @@ Questo articolo illustra come configurare Azure AD DS per consentire il servizio
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare questo articolo, sono necessari i privilegi e le risorse seguenti:
+Per completare le procedure descritte in questo articolo, sono necessari i privilegi e le risorse seguenti:
 
 * Una sottoscrizione di Azure attiva.
     * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
-    * Se necessario, completare l'esercitazione per [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessario, completare l'esercitazione per [creare e configurare un Azure Active Directory Domain Services dominio gestito][create-azure-ad-ds-instance].
 * Una macchina virtuale di gestione di Windows Server aggiunta al dominio gestito di Azure AD DS.
     * Se necessario, completare l'esercitazione per [creare una macchina virtuale di gestione][tutorial-create-management-vm].
 * Un account utente membro del gruppo di *amministratori dei controller di dominio di Azure AD* nel tenant di Azure AD.
@@ -42,10 +42,10 @@ Per completare questo articolo, sono necessari i privilegi e le risorse seguenti
 
 ## <a name="service-accounts-overview"></a>Panoramica degli account di servizio
 
-In un dominio gestito Azure AD DS, un gruppo di sicurezza denominato **account del servizio AAD DC** esiste come parte dell'unità organizzativa (OU) *degli utenti* . Ai membri di questo gruppo di sicurezza vengono delegati i privilegi seguenti:
+In un dominio gestito, esiste un gruppo di sicurezza denominato **AAD DC Service Accounts** come parte dell'unità organizzativa *Users* (OU). Ai membri di questo gruppo di sicurezza vengono delegati i privilegi seguenti:
 
 - **Replicare i privilegi delle modifiche della directory** nella DSE radice.
-- **Replicare i privilegi delle modifiche della directory** nel contesto`cn=configuration` dei nomi di *configurazione* (contenitore).
+- **Replicare i privilegi delle modifiche della directory** nel contesto dei nomi di *configurazione* ( `cn=configuration` contenitore).
 
 Il gruppo di sicurezza **account del servizio DC di AAD** è anche un membro del gruppo predefinito **Accesso compatibile precedente a Windows 2000**.
 
@@ -58,11 +58,11 @@ L'account del servizio per SharePoint Server necessita di privilegi adeguati per
 Dalla macchina virtuale di gestione di Azure AD DS completare i passaggi seguenti:
 
 > [!NOTE]
-> Per modificare l'appartenenza a un gruppo in un dominio gestito di Azure AD DS, è necessario avere eseguito l'accesso a un account utente membro del gruppo di *amministratori di AAD DC* .
+> Per modificare l'appartenenza a un gruppo in un dominio gestito, è necessario avere eseguito l'accesso a un account utente membro del gruppo di *amministratori di AAD DC* .
 
 1. Dalla schermata Start selezionare strumenti di **Amministrazione**. Viene visualizzato un elenco di strumenti di gestione disponibili che sono stati installati nell'esercitazione per [creare una macchina virtuale di gestione][tutorial-create-management-vm].
 1. Per gestire l'appartenenza a un gruppo, selezionare **centro di amministrazione di Active Directory** dall'elenco di strumenti di amministrazione.
-1. Nel riquadro sinistro scegliere il dominio gestito di Azure AD DS, ad esempio *aaddscontoso.com*. Viene visualizzato un elenco delle unità organizzative e delle risorse esistenti.
+1. Nel riquadro sinistro scegliere il dominio gestito, ad esempio *aaddscontoso.com*. Viene visualizzato un elenco delle unità organizzative e delle risorse esistenti.
 1. Selezionare la ou **utenti** , quindi scegliere il gruppo di sicurezza *account del servizio DC di AAD* .
 1. Selezionare **membri**, quindi scegliere **Aggiungi.**
 1. Immettere il nome dell'account del servizio SharePoint, quindi fare clic su **OK**. Nell'esempio seguente, l'account del servizio SharePoint è denominato *SPAdmin*:

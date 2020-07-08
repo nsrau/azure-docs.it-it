@@ -4,15 +4,15 @@ description: Configurare il monitoraggio di rete basato sul cloud per i circuiti
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 54fa3dcbfbbcb3153f81407a9bc9b52511405390
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 05c21f4f3f0af0de524db75ce9e6feb38d98c24e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74076597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738380"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute
 
@@ -20,7 +20,7 @@ Questo articolo illustra come configurare un'estensione di Monitoraggio prestazi
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-È possibile scegliere:
+È possibile:
 
 * Monitorare perdita e latenza tra varie reti virtuali e configurare avvisi
 
@@ -85,7 +85,7 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
 2. Quindi copiare l'**ID area di lavoro** e la **chiave primaria** nel Blocco note.
 3. Nella sezione **Configurare gli agenti di Log Analytics per il monitoraggio tramite il protocollo TCP** scaricare lo script PowerShell. Lo script di PowerShell consente di aprire la porta firewall pertinente per le transazioni TCP.
 
-   ![Script di PowerShell](./media/how-to-npm/7.png)
+   ![Script PowerShell](./media/how-to-npm/7.png)
 
 ### <a name="22-install-a-monitoring-agent-on-each-monitoring-server-on-each-vnet-that-you-want-to-monitor"></a><a name="installagent"></a>2.2: Installare un agente di monitoraggio in ogni server di monitoraggio (in ogni rete virtuale che si vuole monitorare)
 
@@ -96,7 +96,7 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
   >
 
 1. Eseguire **Installa** per installare l'agente in ogni server che si vuole usare per il monitoraggio di ExpressRoute. Il server usato per il monitoraggio può essere una macchina virtuale o un server locale e deve avere accesso a Internet. È necessario installare almeno un agente in locale e un agente in ogni segmento di rete che si vuole monitorare in Azure.
-2. Nella pagina introduttiva**** fare clic su **Avanti**.
+2. Nella pagina di **benvenuto** fare clic su **Avanti**.
 3. Nella pagina **condizioni di licenza** leggere la licenza e **quindi fare clic su Accetto.**
 4. Nella pagina **cartella di destinazione** modificare o salvare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 5. Nella pagina **Opzioni di installazione dell'agente** è possibile scegliere di connettere l'agente ai log di monitoraggio di Azure o Operations Manager. In alternativa è possibile omettere le scelte se si desidera configurare l'agente in un secondo momento. Dopo aver eseguito le selezioni, fare clic su **Avanti**.
@@ -111,7 +111,7 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
 
      ![Account](./media/how-to-npm/10.png)
 6. Nella pagina **pronto per l'installazione** rivedere le scelte effettuate e quindi fare clic su **Installa**.
-7. Nella pagina **Configurazione completata** fare clic su **fine**.
+7. Nella pagina **Configurazione completata** fare clic su **Fine**.
 8. Al termine verrà visualizzato Microsoft Monitoring Agent nel Pannello di controllo. È possibile rivedere la configurazione e verificare che l'agente sia connesso ai log di monitoraggio di Azure. Quando si è connessi, l'agente visualizza un messaggio nel quale è indicato che **Microsoft Monitoring Agent ha eseguito la connessione al servizio Microsoft Operations Management Suite**.
 
 9. Ripetere questa procedura per ogni rete virtuale da monitorare.

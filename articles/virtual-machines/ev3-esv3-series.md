@@ -9,6 +9,7 @@ ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 9fcb714e68548b95ed6d32bb16fb08c43ff0e5fa
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707634"

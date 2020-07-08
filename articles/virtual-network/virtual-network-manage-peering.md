@@ -17,6 +17,7 @@ ms.date: 04/01/2019
 ms.author: altambaw
 ms.openlocfilehash: d38b164e95b1791971f88f62e7eccfee8a59bd71
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711103"

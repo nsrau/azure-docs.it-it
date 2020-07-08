@@ -4,15 +4,15 @@ description: Questo articolo descrive come creare ed eseguire il provisioning di
 services: expressroute
 author: jaredr80
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 2c28df35eec862afb5b0078ca7693898e9b58533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab20ae00fd9f275d21bc818e07bdc868944ee689
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735269"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creare e modificare il peering per un circuito ExpressRoute usando PowerShell
 
@@ -121,9 +121,9 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
      * Un hash MD5, se si sceglie di usarne uno.
 
 > [!IMPORTANT]
-> Microsoft verifica se i ' prefissi pubblici annunciati ' è peer ASN ' (o ' Customer ASN ') specificati sono assegnati all'utente nel registro di sistema di routing Internet. Se si ricevono i prefissi pubblici da un'altra entità e se l'assegnazione non viene registrata con il registro di routing, la convalida automatica non verrà completata e richiederà la convalida manuale. Se la convalida automatica ha esito negativo, verrà visualizzato ' AdvertisedPublicPrefixesState ' come ' Validation needed ' nell'output di "Get-AzExpressRouteCircuitPeeringConfig" (vedere il comando "per ottenere i dettagli del peering Microsoft"). 
+> Microsoft verifica se all'utente sono assegnati "Prefissi pubblici annunciati" e "ASN peer" (o "ASN cliente") nel registro di sistema di routing Internet. Se si ricevono prefissi pubblici da un'altra entità e l'assegnazione non viene registrata con il registro di sistema di routing, la convalida automatica non verrà completata e sarà richiesta la convalida manuale. Se la convalida automatica ha esito negativo, verrà visualizzato ' AdvertisedPublicPrefixesState ' come ' Validation needed ' nell'output di "Get-AzExpressRouteCircuitPeeringConfig" (vedere il comando "per ottenere i dettagli del peering Microsoft"). 
 > 
-> Se viene visualizzato il messaggio "convalida richiesta", raccogliere i documenti che mostrano i prefissi pubblici vengono assegnati all'organizzazione dall'entità elencata come proprietario dei prefissi nel registro di sistema di routing e inviare questi documenti per la convalida manuale aprendo un ticket di supporto, come illustrato di seguito. 
+> Se viene visualizzato il messaggio "Convalida necessaria", raccogliere i documenti che mostrano i prefissi pubblici assegnati all'organizzazione dall'entità elencata come proprietaria dei prefissi nel registro di sistema di routing e inviarli per la convalida manuale aprendo un ticket di supporto come illustrato di seguito. 
 > 
 >
 
@@ -183,7 +183,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
    Install-Module Az
    ```
 
-   Importare tutti i moduli AZ.\* modules all'interno dell'intervallo di versioni semantiche note.
+   Importare tutti i AZ. \* moduli compresi nell'intervallo di versioni semantiche note.
 
    ```azurepowershell-interactive
    Import-Module Az

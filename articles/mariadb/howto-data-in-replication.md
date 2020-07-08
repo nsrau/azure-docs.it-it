@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/30/2020
-ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/11/2020
+ms.openlocfilehash: 0b23b01faf1b6ba09f1c55db2ddabd1696e452be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738108"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurare Replica dei dati in ingresso nel database di Azure per MariaDB
 
-Questo articolo descrive come configurare Replica dei dati in ingresso nel database di Azure per MariaDB configurando i server master e di replica. Questo articolo presuppone che l'utente disponga di un'esperienza precedente con i server e i database di MariaDB.
+Questo articolo descrive come configurare [replica dei dati in ingresso](concepts-data-in-replication.md) nel database di Azure per MariaDB configurando i server master e di replica. Questo articolo presuppone che l'utente disponga di un'esperienza precedente con i server e i database di MariaDB.
 
-Per creare una replica nel database di Azure per il servizio MariaDB, Replica dei dati in ingresso sincronizza i dati da un server MariaDB Master locale, in macchine virtuali (VM) o in servizi di database cloud.
+Per creare una replica nel database di Azure per il servizio MariaDB, [replica dei dati in ingresso](concepts-data-in-replication.md) sincronizza i dati da un server MariaDB Master locale, in macchine virtuali (VM) o in servizi di database cloud. La replica dei dati in ingresso si basa sulla replica nativa di MariaDB in base alla posizione di file di log binari (binlog). Per altre informazioni su questo tipo di replica, vedere [binlog replication overview](https://mariadb.com/kb/en/library/replication-overview/) (Panoramica della replica basata su binlog).
 
 Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitations-and-considerations) di replica dei dati prima di eseguire i passaggi descritti in questo articolo.
 
@@ -42,6 +42,12 @@ Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitat
 
    Aggiornare le regole firewall usando il [portale di Azure](howto-manage-firewall-portal.md) o l'[interfaccia della riga di comando di Azure](howto-manage-firewall-cli.md).
 
+> [!NOTE]
+> Comunicazione senza distorsione
+>
+> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+>
+
 ## <a name="configure-the-master-server"></a>Configurare il server master
 
 I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale, in una macchina virtuale o in un servizio di database cloud per Replica dei dati in ingresso. Il server MariaDB è il Master Replica dei dati in ingresso.
@@ -60,13 +66,13 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   Se la variabile [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) restituisce il valore `ON`, la registrazione binaria è abilitata nel server.
+   Se la variabile [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) restituisce il valore `ON` , la registrazione binaria è abilitata nel server.
 
-   Se `log_bin` restituisce il valore `OFF`, modificare il file **My. cnf** in modo `log_bin=ON` che accenda la registrazione binaria. Riavviare il server per rendere effettiva la modifica.
+   Se `log_bin` restituisce il valore `OFF` , modificare il file **My. cnf** in modo che `log_bin=ON` accenda la registrazione binaria. Riavviare il server per rendere effettiva la modifica.
 
 3. Configurare le impostazioni del server master.
 
-    Replica dei dati in ingresso richiede che il `lower_case_table_names` parametro sia coerente tra i server master e di replica. Il `lower_case_table_names` parametro è impostato su `1` per impostazione predefinita nel database di Azure per MariaDB.
+    Replica dei dati in ingresso richiede che il parametro `lower_case_table_names` sia coerente tra i server master e di replica. Il `lower_case_table_names` parametro è impostato su per `1` impostazione predefinita nel database di Azure per MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -78,7 +84,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
    
    Per informazioni su come aggiungere gli account utente nel server master, vedere la [documentazione di MariaDB](https://mariadb.com/kb/en/library/create-user/).
 
-   Utilizzando i comandi seguenti, il nuovo ruolo di replica può accedere al database master da qualsiasi computer, non solo il computer che ospita il master stesso. Per questo accesso, specificare **syncuser\@'%'** nel comando per creare un utente.
+   Utilizzando i comandi seguenti, il nuovo ruolo di replica può accedere al database master da qualsiasi computer, non solo il computer che ospita il master stesso. Per questo accesso, specificare **syncuser \@ '%'** nel comando per creare un utente.
    
    Per ulteriori informazioni sulla documentazione di MariaDB, vedere [specifica dei nomi degli account](https://mariadb.com/kb/en/library/create-user/#account-names).
 
@@ -128,7 +134,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
 6. Ottiene il nome e l'offset del file di log binario corrente.
 
-   Per determinare il nome e l'offset del file di log binario corrente, [`show master status`](https://mariadb.com/kb/en/library/show-master-status/)eseguire il comando.
+   Per determinare il nome e l'offset del file di log binario corrente, eseguire il comando [`show master status`](https://mariadb.com/kb/en/library/show-master-status/) .
     
    ```sql
    show master status;
@@ -177,7 +183,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
    Tutte le funzioni di replica dei dati in ingresso vengono eseguite tramite stored procedure. Per informazioni su tali procedure, vedere [Stored procedure per la replica dei dati in ingresso](reference-data-in-stored-procedures.md). Le stored procedure possono essere eseguite in MySQL Shell o MySQL Workbench.
 
-   Per collegare due server e avviare la replica, accedere al server di replica di destinazione nel database di Azure per il servizio MariaDB. Impostare quindi l'istanza esterna come server master usando il `mysql.az_replication_change_master` stored procedure o `mysql.az_replication_change_master_with_gtid` nel database di Azure per il server MariaDB.
+   Per collegare due server e avviare la replica, accedere al server di replica di destinazione nel database di Azure per il servizio MariaDB. Impostare quindi l'istanza esterna come server master usando il `mysql.az_replication_change_master` `mysql.az_replication_change_master_with_gtid` stored procedure o nel database di Azure per il server MariaDB.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
@@ -200,11 +206,11 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
     
     * È consigliabile passare il parametro master_ssl_ca come variabile. Per altre informazioni, vedere gli esempi seguenti.
 
-   **Esempi**
+   **esempi**
 
    - Replica con SSL
 
-       Creare la variabile `@cert` eseguendo i comandi seguenti:
+       Creare la variabile eseguendo `@cert` i comandi seguenti:
 
        ```sql
        SET @cert = '-----BEGIN CERTIFICATE-----
@@ -241,13 +247,13 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
    show slave status;
    ```
 
-   Se `Slave_IO_Running` e `Slave_SQL_Running` sono nello stato `yes`e il valore di `Seconds_Behind_Master` è `0`, la replica funziona. `Seconds_Behind_Master` indica il ritardo della replica. Se il valore non `0`è, la replica sta elaborando gli aggiornamenti.
+   Se `Slave_IO_Running` e `Slave_SQL_Running` sono nello stato `yes` e il valore di `Seconds_Behind_Master` è, la `0` replica funziona. `Seconds_Behind_Master` indica il ritardo della replica. Se il valore non è `0` , la replica sta elaborando gli aggiornamenti.
 
 4. Aggiornare le variabili server corrispondenti per rendere più sicura la replica dei dati (necessaria solo per la replica senza GTID).
     
-    A causa di una limitazione della replica nativa in MariaDB, è [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) necessario [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) impostare le variabili e nella replica senza lo scenario GTID.
+    A causa di una limitazione della replica nativa in MariaDB, è necessario impostare [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) le variabili e nella replica senza lo scenario GTID.
 
-    Controllare le variabili `sync_master_info` e `sync_relay_log_info` del server slave per assicurarsi che la replica dei dati sia stabile e impostare le variabili su. `1`
+    Controllare le variabili e del server slave `sync_master_info` `sync_relay_log_info` per assicurarsi che la replica dei dati sia stabile e impostare le variabili su `1` .
     
 ## <a name="other-stored-procedures"></a>Altre stored procedure
 

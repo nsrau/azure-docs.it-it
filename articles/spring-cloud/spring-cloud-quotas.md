@@ -6,34 +6,30 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 8a7ba3c3b9c19b2084b6892b55ac417da38ab047
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc4426fc08efff44bc46ba37eb6fbc6fe31f356b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76278882"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735439"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Quote e piani di servizio per Azure Spring cloud
 
-Tutti i servizi di Azure impostano i limiti e le quote predefiniti per le risorse e le funzionalità.  Durante il periodo di anteprima, Azure Spring cloud offre un solo piano di servizio.
+Tutti i servizi di Azure impostano i limiti e le quote predefiniti per le risorse e le funzionalità.   Azure Spring cloud offre due piani tariffari: Basic e standard. In questo articolo vengono illustrati i limiti dettagliati per entrambi i livelli.
 
-Questo articolo descrive in dettaglio le quote del servizio offerte durante il periodo di anteprima corrente.
+## <a name="azure-spring-cloud-service-tiers-and-limits"></a>Livelli di servizio e limiti di Azure Spring cloud
 
-## <a name="azure-spring-cloud-service-tiers-and-quotas"></a>Quote e livelli di servizio cloud della primavera di Azure
+| Risorsa | Basic | Standard
+------- | ------- | -------
+vCPU | 1 per istanza del servizio | 4 per istanza del servizio
+Memory | 2 GB per istanza del servizio | 8 GB per istanza del servizio
+Istanze del servizio Azure Spring Cloud per area e per sottoscrizione | 10 | 10
+Numero totale di istanze di app per ogni istanza del servizio Azure Spring Cloud | 25 | 500
+Volumi permanenti | app da 1 GB/app x 10 | App 50 GB/app x 10
 
-Durante il periodo di anteprima, Azure Spring cloud offre un solo livello di servizio.
 
-Risorsa | Amount
-------- | -------
-vCPU | 4 per istanza del servizio
-Memoria | 8 GByte per istanza di servizio
-Istanze del servizio Azure Spring Cloud per area e per sottoscrizione | 10
-Numero totale di istanze di app per ogni istanza del servizio Azure Spring Cloud | 500
-Totale istanze app per applicazione Spring | 20
-Volumi permanenti | 10 x 50 GByte
-
-Quando si raggiunge una quota, viene visualizzato un errore 400 che indica che la quota supera il limite per la sottoscrizione della *sottoscrizione* nell'area geografica in *cui è stato creato il servizio cloud Spring di Azure*.
+Durante il periodo di anteprima, Azure Spring cloud offre un solo livello di servizio. Quando si raggiunge un limite, si riceverà un errore 400 che indica che la quota supera il limite per *la* sottoscrizione della sottoscrizione nell' *area geografica in cui viene creato il servizio cloud Spring di Azure*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile aumentare alcune quote e alcuni limiti predefiniti. Se la risorsa richiede un aumento, [creare una richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+È possibile aumentare i limiti predefiniti. Se l'installazione richiede un aumento, [creare una richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).

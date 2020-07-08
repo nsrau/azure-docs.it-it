@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 05/20/2020
-ms.openlocfilehash: 036548d61dbe6a6465ca28c72eacb48e61386577
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 05/28/2020
+ms.openlocfilehash: 7a6a672cef42eb15cbd8f2f254207e0a9d96ee33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846223"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736204"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componenti e versioni di Apache disponibili per Azure HDInsight
 
@@ -36,22 +36,22 @@ Le versioni del componente associate alle versioni del cluster HDInsight sono el
 | Apache Hive            | 3.1.0         | 1.2.1 (2.1.0 in ESP Interactive Query) |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
-| Apache HBase           | 2.0.2         | 1.1.2                       |
+| Apache HBase           | 2.1.6         | 1.1.2                       |
 | Apache Sqoop           | 1.4.7         | 1.4.6                       |
 | Apache Oozie           | 4.3.1         | 4.2.0                       |
 | Apache Zookeeper       | 3.4.6         | 3.4.6                       |
 | Apache Storm           | -             | 1.1.0                       |
 | Apache Mahout          | -             | 0.9.0+                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
-| Apache Spark           | 2.4           | 2.3.0, 2.2.0, 2.1.0         |
+| Apache Spark           | 2.4.4         | 2.3.2, 2.2.0, 2.1.0         |
 | Apache Livy            | 0.5           | 0.4, 0.4, 0.3               |
-| Apache Kafka           | 2.1           | 1.1                        |
+| Apache Kafka           | 2.1.1         | 1.1                        |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
 | Mono                   | 4.2.1         | 4.2.1                       |
 
 > [!NOTE]
-> HDInsight 4.0: Spark 2.4 e Kafka 2.1 sono completamente supportati. Tuttavia, la manutenzione di Spark 2.3 e Kafka 1.1 non viene fornita. HDInsight 3.6: Spark 2.3 e Kafka 1.1 sono completamente supportati.  
+> HDInsight 4.0: Spark 2.4 e Kafka 2.1 sono completamente supportati. Tuttavia, i tipi di cluster Spark 2,3 e Kafka 1,1 non vengono serviti. HDInsight 3.6: Spark 2.3 e Kafka 1.1 sono completamente supportati.  
 
 ## <a name="check-for-current-apache-component-version-information"></a>Controllare le informazioni sulle versioni correnti dei componenti di Apache
 
@@ -80,10 +80,10 @@ La tabella seguente elenca le versioni di HDInsight disponibili nel portale di A
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Sì |Sì |
 | HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | 31 dicembre 2020 |31 dicembre 2020 |Sì |Sì |
 
-Il supporto per Spark 2.1, 2.2 e Kafka 1.0 scade il 30 giugno 2020.
+Il supporto per cluster Spark 2,1, 2,2 e Kafka 1,0 scade il 30 giugno 2020.
 
 > [!NOTE]
-> Dopo la scadenza, il supporto potrebbe non essere disponibile tramite il portale di Azure. Le versioni dei cluster continuano a essere disponibili usando il parametro **Version** nel comando [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) di Windows PowerShell e .NET SDK fino alla data di ritiro.
+> Dopo la scadenza del supporto per una versione del cluster, è possibile che non sia disponibile tramite il portale di Azure. In alcuni casi, le versioni del cluster continuano a essere disponibili usando il parametro **Version** nel comando [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) di Windows PowerShell e .NET SDK fino alla data di ritiro della versione.
 
 ### <a name="retired-versions"></a>Versioni ritirate
 

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 4227f80b9ac153aee72c518bf6f93efdce7234d2
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 464f0dcab3debf92605d2f13be9b25ece63f4bf2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737683"
 ---
-# <a name="cluster-configuration-optimization"></a>Ottimizzazione della configurazione del cluster
+# <a name="cluster-configuration-optimization-for-apache-spark"></a>Ottimizzazione della configurazione del cluster per Apache Spark
 
 Questo articolo illustra come ottimizzare la configurazione del cluster di Apache Spark per ottenere prestazioni ottimali in Azure HDInsight.
 

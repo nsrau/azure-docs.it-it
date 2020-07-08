@@ -5,19 +5,25 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/11/2020
+ms.openlocfilehash: 7b66f227469328767f23c6858fda15803832704b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474033"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737564"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
-Questo articolo descrive come configurare Replica dei dati in ingresso nel database di Azure per MySQL configurando i server master e di replica. Questo articolo presuppone che l'utente disponga di un'esperienza precedente con i server e i database MySQL.
+Questo articolo descrive come configurare [replica dei dati in ingresso](concepts-data-in-replication.md) nel database di Azure per MySQL configurando i server master e di replica. Questo articolo presuppone che l'utente disponga di un'esperienza precedente con i server e i database MySQL.
 
-Per creare una replica nel servizio database di Azure per MySQL, Replica dei dati in ingresso sincronizza i dati da un server MySQL master locale, in macchine virtuali (VM) o in servizi di database cloud.
+> [!NOTE]
+> Comunicazione senza distorsione
+>
+> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+>
+
+Per creare una replica nel servizio database di Azure per MySQL, [replica dei dati in ingresso](concepts-data-in-replication.md) sincronizza i dati da un server MySQL master locale, in macchine virtuali (VM) o in servizi di database cloud. La replica dei dati in ingresso si basa sulla replica nativa di MySQL in base alla posizione di file di log binari (binlog). Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
 
 Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitations-and-considerations) di replica dei dati prima di eseguire i passaggi descritti in questo articolo.
 
@@ -59,7 +65,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
    Se la variabile [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) viene restituita con il valore "on", la registrazione binaria è abilitata nel server. 
 
-   Se `log_bin` viene restituito con il valore "off", attivare la registrazione binaria modificando il file My. cnf in `log_bin=ON` modo che e riavviare il server per rendere effettive le modifiche.
+   Se `log_bin` viene restituito con il valore "off", attivare la registrazione binaria modificando il file My. cnf in modo che `log_bin=ON` e riavviare il server per rendere effettive le modifiche.
 
 3. Impostazioni del server master
 
@@ -172,7 +178,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 > [!NOTE]
 > Se il server master è ospitato in una macchina virtuale di Azure, attivare l'opzione che consente di accedere ai servizi di Azure in modo che il server master e i server di replica possano comunicare tra loro. Questa impostazione può essere modificata dalle opzioni di **sicurezza delle connessioni**. Per altre informazioni, vedere l'articolo sulla [gestione delle regole del firewall con il portale](howto-manage-firewall-using-portal.md).
 
-   **Esempi**
+   **esempi**
 
    *Replica con SSL*
 
@@ -213,7 +219,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    show slave status;
    ```
 
-   Se lo stato di `Slave_IO_Running` e `Slave_SQL_Running` è "Yes" e il valore di `Seconds_Behind_Master` è "0", la replica funziona correttamente. `Seconds_Behind_Master` indica il ritardo della replica. Se il valore non è "0", significa che la replica sta elaborando gli aggiornamenti. 
+   Se lo stato di `Slave_IO_Running` e è `Slave_SQL_Running` "Yes" e il valore di `Seconds_Behind_Master` è "0", la replica funziona correttamente. `Seconds_Behind_Master` indica il ritardo della replica. Se il valore non è "0", significa che la replica sta elaborando gli aggiornamenti. 
 
 ## <a name="other-stored-procedures"></a>Altre stored procedure
 

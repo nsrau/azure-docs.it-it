@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734997"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemi noti: Avvisi dell'entità servizio in Azure Active Directory Domain Services
 
-Le [entità servizio](../active-directory/develop/app-objects-and-service-principals.md) sono applicazioni usate dalla piattaforma Azure per gestire e aggiornare un dominio gestito Azure AD DS. L'eliminazione di un'entità servizio ha effetti sulle funzionalità del dominio gestito Azure AD DS.
+Le [entità servizio](../active-directory/develop/app-objects-and-service-principals.md) sono applicazioni utilizzate dalla piattaforma Azure per gestire, aggiornare e gestire un dominio gestito di Azure Active Directory Domain Services (Azure AD DS). Se viene eliminata un'entità servizio, le funzionalità del dominio gestito sono interessate.
 
 Questo articolo consente di risolvere i problemi e risolvere gli avvisi di configurazione relativi all'entità servizio.
 
@@ -30,7 +30,7 @@ Questo articolo consente di risolvere i problemi e risolvere gli avvisi di confi
 
 *Un'entità servizio necessaria per il funzionamento corretto di Azure AD Domain Services è stata eliminata dal tenant di Azure AD. Questa configurazione impedisce a Microsoft di monitorare, applicare patch e sincronizzare il dominio gestito.*
 
-Se viene eliminata un'entità servizio necessaria, la piattaforma Azure non può eseguire attività di gestione automatiche. Il dominio gestito di Azure AD DS potrebbe non applicare correttamente gli aggiornamenti o eseguire i backup.
+Se viene eliminata un'entità servizio necessaria, la piattaforma Azure non può eseguire attività di gestione automatiche. Il dominio gestito potrebbe non applicare correttamente gli aggiornamenti o eseguire i backup.
 
 ### <a name="check-for-missing-service-principals"></a>Verificare la presenza delle entità servizio mancanti
 
@@ -64,18 +64,18 @@ Se nella directory Azure AD manca l'ID applicazione *2565bd9d-da50-47d4-8b85-4c9
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-L'integrità del dominio gestito di Azure AD DS si aggiorna automaticamente entro due ore e rimuove l'avviso.
+L'integrità del dominio gestito si aggiorna automaticamente entro due ore e rimuove l'avviso.
 
 ### <a name="re-register-the-microsoft-aad-namespace"></a>Ripetere la registrazione dello spazio dei nomi Microsoft.AAD
 
 Se l'ID applicazione *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022* o *d87dcbc6-a371-462e-88e3-28ad15ec4e64* risulta mancante nella directory Azure AD, seguire questa procedura per registrare nuovamente il provider di risorse *Microsoft.AAD*:
 
 1. Nel portale di Azure cercare e selezionare **Sottoscrizioni**.
-1. Scegliere la sottoscrizione associata al dominio gestito di Azure AD DS.
+1. Scegliere la sottoscrizione associata al dominio gestito.
 1. Nel menu di spostamento a sinistra scegliere **Provider di risorse**.
 1. Cercare *Microsoft.AAD* e quindi selezionare **Ripeti registrazione**.
 
-L'integrità del dominio gestito di Azure AD DS si aggiorna automaticamente entro due ore e rimuove l'avviso.
+L'integrità del dominio gestito si aggiorna automaticamente entro due ore e rimuove l'avviso.
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Avviso AADDS105: Applicazione di sincronizzazione delle password non aggiornata
 
@@ -105,7 +105,7 @@ Per ricreare l'applicazione Azure AD usata per la sincronizzazione delle credenz
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-Dopo aver eliminato entrambe le applicazioni, la piattaforma Azure le ricrea automaticamente e tenta di riprendere la sincronizzazione delle password. L'integrità del dominio gestito di Azure AD DS si aggiorna automaticamente entro due ore e rimuove l'avviso.
+Dopo aver eliminato entrambe le applicazioni, la piattaforma Azure le ricrea automaticamente e tenta di riprendere la sincronizzazione delle password. L'integrità del dominio gestito si aggiorna automaticamente entro due ore e rimuove l'avviso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

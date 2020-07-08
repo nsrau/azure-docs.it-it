@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/17/2020
-ms.openlocfilehash: 6cc089a1efc3f5960a8bca8a36063bb1019bbcc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/10/2020
+ms.openlocfilehash: 075c8b2670121e7d493d0d99397961155fd0de4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736569"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Consente di copiare in modo incrementale i nuovi file in base al nome del file partizionato ora utilizzando lo strumento Copia dati
 
@@ -39,13 +39,13 @@ In questa esercitazione si segue questa procedura:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: usare l'archiviazione BLOB come archivio dati di _origine_ e _sink_ . Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-account-create.md).
+* **Account di archiviazione di Azure**: usare l'archiviazione BLOB come archivio dati di _origine_ e _sink_ . Se non si ha un account di archiviazione di Azure, vedere le istruzioni in [creare un account di archiviazione](../storage/common/storage-account-create.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Creare due contenitori nell'archivio BLOB
 
 Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
-1. Creare un contenitore denominato **source**.  Creare un percorso di cartella come **2020/03/17/03** nel contenitore. Creare un file di testo vuoto e denominarlo **file1. txt**. Caricare il codice file1. txt nell'origine percorso cartella **/2020/03/17/03** nell'account di archiviazione.  Per eseguire queste attività è possibile usare vari strumenti, ad esempio [Azure Storage Explorer](https://storageexplorer.com/).
+1. Creare un contenitore denominato **source**.  Creare un percorso di cartella come **2020/03/17/03** nel contenitore. Creare un file di testo vuoto e denominarlo come **file1.txt**. Caricare il file1.txt nell'origine percorso cartella **/2020/03/17/03** nell'account di archiviazione.  Per eseguire queste attività è possibile usare vari strumenti, ad esempio [Azure Storage Explorer](https://storageexplorer.com/).
 
     ![caricamento dei file](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
 
@@ -56,7 +56,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra selezionare **Crea una risorsa** > **dati e analisi** > **Data Factory**:
+1. Nel menu a sinistra selezionare **Crea una risorsa** > **Dati e analisi** > **Data factory**:
 
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -155,16 +155,16 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
 10. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente.  È necessario attendere l'esecuzione della pipeline quando viene attivata automaticamente (circa dopo un'ora). Quando viene eseguito, fare clic sul collegamento nome pipeline **DeltaCopyFromBlobPipeline** per visualizzare i dettagli dell'esecuzione dell'attività o eseguire di nuovo la pipeline. Selezionare **Aggiorna** per aggiornare l'elenco.
 
-    ![Monitorare le esecuzioni di pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
-11. Dato che la pipeline contiene una sola attività (attività di copia), viene visualizzata una sola voce. Modificare la larghezza delle colonne di **origine** e di **destinazione** (se necessario) per visualizzare altri dettagli, è possibile visualizzare il file di origine (file1. txt) copiato da *origine/2020/03/17/03/* a *destinazione/2020/03/17/03* /con lo stesso nome file. 
+    ![Monitorare le esecuzioni di pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
+11. Dato che la pipeline contiene una sola attività (attività di copia), viene visualizzata una sola voce. Modificare la larghezza delle colonne di **origine** e di **destinazione** (se necessario) per visualizzare altri dettagli, è possibile visualizzare il file di origine (file1.txt) copiato da *origine/2020/03/17/03/* a *destinazione/2020/03/17/03* /con lo stesso nome file. 
 
     ![Monitorare le esecuzioni di pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
-    È anche possibile verificare lo stesso usando Azure Storage Explorer (https://storageexplorer.com/) per analizzare i file.
+    È anche possibile verificare lo stesso usando Azure Storage Explorer ( https://storageexplorer.com/) per analizzare i file.
 
     ![Monitorare le esecuzioni di pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 
-12. Creare un altro file di testo vuoto con il nuovo nome come **file2. txt**. Caricare il file file2. txt nell'origine percorso cartella **/2020/03/17/04** nell'account di archiviazione. Per eseguire queste attività è possibile usare vari strumenti, ad esempio [Azure Storage Explorer](https://storageexplorer.com/).
+12. Creare un altro file di testo vuoto con il nuovo nome **file2.txt**. Caricare il file di file2.txt nell'origine percorso cartella **/2020/03/17/04** nell'account di archiviazione. Per eseguire queste attività è possibile usare vari strumenti, ad esempio [Azure Storage Explorer](https://storageexplorer.com/).
 
     > [!NOTE]
     > È possibile che si sia consapevoli che è necessario creare un nuovo percorso della cartella. Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 4:20 AM il Mar. 17, 2020, è possibile creare il percorso della cartella come **origine/2020/03/17/04/** dalla regola **{year}/{month}/{day}/{hour}/**.
@@ -173,7 +173,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     ![Monitorare le esecuzioni di pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
-14. Selezionare il nuovo collegamento **DeltaCopyFromBlobPipeline** per la seconda esecuzione della pipeline e fare lo stesso per esaminare i dettagli. Si noterà che il file di origine (file2. txt) è stato copiato da **origine/2020/03/17/04** /a **destinazione/2020/03/17/04/** con lo stesso nome file. È anche possibile verificare lo stesso usando Azure Storage Explorer (https://storageexplorer.com/) per analizzare i file nel contenitore di **destinazione** .
+14. Selezionare il nuovo collegamento **DeltaCopyFromBlobPipeline** per la seconda esecuzione della pipeline e fare lo stesso per esaminare i dettagli. Si noterà che il file di origine (file2.txt) è stato copiato da **origine/2020/03/17/04/** a **destinazione/2020/03/17/04/** con lo stesso nome file. È anche possibile verificare lo stesso usando Azure Storage Explorer ( https://storageexplorer.com/) per analizzare i file nel contenitore di **destinazione** .
 
 
 ## <a name="next-steps"></a>Passaggi successivi

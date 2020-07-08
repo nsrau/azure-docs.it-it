@@ -9,18 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: d926a9f686f0f4c39203b8a217a7c608cfad926e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52d33e7292ebe7b27eede2b89aa605780f826392
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737615"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoraggio della connettività di rete con monitoraggio connessione (anteprima)
 
@@ -402,9 +402,9 @@ Dal portale di Azure, per creare un gruppo di test in un monitoraggio della conn
    
        È possibile eseguire il drill-down dal livello di sottoscrizione ad altri livelli nella gerarchia:
 
-      **Subscription** > Gruppi > di**risorse**di sottoscrizione**reti virtuali** > **subnet** > **VM con agenti**
+      **Sottoscrizione**  >  di **Gruppi**  >  di risorse **Reti virtuali**  >  **Subnet**  >  **VM con agenti**
 
-      È anche possibile modificare il valore del campo **Group by** per avviare l'albero da qualsiasi altro livello. Se, ad esempio, si esegue il raggruppamento in base alla rete virtuale, vengono visualizzate le VM con agenti nella gerarchia **reti virtuali** > **subnet** > **VM con agenti**.
+      È anche possibile modificare il valore del campo **Group by** per avviare l'albero da qualsiasi altro livello. Se, ad esempio, si esegue il raggruppamento in base alla rete virtuale, vengono visualizzate le VM con agenti nella gerarchia **reti virtuali**  >  **subnet**  >  **VM con agenti**.
 
       ![Screenshot del monitoraggio della connessione, che mostra il pannello Aggiungi origini e la scheda agenti di Azure](./media/connection-monitor-2-preview/add-azure-sources.png)
 
@@ -444,7 +444,7 @@ Dal portale di Azure, per creare un gruppo di test in un monitoraggio della conn
 
     * **Nome** : nome della configurazione di test.
     * **Protocollo** : scegliere TCP, ICMP o http. Per impostare HTTP su HTTPS, selezionare **http** come protocollo e selezionare **443** come porta.
-        * **Crea configurazione di test di rete** : questa casella di controllo viene visualizzata solo se si seleziona **http** nel campo **protocollo** . Selezionare questa casella per creare un'altra configurazione di test che usa le stesse origini e destinazioni specificate in altre parti della configurazione. La configurazione di test appena creata è `<the name of your test configuration>_networkTestConfig`denominata.
+        * **Crea configurazione di test di rete** : questa casella di controllo viene visualizzata solo se si seleziona **http** nel campo **protocollo** . Selezionare questa casella per creare un'altra configurazione di test che usa le stesse origini e destinazioni specificate in altre parti della configurazione. La configurazione di test appena creata è denominata `<the name of your test configuration>_networkTestConfig` .
         * **Disabilitare traceroute** : questo campo si applica ai gruppi di test il cui protocollo è TCP o ICMP. Selezionare questa casella per arrestare le origini dall'individuazione della topologia e della RTT hop-by-hop.
     * **Porta di destinazione** : è possibile personalizzare questo campo con una porta di destinazione di propria scelta.
     * **Frequenza test** : utilizzare questo campo per scegliere la frequenza con cui le origini eseguiranno il ping delle destinazioni sul protocollo e sulla porta specificati. È possibile scegliere 30 secondi, 1 minuto, 5 minuti, 15 minuti o 30 minuti. Le origini proveranno la connettività alle destinazioni in base al valore scelto.  Se ad esempio si seleziona 30 secondi, le origini verificheranno la connettività alla destinazione almeno una volta in un periodo di 30 secondi.
@@ -477,7 +477,7 @@ Tutte le origini, le destinazioni e le configurazioni di test aggiunte a un grup
 | 11 | C | E | Configurazione 1 |
 | 12 | C | E | Configurazione 2 |
 
-### <a name="scale-limits"></a> Limiti di scalabilità
+### <a name="scale-limits"></a>Limiti di scalabilità
 
 I monitoraggi connessione presentano i limiti di scalabilità seguenti:
 
@@ -573,7 +573,7 @@ Per visualizzare le tendenze in RTT e la percentuale di verifiche non riuscite p
 
 1. Modificare l'intervallo di tempo per visualizzare altri dati.
 1. Modificare la visualizzazione per visualizzare origini, destinazioni o configurazioni di test. 
-1. Scegliere un'origine in base ai test non superati ed esaminare i primi cinque test non superati. Scegliere, ad esempio, **Visualizza** > **origini** e **Visualizza** > per**destinazioni** per esaminare i test rilevanti nel monitoraggio della connessione.
+1. Scegliere un'origine in base ai test non superati ed esaminare i primi cinque test non superati. Scegliere, ad esempio, **Visualizza**per  >  **origini** e **Visualizza**per  >  **destinazioni** per esaminare i test rilevanti nel monitoraggio della connessione.
 
    ![Screenshot che mostra le metriche delle prestazioni per i primi cinque test non superati](./media/connection-monitor-2-preview/cm-drill-select-source.png)
 
@@ -619,7 +619,7 @@ Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Networ
 | Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % di probe non riusciti | Percentuale | Media | Percentuale di probe di monitoraggio della connettività non riuscita. | Nessuna dimensione |
-| AverageRoundtripMs | Tempo medio di round trip (MS) | Millisecondi | Media | RTT di rete medio per i probe di monitoraggio della connettività inviati tra l'origine e la destinazione. |             Nessuna dimensione |
+| AverageRoundtripMs | Avg. Tempo di round trip (ms) | Millisecondi | Media | RTT di rete medio per i probe di monitoraggio della connettività inviati tra l'origine e la destinazione. |             Nessuna dimensione |
 | ChecksFailedPercent (anteprima) | % Controlli non riusciti (anteprima) | Percentuale | Media | Percentuale di verifiche non riuscite per un test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 | RoundTripTimeMs (anteprima) | Tempo di round trip (MS) (anteprima) | Millisecondi | Media | RTT per i controlli inviati tra l'origine e la destinazione. Questo valore non è medio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 

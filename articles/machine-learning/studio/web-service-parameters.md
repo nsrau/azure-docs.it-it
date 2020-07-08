@@ -14,6 +14,7 @@ ms.topic: how-to
 ms.date: 01/12/2017
 ms.openlocfilehash: c274579e756b3c22920023d68501981d5b4a8b01
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84705866"

@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 74c9f44ff5fbbbb50bba1594d371633fd49857eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d833a4cf26ee8ab69d16cbd1d776ca49a2df4bc4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76845048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738216"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorare i gateway VPN con la risoluzione dei problemi di Network Watcher
 
@@ -53,7 +53,7 @@ Prima di iniziare questo scenario, sono necessari i prerequisiti seguenti:
 
 Il primo passaggio per la configurazione dell'esempio consiste nel creare il runbook. Questo esempio usa un account RunAs. Per altre informazioni sugli account RunAs, vedere [Autenticare runbook con account RunAs di Azure](../automation/automation-create-runas-account.md).
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 Passare ad Automazione di Azure nel [portale di Azure](https://portal.azure.com) e fare clic su **Runbook**.
 
@@ -79,7 +79,7 @@ In questo passaggio si attribuisce un nome al runbook, che nell'esempio è denom
 
 ### <a name="step-5"></a>Passaggio 5
 
-In questo passaggio viene creato il runbook. L'esempio di codice seguente contiene tutto il codice necessario per l'esempio. Sostituire gli elementi nel codice che contengono \<value\> con i valori della sottoscrizione usata.
+In questo passaggio viene creato il runbook. L'esempio di codice seguente contiene tutto il codice necessario per l'esempio. Gli elementi nel codice che contengono \<value\> devono essere sostituiti con i valori della sottoscrizione.
 
 Usare il codice seguente e fare clic su **Salva**.
 
@@ -155,7 +155,7 @@ Dopo aver salvato il runbook, è necessario collegarlo a una pianificazione per 
 
 ![Passaggio 7][7]
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 Nel pannello **Pianificazione** fare clic su **Crea una nuova pianificazione**.
 

@@ -4,23 +4,23 @@ description: Configurare la connettività IPsec/IKE in Azure tramite un circuito
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 571ed0201fea11f6770ec3aa7e72db10d49e7b01
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436807"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738159"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurare una VPN da sito a sito tramite peering ExpressRoute Microsoft
 
 Questo articolo illustra come configurare una connettività crittografata protetta tra la rete locale e le reti virtuali (VNet) di Azure tramite una connessione privata ExpressRoute. È possibile usare il peering Microsoft per stabilire un tunnel VPN IPsec/IKE da sito a sito tra le reti locali selezionate e le reti virtuali di Azure. La configurazione di un tunnel sicuro tramite ExpressRoute consente lo scambio di dati con riservatezza, impossibilità di riproduzione, autenticità e integrità.
 
 >[!NOTE]
->Quando si configura una VPN da sito a sito tramite peering Microsoft vengono addebitati il gateway e i dati in uscita dalla VPN. Per altre informazioni, vedere [Prezzi di Gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
+>Quando si configura una VPN da sito a sito tramite peering Microsoft vengono addebitati il gateway e i dati in uscita dalla VPN. Per altre informazioni, vedere [prezzi di gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
 
@@ -91,7 +91,7 @@ In questo esempio viene usato un comando Cisco IOS-XE. Nell'esempio sono usati u
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-L'output parziale seguente mostra che sono stati ricevuti 68 prefissi da Neighbor \*. 243.229.34 con ASN 12076 (MSEE):
+L'output parziale seguente mostra che sono stati ricevuti 68 prefissi da Neighbor \* . 243.229.34 con ASN 12076 (MSEE):
 
 ```
 ...

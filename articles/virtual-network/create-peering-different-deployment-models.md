@@ -18,6 +18,7 @@ ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 318e51f12653b5cbe6bd47b9c48a57d72286a4a7
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710049"

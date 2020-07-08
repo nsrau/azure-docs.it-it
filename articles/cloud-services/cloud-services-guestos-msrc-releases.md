@@ -10,40 +10,75 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/14/2020
+ms.date: 6/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: 9ea1caff5a0aba99bcd0d21b97650d075b830d2a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6cde6470a8e533879de72307b8f00c70f9f165a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737462"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
-## <a name="may-2020-guest-os"></a>Sistema operativo guest di maggio 2020
->[!NOTE]
->Il sistema operativo guest di aprile è in corso di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Nel sistema operativo guest di aprile sono incluse le patch seguenti. L'elenco è soggetto a variazioni."
+## <a name="june-2020-guest-os"></a>Sistema operativo guest di giugno 2020
+">[!NOTE]
+>Il sistema operativo guest di giugno è attualmente in fase di implementazione in macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Nel sistema operativo guest di aprile sono incluse le patch seguenti. L'elenco è soggetto a variazioni."
+
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05   |  [4556798]  |  Internet Explorer   |  2.98, 3.85, 4.78  |  12 maggio 2020  |
-|  Rel 20-05   |  [4556813]  |  Aggiornamento cumulativo più recente   |  5.43  |  12 maggio 2020  |
-|  Rel 20-05   |  [4551853]  |  Aggiornamento cumulativo più recente   |  6.19  |  12 maggio 2020  |
-|  Rel 20-05   |  [4552940]  |  Rollup mensile   |  2.98  |  12 maggio 2020  |
-|  Rel 20-05   |  [4556836]  |  Rollup mensile   |  2.98  |  12 maggio 2020  |
-|  Rel 20-05   |  [4555449]  |  Aggiornamento dello stack di manutenzione   |  2.98  |  12 maggio 2020  |
-|  Rel 20-05   |  [4552920]  |  Rollup mensile   |  2.98  |  12 maggio 2020  |
-|  Rel 20-05   |  [4552979]  |  Rollup mensile   |  3.85  |  12 maggio 2020  |
-|  Rel 20-05   |  [4556840]  |  Rollup mensile   |  3.85  |  12 maggio 2020  |
-|  Rel 20-05   |  [4552947]  |  Rollup mensile   |  3.85  |  12 maggio 2020  |
-|  Rel 20-05   |  [4552982]  |  Rollup mensile   |  3.85  |  12 maggio 2020  |
-|  Rel 20-05   |  [4552946]  |  Rollup mensile   |  4.78  |  12 maggio 2020  |
-|  Rel 20-05   |  [4556846]  |  Rollup mensile   |  4.78  |  12 maggio 2020  |
-|  Rel 20-05   |  [4550994]  |  Aggiornamento dello stack di manutenzione   |  5.43  |  14 aprile 2020  |
-|  Rel 20-05   |  [4552924]  |  Rollup mensile   |  6.19  |  12 maggio 2020  |
-|  Rel 20-05   |  [4549947]  |  Aggiornamento dello stack di manutenzione   |  6.19  |  14 aprile 2020  |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  2,99, 3,86, 4,79  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561616]  |  Aggiornamento cumulativo più recente  |  5,44  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561608]  |  Aggiornamento cumulativo più recente  |  6.20  |  9 giugno 2020  |
+|  Rel 20-06  |  [4562030]  |  Aggiornamento dello stack di manutenzione  |  2,99  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561643]  |  Rollup mensile  |  2,99  |  9 giugno 2020  |
+|  Rel 20-06  |  [4562252]  |  Aggiornamento dello stack di manutenzione  |  3,86  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561612]  |  Rollup mensile  |  3,86  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561600]  |  Lampeggiante  |  3,86, 4,79, 5,44, 6,20  |  9 giugno 2020  |
+|  Rel 20-06  |  [4562253]  |  Aggiornamento dello stack di manutenzione  |  4,79  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561666]  |  Rollup mensile  |  4,79  |  9 giugno 2020  |
+|  Rel 20-06  |  [4562561]  |  Aggiornamento dello stack di manutenzione  |  5,44  |  9 giugno 2020  |
+|  Rel 20-06  |  [4562562]  |  Aggiornamento dello stack di manutenzione  |  6.20  |  9 giugno 2020  |
+
+
+
+[4561603]: https://support.microsoft.com/kb/4561603
+[4561616]: https://support.microsoft.com/kb/4561616
+[4561608]: https://support.microsoft.com/kb/4561608
+[4562030]: https://support.microsoft.com/kb/4562030
+[4561643]: https://support.microsoft.com/kb/4561643
+[4562252]: https://support.microsoft.com/kb/4562252
+[4561612]: https://support.microsoft.com/kb/4561612
+[4561600]: https://support.microsoft.com/kb/4561600
+[4562253]: https://support.microsoft.com/kb/4562253
+[4561666]: https://support.microsoft.com/kb/4561666
+[4562561]: https://support.microsoft.com/kb/4562561
+[4562562]: https://support.microsoft.com/kb/4562562
+
+
+## <a name="may-2020-guest-os"></a>Sistema operativo guest di maggio 2020
+
+
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4556813]  |  Aggiornamento cumulativo più recente   |  [5.43]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4551853]  |  Aggiornamento cumulativo più recente   |  [6.19]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4552940]  |  Rollup mensile   |  [2.98]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4556836]  |  Rollup mensile   |  [2.98]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4555449]  |  Aggiornamento dello stack di manutenzione   |  [2.98]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4552920]  |  Rollup mensile   |  [2.98]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4552979]  |  Rollup mensile   |  [3.85]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4556840]  |  Rollup mensile   |  [3.85]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4552947]  |  Rollup mensile   |  [3.85]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4552982]  |  Rollup mensile   |  [3.85]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4552946]  |  Rollup mensile   |  [4.78]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4556846]  |  Rollup mensile   |  [4.78]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4550994]  |  Aggiornamento dello stack di manutenzione   |  [5.43]  |  14 aprile 2020  |
+|  Rel 20-05  |  [4552924]  |  Rollup mensile   |  [6.19]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4549947]  |  Aggiornamento dello stack di manutenzione   |  [6.19]  |  14 aprile 2020  |
 
 
 [4556798]: https://support.microsoft.com/kb/4556798
@@ -62,6 +97,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4550994]: https://support.microsoft.com/kb/4550994
 [4552924]: https://support.microsoft.com/kb/4552924
 [4549947]: https://support.microsoft.com/kb/4549947
+[2.98]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.85]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.43]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.19]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="april-2020-guest-os"></a>Sistema operativo guest di aprile 2020

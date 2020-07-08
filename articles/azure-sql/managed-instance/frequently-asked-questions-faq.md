@@ -14,6 +14,7 @@ ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
 ms.openlocfilehash: 9295c6e1daaad6346581b959a9b94a7ab74da44c
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708859"

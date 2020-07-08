@@ -11,18 +11,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 63dfe39b986125abc9cacf6c1a6556876bbd3a99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 845b48d84040343f829648f9c7fda2372e3413dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655204"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734742"
 ---
-# <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Aggiungere una macchina virtuale CoreOS a un dominio gestito Azure AD Domain Services
+# <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale CoreOS a un dominio gestito Azure Active Directory Domain Services
 
-Per consentire agli utenti di accedere a macchine virtuali (VM) in Azure usando un unico set di credenziali, è possibile aggiungere macchine virtuali a un dominio gestito di Azure Active Directory Domain Services (AD DS). Quando si aggiunge una macchina virtuale a un dominio gestito di Azure AD DS, è possibile usare gli account utente e le credenziali del dominio per l'accesso e la gestione dei server. Vengono inoltre applicate le appartenenze ai gruppi dal dominio gestito Azure AD DS per consentire il controllo dell'accesso ai file o ai servizi nella macchina virtuale.
+Per consentire agli utenti di accedere a macchine virtuali (VM) in Azure usando un unico set di credenziali, è possibile aggiungere macchine virtuali a un dominio gestito di Azure Active Directory Domain Services (Azure AD DS). Quando si aggiunge una macchina virtuale a un dominio gestito di Azure AD DS, è possibile usare gli account utente e le credenziali del dominio per l'accesso e la gestione dei server. Le appartenenze ai gruppi dal dominio gestito vengono applicate anche per consentire di controllare l'accesso ai file o ai servizi nella macchina virtuale.
 
-Questo articolo illustra come aggiungere una macchina virtuale CoreOS a un dominio gestito di Azure AD DS.
+Questo articolo illustra come aggiungere una macchina virtuale CoreOS a un dominio gestito.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,8 +33,8 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
-    * Se necessario, seguire la prima esercitazione per [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Un account utente che fa parte del dominio gestito di Azure AD DS.
+    * Se necessario, seguire la prima esercitazione per [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Un account utente che fa parte del dominio gestito.
 
 ## <a name="create-and-connect-to-a-coreos-linux-vm"></a>Creare e connettersi a una macchina virtuale Linux CoreOS
 
@@ -46,10 +46,10 @@ Se è necessario creare una VM Linux CoreOS o si vuole creare una macchina virtu
 * [Interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-Quando si crea la VM, prestare attenzione alle impostazioni della rete virtuale per assicurarsi che la macchina virtuale sia in grado di comunicare con il dominio gestito di Azure AD DS:
+Quando si crea la VM, prestare attenzione alle impostazioni della rete virtuale per assicurarsi che la macchina virtuale sia in grado di comunicare con il dominio gestito:
 
 * Distribuire la macchina virtuale nella stessa rete virtuale con peering, in cui è stata abilitata Azure AD Domain Services.
-* Distribuire la macchina virtuale in una subnet diversa da quella dell'istanza di Azure AD Domain Services.
+* Distribuire la macchina virtuale in una subnet diversa da quella Azure AD Domain Services dominio gestito.
 
 Dopo aver distribuito la macchina virtuale, seguire la procedura per connettersi alla macchina virtuale tramite SSH.
 
@@ -63,7 +63,7 @@ sudo vi /etc/hosts
 
 Nel file *host* aggiornare l'indirizzo *localhost* . Nell'esempio seguente:
 
-* *aaddscontoso.com* è il nome di dominio DNS del dominio gestito di Azure AD DS.
+* *aaddscontoso.com* è il nome di dominio DNS del dominio gestito.
 * *CoreOS* è il nome host della macchina virtuale CoreOS che si sta aggiungendo al dominio gestito.
 
 Aggiornare questi nomi con valori personalizzati:
@@ -82,7 +82,7 @@ Aggiornare la configurazione di */etc/SSSD/SSSD.conf* SSSD.
 sudo vi /etc/sssd/sssd.conf
 ```
 
-Specificare il nome di dominio gestito di Azure AD DS per i parametri seguenti:
+Specificare il nome di dominio gestito per i parametri seguenti:
 
 * *domini* in lettere maiuscole
 * *[Domain/AADDS]* dove AADDS è in lettere maiuscole
@@ -122,27 +122,27 @@ krb5_realm = AADDSCONTOSO.COM
 
 Con il file di configurazione SSSD aggiornato, aggiungere la macchina virtuale al dominio gestito.
 
-1. Usare prima di tutto `adcli info` il comando per verificare che sia possibile visualizzare informazioni sul dominio gestito di Azure AD DS. Nell'esempio seguente vengono ottenute informazioni per il dominio *AADDSCONTOSO.com*. Specificare il proprio nome di dominio gestito di Azure AD DS in tutte le lettere maiuscole:
+1. Usare prima di tutto il `adcli info` comando per verificare che sia possibile visualizzare le informazioni sul dominio gestito. Nell'esempio seguente vengono ottenute informazioni per il dominio *AADDSCONTOSO.com*. Specificare il nome di dominio gestito in lettere maiuscole:
 
     ```console
     sudo adcli info AADDSCONTOSO.COM
     ```
 
-   Se il `adcli info` comando non riesce a trovare il dominio gestito di Azure AD DS, esaminare i passaggi per la risoluzione dei problemi seguenti:
+   Se il `adcli info` comando non riesce a trovare il dominio gestito, esaminare i passaggi seguenti per la risoluzione dei problemi:
 
     * Verificare che il dominio sia raggiungibile dalla macchina virtuale. Provare `ping aaddscontoso.com` a verificare se viene restituita una risposta positiva.
-    * Verificare che la macchina virtuale sia distribuita nello stesso o in una rete virtuale con peering in cui è disponibile il dominio gestito di Azure AD DS.
-    * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate in modo che puntino ai controller di dominio del dominio gestito Azure AD DS.
+    * Verificare che la macchina virtuale sia distribuita nello stesso o in una rete virtuale con peering in cui è disponibile il dominio gestito.
+    * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate in modo che puntino ai controller di dominio del dominio gestito.
 
-1. A questo punto, aggiungere la macchina virtuale al dominio gestito di `adcli join` Azure AD DS usando il comando. Specificare un utente che fa parte del dominio gestito di Azure AD DS. Se necessario, [aggiungere un account utente a un gruppo in Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. A questo punto, aggiungere la macchina virtuale al dominio gestito usando il `adcli join` comando. Specificare un utente che fa parte del dominio gestito. Se necessario, [aggiungere un account utente a un gruppo in Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Anche in questo caso, è necessario immettere il nome di dominio gestito Azure AD DS in tutti i caratteri maiuscoli. Nell'esempio seguente viene usato l'account denominato `contosoadmin@aaddscontoso.com` per inizializzare Kerberos. Immettere il proprio account utente che fa parte del dominio gestito di Azure AD DS.
+    Anche in questo caso, il nome di dominio gestito deve essere specificato in MAIUSCOLo. Nell'esempio seguente viene usato l'account denominato `contosoadmin@aaddscontoso.com` per inizializzare Kerberos. Immettere il proprio account utente che fa parte del dominio gestito.
 
     ```console
     sudo adcli join -D AADDSCONTOSO.COM -U contosoadmin@AADDSCONTOSO.COM -K /etc/krb5.keytab -H coreos.aaddscontoso.com -N coreos
     ```
 
-    Il `adcli join` comando non restituisce alcuna informazione quando la macchina virtuale è stata aggiunta correttamente al dominio gestito di Azure AD DS.
+    Il `adcli join` comando non restituisce alcuna informazione quando la macchina virtuale è stata aggiunta correttamente al dominio gestito.
 
 1. Per applicare la configurazione di aggiunta al dominio, avviare il servizio SSSD:
   
@@ -152,7 +152,7 @@ Con il file di configurazione SSSD aggiornato, aggiungere la macchina virtuale a
 
 ## <a name="sign-in-to-the-vm-using-a-domain-account"></a>Accedere alla macchina virtuale usando un account di dominio
 
-Per verificare che la macchina virtuale sia stata aggiunta correttamente al dominio gestito di Azure AD DS, avviare una nuova connessione SSH usando un account utente di dominio. Verificare che sia stata creata una home directory e che sia stata applicata l'appartenenza al gruppo dal dominio.
+Per verificare che la macchina virtuale sia stata aggiunta correttamente al dominio gestito, avviare una nuova connessione SSH usando un account utente di dominio. Verificare che sia stata creata una home directory e che sia stata applicata l'appartenenza al gruppo dal dominio.
 
 1. Creare una nuova connessione SSH dalla console di. Usare un account di dominio appartenente al dominio gestito usando il `ssh -l` comando, ad esempio `contosoadmin@aaddscontoso.com` e quindi immettere l'indirizzo della macchina virtuale, ad esempio *CoreOS.aaddscontoso.com*. Se si usa la Azure Cloud Shell, usare l'indirizzo IP pubblico della macchina virtuale anziché il nome DNS interno.
 
@@ -166,11 +166,11 @@ Per verificare che la macchina virtuale sia stata aggiunta correttamente al domi
     id
     ```
 
-    Le appartenenze ai gruppi verranno visualizzate dal dominio gestito di Azure AD DS.
+    Le appartenenze a gruppi verranno visualizzate dal dominio gestito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si verificano problemi durante la connessione della macchina virtuale al dominio gestito di Azure AD DS o l'accesso con un account di dominio, vedere [risoluzione dei](join-windows-vm.md#troubleshoot-domain-join-issues)problemi di aggiunta a un dominio.
+Se si verificano problemi durante la connessione della macchina virtuale al dominio gestito o l'accesso con un account di dominio, vedere [risoluzione dei](join-windows-vm.md#troubleshoot-domain-join-issues)problemi di aggiunta a un dominio.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

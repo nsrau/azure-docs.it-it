@@ -13,6 +13,7 @@ ms.topic: how-to
 ms.date: 06/15/2017
 ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84705832"

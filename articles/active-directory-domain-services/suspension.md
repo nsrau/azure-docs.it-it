@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 42b26911c12b1e7c62444a6fb2ee68720b02a56b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9770e46e8e52d8644143c9912c98e0f7913db9b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654596"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734283"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Informazioni sugli stati di integrità e risoluzione dei domini sospesi in Azure Active Directory Domain Services
 
@@ -26,20 +26,20 @@ Questo articolo spiega perché i domini gestiti sono sospesi e come ripristinare
 
 ## <a name="overview-of-managed-domain-states"></a>Panoramica degli Stati del dominio gestito
 
-Attraverso il ciclo di vita di un dominio gestito Azure AD DS, esistono diversi Stati che ne indicano l'integrità. Se il dominio gestito segnala un problema, risolvere rapidamente la causa sottostante per arrestare lo stato continuando a peggiorare.
+Attraverso il ciclo di vita di un dominio gestito, esistono diversi Stati che ne indicano l'integrità. Se il dominio gestito segnala un problema, risolvere rapidamente la causa sottostante per arrestare lo stato continuando a peggiorare.
 
-![La progressione degli Stati che un dominio gestito di Azure AD DS impiega per la sospensione](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
+![Progressione degli Stati che un dominio gestito assume per la sospensione](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
-Un dominio gestito di Azure AD DS può trovarsi in uno degli Stati seguenti:
+Un dominio gestito può trovarsi in uno degli Stati seguenti:
 
-* [In esecuzione](#running-state)
+* [Running](#running-state)
 * [Richiede attenzione](#needs-attention-state)
-* [Sospeso](#suspended-state)
-* [Eliminato](#deleted-state)
+* [Suspended](#suspended-state)
+* [Eliminata](#deleted-state)
 
 ## <a name="running-state"></a>Stato di esecuzione
 
-Un dominio gestito Azure AD DS configurato correttamente e in esecuzione senza problemi è nello stato in *esecuzione* . Si tratta dello stato desiderato per un dominio gestito.
+Un dominio gestito configurato correttamente e in esecuzione senza problemi è nello stato in *esecuzione* . Si tratta dello stato desiderato per un dominio gestito.
 
 ### <a name="what-to-expect"></a>Cosa aspettarsi
 
@@ -50,15 +50,15 @@ Un dominio gestito Azure AD DS configurato correttamente e in esecuzione senza p
 
 ## <a name="needs-attention-state"></a>Stato richiesta attenzione
 
-Un dominio gestito Azure AD DS con uno o più problemi che devono essere corretti è nello stato *needs attention* . La pagina integrità per il dominio gestito elenca gli avvisi e indica dove si è verificato un problema. Alcuni avvisi sono temporanei e vengono risolti automaticamente dalla piattaforma Azure. Per altri avvisi, è possibile risolvere il problema attenendosi alla procedura di risoluzione fornita. È presente un avviso critico. per ulteriori informazioni sulla risoluzione dei problemi, [aprire una richiesta di supporto tecnico di Azure][azure-support] .
+Un dominio gestito con uno o più problemi che devono essere corretti è nello stato *needs attention* . La pagina integrità per il dominio gestito elenca gli avvisi e indica dove si è verificato un problema. Alcuni avvisi sono temporanei e vengono risolti automaticamente dalla piattaforma Azure. Per altri avvisi, è possibile risolvere il problema attenendosi alla procedura di risoluzione fornita. È presente un avviso critico. per ulteriori informazioni sulla risoluzione dei problemi, [aprire una richiesta di supporto tecnico di Azure][azure-support] .
 
 Un esempio di avviso è costituito da un gruppo di sicurezza di rete restrittivo. In questa configurazione, la piattaforma Azure potrebbe non essere in grado di aggiornare e monitorare il dominio gestito. Viene generato un avviso e lo stato cambia in *richiesta attenzione*.
 
-Per ulteriori informazioni, vedere [come risolvere i problemi relativi agli avvisi per un dominio gestito di Azure AD DS][resolve-alerts].
+Per ulteriori informazioni, vedere [come risolvere i problemi relativi agli avvisi per un dominio gestito][resolve-alerts].
 
 ### <a name="what-to-expect"></a>Cosa aspettarsi
 
-Quando un dominio gestito di Azure AD DS è nello stato *richiesta attenzione* , la piattaforma Azure potrebbe non essere in grado di monitorare, applicare patch, aggiornare o eseguire il backup dei dati a intervalli regolari. In alcuni casi, ad esempio con una configurazione di rete non valida, è possibile che i controller di dominio per il dominio gestito non siano raggiungibili.
+Quando un dominio gestito è nello stato *richiesta attenzione* , la piattaforma Azure potrebbe non essere in grado di monitorare, applicare patch, aggiornare o eseguire il backup dei dati a intervalli regolari. In alcuni casi, ad esempio con una configurazione di rete non valida, è possibile che i controller di dominio per il dominio gestito non siano raggiungibili.
 
 * Il dominio gestito è in uno stato non integro e il monitoraggio dell'integrità in corso può arrestarsi fino a quando l'avviso non viene risolto.
 * Non è possibile applicare patch o aggiornare i controller di dominio per il dominio gestito.
@@ -69,7 +69,7 @@ Quando un dominio gestito di Azure AD DS è nello stato *richiesta attenzione* ,
 
 ## <a name="suspended-state"></a>Stato sospeso
 
-Un dominio gestito di Azure AD DS entra nello stato **suspended** per uno dei seguenti motivi:
+Un dominio gestito entra nello stato **suspended** per uno dei seguenti motivi:
 
 * Uno o più avvisi critici non sono stati risolti in 15 giorni.
     * Gli avvisi critici possono essere provocati da una configurazione non corretta che blocca l'accesso alle risorse necessarie da parte di Azure Active Directory Domain Services. Ad esempio, l'avviso [AADDS104: errore di rete][alert-nsg] non è stato risolto da oltre 15 giorni nel dominio gestito.
@@ -79,7 +79,7 @@ I domini gestiti vengono sospesi quando la piattaforma Azure non è in grado di 
 
 ### <a name="what-to-expect"></a>Cosa aspettarsi
 
-Il comportamento seguente si verifica quando un dominio gestito di Azure AD DS si trova nello stato *suspended* :
+Quando un dominio gestito si trova nello stato *suspended* , si verifica il comportamento seguente:
 
 * I controller di dominio per il dominio gestito sono deprovisioned e non sono raggiungibili all'interno della rete virtuale.
 * LDAP sicuro l'accesso al dominio gestito su Internet, se abilitato, smette di funzionare.
@@ -93,10 +93,10 @@ Viene visualizzato un [avviso][resolve-alerts] nella pagina relativa all'integri
 
 ### <a name="restore-a-suspended-domain"></a>Ripristinare un dominio sospeso
 
-Per ripristinare l'integrità di un dominio gestito di Azure AD DS nello stato *suspended* , attenersi alla procedura seguente:
+Per ripristinare l'integrità di un dominio gestito che si trova nello stato *suspended* , attenersi alla procedura seguente:
 
 1. Nella portale di Azure cercare e selezionare **servizi di dominio**.
-1. Scegliere il dominio gestito di Azure AD DS dall'elenco, ad esempio *aaddscontoso.com*, quindi selezionare **Health (integrità**).
+1. Scegliere il dominio gestito dall'elenco, ad esempio *aaddscontoso.com*, quindi selezionare **Health (integrità**).
 1. Selezionare l'avviso, ad esempio *AADDS503* o *AADDS504*, a seconda della cause della sospensione.
 1. Scegliere il collegamento di risoluzione fornito nell'avviso e seguire la procedura per risolverlo.
 
@@ -106,11 +106,11 @@ Dopo aver risolto gli avvisi quando il dominio gestito si trova nello stato *sus
 
 ## <a name="deleted-state"></a>Stato eliminato
 
-Se uno Azure AD dominio gestito DS rimane nello stato *suspended* per 15 giorni, viene eliminato. Questo processo è irreversibile.
+Se un dominio gestito rimane in stato *sospeso* per 15 giorni, viene eliminato. Questo processo è irreversibile.
 
 ### <a name="what-to-expect"></a>Cosa aspettarsi
 
-Quando un dominio gestito di Azure AD DS entra nello stato *eliminato* , viene visualizzato il comportamento seguente:
+Quando un dominio gestito entra nello stato *eliminato* , viene visualizzato il comportamento seguente:
 
 * Vengono eliminati tutti i backup e le risorse del dominio gestito.
 * Non è possibile ripristinare il dominio gestito ed è necessario creare un dominio gestito sostitutivo per riutilizzare Azure AD DS.
@@ -118,7 +118,7 @@ Quando un dominio gestito di Azure AD DS entra nello stato *eliminato* , viene v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per fare in modo che il dominio gestito di Azure AD DS sia integro e ridurre al minimo il rischio che venga sospeso, informazioni su come [risolvere gli avvisi per il dominio gestito][resolve-alerts].
+Per fare in modo che il dominio gestito sia integro e ridurre al minimo il rischio che venga sospeso, informazioni su come [risolvere gli avvisi per il dominio gestito][resolve-alerts].
 
 <!-- INTERNAL LINKS -->
 [alert-nsg]: alert-nsg.md

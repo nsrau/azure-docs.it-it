@@ -3,21 +3,21 @@ title: Connettersi a un account Azure Cosmos con collegamento privato di Azure
 description: Informazioni su come accedere in modo sicuro all'account Azure Cosmos da una macchina virtuale creando un endpoint privato.
 author: malopMSFT
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d074128376d481902a203de3d32ef89aa72d7b3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737717"
 ---
-# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connettersi privatamente a un account Azure Cosmos usando il collegamento privato di Azure
+# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connettersi in privato a un account Azure Cosmos usando il collegamento privato di Azure Private
 
 Endpoint privato di Azure è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato.
 
-In questo articolo si apprenderà come creare una VM in una rete virtuale di Azure e un account Azure Cosmos con un endpoint privato usando il portale di Azure. Quindi, è possibile accedere in modo sicuro all'account Azure Cosmos dalla macchina virtuale.
+In questo articolo si apprenderà come creare una macchina virtuale in una rete virtuale di Azure e un account Azure Cosmos con un endpoint privato di Azure usando il portale di Azure. Si potrà quindi accedere in modo sicuro all'account Azure Cosmos dalla macchina virtuale.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -36,15 +36,15 @@ In questa sezione è necessario sostituire i parametri seguenti delle procedure 
 | **\<resource-group-name>**  | myResourceGroup|
 | **\<virtual-network-name>** | myVirtualNetwork         |
 | **\<region-name>**          | Stati Uniti centro-occidentali     |
-| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
 | **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale**.
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa**  >  **calcolo**  >  **macchina virtuale**.
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
@@ -132,9 +132,9 @@ In questa sezione si effettuerà la connessione privata all'account Azure Cosmos
 
    **Esempio:**
 
-   mycosmosaccount.documents.azure.com 10.1.255.13
+   10.1.255.13 mycosmosaccount.documents.azure.com
 
-   mycosmosaccount-eastus.documents.azure.com 10.1.255.14
+   10.1.255.14 mycosmosaccount-eastus.documents.azure.com
 
 
 1. Nel Desktop remoto di *myVM*installare [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
@@ -157,7 +157,7 @@ In questa sezione si effettuerà la connessione privata all'account Azure Cosmos
 
 1. Chiudere la connessione Desktop remoto a *myVM*.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in esso contenute usando l'endpoint privato, l'account Azure Cosmos e la macchina virtuale: 
 
@@ -165,7 +165,7 @@ Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in
 
 1. Selezionare **Elimina gruppo di risorse**.
 
-1. Immettere *myResourceGroup* per **digitare il nome del gruppo di risorse** e selezionare **Elimina**.
+1. Immettere *myResourceGroup* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5330c427088734b049b2cb4f7735ac0099a52b47
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966675"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736673"
 ---
 # <a name="security-best-practices"></a>Procedure consigliate per la sicurezza
 
@@ -137,7 +137,7 @@ Considerare gli host di sessione come un'estensione della distribuzione desktop 
 
 ### <a name="manage-office-pro-plus-security"></a>Gestire la sicurezza di Office Pro Plus
 
-Oltre a proteggere gli host di sessione, è importante proteggere anche le applicazioni in esecuzione all'interno di essi. Office Pro Plus è una delle applicazioni più comuni distribuite negli host di sessione. Per migliorare la sicurezza della distribuzione di Office, è consigliabile usare l'[Assistente criteri di sicurezza](/DeployOffice/overview-of-security-policy-advisor) per Microsoft 365 Apps for enterprise. Questo strumento identifica i criteri che è possibile applicare alla distribuzione per una maggiore sicurezza. L'Assistente criteri di sicurezza consiglia inoltre i criteri in base al loro impatto sulla sicurezza e la produttività.
+Oltre a proteggere gli host di sessione, è importante proteggere anche le applicazioni in esecuzione all'interno di essi. Office Pro Plus è una delle applicazioni più comuni distribuite negli host di sessione. Per migliorare la sicurezza della distribuzione di Office, è consigliabile usare l' [Advisor di criteri di sicurezza](/DeployOffice/overview-of-security-policy-advisor) per le app Microsoft 365 per Enterprise. Questo strumento identifica i criteri che è possibile applicare alla distribuzione per una maggiore sicurezza. L'Assistente criteri di sicurezza consiglia inoltre i criteri in base al loro impatto sulla sicurezza e la produttività.
 
 ### <a name="other-security-tips-for-session-hosts"></a>Altri suggerimenti per la sicurezza degli host di sessione
 

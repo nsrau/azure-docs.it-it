@@ -14,6 +14,7 @@ ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: aae9b282c22b405eeebc2719e377a3091fc9d12e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84724951"

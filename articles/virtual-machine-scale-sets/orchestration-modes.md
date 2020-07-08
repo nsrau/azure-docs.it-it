@@ -9,14 +9,17 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737003"
 ---
-# <a name="orchestration-mode-preview"></a>Modalità orchestrazione (anteprima)
+# <a name="orchestration-modes-preview"></a>Modalità di orchestrazione (anteprima)
+
+> [!CAUTION]
+> Grazie a tutti gli utenti che hanno partecipato a questa versione di anteprima pubblica. Siamo riusciti a raccogliere i preziosi commenti della nostra community. Questa versione di anteprima è stata **chiusa** per tutti i nuovi partecipanti, al fine di integrare il feedback. Questo spazio verrà aggiornato con nuove informazioni.
 
 I set di scalabilità di macchine virtuali offrono un raggruppamento logico di macchine virtuali gestite dalla piattaforma. Con i set di scalabilità è possibile creare un modello di configurazione della macchina virtuale, aggiungere o rimuovere automaticamente istanze aggiuntive in base al carico della CPU o della memoria e aggiornarsi automaticamente alla versione più recente del sistema operativo. Tradizionalmente, i set di scalabilità consentono di creare macchine virtuali usando un modello di configurazione della macchina virtuale disponibile al momento della creazione del set di scalabilità e il set di scalabilità può gestire solo le macchine virtuali create in modo implicito in base al modello di configurazione.
 
@@ -41,10 +44,10 @@ I set di scalabilità di macchine virtuali supporteranno due modalità di orches
 
 |                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Modello di configurazione della macchina virtuale      | Nessuno                                       | Obbligatoria |
+| Modello di configurazione della macchina virtuale      | nessuno                                       | Necessario |
 | Aggiunta di una nuova macchina virtuale al set di scalabilità  | Al momento della creazione della macchina virtuale, le macchine virtuali vengono aggiunte esplicitamente al set di scalabilità. | Le VM vengono create in modo implicito e aggiunte al set di scalabilità in base al modello di configurazione della macchina virtuale, al numero di istanze e alle regole di scalabilità automatica | |
 | Eliminazione di una macchina virtuale                   | Le macchine virtuali devono essere eliminate singolarmente, il set di scalabilità non verrà eliminato se contiene macchine virtuali. | Le macchine virtuali possono essere eliminate singolarmente, eliminando il set di scalabilità verranno eliminate tutte le istanze di VM.  |
-| Connetti/scollega macchine virtuali           | Non supportato                              | Non supportate |
+| Connetti/scollega macchine virtuali           | Non supportato                              | Non supportato |
 | Ciclo di vita dell'istanza (creazione tramite eliminazione) | Le macchine virtuali e i relativi elementi, come dischi e schede di rete, possono essere gestiti in modo indipendente. | Le istanze e i relativi elementi, come dischi e schede di rete, sono impliciti nelle istanze del set di scalabilità che li creano. Non possono essere scollegati o gestiti separatamente al di fuori del set di scalabilità |
 | Domini di errore               | Consente di definire domini di errore. 2 o 3 Basato sul supporto regionale e 5 per la zona di disponibilità. | Consente di definire domini di errore da 1 a 5 |
 | Domini di aggiornamento              | I domini di aggiornamento vengono mappati automaticamente ai domini di errore | I domini di aggiornamento vengono mappati automaticamente ai domini di errore |
@@ -55,7 +58,7 @@ I set di scalabilità di macchine virtuali supporteranno due modalità di orches
 | Controllo istanza            | Controllo completo della macchina virtuale. Le macchine virtuali hanno un URI completo che supporta la gamma completa di funzionalità di gestione delle macchine virtuali di Azure, ad esempio criteri di Azure, backup di Azure e Azure Site Recovery | Le macchine virtuali sono risorse dipendenti del set di scalabilità. È possibile accedere alle istanze per la gestione solo tramite il set di scalabilità. |
 | Modello di istanza              | Definizione del modello Microsoft. Compute/VirtualMachines. | Definizione del modello Microsoft. Compute/VirtualMachineScaleSets/VirtualMachines. |
 | Capacità                    | È possibile creare un set di scalabilità vuoto; è possibile aggiungere fino a 200 VM al set di scalabilità | I set di scalabilità possono essere definiti con un numero di istanze 0-1000 |
-| Spostamento                        | Supportato                                  | Supportato |
+| Sposta                        | Supportato                                  | Supportato |
 | Gruppo di posizionamento singolo = = false | Non supportate                          | Supportato |
 
 
