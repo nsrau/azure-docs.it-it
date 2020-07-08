@@ -12,21 +12,20 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 01decb99a9eb24ae60250f83f1f961b4c1690bc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652858"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Scenari avanzati con server di autenticazione a più fattori di Azure e soluzioni VPN di terze parti
 
-Azure server Multi-Factor Authentication (server di autenticazione a più fattori di Azure) può essere usato per connettersi facilmente a diverse soluzioni VPN di terze parti. Questo articolo è incentrato&reg; sul dispositivo VPN Cisco ASA, sull'appliance VPN SSL Citrix NetScaler e sul dispositivo VPN Secure Access/Pulse Secure Connect Secure. Sono disponibili guide alla configurazione utili per questi tre dispositivi comuni. Il server di autenticazione a più fattori di Azure può anche essere integrato con la maggior parte dei sistemi che usano RADIUS, LDAP, IIS o l'autenticazione basata sulle attestazioni per AD FS. Altre informazioni sono disponibili in [configurazioni del server](howto-mfaserver-deploy.md#next-steps)di autenticazione a più fattori di Azure.
+Azure server Multi-Factor Authentication (server di autenticazione a più fattori di Azure) può essere usato per connettersi facilmente a diverse soluzioni VPN di terze parti. Questo articolo è incentrato sul dispositivo &reg; VPN Cisco ASA, sull'appliance VPN SSL Citrix NetScaler e sul dispositivo VPN Secure Access/Pulse Secure Connect Secure. Sono disponibili guide alla configurazione utili per questi tre dispositivi comuni. Il server di autenticazione a più fattori di Azure può anche essere integrato con la maggior parte dei sistemi che usano RADIUS, LDAP, IIS o l'autenticazione basata sulle attestazioni per AD FS. Altre informazioni sono disponibili in [configurazioni del server](howto-mfaserver-deploy.md#next-steps)di autenticazione a più fattori di Azure.
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1° luglio 2019, Microsoft non offrirà più il server MFA per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori per gli utenti dovranno usare il servizio Azure Multi-Factor Authentication basato sul cloud. Gli attuali clienti che anno attivato il server MFA prima del 1° luglio potranno scaricare la versione più recente e gli aggiornamenti futuri, oltre a generare le credenziali di attivazione come di consueto.
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-mfa-server"></a>Appliance VPN Cisco ASA e server di autenticazione a più fattori di Azure
-Il server di autenticazione a più fattori di&reg; Azure si integra con l'appliance VPN Cisco ASA per&reg; fornire sicurezza aggiuntiva per gli accessi VPN Cisco AnyConnect e per l'accesso al portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
+Il server di autenticazione a più fattori di Azure si integra con l' &reg; appliance VPN Cisco ASA per fornire sicurezza aggiuntiva per gli &reg; accessi VPN Cisco AnyConnect e per l'accesso al portale.  È possibile usare il protocollo LDAP o RADIUS.  Selezionare una delle opzioni seguenti per scaricare le guide dettagliate per la configurazione.
 
 | Guida alla configurazione | Descrizione |
 | --- | --- |
@@ -53,4 +52,4 @@ Il server di autenticazione a più fattori di Azure si integra con il dispositiv
 
 - [Ampliare l'infrastruttura di autenticazione esistente con l'estensione di Server dei criteri di rete per Multi-Factor Authentication di Azure](howto-mfa-nps-extension.md)
 
-- [Configurare le impostazioni del Multi-Factor Authentication di Azure](howto-mfa-mfasettings.md)
+- [Configurare le impostazioni di Azure Multi-Factor Authentication](howto-mfa-mfasettings.md)

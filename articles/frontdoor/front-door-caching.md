@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471745"
 ---
 # <a name="caching-with-azure-front-door"></a>Memorizzazione nella cache con lo sportello anteriore di Azure
@@ -92,17 +91,17 @@ Frontdoor memorizzerà nella cache gli asset fino alla scadenza della durata TTL
 </br>La procedura consigliata per assicurarsi che gli utenti ottengano sempre la copia più recente degli asset consiste nel versioning di questi ultimi per ogni aggiornamento e nella relativa pubblicazione come nuovi URL. Frontdoor recupera immediatamente i nuovi asset per le richieste client successive. A volte si desidera ripulire il contenuto memorizzato nella cache da tutti i nodi periodici e forzare il recupero dei nuovi asset aggiornati. Ciò potrebbe essere dovuto agli aggiornamenti all'applicazione Web o a un aggiornamento rapido di asset che contengono informazioni non corrette.
 
 </br>Selezionare gli asset che si desidera ripulire dai nodi periferici. Se si desidera ripulire tutti gli asset, fare clic sulla casella di controllo Elimina tutto. In alternativa digitare il percorso di ogni asset che si vuole ripulire nella casella di testo Percorso. I formati seguenti sono supportati nel percorso.
-1. **Ripulitura percorso singolo**: Ripulisci singoli asset specificando il percorso completo dell'asset (senza il protocollo e il dominio), con l'estensione di file, ad esempio,/Pictures/Strasbourg.png;
-2. **Wildcard purge**: (Eliminazione dei caratteri jolly) l'asterisco (\*) può essere usato come carattere jolly. Eliminare tutte le cartelle, le sottocartelle e i file in un endpoint con/\* nel percorso o eliminare tutte le sottocartelle e i file in una cartella specifica specificando la cartella seguita da/\*, ad esempio/Pictures/.\*
+1. **Eliminazione a percorso singolo**: Ripulisci singoli asset specificando il percorso completo dell'asset (senza il protocollo e il dominio), con l'estensione di file, ad esempio/Pictures/strasbourg.png;
+2. **Wildcard purge**: (Eliminazione dei caratteri jolly) l'asterisco (\*) può essere usato come carattere jolly. Eliminare tutte le cartelle, le sottocartelle e i file in un endpoint con/ \* nel percorso o eliminare tutte le sottocartelle e i file in una cartella specifica specificando la cartella seguita da/ \* , ad esempio/Pictures/ \* .
 3. **Root domain purge**: (Eliminazione del dominio radice) consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
 
 Le pulizie della cache su Frontdoor non fanno distinzione tra maiuscole e minuscole. Inoltre, risultano indipendenti dalla stringa di query, vale a dire che l'eliminazione di un indirizzo Web eliminerà tutte le variazioni delle stringhe di query. 
 
 ## <a name="cache-expiration"></a>Ora di scadenza della cache
 L'ordine delle intestazioni seguente viene usato per determinare quanto tempo un elemento rimane memorizzato nella cache:</br>
-1. Cache-Control: s-maxage =\<secondi>
-2. Cache-Control: Max-Age =\<secondi>
-3. Scadenza: \<data http>
+1. Cache-Control: s-maxage=\<seconds>
+2. Cache-Control: max-age =\<seconds>
+3. Scadenza\<http-date>
 
 Intestazioni di risposta Cache-Control che indicano che la risposta non verrà memorizzata nella cache, ad esempio cache-Control: private, cache-Control: No-cache e cache-Control: No-Store viene rispettato. Tuttavia, se sono presenti più richieste in elaborazione in un POP per lo stesso indirizzo Web, esse possono condividere la risposta. Se non è presente alcun controllo cache, il comportamento predefinito è che AFD memorizza nella cache la risorsa per l'intervallo di tempo X, dove X viene selezionato in modo casuale da 1 a 3 giorni.
 

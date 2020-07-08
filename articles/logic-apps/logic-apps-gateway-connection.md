@@ -7,10 +7,9 @@ ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80657127"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
@@ -24,7 +23,7 @@ Questo articolo illustra come creare una risorsa del gateway di Azure per un [ga
 
 Per informazioni su come usare il gateway con altri servizi, vedere i seguenti articoli:
 
-* [Microsoft Power automatizza il gateway dati locale](/power-automate/gateway-reference)
+* [Gateway dati locale di Microsoft Power Automate](/power-automate/gateway-reference)
 * [Gateway dati locale di Microsoft Power BI](/power-bi/service-gateway-onprem)
 * [Gateway dati locale di Microsoft Power Apps](/powerapps/maker/canvas-apps/gateway-reference)
 * [Gateway dati locale di Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
@@ -48,7 +47,7 @@ In app per la logica di Azure il gateway dati locale supporta i [connettori loca
 * SQL Server
 * Teradata
 
-App per la logica di Azure supporta operazioni di lettura e scrittura tramite il gateway dati. Tuttavia, queste operazioni hanno [limiti sulle dimensioni del payload](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Sebbene il gateway stesso non comporti costi aggiuntivi, il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md) per la logica si applica a questi connettori e ad altre operazioni in app per la logica di Azure.
+App per la logica di Azure supporta operazioni di lettura e scrittura tramite il gateway dati. Per queste operazioni sono però previsti [limiti di dimensioni del payload](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Sebbene il gateway stesso non comporti costi aggiuntivi, il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md) per la logica si applica a questi connettori e ad altre operazioni in app per la logica di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -58,7 +57,7 @@ App per la logica di Azure supporta operazioni di lettura e scrittura tramite il
 
 * L'installazione del gateway non è già registrata ed è richiesta da un'altra risorsa del gateway di Azure.
 
-  Quando si crea una risorsa del gateway nel portale di Azure, si seleziona un'installazione del gateway, che collega alla risorsa del gateway e solo a tale risorsa del gateway. In app per la logica di Azure, trigger e azioni locali usare la risorsa gateway per la connessione alle origini dati locali. In questi trigger e azioni è possibile selezionare la sottoscrizione di Azure e la risorsa gateway associata che si vuole usare. Ogni risorsa del gateway è collegata a una sola installazione del gateway, che è collegata a un solo account Azure.
+  Quando si crea una risorsa del gateway nel portale di Azure, si seleziona un'installazione del gateway, che collega alla risorsa del gateway e solo a tale risorsa del gateway. In App per la logica di Azure, i trigger e le azioni locali usano quindi la risorsa del gateway per la connessione alle origini dati locali. In questi trigger e azioni è possibile selezionare la sottoscrizione di Azure e la risorsa gateway associata che si vuole usare. Ogni risorsa del gateway è collegata a una sola installazione del gateway, che è collegata a un solo account Azure.
 
   > [!NOTE]
   > Solo l'amministratore del gateway può creare la risorsa del gateway nel portale di Azure. Attualmente, le entità servizio non sono supportate. 
@@ -83,7 +82,7 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
 
    | Proprietà | Descrizione |
    |----------|-------------|
-   | **Nome risorsa** | Specificare un nome per la risorsa del gateway che contenga solo lettere, numeri, trattini (`-`), caratteri di`_`sottolineatura ()`(`, `)`parentesi (,) o`.`punti (). |
+   | **Nome risorsa** | Specificare un nome per la risorsa del gateway che contenga solo lettere, numeri, trattini ( `-` ), caratteri di sottolineatura ( `_` ), parentesi ( `(` , `)` ) o punti ( `.` ). |
    | **Sottoscrizione** | Selezionare la sottoscrizione di Azure per l'account Azure usato per l'installazione del gateway. La sottoscrizione predefinita si basa sull'account di Azure usato per accedere. |
    | **Gruppo di risorse** | Il [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) che si vuole usare |
    | **Posizione** | La stessa area o la stessa località selezionata per il servizio cloud gateway durante l' [installazione del gateway](../logic-apps/logic-apps-gateway-install.md). In caso contrario, l'installazione del gateway non verrà visualizzata nell'elenco **nome installazione** . Il percorso dell'app per la logica può essere diverso da quello delle risorse del gateway. |
@@ -140,7 +139,7 @@ Per aggiornare le impostazioni per una connessione gateway, è possibile modific
 
 Per trovare tutte le connessioni API associate alla sottoscrizione di Azure:
 
-* Dal menu portale di Azure selezionare **tutti i servizi** > **Web** > **connessioni API**Web.
+* Dal menu portale di Azure selezionare **tutti i servizi**  >  **Web**  >  **connessioni API**Web.
 * In alternativa, scegliere **tutte le risorse**dal menu portale di Azure. Impostare il filtro dei **tipi** su **connessione API**.
 
 <a name="change-delete-gateway-resource"></a>

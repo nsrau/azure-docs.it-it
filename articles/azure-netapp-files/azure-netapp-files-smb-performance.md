@@ -15,10 +15,9 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
 ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460450"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Domande frequenti sulle prestazioni SMB per Azure NetApp Files
@@ -44,7 +43,7 @@ Windows supporta SMB multicanale a partire da Windows 2012 per garantire prestaz
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>La macchina virtuale di Azure supporta RSS?
 
-Per verificare se le schede NIC delle macchine virtuali di Azure supportano RSS, `Get-SmbClientNetworkInterface` eseguire il comando come indicato di `RSS Capable`seguito e selezionare il campo: 
+Per verificare se le schede NIC delle macchine virtuali di Azure supportano RSS, eseguire il comando `Get-SmbClientNetworkInterface` come indicato di seguito e selezionare il campo `RSS Capable` : 
 
 ![Supporto RSS per la macchina virtuale di Azure](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
@@ -60,7 +59,7 @@ La funzionalità SMB multicanale consente a un client SMB3 di stabilire un pool 
 
 No. Il client SMB corrisponderà al numero di NIC restituito dal server SMB.  Ogni volume di archiviazione è accessibile da un solo endpoint di archiviazione.  Ciò significa che verrà usata una sola scheda di interfaccia di rete per ogni relazione SMB specificata.  
 
-Come illustrato nell'output `Get-SmbClientNetworkInterace` di seguito, la macchina virtuale ha due interfacce di rete, ovvero 15 e 12.  Come illustrato di seguito sotto il `Get-SmbMultichannelConnection`comando, anche se sono presenti due schede di interfaccia di rete che supportano RSS, viene usata solo l'interfaccia 12 in relazione alla condivisione SMB. l'interfaccia 15 non è in uso.
+Come illustrato nell'output di `Get-SmbClientNetworkInterace` seguito, la macchina virtuale ha due interfacce di rete, ovvero 15 e 12.  Come illustrato di seguito sotto il comando `Get-SmbMultichannelConnection` , anche se sono presenti due schede di interfaccia di rete che supportano RSS, viene usata solo l'interfaccia 12 in connessione alla condivisione SMB; l'interfaccia 15 non è in uso.
 
 ![NIC compatibili con RSS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
@@ -74,9 +73,9 @@ I test e i grafici seguenti illustrano la potenza di SMB multicanale sui carichi
 
 ### <a name="random-io"></a>I/O casuale  
 
-Con SMB multicanale disabilitato nel client, i test di lettura e scrittura puri da 8 KB sono stati eseguiti con FIO e 40-GiB working set.  La condivisione SMB è stata scollegata tra ogni test, con incrementi del numero di connessioni client SMB per ogni impostazione dell' `1`interfaccia`4`di`8`rete`16`RSS `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>`di,,,,. I test indicano che l'impostazione predefinita di `4` è sufficiente per i carichi di lavoro con utilizzo intensivo di I/O. l'incremento a `8` e `16` non ha avuto alcun effetto. 
+Con SMB multicanale disabilitato nel client, i test di lettura e scrittura puri da 8 KB sono stati eseguiti con FIO e 40-GiB working set.  La condivisione SMB è stata scollegata tra ogni test, con incrementi del numero di connessioni client SMB per ogni impostazione dell'interfaccia di rete RSS di `1` , `4` , `8` , `16` , `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . I test indicano che l'impostazione predefinita di `4` è sufficiente per i carichi di lavoro con utilizzo intensivo di I/O; l'incremento a `8` e `16` non ha effetto. 
 
-Il comando `netstat -na | findstr 445` ha dimostrato che sono state stabilite connessioni aggiuntive con `1` incrementi da a `4` a `8` e a `16`.  Quattro core CPU sono stati completamente utilizzati per SMB durante ogni test, come confermato dalla statistica PerfMon `Per Processor Network Activity Cycles` (non incluso in questo articolo).
+Il comando ha `netstat -na | findstr 445` dimostrato che sono state stabilite connessioni aggiuntive con incrementi da `1` a a e a `4` `8` `16` .  Quattro core CPU sono stati completamente utilizzati per SMB durante ogni test, come confermato dalla `Per Processor Network Activity Cycles` statistica PerfMon (non incluso in questo articolo).
 
 ![Test di I/O casuali](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 

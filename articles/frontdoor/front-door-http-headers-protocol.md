@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bb1de5d51afd01cf0aa519f12aa3665bee804efd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471677"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Supporto del protocollo per le intestazioni HTTP nella porta anteriore di Azure
@@ -33,7 +32,7 @@ La porta anteriore accetta la maggior parte delle intestazioni dalla richiesta i
 
 La porta anteriore include le intestazioni di una richiesta in ingresso, a meno che non vengano rimosse a causa di restrizioni. La porta anteriore aggiunge anche le intestazioni seguenti:
 
-| Intestazione  | Esempio e descrizione |
+| Header  | Esempio e descrizione |
 | ------------- | ------------- |
 | Via |  Via: 1,1 Azure </br> La porta anteriore aggiunge la versione HTTP del client seguita da *Azure* come valore per l'intestazione via. Questa intestazione indica la versione HTTP del client e la porta anteriore è un destinatario intermedio per la richiesta tra il client e il back-end.  |
 | X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Rappresenta l'indirizzo IP del client associato alla richiesta in fase di elaborazione. Ad esempio, una richiesta proveniente da un proxy potrebbe aggiungere l'intestazione X-inoltro-for per indicare l'indirizzo IP del chiamante originale. |
@@ -49,7 +48,7 @@ La porta anteriore include le intestazioni di una richiesta in ingresso, a meno 
 
 Tutte le intestazioni inviate alla porta anteriore dal back-end vengono passate anche al client. Di seguito sono riportate le intestazioni inviate dalla porta anteriore ai client.
 
-| Intestazione  | Esempio |
+| Header  | Esempio |
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Si tratta di una stringa di riferimento univoca che identifica una richiesta servita da Frontdoor. Questo è fondamentale per la risoluzione dei problemi perché viene usato per la ricerca nei log di accesso.|
 

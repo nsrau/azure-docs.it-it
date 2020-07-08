@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
 ms.openlocfilehash: 72aa0762d001c28b21d5e27ed8f6f9d099f62bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79499830"
 ---
 # <a name="azure-storage-accounts"></a>Account di archiviazione di Azure
@@ -27,12 +26,12 @@ L'account di Servizi multimediali e tutti gli account di archiviazione associati
 
 È necessario avere un account di archiviazione **primario** ed è possibile avere un numero qualsiasi di account di archiviazione **secondari** associati all'account di Servizi multimediali. Servizi multimediali supporta account **Utilizzo generico v2** (GPv2) o **Utilizzo generico v1** (GPv1). Gli account solo BLOB non sono consentiti come **primari**.
 
-Si consiglia di usare GPv2, in modo da poter sfruttare le funzionalità e le prestazioni più recenti. Per altre informazioni sugli account di archiviazione, vedere la [panoramica degli account di Archiviazione di Azure](../../storage/common/storage-account-overview.md).
+Si consiglia di usare GPv2, in modo da poter sfruttare le funzionalità e le prestazioni più recenti. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../../storage/common/storage-account-overview.md).
 
 > [!NOTE]
 > Solo il livello di accesso frequente è supportato per l'uso con servizi multimediali di Azure, anche se gli altri livelli di accesso possono essere usati per ridurre i costi di archiviazione sul contenuto che non viene usato attivamente.
 
-Esistono diversi SKU che è possibile scegliere per l'account di archiviazione. Per altre informazioni, vedere [account di archiviazione](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Se si vogliono provare gli account di archiviazione, usare `--sku Standard_LRS`. Tuttavia, quando si sceglie uno SKU per la produzione, è `--sku Standard_RAGRS`necessario prendere in considerazione, che fornisce la replica geografica per la continuità aziendale.
+Esistono diversi SKU che è possibile scegliere per l'account di archiviazione. Per altre informazioni, vedere [account di archiviazione](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Se si vogliono provare gli account di archiviazione, usare `--sku Standard_LRS`. Tuttavia, quando si sceglie uno SKU per la produzione, è necessario prendere in considerazione `--sku Standard_RAGRS` , che fornisce la replica geografica per la continuità aziendale.
 
 ## <a name="assets-in-a-storage-account"></a>Asset in un account di archiviazione
 
@@ -48,8 +47,8 @@ Per proteggere gli asset inattivi, gli asset devono essere crittografati tramite
 |Opzione di crittografia|Descrizione|Servizi multimediali v3|
 |---|---|---|
 |Crittografia di archiviazione di servizi multimediali| Crittografia AES-256, chiave gestita da servizi multimediali. |Non supportato. <sup>(1)</sup>|
-|[Crittografia del servizio di archiviazione per i dati inattivi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Supportato.|
-|[Crittografia lato client di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportata.|
+|[Crittografia del servizio di archiviazione per i dati inattivi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Supportata.|
+|[Crittografia lato client di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportato.|
 
 <sup>1</sup> in servizi multimediali V3, la crittografia di archiviazione (crittografia AES-256) è supportata solo per la compatibilità con le versioni precedenti quando gli asset sono stati creati con servizi multimediali V2, il che significa che V3 funziona con asset crittografati di archiviazione esistenti ma non consente la creazione di nuove risorse.
 

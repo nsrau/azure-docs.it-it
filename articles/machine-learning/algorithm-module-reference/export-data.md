@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456302"
 ---
 # <a name="export-data-module"></a>Modulo Export Data
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare questo modulo per salvare i risultati, i dati intermedi e i dati di lavoro dalle pipeline nelle destinazioni di archiviazione cloud. 
 

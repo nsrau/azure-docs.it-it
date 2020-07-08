@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 7178417a5c20afe5b1ed02bc526ec174704962df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456251"
 ---
 # <a name="feature-hashing-module-reference"></a>Riferimento al modulo feature hashing
@@ -59,7 +58,7 @@ Dopo la compilazione del dizionario, il modulo feature hashing converte i termin
 
 Ad esempio, dopo l'hashing, le colonne delle funzionalità potrebbero avere un aspetto simile al seguente:
 
-|Rating|Funzione hash 1|Funzionalità di hashing 2|Funzionalità di hashing 3|
+|Classificazione|Funzione hash 1|Funzionalità di hashing 2|Funzionalità di hashing 3|
 |-----|-----|-----|-----|
 |4|1|1|0|
 |5|0|0|0|

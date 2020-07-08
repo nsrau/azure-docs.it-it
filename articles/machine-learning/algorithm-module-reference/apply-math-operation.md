@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456744"
 ---
 # <a name="apply-math-operation"></a>Applicare operazioni matematiche
@@ -32,11 +31,11 @@ Dopo aver definito un'operazione ed eseguito la pipeline, i valori vengono aggiu
 
 Cercare l'operazione necessaria in queste categorie:  
 
-- [Basic](#basic-math-operations)  
+- [Base](#basic-math-operations)  
   
      Le funzioni della categoria **Basic** possono essere usate per modificare un singolo valore o una colonna di valori. Ad esempio, è possibile ottenere il valore assoluto di tutti i numeri in una colonna oppure calcolare la radice quadrata di ogni valore in una colonna.  
   
--   [Confronta](#comparison-operations)  
+-   [Confrontare](#comparison-operations)  
   
       Le funzioni nella categoria **Confronta** sono tutte utilizzate per il confronto: è possibile eseguire un confronto a livello di coppia dei valori in due colonne oppure è possibile confrontare ogni valore di una colonna con una costante specificata. È ad esempio possibile confrontare le colonne per determinare se i valori sono uguali in due set di impostazioni. In alternativa, è possibile usare una costante, ad esempio un valore massimo consentito, per trovare gli outlier in una colonna numerica.  
   
@@ -72,7 +71,7 @@ Ogni istanza di questo modulo può eseguire un solo tipo di operazione alla volt
 1.  Selezionare una o più colonne di origine in cui eseguire il calcolo.   
   
     - Qualsiasi colonna scelta deve essere un tipo di dati numerico. 
-    - L'intervallo di dati deve essere valido per l'operazione matematica selezionata. In caso contrario, può verificarsi un errore o un risultato NaN (non un numero). Ad esempio, ln (-1,0) è un'operazione non valida e restituisce un valore di `NaN`.
+    - L'intervallo di dati deve essere valido per l'operazione matematica selezionata. In caso contrario, può verificarsi un errore o un risultato NaN (non un numero). Ad esempio, ln (-1,0) è un'operazione non valida e restituisce un valore di `NaN` .
   
 1.  Fare clic su **categoria** per selezionare il **tipo** di operazione matematica da eseguire.
     
@@ -258,7 +257,7 @@ Operazione|Num1|Num2|Colonna risultati|Valore risultato|
 |Sottrazione|1|5|Sottrazione (Num2_Num1)|4|
 |Sottrazione|0|1|Sottrazione (Num2_Num1)|0|
 |Divisione|1|5|Divisione (Num2_Num1)|5|
-|Divisione|0|1|Divisione (Num2_Num1)|Infinity|
+|Divisione|0|1|Divisione (Num2_Num1)|Infinito|
 
 ### <a name="add"></a>Aggiunta
 
@@ -584,9 +583,9 @@ Se è necessario eseguire calcoli più complessi, è possibile concatenare più 
   
 In alternativa, usare uno dei moduli seguenti per eseguire tutti i calcoli contemporaneamente, usando SQL, R o script Python:
  
-+ [Execute R Script](execute-r-script.md)
-+ [Eseguire lo script Python](execute-python-script.md)
-+ [Applicare la trasformazione SQL](apply-sql-transformation.md)   
++ [Execute R Script](execute-r-script.md) (Esegui script R)
++ [Execute Python Script](execute-python-script.md) (Esegui script Python)
++ [Apply SQL Transformation](apply-sql-transformation.md) (Applica trasformazione SQL)   
   
 ## <a name="next-steps"></a>Passaggi successivi
 

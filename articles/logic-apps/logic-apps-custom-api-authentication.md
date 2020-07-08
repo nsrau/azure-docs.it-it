@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656226"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentare la sicurezza per le chiamate alle API personalizzate da app per la logica di Azure
@@ -51,7 +50,7 @@ L'app per la logica usa questa identità di applicazione di Azure AD per l'auten
 2. Verificare di essere nella stessa directory dell'app Web o app per le API.
 
    > [!TIP]
-   > Per passare da una directory all'altra, scegliere il profilo e selezionare un'altra directory. In alternativa, scegliere **Panoramica** > **Cambia directory**.
+   > Per passare da una directory all'altra, scegliere il profilo e selezionare un'altra directory. In alternativa, scegliere **Panoramica**  >  **Cambia directory**.
 
 3. Nel menu delle directory scegliere da **Gestisci****Registrazioni per l'app** > **Registrazione nuova applicazione**.
 
@@ -203,7 +202,7 @@ Aprire la definizione dell'app per la logica nella visualizzazione codice, passa
 | audience | Sì | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
 | clientId | Sì | GUID per il client che richiede l'accesso, che è l'ID client dall'identità di applicazione per l'app per la logica | 
 | secret | Sì | La chiave o la password dall'identità di applicazione per il client che richiede il token di accesso | 
-| type | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
+| tipo | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
 |||| 
 
 Ad esempio:
@@ -250,7 +249,7 @@ Nella sezione **autorizzazione** includere le proprietà seguenti:
 
 | Proprietà | Obbligatoria | Descrizione |
 | -------- | -------- | ----------- |
-| `type` | Sì | Il tipo di autenticazione. Per i certificati client TLS/SSL, il valore deve `ClientCertificate`essere. |
+| `type` | Sì | Il tipo di autenticazione. Per i certificati client TLS/SSL, il valore deve essere `ClientCertificate` . |
 | `password` | No | La password per accedere al certificato client (file PFX) |
 | `pfx` | Sì | Contenuti del certificato client con codifica Base64 (file PFX) |
 ||||
@@ -274,7 +273,7 @@ Nella sezione **autorizzazione** includere le proprietà seguenti:
 | Proprietà | Obbligatoria | Descrizione | 
 | -------- | -------- | ----------- | 
 | type | Sì | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
-| nomeutente | Sì | Nome utente che si vuole usare per l'autenticazione | 
+| username | Sì | Nome utente che si vuole usare per l'autenticazione | 
 | password | Sì | Password che si vuole usare per l'autenticazione | 
 |||| 
 

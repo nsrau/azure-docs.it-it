@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653627"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Raccolta dati utente in Microsoft Azure Multi-Factor Authentication
@@ -138,7 +137,7 @@ Nella versione 8.0 o successiva di MFA Server, la seguente procedura consente ag
 - Accedere a MFA Server, passare alla scheda **Utenti**, selezionare l'utente in questione e fare clic sul pulsante **Modifica**. Acquisire schermate (Alt-Stamp) di ogni scheda per fornire all'utente le relative impostazioni correnti di Multi-Factor Authentication.
 - Dalla riga di comando del server MFA, eseguire il seguente comando di modifica del percorso in base all'installazione `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` per produrre un file JSON formattato.
 - Gli amministratori hanno anche la possibilità di usare l'operazione di SDK GetUserGdpr del servizio Web per esportare tutte le informazioni del servizio cloud MFA raccolte per un determinato utente o incorporarle in una soluzione di report maggiore.
-- Cercare `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` tutti i backup per "\<username>" (includere le virgolette nella ricerca) per trovare tutte le istanze del record utente da aggiungere o modificare.
+- Cercare `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` tutti i backup per " \<username> " (includere le virgolette nella ricerca) per trovare tutte le istanze del record utente da aggiungere o modificare.
    - Questi record possono essere limitati (ma non eliminati) deselezionando **"registra modifiche utente"** nella scheda server di autenticazione a più fattori, sezione registrazione, file di registro.
    - Se syslog è configurato e viene selezionata l'opzione **"registra modifiche utente"** nella scheda server di autenticazione a più fattori, nella sezione registrazione, syslog, le voci di log possono essere raccolte da syslog.
 - Altre occorrenze di nome utente nei file MultiFactorAuthSvc.log e altri file di log del server MFA relativi ai tentativi di autenticazione sono considerate operative e duplicati delle informazioni fornite usando l'esportazioneMultiFactorAuthGdpr.exe o il kit SDK GetUserGdpr del servizio Web.

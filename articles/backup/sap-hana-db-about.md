@@ -4,10 +4,9 @@ description: Questo articolo illustra come eseguire il backup di SAP HANA databa
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 52c235c95cea73a0c51c62fcb55f7f711d2eff21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79476458"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Informazioni sul backup del database SAP HANA nelle macchine virtuali di Azure
@@ -39,11 +38,11 @@ Per visualizzare gli scenari di backup e ripristino attualmente supportati, fare
 * Per [configurare il backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#configure-backup) nei database individuati, scegliere i criteri di backup necessari e abilitare i backup.
 
 * Una volta configurato il backup, il servizio backup di Azure imposta i parametri Backint seguenti a livello di DATABASE nel server SAP HANA protetto:
-  * [catalog_backup_using_backint: true]
-  * [enable_accumulated_catalog_backup: false]
-  * [parallel_data_backup_backint_channels: 1]
-  * [log_backup_timeout_s: 900)]
-  * [backint_response_timeout: 7200]
+  *  [catalog_backup_using_backint:true]
+  *  [enable_accumulated_catalog_backup:false]
+  *  [parallel_data_backup_backint_channels:1]
+  *  [log_backup_timeout_s:900)]
+  *  [backint_response_timeout:7200]
 
 >[!NOTE]
 >Assicurarsi che questi parametri *non* siano presenti a livello di host. I parametri a livello di host eseguiranno l'override di questi parametri e potrebbero causare un comportamento imprevisto.

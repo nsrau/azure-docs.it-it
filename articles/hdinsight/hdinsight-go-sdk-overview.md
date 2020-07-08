@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
 ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479587"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK per go (anteprima)
@@ -34,9 +33,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Dal percorso dell'ambiente GOPATH eseguire `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
-L'SDK deve essere prima autenticato con la sottoscrizione di Azure.  Seguire questo esempio per creare un'entità servizio e usarla per l'autenticazione. Al termine di questa operazione, si disporrà di un'istanza `ClustersClient`di, che contiene numerose funzioni, descritte nelle sezioni seguenti, che possono essere utilizzate per eseguire operazioni di gestione.
+L'SDK deve essere prima autenticato con la sottoscrizione di Azure.  Seguire questo esempio per creare un'entità servizio e usarla per l'autenticazione. Al termine di questa operazione, si disporrà di un'istanza di `ClustersClient` , che contiene numerose funzioni, descritte nelle sezioni seguenti, che possono essere utilizzate per eseguire operazioni di gestione.
 
 > [!NOTE]  
 > Oltre all'esempio seguente esistono altre modalità di autenticazione che possono essere più adatte alle proprie esigenze. Tutte le funzioni sono descritte nell'articolo [Funzioni di autenticazione in Azure SDK per Go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)

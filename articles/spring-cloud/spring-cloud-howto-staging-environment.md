@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.openlocfilehash: 2e29f6a75b303518ac34ecf9b570bd7638cf0c3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471031"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurare un ambiente di staging nel cloud Spring di Azure
@@ -67,10 +66,10 @@ Passare all'istanza del servizio nell'portale di Azure e selezionare **gestione 
 
 >[!TIP]
 > * Verificare che l'endpoint di test termini con una barra (/) per assicurarsi che il file CSS sia caricato correttamente.  
-> * Se il browser richiede di immettere le credenziali di accesso per visualizzare la pagina, usare [Decodifica URL](https://www.urldecoder.org/) per decodificare l'endpoint di test. La decodifica dell'URL restituisce un URL nel formato "https://\<nomeutente>:\<password>@\<nome-cluster>.test.azureapps.io/gateway/green".  Usare questo modulo per accedere all'endpoint.
+> * Se il browser richiede di immettere le credenziali di accesso per visualizzare la pagina, usare [Decodifica URL](https://www.urldecoder.org/) per decodificare l'endpoint di test. La decodifica URL restituisce un URL nel formato "https:// \<username> : \<password> @ \<cluster-name> . test.azureapps.io/gateway/Green".  Usare questo modulo per accedere all'endpoint.
 
 >[!NOTE]    
-> Le impostazioni del server di configurazione si applicano sia all'ambiente di gestione temporanea che alla produzione. Se ad esempio si imposta il percorso del contesto (`server.servlet.context-path`) per il gateway app nel server di configurazione come *somepath*, il percorso della distribuzione verde cambierà in "\<https://username>\<: password>\<@ nome-cluster>. test.azureapps.io/gateway/Green/somepath/...".
+> Le impostazioni del server di configurazione si applicano sia all'ambiente di gestione temporanea che alla produzione. Se ad esempio si imposta il percorso del contesto ( `server.servlet.context-path` ) per il gateway app nel server di configurazione come *somepath*, il percorso della distribuzione verde diventa "https:// \<username> : \<password> @ \<cluster-name> . test.azureapps.io/gateway/Green/somepath/...".
  
  Se a questo punto si visita il gateway app pubblico, viene visualizzata la pagina precedente senza la nuova modifica.
     

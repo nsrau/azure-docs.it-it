@@ -14,10 +14,9 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 855a050afa14144f8963f24398c6b7b3939ef562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656476"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Cambiare il piano tariffario di uno spazio dei nomi di Hub di notifica di Azure
@@ -42,7 +41,7 @@ Nella procedura riportata di seguito viene illustrato come modificare il piano t
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **tutti i servizi** nel menu a sinistra.
-3. Selezionare **Spazi dei nomi dell'hub di notifica** nella sezione **Internet delle cose**. Se si seleziona l'asterisco (`*`) accanto al testo, questo viene aggiunto alla barra di spostamento a sinistra in **Preferiti**. Consente di accedere alla pagina spazi dei nomi più velocemente in futuro. Dopo averlo aggiunto ai Preferiti, selezionare **spazi dei nomi dell'hub di notifica**.
+3. Selezionare **Spazi dei nomi dell'hub di notifica** nella sezione **Internet delle cose**. Se si seleziona l'asterisco ( `*` ) accanto al testo, questo viene aggiunto alla barra di spostamento a sinistra in **Preferiti**. Consente di accedere alla pagina spazi dei nomi più velocemente in futuro. Dopo averlo aggiunto ai Preferiti, selezionare **spazi dei nomi dell'hub di notifica**.
 
     ![Tutti i servizi -> Spazi dei nomi dell'hub di notifica](./media/change-pricing-tier/all-services-nhub.png)
 

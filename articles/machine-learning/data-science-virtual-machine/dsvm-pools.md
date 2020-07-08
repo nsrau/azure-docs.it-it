@@ -11,10 +11,9 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.openlocfilehash: cc0efc0a076ddc3fc9425999f1e38b4a32dec7a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477341"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Creare un pool condiviso di Data Science Virtual Machine
@@ -51,7 +50,7 @@ Nei comandi si fa riferimento in locale al file dei parametri. È anche possibil
 
 Il modello precedente abilita la porta JupyterHub e SSH dal set di scalabilità front-end al pool back-end delle DSVM Ubuntu. L'utente accede alla macchina virtuale in un Secure Shell (SSH) o in JupyterHub in modo normale. Poiché le istanze di macchina virtuale possono essere aumentate o ridotte in modo dinamico, qualsiasi stato deve essere salvato nella condivisione File di Azure montata. È possibile usare lo stesso approccio per creare un pool di DSVM Windows.
 
-Anche lo [script che monta la condivisione di File di Azure](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) è disponibile nel repository Azure DataScienceVM in GitHub. Lo script monta la condivisione di File di Azure nel punto di montaggio specificato nel file dei parametri. Lo script crea anche collegamenti simbolici all'unità montata nella home directory dell'utente iniziale. Una directory del notebook specifica dell'utente nella condivisione File di Azure è collegata temporaneamente alla `$HOME/notebooks/remote` directory in modo che gli utenti possano accedere, eseguire e salvare i notebook di Jupyter. È possibile usare la stessa convenzione quando si creano altri utenti nella VM per puntare all'area di lavoro Jupyter di ogni utente nella condivisione di File di Azure.
+Anche lo [script che monta la condivisione di File di Azure](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) è disponibile nel repository Azure DataScienceVM in GitHub. Lo script monta la condivisione di File di Azure nel punto di montaggio specificato nel file dei parametri. Lo script crea anche collegamenti simbolici all'unità montata nella home directory dell'utente iniziale. Una directory del notebook specifica dell'utente nella condivisione File di Azure è collegata temporaneamente alla directory in `$HOME/notebooks/remote` modo che gli utenti possano accedere, eseguire e salvare i notebook di Jupyter. È possibile usare la stessa convenzione quando si creano altri utenti nella VM per puntare all'area di lavoro Jupyter di ogni utente nella condivisione di File di Azure.
 
 I set di scalabilità di macchine virtuali supportano la scalabilità automatica. È possibile impostare regole su quando creare istanze aggiuntive e quando ridimensionare le istanze. È ad esempio possibile ridurre il numero di istanze a zero per risparmiare sui costi di utilizzo dell'hardware cloud quando le VM non vengono usate. Le pagine di documentazione sui set di scalabilità di macchine virtuali riportano i passaggi dettagliati per la [scalabilità automatica](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: 8c1afac834fb9abb2cbf82f16f046a1624b251f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79481134"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Creare e gestire il peering pubblico di ExpressRoute
@@ -42,18 +41,18 @@ Una volta abilitato il peering pubblico, è possibile connettersi alla maggior p
 
 Questa sezione illustra i servizi disponibili tramite peering pubblico. Poiché il peering pubblico è deprecato, non esiste alcun piano per aggiungere servizi nuovi o aggiuntivi al peering pubblico. Se si usa il peering pubblico e il servizio che si vuole usare è supportato solo dal peering Microsoft, è necessario passare al peering Microsoft. Per un elenco dei servizi supportati, vedere [peering Microsoft](expressroute-faqs.md#microsoft-peering) .
 
-**Supportato**
+**Supportati:**
 
 * Power BI
 * È supportata la maggior parte dei servizi di Azure. Controllare direttamente con il servizio che si vuole usare per verificare il supporto.
 
-**Non supportato:**
+**Non supportati:**
   * RETE CDN
   * Frontdoor di Azure
-  * Server di autenticazione a più fattori (legacy)
+  * Server Multi-Factor Authentication Server (legacy)
   * Gestione traffico
 
-Per convalidare la disponibilità per un servizio specifico, è possibile controllare la documentazione relativa a tale servizio per verificare se è stato pubblicato un intervallo riservato per il servizio. Quindi, è possibile cercare gli intervalli IP del servizio di destinazione e confrontarli con gli intervalli elencati negli [intervalli IP di Azure e nei tag del servizio-file XML del cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). In alternativa, è possibile aprire un ticket di supporto per il servizio in questione per chiarimenti.
+Per verificare la disponibilità di un servizio specifico, è possibile controllare la documentazione relativa a tale servizio per verificare se è stato pubblicato un intervallo riservato per il servizio. Quindi, è possibile cercare gli intervalli IP del servizio di destinazione e confrontarli con gli intervalli elencati negli [intervalli IP di Azure e nei tag del servizio-file XML del cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). In alternativa, è possibile aprire un ticket di supporto per il servizio in questione per ottenere chiarimenti.
 
 ## <a name="peering-comparison"></a><a name="compare"></a>Confronto tra i peering
 

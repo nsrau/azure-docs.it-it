@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61ae942ed189dc4245a9a0b282daf4cad5323536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652575"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Blocco intelligente di Azure Active Directory
@@ -56,7 +55,7 @@ Per verificare i criteri di blocco degli account di Active Directory, usare le i
 
 1. Aprire lo strumento Gestione criteri di gruppo.
 2. Modificare i criteri di gruppo che includono i criteri di blocco degli account dell'organizzazione, ad esempio i **criteri di dominio predefiniti**.
-3. Passare a **configurazione** > **computer criteri** > impostazioni di**Windows** > impostazioni di**sicurezza** > criteri**account criteri** > di**blocco account**.
+3. Passare a **Configurazione computer**criteri impostazioni di Windows impostazioni di  >  **Policies**  >  **Windows Settings**  >  **sicurezza**  >  criteri**account criteri**di  >  **blocco account**.
 4. Verificare la **soglia di blocco dell'account** e **ripristinare il contatore del blocco dell'account dopo** i valori.
 
 ![Modificare i criteri di blocco degli account Active Directory locali](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
@@ -68,7 +67,7 @@ In base alle esigenze dell'organizzazione, può essere necessario personalizzare
 Per verificare o modificare i valori del blocco intelligente per l'organizzazione, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Cercare e selezionare *Azure Active Directory*. Selezionare i**Metodi** > di autenticazione di **sicurezza** > **Password Protection**.
+1. Cercare e selezionare *Azure Active Directory*. Selezionare i metodi di autenticazione di **sicurezza**  >  **Authentication methods**  >  **Password Protection**.
 1. Impostare il valore di **Soglia di blocco**, in base al numero di accessi non riusciti consentiti per un account prima che venga applicato il primo blocco. Il valore predefinito è 10.
 1. Impostare il valore di **Durata del blocco in secondi** sulla durata in secondi di ogni blocco. Il valore predefinito è 60 secondi (1 minuto).
 

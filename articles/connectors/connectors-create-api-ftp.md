@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656341"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creare, monitorare e gestire i file FTP usando App per la logica di Azure
@@ -45,8 +44,8 @@ I trigger FTP funzionano eseguendo il polling del file system FTP e cercando eve
 
 | Client SFTP | Action |
 |-------------|--------|
-| Winscp | Vai a **Opzioni** > **Preferenze** > **trasferimento** > **Edit**modifica > **Mantieni**timestamp > **Disabilita** |
-| FileZilla | Vai al **trasferimento** > **Mantieni i timestamp dei file** > trasferiti**Disabilita** |
+| Winscp | Vai a **Opzioni**  >  **Preferenze**  >  **trasferimento**  >  **modifica**  >  **Mantieni timestamp**  >  **Disabilita** |
+| FileZilla | Vai al **trasferimento**  >  **Mantieni i timestamp dei file trasferiti**  >  **Disabilita** |
 |||
 
 Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger.
@@ -59,7 +58,7 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
   Il connettore FTP richiede che il server FTP sia accessibile da Internet e sia configurato per operare in modalità *passiva*. Le credenziali consentono all'app per la logica di creare una connessione e di accedere all'account FTP.
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account FPT. Per iniziare con un trigger FTP, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione FTP, avviare l'app per la logica con un altro trigger, ad esempio il trigger **Ricorrenza**.
 
@@ -69,13 +68,13 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
 1. Accedere al [portale di Azure](https://portal.azure.com)e aprire l'app per la logica in progettazione app per la logica.
 
-1. Per le app per la logica vuote, nella casella di `ftp` ricerca immettere come filtro. Dall'elenco **trigger** selezionare il trigger desiderato.
+1. Per le app per la logica vuote, nella casella di ricerca immettere `ftp` come filtro. Dall'elenco **trigger** selezionare il trigger desiderato.
 
    -oppure-
 
    Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, selezionare **nuovo passaggio**e quindi selezionare **Aggiungi un'azione**. Nella casella di ricerca immettere `ftp` come filtro. Nell'elenco **azioni** selezionare l'azione desiderata.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
 1. Fornire le informazioni di connessione e selezionare **Crea**.
 
@@ -95,7 +94,7 @@ Di seguito è riportato un esempio che illustra come usare il trigger **quando v
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-1. Per le app per la logica vuote, nella casella di `ftp` ricerca immettere come filtro. Nell'elenco trigger selezionare questo trigger: **quando viene aggiunto o modificato un file archiviato (solo proprietà)**
+1. Per le app per la logica vuote, nella casella di ricerca immettere `ftp` come filtro. Nell'elenco trigger selezionare questo trigger: **quando viene aggiunto o modificato un file archiviato (solo proprietà)**
 
    ![Trovare e selezionare il trigger FTP](./media/connectors-create-api-ftp/select-ftp-trigger-logic-app.png)
 
@@ -105,7 +104,7 @@ Di seguito è riportato un esempio che illustra come usare il trigger **quando v
 
    ![Crea connessione al server FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)
 
-1. Nella casella **cartella** selezionare l'icona della cartella in modo che venga visualizzato un elenco. Per trovare la cartella che si vuole monitorare per i file nuovi o modificati, selezionare la freccia angolo destra**>**(), passare alla cartella e quindi selezionare la cartella.
+1. Nella casella **cartella** selezionare l'icona della cartella in modo che venga visualizzato un elenco. Per trovare la cartella che si vuole monitorare per i file nuovi o modificati, selezionare la freccia angolo destra ( **>** ), passare alla cartella e quindi selezionare la cartella.
 
    ![Trovare e selezionare la cartella da monitorare](./media/connectors-create-api-ftp/select-folder-ftp-trigger.png)
 

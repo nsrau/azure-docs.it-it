@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
 ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477494"
 ---
 # <a name="preprocess-text"></a>Preprocess Text
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare il modulo di **testo pre-elaborazione** per pulire e semplificare il testo. Supporta le seguenti operazioni comuni di elaborazione del testo:
 
@@ -51,7 +50,7 @@ Il modulo di **testo pre-elaborazione** supporta attualmente solo l'inglese.
 
 1. **Rileva frasi**: selezionare questa opzione se si vuole che il modulo inserisca un contrassegno limite frase durante l'esecuzione dell'analisi.
 
-    Questo modulo usa una serie di tre caratteri di `|||` pipe per rappresentare il carattere di terminazione della frase.
+    Questo modulo usa una serie di tre caratteri di pipe `|||` per rappresentare il carattere di terminazione della frase.
 
 1. Eseguire operazioni di ricerca e sostituzione facoltative mediante espressioni regolari.
 
@@ -70,18 +69,18 @@ Il modulo di **testo pre-elaborazione** supporta attualmente solo l'inglese.
     
     * **Rimuovi caratteri duplicati**: selezionare questa opzione per rimuovere i caratteri aggiuntivi in qualsiasi sequenza ripetuta per più di due volte. Ad esempio, una sequenza come "aaaaa" verrebbe ridotta a "AA".
     
-    * **Rimuovi indirizzi di posta elettronica**: selezionare questa opzione per rimuovere qualsiasi sequenza del `<string>@<string>`formato.  
-    * **Rimuovi URL**: selezionare questa opzione per rimuovere qualsiasi sequenza che includa i prefissi URL seguenti `http`: `https`, `ftp`,,`www`
+    * **Rimuovi indirizzi di posta elettronica**: selezionare questa opzione per rimuovere qualsiasi sequenza del formato `<string>@<string>` .  
+    * **Rimuovi URL**: selezionare questa opzione per rimuovere qualsiasi sequenza che includa i prefissi URL seguenti: `http` , `https` , `ftp` ,`www`
     
 1. **Espandi contrazioni verbo**: questa opzione si applica solo ai linguaggi che usano le contrazioni di verbi; Attualmente, solo in lingua inglese. 
 
     Se, ad esempio, si seleziona questa opzione, è possibile sostituire la frase *"non rimanere lì* " con *"non rimanere lì"*.
 
-1. Normalizza le barre rovesciate **in barre**: selezionare questa opzione per eseguire il mapping di tutte `\\` le `/`istanze di a.
+1. Normalizza le barre rovesciate **in barre**: selezionare questa opzione per eseguire il mapping di tutte le istanze di `\\` a `/` .
 
-1. **Suddividere i token in caratteri speciali**: selezionare questa opzione se si desidera interrompere le parole su caratteri quali `&`, `-`e così via. Questa opzione può anche ridurre i caratteri speciali quando si ripete più di due volte. 
+1. **Suddividere i token in caratteri speciali**: selezionare questa opzione se si desidera interrompere le parole su caratteri quali `&` , `-` e così via. Questa opzione può anche ridurre i caratteri speciali quando si ripete più di due volte. 
 
-    La stringa `MS---WORD` , ad esempio, viene suddivisa in tre token, `MS` `-`, e `WORD`.
+    La stringa, ad esempio, viene suddivisa `MS---WORD` in tre token, `MS` , `-` e `WORD` .
 
 1. Inviare la pipeline.
 

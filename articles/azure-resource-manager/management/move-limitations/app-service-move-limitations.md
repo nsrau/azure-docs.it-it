@@ -4,10 +4,9 @@ description: Usare Azure Resource Manager per spostare le risorse del servizio a
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80655778"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Spostare le linee guida per le risorse del servizio app
@@ -41,7 +40,7 @@ Selezionare l'opzione per la procedura consigliata per spostare l'app Web.
 
 Verranno visualizzate le azioni consigliate da eseguire prima di trasferire le risorse. Le informazioni includono il gruppo di risorse originale per l'app Web.
 
-![Indicazioni](./media/app-service-move-limitations/recommendations.png)
+![Consigli](./media/app-service-move-limitations/recommendations.png)
 
 ## <a name="move-support"></a>Supporto per l'operazione di spostamento
 
@@ -50,7 +49,7 @@ Per determinare quali risorse del servizio app possono essere spostate, vedere s
 - [Microsoft.AppService](../move-support-resources.md#microsoftappservice)
 - [Microsoft.CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
 - [Microsoft.DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
-- [Microsoft. Web](../move-support-resources.md#microsoftweb)
+- [Microsoft.Web](../move-support-resources.md#microsoftweb)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

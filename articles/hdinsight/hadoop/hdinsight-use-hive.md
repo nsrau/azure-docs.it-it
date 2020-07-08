@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: f7dc7b520cba2bbf2351d93795a1a26b3b5124be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471354"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Cosa sono Apache Hive e HiveQL in Azure HDInsight
@@ -136,7 +135,7 @@ Nell'esempio precedente, le istruzioni HiveQL eseguono le azioni seguenti:
 |DROP TABLE|se la tabella esiste già, la elimina.|
 |CREATE EXTERNAL TABLE|Crea una nuova tabella **esterna** in hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso e nel formato originale.|
 |FORMATO DI RIGA|indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.|
-|ARCHIVIATO COME PERCORSO DI TEXTFILE|Indica a hive dove sono archiviati i dati ( `example/data` la directory) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.|
+|ARCHIVIATO COME PERCORSO DI TEXTFILE|Indica a hive dove sono archiviati i dati (la `example/data` Directory) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.|
 |SELECT|seleziona un conteggio di tutte le righe in cui la colonna **t4** contiene il valore **[ERROR]**. L'istruzione restituisce un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.|
 |INPUT__FILE__NAME LIKE '%. log '|Hive tenta di applicare lo schema a tutti i file nella directory. In questo caso, la directory contiene file che non corrispondono allo schema. Per evitare dati errati nei risultati, questa istruzione indica a Hive che devono essere restituiti dati solo da file che terminano con .log.|
 
@@ -189,7 +188,7 @@ HDInsight offre LLAP nel tipo di cluster Interactive Query. Per altre informazio
 
 Esistono numerosi servizi che possono essere utilizzati per eseguire le query Hive nell'ambito di un flusso di lavoro pianificato o su richiesta.
 
-### <a name="azure-data-factory"></a>Data factory di Azure
+### <a name="azure-data-factory"></a>Azure Data Factory
 
 Azure Data Factory consente di usare HDInsight come parte di una pipeline di Data Factory. Per ulteriori informazioni sull'uso di Hive da una pipeline, vedere il documento [Trasformare dati usando l'attività Hive in Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md).
 
@@ -211,6 +210,6 @@ Apache Oozie è un sistema di coordinamento dei flussi di lavoro che consente di
 
 Dopo avere appreso che cos'è Hive e come si usa con Hadoop in HDInsight, vedere i collegamenti seguenti per scoprire altri modi di usare Azure HDInsight.
 
-* [Caricare i dati in HDInsight](../hdinsight-upload-data.md)
+* [Caricare dati in HDInsight](../hdinsight-upload-data.md)
 * [Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight](./python-udf-hdinsight.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)

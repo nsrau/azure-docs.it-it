@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
 ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480743"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Abilitare Monitoraggio di Azure per le macchine virtuali per un ambiente ibrido
@@ -53,7 +52,7 @@ La tabella seguente illustra i parametri supportati dal programma di installazio
 | /? | Restituisce un elenco delle opzioni della riga di comando. |
 | /S | Esegue un'installazione invisibile all'utente, senza interazione da parte dell'utente. |
 
-Ad esempio, per eseguire il programma di installazione con `/?` il parametro, immettere **installdependencyagent-Windows. exe/?**.
+Ad esempio, per eseguire il programma di installazione con il `/?` parametro, immettere **InstallDependencyAgent-Windows.exe/?**.
 
 Per impostazione predefinita, i file di Dependency Agent per Windows si trovano in *C:\Programmi\Microsoft Dependency Agent*. Se non è possibile avviare l'agente di dipendenza dopo aver completato l'installazione, controllare i registri per informazioni dettagliate sull'errore. La directory dei log è *%Programfiles%\Microsoft Dependency Agent\logs*.
 
@@ -71,15 +70,15 @@ Dependency Agent viene installato nei server Linux con *InstallDependencyAgent-L
 | -S | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
 | --check | Controllare le autorizzazioni e il sistema operativo senza installare l'agente. |
 
-Ad esempio, per eseguire il programma di installazione con `-help` il parametro, immettere **installdependencyagent-linux64. bin-Help**.
+Ad esempio, per eseguire il programma di installazione con il `-help` parametro, immettere **installdependencyagent-linux64. bin-Help**.
 
-Installare Linux Dependency Agent come root eseguendo il comando `sh InstallDependencyAgent-Linux64.bin`.
+Installare Linux Dependency Agent come root eseguendo il comando `sh InstallDependencyAgent-Linux64.bin` .
 
 Se Dependency Agent non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Negli agenti Linux la directory di log è */var/opt/Microsoft/Dependency-Agent/log*.
 
 I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 
-| File | Percorso |
+| File | Location |
 |:--|:--|
 | File core | /opt/microsoft/dependency-agent |
 | File di registro | /var/opt/microsoft/dependency-agent/log |

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
 ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79461045"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gestire gli endpoint di streaming con servizi multimediali V3
@@ -32,11 +31,11 @@ Questo articolo illustra come eseguire il comando [Start](https://docs.microsoft
     
 ## <a name="prerequisites"></a>Prerequisiti
 
-Recensione 
+Vedere: 
 
 * [Concetti relativi ai Servizi multimediali](concepts-overview.md)
 * [Concetto di endpoint di streaming](streaming-endpoint-concept.md)
-* [creazione dinamica dei pacchetti](dynamic-packaging-overview.md)
+* [Creazione dinamica dei pacchetti](dynamic-packaging-overview.md)
 
 ## <a name="use-rest"></a>Usare REST
 
@@ -44,7 +43,7 @@ Recensione
 POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingEndpoints/myStreamingEndpoint1/start?api-version=2018-07-01
 ```
 
-Per altre informazioni, vedi: 
+Per altre informazioni, vedere: 
 
 * La documentazione di riferimento per l' [avvio di StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) .
 * L'avvio di un endpoint di streaming è un'operazione asincrona. 

@@ -13,10 +13,9 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480981"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrazione di directory tra il server Azure MFA e Active Directory
@@ -24,7 +23,7 @@ ms.locfileid: "79480981"
 Usare la sezione Integrazione directory del server Azure MFA per l'integrazione con Active Directory o un'altra directory LDAP. È possibile configurare attributi corrispondenti allo schema di directory e impostare la sincronizzazione automatica degli utenti.
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1° luglio 2019, Microsoft non offrirà più il server MFA per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori per gli utenti dovranno usare il servizio Azure Multi-Factor Authentication basato sul cloud. Gli attuali clienti che anno attivato il server MFA prima del 1° luglio potranno scaricare la versione più recente e gli aggiornamenti futuri, oltre a generare le credenziali di attivazione come di consueto.
 
 ## <a name="settings"></a>Impostazioni
 
@@ -80,7 +79,7 @@ Gli attributi possono essere immessi manualmente e non devono corrispondere nece
 | --- | --- |
 | Identificatore univoco |Immettere il nome dell'attributo da usare come identificatore univoco di record contenitori, gruppi di sicurezza e utenti.  In Active Directory si usa in genere objectGUID. In altre implementazioni LDAP è possibile usare entryUUID o un valore simile.  Il valore predefinito è objectGUID. |
 | Tipo di identificatore univoco |Selezionare il tipo di attributo dell'identificatore univoco.  In Active Directory l'attributo objectGUID è di tipo GUID. In altre implementazioni LDAP è possibile usare il tipo Stringa o Matrice di byte ASCII.  Il valore predefinito è GUID. <br><br>È importante impostare correttamente questo tipo, perché il relativo identificatore univoco fa riferimento agli elementi di sincronizzazione. Il tipo identificatore univoco viene usato per trovare direttamente l'oggetto nella directory.  Se si imposta questo tipo su Stringa mentre nella directory il valore viene archiviato come matrice di byte di caratteri ASCII, la sincronizzazione non può funzionare correttamente. |
-| Nome distinto |Immettere il nome dell'attributo che contiene il nome distinto per ogni record.  In Active Directory si usa in genere distinguishedName. In altre implementazioni LDAP è possibile usare entryDN o un valore simile.  Il valore predefinito è distinguishedName. <br><br>Se non esiste un attributo contenente solo il nome distinto, è possibile utilizzare l'attributo percorso ADS.  La parte "LDAP://\<server\>/" del percorso viene automaticamente rimossa lasciando solo il nome distinto dell'oggetto. |
+| Nome distinto |Immettere il nome dell'attributo che contiene il nome distinto per ogni record.  In Active Directory si usa in genere distinguishedName. In altre implementazioni LDAP è possibile usare entryDN o un valore simile.  Il valore predefinito è distinguishedName. <br><br>Se non esiste un attributo contenente solo il nome distinto, è possibile utilizzare l'attributo percorso ADS.  La parte "LDAP:// \<server\> /" del percorso viene automaticamente rimossa, lasciando solo il nome distinto dell'oggetto. |
 | Nome contenitore |Immettere il nome dell'attributo che contiene il nome in un record contenitore.  Il valore di questo attributo viene visualizzato nella Gerarchia contenitori durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. <br><br>Se contenitori diversi usano attributi diversi per i relativi nomi, è possibile specificare più attributi del nome contenitore separati da un punto e virgola.  Il primo attributo del nome contenitore trovato in un oggetto contenitore viene usato per visualizzarne il nome. |
 | Nome gruppo di sicurezza |Immettere il nome dell'attributo che contiene il nome in un record gruppo di sicurezza.  Il valore di questo attributo viene visualizzato nell'elenco Gruppo di sicurezza durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. |
 | Username |Immettere il nome dell'attributo che contiene il nome utente in un record utente.  Il valore di questo attributo viene usato come nome utente del server Multi-Factor Authentication.  È possibile specificare anche un secondo attributo come backup del primo.  Il secondo attributo viene usato solo se il primo non contiene un valore per l'utente.  I valori predefiniti sono userPrincipalName e sAMAccountName. |
@@ -107,7 +106,7 @@ Per modificare gli attributi, fare clic su **modifica** nella scheda attributi. 
 
 ![Modifica mapping degli attributi di directory nel server multi-factor authentication](./media/howto-mfaserver-dir-ad/dirint4.png)
 
-## <a name="synchronization"></a>Synchronization
+## <a name="synchronization"></a>Sincronizzazione
 
 La sincronizzazione consente di mantenere il database utenti di Azure MFA sincronizzato con gli utenti di Active Directory o di un'altra directory LDAP (Lightweight Directory Access Protocol). Il processo è simile alla procedura di importazione manuale di utenti da Active Directory, con la differenza che periodicamente viene eseguito il polling delle modifiche apportate ai gruppi di sicurezza e agli utenti di Active Directory da elaborare.  Permette anche di disattivare o rimuovere gli utenti che sono stati rimossi da un contenitore, da un gruppo di sicurezza o da Active Directory.
 

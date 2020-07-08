@@ -7,15 +7,14 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: tisande
 ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79464462"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funzioni di aggregazione in Azure Cosmos DB
 
-Le `SELECT` funzioni di aggregazione eseguono un calcolo su un set di valori nella clausola e restituiscono un singolo valore. Ad esempio, la query seguente restituisce il numero di elementi all'interno `Families` del contenitore:
+Le funzioni di aggregazione eseguono un calcolo su un set di valori nella `SELECT` clausola e restituiscono un singolo valore. Ad esempio, la query seguente restituisce il numero di elementi all'interno del `Families` contenitore:
 
 ## <a name="examples"></a>Esempi
 
@@ -45,7 +44,7 @@ I risultati sono:
     [ 2 ]
 ```
 
-È inoltre possibile combinare le aggregazioni con i filtri. Ad esempio, la query seguente restituisce il numero di elementi con lo stato dell'indirizzo `WA`di.
+È inoltre possibile combinare le aggregazioni con i filtri. Ad esempio, la query seguente restituisce il numero di elementi con lo stato dell'indirizzo di `WA` .
 
 ```sql
     SELECT VALUE COUNT(1)
@@ -61,7 +60,7 @@ I risultati sono:
 
 ## <a name="types-of-aggregate-functions"></a>Tipi di funzioni di aggregazione
 
-L'API SQL supporta le funzioni di aggregazione seguenti. `SUM`e `AVG` operano su valori numerici `COUNT`, `MIN`e, `MAX` e funzionano su numeri, stringhe, valori booleani e valori null.
+L'API SQL supporta le funzioni di aggregazione seguenti. `SUM`e `AVG` operano su valori numerici, e `COUNT` , e `MIN` `MAX` funzionano su numeri, stringhe, valori booleani e valori null.
 
 | Funzione | Descrizione |
 |-------|-------------|
@@ -78,7 +77,7 @@ L'API SQL supporta le funzioni di aggregazione seguenti. `SUM`e `AVG` operano su
 
 ## <a name="remarks"></a>Osservazioni
 
-Queste funzioni di sistema di aggregazione trarranno vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy). Se si prevede di eseguire una `COUNT`, `SUM` `MIN` `MAX`,, o `AVG` su una proprietà, è necessario [includere il percorso pertinente nei criteri di indicizzazione](index-policy.md#includeexclude-strategy).
+Queste funzioni di sistema di aggregazione trarranno vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy). Se si prevede di eseguire una `COUNT` ,,, `SUM` `MIN` `MAX` o `AVG` su una proprietà, è necessario [includere il percorso pertinente nei criteri di indicizzazione](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477681"
 ---
 # <a name="convert-to-csv-module"></a>Converti in modulo CSV
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare questo modulo per convertire un set di dati in un formato CSV che può essere scaricato, esportato o condiviso con moduli di script R o Python.
 
@@ -50,7 +49,7 @@ Selezionare la scheda **output** nel riquadro di destra di **Converti in CSV**e 
 
 + **Registra set di dati**: selezionare l'icona e salvare di nuovo il file CSV nell'area di lavoro di Azure ml come set di dati separato. È possibile trovare il set di dati come modulo nell'albero del modulo nella sezione set di dati **personali** .
 
- + **Visualizza output**: selezionare l'icona a forma di occhio e seguire le istruzioni per esplorare la cartella **Results_dataset** e scaricare il file Data. csv.
+ + **Visualizza output**: selezionare l'icona a forma di occhio e seguire le istruzioni per esplorare la cartella **Results_dataset** e scaricare il file di data.csv.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

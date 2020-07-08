@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 348082ad96a5efa4d8f866c3675044edf7b6f8a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652145"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
@@ -53,7 +52,7 @@ Nel portale di Azure è disponibile un modo migliore per visualizzare la reimpos
 
 ### <a name="converged-registration-preview"></a>Registrazione convergente (anteprima)
 
-Se si partecipa all'anteprima pubblica della registrazione convergente, le informazioni relative all'attività dell'utente nei log di controllo saranno disponibili in**metodi di autenticazione**di **sicurezza** > .
+Se si partecipa all'anteprima pubblica della registrazione convergente, le informazioni relative all'attività dell'utente nei log di controllo saranno disponibili in metodi di autenticazione di **sicurezza**  >  **Authentication Methods**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrizione delle colonne dei report nel portale di Azure
 
@@ -174,14 +173,14 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 * [Report sull'utilizzo e informazioni dettagliate su SSPR e multi-factor authentication](howto-authentication-methods-usage-insights.md)
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md).
-* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).
-* [Hai una domanda per le licenze?](concept-sspr-licensing.md)
+* Eseguire [la registrazione per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).
+* [Domande sulle licenze](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
 * [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Credo che qualcosa sia rotto. Ricerca per categorie risolvere i problemi di SSPR?](active-directory-passwords-troubleshoot.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Esempio di log di controllo delle attività di reimpostazione password self-service in Azure AD"

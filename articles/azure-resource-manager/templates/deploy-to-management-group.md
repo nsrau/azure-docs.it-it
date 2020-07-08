@@ -4,10 +4,9 @@ description: Viene descritto come distribuire le risorse nell'ambito del gruppo 
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: 863d1330412fa238b820eb0f1f05351fc723de6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460314"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creazione di risorse a livello di gruppo di gestione
@@ -25,7 +24,7 @@ Con la maturità dell'organizzazione, potrebbe essere necessario definire e asse
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>SCHEMA
+### <a name="schema"></a>Schema
 
 Lo schema usato per le distribuzioni di gruppi di gestione è diverso dallo schema per le distribuzioni di gruppi di risorse.
 
@@ -69,22 +68,22 @@ Per l'API REST, usare [distribuzioni-crea nell'ambito del gruppo di gestione](/r
 
 ## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
 
-Per le distribuzioni a livello di gruppo di gestione, è necessario specificare un percorso per la distribuzione. Il percorso della distribuzione è separato dal percorso delle risorse distribuite. Il percorso di distribuzione specifica dove archiviare i dati di distribuzione.
+Per le distribuzioni a livello di gruppo di gestione, è necessario specificare un percorso per la distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione.
 
-È possibile specificare un nome per la distribuzione oppure utilizzare il nome predefinito della distribuzione. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
-Per ogni nome di distribuzione, il percorso non è modificabile. Non è possibile creare una distribuzione in un'unica posizione quando esiste una distribuzione esistente con lo stesso nome in una posizione diversa. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
+Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 
 ## <a name="use-template-functions"></a>Usare le funzioni di modello
 
 Per le distribuzioni di gruppi di gestione, è necessario tenere presenti alcune considerazioni importanti relative all'utilizzo delle funzioni modello:
 
 * La funzione [resourceGroup()](template-functions-resource.md#resourcegroup)**non** è supportata.
-* La funzione [Subscription ()](template-functions-resource.md#subscription) **non** è supportata.
+* La funzione [subscription()](template-functions-resource.md#subscription) **non** è supportata.
 * Le funzioni [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) sono supportate.
 * La funzione [resourceId()](template-functions-resource.md#resourceid) funzione è supportata. Usarlo per ottenere l'ID risorsa per le risorse usate nelle distribuzioni a livello di gruppo di gestione. Non specificare un valore per il parametro del gruppo di risorse.
 
-  Ad esempio, per ottenere l'ID risorsa per una definizione dei criteri, usare:
+  Ad esempio, per ottenere l'ID risorsa per una definizione di criteri usare:
   
   ```json
   resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
@@ -168,10 +167,10 @@ Nell'esempio seguente viene assegnata una definizione dei criteri esistente al g
 
 ## <a name="template-sample"></a>Esempio di modello
 
-* [Creare un gruppo di risorse, un criterio e un'assegnazione di criteri](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+* [Create a resource group, a policy, and a policy assignment](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json) (Creare un gruppo di risorse, un criterio e un'assegnazione di criteri).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sull'assegnazione dei ruoli, vedere [gestire l'accesso alle risorse di Azure usando i modelli RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Per informazioni sull'assegnazione di ruoli, vedere [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e i modelli di Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Per un esempio di distribuzione delle impostazioni dell'area di lavoro per il Centro sicurezza di Azure, vedere [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * È anche possibile distribuire modelli a livello di [sottoscrizione](deploy-to-subscription.md) e [tenant](deploy-to-tenant.md).

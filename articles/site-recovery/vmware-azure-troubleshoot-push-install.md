@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
 ms.openlocfilehash: 1afd931249d4dbeda2b4b25f822837e2a564f959
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656313"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Risolvere i problemi di installazione push del servizio Mobility
@@ -41,7 +40,7 @@ Per Windows (**errore 95107**), verificare che l'account utente disponga dell'ac
 * Per aggiungere manualmente una chiave del registro di sistema che disabilita il controllo dell'accesso utente remoto:
 
   * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
-  * Aggiungere un nuovo `DWORD`:`LocalAccountTokenFilterPolicy`
+  * Aggiungere un nuovo `DWORD` :`LocalAccountTokenFilterPolicy`
   * Impostare il valore su`1`
 
 * Per aggiungere la chiave del registro di sistema, al prompt dei comandi eseguire il comando seguente:
@@ -51,9 +50,9 @@ Per Windows (**errore 95107**), verificare che l'account utente disponga dell'ac
 Per Linux (**errore 95108**), è necessario scegliere l'account **radice** per l'installazione corretta dell'agente del servizio Mobility. Inoltre, è necessario che i servizi SSH File Transfer Protocol (SFTP) siano in esecuzione. Per abilitare il sottosistema SFTP e l'autenticazione della password nel file _sshd_config_ :
 
 1. Accedere come utente **root**.
-1. Passare a _nella/etc/ssh/sshd_config file_, trovare la riga che inizia con `PasswordAuthentication`.
-1. Rimuovere il commento dalla riga e modificare il valore in `yes`.
-1. Trovare la riga che inizia con `Subsystem`e rimuovere il commento dalla riga.
+1. Passare a _nella/etc/ssh/sshd_config file_, trovare la riga che inizia con `PasswordAuthentication` .
+1. Rimuovere il commento dalla riga e modificare il valore in `yes` .
+1. Trovare la riga che inizia con `Subsystem` e rimuovere il commento dalla riga.
 1. Riavviare il servizio `sshd` .
 
 Se si desidera modificare le credenziali dell'account utente scelto, attenersi alle [istruzioni seguenti](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
@@ -97,7 +96,7 @@ Questo errore si verifica quando i server di accesso non sono disponibili nel co
 
 Il servizio di accesso non è in esecuzione nel computer di origine e ha causato l'errore della richiesta di accesso. Non è possibile installare l'agente di mobilità. Per risolvere l'errore, usare uno dei metodi seguenti per avviare il `Netlogon` servizio nel computer di origine:
 
-* Per avviare il `Netlogon` servizio da un prompt dei comandi, eseguire il `net start Netlogon`comando.
+* Per avviare il `Netlogon` servizio da un prompt dei comandi, eseguire il comando `net start Netlogon` .
 * Da Gestione attività avviare il `Netlogon` servizio.
 
 ## <a name="connectivity-failure-errorid-95117--97118"></a>Errore di connettività (ErrorID: 95117 & 97118)
@@ -108,7 +107,7 @@ Per risolvere l'errore:
 
 * Assicurarsi che sia possibile effettuare il ping del computer di origine dal server di configurazione. Se è stato scelto il server di elaborazione con scalabilità orizzontale durante l'abilitazione della replica, assicurarsi che sia possibile effettuare il ping del computer di origine dal server di elaborazione.
 
-* Dalla riga di comando del computer del server di `Telnet` origine usare per eseguire il ping del server di configurazione o del server di elaborazione con scalabilità orizzontale sulla porta HTTPS 135, come illustrato nel comando seguente. Questo comando controlla se sono presenti problemi di connettività di rete o problemi di blocco delle porte del firewall.
+* Dalla riga di comando del computer del server di origine usare `Telnet` per eseguire il ping del server di configurazione o del server di elaborazione con scalabilità orizzontale sulla porta HTTPS 135, come illustrato nel comando seguente. Questo comando controlla se sono presenti problemi di connettività di rete o problemi di blocco delle porte del firewall.
 
   `telnet <CS/ scale-out PS IP address> <135>`
 
@@ -118,9 +117,9 @@ Per risolvere l'errore:
   * I servizi SFTP devono essere in esecuzione. Per abilitare il sottosistema SFTP e l'autenticazione della password nel file _sshd_config_ :
 
     1. Accedere come utente **root**.
-    1. Passare a _nella/etc/ssh/sshd_config_ file, trovare la riga che inizia con `PasswordAuthentication`.
-    1. Rimuovere il commento dalla riga e modificare il valore in `yes`.
-    1. Trovare la riga che inizia con `Subsystem`e rimuovere il commento dalla riga
+    1. Passare a _nella/etc/ssh/sshd_config_ file, trovare la riga che inizia con `PasswordAuthentication` .
+    1. Rimuovere il commento dalla riga e modificare il valore in `yes` .
+    1. Trovare la riga che inizia con `Subsystem` e rimuovere il commento dalla riga
     1. Riavviare il servizio `sshd` .
 
 * Un tentativo di connessione potrebbe non riuscire se non sono presenti risposte corrette dopo un periodo di tempo o se una connessione stabilita non è riuscita perché un host connesso non è riuscito a rispondere.
@@ -137,13 +136,13 @@ Dopo un controllo della connettività, verificare se il servizio di condivisione
 Per **Windows 2008 R2 e versioni precedenti**:
 
 * Per abilitare la condivisione di file e stampanti tramite Windows Firewall,
-  1. Aprire **il pannello** > **di controllo sistema e** > **Windows Firewall**sicurezza. Nel riquadro sinistro selezionare **Impostazioni** > avanzate**regole in ingresso** nell'albero della console.
+  1. Aprire il **Pannello**  >  **di controllo sistema e**  >  **Windows Firewall**sicurezza. Nel riquadro sinistro selezionare **Impostazioni avanzate**  >  **regole in ingresso** nell'albero della console.
   1. Individuare le regole Condivisione file e stampanti (NB-Session-In) e Condivisione file e stampanti (SMB-In).
   1. Su ogni regola fare clic con il pulsante destro del mouse e quindi fare clic su **Abilita regola**.
 
 * Per abilitare la condivisione di file con Criteri di gruppo:
   1. Passare a **Start**, digitare `gpmc.msc` e cercare.
-  1. Nel riquadro di spostamento aprire le cartelle seguenti:**configurazione** > **Administrative Templates** > **Windows Components** > utente >  **criteri computer locale**modelli amministrativi**condivisione di rete**componenti di Windows.
+  1. Nel riquadro di spostamento aprire le cartelle seguenti: configurazione **utente criteri computer locale**  >  **User Configuration**  >  **modelli amministrativi**  >  **Windows Components**  >  **condivisione di rete**componenti di Windows.
   1. Nel riquadro dei dettagli fare doppio clic su **Impedisci di condividere file nel profilo utente**.
 
      Per disabilitare l'impostazione Criteri di gruppo e abilitare la capacità dell'utente di condividere i file, selezionare **disabilitato**.
@@ -160,7 +159,7 @@ Dopo la verifica dei servizi file e stampanti, abilitare il servizio WMI per i p
 
 Per abilitare WMI:
 
-1. Passare a **Pannello** > di controllo**sicurezza** e selezionare **Windows Firewall**.
+1. Passare a **Pannello di controllo**  >  **sicurezza** e selezionare **Windows Firewall**.
 1. Selezionare **Cambia impostazioni** , quindi selezionare la scheda **eccezioni** .
 1. Nella finestra **eccezioni** selezionare la casella di controllo Strumentazione gestione Windows (WMI) per abilitare il traffico WMI attraverso il firewall.
 
@@ -221,7 +220,7 @@ Ad esempio:
 
 I nomi dei dispositivi devono essere sostituiti con l'UUID corrispondente.
 
-1. Trovare l'UUID del dispositivo eseguendo il comando `blkid \<device name>`.
+1. Trovare l'UUID del dispositivo eseguendo il comando `blkid \<device name>` .
 
    Ad esempio:
 
@@ -232,7 +231,7 @@ I nomi dei dispositivi devono essere sostituiti con l'UUID corrispondente.
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. A questo punto, sostituire il nome del dispositivo con il relativo `root=UUID=\<UUID>`UUID nel formato come. Ad esempio, se si sostituiscono i nomi di dispositivo con UUID per root e Resume parametro indicato nei file _/boot/GRUB2/grub.cfg_, _/boot/GRUB2/grub.cfg_o _/etc/default/grub_ , le righe nei file appaiono come la riga seguente:
+1. A questo punto, sostituire il nome del dispositivo con il relativo UUID nel formato come `root=UUID=\<UUID>` . Ad esempio, se si sostituiscono i nomi di dispositivo con UUID per root e Resume parametro indicato nei file _/boot/GRUB2/grub.cfg_, _/boot/GRUB2/grub.cfg_o _/etc/default/grub_ , le righe nei file appaiono come la riga seguente:
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
@@ -291,7 +290,7 @@ Quando si verifica un errore, controllare se un programma antivirus o altri serv
 
 ### <a name="vss-exit-code-806"></a>Errore VSS codice di uscita 806
 
-Questo errore si verifica quando l'account utente utilizzato per l'installazione non dispone delle autorizzazioni `CSScript` necessarie per eseguire il comando. Concedere all'account utente le autorizzazioni necessarie per eseguire lo script e ripetere l'operazione.
+Questo errore si verifica quando l'account utente utilizzato per l'installazione non dispone delle autorizzazioni necessarie per eseguire il `CSScript` comando. Concedere all'account utente le autorizzazioni necessarie per eseguire lo script e ripetere l'operazione.
 
 ### <a name="other-vss-errors"></a>Altri errori VSS
 
@@ -301,7 +300,7 @@ Provare a installare manualmente il servizio del provider VSS nel computer di or
 
 ## <a name="vss-error---0x8004e00f"></a>Errore VSS-0x8004E00F
 
-Questo errore si verifica in genere durante l'installazione dell'agente di mobilità a causa `DCOM` di `DCOM` problemi in e si trova in uno stato critico.
+Questo errore si verifica in genere durante l'installazione dell'agente di mobilità a causa di problemi in `DCOM` e `DCOM` si trova in uno stato critico.
 
 Utilizzare la procedura seguente per determinare la cause dell'errore.
 
@@ -358,11 +357,11 @@ Per ignorare l'installazione del provider VSS Azure Site Recovery e installare m
 
 ## <a name="vss-provider-installation-fails-because-the-cluster-service-being-enabled-on-non-cluster-machine"></a>L'installazione del provider VSS non riesce perché il servizio cluster è abilitato nel computer non cluster
 
-Questo problema causa l'esito negativo dell'installazione dell'agente di Azure Site Recovery Mobility durante l'installazione del provider Azure Site Recovery VSS. L'errore è dovuto a `COM+` un problema che impedisce l'installazione del provider VSS.
+Questo problema causa l'esito negativo dell'installazione dell'agente di Azure Site Recovery Mobility durante l'installazione del provider Azure Site Recovery VSS. L'errore è dovuto a un problema `COM+` che impedisce l'installazione del provider VSS.
 
 ### <a name="to-identify-the-issue"></a>Per identificare il problema
 
-Nel log che si trova nel server di configurazione alla _Data/ora C:\ProgramData\ASRSetupLogs\UploadedLogs\<>UA_InstallLogFile. log_ è disponibile la seguente eccezione:
+Nel log che si trova nel server di configurazione in _C:\ProgramData\ASRSetupLogs\UploadedLogs \<date-time> UA_InstallLogFile. log_ è presente l'eccezione seguente:
 
 ```plaintext
 COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator (Exception from HRESULT: 0x8004E00F)
@@ -379,7 +378,7 @@ Se l'installazione dell'agente di mobilità non riesce, esaminare i log in _C:\P
 
 Per risolvere il problema:
 
-1. Utilizzando un editor del registro di `regedit.msc`sistema, ad esempio, aprire il registro di sistema.
+1. Utilizzando un editor del registro di sistema, ad esempio `regedit.msc` , aprire il registro di sistema.
 1. Aprire il `HKEY_LOCAL_MACHINE\SYSTEM` nodo.
 1. Nel `SYSTEM` nodo individuare i set di controlli.
 1. Aprire ogni set di controlli e verificare che siano presenti i driver di Windows seguenti:

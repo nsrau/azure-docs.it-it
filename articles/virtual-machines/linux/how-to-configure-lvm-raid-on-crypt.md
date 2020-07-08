@@ -8,10 +8,9 @@ ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4e342ff44af38b8e79dc8695c1270b1f5c68e0a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80657436"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurare LVM e RAID nei dispositivi crittografati
@@ -58,7 +57,7 @@ La versione dual-pass di crittografia dischi di Azure si trova in un percorso di
 Quando si usano le configurazioni "on-crypt", usare il processo descritto nelle procedure riportate di seguito.
 
 >[!NOTE] 
->In questo articolo vengono usate le variabili. Sostituire i valori di conseguenza.
+>Nell'intero articolo vengono usate variabili. Sostituire i valori di conseguenza.
 
 ### <a name="deploy-a-vm"></a>Distribuire una macchina virtuale 
 I comandi seguenti sono facoltativi, ma è consigliabile applicarli in una macchina virtuale (VM) appena distribuita.

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477596"
 ---
 # <a name="filter-based-feature-selection"></a>Filter Based Feature Selection
@@ -40,7 +39,7 @@ Il modulo Filter-based feature selection fornisce un'ampia gamma di metriche per
 
 -   **Correlazione di Pearson**  
 
-    Le statistiche di correlazione di Pearson, o il `r` coefficiente di correlazione di Pearson, sono note anche come valore nei modelli statistici. Per due variabili qualsiasi restituisce un valore che indica la forza della correlazione.
+    Le statistiche di correlazione di Pearson, o il coefficiente di correlazione di Pearson, sono note anche come valore nei modelli statistici `r` . Per due variabili qualsiasi restituisce un valore che indica la forza della correlazione.
 
     Il coefficiente di correlazione di Pearson viene calcolato a partire dalla covarianza di due variabili e dalla divisione del prodotto delle rispettive deviazioni standard. Le modifiche alla scala nelle due variabili non influiscono sul coefficiente.  
 
@@ -120,7 +119,7 @@ Se si usa la correlazione di Pearson su una funzionalità numerica e un'etichett
 
 -   Se si tenta di usare un metodo di assegnazione dei punteggi con una colonna di un tipo di dati che il metodo non supporta, il modulo genererà un errore. In alternativa, alla colonna verrà assegnato un punteggio pari a zero.  
 
--   Se una colonna contiene valori logici (true/false), essi vengono `True = 1` elaborati `False = 0`come e.  
+-   Se una colonna contiene valori logici (true/false), essi vengono elaborati come `True = 1` e `False = 0` .  
 
 -   Una colonna non può essere una funzionalità se è stata designata come **etichetta** o **Punteggio**.  
 

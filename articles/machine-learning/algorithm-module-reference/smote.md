@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
 ms.openlocfilehash: ed6d9e86143c3a5d6c97c4bd92a07c258bbd1bbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477460"
 ---
 # <a name="smote"></a>SMOTE
@@ -42,10 +41,10 @@ Per aumentare il numero di case, è possibile impostare il valore di **colpì la
 
 ||Classe 0|Classe 1|total|  
 |-|-------------|-------------|-----------|  
-|Set di dati originale<br /><br /> (equivalente a **percosse percentuale** = **0**)|570<br /><br /> 76%|178<br /><br /> 24|748|  
-|**Percentuale di percosse** = **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
-|**Percentuale di percosse** = **200**|570<br /><br /> 52%|534<br /><br /> 48%|1.104|  
-|**Percentuale di percosse** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1.282|  
+|Set di dati originale<br /><br /> (equivalente alla **percentuale**  =  di percosse **0**)|570<br /><br /> 76%|178<br /><br /> 24|748|  
+|Percentuale di percosse **SMOTE percentage**  =  **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
+|Percentuale di percosse **SMOTE percentage**  =  **200**|570<br /><br /> 52%|534<br /><br /> 48%|1.104|  
+|Percentuale di percosse **SMOTE percentage**  =  **300**|570<br /><br /> 44%|712<br /><br /> 56%|1.282|  
   
 > [!WARNING]
 > L'aumento del numero di case con COLPÌ non garantisce la produzione di modelli più accurati. Provare a eseguire il pipelining con percentuali diverse, set di funzionalità diversi e numeri diversi di adiacenti più vicini per vedere in che modo l'aggiunta dei case influisce sul modello.  

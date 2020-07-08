@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477443"
 ---
 # <a name="summarize-data"></a>Riepilogare i dati
@@ -54,13 +53,13 @@ Il report del modulo può includere le statistiche seguenti.
 |**Conteggio valori mancanti**|Numero di valori univoci nella colonna|
 |**Min**|Valore minimo nella colonna|  
 |**Max**|Valore massimo nella colonna|
-|**Media**|Media di tutti i valori di colonna|
+|**Significa**|Media di tutti i valori di colonna|
 |**Deviazione media**|Deviazione media dei valori di colonna|
 |**1st Quartile**|Valore al primo quartile|
 |**Mediana**|Valore della colonna mediana|
 |**3rd Quartile**|Valore al terzo quartile|
 |**Modalità**|Modalità dei valori di colonna|
-|**Intervallo**|Integer che rappresenta il numero di valori compresi tra i valori minimo e massimo|
+|**Range**|Integer che rappresenta il numero di valori compresi tra i valori minimo e massimo|
 |**Varianza di esempio**|Varianza per la colonna; vedere la nota|
 |**Deviazione standard di esempio**|Deviazione standard per la colonna; vedere la nota|
 |**Asimmetria di esempio**|Asimmetria per la colonna; vedere la nota|

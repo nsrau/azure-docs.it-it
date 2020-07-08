@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 9eba6f2c47629b708dde4a5a2888b76dbd24b4e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79455894"
 ---
 # <a name="split-data-module"></a>Modulo Split data
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare il modulo Split data per dividere un set di dati in due set distinti.
 
@@ -87,7 +86,7 @@ Negli esempi seguenti viene illustrato come dividere un set di dati utilizzando 
 
 ### <a name="single-whole-word"></a>Parola intera singola 
 
-In questo esempio viene inserito il primo set di dati per tutte le `Gryphon` righe che contengono `Text`il testo della colonna. Inserisce altre righe nel secondo output di **Split data**.
+In questo esempio viene inserito il primo set di dati per tutte le righe che contengono il testo della `Gryphon` colonna `Text` . Inserisce altre righe nel secondo output di **Split data**.
 
 ```text
     \"Text" Gryphon  
@@ -101,7 +100,7 @@ Questo esempio cerca la stringa specificata in qualsiasi posizione all'interno d
 (\1) ^[a-f]
 ```
 
-Il primo set di dati di risultati contiene tutte le righe in cui la colonna index inizia con `a`uno `b`dei `c`caratteri `d`seguenti `e`: `f`,,,,,. Tutte le altre righe vengono indirizzate al secondo output.
+Il primo set di dati di risultati contiene tutte le righe in cui la colonna index inizia con uno dei caratteri seguenti: `a` ,, `b` `c` , `d` , `e` , `f` . Tutte le altre righe vengono indirizzate al secondo output.
 
 ## <a name="select-a-relative-expression"></a>Selezionare un'espressione relativa
 
@@ -114,12 +113,12 @@ Il primo set di dati di risultati contiene tutte le righe in cui la colonna inde
    Per la **colonna numerica**:
    - La colonna contiene numeri di qualsiasi tipo di dati numerico, inclusi i tipi di dati di data e ora.
    - L'espressione può fare riferimento a un massimo di un nome di colonna.
-   - Utilizzare il carattere e commerciale `&`,, per l'operazione e. Usare il carattere barra verticale `|`,, per l'operazione o.
-   - Sono supportati gli operatori seguenti: `<`, `>`, `<=`, `>=`, `==`, `!=`.
-   - Non è possibile raggruppare le `(` operazioni `)`usando e.
+   - Utilizzare il carattere e commerciale, `&` , per l'operazione e. Usare il carattere barra verticale, `|` , per l'operazione o.
+   - Sono supportati gli operatori seguenti: `<` , `>` , `<=` , `>=` , `==` , `!=` .
+   - Non è possibile raggruppare le operazioni usando `(` e `)` .
    
    Per la **colonna stringa**:
-   - Sono supportati gli operatori seguenti: `==`, `!=`.
+   - Sono supportati gli operatori seguenti: `==` , `!=` .
 
 1. Inviare la pipeline.
 
@@ -129,7 +128,7 @@ Gli esempi seguenti illustrano come dividere un set di dati usando l'opzione **e
 
 ### <a name="calendar-year"></a>Anno di calendario
 
-Uno scenario comune consiste nel dividere un set di dati in base agli anni. L'espressione seguente seleziona tutte le righe in cui i valori nella `Year` colonna sono maggiori `2010`di.
+Uno scenario comune consiste nel dividere un set di dati in base agli anni. L'espressione seguente seleziona tutte le righe in cui i valori nella colonna `Year` sono maggiori di `2010` .
 
 ```text
 \"Year" > 2010
@@ -137,7 +136,7 @@ Uno scenario comune consiste nel dividere un set di dati in base agli anni. L'es
 
 L'espressione date deve tenere conto di tutte le parti della data incluse nella colonna di dati. Il formato delle date nella colonna di dati deve essere coerente. 
 
-Ad esempio, in una colonna data che usa il formato `mmddyyyy`, l'espressione deve essere simile alla seguente:
+Ad esempio, in una colonna data che usa il formato `mmddyyyy` , l'espressione deve essere simile alla seguente:
 
 ```text
 \"Date" > 1/1/2010

@@ -16,15 +16,14 @@ ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79461113"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteggi i tuoi contenuti con la crittografia dinamica di servizi multimediali
 
-Usare servizi multimediali di Azure per proteggere i file multimediali dal momento in cui si lascia il computer attraverso archiviazione, elaborazione e recapito. Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. Se il contenuto è crittografato con una chiave non crittografata AES e viene inviato tramite HTTPS, non è chiaro finché non raggiunge il client. 
+Usare Servizi multimediali di Azure per proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. Se il contenuto è crittografato con una chiave non crittografata AES e viene inviato tramite HTTPS, non è chiaro finché non raggiunge il client. 
 
 In servizi multimediali V3, una chiave simmetrica è associata a un localizzatore di streaming (vedere [questo esempio](protect-with-aes128.md)). Se si usa il servizio di distribuzione delle chiavi di servizi multimediali, è possibile consentire a servizi multimediali di Azure di generare automaticamente la chiave simmetrica. La chiave simmetrica deve essere generata autonomamente se si usa il servizio di distribuzione delle chiavi o se è necessario gestire uno scenario a disponibilità elevata in cui è necessario avere la stessa chiave simmetrica in due data center.
 
@@ -78,10 +77,10 @@ L'esempio illustra come:
 
 3. Creare un token di test.
 
-   Il `GetTokenAsync` metodo Mostra come creare un token di test.
+   Il `GetTokenAsync` Metodo Mostra come creare un token di test.
 4. Compilare l'URL di streaming.
 
-   Il `GetDASHStreamingUrlAsync` metodo Mostra come compilare l'URL di streaming. In questo caso, l'URL esegue lo streaming del contenuto DASH.
+   Il `GetDASHStreamingUrlAsync` Metodo Mostra come compilare l'URL di streaming. In questo caso, l'URL esegue lo streaming del contenuto DASH.
 
 ### <a name="player-with-an-aes-or-drm-client"></a>Lettore con un client AES o DRM
 
@@ -184,14 +183,14 @@ Quando si configurano i criteri di restrizione del token, è necessario specific
 
 ### <a name="token-replay-prevention"></a>Prevenzione della riproduzione del token
 
-La funzionalità di *prevenzione della riproduzione dei token* consente ai clienti di servizi multimediali di impostare un limite per il numero di volte in cui è possibile usare lo stesso token per richiedere una chiave o una licenza. Il cliente può aggiungere un'attestazione di `urn:microsoft:azure:mediaservices:maxuses` tipo nel token, dove il valore è il numero di volte in cui il token può essere usato per acquisire una licenza o una chiave. Tutte le richieste successive con lo stesso token al recapito della chiave restituiranno una risposta non autorizzata. Vedere come aggiungere l'attestazione nell' [esempio di DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+La funzionalità *Protezione riproduzione token* consente ai clienti di Servizi multimediali di impostare un limite per il numero di volte in cui è possibile usare lo stesso token per richiedere una chiave o una licenza. Il cliente può aggiungere un'attestazione di tipo `urn:microsoft:azure:mediaservices:maxuses` nel token, dove il valore è il numero di volte in cui il token può essere usato per acquisire una licenza o una chiave. Tutte le richieste successive con lo stesso token al recapito della chiave restituiranno una risposta non autorizzata. Vedere come aggiungere l'attestazione nell' [esempio di DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
 #### <a name="considerations"></a>Considerazioni
 
 * I clienti devono avere il controllo sulla generazione dei token. L'attestazione deve essere inserita nel token stesso.
 * Quando si usa questa funzionalità, le richieste con token la cui ora di scadenza è più di un'ora a partire dal momento in cui la richiesta viene ricevuta vengono rifiutate con una risposta non autorizzata.
 * I token sono identificati in modo univoco dalla firma. Qualsiasi modifica apportata al payload (ad esempio, l'aggiornamento all'ora di scadenza o l'attestazione) modifica la firma del token e viene conteggiata come un nuovo token che il recapito delle chiavi non è passato in precedenza.
-* La riproduzione ha esito negativo se il token `maxuses` ha superato il valore impostato dal cliente.
+* La riproduzione ha esito negativo se il token ha superato il `maxuses` valore impostato dal cliente.
 * Questa funzionalità può essere usata per tutto il contenuto protetto esistente (è necessario modificare solo il token emesso).
 * Questa funzionalità funziona sia con JWT che con SWT.
 
@@ -253,7 +252,7 @@ Per esempi REST che usano URL di acquisizione di licenze/chiavi personalizzati, 
 
 Se viene ricevuto l' `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` errore, assicurarsi di specificare i criteri di flusso appropriati.
 
-Se vengono visualizzati errori che terminano `_NOT_SPECIFIED_IN_URL`con, assicurarsi di specificare il formato di crittografia nell'URL. Un esempio è `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Vedere [protocolli di streaming e tipi di crittografia](#streaming-protocols-and-encryption-types).
+Se vengono visualizzati errori che terminano con `_NOT_SPECIFIED_IN_URL` , assicurarsi di specificare il formato di crittografia nell'URL. Un esempio è `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Vedere [protocolli di streaming e tipi di crittografia](#streaming-protocols-and-encryption-types).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 

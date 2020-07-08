@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 03a16ac065b585c499efa268500e0a8c81c07738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333809"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servizi Meteo in mappe di Azure
@@ -52,9 +51,9 @@ Alcune API del servizio meteorologico consentono all'utente di specificare se i 
 
 ## <a name="weather-icons"></a>Icone Meteo
 
-Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode` È un valore numerico utilizzato per definire l'icona. Non eseguire direttamente il collegamento a queste immagini dalle applicazioni, gli URL possono essere modificati e sostituiti.
+Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode`È un valore numerico utilizzato per definire l'icona. Non eseguire direttamente il collegamento a queste immagini dalle applicazioni, gli URL possono essere modificati e sostituiti.
 
-| Numero icona |Icona| Giorno | Notte | Testo |
+| Numero icona |Icona| Giorno | Notte | Text |
 |-------------|:----:|-----|-------|------|
 | 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Sì |  No    | Sunny|
 | 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Sì |  No    | Per lo più soleggiato|
@@ -84,7 +83,7 @@ Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode
 | 30           |![](./media/weather-services-concepts/hot-i.png)                       | Sì |  Sì   | Accesso frequente|
 | 31           |![](./media/weather-services-concepts/cold-i.png)                      | Sì |  Sì   | Cold|
 | 32           |![](./media/weather-services-concepts/windy-i.png)                     | Sì |  Sì   | Ventoso|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | No  |  Sì   | Clear|
+| 33           |![](./media/weather-services-concepts/clear-night.png)                | No  |  Sì   | Cancella|
 | 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | No  |  Sì   | Per lo più chiaro|
 | 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | No  |  Sì   | Parzialmente nuvoloso|
 | 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | No  |  Sì   | Cloud intermittenti|

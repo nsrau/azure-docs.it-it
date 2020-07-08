@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456591"
 ---
 # <a name="convert-to-dataset"></a>Eseguire la conversione in set di dati
@@ -46,9 +45,9 @@ Si consiglia di salvare i dati nel formato del set di dati se è stato eseguito 
     - **ReplaceValues**: usare questa opzione per specificare un singolo valore esatto da sostituire con qualsiasi altro valore esatto. È possibile sostituire i valori mancanti o i valori personalizzati impostando il metodo **Replace** :
 
       - **Mancante**: selezionare questa opzione per sostituire i valori mancanti nel set di dati di input. Per **nuovo valore**, immettere il valore con cui sostituire i valori mancanti.
-      - **Personalizzata**: selezionare questa opzione per sostituire i valori personalizzati nel set di dati di input. Per **valore personalizzato**, immettere il valore che si desidera trovare. Se, ad esempio, i dati contengono la `obs` stringa usata come segnaposto per i valori mancanti, `obs`immettere. Per **nuovo valore**, immettere il nuovo valore con cui sostituire la stringa originale.
+      - **Personalizzata**: selezionare questa opzione per sostituire i valori personalizzati nel set di dati di input. Per **valore personalizzato**, immettere il valore che si desidera trovare. Se, ad esempio, i dati contengono la stringa `obs` usata come segnaposto per i valori mancanti, immettere `obs` . Per **nuovo valore**, immettere il nuovo valore con cui sostituire la stringa originale.
   
-    Si noti che l'operazione **ReplaceValues** si applica solo alle corrispondenze esatte. Ad esempio, queste stringhe non saranno interessate: `obs.`,. `obsolete`  
+    Si noti che l'operazione **ReplaceValues** si applica solo alle corrispondenze esatte. Ad esempio, queste stringhe non saranno interessate: `obs.` , `obsolete` .  
  
   
 5.  Inviare la pipeline.  

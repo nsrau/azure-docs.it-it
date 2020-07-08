@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
 ms.openlocfilehash: d1c0652844556b545cf0617032d21b80dd67d198
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479842"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Origini dei dati di monitoraggio per monitoraggio di Azure
@@ -94,7 +93,7 @@ La maggior parte dei servizi di Azure invierà le [metriche della piattaforma](d
 
 | Destination | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|
-| Metriche di monitoraggio di Azure | Le metriche della piattaforma scriveranno nel database di metriche di monitoraggio di Azure senza alcuna configurazione. Accedere alle metriche della piattaforma da Esplora metriche.  | [Introduzione a Esplora metriche di Azure](metrics-getting-started.md)<br>[Metriche supportate con il monitoraggio di Azure](metrics-supported.md) |
+| Metriche di Monitoraggio di Azure | Le metriche della piattaforma scriveranno nel database di metriche di monitoraggio di Azure senza alcuna configurazione. Accedere alle metriche della piattaforma da Esplora metriche.  | [Introduzione a Esplora metriche di Azure](metrics-getting-started.md)<br>[Metriche supportate con il monitoraggio di Azure](metrics-supported.md) |
 | Log di Monitoraggio di Azure | Copiare le metriche della piattaforma nei log per la tendenza e altre analisi usando Log Analytics. | [Da Diagnostica di Azure direttamente a Log Analytics](resource-logs-collect-workspace.md) |
 | Hub eventi | Trasmettere le metriche ad altre località usando gli hub eventi. |[Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](stream-monitoring-data-event-hubs.md) |
 
@@ -119,8 +118,8 @@ L'abilitazione dell'estensione Diagnostica di Azure per macchine virtuali di Azu
 
 | Destination | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|
-| Archiviazione | L'estensione diagnostica di Azure scrive sempre in un account di archiviazione di Azure. | [Installare e configurare l'estensione diagnostica di Microsoft Azure (WAD)](diagnostics-extension-windows-install.md)<br>[Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md) |
-| Metriche di monitoraggio di Azure | Quando si configura l'estensione di diagnostica per raccogliere i contatori delle prestazioni, questi vengono scritti nel database di metriche di monitoraggio di Azure. | [Inviare metriche del sistema operativo guest all'archivio delle metriche di monitoraggio di Azure usando un modello di Gestione risorse per una macchina virtuale Windows](collect-custom-metrics-guestos-resource-manager-vm.md) |
+| Archiviazione | L'estensione diagnostica di Azure scrive sempre in un account di archiviazione di Azure. | [Installare e configurare l'estensione Diagnostica di Azure per Windows (WAD)](diagnostics-extension-windows-install.md)<br>[Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md) |
+| Metriche di Monitoraggio di Azure | Quando si configura l'estensione di diagnostica per raccogliere i contatori delle prestazioni, questi vengono scritti nel database di metriche di monitoraggio di Azure. | [Inviare metriche del sistema operativo guest all'archivio delle metriche di monitoraggio di Azure usando un modello di Gestione risorse per una macchina virtuale Windows](collect-custom-metrics-guestos-resource-manager-vm.md) |
 | Hub eventi | Configurare l'estensione di diagnostica per trasmettere i dati in altri percorsi tramite hub eventi.  | [Streaming di dati Diagnostica di Azure tramite hub eventi](diagnostics-extension-stream-event-hubs.md)<br>[Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Log di Application Insights | Raccogliere i log e i contatori delle prestazioni dalla risorsa di calcolo che supporta l'applicazione per l'analisi con altri dati dell'applicazione. | [Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights](diagnostics-extension-to-application-insights.md) |
 
@@ -149,7 +148,7 @@ Il monitoraggio dettagliato delle applicazioni in monitoraggio di Azure viene es
 ![Raccolta di dati dell'applicazione](media/data-sources/applications.png)
 
 
-### <a name="application-data"></a>Dati applicazione
+### <a name="application-data"></a>Dati dell'applicazione
 Quando si abilita Application Insights per un'applicazione mediante l'installazione di un pacchetto di strumentazione, questo servizio raccoglie le metriche e i log relativi alle prestazioni e al funzionamento dell'applicazione. Application Insights archivia i dati raccolti nella stessa piattaforma dati di monitoraggio di Azure utilizzata da altre origini dati. Include strumenti completi per l'analisi di questi dati, ma è anche possibile analizzarli con dati provenienti da altre origini usando strumenti come Esplora metriche e Log Analytics.
 
 | Destination | Descrizione | Informazioni di riferimento |
@@ -157,7 +156,7 @@ Quando si abilita Application Insights per un'applicazione mediante l'installazi
 | Log di Monitoraggio di Azure | Dati operativi sull'applicazione, tra cui visualizzazioni di pagina, richieste di applicazioni, eccezioni e tracce. | [Analizzare i dati di log in Monitoraggio di Azure](../log-query/log-query-overview.md) |
 |                    | Informazioni sulle dipendenze tra i componenti dell'applicazione per supportare la correlazione tra mapping applicazioni e telemetria. | [Correlazione di dati di telemetria in Application Insights](../app/correlation.md) <br> [Mappa delle applicazioni](../app/app-map.md) |
 |            | Risultati dei test di disponibilità che verificano la disponibilità e la velocità di risposta dell'applicazione da posizioni diverse sulla rete Internet pubblica. | [Monitorare la disponibilità e la velocità di risposta dei siti Web](../app/monitor-web-app-availability.md) |
-| Metriche di monitoraggio di Azure | Application Insights raccoglie le metriche che descrivono le prestazioni e il funzionamento dell'applicazione, oltre alle metriche personalizzate definite nell'applicazione nel database delle metriche di monitoraggio di Azure. | [Metriche basate su log e metriche preaggregate in Azure Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[API di Application Insights per metriche ed eventi personalizzati](../app/api-custom-events-metrics.md) |
+| Metriche di Monitoraggio di Azure | Application Insights raccoglie le metriche che descrivono le prestazioni e il funzionamento dell'applicazione, oltre alle metriche personalizzate definite nell'applicazione nel database delle metriche di monitoraggio di Azure. | [Metriche basate su log e metriche preaggregate in Azure Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[API di Application Insights per metriche ed eventi personalizzati](../app/api-custom-events-metrics.md) |
 | Archiviazione di Azure | Inviare i dati dell'applicazione ad archiviazione di Azure per l'archiviazione. | [Esportare i dati di telemetria da Application Insights](../app/export-telemetry.md) |
 |            | I dettagli dei test di disponibilità vengono archiviati in archiviazione di Azure. Usare Application Insights nel portale di Azure per eseguire il download per l'analisi locale. I risultati dei test di disponibilità vengono archiviati nei log di monitoraggio di Azure. | [Monitorare la disponibilità e la velocità di risposta dei siti Web](../app/monitor-web-app-availability.md) |
 |            | I dati di traccia del profiler vengono archiviati in archiviazione di Azure. Usare Application Insights nel portale di Azure per eseguire il download per l'analisi locale.  | [Profilare le applicazioni di produzione in Azure con Application Insights](../app/profiler-overview.md) 
@@ -179,7 +178,7 @@ Il [monitoraggio delle soluzioni](../insights/solutions.md) e delle [informazion
 | Destination | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|
 | Log di Monitoraggio di Azure | Archivia i dati di monitoraggio per AKS, inclusi inventario, log ed eventi. I dati delle metriche vengono inoltre archiviati nei log per sfruttare le funzionalità di analisi nel portale. | [Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori](../insights/container-insights-analyze.md) |
-| Metriche di monitoraggio di Azure | I dati delle metriche vengono archiviati nel database delle metriche per guidare la visualizzazione e gli avvisi. | [Visualizzare le metriche del contenitore in Esplora metriche](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
+| Metriche di Monitoraggio di Azure | I dati delle metriche vengono archiviati nel database delle metriche per guidare la visualizzazione e gli avvisi. | [Visualizzare le metriche del contenitore in Esplora metriche](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
 | Servizio Azure Kubernetes | Consente di accedere direttamente ai log del contenitore del servizio Azure Kubernetes (AKS/stderr), agli eventi e alle metriche Pod nel portale. | [Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale](../insights/container-insights-livedata-overview.md) |
 
 ### <a name="azure-monitor-for-vms"></a>Monitoraggio di Azure per le macchine virtuali
@@ -193,7 +192,7 @@ Oltre ai livelli standard di un'applicazione, potrebbe essere necessario monitor
 | Destination | Metodo | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|:---|
 | Log di Monitoraggio di Azure | API dell'Agente di raccolta dati | Raccogliere i dati di log da qualsiasi client REST e archiviarli nell'area di lavoro Log Analytics. | [Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)](data-collector-api.md) |
-| Metriche di monitoraggio di Azure | API metriche personalizzate | Raccogliere i dati delle metriche da qualsiasi client REST e archiviarli nel database di metriche di monitoraggio di Azure. | [Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST](metrics-store-custom-rest-api.md) |
+| Metriche di Monitoraggio di Azure | API metriche personalizzate | Raccogliere i dati delle metriche da qualsiasi client REST e archiviarli nel database di metriche di monitoraggio di Azure. | [Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST](metrics-store-custom-rest-api.md) |
 
 
 ## <a name="other-services"></a>Altri servizi

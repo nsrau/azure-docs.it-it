@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480454"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Creare report interattivi con cartelle di lavoro in Monitoraggio di Azure per le macchine virtuali
@@ -46,7 +45,7 @@ Una cartella di lavoro è composta di sezioni costituite da grafici, tabelle, te
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare **Macchine virtuali**.
+2. Selezionare **macchine virtuali**.
 
 3. Selezionare una macchina virtuale dall'elenco.
 
@@ -100,7 +99,7 @@ Per includere dati da altre aree di lavoro Log Analytics o da un'app Application
 
 ### <a name="advanced-analytic-query-settings"></a>Impostazioni avanzate per le query di analisi
 
-In ogni sezione sono disponibili impostazioni avanzate, accessibili tramite l'icona impostazioni ![cartelle di lavoro di modifica dei](media/vminsights-workbooks/006-settings.png) controlli che si trova a destra del pulsante **Aggiungi parametri** .
+In ogni sezione sono disponibili impostazioni avanzate, accessibili tramite l' ![ icona Impostazioni cartelle di lavoro di modifica dei controlli che si ](media/vminsights-workbooks/006-settings.png) trova a destra del pulsante **Aggiungi parametri** .
 
 ![Controlli di modifica della sezione cartelle di lavoro Monitoraggio di Azure per le macchine virtuali](media/vminsights-workbooks/007-settings-expanded.png)
 
@@ -155,7 +154,7 @@ Sono disponibili quattro tipi diversi di parametri, attualmente supportati:
 
 |                  |      |
 | ---------------- |:-----|
-| **Text**    | Consente all'utente di modificare una casella di testo ed è possibile specificare facoltativamente una query per inserire il valore predefinito. |
+| **Testo**    | Consente all'utente di modificare una casella di testo ed è possibile specificare facoltativamente una query per inserire il valore predefinito. |
 | **Elenco a discesa** | Consente all'utente di scegliere un set di valori. |
 | **Selezione dell'intervallo di tempo**| Consente all'utente di scegliere tra un set predefinito di valori di intervallo di tempo o di scegliere un intervallo di tempo personalizzato.|
 | **Selezione risorse** | Consente all'utente di scegliere tra le risorse selezionate per la cartella di lavoro.|
@@ -244,4 +243,4 @@ Per aggiungere un collegamento in una cartella di lavoro in un dashboard di Azur
 
 - Per identificare le limitazioni e le prestazioni complessive della macchina virtuale, vedere [visualizzare le prestazioni delle macchine virtuali di Azure](vminsights-performance.md).
 
-- Per informazioni sulle dipendenze dell'applicazione individuate, vedere [visualizzare monitoraggio di Azure per le macchine virtuali mappa](vminsights-maps.md).
+- Per informazioni sulle dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md).

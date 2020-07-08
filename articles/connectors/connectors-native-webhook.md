@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
 ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656289"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creare ed eseguire flussi di lavoro automatizzati basati su eventi usando webhook HTTP in app per la logica di Azure
@@ -65,11 +64,11 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 ## <a name="add-an-http-webhook-trigger"></a>Aggiungere un trigger HTTP webhook
 
-Questo trigger predefinito chiama l'endpoint di sottoscrizione nel servizio di destinazione e registra un URL di callback con il servizio di destinazione. L'app per la logica attende quindi che il servizio di destinazione invii `HTTP POST` una richiesta all'URL di callback. Quando si verifica questo evento, il trigger viene attivato e passa tutti i dati nella richiesta insieme al flusso di lavoro.
+Questo trigger predefinito chiama l'endpoint di sottoscrizione nel servizio di destinazione e registra un URL di callback con il servizio di destinazione. L'app per la logica attende quindi che il servizio di destinazione invii una `HTTP POST` richiesta all'URL di callback. Quando si verifica questo evento, il trigger viene attivato e passa tutti i dati nella richiesta insieme al flusso di lavoro.
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica vuota in progettazione app per la logica.
+1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica vuota nella finestra di progettazione di App per la logica.
 
-1. Nella casella di ricerca della finestra di progettazione `http webhook` immettere come filtro. Dall'elenco **trigger** selezionare il trigger **http webhook** .
+1. Nella casella di ricerca della finestra di progettazione immettere `http webhook` come filtro. Dall'elenco **trigger** selezionare il trigger **http webhook** .
 
    ![Selezionare il trigger HTTP webhook](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
@@ -85,10 +84,10 @@ Questo trigger predefinito chiama l'endpoint di sottoscrizione nel servizio di d
    |----------|----------|-------------|
    | **Subscription-metodo** | Sì | Metodo da usare quando si sottoscrive l'endpoint di destinazione |
    | **Subscribe-URI** | Sì | URL da utilizzare per la sottoscrizione all'endpoint di destinazione |
-   | **Sottoscrivi corpo** | No | Corpo del messaggio da includere nella richiesta di sottoscrizione. Questo esempio include l'URL di callback che identifica in modo univoco il Sottoscrittore, ovvero l'app per la `@listCallbackUrl()` logica, usando l'espressione per recuperare l'URL di callback dell'app per la logica. |
+   | **Sottoscrivi corpo** | No | Corpo del messaggio da includere nella richiesta di sottoscrizione. Questo esempio include l'URL di callback che identifica in modo univoco il Sottoscrittore, ovvero l'app per la logica, usando l' `@listCallbackUrl()` espressione per recuperare l'URL di callback dell'app per la logica. |
    | **Unsubscribe-metodo** | No | Metodo da utilizzare per l'annullamento della sottoscrizione dall'endpoint di destinazione |
    | **Annulla sottoscrizione-URI** | No | URL da utilizzare per l'annullamento della sottoscrizione dall'endpoint di destinazione |
-   | **Unsubscribe-corpo** | No | Corpo del messaggio facoltativo da includere nella richiesta di annullamento della sottoscrizione <p><p>**Nota**: questa proprietà non supporta l'uso `listCallbackUrl()` della funzione. Tuttavia, il trigger include automaticamente e invia le intestazioni, `x-ms-client-tracking-id` e `x-ms-workflow-operation-name`, che il servizio di destinazione può utilizzare per identificare in modo univoco il Sottoscrittore. |
+   | **Unsubscribe-corpo** | No | Corpo del messaggio facoltativo da includere nella richiesta di annullamento della sottoscrizione <p><p>**Nota**: questa proprietà non supporta l'uso della `listCallbackUrl()` funzione. Tuttavia, il trigger include automaticamente e invia le intestazioni, `x-ms-client-tracking-id` e `x-ms-workflow-operation-name` , che il servizio di destinazione può utilizzare per identificare in modo univoco il Sottoscrittore. |
    ||||
 
 1. Per aggiungere altre proprietà del trigger, aprire l'elenco **Aggiungi nuovo parametro** .
@@ -101,7 +100,7 @@ Questo trigger predefinito chiama l'endpoint di sottoscrizione nel servizio di d
 
 1. Al termine, ricordarsi di salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
-   Il salvataggio dell'app per la logica chiama l'endpoint di sottoscrizione nel servizio di destinazione e registra l'URL di callback. L'app per la logica attende quindi che il servizio di destinazione invii `HTTP POST` una richiesta all'URL di callback. Quando si verifica questo evento, il trigger viene attivato e passa tutti i dati nella richiesta insieme al flusso di lavoro. Se questa operazione viene completata correttamente, il trigger Annulla la sottoscrizione dall'endpoint e l'app per la logica continua il flusso di lavoro rimanente.
+   Il salvataggio dell'app per la logica chiama l'endpoint di sottoscrizione nel servizio di destinazione e registra l'URL di callback. L'app per la logica attende quindi che il servizio di destinazione invii una `HTTP POST` richiesta all'URL di callback. Quando si verifica questo evento, il trigger viene attivato e passa tutti i dati nella richiesta insieme al flusso di lavoro. Se questa operazione viene completata correttamente, il trigger Annulla la sottoscrizione dall'endpoint e l'app per la logica continua il flusso di lavoro rimanente.
 
 ## <a name="add-an-http-webhook-action"></a>Aggiungere un'azione HTTP webhook
 
@@ -113,9 +112,9 @@ Questa azione predefinita chiama l'endpoint di sottoscrizione nel servizio di de
 
 1. Nel passaggio in cui si vuole aggiungere l'azione HTTP webhook selezionare **nuovo passaggio**.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
-1. Nella casella di ricerca della finestra di progettazione `http webhook` immettere come filtro. Nell'elenco **azioni** selezionare l'azione **webhook http** .
+1. Nella casella di ricerca della finestra di progettazione immettere `http webhook` come filtro. Nell'elenco **azioni** selezionare l'azione **webhook http** .
 
    ![Selezionare l'azione HTTP webhook](./media/connectors-native-webhook/select-http-webhook-action.png)
 
@@ -131,10 +130,10 @@ Questa azione predefinita chiama l'endpoint di sottoscrizione nel servizio di de
    |----------|----------|-------------|
    | **Subscription-metodo** | Sì | Metodo da usare quando si sottoscrive l'endpoint di destinazione |
    | **Subscribe-URI** | Sì | URL da utilizzare per la sottoscrizione all'endpoint di destinazione |
-   | **Sottoscrivi corpo** | No | Corpo del messaggio da includere nella richiesta di sottoscrizione. Questo esempio include l'URL di callback che identifica in modo univoco il Sottoscrittore, ovvero l'app per la `@listCallbackUrl()` logica, usando l'espressione per recuperare l'URL di callback dell'app per la logica. |
+   | **Sottoscrivi corpo** | No | Corpo del messaggio da includere nella richiesta di sottoscrizione. Questo esempio include l'URL di callback che identifica in modo univoco il Sottoscrittore, ovvero l'app per la logica, usando l' `@listCallbackUrl()` espressione per recuperare l'URL di callback dell'app per la logica. |
    | **Unsubscribe-metodo** | No | Metodo da utilizzare per l'annullamento della sottoscrizione dall'endpoint di destinazione |
    | **Annulla sottoscrizione-URI** | No | URL da utilizzare per l'annullamento della sottoscrizione dall'endpoint di destinazione |
-   | **Unsubscribe-corpo** | No | Corpo del messaggio facoltativo da includere nella richiesta di annullamento della sottoscrizione <p><p>**Nota**: questa proprietà non supporta l'uso `listCallbackUrl()` della funzione. Tuttavia, l'azione include automaticamente e invia le intestazioni, `x-ms-client-tracking-id` e `x-ms-workflow-operation-name`, che il servizio di destinazione può utilizzare per identificare in modo univoco il Sottoscrittore. |
+   | **Unsubscribe-corpo** | No | Corpo del messaggio facoltativo da includere nella richiesta di annullamento della sottoscrizione <p><p>**Nota**: questa proprietà non supporta l'uso della `listCallbackUrl()` funzione. Tuttavia, l'azione include automaticamente e invia le intestazioni, `x-ms-client-tracking-id` e `x-ms-workflow-operation-name` , che il servizio di destinazione può utilizzare per identificare in modo univoco il Sottoscrittore. |
    ||||
 
 1. Per aggiungere altre proprietà dell'azione, aprire l'elenco **Aggiungi nuovo parametro** .
@@ -145,7 +144,7 @@ Questa azione predefinita chiama l'endpoint di sottoscrizione nel servizio di de
 
 1. Al termine, ricordarsi di salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
-   A questo punto, quando viene eseguita questa azione, l'app per la logica chiama l'endpoint di sottoscrizione nel servizio di destinazione e registra l'URL di callback. L'app per la logica sospende quindi il flusso di lavoro e attende che il servizio di destinazione `HTTP POST` invii una richiesta all'URL callback. Quando si verifica questo evento, l'azione passa tutti i dati nella richiesta insieme al flusso di lavoro. Se l'operazione viene completata correttamente, l'azione annulla la sottoscrizione dall'endpoint e l'app per la logica continua a eseguire il flusso di lavoro rimanente.
+   A questo punto, quando viene eseguita questa azione, l'app per la logica chiama l'endpoint di sottoscrizione nel servizio di destinazione e registra l'URL di callback. L'app per la logica sospende quindi il flusso di lavoro e attende che il servizio di destinazione invii una `HTTP POST` richiesta all'URL callback. Quando si verifica questo evento, l'azione passa tutti i dati nella richiesta insieme al flusso di lavoro. Se l'operazione viene completata correttamente, l'azione annulla la sottoscrizione dall'endpoint e l'app per la logica continua a eseguire il flusso di lavoro rimanente.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
@@ -155,11 +154,11 @@ Per altre informazioni sui parametri trigger e Action, che sono simili tra loro,
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP webhook che restituisce queste informazioni:
 
-| Nome proprietà | Type | Description |
+| Nome proprietà | Type | Descrizione |
 |---------------|------|-------------|
-| headers | oggetto | Intestazioni della richiesta |
-| Corpo | oggetto | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
-| Codice di stato | INT | Codice di stato della richiesta |
+| headers | object | Intestazioni della richiesta |
+| Corpo | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| Codice di stato | INT | Codice di stato della risposta |
 |||
 
 | Codice di stato | Descrizione |

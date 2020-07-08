@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c79a42bbd60d7a1857649cffc97ed7f0103fa16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653505"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurare il server Azure Multi-Factor Authentication per lavorare con AD FS 2.0
@@ -25,7 +24,7 @@ Questo articolo è rivolto alle organizzazioni che vengono federate con Azure Ac
 In questa documentazione viene illustrato l'utilizzo di Server Azure multi-Factor Authentication con ADFS 2.0. Per altre informazioni su AD FS, vedere [Protezione delle risorse cloud e locali tramite il server Azure Multi-Factor Authentication con Windows Server 2012 R2 AD FS](howto-mfaserver-adfs-2012.md).
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1° luglio 2019, Microsoft non offrirà più il server MFA per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori per gli utenti dovranno usare il servizio Azure Multi-Factor Authentication basato sul cloud. Gli attuali clienti che anno attivato il server MFA prima del 1° luglio potranno scaricare la versione più recente e gli aggiornamenti futuri, oltre a generare le credenziali di attivazione come di consueto.
 
 ## <a name="secure-ad-fs-20-with-a-proxy"></a>Proteggere ADFS 2.0 con un proxy
 
@@ -33,16 +32,16 @@ Per proteggere AD FS 2.0 con un proxy, installare il server Azure Multi-Factor A
 
 ### <a name="configure-iis-authentication"></a>Configurare l'autenticazione IIS
 
-1. Nel server Azure Multi-Factor Authentication fare clic sull'icona **Autenticazione IIS** nel menu a sinistra.
-2. Fare clic sulla scheda **basata su form** .
-3. Fare clic su **Aggiungi**.
+1. Nel server Multi-Factor Authentication di Azure fare clic sull'icona **autenticazione IIS** nel menu a sinistra.
+2. Fare clic sulla scheda **Basata su form**.
+3. Scegliere **Aggiungi**.
 
    ![Finestra di autenticazione IIS del server multi-factor authentication](./media/howto-mfaserver-adfs-2/setup1.png)
 
-4. Per rilevare automaticamente le variabili di nome utente, password e dominio, immettere l'URL di `https://sso.contoso.com/adfs/ls`accesso, ad esempio, nella finestra di dialogo Configura automaticamente sito Web basato su form e fare clic su **OK**.
+4. Per rilevare automaticamente le variabili di nome utente, password e dominio, immettere l'URL di accesso, ad esempio, nella finestra di `https://sso.contoso.com/adfs/ls` dialogo Configura automaticamente sito Web basato su form e fare clic su **OK**.
 5. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non sarà soggetto alla verifica in due passaggi, lasciare deselezionata la casella.
 6. Se le variabili di pagina non possono essere rilevate automaticamente, fare clic su **Specifica manualmente...** pulsante nella finestra di dialogo Configura automaticamente sito Web.
-7. Nella finestra di dialogo Aggiungi sito Web basato su form immettere l'URL della pagina di accesso AD FS nel campo URL di invio (ad `https://sso.contoso.com/adfs/ls`esempio) e immettere un nome di applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS.
+7. Nella finestra di dialogo Aggiungi sito Web basato su form immettere l'URL della pagina di accesso AD FS nel campo URL di invio (ad esempio `https://sso.contoso.com/adfs/ls` ) e immettere un nome di applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS.
 8. Impostare il formato della richiesta su **POST o GET**.
 9. Immettere la variabile di nome utente (ctl00$ ContentPlaceHolder1$ UsernameTextBox) e la variabile Password (ctl00$ ContentPlaceHolder1$ PasswordTextBox). Se la pagina di accesso basata su form viene visualizzata una casella di testo di dominio, immettere anche la variabile di dominio. Per individuare i nomi delle caselle di input nella pagina di accesso, passare alla pagina di accesso in un Web browser, fare clic con il pulsante destro del mouse nella pagina e quindi scegliere **Visualizza origine**.
 10. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non sarà soggetto alla verifica in due passaggi, lasciare deselezionata la casella.
@@ -73,7 +72,7 @@ L'autenticazione di IIS è stata abilitata, tuttavia per eseguire la preautentic
 
    ![Configurare le impostazioni LDAP per specifiche impostazioni LDAP](./media/howto-mfaserver-adfs-2/ldap1.png)
 
-3. Fare clic su **Edit**.
+3. Fare clic su **Modifica**.
 4. Nella finestra di dialogo Modifica configurazione LDAP, compilare i campi con le informazioni necessarie per connettersi al controller di dominio Active Directory. Le descrizioni dei campi sono incluse nel file della Guida del server Azure Multi-Factor Authentication.
 5. Verificare la connessione LDAP facendo clic sul pulsante **Test**.
 
@@ -97,9 +96,9 @@ Assicurarsi che gli utenti siano stati importati da Active Directory nel Server.
 È possibile proteggere ADFS quando il proxy di ADFS non viene usato. Installare il server Azure Multi-Factor Authentication nel server ADFS e configurare il server seguendo questa procedura:
 
 1. Nel server Multi-Factor Authentication di Azure fare clic sull'icona **autenticazione IIS** nel menu a sinistra.
-2. Fare clic sulla scheda **http** .
-3. Fare clic su **Aggiungi**.
-4. Nella finestra di dialogo Aggiungi URL di base immettere l'URL per il sito Web AD FS in cui viene eseguita l'autenticazione `https://sso.domain.com/adfs/ls/auth/integrated`http (ad esempio) nel campo URL di base. e immettere un nome di applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS.
+2. Fare clic sulla scheda **HTTP**.
+3. Scegliere **Aggiungi**.
+4. Nella finestra di dialogo Aggiungi URL di base immettere l'URL per il sito Web AD FS in cui viene eseguita l'autenticazione HTTP ( `https://sso.domain.com/adfs/ls/auth/integrated` ad esempio) nel campo URL di base. e immettere un nome di applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS.
 5. Se si desidera, modificare il timeout di inattività e massimo per i tempi di sessione.
 6. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non sarà soggetto alla verifica in due passaggi, lasciare deselezionata la casella.
 7. Se lo si desidera, selezionare la casella di cache di cookie.

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479560"
 ---
 # <a name="install-azure-farmbeats"></a>Installare Azure FarmBeats
@@ -124,9 +123,9 @@ Eseguire i passaggi seguenti in un'istanza di Cloud Shell usando l'ambiente di P
 
 4. Lo script richiede i seguenti tre input:
 
-    - **Nome del sito Web FarmBeats**: questo è il prefisso URL univoco per l'applicazione Web FarmBeats. Nel caso in cui il prefisso sia già stato effettuato, si verifica un errore nello script. Una volta eseguita l'installazione, la distribuzione di FarmBeats sarà\<accessibile da https://FarmBeats-Website-Name>. azurewebsites.NET e le API spavalderia saranno\<disponibili in https://FarmBeats-Website-Name>-API.azurewebsites.NET
+    - **Nome del sito Web FarmBeats**: questo è il prefisso URL univoco per l'applicazione Web FarmBeats. Nel caso in cui il prefisso sia già stato effettuato, si verifica un errore nello script. Una volta eseguita l'installazione, la distribuzione di FarmBeats sarà accessibile da https:// \<FarmBeats-website-name> . azurewebsites.NET e le API spavalderia saranno disponibili in https:// \<FarmBeats-website-name> -API.azurewebsites.NET
 
-    - **ID di accesso di Azure**: specificare l'ID di accesso di Azure per l'utente che si vuole aggiungere come amministratore di FarmBeats. Questo utente può quindi concedere l'accesso per accedere all'applicazione Web FarmBeats ad altri utenti. L'ID di accesso è in genere il john.doe@domain.comformato. È supportato anche il nome UPN di Azure.
+    - **ID di accesso di Azure**: specificare l'ID di accesso di Azure per l'utente che si vuole aggiungere come amministratore di FarmBeats. Questo utente può quindi concedere l'accesso per accedere all'applicazione Web FarmBeats ad altri utenti. L'ID di accesso è in genere il formato john.doe@domain.com . È supportato anche il nome UPN di Azure.
 
     - **ID sottoscrizione**: ID della sottoscrizione in cui si vuole installare Azure FarmBeats
 
@@ -168,9 +167,9 @@ A questo punto è possibile installare FarmBeats. Attenersi alla procedura segue
 
 8. Una volta convalidati i dettagli immessi, fare clic su **OK**. Viene visualizzata la pagina Condizioni per l'utilizzo. Esaminare i termini e selezionare **Crea** per avviare l'installazione. Si verrà reindirizzati alla pagina in cui è possibile seguire lo stato di avanzamento dell'installazione.
 
-Al termine dell'installazione, è possibile verificare l'installazione e iniziare a usare il portale di FarmBeats passando al nome del sito Web specificato durante l'installazione:\<https://FarmBeats-Website-Name>. azurewebsites.NET. Verrà visualizzata l'interfaccia utente di FarmBeats con un'opzione per la creazione di farm.
+Al termine dell'installazione, è possibile verificare l'installazione e iniziare a usare il portale di FarmBeats passando al nome del sito Web specificato durante l'installazione: https:// \<FarmBeats-website-name> . azurewebsites.NET. Verrà visualizzata l'interfaccia utente di FarmBeats con un'opzione per la creazione di farm.
 
-**Datahub** si trova in https://\<FarmBeats-Website-Name>-API.azurewebsites.NET/Swagger. Qui vengono visualizzati i diversi oggetti API di FarmBeats ed eseguono operazioni REST sulle API.
+**Datahub** si trova in https:// \<FarmBeats-website-name> -API.azurewebsites.NET/Swagger. Qui vengono visualizzati i diversi oggetti API di FarmBeats ed eseguono operazioni REST sulle API.
 
 ## <a name="upgrade"></a>Aggiornamento
 
@@ -196,9 +195,9 @@ Per la prima volta agli utenti verrà richiesto di selezionare una sottoscrizion
         ./upgrade-farmbeats.ps1 -InputFilePath [Path to input.json file]
     ```
 
-Il percorso del file input. JSON è facoltativo. Se non specificato, lo script richiederà tutti gli input necessari. L'aggiornamento verrà completato in circa 30 minuti.
+Il percorso input.jssu file è facoltativo. Se non specificato, lo script richiederà tutti gli input necessari. L'aggiornamento verrà completato in circa 30 minuti.
 
-## <a name="uninstall"></a>Disinstallazione
+## <a name="uninstall"></a>Disinstallare
 
 Per disinstallare Azure FarmBeats datahub o Accelerator, seguire questa procedura:
 

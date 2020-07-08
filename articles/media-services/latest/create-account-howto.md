@@ -14,10 +14,9 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
 ms.openlocfilehash: 2f1694825319ed8b8682c044e7e2282ed4c43dcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79478799"
 ---
 # <a name="create-a-media-services-account"></a>Creare un account di Servizi multimediali
@@ -27,7 +26,7 @@ Per avviare le operazioni di crittografia, codifica, analisi, gestione e streami
 > [!NOTE]
 > L'account di Servizi multimediali e tutti gli account di archiviazione associati devono far parte della stessa sottoscrizione di Azure. È consigliabile usare account di archiviazione nella stessa posizione dell'account di Servizi multimediali per evitare latenza e costi di dati in uscita aggiuntivi.
 
-Questo articolo descrive i passaggi per la creazione di un nuovo account di servizi multimediali di Azure. Scegliere una delle schede seguenti.
+Questo articolo descrive i passaggi per la creazione di un nuovo account di servizi multimediali di Azure. Scegliere una delle seguenti schede.
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
@@ -48,14 +47,14 @@ Questo articolo illustra come creare un account di Servizi multimediali usando i
 ### <a name="create-a-media-services-account"></a>Creare un account di Servizi multimediali
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Fare**Media** > clic su **+ Crea una risorsa** > **servizi multimediali**.
+1. Fare clic su **+ Crea una risorsa**  >  **Media**  >  **servizi multimediali**.
 1. Nella sezione **creare un account di servizi multimediali** immettere i valori necessari.
     
-    | Name | Descrizione |
+    | Nome | Descrizione |
     | ---|---|
     |**Nome account**|Immettere il nome del nuovo account di servizi multimediali. Un nome di account di Servizi multimediali deve essere composto solo da lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.|
     |**Sottoscrizione**|Se si hanno più sottoscrizioni, selezionarne una dall'elenco delle sottoscrizioni di Azure a cui si ha accesso.|
-    |**Gruppo di risorse**|Selezionare la risorsa nuova o esistente. Un gruppo di risorse è una raccolta di risorse che condividono il ciclo di vita, le autorizzazioni e i criteri. Altre informazioni sono disponibili [qui](../../azure-resource-manager/management/overview.md#resource-groups).|
+    |**Gruppo di risorse**|Selezionare la risorsa nuova o esistente. Un gruppo di risorse è una raccolta di risorse che condividono il ciclo di vita, le autorizzazioni e i criteri. Fare clic [qui](../../azure-resource-manager/management/overview.md#resource-groups) per altre informazioni.|
     |**Posizione**|Selezionare l'area geografica che verrà usata per archiviare i record di supporti e metadati per l'account di servizi multimediali. Questa area verrà usata per elaborare e riprodurre in streaming il contenuto multimediale. Nella casella dell'elenco a discesa vengono visualizzate solo le aree di Servizi multimediali disponibili. |
     |**Storage Account**|Selezionare un account di archiviazione per fornire l'archiviazione BLOB del contenuto multimediale dell'account di servizi multimediali. È possibile scegliere un account di archiviazione esistente nella stessa area geografica dell'account di Servizi multimediali oppure è possibile crearne uno nuovo. Un nuovo account di archiviazione viene creato nella stessa area geografica. Per i nomi degli account di archiviazione vengono seguite le stesse regole dei nomi degli account di Servizi multimediali.<br/><br/>È necessario avere un account di archiviazione **primario** ed è possibile avere un numero qualsiasi di account di archiviazione **secondari** associati all'account di Servizi multimediali. È possibile usare la portale di Azure per aggiungere account di archiviazione secondari. Per altre informazioni, vedere [account di archiviazione di Azure con account di servizi multimediali di Azure](storage-account-concept.md).<br/><br/>L'account di Servizi multimediali e tutti gli account di archiviazione associati devono far parte della stessa sottoscrizione di Azure. È consigliabile usare account di archiviazione nella stessa posizione dell'account di Servizi multimediali per evitare latenza e costi di dati in uscita aggiuntivi.|
     

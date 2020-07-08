@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480284"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Esempi di query di log in Monitoraggio di Azure
@@ -18,7 +17,7 @@ Questo articolo include vari esempi di [query](log-query-overview.md) che usano 
 
 Per informazioni dettagliate sulle diverse parole chiave usate in questi esempi, vedere il [materiale di riferimento per il linguaggio Kusto](https://docs.microsoft.com/azure/kusto/query/). Se non si ha familiarità con Monitoraggio di Azure, seguire una [lezione sulla creazione di query](get-started-queries.md).
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Cercare gli eventi a livello di applicazione descritti come "crittografici"
 Questo esempio cerca nella tabella **Events** (Eventi) i record in cui **EventLog** è _Application_ (Applicazione) e **RenderedDescription** contiene _cryptographic_ (crittografico). La ricerca include i record delle ultime 24 ore.
@@ -229,7 +228,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Contare gli eventi di sicurezza per ID attività
 
 
-Questo esempio si basa sulla struttura fissa della colonna **Activity** : \<nome\>-\<\>ID.
+Questo esempio si basa sulla struttura fissa della colonna **Activity** : \<ID\> - \<Name\> .
 Analizza il valore di **Activity** (Attività) in due nuove colonne e conta le occorrenze di ogni **activityID**.
 
 ```Kusto
@@ -270,7 +269,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Analizzare l'ID e il nome dell'attività
-I due esempi seguenti si basano sulla struttura fissa della colonna **Activity** : \<nome\>-\<\>ID. Il primo esempio usa l'operatore di **analisi** per assegnare valori a due nuove colonne: **activityID** e **activityDesc**.
+I due esempi seguenti si basano sulla struttura fissa della colonna **Activity** : \<ID\> - \<Name\> . Il primo esempio usa l'operatore di **analisi** per assegnare valori a due nuove colonne: **activityID** e **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -389,11 +388,11 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-Si noti che la `where IsBillable = true` clausola filtra i tipi di dati di determinate soluzioni per le quali non è previsto alcun addebito per l'inserimento.  La clausola con `TimeGenerated` viene inoltre garantita solo per garantire che l'esperienza di query nel portale di Azure riguarderà oltre le 24 ore predefinite. Quando si usa il tipo di dati `StartTime` Usage `EndTime` e rappresentano i bucket temporali per i quali vengono presentati i risultati. 
+Si noti che la clausola `where IsBillable = true` esclude i tipi di dati da determinate soluzioni per le quali non è addebitato alcun inserimento.  La clausola con `TimeGenerated` viene inoltre garantita solo per garantire che l'esperienza di query nel portale di Azure riguarderà oltre le 24 ore predefinite. Quando si usa il tipo di dati Utilizzo, `StartTime` e `EndTime` rappresentano i bucket temporali per i quali vengono presentati i risultati. 
 
-#### <a name="data-volume-by-type"></a>Volume di dati per tipo
+#### <a name="data-volume-by-type"></a>Volume dati per tipo
 
-È possibile eseguire ulteriormente il drill-down per visualizzare le tendenze dei dati per tipo di dati:
+È possibile eseguire un ulteriore drill-in per visualizzare le tendenze dei dati per tipo di dati:
 
 ```kusto
 Usage 
@@ -403,7 +402,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
-O per visualizzare una tabella in base alla soluzione e al tipo per l'ultimo mese,
+In alternativa, per visualizzare una tabella in base alla soluzione e al tipo per l'ultimo mese,
 
 ```kusto
 Usage 

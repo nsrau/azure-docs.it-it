@@ -9,10 +9,9 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80668031"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Risolvere i problemi relativi al dominio e al certificato TLS/SSL nel servizio app Azure
@@ -90,7 +89,7 @@ Questo problema può verificarsi per uno dei motivi seguenti:
 
     1. Accedere al [portale di Azure](https://portal.azure.com).
     2. Passare a **Certificati del servizio app** e selezionare il certificato.
-    3. Selezionare **configurazione** > **certificato passaggio 2: verificare** > la**Verifica del dominio**. Questo passaggio invia una notifica di posta elettronica al provider del certificato di Azure per risolvere il problema.
+    3. Selezionare **configurazione certificato**  >  **passaggio 2: verificare**la  >  **Verifica del dominio**. Questo passaggio invia una notifica di posta elettronica al provider del certificato di Azure per risolvere il problema.
 
 ## <a name="custom-domain-problems"></a>Problemi del dominio personalizzato
 
@@ -104,7 +103,7 @@ Quando si passa al sito usando il nome di dominio personalizzato, viene visualiz
 
 #### <a name="cause-and-solution"></a>Causa e soluzione
 
-**Cause 1** 
+**Causa 1** 
 
 Nel dominio personalizzato configurato mancano un record CNAME o un record A. 
 
@@ -114,7 +113,7 @@ Nel dominio personalizzato configurato mancano un record CNAME o un record A.
 - Se non è necessario usare il dominio radice per l'app, è consigliabile usare un record CNAME anziché un record A.
 - Non usare sia un record CNAME sia un record A per lo stesso dominio. Questo problema può causare un conflitto e impedire la risoluzione del dominio. 
 
-**Motivo 2** 
+**Causa 2** 
 
 Nella cache del browser Internet potrebbe ancora essere memorizzato l'indirizzo IP precedente del dominio. 
 

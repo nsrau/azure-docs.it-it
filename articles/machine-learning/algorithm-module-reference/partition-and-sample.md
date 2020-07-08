@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 0392a05df485b45b1244f4542ed55af1837dca3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477511"
 ---
 # <a name="partition-and-sample-module"></a>Modulo Partition and Sample
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare il modulo Partition and Sample per eseguire il campionamento in un set di dati o per creare partizioni dal set di dati.
 
@@ -75,7 +74,7 @@ Questa opzione supporta il campionamento casuale semplice o il campionamento cas
 
 1. **Frequenza di campionamento**: immettere un valore compreso tra 0 e 1. Questo valore specifica la percentuale di righe del set di dati di origine che deve essere inclusa nel set di dati di output.
 
-   Se, ad esempio, si desidera solo metà del set di dati originale `0.5` , immettere per indicare che la frequenza di campionamento deve essere pari al 50%.
+   Se, ad esempio, si desidera solo metà del set di dati originale, immettere `0.5` per indicare che la frequenza di campionamento deve essere pari al 50%.
 
    Le righe del set di dati di input vengono mescolate e inserite selettivamente nel set di dati di output, in base al rapporto specificato.
 

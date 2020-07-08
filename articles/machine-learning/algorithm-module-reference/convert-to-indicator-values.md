@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477664"
 ---
 # <a name="convert-to-indicator-values"></a>Eseguire la conversione in valori di indicatori
@@ -48,8 +47,8 @@ Si supponga di disporre di una colonna con punteggi che indichino se un server h
 | ID del server | Punteggio errore |
 | --------- | ------------- |
 | 10301     | Basso           |
-| 10302     | Medio        |
-| 10303     | Alto          |
+| 10302     | Media        |
+| 10303     | Alta          |
 
 Quando si applica **Convert a valori indicatore**, la finestra di progettazione converte una singola colonna di etichette in più colonne contenenti valori booleani:  
 
@@ -63,7 +62,7 @@ Ecco come funziona la conversione:
 
 -   Nella colonna del **Punteggio di errore** che descrive il rischio sono disponibili solo tre valori possibili (alto, medio e basso) e nessun valore mancante. Quindi, vengono create esattamente tre nuove colonne.  
 
--   Le nuove colonne indicatore sono denominate in base alle intestazioni di colonna e ai valori della colonna di origine, usando questo modello: * \<colonna \<di origine>-valore dati>*.  
+-   Le nuove colonne indicatore sono denominate in base alle intestazioni di colonna e ai valori della colonna di origine, usando questo modello: *\<source column>- \<data value>* .  
 
 -   Deve esistere un valore 1 in una sola colonna indicatore e 0 in tutte le altre colonne indicatore poiché ogni server può avere una sola classificazione di rischio.  
 
@@ -98,13 +97,13 @@ Questa sezione contiene informazioni dettagliate sull'implementazione, suggerime
 
 -   solo le colonne contrassegnate come categoriche possono essere convertite in colonne indicatore Se viene visualizzato l'errore seguente, è probabile che una delle colonne selezionate non sia categorica:  
 
-     Errore 0056: la colonna con \<nome della colonna nome> non si trova in una categoria consentita.  
+     Errore 0056: la colonna con nome \<column name> non è in una categoria consentita.  
 
      Per impostazione predefinita, la maggior parte delle colonne stringa viene gestita come funzionalità di stringa, pertanto è necessario contrassegnarle in modo esplicito come categorico usando [Modifica metadati](edit-metadata.md).  
 
 -   Non esiste alcun limite al numero di colonne che è possibile convertire in colonne indicatore. Tuttavia, poiché ogni colonna di valori può produrre più colonne indicatore, potrebbe essere necessario convertire ed esaminare solo alcune colonne alla volta.  
 
--   Se la colonna contiene valori mancanti, viene creata una colonna indicatore separata per la categoria mancante, con il nome seguente: * \<colonna di origine>-mancante*  
+-   Se la colonna contiene valori mancanti, viene creata una colonna indicatore separata per la categoria mancante, con il nome seguente: * \<source column> -Missing*  
 
 -   Se la colonna convertita in valori indicatore contiene numeri, questi devono essere contrassegnati come categorici come qualsiasi altra colonna di funzionalità. Al termine di questa operazione, i numeri vengono considerati come valori discreti. Se, ad esempio, è presente una colonna numerica con valori MPG compresi tra 25 e 30, viene creata una nuova colonna indicatore per ogni valore discreto:  
 

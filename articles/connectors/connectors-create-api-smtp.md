@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 1cfc53dcd730262101c0e879e0419ba3f2db4d38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656992"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Inviare messaggi di posta elettronica dall'account SMTP con App per la logica di Azure
@@ -26,7 +25,7 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 
   Le credenziali autorizzano l'app per la logica alla creazione di una connessione e all'accesso all'account SMTP.
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SMTP. Per usare un'azione di SMTP, avviare l'app per la logica con un trigger, ad esempio un trigger Salesforce, se si ha un account Salesforce.
 
@@ -43,7 +42,7 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 1. Nell'ultimo passaggio in cui si vuole aggiungere un'azione di SMTP, scegliere **Nuovo passaggio**. 
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere "smtp" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
@@ -51,7 +50,7 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Nome connessione** | Sì | Nome per la connessione al server SMTP | 
+   | **Connection Name** (Nome connessione) | Sì | Nome per la connessione al server SMTP | 
    | **Indirizzo del server SMTP** | Sì | Indirizzo relativo al server SMTP | 
    | **Nome utente** | Sì | Nome utente per l'account SMTP | 
    | **Password** | Sì | Password per l'account SMTP | 

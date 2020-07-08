@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: fdb58686fcdd18a8e2861aab533717dbc91e8893
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79476016"
 ---
 # <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Usare più tenant in Sentinel di Azure 
@@ -27,7 +26,7 @@ Se si è un provider di servizi di sicurezza gestito (MSSP) e si usa [Azure Ligh
 
 ## <a name="prerequisites"></a>Prerequisiti
 - [Onboarding di Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)
-- Per il corretto funzionamento, il tenant deve essere registrato nel provider di risorse di Azure Sentinel in almeno una sottoscrizione. Se si dispone di una sentinella di Azure registrata nel tenant, si è pronti per iniziare. In caso contrario, selezionare **sottoscrizioni** dalla portale di Azure, quindi da **provider di risorse**.  Quindi, dalla schermata **SOC-Resource Providers** , cercare e selezionare `Microsoft.OperationalInsights` e `Microsoft.SecurityInsights`, quindi selezionare **Register**.
+- Per il corretto funzionamento, il tenant deve essere registrato nel provider di risorse di Azure Sentinel in almeno una sottoscrizione. Se si dispone di una sentinella di Azure registrata nel tenant, si è pronti per iniziare. In caso contrario, selezionare **sottoscrizioni** dalla portale di Azure, quindi da **provider di risorse**.  Quindi, dalla schermata **SOC-Resource Providers** , cercare e selezionare `Microsoft.OperationalInsights` e `Microsoft.SecurityInsights` , quindi selezionare **Register**.
    ![Controllare i provider di risorse](media/multiple-tenants-service-providers/check-resource-provider.png)
 ## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>Come accedere a Sentinel di Azure da altri tenant
 1. In **directory + sottoscrizione**selezionare le directory delegate e le sottoscrizioni in cui si trovano le aree di lavoro di Azure Sentinel del cliente.

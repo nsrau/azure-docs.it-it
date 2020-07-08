@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5949fdce9d591a9c02c5c6c4fb2f1dde94c45d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80654027"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
@@ -32,7 +31,7 @@ Per proteggere le risorse cloud, configurare una regola attestazioni in modo che
 
    ![Console ADFS-attendibilità del componente](./media/howto-mfa-adfs/trustedip1.png)
 
-4. In Regole di trasformazione rilascio fare clic su **Aggiungi regola**.
+4. In regole di trasformazione rilascio fare clic su **Aggiungi regola**.
 
    ![Modifica delle regole di trasformazione rilascio](./media/howto-mfa-adfs/trustedip2.png)
 
@@ -59,16 +58,16 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 1. Aprire il componente di gestione di ADFS.
 2. A sinistra selezionare **Attendibilità componente**.
 3. Fare clic con il pulsante destro del mouse su **Microsoft Office piattaforma Identity 365** e selezionare **modifica regole attestazione...** 
-   Console ADFS-modifica regole ![attestazione](./media/howto-mfa-adfs/trustedip1.png)
+    ![ Console ADFS-modifica regole attestazione](./media/howto-mfa-adfs/trustedip1.png)
 4. In regole di trasformazione rilascio fare clic su **Aggiungi regola.** 
-   Aggiunta di una regola ![attestazioni](./media/howto-mfa-adfs/trustedip2.png)
+    ![ Aggiunta di una regola attestazioni](./media/howto-mfa-adfs/trustedip2.png)
 5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso** dall'elenco a discesa e fare clic su **Avanti**.
    ![Aggiunta guidata regole attestazione di trasformazione](./media/howto-mfa-adfs/trustedip3.png)
 6. Nella casella Nome regola attestazione assegnare un nome alla regola. Ad esempio: InternoReteAziend.
 7. Nell'elenco a discesa accanto a Tipo di attestazione in ingresso selezionare **All'interno della rete aziendale**.
    ![Aggiunta all'interno di un'attestazione di rete aziendale](./media/howto-mfa-adfs/trustedip4.png)
 8. Fare clic su **Fine**.
-9. In Regole di trasformazione rilascio fare clic su **Aggiungi regola**.
+9. In regole di trasformazione rilascio fare clic su **Aggiungi regola**.
 10. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Inviare attestazioni mediante una regola personalizzata** dall'elenco a discesa e fare clic su **Avanti**.
 11. Nella casella sotto a Nome regola attestazione: specificare di *mantenere gli utenti connessi*.
 12. Nella casella Regola personalizzata immettere:
@@ -77,7 +76,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
             => issue(claim = c);
     ![Creare un'attestazione personalizzata per impedire agli utenti di eseguire l'accesso](./media/howto-mfa-adfs/trustedip5.png)
 13. Fare clic su **Fine**.
-14. Fare clic su **Applica**.
+14. Fare clic su **Apply**.
 15. Fare clic su **OK**.
 16. Chiudere Gestione ADFS.
 
@@ -86,7 +85,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 Ora che le attestazioni sono configurate, è possibile procedere alla configurazione degli indirizzi IP attendibili.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Azure Active Directory** > **sicurezza** >  > **accesso condizionale****percorsi denominati**.
+2. Selezionare **Azure Active Directory**  >  **sicurezza**  >  **accesso condizionale**  >  **percorsi denominati**.
 3. Nel pannello **accesso condizionale-posizioni denominate** selezionare **configura indirizzi IP attendibili** per l'autenticazione a più fattori
 
    ![Azure AD percorsi denominati di accesso condizionale configurare IP attendibili a più fattori](./media/howto-mfa-adfs/trustedip6.png)
@@ -94,4 +93,4 @@ Ora che le attestazioni sono configurate, è possibile procedere alla configuraz
 4. In **Indirizzi IP attendibili** nella pagina Impostazioni servizio selezionare **Ignora l'autenticazione a più fattori per le richieste provenienti da utenti federati nella Intranet**.  
 5. Fare clic su **save**.
 
-Ecco fatto! A questo punto, gli utenti federati di Office 365 dovrebbero usare solo MFA quando una richiesta proviene dall'esterno della Intranet aziendale.
+L'operazione è terminata. A questo punto, gli utenti federati di Office 365 dovrebbero usare solo MFA quando una richiesta proviene dall'esterno della Intranet aziendale.

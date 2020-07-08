@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 88e0e1c18722fd86e79fc1fa7722b59b3cb8966a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460960"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 È possibile usare Servizi multimediali di Azure per proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. 
 
@@ -82,14 +81,14 @@ Quando si configurano i criteri di restrizione del token, è necessario specific
 
 ### <a name="token-replay-prevention"></a>Prevenzione della riproduzione del token
 
-La funzionalità di *prevenzione della riproduzione dei token* consente ai clienti di servizi multimediali di impostare un limite per il numero di volte in cui è possibile usare lo stesso token per richiedere una chiave o una licenza. Il cliente può aggiungere un'attestazione di `urn:microsoft:azure:mediaservices:maxuses` tipo nel token, dove il valore è il numero di volte in cui il token può essere usato per acquisire una licenza o una chiave. Tutte le richieste successive con lo stesso token al recapito della chiave restituiranno una risposta non autorizzata. Vedere come aggiungere l'attestazione nell' [esempio di DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+La funzionalità *Protezione riproduzione token* consente ai clienti di Servizi multimediali di impostare un limite per il numero di volte in cui è possibile usare lo stesso token per richiedere una chiave o una licenza. Il cliente può aggiungere un'attestazione di tipo `urn:microsoft:azure:mediaservices:maxuses` nel token, dove il valore è il numero di volte in cui il token può essere usato per acquisire una licenza o una chiave. Tutte le richieste successive con lo stesso token al recapito della chiave restituiranno una risposta non autorizzata. Vedere come aggiungere l'attestazione nell' [esempio di DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
 #### <a name="considerations"></a>Considerazioni
 
 * I clienti devono avere il controllo sulla generazione dei token. L'attestazione deve essere inserita nel token stesso.
 * Quando si usa questa funzionalità, le richieste con token la cui ora di scadenza è più di un'ora a partire dal momento in cui la richiesta viene ricevuta vengono rifiutate con una risposta non autorizzata.
 * I token sono identificati in modo univoco dalla firma. Qualsiasi modifica apportata al payload (ad esempio, l'aggiornamento all'ora di scadenza o l'attestazione) modifica la firma del token e viene conteggiata come un nuovo token che il recapito delle chiavi non è passato in precedenza.
-* La riproduzione ha esito negativo se il token `maxuses` ha superato il valore impostato dal cliente.
+* La riproduzione ha esito negativo se il token ha superato il `maxuses` valore impostato dal cliente.
 * Questa funzionalità può essere usata per tutto il contenuto protetto esistente (è necessario modificare solo il token emesso).
 * Questa funzionalità funziona sia con JWT che con SWT.
 
@@ -119,7 +118,7 @@ Gli articoli seguenti descrivono i passaggi successivi da eseguire per iniziare 
 * [Proteggi con PlayReady e/o Widevine](media-services-protect-with-playready-widevine.md)
 * [Proteggere con FairPlay](media-services-protect-hls-with-FairPlay.md)
 
-## <a name="related-links"></a>Link correlati
+## <a name="related-links"></a>Collegamenti correlati
 
 * [Autenticazione tramite token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 * [Integrare l'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni del token JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)

@@ -7,10 +7,9 @@ description: Esaminare e testare le modifiche da una richiesta pull direttamente
 keywords: Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, azioni di GitHub, Helm, mesh dei servizi, routing mesh del servizio, kubectl, K8S
 manager: gwallace
 ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637937"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azioni di GitHub & servizio Azure Kubernetes (anteprima)
@@ -116,7 +115,7 @@ cd dev-spaces/samples/BikeSharingApp/
 git checkout -b bike-images
 ```
 
-Modificare [Bikes/server. js][bikes-server-js] per rimuovere le righe 232 e 233:
+Modificare le [biciclette/server.js][bikes-server-js] per rimuovere le righe 232 e 233:
 
 ```javascript
     // Hard code image url *FIX ME*
@@ -131,7 +130,7 @@ La sezione dovrebbe ora essere simile alla seguente:
     delete theBike._id;
 ```
 
-Salvare il file e quindi `git add` usare `git commit` e per organizzare le modifiche.
+Salvare il file e quindi usare `git add` e `git commit` per organizzare le modifiche.
 
 ```cmd
 git add Bikes/server.js 

@@ -7,10 +7,9 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
 ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480879"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
@@ -92,7 +91,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
     > Lo script configura Windows Firewall solo in locale. Se si dispone di un firewall di rete, assicurarsi che consenta il traffico destinato alla porta TCP usata da Monitoraggio prestazioni rete.
 
     >[!NOTE]
-    > Non è necessario eseguire lo script di PowerShell [lo enablerules. ps1](https://aka.ms/npmpowershellscript ) per il monitoraggio della connettività del servizio.
+    > Non è necessario eseguire lo script di [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell per il monitoraggio della connettività del servizio.
 
     
 
@@ -134,7 +133,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
 
    ![Pagina di configurazione di Monitoraggio prestazioni rete](media/network-performance-monitor/npm-private-peerings.png)
     
-Il monitoraggio di questi circuiti e peering è inizialmente in stato disabilitato. Selezionare tutte le risorse che si desidera monitorare e configurare il monitoraggio per tali risorse dalla visualizzazione dettagli a destra. Selezionare **Salva** per salvare la configurazione. Per altre informazioni, vedere l'articolo "Configurare Monitoraggio di ExpressRoute". 
+Il monitoraggio di questi circuiti e peering è inizialmente in stato disabilitato. Selezionare tutte le risorse che si desidera monitorare e configurare il monitoraggio per tali risorse dalla visualizzazione dettagli a destra. Selezionare **Save (Salva** ) per salvare la configurazione. Per altre informazioni, vedere l'articolo "Configurare Monitoraggio di ExpressRoute". 
 
 Dopo aver completato la configurazione, il popolamento dei dati richiede da 30 minuti a un'ora. Mentre la soluzione aggrega i dati dalla rete, nel riquadro **Panoramica** di Monitoraggio prestazioni rete viene visualizzato il messaggio *La soluzione richiede una configurazione aggiuntiva*. Al termine della raccolta e dell'indicizzazione dei dati, il riquadro **Panoramica** cambia e mostra un riepilogo dell'integrità della rete. È quindi possibile modificare il monitoraggio dei nodi in cui sono installati gli agenti di Log Analytics, nonché delle subnet individuate dall'ambiente.
 
@@ -147,7 +146,7 @@ Per abilitare o disabilitare il monitoraggio di subnet specifiche:
 
 1. Selezionare o deselezionare la casella di controllo accanto all'**ID subnet**. Assicurarsi quindi che la casella **Usa per il monitoraggio** sia selezionata o deselezionata a seconda delle esigenze. È possibile selezionare o deselezionare più subnet. Se disabilitate, le subnet non vengono monitorate e gli agenti vengono aggiornati in modo da interrompere l'invio di ping ad altri agenti. 
 2. Scegliere i nodi che si desidera monitorare in una subnet specifica. Selezionare la subnet dall'elenco e spostare i nodi necessari tra gli elenchi che contengono nodi non monitorati e monitorati. È possibile aggiungere una descrizione personalizzata alla subnet.
-3. Selezionare **Salva** per salvare la configurazione. 
+3. Selezionare **Save (Salva** ) per salvare la configurazione. 
 
 #### <a name="choose-nodes-to-monitor"></a>Selezionare i nodi da monitorare
 
@@ -160,7 +159,7 @@ Tutti i nodi su cui è installato un agente sono elencati nella scheda **Nodi**.
 
 Configurare le funzionalità desiderate:
 
-- [Performance Monitor](network-performance-monitor-performance-monitor.md#configuration)
+- [Monitoraggio delle prestazioni](network-performance-monitor-performance-monitor.md#configuration)
 - [Monitoraggio connettività servizio](network-performance-monitor-performance-monitor.md#configuration)
 - [Monitoraggio di ExpressRoute](network-performance-monitor-expressroute.md#configuration)
 
@@ -280,7 +279,7 @@ Le notifiche vengono addebitate separatamente in base ai [prezzi per le notifich
 
 Le informazioni sui prezzi sono disponibili [online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Inviare feedback 
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti 
 
 * **UserVoice**: è possibile pubblicare le proprie idee sulle funzionalità di Monitoraggio prestazioni rete che si ritiene possano essere migliorate. Visitare la [pagina UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 

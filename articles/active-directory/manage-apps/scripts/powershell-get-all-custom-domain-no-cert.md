@@ -13,13 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97dc46a34e1bb5bb85dcb771a9720a19d356e6f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79481212"
 ---
-# <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>Ottenere tutte le app dell'applicazione proxy Azure AD pubblicate senza certificato caricato
+# <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>Ottenere tutte le app di Azure AD Application Proxy pubblicate senza un certificato caricato
 
 Questo esempio di script di PowerShell elenca tutte le app proxy di applicazione Azure Active Directory (Azure AD) che usano domini personalizzati, ma non è stato caricato un certificato TLS/SSL valido.
 
