@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c9b0b34202f35babcaa3dce37331d31edf641254
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005499"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557265"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Come eseguire il mapping di campi arricchiti di intelligenza artificiale a un indice ricercabile
 
@@ -28,7 +28,7 @@ I mapping dei campi di output sono necessari per lo trasferimento di contenuto d
 Per eseguire il mapping dei campi, aggiungere `outputFieldMappings` alla definizione dell'indicizzatore, come illustrato di seguito:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -117,7 +117,7 @@ Si tratta di un principio importante, quindi verrà fornito un altro esempio. Si
 
 Si supponga che l'indice includa un campo denominato "patologie" di tipo Collection (EDM. String), in cui si desidera archiviare ognuno dei nomi delle entità. 
 
-Questa operazione può essere eseguita facilmente usando il simbolo\*"", come indicato di seguito:
+Questa operazione può essere eseguita facilmente usando il \* simbolo "", come indicato di seguito:
 
 ```json
     "outputFieldMappings": [

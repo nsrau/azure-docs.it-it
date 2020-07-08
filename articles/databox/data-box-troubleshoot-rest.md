@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 7fe5afbc4984c430cbf393e4e2b44122bdd43983
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558553"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Risolvere i problemi relativi all'archiviazione BLOB Azure Data Box
 
@@ -26,7 +26,7 @@ In questa sezione vengono illustrati alcuni dei problemi riscontrati durante l'u
 |Messaggio di errore  |Azione consigliata |
 |---------|---------|
 |Impossibile recuperare le risorse figlio. Il valore per una delle intestazioni HTTP non è nel formato corretto.|Dal menu **modifica** selezionare **destinazione API Azure stack**. <br>Riavviare Azure Storage Explorer.|
-|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Verificare che il nome `<accountname>.blob.<serialnumber>.microsoftdatabox.com` dell'endpoint venga aggiunto al file hosts nel percorso seguente: <li>`C:\Windows\System32\drivers\etc\hosts`in Windows o </li><li> `/etc/hosts`in Linux.</li>|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts nel percorso seguente: <li>`C:\Windows\System32\drivers\etc\hosts`in Windows o </li><li> `/etc/hosts`in Linux.</li>|
 |Impossibile recuperare le risorse figlio. <br>Dettagli: certificato autofirmato |Importare il certificato TLS/SSL per il dispositivo in Azure Storage Explorer: <li>Scaricare il certificato dal portale di Azure. Per ulteriori informazioni, vedere [scaricare il certificato](data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>Scegliere **certificati SSL** dal menu **modifica** , quindi selezionare **Importa certificati**.</li>|
 
 ## <a name="errors-seen-in-azcopy-for-windows"></a>Errori visualizzati in AzCopy per Windows
@@ -35,8 +35,8 @@ Questa sezione illustra in dettaglio alcuni dei problemi riscontrati quando si u
 
 |Messaggio di errore  |Azione consigliata |
 |---------|---------|
-|Il comando AzCopy sembra bloccarsi per un minuto prima di visualizzare l'errore: <br>Impossibile enumerare la directory https://... Non è stato possibile risolvere il nome remoto`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verificare che il nome `<accountname>.blob.<serialnumber>.microsoftdatabox.com` dell'endpoint venga aggiunto al file hosts in `C:\Windows\System32\drivers\etc\hosts`:.|
-|Il comando AzCopy sembra bloccarsi per un minuto prima di visualizzare l'errore: <br>Errore durante l'analisi del percorso di origine. Connessione sottostante chiusa: Impossibile stabilire una relazione di trust per il canale sicuro SSL/TLS.|Importare il certificato TLS/SSL per il dispositivo nell'archivio certificati del sistema. Per ulteriori informazioni, vedere [scaricare il certificato](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|Il comando AzCopy sembra smettere di rispondere per un minuto prima di visualizzare questo errore: <br>Impossibile enumerare la directory https://... Non è stato possibile risolvere il nome remoto`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts in: `C:\Windows\System32\drivers\etc\hosts` .|
+|Il comando AzCopy sembra smettere di rispondere per un minuto prima di visualizzare questo errore: <br>Errore durante l'analisi del percorso di origine. Connessione sottostante chiusa: Impossibile stabilire una relazione di trust per il canale sicuro SSL/TLS.|Importare il certificato TLS/SSL per il dispositivo nell'archivio certificati del sistema. Per ulteriori informazioni, vedere [scaricare il certificato](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 
 ## <a name="errors-seen-in-azcopy-for-linux"></a>Errori visualizzati in AzCopy per Linux
@@ -45,8 +45,8 @@ Questa sezione illustra in dettaglio alcuni dei problemi riscontrati quando si u
 
 |Messaggio di errore  |Azione consigliata |
 |---------|---------|
-|Il comando AzCopy sembra bloccarsi per 20 minuti prima di visualizzare questo errore: <br>Errore durante l'analisi del `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`percorso di origine. Nessun dispositivo o indirizzo di questo tipo|Verificare che il nome `<accountname>.blob.<serialnumber>.microsoftdatabox.com` dell'endpoint venga aggiunto al file hosts in `/etc/hosts`:.|
-|Il comando AzCopy sembra bloccarsi per 20 minuti prima di visualizzare questo errore: <br>Errore durante l'analisi del percorso di origine... Non è stato possibile stabilire la connessione SSL.|Importare il certificato TLS/SSL per il dispositivo nell'archivio certificati del sistema. Per ulteriori informazioni, vedere [scaricare il certificato](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|Il comando AzCopy sembra smettere di rispondere per 20 minuti prima di visualizzare questo errore: <br>Errore durante l'analisi del percorso di origine `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>` . Nessun dispositivo o indirizzo di questo tipo|Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts in: `/etc/hosts` .|
+|Il comando AzCopy sembra smettere di rispondere per 20 minuti prima di visualizzare questo errore: <br>Errore durante l'analisi del percorso di origine... Non è stato possibile stabilire la connessione SSL.|Importare il certificato TLS/SSL per il dispositivo nell'archivio certificati del sistema. Per ulteriori informazioni, vedere [scaricare il certificato](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 ## <a name="errors-seen-in-azure-storage-library-for-python"></a>Errori visualizzati nella libreria di archiviazione di Azure per Python
 

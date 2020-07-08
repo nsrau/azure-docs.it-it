@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67109325"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555384"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
 In questa attività viene definita la strategia di adozione della soluzione ibrida di gestione delle identità in modo che soddisfi i requisiti aziendali definiti in:
@@ -63,7 +63,7 @@ La strategia scelta determinerà l'esperienza di accesso per gli utenti.  Le tab
 
 **Applicazioni di rete privata e aggiunte a un dominio**:
 
-|  | Identità sincronizzata | Identità federata |
+| Applicazione | Identità sincronizzata | Identità federata |
 | --- | --- | --- |
 | Web browser |Autenticazione basata su form |Single Sign-On, potrebbe essere richiesto di fornire l'ID aziendale |
 | Outlook |Richiesta di credenziali |Richiesta di credenziali |
@@ -73,7 +73,7 @@ La strategia scelta determinerà l'esperienza di accesso per gli utenti.  Le tab
 
 **Risorse esterne o non attendibili**:
 
-|  | Identità sincronizzata | Identità federata |
+| Applicazione | Identità sincronizzata | Identità federata |
 | --- | --- | --- |
 | Web browser |Autenticazione basata su form |Autenticazione basata su form |
 | Outlook, Skype for Business (Lync), OneDrive for Business, abbonamento a Office |Richiesta di credenziali |Richiesta di credenziali |
@@ -111,7 +111,7 @@ Negli anni sono stati creati numerosi strumenti di sincronizzazione per diversi 
 ### <a name="supported-topologies"></a>Topologie supportate
 Quando si definisce una strategia di sincronizzazione, è necessario determinare la topologia da usare. A seconda delle informazioni definite nel passaggio 2, è possibile stabilire la topologia corretta da usare. La topologia singola di Azure AD a foresta singola è quella più comune ed è costituita da una singola foresta Active Directory e una singola istanza di Azure AD.  Questa topologia verrà usata nella maggior parte degli scenari ed è la topologia prevista quando si usa l'installazione rapida di Azure AD Connect come illustrato nella figura seguente.
 
-![Scenario a foresta](./media/plan-hybrid-identity-design-considerations/single-forest.png) singola supportato scenario è comune per le organizzazioni di grandi dimensioni e persino piccole avere più foreste, come illustrato nella figura 5.
+![](./media/plan-hybrid-identity-design-considerations/single-forest.png)Scenario a foresta singola supportato scenario è comune per le organizzazioni di grandi dimensioni e persino piccole avere più foreste, come illustrato nella figura 5.
 
 > [!NOTE]
 > Per altre informazioni sulle diverse topologie locali e di Azure AD con il servizio di sincronizzazione Azure AD Connect, vedere l'articolo [Topologie per Azure AD Connect](plan-connect-topologies.md).
@@ -158,7 +158,7 @@ Per questo scenario, devono essere vere le affermazioni seguenti:
 * Un dominio DNS può essere registrato solo in una singola directory di Azure AD, in modo che anche i nomi dell'entità utente (UPN) degli utenti nell'istanza locale di AD possano usare spazi dei nomi separati
 * Gli utenti in un'istanza di Azure AD potranno visualizzare solo gli utenti inclusi nella stessa istanza,  ma non quelli in altre istanze
 * Solo una delle directory di Azure AD può abilitare la distribuzione ibrida di Exchange con l'istanza locale di Active Directory
-* L'esclusione reciproca si applica anche al writeback.  Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale.  È possibile creare, ad esempio:
+* L'esclusione reciproca si applica anche al writeback.  Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale.  Ciò include:
   * Writeback dei gruppi con la configurazione predefinita
   * Writeback dei dispositivi
 
@@ -193,9 +193,9 @@ Anche se è già stata scelta una soluzione per la strategia, è comunque necess
 | Posizione degli utenti | Opzione di progettazione preferita |
 | --- | --- |
 | Azure Active Directory |Multi-Factor Authentication nel cloud |
-| Azure AD e AD locale usando la federazione con AD FS |Entrambe |
-| Azure AD e Active Directory locale con Azure AD Connect, senza sincronizzazione delle password |Entrambe |
-| Azure AD e Active Directory locale con Azure AD Connect, con sincronizzazione delle password |Entrambe |
+| Azure AD e AD locale usando la federazione con AD FS |Entrambi |
+| Azure AD e Active Directory locale con Azure AD Connect, senza sincronizzazione delle password |Entrambi |
+| Azure AD e Active Directory locale con Azure AD Connect, con sincronizzazione delle password |Entrambi |
 | Active Directory locale |Server Multi-Factor Authentication |
 
 > [!NOTE]
@@ -213,6 +213,6 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 ## <a name="next-steps"></a>Passaggi successivi
 [Determinare i requisiti di protezione dati](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](plan-hybrid-identity-design-considerations-overview.md)
 

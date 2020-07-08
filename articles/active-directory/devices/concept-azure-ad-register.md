@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e2a8cad7cd4410a95a6ebd60ada22de456737bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67462759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554872"
 ---
 # <a name="azure-ad-registered-devices"></a>Dispositivi registrati in Azure AD
 
 L'obiettivo di Azure AD dispositivi registrati è fornire agli utenti il supporto per gli scenari BYOD (Bring Your Own Device) o per dispositivi mobili. In questi scenari, un utente può accedere alle risorse controllate Azure Active Directory dell'organizzazione usando un dispositivo personale.
 
-|   | Azure AD registrato |
+| Azure AD registrato | Descrizione |
 | --- | --- |
 | **Definizione** | Registrato per Azure AD senza richiedere all'account aziendale di accedere al dispositivo |
-| **Destinatari primari** | Applicabile a tutti gli utenti con i criteri seguenti: |
+| **Destinatari principali** | Applicabile a tutti gli utenti con i criteri seguenti: |
 |   | Bring Your Own Device (BYOD) |
 |   | Dispositivi mobili |
 | **Proprietà del dispositivo** | Utente o organizzazione |
@@ -38,7 +38,7 @@ L'obiettivo di Azure AD dispositivi registrati è fornire agli utenti il support
 |   | Windows Hello |
 |   | PIN |
 |   | Biometria o modello per altri dispositivi |
-| **Gestione dei dispositivi** | Gestione dei dispositivi mobili (ad esempio: Microsoft Intune) |
+| **Gestione del dispositivo** | Mobile Device Management (esempio: Microsoft Intune) |
 |   | gestione di applicazioni mobili |
 | **Funzionalità principali** | Da SSO a risorse cloud |
 |   | Accesso condizionale quando viene registrato in Intune |
@@ -47,7 +47,7 @@ L'obiettivo di Azure AD dispositivi registrati è fornire agli utenti il support
 
 ![Dispositivi registrati in Azure AD](./media/concept-azure-ad-register/azure-ad-registered-device.png)
 
-Azure AD dispositivi registrati hanno eseguito l'accesso con un account locale come un account Microsoft in un dispositivo Windows 10, ma hanno anche un account Azure AD collegato per l'accesso alle risorse dell'organizzazione. L'accesso alle risorse dell'organizzazione può essere ulteriormente limitato in base al Azure AD account e ai criteri di accesso condizionale applicati all'identità del dispositivo.
+Azure AD dispositivi registrati hanno eseguito l'accesso con un account locale come un account Microsoft in un dispositivo Windows 10, ma hanno anche un account Azure AD collegato per l'accesso alle risorse dell'organizzazione. L'accesso alle risorse nell'organizzazione può essere ulteriormente limitato in base a tale account di Azure AD e ai criteri di accesso condizionale applicati all'identità del dispositivo.
 
 Gli amministratori possono proteggere e controllare ulteriormente questi Azure AD dispositivi registrati usando strumenti di gestione di dispositivi mobili (MDM) come Microsoft Intune. MDM fornisce un mezzo per applicare le configurazioni necessarie per l'organizzazione, ad esempio la necessità di crittografare l'archiviazione, la complessità della password e il software di sicurezza mantenuto aggiornato. 
 

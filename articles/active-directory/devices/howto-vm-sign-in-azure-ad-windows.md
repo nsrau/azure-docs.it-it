@@ -4,28 +4,27 @@ description: Azure AD accedere a una macchina virtuale di Azure che esegue Windo
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
+ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88ae3c45126403161e35ec46e5ccc2666c3edb55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050070"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554890"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
 Le organizzazioni possono ora usare l'autenticazione Azure Active Directory (AD) per le macchine virtuali (VM) di Azure che eseguono **Windows Server 2019 Datacenter Edition** o **Windows 10 1809** e versioni successive. L'uso di Azure AD per l'autenticazione nelle macchine virtuali consente di controllare e applicare in modo centralizzato i criteri. Strumenti come il controllo degli accessi in base al ruolo di Azure (RBAC) e Azure AD l'accesso condizionale consentono di controllare chi può accedere a una macchina virtuale. Questo articolo illustra come creare e configurare una macchina virtuale Windows Server 2019 per usare l'autenticazione Azure AD.
 
-|     |
-| --- |
-| Azure AD l'accesso per le macchine virtuali Windows di Azure è una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> Azure AD l'accesso per le macchine virtuali Windows di Azure è una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L'uso dell'autenticazione Azure AD per accedere alle macchine virtuali Windows in Azure offre molti vantaggi, tra cui:
 
@@ -63,10 +62,10 @@ Durante l'anteprima di questa funzionalità sono attualmente supportate le aree 
 
 Per abilitare l'autenticazione Azure AD per le macchine virtuali Windows in Azure, è necessario assicurarsi che la configurazione di rete delle macchine virtuali consenta l'accesso in uscita agli endpoint seguenti sulla porta TCP 443:
 
-- https:\//enterpriseregistration.Windows.NET
+- https: \/ /enterpriseregistration.Windows.NET
 - https:\//login.microsoftonline.com
-- https:\//Device.login.microsoftonline.com
-- https:\//pas.Windows.NET
+- https: \/ /Device.login.microsoftonline.com
+- https: \/ /pas.Windows.NET
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Abilitazione dell'accesso Azure AD in per la macchina virtuale Windows in Azure
 
@@ -188,7 +187,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Se il dominio di AAD e il dominio del nome utente di accesso non corrispondono, è necessario specificare l'ID oggetto dell'account `--assignee-object-id`utente con, non solo il `--assignee`nome utente per. È possibile ottenere l'ID oggetto per l'account utente con [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+> Se il dominio di AAD e il dominio del nome utente di accesso non corrispondono, è necessario specificare l'ID oggetto dell'account utente con `--assignee-object-id` , non solo il nome utente per `--assignee` . È possibile ottenere l'ID oggetto per l'account utente con [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
 Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere gli articoli seguenti:
 
@@ -243,21 +242,21 @@ Per completare la Azure AD processo join, è necessario che l'estensione AADLogi
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Token di accesso valido emesso da Azure Active Directory per l'identità gestita assegnata a questa macchina virtuale |
 
    > [!NOTE]
-   > Il token di accesso può essere decodificato usando uno strumento [http://calebb.net/](http://calebb.net/)come. Verificare che "AppID" nel token di accesso corrisponda all'identità gestita assegnata alla macchina virtuale.
+   > Il token di accesso può essere decodificato usando uno strumento come [http://calebb.net/](http://calebb.net/) . Verificare che "AppID" nel token di accesso corrisponda all'identità gestita assegnata alla macchina virtuale.
 
 1. Verificare che gli endpoint necessari siano accessibili dalla macchina virtuale tramite la riga di comando:
    
-   - curl https:\//login.microsoftonline.com/-D-
-   - curl https:\//login.microsoftonline.com/`<TenantID>`/-D-
+   - curl https: \/ /login.microsoftonline.com/-D-
+   - curl https: \/ /login.microsoftonline.com/ `<TenantID>` /-D-
 
    > [!NOTE]
    > Sostituire `<TenantID>` con il Azure ad ID tenant associato alla sottoscrizione di Azure.
 
-   - curl https:\//Enterpriseregistration.Windows.NET/-D-
-   - curl https:\//Device.login.microsoftonline.com/-D-
-   - curl https:\//pas.Windows.NET/-D-
+   - curl https: \/ /enterpriseregistration.Windows.NET/-D-
+   - curl https: \/ /Device.login.microsoftonline.com/-D-
+   - curl https: \/ /pas.Windows.NET/-D-
 
-1. Lo stato del dispositivo può essere visualizzato eseguendo `dsregcmd /status`. L'obiettivo è quello di visualizzare lo stato del `AzureAdJoined : YES`dispositivo come.
+1. Lo stato del dispositivo può essere visualizzato eseguendo `dsregcmd /status` . L'obiettivo è quello di visualizzare lo stato del dispositivo come `AzureAdJoined : YES` .
 
    > [!NOTE]
    > Azure AD attività di join viene acquisita nel Visualizzatore eventi nel registro Registration\Admin del dispositivo utente.
@@ -278,21 +277,21 @@ Questo codice di uscita viene convertito in DSREG_E_MSI_TENANTID_UNAVAILABLE per
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problema 2: l'installazione dell'estensione AADLoginForWindows non riesce con codice di uscita:-2145648607
 
-Questo codice di uscita viene convertito in DSREG_AUTOJOIN_DISC_FAILED perché l'estensione non è in grado di raggiungere `https://enterpriseregistration.windows.net` l'endpoint.
+Questo codice di uscita viene convertito in DSREG_AUTOJOIN_DISC_FAILED perché l'estensione non è in grado di raggiungere l' `https://enterpriseregistration.windows.net` endpoint.
 
 1. Verificare che gli endpoint necessari siano accessibili dalla macchina virtuale tramite la riga di comando:
 
-   - curl https:\//login.microsoftonline.com/-D-
-   - curl https:\//login.microsoftonline.com/`<TenantID>`/-D-
+   - curl https: \/ /login.microsoftonline.com/-D-
+   - curl https: \/ /login.microsoftonline.com/ `<TenantID>` /-D-
    
    > [!NOTE]
    > Sostituire `<TenantID>` con il Azure ad ID tenant associato alla sottoscrizione di Azure. Se è necessario trovare l'ID tenant, è possibile passare il puntatore del mouse sul nome dell'account per ottenere l'ID directory/tenant oppure selezionare Azure Active Directory > proprietà > ID directory nel portale di Azure.
 
-   - curl https:\//Enterpriseregistration.Windows.NET/-D-
-   - curl https:\//Device.login.microsoftonline.com/-D-
-   - curl https:\//pas.Windows.NET/-D-
+   - curl https: \/ /enterpriseregistration.Windows.NET/-D-
+   - curl https: \/ /Device.login.microsoftonline.com/-D-
+   - curl https: \/ /pas.Windows.NET/-D-
 
-1. Se uno dei comandi ha esito negativo con "Impossibile risolvere `<URL>`l'host", provare a eseguire questo comando per determinare il server DNS usato dalla macchina virtuale.
+1. Se uno dei comandi ha esito negativo con "Impossibile risolvere `<URL>` l'host", provare a eseguire questo comando per determinare il server DNS usato dalla macchina virtuale.
    
    `nslookup <URL>`
 
@@ -315,7 +314,7 @@ Nell'anteprima pubblica, l'estensione AADLoginForWindows è destinata solo a ess
 
 Alcuni errori comuni quando si tenta di eseguire una connessione RDP con Azure AD credenziali includono i ruoli RBAC assegnati, client non autorizzato o metodo di accesso 2FA richiesto. Per risolvere questi problemi, utilizzare le seguenti informazioni.
 
-Il dispositivo e lo stato SSO possono essere visualizzati eseguendo `dsregcmd /status`. L'obiettivo è quello di visualizzare lo stato del `AzureAdJoined : YES` dispositivo `SSO State` come e `AzureAdPrt : YES`.
+Il dispositivo e lo stato SSO possono essere visualizzati eseguendo `dsregcmd /status` . L'obiettivo è quello di visualizzare lo stato del dispositivo come `AzureAdJoined : YES` e `SSO State` `AzureAdPrt : YES` .
 
 Inoltre, l'accesso RDP con account Azure AD viene acquisito nel Visualizzatore eventi nei registri eventi di AAD\Operational.
 

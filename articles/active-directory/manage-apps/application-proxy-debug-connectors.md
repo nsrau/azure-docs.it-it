@@ -2,21 +2,21 @@
 title: Eseguire il debug di connettori proxy di applicazione-Azure Active Directory | Microsoft Docs
 description: Problemi di debug con i connettori del proxy di applicazione Azure Active Directory (Azure AD).
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: c041578932bd33eb0a2d3afc18a35c2c0458dc8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39a27ce3b3e7946504298451233b6054302c45f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72311843"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555043"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Debug dei problemi con il connettore Application Proxy 
 
@@ -40,7 +40,7 @@ Questo diagramma di flusso illustra i passaggi per eseguire il debug di alcuni d
 
 ![Diagramma di flusso con i passaggi per il debug di un connettore](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
-|  | Azione | Descrizione | 
+| Passaggio | Azione | Descrizione |
 |---------|---------|---------|
 |1 | Trovare il gruppo di connettori assegnato all'app | È probabile che sia installato un connettore su più server, nel qual caso i connettori devono essere [assegnati ai gruppi di connettori](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Per altre informazioni sui gruppi di connettori, vedere [Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori](application-proxy-connector-groups.md). |
 |2 | Installare il connettore e assegnare un gruppo | Se non è installato un connettore, vedere [installare e registrare un connettore](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Se si verificano problemi durante l'installazione del connettore, vedere [problemi di installazione del](application-proxy-connector-installation-problem.md)connettore.<br></br> Se il connettore non è assegnato a un gruppo, vedere [assegnare il connettore a un gruppo](application-proxy-connector-groups.md#create-connector-groups).<br></br>Se l'applicazione non è assegnata a un gruppo di connettori, vedere [assegnare l'applicazione a un gruppo di connettori](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|

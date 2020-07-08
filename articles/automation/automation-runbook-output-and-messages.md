@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832283"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557881"
 ---
 # <a name="monitor-runbook-output"></a>Monitorare l'output dei runbook
 
@@ -88,7 +88,7 @@ Di seguito sono riportati esempi di tipi di dati di output:
 
 #### <a name="declare-output-data-type-in-a-workflow"></a>Dichiarare il tipo di dati di output in un flusso di lavoro
 
-Un flusso di lavoro specifica il tipo di dati del relativo output usando l'[attributo OutputType](https://technet.microsoft.com/library/hh847785.aspx). Questo attributo non ha alcun effetto durante il runtime, ma offre un'indicazione in fase di progettazione dell'output previsto del runbook. Man mano che il set di strumenti per i runbook continua a evolversi, l'importanza della dichiarazione dei tipi di dati di output in fase di progettazione aumenterà. Quindi, è consigliabile includere questa dichiarazione in qualsiasi runbook creato.
+Un flusso di lavoro specifica il tipo di dati del relativo output usando l'[attributo OutputType](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Questo attributo non ha alcun effetto durante il runtime, ma offre un'indicazione in fase di progettazione dell'output previsto del runbook. Man mano che il set di strumenti per i runbook continua a evolversi, l'importanza della dichiarazione dei tipi di dati di output in fase di progettazione aumenterà. Quindi, è consigliabile includere questa dichiarazione in qualsiasi runbook creato.
 
 Il runbook di esempio seguente restituisce un oggetto string e include una dichiarazione del tipo di output. Se il runbook restituisce una matrice di un determinato tipo, è comunque necessario specificare il tipo invece di una matrice del tipo.
 

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e4521cb67ae95a1cd4a3e728a13e43bfd5773ab
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737028"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554911"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD
 
 L'aggiunta ad Azure AD è destinata alle organizzazioni che vogliono essere basate prima di tutto o solo sul cloud. Qualsiasi organizzazione può distribuire dispositivi aggiunti ad Azure AD indipendentemente dalle dimensioni o dal settore. L'aggiunta ad Azure AD funziona anche in un ambiente ibrido e può consentire l'accesso alle app e alle risorse sia sul cloud sia locali.
 
-|   | Aggiunta ad Azure AD |
+| Aggiunta ad Azure AD | Descrizione |
 | --- | --- |
 | **Definizione** | Aggiunto solo a un'istanza di Azure AD che richiede l'account aziendale per accedere al dispositivo |
 | **Destinatari principali** | Adatto a organizzazioni ibride e basate solo sul cloud. |

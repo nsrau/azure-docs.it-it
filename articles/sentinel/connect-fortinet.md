@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati di Fortinet ad Azure Sentinel | Microsoft Docs
-description: Informazioni su come connettere i dati di Fortinet a Sentinel di Azure.
+description: Connettere il dispositivo Fortinet ad Azure Sentinel per visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: aabc95fcb8d3b32b89bb83f4f6892c3d40b03417
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72ba4acd694933db503b01611e63867af99a129f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588196"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555963"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Connettere Fortinet ad Azure Sentinel
 
@@ -50,15 +50,15 @@ Configurare Fortinet per l'invio dei messaggi syslog in formato CEF all'area di 
    > [!NOTE] 
    > Per ulteriori informazioni, visitare la [raccolta documenti Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Selezionare la versione in uso e usare il **manuale** e il **riferimento ai messaggi di log**.
 
-1. Per usare lo schema pertinente in monitoraggio di Azure Log Analytics per gli eventi Fortinet, `CommonSecurityLog`cercare.
+1. Per usare lo schema pertinente in monitoraggio di Azure Log Analytics per gli eventi Fortinet, cercare `CommonSecurityLog` .
 
-1. Continuare con il [passaggio 3: convalidare la connettività](connect-cef-verify.md).
+1. Continuare con il [PASSAGGIO 3: Convalidare la connettività](connect-cef-verify.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo si è appreso come connettere le appliance Fortinet ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilizzare le cartelle di lavoro](tutorial-monitor-your-data.md) di per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 
 

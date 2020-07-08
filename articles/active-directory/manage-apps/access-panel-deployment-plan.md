@@ -2,25 +2,25 @@
 title: Pianificare una distribuzione del pannello di accesso Azure Active Directory
 description: Linee guida per la distribuzione del pannello di accesso Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b8a74c85b63e3a532e49136ba3b33437d907694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555309"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Pianificare una distribuzione del pannello di accesso Azure Active Directory
 
@@ -83,16 +83,16 @@ La tabella seguente descrive i casi d'uso principali per una distribuzione del p
 
 | Area| Descrizione |
 | - | - |
-| Accesso| Il portale del pannello di accesso è accessibile dai dispositivi personali e aziendali all'interno della rete aziendale. |
-|Accesso | Il portale del pannello di accesso è accessibile dai dispositivi aziendali all'esterno della rete aziendale. |
+| Access| Il portale del pannello di accesso è accessibile dai dispositivi personali e aziendali all'interno della rete aziendale. |
+|Access | Il portale del pannello di accesso è accessibile dai dispositivi aziendali all'esterno della rete aziendale. |
 | Controllo| I dati di utilizzo vengono scaricati nei sistemi aziendali almeno ogni 29 giorni. |
 | Governance| Il ciclo di vita delle assegnazioni degli utenti a gruppi e applicazioni connesse Azure AD viene definito e monitorato. |
 | Sicurezza| L'accesso alle risorse viene controllato tramite le assegnazioni di utenti e gruppi. Solo gli utenti autorizzati possono gestire l'accesso alle risorse. |
 | Prestazioni| Le sequenze temporali di propagazione dell'assegnazione di accesso vengono documentate e monitorate |
-| Esperienza dell'utente| Gli utenti sono a conoscenza delle funzionalità del pannello di accesso e del modo in cui usarle.|
-| Esperienza dell'utente| Gli utenti possono gestire l'accesso alle applicazioni e ai gruppi.|
-| Esperienza dell'utente| Gli utenti possono gestire i propri account. |
-| Esperienza dell'utente| Gli utenti sono consapevoli della compatibilità del browser. |
+| Esperienza utente| Gli utenti sono a conoscenza delle funzionalità del pannello di accesso e del modo in cui usarle.|
+| Esperienza utente| Gli utenti possono gestire l'accesso alle applicazioni e ai gruppi.|
+| Esperienza utente| Gli utenti possono gestire i propri account. |
+| Esperienza utente| Gli utenti sono consapevoli della compatibilità del browser. |
 | Supporto| Gli utenti possono trovare il supporto per i problemi del pannello di accesso. |
 
 ### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>Procedure consigliate per la distribuzione del pannello di accesso Azure AD
@@ -215,7 +215,7 @@ Un browser protetto con i criteri di Intune (Microsoft Edge o Intune Managed Bro
 
 ## <a name="plan-your-my-apps-deployment"></a>Pianificare la distribuzione delle app personali
 
-La base del pannello di accesso è l'avvio dell'applicazione App personali, a cui gli [https://myapps.microsoft.com](https://myapps.microsoft.com/)utenti accedono in. Le pagine My Apps forniscono agli utenti un'unica posizione per iniziare il lavoro e ottenere le applicazioni necessarie. Qui, gli utenti trovano un elenco di tutte le applicazioni a cui hanno accesso Single Sign-On. 
+La base del pannello di accesso è l'avvio dell'applicazione App personali, a cui gli utenti accedono in [https://myapps.microsoft.com](https://myapps.microsoft.com/) . Le pagine My Apps forniscono agli utenti un'unica posizione per iniziare il lavoro e ottenere le applicazioni necessarie. Qui, gli utenti trovano un elenco di tutte le applicazioni a cui hanno accesso Single Sign-On. 
 
 ![Screenshot del pannello app](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 
@@ -261,7 +261,7 @@ Per pianificare l'appartenenza al gruppo self-service, determinare se si consent
 
 Azure AD fornisce [report che offrono informazioni tecniche e aziendali](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Collaborare con i proprietari delle applicazioni aziendali e tecniche per assumere la proprietà di questi report e per utilizzarli a intervalli regolari. Nella tabella seguente vengono forniti alcuni esempi di scenari di Reporting tipici.
 
-|   | per gestire i rischi.| Aumentare la produttività| Governance e conformità |
+| Esempio | per gestire i rischi.| Aumentare la produttività| Governance e conformità |
 |  - |- | - | - |
 | Tipi di report|  Autorizzazioni e utilizzo dell'applicazione| Attività di provisioning dell'account| Esaminare gli utenti che accedono alle applicazioni |
 | Azioni potenziali| Controllare l'accesso; revoca autorizzazioni| Correggere gli errori di provisioning| revoca dell'accesso |
@@ -309,7 +309,7 @@ I test seguenti devono essere eseguiti con i dispositivi di proprietà dell'azie
 #### <a name="application-sso-access-test-case-examples"></a>Esempi di accesso SSO applicazione test case:
 
 
-| Business case| Risultato previsto |
+| Caso aziendale| Risultato previsto |
 | - | -|
 | L'utente accede al portale app personali| L'utente può accedere e visualizzare le applicazioni |
 | L'utente avvia un'applicazione SSO federata| L'utente viene connesso automaticamente all'applicazione |
@@ -322,7 +322,7 @@ I test seguenti devono essere eseguiti con i dispositivi di proprietà dell'azie
 #### <a name="application-self-service-capabilities-test-case-examples"></a>Esempi di funzionalità self-service per le applicazioni test case
 
 
-| Business case| Risultato previsto |
+| Caso aziendale| Risultato previsto |
 | - | - |
 | L'utente può gestire l'appartenenza all'applicazione| L'utente può aggiungere/rimuovere membri che hanno accesso all'app |
 | L'utente può modificare l'applicazione| L'utente può modificare la descrizione e le credenziali dell'applicazione per le applicazioni SSO con password |

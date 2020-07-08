@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15cdaba7d63d72aab25757e7ba6f5eadc48e026a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 259a1324c412dad40d32a8b8e026d84e6f5aa066
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512250"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554925"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti all'identità ibrida di Azure AD
 
@@ -29,10 +29,10 @@ In genere, le organizzazioni con un footprint locale si basano su metodi di crea
 
 Se l'ambiente ha un footprint AD locale e si vogliono anche sfruttare le funzionalità offerte da Azure Active Directory, è possibile implementare dispositivi aggiunti all'identità ibrida di Azure AD. Questi dispositivi sono dispositivi aggiunti al Active Directory locale e registrati con l'Azure Active Directory.
 
-|   | Join ibrido ad Azure AD |
+| Join ibrido ad Azure AD | Descrizione |
 | --- | --- |
 | **Definizione** | Aggiunto ad Active Directory locale e Azure AD che richiede l'account aziendale per accedere al dispositivo |
-| **Destinatari primari** | Adatto per organizzazioni ibride con infrastruttura di Active Directory locale esistente |
+| **Destinatari principali** | Adatto per organizzazioni ibride con infrastruttura di Active Directory locale esistente |
 |   | Applicabile a tutti gli utenti di un'organizzazione |
 | **Proprietà del dispositivo** | Organization |
 | **Sistemi operativi** | Windows 10, 8,1 e 7 |
@@ -41,15 +41,15 @@ Se l'ambiente ha un footprint AD locale e si vogliono anche sfruttare le funzion
 |   | Aggiunta a un dominio e aggiunta automatica tramite la configurazione di Azure AD Connect o ADFS |
 |   | Aggiunta a un dominio di Windows Autopilot e autojoin tramite la configurazione di Azure AD Connect o ADFS |
 |   | Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2-Richiedi MSI |
-| **Opzioni di accesso del dispositivo** | Account aziendali con: |
+| **Opzioni di accesso del dispositivo** | Account aziendale che usa: |
 |   | Password |
 |   | Windows Hello for business per WIN10 |
-| **Gestione dei dispositivi** | Criteri di gruppo |
+| **Gestione del dispositivo** | Criteri di gruppo |
 |   | Configuration Manager autonomo o co-gestione con Microsoft Intune |
 | **Funzionalità principali** | SSO per le risorse cloud e locali |
 |   | Accesso condizionale tramite aggiunta a un dominio o Intune se co-gestito |
 |   | Reimpostazione della password self-service e ripristino del PIN di Windows Hello nella schermata di blocco |
-|   | Enterprise State Roaming tra dispositivi |
+|   | Enterprise State Roaming su più dispositivi |
 
 ![Dispositivi aggiunti all'identità ibrida di Azure AD](./media/concept-azure-ad-join-hybrid/azure-ad-hybrid-joined-device.png)
 

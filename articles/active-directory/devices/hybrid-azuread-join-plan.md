@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22ab3e7403069ed1b579631b88c2ac2c41191ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181325"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554768"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: pianificare l'implementazione ibrida di Azure Active Directory join
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
 Analogamente agli utenti, i dispositivi sono un'altra identità di base da proteggere e da usare per proteggere le risorse ovunque e in qualsiasi momento. È possibile raggiungere questo obiettivo trasferendo e gestendo le identità dei dispositivi in Azure AD con uno dei metodi seguenti:
 
@@ -41,13 +41,12 @@ Questo articolo presuppone che l'utente abbia familiarità con l' [Introduzione 
 
 Per pianificare l'implementazione di Azure AD ibrido, è necessario acquisire familiarità con:
 
-|   |   |
-| --- | --- |
-| ![Controllo][1] | Esaminare i dispositivi supportati |
-| ![Controllo][1] | Esaminare le informazioni utili |
-| ![Controllo][1] | Verifica la convalida controllata del join Azure AD ibrido |
-| ![Controllo][1] | Selezionare lo scenario in base all'infrastruttura di identità |
-| ![Controllo][1] | Verificare il supporto di AD UPN locale per ibrido Azure AD join |
+> [!div class="checklist"]
+> - Esaminare i dispositivi supportati
+> - Esaminare le informazioni utili
+> - Verifica la convalida controllata del join Azure AD ibrido
+> - Selezionare lo scenario in base all'infrastruttura di identità
+> - Verificare il supporto di AD UPN locale per ibrido Azure AD join
 
 ## <a name="review-supported-devices"></a>Esaminare i dispositivi supportati
 
@@ -127,8 +126,8 @@ Questi scenari non richiedono la configurazione di un server federativo per l'au
 
 Un ambiente federato deve includere un provider di identità che supporta i requisiti riportati di seguito. Se l'ambiente federato usa Active Directory Federation Services (AD FS), i requisiti seguenti sono già supportati.
 
-- **Attestazione wiaormultiauthn alla:** Questa attestazione è necessaria per eseguire un join ibrido Azure AD per i dispositivi Windows di livello inferiore.
-- **Protocollo WS-Trust:** Questo protocollo è necessario per autenticare i dispositivi Windows Current Hybrid Azure AD aggiunti con Azure AD. Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti: `/adfs/services/trust/2005/windowstransport`  
+- **Attestazione WIAORMULTIAUTHN:** questa attestazione è necessaria per eseguire l'aggiunta ad Azure AD ibrido per dispositivi Windows di livello inferiore.
+- **Protocollo WS-Trust:** questo protocollo è necessario per l'autenticazione con Azure AD degli attuali dispositivi Windows aggiunti ad Azure AD ibrido. Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti: `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -141,7 +140,7 @@ Un ambiente federato deve includere un provider di identità che supporta i requ
 > [!NOTE]
 > Azure AD non supporta certificati o smart card nei domini gestiti.
 
-A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido che semplifica in modo significativo il processo di configurazione. Se non si può prendere in considerazione l'installazione della versione richiesta di Azure AD Connect, vedere [come configurare manualmente la registrazione dei dispositivi](hybrid-azuread-join-manual.md). 
+A partire dalla versione 1.1.819.0, Azure AD Connect offre una procedura guidata per configurare l'aggiunta ad Azure AD ibrido. che semplifica in modo significativo il processo di configurazione. Se non si può prendere in considerazione l'installazione della versione richiesta di Azure AD Connect, vedere [come configurare manualmente la registrazione dei dispositivi](hybrid-azuread-join-manual.md). 
 
 In base allo scenario che corrisponde all'infrastruttura di identità, vedere:
 
@@ -164,14 +163,14 @@ La tabella seguente contiene informazioni sul supporto per questi nomi dell'enti
 | ----- | ----- | ----- | ----- |
 | Instradabile | Federato | Dalla versione 1703 | Disponibile a livello generale |
 | Non instradabile | Federato | Dalla versione 1803 | Disponibile a livello generale |
-| Instradabile | Gestiti | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
-| Non instradabile | Gestiti | Non supportate | |
+| Instradabile | Gestito | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
+| Non instradabile | Gestito | Non supportate | |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Configurare il join di Azure Active Directory ibrido per l'ambiente](hybrid-azuread-join-federated-domains.md)
-> federato[configurare il join di Azure Active Directory ibrido per l'ambiente gestito](hybrid-azuread-join-managed-domains.md)
+> [Configurare il join di Azure Active Directory ibrido per l'ambiente federato](hybrid-azuread-join-federated-domains.md) 
+>  [Configurare il join di Azure Active Directory ibrido per l'ambiente gestito](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

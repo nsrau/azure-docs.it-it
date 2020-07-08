@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati DNS in Sentinel di Azure | Microsoft Docs
-description: Informazioni su come connettere i dati DNS in Sentinel di Azure.
+description: Informazioni su come connettere qualsiasi Domain Name Server (DNS) in esecuzione in Windows ad Azure Sentinel installando un agente nel computer DNS.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 6d43b82ecd13ac5e082d270ee44ce61fef763d2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a88696ba69fdf53f5c7e15d174b126d69f4230ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555435"
 ---
 # <a name="connect-your-domain-name-server"></a>Connetti la Domain Name Server
 
@@ -41,7 +41,7 @@ Quando si Abilita la connessione al log DNS, è possibile:
 
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione:
 
-| **Origine connessa** | **Supporto tecnico** | **Descrizione** |
+| **Origine connessa** | **Supporto** | **Descrizione** |
 | --- | --- | --- |
 | [Agenti di Windows](../azure-monitor/platform/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
 | [Agenti Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |

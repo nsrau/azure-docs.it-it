@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 217b15b4004b1f06ef63414adc25890d4d87b027
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557577"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
@@ -565,15 +565,15 @@ Dependency Agent non richiede *in genere* un riavvio dopo l'installazione o la r
 
 Microsoft Dependency Agent si basa sulle librerie di runtime di Microsoft Visual Studio. Se si verifica un problema durante l'installazione delle librerie, si riceverà un messaggio. 
 
-I programmi di installazione delle librerie di runtime creano log nella cartella %LOCALAPPDATA%\temp. Il file è `dd_vcredist_arch_yyyymmddhhmmss.log`, dove *Arch* è `x86` o `amd64` e *ad aaaammgghhmmss* è la data e l'ora (in formato 24 ore) in cui è stato creato il log. Il log offre informazioni dettagliate sul problema che impedisce l'installazione.
+I programmi di installazione delle librerie di runtime creano log nella cartella %LOCALAPPDATA%\temp. Il file è `dd_vcredist_arch_yyyymmddhhmmss.log` , dove *Arch* è `x86` o `amd64` e *ad aaaammgghhmmss* è la data e l'ora (in formato 24 ore) in cui è stato creato il log. Il log offre informazioni dettagliate sul problema che impedisce l'installazione.
 
-Potrebbe essere utile installare prima le [librerie di runtime più recenti](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) .
+Potrebbe essere utile per l'utente installare prima [la versione più recente delle librerie di runtime](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
 La tabella seguente elenca i codici e le risoluzioni consigliate.
 
 | Codice | Descrizione | Soluzione |
 |:--|:--|:--|
-| 0x17 | Il programma di installazione della libreria richiede un aggiornamento di Windows che non è stato installato. | Cercare nel log del programma di installazione della libreria più recente.<br><br>Se un riferimento a `Windows8.1-KB2999226-x64.msu` è seguito da una riga `Error 0x80240017: Failed to execute MSU package,` , non si dispone dei prerequisiti per l'installazione di KB2999226. Seguire le istruzioni riportate nella sezione prerequisiti dell'articolo [runtime di Universal C in Windows](https://support.microsoft.com/kb/2999226) . Potrebbe essere necessario eseguire Windows Update e riavviare più volte per installare i prerequisiti.<br><br>Eseguire nuovamente il programma di installazione di Microsoft Dependency Agent. |
+| 0x17 | Il programma di installazione della libreria richiede un aggiornamento di Windows che non è stato installato. | Cercare nel log del programma di installazione della libreria più recente.<br><br>Se un riferimento a `Windows8.1-KB2999226-x64.msu` è seguito da una riga `Error 0x80240017: Failed to execute MSU package,` , non si dispone dei prerequisiti per l'installazione di KB2999226. Seguire le istruzioni riportate nella sezione relativa ai prerequisiti nell'articolo [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226). Potrebbe essere necessario eseguire Windows Update e riavviare più volte per installare i prerequisiti.<br><br>Eseguire nuovamente il programma di installazione di Microsoft Dependency Agent. |
 
 ### <a name="post-installation-issues"></a>Problemi successivi all'installazione
 
@@ -584,15 +584,15 @@ Se l'installazione dell'agente di dipendenza ha avuto esito positivo, ma il comp
 **Windows**: cercare il servizio denominato **Microsoft Dependency Agent**.
 **Linux**: cercare il processo in esecuzione **Microsoft-Dependency-Agent**.
 
-* Il [livello gratuito log Analytics](https://azure.microsoft.com/pricing/details/monitor/)? Il piano gratuito consente fino a cinque macchine Mapping dei servizi univoche. Eventuali computer successivi non verranno visualizzati in Mapping dei servizi, anche se i cinque precedenti non inviano più dati.
+* Il [livello gratuito log Analytics](https://azure.microsoft.com/pricing/details/monitor/)? Il piano gratuito consente di avere fino a cinque computer univoci di Mapping dei servizi. Tutti i computer successivi non verranno visualizzati in Mapping dei servizi, anche se i primi cinque non inviano più dati.
 
-* Il server invia i dati di log e delle prestazioni ai log di monitoraggio di Azure? Passare ad Azure Monitor\Logs ed eseguire la query seguente per il computer: 
+* Il server invia i dati di log e delle prestazioni ai log di monitoraggio di Azure? Passare a Monitoraggio di Azure\Log ed eseguire la query seguente per il computer: 
 
     ```kusto
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-I risultati mostrano eventi diversi? I dati sono aggiornati? In tal caso, l'agente di Log Analytics funziona correttamente e comunica con l'area di lavoro. In caso contrario, controllare l'agente nel computer: [log Analytics Agent per la risoluzione dei problemi di Windows](../platform/agent-windows-troubleshoot.md) o la [risoluzione dei problemi di log Analytics Agent per Linux](../platform/agent-linux-troubleshoot.md).
+I risultati mostrano eventi diversi? I dati sono aggiornati? In questo caso, l'agente di Log Analytics funziona correttamente e comunica con l'area di lavoro. In caso contrario, controllare l'agente sul computer: [Risoluzione dei problemi dell'agente di Log Analytics per Windows](../platform/agent-windows-troubleshoot.md) o [Risoluzione dei problemi dell'agente di Log Analytics per Linux](../platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Il server viene visualizzato in Mapping dei servizi, ma non dispone di alcun processo
 
@@ -600,6 +600,6 @@ Se il computer viene visualizzato in Mapping dei servizi, ma non contiene dati d
 
 Controllare `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) o `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). Le ultime righe del file dovrebbero indicare il motivo per cui il kernel non è stato caricato. Ad esempio, il kernel potrebbe non essere supportato in Linux se è stato aggiornato.
 
-## <a name="feedback"></a>Commenti e suggerimenti
+## <a name="suggestions"></a>Suggerimenti
 
 Per inviare commenti su Mapping dei servizi e sulla relativa documentazione,  Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75754558"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557456"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Come creare un oggetto di competenze in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva 
 
@@ -55,7 +55,7 @@ Nel diagramma il passaggio di *individuazione del documento* avviene automaticam
 Un set di competenze è definito come una matrice di competenze. Ogni competenza definisce l'origine dei relativi input e il nome degli output generati. Tramite l'[API REST di creazione del set di competenze](https://docs.microsoft.com/rest/api/searchservice/create-skillset) è possibile definire un set di competenze corrispondente al diagramma precedente: 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -163,7 +163,7 @@ Verrà ora esaminata la prima competenza, ovvero la [capacità di riconoscimento
     }
 ```
 
-* Tutte le competenze predefinite hanno `odata.type`proprietà, `input`e. `output` Le proprietà specifiche della competenza includono informazioni aggiuntive applicabili alla competenza stessa. Per il riconoscimento delle entità, `categories` è un'entità tra un set fisso di tipi di entità che il modello precedentemente preparato è in grado di riconoscere.
+* Tutte le competenze predefinite hanno `odata.type` proprietà, `input` e `output` . Le proprietà specifiche della competenza includono informazioni aggiuntive applicabili alla competenza stessa. Per il riconoscimento delle entità, `categories` è un'entità tra un set fisso di tipi di entità che il modello precedentemente preparato è in grado di riconoscere.
 
 * Ogni competenza deve avere un ```"context"```. Il contesto rappresenta il livello in cui vengono eseguite le operazioni. Nelle competenze precedenti, il contesto è l'intero documento, vale a dire che l'abilità di riconoscimento delle entità viene chiamata una volta per ogni documento. Anche gli output vengono generati in tale livello. L'elemento ```"organizations"```, più specificatamente, viene generato come membro di ```"/document"```. Nelle competenze a valle è possibile fare riferimento a queste informazioni appena create come ```"/document/organizations"```.  Se il campo ```"context"``` non viene impostato in modo esplicito, il contesto predefinito è il documento.
 
@@ -247,7 +247,7 @@ Fino ad ora, questa struttura è stata solo interna, solo di memoria e usata sol
 
 ## <a name="add-a-knowledge-store"></a>Aggiungere un archivio informazioni
 
-[Archivio informazioni](knowledge-store-concept-intro.md) è una funzionalità di anteprima di Azure ricerca cognitiva per il salvataggio del documento arricchito. Un archivio informazioni creato, supportato da un account di archiviazione di Azure, è il repository in cui i dati arricchiti vengono archiviati. 
+[Archivio informazioni](knowledge-store-concept-intro.md) è una funzionalità di Azure ricerca cognitiva per il salvataggio del documento arricchito. Un archivio informazioni creato, supportato da un account di archiviazione di Azure, è il repository in cui i dati arricchiti vengono archiviati. 
 
 Una definizione dell'archivio informazioni viene aggiunta a un oggetto di competenze. Per una procedura dettagliata dell'intero processo, vedere [creare un archivio informazioni in Rest](knowledge-store-create-rest.md).
 

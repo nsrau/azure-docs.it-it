@@ -1,17 +1,17 @@
 ---
-title: USA riferimenti Key Vault
+title: Usare i riferimenti di Key Vault
 description: Informazioni su come configurare app Azure servizio e funzioni di Azure per l'uso di Azure Key Vault riferimenti. Rendere Key Vault segreti disponibili per il codice dell'applicazione.
 author: mattchenderson
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: dd0a03ea76d517486bb9bda6d9628fb529166dd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81453728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557915"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare i riferimenti Key Vault per il servizio app e funzioni di Azure
 
@@ -43,11 +43,15 @@ Un riferimento a Key Vault viene espresso nel formato `@Microsoft.KeyVault({refe
 > | SecretUri=_secretUri_                                                       | **SecretUri** deve essere l'URI del piano dati completo di un segreto in Key Vault, inclusa una versione, ad esempio, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** deve essere il nome della risorsa Key Vault. **SecretName** deve essere il nome del segreto di destinazione. **SecretVersion** deve essere la versione del segreto da usare. |
 
-Un riferimento completo con la versione, ad esempio, sarà simile al seguente:
+> [!NOTE] 
+> Le versioni sono attualmente obbligatorie. Durante la rotazione dei segreti sarà necessario aggiornare la versione nella configurazione dell'applicazione.
+
+Un riferimento completo, ad esempio, avrebbe un aspetto simile al seguente:
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
+
 In alternativa:
 
 ```
@@ -68,7 +72,7 @@ Per usare un riferimento a Key Vault per un'impostazione di applicazione, impost
 
 Durante l'automazione delle distribuzioni di risorse tramite modelli di Azure Resource Manager, potrebbe essere necessario disporre in sequenza le dipendenze in un determinato ordine per usufruire di questa funzionalità. Si noti che sarà necessario definire le impostazioni di applicazione come risorsa propria, invece di usare una proprietà `siteConfig` nella definizione del sito. Questo avviene perché il sito deve essere definito per primo, in modo che l'identità assegnata dal sistema venga creata insieme al sito e possa essere usata nei criteri di accesso.
 
-Uno pseudo-modello di esempio per un'app per le funzioni potrebbe essere simile al seguente:
+Un pseudo modello di esempio per un'app per le funzioni potrebbe essere simile al seguente:
 
 ```json
 {
@@ -176,7 +180,7 @@ Uno pseudo-modello di esempio per un'app per le funzioni potrebbe essere simile 
 
 ## <a name="troubleshooting-key-vault-references"></a>Risoluzione dei problemi relativi ai riferimenti a Key Vault
 
-Se un riferimento non viene risolto correttamente, verrà utilizzato il valore di riferimento. Ciò significa che, per le impostazioni dell'applicazione, viene creata una variabile di ambiente il `@Microsoft.KeyVault(...)` cui valore ha la sintassi. Questa operazione può causare la generazione di errori da parte dell'applicazione, perché era previsto un segreto di una determinata struttura.
+Se un riferimento non viene risolto correttamente, verrà utilizzato il valore di riferimento. Ciò significa che, per le impostazioni dell'applicazione, viene creata una variabile di ambiente il cui valore ha la `@Microsoft.KeyVault(...)` sintassi. Questa operazione può causare la generazione di errori da parte dell'applicazione, perché era previsto un segreto di una determinata struttura.
 
 In genere, ciò è dovuto a un errore di configurazione dei [criteri di accesso key Vault](#granting-your-app-access-to-key-vault). Tuttavia, potrebbe anche essere dovuto a un segreto non più esistente o a un errore di sintassi nel riferimento stesso.
 

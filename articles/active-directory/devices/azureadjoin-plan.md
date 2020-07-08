@@ -4,19 +4,19 @@ description: Descrive i passaggi necessari per implementare dispositivi aggiunti
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672691"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555029"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -32,15 +32,14 @@ Questo articolo presuppone che l'utente abbia familiarità con quanto descritto 
 
 Per pianificare l'implementazione di Azure AD join, è necessario acquisire familiarità con:
 
-|   |   |
-|---|---|
-|![Controllo][1]|Esame degli scenari|
-|![Controllo][1]|Esame dell'infrastruttura di gestione delle identità|
-|![Controllo][1]|Valutazione della gestione dei dispositivi|
-|![Controllo][1]|Analisi delle considerazioni relative a risorse e applicazioni|
-|![Controllo][1]|Identificazione delle opzioni di provisioning|
-|![Controllo][1]|Configurazione di Enterprise State Roaming|
-|![Controllo][1]|Configurare l'accesso condizionale|
+> [!div class="checklist"]
+> - Esame degli scenari
+> - Esame dell'infrastruttura di gestione delle identità
+> - Valutazione della gestione dei dispositivi
+> - Analisi delle considerazioni relative a risorse e applicazioni
+> - Identificazione delle opzioni di provisioning
+> - Configurazione di Enterprise State Roaming
+> - Configurare l'accesso condizionale
 
 ## <a name="review-your-scenarios"></a>Esame degli scenari 
 
@@ -104,7 +103,7 @@ L'aggiunta ad Azure AD:
 
 - È applicabile solo a dispositivi Windows 10. 
 - Non è applicabile alle versioni precedenti di Windows o ad altri sistemi operativi. Se sono presenti dispositivi Windows 7/8.1, è necessario eseguire l'aggiornamento a Windows 10 per distribuire l'aggiunta ad Azure AD.
-- Non è supportato nei dispositivi con TPM in modalità FIPS.
+- È supportato per il TPM 2,0 conforme a FIPS ma non è supportato per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD join. Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza.
  
 **Consiglio:** usare sempre la versione più recente di Windows 10 per sfruttare i vantaggi delle funzionalità aggiornate.
 
@@ -185,6 +184,8 @@ I dispositivi aggiunti ad Azure AD non supportano le applicazioni locali basate 
 
 La connessione Desktop remoto a dispositivi aggiunti ad Azure AD richiede che il computer host sia stato aggiunto ad Azure AD o ad Azure AD ibrido. Desktop remoto da un dispositivo non aggiunto o non Windows non è supportato. Per altre informazioni, vedere [Connettersi a un PC remoto aggiunto ad Azure Active Directory](/windows/client-management/connect-to-remote-aadj-pc)
 
+A partire dall'aggiornamento di Windows 10 2004, gli utenti possono usare desktop remoto da un dispositivo Windows 10 registrato Azure AD a un dispositivo Azure AD aggiunto. 
+
 ## <a name="understand-your-provisioning-options"></a>Identificazione delle opzioni di provisioning
 
 È possibile effettuare il provisioning dell'aggiunta ad Azure AD tramite gli approcci seguenti:
@@ -195,7 +196,7 @@ La connessione Desktop remoto a dispositivi aggiunti ad Azure AD richiede che il
  
 Ecco un confronto di questi tre approcci 
  
-|   | Configurazione self-service | Windows Autopilot | Registrazione in blocco |
+| Elemento | Configurazione self-service | Windows Autopilot | Registrazione in blocco |
 | --- | --- | --- | --- |
 | Richiesta dell'interazione dell'utente per la configurazione | Sì | Sì | No |
 | Richiesta di attività IT | No | Sì | Sì |
@@ -295,8 +296,8 @@ Se per i dispositivi aggiunti ad Azure AD è stato configurato un provider MDM, 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Aggiungere un nuovo dispositivo Windows 10 con Azure ad durante la prima esecuzione](azuread-joined-devices-frx.md)
-> [aggiungere il dispositivo di lavoro alla rete dell'organizzazione](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Aggiungere un nuovo dispositivo Windows 10 con Azure ad durante la prima esecuzione](azuread-joined-devices-frx.md) 
+>  [Aggiungere il dispositivo di lavoro alla rete dell'organizzazione](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

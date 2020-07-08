@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
-ms.translationtype: HT
+ms.openlocfilehash: 775992d090b951c8de6fce36377dc91d6e017399
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402451"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558082"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto del servizio Azure Kubernetes
 
@@ -51,9 +51,12 @@ Poiché i nodi di lavoro sono riservati, Microsoft presta molta attenzione a lim
 
 Microsoft fornisce supporto tecnico per gli elementi seguenti:
 
+> [!NOTE]
+> Tutte le azioni del cluster eseguite dal supporto tecnico Microsoft vengono apportate con il consenso dell'utente in un ruolo predefinito di ["modifica"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) di Kubernetes del nome `aks-support-rolebinding` . Con questo ruolo, il supporto AKS è abilitato per modificare la configurazione del cluster e le risorse per la risoluzione dei problemi e diagnosticare i problemi del cluster, ma il ruolo non può modificare le autorizzazioni né creare associazioni di ruolo o ruoli. L'accesso ai ruoli viene abilitato solo in ticket di supporto attivi con accesso just-in-time (JIT).
+
 * Connettività a tutti i componenti di Kubernetes forniti e supportati dal servizio Kubernetes, tra cui il server API.
 * Gestione, tempo di attività, Qualità del Servizio e operazioni dei servizi del piano di controllo Kubernetes (ad esempio, nodi master Kubernetes, server API, etcd e kube-dns).
-* Etcd. Il supporto include backup trasparenti e automatizzati di tutti i dati etcd ogni 30 minuti per la pianificazione di emergenza e il ripristino dello stato del cluster. Questi backup non sono direttamente disponibili per i clienti o gli utenti; garantiscono tuttavia l'affidabilità e la coerenza dei dati.
+* Etcd. Il supporto include backup trasparenti e automatizzati di tutti i dati etcd ogni 30 minuti per la pianificazione di emergenza e il ripristino dello stato del cluster. Questi backup non sono direttamente disponibili per i clienti o gli utenti; garantiscono tuttavia l'affidabilità e la coerenza dei dati. Etcd. il rollback o il ripristino su richiesta non è supportato come funzionalità.
 * Eventuali punti di integrazione nel driver del provider di servizi cloud di Azure per Kubernetes. Sono incluse anche eventuali integrazioni in altri servizi di Azure, quali servizi di bilanciamento del carico, volumi permanenti o connessione di rete (Kubernetes e Azure CNI).
 * Domande o problemi relativi alla personalizzazione dei componenti del piano di controllo, tra cui il server API Kubernetes, etcd e kube-dns.
 * Problemi relativi alla connessione di rete, ad esempio Azure CNI, kubenet o altri problemi di accesso o funzionalità di rete. I problemi possono includere, ad esempio, la risoluzione DNS, la perdita di pacchetti, il routing e così via. Microsoft supporta vari scenari di rete:

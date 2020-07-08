@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: a20884c33d5232661e858e0b3ec722f139825aea
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: dc9425b25fa594d06473865f1add9c91c7760a97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928007"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557220"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrare System Center Operations Manager con la funzionalità mappa Monitoraggio di Azure per le macchine virtuali
 
@@ -29,7 +29,7 @@ In Monitoraggio di Azure per le macchine virtuali, è possibile visualizzare i c
 
 ## <a name="install-the-service-map-management-pack"></a>Installare il management pack di Elenco dei servizi
 
-Per abilitare l'integrazione tra Operations Manager e la funzionalità di mapping, è possibile importare il bundle Microsoft. SystemCenter. ServiceMap Management Pack (Microsoft. SystemCenter. ServiceMap. MPB). È possibile scaricare il bundle del Management Pack da [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). Il bundle contiene i management pack seguenti:
+Per abilitare l'integrazione tra Operations Manager e la funzionalità di mapping, è possibile importare il Microsoft.SystemCenter. ServiceMap Management Pack Bundle (Microsoft.SystemCenter. ServiceMap. MPB). È possibile scaricare il bundle del Management Pack da [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). Il bundle contiene i management pack seguenti:
 
 * Microsoft Service Map Application Views
 * Microsoft System Center Service Map Internal
@@ -117,7 +117,7 @@ Nella versione corrente è possibile configurare una sola area di lavoro Log Ana
 
 ## <a name="configure-rules-and-overrides"></a>Configurare regole e override
 
-Una regola, *Microsoft. SystemCenter. ServiceMapImport. Rule*, recupera periodicamente le informazioni dalla funzionalità di monitoraggio di Azure per le macchine virtuali mappa. Per modificare l'intervallo di sincronizzazione, è possibile eseguire l'override della regola e modificare il valore per il parametro **IntervalMinutes**.
+Una regola, *Microsoft.SystemCenter. ServiceMapImport. Rule*, recupera periodicamente le informazioni dalla funzionalità della mappa monitoraggio di Azure per le macchine virtuali. Per modificare l'intervallo di sincronizzazione, è possibile eseguire l'override della regola e modificare il valore per il parametro **IntervalMinutes**.
 
 ![Finestra delle proprietà di override di Operations Manager](media/service-map-scom/scom-overrides.png)
 
@@ -142,5 +142,6 @@ Per la documentazione ufficiale di Azure sulla creazione di un'entità servizio,
 * [Create a service principal by using Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli) (Creare un'entità servizio usando Azure CLI)
 * [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Creare un'entità servizio usando il portale di Azure)
 
-### <a name="feedback"></a>Commenti e suggerimenti
+### <a name="suggestions"></a>Suggerimenti
+
 Ci sono commenti e suggerimenti per l'integrazione con Monitoraggio di Azure per le macchine virtuali funzionalità mappa o questa documentazione? Vedere la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.

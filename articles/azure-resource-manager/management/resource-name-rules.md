@@ -3,16 +3,18 @@ title: Restrizioni di denominazione per le risorse
 description: Illustra le regole e le restrizioni di denominazione per le risorse di Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554337"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regole di denominazione e restrizioni per le risorse di Azure
 
 Questo articolo riepiloga le regole e le restrizioni di denominazione per le risorse di Azure. Per consigli sull'assegnazione di nomi alle risorse, vedere [Convenzioni consigliate di denominazione e assegnazione di tag](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+
+Questo articolo elenca le risorse per spazio dei nomi del provider di risorse. Per un elenco del modo in cui i provider di risorse corrispondono ai servizi di Azure, vedere [provider di risorse per i servizi di Azure](azure-services-resource-providers.md).
 
 I nomi delle risorse fanno distinzione tra maiuscole e minuscole solo se è indicato specificamente nella colonna dei caratteri validi.
 
@@ -34,7 +36,7 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > [!div class="mx-tableFixed"]
 > | Entità | Scope | Length | Caratteri validi |
 > | --- | --- | --- | --- |
-> | service | globale | 1-50 | Caratteri alfanumerici.<br><br>Deve iniziare con una lettera. |
+> | service | globale | 1-50 | Caratteri alfanumerici e trattini.<br><br>Deve iniziare con una lettera e terminare con un carattere alfanumerico. |
 > | service/apis | service | 1-256 | Non è possibile usare:<br> `*#&+:<>?` |
 > | service/apis/issues | api | 1-256 | Non è possibile usare:<br> `*#&+:<>?` |
 > | service/apis/issues/attachments | problema | 1-256 | Non è possibile usare:<br> `*#&+:<>?` |
@@ -81,9 +83,9 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | Entità | Scope | Length | Caratteri validi |
 > | --- | --- | --- | --- |
 > | locks | ambito di assegnazione | 1-90 | Caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi.<br><br>Non può terminare con un punto. |
-> | policyassignments | ambito di assegnazione | 1-128 nome visualizzato<br><br>1-260 nome risorsa | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
-> | policydefinitions | ambito di definizione | 1-128 nome visualizzato<br><br>1-260 nome risorsa | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
-> | policySetDefinitions | ambito di definizione | 1-128 nome visualizzato<br><br>1-260 nome risorsa | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio.  |
+> | policyAssignments | ambito di assegnazione | 1-128 nome visualizzato<br><br>1-64 nome della risorsa | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
+> | policyDefinitions | ambito di definizione | 1-128 nome visualizzato<br><br>1-64 nome della risorsa | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
+> | policySetDefinitions | ambito di definizione | 1-128 nome visualizzato<br><br>1-64 nome della risorsa<br><br>1-24 nome della risorsa nell'ambito del gruppo di gestione | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio.  |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -172,8 +174,8 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | galleries/images/versions | image | Intero a 32 bit | Numeri e punti. |
 > | images | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
 > | snapshots | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
-> | virtualMachines | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare:<br> `\/""[]:|<>+=;,?*@&`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
-> | virtualMachineScaleSets | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare:<br> `\/""[]:|<>+=;,?*@&`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
+> | virtualMachines | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
+> | virtualMachineScaleSets | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
 
 > [!NOTE]
 > Le macchine virtuali di Azure hanno due nomi distinti: il nome della risorsa e il nome host. Quando si crea una macchina virtuale nel portale, viene usato lo stesso valore per entrambi i nomi. Le restrizioni nella tabella precedente sono relative al nome host. Il nome della risorsa effettivo può avere al massimo 64 caratteri.
@@ -522,7 +524,7 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > [!div class="mx-tableFixed"]
 > | Entità | Scope | Length | Caratteri validi |
 > | --- | --- | --- | --- |
-> | spazi dei nomi | globale | 6-50 | Caratteri alfanumerici e trattini<br><br>Deve iniziare e terminare con un carattere alfanumerico. |
+> | spazi dei nomi | globale | 6-50 | Caratteri alfanumerici e trattini<br><br>Deve iniziare con una lettera. Deve terminare con un carattere alfanumerico. |
 > | namespaces/AuthorizationRules | spazio dei nomi | 1-256 | Caratteri alfanumerici, punti, trattini e caratteri di sottolineatura.<br><br>Deve iniziare con un carattere alfanumerico. |
 > | namespaces/notificationHubs | spazio dei nomi | 1-260 | Caratteri alfanumerici, punti, trattini e caratteri di sottolineatura.<br><br>Deve iniziare con un carattere alfanumerico. |
 > | namespaces/notificationHubs/AuthorizationRules | hub di notifica | 1-256 | Caratteri alfanumerici, punti, trattini e caratteri di sottolineatura.<br><br>Deve iniziare con un carattere alfanumerico. |

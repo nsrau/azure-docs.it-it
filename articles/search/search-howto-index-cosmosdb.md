@@ -9,18 +9,18 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13c55f2a7470a0d33e12e9e6f0da9df3421242fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556248"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati di Cosmos DB usando un indicizzatore in Ricerca cognitiva di Azure 
 
 > [!IMPORTANT] 
 > L'API SQL è disponibile a livello generale.
-> L'API MongoDB, l'API Gremlin e il supporto API Cassandra sono attualmente disponibili in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). È possibile richiedere l'accesso alle anteprime compilando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
+> L'API MongoDB, l'API Gremlin e il supporto API Cassandra sono attualmente disponibili in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). È possibile richiedere l'accesso alle anteprime compilando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). L' [API REST versione 2020-06-30-Preview](search-api-preview.md) fornisce funzionalità di anteprima. Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
 > [!WARNING]
 > Solo Cosmos DB raccolte con [criteri di indicizzazione](https://docs.microsoft.com/azure/cosmos-db/index-policy) impostati su [coerente](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) sono supportate da ricerca cognitiva di Azure. L'indicizzazione di raccolte con criteri di indicizzazione differita non è consigliata e può comportare la mancanza di dati. Le raccolte con indicizzazione disabilitata non sono supportate.
@@ -33,9 +33,9 @@ L'indicizzatore Cosmos DB in Azure ricerca cognitiva può eseguire la ricerca pe
 
 + Per l' [API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), disponibile a livello generale, è possibile usare il [portale](#cosmos-indexer-portal), l' [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)o [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) per creare l'origine dati e l'indicizzatore.
 
-+ Per l' [API MongoDB (anteprima)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction), è possibile usare il [portale](#cosmos-indexer-portal) o l' [API REST versione 2019-05-06-Preview](search-api-preview.md) per creare l'origine dati e l'indicizzatore.
++ Per l' [API MongoDB (anteprima)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction), è possibile usare il [portale](#cosmos-indexer-portal) o l' [API REST versione 2020-06-30-Preview](search-api-preview.md) per creare l'origine dati e l'indicizzatore.
 
-+ Per [API Cassandra (anteprima)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) e l' [API Gremlin (anteprima)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction), è possibile usare solo l' [API REST versione 2019-05-06-Preview](search-api-preview.md) per creare l'origine dati e l'indicizzatore.
++ Per [API Cassandra (anteprima)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) e l' [API Gremlin (anteprima)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction), è possibile usare solo l' [API REST versione 2020-06-30-Preview](search-api-preview.md) per creare l'origine dati e l'indicizzatore.
 
 
 > [!Note]
@@ -71,7 +71,7 @@ Nella pagina **origine dati** , l'origine deve essere **Cosmos DB**, con le spec
 
 + **Nome** è il nome dell'oggetto origine dati. Una volta creato, è possibile sceglierlo per altri carichi di lavoro.
 
-+ **Cosmos DB account** deve essere la stringa di connessione primaria o secondaria da Cosmos DB, con `AccountEndpoint` e `AccountKey`. Per le raccolte MongoDB, aggiungere **tipologia API = MongoDB** alla fine della stringa di connessione e separarla dalla stringa di connessione con un punto e virgola. Per l'API Gremlin e API Cassandra, usare le istruzioni per l' [API REST](#cosmosdb-indexer-rest).
++ **Cosmos DB account** deve essere la stringa di connessione primaria o secondaria da Cosmos DB, con `AccountEndpoint` e `AccountKey` . Per le raccolte MongoDB, aggiungere **tipologia API = MongoDB** alla fine della stringa di connessione e separarla dalla stringa di connessione con un punto e virgola. Per l'API Gremlin e API Cassandra, usare le istruzioni per l' [API REST](#cosmosdb-indexer-rest).
 
 + Il **database** è un database esistente dall'account. 
 
@@ -123,12 +123,12 @@ Al termine dell'indicizzazione, è possibile usare [Esplora ricerche](search-exp
 È possibile usare l'API REST per indicizzare i dati Azure Cosmos DB, seguendo un flusso di lavoro in tre parti comune a tutti gli indicizzatori in Azure ricerca cognitiva: creare un'origine dati, creare un indice, creare un indicizzatore. L'estrazione dei dati da Cosmos DB si verifica quando si invia la richiesta create Indexer. Al termine di questa richiesta, sarà presente un indice Queryable. 
 
 > [!NOTE]
-> Per l'indicizzazione dei dati da Cosmos DB API Gremlin o Cosmos DB API Cassandra è necessario prima di tutto richiedere l'accesso alle anteprime gestite compilando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Al termine dell'elaborazione della richiesta, si riceveranno istruzioni su come usare l' [API REST versione 2019-05-06-Preview](search-api-preview.md) per creare l'origine dati.
+> Per l'indicizzazione dei dati da Cosmos DB API Gremlin o Cosmos DB API Cassandra è necessario prima di tutto richiedere l'accesso alle anteprime gestite compilando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Al termine dell'elaborazione della richiesta, si riceveranno istruzioni su come usare l' [API REST versione 2020-06-30-Preview](search-api-preview.md) per creare l'origine dati.
 
 In precedenza in questo articolo si è indicato che [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview) indicizzazione e l'indicizzazione di [Azure ricerca cognitiva Indexing](search-what-is-an-index.md) sono operazioni distinte. Per l'indicizzazione Cosmos DB, per impostazione predefinita tutti i documenti vengono indicizzati automaticamente tranne che con il API Cassandra. Se si disattiva l'indicizzazione automatica, è possibile accedere ai documenti solo tramite i relativi collegamenti automatici o tramite query usando l'ID del documento. L'indicizzazione di Azure ricerca cognitiva richiede l'abilitazione dell'indicizzazione automatica Cosmos DB nella raccolta che verrà indicizzata da Azure ricerca cognitiva. Quando si effettua l'iscrizione per l'anteprima di Cosmos DB API Cassandra indexer, verranno fornite istruzioni su come configurare Cosmos DB l'indicizzazione.
 
 > [!WARNING]
-> Azure Cosmos DB è la nuova generazione di DocumentDB. In precedenza con l'API versione **2017-11-11** è possibile `documentdb` usare la sintassi. Ciò significava che è possibile specificare il tipo di origine dati `cosmosdb` come `documentdb`o. A partire dalla versione API **2019-05-06** , le API e il portale di Azure ricerca cognitiva `cosmosdb` supportano solo la sintassi come indicato in questo articolo. Questo significa che il tipo di origine dati `cosmosdb` deve essere connesso a un endpoint Cosmos DB.
+> Azure Cosmos DB è la nuova generazione di DocumentDB. In precedenza con l'API versione **2017-11-11** è possibile usare la `documentdb` sintassi. Ciò significava che è possibile specificare il tipo di origine dati come `cosmosdb` o `documentdb` . A partire dalla versione API **2019-05-06** , le API e il portale di Azure ricerca cognitiva supportano solo la `cosmosdb` sintassi come indicato in questo articolo. Questo significa che il tipo di origine dati deve essere `cosmosdb` connesso a un endpoint Cosmos DB.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-assemblare gli input per la richiesta
 
@@ -154,7 +154,7 @@ Un'**origine dati** specifica i dati per l'indice, le credenziali e i criteri pe
 
 Per creare un'origine dati, formulare una richiesta POST:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -175,18 +175,18 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 
 | Campo   | Descrizione |
 |---------|-------------|
-| **nome** | Obbligatorio. Scegliere un nome qualsiasi per rappresentare l'oggetto origine dati. |
+| **nome** | Obbligatorio. Scegliere un nome qualsiasi per rappresentare l’oggetto origine dati. |
 |**type**| Obbligatorio. Deve essere `cosmosdb`. |
-|**credenziali** | Obbligatorio. Deve essere una stringa di connessione Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono nel formato seguente:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/> Per le raccolte di MongoDB, aggiungere **ApiKind = MongoDb** alla stringa di connessione: <br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Per i grafici Gremlin e le tabelle Cassandra, iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.<br/><br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Azure ricerca cognitiva non sarà in grado di indicizzare il database Azure Cosmos DB.|
-| **contenitore** | Contiene i seguenti elementi: <br/>**nome**: obbligatorio. Consente di specificare l'ID della raccolta di database da indicizzare.<br/>**query**: facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in uno schema flat che può essere indicizzato da Azure ricerca cognitiva.<br/>Per l'API MongoDB, l'API Gremlin e API Cassandra, le query non sono supportate. |
+|**credentials** | Obbligatorio. Deve essere una stringa di connessione Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono nel formato seguente:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Per le raccolte MongoDB, aggiungere **tipologia API = MongoDB** alla stringa di connessione:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Per i grafici Gremlin e le tabelle Apache Cassandra, iscriversi all’[anteprima dell'indicizzatore gestito](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e le informazioni sul formato delle credenziali.<br/><br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Azure ricerca cognitiva non sarà in grado di indicizzare il database Azure Cosmos DB.|
+| **container** | Contiene gli elementi seguenti: <br/>**name**: Obbligatorio. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: Facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che possa essere indicizzato da Ricerca cognitiva di Azure.<br/>Per le API MongoDB, Gremlin e Apache Cassandra, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).|
-|**dataDeletionDetectionPolicy** | Facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
+|**dataDeletionDetectionPolicy** | Facoltativa. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Utilizzo di query per formare dati indicizzati
 È possibile specificare una query di SQL per appiattire le matrici o le proprietà annidate, progettare le proprietà JSON e filtrare i dati da indicizzare. 
 
 > [!WARNING]
-> Le query personalizzate non sono supportate per l' **API MongoDB**, l' **API Gremlin**e `container.query` **API Cassandra**: il parametro deve essere impostato su null o omesso. Se è necessario usare una query personalizzata, inviare un messaggio su [User Voice](https://feedback.azure.com/forums/263029-azure-search).
+> Le query personalizzate non sono supportate per l' **API MongoDB**, l' **api Gremlin**e **API Cassandra**: il `container.query` parametro deve essere impostato su null o omesso. Se è necessario usare una query personalizzata, inviare un messaggio su [User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
 Documento di esempio:
 
@@ -223,7 +223,7 @@ Query di appiattimento matrici:
 
 [Creare un indice di ricerca cognitiva di Azure di destinazione](/rest/api/searchservice/create-index) se non ne è già presente uno. Nell'esempio seguente viene creato un indice con un campo ID e Descrizione:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -247,9 +247,9 @@ Query di appiattimento matrici:
 Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema dei documenti JSON di origine oppure con l'output della proiezione di query personalizzata.
 
 > [!NOTE]
-> Per le raccolte partizionate, la chiave del documento predefinita è `_rid` Azure Cosmos DB proprietà, a `rid` cui Azure ricerca cognitiva automaticamente rinominare perché i nomi dei campi non possono iniziare con un carattere di sottolineatura. Inoltre, i `_rid` valori Azure Cosmos DB contengono caratteri non validi nelle chiavi di ricerca cognitiva di Azure. Per questo motivo, i valori `_rid` presentano la codificata Base64.
+> Per le raccolte partizionate, la chiave del documento predefinita è Azure Cosmos DB `_rid` proprietà, a cui Azure ricerca cognitiva automaticamente rinominare `rid` perché i nomi dei campi non possono iniziare con un carattere di sottolineatura. Inoltre, `_rid` i valori Azure Cosmos DB contengono caratteri non validi nelle chiavi di ricerca cognitiva di Azure. Per questo motivo, i valori `_rid` presentano la codificata Base64.
 > 
-> Per le raccolte MongoDB, Azure ricerca cognitiva Rinomina automaticamente la `_id` proprietà in. `id`  
+> Per le raccolte MongoDB, Azure ricerca cognitiva Rinomina automaticamente la `_id` Proprietà in `id` .  
 
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mapping tra tipi di dati JSON e tipi di dati ricerca cognitiva di Azure
 | Tipo di dati JSON | Tipi di campi dell'indice di destinazione compatibili |
@@ -257,7 +257,7 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 | Bool |Edm.Boolean, Edm.String |
 | Numeri che rappresentano numeri interi |Edm.Int32, Edm.Int64, Edm.String |
 | Numeri che rappresentano numeri a virgola mobile |Edm.Double, Edm.String |
-| Stringa |Edm.String |
+| string |Edm.String |
 | Matrici di tipi primitivi, ad esempio ["a", "b", "c"] |Collection(Edm.String) |
 | Stringhe che rappresentano date |Edm.DateTimeOffset, Edm.String |
 | Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
@@ -267,7 +267,7 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 
 Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -297,7 +297,7 @@ Per ulteriori informazioni sulla definizione delle pianificazioni degli indicizz
 
 ## <a name="indexing-changed-documents"></a>Indicizzazione di documenti modificati
 
-Lo scopo di un criterio di rilevamento delle modifiche dei dati è quello di identificare in modo efficace gli elementi di dati modificati. Attualmente, l'unico criterio supportato è l' [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) utilizzo della `_ts` proprietà (timestamp) fornita da Azure Cosmos DB, specificata come indicato di seguito:
+Lo scopo di un criterio di rilevamento delle modifiche dei dati è quello di identificare in modo efficace gli elementi di dati modificati. Attualmente, l'unico criterio supportato è l' [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) utilizzo della `_ts` Proprietà (timestamp) fornita da Azure Cosmos DB, specificata come indicato di seguito:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -316,7 +316,7 @@ L'avanzamento incrementale durante l'indicizzazione assicura che, in caso di int
 
 Per abilitare l'avanzamento incrementale quando si usa una query personalizzata, assicurarsi che la query ordini i risultati in base alla colonna `_ts`. In questo modo viene abilitato il controllo periodico che Azure ricerca cognitiva USA per fornire lo stato di avanzamento incrementale in presenza di errori.   
 
-In alcuni casi, anche se la query contiene una `ORDER BY [collection alias]._ts` clausola, Azure ricerca cognitiva potrebbe non dedurre che la query è ordinata `_ts`in base a. È possibile indicare ad Azure ricerca cognitiva che i risultati vengono ordinati usando `assumeOrderByHighWaterMarkColumn` la proprietà di configurazione. Per specificare questo hint, creare o aggiornare l'indicizzatore come indicato di seguito: 
+In alcuni casi, anche se la query contiene una `ORDER BY [collection alias]._ts` clausola, Azure ricerca cognitiva potrebbe non dedurre che la query è ordinata in base a `_ts` . È possibile indicare ad Azure ricerca cognitiva che i risultati vengono ordinati usando la `assumeOrderByHighWaterMarkColumn` proprietà di configurazione. Per specificare questo hint, creare o aggiornare l'indicizzatore come indicato di seguito: 
 
     {
      ... other indexer definition properties
@@ -340,7 +340,7 @@ Se si usa una query personalizzata, assicurarsi che la proprietà a cui fa rifer
 
 L'esempio seguente crea un'origine dati con criteri di eliminazione temporanea:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
 

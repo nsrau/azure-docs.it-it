@@ -4,12 +4,12 @@ description: Informazioni su accesso e identità nel servizio Azure Kubernetes, 
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffb3f0a7aee63f8b655e7056ee870de80c2f814e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558169"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 
@@ -68,6 +68,9 @@ Le associazioni dei ruoli vengono usate per assegnare i ruoli per un determinato
 
 Un ClusterRoleBinding associa i ruoli agli utenti nello stesso modo, ma può essere applicato alle risorse di tutto il cluster, non a uno specifico spazio dei nomi. Questo approccio consente di concedere agli amministratori o ai tecnici del supporto l'accesso a tutte le risorse nel cluster del servizio Azure Kubernetes.
 
+> [!NOTE]
+> Tutte le azioni del cluster eseguite dal supporto tecnico Microsoft vengono apportate con il consenso dell'utente in un ruolo predefinito di ["modifica"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) di Kubernetes del nome `aks-support-rolebinding` . Con questo ruolo, il supporto AKS è abilitato per modificare la configurazione del cluster e le risorse per la risoluzione dei problemi e diagnosticare i problemi del cluster, ma il ruolo non può modificare le autorizzazioni né creare associazioni di ruolo o ruoli. L'accesso ai ruoli viene abilitato solo in ticket di supporto attivi con accesso just-in-time (JIT). Altre informazioni sui [criteri di supporto di AKS](support-policies.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per iniziare a usare Azure AD e il controllo degli accessi in base al ruolo di Kubernetes, vedere [Integrare Azure Active Directory con il servizio Azure Kubernetes][aks-aad].
@@ -76,11 +79,11 @@ Per le procedure consigliate associate, vedere procedure consigliate [per l'aute
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Cluster e carichi di lavoro di Kubernetes/servizio Azure Kubernetes][aks-concepts-clusters-workloads]
+- [Kubernetes/Cluster e carichi di lavoro del servizio Azure Kubernetes][aks-concepts-clusters-workloads]
 - [Sicurezza di Kubernetes/servizio Azure Kubernetes][aks-concepts-security]
-- [Kubernetes / Reti virtuali in servizio Azure Kubernetes][aks-concepts-network]
-- [Archiviazione in Kubernetes/servizio Azure Kubernetes][aks-concepts-storage]
-- [Ridimensionamento in Kubernetes/servizio Azure Kubernetes][aks-concepts-scale]
+- [Kubernetes/Reti virtuali nel servizio Azure Kubernetes][aks-concepts-network]
+- [Kubernetes/Archiviazione nel servizio Azure Kubernetes][aks-concepts-storage]
+- [Kubernetes/Ridimensionamento nel servizio Azure Kubernetes][aks-concepts-scale]
 
 <!-- LINKS - External -->
 [kubernetes-authentication]: https://kubernetes.io/docs/reference/access-authn-authz/authentication

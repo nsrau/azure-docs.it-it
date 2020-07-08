@@ -6,18 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dace7fb291cef24ad8b48a0791b2fadca22fa71b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77623338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556053"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
 
 > [!IMPORTANT] 
 > I livelli di prestazioni S1, S2 e S3 descritti in questo articolo sono in fase di ritiro e non sono più disponibili per i nuovi account Azure Cosmos DB.
->
 
 Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e descrive come può essere eseguita la migrazione delle raccolte che usano questi livelli di prestazioni a raccolte a partizione singola. Alla fine della lettura, si avranno le risposte alle domande seguenti:
 
@@ -43,7 +42,7 @@ I livelli di prestazioni S1, S2 e S3 non offrono la stessa flessibilità fornita
 
 Nella tabella seguente vengono confrontate le opzioni di archiviazione e di velocità effettiva disponibili in raccolte a partizione singola, raccolte partizionate e livelli di prestazioni S1, S2 e S3. Di seguito è riportato un esempio per l'area Stati Uniti orientali 2:
 
-|   |Raccolta partizionata|Raccolta a partizione singola|S1|S2|S3|
+| Nome della quota  |Raccolta partizionata|Raccolta a partizione singola|S1|S2|S3|
 |---|---|---|---|---|---|
 |Velocità effettiva massima|Nessuna limitazione|10.000 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
 |Velocità effettiva minima|2500 UR/sec|400 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
@@ -76,7 +75,7 @@ In ognuno di questi casi, dopo la migrazione della raccolta sarà possibile pers
 
 Si supponga di avere a disposizione 10 raccolte S1, ciascuna con 1 GB di spazio di archiviazione, nell'area degli Stati Uniti orientali e di eseguire la migrazione di queste raccolte a 10 raccolte a partizione singola con 400 UR/sec (livello minimo). Se si mantengono le 10 raccolte a partizione singola per un mese intero, la fattura sarà simile a questa:
 
-![Differenza tra i prezzi di 10 raccolte S1 e quelli di 10 raccolte a partizione singola](./media/performance-levels/s1-vs-standard-pricing.png)
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="Differenza tra i prezzi di 10 raccolte S1 e quelli di 10 raccolte a partizione singola" border="false":::
 
 <a name="more-storage-needed"></a>
 

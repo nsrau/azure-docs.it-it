@@ -2,21 +2,21 @@
 title: Eseguire il debug di applicazioni proxy di applicazione-Azure Active Directory | Microsoft Docs
 description: Problemi di debug con applicazioni proxy di applicazione Azure Active Directory (Azure AD).
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 575891d99c077299f5e7abf008c1ebb2b158373f
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: e61ea30f01e8ae141d24c9bd91b08edef4dbe74e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74382065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555053"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Debug dei problemi con l'applicazione Application Proxy 
 
@@ -39,7 +39,7 @@ Questo diagramma di flusso illustra i passaggi per eseguire il debug di alcuni d
 
 ![Diagramma di flusso con i passaggi per il debug di un'applicazione](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  | Azione | Descrizione | 
+| Passaggio | Azione | Descrizione |
 |---------|---------|---------|
 |1 | Aprire un browser, accedere all'app e immettere le credenziali | Provare a usare le credenziali per accedere all'app e verificare la presenza di eventuali errori correlati all'utente, ad esempio [non è possibile accedere a questa app aziendale](application-proxy-sign-in-bad-gateway-timeout-error.md). |
 |2 | Verificare l'assegnazione utente all'app | Assicurarsi che l'account utente disponga dell'autorizzazione per accedere all'app dall'interno della rete aziendale e quindi testare l'accesso all'app seguendo la procedura descritta in [testare l'applicazione](application-proxy-add-on-premises-application.md#test-the-application). Se i problemi di accesso permangono, vedere [come risolvere gli errori di accesso](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |

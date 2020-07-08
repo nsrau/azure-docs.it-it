@@ -2,22 +2,22 @@
 title: Aggiungere un'applicazione non della raccolta-piattaforma di identità Microsoft | Microsoft Docs
 description: Aggiungere un'applicazione non della raccolta al tenant di Azure AD.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063612"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555117"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Aggiungere un'applicazione non in elenco (non di raccolta) all'organizzazione Azure AD
 
@@ -34,7 +34,7 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
 
 1. Accedere al portale di [Azure Active Directory](https://aad.portal.azure.com/) usando l'account amministratore di Microsoft Identity Platform.
 
-2. Selezionare **applicazioni** > aziendali**nuova applicazione**.
+2. Selezionare **applicazioni aziendali**  >  **nuova applicazione**.
 
 3. (Facoltativo ma consigliato) Nella casella di ricerca **sfoglia Azure ad Gallery** immettere il nome visualizzato dell'applicazione. 
 
@@ -54,7 +54,7 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
    >* **Configurare il proxy di applicazione per l'accesso remoto sicuro a un'applicazione locale** apre la pagina di configurazione per Azure ad proxy di applicazione e i connettori.
    >* **Registrare un'applicazione a cui si sta lavorando per l'integrazione con Azure ad** apre la pagina di **registrazioni app** . Questa opzione viene in genere usata per le applicazioni OpenID Connect.
 
-7. Selezionare **Create** (Crea). Viene visualizzata la pagina **Panoramica** dell'applicazione.
+7. Selezionare **Crea**. Viene visualizzata la pagina **Panoramica** dell'applicazione.
 
 ## <a name="configure-user-sign-in-properties"></a>Configurare le proprietà di accesso degli utenti
 
@@ -70,7 +70,7 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
 
       Comportamento per gli utenti **assegnati**:
 
-       | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti assegnati | |
+       | Proprietà dell'applicazione | Proprietà dell'applicazione | Proprietà dell'applicazione | Esperienza degli utenti assegnati | Esperienza degli utenti assegnati |
        |---|---|---|---|---|
        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti assegnati?* |
        | sì | sì | sì | sì | sì  |
@@ -84,7 +84,7 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
 
       Comportamento per gli utenti **non assegnati**:
 
-       | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti non assegnati | |
+       | Proprietà dell'applicazione | Proprietà dell'applicazione | Proprietà dell'applicazione | Esperienza degli utenti non assegnati | Esperienza degli utenti non assegnati |
        |---|---|---|---|---|
        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti non assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti non assegnati?* |
        | sì | sì | sì | no  | no   |
@@ -102,7 +102,7 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
 
     ![Modificare il logo](media/add-non-gallery-app/change-logo.png)
 
-4. Al termine, fare clic su **Salva**.
+4. Al termine, selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

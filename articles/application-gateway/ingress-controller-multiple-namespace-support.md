@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni su come abilitare più suppor
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 83650e7cf46ec1dede5f25e32114d6469bab24be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556158"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Abilitare più supporto dello spazio dei nomi in un cluster AKS con il controller di ingresso del gateway applicazione
 
@@ -21,14 +21,14 @@ Gli [spazi dei nomi](https://kubernetes.io/docs/concepts/overview/working-with-o
 
 A partire dalla versione 0,7 [applicazione Azure gateway Kubernetes IngressController](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) può inserire eventi da e osservare più spazi dei nomi. Se l'amministratore AKS decide di usare il [gateway app](https://azure.microsoft.com/services/application-gateway/) come ingresso, tutti gli spazi dei nomi utilizzeranno la stessa istanza del gateway applicazione. Una singola installazione del controller di ingresso monitorerà gli spazi dei nomi accessibili e configurerà il gateway applicazione a cui è associato.
 
-La versione 0,7 di AGIC continuerà a osservare esclusivamente `default` lo spazio dei nomi, a meno che questo non venga esplicitamente modificato in uno o più spazi dei nomi diversi nella configurazione Helm (vedere la sezione seguente).
+La versione 0,7 di AGIC continuerà a osservare esclusivamente lo `default` spazio dei nomi, a meno che questo non venga esplicitamente modificato in uno o più spazi dei nomi diversi nella configurazione Helm (vedere la sezione seguente).
 
 ## <a name="enable-multiple-namespace-support"></a>Abilitare il supporto per più spazi dei nomi
 Per abilitare il supporto di più spazi dei nomi:
 1. modificare il file [Helm-config. YAML](#sample-helm-config-file) in uno dei modi seguenti:
    - eliminare la `watchNamespace` chiave interamente da [Helm-config. YAML](#sample-helm-config-file) -AGIC osserverà tutti gli spazi dei nomi
    - impostare `watchNamespace` su una stringa vuota-AGIC osserverà tutti gli spazi dei nomi
-   - Aggiunta di più spazi dei nomi separati da una`watchNamespace: default,secondNamespace`virgola ()-AGIC osserverà questi spazi dei nomi in modo esclusivo
+   - Aggiunta di più spazi dei nomi separati da una virgola ( `watchNamespace: default,secondNamespace` )-AGIC osserverà questi spazi dei nomi in modo esclusivo
 2. applicare le modifiche al modello Helm con:`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 Una volta distribuita con la possibilità di osservare più spazi dei nomi, AGIC:
@@ -44,7 +44,8 @@ Nella parte superiore dei **listener** della gerarchia (indirizzo IP, porta e ho
 
 Negli altri percorsi, i pool back-end, le impostazioni HTTP e i certificati TLS possono essere creati solo da uno spazio dei nomi e i duplicati verranno rimossi.
 
-Si considerino, ad esempio, gli spazi dei nomi definiti seguenti per `staging` le `production` risorse `www.contoso.com`di ingresso duplicate e per:
+Si considerino, ad esempio, gli spazi dei nomi definiti seguenti per le risorse di ingresso duplicate `staging` e `production` per `www.contoso.com` :
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -81,7 +82,7 @@ spec:
               servicePort: 80
 ```
 
-Nonostante le due risorse `www.contoso.com` in ingresso che richiedono che il traffico venga indirizzato ai rispettivi spazi dei nomi Kubernetes, solo un back-end può servire il traffico. AGIC creerebbe una configurazione in base a una delle risorse per la prima volta. Se vengono create contemporaneamente due risorse in ingresso, quella precedente nell'alfabeto avrà la precedenza. Dall'esempio precedente, sarà possibile creare le impostazioni per il `production` traffico in ingresso. Il gateway applicazione verrà configurato con le risorse seguenti:
+Nonostante le due risorse in ingresso che richiedono che il traffico `www.contoso.com` venga indirizzato ai rispettivi spazi dei nomi Kubernetes, solo un back-end può servire il traffico. AGIC creerebbe una configurazione in base a una delle risorse per la prima volta. Se vengono create contemporaneamente due risorse in ingresso, quella precedente nell'alfabeto avrà la precedenza. Dall'esempio precedente, sarà possibile creare le impostazioni per il traffico in `production` ingresso. Il gateway applicazione verrà configurato con le risorse seguenti:
 
   - Listener`fl-www.contoso.com-80`
   - Regola di routing:`rr-www.contoso.com-80`
@@ -89,18 +90,19 @@ Nonostante le due risorse `www.contoso.com` in ingresso che richiedono che il tr
   - Impostazioni HTTP:`bp-production-contoso-web-service-80-80-websocket-ingress`
   - Probe di integrità:`pb-production-contoso-web-service-80-websocket-ingress`
 
-Si noti che, ad eccezione del *listener* e della *regola di routing*, le risorse del gateway applicazione create includono`production`il nome dello spazio dei nomi () per il quale sono state create.
+Si noti che, ad eccezione del *listener* e della *regola di routing*, le risorse del gateway applicazione create includono il nome dello spazio dei nomi ( `production` ) per il quale sono state create.
 
-Se le due risorse in ingresso vengono introdotte nel cluster AKS in momenti diversi, è probabile che AGIC si trovi in uno scenario in cui riconfigura il gateway applicazione e reindirizza il traffico da `namespace-B` a. `namespace-A`
+Se le due risorse in ingresso vengono introdotte nel cluster AKS in momenti diversi, è probabile che AGIC si trovi in uno scenario in cui riconfigura il gateway applicazione e reindirizza il traffico da `namespace-B` a `namespace-A` .
 
-Se ad esempio è stato `staging` aggiunto per primo, AGIC configurerà il gateway applicazione per instradare il traffico al pool back-end di gestione temporanea. In una fase successiva, introducendo `production` il traffico in ingresso, AGIC riprogramma il gateway applicazione, che avvierà il routing del `production` traffico al pool back-end.
+Se ad esempio è stato aggiunto per `staging` primo, AGIC configurerà il gateway applicazione per instradare il traffico al pool back-end di gestione temporanea. In una fase successiva, introducendo `production` il traffico in ingresso, AGIC riprogramma il gateway applicazione, che avvierà il routing del traffico al `production` pool back-end.
 
 ## <a name="restrict-access-to-namespaces"></a>Limitare l'accesso agli spazi dei nomi
 Per impostazione predefinita, AGIC configurerà il gateway applicazione in base all'ingresso con annotazioni all'interno di qualsiasi spazio dei nomi. Se si desidera limitare questo comportamento, sono disponibili le opzioni seguenti:
-  - limitare gli spazi dei nomi, definendo in modo esplicito gli spazi dei nomi AGIC `watchNamespace` dovrebbe osservare tramite la chiave YAML in [Helm-config. YAML](#sample-helm-config-file)
+  - limitare gli spazi dei nomi, definendo in modo esplicito gli spazi dei nomi AGIC dovrebbe osservare tramite la `watchNamespace` chiave YAML in [Helm-config. YAML](#sample-helm-config-file)
   - utilizzare [Role/Role](https://docs.microsoft.com/azure/aks/azure-ad-rbac) per limitare AGIC a spazi dei nomi specifici
 
 ## <a name="sample-helm-config-file"></a>File di configurazione Helm di esempio
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -152,5 +154,5 @@ Per impostazione predefinita, AGIC configurerà il gateway applicazione in base 
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
+```
 
