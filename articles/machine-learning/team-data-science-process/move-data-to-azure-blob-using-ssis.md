@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 77bfd9d5bcae7bedd673354e32464d5f59bdc9b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ad87272749011c81c1040825da3f3c53858a55bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322855"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Spostare dati da o verso un archivio BLOB di Azure con connettori SSIS
 [SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornisce componenti per la connessione ad Azure, il trasferimento di dati tra Azure e origini dati locali e l'elaborazione di dati archiviati in Azure.
@@ -27,7 +26,7 @@ Dopo che i clienti hanno spostato i dati locali nel cloud, possono accedere ai d
 
 Esempi per l'uso di queste risorse di Azure sono disponibili nelle procedure dettagliate relative a [SQL](sql-walkthrough.md) e [HDInsight](hive-walkthrough.md) .
 
-Per informazioni sugli scenari classici che usano SSIS per soddisfare esigenze aziendali comuni in scenari di integrazione dei dati ibridi, vedere il blog relativo ai [vantaggi offerti da SQL Server Integration Services Feature Pack for Azure](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) .
+Per informazioni sugli scenari classici che usano SSIS per soddisfare esigenze aziendali comuni in scenari di integrazione dei dati ibridi, vedere il blog relativo ai [vantaggi offerti da SQL Server Integration Services Feature Pack for Azure](https://techcommunity.microsoft.com/t5/sql-server-integration-services/doing-more-with-sql-server-integration-services-feature-pack-for/ba-p/388238) .
 
 > [!NOTE]
 > Per un'introduzione completa all'archiviazione BLOB di Azure, vedere [Informazioni di base su BLOB di Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).

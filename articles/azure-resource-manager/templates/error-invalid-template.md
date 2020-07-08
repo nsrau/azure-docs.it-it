@@ -3,12 +3,11 @@ title: Errori di modello non valido
 description: Viene illustrato come risolvere gli errori di modello non valido durante la distribuzione di modelli di Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 2902a6d82c32192bb241697825a31d759d5c7b75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832522"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324063"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Risolvere errori dovuti a modelli non validi
 
@@ -29,7 +28,7 @@ Il messaggio di errore dipende dal tipo di errore.
 
 Questo errore può essere causato da diversi tipi di errori. In genere si riferisce a errori di sintassi o strutturali nel modello.
 
-<a id="syntax-error" />
+<a id="syntax-error"></a>
 
 ## <a name="solution-1---syntax-error"></a>Soluzione 1: errore di sintassi
 
@@ -50,7 +49,7 @@ Se non si specifica la sintassi corrispondente, il modello genera un valore dive
 
 Quando viene visualizzato questo tipo di errore, esaminare attentamente la sintassi dell'espressione. È consigliabile usare un editor JSON come [Visual Studio](create-visual-studio-deployment-project.md) o [Visual Studio Code](use-vs-code-to-create-template.md) che può segnalare gli errori di sintassi.
 
-<a id="incorrect-segment-lengths" />
+<a id="incorrect-segment-lengths"></a>
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Soluzione 2: lunghezza non valida di uno o più segmenti
 
@@ -111,7 +110,7 @@ Ottenere il numero di segmenti corretto può essere difficile con i tipi di Reso
 }
 ```
 
-<a id="parameter-not-valid" />
+<a id="parameter-not-valid"></a>
 
 ## <a name="solution-3---parameter-is-not-valid"></a>Soluzione 3: parametro non valido
 
@@ -126,13 +125,13 @@ part of the allowed values
 
 Ricontrollare i valori consentiti nel modello e specificarne uno durante la distribuzione. Per altre informazioni sui valori di parametro consentiti, vedere [Sezione parameters dei modelli di Azure Resource Manager](template-syntax.md#parameters).
 
-<a id="too-many-resource-groups" />
+<a id="too-many-resource-groups"></a>
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Soluzione 4: troppi gruppi di risorse di destinazione
 
 Questo errore può essere visualizzato nelle distribuzioni precedenti perché esisteva il limite di cinque gruppi di risorse di destinazione in una singola distribuzione. Nel maggio 2020 il limite è stato aumentato a 800 gruppi di risorse. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](cross-resource-group-deployment.md).
 
-<a id="circular-dependency" />
+<a id="circular-dependency"></a>
 
 ## <a name="solution-5---circular-dependency-detected"></a>Soluzione 5: rilevamento di una dipendenza circolare
 

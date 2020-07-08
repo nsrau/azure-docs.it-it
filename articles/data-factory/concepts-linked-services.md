@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 0703e7cd44a79dd45680e19c8f5f3232be840823
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: f826113abc756654fbf02e7d643b8ac1f9d9f98a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84338057"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Servizi collegati in Azure Data Factory
 
@@ -32,7 +31,7 @@ Se non si ha dimestichezza con Data Factory, vedere [Introduzione al servizio Az
 
 ## <a name="overview"></a>Panoramica
 
-Una data factory può comprendere una o più pipeline. Una **pipeline** è un raggruppamento logico di **attività** che insieme eseguono un compito. Le attività in una pipeline definiscono le azioni da eseguire sui dati. Ad esempio, è possibile usare un'attività di copia per copiare i dati da un Server SQL locale a un'archiviazione BLOB di Azure. Quindi, si può usare un'attività Hive che esegue uno script Hive in un cluster HDInsight di Azure per elaborare i dati dall'archiviazione BLOB per produrre dati di output. Infine, è possibile usare una seconda attività di copia per copiare i dati di output in Azure SQL Data Warehouse per la compilazione delle soluzioni di report di business intelligence (BI). Per altre informazioni su pipeline e attività, vedere [Pipeline e attività](concepts-pipelines-activities.md) in Azure Data Factory.
+Una data factory può comprendere una o più pipeline. Una **pipeline** è un raggruppamento logico di **attività** che insieme eseguono un compito. Le attività in una pipeline definiscono le azioni da eseguire sui dati. Ad esempio, è possibile usare un'attività di copia per copiare i dati da SQL Server nell'archiviazione BLOB di Azure. Quindi, si può usare un'attività Hive che esegue uno script Hive in un cluster HDInsight di Azure per elaborare i dati dall'archiviazione BLOB per produrre dati di output. Infine, è possibile usare una seconda attività di copia per copiare i dati di output in Azure SQL Data Warehouse per la compilazione delle soluzioni di report di business intelligence (BI). Per altre informazioni su pipeline e attività, vedere [Pipeline e attività](concepts-pipelines-activities.md) in Azure Data Factory.
 
 Un **set di dati** è una visualizzazione dati denominata che punta o fa riferimento ai dati usati come input e output nelle **attività**.
 
@@ -95,7 +94,10 @@ Il seguente servizio collegato è un servizio collegato di Archiviazione di Azur
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
-È possibile creare servizi collegati tramite uno di questi strumenti o SDK: [API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), modello di Azure Resource Manager e portale di Azure
+I servizi collegati possono essere creati nell'Azure Data Factory UX tramite l' [Hub di gestione](author-management-hub.md) ed eventuali attività, set di dati o flussi di dati che vi fanno riferimento.
+
+È possibile creare servizi collegati usando uno di questi strumenti o SDK: [API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), Azure Resource Manager modello e portale di Azure.
+
 
 ## <a name="data-store-linked-services"></a>Servizi collegati dell'archivio dati
 
@@ -112,4 +114,4 @@ Vedere le esercitazioni seguenti per istruzioni dettagliate sulla creazione di p
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Avvio rapido: Creare una data factory tramite .NET)
 - [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md) (Avvio rapido: Creare una data factory tramite PowerShell)
 - [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md) (Avvio rapido: Creare una data factory tramite API REST)
-- [Quickstart: create a data factory using Azure portal (Avvio rapido: Creare una data factory tramite il portale di Azure)](quickstart-create-data-factory-portal.md)
+- [Avvio rapido: Creare una data factory con il portale di Azure](quickstart-create-data-factory-portal.md)

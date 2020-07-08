@@ -7,22 +7,21 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c96d123ebe97ba4a7a6df0395efe698924fef1
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 1cfa00cceac6c30219d4577cc4ba29c84cb1a75a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734740"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603962"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Aggiungere un nome di dominio personalizzato usando il portale di Azure Active Directory
 
-Ogni nuovo tenant di Azure ad dispone di un nome di dominio iniziale, * \<DomainName>. onmicrosoft.com*. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione. L'aggiunta di nomi di dominio personalizzati consente di creare nomi utente familiari agli utenti, ad esempio *alain\@contoso.com*.
+Ogni nuovo tenant Azure AD dispone di un nome di dominio iniziale, * \<domainname> . onmicrosoft.com*. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione. L'aggiunta di nomi di dominio personalizzati consente di creare nomi utente familiari agli utenti, ad esempio *alain \@ contoso.com*.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -50,7 +49,7 @@ Dopo aver creato la directory, è possibile aggiungere il nome di dominio person
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
 
-1. Cercare e selezionare *Azure Active Directory* da qualsiasi pagina. Quindi selezionare **nomi** > di dominio personalizzati**Aggiungi dominio personalizzato**.
+1. Cercare e selezionare *Azure Active Directory* in qualsiasi pagina. Quindi selezionare **nomi di dominio personalizzati**  >  **Aggiungi dominio personalizzato**.
 
     ![Pagina nomi di dominio personalizzati con Aggiungi dominio personalizzato visualizzato](media/add-custom-domain/add-custom-domain.png)
 

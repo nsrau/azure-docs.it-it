@@ -5,29 +5,28 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: feae75b1fbb832f833a01fa20ce07962ab5c484f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 25f74fb78979313acc068320d842d09a982d8d16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339145"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda in Azure Data Box Gateway  
 
-Questo articolo descrive come gestire gli utenti in Azure Data Box Gateway. Le pianificazioni della larghezza di banda consentono di configurare l'uso della larghezza di banda della rete in più pianificazioni orarie. Queste pianificazioni possono essere applicate alle operazioni di caricamento e download dal dispositivo al cloud. 
+Questo articolo descrive come gestire gli utenti in Azure Data Box Gateway. Le pianificazioni della larghezza di banda consentono di configurare l'uso della larghezza di banda della rete in più pianificazioni orarie. Queste pianificazioni possono essere applicate alle operazioni di caricamento e download dal dispositivo al cloud.
 
 È possibile aggiungere, modificare o eliminare le pianificazioni della larghezza di banda per il Data Box Gateway dal portale di Azure.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
+>
 > * Aggiungere una pianificazione
 > * Modificare una pianificazione
-> * Eliminare una pianificazione 
-
+> * Eliminare una pianificazione
 
 ## <a name="add-a-schedule"></a>Aggiungere una pianificazione
 

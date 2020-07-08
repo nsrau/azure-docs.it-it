@@ -15,20 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: d9283a36d5f7ccb82b2cc211485487d5a3dcce7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fc79d7204ba360696b8d9411cd56efd09d1678dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79201026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84021841"
 ---
 # <a name="azure-database-security-checklist"></a>Elenco di controllo per la sicurezza del database di Azure
 
 Per contribuire al miglioramento della sicurezza, il database di Azure include una serie di controlli di sicurezza predefiniti che è possibile usare per limite e controllare l'accesso.
 
-Sono inclusi:
+Tra queste sono incluse:
 
--    Un firewall che consente di creare [regole del firewall](../../sql-database/sql-database-firewall-configure.md) limitando la connettività tramite un indirizzo IP,
+-    Un firewall che consente di creare [regole del firewall](../../azure-sql/database/firewall-configure.md) limitando la connettività tramite un indirizzo IP,
 -    Regola del firewall a livello di server accessibile nel portale di Azure
 -    Regole del firewall a livello di database accessibili da SSMS
 -    Connettività sicura al database tramite delle stringhe di connessione protetta
@@ -50,10 +49,10 @@ Si consiglia di leggere l'articolo [Azure Database Security Best Practices](data
 | <br> Crittografia in movimento/transito| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), per la crittografia dei dati durante lo spostamento dei dati nelle reti.</li><li>Il database richiede una comunicazione sicura da client basati sul protocollo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) in TLS (Transport Layer Security).</li></ul> |
 |<br>Crittografia di dati inattivi| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), quando i dati inattivi vengono archiviati fisicamente in qualsiasi forma digitale.</li></ul>|
 |**Controllare l'accesso**||  
-|<br> Accesso al database | <ul><li>[Autenticazione](../../sql-database/sql-database-manage-logins.md) l'autenticazione AD (Autenticazione di Azure Active Directory) usa identità gestite da Azure Active Directory.</li><li>[Autorizzazione](../../sql-database/sql-database-manage-logins.md) concede agli utenti i privilegi minimi necessari.</li></ul> |
-|<br>Accesso all'applicazione| <ul><li>[Sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131) (tramite i criteri di sicurezza, al tempo stesso limitando l'accesso a livello di riga in base all'identità dell'utente, al ruolo o al contesto di esecuzione).</li><li>[Dynamic Data Masking](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (tramite Autorizzazione e Politica, limita l'esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi)</li></ul>|
+|<br> Accesso al database | <ul><li>[Autenticazione](../../azure-sql/database/logins-create-manage.md) l'autenticazione AD (Autenticazione di Azure Active Directory) usa identità gestite da Azure Active Directory.</li><li>[Autorizzazione](../../azure-sql/database/logins-create-manage.md) concede agli utenti i privilegi minimi necessari.</li></ul> |
+|<br>Accesso all'applicazione| <ul><li>[Sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131) (tramite i criteri di sicurezza, al tempo stesso limitando l'accesso a livello di riga in base all'identità dell'utente, al ruolo o al contesto di esecuzione).</li><li>[Dynamic Data Masking](../../azure-sql/database/dynamic-data-masking-overview.md) (tramite Autorizzazione e Politica, limita l'esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi)</li></ul>|
 |**Monitoraggio proattivo**||  
-| <br>Monitoraggio e rilevamento| <ul><li>Il [Controllo](../../sql-database/sql-database-auditing.md) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo/log di attività nell'[account di Archiviazione di Azure](../../storage/common/storage-create-storage-account.md).</li><li>Tenere traccia dell'integrità del database di Azure tramite i [log attività di Monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md).</li><li>La [funzionalità di rilevamento delle minacce](../../sql-database/sql-database-threat-detection.md) individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. </li></ul> |
+| <br>Monitoraggio e rilevamento| <ul><li>Il [Controllo](../../sql-database/sql-database-auditing.md) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo/log di attività nell'[account di Archiviazione di Azure](../../storage/common/storage-create-storage-account.md).</li><li>Tenere traccia dell'integrità del database di Azure tramite i [log attività di Monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md).</li><li>La [funzionalità di rilevamento delle minacce](../../azure-sql/database/threat-detection-configure.md) individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. </li></ul> |
 |<br>Centro sicurezza di Azure| <ul><li>Il [Monitoraggio dati](../../security-center/security-center-enable-auditing-on-sql-databases.md) usa il centro sicurezza di Azure come soluzione di monitoraggio di sicurezza centralizzato per SQL e altri servizi di Azure.</li></ul>|        
 
 ## <a name="conclusion"></a>Conclusioni
@@ -62,7 +61,7 @@ Il database di Azure è una piattaforma di database affidabile, con una gamma co
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile migliorare la protezione del database contro utenti malintenzionati o accessi non autorizzati con pochi semplici passaggi. In questa esercitazione si apprenderà come:
 
-- Configurare [regole del firewall](../../sql-database/sql-database-firewall-configure.md) per il server e/o il database.
+- Configurare [regole del firewall](../../azure-sql/database/firewall-configure.md) per il server e/o il database.
 - Proteggere i dati con la [crittografia](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Abilitare il [controllo del database SQL](../../sql-database/sql-database-auditing.md).
 

@@ -4,18 +4,17 @@ description: Informazioni su come usare l'interfaccia della riga di comando di A
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: dba6590daf5c64dd1e53663e71a0cc27941b1470
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: MT
+ms.openlocfilehash: 83ba43c3b8a00325750ec935fd3a43ec7d56074c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336522"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure
 
 Il servizio Azure Kubernetes può essere configurato per usare Azure Active Directory (AD) per l'autenticazione utente. In questa configurazione è possibile accedere a un cluster AKS usando un token di autenticazione Azure AD. Gli operatori del cluster possono anche configurare il controllo degli accessi in base al ruolo Kubernetes in base all'identità dell'utente o al gruppo di directory.
 
-Questo articolo illustra come creare i componenti Azure AD necessari, quindi distribuire un cluster abilitato per Azure AD e creare un ruolo di base RBAC nel cluster AKS. È anche possibile [completare questi passaggi usando il portale di Azure][azure-ad-portal].
+Questo articolo illustra come creare i componenti Azure AD necessari, quindi distribuire un cluster abilitato per Azure AD e creare un ruolo di base RBAC nel cluster AKS.
 
 Per lo script di esempio completo usato in questo articolo, vedere esempi dell'interfaccia della riga di comando di [Azure-integrazione di AKS con Azure ad][complete-script].
 
@@ -25,7 +24,7 @@ Si applicano le limitazioni seguenti:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-È necessaria l'interfaccia della riga di comando di Azure versione 2.0.61 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.61 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 Passare a [https://shell.azure.com](https://shell.azure.com) per aprire Cloud Shell nel browser.
 
@@ -97,7 +96,7 @@ az ad app permission admin-consent --id  $serverApplicationId
 
 ## <a name="create-azure-ad-client-component"></a>Creare Azure AD componente client
 
-La seconda applicazione Azure AD viene usata quando un utente accede al cluster AKS con l'interfaccia della riga di`kubectl`comando di Kubernetes (). Questa applicazione client accetta la richiesta di autenticazione dall'utente e verifica le credenziali e le autorizzazioni. Creare l'app Azure AD per il componente client usando il comando [AZ ad app create][az-ad-app-create] :
+La seconda applicazione Azure AD viene usata quando un utente accede al cluster AKS con l'interfaccia della riga di comando di Kubernetes ( `kubectl` ). Questa applicazione client accetta la richiesta di autenticazione dall'utente e verifica le credenziali e le autorizzazioni. Creare l'app Azure AD per il componente client usando il comando [AZ ad app create][az-ad-app-create] :
 
 ```azurecli-interactive
 clientApplicationId=$(az ad app create \
@@ -229,7 +228,7 @@ kube-system   metrics-server-7b97f9cd9-btxzz          1/1     Running   0       
 kube-system   tunnelfront-6ff887cffb-xkfmq            1/1     Running   0          23h
 ```
 
-Il token di autenticazione ricevuto `kubectl` per viene memorizzato nella cache. Viene richiesto di eseguire l'accesso solo quando il token è scaduto o il file di configurazione Kubernetes viene ricreato.
+Il token di autenticazione ricevuto per `kubectl` viene memorizzato nella cache. Viene richiesto di eseguire l'accesso solo quando il token è scaduto o il file di configurazione Kubernetes viene ricreato.
 
 Se viene visualizzato un messaggio di errore di autorizzazione dopo aver eseguito l'accesso con un Web browser come nell'output di esempio seguente, verificare i possibili problemi seguenti:
 

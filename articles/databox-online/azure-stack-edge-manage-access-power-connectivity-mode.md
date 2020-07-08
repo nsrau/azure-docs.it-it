@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 939296b1cf606401a801dd72eccbad23da766018
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 6e46d1a923eec5244bf77c201ff0b3189699c9ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339723"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Gestire l'accesso, l'alimentazione e la modalità di connettività per il Azure Stack Edge
 
@@ -66,7 +65,7 @@ Quando si genera la chiave di attivazione per il dispositivo Azure Stack Edge o 
 -  Creazione di una condivisione con un account di archiviazione associato.
 -  Creazione di un utente che può accedere alle condivisioni nel dispositivo.
 
-È necessario avere `User` accesso al tenant di Active Directory, perché è necessario poterlo `Read all directory objects`. Non è possibile essere un utente guest perché non dispongono delle autorizzazioni `Read all directory objects`per. Se si è un Guest, le operazioni, ad esempio la generazione di una chiave di attivazione, la creazione di una condivisione sul dispositivo Azure Stack Edge, la creazione di un utente, la configurazione del ruolo di calcolo Edge e la reimpostazione della password del dispositivo avranno esito negativo.
+È necessario avere `User` accesso al tenant di Active Directory, perché è necessario poterlo `Read all directory objects` . Non è possibile essere un utente guest perché non dispongono delle autorizzazioni per `Read all directory objects` . Se si è un Guest, le operazioni, ad esempio la generazione di una chiave di attivazione, la creazione di una condivisione sul dispositivo Azure Stack Edge, la creazione di un utente, la configurazione del ruolo di calcolo Edge e la reimpostazione della password del dispositivo avranno esito negativo.
 
 Per altre informazioni su come fornire l'accesso agli utenti per Microsoft Graph API, vedere [Microsoft Graph le autorizzazioni di riferimento](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -80,7 +79,7 @@ Non è necessario concedere le autorizzazioni di accesso al livello di sottoscri
 
 Prima di provare a creare una risorsa, verificare che il provider di risorse sia registrato nella sottoscrizione. Se il provider di risorse non è registrato, è necessario assicurarsi che l'utente che crea la nuova risorsa disponga di diritti sufficienti per registrare il provider di risorse richiesto a livello di sottoscrizione. Se questa operazione non è stata eseguita correttamente, verrà visualizzato l'errore seguente:
 
-*Il nome \<della sottoscrizione di sottoscrizione> non dispone delle autorizzazioni necessarie per registrare i provider di risorse: Microsoft. DataBoxEdge.*
+*La sottoscrizione \<Subscription name> non ha le autorizzazioni per registrare i provider di risorse: Microsoft. DataBoxEdge.*
 
 
 Per ottenere un elenco dei provider di risorse registrati nella sottoscrizione corrente, eseguire il comando seguente:
@@ -89,7 +88,7 @@ Per ottenere un elenco dei provider di risorse registrati nella sottoscrizione c
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Per il dispositivo Azure Stack Edge `Microsoft.DataBoxEdge` , deve essere registrato. Per eseguire `Microsoft.DataBoxEdge`la registrazione, l'amministratore della sottoscrizione deve eseguire il comando seguente:
+Per il dispositivo Azure Stack Edge, `Microsoft.DataBoxEdge` deve essere registrato. Per `Microsoft.DataBoxEdge` eseguire la registrazione, l'amministratore della sottoscrizione deve eseguire il comando seguente:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

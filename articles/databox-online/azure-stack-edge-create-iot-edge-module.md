@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 206d63e05b68cbcec65b0d06e11da48065251ea0
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339893"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Sviluppare un modulo di IoT Edge C# per spostare i file in Azure Stack Edge
 
@@ -24,6 +23,7 @@ Questo articolo illustra come creare un modulo di IoT Edge per la distribuzione 
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
+>
 > * Creare un registro contenitori per archiviare e gestire i moduli, ossia immagini Docker.
 > * Creare un modulo IoT Edge per la distribuzione nel dispositivo Azure Stack Edge. 
 
@@ -63,13 +63,13 @@ Prima di iniziare, verificare di avere:
 Un Registro Azure Container è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. Due servizi molto diffusi per il registro Docker disponibili nel cloud sono il Registro Azure Container e Hub Docker. Questo articolo usa il Registro contenitori.
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-2. Selezionare **Crea una risorsa > Contenitori > Registro contenitori**. Scegliere **Crea**.
+2. Selezionare **Crea una risorsa > Contenitori > Registro contenitori**. Fare clic su **Crea**.
 3. Specificare:
 
    1. Un valore **Nome registro** all'interno di Azure contenente da 5 a 50 caratteri alfanumerici.
    2. Scegliere una **sottoscrizione**.
    3. Scegliere un **gruppo di risorse** esistente oppure crearne uno nuovo.
-   4. Selezionare una **località**. È consigliabile che questo percorso corrisponda a quello associato alla risorsa Azure Stack Edge.
+   4. Selezionare un **percorso**. È consigliabile che questo percorso corrisponda a quello associato alla risorsa Azure Stack Edge.
    5. Impostare **Utente amministratore** su **Abilita**.
    6. Impostare lo SKU **Di base**.
 

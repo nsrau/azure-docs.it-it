@@ -1,25 +1,17 @@
 ---
 title: Creare risorse del bus di servizio di Azure usando i modelli
 description: Usare i modelli di Azure Resource Manager per automatizzare la creazione di risorse del bus di servizio
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 09/11/2018
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 9bc784ee57b9bde393408cbefa9a197aebc59b08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2fd6a42d9624d7a95e66b88e004e1f5203a738a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76264459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336611"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Creare risorse del bus di servizio usando i modelli di Azure Resource Manager
 
@@ -181,7 +173,7 @@ Set-AzContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Impostare il gruppo di risorse
 
-Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
+Se non è disponibile un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup**. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
 
 ```powershell
 New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -207,7 +199,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path t
 
 ### <a name="create-the-deployment"></a>Creare la distribuzione
 
-Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **mode** non è specificato, viene usato il valore predefinito **Incremental** . Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
+Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
 
 Il comando seguente richiede tre parametri nella finestra di PowerShell:
 

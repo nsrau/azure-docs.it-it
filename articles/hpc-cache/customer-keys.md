@@ -3,15 +3,14 @@ title: Usare le chiavi gestite dal cliente per crittografare i dati nella cache 
 description: Come usare Azure Key Vault con la cache HPC di Azure per controllare l'accesso alla chiave di crittografia invece di usare le chiavi di crittografia predefinite gestite da Microsoft
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2d10241b8395c33767ffeeb550d9d8060bde3ce3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
-ms.translationtype: MT
+ms.openlocfilehash: b7b9e9e6858d709e80642603e77bfb36f2e4c0c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597740"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512910"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Usare le chiavi di crittografia gestite dal cliente per la cache HPC di Azure
 
@@ -148,4 +147,4 @@ Questi articoli illustrano come usare Azure Key Vault e chiavi gestite dal clien
 
 Dopo aver creato la cache HPC di Azure e aver autorizzato la crittografia basata su Key Vault, continuare a configurare la cache concedendo l'accesso alle origini dati.
 
-* [Aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md)
+* [Aggiungi destinazioni di archiviazione](hpc-cache-add-storage.md)

@@ -4,13 +4,12 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come installare e configurare un controller di ingresso NGINX con un indirizzo IP pubblico statico in un cluster del servizio Azure Kubernetes.
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: a44a41806af30479f06ec4daba936c7aa71ef5d7
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.date: 07/02/2020
+ms.openlocfilehash: f10bed46f93af3579f07e04d9940fc98eef67826
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920313"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso con un indirizzo IP pubblico statico nel servizio Azure Kubernetes
 
@@ -27,7 +26,7 @@ Questo articolo illustra come distribuire il [controller di ingresso NGINX][ngin
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 Questo articolo usa [Helm 3][helm] per installare il controller di ingresso nginx e Cert-Manager. Assicurarsi di usare l'ultima versione di Helm. Per istruzioni sull'aggiornamento, vedere la documentazione relativa all' [installazione di Helm][helm-install]. Per altre informazioni sulla configurazione e sull'uso di Helm, vedere [installare applicazioni con Helm in Azure Kubernetes Service (AKS)][use-helm].
 
@@ -59,7 +58,7 @@ A questo punto distribuire il grafico *ingress nginx* con Helm. Per maggiore rid
 Il controller di ingresso deve anche essere pianificato in un nodo Linux. I nodi di Windows Server non devono eseguire il controller di ingresso. Un selettore di nodo viene specificato con il parametro `--set nodeSelector` per indicare all'utilità di pianificazione Kubernetes di eseguire il controller di ingresso NGINX in un nodo basato su Linux.
 
 > [!TIP]
-> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non è abilitato per il controllo `--set rbac.create=false` degli accessi in base al ruolo, aggiungere ai comandi Helm.
+> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non è abilitato per il controllo degli accessi in base al ruolo, aggiungere `--set rbac.create=false` ai comandi Helm.
 
 > [!TIP]
 > Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for*. Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through TLS non funzionerà.
@@ -69,6 +68,9 @@ Aggiornare lo script seguente con l' **indirizzo IP** del controller di ingresso
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
+
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress stable/nginx-ingress \
@@ -245,7 +247,7 @@ spec:
     app: ingress-demo
 ```
 
-Eseguire le due applicazioni demo usando `kubectl apply`:
+Eseguire le due applicazioni demo usando `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld.yaml --namespace ingress-basic
@@ -348,9 +350,9 @@ certificate.cert-manager.io/tls-secret created
 
 ## <a name="test-the-ingress-configuration"></a>Testare la configurazione di ingresso
 
-Aprire un Web browser per il nome di dominio completo del controller di ingresso Kubernetes, ad *`https://demo-aks-ingress.eastus.cloudapp.azure.com`* esempio.
+Aprire un Web browser per il nome di dominio completo del controller di ingresso Kubernetes, ad esempio *`https://demo-aks-ingress.eastus.cloudapp.azure.com`* .
 
-Come si usa `letsencrypt-staging`in questi esempi, il certificato TLS/SSL emesso non è considerato attendibile dal browser. Accettare l'avviso per continuare l'applicazione. Le informazioni sul certificato indicano che il certificato *Fake LE Intermediate X1* è emesso da Let's Encrypt. Questo certificato fittizio indica che `cert-manager` ha elaborato la richiesta in modo corretto e ha ricevuto un certificato dal provider:
+Come si usa in questi esempi `letsencrypt-staging` , il certificato TLS/SSL emesso non è considerato attendibile dal browser. Accettare l'avviso per continuare l'applicazione. Le informazioni sul certificato indicano che il certificato *Fake LE Intermediate X1* è emesso da Let's Encrypt. Questo certificato fittizio indica che `cert-manager` ha elaborato la richiesta in modo corretto e ha ricevuto un certificato dal provider:
 
 ![Certificato temporaneo Let's Encrypt](media/ingress/staging-certificate.png)
 
@@ -372,7 +374,7 @@ Questo articolo ha usato Helm per installare i componenti di ingresso, i certifi
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>Eliminare lo spazio dei nomi di esempio e tutte le risorse
 
-Per eliminare l'intero spazio dei nomi di esempio `kubectl delete` , usare il comando e specificare il nome dello spazio dei nomi. Vengono eliminate tutte le risorse nello spazio dei nomi.
+Per eliminare l'intero spazio dei nomi di esempio, usare il `kubectl delete` comando e specificare il nome dello spazio dei nomi. Vengono eliminate tutte le risorse nello spazio dei nomi.
 
 ```console
 kubectl delete namespace ingress-basic

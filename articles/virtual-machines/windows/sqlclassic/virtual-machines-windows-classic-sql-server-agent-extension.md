@@ -15,12 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 384b66020b3d18064ea1cd9f162911878caa598d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: fe899eebb0139dffabef96da32ab1641c983f726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84338408"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizzare le attività di gestione in macchine virtuali SQL con l'estensione SQL Server Agent (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -82,7 +81,7 @@ Se si esegue l'aggiornamento alla versione più recente dell'estensione dell'age
 > Le macchine virtuali classiche non dispongono di un'opzione per installare e configurare l'estensione di SQL Server IaaS Agent tramite il portale.
 
 > [!NOTE]
-> L'estensione SQL Server IaaS Agent è supportata solo nelle [immagini della raccolta di macchine virtuali di SQL Server](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms) (con pagamento in base al consumo o Bring Your Own License). Non è supportata se si installa manualmente SQL Server in una macchina virtuale Windows Server con il solo sistema operativo o se si distribuisce il disco rigido virtuale di una macchina virtuale SQL Server personalizzata. In questi casi dovrebbe essere possibile installare e gestire manualmente l'estensione usando PowerShell, ma è consigliabile installare invece un'immagine della raccolta di macchine virtuali di SQL Server e quindi personalizzarla.
+> L'estensione SQL Server IaaS Agent è supportata solo nelle [immagini della raccolta di macchine virtuali di SQL Server](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) (con pagamento in base al consumo o Bring Your Own License). Non è supportata se si installa manualmente SQL Server in una macchina virtuale Windows Server con il solo sistema operativo o se si distribuisce il disco rigido virtuale di una macchina virtuale SQL Server personalizzata. In questi casi dovrebbe essere possibile installare e gestire manualmente l'estensione usando PowerShell, ma è consigliabile installare invece un'immagine della raccolta di macchine virtuali di SQL Server e quindi personalizzarla.
 
 ## <a name="status"></a>Stato
 Un modo per verificare che l'estensione sia installata consiste nel visualizzare lo stato dell'agente nel portale di Azure. Selezionare una macchina virtuale elencata nel pannello della macchina virtuale e quindi fare clic su **Estensioni**. Verrà elencata l'estensione **SQLIaaSAgent** .

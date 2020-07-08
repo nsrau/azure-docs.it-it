@@ -7,11 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283940"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710372"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
 
@@ -35,7 +34,7 @@ Queste azioni consentono di operare sui dati in matrici.
 | [**Crea tabella HTML**](#create-html-table-action) | Creare una tabella HTML da una matrice. |
 | [**Filtra matrice**](#filter-array-action) | Creare un subset di matrice da una matrice in base al filtro o alla condizione specificati. |
 | [**Join**](#join-action) | Creare una stringa da tutti gli elementi in una matrice e separare gli elementi con il carattere specificato. |
-| [**Select**](#select-action) | Creare una matrice dalle proprietà specificate per tutti gli elementi in una matrice diversa. |
+| [**Selezionare**](#select-action) | Creare una matrice dalle proprietà specificate per tutti gli elementi in una matrice diversa. |
 ||| 
 
 **Azioni per JSON**
@@ -44,7 +43,7 @@ Queste azioni consentono di operare sui dati in formato JSON (JavaScript Object 
 
 | Azione | Descrizione |
 |--------|-------------|
-| [**Componi**](#compose-action) | Creare un messaggio o una stringa da più input che possono avere vari tipi di dati. È quindi possibile usare questa stringa come un singolo input, invece di immettere ripetutamente gli stessi input. Ad esempio, è possibile creare un singolo messaggio JSON da vari input. |
+| [**Composizione**](#compose-action) | Creare un messaggio o una stringa da più input che possono avere vari tipi di dati. È quindi possibile usare questa stringa come un singolo input, invece di immettere ripetutamente gli stessi input. Ad esempio, è possibile creare un singolo messaggio JSON da vari input. |
 | [**Analizza JSON**](#parse-json-action) | Creare token di dati descrittivi per le proprietà in contenuto JSON, in modo da poter usare più facilmente le proprietà nelle app per la logica. |
 |||
 
@@ -90,7 +89,7 @@ Per provare un esempio, seguire questa procedura usando Progettazione app per la
 
      ![Selezionare "nuovo passaggio" per l'azione "compose"](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
 
-   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga**+** visualizzato il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
+   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca di **Scegliere un'azione** immettere `compose` come filtro. Nell'elenco azioni selezionare l'azione **Componi** .
 
@@ -148,7 +147,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
 
      ![Selezionare "nuovo passaggio" per l'azione "Crea tabella CSV"](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga**+** visualizzato il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
+   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca di **Scegliere un'azione** immettere `create csv table` come filtro. Nell'elenco azioni selezionare l'azione **Crea tabella CSV** .
 
@@ -223,7 +222,7 @@ Nella definizione JSON dell'azione, all'interno della `columns` matrice, imposta
 
 1. Nella barra degli strumenti della finestra di progettazione selezionare **visualizzazione codice**.
 
-1. Nell'editor di `columns` codice, nella matrice dell'azione, aggiungere la proprietà vuota `header` e questa `value` espressione per ogni colonna di valori di matrice desiderata:
+1. Nell'editor di codice, nella matrice dell'azione `columns` , aggiungere la proprietà vuota `header` e questa `value` espressione per ogni colonna di valori di matrice desiderata:
 
    ```json
    {
@@ -299,7 +298,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
 
      ![Selezionare "nuovo passaggio" per l'azione "Crea tabella HTML"](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga**+** visualizzato il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
+   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca di **Scegliere un'azione** immettere `create html table` come filtro. Nell'elenco azioni selezionare l'azione **Crea tabella HTML** .
 
@@ -374,7 +373,7 @@ Nella definizione JSON dell'azione, all'interno della `columns` matrice, imposta
 
 1. Nella barra degli strumenti della finestra di progettazione selezionare **visualizzazione codice**.
 
-1. Nell'editor di `columns` codice, nella matrice dell'azione, aggiungere la proprietà vuota `header` e questa `value` espressione per ogni colonna di valori di matrice desiderata:
+1. Nell'editor di codice, nella matrice dell'azione `columns` , aggiungere la proprietà vuota `header` e questa `value` espressione per ogni colonna di valori di matrice desiderata:
 
    ```json
    {
@@ -464,7 +463,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
 
      ![Selezionare "nuovo passaggio" per l'azione "Filtra matrice"](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
-   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga**+** visualizzato il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
+   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere `filter array` come filtro. Nell'elenco azioni selezionare l'azione **Filtra matrice** .
 
@@ -526,7 +525,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
 
      ![SSelect "nuovo passaggio" per l'azione "join"](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
 
-   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga**+** visualizzato il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
+   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere `join` come filtro. Nell'elenco di azioni selezionare l'azione **Aggiungi**
 
@@ -586,7 +585,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
 
      ![Selezionare "nuovo passaggio" per l'azione "analizza JSON"](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
-   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga**+** visualizzato il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
+   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere `parse json` come filtro. Nell'elenco azioni selezionare l'azione **analizza JSON** .
 
@@ -661,7 +660,7 @@ Se si preferisce lavorare nell'editor della visualizzazione codice, è possibile
 
      ![Selezionare "nuovo passaggio" per l'azione "Seleziona"](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
-   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga**+** visualizzato il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
+   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
 1. In **Scegliere un'azione** selezionare **Predefinita**. Nella casella di ricerca immettere `select` come filtro. Nell'elenco azioni selezionare l'azione **Seleziona** .
 
@@ -697,7 +696,7 @@ Per verificare se l'azione **Seleziona** crea i risultati previsti, inviare a se
 
    `@actionBody('Select')`
 
-   Questo esempio usa l'azione **Invia un messaggio di posta elettronica** di Office 365 Outlook e include `@actionBody('Select')` gli output dell'espressione nel corpo del messaggio di posta elettronica:
+   Questo esempio usa l'azione **Invia un messaggio di posta elettronica** di Office 365 Outlook e include gli output dell' `@actionBody('Select')` espressione nel corpo del messaggio di posta elettronica:
 
    ![Output dell'azione dall'azione "Select"](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 

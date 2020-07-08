@@ -4,19 +4,18 @@ description: Informazioni sulla funzione di sistema SQL ENDSWITH in Azure Cosmos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 0cd927af50eca04aa8162d9d8f292077d9e4165c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 3d37786c7364b07228d1d8d6540e7b6d8a174eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322687"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
 
- Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo.  
+Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo.  
   
 ## <a name="syntax"></a>Sintassi
   
@@ -75,6 +74,8 @@ Si considerino, ad esempio, due proprietà: Town e Country. La cardinalità di T
 ```
 
 La prima query userà probabilmente più RU della seconda, poiché la cardinalità di Town è superiore a quella di Country.
+
+Se la dimensione della proprietà in EndsWith è maggiore di 1 KB per alcuni documenti, il motore di query dovrà caricare tali documenti. In questo caso, il motore di query non sarà in grado di valutare completamente EndsWith con un indice. L'addebito per le UR per EndsWith sarà elevato se si dispone di un numero elevato di documenti con dimensioni di proprietà maggiori di 1 KB.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

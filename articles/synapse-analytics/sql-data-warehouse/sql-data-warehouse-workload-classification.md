@@ -6,17 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: e7aa0c402878c994aabe4e12d811a99e300d7e67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 266eebc8322b5fc648180c0524abc973a4b60373
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212378"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Classificazione del carico di lavoro di Azure sinapsi Analytics
 
@@ -36,7 +35,7 @@ Non tutte le istruzioni sono classificate poiché non richiedono risorse o hanno
 
 ## <a name="classification-process"></a>Processo di classificazione
 
-La classificazione per il pool SQL sinapsi in Azure sinapsi viene eseguita oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). La possibilità di caratterizzare le richieste oltre un accesso a una classe di risorse è limitata a questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi di [creazione del classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Con questa sintassi, gli utenti del pool SQL sinapsi possono assegnare importanza e la quantità di risorse di sistema assegnate a una `workload_group` richiesta tramite il parametro.
+La classificazione per il pool SQL sinapsi in Azure sinapsi viene eseguita oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). La possibilità di caratterizzare le richieste oltre un accesso a una classe di risorse è limitata a questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi di [creazione del classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Con questa sintassi, gli utenti del pool SQL sinapsi possono assegnare importanza e la quantità di risorse di sistema assegnate a una richiesta tramite il `workload_group` parametro.
 
 > [!NOTE]
 > La classificazione viene valutata in base alle singole richieste. Più richieste in una singola sessione possono essere classificate in modo diverso.

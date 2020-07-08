@@ -6,12 +6,11 @@ author: sauryadas
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 77d64391888957a1697a5823a1485413686682d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5f396ba6ec1ecc6bd111e048ce34e3546c7364dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77593445"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345037"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -95,10 +94,10 @@ New Supported Version List
 * Per le nuove versioni **secondarie** di Kubernetes
   * Tutti gli utenti vengono informati pubblicamente della nuova versione e della versione che verrà rimossa.
   * Quando viene rilasciata una nuova versione della patch, la versione più recente della patch viene rimossa nello stesso momento.
-  * I clienti hanno **30 giorni** dalla data di notifica pubblica per eseguire l'aggiornamento a una versione secondaria supportata.
+  * Il supporto tecnico di Azure fornisce ai clienti **30 giorni** dalla data di notifica pubblica per eseguire l'aggiornamento a una versione secondaria supportata. Una volta superati 30 giorni, è necessario aggiornare la versione secondaria per continuare a ricevere supporto.
 * Per le nuove versioni di **patch** di Kubernetes
   * A tutti gli utenti viene notificata la nuova versione della patch rilasciata e per eseguire l'aggiornamento alla versione più recente della patch.
-  * Gli utenti hanno **30 giorni** per eseguire l'aggiornamento a una versione più recente supportata della patch prima che venga rimosso il meno recente.
+  * Il supporto tecnico di Azure fornisce ai clienti **30 giorni** per eseguire l'aggiornamento a una versione patch supportata, dopo la rimozione di una versione precedente della patch. Una volta superati 30 giorni, è necessario aggiornare la versione della patch per continuare a ricevere supporto.
 
 AKS definisce una "versione rilasciata" come le versioni disponibili a livello generale, abilitata in tutte le misurazioni SLO/qualità del servizio e disponibile in tutte le aree. AKS può supportare anche le versioni di anteprima, etichettate in modo esplicito e soggette a termini e condizioni per l'anteprima.
 
@@ -155,7 +154,7 @@ Per le versioni secondarie non supportate da AKS, la scalabilità orizzontale o 
 
 **Un cliente può usare permanentemente una versione di Kubernetes?**
 
-Sì. Tuttavia, se il cluster non si trova in una delle versioni supportate da AKS, il cluster non è in linea con i criteri di supporto di AKS. Azure non aggiorna o elimina automaticamente il cluster.
+Se un cluster non è supportato per più di 3 versioni secondarie ed è stato individuato per portare a rischi per la sicurezza, Azure Contatta l'utente per aggiornare in modo proattivo il cluster. Se non si eseguono altre azioni, Azure si riserva il diritto di forzare l'aggiornamento del cluster per conto dell'utente.
 
 **Quale versione supporta il piano di controllo se il pool di nodi non si trova in una delle versioni AKS supportate?**
 

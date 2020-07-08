@@ -7,12 +7,11 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/8/2019
-ms.openlocfilehash: 684116f92544e61a892b3653f8539f9f8f03e0c9
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: b8d47d1036473af1b367cc0266aae3ea1bceeada
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584091"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343932"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Creare utenti in database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -33,9 +32,9 @@ Poiché iperscale è un servizio PaaS gestito, solo Microsoft può accedere con 
 Autorizzazioni per il `citus` ruolo:
 
 * Leggere tutte le variabili di configurazione, anche le variabili normalmente visibili solo agli utenti con superuser.
-* Leggi tutte le\_visualizzazioni\_ \* PG stat e usa varie estensioni correlate alle statistiche, anche viste o estensioni normalmente visibili solo agli utenti con superuser.
+* Leggi tutte le \_ visualizzazioni PG stat \_ \* e usa varie estensioni correlate alle statistiche, anche viste o estensioni normalmente visibili solo agli utenti con superuser.
 * Eseguire funzioni di monitoraggio che potrebbero richiedere l'accesso a blocchi di condivisione sulle tabelle, potenzialmente per molto tempo.
-* [Creare estensioni PostgreSQL](concepts-hyperscale-extensions.md) , perché il ruolo è un membro di `azure_pg_admin`.
+* [Creare estensioni PostgreSQL](concepts-hyperscale-extensions.md) , perché il ruolo è un membro di `azure_pg_admin` .
 
 In particolare, il `citus` ruolo presenta alcune restrizioni:
 
@@ -44,7 +43,7 @@ In particolare, il `citus` ruolo presenta alcune restrizioni:
 
 ## <a name="how-to-create-additional-user-roles"></a>Come creare ruoli utente aggiuntivi
 
-Come indicato in precedenza `citus` , l'account amministratore non dispone dell'autorizzazione per la creazione di altri utenti. Per aggiungere un utente, utilizzare l'interfaccia portale di Azure.
+Come indicato in precedenza, l' `citus` account amministratore non dispone dell'autorizzazione per la creazione di altri utenti. Per aggiungere un utente, utilizzare l'interfaccia portale di Azure.
 
 1. Andare alla pagina **ruoli** per il gruppo di server con iperscalabilità e fare clic su **+ Aggiungi**:
 
@@ -54,28 +53,23 @@ Come indicato in precedenza `citus` , l'account amministratore non dispone dell'
 
    ![Aggiungi ruolo](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
-L'utente verrà creato nel nodo coordinatore del gruppo di server e propagato a tutti i nodi del ruolo di lavoro. I ruoli creati tramite il portale di Azure hanno `LOGIN` l'attributo, che indica che si tratta di utenti veri che possono accedere al database.
+L'utente verrà creato nel nodo coordinatore del gruppo di server e propagato a tutti i nodi del ruolo di lavoro. I ruoli creati tramite il portale di Azure hanno l' `LOGIN` attributo, che indica che si tratta di utenti veri che possono accedere al database.
 
 ## <a name="how-to-modify-privileges-for-user-role"></a>Come modificare i privilegi per il ruolo utente
 
 I nuovi ruoli utente vengono comunemente usati per fornire l'accesso al database con privilegi limitati. Per modificare i privilegi utente, usare i comandi standard di PostgreSQL, usando uno strumento come PgAdmin o PSQL. Vedere la pagina relativa alla [connessione con PSQL](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql) nella Guida introduttiva a scalabilità (CITUS).
 
-Ad esempio, per consentire `db_user` a di `mytable`leggere, concedere l'autorizzazione:
+Ad esempio, per consentire `db_user` a di leggere `mytable` , concedere l'autorizzazione:
 
 ```sql
 GRANT SELECT ON mytable TO db_user;
 ```
 
-Iperscale (CITUS) propaga le istruzioni GRANT a tabella singola attraverso l'intero cluster, applicando tali istruzioni in tutti i nodi del ruolo di lavoro. Tuttavia, le concessioni che sono a livello di sistema, ad esempio per tutte le tabelle in uno schema, devono essere eseguite in ogni nodo Data.  Usare la `run_command_on_workers()` funzione helper:
+Iperscale (CITUS) propaga le istruzioni GRANT a tabella singola attraverso l'intero cluster, applicando tali istruzioni in tutti i nodi del ruolo di lavoro. Propaga inoltre le concessioni a livello di sistema (ad esempio per tutte le tabelle in uno schema):
 
 ```sql
--- applies to the coordinator node
+-- applies to the coordinator node and propagates to workers
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
-
--- make it apply to workers as well
-SELECT run_command_on_workers(
-  'GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;'
-);
 ```
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Come eliminare un ruolo utente o modificare la password
