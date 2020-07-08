@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a40f92e88d2d8e5ca253446b9c67ad30df538a5b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426253"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043428"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Elaborare flussi di dati in tempo reale con analisi di flusso di Azure
 
@@ -57,7 +57,7 @@ Per semplicità d'uso, questa guida introduttiva include un file di dati di esem
 ## <a name="create-an-azure-stream-analytics-query"></a>Creare una query di analisi di flusso di Azure
 Il passaggio successivo dopo la creazione del processo consiste nel scrivere una query. È possibile testare le query sui dati di esempio senza collegare un input o un output al processo.
 
-Scaricare [HelloWorldASA-InputStream. JSON](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
+Scaricare il [HelloWorldASA-InputStream.js](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
 ) da GitHub. Quindi, passare al processo di analisi di flusso di Azure nel portale di Azure.
 
 Selezionare **query** in **topologia processo** dal menu a sinistra. Selezionare quindi **carica input di esempio**. Caricare il `HelloWorldASA-InputStream.json` file e selezionare **OK**.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3694a1d04ec25f44cfcf9395bdd148e2fd3c0d9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ae5f4ba88880a53db765ab0ad9fde5bd9a4e4f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371555"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043640"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -98,7 +98,7 @@ Gli account di archiviazione BlockBlobStorage forniscono un livello di prestazio
 
 ### <a name="filestorage-storage-accounts"></a>Account di archiviazione filestorage
 
-Gli account di archiviazione filestorage forniscono un livello di prestazioni Premium per le condivisioni file di Azure. Per ulteriori informazioni, vedere [obiettivi di scalabilità e prestazioni file di Azure](../files/storage-files-scale-targets.md).
+Gli account di archiviazione filestorage forniscono un livello di prestazioni Premium per le condivisioni file di Azure. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per File di Azure](../files/storage-files-scale-targets.md).
 
 ## <a name="access-tiers-for-block-blob-data"></a>Livelli di accesso per i dati BLOB in blocchi
 
@@ -184,6 +184,8 @@ Per altre informazioni sull'API REST di Archiviazione di Azure, vedere [Informaz
 ## <a name="storage-account-billing"></a>Fatturazione dell'account di archiviazione
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

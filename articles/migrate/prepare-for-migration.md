@@ -4,12 +4,12 @@ description: Informazioni su come preparare i computer locali per la migrazione 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: 01e4a0652d575efd1c40612153be1742cd8e8927
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341317"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044159"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparare i computer locali per la migrazione ad Azure
 
@@ -94,7 +94,7 @@ Per impostazione predefinita, alle macchine virtuali di Azure viene assegnata l'
 
 - Questa assegnazione di unità comporta l'incremento di una lettera per tutte le altre assegnazioni di unità di archiviazione collegate.
 - Ad esempio, se l'installazione locale usa un disco dati assegnato all'unità D per le installazioni delle applicazioni, l'assegnazione per questa unità passerà all'unità E dopo la migrazione della macchina virtuale ad Azure. 
-- Per impedire questa assegnazione automatica e per assicurarsi che Azure assegni la lettera di unità libera successiva al relativo volume temporaneo, impostare i criteri della rete di archiviazione (SAN) su **OnlineAll:
+- Per evitare questa assegnazione automatica e per assicurarsi che Azure assegni la lettera di unità libera successiva al relativo volume temporaneo, impostare i criteri della rete di archiviazione (SAN) su **OnlineAll**:
 
 Configurare questa impostazione manualmente nel modo seguente:
 

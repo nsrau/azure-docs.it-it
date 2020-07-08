@@ -1,20 +1,20 @@
 ---
-title: Esportare un processo di analisi di flusso di Azure Azure Resource Manager modello
+title: Esportare un processo di Analisi di flusso di Azure con un modello di Azure Resource Manager
 description: Questo articolo descrive come esportare un modello di Azure Resource Manager per il processo di analisi di flusso di Azure.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 52ea7b45d0dcdb3ae16b8212557ba6ab3344ff15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76c2cf7164c3e2d683a9294cb500ed05381811b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78968904"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043530"
 ---
-# <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Esportare un processo di analisi di flusso di Azure Azure Resource Manager modello
+# <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Esportare un processo di Analisi di flusso di Azure con un modello di Azure Resource Manager
 
 [Azure Resource Manager modelli](../azure-resource-manager/templates/overview.md) consentono di implementare l'infrastruttura come codice. Il modello è un file JavaScript Object Notation (JSON) che definisce l'infrastruttura e la configurazione per le risorse. Si specificano le risorse da distribuire e le proprietà di tali risorse.
 
@@ -42,13 +42,13 @@ Il passaggio successivo consiste nel compilare lo script del processo in un mode
 
 1. Si noti che nell'area di lavoro del processo di analisi di flusso viene visualizzata una cartella di **distribuzione** .
 
-1. Esplorare il file *JobTemplate. JSON* , che è il modello di Azure Resource Manager usato per la distribuzione.
+1. Esplorare il *JobTemplate.jssu* file, ovvero il modello di gestione risorse di Azure usato per la distribuzione.
 
 ## <a name="complete-the-parameters-file"></a>Completare il file dei parametri
 
 Completare quindi il file dei parametri del modello di gestione risorse di Azure.
 
-1. Aprire il file *JobTemplate. Parameters. JSON* che si trova nella cartella **deploy** dell'area di lavoro del processo di analisi di flusso in Visual Studio Code.
+1. Aprire il *JobTemplate.parameters.js* nel file che si trova nella cartella **deploy** dell'area di lavoro del processo di analisi di flusso in Visual Studio Code.
 
 1. Si noti che le chiavi di input e di output sono null. Sostituire i valori null con le chiavi di accesso effettive per le risorse di input e di output.
 
@@ -58,7 +58,7 @@ Completare quindi il file dei parametri del modello di gestione risorse di Azure
 
 Si è pronti per distribuire il processo di analisi di flusso di Azure usando i modelli di Azure Resource Manager generati nella sezione precedente.
 
-In una finestra di PowerShell eseguire il comando seguente. Assicurarsi di reaplce *ResourceGroupName*, *TemplateFile*e *TemplateParameterFile* con il nome del gruppo di risorse effettivo e i percorsi dei file completi per i file *JobTemplate. JSON* e *JobTemplate. Parameters. JSON* nella **cartella Deploy** dell'area di lavoro del processo.
+In una finestra di PowerShell eseguire il comando seguente. Assicurarsi di reaplce *ResourceGroupName*, *TemplateFile*e *TemplateParameterFile* con il nome del gruppo di risorse effettivo e i percorsi di file completi per la *JobTemplate.js* in e *JobTemplate.parameters.jssui* file nella **cartella Deploy** dell'area di lavoro del processo.
 
 Se Azure PowerShell non è configurato, seguire la procedura descritta in [Install Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 

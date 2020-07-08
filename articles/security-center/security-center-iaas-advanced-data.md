@@ -1,6 +1,6 @@
 ---
-title: Sicurezza dei dati avanzata per IaaS nel centro sicurezza di Azure | Microsoft Docs
-description: " Informazioni su come abilitare la sicurezza dei dati avanzata per IaaS nel centro sicurezza di Azure. "
+title: Sicurezza avanzata dei dati del Centro sicurezza di Azure per computer SQL (anteprima)
+description: Informazioni su come abilitare la sicurezza dei dati avanzata per i computer SQL nel centro sicurezza di Azure
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,155 +11,127 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
+ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: a2970ea3f5ad360deaedd7efc82154cd3bc50337
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f159d2cdc48b144d0c75c62cd8a7ba6667424243
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282731"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043870"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Sicurezza dei dati avanzata per SQL Server in macchine virtuali di Azure (anteprima)
-La protezione avanzata dei dati per SQL Server in macchine virtuali di Azure è un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. Questa funzionalità di anteprima include funzionalità per l'identificazione e la mitigazione di potenziali vulnerabilità del database e per il rilevamento di attività anomale che potrebbero indicare minacce per il database. 
+# <a name="advanced-data-security-for-sql-machines-preview"></a>Sicurezza avanzata dei dati per i computer SQL (anteprima)
 
-Questa offerta di sicurezza per le macchine virtuali di Azure SQL Server è basata sulla stessa tecnologia fondamentale usata nel [pacchetto di sicurezza dei dati avanzato del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+La protezione avanzata dei dati del Centro sicurezza di Azure per i computer SQL protegge i server SQL ospitati in Azure, in altri ambienti cloud e anche in computer locali. In questo modo si estendono le protezioni per i server SQL nativi di Azure per supportare completamente gli ambienti ibridi.
+
+Questa funzionalità di anteprima include funzionalità per l'identificazione e la mitigazione di potenziali vulnerabilità del database e per il rilevamento di attività anomale che potrebbero indicare minacce per il database: 
+
+* **Valutazione della vulnerabilità** : il servizio di analisi per individuare, monitorare e aiutare a correggere le potenziali vulnerabilità del database. Le analisi di valutazione forniscono una panoramica dello stato di sicurezza dei computer SQL e i dettagli dei risultati di sicurezza.
+
+* [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) : servizio di rilevamento che monitora costantemente i server SQL per individuare minacce come attacchi SQL injection, attacchi di forza bruta e abuso dei privilegi. Questo servizio fornisce avvisi di sicurezza orientati alle azioni nel centro sicurezza di Azure con i dettagli dell'attività sospetta, le linee guida su come attenuare le minacce e le opzioni per proseguire le indagini con Azure Sentinel.
+
+>[!TIP]
+> Sicurezza avanzata dei dati per i computer SQL è un'estensione del pacchetto di [sicurezza avanzata dei dati](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)del Centro sicurezza di Azure, disponibile per database SQL di Azure, sinapsi di Azure e SQL istanza gestita.
 
 
-## <a name="overview"></a>Panoramica
+## <a name="set-up-advanced-data-security-for-sql-machines"></a>Configurare la sicurezza dei dati avanzata per i computer SQL 
 
-Advanced Data Security offre un set di funzionalità avanzate per la sicurezza di SQL, costituite da valutazione della vulnerabilità e da Advanced Threat Protection.
+La configurazione della sicurezza avanzata dei dati del Centro sicurezza di Azure per i computer SQL prevede due passaggi:
 
-* La [valutazione della vulnerabilità](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) è un servizio facile da configurare che consente di individuare, monitorare e risolvere potenziali vulnerabilità del database. Offre visibilità sullo stato di sicurezza e include i passaggi per risolvere i problemi di sicurezza e migliorare le fortificazioni del database.
-* [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit di SQL Server. Monitora costantemente il database per le attività sospette e fornisce avvisi di sicurezza orientati alle azioni sui modelli di accesso al database anomali. Questi avvisi forniscono i dettagli delle attività sospette e le azioni consigliate per analizzare e mitigare la minaccia.
+* Eseguire il provisioning dell'agente di Log Analytics nell'host di SQL Server. In questo modo viene fornita la connessione ad Azure.
 
-## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Introduzione alla sicurezza dei dati avanzata per SQL in macchine virtuali di Azure
+* Abilitare il bundle facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza.
 
-La procedura seguente illustra come iniziare a usare Advanced Data Security per SQL in macchine virtuali di Azure in anteprima pubblica.
+Entrambi sono descritti di seguito.
 
-### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Configurare la sicurezza dei dati avanzata per SQL in macchine virtuali di Azure
+### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Passaggio 1. Eseguire il provisioning dell'agente di Log Analytics nell'host di SQL Server:
 
-Abilitare la sicurezza dei dati avanzata per SQL Server in macchine virtuali a livello di sottoscrizione/area di lavoro:
- 
+- **SQL Server nella VM di Azure** : se il computer SQL è ospitato in una macchina virtuale di Azure, è possibile eseguire [il provisioning automatico dell'agente di log Analytics](security-center-enable-data-collection.md#workspace-configuration). In alternativa, è possibile seguire la procedura manuale per l' [aggiunta di una macchina virtuale di Azure](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines).
+
+- **SQL Server in Azure Arc** : se la SQL Server è ospitata in una macchina di [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) , è possibile distribuire l'agente di log Analytics usando la raccomandazione "log Analytics Agent deve essere installato nei computer Azure Arc basati su Windows (anteprima)". In alternativa, è possibile seguire la procedura manuale nella [documentazione di Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+
+- **SQL Server** locale: se la SQL Server è ospitata in un computer Windows locale senza Azure Arc, sono disponibili due opzioni per la connessione ad Azure:
+    
+    - **Distribuire Azure Arc** : è possibile connettere qualsiasi computer Windows al centro sicurezza. Azure Arc fornisce tuttavia una maggiore integrazione in *tutti* gli ambienti di Azure. Se si configura Azure Arc, viene visualizzata la pagina **SQL Server-Azure Arc** nel portale e gli avvisi di sicurezza verranno visualizzati in una scheda **sicurezza** dedicata in tale pagina. Quindi, la prima opzione consigliata consiste nell' [impostare Azure Arc nell'host](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows) e seguire le istruzioni per **SQL Server in Azure Arc**, sopra.
+        
+    - **Connettere il computer Windows senza Azure Arc** : se si sceglie di connettere un SQL Server in esecuzione in un computer Windows senza usare Azure Arc, seguire le istruzioni riportate in [connettere computer Windows a monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+
+
+### <a name="step-2-enable-the-optional-bundle-in-security-centers-pricing-and-settings-page"></a>Passaggio 2: Abilitare il bundle facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:
+
 1. Dalla barra laterale del Centro sicurezza, aprire la pagina **impostazioni & prezzi** .
 
-1. Selezionare la sottoscrizione o l'area di lavoro per cui si vuole abilitare la sicurezza dei dati avanzata per SQL in macchine virtuali di Azure.
+    - Se si usa l' **area di lavoro predefinita del Centro sicurezza di Azure** , denominata "defaultWorkspace-[ID sottoscrizione]-[area]", selezionare la **sottoscrizione**pertinente.
 
-1. Attivare o disabilitare l'opzione per **SQL Server nella macchina virtuale (anteprima)** . 
+    - Se si usa **un'area di lavoro non predefinita**, selezionare l' **area di lavoro** pertinente (immettere il nome dell'area di lavoro nel filtro se necessario):
 
-    (Fare clic sullo screenshot per espanderlo)
-
-    [![Raccomandazioni e avvisi del Centro sicurezza come visualizzato nell'interfaccia di amministrazione di Windows](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
-
-    La protezione avanzata dei dati per SQL Server verrà abilitata in tutti i server SQL connessi all'area di lavoro selezionata o nell'area di lavoro predefinita della sottoscrizione selezionata.
-
-    >[!NOTE]
-    > La soluzione sarà completamente attiva dopo il primo riavvio del SQL Server. 
-
-Per creare una nuova area di lavoro, seguire le istruzioni riportate in [creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-
-Per connettere l'host del SQL Server a un'area di lavoro, seguire le istruzioni riportate in [connettere computer Windows a monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+        ![title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
 
-## <a name="set-up-email-notification-for-security-alerts"></a>Configurare la notifica di posta elettronica per gli avvisi di sicurezza 
+1. Attivare o disabilitare l'opzione per **SQL Server nei computer (anteprima)** . 
 
-È possibile impostare un elenco di destinatari per ricevere una notifica tramite posta elettronica quando vengono generati gli avvisi del Centro sicurezza. Il messaggio di posta elettronica contiene un collegamento diretto all'avviso nel centro sicurezza di Azure con tutti i dettagli pertinenti. 
+    [![Pagina dei prezzi del Centro sicurezza con Bundle facoltativi](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-1. Passare a prezzi del **centro** > sicurezza **& impostazioni** e fare clic sulla sottoscrizione pertinente
+    La protezione avanzata dei dati per SQL Server nei computer verrà abilitata in tutti i server SQL connessi all'area di lavoro selezionata. La protezione sarà completamente attiva dopo il primo riavvio del SQL Server. 
 
-    ![Impostazioni sottoscrizione](./media/security-center-advanced-iaas-data/subscription-settings.png)
+    >[!TIP] 
+    > Per creare una nuova area di lavoro, seguire le istruzioni riportate in [creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-1. Scegliere **notifiche tramite posta elettronica**dal menu impostazioni. 
-1. Nella casella di testo **indirizzo di posta elettronica** immettere gli indirizzi di posta elettronica per ricevere le notifiche. È possibile immettere più di un indirizzo di posta elettronica separando gli indirizzi di posta elettronica con una virgola (,).  Ad esempio admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
 
-    ![Impostazioni posta elettronica](./media/security-center-advanced-iaas-data/email-settings.png)
+1. Facoltativamente, configurare la notifica tramite posta elettronica per gli avvisi di sicurezza. 
+    È possibile impostare un elenco di destinatari per ricevere una notifica tramite posta elettronica quando vengono generati gli avvisi del Centro sicurezza. Il messaggio di posta elettronica contiene un collegamento diretto all'avviso nel centro sicurezza di Azure con tutti i dettagli pertinenti. Per altre informazioni, vedere [configurare le notifiche di posta elettronica per gli avvisi di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 
-1. Nelle impostazioni di **notifica tramite posta elettronica** impostare le opzioni seguenti:
-  
-    * **Inviare notifiche di posta elettronica per gli avvisi con livello di gravità elevato**: anziché inviare messaggi di posta elettronica per tutti gli avvisi, inviare solo per gli avvisi con gravità elevata
-    * **Inviare notifiche tramite posta elettronica anche ai proprietari della sottoscrizione**: inviare notifiche anche ai proprietari delle sottoscrizioni.
 
-1. Nella parte superiore della schermata **notifiche posta elettronica** fare clic su **Salva**.
-
-  > [!NOTE]
-  > Assicurarsi di fare clic su **Salva** prima di chiudere la finestra. in alternativa, le nuove impostazioni di **notifica tramite posta elettronica** non verranno salvate.
 
 ## <a name="explore-vulnerability-assessment-reports"></a>Esplorare i report di valutazione della vulnerabilità
 
-Il dashboard della valutazione della vulnerabilità fornisce una panoramica dei risultati della valutazione in tutti i database. È possibile visualizzare la distribuzione dei database in base alla versione SQL Server, insieme a un riepilogo del mancato rispetto del passaggio dei database e di un riepilogo generale dei controlli non riusciti in base alla distribuzione dei rischi.
+Il servizio di valutazione della vulnerabilità esegue l'analisi dei database una volta alla settimana. Le analisi vengono eseguite nello stesso giorno della settimana in cui è stato abilitato il servizio.
+
+Il dashboard della valutazione della vulnerabilità fornisce una panoramica dei risultati della valutazione in tutti i database, insieme a un riepilogo di database integri e non integri, e un riepilogo generale dei controlli con esito negativo in base alla distribuzione dei rischi.
 
 È possibile visualizzare i risultati della valutazione della vulnerabilità direttamente dal centro sicurezza.
 
-1. Dall'intestazione laterale del Centro sicurezza, in igiene sicurezza risorse selezionare **dati & archiviazione**.
+1. Dall'intestazione laterale del Centro sicurezza, aprire la pagina **raccomandazioni** e selezionare le **vulnerabilità di raccomandazione nei server SQL sui computer da correggere (anteprima)**. Per altre informazioni, vedere [raccomandazioni del Centro sicurezza](security-center-recommendations.md). 
 
-1. Selezionare le vulnerabilità di raccomandazione nei **database SQL nelle VM da correggere (anteprima)**. Per altre informazioni, vedere [raccomandazioni del Centro sicurezza](security-center-recommendations.md). 
 
-    [![* * Le vulnerabilità nei database SQL nelle macchine virtuali devono essere risolte (anteprima) * * Raccomandazione](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    [![* * Le vulnerabilità nei computer SQL Server devono essere risolte (anteprima) * * Raccomandazione](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
     Viene visualizzata la visualizzazione dettagliata di questa raccomandazione.
 
-    [![Per una visualizzazione dettagliata delle * * vulnerabilità nei database SQL nelle macchine virtuali, è necessario correggere (anteprima) * * Raccomandazione](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    [![Visualizzazione dettagliata delle * * vulnerabilità nei server SQL sui computer da correggere (anteprima) * * Raccomandazione](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-1. Per eseguire il drill-down per altri dettagli:
+1. Per altri dettagli, eseguire il drill-down:
 
-    * Per una panoramica delle risorse analizzate (database) e l'elenco dei controlli di sicurezza testati, fare clic sul server di interesse.
-    [![Vulnerabilità raggruppate in SQL Server](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
+    * Per una panoramica delle risorse analizzate (database) e l'elenco dei controlli di sicurezza testati, selezionare il server di interesse.
 
-    * Per una panoramica delle vulnerabilità raggruppate in base a un database SQL specifico, fare clic sul database di interesse.
-    [![Vulnerabilità raggruppate in SQL Server](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
+    * Per una panoramica delle vulnerabilità raggruppate in base a un database SQL specifico, selezionare il database di interesse.
 
     In ogni visualizzazione, i controlli di sicurezza sono ordinati in base alla **gravità**. Fare clic su un controllo di sicurezza specifico per visualizzare un riquadro dei dettagli con una **Descrizione**, **come risolverlo e altre** informazioni correlate, ad esempio **Impact** o **benchmark**.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Avvisi di Advanced Threat Protection per SQL Server in macchine virtuali di Azure
-Gli avvisi vengono generati da tentativi insoliti e potenzialmente dannosi di accesso o exploit di SQL Server. Questi eventi possono attivare gli avvisi seguenti:
+## <a name="advanced-threat-protection-for-sql-servers-on-machines-alerts"></a>Avvisi di Advanced Threat Protection per SQL Server in computer
+Gli avvisi vengono generati da tentativi insoliti e potenzialmente dannosi di accedere o sfruttare le macchine virtuali SQL. Questi eventi possono attivare gli avvisi mostrati nella [sezione avvisi per database SQL e SQL data warehouse della pagina di riferimento per gli avvisi](alerts-reference.md#alerts-sql-db-and-warehouse).
 
-### <a name="anomalous-access-pattern-alerts-preview"></a>Avvisi del criterio di accesso anomalo (anteprima)
-
-* **Accesso da una posizione insolita:** Questo avviso viene generato quando viene apportata una modifica al modello di accesso a SQL Server, in cui un utente ha effettuato l'accesso a SQL Server da una posizione geografica insolita. Possibili cause:
-    * Un utente malintenzionato o un utilizzo dannoso precedente ha eseguito l'accesso al SQL Server.
-    * Un utente legittimo ha eseguito l'accesso al SQL Server da una nuova posizione.
-* **Accesso da un'applicazione potenzialmente dannosa**: questo avviso viene attivato quando un'applicazione potenzialmente dannosa viene usata per accedere al database. Possibili cause:
-    * Un utente malintenzionato sta tentando di violare SQL usando gli strumenti di attacco più comuni.
-    * Test di penetrazione legittimi in azione.
-* **Accesso da un'entità di sicurezza non familiare**: questo avviso viene attivato quando il modello di accesso a SQL Server cambia, quando un utente ha effettuato l'accesso a SQL Server usando un'entità di sicurezza insolita (utente SQL). Possibili cause:
-    * Un utente malintenzionato o un utilizzo dannoso precedente ha eseguito l'accesso al SQL Server. 
-    * Un utente legittimo ha eseguito l'accesso al SQL Server da con una nuova entità.
-* **Attacco di forza bruta a credenziali SQL**: questo avviso viene attivato quando si verifica un numero elevato anomalo di accessi non riusciti con credenziali diverse. Possibili cause:
-    * Un utente malintenzionato sta tentando di violare il SQL usando forza bruta.
-    * Test di penetrazione legittimi in azione.
-
-### <a name="potential-sql-injection-attacks-supported-in-sql-server-2019"></a>Potenziali attacchi intrusivi nel codice SQL (supportati nella SQL Server 2019)
-
-* **Vulnerabilità a SQL injection**: questo avviso viene attivato quando un'applicazione genera un'istruzione SQL non corretta nel database. L'avviso potrebbe indicare una possibile vulnerabilità ad attacchi SQL injection. Possibili cause:
-    * Un difetto nel codice dell'applicazione che crea l'istruzione SQL non corretta
-    * Codice dell'applicazione o stored procedure che non correggono l'input utente quando viene creata l'istruzione SQL non corretta, che può essere sfruttata per attacchi SQL Injection
-* **Potenziale attacco SQL injection**: questo avviso viene attivato quando si verifica un exploit attivo che sfrutta una vulnerabilità identificata dell'applicazione agli attacchi SQL injection. Ciò significa che l'utente malintenzionato sta cercando di inserire istruzioni SQL dannose usando codice dell'applicazione o stored procedure vulnerabili.
-
-
-### <a name="unsafe-command-supported-in-sql-server-2019"></a>Comando unsafe (supportato in SQL Server 2019)
-
-* **Azione potenzialmente non sicura**: questo avviso viene generato quando viene eseguito un comando con privilegi elevati e potenzialmente non sicuri. Possibili cause:
-    * Il comando che è consigliabile disabilitare per una migliore postura di sicurezza è abilitato.
-    * Un utente malintenzionato che tenta di sfruttare i privilegi di accesso SQL o di escalation.   
 
 
 ## <a name="explore-and-investigate-security-alerts"></a>Esplorare ed esaminare gli avvisi di sicurezza
 
-Gli avvisi di sicurezza dei dati sono disponibili nella pagina degli avvisi del Centro sicurezza, nella scheda sicurezza della risorsa o tramite il collegamento diretto nei messaggi di posta elettronica di avviso.
+Gli avvisi di sicurezza sono disponibili nella pagina degli avvisi del Centro sicurezza, nella scheda sicurezza della risorsa o tramite il collegamento diretto nei messaggi di posta elettronica di avviso.
 
-1. Per visualizzare gli avvisi:
-
-    * Nel centro sicurezza fare clic su **avvisi di sicurezza** dalla barra laterale e selezionare un avviso.
-    * Nell'ambito della risorsa: aprire la pagina delle risorse pertinente e, nella barra laterale, fare clic su **sicurezza**. 
+1. Per visualizzare gli avvisi, selezionare **avvisi di sicurezza** dall'intestazione laterale del Centro sicurezza e selezionare un avviso.
 
 1. Gli avvisi sono progettati per essere indipendenti, con procedure dettagliate per la correzione e informazioni di analisi in ognuna di esse. È possibile approfondire ulteriormente l'uso di altre funzionalità del Centro sicurezza di Azure e di Azure Sentinel per una visualizzazione più ampia:
 
-    * Abilitare la funzionalità di controllo SQL Server per ulteriori indagini. Se si è un utente di Sentinel di Azure, è possibile caricare i log di controllo SQL dagli eventi del registro di sicurezza di Windows in Sentinel e usufruire di un'esperienza di analisi avanzata.
+    * Abilitare la funzionalità di controllo SQL Server per ulteriori indagini. Se si è un utente di Sentinel di Azure, è possibile caricare i log di controllo SQL dagli eventi del registro di sicurezza di Windows in Sentinel e usufruire di un'esperienza di analisi avanzata. [Altre informazioni sul controllo SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
     * Per migliorare il comportamento di sicurezza, usare le raccomandazioni del Centro sicurezza per il computer host indicato in ogni avviso. Questa operazione ridurrà i rischi di attacchi futuri. 
+
+    [Altre informazioni sulla gestione e la risposta agli avvisi](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per materiale correlato, vedere l'articolo seguente:
 
-- [Come correggere le raccomandazioni](security-center-remediate-recommendations.md)
+- [Avvisi di sicurezza per il database SQL e SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Configurare le notifiche di posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md)
+- [Scopri di più su Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
+- [Pacchetto di sicurezza avanzata dei dati del Centro sicurezza di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

@@ -49,16 +49,26 @@
               href: time-series-insights-parameterized-urls.md
     - name: Anteprima di Time Series Insights
       items:
-        - name: Pianificare l'ambiente
-          href: time-series-insights-update-plan.md
-        - name: Archiviazione dati e dati in ingresso
-          href: time-series-insights-update-storage-ingress.md
         - name: Casi d'uso
           href: time-series-insights-update-use-cases.md
+        - name: Pianificare l'ambiente
+          href: time-series-insights-update-plan.md
+        - name: Panoramica dell'inserimento dati
+          href: concepts-ingestion-overview.md
+        - name: Tipi di dati supportati
+          href: concepts-supported-data-types.md
+        - name: Origini eventi di inserimento dati in streaming
+          href: concepts-streaming-ingestion-event-sources.md
+        - name: Regole di appiattimento ed escape di JSON
+          href: concepts-json-flattening-escaping-rules.md
+        - name: Limiti di velocità effettiva in ingresso in streaming
+          href: concepts-streaming-throughput-limitations.md
+        - name: Archiviazione
+          href: concepts-storage.md
         - name: Modello Time Series
-          href: time-series-insights-update-tsm.md
+          href: concepts-model-overview.md
         - name: Query Time Series
-          href: time-series-insights-update-tsq.md
+          href: concepts-query-overview.md
         - name: Visualizzare i dati nella versione di anteprima dello strumento di esplorazione
           href: time-series-insights-update-explorer.md
         - name: Sviluppo

@@ -3,12 +3,12 @@ title: Panoramica dei criteri di Azure
 description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
 ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944662"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044193"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -82,7 +82,7 @@ Se nessuno dei ruoli predefiniti dispone delle autorizzazioni necessarie, creare
 
 ### <a name="resources-covered-by-azure-policy"></a>Risorse coperte da Criteri di Azure
 
-Criteri di Azure valuta tutte le risorse in Azure. Per alcuni provider di risorse, ad esempio [Configurazione guest](./concepts/guest-configuration.md), [servizio Azure Kubernetes](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/key-vault-overview.md), esiste un'integrazione più profonda per la gestione di impostazioni e oggetti. Per altre informazioni, vedere [Modalità dei provider di risorse](./concepts/definition-structure.md).
+Criteri di Azure valuta tutte le risorse in Azure. Per alcuni provider di risorse, ad esempio [Configurazione guest](./concepts/guest-configuration.md), [servizio Azure Kubernetes](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), esiste un'integrazione più profonda per la gestione di impostazioni e oggetti. Per altre informazioni, vedere [Modalità dei provider di risorse](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Raccomandazioni per la gestione dei criteri
 

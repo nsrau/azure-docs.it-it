@@ -4,14 +4,14 @@ description: Questo articolo descrive come usare identità gestite per autentica
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 31a5195038ef25acadc08e2acbedf8471b25833c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 647ab275fb7f34ee9721e4f085df0d22048fc04d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261415"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044244"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI
 
@@ -172,7 +172,7 @@ Ora che il processo di analisi di flusso è stato creato, può essere concesso l
 
 ### <a name="use-the-power-bi-powershell-cmdlets"></a>Usare i cmdlet di Power BI PowerShell
 
-1. Installare i cmdlet `MicrosoftPowerBIMgmt` di Power bi PowerShell.
+1. Installare i cmdlet di Power BI `MicrosoftPowerBIMgmt` PowerShell.
 
    > [!Important]
    > Assicurarsi di usare la versione 1.0.821 o successiva dei cmdlet.
@@ -201,7 +201,7 @@ Il processo di analisi di flusso può essere aggiunto anche come collaboratore a
 ```http
 POST https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users
 ```
-Request Body
+Corpo della richiesta
 ```json
 {
     "groupUserAccessRight": "Contributor",

@@ -5,15 +5,15 @@ ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9d4df4efc6dbee88e80e620860487636cc9210dd
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 5213a13539ac028d3e2bfec3bc7476ac645f615b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837213"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043479"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in IoT Edge
  
@@ -43,13 +43,12 @@ Analisi di flusso di Azure usa un hub IoT per distribuire i processi Edge ai dis
 
 ### <a name="installation-instructions"></a>Istruzioni per l'installazione
 Le procedure generali sono descritte nella tabella seguente. Altri dettagli sono disponibili nelle sezioni successive.
-
-|      |Passaggio   | Note   |
-| ---   | ---   |  ---      |
-| 1   | **Creare un contenitore di archiviazione**   | I contenitori di archiviazione vengono usati per salvare la definizione del processo in cui sono accessibili dai dispositivi IoT. <br>  È possibile riusare qualsiasi contenitore di archiviazione esistente.     |
-| 2   | **Creare un processo Edge di Analisi di flusso di Azure**   |  Creare un nuovo processo, selezionare **Edge** come **Ambiente host**. <br> Questi processi vengono creati e gestiti dal cloud ed eseguiti nei dispositivi IoT Edge.     |
-| 3   | **Configurare l'ambiente IoT Edge nei dispositivi**   | Istruzioni per [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Distribuire Analisi di flusso di Azure nei dispositivi IoT Edge**   |  La definizione del processo di Analisi di flusso di Azure viene esportata nel contenitore di archiviazione creato in precedenza.       |
+|Passaggio   | Note   |
+| ---   |  ---      |
+| **Creare un contenitore di archiviazione**   | I contenitori di archiviazione vengono usati per salvare la definizione del processo in cui sono accessibili dai dispositivi IoT. <br>  È possibile riusare qualsiasi contenitore di archiviazione esistente.     |
+| **Creare un processo Edge di Analisi di flusso di Azure**   |  Creare un nuovo processo, selezionare **Edge** come **Ambiente host**. <br> Questi processi vengono creati e gestiti dal cloud ed eseguiti nei dispositivi IoT Edge.     |
+| **Configurare l'ambiente IoT Edge nei dispositivi**   | Istruzioni per [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| **Distribuire Analisi di flusso di Azure nei dispositivi IoT Edge**   |  La definizione del processo di Analisi di flusso di Azure viene esportata nel contenitore di archiviazione creato in precedenza.       |
 
 È possibile seguire [questa esercitazione dettagliata](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) per distribuire il primo processo di Analisi di flusso di Azure in IoT Edge. Il video seguente fornisce informazioni sull'esecuzione di un processo di Analisi di flusso in un dispositivo IoT Edge:  
 
