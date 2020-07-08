@@ -4,12 +4,12 @@ description: Informazioni su come preparare la valutazione e la migrazione di ma
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: f3bfaf7c2396e0f1091299375aae4bfaa1d7e8ff
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771190"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109576"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparare le macchine virtuali VMware per la valutazione e la migrazione ad Azure
 
@@ -64,7 +64,7 @@ Per registrare l'appliance, l'account Azure deve avere le autorizzazioni per cre
 Per concedere le autorizzazioni all'account, seguire questa procedura:
 
 1. Verificare di avere i privilegi di amministratore tenant o globale. Quindi, in Azure AD, passare a **Azure Active Directory** > **Utenti** > **Impostazioni utente**.
-2. Impostare **Registrazioni app** su **Sì**. Si tratta di un'impostazione predefinita che non è sensibile. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)
+2. Impostare **Registrazioni app** su **Sì**. Si tratta di un'impostazione predefinita che non è sensibile. [Altre informazioni](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)
 
     ![Autorizzazioni di Azure AD](./media/tutorial-prepare-vmware/aad.png)
 
@@ -72,7 +72,7 @@ Per concedere le autorizzazioni all'account, seguire questa procedura:
 
 #### <a name="method-2-assign-application-developer-role"></a>Metodo 2: Assegnare il ruolo Sviluppatore di applicazioni
 
-In alternativa, l'amministratore tenant/globale può assegnare il ruolo Sviluppatore applicazione a un account. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) sull'assegnazione dei ruoli.
+In alternativa, l'amministratore tenant/globale può assegnare il ruolo Sviluppatore applicazione a un account. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) sull'assegnazione dei ruoli.
 
 ### <a name="assign-permissions-to-create-a-key-vault"></a>Assegnare le autorizzazioni per creare un insieme di credenziali delle chiavi
 

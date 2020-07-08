@@ -4,12 +4,12 @@ description: Informazioni su come preparare la valutazione e la migrazione di ma
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: ca9020a9c306eea39d75c15c96b5f9fe9bcc11fe
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84770544"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109621"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparare le VM Hyper-V per la valutazione e la migrazione ad Azure
 
@@ -74,13 +74,13 @@ L'amministratore tenant/globale può concedere le autorizzazioni nel modo seguen
     ![Autorizzazioni di Azure AD](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Si tratta di un'impostazione predefinita che non è sensibile. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)
+> Si tratta di un'impostazione predefinita che non è sensibile. [Altre informazioni](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)
 
 
 
 #### <a name="assign-application-developer-role"></a>Assegnare il ruolo Sviluppatore di applicazioni
 
-L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni a un account. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni a un account. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ### <a name="assign-azure-account-permissions"></a>Assegnare le autorizzazioni all'account Azure
 
@@ -106,7 +106,7 @@ Assegnare all'account il ruolo Collaboratore Macchina virtuale, in modo da avere
 **Verificare la versione di PowerShell** | Verifica che lo script sia in esecuzione in una versione di PowerShell supportata. | Verificare di eseguire PowerShell versione 4.0 o successiva nell'host Hyper-V.
 **Creare un account** | Verifica che l'utente che esegue lo script disponga dei privilegi amministrativi per l'host Hyper-V.<br/><br/>  Consente di creare un account utente locale (non amministratore) usato per la comunicazione tra il servizio Azure Migrate e l'host Hyper-V. Questo account utente viene aggiunto ai gruppi seguenti nell'host:<br/><br/> - Utenti gestione remota<br/><br/> - Amministratori di Hyper-V<br/><br/>- Performance Monitor Users | Configurare un account utente locale o di dominio con autorizzazioni di amministratore per gli host o i cluster Hyper-V.<br/><br/> - È necessario un singolo account per tutti gli host e i cluster da includere nell'individuazione.<br/><br/> - L'account può essere locale o di dominio. È consigliabile che abbia autorizzazioni di amministratore per gli host o i cluster Hyper-V.<br/><br/> In alternativa, se non si vogliono assegnare autorizzazioni di amministratore, sono necessarie le autorizzazioni seguenti: Utenti gestione remota, Amministratori di Hyper-V, Performance Monitor Users.
 **Abilitare la comunicazione remota di PowerShell** | Abilita la comunicazione remota di PowerShell nell'host, in modo che l'appliance di Azure Migrate possa eseguire i comandi di PowerShell nell'host, tramite una connessione WinRM.| Per eseguire la configurazione, in ogni host aprire una console di PowerShell come amministratore ed eseguire questo comando:<br/><br/>``` Enable-PSRemoting -force ```
-**Configurare i servizi di integrazione di Hyper-V** | Verifica che i servizi di integrazione Hyper-V siano abilitati in tutte le macchine virtuali gestite dall'host. |  [Abilitare i servizi di integrazione di Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) su ogni VM.<br/><br/> Se si esegue Windows Server 2003, [seguire queste istruzioni](prepare-windows-server-2003-migration.md).
+**Configurare i servizi di integrazione di Hyper-V** | Verifica che i servizi di integrazione Hyper-V siano abilitati in tutte le macchine virtuali gestite dall'host. |  [Abilitare i servizi di integrazione di Hyper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) su ogni VM.<br/><br/> Se si esegue Windows Server 2003, [seguire queste istruzioni](prepare-windows-server-2003-migration.md).
 **Delegare le credenziali se i dischi delle macchine virtuali si trovano in condivisioni SMB remote** | Lo script delega le credenziali. | [Abilitare CredSSP](#enable-credssp-to-delegate-credentials) per delegare le credenziali.
 
 ### <a name="run-the-script"></a>Eseguire lo script
