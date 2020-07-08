@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622950c394d59d8ba504901f5bb0eea6bc04707f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160716"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024450"
 ---
-# <a name="conditional-access-conditions"></a>Accesso condizionale: Condizioni
+# <a name="conditional-access-conditions"></a>Accesso condizionale: condizioni
 
 All'interno di un criterio di accesso condizionale, un amministratore può usare i segnali provenienti da condizioni come il rischio, la piattaforma del dispositivo o la località per migliorare le decisioni relative ai criteri. 
 
@@ -32,7 +32,11 @@ Ad esempio, quando si accede a un'applicazione sensibile, un amministratore può
 
 Per i clienti che hanno accesso a [Identity Protection](../identity-protection/overview-identity-protection.md), il rischio di accesso può essere valutato come parte di un criterio di accesso condizionale. Il rischio di accesso rappresenta la probabilità che una determinata richiesta di autenticazione non sia autorizzata dal proprietario dell'identità. Per altre informazioni sul rischio di accesso, vedere gli articoli relativi a [rischi](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) e [procedura: configurare e abilitare i criteri di rischio](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
-## <a name="device-platforms"></a>Piattaforme del dispositivo
+## <a name="user-risk"></a>Rischio utente 
+
+Per i clienti che hanno accesso a [Identity Protection](../identity-protection/overview-identity-protection.md), il rischio utente può essere valutato come parte di un criterio di accesso condizionale. Il rischio utente rappresenta la probabilità che venga compromessa una determinata identità o un determinato account. Altre informazioni sui rischi per gli utenti sono disponibili negli articoli, [che cosa sono i rischi](../identity-protection/concept-identity-protection-risks.md#user-risk) e [procedura: configurare e abilitare i criteri di rischio](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+
+## <a name="device-platforms"></a>Piattaforme per dispositivi
 
 La piattaforma del dispositivo è caratterizzata dal sistema operativo in esecuzione su un dispositivo. Azure AD identifica la piattaforma usando le informazioni fornite dal dispositivo, ad esempio le stringhe agente utente. Poiché le stringhe agente utente possono essere modificate, queste informazioni non vengono verificate. È consigliabile usare la piattaforma del dispositivo insieme ai criteri di conformità Microsoft Intune dispositivo o come parte di un'istruzione Block. Per impostazione predefinita, si applica a tutte le piattaforme del dispositivo.
 
@@ -43,9 +47,6 @@ Azure AD l'accesso condizionale supporta le piattaforme per dispositivi seguenti
 - Windows Phone
 - Windows
 - macOS
-
-> [!WARNING]
-> Microsoft è a conoscenza di un problema con i criteri di accesso condizionale e i dispositivi basati su macOS 10.15.4. Altre informazioni sono reperibili nel post di Blog relativo al [problema noto: accesso condizionale che blocca in modo imprevisto MacOS 10.15.4 Native mail client/altre app](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-conditional-access-unexpectedly-blocking-macos-10-15/ba-p/1322283).
 
 Se si blocca l'autenticazione legacy usando la condizione di **altri client** , è anche possibile impostare la condizione della piattaforma del dispositivo.
 
@@ -73,17 +74,17 @@ Per impostazione predefinita, i criteri di accesso condizionale si applicano all
       - Quando i criteri bloccano l'uso di Exchange ActiveSync, l'utente interessato riceverà un messaggio di posta elettronica di quarantena singolo. Questo messaggio di posta elettronica con fornisce informazioni sul motivo del blocco e include le istruzioni per la correzione, se possibile.
    - Altri client
       - Questa opzione include i client che usano i protocolli di autenticazione di base/legacy che non supportano l'autenticazione moderna.
-         - SMTP autenticato: usato dal POP e dal client IMAP per inviare messaggi di posta elettronica.
-         - Individuazione automatica: usata dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.
-         - PowerShell per Exchange Online: usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [connettersi a Exchange Online PowerShell usando l'autenticazione a più fattori](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
-         - Servizi Web Exchange (EWS): un'interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.
+         - SMTP autenticato: usato dai client POP e IMAP per inviare messaggi di posta elettronica.
+         - Individuazione automatica: usata dai client Outlook e EAS per trovare le cassette postali in Exchange Online e connettervisi.
+         - Exchange Online PowerShell: usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo Exchange Online PowerShell per connettersi. Per istruzioni, vedere [Connettersi a Exchange Online PowerShell con l'autenticazione a più fattori](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Servizi Web Exchange: interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.
          - IMAP4: usato dai client di posta elettronica IMAP.
          - MAPI su HTTP (MAPI/HTTP): usato da Outlook 2010 e versioni successive.
-         - Rubrica non in linea (OAB): copia delle raccolte di elenchi di indirizzi scaricate e usate da Outlook.
-         - Outlook Anywhere (RPC su HTTP): usato da Outlook 2016 e versioni precedenti.
-         - Servizio Outlook: usato dall'app di posta elettronica e calendario per Windows 10.
+         - Rubrica offline: copia delle raccolte di elenchi di indirizzi scaricate e usate da Outlook.
+         - Outlook via Internet (RPC su HTTP): usato da Outlook 2016 e versioni precedenti.
+         - Servizio Outlook: usato dall'app di posta elettronica e di calendario per Windows 10.
          - POP3: usato dai client di posta elettronica POP.
-         - Servizi Web di Reporting: consente di recuperare i dati del report in Exchange Online.
+         - Servizi Web per la creazione di report: funzionalità usata per recuperare i dati dei report in Exchange Online.
 
 Queste condizioni vengono comunemente usate quando si richiede un dispositivo gestito, bloccando l'autenticazione legacy e bloccando le applicazioni Web, ma consentendo le app per dispositivi mobili o desktop.
 
@@ -101,7 +102,7 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 | Windows Phone | Microsoft Edge, Internet Explorer |
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
-| Windows Server 2012 R2 | Internet Explorer |
+| R2 per Windows Server 2012 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
@@ -115,21 +116,17 @@ Per il supporto di Chrome in **Windows 10 Creators Update (versione 1703)** o ve
 
 Per distribuire automaticamente questa estensione ai browser Chrome, creare la chiave del Registro di sistema seguente:
 
-|    |    |
-| --- | --- |
-| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Nome | 1 |
-| Type | REG_SZ (String) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPS\://clients2.Google.com/service/update2/crx |
+- Percorso HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist
+- Nome 1
+- Tipo REG_SZ (stringa)
+- Ppnbnpeolgkicgegkbkbjmhlideopiji di dati; HTTPS \: //clients2.Google.com/service/update2/crx
 
 Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro di sistema seguente:
 
-|    |    |
-| --- | --- |
-| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Nome | 1 |
-| Type | REG_SZ (String) |
-| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+- Percorso HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
+- Nome 1
+- Tipo REG_SZ (stringa)
+- Data {"pattern": " https://device.login.microsoftonline.com ", "Filter": {"Issuer": {"CN": "MS-Organization-Access"}}}
 
 Questi browser supportano l'autenticazione del dispositivo, consentendo al dispositivo di essere identificato e convalidato rispetto a un criterio. Il controllo del dispositivo ha esito negativo se il browser è in esecuzione in modalità privata.
 
@@ -154,9 +151,9 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 | Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
 | Outlook 2016 (Office per macOS) | Office 365 Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
-| App Outlook Mobile | Office 365 Exchange Online | Android, iOS |
+| App Outlook per dispositivi mobili | Office 365 Exchange Online | Android, iOS |
 | App Power BI | Servizio Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
-| Skype for Business Online | Office 365 Exchange Online| Android, iOS |
+| Skype for Business | Office 365 Exchange Online| Android, iOS |
 | App Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
 ### <a name="exchange-activesync-clients"></a>Client Exchange ActiveSync
@@ -187,4 +184,4 @@ Ad esempio, *tutti gli utenti* che accedono all'app Cloud *Microsoft Azure Manag
 
 - [Accesso condizionale: Concedi](concept-conditional-access-grant.md)
 
-- [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+- [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)

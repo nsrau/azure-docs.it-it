@@ -7,25 +7,25 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/28/2019
+ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f95a1a08189668e5b6f88941069566b00a73bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 433ccecdc5eee5314114d020571761ee82afd6b9
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499153"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024103"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Attivare i ruoli di Azure AD in PIM
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) semplifica la gestione aziendale dell'accesso con privilegi alle risorse in Azure AD e in altri servizi online Microsoft, ad esempio Office 365 o Microsoft Intune.  
 
-Se un ruolo amministrativo è stato impostato come idoneo, è possibile attivare il ruolo quando è necessario eseguire delle azioni con privilegi. Se ad esempio si gestiscono occasionalmente le funzionalità di Office 365, è possibile che gli amministratori dei ruoli con privilegi dell'organizzazione non configurino l'utente come amministratore globale permanente perché tale ruolo interessa anche altri servizi. L'utente è invece considerato idoneo per ruoli di Azure AD, ad esempio amministratore di Exchange Online. È possibile richiedere l'attivazione del ruolo quando tali privilegi risulteranno necessari; si avrà il controllo amministrativo per un periodo di tempo predeterminato.
+Se è stato reso idoneo per un ruolo amministrativo, è necessario attivare l'assegnazione di ruolo quando è necessario eseguire azioni con privilegi. Se ad esempio si gestiscono occasionalmente le funzionalità di Office 365, è possibile che gli amministratori dei ruoli con privilegi dell'organizzazione non configurino l'utente come amministratore globale permanente perché tale ruolo interessa anche altri servizi. L'utente è invece considerato idoneo per ruoli di Azure AD, ad esempio amministratore di Exchange Online. È possibile richiedere l'attivazione del ruolo quando tali privilegi risulteranno necessari; si avrà il controllo amministrativo per un periodo di tempo predeterminato.
 
 Questo articolo è per gli amministratori che devono attivare il proprio ruolo di Azure AD in Privileged Identity Management.
 
@@ -42,7 +42,7 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 
 ## <a name="activate-a-role"></a>Attivare un ruolo
 
-Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'attivazione utilizzando l'opzione di navigazione **ruoli personali** in Privileged Identity Management.
+Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'attivazione aprendo **ruoli personali** in Privileged Identity Management.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -56,7 +56,7 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
     ![Ruoli di Azure AD-elenco dei ruoli idonei](./media/pim-how-to-activate-role/activate-link.png)
 
-1. Selezionare **Activate (attiva** ) per aprire il riquadro Activate (attiva).
+1. Selezionare **Activate (attiva** ) per aprire la pagina Activate (attiva).
 
     ![Ruoli di Azure AD: la pagina di attivazione contiene la durata e l'ambito](./media/pim-how-to-activate-role/activate-page.png)
 
@@ -76,29 +76,9 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
 1. Selezionare **Attiva**.
 
-    Se il ruolo non richiede l'approvazione, viene attivato e aggiunto all'elenco di ruoli attivi. Se si desidera utilizzare il ruolo, attenersi alla procedura descritta nella sezione successiva.
-
-    ![Riquadro di attivazione completato con ambito, ora di inizio, durata e motivo](./media/pim-how-to-activate-role/azure-ad-activation-status.png)
-
     Se il [ruolo richiede l'approvazione](pim-resource-roles-approval-workflow.md) per l'attivazione, nell'angolo superiore destro del browser verrà visualizzata una notifica che informa che la richiesta è in attesa di approvazione.
 
     ![La richiesta di attivazione è una notifica di approvazione in sospeso](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Usare un ruolo immediatamente dopo l'attivazione
-
-In caso di ritardo dopo l'attivazione, seguire questa procedura dopo aver attivato per usare immediatamente i ruoli Azure AD.
-
-1. Aprire Azure AD Privileged Identity Management.
-
-1. Selezionare **ruoli personali** per visualizzare un elenco dei ruoli Azure ad idonei e dei ruoli delle risorse di Azure.
-
-1. Selezionare **Azure ad ruoli**.
-
-1. Selezionare la scheda **ruoli attivi** .
-
-1. Quando il ruolo è attivo, disconnettersi dal portale ed eseguire di nuovo l'accesso.
-
-    Il ruolo ora sarà disponibile per l'utilizzo.
 
 ## <a name="view-the-status-of-your-requests"></a>Visualizzare lo stato della richiesta da attivare
 
@@ -133,8 +113,6 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 Quando si attiva un ruolo in Privileged Identity Management, è possibile che l'attivazione non venga propagata immediatamente a tutti i portali che richiedono il ruolo privilegiato. In alcuni casi, anche se la modifica viene propagata, la memorizzazione nella cache Web in un portale può comportare che la modifica non abbia effetto immediato. Se l'attivazione viene ritardata, è necessario eseguire le operazioni seguenti.
 
 1. Disconnettersi dal portale di Azure e quindi eseguire nuovamente l'accesso.
-
-    Quando si attiva un ruolo di Azure AD, vengono visualizzate le fasi dell'attivazione. Dopo aver completato tutte le fasi, si vedrà il collegamento **Disconnetti**. È possibile usare questo collegamento per la disconnessione. Questo consente di risolvere la maggior parte dei casi per il ritardo di attivazione.
 
 1. In Privileged Identity Management verificare di essere elencati come membri del ruolo.
 

@@ -3,15 +3,15 @@ title: Gestire un account Azure Data Lake Storage Gen1 con .NET
 description: Informazioni su come usare .NET SDK per Azure Data Lake Storage Gen1 operazioni di gestione degli account.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d7ea2b7fffc4edff6cae895e08b955d2e21ff5f2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 379f0c5418c2e15786b16cf1e4f67487432fa905
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692125"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985931"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operazioni di gestione di account in Azure Data Lake Storage Gen1 con .NET SDK
 > [!div class="op_single_selector"]
@@ -48,42 +48,46 @@ Per istruzioni su come eseguire le operazioni di gestione di dati in Data Lake S
    4. Chiudere **Gestione pacchetti NuGet**.
 5. Aprire **Program.cs**, eliminare il codice esistente e quindi includere le istruzioni seguenti per aggiungere riferimenti agli spazi dei nomi.
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Collections.Generic;
+    using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
                 
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.Management.DataLake.Store;
+    using Microsoft.Azure.Management.DataLake.Store.Models;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```
 
 6. Dichiarare le variabili e fornire i valori per i segnaposto. Assicurarsi anche che il percorso locale e il nome file forniti siano presenti nel computer.
 
-        namespace SdkSample
+    ```csharp
+    namespace SdkSample
+    {
+        class Program
         {
-            class Program
-            {
-                private static DataLakeStoreAccountManagementClient _adlsClient;
+            private static DataLakeStoreAccountManagementClient _adlsClient;
                 
-                private static string _adlsAccountName;
-                private static string _resourceGroupName;
-                private static string _location;
-                private static string _subId;
+            private static string _adlsAccountName;
+            private static string _resourceGroupName;
+            private static string _location;
+            private static string _subId;
 
-                private static void Main(string[] args)
-                {
-                    _adlsAccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net"; 
-                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
-                    _location = "East US 2";
-                    _subId = "<SUBSCRIPTION-ID>";                    
-                }
+            private static void Main(string[] args)
+            {
+                _adlsAccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net"; 
+                _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
+                _location = "East US 2";
+                _subId = "<SUBSCRIPTION-ID>";                    
             }
         }
+    }
+    ```
 
 Nelle sezioni rimanenti dell'articolo è possibile vedere come usare i metodi .NET disponibili per eseguire operazioni come autenticazione, caricamento di file e così via.
 
@@ -95,39 +99,47 @@ Nelle sezioni rimanenti dell'articolo è possibile vedere come usare i metodi .N
 ## <a name="create-client-object"></a>Creare un oggetto client
 Il frammento di codice seguente crea l'oggetto client dell'account Data Lake Storage Gen1, usato per inviare richieste di gestione di account al servizio, ad esempio per la creazione di account, l'eliminazione di account e così via.
 
-    // Create client objects and set the subscription ID
-    _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
+```csharp
+// Create client objects and set the subscription ID
+_adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
+```
     
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Creare un account Data Lake Storage Gen1
 Il frammento di codice seguente crea un account Data Lake Storage Gen1 nella sottoscrizione di Azure fornita durante la creazione dell'oggetto client dell'account Data Lake Storage Gen1.
 
-    // Create Data Lake Storage Gen1 account
-    var adlsParameters = new DataLakeStoreAccount(location: _location);
-    _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
+```csharp
+// Create Data Lake Storage Gen1 account
+var adlsParameters = new DataLakeStoreAccount(location: _location);
+_adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
+```
 
 ## <a name="list-all-data-lake-storage-gen1-accounts-within-a-subscription"></a>Visualizzare un elenco di tutti gli account Data Lake Storage Gen1 all'interno di una sottoscrizione
 Aggiungere il metodo seguente alla definizione di classe. Il frammento seguente elenca tutti gli account Data Lake Storage Gen1 all'interno di una determinata sottoscrizione di Azure.
 
-    // List all Data Lake Storage Gen1 accounts within the subscription
-    public static List<DataLakeStoreAccountBasic> ListAdlStoreAccounts()
+```csharp
+// List all Data Lake Storage Gen1 accounts within the subscription
+public static List<DataLakeStoreAccountBasic> ListAdlStoreAccounts()
+{
+    var response = _adlsClient.Account.List(_adlsAccountName);
+    var accounts = new List<DataLakeStoreAccountBasic>(response);
+
+    while (response.NextPageLink != null)
     {
-        var response = _adlsClient.Account.List(_adlsAccountName);
-        var accounts = new List<DataLakeStoreAccountBasic>(response);
-
-        while (response.NextPageLink != null)
-        {
-            response = _adlsClient.Account.ListNext(response.NextPageLink);
-            accounts.AddRange(response);
-        }
-
-        return accounts;
+        response = _adlsClient.Account.ListNext(response.NextPageLink);
+        accounts.AddRange(response);
     }
+
+    return accounts;
+}
+```
 
 ## <a name="delete-a-data-lake-storage-gen1-account"></a>Eliminare un account Data Lake Storage Gen1
 Il frammento di codice seguente elimina l'account Data Lake Storage Gen1 creato in precedenza.
 
-    // Delete Data Lake Storage Gen1 account
-    _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
+```csharp
+// Delete Data Lake Storage Gen1 account
+_adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
+```
 
 ## <a name="see-also"></a>Vedere anche
 * [Operazioni del file system in Data Lake Storage Gen1 con .NET SDK](data-lake-store-data-operations-net-sdk.md)

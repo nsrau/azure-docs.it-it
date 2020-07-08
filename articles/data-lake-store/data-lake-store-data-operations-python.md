@@ -4,15 +4,16 @@ description: Informazioni su come usare Python SDK con il file system di Data La
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 17b53c508f0c4c5ba8fa257fcdc692cdaa45d470
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: b6c5abe6dc267795fc2fc4c5e3371a93414e21b9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76294219"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985103"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operazioni del file system in Azure Data Lake Storage Gen1 con Python
 > [!div class="op_single_selector"]
@@ -43,7 +44,7 @@ Per usare Data Lake Storage Gen1 con Python, è necessario installare tre moduli
 
 Per installare i moduli, usare i comandi seguenti.
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
@@ -55,7 +56,7 @@ pip install azure-datalake-store
 
 2. Aggiungere le righe seguenti per importare i moduli necessari
 
-   ```
+   ```python
    ## Use this only for Azure AD service-to-service authentication
    from azure.common.credentials import ServicePrincipalCredentials
 
@@ -82,7 +83,7 @@ pip install azure-datalake-store
 
 3. Salvare le modifiche a mysample.py.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Questa sezione descrive le diverse modalità di autenticazione con Azure AD. Le opzioni disponibili sono:
 
@@ -93,34 +94,43 @@ Questa sezione descrive le diverse modalità di autenticazione con Azure AD. Le 
 
 Il frammento di codice seguente crea innanzitutto il client dell'account Data Lake Storage Gen1. Usa l'oggetto client per creare un account Data Lake Storage Gen1. e infine crea un oggetto client per il file system.
 
-    ## Declare variables
-    subscriptionId = 'FILL-IN-HERE'
-    adlsAccountName = 'FILL-IN-HERE'
+```python
+## Declare variables
+subscriptionId = 'FILL-IN-HERE'
+adlsAccountName = 'FILL-IN-HERE'
 
-    ## Create a filesystem client object
-    adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountName)
+## Create a filesystem client object
+adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountName)
+```
 
 ## <a name="create-a-directory"></a>Creare una directory
 
-    ## Create a directory
-    adlsFileSystemClient.mkdir('/mysampledirectory')
+```python
+## Create a directory
+adlsFileSystemClient.mkdir('/mysampledirectory')
+```
 
 ## <a name="upload-a-file"></a>Caricare un file
 
-
-    ## Upload a file
-    multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+```python
+## Upload a file
+multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+```
 
 
 ## <a name="download-a-file"></a>Scaricare un file
 
-    ## Download a file
-    multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+```python
+## Download a file
+multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+```
 
 ## <a name="delete-a-directory"></a>Eliminare una directory
 
-    ## Delete a directory
-    adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
+```python
+## Delete a directory
+adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Operazioni di gestione degli account in data Lake storage Gen1 tramite Python](data-lake-store-get-started-python.md).

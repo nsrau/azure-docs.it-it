@@ -5,21 +5,19 @@ description: È possibile usare Azure Machine Learning Studio (classico) per dis
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 29852eb0920f7bb32464d91e0be65c7dcb03325c
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 5077e71eda42aa3b48cda2b39b60efc19bddd8a5
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627960"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985534"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning Studio (classico): distribuzione e utilizzo
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 È possibile usare Azure Machine Learning Studio (classico) per distribuire i flussi di lavoro e i modelli di machine learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch. Essendo RESTFul, i servizi Web possono essere chiamati da diversi linguaggi di programmazione e piattaforme, come .NET e Java, nonché applicazioni, come Excel.
 
@@ -55,7 +53,9 @@ Per usare i cmdlet, è necessario prima accedere al proprio account Azure dall'i
 
 Usare questo [codice di esempio](https://github.com/ritwik20/AzureML-WebServices)per esportare l'esperimento predittivo. Dopo aver creato il file .exe dal codice è possibile digitare:
 
-    C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+```azurepowershell
+C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+```
 
 Con l'esecuzione dell'applicazione viene creato un modello JSON di servizio Web. Per usare il modello per distribuire un servizio Web è necessario aggiungere le informazioni seguenti:
 
@@ -70,13 +70,15 @@ Aggiungere le informazioni al modello JSON come figli del nodo *Properties* allo
 
 Ad esempio:
 
-    "StorageAccount": {
-            "name": "YourStorageAccountName",
-            "key": "YourStorageAccountKey"
-    },
-    "CommitmentPlan": {
-        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
-    }
+```json
+"StorageAccount": {
+        "name": "YourStorageAccountName",
+        "key": "YourStorageAccountKey"
+},
+"CommitmentPlan": {
+    "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
+}
+```
 
 Per altre informazioni, vedere gli articoli e il codice di esempio seguenti:
 

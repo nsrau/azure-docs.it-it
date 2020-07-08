@@ -2,22 +2,22 @@
 title: Accesso Single Sign-On basato su SAML - applicazioni non incluse nella raccolta - Microsoft Identity Platform | Microsoft Docs
 description: Configurare l'accesso Single Sign-On (SSO) per applicazioni non incluse nella raccolta in Microsoft Identity Platform (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
-ms.date: 07/19/2019
-ms.author: celested
+ms.date: 06/08/2020
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: HT
+ms.openlocfilehash: 3cee2b9a0ea32a3b331849263c8a97f55930542d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758368"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024232"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurare l'accesso Single Sign-On basato su SAML per applicazioni non incluse nella raccolta
 
@@ -42,6 +42,8 @@ Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Aggiunger
 
 3. Nella sezione **Gestisci** selezionare **Single Sign-On**. 
 
+   - Si noti che esistono scenari in cui l'opzione **Single Sign-on** non sarà presente. Ad esempio, se l'applicazione è stata registrata usando **registrazioni app** , la funzionalità Single Sign-on è configurata in modo da usare OAuth OIDC per impostazione predefinita. In questo caso, l'opzione **Single Sign-on** non verrà visualizzata nella finestra di navigazione in **applicazioni aziendali**. Quando si usa **registrazioni app** per aggiungere l'app personalizzata, si configurano le opzioni nel file manifesto. Per ulteriori informazioni sul file manifesto, vedere ( https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) . Per ulteriori informazioni sugli standard SSO, vedere ( https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) . Gli altri scenari in cui l' **accesso Single Sign-on** non sarà presente nella navigazione includono quando un'applicazione è ospitata in un altro tenant o se l'account non ha le autorizzazioni necessarie (amministratore globale, amministratore dell'applicazione cloud, amministratore dell'applicazione o proprietario dell'entità servizio). Le autorizzazioni possono anche causare uno scenario in cui è possibile aprire l' **accesso Single Sign-on** , ma non sarà possibile salvarlo. Per ulteriori informazioni sui ruoli amministrativi Azure AD, vedere ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
+
 4. Selezionare **SAML**. Viene visualizzata la pagina **Configura l'accesso Single Sign-On con SAML - Anteprima**.
 
    ![Passaggio 1 Modificare la configurazione SAML di base](media/configure-single-sign-on-non-gallery-applications/step-one-basic-saml-config.png)
@@ -53,7 +55,7 @@ Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Aggiunger
     | Impostazione della configurazione SAML di base | SSO avviato da provider di servizi | SSO avviato da IdP | Descrizione |
     |:--|:--|:--|:--|
     | **Identificatore (ID entità)** | Obbligatoria per alcune app | Obbligatoria per alcune app | Identifica l'applicazione in modo univoco. Azure AD restituisce l'identificatore all'applicazione come parametro Audience del token SAML. L'applicazione dovrebbe convalidarlo. Questo valore viene inoltre visualizzato come ID entità in tutti i metadati SAML forniti dall'applicazione. Immettere un URL con il modello seguente: "https://<subdomain>.contoso.com" *È possibile trovare questo valore come elemento **Autorità di certificazione** nella richiesta **AuthRequest** (SAML) inviata dall'applicazione.* |
-    | **URL di risposta** | Obbligatoria | Obbligatoria | Specifica dove l'applicazione prevede di ricevere il token SAML. L'URL di risposta è denominato anche URL del servizio consumer di asserzione. È possibile usare i campi URL di risposta aggiuntivi per specificare più URL di risposta. Ad esempio, potrebbero essere necessari URL di risposta aggiuntivi per più sottodomini. In alternativa, a scopo di test è possibile specificare contemporaneamente più URL di risposta (URL pubblici e host locale). |
+    | **URL di risposta** | Necessario | Necessario | Specifica dove l'applicazione prevede di ricevere il token SAML. L'URL di risposta è denominato anche URL del servizio consumer di asserzione. È possibile usare i campi URL di risposta aggiuntivi per specificare più URL di risposta. Ad esempio, potrebbero essere necessari URL di risposta aggiuntivi per più sottodomini. In alternativa, a scopo di test è possibile specificare contemporaneamente più URL di risposta (URL pubblici e host locale). |
     | **URL di accesso** | Obbligatoria | Non specificare | Quando un utente apre questo URL, il provider di servizi esegue il reindirizzamento ad Azure AD per l'autenticazione e l'accesso dell'utente. Azure AD usa l'URL per avviare l'applicazione da Office 365 o dal pannello di accesso di Azure AD. Se questo campo viene lasciato vuoto e un utente avvia l'applicazione da Office 365, dal pannello di accesso di Azure AD o dall'URL Single Sign-On di Azure AD, Azure AD esegue l'accesso Single Sign-On avviato da IdP.|
     | **Stato dell'inoltro** | Facoltativo | Facoltativo | Comunica all'applicazione dove reindirizzare l'utente al termine dell'autenticazione. In genere il valore è un URL valido per l'applicazione. Tuttavia, alcune applicazioni usano questo campo in modo diverso. Per altre informazioni, rivolgersi al fornitore dell'applicazione.
     | **URL di disconnessione** | Facoltativo | Facoltativo | Usato per restituire una risposta di disconnessione SAML all'applicazione.
@@ -122,9 +124,9 @@ Da Azure AD è possibile scaricare il certificato attivo in formato Base64 o RAW
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Passaggio 4. Configurare l'applicazione per l'uso di Azure AD
 
-La sezione **Configura \<NomeApplicazione>** contiene un elenco dei valori che è necessario configurare nell'applicazione in modo che usi Azure AD come provider di identità SAML. I valori richiesti variano in base all'applicazione. Per informazioni dettagliate, vedere la documentazione sul protocollo SAML dell'applicazione. Per trovare la documentazione, vedere l'intestazione **Configura \<nome dell'applicazione>** e selezionare **Visualizza istruzioni dettagliate**. La documentazione viene visualizzata nella pagina **Configura accesso**. In questa pagina viene illustrato come compilare i valori relativi all'**URL di accesso**, all'**Identificatore Azure AD** e all'**URL disconnessione** nell'intestazione **Configura \<nome applicazione>** .
+La sezione **Configura \<applicationName> ** elenca i valori che devono essere configurati nell'applicazione in modo da usare Azure ad come provider di identità SAML. I valori richiesti variano in base all'applicazione. Per informazioni dettagliate, vedere la documentazione sul protocollo SAML dell'applicazione. Per trovare la documentazione, passare all'intestazione di **configurazione \<application name> ** e selezionare **Visualizza istruzioni dettagliate**. La documentazione viene visualizzata nella pagina **Configura accesso**. Questa pagina consente di compilare i ** \<application name> ** valori **URL di accesso**, **identificatore Azure ad**e **URL di disconnessione** nell'intestazione Configura.
 
-1. Scorrere verso il basso fino alla sezione **Configurare \<applicationName>** . 
+1. Scorrere verso il basso fino alla sezione **Configurare \<applicationName>**. 
    
    ![Passaggio 4 Configurare un'applicazione](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 

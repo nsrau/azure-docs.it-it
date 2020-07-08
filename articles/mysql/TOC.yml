@@ -109,6 +109,8 @@
           href: concepts-data-encryption-mysql.md
         - name: Autenticazione di Azure AD
           href: concepts-azure-ad-authentication.md
+        - name: Crittografia doppia dell'infrastruttura
+          href: concepts-infrastructure-double-encryption.md
         - name: Baseline di sicurezza
           href: security-baseline.md
     - name: Continuità aziendale
@@ -276,6 +278,10 @@
           href: howto-data-encryption-cli.md
         - name: Convalida della crittografia dei dati
           href: howto-data-encryption-validation.md
+    - name: Crittografia doppia dell'infrastruttura
+      items:
+        - name: Configurare la crittografia doppia dell'infrastruttura
+          href: howto-double-encryption.md
     - name: Integrazione di Azure AD
       items:
         - name: Configurare l'integrazione di Azure AD

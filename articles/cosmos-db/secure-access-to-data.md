@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f62ad6952170f22fe0f94a792a137f991a0e5026
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9c851a172fcfe89e6e7aa31c298a5b3d7931a528
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208721"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023585"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteggere l'accesso ai dati in Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Oltre alle due chiavi master per l'account Cosmos DB, sono disponibili due chiav
 
 Le chiavi master primaria, secondaria, di sola lettura e di lettura/scrittura possono essere recuperate e rigenerate nel portale di Azure. Per istruzioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](manage-with-cli.md#regenerate-account-key).
 
-![Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database NoSQL":::
 
 ### <a name="key-rotation"></a>Rotazione delle chiavi<a id="key-rotation"></a>
 
@@ -53,7 +53,7 @@ Il processo di rotazione della chiave master è semplice.
 4. Verificare che la nuova chiave primaria funzioni su tutte le risorse. Il processo di rotazione delle chiavi può richiedere da meno di un minuto a ore, a seconda delle dimensioni dell'account Cosmos DB.
 5. Sostituire la chiave secondaria con la nuova chiave primaria.
 
-![Rotazione delle chiavi master nel portale di Azure: dimostrazione della sicurezza del database NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Rotazione delle chiavi master nel portale di Azure: dimostrazione della sicurezza del database NoSQL" border="false":::
 
 ### <a name="code-sample-to-use-a-master-key"></a>Esempio di codice per l'uso di una chiave master
 
@@ -97,9 +97,9 @@ Di seguito è riportato un tipico schema progettuale in cui i token delle risors
 7. L'app per il telefono può continuare a usare il token delle risorse per accedere direttamente alle risorse di Cosmos DB con le autorizzazioni definite dal token delle risorse e per l'intervallo consentito dal token delle risorse.
 8. Quando il token delle risorse scade, le richieste successive ricevono un'eccezione 401 Non autorizzato.  A questo punto, l'app per il telefono ristabilisce l'identità e richiede un nuovo token delle risorse.
 
-    ![Flusso di lavoro dei token delle risorse di Azure Cosmos DB](./media/secure-access-to-data/resourcekeyworkflow.png)
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Flusso di lavoro dei token delle risorse di Azure Cosmos DB" border="false":::
 
-La generazione e la gestione dei token delle risorse vengono gestite dalle librerie client di Cosmos DB native. Se tuttavia si usa REST, è necessario creare le intestazioni di richiesta/autenticazione. Per altre informazioni sulla creazione di intestazioni di autenticazione per REST, vedere [controllo di accesso sulle risorse di Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) o il codice sorgente per [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) o [node. js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+La generazione e la gestione dei token delle risorse vengono gestite dalle librerie client di Cosmos DB native. Se tuttavia si usa REST, è necessario creare le intestazioni di richiesta/autenticazione. Per altre informazioni sulla creazione di intestazioni di autenticazione per REST, vedere [controllo di accesso sulle risorse di Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) o il codice sorgente per [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) o [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Per un esempio di servizio di livello intermedio usato per generare o negoziare i token delle risorse, vedere l'app [ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -163,7 +163,7 @@ Per aggiungere l'accesso in lettura dell'account Azure Cosmos DB al proprio acco
 4. Nella **casella assegna accesso a**selezionare **Azure ad utente, gruppo o applicazione**.
 5. Selezionare l'utente, il gruppo o l'applicazione nella directory a cui si vuole concedere l'accesso.  È possibile eseguire ricerche nella directory in base al nome visualizzato, all'indirizzo di posta elettronica o all'identificatore dell'oggetto.
     L'applicazione, il gruppo o l'utente selezionato viene visualizzato nell'elenco dei membri selezionati.
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 L'entità può ora leggere le risorse di Azure Cosmos DB.
 
@@ -176,5 +176,5 @@ Azure Cosmos DB consente di eseguire la ricerca, selezionare, modificare ed elim
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sulla sicurezza di Cosmos database, vedere [Cosmos DB sicurezza del database](database-security.md).
-- Per informazioni su come costruire i token di autorizzazione di Azure Cosmos DB, vedere [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Controllo di accesso per le risorse di Azure Cosmos DB).
+- Per informazioni su come costruire i token di autorizzazione di Azure Cosmos DB, vedere [Access Control on Azure Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Controllo di accesso per le risorse di Azure Cosmos DB).
 - Esempi di gestione degli utenti con utenti e autorizzazioni, [esempi di gestione utenti di .NET SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)

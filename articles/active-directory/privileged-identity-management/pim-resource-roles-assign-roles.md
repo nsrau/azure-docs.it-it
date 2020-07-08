@@ -7,20 +7,20 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34051a31c6ccf69356f330d7c5ecb009f760857a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266559"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023772"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Assegnare i ruoli delle risorse di Azure in Privileged Identity Management
 
@@ -45,35 +45,33 @@ Seguire questi passaggi per rendere un utente idoneo per un ruolo delle risorse 
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **Risorse di Azure**.
+1. Selezionare **risorse di Azure**.
 
-1. Usare **Filtro della risorsa** per filtrare l'elenco delle risorse gestite.
+1. Usare il filtro delle risorse per trovare le risorse gestite che si sta cercando.
 
     ![Elenco delle risorse di Azure da gestire](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-1. Selezionare la risorsa che si desidera gestire, ad esempio una sottoscrizione o un gruppo di gestione.
+1. Selezionare la risorsa che si vuole gestire per aprire la pagina Panoramica risorse.
 
-1. In Gestisci selezionare **ruoli** per visualizzare l'elenco dei ruoli per le risorse di Azure.
+1. In **Gestisci**selezionare **ruoli** per visualizzare l'elenco dei ruoli per le risorse di Azure.
 
     ![Ruoli delle risorse di Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-1. Selezionare **Aggiungi membro** per aprire il riquadro nuova assegnazione.
+1. Selezionare **Aggiungi assegnazioni** per aprire il riquadro **Aggiungi assegnazioni** .
 
-1. Selezionare **selezionare un ruolo** per aprire il riquadro selezionare un ruolo.
+1. Selezionare **selezionare un ruolo** per aprire la pagina **selezionare un ruolo** .
 
     ![Riquadro Nuova assegnazione](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
 1. Selezionare un ruolo da assegnare e quindi fare clic su **Seleziona**.
 
-    Verrà visualizzato il riquadro Selezionare un membro o un gruppo.
+    Viene visualizzato il riquadro **selezionare un membro o un gruppo** .
 
 1. Selezionare un membro o un gruppo che si desidera assegnare al ruolo, quindi fare clic su **Seleziona**.
 
     ![Riquadro Selezionare un membro o un gruppo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-    Verrà aperto il riquadro Impostazioni di appartenenza.
-
-1. Nell'elenco **Tipo di assegnazione** selezionare **Idoneo** o **Attivo**.
+1. Nella scheda **Impostazioni** selezionare **idoneo** o **attivo**nell'elenco **tipo di assegnazione** .
 
     ![Riquadro Impostazioni di appartenenza](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -83,19 +81,11 @@ Seguire questi passaggi per rendere un utente idoneo per un ruolo delle risorse 
 
     - Le assegnazioni **attive** non richiedono che il membro esegua alcuna azione per usare il ruolo. I membri con questo tipo di assegnazione dispongono di privilegi assegnati al ruolo in qualsiasi momento.
 
-1. Se l'assegnazione deve essere permanente (idonea o assegnata in modo permanente), selezionare la casella di controllo **permanente** .
+1. Per specificare una durata di assegnazione specifica, modificare le date e le ore di inizio e di fine.
 
-    A seconda delle impostazioni dei ruoli, la casella di controllo potrebbero non essere visualizzata o potrebbe essere non modificabile.
+1. Al termine, selezionare **assegna**.
 
-1. Per indicare una durata specifica per l'assegnazione, deselezionare la casella di controllo e modificare le caselle relative a data e ora di inizio e/o fine.
-
-    ![Impostazioni di appartenenza a - data e ora](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. Al termine, selezionare **fine**.
-
-    ![Nuova assegnazione - Aggiungi](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
-
-1. Per creare la nuova assegnazione di ruolo, selezionare **Aggiungi**. Verrà visualizzata una notifica dello stato.
+1. Una volta creata la nuova assegnazione di ruolo, viene visualizzata una notifica di stato.
 
     ![Nuova assegnazione - Notifica](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
 
@@ -105,11 +95,11 @@ Seguire questi passaggi per aggiornare o rimuovere un'assegnazione di ruolo esis
 
 1. Aprire **Azure ad Privileged Identity Management**.
 
-1. Selezionare **Risorse di Azure**.
+1. Selezionare **risorse di Azure**.
 
-1. Selezionare la risorsa che si desidera gestire, ad esempio una sottoscrizione o un gruppo di gestione.
+1. Selezionare la risorsa che si vuole gestire per aprire la relativa pagina di panoramica.
 
-1. In Gestisci selezionare **ruoli** per visualizzare l'elenco dei ruoli per le risorse di Azure.
+1. In **Gestisci**selezionare **ruoli** per visualizzare l'elenco dei ruoli per le risorse di Azure.
 
     ![Ruoli delle risorse di Azure - Seleziona ruolo](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

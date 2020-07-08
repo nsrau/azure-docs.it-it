@@ -278,6 +278,8 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: Backup su richiesta della partizione
               href: service-fabric-backup-restore-service-ondemand-backup.md
+            - name: Visualizzare e modificare un backup di raccolte affidabili offline
+              href: backup-explorer.md
         - name: CodePackage dell'inizializzatore
           href: initializer-codepackages.md
         - name: RunToCompletion
@@ -629,7 +631,7 @@
               href: service-fabric-set-up-continuous-integration.md
             - name: Distribuire applicazioni Linux usando Jenkins
               href: service-fabric-cicd-your-linux-applications-with-jenkins.md
-    - name: Impostare e configurare il proxy inverso
+    - name: Installare e configurare il proxy inverso
       items:
         - name: Installare e configurare il proxy inverso
           href: service-fabric-reverseproxy-setup.md

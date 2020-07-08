@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9550684ad154f28a02ee347fd0a79c1ec286beb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74382189"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024078"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - Panoramica della sicurezza
 
@@ -56,7 +56,7 @@ Il riquadro "accessi a rischio" non protetto Mostra il numero di accessi a risch
 
 ### <a name="legacy-authentication"></a>Autenticazione legacy
 
-Il riquadro "Autenticazione legacy" mostra il numero di autenticazioni legacy dell'ultima settimana nell'organizzazione. I protocolli di autenticazione legacy non supportano i metodi di sicurezza moderni, ad esempio l'autenticazione a più fattori. Per evitare l'autenticazione legacy, è possibile applicare un criterio di accesso condizionale. Facendo clic sul riquadro "Autenticazione Legacy" si viene reindirizzati al riquadro "Identity Secure Score".
+Il riquadro "Legacy Authentication" (autenticazione legacy) Mostra il numero di autenticazioni legacy dell'ultima settimana con rischio presente nell'organizzazione. I protocolli di autenticazione legacy non supportano i metodi di sicurezza moderni, ad esempio l'autenticazione a più fattori. Per evitare l'autenticazione legacy, è possibile applicare un criterio di accesso condizionale. Facendo clic sul riquadro "Autenticazione Legacy" si viene reindirizzati al riquadro "Identity Secure Score".
 
 ### <a name="identity-secure-score"></a>Identity Secure Score
 

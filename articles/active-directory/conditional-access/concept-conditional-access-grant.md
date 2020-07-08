@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c625bebbcd2e619a8125fdfb92673cd02966b2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583205"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024455"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -28,7 +28,7 @@ All'interno di un criterio di accesso condizionale, un amministratore può usare
 
 Block prende in considerazione le assegnazioni e impedisce l'accesso in base alla configurazione dei criteri di accesso condizionale.
 
-Block è un potente controllo che deve essere dotato di una conoscenza adeguata. È necessario che gli amministratori usino la [modalità solo report](concept-conditional-access-report-only.md) per eseguire il test prima di abilitare.
+Block è un potente controllo che deve essere dotato di una conoscenza adeguata. I criteri con istruzioni Block possono avere effetti collaterali imprevisti. Il test e la convalida corretti sono fondamentali prima di abilitare su larga scala. Gli amministratori devono utilizzare strumenti come la [modalità solo report di accesso condizionale](concept-conditional-access-report-only.md) e [lo strumento What If nell'accesso condizionale](what-if-tool.md) durante l'esecuzione di modifiche.
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
@@ -39,6 +39,7 @@ Gli amministratori possono scegliere di applicare uno o più controlli durante l
 - [Richiedi dispositivo ibrido Azure AD aggiunto](../devices/concept-azure-ad-join-hybrid.md)
 - [Richiedi app client approvata](app-based-conditional-access.md)
 - [Richiedere criteri di protezione dell'app](app-protection-based-conditional-access.md)
+- [Richiedere la modifica della password](#require-password-change)
 
 Quando gli amministratori scelgono di combinare queste opzioni, possono scegliere i metodi seguenti:
 
@@ -59,11 +60,13 @@ Un dispositivo può essere contrassegnato come conforme da Intune (per qualsiasi
 
 I dispositivi devono essere registrati in Azure AD prima che possano essere contrassegnati come conformi. Altre informazioni sulla registrazione del dispositivo sono disponibili nell'articolo, [che cos'è un'identità del dispositivo](../devices/overview.md).
 
-### <a name="require-hybrid-azure-ad-joined-device"></a>Richiedi dispositivo ibrido Azure AD aggiunto
+### <a name="require-hybrid-azure-ad-joined-device"></a>Richiedere un dispositivo aggiunto ad Azure AD ibrido
 
 Le organizzazioni possono scegliere di usare l'identità del dispositivo come parte dei criteri di accesso condizionale. Le organizzazioni possono richiedere che i dispositivi siano ibridi Azure AD Uniti con questa casella di controllo. Per altre informazioni sulle identità dei dispositivi, vedere l'articolo [che cos'è un'identità del dispositivo?](../devices/overview.md).
 
-### <a name="require-approved-client-app"></a>Richiedi app client approvata
+Quando si usa il [flusso OAuth del codice del dispositivo](../develop/v2-oauth2-device-code.md), non sono supportate le condizioni Richiedi controllo concessione dispositivo gestito o stato dispositivo. Questo perché il dispositivo che esegue l'autenticazione non può fornire lo stato del dispositivo al dispositivo che fornisce un codice e lo stato del dispositivo nel token è bloccato al dispositivo che esegue l'autenticazione. Usare invece il comando Richiedi concessione di autenticazione a più fattori.
+
+### <a name="require-approved-client-app"></a>Richiedere app client approvata
 
 Le organizzazioni possono richiedere che venga eseguito un tentativo di accesso alle app Cloud selezionate da un'app client approvata. Queste app client approvate supportano i [criteri di protezione delle app di Intune](/intune/app-protection-policy) in modo indipendente da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
 
@@ -133,6 +136,21 @@ Questa impostazione è valida solo per le app client seguenti:
 
 Per gli esempi di configurazione, vedere l'articolo [procedura: richiedere i criteri di protezione delle app e un'app client approvata per l'accesso alle app cloud con accesso condizionale](app-protection-based-conditional-access.md) .
 
+### <a name="require-password-change"></a>Richiedere la modifica della password 
+
+Quando viene rilevato il rischio utente, utilizzando le condizioni dei criteri di rischio dell'utente, gli amministratori possono scegliere di modificare la password in modo sicuro utilizzando Azure AD la reimpostazione della password self-service. Se viene rilevato un rischio per l'utente, gli utenti possono eseguire la reimpostazione della password self-service per la correzione automatica, in questo modo si chiuderà l'evento di rischio utente per evitare inutili rumori per gli amministratori. 
+
+Quando a un utente viene richiesto di modificare la password, verrà prima di tutto richiesto di completare l'autenticazione a più fattori. È necessario assicurarsi che tutti gli utenti abbiano effettuato la registrazione per l'autenticazione a più fattori, in modo che vengano preparati nel caso in cui vengano rilevati rischi per il proprio account.  
+
+> [!WARNING]
+> Prima di attivare i criteri di rischio utente, è necessario che gli utenti abbiano prima effettuato la registrazione per la reimpostazione della password self-service. 
+
+Quando si configura un criterio usando il controllo delle modifiche della password, si verifica un paio di restrizioni.  
+
+1. Il criterio deve essere assegnato a "tutte le app Cloud". In questo modo si impedisce a un utente malintenzionato di usare un'app diversa per modificare la password dell'utente e reimpostare il rischio per l'account, semplicemente eseguendo l'accesso a un'altra app. 
+1. Non è possibile usare richiesta di modifica della password con altri controlli, ad esempio richiedere un dispositivo conforme.  
+1. Il controllo delle modifiche della password può essere usato solo con la condizione di assegnazione di utenti e gruppi, la condizione di assegnazione di app Cloud (che deve essere impostata su tutti) e le condizioni di rischio utente. 
+
 ### <a name="terms-of-use"></a>Condizioni per l'utilizzo
 
 Se l'organizzazione ha creato le condizioni per l'utilizzo, è possibile che siano visibili opzioni aggiuntive sotto i controlli di concessione. Queste opzioni consentono agli amministratori di richiedere il riconoscimento delle condizioni per l'utilizzo come condizione di accesso alle risorse protette dai criteri. Altre informazioni sulle condizioni per l'utilizzo sono disponibili nell'articolo [Azure Active Directory condizioni](terms-of-use.md)per l'utilizzo.
@@ -141,6 +159,6 @@ Se l'organizzazione ha creato le condizioni per l'utilizzo, è possibile che sia
 
 - [Accesso condizionale: controlli della sessione](concept-conditional-access-session.md)
 
-- [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+- [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
 
 - [Modalità solo report](concept-conditional-access-report-only.md)

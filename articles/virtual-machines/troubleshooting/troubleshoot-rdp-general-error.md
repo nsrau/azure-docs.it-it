@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f996ffa864fb4178ddedecde7c5511d5d9cf39a1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71058011"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985807"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Risolvere un errore generale RDP in una VM di Azure
 
@@ -60,7 +60,7 @@ Il listener RDP non è configurato correttamente.
 
 ## <a name="solution"></a>Soluzione
 
-Per risolvere questo problema [eseguire il backup del disco del sistema operativo](../windows/snapshot-copy-managed-disk.md) e [collegare il disco del sistema operativo a una macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md), quindi seguire i passaggi.
+Prima di seguire questa procedura, creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per risolvere il problema, usare il controllo seriale o ripristinare la macchina virtuale offline.
 
 ### <a name="serial-console"></a>Console seriale
 
@@ -78,29 +78,37 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
 
 #### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Passaggio 2: Verificare i valori delle chiavi del Registro di sistema di RDP:
 
-1. Controllare se RDP è disabilitato da criteri.
+1. Controllare se il protocollo RDP è disabilitato da criteri di gruppo.
 
-      ```
-      REM Get the local policy 
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
+    ```
+    REM Get the group policy 
+    reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
+    ```
+    Se il criterio di gruppo indica che il protocollo RDP è disabilitato (il valore di fDenyTSConnections è 0x1), eseguire il comando seguente per abilitare il servizio TermService. Se la chiave del registro di sistema non viene trovata, non sono presenti criteri di gruppo configurati per disabilitare il protocollo RDP. È possibile passare al passaggio successivo.
 
-      REM Get the domain policy if any
-      reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
-      ```
+    ```
+    REM update the fDenyTSConnections value to enable TermService service
+    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+    ```
+    > [!NOTE]
+    > Questo passaggio abilita temporaneamente il servizio TermService. La modifica verrà reimpostata quando vengono aggiornate le impostazioni di criteri di gruppo. Per risolvere il problema, è necessario controllare se il servizio TermService è disabilitato in base ai criteri di gruppo locali o ai criteri di gruppo del dominio e quindi aggiornare le impostazioni dei criteri corrispondenti.
+    
+2. Controllare la configurazione della connessione remota corrente.
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections
+    ```
+    Se il comando restituisce 0x1, la macchina virtuale non consente la connessione remota. Quindi, consentire la connessione remota usando il comando seguente:
+     ```
+     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+     ```
+    
+1. Controllare la configurazione corrente del server terminal.
 
-      - Se i criteri di dominio sono disponibili, il programma di installazione sui criteri locali viene sovrascritto.
-      - Se i criteri di dominio indicano che RDP è disabilitato (1), aggiornare i criteri AD dal controller di dominio.
-      - Se i criteri di dominio indicano che RDP è abilitato (0), non è necessario alcun aggiornamento.
-      - Se i criteri di dominio non sono disponibili e i criteri locali indicano che RDP è disabilitato (1), abilitare RDP con il comando seguente: 
-      
-            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-                  
-
-2. Controllare la configurazione corrente del server terminal.
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
-      ```
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
+    ```
 
       Se il comando restituisce 0, il server terminal è disabilitato. Quindi, abilitare il server terminal come segue:
 

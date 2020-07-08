@@ -3,16 +3,16 @@ title: Autenticazione dell'utente finale-Python con Data Lake Storage Gen1-Azure
 description: Informazioni su come ottenere l'autenticazione dell'utente finale con Azure Data Lake Storage Gen1 con Azure Active Directory tramite Python
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.custom: has-adal-ref
-ms.openlocfilehash: 6d95e8bae428741c82de270507e41b49d23a3793
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: has-adal-ref, tracking-python
+ms.openlocfilehash: 848ee67fd0a8c75308265cd39f5c5040cbac51fe
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691803"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984981"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite Python
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Per usare Data Lake Storage Gen1 con Python, è necessario installare tre moduli
 
 Per installare i moduli, usare i comandi seguenti.
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
@@ -88,24 +88,28 @@ pip install azure-datalake-store
 
 Usare i frammenti di codice seguenti per l'autenticazione con Azure AD per le operazioni di gestione degli account in un account Data Lake Storage Gen1. Il frammento di codice seguente consente di autenticare l'applicazione con Multi-Factor Authentication. Fornire i valori seguenti per un'applicazione **nativa** di Azure AD esistente.
 
-    authority_host_url = "https://login.microsoftonline.com"
-    tenant = "FILL-IN-HERE"
-    authority_url = authority_host_url + '/' + tenant
-    client_id = 'FILL-IN-HERE'
-    redirect = 'urn:ietf:wg:oauth:2.0:oob'
-    RESOURCE = 'https://management.core.windows.net/'
+```python
+authority_host_url = "https://login.microsoftonline.com"
+tenant = "FILL-IN-HERE"
+authority_url = authority_host_url + '/' + tenant
+client_id = 'FILL-IN-HERE'
+redirect = 'urn:ietf:wg:oauth:2.0:oob'
+RESOURCE = 'https://management.core.windows.net/'
 
-    context = adal.AuthenticationContext(authority_url)
-    code = context.acquire_user_code(RESOURCE, client_id)
-    print(code['message'])
-    mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
-    armCreds = AADTokenCredentials(mgmt_token, client_id, resource = RESOURCE)
+context = adal.AuthenticationContext(authority_url)
+code = context.acquire_user_code(RESOURCE, client_id)
+print(code['message'])
+mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
+armCreds = AADTokenCredentials(mgmt_token, client_id, resource = RESOURCE)
+```
 
 ### <a name="for-filesystem-operations"></a>Per operazioni di gestione del file system
 
 Usare questo tipo di autenticazione con Azure AD per le operazioni del file system in un account Data Lake Storage Gen1. Il frammento di codice seguente consente di autenticare l'applicazione con Multi-Factor Authentication. Fornire i valori seguenti per un'applicazione **nativa** di Azure AD esistente.
 
-    adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
+```console
+adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
+```
 
 ## <a name="end-user-authentication-without-multi-factor-authentication"></a>Autenticazione dell'utente finale senza autenticazione a più fattori
 

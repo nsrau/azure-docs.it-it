@@ -4,15 +4,15 @@ description: Creazione, provisioning, verifica, aggiornamento, eliminazione e de
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: ab44d5358154c17622eef68205ac2326e81377a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aba29c46a781c8e687c79a197d37758699a9acf5
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75770969"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984466"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Creare e modificare un circuito ExpressRoute mediante PowerShell
 > [!div class="op_single_selector"]
@@ -97,27 +97,29 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 La risposta sarà simile all'esempio di seguito:
 
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                          }
-    CircuitProvisioningState          : Enabled
-    ServiceProviderProvisioningState  : NotProvisioned
-    ServiceProviderNotes              :
-    ServiceProviderProperties         : {
-                                          "ServiceProviderName": "Equinix",
-                                          "PeeringLocation": "Silicon Valley",
-                                          "BandwidthInMbps": 200
-                                        }
-    ServiceKey                        : **************************************
-    Peerings                          : []
+```azurepowershell
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                    "Name": "Standard_MeteredData",
+                                    "Tier": "Standard",
+                                    "Family": "MeteredData"
+                                    }
+CircuitProvisioningState          : Enabled
+ServiceProviderProvisioningState  : NotProvisioned
+ServiceProviderNotes              :
+ServiceProviderProperties         : {
+                                    "ServiceProviderName": "Equinix",
+                                    "PeeringLocation": "Silicon Valley",
+                                    "BandwidthInMbps": 200
+                                    }
+ServiceKey                        : **************************************
+Peerings                          : []
+```
 
 È possibile recuperare queste informazioni in qualsiasi momento usando il cmdlet `Get-AzExpressRouteCircuit` . Se si effettua la chiamata senza parametri, verranno elencati tutti i circuiti. La chiave di servizio è elencata nel campo *ServiceKey* :
 
@@ -128,27 +130,29 @@ Get-AzExpressRouteCircuit
 
 La risposta sarà simile all'esempio di seguito:
 
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                          }
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : NotProvisioned
-    ServiceProviderNotes             :
-    ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                          }
-    ServiceKey                       : **************************************
-    Peerings                         : []
+```azurepowershell
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                    "Name": "Standard_MeteredData",
+                                    "Tier": "Standard",
+                                    "Family": "MeteredData"
+                                    }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : NotProvisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                    "ServiceProviderName": "Equinix",
+                                    "PeeringLocation": "Silicon Valley",
+                                    "BandwidthInMbps": 200
+                                    }
+ServiceKey                       : **************************************
+Peerings                         : []
+```
 
 
 ### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. inviare la chiave di servizio al provider di connettività per il provisioning
@@ -156,20 +160,26 @@ La risposta sarà simile all'esempio di seguito:
 
 Quando si crea un nuovo circuito ExpressRoute, il circuito ha lo stato seguente:
 
-    ServiceProviderProvisioningState : NotProvisioned
-    CircuitProvisioningState         : Enabled
+```azurepowershell
+ServiceProviderProvisioningState : NotProvisioned
+CircuitProvisioningState         : Enabled
+```
 
 
 
 Il circuito passa allo stato seguente quando è in corso l'abilitazione da parte del provider di connettività:
 
-    ServiceProviderProvisioningState : Provisioning
-    Status                           : Enabled
+```azurepowershell
+ServiceProviderProvisioningState : Provisioning
+Status                           : Enabled
+```
 
 Per poterlo usare, un circuito ExpressRoute deve avere lo stato seguente:
 
-    ServiceProviderProvisioningState : Provisioned
-    CircuitProvisioningState         : Enabled
+```azurepowershell
+ServiceProviderProvisioningState : Provisioned
+CircuitProvisioningState         : Enabled
+```
 
 ### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. controllare periodicamente lo stato e lo stato della chiave del circuito
 La verifica dello stato e della condizione della chiave del circuito comunicano all'utente quando il provider ha abilitato il circuito. Dopo la configurazione del circuito, lo stato di *ServiceProviderProvisioningState* visualizzato è *Provisioned*, come illustrato nell'esempio seguente:
@@ -181,27 +191,29 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 La risposta sarà simile all'esempio di seguito:
 
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                       }
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : Provisioned
-    ServiceProviderNotes             :
-    ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                       }
-    ServiceKey                       : **************************************
-    Peerings                         : []
+```azurepowershell
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                    "Name": "Standard_MeteredData",
+                                    "Tier": "Standard",
+                                    "Family": "MeteredData"
+                                    }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                    "ServiceProviderName": "Equinix",
+                                    "PeeringLocation": "Silicon Valley",
+                                    "BandwidthInMbps": 200
+                                    }
+ServiceKey                       : **************************************
+Peerings                         : []
+```
 
 ### <a name="7-create-your-routing-configuration"></a>7. creare la configurazione di routing
 Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione del routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md) per creare e modificare i peering del circuito.
@@ -224,27 +236,29 @@ Get-AzExpressRouteCircuit
 
 La risposta restituita è simile all'esempio seguente:
 
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                       }
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : Provisioned
-    ServiceProviderNotes             :
-    ServiceProviderProperties        : {
-                                            "ServiceProviderName": "Equinix",
-                                            "PeeringLocation": "Silicon Valley",
-                                            "BandwidthInMbps": 200
-                                          }
-    ServiceKey                       : **************************************
-    Peerings                         : []
+```azurepowershell
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                    "Name": "Standard_MeteredData",
+                                    "Tier": "Standard",
+                                    "Family": "MeteredData"
+                                    }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                        "ServiceProviderName": "Equinix",
+                                        "PeeringLocation": "Silicon Valley",
+                                        "BandwidthInMbps": 200
+                                    }
+ServiceKey                       : **************************************
+Peerings                         : []
+```
 
 
 È possibile ottenere informazioni su un circuito ExpressRoute specifico passando il nome del gruppo di risorse e il nome del circuito come parametri alla chiamata:
@@ -256,27 +270,29 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 La risposta sarà simile all'esempio di seguito:
 
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                            "Tier": "Standard",
-                                            "Family": "MeteredData"
-                                          }
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : Provisioned
-    ServiceProviderNotes             :
-    ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                          }
-    ServiceKey                       : **************************************
-    Peerings                         : []
+```azurepowershell
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                        "Name": "Standard_MeteredData",
+                                        "Tier": "Standard",
+                                        "Family": "MeteredData"
+                                    }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                        "ServiceProviderName": "Equinix",
+                                        "PeeringLocation": "Silicon Valley",
+                                        "BandwidthInMbps": 200
+                                    }
+ServiceKey                       : **************************************
+Peerings                         : []
+```
 
 
 È possibile ottenere descrizioni dettagliate di tutti i parametri eseguendo il comando seguente:

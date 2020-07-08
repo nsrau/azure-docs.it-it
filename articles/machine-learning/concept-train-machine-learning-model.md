@@ -9,12 +9,13 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.openlocfilehash: 99e2c878443b9a4256eec495429dbe57a88557d0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: a8c70254c7ba7a9525b843240230ac158e29a338
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683002"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985736"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -29,7 +30,7 @@ Azure Machine Learning offre diversi metodi per eseguire il training dei modelli
     | [Oggetti estimator](#estimators) | Le classi estimator **facilitano il training dei modelli basati su framework di Machine Learning comuni**. Sono disponibili classi estimator per **Scikit-learn**, **PyTorch**, **TensorFlow**, **Chainer**e **Ray RLlib**. È inoltre disponibile un oggetto estimator generico che può essere usato con framework che non dispongono di una classe estimator dedicata. Quando si usano gli oggetti estimator non è necessario definire una configurazione di esecuzione. |
     | [Pipeline di Machine Learning](#machine-learning-pipeline) | Le pipeline non costituiscono un metodo di training diverso, bensì un **modo per definire un flusso di lavoro attraverso passaggi modulari e riutilizzabili** che possono includere il training come parte del flusso di lavoro. Le pipeline di Machine Learning supportano l'uso del Machine Learning automatizzato, degli oggetti estimator e della configurazione di esecuzione per l'esecuzione del training dei modelli. Poiché le pipeline non sono incentrate specificatamente sul training, i motivi per l'uso di una pipeline sono più vasti rispetto agli altri metodi di training. In genere è possibile usare una pipeline nel caso in cui:<br>* Si desideri **pianificare processi automatici** come processi di training con esecuzione prolungata o preparazione dei dati.<br>* Si usino **più passaggi** coordinati nelle varie risorse di calcolo e posizioni di archiviazione.<br>* Si usi la pipeline come **modello riutilizzabile** per scenari specifici, come la riesecuzione del training o il punteggio batch.<br>* **Tracciamento e versione di origini dati, input e output** per il flusso di lavoro.<br>* Il flusso di lavoro è **implementato da diversi team che lavorano su specifici passaggi in modo indipendente**. I passaggi possono quindi essere uniti in una pipeline per implementare il flusso di lavoro. |
 
-+ [Azure Machine Learning SDK per Python](#r-sdk): L'SDK usa il pacchetto reticolare per l'associazione a SDK Python di Azure Machine Learning. In questo modo è possibile accedere agli oggetti e ai metodi principali implementati in Python SDK da qualsiasi ambiente R.
++ [Azure Machine Learning SDK per r](#r-sdk): l'SDK per r usa il pacchetto reticolare per eseguire l'associazione all'SDK Python di Azure Machine Learning. In questo modo è possibile accedere agli oggetti e ai metodi principali implementati in Python SDK da qualsiasi ambiente R.
 
 + **Finestra di progettazione**: La finestra di progettazione di Azure Machine Learning (anteprima) offre un semplice punto di ingresso nel Machine Learning per la creazione di modelli di verifica o per gli utenti con scarsa esperienza in codifica. Consente di eseguire il training dei modelli sfruttando un'interfaccia utente basata sul Web con trascinamento della selezione. È possibile usare il codice Python come parte della progettazione o eseguire il training dei modelli senza scrivere alcun codice.
 
@@ -105,7 +106,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 La finestra di progettazione consente di eseguire il training dei modelli usando un'interfaccia di trascinamento della selezione nel browser Web in uso.
 
 + [Informazioni sulla finestra di progettazione](concept-designer.md)
-+ [Esercitazione: Stimare il prezzo di un'automobile](tutorial-designer-automobile-price-train-score.md)
++ [Esercitazione: stimare il prezzo dell'automobile](tutorial-designer-automobile-price-train-score.md)
 + [Regressione: Stimare il prezzo](how-to-designer-sample-regression-automobile-price-basic.md)
 + [Classificazione: Stimare il reddito](how-to-designer-sample-classification-predict-income.md)
 + [Classificazione: Stimare varianza, appetibilità e upsell](how-to-designer-sample-classification-churn.md)

@@ -9,15 +9,15 @@ editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: e50091750e01435912a2a5163cc786e79dc09f5c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60878715"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985065"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accesso ai log di diagnostica per Azure Data Lake Storage Gen1
 Informazioni su come abilitare la registrazione diagnostica per l'account Azure Data Lake Storage Gen1 e visualizzare i log raccolti per l'account.
@@ -91,26 +91,28 @@ I log di controllo e delle richieste sono in formato JSON. In questa sezione, vi
 ### <a name="request-logs"></a>Request Logs
 Di seguito viene riportata una voce di esempio nel log delle richieste in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log.
 
+```json
+{
+"records": 
+  [        
+    . . . .
+    ,
     {
-    "records": 
-      [        
-        . . . .
-        ,
-        {
-             "time": "2016-07-07T21:02:53.456Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
-             "category": "Requests",
-             "operationName": "GETCustomerIngressEgress",
-             "resultType": "200",
-             "callerIpAddress": "::ffff:1.1.1.1",
-             "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
-             "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-             "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
-        }
-        ,
-        . . . .
-      ]
+        "time": "2016-07-07T21:02:53.456Z",
+        "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
+        "category": "Requests",
+        "operationName": "GETCustomerIngressEgress",
+        "resultType": "200",
+        "callerIpAddress": "::ffff:1.1.1.1",
+        "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
+        "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
+        "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
     }
+    ,
+    . . . .
+  ]
+}
+```
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
 | Nome | Type | Descrizione |
@@ -129,7 +131,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | Nome | Type | Descrizione |
 | --- | --- | --- |
 | HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
-| Path |string |Il percorso coinvolto nell'operazione |
+| Percorso |string |Il percorso coinvolto nell'operazione |
 | RequestContentLength |INT |La lunghezza del contenuto della richiesta HTTP |
 | ClientRequestId |string |L'ID che identifica la richiesta in modo univoco |
 | StartTime |string |L'ora in cui il server ha ricevuto la richiesta |
@@ -138,26 +140,28 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 ### <a name="audit-logs"></a>Log di controllo
 Di seguito viene riportata una voce di esempio nel log di controllo in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti log
 
+```json
+{
+"records": 
+  [        
+    . . . .
+    ,
     {
-    "records": 
-      [        
-        . . . .
-        ,
-        {
-             "time": "2016-07-08T19:08:59.359Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
-             "category": "Audit",
-             "operationName": "SeOpenStream",
-             "resultType": "0",
-             "resultSignature": "0",
-             "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
-             "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
-             "properties": {"StreamName":"adl://<data_lake_storage_gen1_account_name>.azuredatalakestore.net/logs.csv"}
-        }
-        ,
-        . . . .
-      ]
+        "time": "2016-07-08T19:08:59.359Z",
+        "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
+        "category": "Audit",
+        "operationName": "SeOpenStream",
+        "resultType": "0",
+        "resultSignature": "0",
+        "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
+        "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
+        "properties": {"StreamName":"adl://<data_lake_storage_gen1_account_name>.azuredatalakestore.net/logs.csv"}
     }
+    ,
+    . . . .
+  ]
+}
+```
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
 | Nome | Type | Descrizione |
@@ -187,7 +191,7 @@ search *
 ```
 
 
-Azure Data Lake Storage Gen1 fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio in [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+Azure Data Lake Storage Gen1 fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio in [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) . 
 
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)

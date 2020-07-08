@@ -3,15 +3,15 @@ title: Autenticazione dell'utente finale-REST con Data Lake Storage Gen1-Azure
 description: Informazioni su come ottenere l'autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite Azure Active Directory usando l'API REST
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: ac06c9ef355eeba489d2006c435a48b7efcfd7f0
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 84e85e6e817972b8ec0bee0e8b441b3585d2d9dd
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688072"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984852"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite API REST
 > [!div class="op_single_selector"]
@@ -37,44 +37,50 @@ L'autenticazione dell'utente finale è l'approccio consigliato se si vuole che u
 
 L'accesso effettuato dall'utente finale comporta l'assegnazione di un token di accesso e un token di aggiornamento all'applicazione. Il token di accesso viene associato a ogni richiesta effettuata a Data Lake Storage Gen1 o Data Lake Analytics ed è valido per un'ora per impostazione predefinita. Il token di aggiornamento può essere usato per ottenere un nuovo token di accesso, ed è valido per un massimo di due settimane per impostazione predefinita (se usato di frequente). È possibile usare due diversi approcci per l'accesso degli utenti finali.
 
-In questo scenario, l'applicazione richiede all'utente di accedere e tutte le operazioni vengono eseguite nel contesto utente. Eseguire la procedura seguente:
+In questo scenario, l'applicazione richiede all'utente di accedere e tutte le operazioni vengono eseguite nel contesto utente. Seguire questa procedura:
 
 1. Tramite l'applicazione, reindirizzare l'utente all'URL seguente:
 
-        https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+    `https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>`
 
    > [!NOTE]
-   > \<REDIRECT-URI&gt; deve essere codificato per essere usato in un URL. Pertanto, per https://localhost, usare `https%3A%2F%2Flocalhost`)
+   > \<REDIRECT-URI>deve essere codificato per essere usato in un URL. Pertanto, per https://localhost, usare `https%3A%2F%2Flocalhost`)
 
     Per questa esercitazione, è possibile sostituire i valori segnaposto nell'URL precedente e incollare quest'ultimo nella barra degli indirizzi di un web browser. Si verrà reindirizzati per l'autenticazione tramite l'accesso ad Azure. Dopo aver eseguito correttamente l'accesso, la risposta verrà visualizzata nella barra degli indirizzi del browser. La risposta sarà nel formato seguente:
 
-        http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
+    `http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>`
 
 2. Acquisire il codice di autorizzazione dalla risposta. Per questa esercitazione è possibile copiare il codice di autorizzazione dalla barra degli indirizzi del Web browser e passarla nella richiesta POST all'endpoint di token, come illustrato nel frammento di codice di seguito:
 
-        curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
-        -F redirect_uri=<REDIRECT-URI> \
-        -F grant_type=authorization_code \
-        -F resource=https://management.core.windows.net/ \
-        -F client_id=<APPLICATION-ID> \
-        -F code=<AUTHORIZATION-CODE>
+    ```console
+    curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
+    -F redirect_uri=<REDIRECT-URI> \
+    -F grant_type=authorization_code \
+    -F resource=https://management.core.windows.net/ \
+    -F client_id=<APPLICATION-ID> \
+    -F code=<AUTHORIZATION-CODE>
+    ```
 
    > [!NOTE]
-   > In questo caso non è necessario codificare \<REDIRECT-URI>.
+   > In questo caso, \<REDIRECT-URI> non è necessario codificare.
    > 
    > 
 
 3. La risposta è un oggetto JSON che contiene un token di accesso, ad esempio, `"access_token": "<ACCESS_TOKEN>"`, e un token di aggiornamento, ad esempio, `"refresh_token": "<REFRESH_TOKEN>"`. L'applicazione usa il token di accesso quando si accede ad Azure Data Lake Storage Gen1 e il token di aggiornamento quando un token di accesso scade per ottenerne un altro.
 
-        {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+    ```json
+    {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+    ```
 
 4. Quando il token di accesso scade, è possibile richiederne uno nuovo tramite il token di aggiornamento come illustrato nel frammento di codice seguente:
 
-        curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
-             -F grant_type=refresh_token \
-             -F resource=https://management.core.windows.net/ \
-             -F client_id=<APPLICATION-ID> \
-             -F refresh_token=<REFRESH-TOKEN>
+    ```console
+    curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+         -F grant_type=refresh_token \
+         -F resource=https://management.core.windows.net/ \
+         -F client_id=<APPLICATION-ID> \
+         -F refresh_token=<REFRESH-TOKEN>
+    ```
 
 Per altre informazioni sull'autenticazione utente interattiva, vedere [Flusso di concessione del codice di autorizzazione](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 

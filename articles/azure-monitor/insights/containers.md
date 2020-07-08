@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/22/2019
-ms.openlocfilehash: 171f897f6e110e8f759281c139addab477ecede3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/06/2020
+ms.openlocfilehash: fe8d2a2c083072ebc717b7476bb0738bb83301f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77664695"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984625"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Soluzione di monitoraggio dei contenitori in Monitoraggio di Azure
 
@@ -45,7 +45,7 @@ Prima di iniziare, esaminare i dettagli seguenti per verificare che i prerequisi
 
 La tabella seguente illustra il supporto per l'orchestrazione e il monitoraggio del sistema operativo di Docker per l'inventario, le prestazioni e i log del contenitore con monitoraggio di Azure.   
 
-| | ACS | Linux | Windows | Contenitore<br>Inventario | Immagine<br>Inventario | Nodo<br>Inventario | Contenitore<br>Prestazioni | Contenitore<br>Event | Event<br>File di log | Contenitore<br>File di log |
+| | ACS | Linux | Windows | Contenitore<br>Argomento | Image<br>Argomento | Nodo<br>Argomento | Contenitore<br>Prestazioni | Contenitore<br>Event | Event<br>File di log | Contenitore<br>File di log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>Controller di dominio/sistema operativo | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -116,7 +116,7 @@ Consultare l'articolo sul [motore Docker in Windows](https://docs.microsoft.com/
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installare e configurare gli host del contenitore Linux
 
-Dopo aver installato Docker, usare le impostazioni seguenti per l'host di contenitori per configurare l'agente per l'uso con Docker. Sono necessari l'ID e la chiave dell'area di lavoro Log Analytics, che è possibile identificare nel portale di Azure. Nell'area di lavoro fare clic su **avvio rapido** > **computer** per visualizzare l'ID e la **chiave primaria**dell' **area di lavoro** .  Copiare e incollare entrambi i valori nell'editor predefinito.
+Dopo aver installato Docker, usare le impostazioni seguenti per l'host di contenitori per configurare l'agente per l'uso con Docker. Sono necessari l'ID e la chiave dell'area di lavoro Log Analytics, che è possibile identificare nel portale di Azure. Nell'area di lavoro fare clic su **avvio rapido**  >  **computer** per visualizzare l'ID e la **chiave primaria**dell' **area di lavoro** .  Copiare e incollare entrambi i valori nell'editor predefinito.
 
 **Per tutti gli host del contenitore Linux, ad eccezione di CoreOS:**
 
@@ -618,7 +618,6 @@ Nella risoluzione di un errore specifico può essere utile vedere dove l'errore 
 - **KubeEvents_CL** Usare questo tipo per visualizzare gli eventi di Kubernetes.
 - **KubePodInventory_CL** Usare questo tipo quando sono necessarie le informazioni sulla gerarchia dei cluster.
 
-
 ### <a name="to-query-logs-for-container-data"></a>Per eseguire query sui log per i dati del contenitore
 
 * Scegliere un'immagine non riuscita di recente e trovare i relativi log degli errori. Iniziare cercando il nome di un contenitore che esegue l'immagine con una ricerca **ContainerInventory**. Cercare ad esempio `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
@@ -628,7 +627,7 @@ Nella risoluzione di un errore specifico può essere utile vedere dove l'errore 
 
 ## <a name="example-log-queries"></a>Query di log di esempio
 
-Spesso è utile compilare query iniziando con qualche esempio da modificare in funzione dell'ambiente. Come punto di partenza è possibile provare a usare l'area **Query di esempio** per compilare query più avanzate.
+Spesso è utile compilare query iniziando con qualche esempio da modificare in funzione dell'ambiente. Come punto di partenza, è possibile provare l'area **query di esempio** all'estrema destra della pagina della soluzione per facilitare la compilazione di query più avanzate.
 
 ![Query sui contenitori](./media/containers/containers-queries.png)
 

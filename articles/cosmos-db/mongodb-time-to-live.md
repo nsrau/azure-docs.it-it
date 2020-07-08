@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
-ms.openlocfilehash: 0fe0c9e41a5787a963920d300cd99ecaf8803019
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
-ms.translationtype: HT
+ms.openlocfilehash: 74c140f2fa08fb49235c0503ea5812e047185f8b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262770"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023500"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Impostare la scadenza dei dati con l'API di Azure Cosmos DB per MongoDB
 
@@ -74,7 +74,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 La funzionalità di durata per singolo documento può essere attivata con l'API di Azure Cosmos DB per MongoDB.
 
-![Screenshot dell'attivazione della funzionalità Durata (TTL) per documento nel portale](./media/mongodb-ttl/mongodb_portal_ttl.png) 
+:::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Screenshot dell'attivazione della funzionalità Durata (TTL) per documento nel portale":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Impostare la scadenza automatica dei dati in Azure Cosmos DB con la durata (TTL)](../cosmos-db/time-to-live.md)

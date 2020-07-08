@@ -4,16 +4,16 @@ description: Questa pagina fornisce istruzioni su come ottenere tabelle ARP tabe
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/30/2017
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: b31e9eb852c69d5f02eb855e319d2a4901942994
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5819717443de1d5742d46994dca2f23579e527a0
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618532"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986457"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Recupero di tabelle ARP nel modello di distribuzione Resource Manager
 > [!div class="op_single_selector"]
@@ -44,10 +44,12 @@ Le tabelle ARP consentono di convalidare la configurazione di livello 2 e risolu
 
 Tabella ARP di esempio: 
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1   ffff.eeee.dddd
-          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           10.0.0.1   ffff.eeee.dddd
+  0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
+```
 
 
 La sezione seguente fornisce informazioni su come visualizzare le tabelle ARP visualizzate tramite i router perimetrali di ExpressRoute. 
@@ -71,69 +73,81 @@ Questa sezione fornisce istruzioni su come visualizzare le tabelle ARP per il pe
 ### <a name="arp-tables-for-azure-private-peering"></a>Tabelle ARP per il peering privato di Azure
 Il cmdlet seguente fornisce le tabelle ARP per il peering privato di Azure
 
-        # Required Variables
-        $RG = "<Your Resource Group Name Here>"
-        $Name = "<Your ExpressRoute Circuit Name Here>"
+```azurepowershell
+# Required Variables
+$RG = "<Your Resource Group Name Here>"
+$Name = "<Your ExpressRoute Circuit Name Here>"
 
-        # ARP table for Azure private peering - Primary path
-        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
+# ARP table for Azure private peering - Primary path
+Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
 
-        # ARP table for Azure private peering - Secondary path
-        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
+# ARP table for Azure private peering - Secondary path
+Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
+```
 
 Di seguito è illustrato un esempio di output per uno dei percorsi
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1   ffff.eeee.dddd
-          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           10.0.0.1   ffff.eeee.dddd
+  0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
+```
 
 
 ### <a name="arp-tables-for-azure-public-peering"></a>Tabelle ARP per il peering pubblico di Azure
 Il cmdlet seguente fornisce le tabelle ARP per il peering pubblico di Azure
 
-        # Required Variables
-        $RG = "<Your Resource Group Name Here>"
-        $Name = "<Your ExpressRoute Circuit Name Here>"
+```azurepowershell
+# Required Variables
+$RG = "<Your Resource Group Name Here>"
+$Name = "<Your ExpressRoute Circuit Name Here>"
 
-        # ARP table for Azure public peering - Primary path
-        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
+# ARP table for Azure public peering - Primary path
+Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
 
-        # ARP table for Azure public peering - Secondary path
-        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
+# ARP table for Azure public peering - Secondary path
+Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
+```
 
 
 Di seguito è illustrato un esempio di output per uno dei percorsi
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           64.0.0.1   ffff.eeee.dddd
-          0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           64.0.0.1   ffff.eeee.dddd
+  0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
+```
 
 
 ### <a name="arp-tables-for-microsoft-peering"></a>Tabelle ARP per il peering di Microsoft
 Il cmdlet seguente fornisce le tabelle ARP per il peering di Microsoft
 
-        # Required Variables
-        $RG = "<Your Resource Group Name Here>"
-        $Name = "<Your ExpressRoute Circuit Name Here>"
+```azurepowershell
+# Required Variables
+$RG = "<Your Resource Group Name Here>"
+$Name = "<Your ExpressRoute Circuit Name Here>"
 
-        # ARP table for Microsoft peering - Primary path
-        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
+# ARP table for Microsoft peering - Primary path
+Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
 
-        # ARP table for Microsoft peering - Secondary path
-        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
+# ARP table for Microsoft peering - Secondary path
+Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
+```
 
 
 Di seguito è illustrato un esempio di output per uno dei percorsi
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1   ffff.eeee.dddd
-          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           65.0.0.1   ffff.eeee.dddd
+  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```
 
 
-## <a name="how-to-use-this-information"></a>Procedura: Come usare queste informazioni
+## <a name="how-to-use-this-information"></a>Come usare queste informazioni
 La tabella ARP di un peer può essere usata per determinare la connettività e la configurazione di livello 2 valide. Questa sezione offre una panoramica dell'aspetto delle tabelle ARP in scenari diversi.
 
 ### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>Tabella ARP quando un circuito è in stato operativo (stato previsto)
@@ -142,24 +156,30 @@ La tabella ARP di un peer può essere usata per determinare la connettività e l
 * L'ultimo ottetto dell'indirizzo IP Microsoft sarà sempre un numero pari.
 * Lo stesso indirizzo MAC verrà visualizzato sul lato Microsoft per tutti i 3 peer (principale/secondario). 
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1   ffff.eeee.dddd
-          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           65.0.0.1   ffff.eeee.dddd
+  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabella ARP quando il lato locale/provider di connettività presenta problemi
 Se si verificano problemi con il provider locale o di connettività, è possibile che venga visualizzata una sola voce nella tabella ARP o che l'indirizzo MAC locale visualizzi incompleto. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft. 
   
-       Age InterfaceProperty IpAddress  MacAddress    
-       --- ----------------- ---------  ----------    
-         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```
 
 o
        
-       Age InterfaceProperty IpAddress  MacAddress    
-       --- ----------------- ---------  ----------   
-         0 On-Prem           65.0.0.1   Incomplete
-         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------   
+  0 On-Prem           65.0.0.1   Incomplete
+  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```
 
 
 > [!NOTE]

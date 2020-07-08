@@ -9,15 +9,15 @@ editor: cgronlun
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: c8d028a981d7811ed2c864db5750afc83ab93b2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5793e1659f18818b85748dc0f2979895318ea913
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60878869"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985408"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Accedere ad Azure Data Lake Storage Gen1 dalle macchine virtuali di una rete virtuale di Azure
 Azure Data Lake Storage Gen1 è un servizio PaaS eseguito su indirizzi IP Internet pubblici. Qualunque server in grado di connettersi alla rete Internet pubblica può generalmente connettersi anche agli endpoint di Azure Data Lake Storage Gen1. Per impostazione predefinita, tutte le macchine virtuali delle reti virtuali di Azure possono accedere a Internet e quindi anche ad Azure Data Lake Storage Gen1. Tuttavia, è possibile configurare le macchine virtuali di una rete virtuale per l'accesso a Internet. Anche per queste macchine virtuali, l'accesso ad Azure Data Lake Storage Gen1 è limitato. L'accesso a Internet pubblico per le macchine virtuali delle reti virtuali di Azure può essere bloccato tramite uno degli approcci seguenti:
@@ -31,14 +31,18 @@ In questo articolo si apprenderà come abilitare l'accesso ad Azure Data Lake St
 ## <a name="enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity"></a>Abilitare la connettività ad Azure Data Lake Storage Gen1 dalle macchine virtuali con connettività limitata
 Per accedere ad Azure Data Lake Storage Gen1 da queste macchine virtuali, è necessario configurarle in modo da accedere all'indirizzo IP per l'area in cui è disponibile l'account di Azure Data Lake Storage Gen1. Gli indirizzi IP delle aree degli account Data Lake Storage Gen1 sono identificabili risolvendo i nomi DNS degli account in uso (`<account>.azuredatalakestore.net`). Per risolvere i nomi DNS degli account in uso, è possibile usare strumenti come **nslookup**. Aprire il prompt dei comandi nel computer ed eseguire il comando seguente:
 
-    nslookup mydatastore.azuredatalakestore.net
+```console
+nslookup mydatastore.azuredatalakestore.net
+```
 
 L'output sarà simile a quanto segue. Il valore rispetto alla proprietà **Indirizzo** è l'indirizzo IP associato all'account Data Lake Storage Gen1.
 
-    Non-authoritative answer:
-    Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
-    Address:  104.44.88.112
-    Aliases:  mydatastore.azuredatalakestore.net
+```output
+Non-authoritative answer:
+Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
+Address:  104.44.88.112
+Aliases:  mydatastore.azuredatalakestore.net
+```
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>Abilitare la connettività da macchine virtuali limitatamente all'uso di NSG

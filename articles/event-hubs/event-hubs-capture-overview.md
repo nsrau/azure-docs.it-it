@@ -1,26 +1,14 @@
 ---
 title: Acquisire eventi di streaming - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica della funzionalità Acquisizione, che consente di acquisire gli eventi in streaming attraverso Hub eventi di Azure.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
-ms.service: event-hubs
-ms.workload: na
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2020
-ms.author: shvija
-ms.openlocfilehash: b3411b3e138778ca7ca1ffcfe14d8d6e84d76d4e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: be5a8bed06f5df0ffcee66c277f8ba5fa1a1bf74
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726095"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985259"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Acquisire eventi tramite Hub eventi di Azure in Archiviazione BLOB di Azure o Azure Data Lake Storage
 Hub eventi di Azure consente di acquisire automaticamente i dati in streaming di Hub eventi in un account di [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) o [Azure Data Lake Storage Gen 1 o Gen 2](https://azure.microsoft.com/services/data-lake-store/) a scelta, con la possibilità di specificare un intervallo di tempo o di dimensioni. La configurazione di Acquisizione è rapida, non sono previsti costi amministrativi per l'esecuzione e viene ridimensionata automaticamente con le [unità elaborate](event-hubs-scalability.md#throughput-units) in Hub eventi. Acquisizione di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
@@ -161,7 +149,7 @@ Informazioni su come abilitare questa funzionalità usando il modello di portale
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: https://www.apache.org/dist/avro/stable/java/avro-tools-1.9.2.jar
+[Avro Tools]: https://downloads.apache.org/avro/stable/java/
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

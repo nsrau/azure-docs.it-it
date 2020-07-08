@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 2032ba11c307adda7035d64828d5089da49bedba
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307808"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023024"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Errori di debug durante l'esecuzione di un'applicazione di comandi personalizzati
 
@@ -27,9 +27,8 @@ Se l'applicazione Esegui comandi personalizzati dall' [applicazione client (con 
 
 | Codice di errore | Dettagli |
 | ------- | -------- |
-| 401 | AuthenticationFailure: l'aggiornamento di WebSocket non è riuscito con un errore di autenticazione |
-| 1000 | Durata di inattività massima connessione WebSocket superata (> 300.000 ms) |
-| 1002 | Il server ha restituito il codice di stato ' 404' quando era previsto il codice di stato ' 101'. |
+| [401](#error-401) | AuthenticationFailure: l'aggiornamento di WebSocket non è riuscito con un errore di autenticazione |
+| [1002](#error-1002)] | Il server ha restituito il codice di stato ' 404' quando era previsto il codice di stato ' 101'. |
 
 ### <a name="error-401"></a>errore 401
 - L'area specificata nell'applicazione client non corrisponde all'area dell'applicazione di comando personalizzata
@@ -37,9 +36,6 @@ Se l'applicazione Esegui comandi personalizzati dall' [applicazione client (con 
 - La chiave della risorsa vocale non è valida
     
     Verificare che la chiave della risorsa vocale sia corretta.
-
-### <a name="error-1000"></a>Errore 1000 
-Le connessioni inattive vengono interrotte dal server dopo 5 minuti. Provare a riconnettersi.
 
 ### <a name="error-1002"></a>Errore 1002 
 - L'applicazione del comando personalizzato non è pubblicata
@@ -49,10 +45,12 @@ Le connessioni inattive vengono interrotte dal server dopo 5 minuti. Provare a r
 - Il comando personalizzato applicationId non è valido
 
     Verificare che l'ID applicazione del comando personalizzato sia corretto.
-
-- Si sta provando ad accedere a un'applicazione di comando personalizzata al di fuori della risorsa vocale
+ applicazione comando personalizzata al di fuori della risorsa vocale
 
     Assicurarsi che l'applicazione di comando personalizzata venga creata sotto la risorsa di riconoscimento vocale.
+
+Per ulteriori informazioni sulla risoluzione dei problemi di connessione, fare riferimento a [risoluzione dei problemi del client di Windows Voice Assistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/clients/csharp-wpf#troubleshooting)
+
 
 ## <a name="dialog-is-canceled"></a>Finestra di dialogo annullata
 
@@ -70,14 +68,14 @@ L'evento CancelledDialog è costituito da codice di annullamento e descrizione, 
 
 | Codice di annullamento | Descrizione annullamento |
 | ------- | --------------- | ----------- |
-| MaxTurnThresholdReached | Non è stato eseguito alcun avanzamento dopo il numero massimo di consentiti |
-| RecognizerQuotaExceeded | Quota di utilizzo del riconoscimento superata |
-| RecognizerConnectionFailed | Connessione al sistema di riconoscimento non riuscita |
-| RecognizerUnauthorized | Non è possibile accedere a questa applicazione con la sottoscrizione corrente |
-| RecognizerInputExceededAllowedLength | L'input supera la lunghezza massima supportata per il riconoscimento |
-| RecognizerNotFound | Il riconoscimento non è stato trovato |
-| RecognizerInvalidQuery | Query non valida per il riconoscimento |
-| RecognizerError | Il riconoscimento restituisce un errore |
+| [MaxTurnThresholdReached](#no-progress-was-made-after-the-max-number-of-turns-allowed) | Non è stato eseguito alcun avanzamento dopo il numero massimo di consentiti |
+| [RecognizerQuotaExceeded](#recognizer-usage-quota-exceeded) | Quota di utilizzo del riconoscimento superata |
+| [RecognizerConnectionFailed](#connection-to-the-recognizer-failed) | Connessione al sistema di riconoscimento non riuscita |
+| [RecognizerUnauthorized](#this-application-cannot-be-accessed-with-the-current-subscription) | Non è possibile accedere a questa applicazione con la sottoscrizione corrente |
+| [RecognizerInputExceededAllowedLength](#input-exceeds-the-maximum-supported-length) | L'input supera la lunghezza massima supportata per il riconoscimento |
+| [RecognizerNotFound](#recognizer-not-found) | Il riconoscimento non è stato trovato |
+| [RecognizerInvalidQuery](#invalid-query-for-the-recognizer) | Query non valida per il riconoscimento |
+| [RecognizerError](#recognizer-return-an-error) | Il riconoscimento restituisce un errore |
 
 ### <a name="no-progress-was-made-after-the-max-number-of-turns-allowed"></a>Non è stato eseguito alcun avanzamento dopo il numero massimo di consentiti
 La finestra di dialogo viene annullata quando uno slot richiesto non viene aggiornato correttamente dopo un certo numero di riattivazioni. Il numero massimo di build è 3.

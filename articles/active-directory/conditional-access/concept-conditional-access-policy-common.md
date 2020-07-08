@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295297"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024384"
 ---
 # <a name="common-conditional-access-policies"></a>Criteri comuni di accesso condizionale
 
-Le [impostazioni predefinite](../fundamentals/concept-fundamentals-security-defaults.md) per la sicurezza sono ottime per alcune organizzazioni che necessitano di una maggiore flessibilità rispetto a quelle offerte. Molti hanno ad esempio la possibilità di escludere account specifici come l'accesso di emergenza o gli account di amministrazione break-Glass dai criteri di accesso condizionale che richiedono l'autenticazione a più fattori. Per tali organizzazioni, è possibile usare i criteri comuni a cui si fa riferimento in questo articolo.
+Le [impostazioni predefinite](../fundamentals/concept-fundamentals-security-defaults.md) per la sicurezza sono ottime per alcune organizzazioni che necessitano di una maggiore flessibilità rispetto a quelle offerte. Molte organizzazioni, ad esempio, hanno la possibilità di escludere account specifici come l'accesso di emergenza o gli account di amministrazione break-Glass dai criteri di accesso condizionale che richiedono l'autenticazione a più fattori. Per tali organizzazioni, è possibile usare i criteri comuni a cui si fa riferimento in questo articolo.
 
 ![Criteri di accesso condizionale nella portale di Azure](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 
@@ -38,11 +38,12 @@ Altre informazioni sugli account di accesso di emergenza e sul motivo per cui so
 * [Richiedi autenticazione a più fattori per la gestione di Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Richiedi autenticazione a più fattori per tutti gli utenti](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*Questi quattro criteri, una volta configurati insieme, simulano la funzionalità abilitata dalle [impostazioni predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md).
+\*Questi quattro criteri, quando configurati insieme, simulano la funzionalità abilitata dalle [impostazioni predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Criteri aggiuntivi
 
-* [Accesso condizionale basato sul rischio (richiede Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Accesso condizionale basato sul rischio di accesso (richiede Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Accesso condizionale basato sul rischio utente (richiede Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Richiedere una località attendibile per la registrazione dell'autenticazione a più fattori](howto-conditional-access-policy-registration.md)
 * [Blocca l'accesso in base alla località](howto-conditional-access-policy-location.md)
 * [Richiedere un dispositivo conforme](howto-conditional-access-policy-compliant-device.md)

@@ -7,18 +7,18 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5048cefaae10cd55091dd72f0b73a3cf9d731a35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cdea30e7b630b2fa62b004f98cb67fd1994f915
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253273"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024179"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Assegnare ruoli di Azure AD in Privileged Identity Management
 
@@ -53,15 +53,13 @@ Seguire questa procedura per rendere un utente idoneo per un ruolo di amministra
 
     ![Ruoli di Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-1. Selezionare **Aggiungi membro** per aprire la pagina **nuova assegnazione** .
+1. Selezionare **Aggiungi assegnazioni** per aprire la pagina **Aggiungi assegnazioni** .
 
-1. Selezionare **selezionare un ruolo** per aprire la pagina selezionare un ruolo.
+1. Selezionare **selezionare un ruolo** per aprire la pagina **selezionare un ruolo** .
 
     ![Riquadro Nuova assegnazione](./media/pim-how-to-add-role-to-user/select-role.png)
 
-1. Selezionare un ruolo da assegnare e quindi fare clic su **Seleziona**.
-
-1. Selezionare un membro a cui si desidera assegnare il ruolo e quindi selezionare **Seleziona**.
+1. Selezionare un ruolo da assegnare, selezionare un membro a cui si vuole assegnare il ruolo e quindi fare clic su **Avanti**.
 
 1. Nell'elenco **tipo di assegnazione** nel riquadro **impostazioni di appartenenza** Selezionare **idoneo** o **attivo**.
 
@@ -69,15 +67,11 @@ Seguire questa procedura per rendere un utente idoneo per un ruolo di amministra
 
     - Le assegnazioni **attive** non richiedono che il membro esegua alcuna azione per usare il ruolo. I membri con questo tipo di assegnazione dispongono di privilegi assegnati al ruolo in qualsiasi momento.
 
-1. Se l'assegnazione deve essere permanente (idonea o assegnata in modo permanente), selezionare la casella di controllo **permanente** .
-
-    A seconda delle impostazioni dei ruoli, la casella di controllo potrebbero non essere visualizzata o potrebbe essere non modificabile.
-
-1. Per indicare una durata specifica per l'assegnazione, deselezionare la casella di controllo e modificare le caselle relative a data e ora di inizio e/o fine. Al termine, selezionare **fine**.
+1. Per specificare una durata di assegnazione specifica, aggiungere le caselle di data e ora di inizio e di fine. Al termine, selezionare **assegna** per creare la nuova assegnazione di ruolo.
 
     ![Impostazioni di appartenenza a - data e ora](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. Per creare la nuova assegnazione di ruolo, selezionare **Aggiungi**. Verrà visualizzata una notifica dello stato.
+1. Una volta assegnato il ruolo, viene visualizzata una notifica sullo stato dell'assegnazione.
 
     ![Nuova assegnazione - Notifica](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -129,7 +123,7 @@ Seguire questa procedura per rendere un utente idoneo per un ruolo di amministra
 
 1. Ora che l'utente è idoneo per il ruolo, indicare che può attivarlo in base alle istruzioni riportate in [attivare i ruoli di Azure ad in Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Gli amministratori idonei devono registrarsi ad Azure Multi-Factor Authentication (MFA) durante l'attivazione. Se un utente non è in grado di eseguire la registrazione per l'autenticazione a più @outlook.comfattori o utilizza un account Microsoft (ad esempio), è necessario renderli permanenti in tutti i relativi ruoli.
+    Agli amministratori idonei viene chiesto di registrarsi per Multi-Factor Authentication di Azure durante l'attivazione. Se un utente non è in grado di eseguire la registrazione per l'autenticazione a più fattori o utilizza un account Microsoft (ad esempio @outlook.com ), è necessario renderli permanenti in tutti i relativi ruoli.
 
 ## <a name="make-a-role-assignment-permanent"></a>Rendere permanente un'assegnazione di ruolo
 

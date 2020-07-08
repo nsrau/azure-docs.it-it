@@ -6,19 +6,19 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.openlocfilehash: 04de89624dd0e6857e96327bb408cf8700a1f6a2
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.date: 06/17/2020
+ms.openlocfilehash: 498b5935d1170fdce7da76ca475c816f1fb8d136
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848882"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984243"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creare un'offerta Dynamics 365 Business Central
 
 Questo articolo descrive come creare una nuova offerta Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) è un sistema ERP (Enterprise Resource Planning) per la gestione di processi aziendali in un'ampia gamma di settori, tra cui finanza, operazioni, catena di approvvigionamento, CRM, gestione dei progetti e commercio elettronico. I pacchetti Premium supportano anche il modello di distribuzione classica e la produzione. Tutte le offerte per Dynamics 365 Business Central devono essere sottoposte al processo di certificazione.
 
-Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
+Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](create-account.md) se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
 
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
@@ -26,7 +26,7 @@ Prima di iniziare, [creare un account per il marketplace commerciale nel Centro 
 2. Nel menu di spostamento a sinistra selezionare **Marketplace commerciale** > **Panoramica**.
 3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Dynamics 365 Business Central**.
 
-    ![Menu di spostamento a sinistra.](./media/new-offer-dynamics-365-bc.png)
+    ![Menu di spostamento a sinistra.](./media/new-offer-dynamics-365-business-central.png)
 
 > [!NOTE]
 > Dopo la pubblicazione di un'offerta, le modifiche apportate all'offerta nel Centro per i partner vengono visualizzate nelle vetrine solo dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre l'offerta dopo avere apportato modifiche.
@@ -60,7 +60,7 @@ Consente di presentare gratuitamente l'offerta ai clienti fornendo un URL valido
 
 #### <a name="free-trial-listing"></a>Free trial (listing) (Versione di valutazione gratuita - Presentazione)
 
-Consente di presentare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (che inizia con *http* o *https*) dal quale ottenere una versione di valutazione.  Ad esempio: `https://contoso.com/trial/my-app`. Le versioni di valutazione gratuite delle offerte vengono create, gestite e configurate dal servizio e non sono associate a sottoscrizioni gestite da Microsoft.
+Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un URL valido (a partire da `http` o `https` ) dove è possibile ottenere una versione di valutazione.  Ad esempio: `https://contoso.com/trial/my-app`. Le versioni di valutazione gratuite delle offerte vengono create, gestite e configurate dal servizio e non sono associate a sottoscrizioni gestite da Microsoft.
 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione possono essere usati solo per ottenere informazioni degli utenti tramite Azure Active Directory (Azure AD) per automatizzare la creazione di account nell'app. Gli account Microsoft non sono supportati per l'autenticazione con questo token.
@@ -71,30 +71,11 @@ Consente di raccogliere informazioni di contatto del cliente tramite la connessi
 
 ### <a name="test-drive"></a>Test drive
 
-Il test drive è un'ottima soluzione per presentare un'offerta a potenziali clienti, dando loro la possibilità di provarla prima dell'acquisto e ottenendo più conversioni e la generazione di lead altamente qualificati. [Altre informazioni sui test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+Il test drive è un'ottima soluzione per presentare un'offerta a potenziali clienti, dando loro la possibilità di provarla prima dell'acquisto e ottenendo più conversioni e la generazione di lead altamente qualificati. Per altre informazioni, vedere la pagina relativa all' [test drive](../what-is-test-drive.md).
 
-Per abilitare un test drive per un periodo di tempo fisso, selezionare la casella di controllo **Abilita un test drive**. Per rimuovere il test drive dall'offerta, deselezionare questa casella di controllo. Configurare l'ambiente di test drive nella sezione [Configurazione tecnica del test drive](#test-drive-technical-configuration) più avanti in questo argomento.
+Per abilitare un test drive per un periodo di tempo fisso, selezionare la casella di controllo **Abilita un test drive**. Per rimuovere il test drive dall'offerta, deselezionare questa casella di controllo.
 
-Per altre informazioni, vedere [Test drive dell'offerta nel marketplace commerciale](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
-
-#### <a name="type-of-test-drive"></a>Tipo di test drive
-
-Selezionare una delle seguenti opzioni:
-
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : modello di distribuzione che contiene tutte le risorse di Azure che costituiscono la soluzione. I prodotti che rientrano in questo scenario usano solo risorse di Azure.
-- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft ospita e gestisce il servizio per i test drive (inclusi il provisioning e la distribuzione) per un sistema di pianificazione delle risorse aziendali Business Central (finanza, operazioni, catena di approvvigionamento, CRM e così via).  
-- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft ospita e gestisce il servizio per i test drive (inclusi il provisioning e la distribuzione) per un sistema Customer Engagement (vendite, assistenza, servizio di progetto, assistenza sul campo e così via).  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft ospita e gestisce il servizio per i test drive (inclusi il provisioning e la distribuzione) per un sistema di pianificazione delle risorse aziendali Finance and Operations (finanza, operazioni, produzione, catena di approvvigionamento e così via). 
-- **[App per la logica](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : modello di distribuzione che comprende tutte le architetture di soluzioni complesse. Tutti i prodotti personalizzati devono usare questo tipo di test drive.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : collegamento incorporato a un dashboard personalizzato. È consigliabile usare questo tipo di test drive per i prodotti che vogliono fornire una dimostrazione di un oggetto visivo interattivo di Power BI. È sufficiente caricare l'URL di Power BI incorporato qui.
-
-#### <a name="additional-test-drive-resources"></a>Risorse aggiuntive per i test drive
-
-- [Procedure consigliate tecniche per i test drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Procedure consigliate per il marketing dei test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- PDF [Panoramica dei test drive](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (assicurarsi che il blocco popup sia disattivato)
-
-### <a name="customer-leads"></a>Lead clienti
+### <a name="customer-leads"></a>Clienti potenziali
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -106,9 +87,14 @@ Prima di continuare, selezionare **Salva bozza**.
 
 Questa pagina consente di definire le categorie e i settori usati per raggruppare l'offerta nel marketplace, la versione dell'app e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
-Selezionare almeno una e un massimo di tre categorie che verranno usate per inserire l'offerta nelle aree di ricerca appropriate del marketplace. Nella descrizione sottolineare come l'offerta rientri in queste categorie. 
+Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
+
+- Almeno una delle due categorie, incluse una categoria primaria e una secondaria (facoltativo).
+- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile**.
+
+Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [procedure](../gtm-offer-listing-best-practices.md)consigliate.
 
 ### <a name="industry"></a>Settore
 
@@ -130,6 +116,23 @@ Qui è possibile definire i dettagli per l'offerta, ad esempio il nome, la descr
 
 > [!NOTE]
 > È possibile fornire i dettagli per la presentazione dell'offerta solo in una lingua. Non è necessario usare l'inglese, purché la descrizione dell'offerta inizi con la frase "Questa applicazione è disponibile solo in [lingua non inglese]". È inoltre accettabile fornire un URL per *Collegamento alla Guida* per offrire contenuti in una lingua diversa da quella usata nei contenuti per la presentazione dell'offerta.
+
+Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta in Microsoft AppSource (i prezzi elencati sono solo a scopo esemplificativo e non sono destinati a riflettere i costi effettivi):
+
+:::image type="content" source="media/example-d365-business-central.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Descrizioni di chiamata
+
+1. Logo
+2. Prodotti
+3. Categorie
+4. Indirizzo di supporto (collegamento)
+5. Condizioni per l'utilizzo
+6. Informativa sulla privacy
+7. Nome offerta
+8. Summary
+9. Descrizione
+10. Screenshot/video
 
 ### <a name="name"></a>Nome
 
@@ -193,11 +196,11 @@ Aggiungere screenshot che mostrano il funzionamento dell'offerta. Sono necessari
 
 #### <a name="videos"></a>Video
 
-Se si vuole, è possibile aggiungere fino a cinque video che descrivono l'offerta. Questi video devono essere ospitati in YouTube e/o Vimeo. Per ogni video, immettere il nome, l'URL e un'immagine di anteprima (1280 x 720 pixel)
+Se si vuole, è possibile aggiungere fino a cinque video che descrivono l'offerta. Questi video devono essere ospitati in YouTube e/o Vimeo. Per ogni video, immettere il nome, l'URL e un'immagine di anteprima (1280 x 720 pixel).
 
 #### <a name="additional-marketplace-listing-resources"></a>Risorse aggiuntive per la presentazione nel marketplace
 
-[Procedure consigliate per la presentazione di offerte nel marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+[Procedure consigliate per la presentazione di offerte nel marketplace](../gtm-offer-listing-best-practices.md)
 
 Prima di continuare, selezionare **Salva bozza**.
 
@@ -261,110 +264,15 @@ Prima di continuare, selezionare **Salva bozza**.
 
 ## <a name="test-drive-technical-configuration"></a>Configurazione tecnica del test drive
 
-In questa pagina è possibile configurare una dimostrazione ("test drive") che consente ai clienti di provare l'offerta prima di acquistarla. Per altre informazioni, vedere l'articolo [Informazioni sul test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+In questa pagina è possibile configurare una dimostrazione ("test drive") che consente ai clienti di provare l'offerta prima di acquistarla. Per altre informazioni, vedere [che cos'è test drive](../what-is-test-drive.md).
 
 Per abilitare un test drive, selezionare la casella di controllo **Abilita un test drive** nella scheda [Configurazione dell'offerta](#test-drive). Per rimuovere il test drive dall'offerta, deselezionare questa casella di controllo.
 
-Sono disponibili i tipi di test drive seguenti, ognuno con requisiti di configurazione tecnici specifici.
-
-- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
-- [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
-- [App per la logica](#technical-configuration-for-logic-app-test-drive)
-- [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (configurazione tecnica non necessaria)
-
-Risorse aggiuntive per i test drive:
-
-- [Procedure consigliate di marketing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Procedure consigliate tecniche](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Panoramica](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (file PDF, assicurarsi che il blocco popup sia disattivato)
-
-### <a name="technical-configuration-for-azure-resource-manager-test-drive"></a>Configurazione tecnica per il modello di Azure Resource Manager per il test drive
-
-Modello di distribuzione che contiene tutte le risorse di Azure che costituiscono la soluzione. I prodotti che rientrano in questo scenario usano solo risorse di Azure. Per altre informazioni sulla configurazione, vedere [Test drive di Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
-
-- **Aree** (obbligatorio): attualmente esistono 26 aree supportate da Azure in cui è possibile rendere disponibile il test drive. In genere, è consigliabile rendere disponibile il test drive nelle aree in cui si prevede il numero maggiore di clienti, in modo che questi possano selezionare l'area più vicina per ottenere prestazioni ottimali. È necessario assicurarsi che alla sottoscrizione sia consentito distribuire tutte le risorse necessarie in ognuna delle aree selezionate.
-
-- **Istanze**: selezionare il tipo (frequente o poco utilizzata) e il numero di istanze disponibili, che verrà moltiplicato per il numero di aree in cui è disponibile l'offerta.
-
-    **Frequente**: questo tipo di istanza viene distribuito ed è in attesa dell'accesso per ogni area selezionata. I clienti possono accedere immediatamente alle istanze impostate su *Frequente* di un test drive, anziché dover attendere la distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. È consigliabile prevedere almeno un'istanza *Frequente*, in quanto la maggior parte dei clienti non vuole attendere il completamento delle distribuzioni e di conseguenza si verifica un calo di utilizzo da parte dei clienti se non è presente alcuna istanza impostata su *Frequente*.
-
-    **Poco utilizzata**: questo tipo di istanza rappresenta il numero totale di istanze che è possibile distribuire per ogni area. Per le istanze di questo tipo è necessario distribuire l'intero modello di Resource Manager del test drive quando un cliente richiede il test drive e di conseguenza le istanze impostate su *Poco utilizzata* vengono caricate più lentamente rispetto a quelle impostate su *Frequente*. Il compromesso consiste nel fatto che è necessario pagare solo per la durata del test drive, che *non* è sempre in esecuzione nella sottoscrizione di Azure come un'istanza *Frequente*.
-
-- **Modello di Azure Resource Manager del test drive**: caricare il file ZIP contenente il modello di Azure Resource Manager.  Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo di avvio rapido [Creare e distribuire modelli di Resource Manager con il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
-
-- **Durata test drive** (obbligatorio): immettere il periodo di tempo durante il quale il test drive resterà attivo, in numero di ore. Il test drive termina automaticamente alla fine di questo periodo di tempo. Usare solo numeri interi. Ad esempio, "2" ore è un valore valido, mentre "1,5" non lo è.
-
-### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Configurazione tecnica per il test drive di Dynamics 365
-
-Microsoft può rimuovere gli elementi di complessità della configurazione di un test drive ospitando e gestendo il provisioning e la distribuzione del servizio con questo tipo di test drive. La configurazione di questo tipo di test drive ospitato è la stessa, indipendentemente dal fatto che il test drive sia per un gruppo di destinatari di Business Central, Customer Engagement o Operations.
-
-- **Max test drive simultanee** (obbligatorio): impostare il numero massimo di clienti per volta che possono usare il test drive. Poiché ogni utente simultaneo utilizzerà una licenza di Dynamics 365 mentre il test drive è attivo, è necessario assicurarsi di avere un numero sufficiente di licenze per supportare il limite massimo impostato. Valore consigliato da 3 a 5.
-
-- **Durata test drive** (obbligatorio): immettere il periodo di tempo per cui il test drive resterà attivo definendo il numero di ore. Dopo questo numero di ore, la sessione terminerà e non utilizzerà più una delle licenze. È consigliabile immettere un valore di 2-24 ore, a seconda della complessità dell'offerta. Questa durata può essere impostata solo su un numero intero di ore, ad esempio "2" ore, mentre "1,5" non è un valore valido.  L'utente può richiedere una nuova sessione se esaurisce il tempo e vuole accedere di nuovo al test drive.
-
-- **URL istanza** (obbligatorio): l'URL in cui il cliente avvierà un test drive. È in genere l'URL dell'istanza di Dynamics 365 che esegue l'app con i dati di esempio installati, ad esempio `https://testdrive.crm.dynamics.com`.
-
-- **URL API Web istanza** (obbligatorio): recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando a **Impostazioni** \&gt; **Personalizzazione** \&gt; **Risorse per sviluppatori** \&gt; **Instance Web API (Service Root URL)** (API Web istanza - URL radice del servizio) e copiare l'URL indicato qui, ad esempio `https://testdrive.crm.dynamics.com/api/data/v9.0`.
-
-- **Nome ruolo** (obbligatorio): specificare il nome del ruolo di sicurezza definito nel test drive di Dynamics 365 personalizzato, che verrà assegnato all'utente durante il test drive (ad esempio, test-drive-role).
-
-### <a name="technical-configuration-for-logic-app-test-drive"></a>Configurazione tecnica per il test drive di un'app per la logica
-
-Tutti i prodotti personalizzati devono usare questo tipo di modello di distribuzione dei test drive, che comprende un'ampia gamma di architetture di soluzioni complesse. Per altre informazioni sulla configurazione di test drive per app per la logica, vedere [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) su GitHub.
-
-- **Area** (obbligatorio, elenco a discesa a selezione singola): attualmente esistono 26 aree supportate da Azure in cui è possibile rendere disponibile il test drive. Le risorse per l'app per la logica verranno distribuite nell'area selezionata. Se alcune risorse personalizzate dell'app per la logica sono archiviate in un'area specifica, assicurarsi che l'area sia selezionata qui. Il modo migliore per farlo è distribuire completamente l'app per la logica in locale nella sottoscrizione di Azure nel portale e verificare che funzioni prima di effettuare questa selezione.
-
-- **Max test drive simultanee** (obbligatorio): impostare il numero massimo di clienti per volta che possono usare il test drive. Questi test drive sono già distribuiti e consentono ai clienti di accedervi istantaneamente senza attendere una distribuzione.
-
-- **Durata test drive** (obbligatorio): immettere il periodo di tempo per cui il test drive resterà attivo, in numero di ore. Il test drive termina automaticamente alla fine di questo periodo di tempo.
-
-- **Nome gruppo di risorse di Azure** (obbligatorio): immettere un nome in [Nome gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) in cui salvare il test drive dell'app per la logica.
-
-- **Nome dell'app per la logica** (obbligatorio): immettere il nome dell'app per la logica che assegna il test drive all'utente. Questa app per la logica deve essere salvata nel gruppo di risorse di Azure precedente.
-
-- **Effettua il deprovisioning nome app logica** (obbligatorio): immettere il nome dell'app per la logica per cui viene effettuato il deprovisioning del test drive quando il cliente ha finito. Questa app per la logica deve essere salvata nel gruppo di risorse di Azure precedente.
-
-### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>Configurazione tecnica non necessaria per i test drive di Power BI
-
-I prodotti che vogliono fornire una dimostrazione di un oggetto visivo di Power BI interattivo possono usare un collegamento incorporato per condividere un dashboard personalizzato come test drive, senza che siano necessarie altre attività di configurazione tecnica. Altre informazioni sulla configurazione di app modello di [Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview).
-
-### <a name="deployment-subscription-details"></a>Dettagli abbonamento distribuzione
-
-Perché il test drive venga distribuito automaticamente, creare e specificare una sottoscrizione di Azure separata e univoca. Questa operazione non è necessaria per i test drive di Power BI.
-
-- **ID sottoscrizione di Azure** (obbligatorio per Azure Resource Manager e app per la logica): immettere l'ID sottoscrizione per concedere l'accesso ai servizi dell'account Azure per la fatturazione e la creazione di report sull'utilizzo delle risorse. È consigliabile provare a [creare una sottoscrizione di Azure separata](https://docs.microsoft.com/azure/billing/billing-create-subscription) da usare per i test drive, se non esiste già. Per trovare gli ID sottoscrizione di Azure, accedere al [portale di Azure](https://portal.azure.com/) e passare alla scheda **Sottoscrizioni** del menu a sinistra. Se si seleziona la scheda, viene visualizzato l'ID sottoscrizione, ad esempio "a83645ac-1234-5ab6-6789-1h234g764ghty".
-
-- **ID tenant di Azure AD** (obbligatorio): immettere l'[ID tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) di Azure Active Directory (AD). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **Proprietà, quindi cercare il numero **ID directory** elencato, ad esempio, 50c464d3-4930-494c-963c-1e951d15360e. È anche possibile cercare l'ID tenant dell'organizzazione usando l'indirizzo del nome di dominio in [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
-
-- **Nome tenant di Azure AD** (obbligatorio per Dynamics 365): immettere il nome di Azure Active Directory (AD). Per trovare questo nome, accedere al [portale di Azure](https://portal.azure.com/): nell'angolo in alto a destra il nome del tenant verrà elencato sotto il nome dell'account.
-
-- **Azure AD app ID** (ID app di Azure AD) (obbligatorio): immettere l'[ID applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) di Azure Active Directory (AD). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **Registrazioni app**, quindi cercare il numero **ID applicazione** elencato, ad esempio 50c464d3-4930-494c-963c-1e951d15360e.
-
-- **Azure AD app client secret** (Segreto client app Azure AD) (obbligatorio): immettere il [segreto client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets) dell'app Azure AD. Per trovare questo valore, accedere al [portale di Azure](https://portal.azure.com/). Selezionare la scheda **Azure Active Directory** nel menu a sinistra, selezionare **Registrazioni app**, quindi selezionare l'app test drive. Selezionare quindi **Certificati e segreti**, selezionare **Nuovo segreto client**, immettere una descrizione, selezionare **Mai** in **Scade**, quindi scegliere **Aggiungi**. Assicurarsi di copiare il valore. Non uscire dalla pagina prima di eseguire questa operazione o non sarà più possibile accedere al valore.
-
-### <a name="test-drive-marketplace-listings"></a>Presentazioni nel marketplace per i test driver
-
-L'opzione **Presentazioni nel marketplace** nella scheda **Test drive** consente di definire i dettagli per l'esperienza del test drive.
-
-> [!NOTE]
-> È possibile fornire i dettagli della presentazione del test drive solo in una lingua. Non è necessario usare l'inglese, purché la descrizione dell'offerta inizi con la frase "Questa applicazione è disponibile solo in [lingua non inglese]". È inoltre accettabile fornire un URL per *Collegamento alla Guida* per offrire contenuti in una lingua diversa da quella usata nei contenuti per la presentazione del test drive.
-
-- **Descrizione** (obbligatorio): descrivere il test drive, che cosa si intende dimostrare, gli obiettivi che l'utente può sperimentare, le funzionalità da esplorare e tutte le informazioni pertinenti per aiutare l'utente a determinare se acquistare l'offerta. In questo campo è possibile immettere fino a 3.000 caratteri di testo. 
-
-- **Informazioni sull'accesso** (obbligatorio per Azure Resource Manager e per i test drive delle app per la logica): descrivere tutto quello che un cliente deve sapere per poter accedere al test drive e usarlo. Descrivere dettagliatamente uno scenario per l'uso dell'offerta e fornire esattamente tutte le informazioni necessarie al cliente per accedere alle funzionalità durante il test drive. In questo campo è possibile immettere fino a 10.000 caratteri di testo.
-
-- **Manuale dell'utente** (obbligatorio): descrizione dettagliata approfondita dell'esperienza del test drive. Il manuale dell'utente deve trattare esattamente tutto quello che si vuole che il cliente ottenga dal test drive e fungere da riferimento per qualsiasi domanda del cliente. Il file deve essere in formato PDF e il nome deve essere assegnato (255 caratteri al massimo) dopo il caricamento.
-
-- **Video** (facoltativo): è possibile caricare video in YouTube o Vimeo e farvi riferimento con un collegamento e un'immagine di anteprima (533 x 324 pixel), in modo che un cliente possa visualizzare una panoramica delle informazioni che consentono di comprendere al meglio il test drive, tra cui come usare correttamente le funzionalità dell'offerta e gli scenari che ne evidenziano i vantaggi.
-  - **Nome** (obbligatorio)
-  - **URL (solo YouTube o Vimeo)** (obbligatorio)
-  - Immagine **Anteprima** (il file deve essere in formato PNG e con dimensioni 533 x 324 pixel)
-
-Prima di continuare, selezionare **Salva bozza**.
+Al termine della configurazione del test drive, selezionare **Salva bozza** prima di continuare.
 
 ## <a name="supplemental-content"></a>Contenuto supplementare
 
-Questa pagina consente di fornire informazioni aggiuntive sull'offerta per consentirne la convalida. Queste informazioni non vengono visualizzate ai clienti o pubblicate nel marketplace.
+In questa pagina è possibile fornire informazioni aggiuntive sull'offerta per consentirne la convalida. Queste informazioni non vengono visualizzate ai clienti o pubblicate nel marketplace.
 
 ### <a name="target-release"></a>Versione di destinazione
 
@@ -398,8 +306,8 @@ Se è la prima volta che si pubblica questa offerta, è possibile:
     - *Non avviata*: indica che la sezione è stata lasciata inalterata e deve essere completata.
     - *Incompleta*: indica che la sezione contiene errori che devono essere corretti o è necessario fornire altre informazioni. Tornare alla sezione o aggiornarla.
     - *Completa*: indica che la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in stato completo prima di poter inviare l'offerta.
-- Nella sezione **Note per la certificazione** fornire istruzioni di test al team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note supplementari utili per la comprensione dell'app.
-- Inviare l'offerta per la pubblicazione selezionando **Invia**. Si riceverà un messaggio di posta elettronica quando una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Tornare al Centro per i partner e selezionare **Passa allo stato Live** per l'offerta per pubblicare l'offerta al pubblico (o, se è un'offerta privata, per destinatari privati).
+- Nella sezione **Note per la certificazione** specificare le istruzioni per il test per il team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note supplementari utili per conoscere l'app.
+- Inviare l'offerta per la pubblicazione selezionando **Invia**. Si riceverà un messaggio di posta elettronica quando una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Tornare al centro per i partner e selezionare **Go-Live** per l'offerta per pubblicare l'offerta sul pubblico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

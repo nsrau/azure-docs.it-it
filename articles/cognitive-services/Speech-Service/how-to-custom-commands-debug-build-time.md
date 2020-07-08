@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85604693"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023126"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Errori di debug durante la creazione di un'applicazione di comandi personalizzati
 
@@ -35,7 +35,7 @@ Quando si elimina un'applicazione comandi personalizzata, i comandi personalizza
 Se l'eliminazione dell'applicazione LUIS non è riuscita, passare all'account [Luis](https://www.luis.ai/) per eliminarli manualmente.
 
 ### <a name="toomanyrequests"></a>TooManyRequests
-Quando si tenta di eliminare una grande quantità di applicazioni contemporaneamente, è probabile che vengano visualizzati errori di "TooManyRequests". Ciò significa che le richieste di eliminazione vengono limitate da Azure. 
+Quando si tenta di eliminare un numero elevato di applicazioni contemporaneamente, è probabile che vengano visualizzati errori di "TooManyRequests". Questi errori indicano che le richieste di eliminazione vengono limitate da Azure. 
 
 Aggiornare la pagina e provare a eliminare un minor numero di applicazioni.
 
@@ -61,7 +61,7 @@ I comandi personalizzati non consentono frasi di esempio comuni condivise tra co
 
 Assicurarsi che non siano presenti frasi di esempio comuni condivise tra comandi diversi. 
 
-Per la procedura consigliata per il bilanciamento delle frasi di esempio in diversi comandi, vedere la [procedura consigliata per Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Per la procedura consigliata per il bilanciamento delle frasi di esempio in diversi comandi, vedere la [procedura consigliata Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
 
 ### <a name="empty-sample-sentences"></a>Frasi di esempio vuote
 È necessario avere almeno una frase di esempio per ogni comando.
@@ -82,13 +82,15 @@ Ad esempio, è possibile definire un parametro {Vehicle} per le frasi di esempio
 | Prenota un volo | Prenota un {Vehicle} |
 | Prenota un taxi | Prenota un {Vehicle} |
 
-Per la procedura consigliata per la formazione di LUIS, vedere la [procedura consigliata di Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Per la procedura consigliata per la formazione di LUIS, vedere la [procedura consigliata Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
 
 ## <a name="cant-update-luis-key"></a>Non è possibile aggiornare la chiave LUIS
 ### <a name="reassign-to-e0-authoring-resource"></a>Riassegna alla risorsa di creazione di E0
 LUIS non supporta la riassegnazione dell'applicazione LUIS alla risorsa di creazione di E0.
 
-Se è necessario modificare la risorsa di creazione da F0 a E0 o passare a una risorsa E0 diversa, ricreare l'applicazione.
+Se è necessario modificare la risorsa di creazione da F0 a E0 oppure passare a una risorsa E0 diversa, ricreare l'applicazione. 
+
+Per esportare rapidamente un'applicazione esistente e importarla in una nuova applicazione, vedere [distribuzione continua con Azure DevOps](./how-to-custom-commands-deploy-cicd.md).
 
 ### <a name="save-button-is-disabled"></a>Il pulsante Salva è disabilitato
 Se non si assegna mai una risorsa di stima LUIS all'applicazione, il pulsante Salva viene disabilitato quando si tenta di modificare la risorsa di creazione senza aggiungere una risorsa di stima.
