@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 05/21/2020
-ms.openlocfilehash: 327fffd807d93fda67ff650954ece65e5db58e63
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.date: 07/06/2020
+ms.openlocfilehash: 1c63568418f21da0556ced0d004e04e7909118fb
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798103"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042629"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -40,8 +40,10 @@ Quando si progettano flussi di dati per mapping, è possibile eseguire l'unit te
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumento delle dimensioni di calcolo in Azure Integration Runtime
 
 Un runtime di integrazione con più core aumenta il numero di nodi negli ambienti di calcolo Spark e offre una maggiore potenza di elaborazione per la lettura, la scrittura e la trasformazione dei dati. Il flusso di dati del file di definizione dell'applicazione (ADF) usa Spark per il motore di calcolo. L'ambiente Spark funziona molto bene con le risorse ottimizzate per la memoria.
-* Se si vuole che la velocità di elaborazione sia superiore alla frequenza di input, provare un **cluster con ottimizzazione per il calcolo**.
-* Se si desidera memorizzare più dati nella cache, provare un **cluster ottimizzato per la memoria**. L'ottimizzazione per la memoria ha un punto di prezzo superiore per core rispetto all'ottimizzazione per il calcolo, ma comporta probabilmente una velocità di trasformazione più rapida. Se si verificano errori di memoria insufficiente durante l'esecuzione del flusso di dati, passare a una configurazione di Azure IR ottimizzata per la memoria.
+
+È consigliabile usare la **memoria con ottimizzazione** per la maggior parte dei carichi di lavoro di produzione. Sarà possibile archiviare più dati in memoria e ridurre al minimo gli errori di memoria insufficiente. L'ottimizzazione per la memoria ha un punto di prezzo superiore per core rispetto al calcolo ottimizzato, ma probabilmente comporta velocità di trasformazione più veloci e pipeline più efficaci. Se si verificano errori di memoria insufficiente durante l'esecuzione del flusso di dati, passare a una configurazione di Azure IR ottimizzata per la memoria.
+
+Il **calcolo ottimizzato** può essere sufficiente per il debug e l'anteprima dei dati di un numero limitato di righe di dati. Il calcolo ottimizzato probabilmente non potrà essere eseguito anche con i carichi di lavoro di produzione.
 
 ![Nuovo runtime di integrazione](media/data-flow/ir-new.png "Nuovo runtime di integrazione")
 
@@ -110,7 +112,7 @@ Per evitare gli inserimenti riga per riga nel data warehouse, selezionare **Abil
 
 ## <a name="optimizing-for-files"></a>Ottimizzazione per i file
 
-A ogni trasformazione è possibile impostare lo schema di partizione da fare usare alla data factory nella scheda Ottimizza. È buona prassi prima di tutto testare i sink basati su file mantenendo le ottimizzazioni e il partizionamento predefiniti.
+A ogni trasformazione è possibile impostare lo schema di partizione da fare usare alla data factory nella scheda Ottimizza. È buona prassi prima di tutto testare i sink basati su file mantenendo le ottimizzazioni e il partizionamento predefiniti. Se si lascia il partizionamento a "partizionamento corrente" nel sink per una destinazione file, Spark può impostare un partizionamento predefinito appropriato per i carichi di lavoro. Il partizionamento predefinito usa 128Mb per partizione.
 
 * Per i file di dimensioni ridotte, scegliere un numero inferiore di partizioni può risultare più produttivo e più veloce, piuttosto che richiedere a Spark di partizionare i file di piccole dimensioni.
 * Se non si dispone di informazioni sufficienti sui dati di origine, scegliere il partizionamento in modalità *round robin* e impostare il numero di partizioni.
@@ -153,13 +155,13 @@ L'impostazione delle proprietà di velocità effettiva e batch nei sink CosmosDB
 * Velocità effettiva: impostare una velocità effettiva superiore per consentire ai documenti di scrivere più velocemente in CosmosDB. Tenere presente che i costi delle unità richieste saranno maggiori con un'impostazione di velocità effettiva elevata.
 *   Budget per la velocità effettiva di scrittura: usare un valore inferiore al numero totale di unità richieste al minuto. Se si dispone di un flusso di dati con un numero elevato di partizioni Spark, l'impostazione di una velocità effettiva del budget consentirà un maggiore equilibrio tra le partizioni.
 
-## <a name="join-performance"></a>Prestazioni dei join
+## <a name="join-and-lookup-performance"></a>Prestazioni di join e ricerca
 
 La gestione delle prestazioni dei join nel flusso di dati è un'operazione molto comune che verrà eseguita per tutto il ciclo di vita delle trasformazioni dei dati. Nel file di definizione dell'applicazione (ADF) i flussi di dati non richiedono l'ordinamento dei dati prima dei join, perché queste operazioni vengono eseguite come hash join in Spark. Tuttavia, è possibile trarre vantaggio dalle prestazioni migliorate grazie all'ottimizzazione "Broadcast" del join, applicabile a trasformazioni Join, Esiste e Ricerca.
 
 In questo modo si eviteranno i rimescolamenti in tempo reale, distribuendo il contenuto di entrambi i lati della relazione di join nel nodo Spark. Questa operazione funziona correttamente per le tabelle più piccole usate per le ricerche di riferimento. Le tabelle di dimensioni maggiori che potrebbero non rientrare nella memoria del nodo non sono ideali per l'ottimizzazione Broadcast.
 
-La configurazione consigliata per i flussi di dati con molte operazioni di join consiste nel mantenere l'ottimizzazione impostata su "Auto" per "Broadcast" e usare una configurazione di Azure Integration Runtime ottimizzata per la memoria. Se si verificano errori di memoria insufficiente o timeout di trasmissione durante le esecuzioni del flusso di dati, è possibile disattivare l'ottimizzazione della trasmissione. Questa operazione comporterà tuttavia un'esecuzione dei flussi di dati più lenta. Facoltativamente, è possibile indicare al flusso di dati di distribuire solo il lato sinistro o destro del join o entrambi.
+La configurazione consigliata per i flussi di dati con molte operazioni di join consiste nel lasciare l'ottimizzazione impostata su "auto" per "broadcast" e utilizzare una configurazione di Azure Integration Runtime con ottimizzazione per la ***memoria*** . Se si verificano errori di memoria insufficiente o timeout di trasmissione durante le esecuzioni del flusso di dati, è possibile disattivare l'ottimizzazione della trasmissione. Questa operazione comporterà tuttavia un'esecuzione dei flussi di dati più lenta. Facoltativamente, è possibile indicare al flusso di dati di distribuire solo il lato sinistro o destro del join o entrambi.
 
 ![Impostazioni di trasmissione](media/data-flow/newbroad.png "Impostazioni di trasmissione")
 

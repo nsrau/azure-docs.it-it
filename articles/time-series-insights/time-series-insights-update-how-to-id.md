@@ -1,21 +1,21 @@
 ---
 title: Procedure consigliate per la scelta di un ID di serie temporali-Azure Time Series Insights | Microsoft Docs
 description: Informazioni sulle procedure consigliate per la scelta di un ID di serie temporale in Azure Time Series Insights Preview.
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+author: shipramishra
+ms.author: shmishr
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: faf98d4fc5bf6c7028cf7d20bdf8df89fb3d533b
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 312bb9bac93ea30d01e1c3138709325ee1aa6173
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838723"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042170"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
 
@@ -37,9 +37,10 @@ La selezione di un ID Time Series appropriato è fondamentale. Scegliere un ID s
 Di seguito sono riportate le principali procedure consigliate:
 
 * Selezionare una chiave di partizione con molti valori distinti (ad esempio, centinaia o migliaia). In molti casi, potrebbe trattarsi dell'ID del dispositivo, dell'ID del sensore o dell'ID tag in JSON.
-* L'ID serie temporale deve essere univoco a livello di nodo foglia del [modello serie temporale](./time-series-insights-update-tsm.md).
+* L'ID serie temporale deve essere univoco a livello di nodo foglia del [modello serie temporale](./concepts-model-overview.md).
 * Il limite di caratteri per la stringa del nome di proprietà dell'ID della serie temporale è 128. Per il valore della proprietà dell'ID della serie temporale, il limite di caratteri è 1.024.
 * Se manca un valore di proprietà univoco per l'ID della serie temporale, questo viene considerato come un valore null e segue la stessa regola del vincolo di univocità.
+* Se l'ID della serie temporale è annidato all'interno di un oggetto JSON complesso, assicurarsi di seguire le [regole di Flat](./concepts-json-flattening-escaping-rules.md) in ingresso quando si specifica il nome della proprietà. Vedere l'esempio [B](concepts-json-flattening-escaping-rules.md#example-b). 
 * È anche possibile selezionare fino a *tre* proprietà chiave come ID della serie temporale. La combinazione sarà una chiave composta che rappresenta l'ID della serie temporale.  
   > [!NOTE]
   > Le tre proprietà chiave devono essere stringhe.
@@ -75,12 +76,10 @@ Evento RAW di esempio:
 
 Nella portale di Azure è quindi possibile immettere la chiave composta come indicato di seguito:
 
-```JSON
-[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
-```
+[![Configure l'ID serie temporale per l'ambiente.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sulla [modellazione dei dati](./time-series-insights-update-tsm.md).
+* Leggere le [regole di escape e Flat JSON](./concepts-json-flattening-escaping-rules.md) per comprendere come verranno archiviati gli eventi.
 
 * Pianificare l' [ambiente di Azure Time Series Insights anteprima](./time-series-insights-update-plan.md).
