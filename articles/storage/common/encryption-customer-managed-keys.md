@@ -8,14 +8,13 @@ ms.service: storage
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b2755d5aa5dbaa669fa2fdd8b84596e040b5dd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5dedd70b51361936808724ef70b96cdf9cfa13f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81456822"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515401"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di archiviazione di Azure
 
@@ -68,7 +67,7 @@ Per informazioni su come usare le chiavi gestite dal cliente con Azure Key Vault
 
 Per abilitare le chiavi gestite dal cliente in un account di archiviazione, è necessario usare un Azure Key Vault per archiviare le chiavi. È necessario abilitare l' **eliminazione** temporanea e non **ripulire** le proprietà nell'insieme di credenziali delle chiavi.
 
-Con la crittografia di archiviazione di Azure sono supportate solo le chiavi RSA e RSA-HSM a 2048 bit. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+La crittografia di archiviazione di Azure supporta chiavi RSA e RSA-HSM di dimensioni 2048, 3072 e 4096. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="rotate-customer-managed-keys"></a>Ruotare le chiavi gestite dal cliente
 
@@ -80,12 +79,12 @@ La rotazione della chiave non attiva la nuova crittografia dei dati nell'account
 
 È possibile revocare l'accesso dell'account di archiviazione alla chiave gestita dal cliente in qualsiasi momento. Dopo che l'accesso alle chiavi gestite dal cliente è stato revocato o dopo che la chiave è stata disabilitata o eliminata, i client non possono chiamare operazioni che leggono o scrivono in un BLOB o i relativi metadati. I tentativi di chiamare una delle operazioni seguenti avranno esito negativo con codice di errore 403 (accesso negato) per tutti gli utenti:
 
-- [Elencare i BLOB](/rest/api/storageservices/list-blobs), quando viene `include=metadata` chiamato con il parametro nell'URI della richiesta
+- [Elencare i BLOB](/rest/api/storageservices/list-blobs), quando viene chiamato con il `include=metadata` parametro nell'URI della richiesta
 - [Get Blob](/rest/api/storageservices/get-blob)
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
-- [BLOB snapshot](/rest/api/storageservices/snapshot-blob), quando viene chiamato con `x-ms-meta-name` l'intestazione della richiesta
+- [BLOB snapshot](/rest/api/storageservices/snapshot-blob), quando viene chiamato con l' `x-ms-meta-name` intestazione della richiesta
 - [Copy Blob](/rest/api/storageservices/copy-blob)
 - [Copia BLOB da URL](/rest/api/storageservices/copy-blob-from-url)
 - [Impostare il livello di BLOB](/rest/api/storageservices/set-blob-tier)
@@ -96,7 +95,7 @@ La rotazione della chiave non attiva la nuova crittografia dei dati nell'account
 - [Put Blob](/rest/api/storageservices/put-blob)
 - [Put Page](/rest/api/storageservices/put-page)
 - [Inserisci pagina dall'URL](/rest/api/storageservices/put-page-from-url)
-- [BLOB di copia incrementale](/rest/api/storageservices/incremental-copy-blob)
+- [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 
 Per chiamare nuovamente queste operazioni, ripristinare l'accesso alla chiave gestita dal cliente.
 
@@ -113,4 +112,4 @@ Le chiavi gestite dal cliente sono disponibili anche per la gestione della critt
 - [Configurare chiavi gestite dal cliente con Key Vault per la crittografia di archiviazione di Azure dalla portale di Azure](storage-encryption-keys-portal.md)
 - [Configurare chiavi gestite dal cliente con Key Vault per la crittografia di archiviazione di Azure da PowerShell](storage-encryption-keys-powershell.md)
 - [Configurare chiavi gestite dal cliente con Key Vault per la crittografia di archiviazione di Azure dall'interfaccia della riga di comando di Azure](storage-encryption-keys-cli.md)
-- [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)

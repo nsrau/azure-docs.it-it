@@ -4,12 +4,11 @@ description: Modello di dati di Application Insights per la telemetria delle ric
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807656"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria delle richieste: modello di dati di Application Insights
 
@@ -17,11 +16,11 @@ In [Application Insights](../../azure-monitor/app/app-insights-overview.md), un 
 
 La telemetria delle richieste supporta il modello di estendibilità standard usando `properties` e `measurements` personalizzate.
 
-## <a name="name"></a>Name
+## <a name="name"></a>Nome
 
 Il nome della richiesta rappresenta il percorso di codice intrapreso per elaborare la richiesta. Un valore di cardinalità basso consente di raggruppare meglio le richieste. Per le richieste HTTP, rappresenta il metodo HTTP e un modello di percorso URL, ad esempio `GET /values/{id}`, senza il valore di `id` effettivo.
 
-Web Application Insights SDK invia il nome della richiesta "così com'è" per quanto riguarda le maiuscole e minuscole. Il raggruppamento nell'interfaccia utente considera la distinzione tra maiuscole e minuscole, pertanto `GET /Home/Index` viene considerato diverso da `GET /home/INDEX`, anche se spesso riguardano l'esecuzione della stessa azione e dello stesso controller. Ciò accade perché gli URL rilevano in genere [la distinzione tra maiuscole e minuscole](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Si consiglia di verificare se tutti gli errori `404` si sono verificati per gli URL digitati in maiuscolo. Per altre informazioni, vedere la pagina relativa alla raccolta dei nomi delle richieste di ASP.NET Web SDK nel [post di Blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Web Application Insights SDK invia il nome della richiesta "così com'è" per quanto riguarda le maiuscole e minuscole. Il raggruppamento nell'interfaccia utente considera la distinzione tra maiuscole e minuscole, pertanto `GET /Home/Index` viene considerato diverso da `GET /home/INDEX`, anche se spesso riguardano l'esecuzione della stessa azione e dello stesso controller. Ciò accade perché gli URL rilevano in genere [la distinzione tra maiuscole e minuscole](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Si consiglia di verificare se tutti gli errori `404` si sono verificati per gli URL digitati in maiuscolo. Per altre informazioni, vedere la pagina relativa alla raccolta dei nomi delle richieste di ASP.NET Web SDK nel [post di Blog](https://apmtips.com/posts/2015-02-23-request-name-and-url/).
 
 Lunghezza massima: 1024 caratteri
 
@@ -61,7 +60,7 @@ Per le applicazioni Web, Application Insights definisce una richiesta come riusc
 
 Il codice `206` di contenuto parzialmente accettato può indicare un errore di una richiesta globale. L'endpoint di Application Insights riceve, ad esempio, un batch di elementi di telemetria come una singola richiesta. Restituisce `206` quando alcuni elementi del batch non sono stati elaborati correttamente. Un aumento della frequenza di `206` indica un problema che richiede attenzione. Si applica una logica simile a `207` - Multi-Status in cui l'esito positivo può essere il peggiore dei codici di risposta separati.
 
-Altre informazioni sui codici di stato e dei risultati della richiesta sono disponibili nel [post del blog](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+Altre informazioni sui codici di stato e dei risultati della richiesta sono disponibili nel [post del blog](https://apmtips.com/posts/2016-12-03-request-success-and-response-code/).
 
 ## <a name="custom-properties"></a>Proprietà personalizzate
 

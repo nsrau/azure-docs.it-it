@@ -6,12 +6,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84457304"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedure consigliate per Cache di Azure per Redis 
 Seguendo queste procedure consigliate, è possibile ottimizzare le prestazioni e l'uso conveniente della cache di Azure per l'istanza di Redis.
@@ -38,6 +37,8 @@ Seguendo queste procedure consigliate, è possibile ottimizzare le prestazioni e
  * **Evitare operazioni costose** : alcune operazioni di redis, ad esempio il comando [chiavi](https://redis.io/commands/keys) , sono *molto* costose e dovrebbero essere evitate.  Per ulteriori informazioni, vedere alcune considerazioni sui [comandi con esecuzione prolungata](cache-troubleshoot-server.md#long-running-commands)
 
  * **Usare la crittografia TLS** : la cache di Azure per Redis richiede le comunicazioni CRITTOGRAFAte TLS per impostazione predefinita.  Attualmente sono supportate le versioni di TLS 1,0, 1,1 e 1,2.  Tuttavia, TLS 1,0 e 1,1 si trovano in un percorso di deprecazione a livello di settore, quindi, se possibile, usare TLS 1,2.  Se la libreria client o lo strumento non supporta TLS, l'abilitazione di connessioni non crittografate può essere eseguita [tramite le API di](cache-configure.md#access-ports) [gestione](https://docs.microsoft.com/rest/api/redis/redis/update)portale di Azure o.  In casi in cui le connessioni crittografate non sono possibili, è consigliabile posizionare la cache e l'applicazione client in una rete virtuale.  Per ulteriori informazioni sulle porte utilizzate nello scenario della cache della rete virtuale, vedere questa [tabella](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ 
+ * **Timeout di inattività** : Azure Redis attualmente dispone di un timeout di inattività di 10 minuti per le connessioni, quindi questa impostazione deve essere inferiore a 10 minuti.
  
 ## <a name="memory-management"></a>Gestione della memoria
 Ci sono diversi aspetti relativi all'utilizzo della memoria all'interno dell'istanza del server Redis che può essere opportuno prendere in considerazione.  tra cui:
@@ -67,7 +68,7 @@ Sfortunatamente, non esiste una semplice risposta.  Ogni applicazione deve decid
 Se si desidera testare il funzionamento del codice in condizioni di errore, è consigliabile utilizzare la [funzionalità di riavvio](cache-administration.md#reboot). Il riavvio consente di visualizzare il modo in cui i blip della connessione influiscono sull'applicazione.
 
 ## <a name="performance-testing"></a>Test delle prestazioni
- * **Iniziare usando `redis-benchmark.exe` ** per ottenere un'idea della velocità effettiva/latenza prima di scrivere i test delle prestazioni.  La documentazione di redis-benchmark è [disponibile qui](https://redis.io/topics/benchmarks).  Si noti che Redis-benchmark non supporta TLS, quindi è necessario [abilitare la porta non TLS tramite il portale](cache-configure.md#access-ports) prima di eseguire il test.  [È possibile trovare una versione compatibile di Windows di redis-benchmark. exe qui](https://github.com/MSOpenTech/redis/releases)
+ * **Iniziare usando `redis-benchmark.exe` ** per ottenere un'idea della velocità effettiva o della latenza prima di scrivere i propri test delle prestazioni.  La documentazione di redis-benchmark è [disponibile qui](https://redis.io/topics/benchmarks).  Si noti che Redis-benchmark non supporta TLS, quindi è necessario [abilitare la porta non TLS tramite il portale](cache-configure.md#access-ports) prima di eseguire il test.  [È possibile trovare una versione compatibile di Windows di redis-benchmark.exe qui](https://github.com/MSOpenTech/redis/releases)
  * La macchina virtuale client usata per il test deve trovarsi **nella stessa area** dell'istanza di cache Redis.
  * **È consigliabile usare la serie di macchine virtuali dv2** per il client poiché dispongono di hardware migliore e offriranno risultati ottimali.
  * Assicurarsi che la macchina virtuale client utilizzata includa **almeno la quantità di calcolo e larghezza di banda* della cache sottoposta a test. 
@@ -81,10 +82,10 @@ Se si desidera testare il funzionamento del codice in condizioni di errore, è c
  
 ### <a name="redis-benchmark-examples"></a>Redis-esempi di benchmark
 **Installazione preliminare del test**: preparare l'istanza della cache con i dati necessari per i comandi di latenza e di test della velocità effettiva elencati di seguito.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
 
 **Per testare la latenza**: testare richieste Get usando un payload 1K.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
 
 **Per testare la velocità effettiva:** Richieste GET inviate tramite pipeline con payload 1K.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1 milione-d 1024-P 50-c 50
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1 milione-d 1024-P 50-c 50

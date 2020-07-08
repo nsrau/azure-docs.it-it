@@ -4,16 +4,15 @@ description: Informazioni su come sviluppare applicazioni e servizi .NET che usa
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d8be13a75e276d5be6ec71141a13f95601869f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78301438"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515365"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET
 
@@ -34,7 +33,7 @@ Per ulteriori informazioni su File di Azure, vedere [che cos'è file di Azure?](
 
 ## <a name="understanding-the-net-apis"></a>Informazioni sulle API .NET
 
-File di Azure offre due ampi approcci alle applicazioni client: Server Message Block (SMB) e REST. All'interno di .NET `System.IO` , `WindowsAzure.Storage` le API e astraggono questi approcci.
+File di Azure offre due ampi approcci alle applicazioni client: Server Message Block (SMB) e REST. All'interno di .NET, le `System.IO` `WindowsAzure.Storage` API e astraggono questi approcci.
 
 API | Utilizzo | Note
 ----|-------------|------
@@ -49,7 +48,7 @@ In Visual Studio creare una nuova applicazione console di Windows. La procedura 
 1. In **Crea un nuovo progetto**scegliere **App Console (.NET Framework)** per C# e quindi fare clic su **Avanti**.
 1. In **Configura il nuovo progetto**, immettere un nome per l'app e selezionare **Crea**.
 
-È possibile aggiungere tutti gli esempi di codice in questa esercitazione al `Main()` metodo del `Program.cs` file dell'applicazione console.
+È possibile aggiungere tutti gli esempi di codice in questa esercitazione al `Main()` metodo del file dell'applicazione console `Program.cs` .
 
 È possibile usare la libreria client di archiviazione di Azure in qualsiasi tipo di applicazione .NET. Questi tipi includono un servizio cloud o un'app Web di Azure, nonché applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
 
@@ -70,21 +69,21 @@ Per completare l'esercitazione, fare riferimento a questi pacchetti nel progetto
 
   Questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, ovunque sia in esecuzione l'applicazione.
 
-Per ottenere entrambi i pacchetti, è possibile usare NuGet. A tale scopo, seguire questa procedura:
+Per ottenere entrambi i pacchetti, è possibile usare NuGet. Attenersi ai passaggi descritti di seguito.
 
 1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
-1. In **Gestione pacchetti NuGet**selezionare **Sfoglia**. Cercare e scegliere **Microsoft. Azure. storage. blob**, quindi selezionare **Install (installa**).
+1. In **Gestione pacchetti NuGet**, selezionare **Sfoglia**. Cercare e scegliere **Microsoft. Azure. storage. blob**, quindi selezionare **Install (installa**).
 
    Questo passaggio consente di installare il pacchetto e le relative dipendenze.
 1. Cercare e installare i pacchetti seguenti:
 
    * **Microsoft. Azure. storage. Common**
    * **Microsoft. Azure. storage. file**
-   * **Microsoft. Azure. ConfigurationManager**
+   * **Microsoft.Azure.ConfigurationManager**
 
-## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salvare le credenziali dell'account di archiviazione nel file app. config
+## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salvare le credenziali dell'account di archiviazione nel file di App.config
 
-Salvare quindi le credenziali nel `App.config` file del progetto. In **Esplora soluzioni**fare doppio clic `App.config` e modificare il file in modo che sia simile all'esempio seguente. Sostituire `myaccount` con il nome dell'account di `mykey` archiviazione e con la chiave dell'account di archiviazione.
+Salvare quindi le credenziali nel file del progetto `App.config` . In **Esplora soluzioni**fare doppio clic `App.config` e modificare il file in modo che sia simile all'esempio seguente. Sostituire `myaccount` con il nome dell'account di archiviazione e `mykey` con la chiave dell'account di archiviazione.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -428,14 +427,14 @@ Analisi archiviazione di Azure supporta ora metriche per File di Azure. Grazie a
 
 L'esempio di codice seguente mostra come usare la libreria client di archiviazione per .NET per abilitare le metriche per File di Azure.
 
-Aggiungere prima le direttive `using` seguenti al `Program.cs` file, insieme a quelle aggiunte in precedenza:
+Aggiungere prima le `using` direttive seguenti al `Program.cs` file, insieme a quelle aggiunte in precedenza:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Anche se i BLOB di Azure, le tabelle di Azure e le code `ServiceProperties` di Azure usano `Microsoft.Azure.Storage.Shared.Protocol` il tipo condiviso nello spazio dei nomi, file di Azure `FileServiceProperties` usa il proprio `Microsoft.Azure.Storage.File.Protocol` tipo, ovvero il tipo nello spazio dei nomi. È tuttavia necessario fare riferimento a entrambi gli spazi dei nomi dal codice, per la compilazione del codice seguente.
+Anche se i BLOB di Azure, le tabelle di Azure e le code di Azure usano il `ServiceProperties` tipo condiviso nello `Microsoft.Azure.Storage.Shared.Protocol` spazio dei nomi, file di Azure usa il proprio tipo, ovvero il `FileServiceProperties` tipo nello `Microsoft.Azure.Storage.File.Protocol` spazio dei nomi. È tuttavia necessario fare riferimento a entrambi gli spazi dei nomi dal codice, per la compilazione del codice seguente.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.

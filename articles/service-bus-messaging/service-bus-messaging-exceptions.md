@@ -1,25 +1,13 @@
 ---
 title: Bus di servizio di Azure-eccezioni di messaggistica | Microsoft Docs
 description: Questo articolo fornisce un elenco delle eccezioni di messaggistica del bus di servizio di Azure e le azioni consigliate da intraprendere quando si verifica l'eccezione.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: aschhab
-ms.openlocfilehash: f1a4caf6ffd5740b4227aff2f38d9cb709c77b48
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: dd57938c24565257aefebc89a8b070865e6791af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739348"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341640"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Eccezioni di messaggistica del bus di servizio
 Questo articolo elenca le eccezioni .NET generate dalle API .NET Framework. 
@@ -149,7 +137,7 @@ Viene generata un'eccezione **SocketException** nei casi seguenti:
 
 ### <a name="resolution"></a>Soluzione
 
-Gli errori di **SocketException** indicano che la macchina virtuale che ospita le applicazioni non è in `<mynamespace>.servicebus.windows.net` grado di convertire il nome nell'indirizzo IP corrispondente. 
+Gli errori di **SocketException** indicano che la macchina virtuale che ospita le applicazioni non è in grado di convertire il nome nell' `<mynamespace>.servicebus.windows.net` indirizzo IP corrispondente. 
 
 Controllare se il comando seguente ha esito positivo nel mapping a un indirizzo IP.
 

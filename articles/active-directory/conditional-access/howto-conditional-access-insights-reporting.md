@@ -4,19 +4,18 @@ description: Uso della cartella di lavoro Informazioni dettagliate e report di A
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641596"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253274"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Informazioni dettagliate e report di Accesso condizionale
 
@@ -98,6 +97,23 @@ Visualizzare il dettaglio degli utenti o degli accessi per ognuna delle condizio
 È anche possibile esaminare gli accessi di un utente specifico cercando gli accessi nella parte inferiore del dashboard. La query a sinistra visualizza gli utenti più frequenti. Selezionando un utente verrà filtrata la query a destra.  
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Perché le query hanno esito negativo a causa di un errore di autorizzazione?
+
+Per accedere alla cartella di lavoro, è necessario disporre delle autorizzazioni Azure AD appropriate, nonché delle autorizzazioni Log Analytics area di lavoro. Per verificare se sono disponibili le autorizzazioni appropriate per l'area di lavoro eseguendo una query di log Analytics di esempio:
+
+1. Accedere al **portale di Azure**.
+1. Passare a **Azure Active Directory**  >  **log**Azure Active Directory.
+1. Digitare `SigninLogs` nella casella query e selezionare **Esegui**.
+1. Se la query non restituisce alcun risultato, è possibile che l'area di lavoro non sia stata configurata correttamente. 
+
+![Risolvere i problemi delle query in errore](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+
+Per altre informazioni su come eseguire lo streaming dei log di accesso Azure AD in un'area di lavoro Log Analytics, vedere l'articolo [integrare log di Azure ad con i log di monitoraggio di Azure](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Perché il parametro dei criteri di accesso condizionale è vuoto?
+
+L'elenco dei criteri viene generato esaminando i criteri valutati per l'evento di accesso più recente. Se non sono presenti accessi recenti nel tenant, potrebbe essere necessario attendere alcuni minuti prima che la cartella di lavoro carichi l'elenco dei criteri di accesso condizionale. Questo problema può verificarsi immediatamente dopo la configurazione di Log Analytics o potrebbe richiedere più tempo se un tenant non ha l'attività di accesso recente.
 
 ### <a name="why-is-the-workbook-taking-a-long-time-to-load"></a>Perché il caricamento della cartella di lavoro richiede molto tempo?  
 

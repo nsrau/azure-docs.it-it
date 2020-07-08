@@ -11,18 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3c299e9ec42d63812804b5ff7e50324a2de94200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720504"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195077"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Fase di acquisizione e comprensione dei dati nel processo di data science per i team
 
 Questo articolo descrive gli obiettivi, le attività e i risultati finali associati alla fase di acquisizione e comprensione dei dati nel processo di data science per i team (TDSP). Questo processo offre un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-   1. **Comprensione del business**
+   1. **Informazioni commerciali**
    2. **Acquisizione e comprensione dei dati**
    3. **Modellazione**
    4. **Distribuzione**
@@ -37,7 +36,7 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 * Produrre un set di dati pulito e di alta qualità, di cui sia compresa la relazione con le variabili di destinazione. Inserire il set di dati nell'ambiente di analisi appropriato in modo da creare un modello.
 * Sviluppare un'architettura della soluzione della pipeline di dati per aggiornare e valutare regolarmente i dati.
 
-## <a name="how-to-do-it"></a>Procedura
+## <a name="how-to-do-it"></a>Come eseguirla
 Questa fase comprende tre attività principali:
 
    * **Inserire i dati** nell'ambiente di analisi target.
@@ -55,7 +54,7 @@ Il processo TDSP include un'utilità automatica, denominata [IDEAR](https://gith
 Dopo che si è soddisfatti della qualità dei dati ripuliti, il passaggio successivo consiste nel capire meglio i modelli inerenti nei dati. Questa analisi dei dati consente di scegliere e sviluppare un modello predittivo appropriato per la destinazione. Cercare la prova della precisa connessione dei dati all'obiettivo. Determinare quindi se i dati sono sufficienti per passare alle successive fasi di modellazione. Anche questo processo è iterativo. Potrebbe essere necessario trovare nuove origini dati con dati più accurati o più pertinenti per aumentare il set di dati identificato nella fase precedente. 
 
 ### <a name="set-up-a-data-pipeline"></a>Impostare una pipeline di dati
-Oltre all'inserimento iniziale e alla pulizia dei dati, è necessario in genere impostare un processo per valutare nuovi dati o aggiornare regolarmente i dati, come parte di un processo costante di apprendimento. Il Punteggio può essere completato con una pipeline di dati o un flusso di lavoro. L'articolo [Spostare i dati da un'istanza di SQL Server locale al database SQL di Azure con Azure Data Factory](move-sql-azure-adf.md) offre un esempio di come impostare una pipeline con [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
+Oltre all'inserimento iniziale e alla pulizia dei dati, è necessario in genere impostare un processo per valutare nuovi dati o aggiornare regolarmente i dati, come parte di un processo costante di apprendimento. Il Punteggio può essere completato con una pipeline di dati o un flusso di lavoro. L'articolo [spostare i dati da un'istanza di SQL Server al database SQL di Azure con Azure Data Factory](move-sql-azure-adf.md) fornisce un esempio di come configurare una pipeline con [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
 In questa fase si sviluppa un'architettura della soluzione della pipeline di dati. Si sviluppa la pipeline in parallelo con la fase successiva del progetto di data science. A seconda delle esigenze aziendali e dei vincoli dei sistemi esistenti in cui la soluzione è integrata, la pipeline può essere una delle seguenti opzioni: 
 
@@ -63,7 +62,7 @@ In questa fase si sviluppa un'architettura della soluzione della pipeline di dat
    * In streaming o in tempo reale 
    * Un ibrido 
 
-## <a name="artifacts"></a>Elementi
+## <a name="artifacts"></a>Artifacts
 Di seguito sono descritti i risultati finali di questa fase:
 
    * [Report sulla qualità dei dati](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): il report include riepiloghi dei dati, relazioni tra ogni attributo e l'obiettivo, valutazione delle variabili e così via. Lo strumento [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) viene fornito come parte del processo TDSP e può generare rapidamente questo report su qualsiasi set di dati tabulare, ad esempio un file con estensione CSV o una tabella relazionale. 
@@ -74,7 +73,7 @@ Di seguito sono descritti i risultati finali di questa fase:
 
 Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data science per i team:
 
-   1. [Comprensione del business](lifecycle-business-understanding.md)
+   1. [Informazioni commerciali](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)

@@ -3,12 +3,12 @@ title: Monitoraggio di Azure per i mapping delle aree dei contenitori
 description: Questo articolo descrive i mapping dell'area supportati tra monitoraggio di Azure per contenitori, Log Analytics area di lavoro e metriche personalizzate.
 ms.topic: conceptual
 ms.date: 06/26/2019
-ms.openlocfilehash: a058f9cac987bb5c7130019f50370c6a176b09ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: 3e8ead78c5e0e534e07c1e2ab0e25eb3f5a90c38
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75403414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194978"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mapping dell'area supportati da monitoraggio di Azure per i contenitori
 
@@ -50,16 +50,16 @@ Le risorse del cluster AKS o Log Analytics area di lavoro possono risiedere in a
 |**Giappone** | |
 |JapanEast |JapanEast |
 |JapanWest |JapanEast |
-|**Corea** | |
+|**Corea del Sud** | |
 |KoreaCentral |KoreaCentral |
 |KoreaSouth |KoreaCentral |
-|**NOI** | |
+|**Stati Uniti** | |
 |CentralUS |CentralUS|
 |EastUS |EastUS |
 |EastUS2 |EastUS2 |
 |WestUS |WestUS |
 |Stati Uniti occidentali 2 |Stati Uniti occidentali 2 |
-|WestCentralUS<sup>1</sup>|Eastus<sup>1</sup>|
+|WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
 |US Gov Virginia |US Gov Virginia |
 
 <sup>1</sup> a causa dei vincoli di capacità, l'area non è disponibile quando si creano nuove risorse. Sono incluse un'area di lavoro Log Analytics. Tuttavia, le risorse collegate preesistenti nell'area dovrebbero continuare a funzionare.

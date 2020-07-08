@@ -1,22 +1,13 @@
 ---
 title: Configurare le regole del firewall IP per il bus di servizio di Azure
 description: Uso delle regole del firewall per consentire le connessioni da indirizzi IP specifici a bus di servizio di Azure.
-services: service-bus
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus
-ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2020
-ms.author: aschhab
-ms.openlocfilehash: fdd3540248c5210e2f6fc47f439641c007a793d8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: a5ae491f82e73c5364788dff8b531e81d17ebb68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341444"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Configurare le regole del firewall IP per il bus di servizio di Azure
 Per impostazione predefinita, gli spazi dei nomi del bus di servizio sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).

@@ -7,19 +7,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36c7bb426a329a54f333b76e028b884204543014
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582987"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732651"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
@@ -28,9 +27,9 @@ Questo articolo illustra due modi per acquisire la proprietà di un nome di domi
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decidere come acquisire la proprietà di una directory non gestita
 Durante il processo di acquisizione della proprietà da parte di un amministratore, è possibile dimostrare la proprietà come illustrato in [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md). Nelle sezioni successive viene illustrata l'esperienza di amministratore in modo più dettagliato; in ogni caso qui di seguito è riportato un riepilogo:
 
-* Quando si esegue un'[acquisizione "interna" della proprietà da parte dell'amministratore](#internal-admin-takeover) di una directory di Azure non gestita, si viene aggiunti come amministratore globale della directory non gestita. Non viene eseguita la migrazione di utenti, domini o piani di servizio ad altre directory amministrate.
+* Quando si esegue un' [acquisizione "interna" dell'amministratore](#internal-admin-takeover) di una directory di Azure non gestita, si viene aggiunti come amministratore globale della directory non gestita. Non viene eseguita la migrazione di utenti, domini o piani di servizio a nessun'altra directory amministrata dall'utente.
 
-* Quando si esegue un'[acquisizione "esterna" della proprietà da parte dell'amministratore](#external-admin-takeover) di una directory di Azure non gestita, si aggiunge il nome di dominio DNS della directory non gestita alla directory di Azure gestita. Quando si aggiunge il nome di dominio, viene creato un mapping tra utenti e risorse nella directory di Azure gestita in modo che gli utenti possano continuare ad accedere ai servizi senza interruzioni. 
+* Quando si esegue un' [acquisizione dell'amministrazione "esterna"](#external-admin-takeover) di una directory di Azure non gestita, si aggiunge il nome di dominio DNS della directory non gestita alla directory di Azure gestita. Quando si aggiunge il nome di dominio, viene creato un mapping tra utenti e risorse nella directory di Azure gestita in modo che gli utenti possano continuare ad accedere ai servizi senza interruzioni. 
 
 ## <a name="internal-admin-takeover"></a>Acquisizione interna della proprietà da parte dell'amministratore
 
@@ -57,13 +56,13 @@ Quando si completano i passaggi precedenti, si è ora l'amministratore globale d
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Aggiunta del nome di dominio a un'organizzazione gestita in Azure AD
 
 1. Aprire il [centro di amministrazione Microsoft 365](https://admin.microsoft.com).
-2. Selezionare la scheda **utenti** e creare un nuovo account utente con un nome come *User\@fourthcoffeexyz.onmicrosoft.com* che non usa il nome di dominio personalizzato. 
+2. Selezionare la scheda **utenti** e creare un nuovo account utente con un nome come *User \@ fourthcoffeexyz.onmicrosoft.com* che non usa il nome di dominio personalizzato. 
 3. Verificare che il nuovo account utente disponga dei privilegi di amministratore globale per l'organizzazione Azure AD.
 4. Aprire la scheda **domini** nell'interfaccia di amministrazione di Microsoft 365, selezionare il nome di dominio e selezionare **Rimuovi**. 
   
    ![Rimuove il nome di dominio da Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Se in Office 365 sono presenti utenti o gruppi che fanno riferimento al nome di dominio rimosso, devono essere ridenominati nel dominio .onmicrosoft.com. Se si forza l'eliminazione del nome di dominio, tutti gli utenti vengono automaticamente rinominati, in questo esempio, in *fourthcoffeexyz.onmicrosoft.com utente\@*.
+5. Se in Office 365 sono presenti utenti o gruppi che fanno riferimento al nome di dominio rimosso, devono essere ridenominati nel dominio .onmicrosoft.com. Se si forza l'eliminazione del nome di dominio, tutti gli utenti vengono automaticamente rinominati, in questo esempio, in * \@ fourthcoffeexyz.onmicrosoft.com utente*.
   
 6. Accedere al centro di [amministrazione di Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account che sia l'amministratore globale dell'organizzazione Azure ad.
   
@@ -72,7 +71,7 @@ Quando si completano i passaggi precedenti, si è ora l'amministratore globale d
    ![dominio verificato come aggiunto al Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Se il nome di dominio viene rimosso, tutti gli utenti del servizio Power BI o Azure Rights Management con licenze assegnate nell'organizzazione di Office 365 devono salvare i dashboard. Devono accedere con un nome utente come *\@User fourthcoffeexyz.onmicrosoft.com* anziché *User\@fourthcoffee. xyz*.
+> Se il nome di dominio viene rimosso, tutti gli utenti del servizio Power BI o Azure Rights Management con licenze assegnate nell'organizzazione di Office 365 devono salvare i dashboard. Devono accedere con un nome utente come *user \@ fourthcoffeexyz.onmicrosoft.com* anziché *User \@ fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Acquisizione esterna della proprietà da parte dell'amministratore
 

@@ -3,20 +3,19 @@ title: Usare le API Microsoft Graph per configurare l'accesso Single Sign-On bas
 titleSuffix: Azure Active Directory
 description: È necessario configurare l'accesso Single Sign-On basato su SAML per più istanze di un'applicazione? Informazioni su come risparmiare tempo usando le API Microsoft Graph per automatizzare la configurazione dell'accesso Single Sign-On basato su SAML.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: fd59dcdd566110d1df02333f5701c0c206442d5d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 50ee9e3c22c885931e2586f65ba2fa3353fccfeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355846"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Automatizzare la configurazione dell'accesso SSO basato su SAML per l'app con l'API Microsoft Graph
 
@@ -40,8 +39,8 @@ Assicurarsi di disporre delle autorizzazioni corrispondenti per chiamare le API 
 |Tipo di risorsa |Metodo |
 |---------|---------|
 |[applicationTemplate](https://docs.microsoft.com/graph/api/resources/applicationtemplate?view=graph-rest-beta)|[List applicationTemplate](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) <br>[Instantiate applicationTemplate](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http)|
-|[servicePrincipals](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)|[Update servicePrincipal](https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-beta&tabs=http) <br> [Create appRoleAssignments](https://docs.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-beta&tabs=http) <br> [Assign claimsMappingPolicies](https://docs.microsoft.com/graph/api/serviceprincipal-post-claimsmappingpolicies?view=graph-rest-beta&tabs=http)|
-|[applications](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)|[Update application](https://docs.microsoft.com/graph/api/application-update?view=graph-rest-beta&tabs=http)|
+|[servicePrincipals](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0)|[Update servicePrincipal](https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-1.0&tabs=http) <br> [Create appRoleAssignments](https://docs.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-1.0&tabs=http) <br> [Assign claimsMappingPolicies](https://docs.microsoft.com/graph/api/serviceprincipal-post-claimsmappingpolicies?view=graph-rest-beta&tabs=http)|
+|[applications](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)|[Update application](https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0&tabs=http)|
 |[claimsMappingPolicy](https://docs.microsoft.com/graph/api/resources/claimsmappingpolicy?view=graph-rest-beta)| [Create claimsMappingPolicy](https://docs.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-beta&tabs=http)
 
 >[!NOTE]
@@ -111,6 +110,8 @@ Content-type: application/json
 
 Con l'ID modello recuperato per l'applicazione nell'ultimo passaggio, [creare un'istanza](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) dell'applicazione e l'entità servizio nel tenant.
 
+> [!NOTE] 
+> È possibile usare l'API applicationTemplate per creare un'istanza di [app non della raccolta](add-non-gallery-app.md). Usare applicationTemplateId `8adf8e6e-67b2-4cf2-a259-e3dc5476c621` .
 #### <a name="request"></a>Richiesta
 
 <!-- {
@@ -190,7 +191,7 @@ Usare la risposta della chiamata precedente per recuperare e salvare l'ID oggett
 ```
 ### <a name="set-single-sign-on-mode"></a>Impostare la modalità Single Sign-On
 
-In questo esempio si imposterà `saml` come modalità di accesso Single Sign-On nel [tipo di risorsa servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Altre proprietà dell'accesso SSO SAML che è possibile configurare sono: `notificationEmailAddresses`, `loginUrl` e `samlSingleSignOnSettings.relayState`
+In questo esempio si imposterà `saml` come modalità di accesso Single Sign-On nel [tipo di risorsa servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0). Altre proprietà dell'accesso SSO SAML che è possibile configurare sono: `notificationEmailAddresses`, `loginUrl` e `samlSingleSignOnSettings.relayState`
 
 #### <a name="request"></a>Richiesta
 
@@ -200,14 +201,11 @@ In questo esempio si imposterà `saml` come modalità di accesso Single Sign-On 
 }-->
 
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 Content-type: servicePrincipal/json
 
 {
-    "preferredSingleSignOnMode": "saml",
-    "notificationEmailAddresses": [
-        "john@contoso.com"
-      ]
+    "preferredSingleSignOnMode": "saml"
 }
 ```
 
@@ -234,7 +232,7 @@ Impostare l'identificatore e gli URL di risposta per AWS nell'oggetto applicazio
 }-->
 
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/applications/cbc071a6-0fa5-4859-8g55-e983ef63df63
+PATCH https://graph.microsoft.com/v1.0/applications/cbc071a6-0fa5-4859-8g55-e983ef63df63
 Content-type: applications/json
 
 {
@@ -275,7 +273,7 @@ Per altre informazioni, vedere [Configurare l'attestazione basata su ruolo rilas
 }-->
 
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/serviceprincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/serviceprincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 Content-type: serviceprincipals/json
 
 {
@@ -340,6 +338,8 @@ Oltre alle attestazioni di base, configurare le attestazioni seguenti per Azure 
 | roles | assignedroles |
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | userprincipalname |
 
+Per altre informazioni, vedere [Customize Claims emitted in token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping).
+
 #### <a name="request"></a>Richiesta
 
 <!-- {
@@ -348,7 +348,7 @@ Oltre alle attestazioni di base, configurare le attestazioni seguenti per Azure 
 }-->
 
 ```msgraph-interactive
-POST https://graph.microsoft.com/beta/policies/claimsMappingPolicies
+POST https://graph.microsoft.com/v1.0/policies/claimsMappingPolicies
 Content-type: claimsMappingPolicies/json
 
 {
@@ -406,7 +406,7 @@ HTTP/1.1 200 OK
 Content-type: claimsMappingPolicies/json
 
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/claimsMappingPolicies/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#policies/claimsMappingPolicies/$entity",
     "id": "6b33aa8e-51f3-41a6-a0fd-d660d276197a",
     "definition": [
         "{\"ClaimsMappingPolicy\": {\"Version\": 1,\"IncludeBasicClaimSet\": \"true\",\"ClaimsSchema\": [{\"Source\": \"user\",\"ID\": \"assignedroles\",\"SamlClaimType\":\"https://aws.amazon.com/SAML/Attributes/Role\"\r\n                    },{\"Source\": \"user\",\"ID\": \"userprincipalname\",\"SamlClaimType\": \"https://aws.amazon.com/SAML/Attributes/RoleSessionName\"},{\"Source\": \"user\",\"ID\": \"900\",\"SamlClaimType\": \"https://aws.amazon.com/SAML/Attributes/SessionDuration\"},{\"Source\": \"user\",\"ID\": \"assignedroles\",\"SamlClaimType\":\"appRoles\"},{\"Source\": \"user\",\"ID\": \"userprincipalname\",\"SamlClaimType\": \"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\"}]}}"
@@ -430,7 +430,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-
 Content-type: claimsMappingPolicies/json
 
 {
-  "@odata.id":"https://graph.microsoft.com/beta/policies/claimsMappingPolicies/6b33aa8e-51f3-41a6-a0fd-d660d276197a"
+  "@odata.id":"https://graph.microsoft.com/v1.0/policies/claimsMappingPolicies/6b33aa8e-51f3-41a6-a0fd-d660d276197a"
 }
 ```
 
@@ -503,14 +503,14 @@ Verificare che il valore di keyId per la proprietà keyCredential usata per "Sig
 #### <a name="request"></a>Richiesta
 
 > [!NOTE]
-> Il valore "key" nella proprietà keyCredentials viene abbreviato per migliorare la leggibilità.
+> Il valore "key" nella proprietà keyCredentials viene abbreviato per migliorare la leggibilità. Il valore è codificato in base 64. Per la chiave privata la proprietà `usage` è "Sign". Per la chiave pubblica la proprietà `usage` è "Verify".
 
 <!-- {
   "blockType": "request",
   "name": "servicePrincipals"
 }-->
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 
 Content-type: servicePrincipals/json
 
@@ -571,7 +571,7 @@ HTTP/1.1 204
   "name": "servicePrincipals"
 }-->
 ```msgraph-interactive
-PATCH https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
+PATCH https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e
 
 Content-type: servicePrincipals/json
 
@@ -609,7 +609,7 @@ Assegnare l'utente seguente all'entità servizio e assegnare il ruolo AWS_Role1.
   "name": "servicePrincipals"
 }-->
 ```msgraph-interactive
-POST https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e/appRoleAssignments
+POST https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e/appRoleAssignments
 
 Content-type: appRoleAssignments/json
 
@@ -642,7 +642,7 @@ Content-type: appRoleAssignments/json
 }
 ```
 
-Per altre informazioni, vedere il tipo di risorsa [appRoleAssignment](https://docs.microsoft.com/graph/api/resources/approleassignment?view=graph-rest-beta).
+Per altre informazioni, vedere il tipo di risorsa [appRoleAssignment](https://docs.microsoft.com/graph/api/resources/approleassignment?view=graph-rest-1.0).
 
 ## <a name="step-6-configure-the-application-side"></a>Passaggio 6: Configurare il lato applicazione
 

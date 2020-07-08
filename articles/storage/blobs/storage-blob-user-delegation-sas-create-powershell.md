@@ -8,14 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 5250a27e6c5fcf012207f1edb95ad46c0aabfe63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2b4eef6a992915e934e69a93d440bc6fa60aa690
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803531"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con PowerShell
 
@@ -25,14 +24,14 @@ Questo articolo illustra come usare le credenziali Azure Active Directory (Azure
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-powershell-module"></a>Installa il modulo PowerShell
+## <a name="install-the-powershell-module"></a>Installare il modulo PowerShell
 
 Per creare una firma di accesso condiviso di delega utente con PowerShell, installare la versione 1.10.0 o successiva del modulo AZ. storage. Per installare la versione più recente del modulo, seguire questa procedura:
 
 1. Disinstallare eventuali installazioni precedenti di Azure PowerShell:
 
     - Rimuovere da Windows eventuali installazioni precedenti di Azure PowerShell usando l'impostazione **App e funzionalità** in **Impostazioni**.
-    - Rimuovere tutti **Azure** i moduli di `%Program Files%\WindowsPowerShell\Modules`Azure da.
+    - Rimuovere tutti i moduli di **Azure** da `%Program Files%\WindowsPowerShell\Modules` .
 
 1. Assicurarsi di avere la versione più recente di PowerShellGet installata. Aprire una finestra di Windows PowerShell ed eseguire i seguenti comandi per installare la versione più recente:
 
@@ -62,7 +61,7 @@ Per verificare quale versione del modulo AZ. storage è installato, eseguire il 
 Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
-Per ulteriori informazioni sull'installazione di Azure PowerShell, vedere [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+Per altre informazioni sull'installazione di Azure PowerShell, vedere [Installare Azure PowerShell con PowerShellGet](/powershell/azure/install-az-ps).
 
 ## <a name="sign-in-to-azure-powershell-with-azure-ad"></a>Accedere a Azure PowerShell con Azure AD
 
@@ -98,7 +97,7 @@ Quando si crea una firma di accesso condiviso di delega utente con Azure PowerSh
 
 Poiché l'intervallo massimo di validità della chiave di delega utente è di 7 giorni dalla data di inizio, è necessario specificare un'ora di scadenza per la firma di accesso condiviso entro 7 giorni dall'ora di inizio. La firma di accesso condiviso non è valida dopo la scadenza della chiave di delega dell'utente. Pertanto, una firma di accesso condiviso con una scadenza superiore a 7 giorni sarà ancora valida solo per 7 giorni.
 
-Per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con Azure PowerShell, creare prima di tutto un nuovo `-UseConnectedAccount` oggetto di contesto di archiviazione di Azure, specificando il parametro. Il `-UseConnectedAccount` parametro specifica che il comando crea l'oggetto context nell'account Azure ad con cui è stato effettuato l'accesso.
+Per creare una firma di accesso condiviso di delega utente per un contenitore o un BLOB con Azure PowerShell, creare prima di tutto un nuovo oggetto di contesto di archiviazione di Azure, specificando il `-UseConnectedAccount` parametro. Il `-UseConnectedAccount` parametro specifica che il comando crea l'oggetto context nell'account Azure ad con cui è stato effettuato l'accesso.
 
 È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
@@ -130,7 +129,7 @@ Il token SAS della delega utente restituito sarà simile al seguente:
 
 Per restituire un token di firma di accesso condiviso della delega utente per un BLOB, chiamare il comando [New-AzStorageBlobSASToken](/powershell/module/az.storage/new-azstorageblobsastoken) , passando l'oggetto di contesto di archiviazione di Azure creato in precedenza.
 
-La sintassi seguente restituisce una firma di accesso condiviso di delega utente per un BLOB. Nell'esempio viene specificato `-FullUri` il parametro, che restituisce l'URI del BLOB con il token di firma di accesso condiviso accodato. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
+La sintassi seguente restituisce una firma di accesso condiviso di delega utente per un BLOB. Nell'esempio viene specificato il `-FullUri` parametro, che restituisce l'URI del BLOB con il token di firma di accesso condiviso accodato. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
 ```powershell
 New-AzStorageBlobSASToken -Context $ctx `

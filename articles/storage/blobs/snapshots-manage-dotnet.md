@@ -1,22 +1,21 @@
 ---
-title: Creare e gestire uno snapshot BLOB in .NET
+title: Creare e gestire snapshot BLOB in .NET
 titleSuffix: Azure Storage
 description: Informazioni su come creare uno snapshot di sola lettura di un BLOB per eseguire il backup dei dati BLOB in un determinato momento.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 438692d5c142c3f617ee9d0c3f55b9b3740f9b7a
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463536"
 ---
-# <a name="create-and-manage-a-blob-snapshot-in-net"></a>Creare e gestire uno snapshot BLOB in .NET
+# <a name="create-and-manage-a-blob-snapshot-in-net"></a>Creare e gestire snapshot BLOB in .NET
 
 Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento. Questo articolo illustra come creare e gestire snapshot BLOB usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
@@ -135,7 +134,7 @@ Per eliminare un BLOB e i relativi snapshot usando la versione 12. x della libre
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
 
-Nell'esempio di codice seguente viene illustrato come eliminare un BLOB e i relativi snapshot in .NET, `blobClient` dove è un oggetto di tipo [BlobClient](/dotnet/api/azure.storage.blobs.blobclient):
+Nell'esempio di codice seguente viene illustrato come eliminare un BLOB e i relativi snapshot in .NET, dove `blobClient` è un oggetto di tipo [BlobClient](/dotnet/api/azure.storage.blobs.blobclient):
 
 ```csharp
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
@@ -150,7 +149,7 @@ Per eliminare un BLOB e i relativi snapshot usando la versione 11. x della libre
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
 
-Nell'esempio di codice seguente viene illustrato come eliminare un BLOB e i relativi snapshot in .NET, `blockBlob` dove è un oggetto di tipo [CloudBlockBlob] [dotnet_CloudBlockBlob]:
+Nell'esempio di codice seguente viene illustrato come eliminare un BLOB e i relativi snapshot in .NET, dove `blockBlob` è un oggetto di tipo [CloudBlockBlob] [dotnet_CloudBlockBlob]:
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);

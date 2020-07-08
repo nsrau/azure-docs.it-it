@@ -4,16 +4,15 @@ description: Informazioni su come elencare i contenitori BLOB nell'account di ar
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 155b8f5d50c7b106daff8dab4df17200b844c988
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: da0c5bf6bc371bc512d9264afeab52b9908396fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463559"
 ---
 # <a name="list-blob-containers-with-net"></a>Elencare i contenitori BLOB con .NET
 
@@ -26,21 +25,21 @@ Per elencare i contenitori nell'account di archiviazione, chiamare uno dei metod
 - [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
 - [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
 
-Gli overload di questi metodi forniscono opzioni aggiuntive per la gestione del modo in cui i contenitori vengono restituiti dall'operazione di elenco. Queste opzioni sono descritte nelle sezioni riportate di seguito.
+Gli overload di questi metodi forniscono opzioni aggiuntive per la gestione del modo in cui i contenitori vengono restituiti dall'operazione di elenco. Le opzioni disponibili sono descritte nelle sezioni seguenti.
 
 ### <a name="manage-how-many-results-are-returned"></a>Gestire il numero di risultati restituiti
 
-Per impostazione predefinita, un'operazione di elenco restituisce fino a 5000 risultati alla volta. Per restituire un set di risultati più piccolo, fornire un valore diverso da zero `maxresults` per il parametro quando si chiama uno dei metodi **ListContainerSegmented** .
+Per impostazione predefinita, un'operazione di elenco restituisce fino a 5.000 risultati alla volta. Per restituire un set di risultati più piccolo, fornire un valore diverso da zero per il `maxresults` parametro quando si chiama uno dei metodi **ListContainerSegmented** .
 
-Se l'account di archiviazione contiene più di 5000 contenitori o se è stato specificato un valore in `maxresults` modo che l'operazione di elenco restituisca un subset di contenitori nell'account di archiviazione, archiviazione di Azure restituisce un *token di continuazione* con l'elenco dei contenitori. Un token di continuazione è un valore opaco che è possibile usare per recuperare il set successivo di risultati dall'archiviazione di Azure.
+Se l'account di archiviazione contiene più di 5000 contenitori o se è stato specificato un valore `maxresults` in modo che l'operazione di elenco restituisca un subset di contenitori nell'account di archiviazione, archiviazione di Azure restituisce un *token di continuazione* con l'elenco dei contenitori. Un token di continuazione è un valore opaco che è possibile usare per recuperare il set di risultati successivo da Archiviazione di Azure.
 
-Nel codice, controllare il valore del token di continuazione per determinare se è null. Quando il token di continuazione è null, il set di risultati è completo. Se il token di continuazione non è null, chiamare di nuovo **ListContainersSegmented** o **ListContainersSegmentedAsync** , passando il token di continuazione per recuperare il set di risultati successivo, fino a quando il token di continuazione non è null.
+Nel codice, controllare il valore del token di continuazione per determinare se è di Null. Se il token di continuazione è Null, il set di risultati è completo. Se il token di continuazione non è null, chiamare di nuovo **ListContainersSegmented** o **ListContainersSegmentedAsync** , passando il token di continuazione per recuperare il set di risultati successivo, fino a quando il token di continuazione non è null.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrare i risultati con un prefisso
 
-Per filtrare l'elenco dei contenitori, specificare una stringa per il `prefix` parametro. La stringa di prefisso può includere uno o più caratteri. Archiviazione di Azure restituisce quindi solo i contenitori i cui nomi iniziano con tale prefisso.
+Per filtrare l'elenco dei contenitori, specificare una stringa per il parametro `prefix`. La stringa di prefisso può includere uno o più caratteri. Archiviazione di Azure restituisce quindi solo i contenitori i cui nomi iniziano con tale prefisso.
 
-### <a name="return-metadata"></a>Restituisci metadati
+### <a name="return-metadata"></a>Restituire i metadati
 
 Per restituire i metadati del contenitore con i risultati, specificare il valore **dei metadati** per l'enumerazione [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) . Archiviazione di Azure include metadati con ogni contenitore restituito, pertanto non è necessario chiamare anche uno dei metodi **FetchAttributes** per recuperare i metadati del contenitore.
 
@@ -100,5 +99,5 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 ## <a name="see-also"></a>Vedere anche
 
-[Elencare i contenitori](/rest/api/storageservices/list-containers2)
-[enumerazione delle risorse BLOB](/rest/api/storageservices/enumerating-blob-resources)
+[Elencare i contenitori](/rest/api/storageservices/list-containers2) 
+ [Enumerazione di risorse BLOB](/rest/api/storageservices/enumerating-blob-resources)

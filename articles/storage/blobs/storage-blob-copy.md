@@ -7,13 +7,12 @@ ms.author: mhopkins
 ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463451"
 ---
 # <a name="copy-a-blob-with-net"></a>Copiare un BLOB con .NET
 
@@ -109,7 +108,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 
 ## <a name="abort-a-blob-copy-operation"></a>Interrompi un'operazione di copia BLOB
 
-L'interruzione di un'operazione di copia comporta un BLOB di destinazione di lunghezza zero per i BLOB in blocchi, i BLOB di Accodamento e i BLOB di pagine. Tuttavia, i metadati per il BLOB di destinazione avranno i nuovi valori copiati dal BLOB di origine o impostati in modo esplicito nella chiamata a [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) o [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) . Per preservare i metadati originali da prima della copia, creare uno snapshot del BLOB di destinazione prima `StartCopy` di `StartCopyAsync`chiamare o.
+L'interruzione di un'operazione di copia comporta un BLOB di destinazione di lunghezza zero per i BLOB in blocchi, i BLOB di Accodamento e i BLOB di pagine. Tuttavia, i metadati per il BLOB di destinazione avranno i nuovi valori copiati dal BLOB di origine o impostati in modo esplicito nella chiamata a [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) o [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) . Per preservare i metadati originali da prima della copia, creare uno snapshot del BLOB di destinazione prima di chiamare `StartCopy` o `StartCopyAsync` .
 
 Quando si interrompe un'operazione di copia BLOB in corso, [CopyState. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) del BLOB di destinazione è impostato su [CopyStatus. Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
 

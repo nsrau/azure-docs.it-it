@@ -4,17 +4,16 @@ description: Introduzione all'interfaccia della riga di comando di Hadoop Distri
 services: storage
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9c5b1d38e32ff0a0d0954064c8a2511d898d16e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69992213"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84462924"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso dell'interfaccia della riga di comando di Hadoop Distributed File System con Anteprima di Azure Data Lake Storage Gen2
 
@@ -58,7 +57,7 @@ La stringa di connessione è reperibile nella sezione "SSH + Cluster login" del 
 
 Sostituire il `<path>` segnaposto con l'URI del contenitore o della cartella del contenitore.
 
-ad esempio `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
+Ad esempio: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ## <a name="create-a-directory"></a>Creare una directory
 
@@ -66,7 +65,7 @@ ad esempio `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows
 
 Sostituire il `<path>` segnaposto con il nome del contenitore radice o una cartella all'interno del contenitore.
 
-ad esempio `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+Ad esempio: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
 ## <a name="delete-a-file-or-directory"></a>Eliminare un file o una directory
 
@@ -74,7 +73,7 @@ ad esempio `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.wind
 
 Sostituire il segnaposto `<path>` con l'URI del file o della cartella che si vuole eliminare.
 
-ad esempio `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
+Ad esempio: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>Visualizzare gli elenchi di controllo di accesso (ACL) di file e directory
 

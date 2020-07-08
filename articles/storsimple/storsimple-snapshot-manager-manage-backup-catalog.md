@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: 38ef7774263e4b28b7c316fd0870ca8f7b89d6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 94dccdabfa4cf83077bca3629dee8a796d27182a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931714"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515467"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Uso di StorSimple Snapshot Manager per gestire il catalogo di backup
 

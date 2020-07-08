@@ -10,12 +10,11 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: a17f27831dd0a674c1d55cde6974aba5e1bfcfc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8a9382af630d80480e5bec50d629451ebe49bf73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734470"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Proteggere l'accesso remoto alle macchine virtuali in Azure Active Directory Domain Services
 
@@ -41,7 +40,7 @@ Per completare l'esercitazione di questo articolo, sono necessarie le risorse se
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
-    * Se necessario, [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se necessario, [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Subnet dei *carichi di lavoro* creata nella rete virtuale Azure Active Directory Domain Services.
     * Se necessario, [configurare la rete virtuale per un Azure Active Directory Domain Services dominio gestito][configure-azureadds-vnet].
 * Un account utente membro del gruppo di *amministratori dei controller di dominio di Azure AD* nel tenant di Azure AD.
@@ -55,16 +54,16 @@ Una distribuzione di Servizi Desktop remoto suggerita include le due macchine vi
 * *RDGVM01* : esegue il server Gestore connessione Desktop remoto, il server Accesso Web Desktop remoto e il server Gateway Desktop remoto.
 * *RDSHVM01* : esegue il server Host sessione Desktop remoto.
 
-Assicurarsi che le macchine virtuali vengano distribuite in una subnet dei *carichi di lavoro* della rete virtuale Azure AD DS, quindi aggiungere le macchine virtuali al dominio gestito Azure AD DS. Per ulteriori informazioni, vedere come [creare e aggiungere una macchina virtuale Windows Server a un dominio gestito di Azure AD DS][tutorial-create-join-vm].
+Assicurarsi che le macchine virtuali vengano distribuite in una subnet dei *carichi di lavoro* della rete virtuale Azure AD DS, quindi aggiungere le VM al dominio gestito. Per ulteriori informazioni, vedere come [creare e aggiungere una macchina virtuale Windows Server a un dominio gestito][tutorial-create-join-vm].
 
-La distribuzione dell'ambiente desktop remoto contiene una serie di passaggi. La guida alla distribuzione di desktop remoto esistente può essere usata senza modifiche specifiche da usare in un dominio gestito di Azure AD DS:
+La distribuzione dell'ambiente desktop remoto contiene una serie di passaggi. La guida alla distribuzione di desktop remoto esistente può essere usata senza modifiche specifiche da usare in un dominio gestito:
 
 1. Accedere alle macchine virtuali create per l'ambiente desktop remoto con un account che fa parte del gruppo *amministratori di Azure ad DC* , ad esempio *ContosoAdmin*.
 1. Per creare e configurare Servizi Desktop remoto, utilizzare la [Guida alla distribuzione dell'ambiente desktop remoto][deploy-remote-desktop]esistente. Distribuire i componenti server desktop remoto nelle macchine virtuali di Azure nel modo desiderato.
     * Specifico per Azure AD DS: quando si configura il servizio licenze Desktop remoto, impostarlo su modalità **per dispositivo** , non **per utente** come indicato nella Guida alla distribuzione.
 1. Se si vuole fornire l'accesso tramite un Web browser, [configurare la desktop remoto client Web per gli utenti][rd-web-client].
 
-Con il servizio desktop remoto distribuito nel dominio gestito di Azure AD DS, è possibile gestire e usare il servizio come si farebbe con un dominio di servizi di dominio Active Directory locale.
+Con il servizio desktop remoto distribuito nel dominio gestito, è possibile gestire e usare il servizio come si farebbe con un dominio di servizi di dominio Active Directory locale.
 
 ## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Distribuire e configurare NPS e l'estensione NPS di Azure per l'autenticazione a più fattori
 
@@ -76,7 +75,7 @@ Gli utenti devono essere [registrati per usare Azure multi-factor authentication
 
 Per integrare Multi-Factor Authentication di Azure nell'ambiente di Desktop remoto di Azure AD DS, creare un server NPS e installare l'estensione:
 
-1. Creare una VM Windows Server 2016 o 2019 aggiuntiva, ad esempio *NPSVM01*, connessa a una subnet dei *carichi di lavoro* nella rete virtuale Azure AD DS. Aggiungere la macchina virtuale al dominio gestito di Azure AD DS.
+1. Creare una VM Windows Server 2016 o 2019 aggiuntiva, ad esempio *NPSVM01*, connessa a una subnet dei *carichi di lavoro* nella rete virtuale Azure AD DS. Aggiungere la macchina virtuale al dominio gestito.
 1. Accedere alla macchina virtuale NPS come account che fa parte del gruppo *amministratori di Azure ad DC* , ad esempio *ContosoAdmin*.
 1. Da **Server Manager**selezionare **Aggiungi ruoli e funzionalità**, quindi installare il ruolo *servizi di accesso e criteri di rete* .
 1. Usare l'articolo sulle procedure per [installare e configurare l'estensione server dei criteri][nps-extension]di autenticazione a più fattori di Azure.
@@ -87,9 +86,9 @@ Con il server NPS e l'estensione NPS di Azure Multi-Factor Authentication instal
 
 Per integrare l'estensione server dei criteri di rete Multi-Factor Authentication di Azure, usare l'articolo sulle procedure esistenti per [integrare l'infrastruttura di desktop remoto Gateway usando l'estensione NPS (Network Policy Server) e Azure ad][azure-mfa-nps-integration].
 
-Per l'integrazione con un dominio gestito di Azure AD DS sono necessarie le seguenti opzioni di configurazione aggiuntive:
+Per l'integrazione con un dominio gestito sono necessarie le seguenti opzioni di configurazione aggiuntive:
 
-1. Non [registrare il server NPS in Active Directory][register-nps-ad]. Questo passaggio ha esito negativo in un dominio gestito Azure AD DS.
+1. Non [registrare il server NPS in Active Directory][register-nps-ad]. Questo passaggio ha esito negativo in un dominio gestito.
 1. Nel [passaggio 4 per configurare i criteri di rete][create-nps-policy], selezionare anche la casella per **ignorare le proprietà di connessione remota dell'account utente**.
 1. Se si usa Windows Server 2019 per il server dei criteri di rete e Azure Multi-Factor Authentication Server dei criteri di rete, eseguire il comando seguente per aggiornare il canale sicuro per consentire al server dei criteri di rete di comunicare correttamente:
 

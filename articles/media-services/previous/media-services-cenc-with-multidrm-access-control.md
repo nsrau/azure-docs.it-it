@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162991"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960465"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure 
 
@@ -234,8 +233,10 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
 * L'URL dell'autorità di certificazione deve terminare con "/". Il destinatario deve essere l'ID client dell'applicazione lettore. Inoltre, aggiungere "/" alla fine dell'URL dell'autorità di certificazione.
 
-        <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```xml
+    <add key="ida:audience" value="[Application Client ID GUID]" />
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```
 
     In [JWT Decoder](http://jwt.calebb.net/) vengono visualizzati **aud** e **iss** come nel token JWT seguente:
 
@@ -247,11 +248,15 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
 * Usare l'autorità di certificazione corretta quando si configura la protezione CENC dinamica.
 
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```xml
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```
 
     Lo scenario seguente non funziona:
 
-        <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```xml
+    <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```
 
     Il GUID è l'ID tenant di Azure AD. Il GUID si trova nel menu di scelta rapida **Endpoint** nel portale di Azure.
 
@@ -261,7 +266,9 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
 * Impostare l'oggetto TokenType appropriato quando si creano i requisiti relativi alle restrizioni.
 
-        objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```csharp
+    objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```
 
     Poiché viene aggiunto il supporto di JWT (Azure AD) oltre a SWT (ACS), l'oggetto TokenType predefinito è TokenType.JWT. Se si usa SWT/ACS, è necessario impostare il token su TokenType.SWT.
 
@@ -462,7 +469,7 @@ La schermata seguente illustra uno scenario che usa una chiave asimmetrica trami
 
 In entrambi i casi precedenti, l'autenticazione utente è la stessa, ovvero viene eseguita tramite Azure AD. L'unica differenza è che i token JWT vengono rilasciati dal servizio token di sicurezza personalizzato invece che da Azure AD. Quando si configura la protezione CENC dinamica, la restrizione del servizio di distribuzione delle licenze specifica il tipo di token JWT, una chiave simmetrica o asimmetrica.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Questo documento ha illustrato la crittografia CENC con DRM nativo multiplo e il controllo di accesso tramite l'autenticazione token: la progettazione e l'implementazione con Azure, Servizi multimediali e Media Player.
 
@@ -477,6 +484,6 @@ Questo documento ha illustrato la crittografia CENC con DRM nativo multiplo e il
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
  

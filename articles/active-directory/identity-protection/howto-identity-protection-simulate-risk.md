@@ -4,19 +4,18 @@ description: Informazioni su come simulare i rilevamenti di rischio in Identity 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e50e406e74c0b78f41830c4ea7c5b10830002ed3
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72886935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463757"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulazione del rilevamento del rischio in Identity Protection
 
@@ -76,7 +75,7 @@ La simulazione della condizione di viaggio atipica è difficile perché l'algori
 
 **Per simulare un rilevamento dei rischi di viaggio atipico, seguire questa procedura**:
 
-1. Usando il browser standard, passare a [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1. Usando il browser standard, passare a [https://myapps.microsoft.com](https://myapps.microsoft.com) .  
 2. Immettere le credenziali dell'account per cui si vuole generare un rilevamento dei rischi di viaggio atipico.
 3. Modificare l'agente utente. È possibile modificare l'agente utente in Microsoft Edge da Strumenti di sviluppo (F12).
 4. Modificare l'indirizzo IP. È possibile modificare l'indirizzo IP usando una VPN, un componente aggiuntivo Tor o creando una nuova macchina virtuale in Azure in un data center diverso.
@@ -93,15 +92,15 @@ Questa sezione illustra i passaggi per testare l'utente e i criteri di rischio d
 Per testare i criteri di sicurezza per il rischio utente, seguire questa procedura:
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory** > **Security** > **Panoramica**della sicurezza.
+1. Passare a **Azure Active Directory**  >  **Security**  >  **Panoramica**della sicurezza.
 1. Selezionare **Configura criteri di rischio utente**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
          1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
-      1. **Condizioni** - **utente rischiano** che Microsoft raccomandi di impostare questa opzione su **alta**.
+      1. **Condizioni**  -  di **Rischio utente** Microsoft consiglia di impostare questa opzione su **High**.
    1. Sotto **controlli**
       1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere la modifica della password**.
-   1. **Imponi criteri** - **disattivato**
+   1. **Imponi criteri**  -  Non **attivo**
    1. **Salva** : questa azione consente di tornare alla pagina **Panoramica** .
 1. Elevare il rischio utente di un account di test, ad esempio, simulando una delle rilevazioni dei rischi alcune volte.
 1. Attendere alcuni minuti e quindi verificare che il rischio sia elevato per l'utente. In caso contrario, simulare un maggior numero di rilevamenti di rischio per l'utente.
@@ -113,15 +112,15 @@ Per testare i criteri di sicurezza per il rischio utente, seguire questa procedu
 Per testare i criteri di rischio di accesso, seguire questa procedura:
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory** > **Security** > **Panoramica**della sicurezza.
+1. Passare a **Azure Active Directory**  >  **Security**  >  **Panoramica**della sicurezza.
 1. Selezionare **Configura criteri di rischio di accesso**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
          1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
-      1. **Condizioni** - per il**rischio di accesso,** Microsoft consiglia di impostare questa opzione su **media e versioni successive**.
+      1. **Condizioni**  -  di **Rischio di accesso** Microsoft consiglia di impostare questa opzione su **media e versioni successive**.
    1. Sotto **controlli**
       1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere l'autenticazione**a più fattori.
-   1. **Applicare i criteri** - **in**
+   1. **Imponi criteri**  -  **Il**
    1. **Salva** : questa azione consente di tornare alla pagina **Panoramica** .
 1. È ora possibile testare l'accesso condizionale basato sul rischio di accesso eseguendo l'accesso con una sessione rischiosa (ad esempio, usando il browser Tor). 
 

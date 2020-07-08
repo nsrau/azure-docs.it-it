@@ -3,12 +3,11 @@ title: Domande comuni sul ripristino di emergenza di Hyper-V con Azure Site Reco
 description: Questo articolo presenta un riepilogo delle domande frequenti relative alla configurazione del ripristino di emergenza per le macchine virtuali Hyper-V locali in Azure tramite Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b175e7157364f0471192dd713db8767e074dd483
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75498197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195250"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Domande frequenti - Ripristino di emergenza da Hyper-V ad Azure
 
@@ -46,7 +45,7 @@ Per la replica in un data center secondario, le VM Hyper-V devono trovarsi in se
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>È possibile replicare le macchine virtuali Hyper-V di seconda generazione in Azure?
-Sì. Site Recovery esegue la conversione dalla seconda generazione alla prima durante il failover. In caso di failback, la macchina virtuale viene riconvertita nella seconda generazione. [Altre](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)informazioni.
+Sì. Site Recovery esegue la conversione dalla seconda generazione alla prima durante il failover. In caso di failback, la macchina virtuale viene riconvertita nella seconda generazione. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>È possibile distribuire Site Recovery con VMM se si dispone di un solo server VMM?
@@ -114,7 +113,7 @@ Sì. Site Recovery esegue la conversione dalla seconda generazione alla prima du
 Sì. È possibile automatizzare i flussi di lavoro di Site Recovery usando l'API Rest, PowerShell o Azure SDK. Scenari attualmente supportati per la replica da Hyper-V ad Azure con PowerShell:
 
 - [Replica di Hyper-V senza VMM tramite PowerShell](hyper-v-azure-powershell-resource-manager.md)
-- [Replica di Hyper-V con VMM tramite PowerShell](hyper-v-vmm-powershell-resource-manager.md)
+- [Replica di Hyper-V con VMM con PowerShell](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>Replica
 
@@ -159,7 +158,7 @@ Per la replica è necessario che la macchina virtuale Hyper-V esegua un sistema 
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Con quale frequenza è possibile eseguire la replica in Azure?
 
-Le macchine virtuali Hyper-V possono essere replicate ogni 30 secondi (eccetto per Archiviazione Premium), 5 minuti o 15 minuti.
+Le VM Hyper-V possono essere replicate ogni 30 secondi (ad eccezione di archiviazione Premium) o 5 minuti.
 
 ### <a name="can-i-extend-replication"></a>È possibile estendere la replica?
 No, la replica concatenata o estesa non è supportata. Richiedere questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

@@ -1,18 +1,13 @@
 ---
 title: Controlli di sicurezza per la messaggistica del bus di servizio di Azure
 description: Elenco di controllo dei controlli di sicurezza per la valutazione della messaggistica del bus di servizio di Azure
-services: service-bus-messaging
-ms.service: service-bus-messaging
-author: spelluru
 ms.topic: conceptual
-ms.date: 09/23/2019
-ms.author: spelluru
-ms.openlocfilehash: af119ef026b70fcb4a56b4f823d20c0e9eddddc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 3130150a227076befae3f58f65e00a36578b68d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75903260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341623"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Controlli di sicurezza per la messaggistica del bus di servizio di Azure
 
@@ -24,18 +19,18 @@ Questo articolo descrive i controlli di sicurezza incorporati nella messaggistic
 
 | Controllo di sicurezza | Sì/No | Note | Documentazione |
 |---|---|--|--|
-| Supporto per endpoint di servizio| Sì (solo livello Premium) | Gli endpoint del servizio VNet sono supportati solo per il [livello Premium del bus di servizio](service-bus-premium-messaging.md) . |  |
-| Supporto di VNet Injection| No | |  |
+| Supporto endpoint di servizio| Sì (solo livello Premium) | Gli endpoint del servizio VNet sono supportati solo per il [livello Premium del bus di servizio](service-bus-premium-messaging.md) . |  |
+| Supporto aggiunta rete virtuale| No | |  |
 | Isolamento rete e supporto del firewall| Sì (solo livello Premium) |  |  |
 | Supporto del tunneling forzato| No |  |  |
 
-## <a name="monitoring--logging"></a>Monitoraggio & registrazione
+## <a name="monitoring--logging"></a>Monitoraggio e registrazione
 
 | Controllo di sicurezza | Sì/No | Note| Documentazione |
 |---|---|--|--|
-| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | Supportato tramite [monitoraggio e avvisi di Azure](service-bus-metrics-azure-monitor.md). |  |
-| Registrazione e controllo del piano di gestione e controllo| Sì | I log delle operazioni sono disponibili.  | [Log di diagnostica del bus di servizio](service-bus-diagnostic-logs.md) |
-| Registrazione e controllo del piano dati| No |  |
+| Supporto monitoraggio di Azure (analisi dei log, analisi approfondita dell'app e così via)| Sì | Supportato tramite [monitoraggio e avvisi di Azure](service-bus-metrics-azure-monitor.md). |  |
+| Piano di gestione e controllo - Registrazione e controllo| Sì | I log delle operazioni sono disponibili.  | [Log di diagnostica del bus di servizio](service-bus-diagnostic-logs.md) |
+| Piano dati - Registrazione e controllo| No |  |
 
 ## <a name="identity"></a>Identità
 
@@ -48,9 +43,9 @@ Questo articolo descrive i controlli di sicurezza incorporati nella messaggistic
 
 | Controllo di sicurezza | Sì/No | Note | Documentazione |
 |---|---|--|--|
-| Crittografia lato server: chiavi gestite da Microsoft |  Sì per la crittografia lato server per impostazione predefinita. |  |  |
-| Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | Sì. | Una chiave gestita dal cliente nell'insieme di credenziali delle chiavi di Azure può essere usata per crittografare i dati nello spazio dei nomi del bus di servizio inattivi. | [Configurare chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi usando il portale di Azure](configure-customer-managed-key.md)  |
-| Crittografia a livello di colonna (servizi dati di Azure)| N/D | |   |
+| Crittografia lato server dei dati inattivi: chiavi gestite da Microsoft |  Sì per la crittografia lato server per impostazione predefinita. |  |  |
+| Crittografia lato server dei dati inattivi: chiavi gestite dal cliente (BYOK) | Sì. | Una chiave gestita dal cliente nell'insieme di credenziali delle chiavi di Azure può essere usata per crittografare i dati nello spazio dei nomi del bus di servizio inattivi. | [Configurare chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi usando il portale di Azure](configure-customer-managed-key.md)  |
+| Crittografia a livello di colonna (Servizi dati di Azure)| N/D | |   |
 | Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Supporta il meccanismo HTTPS/TLS standard. |   |
 | Chiamate API crittografate| Sì | Le chiamate API vengono eseguite tramite [Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |   |
 
@@ -58,8 +53,8 @@ Questo articolo descrive i controlli di sicurezza incorporati nella messaggistic
 
 | Controllo di sicurezza | Sì/No | Note| Documentazione |
 |---|---|--|--|
-| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì | Supporta il controllo delle versioni del provider di risorse tramite l' [API Azure Resource Manager](/rest/api/resources/).|   |
+| Supporto gestione della configurazione (controllo delle versioni di configurazione e così via)| Sì | Supporta il controllo delle versioni del provider di risorse tramite l' [API Azure Resource Manager](/rest/api/resources/).|   |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui [controlli di sicurezza incorporati nei servizi di Azure](../security/fundamentals/security-controls.md).
+- Maggiori informazioni sui [controlli di sicurezza incorporati nei servizi di Azure](../security/fundamentals/security-controls.md).

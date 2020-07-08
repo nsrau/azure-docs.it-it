@@ -1,25 +1,13 @@
 ---
 title: Informazioni di riferimento sulla sintassi di SQLFilter nel bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni dettagliate sulla grammatica di SqlFilter. Un SqlFilter supporta un sottoinsieme dello standard SQL-92.
-services: service-bus-messaging
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759664"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341602"
 ---
 # <a name="sqlfilter-syntax"></a>Sintassi di SQLFilter
 
@@ -58,9 +46,9 @@ Un oggetto *SqlFilter* è un'istanza della [classe SqlFilter](/dotnet/api/micros
   
 ```  
   
-## <a name="arguments"></a>Argomenti  
+## <a name="arguments"></a>Arguments  
   
--   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il `sys` valore indica l'ambito del `<property_name>` sistema in cui è il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica l'ambito dell' `<property_name>` utente in cui è una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
+-   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il `sys` valore indica l'ambito del sistema in cui `<property_name>` è il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica l'ambito dell'utente in cui `<property_name>` è una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
   
 ## <a name="remarks"></a>Osservazioni
 
@@ -78,7 +66,7 @@ Il tentativo di accedere a una proprietà di sistema inesistente costituisce un 
   
 ```  
   
-### <a name="arguments"></a>Argomenti  
+### <a name="arguments"></a>Arguments  
 
  `<regular_identifier>` è una stringa rappresentata dall'espressione regolare seguente:  
   
@@ -143,7 +131,7 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
       <integer_constant> | <decimal_constant> | <approximate_number_constant> | <boolean_constant> | NULL  
 ```  
   
-### <a name="arguments"></a>Argomenti  
+### <a name="arguments"></a>Arguments  
   
 -   `<integer_constant>` è una stringa di numeri non racchiusi tra virgolette e non contenenti separatori decimali. I valori sono archiviati internamente come `System.Int64` e seguono lo stesso intervallo.  
   

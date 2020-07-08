@@ -3,15 +3,14 @@ title: Usare la cache HPC di Azure e Azure NetApp Files
 description: Come usare la cache HPC di Azure per migliorare l'accesso ai dati archiviati con Azure NetApp Files
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 6d4dd69b30acb26d02218fe05a60ace9aa855ddc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 374f3106ec42233cd5309c2773b05e3c96bbf98e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515483"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Usare la cache HPC di Azure con Azure NetApp Files
 
@@ -80,7 +79,7 @@ Per trovare gli indirizzi IP da usare, seguire le istruzioni di montaggio riport
 az netappfiles volume list -g ${RESOURCE_GROUP} --account-name ${ANF_ACCOUNT} --pool-name ${POOL} --query "[].mountTargets[].ipAddress" | grep -Ee '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+' | tr -d '"' | tr -d , | sort | uniq
 ```
 
-I nomi delle esportazioni nel sistema Azure NetApp Files hanno un singolo componente del percorso. Non tentare di creare una destinazione di archiviazione per l'esportazione ``/`` radice in Azure NetApp files, perché tale esportazione non fornisce l'accesso ai file.
+I nomi delle esportazioni nel sistema Azure NetApp Files hanno un singolo componente del percorso. Non tentare di creare una destinazione di archiviazione per l'esportazione radice ``/`` in Azure NetApp files, perché tale esportazione non fornisce l'accesso ai file.
 
 Non esistono restrizioni speciali sui percorsi dello spazio dei nomi virtuali per queste destinazioni di archiviazione.
 

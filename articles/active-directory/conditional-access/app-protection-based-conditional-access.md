@@ -4,19 +4,18 @@ description: Informazioni su come richiedere criteri di protezione app per l'acc
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4476502896705c2133b09b203bea0d6f5d74f121
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253359"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere criteri di protezione delle app e un'app client approvata per l'accesso alle app cloud con Accesso condizionale
 
@@ -37,7 +36,7 @@ Per un elenco delle app client idonee, vedere [Requisiti dei criteri di protezio
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenario 1: Le app di Office 365 richiedono app approvate con criteri di protezione delle app
 
-In questo scenario, Contoso ha deciso che tutti gli accessi mobili alle risorse di Office 365 devono usare app client approvate, ad esempio Outlook Mobile, OneDrive e Microsoft Teams, protette da criteri di protezione delle app prima di ottenere l'accesso. Tutti gli utenti accedono già con credenziali di Azure AD e hanno licenze assegnate che includono Azure AD Premium P1 o P2 e Microsoft Intune.
+In questo scenario, Contoso ha deciso che tutti gli accessi per dispositivi mobili alle risorse di Office 365 devono usare app client approvate, come Outlook Mobile e OneDrive, protette da un criterio di protezione delle app prima di ricevere l'accesso. Tutti gli utenti accedono già con credenziali di Azure AD e hanno licenze assegnate che includono Azure AD Premium P1 o P2 e Microsoft Intune.
 
 Per richiedere l'uso di un'app client approvata nei dispositivi mobili, le organizzazioni devono completare la procedura seguente.
 

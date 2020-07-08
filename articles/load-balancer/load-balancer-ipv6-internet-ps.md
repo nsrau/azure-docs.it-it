@@ -9,17 +9,16 @@ keywords: ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobil
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 79fc74cc946578ffe91629065ddd03e43aa76957
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 8553c54b60d1d4e60e28bcb3006bcc804dbc39ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629474"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803694"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introduzione alla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 usando PowerShell per Resource Manager
 
@@ -102,7 +101,7 @@ Assicurarsi di avere la versione di produzione più recente del modulo Azure Res
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Creare risorse di indirizzi IP pubblici (PIP) di Azure per il pool di indirizzi IP front-end. Assicurarsi di modificare il valore di prima `-DomainNameLabel` di eseguire i comandi seguenti. Il valore deve essere univoco all'interno dell'area di Azure.
+2. Creare risorse di indirizzi IP pubblici (PIP) di Azure per il pool di indirizzi IP front-end. Assicurarsi di modificare il valore di `-DomainNameLabel` prima di eseguire i comandi seguenti. Il valore deve essere univoco all'interno dell'area di Azure.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4

@@ -3,12 +3,11 @@ title: Aggiungere strumenti di valutazione in Azure Migrate
 description: Informazioni su come aggiungere strumenti di valutazione in Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.openlocfilehash: 10e8b66575893bc8e63aa94392c872acc04407c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901045"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195626"
 ---
 # <a name="add-assessment-tools"></a>Aggiungere strumenti di valutazione
 
@@ -23,7 +22,7 @@ Questo articolo descrive come aggiungere strumenti di valutazione in [Azure migr
 2. Selezionare lo scenario di valutazione che si vuole usare:
 
     - Per individuare e valutare i computer e i carichi di lavoro per la migrazione ad Azure, selezionare **valuta ed Esegui la migrazione dei server**.
-    - Per valutare i computer SQL locali, selezionare **valuta ed Esegui la migrazione dei database**.
+    - Per valutare i database SQL Server locali, selezionare **valuta ed Esegui la migrazione dei database**.
     - Per valutare le app Web locali, selezionare **valuta ed Esegui la migrazione delle app Web**.
 
     ![Scenario di valutazione](./media/how-to-assess/assess-scenario.png)

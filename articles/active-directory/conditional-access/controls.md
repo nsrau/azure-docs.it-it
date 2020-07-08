@@ -4,19 +4,18 @@ description: Informazioni sul funzionamento di controlli personalizzati in Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c149279a755eb186a3fdc7891e9b511d18c7f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4d926d027b59a225d76f6a73ab3ee4ec09b595e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253308"
 ---
 # <a name="custom-controls-preview"></a>Controlli personalizzati (anteprima)
 
@@ -57,8 +56,8 @@ I controlli personalizzati non possono essere usati con l'automazione di Identit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+- [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
 
 - [Modalità solo report](concept-conditional-access-report-only.md)
 
-- [Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale](troubleshoot-conditional-access-what-if.md)
+- [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)

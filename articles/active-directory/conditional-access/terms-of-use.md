@@ -4,19 +4,18 @@ description: Iniziare a usare Azure Active Directory condizioni per l'utilizzo p
 services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2f06a7c88a7c17f5f93201192664c2d4a97564e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253325"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
@@ -60,7 +59,7 @@ Per usare e configurare Azure AD condizioni per l'utilizzo, è necessario dispor
    - Se non si dispone di una di queste sottoscrizioni, è possibile [ottenere Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) oppure [abilitare la versione di valutazione di Azure AD Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Uno dei seguenti account di amministratore per la directory da configurare:
    - Amministratore globale
-   - Amministratore della sicurezza
+   - Amministratore della protezione
    - Amministratore di accesso condizionale
 
 ## <a name="terms-of-use-document"></a>Documento sulle condizioni per l'utilizzo
@@ -94,8 +93,8 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
    | Scadenza a partire da | Frequenza | Risultato |
    | --- | --- | --- |
-   | Data odierna  | Ogni mese | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
-   | Data nel futuro  | Ogni mese | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
+   | Data odierna  | Mensile | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
+   | Data nel futuro  | Mensile | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
 
    Ad esempio, se si imposta la scadenza a partire dalla data **1 gen** e la frequenza su **Mensile**, ecco come le scadenze potrebbero verificarsi per i due utenti:
 
@@ -253,7 +252,7 @@ L'impostazione **Richiedi agli utenti di acconsentire su ogni dispositivo** cons
 Ecco un elenco dei software e delle piattaforme supportate.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Altri |
+> |  | iOS | Android | Windows 10 | Altro |
 > | --- | --- | --- | --- | --- |
 > | **App nativa** | Sì | Sì | Sì |  |
 > | **Microsoft Edge** | Sì | Sì | Sì |  |
@@ -387,7 +386,7 @@ R: è possibile [esaminare le condizioni per l'utilizzo precedentemente accettat
 R: se sono state configurate sia Azure AD condizioni per l'utilizzo che i [termini e le condizioni di Intune](/intune/terms-and-conditions-create), l'utente dovrà accettare entrambi i requisiti. Per altre informazioni, vedere il [post di blog sulla scelta della soluzione di Condizioni di utilizzo più adatta per l'organizzazione](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **D: quali endpoint utilizzano le condizioni per l'utilizzo del servizio per l'autenticazione?**<br />
-R: Condizioni per l'utilizzo utilizza gli endpoint seguenti per l'autenticazione: https://tokenprovider.termsofuse.identitygovernance.azure.com e. https://account.activedirectory.windowsazure.com Se l'organizzazione ha un elenco di URL consentiti per la registrazione, è necessario aggiungere questi endpoint all'elenco Consenti insieme agli endpoint Azure AD per l'accesso.
+R: Condizioni per l'utilizzo utilizza gli endpoint seguenti per l'autenticazione: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com . Se l'organizzazione ha un elenco di URL consentiti per la registrazione, è necessario aggiungere questi endpoint all'elenco Consenti insieme agli endpoint Azure AD per l'accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,19 +1,13 @@
 ---
 title: Autenticare un'applicazione per accedere alle entità del bus di servizio di Azure
 description: Questo articolo fornisce informazioni sull'autenticazione di un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure (code, argomenti e così via)
-services: service-bus-messaging
-ms.service: event-hubs
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: aschhab
-ms.openlocfilehash: 6a78e4d81921fae8dcb325e9d72df1eee7b99a3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 707fbec4317b4c34349e04895f9c6a0bdf4f1b47
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259292"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341516"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticare e autorizzare un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure
 Il bus di servizio di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle entità del bus di servizio (code, argomenti, sottoscrizioni o filtri). Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
@@ -21,12 +15,12 @@ Il bus di servizio di Azure supporta l'uso di Azure Active Directory (Azure AD) 
 ## <a name="overview"></a>Panoramica
 Quando un'entità di sicurezza (un utente, un gruppo o un'applicazione) tenta di accedere a un'entità del bus di servizio, la richiesta deve essere autorizzata. Con Azure AD, l'accesso a una risorsa è un processo in due passaggi. 
 
- 1. In primo luogo, l'identità dell'entità di sicurezza viene autenticata e viene restituito un token OAuth 2,0. Il nome della risorsa per richiedere un token `https://servicebus.azure.net`è.
+ 1. In primo luogo, l'identità dell'entità di sicurezza viene autenticata e viene restituito un token OAuth 2,0. Il nome della risorsa per richiedere un token è `https://servicebus.azure.net` .
  1. Successivamente, il token viene passato come parte di una richiesta al servizio del bus di servizio per autorizzare l'accesso alla risorsa specificata.
 
-Il passaggio di autenticazione richiede che una richiesta dell'applicazione contenga un token di accesso OAuth 2,0 in fase di esecuzione. Se un'applicazione è in esecuzione in un'entità di Azure, ad esempio una VM di Azure, un set di scalabilità di macchine virtuali o un'app per le funzioni di Azure, può usare un'identità gestita per accedere alle risorse. Per informazioni su come autenticare le richieste effettuate da un'identità gestita al servizio del bus di servizio, vedere [autenticare l'accesso alle risorse del bus di servizio di Azure con Azure Active Directory e identità gestite per le risorse di Azure](service-bus-managed-service-identity.md). 
+Il passaggio di autenticazione richiede che una richiesta dell'applicazione contenga un token di accesso OAuth 2.0 in fase di esecuzione. Se un'applicazione è in esecuzione in un'entità di Azure, ad esempio una VM di Azure, un set di scalabilità di macchine virtuali o un'app per le funzioni di Azure, può usare un'identità gestita per accedere alle risorse. Per informazioni su come autenticare le richieste effettuate da un'identità gestita al servizio del bus di servizio, vedere [autenticare l'accesso alle risorse del bus di servizio di Azure con Azure Active Directory e identità gestite per le risorse di Azure](service-bus-managed-service-identity.md). 
 
-Il passaggio di autorizzazione richiede che uno o più ruoli RBAC siano assegnati all'entità di sicurezza. Il bus di servizio di Azure fornisce ruoli RBAC che includono i set di autorizzazioni per le risorse del bus di servizio. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. Per altre informazioni sull'assegnazione di ruoli RBAC al bus di servizio di Azure, vedere [ruoli RBAC predefiniti per il bus di servizio di Azure](#built-in-rbac-roles-for-azure-service-bus). 
+Il passaggio di autorizzazione richiede che uno o più ruoli di controllo degli accessi in base al ruolo siano assegnati all'entità di sicurezza. Il bus di servizio di Azure fornisce ruoli RBAC che includono i set di autorizzazioni per le risorse del bus di servizio. I ruoli assegnati a un'entità di sicurezza determinano le autorizzazioni che saranno disponibili nell'entità. Per altre informazioni sull'assegnazione di ruoli RBAC al bus di servizio di Azure, vedere [ruoli RBAC predefiniti per il bus di servizio di Azure](#built-in-rbac-roles-for-azure-service-bus). 
 
 Le applicazioni native e le applicazioni Web che effettuano richieste al bus di servizio possono anche autorizzare con Azure AD. Questo articolo illustra come richiedere un token di accesso e usarlo per autorizzare le richieste per le risorse del bus di servizio. 
 
@@ -34,7 +28,7 @@ Le applicazioni native e le applicazioni Web che effettuano richieste al bus di 
 ## <a name="assigning-rbac-roles-for-access-rights"></a>Assegnazione di ruoli RBAC per i diritti di accesso
 Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md). Il bus di servizio di Azure definisce un set di ruoli RBAC predefiniti che comprende i set comuni di autorizzazioni usate per accedere alle entità del bus di servizio ed è anche possibile definire ruoli personalizzati per l'accesso ai dati.
 
-Quando un ruolo RBAC viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. L'ambito di accesso può essere limitato al livello di sottoscrizione, al gruppo di risorse o allo spazio dei nomi del bus di servizio. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Quando un ruolo di controllo degli accessi in base al ruolo viene assegnato a un'entità di sicurezza di Azure AD, Azure concede l'accesso a tali risorse per quell'entità di sicurezza. L'ambito di accesso può essere limitato al livello di sottoscrizione, al gruppo di risorse o allo spazio dei nomi del bus di servizio. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="built-in-rbac-roles-for-azure-service-bus"></a>Ruoli RBAC predefiniti per il bus di servizio di Azure
 Per il bus di servizio di Azure, la gestione degli spazi dei nomi e di tutte le risorse correlate tramite il portale di Azure e l'API Gestione risorse di Azure è già protetto mediante il modello di *Controllo degli accessi in base al ruolo*. Azure fornisce i ruoli RBAC predefiniti seguenti per autorizzare l'accesso a uno spazio dei nomi del bus di servizio:
@@ -43,7 +37,7 @@ Per il bus di servizio di Azure, la gestione degli spazi dei nomi e di tutte le 
 - [Mittente dati del bus di servizio di Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): usare questo ruolo per concedere l'accesso di trasmissione allo spazio dei nomi del bus di servizio e alle relative entità.
 - [Ricevitore di dati del bus di servizio di Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): usare questo ruolo per concedere l'accesso allo spazio dei nomi del bus di servizio e alle relative entità. 
 
-## <a name="resource-scope"></a>Ambito delle risorse 
+## <a name="resource-scope"></a>Ambito risorsa 
 Prima di assegnare un ruolo di controllo degli accessi in base al ruolo a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate stabiliscono che è sempre preferibile concedere solo l'ambito più ristretto possibile.
 
 Nell'elenco seguente vengono descritti i livelli in cui è possibile definire l'ambito di accesso alle risorse del bus di servizio, a partire dall'ambito più restrittivo:
@@ -101,7 +95,7 @@ Nelle immagini seguenti vengono illustrati i passaggi per la registrazione di un
 ![Registrare un'applicazione](./media/authenticate-application/app-registrations-register.png)
 
 > [!Note]
-> Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido come URI di reindirizzamento. Per le applicazioni native, questo valore non deve essere un URL reale. Per le applicazioni Web, l'URI di reindirizzamento deve essere un URI valido perché specifica l'URL a cui vengono forniti i token.
+> Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido per l'URI di reindirizzamento. Per le applicazioni native, questo valore non deve essere un URL reale. Per le applicazioni Web, l'URI di reindirizzamento deve essere un URI valido perché specifica l'URL a cui vengono forniti i token.
 
 Dopo aver registrato l'applicazione, l' **ID applicazione (client)** verrà visualizzato in **Impostazioni**:
 
@@ -142,7 +136,7 @@ Usare l'opzione di **accesso Secret client** , non l'opzione **interattiva User 
 
 ### <a name="run-the-sample"></a>Eseguire l'esempio
 
-Prima di poter eseguire l'esempio, modificare il file **app. config** e, a seconda dello scenario, impostare i valori seguenti:
+Prima di poter eseguire l'esempio, modificare il file di **app.config** e, a seconda dello scenario, impostare i valori seguenti:
 
 - `tenantId`: impostare sul valore di **TenantId**.
 - `clientId`: impostare sul valore di **ApplicationId**.

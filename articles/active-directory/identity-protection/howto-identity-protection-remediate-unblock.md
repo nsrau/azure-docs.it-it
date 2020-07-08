@@ -4,25 +4,24 @@ description: Informazioni sulle opzioni di rilevamento dei rischi attivi di chiu
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 350e7b37d36be70cea345db52cdfb639b2f1c1a8
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74382109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463961"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Correggere i rischi e sbloccare gli utenti
 
 Dopo aver completato l' [analisi](howto-identity-protection-investigate-risk.md), è opportuno intervenire per correggere il rischio o sbloccare gli utenti. Le organizzazioni hanno anche la possibilità di abilitare la correzione automatica usando i [criteri di rischio](howto-identity-protection-configure-risk-policies.md). Le organizzazioni devono provare a chiudere tutti i rilevamenti dei rischi presentati con in un periodo di tempo in cui l'organizzazione ha dimestichezza. Microsoft consiglia di chiudere gli eventi il prima possibile, perché il tempo è importante quando si lavora con i rischi.
 
-## <a name="remediation"></a>Correzione
+## <a name="remediation"></a>Soluzione
 
 Tutti i rilevamenti dei rischi attivi contribuiscono al calcolo di un valore denominato livello di rischio utente. Il livello di rischio utente è un indicatore (basso, medio, elevato) della probabilità che un account sia stato compromesso. In qualità di amministratore, si desidera che tutti i rilevamenti dei rischi siano chiusi, in modo che gli utenti interessati non siano più a rischio.
 
@@ -65,7 +64,7 @@ Quando si chiudono manualmente i rilevamenti dei rischi, è possibile scegliere 
 
 - Conferma compromissione utente
 - Ignorare il rischio utente
-- Conferma l'accesso sicuro
+- Confermare l'accesso sicuro
 - Conferma dell'accesso compromesso
 
 ## <a name="unblocking-users"></a>Sblocco degli utenti

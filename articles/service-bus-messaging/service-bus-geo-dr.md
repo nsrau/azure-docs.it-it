@@ -1,20 +1,13 @@
 ---
 title: Ripristino di emergenza geografico per il bus di servizio di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza nel bus di servizio di Azure
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: aschhab
-ms.openlocfilehash: a5a1e7a7ef73825b4b13d2f36c1c8554fdc2a9b6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 06/23/2020
+ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341473"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Ripristino di emergenza geografico per il bus di servizio di Azure
 

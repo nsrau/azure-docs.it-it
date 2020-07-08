@@ -1,25 +1,13 @@
 ---
 title: Guida di riferimento alla sintassi SQLRuleAction nel bus di servizio di Azure
 description: Questo articolo fornisce un riferimento per la sintassi di SQLRuleAction. Le azioni vengono scritte nella sintassi basata sul linguaggio SQL eseguita su un messaggio negoziato.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759629"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341572"
 ---
 # <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Riferimento alla sintassi di SQLRuleAction per il bus di servizio di Azure
 
@@ -63,7 +51,7 @@ Questo articolo offre informazioni dettagliate sulla grammatica delle azioni reg
     [<scope> .] <property_name>
 ``` 
   
-## <a name="arguments"></a>Argomenti  
+## <a name="arguments"></a>Arguments  
   
 -   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il valore `sys` indica l'ambito del sistema. In questo caso, `<property_name>` sarà il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente. In questo caso, `<property_name>` sarà una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
   
@@ -83,7 +71,7 @@ Il tentativo di accedere a una proprietà di sistema inesistente costituisce un 
   
 ```  
   
-### <a name="arguments"></a>Argomenti  
+### <a name="arguments"></a>Arguments  
  `<regular_identifier>` è una stringa rappresentata dall'espressione regolare seguente:  
   
 ```  
@@ -147,7 +135,7 @@ Il tentativo di accedere a una proprietà di sistema inesistente costituisce un 
       <integer_constant> | <decimal_constant> | <approximate_number_constant> | <boolean_constant> | NULL  
 ```  
   
-### <a name="arguments"></a>Argomenti  
+### <a name="arguments"></a>Arguments  
   
 -   `<integer_constant>` è una stringa di numeri non racchiusi tra virgolette e non contenenti separatori decimali. I valori sono archiviati internamente come `System.Int64` e seguono lo stesso intervallo.  
   

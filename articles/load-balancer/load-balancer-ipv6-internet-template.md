@@ -8,18 +8,17 @@ author: asudbring
 keywords: ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobili, iot
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: eb9703a1944a650f41d76c05d79764f8bdf8cd52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76045441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803725"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuire una soluzione di bilanciamento del carico con connessione Internet con IPv6 usando un modello
 

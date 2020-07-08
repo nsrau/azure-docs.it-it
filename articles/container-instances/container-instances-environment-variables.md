@@ -4,11 +4,10 @@ description: Informazioni su come impostare le variabili di ambiente nei conteni
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247228"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84686733"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Impostare le variabili di ambiente nelle istanze di contenitore
 
@@ -144,7 +143,7 @@ Azure:\
 Per impostare le variabili di ambiente quando si avvia un contenitore nella portale di Azure, specificarle nella pagina **Avanzate** quando si crea il contenitore.
 
 1. Nella pagina **Avanzate** impostare il criterio di **riavvio** *su in* caso di errore
-2. In **variabili di ambiente**immettere `NumWords` un valore `5` per la prima variabile e immettere `MinLength` il valore `8` per la seconda variabile. 
+2. In **variabili di ambiente**immettere `NumWords` un valore `5` per la prima variabile e immettere il `MinLength` valore `8` per la seconda variabile. 
 1. Selezionare **Verifica + crea** per verificare e quindi distribuire il contenitore.
 
 ![Pagina del portale che mostra il pulsante di abilitazione e le caselle di testo delle variabili di ambiente][portal-env-vars-01]

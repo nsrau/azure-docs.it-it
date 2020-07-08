@@ -1,25 +1,13 @@
 ---
 title: Gestire le risorse del bus di servizio di Azure con PowerShell | Microsoft Docs
 description: Questo articolo illustra come usare Azure PowerShell modulo per creare e gestire entità del bus di servizio (spazi dei nomi, code, argomenti, sottoscrizioni).
-services: service-bus-messaging
-documentationcenter: .NET
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 8605e269f09e4fedf7a61817a3634e75081593ca
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890248"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341750"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Gestire le risorse del bus di servizio di Azure con PowerShell
 
@@ -37,7 +25,7 @@ Prima di iniziare, verificare di disporre dei prerequisiti seguenti:
 * Un computer con Azure PowerShell. Per le istruzioni vedere [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps) (Introduzione ai cmdlet di Azure PowerShell).
 * Conoscenza generale degli script di PowerShell, dei pacchetti NuGet e di .NET Framework.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 Il primo passaggio consiste nell'usare PowerShell per accedere all'account Azure e alla sottoscrizione di Azure. Seguire le istruzioni in [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps) (Introduzione ai cmdlet di Azure PowerShell) per accedere al proprio account Azure e recuperare e accedere alle risorse nella sottoscrizione di Azure.
 

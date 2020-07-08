@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: 36844c3c2fcfdbf016b3e2d148345e9ce31ea2b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60456182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356152"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
@@ -44,7 +43,7 @@ Verificare che la funzionalità di autenticazione pass-through sia ancora **abil
 
 Se l'utente non è in grado di accedere usando l'autenticazione pass-through, è possibile che venga visualizzato uno dei seguenti errori nella schermata di accesso di Azure AD: 
 
-|Errore|Descrizione|Risoluzione
+|Errore|Descrizione|Soluzione
 | --- | --- | ---
 |AADSTS80001|Impossibile connettersi ad Active Directory|Verificare che i server degli agenti siano membri della stessa foresta AD degli utenti le cui password devono essere convalidate e siano in grado di connettersi ad Active Directory.  
 |AADSTS8002|Si è verificato un timeout di connessione ad Active Directory|Verificare che Active Directory sia disponibile e risponda alle richieste degli agenti.
@@ -52,15 +51,42 @@ Se l'utente non è in grado di accedere usando l'autenticazione pass-through, è
 |AADSTS80005|La convalida ha rilevato un errore WebException imprevedibile|Errore temporaneo. ripetere la richiesta. Se il problema persiste, contattare il supporto Microsoft.
 |AADSTS80007|Errore durante la comunicazione con Active Directory|Controllare i log dell'agente per altre informazioni e verificare che Active Directory funzioni come previsto.
 
+### <a name="users-get-invalid-usernamepassword-error"></a>Errori di nome utente/password non validi per gli utenti 
+
+Questo problema può verificarsi quando un UserPrincipalName locale (UPN) di un utente è diverso dall'UPN cloud dell'utente.
+
+Per confermare che questo è il problema, verificare innanzitutto che l'agente di autenticazione pass-through funzioni correttamente:
+
+
+1. Creare un account di test.  
+2. Importare il modulo PowerShell nel computer agente:
+ 
+ ```powershell
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication  Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+ ```
+3. Eseguire il comando richiama PowerShell: 
+
+ ```powershell
+ Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+ ``` 
+4. Quando viene richiesto di immettere le credenziali, immettere lo stesso nome utente e la stessa password usati per accedere a ( https://login.microsoftonline.com) .
+
+Se si ottiene lo stesso errore di nome utente/password, questo significa che l'agente di autenticazione pass-through funziona correttamente e il problema potrebbe essere che l'UPN locale non è instradabile. Per altre informazioni, vedere [configurazione dell'ID di accesso alternativo]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+
+
+
+
+
+
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivi degli errori di accesso nell'interfaccia di amministrazione di Azure Active Directory (necessaria licenza Premium)
 
 Se al tenant è associata una licenza di Azure AD Premium, è anche possibile esaminare il [report delle attività di accesso](../reports-monitoring/concept-sign-ins.md) nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Interfaccia di amministrazione di Azure Active Directory - Report sugli accessi](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-Passare a **Azure Active Directory** -> **accessi** nell'interfaccia di [amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
+Passare a **Azure Active Directory**  ->  **accessi** nell'interfaccia di [amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
-|Codice dell'errore di accesso|Motivo dell'errore di accesso|Risoluzione
+|Codice dell'errore di accesso|Motivo dell'errore di accesso|Soluzione
 | --- | --- | ---
 | 50144 | La password di Active Directory dell'utente è scaduta. | Reimpostare la password dell'utente nella sessione locale di Active Directory.
 | 80001 | Non sono disponibili agenti di autenticazione. | Installare e registrare un agente di autenticazione.

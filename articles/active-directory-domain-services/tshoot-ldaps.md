@@ -11,12 +11,11 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 22d1b6e2344256b52cfdbc48720a680a770a4216
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2d2cd98a9af75b5f3a6ca084dbfd4c144e06643d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77132174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84733790"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Risolvere i problemi di connettività LDAP sicura a un Azure Active Directory Domain Services dominio gestito
 
@@ -26,22 +25,22 @@ Questo articolo consente di risolvere i problemi relativi all'accesso LDAP sicur
 
 ## <a name="common-connection-issues"></a>Problemi di connessione comuni
 
-Se si verificano problemi durante la connessione a un dominio gestito di Azure AD DS usando Secure LDAP, vedere la procedura seguente per la risoluzione dei problemi. Dopo ogni passaggio di risoluzione dei problemi, provare a connettersi di nuovo al dominio gestito di Azure AD DS:
+Se si verificano problemi durante la connessione a un dominio gestito di Azure AD DS usando Secure LDAP, vedere la procedura seguente per la risoluzione dei problemi. Dopo ogni passaggio di risoluzione dei problemi, provare a connettersi di nuovo al dominio gestito:
 
 * La catena di autorità di certificazione del certificato LDAP sicuro deve essere considerata attendibile nel client. È possibile aggiungere l'autorità di certificazione radice (CA) all'archivio certificati radice attendibili nel client per stabilire la relazione di trust.
     * Assicurarsi [di esportare e applicare il certificato ai computer client][client-cert].
 * Verificare che il certificato LDAP sicuro per il dominio gestito abbia il nome DNS nell'attributo *Subject* o nome *alternativo soggetto* .
     * Esaminare i [requisiti dei certificati LDAP protetti][certs-prereqs] e creare un certificato sostitutivo, se necessario.
-* Verificare che il client LDAP, ad esempio *LDP. exe* , si connetta all'endpoint LDAP sicuro usando un nome DNS e non l'indirizzo IP.
-    * Il certificato applicato al dominio gestito Azure AD DS non include gli indirizzi IP del servizio, ma solo i nomi DNS.
-* Controllare il nome DNS a cui si connette il client LDAP. Deve essere risolto nell'indirizzo IP pubblico per l'LDAP sicuro nel dominio gestito Azure AD DS.
+* Verificare che il client LDAP, ad esempio *ldp.exe* si connetta all'endpoint LDAP sicuro usando un nome DNS e non l'indirizzo IP.
+    * Il certificato applicato al dominio gestito non include gli indirizzi IP del servizio, ma solo i nomi DNS.
+* Controllare il nome DNS a cui si connette il client LDAP. È necessario risolvere l'indirizzo IP pubblico per l'accesso LDAP sicuro nel dominio gestito.
     * Se il nome DNS viene risolto nell'indirizzo IP interno, aggiornare il record DNS per risolvere l'indirizzo IP esterno.
 * Per la connettività esterna, il gruppo di sicurezza di rete deve includere una regola che consenta il traffico sulla porta TCP 636 da Internet.
-    * Se è possibile connettersi al dominio gestito di Azure AD DS usando l'accesso LDAP sicuro dalle risorse direttamente connesse alla rete virtuale ma non alle connessioni esterne, assicurarsi [di creare una regola del gruppo di sicurezza di rete per consentire il traffico LDAP sicuro][ldaps-nsg].
+    * Se è possibile connettersi al dominio gestito usando l'accesso LDAP sicuro dalle risorse direttamente connesse alla rete virtuale ma non alle connessioni esterne, assicurarsi [di creare una regola del gruppo di sicurezza di rete per consentire il traffico LDAP sicuro][ldaps-nsg].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si verificano ancora problemi, [aprire una richiesta di supporto tecnico di Azure][azure-support] per ulteriore assistenza per la risoluzione dei problemi.
+Se i problemi persistono, [aprire una richiesta di supporto tecnico di Azure][azure-support] per richiedere ulteriore assistenza per la risoluzione dei problemi.
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

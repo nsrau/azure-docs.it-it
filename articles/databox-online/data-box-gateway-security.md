@@ -8,12 +8,11 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 2476cf360909374f711564fb5fad5c9e0706083d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 2711160534270f38845ab7b48234f4a441c236b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562475"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195862"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Sicurezza e protezione dei dati Azure Data Box Gateway
 
@@ -27,7 +26,6 @@ La soluzione Data Box Gateway è costituita da quattro componenti principali che
 - **Data Box Gateway dispositivo**. Il dispositivo virtuale di cui si esegue il provisioning nell'hypervisor del sistema fornito. Questo dispositivo virtuale viene usato per importare i dati locali in Azure.
 - **Client/host connessi al dispositivo**. I client nell'infrastruttura che si connettono al dispositivo Data Box Gateway e contengono dati che devono essere protetti.
 - **Archiviazione cloud**. Posizione della piattaforma cloud di Azure in cui vengono archiviati i dati. Questo percorso è in genere l'account di archiviazione collegato alla risorsa Data Box Gateway creata.
-
 
 ## <a name="data-box-gateway-service-protection"></a>Protezione del servizio Data Box Gateway
 
@@ -56,14 +54,13 @@ Per altre informazioni, vedere [ottenere una chiave di attivazione](data-box-gat
 
 Le password assicurano che solo gli utenti autorizzati possano accedere ai dati. I dispositivi Data Box Gateway vengono avviati in uno stato bloccato.
 
-È possibile scegliere:
+È possibile:
 
 - Connettersi all'interfaccia utente Web locale del dispositivo tramite un browser e quindi specificare una password per accedere al dispositivo.
 - Connettersi in remoto all'interfaccia di PowerShell del dispositivo tramite HTTP. La gestione remota è attivata per impostazione predefinita. È quindi possibile specificare la password del dispositivo per accedere al dispositivo. Per altre informazioni, vedere [connettersi in remoto al dispositivo data box gateway](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 [!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - Usare l'interfaccia utente Web locale per [modificare la password](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Se si modifica la password, assicurarsi di notificare a tutti gli utenti di accesso remoto in modo che non si verifichino problemi durante l'accesso.
-
 
 ## <a name="protect-your-data"></a>Proteggere i dati
 
@@ -77,10 +74,18 @@ Questa sezione descrive le funzionalità di sicurezza di Data Box Gateway che pr
 
 [!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
 
-### <a name="protect-data-via-storage-accounts"></a>Proteggere i dati mediante gli account di archiviazione
+### <a name="protect-data-using-storage-accounts"></a>Proteggere i dati con gli account di archiviazione
 
 [!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+
 - Ruotare e [sincronizzare regolarmente le chiavi dell'account di archiviazione](data-box-gateway-manage-shares.md#sync-storage-keys) per proteggere l'account di archiviazione da utenti non autorizzati.
+
+### <a name="protect-the-device-data-using-bitlocker"></a>Proteggere i dati del dispositivo con BitLocker
+
+Per proteggere i dischi virtuali nella macchina virtuale Data Box Gateway, è consigliabile abilitare BitLocker. Per impostazione predefinita, BitLocker non è abilitato. Per altre informazioni, vedere:
+
+- [Impostazioni di supporto della crittografia nella console di gestione di Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [Supporto di BitLocker in una macchina virtuale](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="manage-personal-information"></a>Gestisci informazioni personali
 

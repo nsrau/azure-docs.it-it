@@ -4,16 +4,15 @@ description: Mostra come creare un account Azure BlockBlobStorage con le caratte
 author: tamram
 services: storage
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4767c0310783e7e2cc51b4caa7d6e6a052d0a05a
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
-ms.translationtype: MT
+ms.openlocfilehash: 31a7048c263d7231fe827ad5a1c927c5cb3e2f6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007309"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463570"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Creare un account BlockBlobStorage
 
@@ -51,7 +50,7 @@ Azure Cloud Shell è una shell Bash gratuita che è possibile eseguire direttame
 
 Il pulsante avvia una shell interattiva che è possibile usare per eseguire la procedura descritta in questo articolo:
 
-[![Screenshot che mostra la finestra Cloud Shell nel portale](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+[![Screenshot che mostra la finestra di Cloud Shell nel portale](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>Installare l'interfaccia della riga di comando in locale
 
@@ -108,7 +107,7 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
 7. Per le altre impostazioni, configurare quanto segue:
 
-   |Campo     |Valore  |
+   |Campo     |valore  |
    |---------|---------|
    |**Prestazioni**    |  Selezionare **Premium**.   |
    |**Tipo di account**    | Selezionare **BlockBlobStorage**.      |
@@ -127,7 +126,7 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
 8. Selezionare **Verifica + crea** per verificare le impostazioni dell'account di archiviazione.
 
-9. Selezionare **Create** (Crea).
+9. Selezionare **Crea**.
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -209,4 +208,4 @@ Per creare un account BLOB in blocchi usando l'interfaccia della riga di comando
 
 - Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-- Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- Per ulteriori informazioni sui gruppi di risorse, vedere [Azure Resource Manager Overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).

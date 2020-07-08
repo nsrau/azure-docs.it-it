@@ -7,12 +7,11 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4cf851022a2b2b0c9a9781f4d41b40982bf2ad57
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 4e4abdd5d5a9e3cddf00cf47d7388a57d0d4d6fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807707"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -318,7 +317,7 @@ Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](htt
 * Per altre informazioni sulla modalità di raccolta dei dati relativi a indirizzi IP e georilevazione in Application Insights, fare riferimento a questo [articolo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/)
+È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/posts/2016-07-05-client-ip-address/)
 
 È possibile [usare Power BI](app/export-power-bi.md ) per visualizzare i dati di telemetria della richiesta in una mappa.
 
@@ -367,7 +366,7 @@ Usare una singola risorsa per tutti i componenti o i ruoli in un singolo sistema
 ### <a name="what-are-the-user-and-session-counts"></a>Che cosa sono i conteggi utente e sessione?
 
 * JavaScript SDK imposta un cookie utente nel client Web, per identificare gli utenti abituali, e un cookie di sessione per raggruppare le attività.
-* Se non c'è uno script lato client, è possibile [impostare cookie per il server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* Se non c'è uno script lato client, è possibile [impostare cookie per il server](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * Se un utente reale usa il sito in browser diversi o esegue una navigazione privata o in incognito oppure usa computer diversi, viene inclusi più di una volta nei conteggi.
 * Per identificare un utente connesso a più computer e browser, aggiungere una chiamata a [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 

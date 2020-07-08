@@ -3,12 +3,11 @@ title: Applicazioni per il rendering
 description: Con Azure Batch è possibile usare qualsiasi applicazione per il rendering. Tuttavia, le immagini di macchine virtuali (VM) di Azure Marketplace sono disponibili con applicazioni comuni preinstallate.
 ms.date: 09/19/2019
 ms.topic: how-to
-ms.openlocfilehash: 70e3fb18f0cc4788303ed16656e1eed0f8177dfc
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: f876671c6ac16137c2c1cf8d40bd70860c06975b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726486"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960487"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Applicazioni preinstallate nelle immagini di VM per il rendering
 
@@ -87,4 +86,4 @@ L'elenco seguente si applica alle immagini di rendering Windows Server 2016, ver
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per usare le immagini di VM per il rendering, è necessario specificare le immagini nella configurazione del pool al momento della creazione. Vedere le [funzionalità del pool di Batch per il rendering](https://docs.microsoft.com/azure/batch/batch-rendering-functionality#batch-pools).
+Per usare le immagini di VM per il rendering, è necessario specificare le immagini nella configurazione del pool al momento della creazione. Vedere le [funzionalità del pool di Batch per il rendering](./batch-rendering-functionality.md#batch-pools).

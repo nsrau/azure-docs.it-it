@@ -1,20 +1,18 @@
 ---
 title: Monitorare l'integrità delle risorse dell'hub IoT di Azure | Microsoft Docs
 description: Usare Monitoraggio di Azure e Integrità risorse di Azure per monitorare l'hub IoT e diagnosticare rapidamente i problemi
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: kgremban
+ms.date: 04/21/2020
+ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732436"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792040"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
 
@@ -32,8 +30,6 @@ Hub IoT fornisce inoltre metriche specifiche che è possibile usare per comprend
 ## <a name="use-azure-monitor"></a>Usare Monitoraggio di Azure
 
 Monitoraggio di Azure fornisce informazioni di diagnostica per le risorse di Azure, il che significa che è possibile monitorare le operazioni che si verificano all'interno dell'hub IoT.
-
-Le impostazioni di diagnostica di Monitoraggio di Azure sostituiscono il monitoraggio delle operazioni dell'hub IoT. Se si usa il monitoraggio delle operazioni, è necessario eseguire la migrazione dei flussi di lavoro. Per altre informazioni, vedere [Migrate from operations monitoring to diagnostics settings (Eseguire la migrazione dalla funzionalità Monitoraggio operazioni a Impostazioni di diagnostica)](iot-hub-migrate-to-diagnostics-settings.md).
 
 Per altre informazioni sulle metriche specifiche e gli eventi che Monitoraggio di Azure controlla, vedere [Metriche supportate con il monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md) e [Servizi, schemi e categorie supportati per i log di Diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-schema.md).
 
@@ -121,11 +117,11 @@ La categoria di operazioni di identità del dispositivo tiene traccia degli erro
 
 #### <a name="routes"></a>Route
 
-La categoria del routing dei messaggi tiene traccia degli errori che si verificano durante la valutazione del routing dei messaggi e dell'integrità dell'endpoint percepiti dall'hub IoT. Questa categoria include eventi di questo tipo:
+La categoria [routing messaggi](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) tiene traccia degli errori che si verificano durante la valutazione della route dei messaggi e l'integrità degli endpoint come percepiti dall'hub. Questa categoria include eventi di questo tipo:
 
 * Una regola viene valutata come "non definita"
 * Hub IoT contrassegna un endpoint come inattivo
-* Qualsiasi errore ricevuto da un endpoint 
+* Qualsiasi errore ricevuto da un endpoint
 
 Questa categoria non include errori specifici sui messaggi stessi, come gli errori di limitazione sui dispositivi, che vengono inclusi nella categoria "Telemetria dei dispositivi".
 
@@ -134,17 +130,24 @@ Questa categoria non include errori specifici sui messaggi stessi, come gli erro
     "records":
     [
         {
-            "time": "UTC timestamp",
-            "resourceId": "Resource Id",
-            "operationName": "endpointUnhealthy",
-            "category": "Routes",
-            "level": "Error",
-            "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
-            "location": "Resource location"
+            "time":"2019-12-12T03:25:14Z",
+            "resourceId":"/SUBSCRIPTIONS/91R34780-3DEC-123A-BE2A-213B5500DFF0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "operationName":"endpointUnhealthy",
+            "category":"Routes",
+            "level":"Error",
+            "resultType":"403004",
+            "resultDescription":"DeviceMaximumQueueDepthExceeded",
+            "properties":"{\"deviceId\":null,\"endpointName\":\"anon-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
+            "location":"westus"
         }
     ]
 }
 ```
+
+Ecco altri dettagli sul routing dei log di diagnostica:
+
+* [Elenco dei codici di errore del log di diagnostica di routing](troubleshoot-message-routing.md#diagnostics-error-codes)
+* [Elenco dei log di diagnostica di routing operationNames](troubleshoot-message-routing.md#diagnostics-operation-names)
 
 #### <a name="device-telemetry"></a>Telemetria dei dispositivi
 
@@ -315,7 +318,7 @@ La categoria relativa ai metodi diretti tiene traccia delle interazioni di richi
 
 La categoria relativa alla traccia distribuita tiene traccia degli ID di correlazione per i messaggi che contengono l'intestazione del contesto di traccia. Per abilitare completamente questi log, è necessario aggiornare il codice sul lato client seguendo [le analisi e diagnosticare le applicazioni Internet end-to-end con l'analisi distribuita dell'hub Internet (anteprima)](iot-hub-distributed-tracing.md).
 
-Si noti `correlationId` che è conforme alla proposta di [contesto di traccia W3C](https://github.com/w3c/trace-context) , in cui `trace-id` contiene un oggetto e `span-id`un oggetto.
+Si noti che `correlationId` è conforme alla proposta di [contesto di traccia W3C](https://github.com/w3c/trace-context) , in cui contiene un oggetto `trace-id` e un oggetto `span-id` .
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Log dell'hub IoT D2C (da dispositivo a cloud)
 
@@ -380,8 +383,8 @@ Nella `properties` sezione questo log contiene informazioni aggiuntive sull'ingr
 
 | Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Stringa | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
-| **parentSpanId** | Stringa | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
+| **isRoutingEnabled** | string | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
+| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
 
 ##### <a name="iot-hub-egress-logs"></a>Log di uscita dell'hub IoT
 
@@ -412,9 +415,9 @@ Nella `properties` sezione questo log contiene informazioni aggiuntive sull'ingr
 
 | Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | Stringa | Nome dell'endpoint di routing |
-| **endpointType** | Stringa | Tipo dell'endpoint di routing |
-| **parentSpanId** | Stringa | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
+| **endpointName** | string | Nome dell'endpoint di routing |
+| **endpointType** | string | Tipo dell'endpoint di routing |
+| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
 
 #### <a name="configurations"></a>Configurazioni
 
@@ -543,7 +546,7 @@ Per controllare l'integrità degli hub IoT, seguire questi passaggi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Passare a integrità**risorse** **servizio** > integrità.
+2. Passare a **Service Health**integrità  >  **risorse**servizio integrità.
 
 3. Nelle caselle di riepilogo a discesa selezionare la sottoscrizione e quindi selezionare l' **Hub** Internet come tipo di risorsa.
 

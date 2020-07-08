@@ -2,15 +2,14 @@
 title: Usare le zone di disponibilità nel servizio Azure Kubernetes
 description: Informazioni su come creare un cluster che distribuisce nodi tra le zone di disponibilità nel servizio Azure Kubernetes
 services: container-service
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 35aaad31728f4a0cd73913ecf397d8123b3f909a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195555"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creare un cluster del servizio Azure Kubernetes che usi le zone di disponibilità
 
@@ -48,7 +47,7 @@ Quando si crea un cluster del servizio Azure Kubernetes usando le zone di dispon
 
 ### <a name="azure-disks-limitations"></a>Limitazioni per i dischi di Azure
 
-I volumi che usano i dischi gestiti di Azure non sono al momento risorse con ridondanza della zona. I volumi non possono essere collegati tra le zone e devono avere un percorso condiviso nella stessa zona di un nodo specifico che ospita un pod di destinazione.
+I volumi che usano i dischi gestiti di Azure non sono al momento risorse con ridondanza della zona. I volumi non possono essere collegati tra le zone e devono avere un percorso condiviso nella stessa zona di un determinato nodo che ospita il pod di destinazione.
 
 Se è necessario eseguire carichi di lavoro con stato, usare taint e tolleranze del pool di nodi nelle specifiche di pod per raggruppare la pianificazione di pod nella stessa zona dei dischi. In alternativa, usare l'archiviazione basata sulla rete, ad esempio File di Azure che può collegarsi ai pod così come sono pianificati tra le zone.
 

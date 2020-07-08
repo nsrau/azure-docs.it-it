@@ -10,19 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39ebbf99ad31cce20eabc20fbdc056c889235713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2fa56217c54ac662a62a5ce835d75e3d85f05bfa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77470752"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041473"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modellazione dei dati in Anteprima di Azure Time Series Insights
 
 Questo articolo descrive come usare il modello Time Series in Azure Time Series Insights Preview. e illustra in dettaglio alcuni scenari di dati comuni.
 
 > [!TIP]
-> * Per informazioni sul [modello Time Series](time-series-insights-update-tsm.md)di anteprima, vedere.
+> * Per informazioni sul [modello Time Series](concepts-model-overview.md)di anteprima, vedere.
 > * Altre informazioni sull'esplorazione dell'interfaccia utente di anteprima in [Azure Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
 
 ## <a name="instances"></a>Istanze
@@ -168,7 +167,7 @@ Per iniziare, selezionare la vista **modello** dalla visualizzazione **analizza*
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni sul modello Time Series, vedere [modellazione dei dati](./time-series-insights-update-tsm.md).
+- Per ulteriori informazioni sul modello Time Series, vedere [modellazione dei dati](./concepts-model-overview.md).
 
 - Per altre informazioni sull'anteprima, vedere [Visualizzare dati nello strumento di esplorazione di Anteprima di Azure Time Series Insights](./time-series-insights-update-explorer.md).
 

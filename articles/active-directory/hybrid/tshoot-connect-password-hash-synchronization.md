@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807605"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect
 
@@ -288,12 +287,15 @@ Se invece si è usata l'installazione personalizzata, impostare manualmente le a
 6. I controller di dominio sono raggiungibili da Azure AD Connect? Se il server Connect non riesce a connettersi a tutti i controller di dominio, configurare **Only use preferred domain controller** (Usare solo controller di dominio preferito).  
     
     ![Controller di dominio usato da Active Directory Connector](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
-    
+
 7. Tornare a **Synchronization Service Manager** e **Configure Directory Partition** (Configurare la partizione della directory). 
  
 8. Selezionare il dominio in **Select directory partitions** (Selezionare le partizioni della directory), selezionare la casella di controllo **Only use preferred domain controller** (Usare solo controller di dominio preferito) e quindi fare clic su **Configura**. 
 
 9. Nell'elenco immettere i controller di dominio che Connect deve usare per la sincronizzazione delle password. Lo stesso elenco viene usato anche per l'importazione e l'esportazione. Eseguire questi passaggi per tutti i domini.
+
+> [!NOTE]
+> Per applicare queste modifiche, riavviare il servizio di **sincronizzazione Microsoft Azure ad** (AdSync).
 
 10. Se lo script mostra che non sono stati generati heartbeat, eseguire lo script riportato in [Attivare una sincronizzazione completa di tutte le password](#trigger-a-full-sync-of-all-passwords).
 

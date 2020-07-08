@@ -8,12 +8,11 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f1a4d9af8a1b1095527078dd790e80ef45a5ee9a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355659"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)
 
@@ -26,7 +25,7 @@ Indice BLOB consente di:
 - Specificare i comportamenti condizionali per le API BLOB in base alla valutazione dei tag di indice
 - Usare i tag di indice per controlli avanzati sulle funzionalità della piattaforma BLOB come la [gestione del ciclo](storage-lifecycle-management-concepts.md) di vita
 
-Si consideri lo scenario in cui si hanno milioni di BLOB nell'account di archiviazione scritti e a cui si accede da molte applicazioni diverse. Si desidera trovare tutti i dati correlati da un singolo progetto, ma non si è certi dell'ambito perché i dati possono essere distribuiti in più contenitori con convenzioni di denominazione BLOB diverse. Tuttavia, si sa che le applicazioni caricano tutti i dati con tag basati sul rispettivo progetto e identificano la descrizione. Anziché cercare in milioni di BLOB e confrontare nomi e proprietà, è possibile usare `Project = Contoso` semplicemente come criterio di individuazione. L'indice BLOB filtra tutti i contenitori nell'intero account di archiviazione per trovare rapidamente e restituire solo il set di BLOB 50 `Project = Contoso`da. 
+Si consideri lo scenario in cui si hanno milioni di BLOB nell'account di archiviazione scritti e a cui si accede da molte applicazioni diverse. Si desidera trovare tutti i dati correlati da un singolo progetto, ma non si è certi dell'ambito perché i dati possono essere distribuiti in più contenitori con convenzioni di denominazione BLOB diverse. Tuttavia, si sa che le applicazioni caricano tutti i dati con tag basati sul rispettivo progetto e identificano la descrizione. Anziché cercare in milioni di BLOB e confrontare nomi e proprietà, è possibile usare semplicemente `Project = Contoso` come criterio di individuazione. L'indice BLOB filtra tutti i contenitori nell'intero account di archiviazione per trovare rapidamente e restituire solo il set di BLOB 50 da `Project = Contoso` . 
 
 Per iniziare con esempi su come usare l'indice BLOB, vedere usare l' [Indice BLOB per gestire e trovare i dati](storage-blob-index-how-to.md).
 
@@ -36,14 +35,14 @@ I prefissi dei nomi di BLOB e contenitori sono una categorizzazione unidimension
 
 Considerare i seguenti cinque BLOB nell'account di archiviazione:
 >
-> Container1/Transaction. csv  
-> container2/Campaign. docx  
-> Photos/bannerphoto. png  
-> Archivio/completato/2019review. pdf  
-> log/2020/01/01/logfile. txt  
+> Container1/transaction.csv  
+> container2/campaign.docx  
+> Foto/bannerphoto.png  
+> archivi/completati/2019review.pdf  
+> log/2020/01/01/logfile.txt  
 >
 
-Questi BLOB sono attualmente separati usando un prefisso di contenitore/cartella virtuale/nome BLOB. Con l'indice BLOB, è possibile impostare un attributo di `Project = Contoso` Tag index su questi cinque BLOB per categorizzarli insieme mantenendo al tempo stesso l'organizzazione del prefisso corrente. In questo modo si elimina la necessità di spostare i dati esponendo la possibilità di filtrare e trovare i dati usando l'indice multidimensionale della piattaforma di archiviazione.
+Questi BLOB sono attualmente separati usando un prefisso di contenitore/cartella virtuale/nome BLOB. Con l'indice BLOB, è possibile impostare un attributo di tag index `Project = Contoso` su questi cinque BLOB per categorizzarli insieme mantenendo al tempo stesso l'organizzazione del prefisso corrente. In questo modo si elimina la necessità di spostare i dati esponendo la possibilità di filtrare e trovare i dati usando l'indice multidimensionale della piattaforma di archiviazione.
 
 ## <a name="setting-blob-index-tags"></a>Impostazione di tag di indice BLOB
 
@@ -63,21 +62,21 @@ Si considerino i tag di esempio seguenti che possono essere impostati
 > "Priority" = '01 ' 
 >
 
-Per modificare gli attributi del tag di indice esistenti, è innanzitutto necessario recuperare gli attributi del tag esistenti, modificare gli attributi dei tag e sostituire con l'operazione SetBlobTags. Per rimuovere tutti i tag index dal BLOB, chiamare l'operazione SetBlobTags senza specificare attributi tag. Poiché i tag degli indici BLOB sono una risorsa secondaria per il contenuto dei dati BLOB, SetBlobTags non modifica alcun contenuto sottostante e non modifica il valore Last-Modified-Time del BLOB.
+Per modificare gli attributi del tag di indice esistenti, è innanzitutto necessario recuperare gli attributi del tag esistenti, modificare gli attributi dei tag e sostituire con l'operazione SetBlobTags. Per rimuovere tutti i tag index dal BLOB, chiamare l'operazione SetBlobTags senza specificare attributi tag. Poiché i tag degli indici BLOB sono una risorsa secondaria per il contenuto dei dati BLOB, SetBlobTags non modifica alcun contenuto sottostante e non modifica il valore Last-Modified-Time o ETag (tag di entità) del BLOB. È possibile creare o modificare i tag di indice per tutti i BLOB di base correnti e le versioni precedenti. Tuttavia, non è possibile modificare i tag negli snapshot o nei BLOB eliminati temporaneamente. 
 
 Ai tag di indice BLOB si applicano i limiti seguenti:
 - Ogni BLOB può avere fino a 10 tag di indice BLOB
 - Le chiavi tag devono avere una lunghezza compresa tra 1 e 128 caratteri
 - I valori dei tag devono essere compresi tra 0 e 256 caratteri
 - Le chiavi e i valori dei tag distinguono
-- Le chiavi e i valori dei tag supportano solo i tipi di dati stringa. eventuali numeri o caratteri speciali verranno salvati come stringhe
+- Le chiavi e i valori dei tag supportano solo i tipi di dati stringa. eventuali numeri, date, ore o caratteri speciali verranno salvati come stringhe
 - Le chiavi e i valori dei tag devono rispettare le seguenti regole di denominazione:
   - Caratteri alfanumerici: a-z, A-Z, 0-9
   - Caratteri speciali: spazio, più, meno, punto, due punti, uguale a, carattere di sottolineatura, barra
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Recupero e visualizzazione di tag di indice BLOB
 
-I tag degli indici BLOB vengono archiviati come una risorsa secondaria insieme ai dati BLOB e possono essere recuperati in modo indipendente dal contenuto dei dati BLOB sottostante. Una volta impostati, è possibile recuperare e rivedere immediatamente i tag dell'indice BLOB per un singolo BLOB con l'operazione GetBlobTags. L'operazione ListBlobs con `include:tags` il parametro restituirà anche tutti i BLOB all'interno di un contenitore insieme ai tag di indice BLOB applicati. 
+I tag degli indici BLOB vengono archiviati come una risorsa secondaria insieme ai dati BLOB e possono essere recuperati in modo indipendente dal contenuto dei dati BLOB sottostante. Una volta impostati, è possibile recuperare e rivedere immediatamente i tag dell'indice BLOB per un singolo BLOB con l'operazione GetBlobTags. L'operazione ListBlobs con il `include:tags` parametro restituirà anche tutti i BLOB all'interno di un contenitore insieme ai tag di indice BLOB applicati. 
 
 Per tutti i BLOB con almeno 1 tag di indice BLOB, il valore x-ms-tag-Count viene restituito nelle operazioni ListBlobs, GetBlob e GetBlobProperties che indicano il numero di tag di indice BLOB presenti nel BLOB.
 
@@ -103,12 +102,19 @@ La tabella seguente mostra tutti gli operatori validi per FindBlobsByTags:
 |     >      |  Maggiore di |  "Date" >' 2018-06-18' |
 |     >=     |  Maggiore o uguale a | "Priority" >=' 5' | 
 |     <      |  Minore di    | "Age" < "32" |
-|     <=     |  Minore o uguale  | "Company" <= "contoso" |
+|     <=     |  Minore o uguale a  | "Company" <= "contoso" |
 |    AND     |  And logico  | "Rank" >=' 010' è Rank ' <' 100' |
 | @container |  Ambito per un contenitore specifico   | @container=' videofiles ' è status ' =' done ' |
 
+> [!NOTE]
+> Acquisire familiarità con l'ordinamento di lessicografico durante l'impostazione e l'esecuzione di query sui tag.
+> - I numeri vengono ordinati prima delle lettere. I numeri vengono ordinati in base alla prima cifra.
+> - Le lettere maiuscole sono ordinate prima delle lettere minuscole.
+> - I simboli non sono standard. Alcuni simboli vengono ordinati prima dei valori numerici. Gli altri simboli vengono ordinati prima o dopo le lettere.
+>
+
 ## <a name="conditional-blob-operations-with-blob-index-tags"></a>Operazioni BLOB condizionali con tag di indice BLOB
-Nelle versioni REST 2019-10-10 e successive, la maggior parte delle [API del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) supporta ora un'intestazione condizionale, x-ms-if-Tags, in modo che l'operazione riesca solo se viene soddisfatta la condizione di indice BLOB specificata. Se la condizione non viene soddisfatta, si otterrà `error 412: The condition specified using HTTP conditional header(s) is not met`.
+Nelle versioni REST 2019-10-10 e successive, la maggior parte delle [API del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) supporta ora un'intestazione condizionale, x-ms-if-Tags, in modo che l'operazione riesca solo se viene soddisfatta la condizione di indice BLOB specificata. Se la condizione non viene soddisfatta, si otterrà `error 412: The condition specified using HTTP conditional header(s) is not met` .
 
 L'intestazione x-ms-if-tag può essere combinata con le altre intestazioni condizionali HTTP esistenti (If-Match, If-None-Match e così via).  Se in una richiesta vengono fornite più intestazioni condizionali, è necessario che tutti valutino true affinché l'operazione abbia esito positivo.  Tutte le intestazioni condizionali vengono combinate in modo efficace con AND logico. 
 
@@ -121,9 +127,9 @@ La tabella seguente mostra tutti gli operatori validi per le operazioni condizio
 |     >      |  Maggiore di |  "Date" >' 2018-06-18' |
 |     >=     |  Maggiore o uguale a | "Priority" >=' 5' | 
 |     <      |  Minore di    | "Age" < "32" |
-|     <=     |  Minore o uguale  | "Company" <= "contoso" |
+|     <=     |  Minore o uguale a  | "Company" <= "contoso" |
 |    AND     |  And logico  | "Rank" >=' 010' è Rank ' <' 100' |
-|     OR     |  OR logico   | "Status" = "Done" o "Priority" >= "05" |
+|     OPPURE     |  OR logico   | "Status" = "Done" o "Priority" >= "05" |
 
 > [!NOTE]
 > Sono disponibili due operatori aggiuntivi, non uguali e logici, che sono consentiti nell'intestazione x-ms-if-Tags condizionale per l'operazione BLOB, ma non esistono nell'operazione FindBlobsByTags.
@@ -138,7 +144,7 @@ Usando il nuovo blobIndexMatch come filtro delle regole nella gestione del ciclo
 
 È possibile impostare una corrispondenza dell'indice BLOB come un filtro autonomo impostato in una regola del ciclo di vita per applicare azioni sui dati con tag. In alternativa, è possibile combinare sia una corrispondenza di prefisso sia una corrispondenza dell'indice BLOB per abbinare set di dati più specifici. L'applicazione di più filtri a una regola del ciclo di vita è un'operazione logica e tale che l'azione verrà applicata solo se tutti i criteri di filtro corrispondono. 
 
-La regola di gestione del ciclo di vita di esempio seguente si applica ai BLOB in blocchi nel contenitore ' videofiles ' e ai BLOB in livelli per archiviare l'archiviazione solo se i ```"Status" = 'Processed' AND "Source" == 'RAW'```dati corrispondono ai criteri dei tag di indice BLOB di.
+La regola di gestione del ciclo di vita di esempio seguente si applica ai BLOB in blocchi nel contenitore ' videofiles ' e ai BLOB in livelli per archiviare l'archiviazione solo se i dati corrispondono ai criteri dei tag di indice BLOB di ```"Status" = 'Processed' AND "Source" == 'RAW'``` .
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 ![Esempio di regola di corrispondenza dell'indice BLOB per la gestione del ciclo di vita in portale di Azure](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
@@ -191,7 +197,7 @@ La regola di gestione del ciclo di vita di esempio seguente si applica ai BLOB i
 È possibile autorizzare l'accesso all'indice BLOB usando uno degli approcci seguenti:
 
 - Utilizzando il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza Azure Active Directory (Azure AD). Microsoft consiglia di usare Azure AD per una maggiore sicurezza e semplicità d'uso. Per altre informazioni sull'uso di Azure AD con le operazioni BLOB, vedere [autorizzare l'accesso a BLOB e code usando Azure Active Directory](../common/storage-auth-aad.md).
-- Usando una firma di accesso condiviso (SAS) per delegare l'accesso all'indice BLOB. Per altre informazioni sulle firme di accesso condiviso, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../common/storage-sas-overview.md).
+- Usando una firma di accesso condiviso (SAS) per delegare l'accesso all'indice BLOB. Per altre informazioni sulle firme di accesso condiviso, vedere [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso](../common/storage-sas-overview.md).
 - Utilizzando le chiavi di accesso dell'account per autorizzare le operazioni con la chiave condivisa. Per altre informazioni, vedere [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
 
 I tag di indice BLOB sono una risorsa secondaria per i dati BLOB. Un utente con autorizzazioni o un token di firma di accesso condiviso per la lettura o la scrittura di BLOB potrebbe non avere accesso ai tag degli indici BLOB. 
@@ -201,7 +207,7 @@ Ai chiamanti che usano un' [identità AAD](../common/storage-auth-aad.md) posson
 
 |   Operazioni BLOB   |  Azione RBAC   |
 |---------------------|----------------|
-| Trovare i BLOB in base ai tag  | Microsoft. storage/storageAccounts/blobServices/Containers/Blobs/Filter |
+| Trovare i BLOB in base ai tag  | Microsoft. storage/storageAccounts/blobServices/Containers/BLOB/filtro/azione |
 | Imposta tag BLOB         | Microsoft. storage/storageAccounts/blobServices/Containers/BLOB/Tag/scrittura | 
 | Ottieni Tag BLOB         | Microsoft. storage/storageAccounts/blobServices/Containers/BLOB/Tag/lettura |
 
@@ -246,9 +252,11 @@ I prezzi per gli indici BLOB sono attualmente in anteprima pubblica e sono sogge
 
 ## <a name="regional-availability-and-storage-account-support"></a>Supporto per disponibilità e account di archiviazione a livello di area
 
-L'indice BLOB è attualmente disponibile solo con gli account per utilizzo generico V2 (GPv2). Nella portale di Azure è possibile aggiornare un account di per utilizzo generico esistente (utilizzo generico V1) a un account GPv2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
+L'indice BLOB è attualmente disponibile solo negli account per utilizzo generico V2 (GPv2) con spazio dei nomi gerarchico (HNS) disabilitato. Gli account per utilizzo generico (utilizzo generico V1) non sono supportati, ma è possibile aggiornare qualsiasi account utilizzo generico V1 a un account GPv2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 
 Nell'anteprima pubblica, l'indice BLOB è attualmente disponibile solo nelle aree Select seguenti:
+- Canada centrale
+- Canada orientale
 - Francia centrale
 - Francia meridionale
 
@@ -276,7 +284,7 @@ az provider register --namespace 'Microsoft.Storage'
 In questa sezione vengono descritti i problemi noti e le condizioni nell'anteprima pubblica corrente dell'indice BLOB. Come per la maggior parte delle anteprime, questa funzionalità non deve essere usata per i carichi di lavoro di produzione fino a quando non raggiunge la GA perché i comportamenti possono cambiare.
 
 -   Per l'anteprima, è necessario prima registrare la sottoscrizione prima di poter usare l'indice BLOB per l'account di archiviazione nelle aree di anteprima.
--   Nella versione di anteprima sono attualmente supportati solo gli account GPv2. Gli account datalake Gen2 di BLOB, BlockBlobStorage e HNS abilitati non sono attualmente supportati con l'indice BLOB.
+-   Nella versione di anteprima sono attualmente supportati solo gli account GPv2. Gli account datalake Gen2 di BLOB, BlockBlobStorage e HNS abilitati non sono attualmente supportati con l'indice BLOB. Gli account utilizzo generico V1 non saranno supportati.
 -   Il caricamento di BLOB di pagine con tag di indice non rende attualmente persistenti i tag. È necessario impostare i tag dopo il caricamento di un BLOB di pagine.
 -   Quando il filtro è limitato a un singolo contenitore, @container può essere passato solo se tutti i tag di indice nell'espressione di filtro sono controlli di uguaglianza (chiave = valore). 
 -   Quando si usa l'operatore Range con la condizione AND, è possibile specificare solo lo stesso nome di chiave del tag di indice (Age >' 013' ed Age <' 100').
@@ -290,6 +298,9 @@ In questa sezione vengono descritti i problemi noti e le condizioni nell'antepri
 
 ### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>L'indice BLOB può aiutarmi a filtrare ed eseguire query sul contenuto all'interno di BLOB? 
 No, i tag degli indici BLOB consentono di trovare i BLOB che si stanno cercando. Se è necessario eseguire ricerche nei BLOB, usare l'accelerazione query o ricerca di Azure.
+
+### <a name="are-there-any-special-considerations-regarding-blob-index-tag-values"></a>Esistono particolari considerazioni sui valori dei tag degli indici BLOB?
+I tag dell'indice BLOB supportano solo i tipi di dati stringa e l'esecuzione di query restituisce i risultati con l'ordinamento lessicografico. Per i numeri, è consigliabile azzerare il numero. Per date e ore, è consigliabile archiviare come formato conforme a ISO 8601.
 
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>Sono correlati tag di indice BLOB e Azure Resource Manager Tag?
 No, Azure Resource Manager tag consentono di organizzare le risorse del piano di controllo, ad esempio le sottoscrizioni, i gruppi di risorse e gli account di archiviazione. I tag di indice BLOB forniscono la gestione e l'individuazione degli oggetti sulle risorse del piano dati, ad esempio i BLOB in un account di archiviazione.

@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/16/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 02f7d7e2735717a7a6e7a56273551197c16b77aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4309f1dc63ac7dd96e22f4564a32aae6ed59ad84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195799"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Controllare la proprietà Ora ultima sincronizzazione per un account di archiviazione
 
@@ -37,13 +36,7 @@ Per recuperare il valore della proprietà **Ora ultima sincronizzazione**, è po
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione con PowerShell, installare una versione del modulo Az.Storage che supporta il recupero delle statistiche della replica geografica. Ad esempio:
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.14.0 –AllowClobber –Force
-```
-
-Controllare quindi la proprietà **GeoReplicationStats.LastSyncTime** dell'account di archiviazione. Ricordarsi di sostituire i valori segnaposto con valori personalizzati:
+Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione con PowerShell, installare la versione 1.11.0 o successiva del modulo [AZ. storage](https://www.powershellgallery.com/packages/Az.Storage) . Controllare quindi la proprietà **GeoReplicationStats.LastSyncTime** dell'account di archiviazione. Ricordarsi di sostituire i valori segnaposto con valori personalizzati:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

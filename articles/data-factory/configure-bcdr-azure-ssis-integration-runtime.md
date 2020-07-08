@@ -12,12 +12,11 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 795247cd0d6adfd27115b73c1d0de02e6810d670
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195722"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Configurare il runtime di integrazione Azure-SSIS con la replica geografica e il failover del database SQL
 
@@ -29,11 +28,11 @@ Per altre informazioni sulla replica geografica e il failover per il Database SQ
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-ssis-ir-failover-with-a-sql-database-managed-instance"></a>Azure-SSIS IR failover con un'istanza gestita di database SQL
+## <a name="azure-ssis-ir-failover-with-a-sql-managed-instance"></a>Azure-SSIS IR failover con SQL Istanza gestita
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-Un'istanza gestita di database SQL di Azure usa una *chiave master del database (DMK)* per proteggere i dati, le credenziali e le informazioni di connessione archiviate in un database. Per abilitare la decrittografia automatica di DMK, una copia della chiave viene crittografata tramite la *chiave master del server (SMK)*. 
+Un Istanza gestita SQL di Azure usa una *chiave master del database (DMK)* per proteggere i dati, le credenziali e le informazioni di connessione archiviate in un database. Per abilitare la decrittografia automatica di DMK, una copia della chiave viene crittografata tramite la *chiave master del server (SMK)*. 
 
 SMK non viene replicato in un gruppo di failover. È necessario aggiungere una password sia nelle istanze primarie che secondarie per la decrittografia DMK dopo il failover.
 
@@ -43,7 +42,7 @@ SMK non viene replicato in un gruppo di failover. È necessario aggiungere una p
     ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
     ```
 
-2. Creare un gruppo di failover in un'istanza gestita di database SQL di Azure.
+2. Creare un gruppo di failover in un Istanza gestita SQL.
 
 3. Eseguire **sp_control_dbmasterkey_password** nell'istanza secondaria usando la nuova password di crittografia.
 
@@ -87,27 +86,27 @@ Quando si verifica il failover, seguire questa procedura:
 2. Modificare la Azure-SSIS IR con le informazioni sulla nuova area, sull'endpoint e sulla rete virtuale per l'istanza secondaria.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                -VNetId "new VNet" `
-                -Subnet "new subnet" `
-                -SetupScriptContainerSasUri "new custom setup SAS URI"
-    ```
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                    -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                    -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                    -VNetId "new VNet" `
+                    -Subnet "new subnet" `
+                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+        ```
 
-3. Riavviare il Azure-SSIS IR.
+3. Restart the Azure-SSIS IR.
 
-### <a name="scenario-3-azure-ssis-ir-is-pointing-to-a-public-endpoint-of-a-sql-database-managed-instance"></a>Scenario 3: Azure-SSIS IR punta a un endpoint pubblico di un'istanza gestita di database SQL
+### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Managed Instance
 
-Questo scenario è adatto se il Azure-SSIS IR punta a un endpoint pubblico di un'istanza gestita di database SQL di Azure e non viene aggiunto a una rete virtuale. L'unica differenza rispetto allo scenario 2 è che non è necessario modificare le informazioni sulla rete virtuale per la Azure-SSIS IR dopo il failover.
+This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of a Azure SQL Managed Instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
 
-#### <a name="solution"></a>Soluzione
+#### Solution
 
-Quando si verifica il failover, seguire questa procedura:
+When failover occurs, take the following steps:
 
-1. Arrestare il Azure-SSIS IR nell'area primaria.
+1. Stop the Azure-SSIS IR in the primary region.
 
-2. Modificare il Azure-SSIS IR con le nuove informazioni sull'area e sull'endpoint per l'istanza secondaria.
+2. Edit the Azure-SSIS IR with the new region and endpoint information for the secondary instance.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
@@ -131,13 +130,13 @@ Quando si verifica il failover, seguire questa procedura.
 
 1. Arrestare il Azure-SSIS IR nell'area primaria.
 
-2. Eseguire una stored procedure per aggiornare i metadati in SSISDB in modo da accettare le connessioni da ** \< new_data_factory_name \> ** e ** \< new_integration_runtime_name \> **.
+2. Eseguire un stored procedure per aggiornare i metadati in SSISDB in modo da accettare le connessioni da **\<new_data_factory_name\>** e **\<new_integration_runtime_name\>** .
    
     ```sql
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
     ```
 
-3. Creare un nuovo data factory denominato ** \< new_data_factory_name \> ** nella nuova area.
+3. Creare un nuovo data factory denominato **\<new_data_factory_name\>** nella nuova area.
 
     ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
@@ -147,7 +146,7 @@ Quando si verifica il failover, seguire questa procedura.
     
     Per altre informazioni su questo comando di PowerShell, vedere [creare un data factory di Azure con PowerShell](quickstart-create-data-factory-powershell.md).
 
-4. Creare un nuovo Azure-SSIS IR denominato ** \< new_integration_runtime_name \> ** nella nuova area utilizzando Azure PowerShell.
+4. Creare un nuovo Azure-SSIS IR denominato **\<new_integration_runtime_name\>** nella nuova area usando Azure PowerShell.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
@@ -202,12 +201,12 @@ Quando si verifica il failover, seguire questa procedura:
 2. Modificare la Azure-SSIS IR con le informazioni sulla nuova area, sull'endpoint e sulla rete virtuale per l'istanza secondaria.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                    -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                    -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                    -VNetId "new VNet" `
-                    -Subnet "new subnet" `
-                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                        -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                        -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                        -VNetId "new VNet" `
+                        -Subnet "new subnet" `
+                        -SetupScriptContainerSasUri "new custom setup SAS URI"
     ```
 
 3. Riavviare il Azure-SSIS IR.
@@ -225,13 +224,13 @@ Quando si verifica il failover, seguire questa procedura.
 
 1. Arrestare il Azure-SSIS IR nell'area primaria.
 
-2. Eseguire una stored procedure per aggiornare i metadati in SSISDB in modo da accettare le connessioni da ** \< new_data_factory_name \> ** e ** \< new_integration_runtime_name \> **.
+2. Eseguire un stored procedure per aggiornare i metadati in SSISDB in modo da accettare le connessioni da **\<new_data_factory_name\>** e **\<new_integration_runtime_name\>** .
    
     ```sql
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
     ```
 
-3. Creare un nuovo data factory denominato ** \< new_data_factory_name \> ** nella nuova area.
+3. Creare un nuovo data factory denominato **\<new_data_factory_name\>** nella nuova area.
 
     ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
@@ -241,7 +240,7 @@ Quando si verifica il failover, seguire questa procedura.
     
     Per altre informazioni su questo comando di PowerShell, vedere [creare un data factory di Azure con PowerShell](quickstart-create-data-factory-powershell.md).
 
-4. Creare un nuovo Azure-SSIS IR denominato ** \< new_integration_runtime_name \> ** nella nuova area utilizzando Azure PowerShell.
+4. Creare un nuovo Azure-SSIS IR denominato **\<new_integration_runtime_name\>** nella nuova area usando Azure PowerShell.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `

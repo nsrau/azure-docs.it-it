@@ -1,20 +1,13 @@
 ---
 title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul bus di servizio di Azure.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 35721d174ec4b840185727efe5fb384015040b80
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76760250"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341464"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Bus di servizio di Azure-Domande frequenti
 
@@ -49,37 +42,37 @@ Se si usano entità partizionate, l'ordinamento non è garantito. Se una partizi
 - Service Bus Messaging Protocol (SBMP)
 - HTTP
 
-Vedere la tabella seguente per le porte in uscita che è necessario aprire per usare questi protocolli per comunicare con hub eventi di Azure. 
+Vedere la tabella seguente per le porte in uscita da aprire per usare questi protocolli per comunicare con Hub eventi di Azure. 
 
 | Protocollo | Porte | Dettagli | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Vedere la [Guida al protocollo AMQP](service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 e 5672 | Vedere [Guida al protocollo AMQP](service-bus-amqp-protocol-guide.md) | 
 | SBMP | da 9350 a 9354 | Vedere la [modalità di connettività](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quali indirizzi IP sono necessari per l'elenco elementi consentiti?
-Per trovare gli indirizzi IP corretti per le connessioni a elenco bianco, seguire questa procedura:
+Per trovare gli indirizzi IP corretti per inserire le connessioni nell'elenco elementi consentiti, seguire questa procedura:
 
-1. Eseguire il comando seguente da un prompt dei comandi: 
+1. Al prompt dei comandi eseguire il comando seguente: 
 
     ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
+    nslookup <YourNamespaceName>.cloudapp.net
     ```
-2. Annotare l'indirizzo IP restituito `Non-authoritative answer`in. Questo indirizzo IP è statico. L'unico punto nel tempo che cambierebbe è se si ripristina lo spazio dei nomi in un cluster diverso.
+2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. Questo indirizzo IP è statico. L'unico punto nel tempo che cambierebbe è se si ripristina lo spazio dei nomi in un cluster diverso.
 
 Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
 
 1. Per prima cosa, eseguire nslookup nello spazio dei nomi.
 
     ```
-    nslookup <yournamespace>.servicebus.windows.net
+    nslookup <yournamespace>.cloudapp.net
     ```
-2. Annotare il nome nella sezione della **risposta non autorevole** , che si trova in uno dei formati seguenti: 
+2. Annotare il nome nella sezione di **risposta non autorevole**, presente in uno dei formati seguenti: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Eseguire nslookup per ciascuna di esse con suffissi S1, S2 e S3 per ottenere gli indirizzi IP di tutte e tre le istanze in esecuzione in tre zone di disponibilità. 
 
@@ -123,13 +116,6 @@ Questi costi rappresentano il costo di base per ogni sottoscrizione di Azure per
 
 Per un elenco di limiti e quote del bus di servizio, vedere la [panoramica sulle quote del bus di servizio][Quotas overview].
 
-### <a name="does-service-bus-have-any-usage-quotas"></a>Sono previste quote di utilizzo per il bus di servizio?
-Per impostazione predefinita, per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. Se le proprie esigenze sono superiori a tali limiti, è possibile contattare il servizio clienti in qualsiasi momento per comunicarle e consentire l'adeguamento di tali limiti alle necessità. Per il bus di servizio, la quota di utilizzo aggregata è pari a 5 miliardi di messaggi al mese.
-
-Anche se Microsoft si riserva il diritto di disabilitare l'account di un cliente che abbia superato le quote di uso previste in un determinato mese, invierà una notifica tramite posta elettronica ed effettuerà diversi tentativi per contattare il cliente prima di intraprendere qualsiasi azione. I clienti che superano tali quote saranno comunque responsabili degli addebiti delle eccedenze.
-
-Come gli altri servizi in Azure, il bus di servizio applica un set specifico di quote per garantire un utilizzo corretto delle risorse. Per altre informazioni su queste quote, vedere la [panoramica sulle quote del bus di servizio][Quotas overview].
-
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Come gestire i messaggi di dimensioni superiori a 1 MB?
 I servizi di messaggistica del bus di servizio (code e argomenti/sottoscrizioni) consentono all'applicazione di inviare messaggi di dimensioni fino a 256 KB (livello standard) o 1 MB (livello premium). Se è necessario gestire messaggi di dimensioni superiori a 1 MB, usare il modello claim check descritto in [questo post di blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
@@ -141,7 +127,7 @@ Quando si elimina uno spazio dei nomi da una sottoscrizione, attendere 4 ore pri
 Per un elenco delle possibili eccezioni del bus di servizio, vedere [Eccezioni di messaggistica del bus di servizio][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Cos'è una firma di accesso condiviso e quali linguaggi supportano la generazione di una firma?
-Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in node. js, PHP, Java, Python e C#, vedere l'articolo relativo alle [firme di accesso condiviso][Shared Access Signatures] .
+Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le proprie firme in Node.js, PHP, Java, Python e C#, vedere l'articolo relativo alle [firme di accesso condiviso][Shared Access Signatures] .
 
 ## <a name="subscription-and-namespace-management"></a>Gestione di sottoscrizioni e spazi dei nomi
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Come si esegue la migrazione di uno spazio dei nomi a un'altra sottoscrizione di Azure?
