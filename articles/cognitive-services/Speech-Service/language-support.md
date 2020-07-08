@@ -11,11 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 148b344d469c78936b56b96090c76e379bb63731
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: eb9e0f126a25bfb0f2db18074bd7200e1a7c2001
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027495"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087147"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -100,27 +101,42 @@ Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.m
 
 |Impostazioni locali  | Linguaggio            | Sesso | Nome della voce | Supporto dello stile |
 |--|--|--|--|--|
+| `ar-EG` | Arabo (Egitto)                  | Female | `ar-EG-SalmaNeural`      | Generale |
+| `ar-SA` | Arabo (Arabia Saudita)           | Female | `ar-SA-ZariyahNeura`     | Generale |
+| `ca-ES` | Catalano (Spagna)                 | Female | `ca-ES-AlbaNeural`       | Generale |
+| `da-DK` | Danese (Danimarca)                | Female | `da-DK-ChristelNeural`   | Generale |
 | `de-DE` | Tedesco (Germania)                | Female | `de-DE-KatjaNeural`      | Generale |
 | `en-AU` | Inglese (Australia)             | Female | `en-AU-NatashaNeural`    | Generale |
 | `en-CA` | Inglese (Canada)                | Female | `en-CA-ClaraNeural`      | Generale |
 | `en-GB` | Inglese (Regno Unito)                    | Female | `en-GB-LibbyNeural`      | Generale |
 |         |                                 | Female | `en-GB-MiaNeural`        | Generale |
+| `en-IN` | Inglese (India)                 | Female | `en-IN-NeerjaNeural`     | Generale |
 | `en-US` | Inglese (Stati Uniti)                    | Female | `en-US-AriaNeural`       | Generale, più stili vocali disponibili |
 |         |                                 | Male   | `en-US-GuyNeural`        | Generale |
 | `es-ES` | Spagnolo (Spagna)                 | Female | `es-ES-ElviraNeural`     | Generale |
 | `es-MX` | Spagnolo (Messico)                | Female | `es-MX-DaliaNeural`      | Generale |
+| `fi-FI` | Finlandese (Finlandia)               | Female | `fi-FI-NooraNeural`      | Generale |
 | `fr-CA` | Francese (Canada)                 | Female | `fr-CA-SylvieNeural`     | Generale |
 | `fr-FR` | Francese (Francia)                 | Female | `fr-FR-DeniseNeural`     | Generale |
+| `hi-IN` | Hindi (India)                   | Female | `hi-IN-SwaraNeural`      | Generale |
 | `it-IT` | Italiano (Italia)                 | Female | `it-IT-ElsaNeural`       | Generale |
 | `ja-JP` | Giapponese                        | Female | `ja-JP-NanamiNeural`     | Generale |
 | `ko-KR` | Coreano                          | Female | `ko-KR-SunHiNeural`      | Generale |
 | `nb-NO` | Norvegese                       | Female | `nb-NO-IselinNeural`     | Generale |
-| `pt-BR` | Portoghese (Brasile)             | Female | `pt-BR-FranciscaNeural`  | Generale |
+| `nl-NL` | Olandese (Paesi Bassi)              | Female | `nl-NL-ColetteNeural`    | Generale |
+| `pl-PL` | Polacco (Polonia)                 | Female | `pl-PL-ZofiaNeural`      | Generale |
+| `pt-BR` | Portoghese (Brasile)             | Female | `pt-BR-FranciscaNeural`  | Generale, più stili vocali disponibili |
 | `tr-TR` | Turco                         | Female | `tr-TR-EmelNeural`       | Generale |
+| `pt-PT` | Portoghese (Portogallo)           | Female | `pt-PT-FernandaNeural`   | Generale |
+| `ru-RU` | Russo (Russia)                | Female | `ru-RU-DariyaNeural`     | Generale |
+| `sv-SE` | Svedese (Svezia)                | Female | `sv-SE-HilleviNeural`    | Generale |
+| `th-TH` | Thai (Thailandia)                 | Female | `th-TH-AcharaNeural`     | Generale |
 | `zh-CN` | Cinese (mandarino, semplificato)  | Female | `zh-CN-XiaoxiaoNeural`   | Generale, più stili vocali disponibili |
 |         |                                 | Female | `zh-CN-XiaoyouNeural`    | Voce infantile, ottimizzata per la narrazione di storie |
 |         |                                 | Male   | `zh-CN-YunyangNeural`    | Ottimizzata per la lettura di notizie, più stili vocali disponibili |
 |         |                                 | Male   | `zh-CN-YunyeNeural`      | Ottimizzata per la narrazione di storie |
+| `zh-HK` | Cinese (cantonese, tranditional)   | Female | `zh-HK-HiuGaaiNeural`| Generale |
+| `zh-TW` | Cinese (mandarino taiwanese)   | Female | `zh-TW-HsiaoYuNeural`    | Generale |
 
 > [!IMPORTANT]
 > La voce `en-US-JessaNeural` è stata modificata in `en-US-AriaNeural`. Se in precedenza si usava "Jessa", convertirla in "Aria".

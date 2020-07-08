@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 925a69f1f3a408e50cb9dc1d03cb5c1cf673ef41
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106435"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102685"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
@@ -67,4 +67,4 @@ Per trasferire altre sottoscrizioni da un partner CSP a qualunque altra offerta 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure per l'account del Contratto Microsoft Partner](mpa-request-ownership.md).
-- Leggere le informazioni su come [Gestire account e sottoscrizioni con la fatturazione di Azure](index.yml).
+- Leggere le informazioni su come [Gestire account e sottoscrizioni con la fatturazione di Azure](../index.yml).

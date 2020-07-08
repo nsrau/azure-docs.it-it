@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 02/28/2020
-ms.openlocfilehash: 476f265d9658d08ef62647e707c0594af8cda480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 074b1571cea6c102a00fcefe7934cad0ded8458d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192026"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087657"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Connettersi a HDInsight (Apache Hadoop) con SSH
 
@@ -72,7 +72,9 @@ Se l'account SSH è protetto con una chiave, al momento della connessione il cli
 
 Usare il comando `ssh-keygen` per creare i file di chiave pubblica e privata. Il comando seguente genera una coppia di chiavi RSA a 2048 bit che può essere usata con HDInsight:
 
-    ssh-keygen -t rsa -b 2048
+```azurepowershell-interactive
+ssh-keygen -t rsa -b 2048
+```
 
 Verranno richieste informazioni durante il processo di creazione della chiave. ad esempio la posizione di archiviazione delle chiavi o se deve essere usata una passphrase. Al termine del processo vengono creati due file: una chiave pubblica e una chiave privata.
 
@@ -117,7 +119,7 @@ Per informazioni sulla modifica della password dell'account utente SSH, vedere l
 
 ## <a name="authentication-domain-joined-hdinsight"></a>HDInsight aggiunto al dominio di autenticazione
 
-Se si usa un __cluster HDInsight aggiunto al dominio__, è necessario usare il comando `kinit` dopo la connessione con l'utente locale SSH. Questo comando richiede di specificare un utente di dominio e una password e autentica la sessione con il dominio di Azure Active Directory associato al cluster.
+Se si usa un __cluster HDInsight aggiunto al dominio__, è necessario usare il `kinit` comando dopo la connessione con l'utente locale SSH. Questo comando richiede di specificare un utente di dominio e una password e autentica la sessione con il dominio di Azure Active Directory associato al cluster.
 
 È anche possibile abilitare l'autenticazione Kerberos in ogni nodo aggiunto a un dominio (ad esempio, nodo Head, nodo perimetrale) a SSH usando l'account di dominio. A tale scopo, modificare il file di configurazione sshd:
 
@@ -217,7 +219,7 @@ Se l'account SSH viene protetto usando __chiavi SSH__, verificare che l'inoltro 
     /tmp/ssh-rfSUL1ldCldQ/agent.1792
     ```
 
-    Se non viene restituito alcun risultato `ssh-agent` , non è in esecuzione. Per altre informazioni, vedere il contenuto relativo agli script di avvio agente in [Uso di ssh-agent con ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) o la documentazione del client SSH.
+    Se non viene restituito alcun risultato, `ssh-agent` non è in esecuzione. Per altre informazioni, vedere il contenuto relativo agli script di avvio agente in [Uso di ssh-agent con ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) o la documentazione del client SSH.
 
 4. Dopo aver verificato che **ssh-agent** sia in esecuzione, usare il comando seguente per aggiungere la chiave privata SSH all'agente:
 

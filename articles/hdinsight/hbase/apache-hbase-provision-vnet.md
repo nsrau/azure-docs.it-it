@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972785"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087742"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creare cluster Apache HBase su HDInsight nella rete virtuale di Azure
 
@@ -51,7 +51,7 @@ In questa sezione viene creato un cluster Apache HBase basato su Linux con l'acc
 
 1. Nella finestra di dialogo **distribuzione personalizzata** selezionare **modifica modello**.
 
-1. Alla riga 165, modificare il `Standard_A3` valore `Standard_A4_V2`in. Selezionare quindi **Salva**.
+1. Alla riga 165, modificare il valore `Standard_A3` in `Standard_A4_V2` . Selezionare quindi **Salva**.
 
 1. Completare il modello rimanente con le informazioni seguenti:
 
@@ -134,10 +134,12 @@ Per verificare che la macchina virtuale possa comunicare con il cluster HBase, u
 
 Per usare queste informazioni in un'applicazione Java e creare un'applicazione, è possibile seguire i passaggi in [Usare Apache Maven per compilare applicazioni Java che usano Apache HBase con HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md). Per fare in modo che l'applicazione si connetta a un server HBase remoto, modificare il file **hbase-site.xml** in questo esempio, in modo che usi il nome di dominio completo (FQDN) per Zookeeper. Ad esempio:
 
-    <property>
-        <name>hbase.zookeeper.quorum</name>
-        <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
-    </property>
+```xml
+<property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
+</property>
+```
 
 > [!NOTE]  
 > Per altre informazioni sulla risoluzione dei nomi in reti virtuali di Azure, comprese quelle relative all'uso del proprio server DNS, vedere [Risoluzione dei nomi (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).

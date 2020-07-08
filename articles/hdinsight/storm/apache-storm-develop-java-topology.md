@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 471d07f4aa5abe7552ff33e767e8783239dd1989
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 69342e59e99dd588b2c2cee9d02af5370ddb3af2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203880"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086943"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Creare una topologia Apache Storm in Java
 
@@ -22,7 +22,7 @@ Informazioni su come creare una topologia basata su Java per Apache Storm. Crear
 Dopo aver completato i passaggi descritti in questo documento, è possibile distribuire la topologia ad Apache Storm in HDInsight.
 
 > [!NOTE]  
-> Una versione completa degli esempi di topologia Storm creati in questo documento è disponibile [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)all'indirizzo.
+> Una versione completa degli esempi di topologia Storm creati in questo documento è disponibile all'indirizzo [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,7 +52,7 @@ cd WordCount
 mkdir resources
 ```
 
-Questo comando crea una nuova directory denominata `WordCount` nella posizione corrente, contenente un progetto Maven di base. Il secondo comando modifica la directory di lavoro corrente `WordCount`in. Il terzo comando crea una nuova directory, `resources`, che verrà usata in un secondo momento.  La directory `WordCount` contiene gli elementi seguenti:
+Questo comando crea una nuova directory denominata `WordCount` nella posizione corrente, contenente un progetto Maven di base. Il secondo comando modifica la directory di lavoro corrente in `WordCount` . Il terzo comando crea una nuova directory, `resources` , che verrà usata in un secondo momento.  La directory `WordCount` contiene gli elementi seguenti:
 
 * `pom.xml`: contiene le impostazioni per il progetto Maven.
 * `src\main\java\com\microsoft\example`: contiene il codice dell'applicazione.
@@ -60,7 +60,7 @@ Questo comando crea una nuova directory denominata `WordCount` nella posizione c
 
 ### <a name="remove-the-generated-example-code"></a>Rimuovere il codice di esempio generato
 
-Eliminare i file `AppTest.java`di test e dell'applicazione generati `App.java` e immettendo i comandi seguenti:
+Eliminare i file di test e dell'applicazione generati `AppTest.java` e `App.java` immettendo i comandi seguenti:
 
 ```cmd
 DEL src\main\java\com\microsoft\example\App.java
@@ -77,7 +77,7 @@ Aprire `pom.xml` immettendo il comando seguente:
 notepad pom.xml
 ```
 
-Aggiungere quindi il codice XML seguente dopo `<url>https://maven.apache.org</url>` la riga:
+Aggiungere quindi il codice XML seguente dopo la `<url>https://maven.apache.org</url>` riga:
 
 ```xml
 <repositories>
@@ -118,7 +118,7 @@ Aggiungere quindi il codice XML seguente dopo `<url>https://maven.apache.org</ur
 
 ## <a name="add-properties"></a>Aggiungere le proprietà
 
-Maven consente di definire i valori a livello di progetto denominati proprietà. In `pom.xml`aggiungere il testo seguente dopo la `</repositories>` riga:
+Maven consente di definire i valori a livello di progetto denominati proprietà. In `pom.xml` aggiungere il testo seguente dopo la `</repositories>` riga:
 
 ```xml
 <properties>
@@ -134,7 +134,7 @@ Maven consente di definire i valori a livello di progetto denominati proprietà.
 
 ## <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-Aggiungere una dipendenza per i componenti Storm. In `pom.xml`aggiungere il testo seguente nella `<dependencies>` sezione:
+Aggiungere una dipendenza per i componenti Storm. In `pom.xml` aggiungere il testo seguente nella `<dependencies>` sezione:
 
 ```xml
 <dependency>
@@ -153,7 +153,7 @@ In fase di compilazione, Maven usa queste informazioni per cercare `storm-core` 
 
 ## <a name="build-configuration"></a>Configurare la compilazione
 
-I plug-in di Maven consentono di personalizzare le fasi di compilazione del progetto. Ad esempio, il modo in cui viene compilato il progetto o viene creato il pacchetto come file JAR. In `pom.xml`aggiungere il testo seguente direttamente sopra la `</project>` riga.
+I plug-in di Maven consentono di personalizzare le fasi di compilazione del progetto. Ad esempio, il modo in cui viene compilato il progetto o viene creato il pacchetto come file JAR. In `pom.xml` aggiungere il testo seguente direttamente sopra la `</project>` riga.
 
 ```xml
 <build>
@@ -164,7 +164,7 @@ I plug-in di Maven consentono di personalizzare le fasi di compilazione del prog
 </build>
 ```
 
-Questa sezione viene usata per aggiungere plug-in, risorse e altre opzioni di configurazione della compilazione. Per un riferimento completo del `pom.xml` file, vedere. [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html)
+Questa sezione viene usata per aggiungere plug-in, risorse e altre opzioni di configurazione della compilazione. Per un riferimento completo del `pom.xml` file, vedere [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html) .
 
 ### <a name="add-plug-ins"></a>Aggiungere plug-in
 
@@ -197,7 +197,7 @@ Questa sezione viene usata per aggiungere plug-in, risorse e altre opzioni di co
 
 * **Plug-in del compilatore Apache Maven**
 
-    Un altro plug-in utile è [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/), usato per modificare le opzioni di compilazione. Modificare la versione di Java utilizzata da Maven per l'origine e la destinazione dell'applicazione.
+    Un altro plug-in utile è [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/) , usato per modificare le opzioni di compilazione. Modificare la versione di Java utilizzata da Maven per l'origine e la destinazione dell'applicazione.
 
   * Per HDInsight __3.4 o versioni precedenti__, impostare la versione di origine e di destinazione di Java su __1.7__.
 
@@ -247,7 +247,7 @@ Una topologia Apache Storm basata su Java è costituita da tre componenti che è
 
 Per ridurre i requisiti relativi all'impostazione di origini dati esterne, lo spout seguente genera semplicemente frasi casuali. Si tratta di una versione modificata di un beccuccio fornito con gli [esempi di Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Anche se questa topologia usa un beccuccio, altri possono avere diversi dati che feedano dati da origini diverse alla topologia`.`
 
-Immettere il comando seguente per creare e aprire un nuovo file `RandomSentenceSpout.java`:
+Immettere il comando seguente per creare e aprire un nuovo file `RandomSentenceSpout.java` :
 
 ```cmd
 notepad src\main\java\com\microsoft\example\RandomSentenceSpout.java
@@ -333,7 +333,7 @@ I bolt gestiscono l'elaborazione dei dati. I bolt eseguono qualsiasi tipo di att
 
 #### <a name="splitsentence"></a>SplitSentence
 
-Immettere il comando seguente per creare e aprire un nuovo file `SplitSentence.java`:
+Immettere il comando seguente per creare e aprire un nuovo file `SplitSentence.java` :
 
 ```cmd
 notepad src\main\java\com\microsoft\example\SplitSentence.java
@@ -390,7 +390,7 @@ public class SplitSentence extends BaseBasicBolt {
 
 #### <a name="wordcount"></a>WordCount
 
-Immettere il comando seguente per creare e aprire un nuovo file `WordCount.java`:
+Immettere il comando seguente per creare e aprire un nuovo file `WordCount.java` :
 
 ```cmd
 notepad src\main\java\com\microsoft\example\WordCount.java
@@ -487,7 +487,7 @@ La seguente immagine è un diagramma di base del grafico dei componenti della to
 
 ![diagramma che mostra la disposizione degli spout e dei bolt](./media/apache-storm-develop-java-topology/word-count-topology1.png)
 
-Per implementare la topologia, immettere il comando seguente per creare e aprire un nuovo `WordCountTopology.java`file:
+Per implementare la topologia, immettere il comando seguente per creare e aprire un nuovo file `WordCountTopology.java` :
 
 ```cmd
 notepad src\main\java\com\microsoft\example\WordCountTopology.java
@@ -559,7 +559,7 @@ public class WordCountTopology {
 
 ### <a name="configure-logging"></a>Configurare la registrazione
 
-Storm USA [Apache log4j 2](https://logging.apache.org/log4j/2.x/) per registrare le informazioni. Se non si configura la registrazione, la topologia emette informazioni di diagnostica. Per controllare ciò che viene registrato, creare un file `log4j2.xml` denominato nella `resources` directory digitando il comando seguente:
+Storm USA [Apache log4j 2](https://logging.apache.org/log4j/2.x/) per registrare le informazioni. Se non si configura la registrazione, la topologia emette informazioni di diagnostica. Per controllare ciò che viene registrato, creare un file denominato `log4j2.xml` nella `resources` directory digitando il comando seguente:
 
 ```cmd
 notepad resources\log4j2.xml
@@ -590,10 +590,10 @@ Questo XML consente di configurare un nuovo logger per la classe `com.microsoft.
 
 La sezione `<Root level="error">` configura il livello radice di registrazione, ovvero tutti gli elementi non presenti in `com.microsoft.example`, per poter registrare solo le informazioni relative agli errori.
 
-Per ulteriori informazioni sulla configurazione della registrazione per log4j 2, [https://logging.apache.org/log4j/2.x/manual/configuration.html](https://logging.apache.org/log4j/2.x/manual/configuration.html)vedere.
+Per ulteriori informazioni sulla configurazione della registrazione per log4j 2, vedere [https://logging.apache.org/log4j/2.x/manual/configuration.html](https://logging.apache.org/log4j/2.x/manual/configuration.html) .
 
 > [!NOTE]  
-> Storm versione 0.10.0 e successive usano Log4j 2.x. Le versioni precedenti usano Log4j 1.x, che impiega un formato diverso per la configurazione del log. Per informazioni sulla configurazione precedente, vedere [https://wiki.apache.org/logging-log4j/Log4jXmlFormat](https://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+> Storm versione 0.10.0 e successive usano Log4j 2.x. Le versioni precedenti usano Log4j 1.x, che impiega un formato diverso per la configurazione del log. Per informazioni sulla configurazione precedente, vedere [https://cwiki.apache.org/confluence/display/LOGGINGLOG4J/Log4jXmlFormat](https://cwiki.apache.org/confluence/display/LOGGINGLOG4J/Log4jXmlFormat) .
 
 ## <a name="test-the-topology-locally"></a>Testare la topologia in locale
 
@@ -605,13 +605,15 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 Durante l'esecuzione, la topologia mostra le informazioni di avvio. Il testo seguente è un esempio di output del conteggio parole:
 
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
-    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
-    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
+```output
+17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
+```
 
 Questo log di esempio indica che la parola "and" è stata generata 113 volte. Il conteggio continua ad aumentare fino a quando la topologia viene eseguita. Questo aumento è dovuto al fatto che il beccuccio emette continuamente le stesse frasi.
 
@@ -628,13 +630,13 @@ Per altre informazioni su Flux, vedere il [framework Flux (https://storm.apache.
 > [!WARNING]  
 > A causa di un [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) in Storm 1.0.1, per eseguire localmente le topologie Flux può essere necessario installare un [ambiente di sviluppo Storm](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
-1. In precedenza `WordCountTopology.java` , definire la topologia, ma non è necessaria con Flux. Eliminare il file con il comando seguente:
+1. In precedenza, `WordCountTopology.java` definire la topologia, ma non è necessaria con Flux. Eliminare il file con il comando seguente:
 
     ```cmd
     DEL src\main\java\com\microsoft\example\WordCountTopology.java
     ```
 
-1. Immettere il comando seguente per creare e aprire un nuovo file `topology.yaml`:
+1. Immettere il comando seguente per creare e aprire un nuovo file `topology.yaml` :
 
     ```cmd
     notepad resources\topology.yaml
@@ -737,9 +739,9 @@ Per altre informazioni su Flux, vedere il [framework Flux (https://storm.apache.
         </plugin>
         ```
 
-   1. Per la sezione plug-in exec Maven, `<configuration>`  >  `<mainClass>` passare a `${storm.topology}` e `org.apache.storm.flux.Flux`modificare in. Questa impostazione consente a Flux di gestire l'esecuzione in locale della topologia nell'ambiente di sviluppo.
+   1. Per la sezione plug-in exec Maven, passare a `<configuration>`  >  `<mainClass>` e modificare `${storm.topology}` in `org.apache.storm.flux.Flux` . Questa impostazione consente a Flux di gestire l'esecuzione in locale della topologia nell'ambiente di sviluppo.
 
-   1. Nella `<resources>` sezione aggiungere quanto segue a `<includes>`. Questo XML include il file YAML che definisce la topologia come parte del progetto.
+   1. Nella `<resources>` sezione aggiungere quanto segue a `<includes>` . Questo XML include il file YAML che definisce la topologia come parte del progetto.
 
         ```xml
         <include>topology.yaml</include>
@@ -754,7 +756,7 @@ Per altre informazioni su Flux, vedere il [framework Flux (https://storm.apache.
     ```
 
     > [!WARNING]  
-    > Questo comando non va a buon fine se la topologia usa bit di Storm 1.0.1. Questo errore è causato da [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). [Installare Storm nell'ambiente di sviluppo](https://storm.apache.org/releases/current/Setting-up-development-environment.html) e usare la procedura seguente:
+    > Questo comando non va a buon fine se la topologia usa bit di Storm 1.0.1. Questo errore è causato da [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) . [Installare Storm nell'ambiente di sviluppo](https://storm.apache.org/releases/current/Setting-up-development-environment.html) e usare la procedura seguente:
     >
     > Se [Storm è installato nell'ambiente di sviluppo](https://storm.apache.org/releases/current/Setting-up-development-environment.html), è possibile usare i comandi seguenti:
     >
@@ -780,13 +782,13 @@ Per altre informazioni su Flux, vedere il [framework Flux (https://storm.apache.
 
 2. Creare una nuova topologia YAML dal progetto.
 
-    1. Immettere il comando seguente per aprire `topology.xml`:
+    1. Immettere il comando seguente per aprire `topology.xml` :
 
     ```cmd
     notepad resources\topology.yaml
     ```
 
-    1. Trovare la sezione seguente e modificare il valore di `10` in `5`. Questa modifica consente di cambiare l'intervallo tra i batch di emissione del conteggio di parole da 10 secondi a 5.  
+    1. Trovare la sezione seguente e modificare il valore di `10` in `5` . Questa modifica consente di cambiare l'intervallo tra i batch di emissione del conteggio di parole da 10 secondi a 5.  
 
     ```yaml
     - id: "counter-bolt"
@@ -796,7 +798,7 @@ Per altre informazioni su Flux, vedere il [framework Flux (https://storm.apache.
            parallelism: 1  
     ```
 
-    1. Salva file con `newtopology.yaml`nome.
+    1. Salva file con nome `newtopology.yaml` .
 
 3. Per eseguire la topologia, immettere il comando seguente:
 
@@ -812,7 +814,7 @@ Per altre informazioni su Flux, vedere il [framework Flux (https://storm.apache.
 
     Questo comando USA `newtopology.yaml` come definizione di topologia. Siccome il parametro `compile` non è stato incluso, Maven usa la versione del progetto creato nei passaggi precedenti.
 
-    Una volta avviata la topologia, si noterà che il tempo tra i batch emessi è stato modificato per riflettere il `newtopology.yaml`valore in. Pertanto, è possibile modificare la configurazione tramite un file YAML senza dover ricompilare la topologia.
+    Una volta avviata la topologia, si noterà che il tempo tra i batch emessi è stato modificato per riflettere il valore in `newtopology.yaml` . Pertanto, è possibile modificare la configurazione tramite un file YAML senza dover ricompilare la topologia.
 
 Per altre informazioni su queste e altre funzionalità del framework Flux, vedere [Flux (https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html).
 

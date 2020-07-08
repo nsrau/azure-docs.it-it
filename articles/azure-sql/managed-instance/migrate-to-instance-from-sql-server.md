@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 47f766e8e5c1ea43d0c9bde8138c0ab17533f539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708674"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087572"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server la migrazione dell'istanza ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Questo articolo illustra i metodi per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva in [Azure SQL istanza gestita](sql-managed-instance-paas-overview.md). Per informazioni sulla migrazione a un database singolo o a un pool elastico, vedere [Migrate to a single or pooled database](../database/migrate-to-database-from-sql-server.md) (Eseguire la migrazione a un database singolo o in pool). Per informazioni sulla migrazione da altre piattaforme, vedere [Azure Database Migration Guide](https://datamigration.microsoft.com/) (Guida alla migrazione di database di Azure).
+Questo articolo illustra i metodi per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva in [Azure SQL istanza gestita](sql-managed-instance-paas-overview.md). Per informazioni sulla migrazione a un database singolo o a un pool elastico, vedere [eseguire la migrazione al database SQL](../database/migrate-to-database-from-sql-server.md). Per informazioni sulla migrazione da altre piattaforme, vedere [Azure Database Migration Guide](https://datamigration.microsoft.com/) (Guida alla migrazione di database di Azure).
 
 > [!NOTE]
 > Se si vuole avviare rapidamente e provare Istanza gestita SQL di Azure, è possibile passare alla [Guida introduttiva](quickstart-content-reference-guide.md) invece che a questa pagina.

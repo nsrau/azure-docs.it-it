@@ -3,12 +3,12 @@ title: Modalità apprendista-personalizzatore
 description: ''
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 2697ab4b32edbd4841f2b11725fda46e90e7ae7e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5ee8242fbc9ab5bed4e3eed8997feb122b131062
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599403"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087198"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Usare la modalità apprendista per eseguire il training di personalizzazione senza influire sull'applicazione esistente
 
@@ -30,7 +30,7 @@ La modalità apprendista offre una relazione di trust con il servizio di persona
 
 I due motivi principali per usare la modalità apprendista sono:
 
-* Mitigazione degli **avvii a freddo**: la modalità apprendista consente di gestire e valutare il costo di un nuovo tempo di apprendimento del modello, quando non viene restituita l'azione migliore e non è stato possibile ottenere un livello di efficacia soddisfacente pari a circa il 75-85%.
+* Mitigazione degli **avvii a freddo**: la modalità apprendista consente di gestire e valutare il costo di un nuovo tempo di apprendimento del modello, quando non viene restituita l'azione migliore e non è stato possibile ottenere un livello di efficacia soddisfacente pari a circa il 60-80%.
 * **Convalida delle funzionalità di azione e contesto**: le funzionalità inviate in azioni e contesto potrebbero non essere adeguate o non accurate, troppo piccole, troppo, non corrette o troppo specifiche per il training di Personalizzatore per ottenere la velocità di efficacia ideale. Usare le [valutazioni delle funzionalità](concept-feature-evaluation.md) per individuare e risolvere i problemi relativi alle funzionalità.
 
 ## <a name="when-should-you-use-apprentice-mode"></a>Quando è consigliabile usare la modalità Apprentice?
@@ -68,7 +68,7 @@ L'apprendimento in modalità apprendista differisce dalla modalità online nei m
 Nota sull'efficacia della modalità Apprentice:
 
 * L'efficacia del personalizzatore in modalità apprendista raggiunge raramente quasi il 100% della linea di base dell'applicazione; senza mai superarlo.
-* Le procedure consigliate non possono tentare di raggiungere il 100% di raggiungimento; Tuttavia, un intervallo compreso tra 75 e 85% deve essere destinato a seconda del caso d'uso.
+* Le procedure consigliate non possono tentare di raggiungere il 100% di raggiungimento; Tuttavia, un intervallo compreso tra 60% e 80% deve essere destinato a seconda del caso d'uso.
 
 ## <a name="using-apprentice-mode-to-train-with-historical-data"></a>Uso della modalità apprendista per eseguire il training con i dati cronologici
 

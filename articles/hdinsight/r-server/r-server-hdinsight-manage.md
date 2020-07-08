@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75647731"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087640"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gestire cluster ML Services in Azure HDInsight
 
@@ -56,11 +56,13 @@ Seguire le istruzioni riportate in [Connettersi a HDInsight (Apache Hadoop) con 
 
 Per aggiungere un utente al nodo perimetrale, eseguire questi comandi:
 
-    # Add a user 
-    sudo useradd <yournewusername> -m
+```bash
+# Add a user 
+sudo useradd <yournewusername> -m
 
-    # Set password for the new user
-    sudo passwd <yournewusername>
+# Set password for the new user
+sudo passwd <yournewusername>
+```
 
 Lo screenshot seguente illustra gli output.
 
@@ -80,27 +82,29 @@ Si noti anche gli utenti appena aggiunti non hanno privilegi a livello radice ne
 
 È possibile configurare l'accesso al contesto di calcolo HDInsight Spark da un'istanza remota di ML Client in esecuzione nel computer desktop. A tale scopo, è necessario specificare le opzioni (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando si definisce il contesto di calcolo RxSpark nel computer desktop, ad esempio:
 
-    myNameNode <- "default"
-    myPort <- 0
+```r
+myNameNode <- "default"
+myPort <- 0
 
-    mySshHostname  <- '<clustername>-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
-    mySshUsername  <- '<sshuser>'# HDI SSH username
-    mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
+mySshHostname  <- '<clustername>-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
+mySshUsername  <- '<sshuser>'# HDI SSH username
+mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
 
-    myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
-    myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
+myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
+myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
 
-    mySparkCluster <- RxSpark(
-      hdfsShareDir = myhdfsShareDir,
-      shareDir     = myShareDir,
-      sshUsername  = mySshUsername,
-      sshHostname  = mySshHostname,
-      sshSwitches  = mySshSwitches,
-      sshProfileScript = '/etc/profile',
-      nameNode     = myNameNode,
-      port         = myPort,
-      consoleOutput= TRUE
-    )
+mySparkCluster <- RxSpark(
+    hdfsShareDir = myhdfsShareDir,
+    shareDir     = myShareDir,
+    sshUsername  = mySshUsername,
+    sshHostname  = mySshHostname,
+    sshSwitches  = mySshSwitches,
+    sshProfileScript = '/etc/profile',
+    nameNode     = myNameNode,
+    port         = myPort,
+    consoleOutput= TRUE
+)
+```
 
 Per altre informazioni, vedere la sezione "Using Microsoft Machine Learning Server as an Apache Hadoop Client" (Uso di Microsoft Machine Learning Server come client Apache Hadoop) in [How to use RevoScaleR in an Apache Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Come usare RevoScaleR in un contesto di calcolo per Apache Spark)
 
@@ -112,25 +116,29 @@ Un contesto di calcolo consente di controllare se il calcolo viene eseguito loca
 
 Con ML Services in HDInsight, è possibile prelevare il codice R esistente ed eseguirlo su più nodi del cluster usando `rxExec`. Questa funzione è utile in caso di sweep di parametri o simulazioni. Il codice seguente è un esempio di come usare `rxExec`:
 
-    rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+```r
+rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+```
 
 Se si sta ancora usando il contesto Spark, questo comando restituisce il valore nodename per i nodi del ruolo di lavoro in cui viene eseguito il codice `(Sys.info()["nodename"])`. In un cluster a quattro nodi, ad esempio, verrà restituito un output simile al frammento seguente:
 
-    $rxElem1
-        nodename
-    "wn3-mymlser"
+```r
+$rxElem1
+    nodename
+"wn3-mymlser"
 
-    $rxElem2
-        nodename
-    "wn0-mymlser"
+$rxElem2
+    nodename
+"wn0-mymlser"
 
-    $rxElem3
-        nodename
-    "wn3-mymlser"
+$rxElem3
+    nodename
+"wn3-mymlser"
 
-    $rxElem4
-        nodename
-    "wn3-mymlser"
+$rxElem4
+    nodename
+"wn3-mymlser"
+```
 
 ## <a name="access-data-in-apache-hive-and-parquet"></a>Accedere ai dati in Apache Hive e Parquet
 
@@ -138,36 +146,37 @@ HDInsight ML Services consente l'accesso diretto ai dati in Hive e Parquet per l
 
 Il codice seguente offre un esempio dell'uso delle nuove funzioni:
 
-    #Create a Spark compute context:
-    myHadoopCluster <- rxSparkConnect(reset = TRUE)
+```r
+#Create a Spark compute context:
+myHadoopCluster <- rxSparkConnect(reset = TRUE)
 
-    #Retrieve some sample data from Hive and run a model:
-    hiveData <- RxHiveData("select * from hivesampletable",
-                     colInfo = list(devicemake = list(type = "factor")))
-    rxGetInfo(hiveData, getVarInfo = TRUE)
+#Retrieve some sample data from Hive and run a model:
+hiveData <- RxHiveData("select * from hivesampletable",
+                       colInfo = list(devicemake = list(type = "factor")))
+rxGetInfo(hiveData, getVarInfo = TRUE)
 
-    rxLinMod(querydwelltime ~ devicemake, data=hiveData)
+rxLinMod(querydwelltime ~ devicemake, data=hiveData)
 
-    #Retrieve some sample data from Parquet and run a model:
-    rxHadoopMakeDir('/share')
-    rxHadoopCopyFromLocal(file.path(rxGetOption('sampleDataDir'), 'claimsParquet/'), '/share/')
-    pqData <- RxParquetData('/share/claimsParquet',
-                     colInfo = list(
-                age    = list(type = "factor"),
-               car.age = list(type = "factor"),
-                  type = list(type = "factor")
-             ) )
-    rxGetInfo(pqData, getVarInfo = TRUE)
+#Retrieve some sample data from Parquet and run a model:
+rxHadoopMakeDir('/share')
+rxHadoopCopyFromLocal(file.path(rxGetOption('sampleDataDir'), 'claimsParquet/'), '/share/')
+pqData <- RxParquetData('/share/claimsParquet',
+                        colInfo = list(
+                            age    = list(type = "factor"),
+                            car.age = list(type = "factor"),
+                            type = list(type = "factor")
+                        ) )
+rxGetInfo(pqData, getVarInfo = TRUE)
 
-    rxNaiveBayes(type ~ age + cost, data = pqData)
+rxNaiveBayes(type ~ age + cost, data = pqData)
 
-    #Check on Spark data objects, cleanup, and close the Spark session:
-    lsObj <- rxSparkListData() # two data objs are cached
-    lsObj
-    rxSparkRemoveData(lsObj)
-    rxSparkListData() # it should show empty list
-    rxSparkDisconnect(myHadoopCluster)
-
+#Check on Spark data objects, cleanup, and close the Spark session:
+lsObj <- rxSparkListData() # two data objs are cached
+lsObj
+rxSparkRemoveData(lsObj)
+rxSparkListData() # it should show empty list
+rxSparkDisconnect(myHadoopCluster)
+```
 
 Per altre informazioni sull'uso di queste nuove funzioni, vedere la guida online di ML Services tramite i comandi `?RxHivedata` e `?RxParquetData`.  
 
@@ -196,7 +205,7 @@ Per installare pacchetti R nei nodi di lavoro del cluster, è necessario usare u
 
    * Selezionare la casella di controllo solo per **Lavoro**.
 
-   * **Parametri**: i pacchetti R da installare. Ad esempio, usare `bitops stringr arules`
+   * **Parametri**: i pacchetti R da installare. Ad esempio: `bitops stringr arules`
 
    * Selezionare la casella di controllo **Persist this script action** (Salva questa azione script in modo permanente).  
 

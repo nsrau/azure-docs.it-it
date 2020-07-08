@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: af0069adc741cfc802c37c90c0c7ec3c3ba74bb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: b5751bdccde33fa16d5f09cfbe9a411a351518b0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537228"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086552"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Comprendere la continuità aziendale nel database di Azure per MySQL
 
@@ -47,6 +47,10 @@ La seconda opzione consiste nell'usare la funzionalità di ripristino geografico
 
 > [!IMPORTANT]
 > Il ripristino geografico è possibile solo se è stato effettuato il provisioning del server con l'archivio di backup con ridondanza geografica. Per passare da backup con ridondanza locale a backup con ridondanza geografica per un server esistente, è necessario eseguire un dump del server esistente usando mysqldump e quindi ripristinarlo in un nuovo server configurato per i backup con ridondanza geografica.
+
+## <a name="cross-region-read-replicas"></a>Repliche Read tra aree
+
+È possibile usare le repliche di lettura tra aree per migliorare la continuità aziendale e la pianificazione del ripristino di emergenza. Le repliche di lettura vengono aggiornate in modo asincrono usando la tecnologia di replica dei log binari di MySQL. Altre informazioni sulle repliche di lettura, le aree disponibili e su come eseguire il failover dall' [articolo leggere i concetti relativi alle repliche](concepts-read-replicas.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

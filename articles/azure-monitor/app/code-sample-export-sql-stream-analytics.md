@@ -3,15 +3,15 @@ title: Esportare in SQL da Azure Application Insights | Documentazione Microsoft
 description: Eseguire l'esportazione continua dei dati Application Insights in SQL tramite l'analisi di flusso.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c8586e8a6950e827d1078ca7d9cc3792fa58ae0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536914"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087231"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
-Questo articolo illustra come spostare i dati di telemetria da [Azure Application Insights][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
+Questo articolo illustra come spostare i dati di telemetria da [applicazione Azure Insights][start] nel database SQL di Azure usando l' [esportazione continua][export] e l' [analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
 
 L'esportazione continua sposta i dati di telemetria in Archiviazione di Azure in formato JSON. Gli oggetti JSON verranno analizzati con l'analisi di flusso di Azure e verranno create righe in una tabella di database.
 
@@ -64,27 +64,27 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 1. Lasciare che alcuni dati si accumulino. Attendere che gli utenti usino l'applicazione per qualche tempo. Verranno restituiti i dati di telemetria e sarà possibile esaminare i grafici statistici in [Esplora metriche](../../azure-monitor/platform/metrics-charts.md) e i singoli eventi in [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md). 
    
     I dati verranno inoltre esportati nell'archivio. 
-2. Esaminare i dati esportati, nel portale (scegliere **Esplora**, selezionare l'account di archiviazione, quindi **Contenitori**) o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
+2. Esaminare i dati esportati, nel portale (scegliere **Esplora**, selezionare l'account di archiviazione, quindi **Contenitori**) o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. Se questa opzione di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo Nuovo progetto e aprire Visual C#/Cloud/Get Microsoft Azure SDK for .NET (Ottieni Microsoft Azure SDK per .NET).
    
     ![In Visual Studio aprire Esplora server, Azure, Archiviazione](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
     Prendere nota della parte comune del nome del percorso, derivata dal nome dell’applicazione e dalla chiave di strumentazione. 
 
-Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un database SQL. Sarà quindi più semplice eseguire molte query interessanti.
+Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. Ci sono molti tipi di operazioni che è possibile eseguire con i dati, ma attualmente il piano è quello di usare analisi di flusso per spostare i dati nel database SQL. Sarà quindi più semplice eseguire molte query interessanti.
 
 ## <a name="create-an-azure-sql-database"></a>Creare un database SQL di Azure
 Iniziando di nuovo dalla sottoscrizione nel [portale di Azure][portal], creare il database (e un nuovo server, se necessario) in cui si scriveranno i dati.
 
 ![Nuovo, Dati, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
-Assicurarsi che il server di database consenta di accedere ai servizi di Azure:
+Verificare che il server consenta l'accesso ai servizi di Azure:
 
 ![Sfoglia, Server, il proprio server, Impostazioni, Firewall, Consenti l'accesso a Servizi di Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## <a name="create-a-table-in-azure-sql-db"></a>Creare una tabella nel database SQL di Azure
+## <a name="create-a-table-in-azure-sql-database"></a>Creare una tabella nel database SQL di Azure
 Connettersi al database creato nella sezione precedente con lo strumento di gestione preferito. In questa procedura dettagliata verranno usati gli [strumenti di gestione di SQL Server](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
-![](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
+![Connettersi al database SQL di Azure](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
 Creare una nuova query ed eseguire il codice T-SQL seguente:
 
@@ -126,7 +126,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ```
 
-![](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
+![Crea PageViewsTable](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
 
 In questo esempio vengono usati i dati delle visualizzazioni pagina. Per visualizzare gli altri dati disponibili, esaminare l'output JSON e vedere il [modello di dati di esportazione](../../azure-monitor/app/export-data-model.md).
 
@@ -135,7 +135,7 @@ Nel [portale di Azure](https://portal.azure.com/) selezionare il servizio Analis
 
 ![Impostazioni di Analisi di flusso](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/code-sample-export-sql-stream-analytics/SA002.png)
+![Nuovo processo di analisi di flusso](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 Quando viene creato il nuovo processo, selezionare **Vai alla risorsa**.
 
@@ -153,11 +153,13 @@ A questo punto è necessaria la chiave di accesso primaria dell'account di archi
 
 #### <a name="set-path-prefix-pattern"></a>Impostare lo schema prefisso percorso
 
-**Assicurarsi di impostare il formato della data su aaaa-MM-GG (con i trattini).**
+**Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).**
 
 Lo schema prefisso percorso specifica il modo in cui l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
 
-    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```sql
+webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```
 
 Esempio:
 
@@ -220,7 +222,7 @@ Selezionare SQL come output.
 
 ![In Analisi di flusso selezionare Output](./media/code-sample-export-sql-stream-analytics/SA006.png)
 
-Specificare il database SQL.
+Specificare il database.
 
 ![Inserire i dettagli del database](./media/code-sample-export-sql-stream-analytics/SA007.png)
 
@@ -235,9 +237,10 @@ Avviare il processo dalla barra delle azioni:
 
 Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controllare il flusso dei dati. Usare ad esempio una query simile alla seguente:
 
-    SELECT TOP 100 *
-    FROM [dbo].[PageViewsTable]
-
+```sql
+SELECT TOP 100 *
+FROM [dbo].[PageViewsTable]
+```
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Esportare in Power BI usando analisi di flusso](../../azure-monitor/app/export-power-bi.md )

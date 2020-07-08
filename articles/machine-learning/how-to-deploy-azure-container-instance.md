@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: dc2acefd69695e34fcf60877591faf4f838ab695
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44c197b7d9935a7b0631c6cbcd96fde783c2fffe
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753178"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087266"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuire un modello a Istanze di Azure Container
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,6 +48,10 @@ Per informazioni sulla disponibilità di quote e aree per ACI, vedere l'articolo
 ## <a name="deploy-to-aci"></a>Distribuire in ACI
 
 Per distribuire un modello in istanze di contenitore di Azure, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+
+> [!NOTE]
+> * ACI è adatto solo per piccoli modelli <1 GB di dimensioni. 
+> * Si consiglia di usare l'AKS a nodo singolo per lo sviluppo e il test di modelli più grandi.
 
 ### <a name="using-the-sdk"></a>Uso dell'SDK
 

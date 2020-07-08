@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: e5d9d4f215752d95ee1d676e8a5b126b6d0d3ab2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ddb8734a3d15a6cd5f4a43ee069d6364f7523ed
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190623"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087487"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Usare Apache Spark per leggere e scrivere dati Apache HBase
 
@@ -23,7 +23,7 @@ Le query in Apache HBase vengono in genere eseguite con l'API di basso livello c
 
 * Due cluster HDInsight distinti distribuiti nella stessa [rete virtuale](./hdinsight-plan-virtual-network-deployment.md). Una HBase e una Spark con almeno Spark 2,1 (HDInsight 3,6) installata. Per altre informazioni, vedere [Creare cluster basati su Linux in HDInsight tramite il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Lo schema URI per l'archiviazione primaria dei cluster. Questo schema è wasb://per l'archiviazione BLOB di Azure `abfs://` , per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per l'archiviazione BLOB, l'URI `wasbs://`è.  Vedere anche l'articolo sul [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
+* Lo schema URI per l'archiviazione primaria dei cluster. Questo schema è wasb://per l'archiviazione BLOB di Azure, `abfs://` per Azure Data Lake storage Gen2 o ADL://per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per l'archiviazione BLOB, l'URI è `wasbs://` .  Vedere anche l'articolo sul [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Processo generale
 
@@ -77,9 +77,9 @@ In questo passaggio viene creata e popolata una tabella in Apache HBase che è q
     exit
     ```
 
-## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Copiare HBase-site. XML nel cluster Spark
+## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Copiare hbase-site.xml nel cluster Spark
 
-Copiare HBase-site. XML dalla risorsa di archiviazione locale alla radice della risorsa di archiviazione predefinita del cluster Spark.  Modificare il comando seguente per riflettere la configurazione.  Quindi, dalla sessione SSH aperta al cluster HBase, immettere il comando:
+Copiare il hbase-site.xml dalla risorsa di archiviazione locale alla radice della risorsa di archiviazione predefinita del cluster Spark.  Modificare il comando seguente per riflettere la configurazione.  Quindi, dalla sessione SSH aperta al cluster HBase, immettere il comando:
 
 | Valore di sintassi | Nuovo valore|
 |---|---|
@@ -113,19 +113,55 @@ exit
 
 ## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Eseguire la shell di Spark facendo riferimento al connettore HBase Spark
 
-1. Dalla sessione SSH aperta al cluster Spark, immettere il comando seguente per avviare una shell di Spark:
+Dopo aver completato il passaggio precedente, sarà possibile eseguire la shell di Spark, facendo riferimento alla versione appropriata del connettore Spark HBase. Per trovare la versione di base del connettore Spark HBase più recente per lo scenario del cluster, vedere la pagina relativa al [repository principale di SHC](https://repo.hortonworks.com/content/groups/public/com/hortonworks/shc/shc-core/).
+
+Ad esempio, nella tabella seguente sono elencate due versioni e i comandi corrispondenti attualmente utilizzati dal team HDInsight. È possibile usare le stesse versioni per i cluster se le versioni di HBase e Spark sono identiche a quelle indicate nella tabella. 
+
+
+1. Nella sessione SSH aperta al cluster Spark immettere il comando seguente per avviare una shell di Spark:
+
+    |Versione di Spark| Versione HDI HBase  | Versione di SHC    |  Comando  |
+    | :-----------:| :----------: | :-----------: |:----------- |
+    |      2.1    | HDI 3,6 (HBase 1,1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
+    |      2.4    | HDI 4,0 (HBase 2,0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+
+2. Mantenere aperta questa istanza di Spark Shell e continuare a [definire un catalogo e una query](#define-a-catalog-and-query). Se non si trovano i file jar che corrispondono alle versioni in SHC Core repository, continuare a leggere. 
+
+È possibile compilare i file jar direttamente dal ramo GitHub [Spark-HBase-Connector](https://github.com/hortonworks-spark/shc) . Ad esempio, se si esegue con Spark 2,3 e HBase 1,1, completare i passaggi seguenti:
+
+1. Clonare il repository:
 
     ```bash
-    spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
-    ```  
+    git clone https://github.com/hortonworks-spark/shc
+    ```
+    
+2. Passare al ramo-2,3:
 
-2. Tenere aperta l'istanza della shell di Spark e continuare con il passaggio successivo.
+    ```bash
+    git checkout branch-2.3
+    ```
 
-## <a name="define-a-catalog-and-query"></a>Definire un catalogo ed eseguire una query
+3. Compilazione dal ramo (crea un file con estensione jar):
+
+    ```bash
+    mvn clean package -DskipTests
+    ```
+    
+3. Eseguire il comando seguente (assicurarsi di modificare il nome. jar che corrisponde al file con estensione jar compilato):
+
+    ```bash
+    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
+    ```
+    
+4. Mantenere aperta questa istanza di Spark Shell e continuare con la sezione successiva. 
+
+
+
+## <a name="define-a-catalog-and-query"></a>Definire un catalogo e una query
 
 In questo passaggio, definire un oggetto catalogo corrispondente allo schema da Apache Spark ad Apache HBase.  
 
-1. In Open Spark Shell immettere le istruzioni seguenti `import` :
+1. In Open Spark Shell immettere le `import` istruzioni seguenti:
 
     ```scala
     import org.apache.spark.sql.{SQLContext, _}
@@ -150,13 +186,13 @@ In questo passaggio, definire un oggetto catalogo corrispondente allo schema da 
     |}""".stripMargin
     ```
 
-    Il codice esegue le azioni seguenti:  
+    Il codice:  
 
-     a. Definire uno schema del catalogo per la tabella HBase denominata `Contacts`.  
-     b. Identificare l'elemento rowkey come `key` ed eseguire il mapping dei nomi di colonna usati in Spark alla famiglia, al nome e al tipo di colonna usati in HBase.  
-     c. L'elemento rowkey deve inoltre essere definito in dettaglio come colonna denominata (`rowkey`), con la famiglia di colonna specifica `cf``rowkey`.  
+    1. Definisce uno schema del catalogo per la tabella HBase denominata `Contacts` .  
+    1. Identifica RowKey come `key` ed eseguire il mapping dei nomi di colonna usati in Spark alla famiglia di colonne, al nome della colonna e al tipo di colonna usati in HBase.  
+    1. Definisce RowKey in dettaglio come colonna denominata ( `rowkey` ), che ha una famiglia di colonne specifica `cf` di `rowkey` .  
 
-1. Immettere il comando seguente per definire un metodo che fornisce un frame di frame attorno `Contacts` alla tabella in HBase:
+1. Immettere il comando seguente per definire un metodo che fornisce un frame di frame attorno alla `Contacts` tabella in HBase:
 
     ```scala
     def withCatalog(cat: String): DataFrame = {

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: 17c73866a11aae23efea90073f64b61808c13a35
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834714"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086484"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Apache Hadoop in HDInsight
 
@@ -62,7 +62,6 @@ Dopo aver creato un nodo perimetrale, è possibile connettersi al nodo stesso tr
 > I componenti personalizzati che vengono installati nel nodo perimetrale ricevono supporto ragionevole a livello commerciale da Microsoft. Ciò può portare alla risoluzione dei problemi riscontrati. In alternativa è possibile fare riferimento alle risorse della community per ulteriore assistenza. Di seguito sono indicati alcuni dei siti più attivi per ricevere assistenza dalla community:
 >
 > * [Pagina delle domande di Domande e risposte Microsoft per HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html
-
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > Se si usa una tecnologia Apache, è possibile ottenere assistenza tramite i siti di progetto Apache su [https://apache.org](https://apache.org), ad esempio il sito [Apache Hadoop](https://hadoop.apache.org/).
@@ -143,11 +142,15 @@ Il nodo perimetrale viene visualizzato come un'applicazione nel portale di Azure
 
 2. Dopo essersi connessi al nodo perimetrale tramite SSH, usare il comando seguente per aprire la console di Hive:
 
-        hive
+    ```console
+    hive
+    ```
 
 3. Eseguire il comando seguente per visualizzare le tabelle Hive nel cluster:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
 
 ## <a name="delete-an-edge-node"></a>Eliminare un nodo perimetrale
 

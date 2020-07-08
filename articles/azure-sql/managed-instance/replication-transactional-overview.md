@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: 2163a6e47767f6ce990526c7ececb7b4b554bf4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00f456d87bd5791b7d49644cb801dca20431b0b5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708499"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086399"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replica transazionale con Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -29,8 +29,8 @@ La replica transazionale è una funzionalità di Azure SQL Istanza gestita e SQL
 È possibile usare la replica transazionale per eseguire il push delle modifiche apportate in un Istanza gestita SQL di Azure per:
 
 - Una SQL Server database locale o in una VM di Azure
-- Un database singolo o in pool nel database SQL di Azure
-- Un database singolo o in pool in Azure SQL Istanza gestita
+- Un database nel database SQL di Azure
+- Un database di istanza in Azure SQL Istanza gestita
 
   > [!NOTE]
   > Per usare tutte le funzionalità di Istanza gestita SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).

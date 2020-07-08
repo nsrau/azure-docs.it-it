@@ -11,11 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 5ec6778e3e00a85a2fa7d43383df5c2ce6c47faa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8041ce07c08c3b6063e2a1b3c7b55b1cec59b19a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629521"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087759"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copiare i dati dal server HDFS usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
@@ -46,7 +47,7 @@ In particolare, il connettore HDFS supporta:
 > [!NOTE]
 > Verificare che il runtime di integrazione possa accedere a *tutti* i [nome server del nodo]: [porta del nodo nome] e [server del nodo dati]: [porta del nodo dati] del cluster Hadoop. Il valore predefinito [porta del nodo dei nomi] è 50070 e il valore predefinito [porta del nodo dati] è 50075.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -286,17 +287,21 @@ Sono disponibili due opzioni per la configurazione dell'ambiente locale per l'us
 
     Il computer deve essere configurato come membro di un gruppo di lavoro, perché un'area di autenticazione Kerberos è diversa da un dominio Windows. Per ottenere questa configurazione, è possibile impostare l'area di autenticazione Kerberos e aggiungere un server KDC eseguendo i comandi seguenti. Sostituire *Realm.com* con il proprio nome dell'area di autenticazione.
 
-            C:> Ksetup /setdomain REALM.COM
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```console
+    C:> Ksetup /setdomain REALM.COM
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    ```
 
     Dopo aver eseguito questi comandi, riavviare il computer.
 
 2.  Verificare la configurazione con il `Ksetup` comando. L'output dovrebbe essere simile al seguente:
 
-            C:> Ksetup
-            default realm = REALM.COM (external)
-            REALM.com:
-                kdc = <your_kdc_server_address>
+    ```output
+    C:> Ksetup
+    default realm = REALM.COM (external)
+    REALM.com:
+        kdc = <your_kdc_server_address>
+    ```
 
 **Nel data factory:**
 
@@ -318,45 +323,49 @@ Sono disponibili due opzioni per la configurazione dell'ambiente locale per l'us
 
 1. Modificare la configurazione KDC nel file *krb5. conf* per consentire a KDC di considerare attendibile il dominio Windows facendo riferimento al modello di configurazione seguente. Per impostazione predefinita, la configurazione si trova in */etc/krb5.conf*.
 
-           [logging]
-            default = FILE:/var/log/krb5libs.log
-            kdc = FILE:/var/log/krb5kdc.log
-            admin_server = FILE:/var/log/kadmind.log
+   ```config
+   [logging]
+    default = FILE:/var/log/krb5libs.log
+    kdc = FILE:/var/log/krb5kdc.log
+    admin_server = FILE:/var/log/kadmind.log
             
-           [libdefaults]
-            default_realm = REALM.COM
-            dns_lookup_realm = false
-            dns_lookup_kdc = false
-            ticket_lifetime = 24h
-            renew_lifetime = 7d
-            forwardable = true
+   [libdefaults]
+    default_realm = REALM.COM
+    dns_lookup_realm = false
+    dns_lookup_kdc = false
+    ticket_lifetime = 24h
+    renew_lifetime = 7d
+    forwardable = true
             
-           [realms]
-            REALM.COM = {
-             kdc = node.REALM.COM
-             admin_server = node.REALM.COM
-            }
-           AD.COM = {
-            kdc = windc.ad.com
-            admin_server = windc.ad.com
-           }
+   [realms]
+    REALM.COM = {
+     kdc = node.REALM.COM
+     admin_server = node.REALM.COM
+    }
+   AD.COM = {
+    kdc = windc.ad.com
+    admin_server = windc.ad.com
+   }
             
-           [domain_realm]
-            .REALM.COM = REALM.COM
-            REALM.COM = REALM.COM
-            .ad.com = AD.COM
-            ad.com = AD.COM
+   [domain_realm]
+    .REALM.COM = REALM.COM
+    REALM.COM = REALM.COM
+    .ad.com = AD.COM
+    ad.com = AD.COM
             
-           [capaths]
-            AD.COM = {
-             REALM.COM = .
-            }
+   [capaths]
+    AD.COM = {
+     REALM.COM = .
+    }
+    ```
 
    Dopo aver configurato il file, riavviare il servizio KDC.
 
 2. Preparare un'entità denominata *krbtgt/Realm. COM \@ ad.com* nel server KDC con il comando seguente:
 
-           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+    ```cmd
+    Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+    ```
 
 3. Nel file di configurazione del servizio HDFS *hadoop.security.auth_to_local* aggiungere `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
@@ -364,12 +373,16 @@ Sono disponibili due opzioni per la configurazione dell'ambiente locale per l'us
 
 1.  Eseguire i `Ksetup` comandi seguenti per aggiungere una voce dell'area di autenticazione:
 
-        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```cmd
+    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+    ```
 
 2.  Stabilire il trust dal dominio Windows all'area di autenticazione Kerberos. [password] è la password per l'entità di sicurezza *krbtgt/REALM.COM\@AD.COM*.
 
-        C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
+    ```cmd
+    C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
+    ```
 
 3.  Selezionare l'algoritmo di crittografia utilizzato in Kerberos.
 
@@ -383,7 +396,9 @@ Sono disponibili due opzioni per la configurazione dell'ambiente locale per l'us
 
     d. Usare il `Ksetup` comando per specificare l'algoritmo di crittografia da usare nell'area di autenticazione specificata.
 
-        C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+    ```cmd
+    C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+    ```
 
 4.  Creare il mapping tra l'account di dominio e l'entità Kerberos, in modo che sia possibile usare l'entità Kerberos nel dominio Windows.
 
@@ -401,8 +416,10 @@ Sono disponibili due opzioni per la configurazione dell'ambiente locale per l'us
 
 * Eseguire i `Ksetup` comandi seguenti per aggiungere una voce dell'area di autenticazione.
 
-        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```cmd
+   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```
 
 **Nel data factory:**
 

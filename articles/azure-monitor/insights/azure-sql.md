@@ -7,11 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb9bc847944a4228a7b583e21d0aa957f1910a29
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249416"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087181"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
@@ -71,7 +72,7 @@ Quando si aggiungono Analisi SQL di Azure all'area di lavoro, il riquadro Analis
 
 ![Riquadro di riepilogo Analisi SQL di Azure](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Una volta caricato, il riquadro Mostra il numero di database e pool elastici nel database SQL e le istanze gestite e i database di istanza in SQL Istanza gestita da cui Analisi SQL di Azure riceve la telemetria di diagnostica.
+Una volta caricato, il riquadro Mostra il numero di database e pool elastici nel database SQL e le istanze e i database di istanza in SQL Istanza gestita da cui Analisi SQL di Azure riceve la telemetria di diagnostica.
 
 ![Riquadro Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
@@ -105,7 +106,7 @@ Una volta selezionato il riquadro di Analisi SQL di Azure per i database, viene 
 
 La selezione di uno dei riquadri consente di visualizzare un report drill-down nella prospettiva specifica. Dopo che la prospettiva è stata selezionata, viene aperto il report drilldown.
 
-Selezionando la vista Istanza gestita SQL, vengono visualizzati i dettagli sull'utilizzo dell'istanza gestita, i database in esso contenuti e i dati di telemetria sulle query eseguite nell'istanza.
+Selezionando la vista Istanza gestita SQL, vengono visualizzati i dettagli sull'utilizzo dell'istanza, i database di istanza e i dati di telemetria sulle query eseguite nell'istanza gestita.
 
 ![Timeout di Analisi SQL di Azure](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
@@ -268,7 +269,7 @@ AzureDiagnostics
 
 > [!NOTE]
 >
-> - Il requisito preliminare per la configurazione di questo avviso è che il monitoraggio dell'istanza gestita ha lo streaming del log ResourceUsageStats abilitato per Analisi SQL di Azure.
+> - Il prerequisito per la configurazione di questo avviso è che l'istanza gestita monitorata ha lo streaming del log ResourceUsageStats abilitato per Analisi SQL di Azure.
 > - Questa query richiede la configurazione di una regola di avviso per attivare un avviso quando sono presenti risultati (> 0 Risultati) dalla query, che indica che la condizione esiste nell'istanza gestita. L'output corrisponde al consumo percentuale di archiviazione nell'istanza gestita.
 
 #### <a name="cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Il consumo medio della CPU è superiore al 95% nelle ultime 1 hr

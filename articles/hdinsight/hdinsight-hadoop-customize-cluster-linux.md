@@ -1,21 +1,21 @@
 ---
-title: Personalizzare i cluster HDInsight di Azure usando azioni script
+title: Personalizzare i cluster Azure HDInsight con azioni script
 description: Aggiungere componenti personalizzati ai cluster HDInsight usando azioni script. Le azioni script sono script bash che possono essere usati per personalizzare la configurazione del cluster. In alternativa, aggiungere servizi e utilità aggiuntivi come Hue, Solr o R.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f78157fc0873787ce13ed4e9e62ebfd3d3271d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36aaee030dd5267a391dd9a235dd5f8dc0932fa0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192077"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087092"
 ---
-# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster HDInsight di Azure usando azioni script
+# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster Azure HDInsight con azioni script
 
 Azure HDInsight fornisce un metodo di configurazione denominato **azioni script** che richiama script personalizzati per personalizzare il cluster. Questi script vengono usati per installare i componenti aggiuntivi e modificare le impostazioni di configurazione. Le azioni script possono essere usate durante o dopo la creazione del cluster.
 
@@ -25,8 +25,8 @@ Le azioni script possono anche essere pubblicate in Azure Marketplace come appli
 
 Per un cluster HDInsight aggiunto a un dominio, sono necessarie due autorizzazioni di Apache Ambari per l'uso di azioni script con il cluster:
 
-* **AMBARI. ESEGUIRE\_un\_comando personalizzato**. il ruolo di amministratore di Ambari ha questa autorizzazione per impostazione predefinita.
-* **Cluster. ESEGUIRE\_un\_comando personalizzato**. sia l'amministratore del cluster HDInsight che l'amministratore di Ambari hanno questa autorizzazione per impostazione predefinita.
+* **AMBARI. ESEGUIRE \_ un \_ comando personalizzato**. il ruolo di amministratore di Ambari ha questa autorizzazione per impostazione predefinita.
+* **Cluster. ESEGUIRE \_ un \_ comando personalizzato**. sia l'amministratore del cluster HDInsight che l'amministratore di Ambari hanno questa autorizzazione per impostazione predefinita.
 
 Per altre informazioni sull'uso delle autorizzazioni con HDInsight aggiunto a un dominio, vedere [Gestire i cluster HDInsight con Enterprise Security Package](./domain-joined/apache-domain-joined-manage.md).
 
@@ -62,11 +62,11 @@ Un'azione di script è uno script Bash eseguito sui nodi di un cluster HDInsight
 
 * Può essere limitato per l'esecuzione solo in determinati tipi di nodo, ad esempio i nodi head o i nodi di lavoro.
 
-* Può essere reso permanente o `ad hoc`.
+* Può essere reso permanente o `ad hoc` .
 
     Le azioni script persistenti devono avere un nome univoco. Gli script persistenti vengono usati per personalizzare i nuovi nodi di lavoro aggiunti al cluster tramite operazioni di ridimensionamento. Uno script persistente può anche applicare modifiche a un altro tipo di nodo durante operazioni di ridimensionamento, ad esempio un nodo head.
 
-    `Ad hoc`gli script non sono salvati in permanenza. Le azioni script usate durante la creazione di un cluster vengono automaticamente rese persistenti. Non vengono infatti applicati ai nodi di lavoro aggiunti al cluster dopo l'esecuzione dello script. È quindi possibile innalzare `ad hoc` di livello uno script a uno script permanente o abbassare di livello uno script permanente `ad hoc` in uno script. Gli script che hanno esito negativo non vengono resi persistenti, anche in presenza di indicazioni specifiche in tal senso.
+    `Ad hoc`gli script non sono salvati in permanenza. Le azioni script usate durante la creazione di un cluster vengono automaticamente rese persistenti. Non vengono infatti applicati ai nodi di lavoro aggiunti al cluster dopo l'esecuzione dello script. È quindi possibile innalzare `ad hoc` di livello uno script a uno script permanente o abbassare di livello uno script permanente in uno `ad hoc` script. Gli script che hanno esito negativo non vengono resi persistenti, anche in presenza di indicazioni specifiche in tal senso.
 
 * Possono accettare parametri usati dallo script durante l'esecuzione.
 
@@ -110,10 +110,12 @@ Le azioni script vengono eseguite con privilegi a livello radice. Assicurarsi di
 
 Quando si applica uno script a un cluster, lo stato del cluster passa da **In esecuzione** ad **Accettato**. Quindi passa a **Configurazione di HDInsight** e infine di nuovo a **In esecuzione** per gli script con esito positivo. Lo stato dello script viene registrato nella cronologia delle azioni script. Queste informazioni indicano se lo script ha avuto esito positivo o negativo. Ad esempio, il cmdlet di PowerShell `Get-AzHDInsightScriptActionHistory` mostra lo stato di uno script. Verranno restituite informazioni simili al testo seguente:
 
-    ScriptExecutionId : 635918532516474303
-    StartTime         : 8/14/2017 7:40:55 PM
-    EndTime           : 8/14/2017 7:41:05 PM
-    Status            : Succeeded
+```output
+ScriptExecutionId : 635918532516474303
+StartTime         : 8/14/2017 7:40:55 PM
+EndTime           : 8/14/2017 7:41:05 PM
+Status            : Succeeded
+```
 
 > [!IMPORTANT]  
 > Se si cambia la password dell'utente del cluster (admin) dopo la creazione del cluster stesso, le azioni script eseguite su questo cluster potrebbero avere esito negativo. In presenza di azioni script persistenti destinate a nodi di lavoro, questi script potrebbero avere esito negativo se si ridimensiona il cluster.
@@ -245,16 +247,18 @@ Per usare questi comandi di PowerShell, è necessario il [modulo AZ](https://doc
 
 Al termine dell'operazione, vengono visualizzate informazioni simili alle seguenti:
 
-    OperationState  : Succeeded
-    ErrorMessage    :
-    Name            : Giraph
-    Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-    Parameters      :
-    NodeTypes       : {HeadNode, WorkerNode}
+```output
+OperationState  : Succeeded
+ErrorMessage    :
+Name            : Giraph
+Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+Parameters      :
+NodeTypes       : {HeadNode, WorkerNode}
+```
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Applicare un'azione script a un cluster in esecuzione dall'interfaccia della riga di comando di Azure
 
-Prima di iniziare, assicurarsi di installare e configurare l'interfaccia della riga di comando di Azure. Assicurarsi di disporre della versione più recente. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Prima di iniziare, assicurarsi di installare e configurare l'interfaccia della riga di comando di Azure. Verificare di avere l'ultima versione. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Eseguire l'autenticazione alla sottoscrizione di Azure:
 
@@ -268,7 +272,7 @@ Prima di iniziare, assicurarsi di installare e configurare l'interfaccia della r
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    I ruoli validi `headnode`sono `workernode`, `zookeepernode`, `edgenode`,. Se lo script deve essere applicato a diversi tipi di nodo, separare i ruoli in base a uno spazio. Ad esempio: `--roles headnode workernode`.
+    I ruoli validi sono `headnode` ,, `workernode` `zookeepernode` , `edgenode` . Se lo script deve essere applicato a diversi tipi di nodo, separare i ruoli in base a uno spazio. Ad esempio: `--roles headnode workernode`.
 
     Per salvare lo script in modo permanente, aggiungere `--persist-on-success`. È anche possibile salvare lo script in modo permanente in un secondo momento usando `az hdinsight script-action promote`.
 

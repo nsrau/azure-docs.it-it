@@ -1,0 +1,312 @@
+---
+title: Proteggere i pod con criteri di Azure in Azure Kubernetes Service (AKS)
+description: Informazioni su come proteggere i pod con criteri di Azure in Azure Kubernetes Service (AKS)
+services: container-service
+ms.topic: article
+ms.date: 07/06/2020
+ms.openlocfilehash: 8a5107b9ba3c05c92a06753b2cb30bcfc2896d91
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86090936"
+---
+# <a name="secure-pods-with-azure-policy-preview"></a>Proteggere i pod con criteri di Azure (anteprima)
+
+Per migliorare la sicurezza del cluster AKS, è possibile controllare quali funzioni vengono concesse ai pod e se qualsiasi elemento viene eseguito in base ai criteri aziendali. Questo accesso viene definito tramite criteri predefiniti forniti dal [componente aggiuntivo criteri di Azure per AKS][kubernetes-policy-reference]. Garantendo un ulteriore controllo sugli aspetti di sicurezza della specifica del Pod, ad esempio i privilegi radice, consente una maggiore conformità alla sicurezza e la visibilità di ciò che viene distribuito nel cluster. Se un pod non soddisfa le condizioni specificate nei criteri, i criteri di Azure possono impedire al pod di avviare o contrassegnare una violazione. Questo articolo illustra come usare criteri di Azure per limitare la distribuzione di pod in AKS.
+
+> [!IMPORTANT]
+> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
+>
+> * [Criteri di supporto del servizio Azure Kubernetes][aks-support-policies]
+> * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
+
+## <a name="before-you-begin"></a>Prima di iniziare
+
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+
+### <a name="install-the-azure-policy-add-on-for-aks"></a>Installare il componente aggiuntivo criteri di Azure per AKS
+
+Per proteggere il servizio contenitore di Azure tramite criteri di Azure, è necessario installare il componente aggiuntivo criteri di Azure per AKS in un cluster AKS. Seguire questa [procedura per installare il componente aggiuntivo criteri di Azure](../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks).
+
+In questo documento si presuppone che siano stati distribuiti i seguenti elementi nella procedura dettagliata collegata.
+
+* Registrazione dei `Microsoft.ContainerService` `Microsoft.PolicyInsights` provider di risorse e con`az provider register`
+* Flag di `AKS-AzurePolicyAutoApprove` funzionalità di anteprima registrato utilizzando`az feature register`
+* INTERFACCIA della riga di comando di Azure installata con l' `aks-preview` estensione 0.4.53 o versione successiva
+* Un cluster del servizio contenitore di Azure in una versione supportata di 1,15 o superiore installato con il componente aggiuntivo criteri di Azure
+
+## <a name="overview-of-securing-pods-with-azure-policy-for-aks-preview"></a>Panoramica della protezione di Pod con criteri di Azure per AKS (anteprima)
+
+>[!NOTE]
+> Questo documento illustra come usare i criteri di Azure per proteggere i pod, che è il successore della [funzionalità dei criteri di sicurezza Pod Kubernetes in anteprima](use-pod-security-policies.md).
+> **Non è possibile abilitare contemporaneamente i criteri di sicurezza pod (anteprima) e il componente aggiuntivo criteri di Azure per AKS.**
+> 
+> Se si installa il componente aggiuntivo criteri di Azure in un cluster con criteri di sicurezza Pod abilitati, [attenersi alla procedura seguente per disabilitare i criteri di sicurezza Pod](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
+
+In un cluster AKS viene usato un controller di ammissione per intercettare le richieste al server API quando una risorsa viene creata e aggiornata. Il controller di ammissione può quindi *convalidare* la richiesta di risorse in base a un set di regole sull'eventuale creazione.
+
+In precedenza, i [criteri di sicurezza di Pod funzionalità (anteprima)](use-pod-security-policies.md) venivano abilitati tramite il progetto Kubernetes per limitare i pod che è possibile distribuire. Questa funzionalità non è più in fase di sviluppo attivo dal progetto Kubernetes.
+
+Con il componente aggiuntivo criteri di Azure un cluster AKS può usare criteri di Azure predefiniti che proteggono i pod e altre risorse di Kubernetes in modo analogo ai criteri di sicurezza di Pod. Il componente aggiuntivo criteri di Azure per AKS installa un'istanza gestita di [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), un controller di ammissione per la convalida. Criteri di Azure per Kubernetes si basa sull'agente criteri open source aperto che si basa sul linguaggio dei [criteri di rego](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
+
+Questo documento illustra come usare i criteri di Azure per proteggere i pod in un cluster AKS e come eseguire la migrazione dai criteri di sicurezza pod (anteprima).
+
+## <a name="limitations"></a>Limitazioni
+
+* Durante l'anteprima, un limite di 200 Pod con 20 criteri di Azure per i criteri di Kubernetes può essere eseguito in un singolo cluster.
+* [Alcuni spazi dei nomi di sistema](#namespace-exclusion) contenenti i pod gestiti da AKS sono esclusi dalla valutazione dei criteri.
+* I pod [di Windows non supportano i contesti di sicurezza](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods), quindi molti criteri di Azure si applicano solo ai pod Linux, ad esempio la disattivazione dei privilegi radice, che non possono essere escalation nei pod di Windows.
+* Non è possibile abilitare entrambi i criteri di sicurezza pod e il componente aggiuntivo criteri di Azure per AKS. Se si installa il componente aggiuntivo criteri di Azure in un cluster con criteri di sicurezza Pod abilitati, disabilitare i criteri di sicurezza Pod con le [istruzioni seguenti](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
+
+## <a name="azure-policies-to-secure-kubernetes-pods"></a>Criteri di Azure per proteggere i pod Kubernetes
+
+Dopo l'installazione del componente aggiuntivo criteri di Azure, non vengono applicati criteri per impostazione predefinita.
+
+Sono disponibili quattordici (14) singoli criteri di Azure e due (2) iniziative predefinite che proteggono in modo specifico i pod in un cluster AKS.
+Ogni criterio può essere personalizzato con un effetto. Di seguito è riportato un elenco completo dei [criteri AKS e degli effetti supportati][policy-samples]. Scopri di più sugli [effetti dei criteri di Azure](../governance/policy/concepts/effects.md).
+
+I criteri di Azure possono essere applicati a livello di gruppo di gestione, sottoscrizione o gruppo di risorse. Quando si assegna un criterio a livello di gruppo di risorse, verificare che il gruppo di risorse del cluster AKS di destinazione sia selezionato nell'ambito dei criteri. Ogni cluster nell'ambito assegnato con il componente aggiuntivo criteri di Azure installato rientra nell'ambito dei criteri.
+
+Se si usano i [criteri di sicurezza pod (anteprima)](use-pod-security-policies.md), informazioni su come [eseguire la migrazione a criteri di Azure e su altre differenze di comportamento](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
+
+### <a name="built-in-policy-initiatives"></a>Iniziative predefinite dei criteri
+
+Un'iniziativa in criteri di Azure è una raccolta di definizioni di criteri adattate al raggiungimento di un singolo obiettivo globale. L'uso delle iniziative può semplificare la gestione e l'assegnazione dei criteri nei cluster AKS. Un'iniziativa esiste come singolo oggetto, altre informazioni sulle [iniziative di criteri di Azure](../governance/policy/overview.md#initiative-definition).
+
+Criteri di Azure per Kubernetes offre due iniziative predefinite che proteggono i pod, la [baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) e le [restrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00).
+
+Entrambe le iniziative predefinite sono compilate dalle definizioni usate nei [criteri di sicurezza pod da Kubernetes](https://github.com/kubernetes/website/blob/master/content/en/examples/policy/baseline-psp.yaml).
+
+|[Controllo dei criteri di sicurezza Pod](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Collegamento alla definizione di criteri di Azure| Iniziativa di base | Iniziativa limitata |
+|---|---|---|---|
+|Non consentire l'esecuzione di contenitori con privilegi|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4)| Sì | Sì
+|Non consentire l'utilizzo condiviso degli spazi dei nomi host|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8)| Sì | Sì
+|Limitare l'utilizzo della rete e delle porte dell'host a un elenco noto|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Sì | Sì
+|Limitare l'utilizzo del file System host|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Sì | Sì
+|Aggiunta di funzionalità Linux oltre il [set predefinito](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Sì | Sì
+|Limitare l'utilizzo dei tipi di volume definiti|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Sì
+|Escalation dei privilegi alla radice|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Sì |
+|Limitare gli ID utente e gruppo del contenitore|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sì |
+|Limitare l'allocazione di un FSGroup proprietario dei volumi del Pod|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sì |
+|Richiede l'uso del profilo seccomp|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | - |
+|Limitare il profilo di sysctl usato dai contenitori|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56d0a13f-712f-466b-8416-56fb354fb823) | - | - |
+|Vengono definiti i tipi di montaggio proc predefiniti per ridurre la superficie di attacco|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff85eb0dd-92ee-40e9-8a76-db25a507d6d3) | - | - |
+|Limita a driver FlexVolume specifici|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | - | - |
+|Consenti montaggi non di sola lettura|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | - | - |
+|Definire il contesto di SELinux personalizzato di un contenitore|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e6c427-07d9-46ab-9689-bfa85431e636) | - | - |
+|Definire il profilo AppArmor usato dai contenitori|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | - | - |
+
+<!---
+# Removing until custom initiatives are supported the week after preview
+
+#### Custom initiative
+
+If the built-in initiatives to address pod security do not match your requirements, you can choose your own policies to exist in a custom initiative. Read more about [building custom initatives in Azure Policy](../governance/policy/tutorials/create-and-manage#create-and-assign-an-initiative-definition).
+
+--->
+
+### <a name="namespace-exclusion"></a>Esclusione dello spazio dei nomi
+
+> [!WARNING]
+> I pod negli spazi dei nomi di amministrazione, ad esempio Kube-System, devono essere eseguiti affinché un cluster rimanga integro e la rimozione di uno spazio dei nomi richiesto dall'elenco di spazi dei nomi esclusi predefiniti potrebbe provocare violazioni dei criteri a causa di un pod di sistema obbligatorio.
+
+AKS richiede che i pod di sistema vengano eseguiti in un cluster per fornire servizi critici, ad esempio la risoluzione DNS. I criteri che limitano la funzionalità Pod possono avere un effetto sulla stabilità del pod di sistema. Di conseguenza, gli spazi dei nomi seguenti vengono **esclusi dalla valutazione dei criteri durante le richieste di ammissione durante la creazione, l'aggiornamento e il controllo dei criteri**. In questo modo le nuove distribuzioni a questi spazi dei nomi verranno escluse dai criteri di Azure.
+
+1. Kube-sistema
+1. Gatekeeper-sistema
+1. Azure-Arc
+1. AKS-periscopio
+
+Gli spazi dei nomi personalizzati aggiuntivi possono essere esclusi dalla valutazione durante la creazione, l'aggiornamento e il controllo. Questa operazione deve essere usata se sono presenti Pod specializzati che vengono eseguiti in uno spazio dei nomi approvato e si vuole evitare di attivare violazioni di controllo.
+
+## <a name="apply-the-baseline-initiative"></a>Applicare l'iniziativa Baseline
+
+> [!TIP]
+> Per impostazione predefinita, tutti i criteri sono un effetto di controllo. Gli effetti possono essere aggiornati per negare in qualsiasi momento tramite criteri di Azure.
+
+Per applicare l'iniziativa Baseline, è possibile eseguire l'assegnazione tramite il portale di Azure.
+<!--
+1. Navigate to the Policy service in Azure portal
+1. In the left pane of the Azure Policy page, select **Definitions**
+1. Search for "Baseline Profile" on the search pane to the right of the page
+1. Select `Kubernetes Pod Security Standards Baseline Profile for Linux-based workloads` from the `Kubernetes` category
+-->
+1. Seguire [questo collegamento alla portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) per esaminare l'iniziativa della baseline per la sicurezza Pod
+1. Impostare l' **ambito** al livello di sottoscrizione o solo il gruppo di risorse che contiene i cluster AKS con il componente aggiuntivo criteri di Azure abilitato
+1. Selezionare la pagina **parametri** e aggiornare l' **effetto** da `audit` a `deny` per bloccare le nuove distribuzioni che violano l'iniziativa di base
+1. Aggiungere altri spazi dei nomi da escludere dalla valutazione durante la creazione, l'aggiornamento e il controllo [. alcuni spazi dei nomi vengono esclusi forzatamente dalla valutazione dei criteri.](#namespace-exclusion) 
+ ![ effetto aggiornamento](media/use-pod-security-on-azure-policy/update-effect.png)
+1. Selezionare **Verifica + crea** per inviare i criteri
+
+Verificare che i criteri vengano applicati al cluster eseguendo `kubectl get constrainttemplates` .
+
+> [!NOTE]
+> I criteri possono richiedere [fino a 20 minuti per la sincronizzazione](../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition) in ogni cluster.
+
+L'output dovrebbe essere simile al seguente:
+
+```console
+$ kubectl get constrainttemplate
+NAME                                     AGE
+k8sazureallowedcapabilities              30m
+k8sazureblockhostnamespace               30m
+k8sazurecontainernoprivilege             30m
+k8sazurehostfilesystem                   30m
+k8sazurehostnetworkingports              30m
+```
+
+## <a name="validate-rejection-of-a-privileged-pod"></a>Convalidare il rifiuto di un pod con privilegi
+
+Si contesterà innanzitutto cosa accade quando si pianifica un pod con il contesto di sicurezza di `privileged: true` . Questo contesto di sicurezza inoltra i privilegi del Pod. L'iniziativa Baseline non consente i pod con privilegi, quindi la richiesta verrà negata, causando il rifiuto della distribuzione.
+
+Creare un file denominato `nginx-privileged.yaml` e incollare il manifesto YAML seguente:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-privileged
+spec:
+  containers:
+    - name: nginx-privileged
+      image: nginx
+      securityContext:
+        privileged: true
+```
+
+Creare il pod con [kubectl Apply][kubectl-apply] comando e specificare il nome del manifesto YAML:
+
+```console
+kubectl apply -f nginx-privileged.yaml
+```
+
+Come previsto, il Pod non viene pianificato, come illustrato nell'output di esempio seguente:
+
+```console
+$ kubectl apply -f privileged.yaml
+
+Error from server ([denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}): error when creating "privileged.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}
+```
+
+Il Pod non raggiunge la fase di pianificazione, quindi non sono presenti risorse da eliminare prima di procedere.
+
+## <a name="test-creation-of-an-unprivileged-pod"></a>Creazione di test di un pod senza privilegi
+
+Nell'esempio precedente, l'immagine del contenitore ha provato automaticamente a usare la radice per associare NGINX alla porta 80. Questa richiesta è stata negata dall'iniziativa dei criteri di base, quindi il Pod non viene avviato. Provare ora a eseguire lo stesso pod NGINX senza accesso con privilegi.
+
+Creare un file denominato `nginx-unprivileged.yaml` e incollare il manifesto YAML seguente:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-unprivileged
+spec:
+  containers:
+    - name: nginx-unprivileged
+      image: nginx
+```
+
+Creare il pod usando il comando [kubectl Apply][kubectl-apply] e specificare il nome del manifesto YAML:
+
+```console
+kubectl apply -f nginx-unprivileged.yaml
+```
+
+La pianificazione del Pod è stata completata. Quando si controlla lo stato del pod usando il comando [kubectl Get][kubectl-get] pods, il Pod è *in esecuzione*:
+
+```console
+$ kubectl get pods
+
+NAME                 READY   STATUS    RESTARTS   AGE
+nginx-unprivileged   1/1     Running   0          18s
+```
+
+Questo esempio illustra l'iniziativa baseline che influisce solo sulle distribuzioni che violano i criteri della raccolta. Le distribuzioni consentite continuano a funzionare.
+
+Eliminare il Pod senza privilegi NGINX usando il comando [kubectl Delete][kubectl-delete] e specificare il nome del manifesto YAML:
+
+```console
+kubectl delete -f nginx-unprivileged.yaml
+```
+
+## <a name="disable-policies-and-the-azure-policy-add-on"></a>Disabilitare i criteri e il componente aggiuntivo criteri di Azure
+
+Per rimuovere l'iniziativa Baseline:
+
+1. Passare al riquadro criteri sulla portale di Azure
+1. Selezionare **assegnazioni** dal riquadro sinistro
+1. Fare clic su "..." pulsante accanto al profilo di base
+1. Selezionare "Elimina assegnazione"
+
+![Elimina assegnazione](media/use-pod-security-on-azure-policy/delete-assignment.png)
+
+Per disabilitare il componente aggiuntivo criteri di Azure, usare il comando [AZ AKS Disable-addons][az-aks-disable-addons] .
+
+```azure-cli
+az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
+```
+
+Informazioni su come rimuovere il [componente aggiuntivo di criteri di Azure da portale di Azure](../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on-from-aks).
+
+## <a name="migrate-from-kubernetes-pod-security-policy-to-azure-policy"></a>Eseguire la migrazione da criteri di sicurezza Pod Kubernetes a criteri di Azure
+
+Per eseguire la migrazione dai criteri di sicurezza Pod è necessario eseguire le azioni seguenti in un cluster.
+
+1. [Disabilitare i criteri di sicurezza Pod](use-pod-security-policies.md#clean-up-resources) nel cluster
+1. Abilitare il [componente aggiuntivo criteri di Azure][kubernetes-policy-reference]
+1. Abilitare i criteri di Azure desiderati dai [criteri predefiniti disponibili][policy-samples]
+
+Di seguito è riportato un riepilogo delle modifiche del comportamento tra i criteri di sicurezza di Pod e i criteri di Azure.
+
+|Scenario| Criteri di sicurezza Pod | Criteri di Azure |
+|---|---|---|
+|Installazione|Abilitare la funzionalità dei criteri di sicurezza Pod |Abilita il componente aggiuntivo criteri di Azure
+|Distribuisci criteri| Distribuire la risorsa criteri di sicurezza Pod| Assegnare i criteri di Azure all'ambito della sottoscrizione o del gruppo di risorse. Il componente aggiuntivo criteri di Azure è necessario per le applicazioni di risorse Kubernetes.
+| Criteri predefiniti | Quando i criteri di sicurezza pod sono abilitati in AKS, vengono applicati i criteri predefiniti con privilegi e senza restrizioni. | Non vengono applicati criteri predefiniti abilitando il componente aggiuntivo criteri di Azure. È necessario abilitare in modo esplicito i criteri in criteri di Azure.
+| Utenti che possono creare e assegnare criteri | Amministrazione cluster crea una risorsa criteri di sicurezza Pod | Gli utenti devono avere un ruolo minimo di autorizzazioni ' proprietario ' o ' collaboratore criteri risorse ' nel gruppo di risorse del cluster AKS. -Tramite l'API, gli utenti possono assegnare i criteri nell'ambito delle risorse del cluster AKS. L'utente deve avere almeno le autorizzazioni "proprietario" o "collaboratore criteri risorse" per la risorsa cluster AKS. -Nel portale di Azure i criteri possono essere assegnati a livello di gruppo di gestione/sottoscrizione/gruppo di risorse.
+| Autorizzazione di criteri| Gli account utente e del servizio richiedono autorizzazioni esplicite per l'uso di criteri di sicurezza pod. | Per autorizzare i criteri non è necessaria alcuna assegnazione aggiuntiva. Dopo che i criteri sono stati assegnati in Azure, tutti gli utenti del cluster possono usare questi criteri.
+| Applicabilità dei criteri | L'utente amministratore ignora l'applicazione dei criteri di sicurezza pod. | Tutti gli utenti (amministratore & non amministratore) vedono gli stessi criteri. Non sono presenti maiuscole e minuscole specifiche in base agli utenti. L'applicazione di criteri può essere esclusa a livello di spazio dei nomi.
+| Ambito dei criteri | I criteri di sicurezza Pod non sono spazio dei nomi | I modelli di vincolo usati dai criteri di Azure non sono spazio dei nomi.
+| Azione di negazione/controllo/mutazione | I criteri di sicurezza Pod supportano solo le azioni di negazione. La mutazione può essere eseguita con i valori predefiniti per le richieste di creazione. La convalida può essere eseguita durante le richieste di aggiornamento.| Criteri di Azure supporta entrambe le azioni di controllo & negazione. La mutazione non è ancora supportata, ma è pianificata.
+| Conformità dei criteri di sicurezza Pod | Non esiste visibilità sulla conformità dei Pod esistenti prima di abilitare i criteri di sicurezza di Pod. I Pod non conformi creati dopo l'abilitazione di criteri di sicurezza pod sono negati. | I Pod non conformi esistenti prima di applicare i criteri di Azure verranno visualizzati nelle violazioni dei criteri. I Pod non conformi creati dopo l'abilitazione di criteri di Azure vengono negati se i criteri vengono impostati con un effetto di negazione.
+| Come visualizzare i criteri nel cluster | `kubectl get psp` | `kubectl get constrainttemplate`-Vengono restituiti tutti i criteri.
+| Criteri di sicurezza Pod standard-con privilegi | Quando si Abilita la funzionalità, per impostazione predefinita viene creata una risorsa di criteri di sicurezza di Pod con privilegi. | La modalità con privilegi non implica alcuna restrizione, di conseguenza è equivalente all'assenza di un'assegnazione di criteri di Azure.
+| [Criteri di sicurezza Pod standard-Baseline/default](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | L'utente installa una risorsa di base dei criteri di sicurezza pod. | Criteri di Azure fornisce un' [iniziativa di base predefinita](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) che esegue il mapping ai criteri di sicurezza pod di base.
+| [Criteri di sicurezza Pod standard-con restrizioni](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | L'utente installa una risorsa con restrizioni dei criteri di sicurezza pod. | Criteri di Azure fornisce un' [iniziativa limitata incorporata](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) che esegue il mapping ai criteri di sicurezza di Pod limitati.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Questo articolo ha illustrato come applicare criteri di Azure che limitano la distribuzione di Pod con privilegi per impedire l'uso dell'accesso con privilegi. Sono disponibili molti criteri che possono essere applicati, ad esempio quelli che limitano l'utilizzo dei volumi. Per altre informazioni sulle opzioni disponibili, vedere la [documentazione di riferimento relativa ai criteri di Azure per Kubernetes][kubernetes-policy-reference].
+
+Per altre informazioni sulla limitazione del traffico di rete Pod, vedere [proteggere il traffico tra i pod usando i criteri di rete in AKS][network-policies].
+
+<!-- LINKS - external -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+
+<!-- LINKS - internal -->
+[kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
+[policy-samples]: policy-samples.md#microsoftcontainerservice
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[network-policies]: use-network-policies.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
+[az-policy-assignment-delete]: /cli/azure/policy/assignment#az-policy-assignment-delete

@@ -1,6 +1,6 @@
 ---
 title: 'Database SQL di Azure: gestire la conservazione dei backup a lungo termine'
-description: Informazioni su come archiviare e ripristinare i backup automatici per un database singolo o in pool di database SQL di Azure in archiviazione di Azure (per un massimo di 10 anni) usando il portale di Azure e PowerShell
+description: Informazioni su come archiviare e ripristinare i backup automatici per il database SQL di Azure in archiviazione di Azure (per un massimo di 10 anni) usando il portale di Azure e PowerShell
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
@@ -11,11 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/14/2020
-ms.openlocfilehash: e3abe203c32994c63ddd1cecc45cbcc8b566c45a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 713ac569acb7866b4c7431b80e2afb1e7953ce08
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027896"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087351"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -186,7 +187,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 
 ### <a name="restore-from-ltr-backups"></a>Eseguire il ripristino dai backup con conservazione a lungo termine
 
-Questo esempio illustra come eseguire il ripristino da un backup con conservazione a lungo termine. Si noti che questa interfaccia non è stata modificata, ma il parametro dell'ID risorsa richiede ora l'ID risorsa del backup con conservazione a lungo termine.
+Questo esempio illustra come eseguire il ripristino da un backup con conservazione a lungo termine. Si noti che questa interfaccia non è stata modificata, ma il parametro Resource ID richiede ora l'ID della risorsa di backup LTR.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup

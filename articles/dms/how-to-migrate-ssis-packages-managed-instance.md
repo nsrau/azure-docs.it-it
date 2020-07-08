@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di pacchetti SSIS in un'istanza gestita di SQL
+title: Eseguire la migrazione di pacchetti SSIS a SQL Istanza gestita
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione di progetti e pacchetti di SQL Server Integration Services (SSIS) a una Istanza gestita SQL di Azure usando il servizio migrazione del database di Azure o il Data Migration Assistant.
 services: database-migration
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: d27905acc60e953ec5ed92e77d7a352c1c3fec8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13fcda03f3ccd0c28e1dce594c46b8c0d9449054
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196558"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086569"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Eseguire la migrazione di pacchetti di SQL Server Integration Services a un Istanza gestita SQL di Azure
 Se si usa SQL Server Integration Services (SSIS) e si vuole eseguire la migrazione di progetti/pacchetti SSIS dal database di origine SSISDB ospitato da SQL Server nel database SSISDB di destinazione ospitato da un Istanza gestita di Azure SQL, è possibile usare il servizio migrazione del database di Azure.
@@ -84,7 +85,7 @@ Mentre la valutazione del database di origine SSISDB non è ancora integrata nel
 
     Per altre informazioni su come creare una rete virtuale in portale di Azure, vedere l'articolo [creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
 
-    Per altri dettagli, vedere l'articolo relativo alle [topologie di rete per le migrazioni a istanze gestite di database SQL di Azure con Servizio Migrazione del database di Azure](https://aka.ms/dmsnetworkformi).
+    Per altri dettagli, vedere l'articolo [topologie di rete per le migrazioni di istanza gestita SQL di Azure con il servizio migrazione del database di Azure](https://aka.ms/dmsnetworkformi).
 
 6. Selezione di un piano tariffario.
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a793de35ffff84009d362f005e599b4419f0763f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50bf1502589ea0932fd45367c039e6e37135d761
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532774"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086059"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Concetti relativi alla disponibilità elevata in Database di Azure per MySQL
 Il servizio Database di Azure per MySQL offre un livello di disponibilità elevata garantito. Il contratto di servizio con copertura finanziaria è del 99,99% in concomitanza con la disponibilità a livello generale. I tempi di inattività dell'applicazione sono praticamente nulli quando si usa questo servizio.
@@ -29,7 +29,7 @@ All'interno di Azure viene usato un gateway per reindirizzare le connessioni all
 ## <a name="scaling-up-or-down"></a>Scalabilità delle prestazioni
 Come avviene per il modello a disponibilità elevata, quando un'istanza di Database di Azure per MySQL viene ridimensionata verso l'alto o verso il basso viene creata una nuova istanza del server con le dimensioni specificate. L'archiviazione dati esistente viene scollegata dall'istanza originale e associata alla nuova istanza.
 
-Durante l'operazione di ridimensionamento, si verifica un'interruzione delle connessioni al database. Le applicazioni client vengono disconnesse e le transazioni aperte non sottoposte a commit vengono annullate. Dopo che l'applicazione client ritenta la connessione o crea una nuova connessione, il gateway indirizza la connessione all'istanza appena ridimensionata. 
+Durante l'operazione di ridimensionamento, si verifica un'interruzione delle connessioni al database. Le applicazioni client vengono disconnesse e le transazioni aperte non sottoposte a commit vengono annullate. Dopo che l'applicazione client ritenta la connessione o crea una nuova connessione, il gateway indirizza la connessione all'istanza appena ridimensionata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sulla [gestione degli errori di connettività temporanei](concepts-connectivity.md)

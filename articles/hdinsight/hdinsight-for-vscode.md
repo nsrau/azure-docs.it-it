@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
-ms.openlocfilehash: de433d85c2f04a7140fbcb918730218ac3a05e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: d00e4ad8b0a9f1f50c30144867babcd8c782734d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878630"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087130"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti di Spark & hive per Visual Studio Code
 
@@ -36,7 +37,7 @@ Dopo aver soddisfatto i prerequisiti, è possibile installare Spark & hive Tools
 
 1. Aprire Visual Studio Code.
 
-2. Dalla barra dei menu passare a **Visualizza** > **estensioni**.
+2. Dalla barra dei menu passare a **Visualizza**  >  **estensioni**.
 
 3. Nella casella di ricerca immettere **Spark & Hive**.
 
@@ -50,19 +51,19 @@ Dopo aver soddisfatto i prerequisiti, è possibile installare Spark & hive Tools
 
 Per aprire una cartella di lavoro e creare un file in Visual Studio Code, attenersi alla seguente procedura:
 
-1. Dalla barra dei menu passare a **file** > **Apri cartella...**  >  **C:\HD\HDexample**, quindi selezionare il pulsante **Seleziona cartella** . La cartella verrà visualizzata nella visualizzazione **Explorer** a sinistra.
+1. Dalla barra dei menu passare a **file**  >  **Apri cartella...**  >  **C:\HD\HDexample**, quindi selezionare il pulsante **Seleziona cartella** . La cartella verrà visualizzata nella visualizzazione **Explorer** a sinistra.
 
 2. Nella visualizzazione **Esplora risorse** selezionare la cartella **HDexample** , quindi selezionare l'icona **nuovo file** accanto alla cartella di lavoro:
 
    ![icona del nuovo file di Visual Studio Code](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
-3. Assegnare un nome al nuovo file usando l' `.hql` estensione di file (query hive `.py` ) o (script Spark). Questo esempio usa **HelloWorld.hql**.
+3. Assegnare un nome al nuovo file usando l' `.hql` estensione di file (query hive) o `.py` (script Spark). Questo esempio usa **HelloWorld.hql**.
 
 ## <a name="set-the-azure-environment"></a>Configurare l'ambiente di Azure
 
 Per un utente del cloud nazionale, attenersi alla procedura seguente per impostare prima l'ambiente di Azure e quindi usare il comando **Azure: Sign in** per accedere ad Azure:
 
-1. Passare a **File** > **Preferenze** > file**Impostazioni**.
+1. Passare a **File**  >  **Preferenze**file  >  **Impostazioni**.
 2. Eseguire una ricerca nella stringa seguente: **Azure: cloud**.
 3. Selezionare il cloud nazionale nell'elenco:
 
@@ -70,9 +71,9 @@ Per un utente del cloud nazionale, attenersi alla procedura seguente per imposta
 
 ## <a name="connect-to-an-azure-account"></a>Connettersi a un account Azure
 
-Prima di poter inviare script ai cluster da Visual Studio Code, è necessario connettersi all'account Azure o collegare un cluster. Usare le credenziali di nome utente e password di Apache Ambari o un account aggiunto al dominio. Per connettersi ad Azure, seguire questa procedura:
+Prima di poter inviare script ai cluster da Visual Studio Code, l'utente può accedere alla sottoscrizione di Azure o [collegare un cluster HDInsight](#link-a-cluster). Usare il nome utente/password di Ambari o le credenziali aggiunti a un dominio per il cluster ESP per la connessione al cluster HDInsight. Per connettersi ad Azure, seguire questa procedura:
 
-1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Azure: accedi**:
+1. Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e immettere **Azure: accedi**:
 
     ![Strumenti di Spark & hive per Visual Studio Code login](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -82,9 +83,9 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
 
 ### <a name="link-azure-hdinsight"></a>Collegamento: Azure HDInsight
 
-È possibile collegare un cluster normale usando un nome utente gestito da [Apache Ambari](https://ambari.apache.org/)oppure è possibile collegare un cluster Hadoop di Enterprise Security Pack protetto usando un nome utente di dominio (ad esempio `user1@contoso.com`,).
+È possibile collegare un cluster normale usando un nome utente gestito da [Apache Ambari](https://ambari.apache.org/)oppure è possibile collegare un cluster Hadoop di Enterprise Security Pack protetto usando un nome utente di dominio (ad esempio, `user1@contoso.com` ).
 
-1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi...** e immettere **Spark/hive: collegare un cluster**.
+1. Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi...** e immettere **Spark/hive: collegare un cluster**.
 
    ![Comando del cluster del collegamento del riquadro comandi](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -107,11 +108,11 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
 
 ### <a name="link-generic-livy-endpoint"></a>Collegamento: endpoint generico Livio
 
-1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi...** e immettere **Spark/hive: collegare un cluster**.
+1. Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi...** e immettere **Spark/hive: collegare un cluster**.
 
 2. Selezionare il tipo di cluster collegato**Generic Livy Endpoint** (Endpoint Livy generico).
 
-3. Immettere l'endpoint generico Livio. Ad esempio: http\://10.172.41.42:18080.
+3. Immettere l'endpoint generico Livio. Ad esempio: http \: //10.172.41.42:18080.
 
 4. Selezionare il tipo di autorizzazione **Basic** (Di base) o **None** (Nessuna).  Se si seleziona di **base**:  
     &emsp;a. Immettere il nome utente di Ambari; il valore predefinito è **admin**.  
@@ -121,7 +122,7 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
 
 ## <a name="list-clusters"></a>Elencare i cluster
 
-1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi...** e immettere **Spark/hive: list cluster**.
+1. Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi...** e immettere **Spark/hive: list cluster**.
 
 2. Selezionare la sottoscrizione desiderata.
 
@@ -139,7 +140,7 @@ Prima di poter inviare script ai cluster da Visual Studio Code, è necessario co
 
 4. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
 
-5. Selezionare un cluster come predefinito per il file di script corrente. Gli strumenti aggiornano automaticamente il **. **File di configurazione VSCode\settings.JSON:
+5. Selezionare un cluster come predefinito per il file di script corrente. Gli strumenti aggiornano automaticamente il **.VSCode\settings.jsnel file di** configurazione:
 
    ![Impostare la configurazione del cluster predefinito](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
@@ -171,7 +172,10 @@ Con Spark & gli strumenti hive per Visual Studio Code è possibile inviare query
 
 ## <a name="submit-interactive-pyspark-queries"></a>Inviare query PySpark interattive
 
-Per inviare query PySpark interattive, seguire questa procedura:
+Gli utenti possono eseguire PySpark Interactive nei modi seguenti:
+
+### <a name="using-the-pyspark-interactive-command-in-py-file"></a>Uso del comando interattivo PySpark nel file PY
+Utilizzando il comando interattivo PySpark per inviare le query, attenersi alla procedura seguente:
 
 1. Riaprire la cartella **HDexample** descritta in [precedenza](#open-a-work-folder), se chiusa.  
 
@@ -193,31 +197,61 @@ Per inviare query PySpark interattive, seguire questa procedura:
         print(sortedCollection[i])
    ```
 
-4. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
+4. Il prompt per installare il kernel PySpark viene visualizzato nell'angolo inferiore destro della finestra. È possibile fare clic sul pulsante **Installa** per procedere con l'installazione di PySpark. in alternativa, fare clic sul pulsante **Ignora** per ignorare questo passaggio.
 
-5. Selezionare tutto il codice, fare clic con il pulsante destro del mouse sull'editor di script e selezionare **Spark: PySpark Interactive** per inviare la query. In alternativa, usare il tasto di scelta rapida CTRL + ALT + I.
+   ![installare il kernel pyspark](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-   ![Menu di scelta rapida PySpark Interactive (PySpark interattivo)](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+5. Se è necessario installarlo in un secondo momento, è possibile **File**passare a  >  **Preference**  >  **Impostazioni**preferenza file, quindi deselezionare **HDInsight: Enable ignora Pyspark Installation** nelle impostazioni. 
+    
+    ![installare il kernel pyspark](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
-6. Selezionare il cluster, se non è stato specificato un cluster predefinito. Dopo alcuni istanti, i risultati di **Python Interactive** vengono visualizzati in una nuova scheda. Gli strumenti consentono anche di inviare un blocco di codice anziché l'intero file di script tramite il menu di scelta rapida:
+6. Se l'installazione ha avuto esito positivo nel passaggio 4, la finestra di messaggio "PySpark installato correttamente" viene visualizzata nell'angolo inferiore destro della finestra. Fare clic sul pulsante **ricarica** per ricaricare la finestra.
+    ![installazione di pyspark completata](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
+
+7. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
+
+8. Selezionare tutto il codice, fare clic con il pulsante destro del mouse sull'editor di script e selezionare **Spark: PySpark Interactive** per inviare la query. In alternativa, usare il tasto di scelta rapida CTRL + ALT + I.
+
+    ![Menu di scelta rapida PySpark Interactive (PySpark interattivo)](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+
+9. Selezionare il cluster, se non è stato specificato un cluster predefinito. Dopo alcuni istanti, i risultati di **Python Interactive** vengono visualizzati in una nuova scheda. fare clic su PySpark per passare il kernel a **PySpark**e il codice verrà eseguito correttamente. Gli strumenti consentono anche di inviare un blocco di codice anziché l'intero file di script tramite il menu di scelta rapida:
 
    ![Finestra di Python interattivo per PySpark interattivo](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-7. Immettere **%% info**e quindi premere MAIUSC + INVIO per visualizzare le informazioni sul processo (facoltativo):
+10. Immettere **%% info**e quindi premere MAIUSC + INVIO per visualizzare le informazioni sul processo (facoltativo):
 
-   ![informazioni sul processo di visualizzazione interattiva di pyspark](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
+    ![informazioni sul processo di visualizzazione interattiva di pyspark](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
-8. Lo strumento supporta anche la query **SQL Spark** :
+Lo strumento supporta anche la query **SQL Spark** :
 
-   ![Risultato della visualizzazione interattiva di Pyspark](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+   ![risultato della visualizzazione interattiva di pyspark](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
 
-   Lo stato dell'invio viene visualizzato a sinistra della barra di stato inferiore durante l'esecuzione delle query. Non inviare altre query se lo stato è impostato su **PySpark Kernel (busy)** (Kernel PySpark - Occupato).  
 
-   > [!NOTE]
-   >
-   > Quando l' **estensione di Python abilitata** viene cancellata nelle impostazioni (per impostazione predefinita è selezionata), i risultati dell'interazione pyspark inviati utilizzeranno la finestra precedente:
-   >
-   > ![Estensione Python per PySpark interattivo disabilitata](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
+### <a name="perform-interactive-query-in-py-file-using-a--comment"></a>Eseguire query interattive in un file PY usando un commento #%%
+
+1. Aggiungere **#%%** prima del codice py per ottenere l'esperienza del notebook.
+
+    ![Aggiungi #%%](./media/hdinsight-for-vscode/run-cell.png)
+
+2. Fare clic su **Run Cell**. Dopo alcuni istanti, i risultati di Python interattivo verranno visualizzati in una nuova scheda.
+
+   ![Risultati della cella di esecuzione](./media/hdinsight-for-vscode/run-cell-get-results.png)
+
+   > [!NOTE]  
+   > Quando si verificano problemi nel kernel o nelle impostazioni, usare **Python: selezionare l'interprete per avviare il comando server Jupyter** e **riavviare il kernel IPython**, quindi ricaricare il VSCode, che può essere risolto.
+
+## <a name="leverage-ipynb-support-from-python-extension"></a>Usare il supporto di IPYNB dall'estensione Python
+
+1. È possibile creare un comando Jupyter Notebook by dal riquadro comandi o creando un nuovo file con estensione ipynb nell'area di lavoro. Per altre informazioni, vedere [uso di notebook di Jupyter in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
+
+2. Fare clic su PySpark per passare dal kernel al **PySpark**e quindi fare clic su **Esegui cella**, dopo un periodo di tempo, il risultato verrà visualizzato.
+
+   ![Esegui risultati ipynb](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
+
+
+> [!NOTE]
+>
+>MS-Python >= la versione 2020.5.78807 non è supportata in questa estensione è un [problema noto](#known-issues).
 
 ## <a name="submit-pyspark-batch-job"></a>Inviare il processo batch PySpark
 
@@ -258,18 +292,33 @@ Per inviare query PySpark interattive, seguire questa procedura:
 
 Dopo aver inviato un processo Python, i log di invio vengono visualizzati nella finestra **OUTPUT** in Visual Studio Code. Vengono visualizzati anche l'URL dell'interfaccia utente di Spark e l'URL dell'interfaccia utente di Yarn. È possibile aprire l'URL in un Web browser per tenere traccia dello stato del processo.
 
+## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Eseguire l'integrazione con broker di identità di HDInsight
+
+### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Connettersi al cluster ESP HDInsight con ID Broker (HIB)
+
+È possibile seguire la procedura normale per accedere alla sottoscrizione di Azure per connettersi al cluster ESP HDInsight con ID Broker (HIB). Dopo l'accesso, l'elenco cluster verrà visualizzato in Azure Explorer. Per altre istruzioni, vedere [Connettersi al cluster HDInsight](#connect-to-an-azure-account).
+
+### <a name="run-a-hivepyspark-job-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Eseguire un processo hive/PySpark in un cluster ESP HDInsight con ID Broker (HIB)
+
+Per eseguire un processo hive, è possibile seguire la procedura normale per inviare il processo al cluster ESP HDInsight con ID Broker (HIB). Per altre istruzioni, vedere [inviare query hive interattive e script batch hive](#submit-interactive-hive-queries-and-hive-batch-scripts) .
+
+Per eseguire un processo PySpark interattivo, è possibile seguire la procedura normale per inviare il processo al cluster HDInsight ESP con ID Broker (HIB). Per altre istruzioni, vedere [inviare query PySpark interattive](#submit-interactive-pyspark-queries) .
+
+Per eseguire un processo batch PySpark, è possibile seguire la procedura normale per inviare il processo al cluster HDInsight ESP con ID Broker (HIB). Per altre istruzioni, vedere [inviare un processo batch PySpark](#submit-pyspark-batch-job) .
+
+
 ## <a name="apache-livy-configuration"></a>Configurazione di Apache Livy
 
-La configurazione di [Apache Tito](https://livy.incubator.apache.org/) è supportata. È possibile configurarlo in **. File VSCode\settings.json** nella cartella dell'area di lavoro. Attualmente, la configurazione di Livy supporta solo script Python. Per ulteriori informazioni, vedere il [file Leggimi di Livio](https://github.com/cloudera/livy/blob/master/README.rst ).
+La configurazione di [Apache Tito](https://livy.incubator.apache.org/) è supportata. È possibile configurarlo nel **.VSCode\settings.js** file nella cartella dell'area di lavoro. Attualmente, la configurazione di Livy supporta solo script Python. Per ulteriori informazioni, vedere il [file Leggimi di Livio](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**Come attivare la configurazione di Livio**
 
 Metodo 1  
-1. Dalla barra dei menu passare a**Preferenze** >  **file** > **Impostazioni**.
+1. Dalla barra dei menu passare a preferenze **file**  >  **Preferences**  >  **Impostazioni**.
 2. Nella casella **Cerca impostazioni** immettere **HDInsight Job Submission: Livio conf**.  
 3. Selezionare **Edit in settings.json** (Modifica in settings.json) per il risultato della ricerca pertinente.
 
-Il metodo 2 Invia un file e si noti che `.vscode` la cartella viene aggiunta automaticamente alla cartella di lavoro. È possibile visualizzare la configurazione di Livio selezionando **. vscode\settings.JSON**.
+Il metodo 2 Invia un file e si noti che la `.vscode` cartella viene aggiunta automaticamente alla cartella di lavoro. È possibile visualizzare la configurazione di Livio selezionando **.vscode\settings.json**.
 
 + Impostazioni del progetto:
 
@@ -282,34 +331,34 @@ Il metodo 2 Invia un file e si noti che `.vscode` la cartella viene aggiunta aut
 
     **Post/Batches** Corpo della richiesta
 
-    | name | description | type |
+    | name | description | tipo |
     | --- | --- | --- |
     | file | File contenente l'applicazione da eseguire | Percorso (obbligatorio) |
-    | proxyUser | Utente da rappresentare quando si esegue il processo | Stringa |
-    | className | Classe principale Java/Spark dell'applicazione | Stringa |
+    | proxyUser | Utente da rappresentare quando si esegue il processo | string |
+    | className | Classe principale Java/Spark dell'applicazione | string |
     | args | Argomenti della riga di comando per l'applicazione | Elenco di stringhe |
     | jars | Jar da usare in questa sessione | Elenco di stringhe | 
     | pyFiles | File Python da usare in questa sessione | Elenco di stringhe |
     | files | File da usare in questa sessione | Elenco di stringhe |
-    | driverMemory | Quantità di memoria da usare per il processo del driver | Stringa |
+    | driverMemory | Quantità di memoria da usare per il processo del driver | string |
     | driverCores | Numero di core da usare per il processo del driver | Int |
-    | executorMemory | Quantità di memoria da usare per un processo executor | Stringa |
+    | executorMemory | Quantità di memoria da usare per un processo executor | string |
     | executorCores | Numero di core da usare per ogni executor | Int |
     | numExecutors | Numero di executor da avviare per questa sessione | Int |
     | archives | Archivi da usare in questa sessione | Elenco di stringhe |
-    | coda | Nome della coda YARN da inviare a| Stringa |
-    | name | Nome della sessione | Stringa |
+    | coda | Nome della coda YARN da inviare a| string |
+    | name | Nome della sessione | string |
     | conf | Proprietà di configurazione Spark | Mappa di chiave=valore |
 
     Corpo della risposta l'oggetto batch creato.
 
-    | name | description | type |
+    | name | description | tipo |
     | --- | ---| --- |
     | ID | ID sessione | Int |
-    | appId | ID applicazione della sessione | Stringa |
+    | appId | ID applicazione della sessione | string |
     | appInfo | Informazioni dettagliate sull'applicazione | Mappa di chiave=valore |
     | log | Righe di log | Elenco di stringhe |
-    | state |Stato batch | Stringa |
+    | state |Stato batch | string |
 
     > [!NOTE]
     > Quando si invia lo script, la configurazione di Livio assegnata viene visualizzata nel riquadro di output.
@@ -341,7 +390,7 @@ Il metodo 2 Invia un file e si noti che `.vscode` la cartella viene aggiunta aut
 - Pannello messaggi
    1. Quando il numero di righe nella tabella è maggiore di 100, viene visualizzato il messaggio seguente: "vengono visualizzate le prime 100 righe per la tabella hive".
    2. Quando il numero di righe nella tabella è minore o uguale a 100, viene visualizzato il messaggio seguente: "60 righe visualizzate per la tabella hive".
-   3. Quando non è presente alcun contenuto nella tabella, viene visualizzato il messaggio seguente: "`0 rows are displayed for Hive table.`"
+   3. Quando non è presente alcun contenuto nella tabella, viene visualizzato il messaggio seguente: " `0 rows are displayed for Hive table.` "
 
         >[!NOTE]
         >
@@ -407,15 +456,22 @@ Inviare un processo a un cluster HDInsight usando Data Lake Storage Gen2. Viene 
 
 ## <a name="unlink-cluster"></a>Scollegare il cluster
 
-1. Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**, quindi immettere **Spark/hive: scollegare un cluster**.  
+1. Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**, quindi immettere **Spark/hive: scollegare un cluster**.  
 
 2. Selezionare un cluster da scollegare.  
 
 3. Vedere la visualizzazione di **output** per la verifica.  
 
-## <a name="sign-out"></a>Disconnessione  
+## <a name="sign-out"></a>Disconnetti  
 
-Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e quindi immettere **Azure: disconnettersi**.
+Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e quindi immettere **Azure: disconnettersi**.
+
+## <a name="known-issues"></a>Problemi noti
+### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>MS-Python >= la versione 2020.5.78807 non è supportata in questa estensione 
+
+"Impossibile connettersi al notebook di Jupyter". è un problema noto per Python Version >= 2020.5.78807. È consigliabile che gli utenti usino la versione **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** di MS-Python per evitare questo problema.
+
+![Problemi noti di](./media/hdinsight-for-vscode/known-issue.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

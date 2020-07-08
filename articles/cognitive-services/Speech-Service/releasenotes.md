@@ -11,14 +11,82 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 13a7250bc89b1c9f81996dfa4e15d7d4469779ab
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c4e9668459856af52ae1a905de8ba76dc36758fd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607874"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086297"
 ---
 # <a name="release-notes"></a>Note sulla versione
+
+## <a name="text-to-speech-2020-july-release"></a>Sintesi vocale 2020-versione luglio
+
+### <a name="new-features"></a>Nuove funzionalità
+
+* **TTS neurale, 15 nuove voci neurali**: le nuove voci aggiunte al portfolio TTS neurale sono salma in arabo (Egitto), Zariyah in arabo (Arabia Saudita), alba in Catalano (Spagna), Christel in danese (Danimarca), Neerja in inglese (India), Swara in Hindi (India), Colette in olandese (Paesi Bassi), Zofia in polacco (Polonia), Fernanda in Portoghese (Portogallo), Dariya in russo (Russia), Hillevi in svedese (Svezia), Achara in Thai (Tailandia), l'alelin norvegese (Bokmål) in (Norvegia), HiuGaai in cinese (Hongkong) e HsiaoYu in cinese (Taiwan). Controllare tutte le [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+
+* **Voce personalizzata, testing vocale semplificato con il flusso di training per semplificare l'esperienza utente**: con la nuova funzionalità di test, ogni voce verrà automaticamente testata con un set di test predefinito ottimizzato per ogni lingua per coprire scenari generali e di Assistente vocale. Questi set di test vengono accuratamente selezionati e testati per includere casi d'uso e fonemi tipici nel linguaggio. Inoltre, gli utenti possono comunque selezionare di caricare i propri script di test durante il training di un modello.
+
+* **Creazione di contenuti audio: viene rilasciata una serie di nuove funzionalità per abilitare funzionalità di ottimizzazione vocale e di gestione audio più potenti**
+
+    * `Pitch`, `rate` e `volume` sono stati migliorati per supportare l'ottimizzazione con un valore predefinito, ad esempio Slow, medium e fast. È ora semplice per gli utenti selezionare un valore "costante" per la modifica audio.
+
+    ![Ottimizzazione audio](media/release-notes/audio-tuning.png)
+
+    * Gli utenti possono ora rivedere il `Audio history` per il file di lavoro. Con questa funzionalità, gli utenti possono tenere traccia facilmente di tutti gli audio generati correlati a un file di lavoro. Possono controllare la versione della cronologia e confrontare la qualità durante l'ottimizzazione nello stesso momento. 
+
+    ![Cronologia audio](media/release-notes/audio-history.png)
+
+    * La `Clear` funzionalità è ora più flessibile. Gli utenti possono cancellare un parametro di ottimizzazione specifico mantenendo gli altri parametri disponibili per il contenuto selezionato.  
+
+    * Un video di esercitazione è stato aggiunto nella [pagina di destinazione](https://speech.microsoft.com/audiocontentcreation) per aiutare gli utenti a iniziare rapidamente a usare l'ottimizzazione vocale e la gestione audio. 
+
+### <a name="general-tts-voice-quality-improvements"></a>Miglioramenti alla qualità della voce TTS generale
+
+* Miglioramento del vocoder TTS in per una maggiore fedeltà e una latenza più bassa.
+
+    * È stato aggiornato Elsa in italiano a un nuovo vocoder che ha ottenuto più di 0,464 CMOS (Punteggio di opinione media comparativa) con qualità voce, 40% più velocemente in sintesi e riduzione del 30% sulla latenza del primo byte. 
+    * Aggiornamento di Xiaoxiao in cinese al nuovo vocoder con + 0148 di guadagno CMOS per il dominio generale, + 0,348 per lo stile del telegiornale e + 0,195 per lo stile lirico. 
+
+* `de-DE` `ja-JP` Modelli vocali aggiornati e per rendere più naturale l'output TTS.
+    
+    * Aggiornamento di Katja in tedesco con il più recente metodo di modellazione prosodia, il guadagno MOS (media Opinion Score) è + 0,13. 
+    * Aggiornamento di nanami in giapponese con un nuovo modello di accento prosodia di pitch, il guadagno MOS (media Opinion Score) è + 0,19;  
+
+* Accuratezza della pronuncia a livello di parola migliorata in 5 lingue.
+
+    | Linguaggio | Riduzione degli errori di pronuncia |
+    |---|---|
+    | en-GB | 51% |
+    | ko-KR | 17% |
+    | pt-BR | 39% |
+    | pt-PT | 77% |
+    | id-ID | 46% |
+
+### <a name="bug-fixes"></a>Correzioni di bug
+
+* Lettura valuta
+    * Correzione del problema relativo alla lettura della valuta per `es-ES` e`es-MX`
+     
+    | Linguaggio | Input | Lettura dopo miglioramento |
+    |---|---|---|
+    | es-MX | $1,58 | un peso cincuenta y Ocho centavos |
+    | es-ES | $1,58 | Dólar cincuenta y Ocho centavos |
+
+    * Supporto per la valuta negativa (ad esempio "-€325") nelle impostazioni locali seguenti: `en-US` , `en-GB` , `fr-FR` , `it-IT` , `en-AU` , `en-CA` .
+
+* Miglioramento della lettura degli indirizzi in `pt-PT` .
+* Correzione dei problemi di pronuncia di Natasha ( `en-AU` ) e Libby ( `en-UK` ) per la parola "for" e "Four".  
+* Correzione dei bug sullo strumento di creazione del contenuto audio
+    * Sospensione aggiuntiva e imprevista dopo la correzione del secondo paragrafo.  
+    * La funzionalità' No break ' viene riaggiunta da un bug di regressione. 
+    * Il problema di aggiornamento casuale di speech studio è stato risolto.  
+
+### <a name="samplessdk"></a>Esempi/SDK
+
+* JavaScript: corregge il problema di riproduzione in FireFox e Safari in macOS e iOS. 
+
 ## <a name="speech-sdk-1121-2020-june-release"></a>Speech SDK 1.12.1:2020-versione di giugno
 **INTERFACCIA della riga di comando vocale (noto anche come SPX)**
 -   Aggiunto funzionalità di ricerca della Guida dell'interfaccia della riga di comando:
@@ -87,8 +155,8 @@ Rimanere integro.
 - C#, C++: aggiunto `UtteranceId` in `ConversationTranscriptionResult` , un ID coerente in tutti i risultati intermedi e riconoscimento vocale finale. Dettagli per [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
 - Python: è stato aggiunto il supporto per `Language ID` . Vedere speech_sample. py nel [repository GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
 - Windows: aggiunta del supporto per il formato di input audio compresso nella piattaforma Windows per tutte le applicazioni console Win32. Dettagli [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
-- JavaScript: supporto sintesi vocale (sintesi vocale) in NodeJS. Per altre informazioni, fare clic [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech). 
-- JavaScript: aggiungere nuove API per consentire l'ispezione di tutti i messaggi di trasmissione e ricezione. Per altre informazioni, fare clic [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript). 
+- JavaScript: supporto sintesi vocale (sintesi vocale) in NodeJS. Fare clic [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech) per altre informazioni. 
+- JavaScript: aggiungere nuove API per consentire l'ispezione di tutti i messaggi di trasmissione e ricezione. Fare clic [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript) per altre informazioni. 
         
 **Correzioni di bug**
 - C#, C++: è stato risolto un problema `SendMessageAsync` in modo che ora invii un messaggio binario come tipo binario. Dettagli per [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection).
@@ -322,7 +390,7 @@ Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalit�
 - L'SDK di riconoscimento vocale per Java, .NET Core, C++ e Objective-C ha acquisito supporto macOS. Il supporto Objective-C per macOS è attualmente in versione beta.
 - iOS: l'SDK di riconoscimento vocale per iOS (Objective-C) è ora pubblicato anche come CocoaPod.
 - JavaScript: supporto per microfoni non predefiniti come dispositivo di input.
-- JavaScript: supporto del proxy per node. js.
+- JavaScript: supporto del proxy per Node.js.
 
 **Esempi**
 

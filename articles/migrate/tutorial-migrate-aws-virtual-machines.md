@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di macchine vi
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 739439f63c81ef75cdcbe0b9e1d3f367d073d43b
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 6eeff73bdcac214eb3836731fcbfd2f9410c6045
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85198820"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102804"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Individuare e valutare le VM AWS (Amazon Web Services) ed eseguirne la migrazione ad Azure
 
@@ -39,8 +39,8 @@ Prima di procedere con la migrazione ad Azure, è consigliabile eseguire un'indi
 
 Configurare una valutazione nel modo seguente:
 
-1. Una valutazione può essere eseguita trattando le VM AWS come computer fisici e usando lo strumento Azure Migrate: Valutazione server. Seguire questa [esercitazione](https://docs.microsoft.com/azure/migrate/tutorial-prepare-physical) per configurare Azure e preparare le VM AWS per la valutazione.
-2. Quindi, seguire questa [esercitazione](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical) per configurare un progetto e un'appliance di Azure Migrate per l'individuazione e la valutazione delle macchine virtuali AWS.
+1. Una valutazione può essere eseguita trattando le VM AWS come computer fisici e usando lo strumento Azure Migrate: Valutazione server. Seguire questa [esercitazione](./tutorial-prepare-physical.md) per configurare Azure e preparare le VM AWS per la valutazione.
+2. Quindi, seguire questa [esercitazione](./tutorial-assess-physical.md) per configurare un progetto e un'appliance di Azure Migrate per l'individuazione e la valutazione delle macchine virtuali AWS.
 
 Sebbene sia consigliabile provare a eseguire una valutazione, non è un passaggio obbligatorio per poter eseguire la migrazione delle macchine virtuali.
 
@@ -48,9 +48,9 @@ Sebbene sia consigliabile provare a eseguire una valutazione, non è un passaggi
 
 ## <a name="1-prerequisites-for-migration"></a>1. Prerequisiti per la migrazione
 
-- Assicurarsi che nelle VM AWS di cui si vuole eseguire la migrazione sia in esecuzione una versione supportata del sistema operativo. Le VM AWS sono trattate come computer fisici ai fini della migrazione. Verificare i [sistemi operativi supportati](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) per il flusso di lavoro di migrazione dei server fisici. È consigliabile eseguire una migrazione di test (failover di test) per verificare se la VM funziona come previsto prima di procedere con la migrazione effettiva.
-- Assicurarsi che le VM AWS siano conformi alle [configurazioni supportate](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#physical-server-requirements) per la migrazione ad Azure.
-- Verificare che le VM AWS replicate in Azure siano conformi ai [requisiti delle macchine virtuali di Azure](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#azure-vm-requirements).
+- Assicurarsi che nelle VM AWS di cui si vuole eseguire la migrazione sia in esecuzione una versione supportata del sistema operativo. Le VM AWS sono trattate come computer fisici ai fini della migrazione. Verificare i [sistemi operativi supportati](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) per il flusso di lavoro di migrazione dei server fisici. È consigliabile eseguire una migrazione di test (failover di test) per verificare se la VM funziona come previsto prima di procedere con la migrazione effettiva.
+- Assicurarsi che le VM AWS siano conformi alle [configurazioni supportate](./migrate-support-matrix-physical-migration.md#physical-server-requirements) per la migrazione ad Azure.
+- Verificare che le VM AWS replicate in Azure siano conformi ai [requisiti delle macchine virtuali di Azure](./migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 - Prima di eseguire la migrazione delle VM ad Azure, è necessario apportarvi alcune modifiche.
     - Per alcuni sistemi operativi, Azure Migrate apporta automaticamente queste modifiche.
     - È importante apportare queste modifiche prima di avviare la migrazione. Se si esegue la migrazione della VM prima di apportare la modifica, la VM potrebbe non avviarsi in Azure.
@@ -98,7 +98,7 @@ Lo strumento Azure Migrate: Migrazione del server usa un'appliance di replica pe
 
 Preparare la distribuzione dell'appliance come indicato di seguito:
 
-- Configurare una VM EC2 separata per ospitare l'appliance di replica. L'istanza deve eseguire Windows Server 2012 R2 o Windows Server 2016. [Verificare](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance#appliance-requirements) i requisiti hardware, software e di rete per l'appliance.
+- Configurare una VM EC2 separata per ospitare l'appliance di replica. L'istanza deve eseguire Windows Server 2012 R2 o Windows Server 2016. [Verificare](./migrate-replication-appliance.md#appliance-requirements) i requisiti hardware, software e di rete per l'appliance.
 - L'appliance non deve essere installata in una VM di origine che si vuole replicare. Deve essere distribuita in una VM diversa.
 - Le VM AWS di origine di cui eseguire la migrazione devono comunicare in rete con l'appliance di replica. Configurare le regole del gruppo di sicurezza necessarie per abilitare questa comunicazione. È consigliabile distribuire l'appliance di replica nella stessa rete privata virtuale delle VM di origine di cui eseguire la migrazione. Se l'appliance di replica deve trovarsi in una rete privata virtuale diversa, le due reti devono essere connesse tramite peering.
 - Le VM AWS di origine comunicano con l'appliance di replica sulle porte HTTPS 443 (orchestrazione del canale di controllo) e TCP 9443 (trasporto dati) in ingresso per la gestione della replica e il trasferimento dei dati di replica. L'appliance di replica a sua volta orchestra e invia i dati di replica ad Azure sulla porta HTTPS 443 in uscita. Per configurare queste regole, modificare le regole in ingresso e in uscita del gruppo di sicurezza con le porte e le informazioni sull'indirizzo IP di origine appropriate.
@@ -183,7 +183,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 
 1. Accedere all'appliance di replica.
 2. Passare a **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Individuare il programma di installazione del sistema operativo e della versione delle VM AWS di origine. Verificare i [sistemi operativi supportati](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines).
+3. Individuare il programma di installazione del sistema operativo e della versione delle VM AWS di origine. Verificare i [sistemi operativi supportati](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines).
 4. Copiare il file del programma di installazione nella VM AWS di origine di cui eseguire la migrazione.
 5. Assicurarsi di avere il file di testo in cui è stata salvata la passphrase creata durante l'installazione dell'appliance di replica.
     - Se si è dimenticato di salvare la passphrase, è possibile visualizzarla nell'appliance di replica eseguendo questo passaggio. Dalla riga di comando eseguire **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** per visualizzare la passphrase corrente.
@@ -335,7 +335,7 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
     - La replica per la VM AWS viene arrestata.
     - La VM AWS viene rimossa dal conteggio dei **Server in fase di replica** in Azure Migrate: Migrazione del server.
     - Viene eseguita la pulizia delle informazioni sullo stato di replica per la macchina virtuale.
-2. Installare l'agente [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) per le VM di Azure sulle macchine virtuali di cui è stata eseguita la migrazione. L'agente Windows per le VM di Azure viene preinstallato durante il processo di migrazione.
+2. Installare l'agente [Linux](../virtual-machines/extensions/agent-linux.md) per le VM di Azure sulle macchine virtuali di cui è stata eseguita la migrazione. L'agente Windows per le VM di Azure viene preinstallato durante il processo di migrazione.
 3. Apportare nell'app le eventuali modifiche post-migrazione necessarie, come l'aggiornamento delle stringhe di connessione del database e delle configurazioni dei server Web.
 4. Eseguire i test di accettazione della migrazione e dell'applicazione finale sull'applicazione migrata ora in esecuzione in Azure.
 5. Trasferire il traffico all'istanza della VM di Azure di cui è stata eseguita la migrazione.
@@ -347,16 +347,16 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
     - Proteggere i dati eseguendo il backup delle macchine virtuali di Azure con il servizio Backup di Azure. [Altre informazioni](../backup/quick-backup-vm-portal.md)
     - Mantenere i carichi di lavoro in esecuzione e sempre disponibili eseguendo la replica delle macchine virtuali di Azure in un'area secondaria con Site Recovery. [Altre informazioni](../site-recovery/azure-to-azure-tutorial-enable-replication.md)
 - Per una maggiore sicurezza:
-    - Bloccare e limitare l'accesso del traffico in ingresso con la funzionalità di [amministrazione JIT del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Limitare il traffico di rete verso gli endpoint di gestione con la funzionalità [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Distribuire [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) per garantire la sicurezza dei dischi e proteggere i dati da furti e accessi non autorizzati.
+    - Bloccare e limitare l'accesso del traffico in ingresso con la funzionalità di [amministrazione JIT del Centro sicurezza di Azure](../security-center/security-center-just-in-time.md).
+    - Limitare il traffico di rete verso gli endpoint di gestione con la funzionalità [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+    - Distribuire [Crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md) per garantire la sicurezza dei dischi e proteggere i dati da furti e accessi non autorizzati.
     - Per altre informazioni sulla [protezione delle risorse IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), visitare il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/).
 - Per il monitoraggio e la gestione:
-    - È consigliabile distribuire [Gestione costi di Azure](https://docs.microsoft.com/azure/cost-management/overview) per monitorare l'utilizzo delle risorse e le spese.
+    - È consigliabile distribuire [Gestione costi di Azure](../cost-management-billing/cloudyn/overview.md) per monitorare l'utilizzo delle risorse e le spese.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare il [percorso di migrazione al cloud](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) in Azure Cloud Adoption Framework.
+Esaminare il [percorso di migrazione al cloud](/azure/architecture/cloud-adoption/getting-started/migrate) in Azure Cloud Adoption Framework.
 
 ## <a name="troubleshooting--tips"></a>Risoluzione dei problemi e suggerimenti
 

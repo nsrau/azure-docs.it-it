@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a5a46957c92fb2c14907db728216481f3f57aac
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71123574"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087691"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
@@ -32,7 +32,9 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 1. Accedere tramite SSH al nodo perimetrale.
 
-        ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+    ```
 
     Per istruzioni su come usare SSH con Azure HDInsight, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -40,13 +42,17 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
     - Per Microsoft ML Server 9.1:
 
-            cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
-            sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+        ```bash
+        cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
+        sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+        ```
 
     - Per Microsoft R Server 9.0:
 
-            cd /usr/lib64/microsoft-deployr/9.0.1
-            sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
+        ```bash
+        cd /usr/lib64/microsoft-deployr/9.0.1
+        sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
+        ```
 
 1. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure ML Server for Operationalization**.
 
@@ -80,21 +86,22 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Ritardi considerevoli quando si utilizza il servizio Web in Apache Spark
 
-Se si riscontrano ritardi considerevoli quando si prova a utilizzare un servizio Web creato con le funzioni mrsdeploy in un contesto di calcolo di Apache Spark, potrebbe essere necessario aggiungere alcune cartelle mancanti. L'applicazione Spark appartiene a un utente chiamato "*rserve2*" quando viene richiamata da un servizio Web usando le funzioni mrsdeploy. Per risolvere questo problema:
+Se si riscontrano ritardi considerevoli quando si prova a utilizzare un servizio Web creato con le funzioni mrsdeploy in un contesto di calcolo di Apache Spark, potrebbe essere necessario aggiungere alcune cartelle mancanti. L'applicazione Spark appartiene a un utente chiamato "*rserve2*" quando viene richiamata da un servizio Web usando le funzioni mrsdeploy. Come soluzione alternativa a questo problema:
 
-    # Create these required folders for user 'rserve2' in local and hdfs:
+```r
+# Create these required folders for user 'rserve2' in local and hdfs:
 
-    hadoop fs -mkdir /user/RevoShare/rserve2
-    hadoop fs -chmod 777 /user/RevoShare/rserve2
+hadoop fs -mkdir /user/RevoShare/rserve2
+hadoop fs -chmod 777 /user/RevoShare/rserve2
 
-    mkdir /var/RevoShare/rserve2
-    chmod 777 /var/RevoShare/rserve2
+mkdir /var/RevoShare/rserve2
+chmod 777 /var/RevoShare/rserve2
 
 
-    # Next, create a new Spark compute context:
- 
-    rxSparkConnect(reset = TRUE)
+# Next, create a new Spark compute context:
 
+rxSparkConnect(reset = TRUE)
+```
 
 A questo punto la configurazione per la messa in funzione è completata. È ora possibile usare il pacchetto `mrsdeploy` in RClient per connettersi all'operazionalizzazione sul nodo perimetrale e iniziare a usarne le funzionalità, ad esempio l'[esecuzione remota](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) e i [servizi Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). A seconda che il cluster sia configurato o meno su una rete virtuale, potrebbe essere necessario impostare il tunneling di inoltro alla porta tramite l'accesso SSH. Le sezioni seguenti illustrano come configurare questo tunnel.
 
@@ -102,15 +109,15 @@ A questo punto la configurazione per la messa in funzione è completata. È ora 
 
 Verificare che sia consentito il traffico attraverso la porta 12800 verso il nodo perimetrale. In questo modo è possibile usare tale nodo per la connessione alla funzionalità di messa in funzione.
 
+```r
+library(mrsdeploy)
 
-    library(mrsdeploy)
-
-    remoteLogin(
-        deployr_endpoint = "http://[your-cluster-name]-ed-ssh.azurehdinsight.net:12800",
-        username = "admin",
-        password = "xxxxxxx"
-    )
-
+remoteLogin(
+    deployr_endpoint = "http://[your-cluster-name]-ed-ssh.azurehdinsight.net:12800",
+    username = "admin",
+    password = "xxxxxxx"
+)
+```
 
 Se `remoteLogin()` non può connettersi al nodo perimetrale ma è possibile accedere a tale nodo tramite SSH, è necessario verificare se la regola che consente il traffico sulla porta 12800 è stata impostata correttamente. Se il problema persiste, può essere risolto configurando il tunneling di port forwarding tramite SSH. Per istruzioni, vedere la sezione seguente:
 
@@ -118,19 +125,21 @@ Se `remoteLogin()` non può connettersi al nodo perimetrale ma è possibile acce
 
 Se il cluster non è configurato sulla rete virtuale o si riscontrano problemi relativi alla connettività tramite la rete virtuale, è possibile usare il tunneling di port forwarding SSH:
 
-    ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+```bash
+ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+```
 
 Quando la sessione SSH è attiva, il traffico proveniente dalla porta 12800 del computer locale viene inoltrato alla porta 12800 del nodo perimetrale tramite la sessione SSH. Assicurarsi di usare `127.0.0.1:12800` nel metodo `remoteLogin()`. Viene così eseguito l'accesso all'operazionalizzazione del nodo perimetrale tramite port forwarding.
 
+```r
+library(mrsdeploy)
 
-    library(mrsdeploy)
-
-    remoteLogin(
-        deployr_endpoint = "http://127.0.0.1:12800",
-        username = "admin",
-        password = "xxxxxxx"
-    )
-
+remoteLogin(
+    deployr_endpoint = "http://127.0.0.1:12800",
+    username = "admin",
+    password = "xxxxxxx"
+)
+```
 
 ## <a name="scale-operationalized-compute-nodes-on-hdinsight-worker-nodes"></a>Ridimensionare i nodi di calcolo resi operativi nei nodi di lavoro HDInsight
 
@@ -146,17 +155,17 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
 1. Selezionare i nodi di lavoro (da cui rimuovere le autorizzazioni).
 
-1. Fare clic su **azioni** > **Selected Hosts** > **gli host** > selezionati**attivano la modalità di manutenzione**. Ad esempio nell'immagine seguente i nodi selezionati per la rimozione delle autorizzazioni sono wn3 e wn4.  
+1. Fare clic su **azioni**gli host  >  **selezionati**  >  **Hosts**  >  **attivano la modalità di manutenzione**. Ad esempio nell'immagine seguente i nodi selezionati per la rimozione delle autorizzazioni sono wn3 e wn4.  
 
    ![Attivazione della modalità manutenzione di Apache Ambari](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Selezionare **azioni** > **selezionate host** > **datanodes** > fare clic su Rimuovi **autorizzazioni**.
-* Selezionare le **azioni** > **selezionate ospita** > **NodeManagers** > fare clic su Rimuovi **autorizzazioni**.
-* Selezionare **azioni** > **selezionate host** > **datanodes** > fare clic su **Arresta**.
-* Selezionare **Actions** > **Selected hosts** > **NodeManagers** > fare clic su **Stop**.
-* Selezionare **azioni** > **selezionati** > **host > fare** clic su **Interrompi tutti i componenti**.
+* Selezionare **azioni**  >  **selezionate host**  >  **datanodes** > fare clic su Rimuovi **autorizzazioni**.
+* Selezionare le **azioni**  >  **selezionate ospita**  >  **NodeManagers** > fare clic su Rimuovi **autorizzazioni**.
+* Selezionare **azioni**  >  **selezionate host**  >  **datanodes** > fare clic su **Arresta**.
+* Selezionare **Actions**  >  **Selected hosts**  >  **NodeManagers** > fare clic su **Stop**.
+* Selezionare **azioni**host  >  **selezionati**host  >  **Hosts** > fare clic su **Interrompi tutti i componenti**.
 * Deselezionare i nodi del ruolo di lavoro e selezionare i nodi head.
-* Selezionare **Actions** > **Selected hosts** > "**hosts** > **Restart all components**.
+* Selezionare **Actions**  >  **Selected hosts** > "**hosts**  >  **Restart all components**.
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Passaggio 2: Configurare i nodi di calcolo in ogni nodo di lavoro per il quale è stata rimossa l'autorizzazione
 
@@ -164,7 +173,9 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
 1. Eseguire l'utilità di amministrazione usando la DLL pertinente per il proprio cluster ML Services. Per ML Server 9.1, eseguire il codice seguente:
 
-        dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
+    ```bash
+    dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
+    ```
 
 1. Immettere **1** per selezionare l'opzione **Configure ML Server for Operationalization**.
 
@@ -182,12 +193,14 @@ Dopo che tutti i nodi di lavoro per i quali è stata rimossa l'autorizzazione so
 
 1. Cercare la sezione "Uris" e aggiungere i dettagli relativi alla porta e all'IP del nodo di lavoro.
 
-       "Uris": {
-         "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",
-         "Values": [
-           "http://localhost:12805", "http://[worker-node1-ip]:12805", "http://[workder-node2-ip]:12805"
-         ]
-       }
+    ```json
+    "Uris": {
+        "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",
+        "Values": [
+            "http://localhost:12805", "http://[worker-node1-ip]:12805", "http://[workder-node2-ip]:12805"
+        ]
+    }
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

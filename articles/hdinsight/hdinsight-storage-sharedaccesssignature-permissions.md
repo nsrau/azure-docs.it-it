@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 77314514ca26997fecd6b5d7c6ba1fc7d14c2584
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3756e7d1f58c37038347888a21d98326cd4eb71f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209061"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087453"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
 
@@ -31,9 +31,9 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 
 * Un [contenitore di archiviazione](../storage/blobs/storage-quickstart-blobs-portal.md)esistente.  
 
-* Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se si usa PowerShell, è necessario il [modulo Az](https://docs.microsoft.com/powershell/azure/overview).
 
-* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 * Se si usa [Python](https://www.python.org/downloads/), versione 2,7 o successiva.
 
@@ -43,7 +43,7 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 
 * Un cluster HDInsight esistente a cui aggiungere una firma di accesso condiviso. In caso contrario, è possibile usare Azure PowerShell per creare un cluster e aggiungere una firma di accesso condiviso durante la creazione del cluster.
 
-* I file di esempio [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)da. Il repository contiene gli elementi seguenti:
+* I file di esempio da [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature) . Il repository contiene gli elementi seguenti:
 
   * Un progetto di Visual Studio che può creare un contenitore di archiviazione, i criteri archiviati e la firma di accesso condiviso da usare con HDInsight.
   * Uno script di Python che può creare un contenitore di archiviazione, i criteri archiviati e la firma di accesso condiviso da usare con HDInsight.
@@ -88,7 +88,7 @@ Salvare il token SAS prodotto alla fine di ogni metodo. Il token sarà simile al
 
 ### <a name="using-powershell"></a>Utilizzo di PowerShell
 
-Sostituire `RESOURCEGROUP`, `STORAGEACCOUNT`e `STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente. Passare alla `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` directory o rivedere il `-File` parametro in modo che contenga il percorso `Set-AzStorageblobcontent`assoluto per. Immettere il seguente comando di PowerShell:
+Sostituire `RESOURCEGROUP` , `STORAGEACCOUNT` e `STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente. Passare alla directory `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` o rivedere il `-File` parametro in modo che contenga il percorso assoluto per `Set-AzStorageblobcontent` . Immettere il seguente comando di PowerShell:
 
 ```powershell
 $resourceGroupName = "RESOURCEGROUP"
@@ -154,7 +154,7 @@ Set-AzStorageblobcontent `
 
 L'uso delle variabili in questa sezione si basa su un ambiente Windows. Le piccole variazioni saranno necessarie per bash o altri ambienti.
 
-1. Sostituire `STORAGEACCOUNT`e `STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente.
+1. Sostituire `STORAGEACCOUNT` e `STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente.
 
     ```azurecli
     # set variables
@@ -178,7 +178,7 @@ L'uso delle variabili in questa sezione si basa su un ambiente Windows. Le picco
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```
 
-3. Passare alla `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` directory o rivedere il `--file` parametro in modo che contenga il percorso `az storage blob upload`assoluto per. Eseguire i comandi rimanenti:
+3. Passare alla directory `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` o rivedere il `--file` parametro in modo che contenga il percorso assoluto per `az storage blob upload` . Eseguire i comandi rimanenti:
 
     ```azurecli
     # Create stored access policy on the containing object
@@ -199,9 +199,9 @@ L'uso delle variabili in questa sezione si basa su un ambiente Windows. Le picco
 
 ### <a name="using-python"></a>Uso di Python
 
-Aprire il `SASToken.py` file e sostituire `storage_account_name`, `storage_account_key`, e `storage_container_name` con i valori appropriati per il contenitore di archiviazione esistente, quindi eseguire lo script.
+Aprire il `SASToken.py` file e sostituire `storage_account_name` , `storage_account_key` , e `storage_container_name` con i valori appropriati per il contenitore di archiviazione esistente, quindi eseguire lo script.
 
-Potrebbe essere necessario eseguire `pip install --upgrade azure-storage` se viene visualizzato il messaggio `ImportError: No module named azure.storage`di errore.
+Potrebbe essere necessario eseguire `pip install --upgrade azure-storage` se viene visualizzato il messaggio di errore `ImportError: No module named azure.storage` .
 
 ### <a name="using-c"></a>Utilizzo di C\#
 
@@ -211,7 +211,7 @@ Potrebbe essere necessario eseguire `pip install --upgrade azure-storage` se vie
 
 3. Selezionare **Impostazioni** e aggiungere i valori per le voci seguenti:
 
-    |Item |Descrizione |
+    |Elemento |Descrizione |
     |---|---|
     |StorageConnectionString|stringa di connessione per l'account di archiviazione per cui si vogliono creare criteri archiviati e una firma di accesso condiviso. Il formato deve essere `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`, dove `myaccount` è il nome dell'account di archiviazione e `mykey` è la chiave dell'account di archiviazione.|
     |ContainerName|contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.|
@@ -228,7 +228,7 @@ Usare una firma di accesso condiviso per limitare l'accesso al contenitore. Aggi
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Creare un cluster che usa la firma di accesso condiviso
 
-Sostituire `CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT`e `TOKEN` con i valori appropriati. Immettere i comandi di PowerShell:
+Sostituire `CLUSTERNAME` , `RESOURCEGROUP` , `DEFAULTSTORAGEACCOUNT` , `STORAGECONTAINER` , `STORAGEACCOUNT` e `TOKEN` con i valori appropriati. Immettere i comandi di PowerShell:
 
 ```powershell
 $clusterName = 'CLUSTERNAME'
@@ -353,7 +353,7 @@ Se si dispone di un cluster esistente, è possibile aggiungere la firma di acces
 
 1. Aprire l'interfaccia utente Web di Ambari per il cluster. L'indirizzo di questa pagina è `https://YOURCLUSTERNAME.azurehdinsight.net`. Quando richiesto, eseguire l'autenticazione al cluster con il nome amministratore (admin) e la password usati durante la creazione del cluster.
 
-1. Passare a **HDFS** > **configs** > **Advanced** > **Custom Core-site**.
+1. Passare a **HDFS**  >  **configs**  >  **Advanced**  >  **Custom Core-site**.
 
 1. Espandere la sezione **core personalizzato-sito** , scorrere fino alla fine e quindi selezionare **Aggiungi proprietà...**. Usare i valori seguenti per **Key** e **value**:
 
@@ -421,7 +421,9 @@ Usare la procedura seguente per verificare che sia possibile leggere ed elencare
 
     Verrà visualizzato un messaggio simile al testo seguente:
 
-        put: java.io.IOException
+    ```output
+    put: java.io.IOException
+    ```
 
     Questo errore si verifica perché il percorso di archiviazione è di sola lettura+elenco. Usare il comando seguente per inserire i dati nella risorsa di archiviazione predefinita per il cluster, accessibile in scrittura:
 

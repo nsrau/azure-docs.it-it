@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: 7f20d79ea353830b41290c7b91d8d1de2b1b3abe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 380abff03ad4ee4befb645f7f992ab037d213b33
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014860"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086705"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurare gruppi di disponibilità Always On in macchine virtuali di Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -50,9 +51,11 @@ Questa esercitazione ha lo scopo di illustrare la procedura necessaria per confi
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Connettersi alla sottoscrizione di Azure e creare la rete virtuale
 1. In una finestra di PowerShell nel computer locale importare il modulo Azure, scaricare il file di impostazioni di pubblicazione nel computer e connettere la sessione di PowerShell alla sottoscrizione di Azure importando le impostazioni di pubblicazione scaricate.
 
-        Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
-        Get-AzurePublishSettingsFile
-        Import-AzurePublishSettingsFile <publishsettingsfilepath>
+    ```powershell
+    Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
+    Get-AzurePublishSettingsFile
+    Import-AzurePublishSettingsFile <publishsettingsfilepath>
+    ```
 
     Il comando **Get-AzurePublishSettingsFile** genera automaticamente un certificato di gestione con Azure e lo scarica nel computer. Viene aperto un browser in automatico e viene richiesto di immettere le credenziali dell'account Microsoft per la sottoscrizione di Azure. Il file **.publishsettings** scaricato contiene tutte le informazioni necessarie per gestire la sottoscrizione di Azure. Dopo aver salvato il file in una directory locale, importarlo usando il comando **Import-AzurePublishSettingsFile**.
 
@@ -61,23 +64,25 @@ Questa esercitazione ha lo scopo di illustrare la procedura necessaria per confi
 
 2. Definire una serie di variabili con cui si creerà l'infrastruttura IT cloud.
 
-        $location = "West US"
-        $affinityGroupName = "ContosoAG"
-        $affinityGroupDescription = "Contoso SQL HADR Affinity Group"
-        $affinityGroupLabel = "IaaS BI Affinity Group"
-        $networkConfigPath = "C:\scripts\Network.netcfg"
-        $virtualNetworkName = "ContosoNET"
-        $storageAccountName = "<uniquestorageaccountname>"
-        $storageAccountLabel = "Contoso SQL HADR Storage Account"
-        $storageAccountContainer = "https://" + $storageAccountName + ".blob.core.windows.net/vhds/"
-        $winImageName = (Get-AzureVMImage | where {$_.Label -like "Windows Server 2008 R2 SP1*"} | sort PublishedDate -Descending)[0].ImageName
-        $sqlImageName = (Get-AzureVMImage | where {$_.Label -like "SQL Server 2012 SP1 Enterprise*"} | sort PublishedDate -Descending)[0].ImageName
-        $dcServerName = "ContosoDC"
-        $dcServiceName = "<uniqueservicename>"
-        $availabilitySetName = "SQLHADR"
-        $vmAdminUser = "AzureAdmin"
-        $vmAdminPassword = "Contoso!000"
-        $workingDir = "c:\scripts\"
+    ```powershell
+    $location = "West US"
+    $affinityGroupName = "ContosoAG"
+    $affinityGroupDescription = "Contoso SQL HADR Affinity Group"
+    $affinityGroupLabel = "IaaS BI Affinity Group"
+    $networkConfigPath = "C:\scripts\Network.netcfg"
+    $virtualNetworkName = "ContosoNET"
+    $storageAccountName = "<uniquestorageaccountname>"
+    $storageAccountLabel = "Contoso SQL HADR Storage Account"
+    $storageAccountContainer = "https://" + $storageAccountName + ".blob.core.windows.net/vhds/"
+    $winImageName = (Get-AzureVMImage | where {$_.Label -like "Windows Server 2008 R2 SP1*"} | sort PublishedDate -Descending)[0].ImageName
+    $sqlImageName = (Get-AzureVMImage | where {$_.Label -like "SQL Server 2012 SP1 Enterprise*"} | sort PublishedDate -Descending)[0].ImageName
+    $dcServerName = "ContosoDC"
+    $dcServiceName = "<uniqueservicename>"
+    $availabilitySetName = "SQLHADR"
+    $vmAdminUser = "AzureAdmin"
+    $vmAdminPassword = "Contoso!000"
+    $workingDir = "c:\scripts\"
+    ```
 
     Prestare attenzione a quanto segue per assicurarsi che i comandi funzionino correttamente in un secondo momento:
 
@@ -88,67 +93,77 @@ Questa esercitazione ha lo scopo di illustrare la procedura necessaria per confi
 
 3. Creare un set di affinità.
 
-        New-AzureAffinityGroup `
-            -Name $affinityGroupName `
-            -Location $location `
-            -Description $affinityGroupDescription `
-            -Label $affinityGroupLabel
+    ```powershell
+    New-AzureAffinityGroup `
+        -Name $affinityGroupName `
+        -Location $location `
+        -Description $affinityGroupDescription `
+        -Label $affinityGroupLabel
+    ```
 
 4. Creare una rete virtuale importando un file di configurazione.
 
-        Set-AzureVNetConfig `
-            -ConfigurationPath $networkConfigPath
+    ```powershell
+    Set-AzureVNetConfig `
+        -ConfigurationPath $networkConfigPath
+    ```
 
     Il file di configurazione contiene il documento XML seguente. In breve, specifica una rete virtuale denominata **ContosoNET** nel gruppo di affinità denominato **ContosoAG**. Include lo spazio degli indirizzi **10.10.0.0/16** e dispone di due subnet, **10.10.1.0/24** e **10.10.2.0/24**, che sono rispettivamente la subnet anteriore e la subnet posteriore. Nella subnet anteriore è possibile inserire applicazioni client quali Microsoft SharePoint. Nella subnet posteriore è possibile inserire le macchine virtuali di SQL Server. Se si modificano le variabili **$affinityGroupName** e **$virtualNetworkName**, è necessario modificare anche i nomi corrispondenti.
 
-        <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
-          <VirtualNetworkConfiguration>
-            <Dns />
-            <VirtualNetworkSites>
-              <VirtualNetworkSite name="ContosoNET" AffinityGroup="ContosoAG">
-                <AddressSpace>
-                  <AddressPrefix>10.10.0.0/16</AddressPrefix>
-                </AddressSpace>
-                <Subnets>
-                  <Subnet name="Front">
-                    <AddressPrefix>10.10.1.0/24</AddressPrefix>
-                  </Subnet>
-                  <Subnet name="Back">
-                    <AddressPrefix>10.10.2.0/24</AddressPrefix>
-                  </Subnet>
-                </Subnets>
-              </VirtualNetworkSite>
-            </VirtualNetworkSites>
-          </VirtualNetworkConfiguration>
-        </NetworkConfiguration>
+    ```xml
+    <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+      <VirtualNetworkConfiguration>
+        <Dns />
+        <VirtualNetworkSites>
+          <VirtualNetworkSite name="ContosoNET" AffinityGroup="ContosoAG">
+            <AddressSpace>
+              <AddressPrefix>10.10.0.0/16</AddressPrefix>
+            </AddressSpace>
+            <Subnets>
+              <Subnet name="Front">
+                <AddressPrefix>10.10.1.0/24</AddressPrefix>
+              </Subnet>
+              <Subnet name="Back">
+                <AddressPrefix>10.10.2.0/24</AddressPrefix>
+              </Subnet>
+            </Subnets>
+          </VirtualNetworkSite>
+        </VirtualNetworkSites>
+      </VirtualNetworkConfiguration>
+    </NetworkConfiguration>
+    ```xml
 
-5. Creare un account di archiviazione associato al gruppo di affinità creato e impostarlo come account di archiviazione corrente nella sottoscrizione.
+5. Create a storage account that's associated with the affinity group that you created, and set it as the current storage account in your subscription.
 
-        New-AzureStorageAccount `
-            -StorageAccountName $storageAccountName `
-            -Label $storageAccountLabel `
-            -AffinityGroup $affinityGroupName
-        Set-AzureSubscription `
-            -SubscriptionName (Get-AzureSubscription).SubscriptionName `
-            -CurrentStorageAccount $storageAccountName
+    ```powershell
+    New-AzureStorageAccount `
+        -StorageAccountName $storageAccountName `
+        -Label $storageAccountLabel `
+        -AffinityGroup $affinityGroupName
+    Set-AzureSubscription `
+        -SubscriptionName (Get-AzureSubscription).SubscriptionName `
+        -CurrentStorageAccount $storageAccountName
+    ```
 
 6. Creare il server controller di dominio nel nuovo servizio cloud e nel set di disponibilità.
 
-        New-AzureVMConfig `
-            -Name $dcServerName `
-            -InstanceSize Medium `
-            -ImageName $winImageName `
-            -MediaLocation "$storageAccountContainer$dcServerName.vhd" `
-            -DiskLabel "OS" |
-            Add-AzureProvisioningConfig `
-                -Windows `
-                -DisableAutomaticUpdates `
-                -AdminUserName $vmAdminUser `
-                -Password $vmAdminPassword |
-                New-AzureVM `
-                    -ServiceName $dcServiceName `
-                    –AffinityGroup $affinityGroupName `
-                    -VNetName $virtualNetworkName
+    ```powershell
+    New-AzureVMConfig `
+        -Name $dcServerName `
+        -InstanceSize Medium `
+        -ImageName $winImageName `
+        -MediaLocation "$storageAccountContainer$dcServerName.vhd" `
+        -DiskLabel "OS" |
+        Add-AzureProvisioningConfig `
+            -Windows `
+            -DisableAutomaticUpdates `
+            -AdminUserName $vmAdminUser `
+            -Password $vmAdminPassword |
+            New-AzureVM `
+                -ServiceName $dcServiceName `
+                –AffinityGroup $affinityGroupName `
+                -VNetName $virtualNetworkName
+    ```
 
     Questi comandi inoltrati tramite pipe consente di eseguire le operazioni seguenti:
 
@@ -159,19 +174,21 @@ Questa esercitazione ha lo scopo di illustrare la procedura necessaria per confi
 
 7. Al termine del provisioning della nuova macchina virtuale, scaricare il file del desktop remoto nella directory di lavoro. Poiché il provisioning della nuova macchina virtuale di Azure richiede molto tempo, tramite il ciclo `while` verrà continuata l'esecuzione del polling della nuova macchina virtuale finché non è pronta per l'uso.
 
+    ```powershell
+    $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
+
+    While ($VMStatus.InstanceStatus -ne "ReadyRole")
+    {
+        write-host "Waiting for " $VMStatus.Name "... Current Status = " $VMStatus.InstanceStatus
+        Start-Sleep -Seconds 15
         $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
+    }
 
-        While ($VMStatus.InstanceStatus -ne "ReadyRole")
-        {
-            write-host "Waiting for " $VMStatus.Name "... Current Status = " $VMStatus.InstanceStatus
-            Start-Sleep -Seconds 15
-            $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
-        }
-
-        Get-AzureRemoteDesktopFile `
-            -ServiceName $dcServiceName `
-            -Name $dcServerName `
-            -LocalPath "$workingDir$dcServerName.rdp"
+    Get-AzureRemoteDesktopFile `
+        -ServiceName $dcServiceName `
+        -Name $dcServerName `
+        -LocalPath "$workingDir$dcServerName.rdp"
+    ```
 
 A questo punto, il provisioning del server del controller di dominio è completato. Si configurerà quindi il dominio di Active Directory nel server del controller di dominio. Uscire dalla finestra di PowerShell aperta nel computer locale, che verrà usata di nuovo in un secondo momento per creare le due macchine virtuali di SQL Server.
 
@@ -180,62 +197,70 @@ A questo punto, il provisioning del server del controller di dominio è completa
 2. Aprire una finestra di PowerShell in modalità amministratore.
 3. Eseguire il comando **DCPROMO.EXE** per installare il dominio **corp.contoso.com**, con le directory dei dati nell'unità M.
 
-        dcpromo.exe `
-            /unattend `
-            /ReplicaOrNewDomain:Domain `
-            /NewDomain:Forest `
-            /NewDomainDNSName:corp.contoso.com `
-            /ForestLevel:4 `
-            /DomainNetbiosName:CORP `
-            /DomainLevel:4 `
-            /InstallDNS:Yes `
-            /ConfirmGc:Yes `
-            /CreateDNSDelegation:No `
-            /DatabasePath:"C:\Windows\NTDS" `
-            /LogPath:"C:\Windows\NTDS" `
-            /SYSVOLPath:"C:\Windows\SYSVOL" `
-            /SafeModeAdminPassword:"Contoso!000"
+    ```powershell
+    dcpromo.exe `
+        /unattend `
+        /ReplicaOrNewDomain:Domain `
+        /NewDomain:Forest `
+        /NewDomainDNSName:corp.contoso.com `
+        /ForestLevel:4 `
+        /DomainNetbiosName:CORP `
+        /DomainLevel:4 `
+        /InstallDNS:Yes `
+        /ConfirmGc:Yes `
+        /CreateDNSDelegation:No `
+        /DatabasePath:"C:\Windows\NTDS" `
+        /LogPath:"C:\Windows\NTDS" `
+        /SYSVOLPath:"C:\Windows\SYSVOL" `
+        /SafeModeAdminPassword:"Contoso!000"
+    ```
 
     Al termine dell'esecuzione del comando, la macchina virtuale viene riavviata automaticamente.
 
 4. Connettersi di nuovo al server del controller di dominio avviando il file del desktop remoto. Questa volta accedere come **CORP\Administrator**.
 5. Aprire una finestra di PowerShell in modalità amministratore e importare il modulo Active Directory PowerShell usando il comando seguente:
 
-        Import-Module ActiveDirectory
+    ```powershell
+    Import-Module ActiveDirectory
+    ```
 
 6. Eseguire i comandi indicati di seguito per aggiungere tre utenti al dominio.
 
-        $pwd = ConvertTo-SecureString "Contoso!000" -AsPlainText -Force
-        New-ADUser `
-            -Name 'Install' `
-            -AccountPassword  $pwd `
-            -PasswordNeverExpires $true `
-            -ChangePasswordAtLogon $false `
-            -Enabled $true
-        New-ADUser `
-            -Name 'SQLSvc1' `
-            -AccountPassword  $pwd `
-            -PasswordNeverExpires $true `
-            -ChangePasswordAtLogon $false `
-            -Enabled $true
-        New-ADUser `
-            -Name 'SQLSvc2' `
-            -AccountPassword  $pwd `
-            -PasswordNeverExpires $true `
-            -ChangePasswordAtLogon $false `
-            -Enabled $true
+    ```powershell
+    $pwd = ConvertTo-SecureString "Contoso!000" -AsPlainText -Force
+    New-ADUser `
+        -Name 'Install' `
+        -AccountPassword  $pwd `
+        -PasswordNeverExpires $true `
+        -ChangePasswordAtLogon $false `
+        -Enabled $true
+    New-ADUser `
+        -Name 'SQLSvc1' `
+        -AccountPassword  $pwd `
+        -PasswordNeverExpires $true `
+        -ChangePasswordAtLogon $false `
+        -Enabled $true
+    New-ADUser `
+        -Name 'SQLSvc2' `
+        -AccountPassword  $pwd `
+        -PasswordNeverExpires $true `
+        -ChangePasswordAtLogon $false `
+        -Enabled $true
+    ```
 
     **CORP\Install** viene usato per configurare tutti gli elementi correlati alle istanze del servizio SQL Server, al cluster di failover e al gruppo di disponibilità. **CORP\SQLSvc1** e **CORP\SQLSvc2** vengono usati come account del servizio SQL Server per le due macchine virtuali di SQL Server.
 7. Eseguire quindi i comandi indicati di seguito per concedere a **CORP\Install** le autorizzazioni per creare oggetti computer nel dominio.
 
-        Cd ad:
-        $sid = new-object System.Security.Principal.SecurityIdentifier (Get-ADUser "Install").SID
-        $guid = new-object Guid bf967a86-0de6-11d0-a285-00aa003049e2
-        $ace1 = new-object System.DirectoryServices.ActiveDirectoryAccessRule $sid,"CreateChild","Allow",$guid,"All"
-        $corp = Get-ADObject -Identity "DC=corp,DC=contoso,DC=com"
-        $acl = Get-Acl $corp
-        $acl.AddAccessRule($ace1)
-        Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
+    ```powershell
+    Cd ad:
+    $sid = new-object System.Security.Principal.SecurityIdentifier (Get-ADUser "Install").SID
+    $guid = new-object Guid bf967a86-0de6-11d0-a285-00aa003049e2
+    $ace1 = new-object System.DirectoryServices.ActiveDirectoryAccessRule $sid,"CreateChild","Allow",$guid,"All"
+    $corp = Get-ADObject -Identity "DC=corp,DC=contoso,DC=com"
+    $acl = Get-Acl $corp
+    $acl.AddAccessRule($ace1)
+    Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
+    ```
 
     Il GUID specificato in precedenza è il GUID per il tipo di oggetto computer. L'account **CORP\Install** deve disporre delle autorizzazioni **Leggi tutte le proprietà** e **Crea oggetti computer** per creare gli oggetti Active Directory per il cluster di failover. L'autorizzazione **Leggi tutte le proprietà** è già assegnata a CORP\Install per impostazione predefinita, quindi non è necessario concederla in modo esplicito. Per altre informazioni sulle autorizzazioni necessarie per creare il cluster di failover, vedere [Guida dettagliata al cluster di failover: Configurazione di account in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
@@ -244,43 +269,47 @@ A questo punto, il provisioning del server del controller di dominio è completa
 ## <a name="create-the-sql-server-vms"></a>Creare le macchine virtuali di SQL Server
 1. Continuare a usare la finestra di PowerShell aperta sul computer locale. Definire le variabili aggiuntive seguenti:
 
-        $domainName= "corp"
-        $FQDN = "corp.contoso.com"
-        $subnetName = "Back"
-        $sqlServiceName = "<uniqueservicename>"
-        $quorumServerName = "ContosoQuorum"
-        $sql1ServerName = "ContosoSQL1"
-        $sql2ServerName = "ContosoSQL2"
-        $availabilitySetName = "SQLHADR"
-        $dataDiskSize = 100
-        $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
+    ```powershell
+    $domainName= "corp"
+    $FQDN = "corp.contoso.com"
+    $subnetName = "Back"
+    $sqlServiceName = "<uniqueservicename>"
+    $quorumServerName = "ContosoQuorum"
+    $sql1ServerName = "ContosoSQL1"
+    $sql2ServerName = "ContosoSQL2"
+    $availabilitySetName = "SQLHADR"
+    $dataDiskSize = 100
+    $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
+    ```
 
     L'indirizzo IP **10.10.0.4** viene in genere assegnato alla prima macchina virtuale creata nella subnet **10.10.0.0/16** della rete virtuale di Azure. È necessario verificare che corrisponda all'indirizzo del server del controller di dominio eseguendo **IPCONFIG**.
 2. Eseguire i comandi seguenti inoltrati tramite pipe per creare la prima VM nel cluster di failover, denominata **ContosoQuorum**:
 
-        New-AzureVMConfig `
-            -Name $quorumServerName `
-            -InstanceSize Medium `
-            -ImageName $winImageName `
-            -MediaLocation "$storageAccountContainer$quorumServerName.vhd" `
-            -AvailabilitySetName $availabilitySetName `
-            -DiskLabel "OS" |
-            Add-AzureProvisioningConfig `
-                -WindowsDomain `
-                -AdminUserName $vmAdminUser `
-                -Password $vmAdminPassword `
-                -DisableAutomaticUpdates `
-                -Domain $domainName `
-                -JoinDomain $FQDN `
-                -DomainUserName $vmAdminUser `
-                -DomainPassword $vmAdminPassword |
-                Set-AzureSubnet `
-                    -SubnetNames $subnetName |
-                    New-AzureVM `
-                        -ServiceName $sqlServiceName `
-                        –AffinityGroup $affinityGroupName `
-                        -VNetName $virtualNetworkName `
-                        -DnsSettings $dnsSettings
+    ```powershell
+    New-AzureVMConfig `
+        -Name $quorumServerName `
+        -InstanceSize Medium `
+        -ImageName $winImageName `
+        -MediaLocation "$storageAccountContainer$quorumServerName.vhd" `
+        -AvailabilitySetName $availabilitySetName `
+        -DiskLabel "OS" |
+        Add-AzureProvisioningConfig `
+            -WindowsDomain `
+            -AdminUserName $vmAdminUser `
+            -Password $vmAdminPassword `
+            -DisableAutomaticUpdates `
+            -Domain $domainName `
+            -JoinDomain $FQDN `
+            -DomainUserName $vmAdminUser `
+            -DomainPassword $vmAdminPassword |
+            Set-AzureSubnet `
+                -SubnetNames $subnetName |
+                New-AzureVM `
+                    -ServiceName $sqlServiceName `
+                    –AffinityGroup $affinityGroupName `
+                    -VNetName $virtualNetworkName `
+                    -DnsSettings $dnsSettings
+    ```
 
     Si noti quanto segue riguardo al comando precedente:
 
@@ -290,61 +319,63 @@ A questo punto, il provisioning del server del controller di dominio è completa
    * **New-AzureVM** consente di creare un nuovo servizio cloud e la nuova macchina virtuale di Azure nel nuovo servizio cloud. Il parametro **DnsSettings** specifica che l'indirizzo IP del server DNS per i server nel nuovo servizio cloud è **10.10.0.4**, ovvero l'indirizzo IP del server del controller di dominio. Questo parametro è necessario per consentire di aggiungere correttamente le nuove macchine virtuali nel servizio cloud al dominio di Active Directory. Senza questo parametro, è necessario configurare manualmente le impostazioni IPv4 nella macchina virtuale per usare il server del controller di dominio come server DNS primario dopo il provisioning della macchina virtuale e aggiungere quindi tale macchina virtuale al dominio di Active Directory.
 3. Eseguire i comandi inoltrati tramite pipe indicati di seguito per creare le macchine virtuali di SQL Server, denominate **ContosoSQL1** e **ContosoSQL2**.
 
-        # Create ContosoSQL1...
-        New-AzureVMConfig `
-            -Name $sql1ServerName `
-            -InstanceSize Large `
-            -ImageName $sqlImageName `
-            -MediaLocation "$storageAccountContainer$sql1ServerName.vhd" `
-            -AvailabilitySetName $availabilitySetName `
-            -HostCaching "ReadOnly" `
-            -DiskLabel "OS" |
-            Add-AzureProvisioningConfig `
-                -WindowsDomain `
-                -AdminUserName $vmAdminUser `
-                -Password $vmAdminPassword `
-                -DisableAutomaticUpdates `
-                -Domain $domainName `
-                -JoinDomain $FQDN `
-                -DomainUserName $vmAdminUser `
-                -DomainPassword $vmAdminPassword |
-                Set-AzureSubnet `
-                    -SubnetNames $subnetName |
-                    Add-AzureEndpoint `
-                        -Name "SQL" `
-                        -Protocol "tcp" `
-                        -PublicPort 1 `
-                        -LocalPort 1433 |
-                        New-AzureVM `
-                            -ServiceName $sqlServiceName
+    ```powershell
+    # Create ContosoSQL1...
+    New-AzureVMConfig `
+        -Name $sql1ServerName `
+        -InstanceSize Large `
+        -ImageName $sqlImageName `
+        -MediaLocation "$storageAccountContainer$sql1ServerName.vhd" `
+        -AvailabilitySetName $availabilitySetName `
+        -HostCaching "ReadOnly" `
+        -DiskLabel "OS" |
+        Add-AzureProvisioningConfig `
+            -WindowsDomain `
+            -AdminUserName $vmAdminUser `
+            -Password $vmAdminPassword `
+            -DisableAutomaticUpdates `
+            -Domain $domainName `
+            -JoinDomain $FQDN `
+            -DomainUserName $vmAdminUser `
+            -DomainPassword $vmAdminPassword |
+            Set-AzureSubnet `
+                -SubnetNames $subnetName |
+                Add-AzureEndpoint `
+                    -Name "SQL" `
+                    -Protocol "tcp" `
+                    -PublicPort 1 `
+                    -LocalPort 1433 |
+                    New-AzureVM `
+                        -ServiceName $sqlServiceName
 
-        # Create ContosoSQL2...
-        New-AzureVMConfig `
-            -Name $sql2ServerName `
-            -InstanceSize Large `
-            -ImageName $sqlImageName `
-            -MediaLocation "$storageAccountContainer$sql2ServerName.vhd" `
-            -AvailabilitySetName $availabilitySetName `
-            -HostCaching "ReadOnly" `
-            -DiskLabel "OS" |
-            Add-AzureProvisioningConfig `
-                -WindowsDomain `
-                -AdminUserName $vmAdminUser `
-                -Password $vmAdminPassword `
-                -DisableAutomaticUpdates `
-                -Domain $domainName `
-                -JoinDomain $FQDN `
-                -DomainUserName $vmAdminUser `
-                -DomainPassword $vmAdminPassword |
-                Set-AzureSubnet `
-                    -SubnetNames $subnetName |
-                    Add-AzureEndpoint `
-                        -Name "SQL" `
-                        -Protocol "tcp" `
-                        -PublicPort 2 `
-                        -LocalPort 1433 |
-                        New-AzureVM `
-                            -ServiceName $sqlServiceName
+    # Create ContosoSQL2...
+    New-AzureVMConfig `
+        -Name $sql2ServerName `
+        -InstanceSize Large `
+        -ImageName $sqlImageName `
+        -MediaLocation "$storageAccountContainer$sql2ServerName.vhd" `
+        -AvailabilitySetName $availabilitySetName `
+        -HostCaching "ReadOnly" `
+        -DiskLabel "OS" |
+        Add-AzureProvisioningConfig `
+            -WindowsDomain `
+            -AdminUserName $vmAdminUser `
+            -Password $vmAdminPassword `
+            -DisableAutomaticUpdates `
+            -Domain $domainName `
+            -JoinDomain $FQDN `
+            -DomainUserName $vmAdminUser `
+            -DomainPassword $vmAdminPassword |
+            Set-AzureSubnet `
+                -SubnetNames $subnetName |
+                Add-AzureEndpoint `
+                    -Name "SQL" `
+                    -Protocol "tcp" `
+                    -PublicPort 2 `
+                    -LocalPort 1433 |
+                    New-AzureVM `
+                        -ServiceName $sqlServiceName
+    ```
 
     Si noti quanto segue riguardo i comandi precedenti:
 
@@ -355,23 +386,25 @@ A questo punto, il provisioning del server del controller di dominio è completa
    * **New-AzureVM** consente di creare la nuova macchina virtuale di SQL Server nello stesso servizio cloud di ContosoQuorum. È necessario inserire le macchine virtuali nello stesso servizio cloud se si desidera includerle nello stesso set di disponibilità.
 4. Attendere il provisioning di ogni macchina virtuale e per ciascuna macchina virtuale scaricare il relativo file del desktop remoto nella directory di lavoro. Il ciclo `for` si ripete nelle tre nuove macchine virtuali ed esegue i comandi all'interno delle parentesi graffe di livello principale per ognuna di esse.
 
-        Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
+    ```powershell
+    Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
+    {
+        write-host "Waiting for " $VM.Name "..."
+
+        # Loop until the VM status is "ReadyRole"
+        While ($VM.InstanceStatus -ne "ReadyRole")
         {
-            write-host "Waiting for " $VM.Name "..."
-
-            # Loop until the VM status is "ReadyRole"
-            While ($VM.InstanceStatus -ne "ReadyRole")
-            {
-                write-host "  Current Status = " $VM.InstanceStatus
-                Start-Sleep -Seconds 15
-                $VM = Get-AzureVM -ServiceName $VM.ServiceName -Name $VM.InstanceName
-            }
-
             write-host "  Current Status = " $VM.InstanceStatus
-
-            # Download remote desktop file
-            Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
+            Start-Sleep -Seconds 15
+            $VM = Get-AzureVM -ServiceName $VM.ServiceName -Name $VM.InstanceName
         }
+
+        write-host "  Current Status = " $VM.InstanceStatus
+
+        # Download remote desktop file
+        Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
+    }
+    ```
 
     Completato il provisioning, le macchine virtuali di SQL Server sono in esecuzione, ma vengono installate con SQL Server usando le opzioni predefinite.
 
@@ -396,14 +429,22 @@ A questo punto è possibile iniziare. A partire da **ContosoQuorum**, seguire qu
 4. Aprire una finestra di PowerShell in modalità amministratore.
 5. Installare la funzionalità Clustering di failover di Windows.
 
-        Import-Module ServerManager
-        Add-WindowsFeature Failover-Clustering
+    ```powershell
+    Import-Module ServerManager
+    Add-WindowsFeature Failover-Clustering
+    ```
+
 6. Aggiungere **CORP\Install** come amministratore locale.
 
-        net localgroup administrators "CORP\Install" /Add
+    ```powershell
+    net localgroup administrators "CORP\Install" /Add
+    ```
+
 7. Disconnettersi da ContosoQuorum. Le operazioni relative a questo server sono state completate.
 
-        logoff.exe
+    ```powershell
+    logoff.exe
+    ```
 
 Inizializzare quindi **ContosoSQL1** e **ContosoSQL2**. Seguire la procedura descritta di seguito, che è identica per entrambe le macchine virtuali di SQL Server.
 
@@ -413,31 +454,51 @@ Inizializzare quindi **ContosoSQL1** e **ContosoSQL2**. Seguire la procedura des
 4. Aprire una finestra di PowerShell in modalità amministratore.
 5. Installare la funzionalità Clustering di failover di Windows.
 
-        Import-Module ServerManager
-        Add-WindowsFeature Failover-Clustering
+    ```powershell
+    Import-Module ServerManager
+    Add-WindowsFeature Failover-Clustering
+    ```
+
 6. Aggiungere **CORP\Install** come amministratore locale.
 
-        net localgroup administrators "CORP\Install" /Add
+    ```powershell
+    net localgroup administrators "CORP\Install" /Add
+    ```
+
 7. Importare il provider PowerShell per SQL Server.
 
-        Set-ExecutionPolicy -Execution RemoteSigned -Force
-        Import-Module -Name "sqlps" -DisableNameChecking
+    ```powershell
+    Set-ExecutionPolicy -Execution RemoteSigned -Force
+    Import-Module -Name "sqlps" -DisableNameChecking
+    ```
+
 8. Aggiungere **CORP\Install** come ruolo sysadmin per l'istanza predefinita di SQL Server.
 
-        net localgroup administrators "CORP\Install" /Add
-        Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
+    ```powershell
+    net localgroup administrators "CORP\Install" /Add
+    Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
+    ```
+
 9. Aggiungere **NT AUTHORITY\System** come account di accesso con le tre autorizzazioni descritte in precedenza.
 
-        Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
-        Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
-        Invoke-SqlCmd -Query "GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
-        Invoke-SqlCmd -Query "GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
+    ```powershell
+    Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
+    Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
+    Invoke-SqlCmd -Query "GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
+    Invoke-SqlCmd -Query "GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
+    ```
+
 10. Aprire il firewall per l'accesso remoto di SQL Server.
 
-         netsh advfirewall firewall add rule name='SQL Server (TCP-In)' program='C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Binn\sqlservr.exe' dir=in action=allow protocol=TCP
+    ```powershell
+     netsh advfirewall firewall add rule name='SQL Server (TCP-In)' program='C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Binn\sqlservr.exe' dir=in action=allow protocol=TCP
+    ```
+
 11. Disconnettersi da entrambe le macchine virtuali.
 
-         logoff.exe
+    ```powershell
+     logoff.exe
+    ```
 
 A questo punto, è possibile procedere con la configurazione del gruppo di disponibilità. Il provider PowerShell per SQL Server verrà usato per eseguire tutte le operazioni in **ContosoSQL1**.
 
@@ -446,122 +507,154 @@ A questo punto, è possibile procedere con la configurazione del gruppo di dispo
 2. Aprire una finestra di PowerShell in modalità amministratore.
 3. Definire le variabili seguenti:
 
-        $server1 = "ContosoSQL1"
-        $server2 = "ContosoSQL2"
-        $serverQuorum = "ContosoQuorum"
-        $acct1 = "CORP\SQLSvc1"
-        $acct2 = "CORP\SQLSvc2"
-        $password = "Contoso!000"
-        $clusterName = "Cluster1"
-        $timeout = New-Object System.TimeSpan -ArgumentList 0, 0, 30
-        $db = "MyDB1"
-        $backupShare = "\\$server1\backup"
-        $quorumShare = "\\$server1\quorum"
-        $ag = "AG1"
+    ```powershell
+    $server1 = "ContosoSQL1"
+    $server2 = "ContosoSQL2"
+    $serverQuorum = "ContosoQuorum"
+    $acct1 = "CORP\SQLSvc1"
+    $acct2 = "CORP\SQLSvc2"
+    $password = "Contoso!000"
+    $clusterName = "Cluster1"
+    $timeout = New-Object System.TimeSpan -ArgumentList 0, 0, 30
+    $db = "MyDB1"
+    $backupShare = "\\$server1\backup"
+    $quorumShare = "\\$server1\quorum"
+    $ag = "AG1"
+    ```
+
 4. Importare il provider PowerShell per SQL Server.
 
-        Set-ExecutionPolicy RemoteSigned -Force
-        Import-Module "sqlps" -DisableNameChecking
+    ```powershell
+    Set-ExecutionPolicy RemoteSigned -Force
+    Import-Module "sqlps" -DisableNameChecking
+    ```
+
 5. Modificare l'account del servizio SQL Server per ContosoSQL1 in CORP\SQLSvc1.
 
-        $wmi1 = new-object ("Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer") $server1
-        $wmi1.services | where {$_.Type -eq 'SqlServer'} | foreach{$_.SetServiceAccount($acct1,$password)}
-        $svc1 = Get-Service -ComputerName $server1 -Name 'MSSQLSERVER'
-        $svc1.Stop()
-        $svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
-        $svc1.Start();
-        $svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
+    ```powershell
+    $wmi1 = new-object ("Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer") $server1
+    $wmi1.services | where {$_.Type -eq 'SqlServer'} | foreach{$_.SetServiceAccount($acct1,$password)}
+    $svc1 = Get-Service -ComputerName $server1 -Name 'MSSQLSERVER'
+    $svc1.Stop()
+    $svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
+    $svc1.Start();
+    $svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
+    ```
+
 6. Modificare l'account del servizio SQL Server per ContosoSQL2 in CORP\SQLSvc2.
 
-        $wmi2 = new-object ("Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer") $server2
-        $wmi2.services | where {$_.Type -eq 'SqlServer'} | foreach{$_.SetServiceAccount($acct2,$password)}
-        $svc2 = Get-Service -ComputerName $server2 -Name 'MSSQLSERVER'
-        $svc2.Stop()
-        $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
-        $svc2.Start();
-        $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
+    ```powershell
+    $wmi2 = new-object ("Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer") $server2
+    $wmi2.services | where {$_.Type -eq 'SqlServer'} | foreach{$_.SetServiceAccount($acct2,$password)}
+    $svc2 = Get-Service -ComputerName $server2 -Name 'MSSQLSERVER'
+    $svc2.Stop()
+    $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
+    $svc2.Start();
+    $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
+    ```
+
 7. Scaricare **CreateAzureFailoverCluster.ps1** dalla pagina [Create Failover Cluster for Always On Availability Groups in Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creare il cluster di failover per i gruppi di disponibilità AlwaysOn in una VM di Azure) nella directory di lavoro locale. Usare lo script per creare un cluster di failover funzionale. Per informazioni importanti sull'interazione del servizio Clustering di failover di Windows con la rete di Azure, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Passare alla directory di lavoro e creare il cluster di failover con lo script scaricato.
 
-        Set-ExecutionPolicy Unrestricted -Force
-        .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
+    ```powershell
+    Set-ExecutionPolicy Unrestricted -Force
+    .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
+    ```
+
 9. Abilitare i gruppi di disponibilità Always On per le istanze predefinite di SQL Server in **ContosoSQL1** e **ContosoSQL2**.
 
-        Enable-SqlAlwaysOn `
-            -Path SQLSERVER:\SQL\$server1\Default `
-            -Force
-        Enable-SqlAlwaysOn `
-            -Path SQLSERVER:\SQL\$server2\Default `
-            -NoServiceRestart
-        $svc2.Stop()
-        $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
-        $svc2.Start();
-        $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
+    ```powershell
+    Enable-SqlAlwaysOn `
+        -Path SQLSERVER:\SQL\$server1\Default `
+        -Force
+    Enable-SqlAlwaysOn `
+        -Path SQLSERVER:\SQL\$server2\Default `
+        -NoServiceRestart
+    $svc2.Stop()
+    $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
+    $svc2.Start();
+    $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
+    ```
+
 10. Creare una directory di backup e concedere le autorizzazioni per gli account del servizio SQL Server. Usare questa directory per preparare il database di disponibilità nella replica secondaria.
 
-         $backup = "C:\backup"
-         New-Item $backup -ItemType directory
-         net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
-         icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
+    ```powershell
+    $backup = "C:\backup"
+    New-Item $backup -ItemType directory
+    net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
+    icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
+    ```
+
 11. Creare un database in **ContosoSQL1** denominato **MyDB1**, eseguire un backup completo e un backup dei log e ripristinarli in **ContosoSQL2** con l'opzione **WITH NORECOVERY**.
 
-         Invoke-SqlCmd -Query "CREATE database $db"
-         Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
-         Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server1 -BackupAction Log
-         Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server2 -NoRecovery
-         Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server2 -RestoreAction Log -NoRecovery
+    ```powershell
+    Invoke-SqlCmd -Query "CREATE database $db"
+    Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
+    Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server1 -BackupAction Log
+    Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server2 -NoRecovery
+    Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server2 -RestoreAction Log -NoRecovery
+    ```
+
 12. Creare gli endpoint dei gruppi di disponibilità nelle macchine virtuali di SQL Server e impostare le autorizzazioni appropriate negli endpoint.
 
-         $endpoint =
-             New-SqlHadrEndpoint MyMirroringEndpoint `
-             -Port 5022 `
-             -Path "SQLSERVER:\SQL\$server1\Default"
-         Set-SqlHadrEndpoint `
-             -InputObject $endpoint `
-             -State "Started"
-         $endpoint =
-             New-SqlHadrEndpoint MyMirroringEndpoint `
-             -Port 5022 `
-             -Path "SQLSERVER:\SQL\$server2\Default"
-         Set-SqlHadrEndpoint `
-             -InputObject $endpoint `
-             -State "Started"
+    ```powershell
+    $endpoint =
+      New-SqlHadrEndpoint MyMirroringEndpoint `
+        -Port 5022 `
+        -Path "SQLSERVER:\SQL\$server1\Default"
+      Set-SqlHadrEndpoint `
+        -InputObject $endpoint `
+        -State "Started"
+    $endpoint =
+      New-SqlHadrEndpoint MyMirroringEndpoint `
+        -Port 5022 `
+        -Path "SQLSERVER:\SQL\$server2\Default"
+    Set-SqlHadrEndpoint `
+         -InputObject $endpoint `
+         -State "Started"
 
-         Invoke-SqlCmd -Query "CREATE LOGIN [$acct2] FROM WINDOWS" -ServerInstance $server1
-         Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct2]" -ServerInstance $server1
-         Invoke-SqlCmd -Query "CREATE LOGIN [$acct1] FROM WINDOWS" -ServerInstance $server2
-         Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct1]" -ServerInstance $server2
+    Invoke-SqlCmd -Query "CREATE LOGIN [$acct2] FROM WINDOWS" -ServerInstance $server1
+    Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct2]" -ServerInstance $server1
+    Invoke-SqlCmd -Query "CREATE LOGIN [$acct1] FROM WINDOWS" -ServerInstance $server2
+    Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct1]" -ServerInstance $server2
+    ```
+
 13. Creare le repliche di disponibilità.
 
-         $primaryReplica =
-             New-SqlAvailabilityReplica `
-             -Name $server1 `
-             -EndpointURL "TCP://$server1.corp.contoso.com:5022" `
-             -AvailabilityMode "SynchronousCommit" `
-             -FailoverMode "Automatic" `
-             -Version 11 `
-             -AsTemplate
-         $secondaryReplica =
-             New-SqlAvailabilityReplica `
-             -Name $server2 `
-             -EndpointURL "TCP://$server2.corp.contoso.com:5022" `
-             -AvailabilityMode "SynchronousCommit" `
-             -FailoverMode "Automatic" `
-             -Version 11 `
-             -AsTemplate
+    ```powershell
+    $primaryReplica =
+       New-SqlAvailabilityReplica `
+         -Name $server1 `
+         -EndpointURL "TCP://$server1.corp.contoso.com:5022" `
+         -AvailabilityMode "SynchronousCommit" `
+         -FailoverMode "Automatic" `
+         -Version 11 `
+         -AsTemplate
+    $secondaryReplica =
+       New-SqlAvailabilityReplica `
+         -Name $server2 `
+         -EndpointURL "TCP://$server2.corp.contoso.com:5022" `
+         -AvailabilityMode "SynchronousCommit" `
+         -FailoverMode "Automatic" `
+         -Version 11 `
+         -AsTemplate
+    ```
+
 14. Creare infine il gruppo di disponibilità e creare un join tra la replica secondaria e il gruppo di disponibilità.
 
-         New-SqlAvailabilityGroup `
-             -Name $ag `
-             -Path "SQLSERVER:\SQL\$server1\Default" `
-             -AvailabilityReplica @($primaryReplica,$secondaryReplica) `
-             -Database $db
-         Join-SqlAvailabilityGroup `
-             -Path "SQLSERVER:\SQL\$server2\Default" `
-             -Name $ag
-         Add-SqlAvailabilityDatabase `
-             -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
-             -Database $db
+    ```powershell
+    New-SqlAvailabilityGroup `
+        -Name $ag `
+        -Path "SQLSERVER:\SQL\$server1\Default" `
+        -AvailabilityReplica @($primaryReplica,$secondaryReplica) `
+        -Database $db
+    Join-SqlAvailabilityGroup `
+        -Path "SQLSERVER:\SQL\$server2\Default" `
+        -Name $ag
+    Add-SqlAvailabilityDatabase `
+        -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
+        -Database $db
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 SQL Server Always On è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere [Configurare un listener ILB per gruppi di disponibilità Always On in Azure](../classic/ps-sql-int-listener.md).

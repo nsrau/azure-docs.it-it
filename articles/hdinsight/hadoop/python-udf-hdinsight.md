@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 201bb40e5024442587f5508886da7e844f35be40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: H1Hack27Feb2017,hdinsightactive, tracking-python
+ms.openlocfilehash: 9bb27d1dd9c7bc5f067fa3d84f451537882150c5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74148399"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087674"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight
 
@@ -27,10 +27,10 @@ HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jy
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster Hadoop in HDInsight**. Vedere [Introduzione a HDInsight in Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Un cluster Hadoop in HDInsight**. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](apache-hadoop-linux-tutorial-get-started.md).
 * **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. `wasb://` Per l'archiviazione di Azure, `abfs://` per Azure Data Lake Storage Gen2 o ADL://per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è wasbs://.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
-* **Possibile modifica della configurazione dell'archiviazione.**  Vedere [configurazione dell'archiviazione](#storage-configuration) se si usa il `BlobStorage`tipo di account di archiviazione.
+* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Per l' `wasb://` archiviazione di Azure, `abfs://` per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è wasbs://.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
+* **Possibile modifica della configurazione dell'archiviazione.**  Vedere [configurazione dell'archiviazione](#storage-configuration) se si usa il tipo di account di archiviazione `BlobStorage` .
 * Facoltativa.  Se si prevede di usare PowerShell, è necessario che il [modulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) sia installato.
 
 > [!NOTE]  
@@ -38,13 +38,13 @@ HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jy
 
 ## <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
-Non è richiesta alcuna azione se l'account di archiviazione usato è `Storage (general purpose v1)` di `StorageV2 (general purpose v2)`tipo o.  Il processo in questo articolo produrrà almeno l'output `/tezstaging`.  Una configurazione Hadoop predefinita conterrà `/tezstaging` nella variabile `fs.azure.page.blob.dir` di configurazione in `core-site.xml` per il `HDFS`servizio.  Questa configurazione provocherà l'output della directory come BLOB di pagine, che non sono supportati per il tipo `BlobStorage`di account di archiviazione.  Per usare `BlobStorage` per questo articolo, rimuovere `/tezstaging` dalla variabile `fs.azure.page.blob.dir` di configurazione.  È possibile accedere alla configurazione dall' [interfaccia utente di Ambariri](../hdinsight-hadoop-manage-ambari.md).  In caso contrario, verrà visualizzato il messaggio di errore:`Page blob is not supported for this account type.`
+Non è richiesta alcuna azione se l'account di archiviazione usato è di tipo `Storage (general purpose v1)` o `StorageV2 (general purpose v2)` .  Il processo in questo articolo produrrà almeno l'output `/tezstaging` .  Una configurazione Hadoop predefinita conterrà `/tezstaging` nella `fs.azure.page.blob.dir` variabile di configurazione in `core-site.xml` per il servizio `HDFS` .  Questa configurazione provocherà l'output della directory come BLOB di pagine, che non sono supportati per il tipo di account di archiviazione `BlobStorage` .  Per usare `BlobStorage` per questo articolo, rimuovere `/tezstaging` dalla `fs.azure.page.blob.dir` variabile di configurazione.  È possibile accedere alla configurazione dall' [interfaccia utente di Ambariri](../hdinsight-hadoop-manage-ambari.md).  In caso contrario, verrà visualizzato il messaggio di errore:`Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > La procedura in questo documento parte dai presupposti seguenti:  
 >
 > * L'utente deve creare gli script Python in un ambiente di sviluppo locale.
-> * Per caricare gli script in HDInsight, è possibile `scp` usare il comando o lo script di PowerShell fornito.
+> * Per caricare gli script in HDInsight, è possibile usare il `scp` comando o lo script di PowerShell fornito.
 >
 > Se si vuole usare il [Azure cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) per lavorare con HDInsight, è necessario:
 >
@@ -100,7 +100,7 @@ Lo script esegue le azioni seguenti:
 1. Legge una riga di dati da STDIN.
 2. Il carattere di nuova riga finale viene rimosso con `string.strip(line, "\n ")`.
 3. Durante l'elaborazione di flussi tutti i valori sono contenuti in un'unica riga sono separati da un carattere di tabulazione. Si può quindi usare `string.split(line, "\t")` per dividere l'input in corrispondenza di ogni tabulazione, in modo da restituire solo i campi.
-4. Al termine dell'elaborazione, l'output deve essere scritto in STDOUT in un'unica riga, con i campi separati da tabulazioni. Ad esempio, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`
+4. Al termine dell'elaborazione, l'output deve essere scritto in STDOUT in un'unica riga, con i campi separati da tabulazioni. Ad esempio: `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 5. Il ciclo `while` si ripete finché non viene letta alcuna `line`.
 
 Lo script di output è una concatenazione di valori di input per `devicemake` e `devicemodel` e un hash del valore concatenato.
@@ -150,11 +150,13 @@ Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diver
 
 3. Dopo l'immissione dell'ultima riga il processo dovrebbe essere avviato. Al termine del processo, restituisce un output simile al seguente esempio:
 
-        100041    RIM 9650    d476f3687700442549a83fac4560c51c
-        100041    RIM 9650    d476f3687700442549a83fac4560c51c
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    ```output
+    100041    RIM 9650    d476f3687700442549a83fac4560c51c
+    100041    RIM 9650    d476f3687700442549a83fac4560c51c
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    ```
 
 4. Per uscire da Oneline, immettere il comando seguente:
 
@@ -164,7 +166,7 @@ Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diver
 
 ### <a name="upload-file-powershell"></a>Carica file (PowerShell)
 
-PowerShell può essere usato anche per eseguire in remoto le query Hive. Verificare che la directory di lavoro `hiveudf.py` sia quella in cui si trova.  Usare lo script di PowerShell seguente per eseguire una query hive che usa `hiveudf.py` lo script:
+PowerShell può essere usato anche per eseguire in remoto le query Hive. Verificare che la directory di lavoro sia quella in cui `hiveudf.py` si trova.  Usare lo script di PowerShell seguente per eseguire una query hive che usa lo `hiveudf.py` script:
 
 ```PowerShell
 # Login to your Azure subscription
@@ -281,11 +283,13 @@ Get-AzHDInsightJobOutput `
 
 L'output del processo **Hive** sarà simile al seguente esempio:
 
-    100041    RIM 9650    d476f3687700442549a83fac4560c51c
-    100041    RIM 9650    d476f3687700442549a83fac4560c51c
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+```output
+100041    RIM 9650    d476f3687700442549a83fac4560c51c
+100041    RIM 9650    d476f3687700442549a83fac4560c51c
+100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+```
 
 ## <a name="apache-pig-udf"></a><a name="pigpython"></a>UDF Apache Pig
 
@@ -399,11 +403,13 @@ Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diver
 
 3. Dopo l'immissione della riga seguente, il processo dovrebbe essere avviato. Al termine del processo, restituisce un output simile ai dati seguenti:
 
-        ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
-        ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
-        ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
-        ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
-        ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+    ```output
+    ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+    ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+    ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+    ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+    ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+    ```
 
 4. Usare `quit` per chiudere la shell Grunt e quindi il prompt seguente per modificare il file pigudf.py nel file system locale:
 
@@ -433,7 +439,7 @@ Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diver
 
 ### <a name="upload-file-powershell"></a>Carica file (PowerShell)
 
-PowerShell può essere usato anche per eseguire in remoto le query Hive. Verificare che la directory di lavoro `pigudf.py` sia quella in cui si trova.  Usare lo script di PowerShell seguente per eseguire una query hive che usa `pigudf.py` lo script:
+PowerShell può essere usato anche per eseguire in remoto le query Hive. Verificare che la directory di lavoro sia quella in cui `pigudf.py` si trova.  Usare lo script di PowerShell seguente per eseguire una query hive che usa lo `pigudf.py` script:
 
 ```PowerShell
 # Login to your Azure subscription
@@ -549,11 +555,13 @@ Get-AzHDInsightJobOutput `
 
 L'output del processo **Pig** sarà simile ai dati seguenti:
 
-    ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
-    ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
-    ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
-    ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
-    ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+```output
+((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+```
 
 ## <a name="troubleshooting"></a><a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -561,7 +569,9 @@ L'output del processo **Pig** sarà simile ai dati seguenti:
 
 Quando si esegue il processo hive, è possibile riscontrare un errore simile al testo seguente:
 
-    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+```output
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+```
 
 Questo problema potrebbe essere causato dalle terminazioni di riga nel file di Python. Molti editor di Windows usano per impostazione predefinita CRLF come terminazione di riga, mentre le applicazioni Linux prevedono in genere LF.
 
@@ -569,7 +579,7 @@ Questo problema potrebbe essere causato dalle terminazioni di riga nel file di P
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
 
-### <a name="powershell-scripts"></a>Script di PowerShell
+### <a name="powershell-scripts"></a>Script PowerShell
 
 Entrambi gli script di esempio di PowerShell usati per eseguire gli esempi contengono una riga impostata come commento che mostra l'output degli errori relativi al processo. Se non viene visualizzato l'output previsto per il processo, rimuovere il commento dalla riga seguente e verificare se le informazioni sull'errore indicano un problema.
 

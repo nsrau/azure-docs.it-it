@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918207"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086773"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Non è possibile stabilire una connessione RDP a una macchina virtuale perché questa viene avviata in modalità provvisoria
 
@@ -46,7 +47,9 @@ Per risolvere questo problema, usare il controllo seriale per configurare la mac
    ). Se la console seriale non è abilitata sulla macchina virtuale, vedere [Riparare la macchina virtuale in modalità offline](#repair-the-vm-offline).
 2. Controllare i dati della configurazione di avvio:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
     Se la macchina virtuale è configurata per l'avvio in modalità provvisoria, nella sezione **Windows Boot Loader** verrà visualizzato un flag aggiuntivo denominato **safeboot**. Se il flag **safeboot** non viene visualizzato, la macchina virtuale non è in modalità provvisoria. Questo articolo non si applica allo specifico scenario.
 
@@ -60,11 +63,15 @@ Per risolvere questo problema, usare il controllo seriale per configurare la mac
 
 3. Eliminare il flag **safemode** in modo che la macchina virtuale venga avviata in modalità normale:
 
-        bcdedit /deletevalue {current} safeboot
+    ```console
+    bcdedit /deletevalue {current} safeboot
+    ```
 
 4. Controllare i dati della configurazione di avvio per assicurarsi che il flag **safeboot** sia stato rimosso:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
 5. Riavviare la macchina virtuale e quindi verificare se il problema è stato risolto.
 
@@ -114,7 +121,10 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 1. Aprire una sessione del prompt dei comandi con privilegi elevati (**Esegui come amministratore**).
 2. Controllare i dati della configurazione di avvio. Nei comandi seguenti si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la specifica macchina virtuale.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
     Prendere nota del nome dell'identificatore della partizione che contiene la cartella **\windows**. Per impostazione predefinita, il nome dell'identificatore è "Default".
 
     Se la macchina virtuale è configurata per l'avvio in modalità provvisoria, nella sezione **Windows Boot Loader** verrà visualizzato un flag aggiuntivo denominato **safeboot**. Se non viene visualizzato il flag **safeboot**, questo articolo non si applica allo specifico scenario.
@@ -123,8 +133,14 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 
 3. Rimuovere il flag **safeboot** in modo che la macchina virtuale venga avviata in modalità normale:
 
-        bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```console
+    bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```
+
 4. Controllare i dati della configurazione di avvio per assicurarsi che il flag **safeboot** sia stato rimosso:
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
 5. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md). Controllare quindi se il problema è stato risolto.

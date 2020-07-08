@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d6aa1fc1e5978f59fc01dd41a89800629fa60ded
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735099"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086926"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Domande frequenti su Windows 10 Enterprise multisessione
 
@@ -61,7 +61,7 @@ La raccolta di Azure include diverse versioni, tra cui Windows 10 Enterprise Mul
  
 ## <a name="which-windows-10-enterprise-multi-session-versions-are-supported"></a>Quali versioni di Windows 10 Enterprise multisessione sono supportate?
 
-Windows 10 Enterprise multisessione, versioni 1809 e successive sono supportate e sono disponibili nella raccolta di Azure. Queste versioni seguono gli stessi criteri del ciclo di vita del supporto di Windows 10 Enterprise, il che significa che la versione Spring è supportata per 18 mesi e la versione autunnale per 30 mesi.
+Windows 10 Enterprise multisessione, versioni 1809 e successive sono supportate e sono disponibili nella raccolta di Azure. Queste versioni seguono gli stessi criteri del ciclo di vita del supporto di Windows 10 Enterprise, il che significa che la versione di marzo è supportata per 18 mesi e la versione di settembre per 30 mesi.
  
 ## <a name="which-profile-management-solution-should-i-use-for-windows-10-enterprise-multi-session"></a>Quale soluzione di gestione dei profili è consigliabile usare per la multisessione Enterprise di Windows 10?
 
