@@ -4,7 +4,7 @@ description: Viene illustrato come un amministratore può usare il portale di Az
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/15/2018
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa2ac203f92d401095194bb3f1b5f3ef3c52093b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74273415"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387287"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche
 
@@ -42,7 +42,7 @@ Questo è lo scenario più comune, in cui l'organizzazione vuole collaborare qua
 Per aggiungere un elenco di accesso negato:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Azure Active Directory** > **Users** > **impostazioni utente**utenti.
+2. Selezionare **Azure Active Directory**  >  **Users**  >  **impostazioni utente**utenti.
 3. In **utenti esterni**selezionare **Gestisci impostazioni di collaborazione esterna**.
 4. In **Collaboration restrictions** (Restrizioni per la collaborazione) selezionare **Deny invitations to the specified domains** (Nega inviti ai domini specificati).
 5. In **Domini di destinazione** immettere il nome di uno dei domini che si vuole bloccare. Per specificare più domini, immettere ognuno in una nuova riga. Ad esempio:
@@ -63,7 +63,7 @@ Se si vuole usare un elenco di accesso consentito, assicurarsi di dedicare tempo
 Per aggiungere un elenco di accesso consentito:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Azure Active Directory** > **Users** > **impostazioni utente**utenti.
+2. Selezionare **Azure Active Directory**  >  **Users**  >  **impostazioni utente**utenti.
 3. In **utenti esterni**selezionare **Gestisci impostazioni di collaborazione esterna**.
 4. In **Restrizioni di collaborazione** selezionare **Consenti l'invio di inviti solo ai domini specificati (più restrittivo)**.
 5. In **DOMINI DI DESTINAZIONE** immettere il nome di uno dei domini che si vuole consentire. Per specificare più domini, immettere ognuno in una nuova riga. Ad esempio:

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803161"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389191"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Abilitare "Mantieni l'accesso (KMSI)" in Active Directory B2C di Azure
 
@@ -34,9 +34,9 @@ Gli utenti dovrebbero evitare di abilitare questa funzione su un computer pubbli
 
 ## <a name="configure-the-page-identifier"></a>Configurare l'identificatore di pagina
 
-Per abilitare KMSI, impostare l'elemento di `DataUri` definizione del contenuto sull' [identificatore](contentdefinitions.md#datauri) `unifiedssp` di pagina e la [pagina](page-layout.md) *1.1.0* o versione successiva.
+Per abilitare KMSI, impostare l'elemento di definizione del contenuto sull' `DataUri` [identificatore di pagina](contentdefinitions.md#datauri) `unifiedssp` e la [pagina](page-layout.md) *1.1.0* o versione successiva.
 
-1. Aprire il file di estensione dei criteri, Ad esempio, <em> `SocialAndLocalAccounts/` </em>. Questo file di estensione è uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che è necessario ottenere nel prerequisito, [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
+1. Aprire il file di estensione dei criteri, ad esempio <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. Questo file di estensione è uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che è necessario ottenere nel prerequisito, [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
 1. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 1. Aggiungere l'elemento **ContentDefinitions** all'elemento **BuildingBlocks** del criterio.
 
@@ -59,7 +59,7 @@ Per aggiungere la casella di controllo KMSI alla pagina di iscrizione e accesso,
 1. Trovare l'elemento ClaimsProviders. Se l'elemento non esiste, aggiungerlo.
 1. Aggiungere il provider di attestazioni seguente all'elemento ClaimsProviders:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -79,10 +79,10 @@ Per aggiungere la casella di controllo KMSI alla pagina di iscrizione e accesso,
 Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato.
 
 1. Aprire il file dei criteri personalizzati. Ad esempio, *SignUpOrSignin.xml*.
-1. Se non esiste già, aggiungere un `<UserJourneyBehaviors>` nodo figlio al `<RelyingParty>` nodo. Deve trovarsi immediatamente dopo `<DefaultUserJourney ReferenceId="User journey Id" />`, ad esempio:. `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`
+1. Se non esiste già, aggiungere un `<UserJourneyBehaviors>` nodo figlio al `<RelyingParty>` nodo. Deve trovarsi immediatamente dopo `<DefaultUserJourney ReferenceId="User journey Id" />` , ad esempio: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />` .
 1. Aggiungere il nodo seguente come figlio dell'elemento `<UserJourneyBehaviors>`.
 
-    ```XML
+    ```xml
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
       <SessionExpiryType>Absolute</SessionExpiryType>
@@ -90,17 +90,17 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
     </UserJourneyBehaviors>
     ```
 
-    - **SessionExpiryType** : indica il modo in cui la sessione viene estesa in base `SessionExpiryInSeconds` al `KeepAliveInDays`tempo specificato in e. Il `Rolling` valore (impostazione predefinita) indica che la sessione viene estesa ogni volta che l'utente esegue l'autenticazione. Il `Absolute` valore indica che l'utente è obbligato a eseguire nuovamente l'autenticazione dopo il periodo di tempo specificato.
+    - **SessionExpiryType** : indica il modo in cui la sessione viene estesa in base al tempo specificato in `SessionExpiryInSeconds` e `KeepAliveInDays` . Il `Rolling` valore (impostazione predefinita) indica che la sessione viene estesa ogni volta che l'utente esegue l'autenticazione. Il `Absolute` valore indica che l'utente è obbligato a eseguire nuovamente l'autenticazione dopo il periodo di tempo specificato.
 
     - **SessionExpiryInSeconds** : la durata dei cookie di sessione quando l'opzione *Mantieni l'accesso* non è abilitata o se un utente non seleziona *Mantieni l'accesso*. La sessione scade dopo che `SessionExpiryInSeconds` è trascorso o il browser è chiuso.
 
-    - **KeepAliveInDays** : la durata dei cookie di sessione quando l'opzione *Mantieni l'accesso* è abilitata e l'utente seleziona *Mantieni l'accesso*.  Il valore di `KeepAliveInDays` ha la precedenza sul `SessionExpiryInSeconds` valore e determina l'ora di scadenza della sessione. Se un utente chiude il browser e lo riapre in un secondo momento, potrà comunque accedere automaticamente, purché sia entro il periodo di KeepAliveInDays.
+    - **KeepAliveInDays** : la durata dei cookie di sessione quando l'opzione *Mantieni l'accesso* è abilitata e l'utente seleziona *Mantieni l'accesso*.  Il valore di ha la `KeepAliveInDays` precedenza sul `SessionExpiryInSeconds` valore e determina l'ora di scadenza della sessione. Se un utente chiude il browser e lo riapre in un secondo momento, potrà comunque accedere automaticamente, purché sia entro il periodo di KeepAliveInDays.
 
     Per altre informazioni, vedere [comportamenti dei percorsi utente](relyingparty.md#userjourneybehaviors).
 
 È consigliabile impostare il valore di SessionExpiryInSeconds su un periodo breve (1200 secondi), mentre il valore di KeepAliveInDays può essere impostato su un periodo di tempo relativamente lungo (30 giorni), come illustrato nell'esempio seguente:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <UserJourneyBehaviors>

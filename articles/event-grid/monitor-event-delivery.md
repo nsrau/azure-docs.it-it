@@ -1,29 +1,24 @@
 ---
-title: Monitorare il recapito dei messaggio di Griglia di eventi di Azure
-description: Questo articolo descrive come usare la portale di Azure per visualizzare lo stato del recapito dei messaggi di griglia di eventi di Azure.
+title: Visualizzare le metriche di griglia di eventi di Azure e impostare gli avvisi
+description: Questo articolo descrive come usare la portale di Azure per visualizzare le metriche per gli argomenti e le sottoscrizioni di griglia di eventi di Azure e creare avvisi su di essi.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 06/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a01ab91fe84aaa1fe55018754eddbf8b8f89643
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 75311675ae24f4836ed8f1adb8a7d9802b4d7f0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890861"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390602"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorare il recapito dei messaggio di Griglia di eventi 
+Questo articolo descrive come usare il portale per visualizzare le metriche per gli argomenti e le sottoscrizioni di griglia di eventi e per creare avvisi su di essi. 
 
-Questo articolo descrive come usare il portale per controllare i recapiti di eventi.
-
-Griglia di eventi fornisce il recapito durevole. Ogni messaggio viene recapitato almeno una volta per ogni sottoscrizione. Gli eventi vengono inviati immediatamente al webhook registrato di ogni sottoscrizione. Se un webhook non conferma la ricezione di un evento entro 60 secondi dal primo tentativo di recapito, Griglia di eventi esegue un nuovo tentativo di recapito dell'evento.
-
-Per informazioni sul recapito di eventi e sui nuovi tentativi, vedere [Recapito di messaggi di Griglia di eventi e nuovi tentativi](delivery-and-retry.md).
-
-## <a name="delivery-metrics"></a>Metriche di recapito
+## <a name="metrics"></a>Metriche
 
 Il portale visualizza le metriche per lo stato di recapito dei messaggi di evento.
 
@@ -43,50 +38,69 @@ Per le sottoscrizioni, di seguito sono riportate alcune delle metriche:
     > [!NOTE]
     > Per l'elenco completo delle metriche, vedere [metriche supportate da griglia di eventi di Azure](metrics.md).
 
-## <a name="event-subscription-status"></a>Stato della sottoscrizione di eventi
+## <a name="view-custom-topic-metrics"></a>Visualizzare le metriche degli argomenti personalizzati
 
-Per visualizzare le metriche per una sottoscrizione dell'evento, è possibile eseguire una ricerca per tipo di sottoscrizione o per sottoscrizioni per una risorsa specifica.
+Se è stato pubblicato un argomento personalizzato, è possibile visualizzare le relative metriche. 
 
-Per eseguire una ricerca per tipo di sottoscrizione dell'evento, selezionare **Tutti i servizi**.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Nella barra di ricerca in questo argomento, digitare **argomenti di griglia di eventi**, quindi selezionare **argomenti griglia di eventi** nell'elenco a discesa. 
 
-![Selezionare Tutti i servizi](./media/monitor-event-delivery/all-services.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
+3. Selezionare l'argomento personalizzato dall'elenco di argomenti. 
 
-Cercare la **griglia di eventi** e selezionare **Sottoscrizioni di Griglia di eventi** tra le opzioni disponibili.
+    :::image type="content" source="./media/monitor-event-delivery/select-custom-topic.png" alt-text="Selezionare l'argomento personalizzato":::
+4. Visualizzare le metriche per l'argomento dell'evento personalizzato nella pagina dell' **argomento di griglia di eventi** . Nell'immagine seguente la sezione **Essentials** che mostra il gruppo di risorse, la sottoscrizione e così via è ridotta a icona. 
 
-![Cercare sottoscrizioni di eventi](./media/monitor-event-delivery/search-and-select.png)
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="Visualizzare le metriche degli eventi":::
 
-Filtrare in base al tipo di evento, alla sottoscrizione e alla località. Selezionare **Metrica** per la sottoscrizione da visualizzare.
+È possibile creare grafici con metriche supportate usando la scheda **metriche** della pagina dell'argomento di **griglia di eventi** .
 
-![Filtrare sottoscrizioni di eventi](./media/monitor-event-delivery/filter-events.png)
+:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Argomento-pagina metrica":::
 
-Visualizzare le metriche per l'argomento e la sottoscrizione di eventi.
+Per altre informazioni sulle metriche, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md)
 
-![Visualizzare le metriche degli eventi](./media/monitor-event-delivery/subscription-metrics.png)
+Vedere, ad esempio, il grafico delle metriche per la metrica **eventi pubblicati** .
 
-Per trovare le metriche per una risorsa specifica, selezionare la risorsa. Selezionare quindi **Eventi**.
+:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Metrica eventi pubblicati":::
 
-![Selezionare gli eventi per una risorsa](./media/monitor-event-delivery/select-events.png)
 
-Vengono visualizzate le metriche per le sottoscrizioni per tale risorsa.
+## <a name="view-subscription-metrics"></a>Visualizzare le metriche delle sottoscrizioni
+1. Passare alla pagina dell' **argomento griglia di eventi** attenendosi alla procedura descritta nella sezione precedente. 
+2. Selezionare la sottoscrizione nel riquadro inferiore, come illustrato nell'esempio seguente. 
 
-## <a name="custom-event-status"></a>Stato dell'evento personalizzato
+    :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="Selezionare la sottoscrizione di eventi":::    
 
-Se è stato pubblicato un argomento personalizzato, è possibile visualizzare le relative metriche. Selezionare il gruppo di risorse per l'argomento e selezionare l'argomento.
+    È anche possibile cercare le **sottoscrizioni di griglia di eventi** nella barra di ricerca del portale di Azure, selezionare **tipo di argomento**, **sottoscrizione**e **località** per visualizzare una sottoscrizione di eventi. 
 
-![Selezionare l'argomento personalizzato](./media/monitor-event-delivery/select-custom-topic.png)
+    :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Pagina Seleziona sottoscrizione eventi dalla pagina sottoscrizioni di griglia di eventi":::        
 
-Visualizzare le metriche per l'argomento dell'evento personalizzato.
+    Per gli argomenti personalizzati, selezionare **argomenti griglia di eventi** come **tipo di argomento**. Per gli argomenti di sistema, selezionare il tipo di risorsa di Azure, ad esempio **account di archiviazione (BLOB, GPv2)**. 
+3. Vedere le metriche per la sottoscrizione nel home page per la sottoscrizione in un grafico. È possibile visualizzare **le metriche generali**, **errori**, **latenza**e messaggi non **recapitabili** per le ultime 1 ora, 6 ore, 12 ore, 1 giorno, 7 giorni o 30 giorni. 
 
-![Visualizzare le metriche degli eventi](./media/monitor-event-delivery/custom-topic-metrics.png)
+    :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Metriche sulla sottoscrizione home page":::    
 
-## <a name="set-alerts"></a>Impostazione di avvisi
+## <a name="view-system-topic-metrics"></a>Visualizza le metriche degli argomenti di sistema
 
-È possibile impostare gli avvisi sull'argomento e la metrica a livello di dominio per gli argomenti personalizzati e i domini di evento. Nel pannello panoramica per selezionare **avvisi** dal menu delle risorse a sinistra per visualizzare, gestire e creare regole di avviso. [Altre informazioni sugli avvisi di monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md)
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Nella barra di ricerca in questo argomento, digitare **argomenti di sistema griglia di eventi**, quindi selezionare **argomenti del sistema di griglia di eventi** nell'elenco a discesa. 
 
-![Visualizzare le metriche degli eventi](./media/monitor-event-delivery/select-alerts.png)
+    :::image type="content" source="./media/monitor-event-delivery/search-system-topics.png" alt-text="Cercare e selezionare gli argomenti di sistema di griglia di eventi":::
+3. Selezionare l'argomento di sistema dall'elenco di argomenti. 
+
+    :::image type="content" source="./media/monitor-event-delivery/select-system-topic.png" alt-text="Selezionare l'argomento di sistema":::
+4. Visualizzare le metriche per l'argomento di sistema nella pagina di **argomento del sistema di griglia di eventi** . Nell'immagine seguente la sezione **Essentials** che mostra il gruppo di risorse, la sottoscrizione e così via è ridotta a icona. 
+
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="Visualizzare le metriche degli argomenti di sistema nella pagina Panoramica":::
+
+È possibile creare grafici con metriche supportate usando la scheda **metriche** della pagina dell'argomento di **griglia di eventi** .
+
+:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Argomento sistema-pagina metrica":::
+
+Per altre informazioni sulle metriche, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
+Vedere gli articoli seguenti:
 
-* Per informazioni sul recapito di eventi e sui nuovi tentativi, vedere [Recapito di messaggi di Griglia di eventi e nuovi tentativi](delivery-and-retry.md).
-* Per un'introduzione a Griglia di eventi, vedere [Informazioni su Griglia di eventi](overview.md).
-* Per iniziare rapidamente a usare Griglia di eventi, vedere [Creare e instradare eventi personalizzati con Griglia di eventi di Azure](custom-event-quickstart.md).
+- Per informazioni su come creare avvisi per le metriche e le operazioni del log attività, vedere [impostare gli avvisi](set-alerts.md).
+- Per informazioni sul recapito di eventi e sui nuovi tentativi, vedere [Recapito di messaggi di Griglia di eventi e nuovi tentativi](delivery-and-retry.md).

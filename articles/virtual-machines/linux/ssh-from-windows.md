@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: cdf901ca56c150cfed6ba3d462ce493d40bd2488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81dfac2a1623253a110833a96fddd1b41bd11b26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390228"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Come usare le chiavi SSH con Windows in Azure
 
@@ -37,7 +37,7 @@ Altri comuni client SSH Windows che è possibile installare in locale sono inclu
 
 È anche possibile usare le utilità SSH disponibili in Bash in [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-* Accedere a Cloud Shell nel Web browser all' [https://shell.azure.com](https://shell.azure.com) indirizzo o nel [portale di Azure](https://portal.azure.com). 
+* Accedere a Cloud Shell nel Web browser all'indirizzo [https://shell.azure.com](https://shell.azure.com) o nel [portale di Azure](https://portal.azure.com). 
 * Accedere a Cloud Shell come un terminale da Visual Studio Code installando l'[estensione Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
@@ -61,21 +61,21 @@ Per creare una coppia di chiavi SSH RSA con PuTTYgen:
 
 1. Avviare PuTTYgen.
 
-2. Fare clic su **Genera**. Per impostazione predefinita PuTTYgen genera una chiave SSH-2 RSA a 2048 bit.
+2. Fai clic su **Genera**. Per impostazione predefinita PuTTYgen genera una chiave SSH-2 RSA a 2048 bit.
 
-4. Spostare il puntatore del mouse nell'area vuota per generare casualità per la chiave.
+3. Spostare il puntatore del mouse nell'area vuota per generare casualità per la chiave.
 
-5. Dopo la generazione della chiave pubblica, è possibile facoltativamente immettere e confermare una passphrase. La passphrase sarà chiesta in fase di autenticazione per la macchina virtuale con la chiave SSH privata. Senza una passphrase, se un utente ottiene la chiave privata, potrà accedere a qualsiasi macchina virtuale o servizio che usa tale chiave. Creare una passphrase è altamente consigliato. Tuttavia, se si dimentica la passphrase, non è possibile recuperarla.
+4. Dopo la generazione della chiave pubblica, è possibile facoltativamente immettere e confermare una passphrase. La passphrase sarà chiesta in fase di autenticazione per la macchina virtuale con la chiave SSH privata. Senza una passphrase, se un utente ottiene la chiave privata, potrà accedere a qualsiasi macchina virtuale o servizio che usa tale chiave. Creare una passphrase è altamente consigliato. Tuttavia, se si dimentica la passphrase, non è possibile recuperarla.
 
-6. La chiave pubblica è visualizzata nella parte superiore della finestra. È possibile copiare l'intera chiave pubblica e quindi incollarla nel portale di Azure o in un modello di Azure Resource Manager quando si crea una macchina virtuale Linux. È inoltre possibile selezionare **Salva chiave pubblica** per salvare una copia nel computer:
+5. La chiave pubblica è visualizzata nella parte superiore della finestra. È possibile copiare l'intera chiave pubblica e quindi incollarla nel portale di Azure o in un modello di Azure Resource Manager quando si crea una VM Linux. È anche possibile selezionare **Salva chiave pubblica** per salvare una copia nel computer. Si noti che quando si salva in un file, PuTTy converte la chiave pubblica in un formato diverso, [RFC4716](https://tools.ietf.org/html/rfc4716). Il formato RFC4716 potrebbe non essere compatibile con tutte le API. Quindi, per usare nella portale di Azure, è consigliabile copiare la chiave pubblica che viene visualizzata nella finestra PuTTy.
 
     ![Salvare un file di chiave pubblica PuTTY](./media/ssh-from-windows/save-public-key.png)
 
-7. Facoltativamente, per salvare la chiave privata nel formato chiave privata di PuTTy (file con estensione ppk), selezionare **Salva la chiave privata**. Il file con estensione ppk sarà necessario in un secondo momento per usare PuTTY per stabilire una connessione SSH alla macchina virtuale.
+6. Facoltativamente, per salvare la chiave privata nel formato chiave privata di PuTTy (file con estensione ppk), selezionare **Salva la chiave privata**. Il file con estensione ppk sarà necessario in un secondo momento per usare PuTTY per stabilire una connessione SSH alla macchina virtuale.
 
     ![Salvare il file della chiave privata PuTTY](./media/ssh-from-windows/save-ppk-file.png)
 
-    Se si vuole salvare la chiave privata nel formato OpenSSH, il formato di chiave privata usato da molti client SSH, selezionare **conversioni** > **Esporta chiave OpenSSH**.
+    Se si vuole salvare la chiave privata nel formato OpenSSH, il formato di chiave privata usato da molti client SSH, selezionare **conversioni**  >  **Esporta chiave OpenSSH**.
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Fornire una chiave SSH pubblica quando si distribuisce una macchina virtuale
 
@@ -111,7 +111,7 @@ Se è stato installato il [pacchetto di download di PuTTY](https://www.chiark.gr
 
     ![Aprire una nuova connessione PuTTY](./media/ssh-from-windows/putty-new-connection.png)
 
-3. Selezionare la categoria **connessione** > **SSH** > **AUTH** . Individuare e selezionare la chiave privata PuTTY (file con estensione ppk):
+3. Selezionare la categoria **connessione**  >  **SSH**  >  **AUTH** . Individuare e selezionare la chiave privata PuTTY (file con estensione ppk):
 
     ![Selezionare la chiave privata PuTTY per l'autenticazione](./media/ssh-from-windows/putty-auth-dialog.png)
 

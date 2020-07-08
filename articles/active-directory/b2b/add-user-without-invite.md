@@ -5,19 +5,19 @@ documentationcenter: ''
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42c9caaf581fab37e2e55cbe408db6d6d846622a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cab29fbe9e33cc12336fa1b81ed4aa37f91a7f5f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387304"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Aggiungere utenti guest di collaborazione B2B senza un collegamento di invito o un messaggio di posta elettronica
 
@@ -35,7 +35,7 @@ Se si invita un utente nella directory, l'utente guest deve accedere direttament
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è Azure AD collaborazione B2B?](what-is-b2b.md)
+- [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
 - [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md)
 - [Delegare gli inviti per Collaborazione B2B di Azure Active Directory](delegate-invitations.md)
 - [Procedura per aggiungere utenti di Collaborazione B2B da parte di Information Worker](add-users-information-worker.md)

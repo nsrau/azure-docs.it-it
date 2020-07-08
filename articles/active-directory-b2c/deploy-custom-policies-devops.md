@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b23b60ae49a4973fa04e6fa5f795f99536e32e7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388681"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuire criteri personalizzati con Azure Pipelines
 
@@ -29,7 +29,7 @@ Sono necessari tre passaggi principali per abilitare Azure Pipelines per gestire
 1. Configurare una pipeline di Azure
 
 > [!IMPORTANT]
-> La gestione di Azure AD B2C criteri personalizzati con una pipeline di **preview** Azure usa attualmente le operazioni di anteprima `/beta` disponibili nell'endpoint API Microsoft Graph. L'uso di queste API nelle applicazioni di produzione non è supportato. Per ulteriori informazioni, vedere il [riferimento all'endpoint dell'API REST di Microsoft Graph beta](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> La gestione di Azure AD B2C criteri personalizzati con una pipeline di Azure usa attualmente le operazioni di **Anteprima** disponibili nell'endpoint API Microsoft Graph `/beta` . L'uso di queste API nelle applicazioni di produzione non è supportato. Per ulteriori informazioni, vedere il [riferimento all'endpoint dell'API REST di Microsoft Graph beta](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,7 +46,7 @@ Lo scenario descritto di seguito consente di usare le chiamate da servizio a ser
 
 Come indicato nei [prerequisiti](#prerequisites), è necessaria la registrazione di un'applicazione che gli script di PowerShell, eseguiti da Azure Pipelines, possono usare per accedere alle risorse nel tenant.
 
-Se si dispone già di una registrazione dell'applicazione usata per le attività di automazione, verificare che sia stata concessa l'autorizzazione **Microsoft Graph** > **Policy** > policy policy **. ReadWrite. TrustFramework** all'interno delle **autorizzazioni API** della registrazione dell'app.
+Se si dispone già di una registrazione dell'applicazione usata per le attività di automazione, verificare che sia stata concessa l'autorizzazione **Microsoft Graph**  >  **policy policy**  >  **. ReadWrite. TrustFramework** all'interno delle **autorizzazioni API** della registrazione dell'app.
 
 Per istruzioni sulla registrazione di un'applicazione di gestione, vedere [manage Azure ad B2C with Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -58,9 +58,9 @@ Con un'applicazione di gestione registrata, si è pronti per configurare un repo
 1. [Creare un nuovo progetto][devops-create-project] o selezionarne uno esistente.
 1. Nel progetto passare a **repository** e selezionare la pagina **file** . Selezionare un repository esistente o crearne uno per questo esercizio.
 1. Creare una cartella denominata *B2CAssets*. Denominare il file segnaposto obbligatorio *Readme.MD* ed eseguire il **commit** del file. Se lo si desidera, è possibile rimuovere il file in un secondo momento.
-1. Aggiungere i file dei criteri di Azure AD B2C alla cartella *B2CAssets* Sono inclusi *TrustFrameworkBase.* XML, *TrustFrameWorkExtensions. XML*, *SignUpOrSignin. XML*, *ProfileEdit. XML*, *PasswordReset. XML*e qualsiasi altro criterio creato. Registrare il nome file di ogni file di criteri di Azure AD B2C per l'uso in un passaggio successivo, che vengono usati come argomenti dello script di PowerShell.
-1. Creare una cartella denominata *Scripts* nella directory radice del repository, denominare il file segnaposto *DeployToB2c. ps1*. Non eseguire il commit del file in questo momento, in un passaggio successivo.
-1. Incollare lo script di PowerShell seguente in *DeployToB2c. ps1*, quindi eseguire il **commit** del file. Lo script acquisisce un token da Azure AD e chiama l'API Microsoft Graph per caricare i criteri all'interno della cartella *B2CAssets* nel tenant di Azure ad B2C.
+1. Aggiungere i file dei criteri di Azure AD B2C alla cartella *B2CAssets* Sono inclusi *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*e qualsiasi altro criterio creato. Registrare il nome file di ogni file di criteri di Azure AD B2C per l'uso in un passaggio successivo, che vengono usati come argomenti dello script di PowerShell.
+1. Creare una cartella denominata *Scripts* nella directory radice del repository, denominare il file segnaposto *DeployToB2c.ps1*. Non eseguire il commit del file in questo momento, in un passaggio successivo.
+1. Incollare lo script di PowerShell seguente in *DeployToB2c.ps1*, quindi eseguire il **commit** del file. Lo script acquisisce un token da Azure AD e chiama l'API Microsoft Graph per caricare i criteri all'interno della cartella *B2CAssets* nel tenant di Azure ad B2C.
 
     ```PowerShell
     [Cmdletbinding()]
@@ -114,7 +114,7 @@ Con il repository inizializzato e popolato con i file dei criteri personalizzati
 ### <a name="create-pipeline"></a>Creare una pipeline
 
 1. Accedere all'organizzazione Azure DevOps Services e passare al progetto.
-1. Nel progetto selezionare **pipeline** > **rilascia** > la**nuova pipeline**.
+1. Nel progetto selezionare **pipeline**  >  **rilascia**la  >  **nuova pipeline**.
 1. In **Seleziona un modello**selezionare **processo vuoto**.
 1. Immettere un **nome**per la fase, ad esempio *DeployCustomPolicies*, quindi chiudere il riquadro.
 1. Selezionare **Aggiungi un artefatto**e in **tipo di origine**selezionare **repository di Azure**.
@@ -144,14 +144,14 @@ Con il repository inizializzato e popolato con i file dei criteri personalizzati
 Aggiungere quindi un'attività per distribuire un file di criteri.
 
 1. Selezionare la scheda **attività** .
-1. Selezionare **processo agente**, quindi selezionare il segno più (**+**) per aggiungere un'attività al processo dell'agente.
+1. Selezionare **processo agente**, quindi selezionare il segno più ( **+** ) per aggiungere un'attività al processo dell'agente.
 1. Cercare e selezionare **PowerShell**. Non selezionare "Azure PowerShell", "PowerShell nei computer di destinazione" o un'altra voce di PowerShell.
 1. Selezionare l'attività **script di PowerShell** appena aggiunta.
 1. Immettere i valori seguenti per l'attività script di PowerShell:
     * **Versione attività**: 2. *
     * **Nome visualizzato**: il nome dei criteri che questa attività deve caricare. Ad esempio, *B2C_1A_TrustFrameworkBase*.
     * **Tipo**: percorso file
-    * **Percorso script**: selezionare i puntini di sospensione (***...***), passare alla cartella *script* e quindi selezionare il file *DeployToB2C. ps1* .
+    * **Percorso script**: selezionare i puntini di sospensione (***...***), passare alla cartella *script* e quindi selezionare il file *DeployToB2C.ps1* .
     * **Argomenti:**
 
         Immettere i valori seguenti per gli **argomenti**. Sostituire `{alias-name}` con l'alias specificato nella sezione precedente.
@@ -172,11 +172,11 @@ Aggiungere quindi un'attività per distribuire un file di criteri.
 
 L'attività appena aggiunta carica *un* file di criteri per Azure ad B2C. Prima di procedere, attivare manualmente il processo (**Crea versione**) per assicurarsi che venga completato correttamente prima di creare altre attività.
 
-Se l'attività viene completata correttamente, aggiungere le attività di distribuzione eseguendo i passaggi precedenti per ognuno dei file di criteri personalizzati. Modificare i `-PolicyId` valori `-PathToFile` degli argomenti e per ogni criterio.
+Se l'attività viene completata correttamente, aggiungere le attività di distribuzione eseguendo i passaggi precedenti per ognuno dei file di criteri personalizzati. Modificare i `-PolicyId` `-PathToFile` valori degli argomenti e per ogni criterio.
 
-`PolicyId` È un valore trovato all'inizio di un file di criteri XML all'interno del nodo TrustFrameworkPolicy. Ad esempio, `PolicyId` nell'XML dei criteri seguente viene *B2C_1A_TrustFrameworkBase*:
+`PolicyId`È un valore trovato all'inizio di un file di criteri XML all'interno del nodo TrustFrameworkPolicy. Ad esempio, `PolicyId` nell'XML dei criteri seguente viene *B2C_1A_TrustFrameworkBase*:
 
-```XML
+```xml
 <TrustFrameworkPolicy
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -191,9 +191,9 @@ Quando si eseguono gli agenti e si caricano i file dei criteri, assicurarsi che 
 
 1. *TrustFrameworkBase.xml*
 1. *TrustFrameworkExtensions.xml*
-1. *SignUpOrSignin. XML*
-1. *ProfileEdit. XML*
-1. *PasswordReset. XML*
+1. *SignUpOrSignin.xml*
+1. *ProfileEdit.xml*
+1. *PasswordReset.xml*
 
 Il Framework dell'esperienza di identità impone questo ordine quando la struttura dei file è compilata in una catena gerarchica.
 

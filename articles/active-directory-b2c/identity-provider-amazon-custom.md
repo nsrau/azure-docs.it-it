@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 059c43b24ddc9f319eac4f2783cfc203bed8c7f1
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 90b107b2335bd5f08eeb0b9aa66c7a9db9b74eb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900425"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388562"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Amazon usando criteri personalizzati in Azure Active Directory B2C
 
@@ -27,11 +27,11 @@ Questo articolo illustra come abilitare l'accesso per gli utenti da un account A
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completare la procedura descritta in [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
-- Se non si ha già un account Amazon, crearne uno [https://www.amazon.com/](https://www.amazon.com/)all'indirizzo.
+- Se non si ha già un account Amazon, crearne uno all'indirizzo [https://www.amazon.com/](https://www.amazon.com/) .
 
 ## <a name="create-an-app-in-the-amazon-developer-console"></a>Creare un'app in Amazon Developer Console
 
-Per usare un account Amazon come provider di identità federato in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione in [Amazon Developer Services and Technologies](https://developer.amazon.com). Se non si ha già un account Amazon, è possibile iscriversi all' [https://www.amazon.com/](https://www.amazon.com/)indirizzo.
+Per usare un account Amazon come provider di identità federato in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione in [Amazon Developer Services and Technologies](https://developer.amazon.com). Se non si ha già un account Amazon, è possibile iscriversi all'indirizzo [https://www.amazon.com/](https://www.amazon.com/) .
 
 > [!NOTE]  
 > Usare gli URL seguenti nel **passaggio 8** seguente, sostituendo `your-tenant-name` con il nome del tenant. Quando si immette il nome del tenant, usare tutte le lettere minuscole, anche se il tenant è definito con lettere maiuscole in Azure AD B2C.
@@ -53,7 +53,7 @@ Per usare un account Amazon come provider di identità federato in Azure Active 
 7. Immettere un **nome** per la chiave dei criteri. Ad esempio: `AmazonSecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 8. In **Segreto** immettere il segreto client registrato in precedenza.
 9. In **Uso chiave** selezionare `Signature`.
-10. Scegliere **Crea**.
+10. Fare clic su **Crea**.
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
@@ -133,7 +133,7 @@ L'elemento **ClaimsProviderSelection** è analogo a un pulsante per il provider 
 1. Trovare l'elemento **OrchestrationStep** che include `Order="1"` nel percorso utente creato.
 2. In **ClaimsProviderSelects** aggiungere l'elemento riportato di seguito. Impostare **TargetClaimsExchangeId** su un valore appropriato, ad esempio `AmazonExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="AmazonExchange" />
     ```
 
@@ -144,7 +144,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 1. Trovare l'elemento **OrchestrationStep** che include `Order="2"` nel percorso utente.
 2. Aggiungere l'elemento **ClaimsExchange** seguente assicurandosi di usare per ID lo stesso valore usato per **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
 

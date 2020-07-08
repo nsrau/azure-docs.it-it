@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2c351f8a95110a32c53c68c5eb6095918578bc5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c159e78d0aa065b53b1164e01309e770302fb1ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389021"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare la modifica delle password usando criteri personalizzati in Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 1. Aprire il file *TrustframeworkExtensions.xml* e aggiungere il seguente elemento **ClaimType** con un identificatore di `oldPassword` per l'elemento [ClaimsSchema](claimsschema.md):
 
-    ```XML
+    ```xml
     <BuildingBlocks>
       <ClaimsSchema>
         <ClaimType Id="oldPassword">
@@ -47,7 +47,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 2. Un elemento [ClaimsProvider](claimsproviders.md) contiene il profilo tecnico che autentica l'utente. Aggiungere i provider di attestazioni seguenti all'elemento **ClaimsProviders**:
 
-    ```XML
+    ```xml
     <ClaimsProviders>
       <ClaimsProvider>
         <DisplayName>Local Account SignIn</DisplayName>
@@ -125,7 +125,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 3. L'elemento [UserJourney](userjourneys.md) definisce il percorso dell'utente durante l'interazione con l'applicazione. Aggiungere l'elemento **UserJourneys**, se non esiste, con **UserJourney** identificato come `PasswordChange`:
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="PasswordChange">
         <OrchestrationSteps>
@@ -168,7 +168,7 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **Framework esperienza di identità**.
+4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 5. Nella pagina dei criteri personalizzati, fare clic su **Carica criterio**.
 6. Selezionare **Sovrascrivi il criterio se esistente**, quindi cercare e selezionare il file *TrustframeworkExtensions.xml*.
 7. Fare clic su **Carica**.

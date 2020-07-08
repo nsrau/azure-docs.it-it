@@ -6,31 +6,27 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389973"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
 
 Usando automazione di Azure e manuali operativi di PowerShell, è possibile eseguire operazioni automatiche di aggiornamento dei dati nei modelli tabulari di Azure Analysis.  
 
-L'esempio in questo articolo usa i [moduli di PowerShell SqlServer](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps).
-
-Un esempio di Runbook di PowerShell, che illustra l'aggiornamento di un modello, è disponibile più avanti in questo articolo.  
+L'esempio in questo articolo usa il [modulo di PowerShell SqlServer](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Un esempio di Runbook di PowerShell, che illustra l'aggiornamento di un modello, è disponibile più avanti in questo articolo.  
 
 ## <a name="authentication"></a>Authentication
 
-Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido.  Nell'esempio riportato in questo articolo verrà usata un'entità servizio (SPN) per l'autenticazione Azure Analysis Services.
-
-Per altre informazioni sulla creazione di un'entità servizio, vedere [creare un'entità servizio usando portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md).
+Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido.  L'esempio in questo articolo usa un'entità servizio (SPN) per eseguire l'autenticazione Azure Analysis Services. Per altre informazioni, vedere [creare un'entità servizio usando portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!IMPORTANT]
-> Nell'esempio seguente si presuppone che Azure Analysis Services firewall sia disabilitato. Se il firewall è abilitato, l'indirizzo IP pubblico dell'iniziatore della richiesta deve essere inserito nell'elenco elementi consentiti nel firewall.
+> Nell'esempio seguente si presuppone che Azure Analysis Services firewall sia disabilitato. Se è abilitato un firewall, l'indirizzo IP pubblico dell'initiator della richiesta deve essere incluso in una regola del firewall.
 
 ### <a name="install-sqlserver-modules-from-powershell-gallery"></a>Installare i moduli SqlServer da PowerShell Gallery.
 
@@ -68,7 +64,7 @@ L'entità servizio creata deve avere le autorizzazioni di amministratore del ser
 
     ![Importare Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Individuare il file **Refresh-Model. ps1** , specificare un **nome** e una **Descrizione**, quindi fare clic su **Crea**.
+4. Individuare il file di **Refresh-Model.ps1** , specificare un **nome** e una **Descrizione**, quindi fare clic su **Crea**.
 
     ![Importare Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
@@ -101,11 +97,11 @@ Questa configurazione può essere configurata nel modo seguente:
  
     ![Crea pianificazione](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Fare clic su **pianificazione** > per**creare una nuova pianificazione**e quindi specificare i dettagli.
+2. Fare clic su **pianificazione**  >  per**creare una nuova pianificazione**e quindi specificare i dettagli.
 
     ![Configura pianificazione](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. Scegliere **Crea**.
+3. Fare clic su **Crea**.
 
 4. Immettere i parametri per la pianificazione. Questi verranno usati ogni volta che il Runbook viene attivato. Il parametro **WEBHOOKDATA** deve essere lasciato vuoto durante l'esecuzione tramite una pianificazione.
 
@@ -144,10 +140,10 @@ L' **URL** è l'URL creato dal webhook.
 Il **corpo** è un documento JSON che deve contenere le proprietà seguenti:
 
 
-|Proprietà  |Value  |
+|Proprietà  |valore  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Nome del database di Azure Analysis Services <br/> Esempio: AdventureWorksDB         |
-|**AnalysisServicesServer**     |Nome del server Azure Analysis Services. <br/> Esempio: https:\//westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/         |
+|**AnalysisServicesServer**     |Nome del server Azure Analysis Services. <br/> Esempio: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/         |
 |**DatabaseRefreshType**     |Tipo di aggiornamento da eseguire. <br/> Esempio: completo         |
 
 Corpo JSON di esempio:
@@ -175,7 +171,7 @@ Una macchina virtuale di Azure con un indirizzo IP pubblico statico può essere 
 >
 >Per altre informazioni sulla configurazione dei ruoli di lavoro ibridi di automazione di Azure, vedere [Hybrid Runbook Worker Installation](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
-Una volta configurato un ruolo di lavoro ibrido, creare un webhook, come descritto nella sezione [utilizzare con data factory](#consume-with-data-factory).  L'unica differenza consiste nel selezionare l'opzione **Esegui in** > un ruolo di**lavoro ibrido** durante la configurazione del webhook.
+Una volta configurato un ruolo di lavoro ibrido, creare un webhook, come descritto nella sezione [utilizzare con data factory](#consume-with-data-factory).  L'unica differenza consiste nel selezionare l'opzione **Esegui in**un ruolo di  >  **lavoro ibrido** durante la configurazione del webhook.
 
 Webhook di esempio con ruolo di lavoro ibrido:
 

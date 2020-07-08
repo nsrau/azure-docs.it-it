@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 62a283efb93987d3c4a6564c9b25d2031c269559
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e07be01a0fb6d74b4dcef5cbc6ec129f95fd2e7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051457"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387933"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Twitter tramite Azure Active Directory B2C
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
-Per usare Twitter come provider di identità in Azure AD B2C, è necessario creare un'applicazione Twitter. Se non si ha già un account Twitter, è possibile iscriversi all' [https://twitter.com/signup](https://twitter.com/signup)indirizzo.
+Per usare Twitter come provider di identità in Azure AD B2C, è necessario creare un'applicazione Twitter. Se non si ha già un account Twitter, è possibile iscriversi all'indirizzo [https://twitter.com/signup](https://twitter.com/signup) .
 
 1. Accedere al [sito Web di sviluppatori Twitter](https://developer.twitter.com/en/apps) con le credenziali dell'account Twitter.
 1. Selezionare **Crea un'app**.
@@ -35,11 +35,11 @@ Per usare Twitter come provider di identità in Azure AD B2C, è necessario crea
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Configurare Twitter come provider di identità nel tenant,
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure ad B2C.
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 1. Selezionare **provider di identità**e quindi selezionare **Twitter**.
-1. Immettere un **nome**. Ad esempio *Twitter*.
+1. Immettere un **Nome**. Ad esempio *Twitter*.
 1. Per **ID client**, immettere la chiave API del consumer dell'applicazione Twitter creata in precedenza.
 1. Per il **segreto client**, immettere la chiave privata dell'API utente registrata.
 1. Selezionare **Salva**.

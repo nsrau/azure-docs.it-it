@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be3a7a3ce4ce3a06398436058ea5d4d935ef5a5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06ba565de8ca24c8c0baa576b74e70035384be09
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678084"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388426"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Azure Active Directory usando criteri personalizzati in Azure Active Directory B2C
 
@@ -35,15 +35,15 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 È necessario archiviare la chiave dell'applicazione creata nel tenant di Azure AD B2C.
 
-1. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il **filtro directory + sottoscrizione** nel menu in alto e quindi scegliere la directory che contiene il tenant Azure ad B2C.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. Selezionare il **filtro directory + sottoscrizione** nel menu in alto e quindi scegliere la directory che contiene il tenant Azure ad B2C.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-1. In **criteri**selezionare **Framework esperienza di identità**.
+1. In **Criteri** selezionare **Identity Experience Framework**.
 1. Selezionare **chiavi dei criteri** e quindi selezionare **Aggiungi**.
 1. Per **Opzioni** scegliere `Manual`.
 1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `ContosoAppSecret`.  Il prefisso `B2C_1A_` viene aggiunto automaticamente al nome della chiave quando viene creato, quindi il riferimento nel codice XML nella sezione seguente consiste nel *B2C_1A_ContosoAppSecret*.
 1. In **Secret**immettere il segreto client registrato in precedenza.
 1. In **Uso chiave** selezionare `Signature`.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
@@ -103,11 +103,11 @@ Per consentire agli utenti di accedere con Azure AD, è necessario definire Azur
 
 Per ottenere un token dall'endpoint di Azure AD, è necessario definire i protocolli che Azure AD B2C deve usare per comunicare con Azure AD. Questa operazione viene eseguita all'interno dell'elemento **TechnicalProfile** di **ClaimsProvider**.
 
-1. Aggiornare l'ID dell'elemento **TechnicalProfile**. Questo ID viene usato per fare riferimento a questo profilo tecnico da altre parti del criterio, ad esempio `OIDC-Contoso`.
+1. Aggiornare l'ID dell'elemento **TechnicalProfile**. Questo ID viene usato per fare riferimento a questo profilo tecnico da altre parti del criterio, ad esempio `OIDC-Contoso` .
 1. Aggiornare il valore di **DisplayName**. Questo valore verrà visualizzato sul pulsante di accesso nella schermata di accesso.
 1. Aggiornare il valore di **Description**.
 1. Azure AD usa il protocollo OpenID Connect, pertanto è necessario verificare che il valore di **Protocol** sia `OpenIdConnect`.
-1. Impostare il valore di **METADATA** su `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, dove `tenant-name` è il nome del tenant di Azure AD. Ad esempio, usare `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
+1. Impostare il valore di **METADATA** su `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, dove `tenant-name` è il nome del tenant di Azure AD. Ad esempio: `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. Impostare **client_id** sull'ID applicazione ottenuto con la registrazione dell'applicazione.
 1. In **CryptographicKeys**aggiornare il valore di **ID riferimento archiviazione** con il nome della chiave dei criteri creata in precedenza. Ad esempio: `B2C_1A_ContosoAppSecret`.
 
@@ -133,10 +133,10 @@ A questo punto, il provider di identità è stato configurato, ma non è ancora 
 
 L'elemento **ClaimsProviderSelection** è analogo a un pulsante del provider di identità in una pagina di iscrizione/accesso. Se si aggiunge un elemento **ClaimsProviderSelection** per Azure AD, quando un utente apre la pagina viene visualizzato un nuovo pulsante.
 
-1. Trovare l'elemento **OrchestrationStep** che include `Order="1"` nel percorso utente creato in *TrustFrameworkExtensions. XML*.
+1. Trovare l'elemento **OrchestrationStep** che include `Order="1"` nel percorso utente creato in *TrustFrameworkExtensions.xml*.
 1. In **ClaimsProviderSelections** aggiungere l'elemento riportato di seguito. Impostare **TargetClaimsExchangeId** su un valore appropriato, ad esempio `ContosoExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
     ```
 
@@ -145,13 +145,13 @@ L'elemento **ClaimsProviderSelection** è analogo a un pulsante del provider di 
 Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. L'azione, in questo caso, consiste nel far comunicare Azure AD B2C con Azure AD per ricevere un token. È possibile farlo collegando il profilo tecnico per il provider di attestazioni di Azure AD:
 
 1. Trovare l'elemento **OrchestrationStep** che include `Order="2"` nel percorso utente.
-1. Aggiungere l'elemento **ClaimsExchange** seguente assicurandosi di usare per **Id** lo stesso valore che è stato usato per **TargetClaimsExchangeId**:
+1. Aggiungere l'elemento **ClaimsExchange** seguente assicurandosi di usare lo stesso valore per **ID** usato per **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="OIDC-Contoso" />
     ```
 
-    Aggiornare il valore di **TechnicalProfileReferenceId** con l'**ID** del profilo tecnico creato in precedenza. Ad esempio: `OIDC-Contoso`.
+    Aggiornare il valore di **TechnicalProfileReferenceId** con l' **ID** del profilo tecnico creato in precedenza. Ad esempio: `OIDC-Contoso`.
 
 1. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
 
@@ -175,7 +175,7 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
 1. Copiare l' **endpoint Run Now** e aprirlo in una finestra del browser privata, ad esempio in modalità in incognito in Google Chrome o in una finestra InPrivate in Microsoft Edge. L'apertura in una finestra del browser privata consente di testare il percorso utente completo senza usare le credenziali Azure AD attualmente memorizzate nella cache.
 1. Selezionare il pulsante Azure AD accedi, ad esempio *Contoso Employee*, quindi immettere le credenziali per un utente nel tenant dell'organizzazione Azure ad. Viene richiesto di autorizzare l'applicazione, quindi immettere le informazioni per il profilo.
 
-Se il processo di accesso ha esito positivo, il browser viene `https://jwt.ms`reindirizzato a, che Visualizza il contenuto del token restituito da Azure ad B2C.
+Se il processo di accesso ha esito positivo, il browser viene reindirizzato a `https://jwt.ms` , che Visualizza il contenuto del token restituito da Azure ad B2C.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

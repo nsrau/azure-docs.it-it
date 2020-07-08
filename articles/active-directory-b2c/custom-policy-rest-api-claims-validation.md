@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4902e96cd41a02953b6686b5d52d7912b27809f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6381f678979437fdfc10d2ea63a79ed347183e92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330828"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388919"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Procedura dettagliata: integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C per convalidare l'input dell'utente
 
@@ -31,13 +31,13 @@ In questo scenario verrà aggiunta la possibilità per gli utenti di immettere u
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completare la procedura descritta in [Introduzione ai criteri personalizzati](custom-policy-get-started.md). È necessario disporre di un criterio personalizzato di lavoro per l'iscrizione e l'accesso con account locali.
-- Informazioni su come [integrare scambi di attestazioni API REST nei criteri personalizzati Azure ad B2C](custom-policy-rest-api-intro.md).
+- Informazioni su come [integrare scambi di attestazioni API REST nei criteri personalizzati di Azure AD B2C](custom-policy-rest-api-intro.md).
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Preparare un endpoint dell'API REST
 
 Per questa procedura dettagliata, è necessario disporre di un'API REST per verificare se un indirizzo di posta elettronica è registrato nel sistema back-end con un ID fedeltà. Se registrata, l'API REST deve restituire un codice promozionale per la registrazione, che può essere usato dal cliente per acquistare beni all'interno dell'applicazione. In caso contrario, l'API REST deve restituire un messaggio di errore HTTP 409: "ID fedeltà' {ID fedeltà}' non è associato all'indirizzo di posta elettronica ' {email}'".
 
-Il codice JSON seguente illustra i dati Azure AD B2C invierà all'endpoint dell'API REST. 
+Il codice JSON seguente illustra i dati che Azure AD B2C invierà all'endpoint dell'API REST. 
 
 ```json
 {
@@ -47,7 +47,7 @@ Il codice JSON seguente illustra i dati Azure AD B2C invierà all'endpoint dell'
 }
 ```
 
-Quando l'API REST convalida i dati, deve restituire un HTTP 200 (OK) con i dati JSON seguenti:
+Quando l'API REST convalida i dati, deve restituire un codice HTTP 200 (Ok) con i dati JSON seguenti:
 
 ```json
 {
@@ -55,7 +55,7 @@ Quando l'API REST convalida i dati, deve restituire un HTTP 200 (OK) con i dati 
 }
 ```
 
-Se la convalida ha esito negativo, l'API REST deve restituire un HTTP 409 (conflitto) `userMessage` con l'elemento JSON. Framework dell'esperienza prevede l' `userMessage` attestazione restituita dall'API REST. Questa attestazione verrà presentata come stringa all'utente in caso di esito negativo della convalida.
+Se la convalida ha esito negativo, l'API REST deve restituire un HTTP 409 (conflitto) con l' `userMessage` elemento JSON. Framework dell'esperienza prevede l' `userMessage` attestazione restituita dall'API REST. Questa attestazione verrà presentata come stringa all'utente in caso di esito negativo della convalida.
 
 ```json
 {
@@ -65,16 +65,16 @@ Se la convalida ha esito negativo, l'API REST deve restituire un HTTP 409 (confl
 }
 ```
 
-La configurazione dell'endpoint dell'API REST esula dall'ambito di questo articolo. È stato creato un esempio di [funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-reference) . È possibile accedere al codice completo della funzione di Azure in [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+La configurazione dell'endpoint dell'API REST non rientra nell'ambito di questo articolo. È stata creato un esempio di [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-reference). È possibile accedere al codice completo della funzione di Azure in [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
-## <a name="define-claims"></a>Definisci attestazioni
+## <a name="define-claims"></a>Definire attestazioni
 
-Un'attestazione fornisce l'archiviazione temporanea dei dati durante l'esecuzione di un Azure AD B2C criteri. È possibile dichiarare attestazioni nella sezione [schema delle attestazioni](claimsschema.md) . 
+Un'attestazione fornisce un'archiviazione temporanea dei dati durante l'esecuzione dei criteri di Azure AD B2C. È possibile dichiarare attestazioni nella sezione [ClaimsSchema](claimsschema.md). 
 
-1. Aprire il file delle estensioni dei criteri. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
+1. Aprire il file di estensioni dei criteri, ad esempio <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Cercare l'elemento [BuildingBlocks](buildingblocks.md). Se l'elemento non esiste, aggiungerlo.
-1. Individuare l'elemento [ClaimsSchema](claimsschema.md) . Se l'elemento non esiste, aggiungerlo.
-1. Aggiungere le attestazioni seguenti all'elemento **ClaimsSchema** .  
+1. Individuare l'elemento [ClaimsSchema](claimsschema.md). Se l'elemento non esiste, aggiungerlo.
+1. Aggiungere le attestazioni seguenti all'elemento **ClaimsSchema**.  
 
 ```xml
 <ClaimType Id="loyaltyId">
@@ -95,7 +95,7 @@ Un'attestazione fornisce l'archiviazione temporanea dei dati durante l'esecuzion
 
 ## <a name="configure-the-restful-api-technical-profile"></a>Configurare il profilo tecnico dell'API RESTful 
 
-Un [profilo tecnico RESTful](restful-technical-profile.md) fornisce supporto per l'interazione con il servizio RESTful. Azure AD B2C invia dati al servizio RESTful in una `InputClaims` raccolta e riceve di nuovo i dati in `OutputClaims` una raccolta. Trovare l'elemento **ClaimsProviders** e aggiungere un nuovo provider di attestazioni come indicato di seguito:
+Un [profilo tecnico RESTful](restful-technical-profile.md) fornisce supporto per l'interazione con il servizio RESTful. Azure AD B2C invia dati al servizio RESTful in una raccolta `InputClaims` e riceve dati in una raccolta `OutputClaims`. Trovare l'elemento **ClaimsProviders** e aggiungere un nuovo provider di attestazioni come indicato di seguito:
 
 ```xml
 <ClaimsProvider>
@@ -128,15 +128,15 @@ Un [profilo tecnico RESTful](restful-technical-profile.md) fornisce supporto per
 </ClaimsProvider>
 ```
 
-In questo esempio l'oggetto `userLanguage` verrà inviato al servizio REST come `lang` all'interno del payload JSON. Il valore dell' `userLanguage` attestazione contiene l'ID della lingua utente corrente. Per altre informazioni, vedere [resolver di attestazioni](claim-resolver-overview.md).
+In questo esempio `userLanguage` viene inviato al servizio REST come `lang` nel payload JSON. Il valore dell'attestazione `userLanguage` contiene l'ID della lingua utente corrente. Per altre informazioni, vedere i [resolver di attestazioni](claim-resolver-overview.md).
 
-I commenti precedenti `AuthenticationType` e `AllowInsecureAuthInProduction` specificano le modifiche che è necessario apportare quando si passa a un ambiente di produzione. Per informazioni su come proteggere le API RESTful per la produzione, vedere [proteggere l'API RESTful](secure-rest-api.md).
+I commenti precedenti `AuthenticationType` e `AllowInsecureAuthInProduction` specificano le modifiche che è necessario apportare quando si passa a un ambiente di produzione. Per informazioni su come proteggere le API RESTful per la produzione, vedere [Proteggere i servizi RESTful](secure-rest-api.md).
 
 ## <a name="validate-the-user-input"></a>Convalidare l'input dell'utente
 
-Per ottenere il numero di fedeltà dell'utente durante l'iscrizione, è necessario consentire all'utente di immettere questi dati sullo schermo. Aggiungere l'attestazione di output **loyaltyId** alla pagina di iscrizione aggiungendola all'elemento della sezione del `OutputClaims` profilo tecnico di iscrizione esistente. Specificare l'intero elenco di attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo.  
+Per ottenere il numero di fedeltà dell'utente durante l'iscrizione, è necessario consentire all'utente di immettere questi dati sullo schermo. Aggiungere l'attestazione di output **loyaltyId** alla pagina di iscrizione aggiungendola all'elemento della sezione del profilo tecnico di iscrizione esistente `OutputClaims` . Specificare l'intero elenco di attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo.  
 
-Aggiungere il riferimento al profilo tecnico di convalida al profilo tecnico di iscrizione, che chiama `REST-ValidateProfile`. Il nuovo profilo tecnico di convalida verrà aggiunto all'inizio della `<ValidationTechnicalProfiles>` raccolta definita nei criteri di base. Questo comportamento significa che, solo dopo la corretta convalida, Azure AD B2C passa a crea l'account nella directory.   
+Aggiungere il riferimento al profilo tecnico di convalida al profilo tecnico di iscrizione, che chiama `REST-ValidateProfile` . Il nuovo profilo tecnico di convalida verrà aggiunto all'inizio della `<ValidationTechnicalProfiles>` raccolta definita nei criteri di base. Questo comportamento significa che, solo dopo la corretta convalida, Azure AD B2C passa a crea l'account nella directory.   
 
 1. Trovare l'elemento **ClaimsProviders**. Aggiungere un nuovo provider di attestazioni come segue:
 
@@ -192,7 +192,7 @@ Aggiungere il riferimento al profilo tecnico di convalida al profilo tecnico di 
 
 ## <a name="include-a-claim-in-the-token"></a>Includere un'attestazione nel token 
 
-Per restituire l'attestazione del codice promozionale all'applicazione relying party, aggiungere un'attestazione di <em> `SocialAndLocalAccounts/` </em> output al file. L'attestazione di output consentirà di aggiungere l'attestazione al token dopo un percorso utente completato e verrà inviata all'applicazione. Modificare l'elemento profilo tecnico nella sezione relying party per aggiungere `promoCode` come attestazione di output.
+Per restituire l'attestazione del codice promozionale all'applicazione relying party, aggiungere un'attestazione di output al <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. L'attestazione di output consentirà di aggiungere l'attestazione al token dopo un percorso utente completato e verrà inviata all'applicazione. Modificare l'elemento profilo tecnico nella sezione relying party per aggiungere `promoCode` come attestazione di output.
  
 ```xml
 <RelyingParty>
@@ -218,10 +218,10 @@ Per restituire l'attestazione del codice promozionale all'applicazione relying p
 ## <a name="test-the-custom-policy"></a>Testare i criteri personalizzati
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD. A tale scopo, selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant di Azure AD.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
-1. Selezionare **Framework esperienza di identità**.
-1. Selezionare **carica criteri personalizzati**, quindi caricare i file dei criteri modificati: *TrustFrameworkExtensions. XML*e *SignUpOrSignin. XML*. 
+1. Fare clic su **Framework dell'esperienza di gestione delle identità**.
+1. Selezionare **carica criteri personalizzati**, quindi caricare i file dei criteri modificati: *TrustFrameworkExtensions.xml*e *SignUpOrSignin.xml*. 
 1. Selezionare il criterio di iscrizione o di accesso che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 1. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 1. Fare clic sul collegamento **Iscriviti ora** .
@@ -255,8 +255,8 @@ Per restituire l'attestazione del codice promozionale all'applicazione relying p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come proteggere le API, vedere gli articoli seguenti:
+Vedere gli articoli seguenti per informazioni su come proteggere le API:
 
 - [Procedura dettagliata: Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C come passaggio di orchestrazione](custom-policy-rest-api-claims-exchange.md)
-- [Proteggere l'API RESTful](secure-rest-api.md)
-- [Informazioni di riferimento: profilo tecnico RESTful](restful-technical-profile.md)
+- [Proteggere i servizi RESTful](secure-rest-api.md)
+- [Informazioni di riferimento: Profilo tecnico RESTful](restful-technical-profile.md)

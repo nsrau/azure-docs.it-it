@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a7435abf2740800184a6de1aad07bca53cd56cf8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba2441ae48c99d63ae637d2b80069058a04c5ef9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388188"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account GitHub tramite Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78188206"
 
 ## <a name="create-a-github-oauth-application"></a>Creare un'applicazione OAuth per GitHub
 
-Per usare un account GitHub come [provider di identità](authorization-code-flow.md) in Azure Active Directory B2C (Azure ad B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si ha già un account GitHub, è possibile iscriversi all' [https://www.github.com/](https://www.github.com/)indirizzo.
+Per usare un account GitHub come [provider di identità](authorization-code-flow.md) in Azure Active Directory B2C (Azure ad B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si ha già un account GitHub, è possibile iscriversi all'indirizzo [https://www.github.com/](https://www.github.com/) .
 
 1. Accedere al sito Web [GitHub Developer](https://github.com/settings/developers) con le credenziali di GitHub.
 1. Selezionare **OAuth Apps** (App OAuth) e **New OAuth App** (Nuova app OAuth).
@@ -35,11 +35,11 @@ Per usare un account GitHub come [provider di identità](authorization-code-flow
 
 ## <a name="configure-a-github-account-as-an-identity-provider"></a>Configurare un account GitHub come provider di identità
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure ad B2C.
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 1. Selezionare **provider di identità**, quindi **GitHub (anteprima)**.
-1. Immettere un **nome**. Ad esempio, *GitHub*.
+1. Immettere un **Nome**. Ad esempio, *GitHub*.
 1. Per **ID client**, immettere l'ID client dell'applicazione GitHub creata in precedenza.
 1. Per il **segreto client**, immettere il segreto client registrato.
 1. Selezionare **Salva**.

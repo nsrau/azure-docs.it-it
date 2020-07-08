@@ -3,20 +3,20 @@ title: Accedere alle proprietà di sistema dei documenti tramite Graph di Azure 
 description: Informazioni su come leggere e scrivere le proprietà di sistema dei documenti tramite l'API Gremlin
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/10/2019
 author: luisbosquez
 ms.author: lbosq
-ms.openlocfilehash: 4ed7e67ae0ef027b260d0e0f0407e4e05ed5a8f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0feac9bbd98dc4c67464e84e9a3204bd9730355
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390347"
 ---
 # <a name="system-document-properties"></a>Proprietà di sistema dei documenti
 
-Azure Cosmos DB dispone [di proprietà](https://docs.microsoft.com/rest/api/cosmos-db/databases) di sistema ```_ts```, ```_self```ad ```_attachments```esempio ```_rid```,, ```_etag``` , e in ogni documento. Inoltre il motore di Gremlin aggiunge le proprietà ```inVPartition``` e ```outVPartition``` sui bordi. Per impostazione predefinita, queste proprietà sono disponibili per l'attraversamento. È tuttavia possibile includere proprietà specifiche, o tutte le proprietà, nell'attraversamento Gremlin.
+Azure Cosmos DB dispone di [proprietà di sistema](/rest/api/cosmos-db/databases) , ad esempio,, ```_ts``` ```_self``` ```_attachments``` , ```_rid``` e ```_etag``` in ogni documento. Inoltre il motore di Gremlin aggiunge le proprietà ```inVPartition``` e ```outVPartition``` sui bordi. Per impostazione predefinita, queste proprietà sono disponibili per l'attraversamento. È tuttavia possibile includere proprietà specifiche, o tutte le proprietà, nell'attraversamento Gremlin.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())

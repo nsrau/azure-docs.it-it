@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a26f6c5e69ca083335580a0368459e062de3941e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a92810841ee5d656b23105d6f40c763847971c4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187662"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387797"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Esempi JavaScript da usare in Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Questo articolo descrive come modificare i criteri personalizzati per abilitare 
 
 * Selezionare un [layout di pagina](contentdefinitions.md#select-a-page-layout) per gli elementi dell'interfaccia utente dell'applicazione.
 
-    Se si intende usare JavaScript, è necessario [definire una versione del layout di pagina](contentdefinitions.md#migrating-to-page-layout) con la `contract` versione della pagina per *tutte* le definizioni di contenuto nel criterio personalizzato.
+    Se si intende usare JavaScript, è necessario [definire una versione del layout di pagina](contentdefinitions.md#migrating-to-page-layout) con `contract` la versione della pagina per *tutte* le definizioni di contenuto nel criterio personalizzato.
 
 ## <a name="add-the-scriptexecution-element"></a>Aggiungere l'elemento ScriptExecution
 
@@ -50,7 +50,7 @@ Per abilitare l'esecuzione di script, aggiungere l'elemento **ScriptExecution** 
 1. Aprire il file dei criteri personalizzati. Ad esempio, *SignUpOrSignin.xml*.
 2. Aggiungere l'elemento **ScriptExecution** all'elemento **UserJourneyBehaviors** di **RelyingParty**:
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="B2CSignUpOrSignInWithPassword" />
       <UserJourneyBehaviors>

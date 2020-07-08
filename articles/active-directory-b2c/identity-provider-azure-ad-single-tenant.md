@@ -7,17 +7,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5b21fcd2d3ec5560b01352b112e9ed1bb2404766
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce5f373576f13a4b1bdb88b5ffb7869a2d7865cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678058"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388358"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
 
@@ -27,10 +27,10 @@ Per usare un account di Azure Active Directory (Azure AD) come [provider di iden
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Configurare Azure AD come provider di identità
 
-1. Assicurarsi di usare la directory che contiene Azure AD B2C tenant. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant Azure ad B2C.
+1. Assicurarsi di usare la directory che contiene Azure AD B2C tenant. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory contenente il tenant di Azure AD B2C.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **provider di identità**e quindi fare clic su **nuovo provider OpenID Connect**.
-1. Immettere un **nome**. Ad esempio, immettere *Contoso Azure ad*.
+1. Immettere un **Nome**. Ad esempio, immettere *Contoso Azure ad*.
 1. Per **URL metadati**immettere l'URL seguente sostituendo `{tenant}` con il nome di dominio del tenant di Azure ad:
 
     ```
@@ -41,9 +41,9 @@ Per usare un account di Azure Active Directory (Azure AD) come [provider di iden
 
 1. Per **ID client**immettere l'ID applicazione registrato in precedenza.
 1. Per il **segreto client**, immettere il segreto client registrato in precedenza.
-1. Per l' **ambito**, immettere `openid profile`.
+1. Per l' **ambito**, immettere `openid profile` .
 1. Lasciare i valori predefiniti per il **tipo di risposta**e la modalità di **risposta**.
-1. Opzionale Per l' **hint di dominio**, `contoso.com`immettere. Per altre informazioni, vedere [Configurare l'accesso diretto tramite Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. Opzionale Per l' **hint di dominio**, immettere `contoso.com` . Per altre informazioni, vedere [Configurare l'accesso diretto tramite Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. In **mapping attestazioni provider di identità**selezionare le seguenti attestazioni:
 
     * **ID utente**: *OID*

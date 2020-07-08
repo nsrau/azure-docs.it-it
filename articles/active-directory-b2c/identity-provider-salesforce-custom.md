@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 45878ea947803b04cd5cd6e471f701c21f2c26fa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 668bc645edd1be611fe71b8fc1fa81288572e843
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388069"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati in Azure Active Directory B2C
 
@@ -109,7 +109,7 @@ Per consentire agli utenti di accedere con un account Salesforce, è necessario 
 1. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
 1. Aggiungere un nuovo **ClaimsProvider** come illustrato di seguito:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>salesforce</Domain>
       <DisplayName>Salesforce</DisplayName>
@@ -152,7 +152,7 @@ Per consentire agli utenti di accedere con un account Salesforce, è necessario 
 1. Aggiornare il valore di entrambe le istanze di **StorageReferenceId** con il nome della chiave del certificato di firma. Ad esempio, B2C_1A_SAMLSigningCert.
 1. Individuare la sezione `<ClaimsProviders>` e aggiungere il frammento XML seguente. Se il criterio contiene già il profilo tecnico `SM-Saml-idp`, andare al passaggio successivo. Per altre informazioni, vedere [Gestione delle sessioni Single Sign-On](custom-policy-reference-sso.md).
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Session Management</DisplayName>
       <TechnicalProfiles>
@@ -194,7 +194,7 @@ L'elemento **ClaimsProviderSelection** è analogo a un pulsante per il provider 
 1. Trovare l'elemento **OrchestrationStep** che include `Order="1"` nel percorso utente appena creato.
 2. In **ClaimsProviderSelects** aggiungere l'elemento riportato di seguito. Impostare **TargetClaimsExchangeId** su un valore appropriato, ad esempio `SalesforceExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
     ```
 
@@ -205,7 +205,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 1. Trovare l'elemento **OrchestrationStep** che include `Order="2"` nel percorso utente.
 2. Aggiungere l'elemento **ClaimsExchange** seguente assicurandosi di usare per **ID** lo stesso valore che è stato usato per **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
 

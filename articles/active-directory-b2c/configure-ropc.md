@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636407"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389599"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 
@@ -50,9 +50,9 @@ Il flusso delle credenziali password del proprietario della risorsa (ROPC) è un
 ## <a name="test-the-user-flow"></a>Testare il flusso utente
 
 Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed esaminare la risposta per eseguire il debug del flusso utente. Costruire una chiamata di questo tipo con le informazioni riportate nella tabella seguente come corpo della richiesta POST:
-- Sostituire *\<tenant-name>.onmicrosoft.com>* con il nome del proprio tenant B2C.
-- Sostituire *\<B2C_1A_ROPC_Auth>* con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
-- Sostituire *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con l'ID dell'applicazione riportato nella registrazione.
+- Sostituire * \<tenant-name> . onmicrosoft.com* con il nome del tenant B2C.
+- Sostituire *\<B2C_1A_ROPC_Auth>* con il nome completo del criterio credenziali password del proprietario della risorsa.
+- Sostituire *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con l'ID applicazione della registrazione.
 
 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
@@ -98,7 +98,7 @@ Costruire una chiamata POST simile a quella indicata qui con le informazioni rip
 
 | Chiave | valore |
 | --- | ----- |
-| grant_type | refresh_token |
+| grant_type | token di aggiornamento |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |

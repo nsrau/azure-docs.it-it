@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 312d093548b6e3cf3654f45d7610e8fc474a87b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0446dd9e316e145cf93c503ab9634d4eedbc299b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187784"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387831"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passare un token di accesso tramite un flusso utente all'applicazione in Azure Active Directory B2C
 
 Un [flusso utente](user-flow-overview.md) in Azure Active Directory B2C (Azure ad B2C) consente agli utenti dell'applicazione di iscriversi o accedere con un provider di identità. Quando viene avviato il percorso, Azure AD B2C riceve un [token di accesso](tokens-overview.md) dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Si attiva un'attestazione nel flusso utente da passare il token attraverso le applicazioni registrate in Azure AD B2C.
 
-Azure AD B2C attualmente supporta solo il passaggio di token di accesso del provider di identità [OAuth 2.0](authorization-code-flow.md), tra cui [Facebook](identity-provider-facebook.md) e [Google](identity-provider-google.md). Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
+Azure AD B2C attualmente supporta solo il passaggio del token di accesso dei provider di identità [OAuth 2,0](authorization-code-flow.md) , che includono [Facebook](identity-provider-facebook.md) e [Google](identity-provider-google.md). Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,8 +31,8 @@ Azure AD B2C attualmente supporta solo il passaggio di token di accesso del prov
 
 ## <a name="enable-the-claim"></a>Abilitare l'attestazione
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure ad B2C.
-2. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e selezionare la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 4. Selezionare **flussi utente (criteri)**, quindi selezionare il flusso utente. Ad esempio, **B2C_1_signupsignin1**.
 5. Selezionare **Attestazioni dell'applicazione**.

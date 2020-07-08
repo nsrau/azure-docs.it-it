@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ebf83807629cc56aa381c97a9ce36d90c94d61f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666860"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388902"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente in Azure Active Directory B2C
 
@@ -61,7 +61,7 @@ In **Personalizza** nel menu a sinistra selezionare **layout di pagina** e quind
 
 Selezionare quindi un modello nell'elenco. Di seguito sono riportati alcuni esempi di pagine di accesso per ogni modello:
 
-| Blu oceano | Grigio ardesia | Classico |
+| Blu oceano | Grigio ardesia | Classic |
 |:-:|:-:|:-:|
 |![Esempio di modello blu oceano di cui è stato eseguito il rendering nella pagina di accesso per l'iscrizione](media/customize-ui-overview/template-ocean-blue.png)|![Esempio del modello grigio dello Slate visualizzato nella pagina di accesso per l'iscrizione](media/customize-ui-overview/template-slate-gray.png)|![Esempio del modello classico di cui è stato eseguito il rendering nella pagina di accesso per l'iscrizione](media/customize-ui-overview/template-classic.png)|
 
@@ -171,7 +171,7 @@ Per iniziare, impostare il logo del banner, l'immagine di sfondo e il colore di 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
-1. Nella portale di Azure cercare e selezionare **Azure ad B2C**.
+1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
 1. In **Gestisci**selezionare informazioni personalizzate distintive dell' **azienda**.
 1. Seguire la procedura descritta in [aggiungere informazioni personalizzate alla pagina di accesso dell'Azure Active Directory dell'organizzazione](../active-directory/fundamentals/customize-branding.md).
 
@@ -186,7 +186,7 @@ Tenere presente queste considerazioni quando si configura la personalizzazione d
 Una volta configurata la personalizzazione dell'azienda, abilitarla nei flussi utente.
 
 1. Nel menu a sinistra del portale di Azure selezionare **Azure ad B2C**.
-1. In **criteri**selezionare **flussi utente (criteri)**.
+1. In **Criteri** selezionare **Flussi utente (criteri)** .
 1. Selezionare il flusso utente per il quale si desidera abilitare la personalizzazione dell'azienda. Le informazioni personalizzate distintive dell'azienda **non sono supportate** per i tipi di flusso utente per l' *accesso V1* e la *modifica del profilo v1* .
 1. In **Personalizza**selezionare **layout di pagina**e quindi selezionare il layout che si desidera personalizzare. Ad esempio, selezionare la **pagina di iscrizione o di accesso unificata**.
 1. Per la **versione del layout di pagina (anteprima)**, scegliere la versione **1.2.0** o successiva.
@@ -202,7 +202,7 @@ Questo esempio annotato Mostra un logo banner personalizzato e un'immagine di sf
 
 ### <a name="use-company-branding-assets-in-custom-html"></a>Usare asset di personalizzazione dell'azienda in codice HTML personalizzato
 
-Per usare le risorse di personalizzazione della società in codice HTML personalizzato, aggiungere i tag seguenti `<div id="api">` al di fuori del Tag:
+Per usare le risorse di personalizzazione della società in codice HTML personalizzato, aggiungere i tag seguenti al di fuori del `<div id="api">` Tag:
 
 ```HTML
 <img data-tenant-branding-background="true" />
@@ -213,19 +213,19 @@ L'origine dell'immagine viene sostituita con quella dell'immagine di sfondo e il
 
 ## <a name="localize-content"></a>Localizzare il contenuto
 
-Si può localizzare il contenuto HTML abilitando la [personalizzazione della lingua](user-flow-language-customization.md) nel tenant di Azure AD B2C. L'abilitazione di questa funzionalità consente Azure AD B2C di inviare il `ui-locales` parametro OpenID Connect all'endpoint. Il server di contenuti può usare questo parametro per fornire pagine HTML personalizzate specifiche della lingua.
+Si può localizzare il contenuto HTML abilitando la [personalizzazione della lingua](user-flow-language-customization.md) nel tenant di Azure AD B2C. L'abilitazione di questa funzionalità consente Azure AD B2C di inviare il parametro OpenID Connect `ui_locales` all'endpoint. Il server di contenuti può usare questo parametro per fornire pagine HTML personalizzate specifiche della lingua.
 
 È possibile eseguire il pull del contenuto da posizioni diverse in base alle impostazioni locali in uso. Nell'endpoint abilitato per CORS, configurare una struttura di cartelle in cui ospitare il contenuto per specifiche lingue. Se si inserisce il valore del carattere jolly `{Culture:RFC5646}` verrà chiamata la lingua corretta.
 
 Ad esempio, l'URI della pagina personalizzata potrebbe essere simile al seguente:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 ```
 
 È possibile caricare la pagina in francese eseguendo il pull del contenuto da:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 997a6941e2ccc26dabe1a593fe938094099bc98d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388987"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Procedura dettagliata: Aggiungere scambi di attestazioni API REST ai criteri personalizzati in Azure Active Directory B2C
 
@@ -123,7 +123,7 @@ I [percorsi utente](userjourneys.md) specificano percorsi espliciti attraverso c
 1. Incollare `<UserJourneys>` nel file delle estensioni, dopo la chiusura dell'elemento `<ClaimsProviders>`.
 1. Individuare `<UserJourney Id="SignUpOrSignIn">` e aggiungere il passaggio di orchestrazione seguente prima dell'ultimo.
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
@@ -133,7 +133,7 @@ I [percorsi utente](userjourneys.md) specificano percorsi espliciti attraverso c
 
 1. Effettuare il refactoring dell'ultimo passaggio di orchestrazione modificando `Order` in `8`. Gli ultimi due passaggi di orchestrazione appariranno come illustrato di seguito:
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />

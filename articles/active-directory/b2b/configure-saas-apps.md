@@ -4,7 +4,7 @@ description: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Acti
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c73a14c2a8cd063672bd0998368ca660f52cd5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387351"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurare app SaaS per Collaborazione B2B
 
@@ -81,7 +81,7 @@ Al termine della configurazione nell'app Dropbox, gli utenti guest o membro rice
 
    ![Screenshot che illustra le impostazioni di configurazione di Single Sign-On](media/configure-saas-apps/configure-box-sso.png)
 
-   a. Nella casella **URL di accesso** assicurarsi che l'URL di accesso sia impostato correttamente per Box nel portale di Azure. Si tratta dell'URL del tenant di Box.com Deve seguire la convenzione *https://.box.com*di denominazione.  
+   a. Nella casella **URL di accesso** assicurarsi che l'URL di accesso sia impostato correttamente per Box nel portale di Azure. Si tratta dell'URL del tenant di Box.com Deve seguire la convenzione di denominazione *https://.box.com* .  
    Il campo **Identificatore** non si applica a questa app, ma viene comunque visualizzato come obbligatorio.
 
    b. Nella casella **Identificatore utente** immettere **user.mail** (per l'accesso SSO per account guest).
@@ -102,7 +102,7 @@ Così come gli invitati di Dropbox, gli invitati di Box devono riscattare l'invi
 
 Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 
-- [Che cos'è Azure AD collaborazione B2B?](what-is-b2b.md)
+- [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
 - [Gruppi dinamici e Collaborazione B2B](use-dynamic-groups.md)
 - [Mapping delle attestazioni utente per Collaborazione B2B](claims-mapping.md)
 - [Condivisione esterna di Office 365](o365-external-user.md)

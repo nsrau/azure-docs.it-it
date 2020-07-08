@@ -3,21 +3,21 @@ title: Condivisione di risorse tra le origini (CORS) in Azure Cosmos DB
 description: Questo articolo descrive come configurare la condivisione di risorse tra le origini (CORS) in Azure Cosmos DB usando il portale di Azure e i modelli di Azure Resource Manager.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 7a487cb10965a379a0a418efaa061be88c5d10dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77082986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390874"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configurare Condivisione di risorse tra le origini (CORS)
 
 Condivisione risorse tra le origini (CORS, Cross Origin Resource Sharing) è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. I Web browser implementano una limitazione di sicurezza nota come criteri di corrispondenza dell'origine, che impedisce a una pagina Web di chiamare API in un dominio diverso. Tuttavia, CORS offre un modo sicuro per consentire al dominio di origine di chiamare le API in un altro dominio. L'API principale (SQL) in Azure Cosmos DB supporta ora la condivisione di risorse tra le origini (CORS) tramite l'intestazione "allowedOrigins". Dopo l'attivazione del supporto di CORS per l'account Azure Cosmos vengono valutate solo le richieste autenticate, per determinare se sono consentite in base alle regole specificate.
 
-È possibile configurare l'impostazione Condivisione risorse tra le origini (CORS) dal portale di Azure o da un modello di Azure Resource Manager. Per gli account Cosmos che usano l'API di base (SQL), Azure Cosmos DB supporta una libreria JavaScript che funziona sia negli ambienti node. js che in quelli basati su browser. Ora questa libreria può sfruttare i vantaggi del supporto CORS quando si usa la modalità Gateway. Non è necessaria nessuna configurazione lato client per l'uso di questa funzionalità. Grazie al supporto di CORS, le risorse di un browser possono accedere direttamente ad Azure Cosmos DB tramite la [libreria JavaScript](https://www.npmjs.com/package/@azure/cosmos) o direttamente dall'[API REST](https://docs.microsoft.com/rest/api/cosmos-db/) per operazioni semplici.
+È possibile configurare l'impostazione Condivisione risorse tra le origini (CORS) dal portale di Azure o da un modello di Azure Resource Manager. Per gli account Cosmos che usano l'API di base (SQL), Azure Cosmos DB supporta una libreria JavaScript che funziona sia negli ambienti Node.js che in quelli basati su browser. Ora questa libreria può sfruttare i vantaggi del supporto CORS quando si usa la modalità Gateway. Non è necessaria nessuna configurazione lato client per l'uso di questa funzionalità. Grazie al supporto di CORS, le risorse di un browser possono accedere direttamente ad Azure Cosmos DB tramite la [libreria JavaScript](https://www.npmjs.com/package/@azure/cosmos) o direttamente dall'[API REST](/rest/api/cosmos-db/) per operazioni semplici.
 
 > [!NOTE]
 > Il supporto di CORS è applicabile solo e supportato per l'API Azure Cosmos DB Core (SQL). Non è applicabile alle API Azure Cosmos DB per Cassandra, Gremlin o MongoDB, perché questi protocolli non usano HTTP per la comunicazione client-server.
@@ -33,7 +33,7 @@ Seguire questa procedura per abilitare Condivisione di risorse tra le origini us
    > [!NOTE]
    > Attualmente non è possibile usare i caratteri jolly come parte del nome di dominio. Ad esempio il formato `https://*.mydomain.net` non è ancora supportato. 
 
-   ![Abilitare la condivisione di risorse multiorigine usando il portale di Azure](./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png)
+   :::image type="content" source="./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png" alt-text="Abilitare la condivisione di risorse multiorigine usando il portale di Azure":::
 
 ## <a name="enable-cors-support-from-resource-manager-template"></a>Abilitare il supporto di CORS dal modello di Resource Manager
 

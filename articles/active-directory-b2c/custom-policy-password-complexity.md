@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ab196e894fc53b1243ac363f9863d5c7d4e328f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79138435"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389004"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C
 
@@ -31,13 +31,13 @@ Completare la procedura descritta in [Introduzione ai criteri personalizzati](cu
 
 ## <a name="add-the-elements"></a>Aggiungere gli elementi
 
-Per configurare la complessità delle password, eseguire `newPassword` l' `reenterPassword` override dei [tipi di attestazione](claimsschema.md) e con un riferimento alle [convalide del predicato](predicates.md#predicatevalidations). L'elemento PredicateValidations raggruppa un set di predicati per formare una convalida dell'input dell'utente che può essere applicata a un tipo di attestazione. Aprire il file delle estensioni dei criteri. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
+Per configurare la complessità delle password, eseguire l'override dei `newPassword` `reenterPassword` [tipi di attestazione](claimsschema.md) e con un riferimento alle [convalide del predicato](predicates.md#predicatevalidations). L'elemento PredicateValidations raggruppa un set di predicati per formare una convalida dell'input dell'utente che può essere applicata a un tipo di attestazione. Aprire il file di estensioni dei criteri, ad esempio <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
 1. Cercare l'elemento [BuildingBlocks](buildingblocks.md). Se l'elemento non esiste, aggiungerlo.
-1. Individuare l'elemento [ClaimsSchema](claimsschema.md) . Se l'elemento non esiste, aggiungerlo.
-1. Aggiungere le `newPassword` attestazioni e `reenterPassword` all'elemento **ClaimsSchema** .
+1. Individuare l'elemento [ClaimsSchema](claimsschema.md). Se l'elemento non esiste, aggiungerlo.
+1. Aggiungere le `newPassword` `reenterPassword` attestazioni e all'elemento **ClaimsSchema** .
 
-    ```XML
+    ```xml
     <ClaimType Id="newPassword">
       <PredicateValidationReference Id="CustomPassword" />
     </ClaimType>
@@ -48,7 +48,7 @@ Per configurare la complessità delle password, eseguire `newPassword` l' `reent
 
 1. I [predicati](predicates.md) definiscono una convalida di base per verificare il valore di un tipo di attestazione e restituisce true o false. La convalida viene eseguita utilizzando un elemento del metodo specificato e un set di parametri relativi al metodo. Aggiungere i predicati seguenti all'elemento **BuildingBlocks** immediatamente dopo la chiusura dell' `</ClaimsSchema>` elemento:
 
-    ```XML
+    ```xml
     <Predicates>
       <Predicate Id="LengthRange" Method="IsLengthRange">
         <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
@@ -84,9 +84,9 @@ Per configurare la complessità delle password, eseguire `newPassword` l' `reent
     </Predicates>
     ```
 
-1. Aggiungere le convalide del predicato seguenti all'elemento **BuildingBlocks** , immediatamente dopo la chiusura `</Predicates>` dell'elemento:
+1. Aggiungere le convalide del predicato seguenti all'elemento **BuildingBlocks** , immediatamente dopo la chiusura dell' `</Predicates>` elemento:
 
-    ```XML
+    ```xml
     <PredicateValidations>
       <PredicateValidation Id="CustomPassword">
         <PredicateGroups>
@@ -111,7 +111,7 @@ Per configurare la complessità delle password, eseguire `newPassword` l' `reent
 
 1. I profili tecnici seguenti sono [Active Directory profili tecnici](active-directory-technical-profile.md)che leggono e scrivono i dati Azure Active Directory. Eseguire l'override di questi profili tecnici nel file di estensione. Utilizzare `PersistedClaims` per disabilitare i criteri password complesse. Trovare l'elemento **ClaimsProviders**.  Aggiungere i seguenti provider di attestazioni come indicato di seguito:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>
@@ -138,9 +138,9 @@ Per configurare la complessità delle password, eseguire `newPassword` l' `reent
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **Framework esperienza di identità**.
+4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 5. Nella pagina dei criteri personalizzati, fare clic su **Carica criterio**.
-6. Selezionare **Sovrascrivi il criterio se esistente**, quindi cercare e selezionare il file *TrustFrameworkExtensions. XML* .
+6. Selezionare **Sovrascrivi il criterio se esistente**, quindi cercare e selezionare il file *TrustFrameworkExtensions.xml* .
 7. Fare clic su **Carica**.
 
 ### <a name="run-the-policy"></a>Esegui il criterio

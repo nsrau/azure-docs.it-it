@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: e27a920aea18affd78f840d3063b8082f716745b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: HT
+ms.openlocfilehash: 6706d9c1c683cdf46fe42822cad67a49a69843a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389820"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali nel portale di Azure
 
@@ -59,7 +59,7 @@ Per le distribuzioni di nodi virtuali sono supportate le aree seguenti:
 * Stati Uniti occidentali 2 (westus2)
 
 ## <a name="known-limitations"></a>Limitazioni note
-La funzionalità dei nodi virtuali dipende molto dal set di funzionalità di Istanze di Azure Container. Gli scenari seguenti non sono ancora supportati con i nodi virtuali
+La funzionalità dei nodi virtuali dipende molto dal set di funzionalità di Istanze di Azure Container. Oltre alle [quote e ai limiti per le istanze di contenitore di Azure](../container-instances/container-instances-quotas.md), gli scenari seguenti non sono ancora supportati con i nodi virtuali:
 
 * Uso dell'entità servizio per il pull delle immagini di Registro Azure Container. La [soluzione alternativa](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) prevede l'uso di [segreti Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
 * [Limitazioni della rete virtuale](../container-instances/container-instances-vnet.md) inclusi il peering VNet, i criteri di rete Kubernetes e il traffico in uscita verso Internet con gruppi di sicurezza di rete.
@@ -67,7 +67,7 @@ La funzionalità dei nodi virtuali dipende molto dal set di funzionalità di Ist
 * [Alias host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argomenti](../container-instances/container-instances-exec.md#restrictions) per exec in Istanze di Azure Container
 * Gli oggetti [DaemonSet](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuiranno i pod nel nodo virtuale
-* I nodi virtuali supportano la pianificazione di pod Linux. È possibile installare manualmente il provider open source [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) per pianificare i contenitori di Windows Server in Istanze di Azure Container. 
+* I nodi virtuali supportano la pianificazione di pod Linux. È possibile installare manualmente il provider open source [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) per pianificare i contenitori di Windows Server in Istanze di Azure Container.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 

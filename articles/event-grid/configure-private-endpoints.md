@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 816d1f762698deeed38afe01899916b491809db2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390466"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurare gli endpoint privati per gli argomenti o i domini di griglia di eventi di Azure
 È possibile usare [endpoint privati](../private-link/private-endpoint-overview.md) per consentire l'ingresso di eventi direttamente dalla rete virtuale agli argomenti e ai domini in modo sicuro tramite un [collegamento privato](../private-link/private-link-overview.md) senza passare attraverso la rete Internet pubblica. L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della VNet per l'argomento o il dominio. Per informazioni più concettuali, vedere [sicurezza di rete](network-security.md).
@@ -37,37 +37,37 @@ In questa sezione viene illustrato come utilizzare il portale di Azure per crear
     5. Quindi, fare clic su **Next: Resource >** Button nella parte inferiore della pagina. 
 
       ![Endpoint privato-pagina Nozioni di base](./media/configure-private-endpoints/basics-page.png)
-3. Nella pagina **delle risorse** , attenersi alla seguente procedura: 
+3. Nella pagina **Risorsa** seguire questa procedura: 
     1. Per metodo di connessione, se si seleziona **Connetti a una risorsa di Azure nella directory**, seguire questa procedura. Questo esempio illustra come connettersi a una risorsa di Azure nella directory. 
         1. Selezionare la **sottoscrizione di Azure** in cui è presente l' **argomento/dominio** . 
         1. Per **tipo di risorsa**selezionare **Microsoft. EventGrid/topics** o **Microsoft. EventGrid/Domains** per il **tipo di risorsa**.
         2. Per **risorsa**selezionare un argomento o un dominio dall'elenco a discesa. 
         3. Verificare che la **sottorisorsa di destinazione** sia impostata su **argomento** o **dominio** , in base al tipo di risorsa selezionato.    
-        4. Fare clic su **Next: Configuration >** Button nella parte inferiore della pagina. 
+        4. Selezionare **Avanti: Configurazione >** nella parte inferiore della pagina. 
 
             ![Endpoint privato-pagina delle risorse](./media/configure-private-endpoints/resource-page.png)
     2. Se si seleziona **Connetti a una risorsa usando un ID risorsa o un alias**, seguire questa procedura:
         1. Immettere l'ID della risorsa. Ad esempio: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. Per **risorsa**immettere **argomento** o **dominio**. 
         3. opzionale Aggiungere un messaggio di richiesta. 
-        4. Fare clic su **Next: Configuration >** Button nella parte inferiore della pagina. 
+        4. Selezionare **Avanti: Configurazione >** nella parte inferiore della pagina. 
 
             ![Endpoint privato-pagina delle risorse](./media/configure-private-endpoints/connect-azure-resource-id.png)
-4. Nella pagina **configurazione** selezionare la subnet in una rete virtuale in cui si vuole distribuire l'endpoint privato. 
+4. Nella pagina **Configurazione** si seleziona la subnet in una rete virtuale in cui si vuole distribuire l'endpoint privato. 
     1. Selezionare una **rete virtuale**. Nell'elenco a discesa sono elencate solo le reti virtuali nella sottoscrizione e nella località attualmente selezionate. 
     2. Selezionare una **subnet** nella rete virtuale selezionata. 
-    3. Selezionare **Avanti: tag >** pulsante nella parte inferiore della pagina. 
+    3. Selezionare **Avanti: Tag >** nella parte inferiore della pagina. 
 
     ![Endpoint privato-pagina di configurazione](./media/configure-private-endpoints/configuration-page.png)
-5. Nella pagina **tag** creare eventuali tag (nomi e valori) che si desidera associare alla risorsa dell'endpoint privato. Selezionare quindi il pulsante **Rivedi e crea** nella parte inferiore della pagina. 
-6. In **Verifica e crea**esaminare tutte le impostazioni e selezionare **Crea** per creare l'endpoint privato. 
+5. Nella pagina **Tag** creare i tag (nomi e valori) da associare alla risorsa endpoint privato. Selezionare quindi il pulsante **Rivedi e crea** nella parte inferiore della pagina. 
+6. In **Rivedi e crea** rivedere tutte le impostazioni e selezionare **Crea** per creare l'endpoint privato. 
 
     ![Endpoint privato-verifica & pagina Crea](./media/configure-private-endpoints/review-create-page.png)
     
 
 ### <a name="manage-private-link-connection"></a>Gestire una connessione di collegamento privato
 
-Quando si crea un endpoint privato, la connessione deve essere approvata. Se la risorsa per cui si sta creando un endpoint privato si trova nella directory, è possibile approvare la richiesta di connessione purché si disponga di autorizzazioni sufficienti. Se ci si connette a una risorsa di Azure in un'altra directory, è necessario attendere che il proprietario della risorsa approvi la richiesta di connessione.
+Quando si crea un endpoint privato, la connessione deve essere approvata. Se la risorsa per cui si sta creando un endpoint privato si trova nella propria directory, è possibile approvare la richiesta di connessione purché si abbiano autorizzazioni sufficienti. Se ci si sta connettendo a una risorsa di Azure in un'altra directory, è necessario attendere che il proprietario della risorsa approvi la richiesta di connessione.
 
 Sono disponibili quattro stati di provisioning:
 
@@ -84,7 +84,7 @@ Le sezioni seguenti illustrano come approvare o rifiutare una connessione all'en
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nella barra di ricerca digitare in **argomenti griglia di eventi** o **domini griglia di eventi**.
 1. Selezionare l' **argomento** o il **dominio** che si desidera gestire.
-1. Selezionare la scheda **rete** .
+1. Selezionare la scheda **Rete**.
 1. Se sono presenti connessioni in sospeso, verrà visualizzata una connessione elencata con in **sospeso** nello stato di provisioning. 
 
 ### <a name="to-approve-a-private-endpoint"></a>Per approvare un endpoint privato
@@ -140,8 +140,8 @@ az network private-endpoint create \
 
 Per le descrizioni dei parametri usati nell'esempio, vedere la documentazione per [AZ network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Di seguito sono riportati alcuni punti da considerare in questo esempio: 
 
-- Per `private-connection-resource-id`, specificare l'ID risorsa dell' **argomento** o del **dominio**. Nell'esempio precedente viene usato il tipo: topic.
-- per `group-ids`, specificare `topic` o `domain`. Nell'esempio precedente `topic` viene usato. 
+- Per `private-connection-resource-id` , specificare l'ID risorsa dell' **argomento** o del **dominio**. Nell'esempio precedente viene usato il tipo: topic.
+- per `group-ids` , specificare `topic` o `domain` . Nell'esempio precedente `topic` viene usato. 
 
 Per eliminare un endpoint privato, usare il metodo [AZ network private-endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , come illustrato nell'esempio seguente:
 
@@ -184,8 +184,8 @@ az network private-endpoint create \
 
 Per le descrizioni dei parametri usati nell'esempio, vedere la documentazione per [AZ network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Di seguito sono riportati alcuni punti da considerare in questo esempio: 
 
-- Per `private-connection-resource-id`, specificare l'ID risorsa dell' **argomento** o del **dominio**. Nell'esempio precedente viene usato il tipo: topic.
-- per `group-ids`, specificare `topic` o `domain`. Nell'esempio precedente `topic` viene usato. 
+- Per `private-connection-resource-id` , specificare l'ID risorsa dell' **argomento** o del **dominio**. Nell'esempio precedente viene usato il tipo: topic.
+- per `group-ids` , specificare `topic` o `domain` . Nell'esempio precedente `topic` viene usato. 
 
 Per eliminare un endpoint privato, usare il metodo [AZ network private-endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , come illustrato nell'esempio seguente:
 
@@ -437,7 +437,7 @@ Quando si verifica che l'endpoint è stato creato, viene visualizzato il risulta
 }
 ```
 
-### <a name="approve-a-private-endpoint-connection"></a>Approva una connessione all'endpoint privato
+### <a name="approve-a-private-endpoint-connection"></a>Approvare una connessione endpoint privato
 Il frammento di codice PowerShell di esempio seguente illustra come approvare un endpoint privato. 
 
 > [!NOTE]
@@ -459,7 +459,7 @@ Invoke-RestMethod -Method 'Get'  `
 
 ```
 
-### <a name="reject-a-private-endpoint-connection"></a>Rifiutare una connessione all'endpoint privato
+### <a name="reject-a-private-endpoint-connection"></a>Rifiutare una connessione endpoint privato
 Nell'esempio seguente viene illustrato come rifiutare un endpoint privato mediante PowerShell. È possibile ottenere il GUID per l'endpoint privato dal risultato del precedente comando GET. 
 
 > [!NOTE]
@@ -484,4 +484,5 @@ Invoke-RestMethod -Method 'Get'
 È possibile approvare la connessione anche dopo che è stata rifiutata tramite l'API. Se si utilizza portale di Azure, non è possibile approvare un endpoint che è stato rifiutato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su come configurare le impostazioni del firewall IP, vedere [configurare il firewall IP per gli argomenti o i domini di griglia di eventi di Azure](configure-firewall.md).
+* Per informazioni su come configurare le impostazioni del firewall IP, vedere [configurare il firewall IP per gli argomenti o i domini di griglia di eventi di Azure](configure-firewall.md).
+* Per risolvere i problemi di connettività di rete, vedere [risolvere i problemi di connettività di rete](troubleshoot-network-connectivity.md)

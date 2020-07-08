@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 13a5fa6a030d876d92651ca587e37fdc6a3ec600
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29426f8e3797c89deb712e89e0d972dd1ac8028e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136143"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389310"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Disabilitare la verifica tramite posta elettronica durante l'iscrizione del cliente usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -28,17 +28,17 @@ Completare la procedura descritta in [Introduzione ai criteri personalizzati](cu
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Aggiungere i metadati al profilo tecnico autocertificato
 
-Il profilo tecnico **LocalAccountSignUpWithLogonEmail** è un [autocertificato](self-asserted-technical-profile.md), che viene richiamato durante il flusso di iscrizione. Per disabilitare la verifica tramite posta elettronica, `EnforceEmailVerification` impostare i metadati su false. Eseguire l'override dei profili tecnici LocalAccountSignUpWithLogonEmail nel file di estensione. 
+Il profilo tecnico **LocalAccountSignUpWithLogonEmail** è un [autocertificato](self-asserted-technical-profile.md), che viene richiamato durante il flusso di iscrizione. Per disabilitare la verifica tramite posta elettronica, impostare i `EnforceEmailVerification` metadati su false. Eseguire l'override dei profili tecnici LocalAccountSignUpWithLogonEmail nel file di estensione. 
 
-1. Aprire il file delle estensioni dei criteri. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
+1. Aprire il file di estensioni dei criteri, ad esempio <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Trovare l'elemento `ClaimsProviders`. Se l'elemento non esiste, aggiungerlo.
-1. Aggiungere il provider di attestazioni seguente `ClaimsProviders` all'elemento:
+1. Aggiungere il provider di attestazioni seguente all' `ClaimsProviders` elemento:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
       <Metadata>
         <Item Key="EnforceEmailVerification">false</Item>
       </Metadata>
@@ -50,9 +50,9 @@ Il profilo tecnico **LocalAccountSignUpWithLogonEmail** è un [autocertificato](
 ## <a name="test-the-custom-policy"></a>Testare i criteri personalizzati
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD. A tale scopo, selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant di Azure AD.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
-4. Selezionare **Framework esperienza di identità**.
+4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 5. Selezionare **Carica criteri personalizzati**e caricare i file dei due criteri modificati.
 2. Selezionare il criterio di iscrizione o di accesso che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica senza la convalida.

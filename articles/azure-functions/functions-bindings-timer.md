@@ -6,19 +6,21 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-ms.custom: ''
-ms.openlocfilehash: 566d6ccf43024692e19bcd6639fe5cfbbba0660d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: e1dd20514fcb14e411fbb7efee4157b670d462b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80056417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389701"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
 Questo articolo illustra come usare trigger timer in Funzioni di Azure. Un trigger timer consente di eseguire una funzione in base a una pianificazione. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+Per informazioni su come eseguire manualmente una funzione attivata tramite timer, vedere [eseguire manualmente una funzione non attivata tramite http](./functions-manually-run-non-http.md).
 
 ## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
 
@@ -111,7 +113,7 @@ module.exports = function (context, myTimer) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene usata un'associazione di trigger timer la cui configurazione è descritta nel file *Function. JSON* . La [funzione Python](functions-reference-python.md) effettiva che usa l'associazione è descritta nel file * __init__. py* . L'oggetto passato nella funzione è di tipo [Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive nei log che indicano se la chiamata corrente è dovuta a un'occorrenza di pianificazione mancante. 
+Nell'esempio seguente viene utilizzata un'associazione di trigger timer la cui configurazione è descritta nel *function.jssu* file. La [funzione Python](functions-reference-python.md) effettiva che usa l'associazione è descritta nel file * __init__. py* . L'oggetto passato nella funzione è di tipo [Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive nei log che indicano se la chiamata corrente è dovuta a un'occorrenza di pianificazione mancante. 
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -184,7 +186,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script C#.
+Gli attributi non sono supportati da Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -213,16 +215,16 @@ public void keepAlive(
 
 ## <a name="configuration"></a>Configurazione
 
-La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `TimerTrigger` attributo.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `TimerTrigger`.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su "timerTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
-|**direzione** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**name** | n/d | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
-|**pianificazione**|**ScheduleExpression**|[Espressione CRON](#ncrontab-expressions) o valore [TimeSpan](#timespan). `TimeSpan` può essere usato solo per un'app per le funzioni in esecuzione in un piano di servizio app. È possibile inserire l'espressione Schedule in un'impostazione dell'app e impostare questa proprietà sul nome dell'impostazione dell'app **%** racchiuso tra simboli, come in questo esempio: "% impostazioneappschedule%". |
-|**runOnStartup**|**RunOnStartup**|Se `true`, la funzione viene richiamata all'avvio del runtime. Ad esempio, il runtime viene avviato quando l'app per le funzioni si riattiva dopo un periodo di inattività, Quando l'app per le funzioni viene riavviata a causa di modifiche della funzione e quando l'app per le funzioni si ridimensiona. Quindi, **runOnStartup** dovrebbe raramente essere impostato su `true`, specialmente nell'ambiente di produzione. |
-|**useMonitor**|**UseMonitor**|Impostata su `true` o `false` per indicare se monitorare la pianificazione. Il monitoraggio della pianificazione rende persistenti le occorrenze della pianificazione per garantire che la pianificazione venga gestita correttamente anche quando le istanze dell'app per le funzioni vengono riavviate. Se non viene impostato in modo esplicito, `true` il valore predefinito è per le pianificazioni con un intervallo di ricorrenza maggiore o uguale a 1 minuto. Per le pianificazioni attivate più di una volta al minuto, il valore predefinito è `false`.
+|**direction** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
+|**nome** | n/d | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
+|**pianificazione**|**ScheduleExpression**|[Espressione CRON](#ncrontab-expressions) o valore [TimeSpan](#timespan). `TimeSpan` può essere usato solo per un'app per le funzioni in esecuzione in un piano di servizio app. È possibile inserire l'espressione Schedule in un'impostazione dell'app e impostare questa proprietà sul nome dell'impostazione dell'app racchiuso tra **%** simboli, come in questo esempio: "% impostazioneappschedule%". |
+|**runOnStartup**|**RunOnStartup**|Se `true`, la funzione viene richiamata all'avvio del runtime. Ad esempio, il runtime viene avviato quando l'app per le funzioni si riattiva dopo un periodo di inattività, Quando l'app per le funzioni viene riavviata a causa di modifiche della funzione e quando l'app per le funzioni si ridimensiona. Quindi, **runOnStartup** dovrebbe raramente essere impostato su `true` , specialmente nell'ambiente di produzione. |
+|**useMonitor**|**UseMonitor**|Impostata su `true` o `false` per indicare se monitorare la pianificazione. Il monitoraggio della pianificazione rende persistenti le occorrenze della pianificazione per garantire che la pianificazione venga gestita correttamente anche quando le istanze dell'app per le funzioni vengono riavviate. Se non viene impostato in modo esplicito, il valore predefinito è `true` per le pianificazioni con un intervallo di ricorrenza maggiore o uguale a 1 minuto. Per le pianificazioni attivate più di una volta al minuto, il valore predefinito è `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -256,7 +258,7 @@ Funzioni di Azure usa la libreria [NCronTab](https://github.com/atifaziz/NCronta
 
 Ogni campo può avere uno dei tipi di valori seguenti:
 
-|Tipo  |Esempio  |Quando viene attivato  |
+|Type  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
 |Valore specifico |<nobr>"0 5 * * * *"</nobr>|Alle hh.05.00, dove hh corrisponde a ogni ora (una volta all'ora)|
 |Tutti i valori (`*`)|<nobr>"0 * 5 * * *"</nobr>|Alle 5.mm.00 ogni giorno, dove mm è ogni minuto dell'ora (60 volte al giorno)|
@@ -319,7 +321,7 @@ Espresso come stringa, il formato di `TimeSpan` è `hh:mm:ss`, dove `hh` è mino
 |"24:00:00" | Ogni 24 giorni        |
 |"1.00:00:00" | Ogni giorno        |
 
-## <a name="scale-out"></a>Scalabilità orizzontale
+## <a name="scale-out"></a>Aumento delle istanze
 
 Se un'app per le funzioni viene scalata orizzontalmente a più istanze, viene eseguita un'unica istanza di una funzione attivata dal timer in tutte le istanze.
 
@@ -330,7 +332,7 @@ Se si condividono gli account di archiviazione tra app per le funzioni non distr
 | Versione di Funzioni | Impostazione                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2. x (e versioni successive)  | La variabile di ambiente `AzureFunctionsWebHost__hostid` |
-| 1.x               | `id`in *host. JSON*                                  |
+| 1.x               | `id`in *host.js*                                  |
 
 È possibile omettere il valore di identificazione o impostare manualmente la configurazione di identificazione di ogni app per le funzioni su un valore diverso.
 

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7eea37cbd926046c6b923b003cd47e0a0c2b0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387627"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gestire gli account utente Azure AD B2C con Microsoft Graph
 
@@ -46,28 +46,28 @@ Le seguenti operazioni di gestione degli utenti sono disponibili nell' [API Micr
 
 ### <a name="display-name-property"></a>Proprietà nome visualizzato
 
-`displayName` È il nome da visualizzare in portale di Azure Gestione utenti per l'utente e nel token di accesso Azure ad B2C torna all'applicazione. Questa proprietà è obbligatoria.
+`displayName`È il nome da visualizzare in portale di Azure Gestione utenti per l'utente e nel token di accesso Azure ad B2C torna all'applicazione. Questa proprietà è obbligatoria.
 
 ### <a name="identities-property"></a>Proprietà identitys
 
 Un account cliente, che può essere un consumatore, un partner o un cittadino, può essere associato a questi tipi di identità:
 
-- Identità **locale** : il nome utente e la password vengono archiviati localmente nella directory Azure ad B2C. Spesso si fa riferimento a queste identità come "account locali".
+- Identità **locale** : il nome utente e la password vengono archiviati localmente nella directory Azure ad B2C. Queste identità sono spesso dette "account locali".
 - Identità **federata** , nota anche come account *aziendali* o *sociali* , l'identità dell'utente è gestita da un provider di identità FEDERATO come Facebook, Microsoft, ADFS o Salesforce.
 
 Un utente con un account cliente può accedere con più identità. Ad esempio nome utente, indirizzo di posta elettronica, ID dipendente, ID pubblico e altro. Un singolo account può avere più identità, sia locali che sociali, con la stessa password.
 
-Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono archiviate nell'attributo `identities` User, che è di tipo [objectIdentity][graph-objectIdentity]. La `identities` raccolta rappresenta un set di identità usate per accedere a un account utente. Questa raccolta consente all'utente di accedere all'account utente con qualsiasi identità associata.
+Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono archiviate nell' `identities` attributo User, che è di tipo [objectIdentity][graph-objectIdentity]. La `identities` raccolta rappresenta un set di identità usate per accedere a un account utente. Questa raccolta consente all'utente di accedere all'account utente con qualsiasi identità associata.
 
 | Proprietà   | Type |Descrizione|
 |:---------------|:--------|:----------|
-|signInType|stringa| Specifica i tipi di accesso utente nella directory. Per l'account locale `emailAddress`: `emailAddress1`, `emailAddress2`, `emailAddress3`, `userName`, o qualsiasi altro tipo. L'account di social networking deve `federated`essere impostato su.|
-|autorità di certificazione|stringa|Specifica l'emittente dell'identità. Per gli account locali (dove **signInType** non `federated`è), questa proprietà corrisponde al nome di dominio predefinito del tenant B2C locale `contoso.onmicrosoft.com`, ad esempio. Per l'identità sociale ( **signInType** dove signInType `federated`è), il valore è il nome dell'autorità emittente, ad esempio`facebook.com`|
-|issuerAssignedId|stringa|Specifica l'identificatore univoco assegnato all'utente dall'emittente. La combinazione di **Issuer** e **issuerAssignedId** deve essere univoca all'interno del tenant. Per l'account locale, quando **signInType** è impostato `emailAddress` su `userName`o, rappresenta il nome di accesso per l'utente.<br>Quando **signInType** è impostato su: <ul><li>`emailAddress`(o inizia con `emailAddress` like `emailAddress1`) **issuerAssignedId** deve essere un indirizzo di posta elettronica valido</li><li>`userName`(o qualsiasi altro valore), **issuerAssignedId** deve essere una [parte locale valida di un indirizzo di posta elettronica](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** rappresenta l'identificatore univoco dell'account federato</li></ul>|
+|signInType|string| Specifica i tipi di accesso utente nella directory. Per l'account locale: `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3` , `userName` o qualsiasi altro tipo. L'account di social networking deve essere impostato su `federated` .|
+|autorità di certificazione|string|Specifica l'emittente dell'identità. Per gli account locali (dove **signInType** non è `federated` ), questa proprietà corrisponde al nome di dominio predefinito del tenant B2C locale, ad esempio `contoso.onmicrosoft.com` . Per l'identità sociale (dove **signInType** è `federated` ), il valore è il nome dell'autorità emittente, ad esempio`facebook.com`|
+|issuerAssignedId|string|Specifica l'identificatore univoco assegnato all'utente dall'emittente. La combinazione di **Issuer** e **issuerAssignedId** deve essere univoca all'interno del tenant. Per l'account locale, quando **signInType** è impostato su `emailAddress` o `userName` , rappresenta il nome di accesso per l'utente.<br>Quando **signInType** è impostato su: <ul><li>`emailAddress`(o inizia con `emailAddress` like `emailAddress1` ) **issuerAssignedId** deve essere un indirizzo di posta elettronica valido</li><li>`userName`(o qualsiasi altro valore), **issuerAssignedId** deve essere una [parte locale valida di un indirizzo di posta elettronica](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** rappresenta l'identificatore univoco dell'account federato</li></ul>|
 
 La seguente **Proprietà** identitys, con un'identità di account locale con un nome di accesso, un indirizzo di posta elettronica come accesso e con un'identità di social networking. 
 
- ```JSON
+ ```json
  "identities": [
      {
        "signInType": "userName",
@@ -91,11 +91,11 @@ Per le identità federate, a seconda del provider di identità, **issuerAssigned
 
 ### <a name="password-profile-property"></a>Proprietà profilo password
 
-Per un'identità locale, la proprietà **passwordProfile** è obbligatoria e contiene la password dell'utente. La `forceChangePasswordNextSignIn` proprietà deve essere impostata `false`su.
+Per un'identità locale, la proprietà **passwordProfile** è obbligatoria e contiene la password dell'utente. La `forceChangePasswordNextSignIn` proprietà deve essere impostata su `false` .
 
 Per un'identità federata (social), la proprietà **passwordProfile** non è obbligatoria.
 
-```JSON
+```json
 "passwordProfile" : {
     "password": "password-value",
     "forceChangePasswordNextSignIn": false
@@ -108,7 +108,7 @@ I criteri di Azure AD B2C password (per gli account locali) si basano sui criter
 
 Negli scenari di migrazione degli utenti, se gli account di cui si vuole eseguire la migrazione hanno un livello di complessità della password più debole rispetto al livello di [attendibilità delle password complesse](../active-directory/authentication/concept-sspr-policy.md) applicato da Azure ad B2C, è possibile disabilitare il requisito per la password complessa. Per modificare i criteri password predefiniti, impostare la proprietà `passwordPolicies` su `DisableStrongPassword`. È ad esempio possibile modificare la richiesta di creazione utente come segue:
 
-```JSON
+```json
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
@@ -116,9 +116,9 @@ Negli scenari di migrazione degli utenti, se gli account di cui si vuole eseguir
 
 Ogni applicazione rivolte ai clienti presenta requisiti specifici per la raccolta delle informazioni. Il tenant di Azure AD B2C dispone di un set predefinito di informazioni archiviate in proprietà, ad esempio nome, cognome, città e codice postale. Con Azure AD B2C è possibile estendere il set di proprietà archiviate in ogni account del cliente. Per altre informazioni sulla definizione di attributi personalizzati, vedere [attributi personalizzati (flussi utente)](user-flow-custom-attributes.md) e [attributi personalizzati (criteri personalizzati)](custom-policy-custom-attributes.md).
 
-Microsoft Graph API supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nell'API Graph vengono denominati usando la convenzione `extension_ApplicationObjectID_attributename`. Ad esempio:
+L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con attributi di estensione. Gli attributi di estensione nell'API Graph vengono denominati usando la convenzione `extension_ApplicationObjectID_attributename`. Ad esempio:
 
-```JSON
+```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
@@ -135,8 +135,8 @@ Dopo aver ottenuto l'esempio di codice, configurarlo per l'ambiente e quindi com
 
 1. Aprire il progetto in [Visual Studio](https://visualstudio.microsoft.com) o in [Visual Studio Code](https://code.visualstudio.com).
 1. Aprire `src/appsettings.json`.
-1. Nella `appSettings` sezione `your-b2c-tenant` sostituire con il nome del tenant e `Application (client) ID` e `Client secret` con i valori per la registrazione dell'applicazione di gestione (vedere la sezione [registrare un'applicazione di gestione](#register-a-management-application) di questo articolo).
-1. Aprire una finestra della console all'interno del clone locale del repository, passare alla `src` directory e quindi compilare il progetto:
+1. Nella `appSettings` sezione sostituire `your-b2c-tenant` con il nome del tenant e `Application (client) ID` e `Client secret` con i valori per la registrazione dell'applicazione di gestione (vedere la sezione [registrare un'applicazione di gestione](#register-a-management-application) di questo articolo).
+1. Aprire una finestra della console all'interno del clone locale del repository, passare alla `src` Directory e quindi compilare il progetto:
     ```console
     cd src
     dotnet build
@@ -157,7 +157,7 @@ Qualsiasi richiesta all'API Microsoft Graph richiede un token di accesso per l'a
 
 Il `RunAsync` metodo nel file _Program.cs_ :
 
-1. Legge le impostazioni dell'applicazione dal file _appSettings. JSON_
+1. Legge le impostazioni dell'applicazione dal _appsettings.jssul_ file
 1. Inizializza il provider di autenticazione utilizzando il flusso di [concessione delle credenziali client OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) . Con il flusso di concessione delle credenziali client, l'app è in grado di ottenere un token di accesso per chiamare l'API Microsoft Graph.
 1. Configura il client del servizio Microsoft Graph con il provider di autenticazione:
 
@@ -202,7 +202,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Eseguire chiamate API usando gli sdk Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) include informazioni su come leggere e scrivere informazioni da Microsoft Graph, usare `$select` per controllare le proprietà restituite, fornire parametri di query personalizzati e usare i `$filter` parametri `$orderBy` di query e.
+[Eseguire chiamate API usando gli sdk Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) include informazioni su come leggere e scrivere informazioni da Microsoft Graph, usare `$select` per controllare le proprietà restituite, fornire parametri di query personalizzati e usare i `$filter` `$orderBy` parametri di query e.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

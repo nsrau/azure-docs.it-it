@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/23/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b984b75b3a12606aa0d82c7e7b399d5dce59df33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e44e2e1eb37e808e60134a6fba5051552e84029
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189515"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389344"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Definizioni dei cookie per Azure AD B2C
 
@@ -24,13 +24,13 @@ Nelle sezioni seguenti vengono fornite informazioni sui cookie utilizzati in Azu
 
 ## <a name="samesite"></a>Navigava sullostesso sito
 
-Il servizio Microsoft Azure AD B2C è compatibile con le configurazioni del browser navigava sullostesso sito, incluso `SameSite=None` il supporto `Secure` per con l'attributo.
+Il servizio Microsoft Azure AD B2C è compatibile con le configurazioni del browser navigava sullostesso sito, incluso `SameSite=None` il supporto per con l' `Secure` attributo.
 
 Per salvaguardare l'accesso ai siti, i Web browser introdurranno un nuovo modello sicuro per impostazione predefinita che presuppone che tutti i cookie siano protetti dall'accesso esterno se non diversamente specificato. Il browser Chrome è il primo a implementare questa modifica, a partire da [Chrome 80 nel febbraio 2020](https://www.chromium.org/updates/same-site). Per ulteriori informazioni sulla preparazione per la modifica in Chrome, vedere [Developers: Get Ready for New navigava sullostesso sito = None; Impostazioni sicure dei cookie](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html) nel Blog di Chromium.
 
-Gli sviluppatori devono usare l'impostazione nuovo cookie `SameSite=None`,, per designare i cookie per l'accesso tra siti. Quando l' `SameSite=None` attributo è presente, è necessario `Secure` usare un attributo aggiuntivo, in modo che i cookie tra siti possano essere accessibili solo tramite connessioni HTTPS. Convalidare e testare tutte le applicazioni, incluse le applicazioni che usano Azure AD B2C.
+Gli sviluppatori devono usare l'impostazione nuovo cookie, `SameSite=None` , per designare i cookie per l'accesso tra siti. Quando l' `SameSite=None` attributo è presente, è `Secure` necessario usare un attributo aggiuntivo, in modo che i cookie tra siti possano essere accessibili solo tramite connessioni HTTPS. Convalidare e testare tutte le applicazioni, incluse le applicazioni che usano Azure AD B2C.
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 * [Gestire le modifiche ai cookie SameSite nel browser Chrome](../active-directory/develop/howto-handle-samesite-cookie-changes-chrome-browser.md)
 * [Effetti sui siti Web dei clienti e sui prodotti e servizi Microsoft in Chrome versione 80 o successiva](https://support.microsoft.com/help/4522904/potential-disruption-to-customer-websites-in-latest-chrome)

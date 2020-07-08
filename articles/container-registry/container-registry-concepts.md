@@ -2,13 +2,13 @@
 title: Informazioni sui repository & immagini
 description: Introduzione ai concetti chiave di registri contenitori di Azure, repository e immagini del contenitore.
 ms.topic: article
-ms.date: 09/10/2019
-ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/16/2020
+ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390449"
 ---
 # <a name="about-registries-repositories-and-images"></a>Informazioni sui registri, i repository e le immagini
 
@@ -24,13 +24,11 @@ Oltre alle immagini del contenitore Docker, Azure Container Registry supporta gl
 
 L'indirizzo di un artefatto in un registro contenitori di Azure include gli elementi seguenti. 
 
-`[loginUrl]/[namespace]/[artifact:][tag]`
+`[loginUrl]/[repository:][tag]`
 
 * **loginUrl** : nome completo dell'host del registro di sistema. L'host del registro di sistema in un registro contenitori di Azure è nel formato *Registro*di sistema. azurecr.io (tutti minuscole). È necessario specificare loginUrl quando si usa Docker o altri strumenti client per eseguire il pull o il push di elementi in un registro contenitori di Azure. 
-* **spazio dei nomi** : raggruppamento logico delimitato da barre di immagini o artefatti correlati, ad esempio per un gruppo di lavoro o un'app
-* **artefatto** : il nome di un repository per un'immagine o un artefatto specifico
-* **tag** : una versione specifica di un'immagine o di un artefatto archiviato in un repository
-
+* **repository** -nome di un raggruppamento logico di una o più immagini o artefatti correlati, ad esempio le immagini per un'applicazione o un sistema operativo di base. Può includere il percorso *dello spazio dei nomi* . 
+* identificatore di **tag** di una versione specifica di un'immagine o di un artefatto archiviato in un repository.
 
 Ad esempio, il nome completo di un'immagine in un registro contenitori di Azure potrebbe essere simile al seguente:
 
@@ -40,14 +38,14 @@ Per informazioni dettagliate su questi elementi, vedere le sezioni seguenti.
 
 ## <a name="repository-name"></a>Nome del repository
 
-I registri contenitori gestiscono *repository*, raccolte di immagini del contenitore o altri elementi con lo stesso nome, ma tag diversi. Ad esempio, le tre immagini seguenti si trovano nel repository "acr-helloworld":
+Un *repository* è una raccolta di immagini del contenitore o di altri elementi con lo stesso nome, ma tag diversi. Ad esempio, le tre immagini seguenti si trovano nel repository "acr-helloworld":
 
 
 - *ACR-HelloWorld: più recente*
 - *ACR-HelloWorld: V1*
 - *ACR-HelloWorld: V2*
 
-I nomi dei repository possono anche includere [spazi dei nomi](container-registry-best-practices.md#repository-namespaces), Gli spazi dei nomi consentono di raggruppare le immagini utilizzando nomi di repository delimitati da barre, ad esempio:
+I nomi dei repository possono anche includere [spazi dei nomi](container-registry-best-practices.md#repository-namespaces), Gli spazi dei nomi consentono di identificare i repository correlati e la proprietà dell'artefatto nell'organizzazione usando nomi delimitati da barre. Tuttavia, il registro di sistema gestisce tutti i repository in modo indipendente, non come una gerarchia. Ad esempio:
 
 - *Marketing/campaign10-18/Web: V2*
 - *Marketing/campaign10-18/API: V3*
@@ -55,7 +53,11 @@ I nomi dei repository possono anche includere [spazi dei nomi](container-registr
 - *prodotto-restituzione/Web-invio: 20180604*
 - *Product-Returns/legacy-Integrator: 20180715*
 
-## <a name="image"></a>Immagine
+I nomi dei repository possono includere solo caratteri alfanumerici minuscoli, punti, trattini, caratteri di sottolineatura e barre. 
+
+Per le regole di denominazione complete del repository, vedere la [specifica Open Container Initiative Distribution](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
+
+## <a name="image"></a>Image
 
 Un'immagine del contenitore o un altro artefatto all'interno di un registro è associato a uno o più tag, ha uno o più livelli ed è identificato da un manifesto. Comprendere in che modo questi componenti sono correlati tra loro possono aiutare a gestire il registro di sistema in modo efficace.
 
@@ -63,9 +65,11 @@ Un'immagine del contenitore o un altro artefatto all'interno di un registro è a
 
 Il *tag* per un'immagine o un altro artefatto ne specifica la versione. Un singolo artefatto all'interno di un repository può essere assegnato a uno o più tag e può anche essere "senza tag". Ovvero, è possibile eliminare tutti i tag da un'immagine, mentre i dati dell'immagine (i relativi livelli) rimangono nel registro di sistema.
 
-Il nome di un'immagine è definito dal repository (o da repository e spazio dei nomi) e da un tag. È possibile eseguire il push e il pull di un'immagine specificandone il nome nella relativa operazione.
+Il nome di un'immagine è definito dal repository (o da repository e spazio dei nomi) e da un tag. È possibile eseguire il push e il pull di un'immagine specificandone il nome nella relativa operazione. Il tag `latest` viene usato per impostazione predefinita se non ne viene fornito uno nei comandi di Docker.
 
 Il modo in cui vengono contrassegnate le immagini del contenitore è guidato dagli scenari per lo sviluppo o la distribuzione. Ad esempio, sono consigliati Tag stabili per la manutenzione delle immagini di base e tag univoci per la distribuzione di immagini. Per altre informazioni, vedere [consigli per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore](container-registry-image-tag-version.md).
+
+Per le regole di denominazione dei tag, vedere la [documentazione di Docker](https://docs.docker.com/engine/reference/commandline/tag/).
 
 ### <a name="layer"></a>Livello
 
@@ -75,7 +79,7 @@ La condivisione dei livelli ne ottimizza anche la distribuzione ai nodi, in quan
 
 Per garantire l'isolamento e la protezione da potenziali manipolazioni dei livelli, i livelli non vengono condivisi tra i registri.
 
-### <a name="manifest"></a>manifesto
+### <a name="manifest"></a>Manifesto
 
 Ogni immagine del contenitore o artefatto di cui è stato eseguito il push in un registro contenitori è associato a un *manifesto*. generato dal registro quando l'immagine viene inserita. Il manifesto identifica in modo univoco l'immagine e ne specifica i livelli. È possibile elencare i manifesti per un repository con il comando dell'interfaccia della riga di comando di Azure [az acr repository show-manifests][az-acr-repository-show-manifests]:
 

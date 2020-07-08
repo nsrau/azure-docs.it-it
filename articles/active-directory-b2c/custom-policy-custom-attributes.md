@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b5990f79891a9cbc0d18c3499691a3d7ef309a73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389327"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: abilitare gli attributi personalizzati in un criterio del profilo personalizzato
 
@@ -36,11 +36,11 @@ La directory Azure AD B2C viene fornita con un [set predefinito di attributi](us
 * Un provider di identità ha un identificatore utente univoco, **uniqueUserGUID**, che deve essere reso permanente.
 * Un percorso utente personalizzato deve salvare in modo permanente lo stato dell'utente, **migrationStatus**, per l'uso di altre logiche.
 
-Azure AD B2C consente di estendere il set di attributi archiviati in ogni account utente. È anche possibile leggere e scrivere questi attributi usando l' [API Microsoft Graph](manage-user-accounts-graph-api.md).
+Azure AD B2C consente di estendere il set di attributi archiviati in ogni account utente. Questi attributi possono anche essere scritti e letti usando l'[API Microsoft Graph](manage-user-accounts-graph-api.md).
 
 ## <a name="azure-ad-b2c-extensions-app"></a>App Azure AD B2C Extensions
 
-Gli attributi di estensione possono essere registrati solo in un oggetto applicazione, anche se possono contenere dati per un utente. L'attributo di estensione è associato all'applicazione denominata B2C-Extensions-app. Non modificare questa applicazione, perché viene usata da Azure AD B2C per archiviare i dati utente. Questa applicazione è reperibile in Azure AD B2C, registrazioni per l'app.
+Gli attributi di estensione possono essere registrati solo in un oggetto applicazione, anche se possono contenere dati per un utente. L'attributo di estensione è associato all'applicazione denominata b2c-extensions-app. Non modificare questa applicazione, perché viene usata da Azure AD B2C per archiviare i dati utente. Questa applicazione è reperibile in Azure AD B2C, registrazioni per l'app.
 
 I termini *proprietà di estensione*, *attributo personalizzato* e *attestazione personalizzata* fanno riferimento allo stesso concetto nel contesto di questo articolo. Il nome varia in base al contesto, ad esempio applicazione, oggetto o criteri.
 
@@ -49,7 +49,7 @@ I termini *proprietà di estensione*, *attributo personalizzato* e *attestazione
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
-1. Selezionare **registrazioni app (anteprima)**, quindi selezionare **tutte le applicazioni**.
+1. Selezionare **registrazioni app**, quindi selezionare **tutte le applicazioni**.
 1. Selezionare l' `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` applicazione.
 1. Copiare negli Appunti e salvare gli identificatori seguenti:
     * **ID applicazione**. Esempio: `11111111-1111-1111-1111-111111111111`.
@@ -59,7 +59,7 @@ I termini *proprietà di estensione*, *attributo personalizzato* e *attestazione
 
 Per abilitare gli attributi personalizzati nei criteri, fornire l'ID **applicazione** e l' **ID oggetto** applicazione nei metadati del profilo tecnico comuni di AAD. Il profilo tecnico *comune di AAD* si trova nel profilo tecnico di base [Azure Active Directory](active-directory-technical-profile.md) e fornisce il supporto per la gestione Azure ad utenti. Altri profili tecnici Azure AD includono AAD-Common per sfruttare la configurazione. Eseguire l'override del profilo tecnico comune di AAD nel file di estensione.
 
-1. Aprire il file delle estensioni dei criteri. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
+1. Aprire il file di estensioni dei criteri, ad esempio <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Trovare l'elemento ClaimsProviders. Aggiungere un nuovo ClaimsProvider all'elemento ClaimsProviders.
 1. Sostituire `ApplicationObjectId` con l'ID oggetto registrato in precedenza. Quindi sostituire `ClientId` con l'ID applicazione registrato in precedenza nel frammento di codice seguente.
 
@@ -84,8 +84,8 @@ Per abilitare gli attributi personalizzati nei criteri, fornire l'ID **applicazi
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad B2C.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
-4. Selezionare **Framework esperienza di identità**.
-5. Selezionare **carica criteri personalizzati**, quindi caricare i file dei criteri TrustFrameworkExtensions. XML modificati.
+4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
+5. Selezionare **carica criteri personalizzati**, quindi caricare i file di criteri TrustFrameworkExtensions.xml modificati.
 
 > [!NOTE]
 > La prima volta che il Azure AD profilo tecnico rende persistente l'attestazione nella directory, verifica se l'attributo personalizzato esiste. In caso contrario, crea l'attributo personalizzato.  
@@ -96,7 +96,7 @@ Gli stessi attributi di estensione sono condivisi tra i criteri predefiniti e qu
 
 È possibile creare questi attributi usando l'interfaccia utente del portale prima o dopo averli usati nei criteri personalizzati. Seguire le istruzioni per [definire gli attributi personalizzati in Azure Active Directory B2C](user-flow-custom-attributes.md). Quando si crea un attributo **loyaltyId** nel portale, è necessario farvi riferimento come indicato di seguito:
 
-|Name     |Campo di utilizzo |
+|Nome     |Campo di utilizzo |
 |---------|---------|
 |`extension_loyaltyId`  | Criteri personalizzati|
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [API Microsoft Graph](manage-user-accounts-graph-api.md)|

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c72abf79f0a420309ebe229673be9439fd99b74c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b71a7b8ab29e8083a5f119a41ef6de312518301
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388273"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con OpenID Connect tramite Azure Active Directory B2C
 
@@ -24,14 +24,14 @@ ms.locfileid: "78188257"
 
 ## <a name="add-the-identity-provider"></a>Aggiungere il provider di identità
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure ad B2C.
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C facendo clic sul filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 1. Selezionare **provider di identità**e quindi fare clic su **nuovo provider OpenID Connect**.
 
 ## <a name="configure-the-identity-provider"></a>Configurare il provider di identità
 
-Ogni provider di identità OpenID Connect descrive un documento di metadati che contiene la maggior parte delle informazioni necessarie per eseguire l'accesso. Il documento include informazioni come gli URL da usare e il percorso delle chiavi di firma pubbliche del servizio. Il documento di metadati OpenID Connect si trova sempre in un endpoint che termina con `.well-known\openid-configuration`. Per il provider di identità OpenID Connect che si desidera aggiungere, immettere l'URL dei metadati.
+Ogni provider di identità OpenID Connect descrive un documento di metadati che contiene la maggior parte delle informazioni necessarie per eseguire l'accesso. Il documento include informazioni come gli URL da usare e il percorso delle chiavi di firma pubbliche del servizio. Il documento di metadati OpenID Connect si trova sempre in un endpoint che termina con `.well-known/openid-configuration`. Per il provider di identità OpenID Connect che si desidera aggiungere, immettere l'URL dei metadati.
 
 ## <a name="client-id-and-secret"></a>ID client e segreto
 

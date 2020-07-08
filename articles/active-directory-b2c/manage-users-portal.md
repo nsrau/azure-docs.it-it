@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c8fad8b5bd2dccba36c0c6888712fa806f3cbfc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d6d6169f8662c9b973fb7f624a590322f62b0b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387525"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Usare il portale di Azure per creare ed eliminare utenti consumer in Azure AD B2C
 
@@ -29,9 +29,9 @@ Per aggiungere o eliminare utenti, all'account deve essere assegnato il ruolo di
 
 Come descritto in [Panoramica degli account utente in Azure ad B2C](user-overview.md), esistono tre tipi di account utente che è possibile creare in una directory Azure ad B2C:
 
-* Work
+* Lavoro
 * Guest
-* Utente
+* Consumer
 
 Questo articolo è incentrato sull'uso degli **account utente** nel portale di Azure. Per informazioni sulla creazione e l'eliminazione di account di lavoro e Guest, vedere [aggiungere o eliminare utenti con Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
@@ -43,7 +43,7 @@ Questo articolo è incentrato sull'uso degli **account utente** nel portale di A
 1. In **Gestisci** selezionare **Utenti**.
 1. Selezionare **nuovo utente**.
 1. Selezionare **crea Azure ad B2C utente**.
-1. Scegliere un **metodo di accesso** e immettere un indirizzo di **posta elettronica** o un **nome** utente per il nuovo utente. Il metodo di accesso selezionato qui deve corrispondere all'impostazione specificata per il provider di identità dell' *account locale* del tenant di Azure ad B2C (vedere **gestire** > i**provider di identità** nel tenant di Azure ad B2C).
+1. Scegliere un **metodo di accesso** e immettere un indirizzo di **posta elettronica** o un **nome** utente per il nuovo utente. Il metodo di accesso selezionato qui deve corrispondere all'impostazione specificata per il provider di identità dell' *account locale* del tenant di Azure ad B2C (vedere **gestire**i  >  **provider di identità** nel tenant di Azure ad B2C).
 1. Immettere un **nome** per l'utente. Si tratta in genere del nome completo (dato e cognome) dell'utente.
 1. Opzionale È possibile **bloccare l'accesso** se si vuole ritardare la possibilità per l'utente di accedere. È possibile abilitare l'accesso in un secondo momento modificando il **profilo** dell'utente nel portale di Azure.
 1. Scegliere **genera automaticamente password** o **Consenti la creazione della password**.

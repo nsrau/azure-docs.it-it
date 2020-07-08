@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473677"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389361"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati in Azure Active Directory B2C
 
@@ -41,17 +41,17 @@ Completare la procedura descritta in [Introduzione ai criteri personalizzati](cu
 
 ## <a name="define-a-claim"></a>Definire un'attestazione
 
-Un'attestazione fornisce un'archiviazione temporanea dei dati durante l'esecuzione di un Azure AD B2C criteri. Lo [schema delle attestazioni](claimsschema.md) è il punto in cui vengono dichiarate le attestazioni. Vengono usati gli elementi seguenti per definire l'attestazione:
+Un'attestazione fornisce un'archiviazione temporanea dei dati durante l'esecuzione di un Azure AD B2C criteri. Lo [schema di attestazioni](claimsschema.md) è la posizione in cui si dichiarano le attestazioni. Vengono usati gli elementi seguenti per definire l'attestazione:
 
 - **DisplayName**: una stringa che definisce l'etichetta destinata all'utente.
 - [DataType](claimsschema.md#datatype) : tipo di attestazione.
 - **UserHelpText**: consente all'utente di identificare i requisiti.
 - [Tipo](claimsschema.md#userinputtype) : tipo di controllo di input, ad esempio casella di testo, selezione di Radio, elenco a discesa o selezioni multiple.
 
-Aprire il file delle estensioni dei criteri. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
+Aprire il file di estensioni dei criteri, ad esempio <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
 1. Cercare l'elemento [BuildingBlocks](buildingblocks.md). Se l'elemento non esiste, aggiungerlo.
-1. Individuare l'elemento [ClaimsSchema](claimsschema.md) . Se l'elemento non esiste, aggiungerlo.
+1. Individuare l'elemento [ClaimsSchema](claimsschema.md). Se l'elemento non esiste, aggiungerlo.
 1. Aggiungere l'attestazione City all'elemento **ClaimsSchema** .  
 
 ```xml
@@ -98,7 +98,7 @@ Per raccogliere l'attestazione City durante l'iscrizione, è necessario aggiunge
 <ClaimsProvider>
 ```
 
-Per raccogliere l'attestazione City dopo l'accesso iniziale con un account federato, è necessario aggiungerla come attestazione di output al `SelfAsserted-Social` profilo tecnico. Per consentire agli utenti di account locali e federati di modificare i dati di profilo in un `SelfAsserted-ProfileUpdate` secondo momento, aggiungere l'attestazione di output al profilo tecnico. Eseguire l'override di questi profili tecnici nel file di estensione. Specificare l'intero elenco delle attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo. Trovare l'elemento **ClaimsProviders**. Aggiungere un nuovo ClaimsProviders come segue:
+Per raccogliere l'attestazione City dopo l'accesso iniziale con un account federato, è necessario aggiungerla come attestazione di output al `SelfAsserted-Social` profilo tecnico. Per consentire agli utenti di account locali e federati di modificare i dati di profilo in un secondo momento, aggiungere l'attestazione di output al `SelfAsserted-ProfileUpdate` profilo tecnico. Eseguire l'override di questi profili tecnici nel file di estensione. Specificare l'intero elenco delle attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo. Trovare l'elemento **ClaimsProviders**. Aggiungere un nuovo ClaimsProviders come segue:
 
 ```xml
   <DisplayName>Self Asserted</DisplayName>
@@ -172,7 +172,7 @@ Eseguire l'override di questi profili tecnici nel file di estensione. Trovare l'
 
 ## <a name="include-a-claim-in-the-token"></a>Includere un'attestazione nel token 
 
-Per riportare l'attestazione della città all'applicazione relying party, aggiungere un'attestazione <em> `SocialAndLocalAccounts/` </em> di output al file. L'attestazione di output verrà aggiunta al token dopo un percorso utente completato e verrà inviata all'applicazione. Modificare l'elemento profilo tecnico nella sezione relying party per aggiungere la città come attestazione di output.
+Per riportare l'attestazione della città all'applicazione relying party, aggiungere un'attestazione di output al <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. L'attestazione di output verrà aggiunta al token dopo un percorso utente completato e verrà inviata all'applicazione. Modificare l'elemento profilo tecnico nella sezione relying party per aggiungere la città come attestazione di output.
  
 ```xml
 <RelyingParty>
@@ -198,9 +198,9 @@ Per riportare l'attestazione della città all'applicazione relying party, aggiun
 ## <a name="test-the-custom-policy"></a>Testare i criteri personalizzati
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad.
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD. A tale scopo, selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant di Azure AD.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
-4. Selezionare **Framework esperienza di identità**.
+4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 5. Selezionare **Carica criteri personalizzati**e caricare i file dei due criteri modificati.
 2. Selezionare il criterio di iscrizione o di accesso che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: fe328de9460efb743037f697c7f564e2c628278d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388936"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integrare scambi di attestazioni API REST nel criterio personalizzato di Azure AD B2C
 
@@ -32,6 +32,9 @@ Usando Azure AD B2C, è possibile aggiungere la logica di business a un percorso
 - **Eseguire la logica di business personalizzata**. È possibile inviare notifiche push, aggiornare i database aziendali, eseguire un processo di migrazione utente, gestire le autorizzazioni, controllare i database ed eseguire qualsiasi altro flusso di lavoro.
 
 ![Diagramma di uno scambio di attestazioni del servizio RESTful](media/custom-policy-rest-api-intro/restful-service-claims-exchange.png)
+
+> [!NOTE]
+> Se è presente una risposta lenta o nessuna risposta dal servizio RESTful a Azure AD B2C, il timeout è di 30 secondi e il numero di tentativi è di 2 volte (ovvero sono presenti 3 tentativi in totale). Le impostazioni per il numero di tentativi e il timeout non sono attualmente configurabili.
 
 ## <a name="calling-a-restful-service"></a>Chiamata a un servizio RESTful
 
@@ -142,7 +145,7 @@ L'API REST può essere basata su qualsiasi piattaforma e scritta in qualsiasi li
 ## <a name="localize-the-rest-api"></a>Localizzare l'API REST
 In un profilo tecnico RESTful, è possibile inviare il linguaggio o le impostazioni locali della sessione corrente e, se necessario, generare un messaggio di errore localizzato. Usando il [resolver delle attestazioni](claim-resolver-overview.md), è possibile inviare un'attestazione contestuale, ad esempio la lingua dell'utente. Nell'esempio seguente viene illustrato un profilo tecnico RESTful che dimostra questo scenario.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-ValidateUserData">
   <DisplayName>Validate user input data</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -162,7 +165,7 @@ In un profilo tecnico RESTful, è possibile inviare il linguaggio o le impostazi
 
 ## <a name="handling-error-messages"></a>Gestione dei messaggi di errore
 
-L'API REST può restituire un messaggio di errore, ad esempio "Utente nel sistema CRM non trovato". Quando si verifica un errore, l'API REST deve restituire un messaggio di errore HTTP 409 (codice di stato risposta di conflitto). Per altre informazioni, vedere il [profilo tecnico RESTful](restful-technical-profile.md#returning-error-message).
+L'API REST può restituire un messaggio di errore, ad esempio "Utente nel sistema CRM non trovato". Quando si verifica un errore, l'API REST deve restituire un messaggio di errore HTTP 409 (codice di stato risposta di conflitto). Per altre informazioni, vedere il [profilo tecnico RESTful](restful-technical-profile.md#returning-validation-error-message).
 
 Questa operazione può essere eseguita solo chiamando un profilo tecnico dell'API REST da un profilo tecnico di convalida. Ciò consente all'utente di correggere i dati nella pagina ed eseguire nuovamente la convalida al momento dell'invio della pagina.
 

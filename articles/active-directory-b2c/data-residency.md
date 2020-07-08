@@ -7,16 +7,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/26/2019
+ms.topic: reference
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3df0f581d0d2a1e5ca02202b4eeaede5a1dd5362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: bb9c6dbf9984ec81fbd4b93a61552211928d0f0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188850"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388715"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: aree di disponibilità e residenza dei dati
 
@@ -40,7 +41,7 @@ Azure AD B2C archivia i dati utente in Stati Uniti, in Europa o nell'area Asia P
 
 La residenza dei dati è determinata dal paese selezionato quando si [Crea un tenant di Azure ad B2C](tutorial-create-tenant.md):
 
-![Screenshot di un tenant di anteprima](./media/data-residency/data-residency-b2c-tenant.png)
+![Screenshot di un modulo Crea tenant, selezione paese o area geografica.](./media/data-residency/data-residency-b2c-tenant.png)
 
 I dati risiedono nella **Stati Uniti** per i paesi/aree geografiche seguenti:
 
@@ -68,4 +69,4 @@ Non esiste **alcun percorso di migrazione** da un tenant di anteprima B2C a un t
 
 Si verificano problemi noti quando si elimina un tenant B2C di anteprima e si crea un tenant B2C a livello di produzione con lo stesso nome di dominio. *È necessario creare un tenant B2C a livello di produzione con un nome di dominio diverso*.
 
-![Screenshot di un tenant di anteprima](./media/data-residency/preview-b2c-tenant.png)
+![Screenshot di un tipo di tenant, come tenant di anteprima.](./media/data-residency/preview-b2c-tenant.png)
