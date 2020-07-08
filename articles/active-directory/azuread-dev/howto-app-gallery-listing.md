@@ -6,19 +6,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383870"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -51,7 +51,7 @@ Questo articolo illustra come elencare un'applicazione nella raccolta di applica
 
 Dopo aver verificato che l'integrazione dell'applicazione funzioni con Azure AD, inviare la richiesta dell'applicazione nel [portale di rete delle applicazioni Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-Se viene visualizzata la pagina seguente dopo l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Fornire l'account di posta elettronica che si vuole usare per l'invio della richiesta. Un indirizzo di posta elettronica aziendale [name@yourbusiness.com](mailto:name@yourbusiness.com) , ad esempio, è preferibile. Il team di Azure AD aggiungerà l'account nel portale di rete delle applicazioni Microsoft.
+Se viene visualizzata la pagina seguente dopo l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Fornire l'account di posta elettronica che si vuole usare per l'invio della richiesta. Un indirizzo di posta elettronica aziendale, ad esempio, [name@yourbusiness.com](mailto:name@yourbusiness.com) è preferibile. Il team di Azure AD aggiungerà l'account nel portale di rete delle applicazioni Microsoft.
 
 ![Messaggio di richiesta di accesso nel portale di SharePoint](./media/howto-app-gallery-listing/errorimage.png)
 
@@ -79,7 +79,7 @@ L'utente Guest è federato a un tenant principale che è anche un Azure AD. L'ut
  
 **Soluzioni protette:**
 
-* Gli utenti Guest registrati in multi-factor authentication correggono il proprio rischio utente. Questa operazione può essere eseguita dall'utente guest che esegue una modifica o reimpostazione dellahttps://aka.ms/sspr) password protetta (nel tenant principale, che richiede l'autenticazione a più fattori e SSPR nel tenant principale). La modifica o la reimpostazione della password protetta deve essere avviata in Azure AD e non in locale.
+* Gli utenti Guest registrati in multi-factor authentication correggono il proprio rischio utente. Questa operazione può essere eseguita dall'utente guest che esegue una modifica o reimpostazione della password protetta ( https://aka.ms/sspr) nel tenant principale, che richiede l'autenticazione a più fattori e SSPR nel tenant principale). La modifica o la reimpostazione della password protetta deve essere avviata in Azure AD e non in locale.
 
 * Gli utenti Guest hanno a disposizione gli amministratori per correggere i rischi. In questo caso, l'amministratore eseguirà la reimpostazione della password (generazione temporanea delle password). Questa operazione non richiede la protezione delle identità. L'amministratore dell'utente Guest può passare a https://aka.ms/RiskyUsers e fare clic su "Reimposta password".
 
@@ -136,7 +136,7 @@ Per aggiornare o rimuovere un'applicazione esistente nella raccolta Azure AD app
 
 ## <a name="list-requests-by-customers"></a>Elenca richieste per clienti
 
-I clienti possono inviare una richiesta per elencare un'applicazione selezionando **richieste di app da clienti** > **Invia nuova richiesta**.
+I clienti possono inviare una richiesta per elencare un'applicazione selezionando **richieste di app da clienti**  >  **Invia nuova richiesta**.
 
 ![Mostra il riquadro app richieste dal cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
 
@@ -156,4 +156,4 @@ La sequenza temporale per il processo di visualizzazione di un'applicazione Open
 
 ## <a name="escalations"></a>Escalation
 
-Per le escalation, inviare un messaggio di posta elettronica al team SaaSApplicationIntegrations@service.microsoft.comdi integrazione di [Azure ad SSO](mailto:SaaSApplicationIntegrations@service.microsoft.com) all'indirizzo e risponderemo appena possibile.
+Per le escalation, inviare un messaggio di posta elettronica al [team di integrazione di Azure ad SSO](mailto:SaaSApplicationIntegrations@service.microsoft.com) all'indirizzo SaaSApplicationIntegrations@service.microsoft.com e risponderemo appena possibile.

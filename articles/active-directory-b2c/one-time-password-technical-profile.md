@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 35497f978a1819f09411487e4bbc7eb1d05cc80d
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 9592afbf74e65bcb2fe9319da764bf06d8d4eb6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900387"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385723"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico monouso per la password in un Azure AD B2C criteri personalizzati
 
@@ -30,13 +30,13 @@ Il profilo tecnico della password monouso può inoltre restituire un messaggio d
 
 L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Proprietary`. L'attributo **handler** deve contenere il nome completo dell'assembly del gestore di protocollo usato da Azure ad B2C:
 
-```XML
+```xml
 Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
 Nell'esempio seguente viene illustrato un profilo tecnico per la password monouso:
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Validate user input verification code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -51,7 +51,7 @@ La prima modalità di questo profilo tecnico consiste nel generare un codice. Di
 
 L'elemento **InputClaims** contiene un elenco di attestazioni necessarie per l'invio al provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatoria | Description |
+| ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | identificatore | Sì | Identificatore per identificare l'utente che deve verificare il codice in un secondo momento. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
 
@@ -61,7 +61,7 @@ L'elemento **InputClaimsTransformations** può contenere una raccolta di element
 
 L'elemento **OutputClaims** contiene un elenco di attestazioni generate dal provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatoria | Description |
+| ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | otpGenerated | Sì | Il codice generato la cui sessione viene gestita da Azure AD B2C. |
 
@@ -71,20 +71,20 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 Per configurare la modalità di generazione del codice, è possibile usare le impostazioni seguenti:
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Tempo in secondi per la scadenza del codice. Valore minimo `60`:; Massimo: `1200`; Impostazione predefinita `600`:. |
+| CodeExpirationInSeconds | No | Tempo in secondi per la scadenza del codice. Valore minimo: `60` ; Massimo: `1200` ; Impostazione predefinita: `600` . |
 | CodeLength | No | Lunghezza del codice. Il valore predefinito è `6`. |
-| CharacterSet | No | Set di caratteri per il codice, formattato per essere utilizzato in un'espressione regolare. Ad esempio: `a-z0-9A-Z`. Il valore predefinito è `0-9`. Il set di caratteri deve includere almeno 10 caratteri diversi nel set specificato. |
+| CharacterSet | No | Set di caratteri per il codice, formattato per essere utilizzato in un'espressione regolare. Ad esempio, `a-z0-9A-Z` Il valore predefinito è `0-9`. Il set di caratteri deve includere almeno 10 caratteri diversi nel set specificato. |
 | NumRetryAttempts | No | Il numero di tentativi di verifica prima che il codice venga considerato non valido. Il valore predefinito è `5`. |
-| Operazione | Sì | L'operazione da eseguire. Valore possibile: `GenerateCode`. |
+| Operazione | Sì | L'operazione da eseguire. Valore possibile: `GenerateCode` . |
 | ReuseSameCode | No | Indica se deve essere fornito un codice duplicato anziché generare un nuovo codice quando il codice specificato non è scaduto ed è ancora valido. Il valore predefinito è `false`. |
 
 ### <a name="example"></a>Esempio
 
-L'esempio `TechnicalProfile` seguente viene usato per generare un codice:
+L'esempio seguente `TechnicalProfile` viene usato per generare un codice:
 
-```XML
+```xml
 <TechnicalProfile Id="GenerateCode">
   <DisplayName>Generate Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -113,7 +113,7 @@ La seconda modalità di questo profilo tecnico consiste nel verificare un codice
 
 L'elemento **InputClaims** contiene un elenco di attestazioni necessarie per l'invio al provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatoria | Description |
+| ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | identificatore | Sì | Identificatore per identificare l'utente che ha generato in precedenza un codice. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
 | otpToVerify | Sì | Codice di verifica fornito dall'utente. |
@@ -130,16 +130,16 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 Per la modalità di verifica del codice è possibile usare le impostazioni seguenti:
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Operazione | Sì | L'operazione da eseguire. Valore possibile: `VerifyCode`. |
+| Operazione | Sì | L'operazione da eseguire. Valore possibile: `VerifyCode` . |
 
 
 ### <a name="ui-elements"></a>Elementi dell'interfaccia utente
 
-I metadati seguenti possono essere utilizzati per configurare i messaggi di errore visualizzati quando si verifica un errore di verifica del codice. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . È possibile [localizzare](localization-string-ids.md#one-time-password-error-messages)i messaggi di errore.
+I metadati seguenti possono essere utilizzati per configurare i messaggi di errore visualizzati quando si verifica un errore di verifica del codice. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . I messaggi di errore possono essere [localizzati](localization-string-ids.md#one-time-password-error-messages).
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | Messaggio da visualizzare all'utente se la sessione di verifica del codice è scaduta. Il codice è scaduto o il codice non è mai stato generato per un identificatore specificato. |
 | UserMessageIfMaxRetryAttempted | No | Messaggio da visualizzare all'utente se è stato superato il numero massimo di tentativi di verifica consentiti. |
@@ -149,9 +149,9 @@ I metadati seguenti possono essere utilizzati per configurare i messaggi di erro
 
 ### <a name="example"></a>Esempio
 
-L'esempio `TechnicalProfile` seguente viene usato per la verifica di un codice:
+L'esempio seguente `TechnicalProfile` viene usato per la verifica di un codice:
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Verify Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -169,5 +169,5 @@ L'esempio `TechnicalProfile` seguente viene usato per la verifica di un codice:
 
 Vedere l'articolo seguente, ad esempio l'uso di un profilo tecnico monouso per la password con verifica tramite posta elettronica personalizzata:
 
-- [Verifica della posta elettronica personalizzata in Azure Active Directory B2C](custom-email.md)
+- Verifica della posta elettronica personalizzata in Azure Active Directory B2C ([Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md))
 

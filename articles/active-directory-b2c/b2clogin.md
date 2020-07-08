@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 64b440054795670b99a22e37dec7188f3e1cd74c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4297ee64742b81e86eb8b85c0a6c405fac07d67f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386165"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Impostare gli URL di reindirizzamento su b2clogin.com per Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Per eseguire la migrazione delle applicazioni a *b2clogin.com*, potrebbe essere 
 
 ## <a name="change-identity-provider-redirect-urls"></a>Modificare gli URL di reindirizzamento del provider di identità
 
-Nel sito Web del provider di identità in cui è stata creata un'applicazione, modificare tutti gli URL attendibili `your-tenant-name.b2clogin.com` per il reindirizzamento al anziché *login.microsoftonline.com*.
+Nel sito Web del provider di identità in cui è stata creata un'applicazione, modificare tutti gli URL attendibili per il reindirizzamento al `your-tenant-name.b2clogin.com` anziché *login.microsoftonline.com*.
 
 Esistono due formati che è possibile usare per gli URL di reindirizzamento di b2clogin.com. Il primo consente di non visualizzare "Microsoft" in qualsiasi punto dell'URL usando l'ID tenant (GUID) al posto del nome di dominio del tenant:
 
@@ -58,7 +58,7 @@ Esistono due formati che è possibile usare per gli URL di reindirizzamento di b
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-La seconda opzione Usa il nome di dominio del tenant nel formato `your-tenant-name.onmicrosoft.com`. Ad esempio:
+La seconda opzione Usa il nome di dominio del tenant nel formato `your-tenant-name.onmicrosoft.com` . Ad esempio:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
@@ -71,7 +71,7 @@ Per entrambi i formati:
 
 ## <a name="update-your-applications-and-apis"></a>Aggiornare le applicazioni e le API
 
-Il codice nelle applicazioni e nelle API abilitate per `login.microsoftonline.com` Azure ad B2C può riferirsi a in diversi punti. Ad esempio, il codice potrebbe avere riferimenti a flussi utente ed endpoint token. Aggiornare il codice seguente in modo `your-tenant-name.b2clogin.com`che faccia riferimento a:
+Il codice nelle applicazioni e nelle API abilitate per Azure AD B2C può riferirsi a `login.microsoftonline.com` in diversi punti. Ad esempio, il codice potrebbe avere riferimenti a flussi utente ed endpoint token. Aggiornare il codice seguente in modo che faccia riferimento a `your-tenant-name.b2clogin.com` :
 
 * Authorization endpoint (Endpoint di autorizzazione)
 * Token endpoint (Endpoint di token)

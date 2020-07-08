@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: e175a81efc1ab0950c1fda314efb206ff97a2b7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738762"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385383"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definire le trasformazioni delle attestazioni di numeri di telefono in Azure AD B2C
 
@@ -37,7 +37,7 @@ Converte un tipo di dati `phoneNumber` in un tipo di dati `string`.
 
 In questo esempio, l'attestazione cellPhoneNumber con un valore di tipo `phoneNumber` viene convertita in un'attestazione cellPhone con un valore di tipo `string`.
 
-```XML
+```xml
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
@@ -72,7 +72,7 @@ La trasformazione delle attestazioni **ConvertStringToPhoneNumberClaim** viene s
 
 È possibile usare questa trasformazione delle attestazioni per verificare che l'attestazione stringa fornita sia un numero di telefono valido. In caso contrario, viene generato un messaggio di errore. L'esempio seguente verifica che ClaimType **phoneString** sia veramente un numero di telefono valido e quindi restituisce il numero di telefono nel formato standard di Azure AD B2C. In caso contrario, viene generato un messaggio di errore.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
@@ -86,7 +86,7 @@ La trasformazione delle attestazioni **ConvertStringToPhoneNumberClaim** viene s
 
 Il profilo tecnico autocertificato che chiama il profilo tecnico di convalida contenente questa trasformazione delle attestazioni può definire il messaggio di errore.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationInvalidPhoneNumber">Custom error message if the phone number is not valid.</Item>
@@ -132,7 +132,7 @@ Se la trasformazione delle attestazioni **GetNationalNumberAndCountryCodeFromPho
 
 L'esempio seguente prova a dividere il numero di telefono in numero locale e codice paese/area geografica. Se il numero di telefono è valido, tale numero verrà sostituito dal numero locale. Se il numero di telefono non è valido, verrà generata un'eccezione e il numero manterrà il valore originario.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="phoneNumber" />
@@ -150,7 +150,7 @@ L'esempio seguente prova a dividere il numero di telefono in numero locale e cod
 
 Il profilo tecnico autocertificato che chiama il profilo tecnico di convalida contenente questa trasformazione delle attestazioni può definire il messaggio di errore.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfPhoneNumberParseFailure">Custom error message if the phone number is not valid.</Item>

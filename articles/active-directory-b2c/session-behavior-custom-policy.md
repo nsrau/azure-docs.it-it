@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f6af5e8e1cfadd302eadfedf189a6710ac4aeca
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385264"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare il comportamento della sessione utilizzando criteri personalizzati in Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ La gestione delle [sessioni Single Sign-on (SSO)](session-overview.md) in Azure 
 
 Per modificare le configurazioni del comportamento della sessione e dell'accesso SSO, è necessario aggiungere un elemento **UserJourneyBehaviors** all'interno dell'elemento [RelyingParty](relyingparty.md).  L'elemento **UserJourneyBehaviors** deve essere immediatamente successivo a **DefaultUserJourney**. L'elemento **UserJourneyBehavors** dovrebbe essere simile all'esempio seguente:
 
-```XML
+```xml
 <UserJourneyBehaviors>
    <SingleSignOn Scope="Application" />
    <SessionExpiryType>Absolute</SessionExpiryType>
@@ -48,7 +48,7 @@ Per modificare le configurazioni del comportamento della sessione e dell'accesso
 
 ### <a name="configure-the-applications"></a>Configurare le applicazioni
 
-Quando si reindirizza l'utente all'endpoint di disconnessione Azure AD B2C (per i protocolli OAuth2 e SAML), Azure AD B2C Cancella la sessione dell'utente dal browser.  Per consentire [Single Sign-out](session-overview.md#single-sign-out), impostare l' `LogoutUrl` oggetto dell'applicazione dal portale di Azure:
+Quando si reindirizza l'utente all'endpoint di disconnessione Azure AD B2C (per i protocolli OAuth2 e SAML), Azure AD B2C Cancella la sessione dell'utente dal browser.  Per consentire [Single Sign-out](session-overview.md#single-sign-out), impostare l'oggetto `LogoutUrl` dell'applicazione dal portale di Azure:
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 1. Scegliere la directory Azure AD B2C facendo clic sull'account nell'angolo superiore destro della pagina.
@@ -60,7 +60,7 @@ Quando si reindirizza l'utente all'endpoint di disconnessione Azure AD B2C (per 
 Per supportare single sign-out, i profili tecnici dell'emittente di token per JWT e SAML devono specificare:
 
 - Nome del protocollo, ad esempio`<Protocol Name="OpenIdConnect" />`
-- Riferimento al profilo tecnico della sessione, ad esempio `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
+- Riferimento al profilo tecnico della sessione, ad esempio `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />` .
 
 Nell'esempio seguente vengono illustrate le autorità emittenti dei token JWT e SAML con Single Sign-out:
 
@@ -74,7 +74,7 @@ Nell'esempio seguente vengono illustrate le autorità emittenti dei token JWT e 
       <Protocol Name="OpenIdConnect" />
       <OutputTokenFormat>JWT</OutputTokenFormat>
       ...    
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />
     </TechnicalProfile>
 
     <!-- Session management technical profile for OIDC based tokens -->
@@ -103,4 +103,4 @@ Nell'esempio seguente vengono illustrate le autorità emittenti dei token JWT e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Azure ad B2C sessione](session-overview.md).
+- Altre informazioni sulla [sessione Azure AD B2C](session-overview.md).

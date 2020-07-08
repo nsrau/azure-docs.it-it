@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d6dad52c8a3e63c64bb8e0e0030e8c50b5bab42c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 465643d21d3059cd41948ff682d7464b00f749c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384006"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configurare la reimpostazione self-service della password per i clienti
 
@@ -32,7 +32,7 @@ Per impostazione predefinita, per la directory personale la reimpostazione self-
 2. Aprire **Azure Active Directory** (nella barra di spostamento sul lato sinistro).
 3. Scorrere verso il basso nel pannello Opzioni e selezionare **reimpostazione password**.
 4. Impostare **Reimpostazione password self-service abilitata** su **Tutte**.
-5. Fare clic su **Salva** nella parte superiore della pagina. L'operazione è completata.
+5. Fare clic su **Salva** nella parte superiore della pagina. Questo è tutto.
 
 Per eseguire il test, usare la funzionalità "Esegui adesso" in ogni flusso di accesso dell'utente che include gli account locali come provider di identità. Nella pagina di accesso dell'account locale in cui si immettono l'indirizzo di posta elettronica e la password o il nome utente e la password, fare clic su **Problemi di accesso all'account?** per verificare l'esperienza cliente.
 

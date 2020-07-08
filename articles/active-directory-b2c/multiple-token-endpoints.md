@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5daf88e746ea803f345c79bd31d656f2615b6754
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184095"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385740"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Eseguire la migrazione di un'API Web basata su OWIN in b2clogin.com
 
@@ -27,7 +27,7 @@ Aggiungendo il supporto nell'API per accettare i token rilasciati da b2clogin.co
 Le sezioni seguenti presentano un esempio di come abilitare più autorità di certificazione in un'API Web che usa i componenti del middleware [Microsoft OWIN][katana] (Katana). Sebbene gli esempi di codice siano specifici del middleware Microsoft OWIN, la tecnica generale dovrebbe essere applicabile ad altre librerie OWIN.
 
 > [!NOTE]
-> Questo articolo è destinato a Azure AD B2C clienti con API e applicazioni attualmente distribuite che `login.microsoftonline.com` fanno riferimento a e che desiderano eseguire `b2clogin.com` la migrazione all'endpoint consigliato. Se si sta configurando una nuova applicazione, usare [b2clogin.com](b2clogin.md) come indicato.
+> Questo articolo è destinato a Azure AD B2C clienti con API e applicazioni attualmente distribuite che fanno riferimento a `login.microsoftonline.com` e che desiderano eseguire la migrazione all' `b2clogin.com` endpoint consigliato. Se si sta configurando una nuova applicazione, usare [b2clogin.com](b2clogin.md) come indicato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,13 +46,13 @@ Per iniziare, selezionare uno dei flussi utente esistenti:
 1. Selezionare un criterio esistente, ad esempio *B2C_1_signupsignin1*, quindi selezionare **Esegui flusso utente**
 1. Nell'intestazione **Esegui flusso utente** nella parte superiore della pagina selezionare il collegamento ipertestuale per passare all'endpoint di individuazione di OpenID Connect per quel flusso utente.
 
-    ![Collegamento ipertestuale URI noto nella pagina Esegui ora della portale di Azure](media/multi-token-endpoints/portal-01-policy-link.png)
+    ![Collegamento ipertestuale URI well-known nella pagina Esegui adesso del portale di Azure](media/multi-token-endpoints/portal-01-policy-link.png)
 
-1. Nella pagina visualizzata nel browser registrare il `issuer` valore, ad esempio:
+1. Nella pagina visualizzata nel browser registrare il valore di `issuer`, ad esempio:
 
     `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
-1. Usare l'elenco a discesa **Seleziona dominio** per selezionare l'altro dominio, quindi eseguire di nuovo i due passaggi precedenti e registrare il `issuer` relativo valore.
+1. Usare l'elenco a discesa **Seleziona dominio** per selezionare l'altro dominio, quindi eseguire di nuovo i due passaggi precedenti e registrare il relativo `issuer` valore.
 
 A questo punto dovrebbero essere registrati due URI simili ai seguenti:
 
@@ -66,7 +66,7 @@ https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 Se sono presenti criteri personalizzati anziché flussi utente, è possibile usare un processo simile per ottenere gli URI dell'autorità emittente.
 
 1. Passare al tenant di Azure AD B2C
-1. Selezionare **Framework dell'esperienza di gestione delle identità**
+1. Selezionare il **Framework dell'esperienza di identità**
 1. Selezionare uno dei criteri di relying party, ad esempio *B2C_1A_signup_signin*
 1. Usare l'elenco a discesa **Seleziona dominio** per selezionare un dominio, ad esempio *yourtenant.b2clogin.com*
 1. Selezionare il collegamento ipertestuale visualizzato nell' **endpoint di individuazione di OpenID Connect**
@@ -77,7 +77,7 @@ Se sono presenti criteri personalizzati anziché flussi utente, è possibile usa
 
 Ora che si dispone di entrambi gli URI dell'endpoint del token, è necessario aggiornare il codice per specificare che entrambi gli endpoint sono emittenti valide. Per esaminare un esempio, scaricare o clonare l'applicazione di esempio, quindi aggiornare l'esempio per supportare entrambi gli endpoint come autorità emittenti valide.
 
-Scaricare l'archivio: [Active-Directory-B2C-DotNet-webapp-and-WebAPI-master. zip][sample-archive]
+Scaricare l'archivio: [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -88,8 +88,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 In questa sezione viene aggiornato il codice per specificare che entrambi gli endpoint dell'emittente del token sono validi.
 
 1. Aprire la soluzione **B2C-WebAPI-dotnet. sln** in Visual Studio
-1. Nel progetto **TaskService** aprire il file *TaskService\\app_start\\* * Startup.auth.cs** * nell'editor
-1. Aggiungere la direttiva `using` seguente all'inizio del file:
+1. Nel progetto **TaskService** aprire il file *TaskService \\ app_start \\ * * Startup.auth.cs** * nell'editor
+1. Aggiungere la `using` direttiva seguente all'inizio del file:
 
     `using System.Collections.Generic;`
 1. Aggiungere la [`ValidIssuers`][validissuers] proprietà alla [`TokenValidationParameters`][tokenvalidationparameters] definizione e specificare entrambi gli URI registrati nella sezione precedente:
@@ -123,9 +123,9 @@ Come indicato in precedenza, altre librerie OWIN in genere forniscono una funzio
 
 Con entrambi gli URI ora supportati dall'API Web, è ora necessario aggiornare l'applicazione Web in modo che recuperi i token dall'endpoint b2clogin.com.
 
-Ad esempio, è possibile configurare l'applicazione Web di esempio in modo che usi il nuovo endpoint `ida:AadInstance` modificando il valore nel file *TaskWebApp\\* * Web. config** * del progetto **TaskWebApp** .
+Ad esempio, è possibile configurare l'applicazione Web di esempio in modo che usi il nuovo endpoint modificando il `ida:AadInstance` valore nel file *TaskWebApp \\ * * Web.config** * del progetto **TaskWebApp** .
 
-Modificare il `ida:AadInstance` valore nel *file Web. config* di TaskWebApp in modo che faccia `{your-b2c-tenant-name}.b2clogin.com` riferimento al `login.microsoftonline.com`posto di.
+Modificare il `ida:AadInstance` valore nel *Web.config* di TaskWebApp in modo che faccia riferimento `{your-b2c-tenant-name}.b2clogin.com` al posto di `login.microsoftonline.com` .
 
 Prima di:
 
@@ -145,7 +145,7 @@ Quando le stringhe dell'endpoint vengono costruite durante l'esecuzione dell'app
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha presentato un metodo di configurazione di un'API Web che implementa il middleware Microsoft OWIN (Katana) per accettare i token da più endpoint dell'autorità emittente. Come si può notare, esistono diverse altre stringhe nei file *Web. config* dei progetti TaskService e TaskWebApp che devono essere modificate se si vuole compilare ed eseguire questi progetti nel proprio tenant. È possibile modificare i progetti in modo appropriato se si desidera visualizzarli in azione. Tuttavia, una procedura dettagliata completa di questa operazione esula dall'ambito di questo articolo.
+Questo articolo ha presentato un metodo di configurazione di un'API Web che implementa il middleware Microsoft OWIN (Katana) per accettare i token da più endpoint dell'autorità emittente. Come si può notare, esistono diverse altre stringhe nei file di *Web.Config* dei progetti TaskService e TaskWebApp che devono essere modificati se si vuole compilare ed eseguire questi progetti nel proprio tenant. È possibile modificare i progetti in modo appropriato se si desidera visualizzarli in azione. Tuttavia, una procedura dettagliata completa di questa operazione esula dall'ambito di questo articolo.
 
 Per ulteriori informazioni sui diversi tipi di token di sicurezza emessi da Azure AD B2C, vedere [Cenni preliminari sui token in Azure Active Directory B2C](tokens-overview.md).
 

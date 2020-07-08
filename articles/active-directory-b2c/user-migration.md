@@ -1,35 +1,35 @@
 ---
 title: Approcci alla migrazione degli utenti
 titleSuffix: Azure AD B2C
-description: Eseguire la migrazione degli account utente da un altro provider di identità a Azure AD B2C usando l'importazione bulk o i metodi di migrazione senza problemi.
+description: Eseguire la migrazione degli account utente da un altro provider di identità a Azure AD B2C usando i metodi di migrazione pre-migrazione o senza problemi.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b3ee069985fd39288a562d3caafc50b12290c060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383972"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrare gli utenti a Azure AD B2C
 
-La migrazione da un altro provider di identità a Azure Active Directory B2C (Azure AD B2C) potrebbe richiedere anche la migrazione degli account utente esistenti. Di seguito sono descritti due metodi di migrazione, ovvero l' *importazione bulk* e la *migrazione senza*problemi. Con entrambi gli approcci, è necessario scrivere un'applicazione o uno script che usi l' [API Microsoft Graph](manage-user-accounts-graph-api.md) per creare gli account utente nel Azure ad B2C.
+La migrazione da un altro provider di identità a Azure Active Directory B2C (Azure AD B2C) potrebbe richiedere anche la migrazione degli account utente esistenti. Di seguito sono descritti due metodi di migrazione, *pre-migrazione* e *migrazione senza*problemi. Con entrambi gli approcci, è necessario scrivere un'applicazione o uno script che usi l' [API Microsoft Graph](manage-user-accounts-graph-api.md) per creare gli account utente nel Azure ad B2C.
 
-## <a name="bulk-import"></a>Importazione bulk
+## <a name="pre-migration"></a>Pre-migrazione
 
-Nel flusso di importazione bulk, l'applicazione di migrazione esegue questi passaggi per ogni account utente:
+Nel flusso di pre-migrazione, l'applicazione di migrazione esegue questi passaggi per ogni account utente:
 
 1. Leggere l'account utente dal vecchio provider di identità, incluse le credenziali correnti (nome utente e password).
 1. Creare un account corrispondente nella directory Azure AD B2C con le credenziali correnti.
 
-Usare il flusso di importazione bulk in una delle due situazioni seguenti:
+Usare il flusso di pre-migrazione in una delle due situazioni seguenti:
 
 - È possibile accedere alle credenziali in testo non crittografato dell'utente (nome utente e password).
 - Le credenziali sono crittografate, ma è possibile decrittografarle.
@@ -43,25 +43,25 @@ Usare il flusso di migrazione senza problemi se le password non crittografate ne
 - La password viene archiviata in un formato crittografato unidirezionale, ad esempio con una funzione hash.
 - La password viene archiviata dal provider di identità legacy in modo che non sia possibile accedere a. Ad esempio, quando il provider di identità convalida le credenziali chiamando un servizio Web.
 
-Il flusso di migrazione senza problemi richiede comunque la migrazione in blocco degli account utente, ma usa un [criterio personalizzato](custom-policy-get-started.md) per eseguire una query su un' [API REST](custom-policy-rest-api-intro.md) (creata) per impostare la password di ogni utente al primo accesso.
+Il flusso di migrazione trasparente richiede ancora la pre-migrazione degli account utente, ma usa un [criterio personalizzato](custom-policy-get-started.md) per eseguire una query su un' [API REST](custom-policy-rest-api-intro.md) (creata) per impostare la password di ogni utente al primo accesso.
 
-Il flusso di migrazione senza problemi comporta quindi due fasi: l' *importazione bulk* e l' *impostazione delle credenziali*.
+Il flusso di migrazione senza problemi comporta quindi due fasi: *pre-migrazione* e *set credentials*.
 
-### <a name="phase-1-bulk-import"></a>Fase 1: importazione bulk
+### <a name="phase-1-pre-migration"></a>Fase 1: pre-migrazione
 
 1. L'applicazione di migrazione legge gli account utente dal vecchio provider di identità.
 1. L'applicazione di migrazione crea gli account utente corrispondenti nella directory Azure AD B2C, ma *non imposta le password*.
 
 ### <a name="phase-2-set-credentials"></a>Fase 2: impostare le credenziali
 
-Al termine della migrazione in blocco degli account, i criteri personalizzati e l'API REST eseguono le operazioni seguenti quando un utente accede:
+Al termine della pre-migrazione degli account, i criteri personalizzati e l'API REST eseguono le operazioni seguenti quando un utente accede:
 
 1. Leggere l'account utente Azure AD B2C corrispondente all'indirizzo di posta elettronica immesso.
 1. Controllare se l'account è contrassegnato per la migrazione valutando un attributo di estensione booleano.
-    - Se l'attributo di estensione `True`restituisce, chiamare l'API REST per convalidare la password rispetto al provider di identità legacy.
+    - Se l'attributo di estensione restituisce `True` , chiamare l'API REST per convalidare la password rispetto al provider di identità legacy.
       - Se l'API REST determina che la password non è corretta, restituire un errore descrittivo all'utente.
-      - Se l'API REST determina che la password è corretta, scrivere la password nell'account Azure AD B2C e modificare l'attributo di estensione booleano in `False`.
-    - Se l'attributo di estensione booleano restituisce `False`, continuare il processo di accesso come di consueto.
+      - Se l'API REST determina che la password è corretta, scrivere la password nell'account Azure AD B2C e modificare l'attributo di estensione booleano in `False` .
+    - Se l'attributo di estensione booleano restituisce `False` , continuare il processo di accesso come di consueto.
 
 Per visualizzare un criterio personalizzato di esempio e un'API REST, vedere l' [esempio di migrazione di utenti](https://aka.ms/b2c-account-seamless-migration) semplificati su GitHub.
 
@@ -73,7 +73,7 @@ Per visualizzare un criterio personalizzato di esempio e un'API REST, vedere l' 
 
 L'approccio di migrazione trasparente usa l'API REST personalizzata per convalidare le credenziali di un utente rispetto al provider di identità legacy.
 
-**È necessario proteggere l'API REST da attacchi di forza bruta.** Un utente malintenzionato può inviare diverse password con la speranza di indovinare le credenziali di un utente. Per evitare questi attacchi, interrompere la conservazione delle richieste all'API REST quando il numero di tentativi di accesso supera una determinata soglia. Inoltre, è possibile proteggere le comunicazioni tra Azure AD B2C e l'API REST. Per informazioni su come proteggere le API RESTful per la produzione, vedere [proteggere l'API RESTful](secure-rest-api.md).
+**È necessario proteggere l'API REST da attacchi di forza bruta.** Un utente malintenzionato può inviare diverse password con la speranza di indovinare le credenziali di un utente. Per evitare questi attacchi, interrompere la conservazione delle richieste all'API REST quando il numero di tentativi di accesso supera una determinata soglia. Inoltre, è possibile proteggere le comunicazioni tra Azure AD B2C e l'API REST. Per informazioni su come proteggere le API RESTful per la produzione, vedere [Proteggere i servizi RESTful](secure-rest-api.md).
 
 ### <a name="user-attributes"></a>Attributi utente
 

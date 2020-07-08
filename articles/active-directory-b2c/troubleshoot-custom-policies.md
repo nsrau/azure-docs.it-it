@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186362"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384958"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Risoluzione dei problemi del framework di esperienza di gestione delle identità e criteri personalizzati di Azure AD B2C
 
@@ -43,7 +43,7 @@ Gli errori di convalida comuni includono i seguenti:
 
 * Il valore ClaimType potrebbe non essere scritto correttamente oppure non esiste nello schema.
 * I valori ClaimType devono essere definiti in almeno uno dei file nei criteri.
-    Ad esempio: `<ClaimType Id="issuerUserId">`
+    ad esempio `<ClaimType Id="issuerUserId">`
 * Se ClaimType è definito nel file delle estensioni, ma è usato anche in un valore TechnicalProfile nel file di base, il caricamento del file di base restituirà un errore.
 
 > Frammento con errore: `...makes a reference to a ClaimsTransformation with id...`
@@ -52,13 +52,13 @@ Gli errori di convalida comuni includono i seguenti:
 
 > Frammento con errore: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Verificare che il valore TenantId negli elementi `<TrustFrameworkPolicy\>` e `<BasePolicy\>` corrisponda al tenant Azure ad B2C di destinazione.
+* Verificare che il valore TenantId negli `<TrustFrameworkPolicy\>` elementi e `<BasePolicy\>` corrisponda al tenant Azure ad B2C di destinazione.
 
 ## <a name="troubleshoot-the-runtime"></a>Risoluzione dei problemi di runtime
 
 * Usare **Esegui ora** e `https://jwt.ms` per testare i criteri indipendentemente dall'applicazione Web o per dispositivi mobili. Questo sito Web funziona come un'applicazione relying party. Viene visualizzato il contenuto del token JSON Web (JWT) generato dal criterio di Azure AD B2C.
 
-    Per creare un'applicazione di test in grado di `https://jwt.ms` reindirizzare a per l'ispezione dei token:
+    Per creare un'applicazione di test in grado di reindirizzare a `https://jwt.ms` per l'ispezione dei token:
 
     [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

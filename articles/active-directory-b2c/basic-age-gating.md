@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6bd93f9062f8446ce20436a7a04e2054aaf5be71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386132"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Abilitare il controllo dell'accesso in base all'età in Azure Active Directory B2C
 
@@ -31,9 +31,9 @@ Azure AD B2C usa le informazioni immesse dall'utente per stabilire se si tratta 
 
 Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un utente non è più considerato un minore e l'età in cui un minore deve avere il consenso dei genitori. La tabella seguente elenca le regole per l'età che vengono usate per identificare un minore e un minore che necessita del consenso.
 
-| Paese/Area geografica | Nome del paese/area geografica | Minore età per cui richiedere il consenso | Minore età |
+| Paese/Area geografica | Nome paese/area geografica | Minore età per cui richiedere il consenso | Minore età |
 | -------------- | ------------------- | ----------------- | --------- |
-| Impostazione predefinita | nessuno | nessuno | 18 |
+| Predefinito | nessuno | nessuno | 18 |
 | AE | Emirati Arabi Uniti | nessuno | 21 |
 | AT | Austria | 14 | 18 |
 | BE | Belgio | 14 | 18 |
@@ -59,7 +59,7 @@ Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un 
 | LU | Lussemburgo | 16 | 18 |
 | LV | Lettonia | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| N/D | Namibia | nessuno | 21 |
+| ND | Namibia | nessuno | 21 |
 | NL | Paesi Bassi | 16 | 18 |
 | PL | Polonia | 13 | 18 |
 | PT | Portogallo | 16 | 18 |

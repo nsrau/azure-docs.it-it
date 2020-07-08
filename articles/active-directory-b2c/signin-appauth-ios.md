@@ -7,23 +7,23 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c659280ebc8c91b53cbc3a176c84397edd942c23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 558e6cea4d5e0c9bd0f6222f9070d2b867a5bf44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186829"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384941"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: accedere mediante un'applicazione iOS
 
 La piattaforma delle identità Microsoft usa standard aperti, ad esempio OAuth2 e OpenID Connect. L'uso di un protocollo a standard aperto offre più scelta allo sviluppatore nella selezione della libreria da integrare con i nostri servizi. Abbiamo fornito questa procedura dettagliata e altre simili per aiutare gli sviluppatori a scrivere applicazioni che si connettono alla piattaforma Microsoft Identity. La maggior parte delle librerie che implementano la [specifica OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) può connettersi alla piattaforma delle identità Microsoft.
 
 > [!WARNING]
-> Microsoft non fornisce correzioni per queste librerie di terze parti e non ha eseguito una verifica su esse. In questo esempio si usa una libreria di terze parti chiamata AppAuth che è stata testata per la compatibilità in scenari di base con Azure AD B2C. Le richieste relative a problemi e funzionalità devono essere indirizzate al progetto open source della libreria. Per altre informazioni, vedere [questo articolo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+> Microsoft non fornisce correzioni per queste librerie di terze parti e non ha eseguito una verifica su esse. In questo esempio si usa una libreria di terze parti chiamata AppAuth che è stata testata per la compatibilità in scenari di base con Azure AD B2C. Le richieste relative a problemi e funzionalità devono essere indirizzate al progetto open source della libreria. Per altre informazioni, vedi [questo articolo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
 >
 >
 
@@ -34,11 +34,11 @@ Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant.
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
-Registrare quindi un'applicazione nel tenant del Azure AD B2C. Questo fornisce Azure AD le informazioni necessarie per comunicare in modo sicuro con l'app.
+Registrare quindi un'applicazione nel tenant di Azure AD B2C. In questo modo Azure AD acquisisce le informazioni necessarie per comunicare in modo sicuro con l'app.
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Prendere nota del valore di **ID applicazione (client)**, che sarà necessario in un passaggio successivo.
+Prendere nota del valore di **ID applicazione (client)** , che sarà necessario in un passaggio successivo.
 
 Registrare anche l'URI di reindirizzamento personalizzato per l'uso in un passaggio successivo. Ad esempio: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
@@ -92,7 +92,7 @@ OIDServiceConfiguration *configuration =
 
 Dopo la configurazione o il recupero di una configurazione del servizio di autorizzazione, è possibile costruire una richiesta di autorizzazione. Per creare la richiesta sono necessarie le informazioni seguenti:
 
-* ID client (ID applicazione) registrato in precedenza. Ad esempio: `00000000-0000-0000-0000-000000000000`.
+* ID client (ID APPLICAZIONE) registrato in precedenza. Ad esempio: `00000000-0000-0000-0000-000000000000`.
 * URI di reindirizzamento personalizzato registrato in precedenza. Ad esempio: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Entrambi gli elementi sono stati salvati durante la [registrazione dell'app](#create-an-application).

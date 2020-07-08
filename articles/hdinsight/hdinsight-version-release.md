@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: a71d8e251de1d1aedea1d1a329a27bfa236ddfff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b2e77049d121a11a45a096017f18f1345f6c6884
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652388"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374849"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Panoramica di HDInsight 4.0
 
@@ -91,6 +91,7 @@ Non è disponibile alcun percorso di aggiornamento supportato dalle versioni pre
 
 * HDInsight 4.0 non supporta MapReduce per Apache Hive. Usare invece Apache Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 non supporta Apache Storm.
+* HDInsight 4,0 non supporta il tipo di cluster ML Services.
 * La vista Hive non è più disponibile in HDInsight 4.0.
 * L'interprete shell di Apache Zeppelin non è supportato nei cluster Spark e Interactive Query.
 * Non è possibile *disabilitare* LLAP in un cluster Spark-LLAP. È possibile solo disattivare LLAP.

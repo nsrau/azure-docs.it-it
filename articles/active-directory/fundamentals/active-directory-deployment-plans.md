@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7a596454a48a1d6fcee77634363dd38f34a4d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c439bbded7fe55f1edd5eb1597f98b339e340956
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603360"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386335"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Piani di distribuzione di Azure Active Directory
 Per istruzioni end-to-end sulla distribuzione delle funzionalità di Azure Active Directory (Azure AD), Azure AD piani di distribuzione illustrano il valore aziendale, le considerazioni sulla pianificazione e le procedure operative necessarie per distribuire correttamente le funzionalità di Azure AD comuni.
@@ -61,17 +61,18 @@ L'ampliamento dell'implementazione a gruppi più grandi di utenti deve essere es
 
 | Funzionalità | Descrizione|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure Multi-Factor Authentication (MFA) è una soluzione di verifica in due passaggi di Microsoft. Con i metodi di autenticazione approvati dall'amministratore, l'autenticazione a più fattori di Azure consente di proteggere l'accesso ai dati e alle applicazioni, soddisfacendo la richiesta di un processo di accesso semplice. |
-| [Accesso condizionale](../conditional-access/plan-conditional-access.md)| Con l'accesso condizionale è possibile implementare decisioni automatiche di controllo degli accessi per gli utenti che possono accedere alle app cloud in base alle condizioni. |
+| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure Multi-Factor Authentication (MFA) è una soluzione di verifica in due passaggi di Microsoft. Usando metodi di autenticazione approvati dell'amministratore, Azure MFA contribuisce a salvaguardare l'accesso a dati e applicazioni, rispondendo al contempo all'esigenza di offrire un processo di accesso facile. |
+| [Accesso condizionale](../conditional-access/plan-conditional-access.md)| Con l'accesso condizionale è possibile implementare decisioni di controllo di accesso automatizzate relative a chi può accedere alle app cloud, in base a determinate condizioni. |
 | [Reimpostazione della password self-service](../authentication/howto-sspr-deployment.md)| La reimpostazione della password self-service consente agli utenti di reimpostare le password senza l'intervento dell'amministratore, quando e dove necessario. |
 | [Accesso senza password](../authentication/howto-authentication-passwordless-deployment.md) | Implementare l'autenticazione con password con l'app Microsoft Authenticator o le chiavi di sicurezza FIDO2 nell'organizzazione |
 
-## <a name="deploy-application-management"></a>Distribuire la gestione delle applicazioni
+## <a name="deploy-application-and-device-management"></a>Distribuire la gestione di applicazioni e dispositivi
 
 | Funzionalità | Descrizione|
 | -| - |
 | [Single Sign-On](../manage-apps/plan-sso-deployment.md)| Single Sign-on consente agli utenti di accedere alle app e alle risorse necessarie per svolgere le attività di business durante l'accesso una sola volta. Dopo aver eseguito l'accesso, è possibile passare da Microsoft Office a SalesForce a box alle applicazioni interne senza dover immettere le credenziali una seconda volta. |
-| [Pannello di accesso](../manage-apps/access-panel-deployment-plan.md)| Offre agli utenti un hub semplice per individuare tutte le applicazioni e accedervi. Consentire loro di essere più produttivi con le funzionalità self-service, ad esempio richiedere l'accesso ad app e gruppi o gestire l'accesso alle risorse per conto di altri utenti. |
+| [Pannello di accesso](../manage-apps/access-panel-deployment-plan.md)| Offre agli utenti un hub semplice per individuare tutte le applicazioni e accedervi. Consente loro di aumentare la produttività grazie alle funzionalità self-service, ad esempio per richiedere l'accesso ad app e gruppi o per gestire l'accesso alle risorse per conto di altri. |
+| [Dispositivi](../devices/plan-device-deployment.md) | Questo articolo consente di valutare i metodi per integrare il dispositivo con Azure AD, scegliere il piano di implementazione e fornisce collegamenti chiave agli strumenti di gestione dei dispositivi supportati. |
 
 
 ## <a name="deploy-hybrid-scenarios"></a>Distribuire scenari ibridi
@@ -80,7 +81,7 @@ L'ampliamento dell'implementazione a gruppi più grandi di utenti deve essere es
 | -| -|
 | [AD FS per la sincronizzazione dell'hash delle password](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Con la sincronizzazione dell'hash delle password, gli hash delle password utente vengono sincronizzati da Active Directory locali a Azure AD, consentendo Azure AD autenticare gli utenti senza alcuna interazione con la Active Directory locale |
 | [AD FS per l'autenticazione pass-through](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| Azure AD autenticazione pass-through consente agli utenti di accedere alle applicazioni locali e basate sul cloud usando le stesse password. Questa funzionalità offre agli utenti un'esperienza migliore, ovvero una password in meno da ricordare, e riduce i costi del supporto tecnico perché è meno probabile che gli utenti dimentichino come eseguire l'accesso. Quando gli utenti eseguono l'accesso tramite Azure AD, la funzionalità ne convalida direttamente le password rispetto ad Active Directory locale. |
-| [Proxy dell'applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |Oggi i dipendenti vogliono essere produttivi in qualsiasi luogo, in qualsiasi momento e da qualsiasi dispositivo. Devono accedere alle app SaaS nel cloud e nelle app aziendali locali. Azure AD proxy di applicazione consente questo accesso affidabile senza reti private virtuali (VPN) o zone demilitarizzata (reti perimetrali) costose e complesse. |
+| [Proxy dell'applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |Oggi i dipendenti vogliono essere produttivi in qualsiasi luogo, in qualsiasi momento e da qualsiasi dispositivo. Devono accedere alle app SaaS nel cloud e alle app aziendali nell'ambiente locale. Azure AD Application Proxy offre questo accesso affidabile senza reti private virtuali (VPN) o reti perimetrali costose e complesse. |
 | [Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md)| L'accesso Single Sign-On (SSO) facile di Azure Active Directory consente agli utenti di eseguire l'accesso automaticamente dai dispositivi di proprietà dell'azienda connessi alla rete aziendale. Con questa funzionalità, gli utenti non dovranno digitare le password per accedere a Azure AD e, in genere, non dovranno immettere i propri nomi utente. Questa funzionalità consente agli utenti autorizzati di accedere agevolmente alle applicazioni basate sul cloud senza che siano necessari altri componenti locali. |
 
 ## <a name="deploy-user-provisioning"></a>Distribuire il provisioning utenti

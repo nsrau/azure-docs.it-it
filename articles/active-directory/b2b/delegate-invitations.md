@@ -4,19 +4,19 @@ description: Informazioni su come abilitare la collaborazione esterna B2B di Act
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: HT
+ms.openlocfilehash: c6a2c1a9b908503ee5afc2687ebef473ffed626a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591285"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387182"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Abilitare la collaborazione esterna B2B e gestire chi può invitare utenti guest
 
@@ -48,6 +48,9 @@ Per impostazione predefinita, tutti gli utenti, inclusi gli utenti guest, posson
    - **Gli utenti guest possono invitare**: per consentire agli utenti guest di invitare altri utenti guest, impostare questo criterio su **Sì**.
    - **Abilita passcode monouso tramite posta elettronica per gli utenti guest (anteprima)** : Per altre informazioni sulla funzionalità passcode monouso, vedere [Autenticazione con passcode monouso tramite posta elettronica (anteprima)](one-time-passcode.md).
    - **Restrizioni di collaborazione**: per altre informazioni su come consentire o bloccare gli inviti a specifici domini, vedere [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](allow-deny-list.md).
+   
+   > [!NOTE]
+   > Se **i membri possono invitare** è impostato su **No** e **gli amministratori e gli utenti nel ruolo mittente dell'invito Guest possono invitare** è impostato su **Sì**, gli utenti del ruolo di **invito Guest** saranno comunque in grado di invitare i guest.
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Assegnare il ruolo Mittente dell'invito guest a un utente
 
@@ -66,5 +69,4 @@ Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 - [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
 - [Aggiungere utenti guest di Collaborazione B2B senza un invito](add-user-without-invite.md)
 - [Aggiunta di un utente di Collaborazione B2B a un ruolo](add-guest-to-role.md)
-
 

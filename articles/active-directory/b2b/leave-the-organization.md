@@ -4,19 +4,19 @@ description: Illustra come un utente guest di Azure AD B2B possa uscire da un'or
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/13/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bce67c81b924d768826402b707c41c085b7767b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc3ef7d168c17ec10fe64925adbda7044a2a4c82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272489"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386981"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Uscire da un'organizzazione come utente guest
 
@@ -49,7 +49,7 @@ Per uscire da un'organizzazione, attenersi alla seguente procedura.
 
 Quando un utente esce da un'organizzazione, l'account viene eliminato in modo temporaneo dalla directory. Per impostazione predefinita, l'oggetto utente si sposta sull'area **utenti eliminati** in Azure ad ma non viene eliminato definitivamente per 30 giorni. Questa eliminazione temporanea consente all'amministratore di ripristinare l'account utente (inclusi i gruppi e autorizzazioni), nel caso in cui l'utente richieda il ripristino dell'account entro i 30 giorni.
 
-Se necessario, un amministratore tenant può eliminare definitivamente l'account in qualsiasi momento durante il periodo di 30 giorni. A tale scopo:
+Se necessario, un amministratore tenant può eliminare definitivamente l'account in qualsiasi momento durante il periodo di 30 giorni. A tale scopo, effettuare l'operazione seguente:
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory**.
 2. In **Gestisci** selezionare **Utenti**.

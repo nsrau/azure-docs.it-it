@@ -7,18 +7,18 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff0ce05b13fea8409475e3415c5d810d7c79769a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154866"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383718"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedura: Riattivare gli spazi dei nomi disabilitati del Servizio di controllo di accesso
 
@@ -96,7 +96,7 @@ Ulteriori estensioni non verranno più approvate automaticamente. Se è necessar
     |-----------------------|--------------------|
     | **Tipo di problema** | `Technical` |
     | **Sottoscrizione** | Impostare sulla propria sottoscrizione |
-    | **Servizio** | `All services` |
+    | **Service** | `All services` |
     | **Risorsa** | `General question/Resource not available` |
     | **Tipo di problema** | `ACS to SAS Migration` |
     | **Oggetto** | Descrivere il problema |

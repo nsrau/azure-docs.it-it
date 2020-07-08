@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386216"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
@@ -25,8 +25,8 @@ Usare monitoraggio di Azure per indirizzare l'accesso Azure Active Directory B2C
 È possibile instradare gli eventi del log a:
 
 * Un [account di archiviazione](../storage/blobs/storage-blobs-introduction.md)di Azure.
-* Un [Hub eventi](../event-hubs/event-hubs-about.md) di Azure (e si integrano con le istanze della logica Splunk e Sumo).
 * Un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (per analizzare i dati, creare dashboard e avvisi per eventi specifici).
+* Un [Hub eventi](../event-hubs/event-hubs-about.md) di Azure (e si integrano con le istanze della logica Splunk e Sumo).
 
 ![Monitoraggio di Azure](./media/azure-monitor/azure-monitor-flow.png)
 
@@ -59,7 +59,7 @@ Successivamente, raccogliere le informazioni seguenti:
 **ID directory** della directory Azure ad B2C (noto anche come ID tenant).
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come utente con il ruolo di *amministratore utente* (o versione successiva).
-1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
+1. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
 1. Selezionare **Azure Active Directory**, quindi **Proprietà**.
 1. Registrare l' **ID directory**.
 
@@ -72,7 +72,7 @@ Per semplificare la gestione, è consigliabile utilizzare Azure AD *gruppi* di u
 
 ### <a name="create-an-azure-resource-manager-template"></a>Creare un modello di Azure Resource Manager
 
-Per caricare il tenant di Azure AD (il **cliente**), creare un [modello Azure Resource Manager](../lighthouse/how-to/onboard-customer.md) per l'offerta con le informazioni seguenti. I `mspOfferName` valori `mspOfferDescription` e sono visibili quando si visualizzano i dettagli dell'offerta nella [pagina provider di servizi](../lighthouse/how-to/view-manage-service-providers.md) della portale di Azure.
+Per caricare il tenant di Azure AD (il **cliente**), creare un [modello Azure Resource Manager](../lighthouse/how-to/onboard-customer.md) per l'offerta con le informazioni seguenti. I `mspOfferName` `mspOfferDescription` valori e sono visibili quando si visualizzano i dettagli dell'offerta nella [pagina provider di servizi](../lighthouse/how-to/view-manage-service-providers.md) della portale di Azure.
 
 | Campo   | Definizione |
 |---------|------------|
@@ -87,9 +87,9 @@ Scaricare il modello di Azure Resource Manager e i file dei parametri:
 - [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
 - [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
-Aggiornare quindi il file dei parametri con i valori registrati in precedenza. Il frammento di codice JSON seguente mostra un esempio di un file di parametri del modello Azure Resource Manager. Per `authorizations.value.roleDefinitionId`, utilizzare il valore del [ruolo predefinito](../role-based-access-control/built-in-roles.md) per il *ruolo Collaboratore*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+Aggiornare quindi il file dei parametri con i valori registrati in precedenza. Il frammento di codice JSON seguente mostra un esempio di un file di parametri del modello Azure Resource Manager. Per `authorizations.value.roleDefinitionId` , utilizzare il valore del [ruolo predefinito](../role-based-access-control/built-in-roles.md) per il *ruolo Collaboratore*, `b24988ac-6180-42a0-ab88-20f7382dd24c` .
 
-```JSON
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -141,7 +141,7 @@ Passare quindi alla sottoscrizione che si vuole proiettare nel tenant di Azure A
 Select-AzSubscription <subscription ID>
 ```
 
-Infine, distribuire il modello di Azure Resource Manager e i file di parametri scaricati e aggiornati in precedenza. Sostituire i `Location`valori `TemplateFile`, e `TemplateParameterFile` di conseguenza.
+Infine, distribuire il modello di Azure Resource Manager e i file di parametri scaricati e aggiornati in precedenza. Sostituire i `Location` `TemplateFile` valori, e di `TemplateParameterFile` conseguenza.
 
 ```PowerShell
 New-AzDeployment -Name "AzureADB2C" `
@@ -199,7 +199,7 @@ Dopo aver distribuito il modello e aver atteso alcuni minuti per il completament
 
 1. **Disconnettersi** dal portale di Azure se si è connessi. Questa operazione e il passaggio seguente consentono di aggiornare le credenziali nella sessione del portale.
 1. Accedere al [portale di Azure](https://portal.azure.com) con l'account amministrativo Azure ad B2C.
-1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale.
+1. Nella barra degli strumenti del portale selezionare l'icona **Directory e sottoscrizione**.
 1. Selezionare la directory che contiene la sottoscrizione.
 
     ![Cambia directory](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
@@ -209,11 +209,11 @@ Dopo aver distribuito il modello e aver atteso alcuni minuti per il completament
 
 ## <a name="configure-diagnostic-settings"></a>Configurare le impostazioni di diagnostica
 
-Le impostazioni di diagnostica definiscono dove devono essere inviati i log e le metriche per una risorsa. Le destinazioni possibili sono:
+Le impostazioni di diagnostica definiscono dove devono essere inviati i log e le metriche per una risorsa. Le possibili destinazioni sono:
 
 - [Account di archiviazione di Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
 - Soluzioni di [Hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
-- [Area di lavoro Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [area di lavoro Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
 Se non è già stato fatto, creare un'istanza del tipo di destinazione scelto nel gruppo di risorse specificato nel [modello di Azure Resource Manager](#create-an-azure-resource-manager-template).
 
@@ -224,7 +224,7 @@ Se non è già stato fatto, creare un'istanza del tipo di destinazione scelto ne
 Per configurare le impostazioni di monitoraggio per i log attività Azure AD B2C:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
+1. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
 1. Selezionare **Azure Active Directory**
 1. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.
 1. Se nella risorsa sono presenti impostazioni esistenti, verrà visualizzato un elenco di impostazioni già configurate. Selezionare **Aggiungi impostazioni di diagnostica** per aggiungere una nuova impostazione o **modificare** un'impostazione per modificarne una esistente. Ogni impostazione non può contenere più di uno dei tipi di destinazione.

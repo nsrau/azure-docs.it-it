@@ -8,16 +8,16 @@ ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8973412b2d6575d524874ba05b34af7661655e19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80981070"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383735"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 
@@ -579,7 +579,7 @@ window.Logging = {
 
 ## <a name="related-content"></a>Contenuti correlati
 
-* [Azure AD Authentication Libraries][AAD-Auth-Libraries] (Librerie di autenticazione di Azure AD)
+* [Librerie di Autenticazione di Azure AD][AAD-Auth-Libraries]
 * [Scenari di autenticazione per Azure AD][AAD-Auth-Scenarios]
 * [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps]
 

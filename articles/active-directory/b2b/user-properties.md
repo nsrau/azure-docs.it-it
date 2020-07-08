@@ -4,20 +4,20 @@ description: Azure Active Directory le proprietà e gli Stati degli utenti Guest
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 03/19/2020
+ms.topic: how-to
+ms.date: 06/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40f5002e361653614c966dc43301afa83eb7b200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386624"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
@@ -28,7 +28,7 @@ In base alle esigenze dell'organizzazione che emette l'invito, un utente di Coll
 - Stato 1: incluso in un'istanza esterna di Azure AD e rappresentato come utente guest nell'organizzazione che emette l'invito. In questo caso, l'utente B2B accede con un account Azure AD appartenente al tenant che riceve l'invito. Se l'organizzazione partner non usa Azure AD, viene comunque creato l'utente guest in Azure AD. È necessario che l'utente riscatti l'invito e che Azure AD ne verifichi l'indirizzo di posta elettronica. Questa disposizione è detta anche tenancy JIT o "virale".
 
    > [!IMPORTANT]
-   > **A partire dal 31 marzo 2021**, Microsoft non supporterà più il riscatto degli inviti creando account Azure ad non gestiti e tenant per gli scenari di collaborazione B2B. In preparazione, si consiglia ai clienti di acconsentire esplicitamente all' [autenticazione del codice di posta elettronica](one-time-passcode.md). Siamo lieti di ricevere commenti e suggerimenti su questa funzionalità di anteprima pubblica e siamo lieti di creare altri modi per collaborare.
+   > **A partire dal 31 marzo 2021** Microsoft non supporterà più il riscatto degli inviti tramite la creazione di account e tenant di Azure AD non gestiti per gli scenari di collaborazione B2B. Nel frattempo, i clienti sono invitati ad acconsentire esplicitamente all'[autenticazione con passcode monouso tramite posta elettronica](one-time-passcode.md). Saremo lieti di ricevere feedback su questa funzionalità di anteprima pubblica e di creare ancora altri modi per collaborare.
 
 - Stato 2: incluso in un account Microsoft o in un altro account e rappresentato come utente guest nell'organizzazione host. In questo caso, l'utente guest accede con un account Microsoft o un account di social networking (google.com o altri account simili). L'identità dell'utente invitato viene creata come account Microsoft nella directory dell'organizzazione che emette l'invito durante il riscatto dell'offerta.
 
@@ -104,10 +104,14 @@ In alcuni casi può essere necessario dare privilegi più elevati agli utenti gu
 ![Screenshot che mostra l'opzione utenti esterni nelle impostazioni utente](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>È possibile creare utenti guest visibili nell'elenco indirizzi globale di Exchange?
-Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elenco indirizzi globale dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Per informazioni dettagliate, vedere **È possibile creare oggetti guest visibili nell'elenco indirizzi globale?** in [Gestire l'accesso Guest in gruppi di Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list). 
+Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elenco indirizzi globale dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Per informazioni dettagliate, vedere **È possibile creare oggetti guest visibili nell'elenco indirizzi globale?** in [Gestire l'accesso Guest in gruppi di Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
+
+## <a name="can-i-update-a-guest-users-email-address"></a>È possibile aggiornare l'indirizzo di posta elettronica di un utente Guest?
+
+Se un utente Guest accetta l'invito e successivamente modifica l'indirizzo di posta elettronica, il nuovo messaggio di posta elettronica non viene sincronizzato automaticamente con l'oggetto utente guest nella directory. La proprietà della posta elettronica viene creata tramite [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). È possibile aggiornare la proprietà della posta elettronica tramite l'interfaccia di amministrazione di Exchange o [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)e la modifica si rifletterà nell'oggetto utente Guest Azure ad.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è Azure AD collaborazione B2B?](what-is-b2b.md)
+* [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
 * [Token utente in Collaborazione B2B](user-token.md)
 * [Mapping delle attestazioni utente per Collaborazione B2B](claims-mapping.md)

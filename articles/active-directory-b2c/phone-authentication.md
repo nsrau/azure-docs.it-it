@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eadac0e973b361b1fdee63dcc9cfa848a0b2bacb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d432912cb0442744061500fc01bdd86a4c5d97ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385349"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Configurare l'iscrizione e l'accesso tramite telefono con criteri personalizzati in Azure AD B2C (anteprima)
 
@@ -48,31 +48,31 @@ Nei passaggi seguenti si presuppone che siano stati completati i [prerequisiti](
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. In ogni file sostituire la stringa `yourtenant` con il nome del tenant del Azure ad B2C. Ad esempio, se il nome del tenant B2C è *contosob2c*, tutte le istanze di `yourtenant.onmicrosoft.com` diventano `contosob2c.onmicrosoft.com`.
+1. In ogni file sostituire la stringa `yourtenant` con il nome del tenant del Azure ad B2C. Ad esempio, se il nome del tenant B2C è *contosob2c*, tutte le istanze di `yourtenant.onmicrosoft.com` diventano `contosob2c.onmicrosoft.com` .
 
 1. Completare i passaggi della sezione [aggiungere ID applicazione ai criteri personalizzati](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) di [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md). In questo caso, aggiornare `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con gli **ID dell'applicazione (client)** delle due applicazioni registrate quando si completano i prerequisiti, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Caricare i file dei criteri
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare al tenant di Azure ad B2C.
-1. In **criteri**selezionare **Framework esperienza di identità**.
-1. Selezionare **carica criteri personalizzati**.
+1. In **Criteri** selezionare **Identity Experience Framework**.
+1. Selezionare **Carica criteri personalizzati**.
 1. Caricare i file dei criteri nell'ordine seguente:
-    1. *Phone_Email_Base. XML*
-    1. *SignUpOrSignInWithPhone. XML*
-    1. *SignUpOrSignInWithPhoneOrEmail. XML*
-    1. *ProfileEditPhoneOnly. XML*
-    1. *ProfileEditPhoneEmail. XML*
-    1. *ChangePhoneNumber. XML*
-    1. *PasswordResetEmail. XML*
+    1. *Phone_Email_Base.xml*
+    1. *SignUpOrSignInWithPhone.xml*
+    1. *SignUpOrSignInWithPhoneOrEmail.xml*
+    1. *ProfileEditPhoneOnly.xml*
+    1. *ProfileEditPhoneEmail.xml*
+    1. *ChangePhoneNumber.xml*
+    1. *PasswordResetEmail.xml*
 
-Quando si carica ogni file, Azure aggiunge il prefisso `B2C_1A_`.
+Quando si carica ogni file, Azure aggiunge il prefisso `B2C_1A_` .
 
 ## <a name="test-the-custom-policy"></a>Testare i criteri personalizzati
 
 1. In **criteri personalizzati**selezionare **B2C_1A_SignUpOrSignInWithPhone**.
 1. In **Seleziona applicazione**selezionare l'applicazione *app Web 1* registrata al termine dei prerequisiti.
-1. Per **Seleziona URL di risposta**scegliere `https://jwt.ms`.
+1. Per **Seleziona URL di risposta**scegliere `https://jwt.ms` .
 1. Selezionare **Esegui adesso** e iscriversi usando un indirizzo di posta elettronica o un numero di telefono.
 1. Selezionare **Esegui** ancora una volta e accedere con lo stesso account per confermare di avere la configurazione corretta.
 

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f5400b47c1e0b4657e40d2c57f8212711bbdaf3f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ed10a9258590f8f9037a574bd0322a82dd309a5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927072"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385247"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurare il comportamento della sessione in Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ La gestione delle [sessioni Single Sign-on (SSO)](session-overview.md) in Azure 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad B2C.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **flussi utente (criteri)**.
+4. Selezionare **Flussi utente (criteri)** .
 5. Aprire il flusso utente creato in precedenza.
 6. Selezionare **Proprietà**.
 7. Configurare la **durata della sessione dell'app Web (minuti)**, il **timeout della sessione dell'app Web**, la **configurazione dell'accesso Single Sign-on**e **richiedere il token ID nelle richieste di disconnessione** , se necessario.
@@ -49,4 +49,4 @@ La gestione delle [sessioni Single Sign-on (SSO)](session-overview.md) in Azure 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Azure ad B2C sessione](session-overview.md).
+- Altre informazioni sulla [sessione Azure AD B2C](session-overview.md).

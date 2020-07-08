@@ -4,7 +4,7 @@ description: Concedere ai partner esterni gestiti in locale l'accesso alle risor
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcc8c0538bb3362818a4172dd42905fd72b19812
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76b17391008160cfea9cbf029932d7081466cf3d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386930"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Concedere agli account partner gestiti in locale l'accesso alle risorse cloud usando Collaborazione B2B di Azure AD
 
@@ -32,7 +32,7 @@ Per abilitare la sincronizzazione dell'attributo UserType, è prima necessario d
 A questo scopo, due approcci comuni sono:
 
 - Individuare un attributo di Active Directory locale non usato, ad esempio extensionAttribute1, e usarlo come attributo di origine. 
-- In alternativa, è possibile ricavare il valore dell'attributo UserType da altre proprietà. Si desidera, ad esempio, sincronizzare tutti gli utenti come Guest se il relativo attributo Active Directory userPrincipalName locale termina con il dominio * \@Partners.contoso.com*.
+- In alternativa, è possibile ricavare il valore dell'attributo UserType da altre proprietà. Si desidera, ad esempio, sincronizzare tutti gli utenti come Guest se il relativo attributo Active Directory UserPrincipalName locale termina con il dominio * \@ Partners.contoso.com*.
  
 Per altre informazioni sui requisiti per gli attributi, vedere [Abilitare la sincronizzazione di UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 

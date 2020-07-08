@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ffadca550a3a28b0ab490dd43c3b884602c93df
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385417"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteggere un'API di Gestione API di Azure con Azure AD B2C
 
@@ -35,23 +35,23 @@ Per continuare con la procedura descritta in questo articolo, è necessario impl
 
 Per la protezione di un'API in Gestione API di Azure con Azure AD B2C sono necessari alcuni valori per il [criterio in ingresso](../api-management/api-management-howto-policies.md) creato in Gestione API. Registrare prima l'ID di un'applicazione creata in precedenza nel tenant di Azure AD B2C. Se si usa l'applicazione creata nei prerequisiti, usare l'ID applicazione per *webbapp1*.
 
-Per ottenere l'ID applicazione, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza unificata **Registrazioni app (anteprima)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
+Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare la nuova esperienza unificata **Registrazioni app** oppure l'esperienza legacy **Applicazioni (legacy)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Applicazioni](#tab/applications/)
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
-1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
-1. In **Gestisci** selezionare **Applicazioni**.
-1. Registrare il valore presente nella colonna **ID APPLICAZIONE** per *webapp1* o un'altra applicazione creata in precedenza.
-
-#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
-1. Selezionare **Registrazioni app (anteprima)** e quindi la scheda **Applicazioni di cui si è proprietari**.
+1. Selezionare **registrazioni app**, quindi selezionare la scheda **applicazioni di proprietà** .
 1. Registrare il valore presente nella colonna **ID client applicazione** per *webapp1* o un'altra applicazione creata in precedenza.
+
+#### <a name="applications-legacy"></a>[Applicazioni (legacy)](#tab/applications-legacy/)
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. In **Gestisci**selezionare **applicazioni (legacy)**.
+1. Registrare il valore presente nella colonna **ID APPLICAZIONE** per *webapp1* o un'altra applicazione creata in precedenza.
 
 * * *
 
@@ -171,7 +171,7 @@ Con il token di accesso e la chiave di sottoscrizione di Gestione API registrati
 
 1. Selezionare il pulsante **Send** (Invia) in Postman per eseguire la richiesta. Se tutti gli elementi sono stati configurati correttamente, viene visualizzata una risposta JSON con una raccolta di relatori (qui visualizzata parzialmente):
 
-    ```JSON
+    ```json
     {
       "collection": {
         "version": "1.0",
@@ -206,7 +206,7 @@ Dopo che è stata eseguita una richiesta con esito positivo, testare il caso di 
 
 1. Selezionare il pulsante **Send** (Invia) per eseguire la richiesta. Con un token non valido, il risultato previsto è un codice di stato non autorizzato `401`:
 
-    ```JSON
+    ```json
     {
         "statusCode": 401,
         "message": "Unauthorized. Access token is missing or invalid."
@@ -219,7 +219,7 @@ Se viene visualizzato il codice di stato `401`, è stato verificato che solo i c
 
 Diverse applicazioni interagiscono in genere con una sola API REST. Per consentire all'API di accettare token destinati a più applicazioni, aggiungere i relativi ID applicazione all'elemento `<audiences>` nel criterio in ingresso di Gestione API.
 
-```XML
+```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
@@ -229,7 +229,7 @@ Diverse applicazioni interagiscono in genere con una sola API REST. Per consenti
 
 Analogamente, per supportare più autorità di emissione di token, aggiungere i relativi URI endpoint all'elemento `<issuers>` nel criterio in ingresso di Gestione API.
 
-```XML
+```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
     <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
@@ -249,7 +249,7 @@ Per eseguire una migrazione a fasi, è possibile seguire questa procedura genera
 
 L'esempio seguente del criterio in ingresso di Gestione API illustra come accettare i token emessi da b2clogin.com e login.microsoftonline.com. Supporta inoltre le richieste API di due applicazioni.
 
-```XML
+```xml
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

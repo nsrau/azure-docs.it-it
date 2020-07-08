@@ -26,10 +26,10 @@ ms.locfileid: "84424740"
 
 #### <a name="template-limits"></a>Limiti del modello
 
-| valore | Limite |
+| Valore | Limite |
 | --- | --- |
 | Parametri |256 |
-| variables |256 |
+| Variabili |256 |
 | Risorse (incluso il numero di copie) |800 |
 | Output |64 |
 | Espressione del modello |24.576 caratteri |

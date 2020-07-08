@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a438363b054361420222804dffac7973470e82e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183602"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384975"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gestire le minacce alle risorse e ai dati in Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Per gestire le impostazioni di protezione delle password, inclusa la soglia di b
 
 ## <a name="view-locked-out-accounts"></a>Visualizzare gli account bloccati
 
-Per ottenere informazioni sugli account bloccati, è possibile controllare il [report sull'attività di accesso](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)Active Directory. In **stato**selezionare **errore**. Tentativi di accesso non riusciti con un **codice di errore** di `50053` accesso indicante un account bloccato:
+Per ottenere informazioni sugli account bloccati, è possibile controllare il [report sull'attività di accesso](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)Active Directory. In **stato**selezionare **errore**. Tentativi di accesso non riusciti con un **codice di errore di accesso** `50053` indicante un account bloccato:
 
 ![Sezione di Azure AD report di accesso che mostra l'account bloccato](./media/threat-management/portal-01-locked-account.png)
 

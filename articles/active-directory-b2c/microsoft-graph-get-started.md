@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 32117d4bfcf0c0af94eced095b94ab0c1b6f88af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385927"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gestire Azure AD B2C con Microsoft Graph
 
@@ -36,15 +36,25 @@ Esistono due modalità di comunicazione che è possibile usare quando si lavora 
 
 * **Interattivo** : appropriato per le attività di esecuzione, si usa un account amministratore nel tenant B2C per eseguire le attività di gestione. Questa modalità richiede a un amministratore di accedere con le proprie credenziali prima di chiamare l'API Microsoft Graph.
 
-* **Automatizzato** : per le attività pianificate o eseguite in modo continuo, questo metodo usa un account del servizio configurato con le autorizzazioni necessarie per eseguire le attività di gestione. Per creare l'Azure AD B2C account del servizio, è necessario registrare un'applicazione usata dalle applicazioni e dagli script per l'autenticazione usando l' *ID dell'applicazione (client)* e la concessione di credenziali client OAuth 2,0. In questo caso, l'applicazione agisce da solo per chiamare l'API Microsoft Graph e non l'utente amministratore come nel metodo interattivo descritto in precedenza.
+* **Automatizzato** : per le attività pianificate o eseguite in modo continuo, questo metodo usa un account del servizio configurato con le autorizzazioni necessarie per eseguire le attività di gestione. Per creare l'Azure AD B2C account del servizio, è necessario registrare un'applicazione usata dalle applicazioni e dagli script per l'autenticazione usando l' *ID dell'applicazione (client)* e la concessione di **credenziali client OAuth 2,0** . In questo caso, l'applicazione agisce da solo per chiamare l'API Microsoft Graph e non l'utente amministratore come nel metodo interattivo descritto in precedenza.
 
 Per abilitare lo scenario di interazione **automatica** , è possibile creare una registrazione dell'applicazione illustrata nelle sezioni seguenti.
+
+Sebbene il flusso di concessione delle credenziali client OAuth 2,0 non sia attualmente supportato direttamente dal servizio di autenticazione Azure AD B2C, è possibile configurare il flusso di credenziali client usando Azure AD e l'endpoint/token della piattaforma di identità Microsoft per un'applicazione nel tenant di Azure AD B2C. Un tenant di Azure AD B2C condivide alcune funzionalità con i tenant enterprise di Azure AD.
 
 ## <a name="register-management-application"></a>Registrare l'applicazione di gestione
 
 Prima che gli script e le applicazioni possano interagire con l' [api Microsoft Graph][ms-graph-api] per gestire le risorse Azure ad B2C, è necessario creare una registrazione dell'applicazione nel tenant di Azure ad B2C che conceda le autorizzazioni necessarie per l'API.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare l'icona **Directory e sottoscrizione** nella barra degli strumenti del portale e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
+1. Selezionare **Registrazioni app** e quindi **Nuova registrazione**.
+1. Immettere un **nome** per l'applicazione. Ad esempio, *managementapp1*.
+1. Selezionare **account solo in questa directory aziendale**.
+1. In **autorizzazioni**deselezionare la casella *di controllo Concedi il consenso dell'amministratore a OpenID e offline_access le autorizzazioni* .
+1. Selezionare **Registra**.
+1. Registrare l' **ID dell'applicazione (client)** visualizzato nella pagina Panoramica dell'applicazione. Questo valore verrà usato in un passaggio successivo.
 
 ### <a name="grant-api-access"></a>Concedere l'accesso all'API
 
@@ -65,7 +75,7 @@ L'autorizzazione *per la lettura e la scrittura dei dati della directory* **non*
 Se l'applicazione o lo script deve eliminare gli utenti o aggiornare le password, assegnare il ruolo di *amministratore utente* all'applicazione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e usare il filtro **directory + sottoscrizione** per passare al tenant di Azure ad B2C.
-1. Cercare e selezionare **Azure ad B2C**.
+1. Cercare e selezionare **Azure Active Directory B2C**.
 1. In **Gestisci**selezionare **ruoli e amministratori**.
 1. Selezionare il ruolo di **amministratore utente** .
 1. Selezionare **Aggiungi assegnazioni**.
@@ -73,9 +83,10 @@ Se l'applicazione o lo script deve eliminare gli utenti o aggiornare le password
 1. Selezionare **Aggiungi**. Potrebbero essere necessari alcuni minuti per la propagazione completa delle autorizzazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
+Ora che l'applicazione di gestione è stata registrata e sono state concesse le autorizzazioni necessarie, le applicazioni e i servizi (ad esempio, Azure Pipelines) possono usare le credenziali e le autorizzazioni per interagire con l'API Microsoft Graph. 
 
-Ora che l'applicazione di gestione è stata registrata e sono state concesse le autorizzazioni necessarie, le applicazioni e i servizi (ad esempio, Azure Pipelines) possono usare le credenziali e le autorizzazioni per interagire con l'API Microsoft Graph.
-
+* [Ottenere un token di accesso da Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Usare il token di accesso per chiamare Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
 * [Operazioni B2C supportate da Microsoft Graph](microsoft-graph-operations.md)
 * [Gestire gli account utente Azure AD B2C con Microsoft Graph](manage-user-accounts-graph-api.md)
 * [Ottenere i log di controllo con l'API per la creazione di report Azure AD](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
