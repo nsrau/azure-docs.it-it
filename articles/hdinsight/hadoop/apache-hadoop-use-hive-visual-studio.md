@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74687794"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Apache Hive usando gli strumenti Data Lake per Visual Studio
@@ -50,7 +49,7 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
     SELECT * FROM hivesampletable;
     ```
 
-5. Selezionare **Esegui**. Per impostazione predefinita, la modalità di esecuzione è **interattiva**.
+5. Scegliere **Execute**(Esegui). Per impostazione predefinita, la modalità di esecuzione è **interattiva**.
 
     ![Eseguire query hive interattive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
@@ -58,7 +57,7 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
 
     ![Inviare query hive batch, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
-    L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se, ad esempio, si `SELECT * FROM`digita, IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive. IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
+    L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se, ad esempio, si digita `SELECT * FROM` , IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive. IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
 
 7. Nella barra degli strumenti query (l'area sotto la scheda query e sopra il testo della query) selezionare **Invia**oppure selezionare la freccia a discesa accanto a **Invia** e scegliere **Avanzate** dall'elenco a discesa. Se si seleziona la seconda opzione,
 
@@ -104,7 +103,7 @@ Per eseguire una query hive creando un'applicazione hive, seguire questa procedu
 
     * `STORED AS TEXTFILE LOCATION`: Indica a hive che i dati sono archiviati nella directory *example/data* e che sono archiviati come testo.
 
-    * `SELECT`: Seleziona un conteggio di tutte le righe in `t4` cui la colonna `[ERROR]`contiene il valore. Questa istruzione restituisce un valore di `3`, perché tre righe contengono questo valore.
+    * `SELECT`: Seleziona un conteggio di tutte le righe in cui `t4` la colonna contiene il valore `[ERROR]` . Questa istruzione restituisce un valore di `3` , perché tre righe contengono questo valore.
 
     * `INPUT__FILE__NAME LIKE '%.log'`: Indica a hive di restituire solo i dati da file che terminano con. log. Questa clausola limita la ricerca al file *Sample. log* che contiene i dati.
 
@@ -143,7 +142,7 @@ L'esempio seguente si basa sulla `log4jLogs` tabella creata nella procedura prec
 
 3. Se necessario, modificare **interattivo** in **batch** , quindi selezionare **Invia**.
 
-4. Per verificare che il processo abbia creato la tabella, passare a **Esplora server** ed espandere **Azure** > **HDInsight**. Espandere il cluster HDInsight e quindi espandere **database** > hive**predefinito**. Vengono elencate la tabella **errorLogs** e la tabella **log4jLogs**.
+4. Per verificare che il processo abbia creato la tabella, passare a **Esplora server** ed espandere **Azure**  >  **HDInsight**. Espandere il cluster HDInsight e quindi espandere **database hive**  >  **predefinito**. Vengono elencate la tabella **errorLogs** e la tabella **log4jLogs**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

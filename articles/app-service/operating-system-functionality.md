@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74671616"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
@@ -45,7 +44,7 @@ Nel servizio app sono presenti varie unità, tra cui unità locali e unità di r
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Unità locali
-Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura PaaS (piattaforma distribuita come servizio) di Azure. Di conseguenza, le unità locali collegate a una macchina virtuale sono dello stesso tipo di quelle disponibili in qualsiasi ruolo di lavoro in esecuzione in Azure. ad esempio:
+Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura PaaS (piattaforma distribuita come servizio) di Azure. Di conseguenza, le unità locali collegate a una macchina virtuale sono dello stesso tipo di quelle disponibili in qualsiasi ruolo di lavoro in esecuzione in Azure. Ciò include:
 
 - Un'unità del sistema operativo (l'unità D:\)
 - Un'unità di applicazione che contiene file cspkg del pacchetto di Azure usata esclusivamente da Servizio app (e inaccessibile ai clienti)
@@ -55,7 +54,7 @@ Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura 
 
 - L'app può generare un errore che indica che non vi è sufficiente spazio su disco.
 - Potrebbero verificarsi errori del disco durante la navigazione nella console Kudu.
-- La distribuzione da Azure DevOps o Visual Studio potrebbe non `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`riuscire con.
+- La distribuzione da Azure DevOps o Visual Studio potrebbe non riuscire con `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)` .
 - L'app potrebbe subire un rallentamento delle prestazioni.
 
 <a id="NetworkDrives"></a>
@@ -76,7 +75,7 @@ Il servizio app riserva una porzione di spazio dell'unità C:\ per l'archiviazio
 
 Due esempi del modo in cui il servizio app usa le risorse di archiviazione locale temporanea sono costituiti dalla directory per i file ASP.NET temporanei e dalla directory per i file IIS compressi. Il sistema di compilazione di ASP.NET usa la directory "Temporary ASP.NET Files" come posizione cache temporanea per la compilazione. IIS usa la directory "IIS Temporary Compressed Files" per archiviare l'output della risposta in formato compresso. Entrambi i tipi di utilizzo di file (nonché altri) sono rimappati nel servizio app a una risorsa di archiviazione locale temporanea per singola app. Il remapping garantisce una funzionalità conforme alle aspettative.
 
-Ogni app nel servizio app viene eseguita come identità del processo di lavoro con privilegi limitati casuale, denominata "identità del pool di applicazioni", descritta [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)più avanti qui:. Il codice dell'applicazione usa questa identità per l'accesso di base in sola lettura all'unità del sistema operativo (l'unità D:\). Questo significa che il codice dell'applicazione può elencare strutture di directory comuni e file comuni in lettura nell'unità del sistema operativo. Sebbene questo livello di accesso possa sembrare piuttosto esteso, è possibile accedere alle stesse directory e agli stessi file quando si esegue il provisioning di un ruolo di lavoro in un servizio ospitato Azure e la lettura dei contenuti dell'unità. 
+Ogni app nel servizio app viene eseguita come identità del processo di lavoro con privilegi limitati casuale, denominata "identità del pool di applicazioni", descritta più avanti qui: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) . Il codice dell'applicazione usa questa identità per l'accesso di base in sola lettura all'unità del sistema operativo (l'unità D:\). Questo significa che il codice dell'applicazione può elencare strutture di directory comuni e file comuni in lettura nell'unità del sistema operativo. Sebbene questo livello di accesso possa sembrare piuttosto esteso, è possibile accedere alle stesse directory e agli stessi file quando si esegue il provisioning di un ruolo di lavoro in un servizio ospitato Azure e la lettura dei contenuti dell'unità. 
 
 <a name="multipleinstances"></a>
 
@@ -123,7 +122,7 @@ L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi ch
 
 Il servizio app non fornisce l'accesso tramite Desktop remoto alle istanze della macchina virtuale.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 [Sandbox Servizio app di Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox): informazioni aggiornate sull'ambiente di esecuzione del servizio App. Questa pagina è gestita direttamente dal team di sviluppo del servizio App.
 

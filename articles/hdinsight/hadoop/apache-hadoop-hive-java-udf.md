@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/20/2019
 ms.openlocfilehash: 73a2a612a4eeb4a59f12abf0660fffb092f0547f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74327201"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usare una funzione definita dall'utente Java con Apache Hive in HDInsight
@@ -21,7 +20,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Hadoop in HDInsight. Vedere [Introduzione a HDInsight in Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) versione 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) correttamente [installato](https://maven.apache.org/install.html) in base alle indicazioni di Apache.  Maven è un sistema di compilazione per progetti Java.
 * Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Si tratta di wasb://per archiviazione di Azure, abfs://per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
@@ -50,7 +49,7 @@ cd C:\HDI
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    Questo comando crea una directory denominata `exampleudf`, che contiene il progetto Maven.
+    Questo comando crea una directory denominata `exampleudf` , che contiene il progetto Maven.
 
 2. Una volta creato il progetto, eliminare la `exampleudf/src/test` directory creata come parte del progetto immettendo il comando seguente:
 
@@ -65,7 +64,7 @@ cd C:\HDI
     notepad pom.xml
     ```
 
-    Sostituire quindi la voce `<dependencies>` esistente con il codice XML seguente:
+    Sostituire quindi la `<dependencies>` voce esistente con il codice XML seguente:
 
     ```xml
     <dependencies>
@@ -144,7 +143,7 @@ cd C:\HDI
 
     Salvare il file dopo avere apportato le modifiche.
 
-4. Immettere il comando seguente per creare e aprire un nuovo file `ExampleUDF.java`:
+4. Immettere il comando seguente per creare e aprire un nuovo file `ExampleUDF.java` :
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java

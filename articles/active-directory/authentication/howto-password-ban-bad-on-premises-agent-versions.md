@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74847850"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Cronologia delle versioni dell'agente di Protezione password di Azure AD
@@ -42,9 +41,9 @@ Data di rilascio: 3/13/2019
   * Nei sistemi Server Core può essere necessario passare il flag/q al programma di installazione di .NET 4,7 per ottenere un esito positivo.
 * Il servizio proxy supporta ora l'aggiornamento automatico. L'aggiornamento automatico usa il servizio Microsoft Azure AD Connect Agent Updater, installato side-by-side con il servizio proxy. L'aggiornamento automatico è on per impostazione predefinita.
 * L'aggiornamento automatico può essere abilitato o disabilitato usando il cmdlet Set-AzureADPasswordProtectionProxyConfiguration. È possibile eseguire query sull'impostazione corrente usando il cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
-* Il file binario del servizio per il servizio agente di controller di dominio è stato rinominato in AzureADPasswordProtectionDCAgent. exe.
-* Il file binario del servizio proxy è stato rinominato in AzureADPasswordProtectionProxy. exe. Se è in uso un firewall di terze parti, potrebbe essere necessario modificare le regole del firewall di conseguenza.
-  * Nota: se è stato usato un file di configurazione proxy HTTP in un'installazione proxy precedente, sarà necessario rinominarlo (da *proxyservice. exe. config* a *AzureADPasswordProtectionProxy. exe. config*) dopo l'aggiornamento.
+* Il file binario del servizio per il servizio agente di controller di dominio è stato rinominato in AzureADPasswordProtectionDCAgent.exe.
+* Il file binario del servizio proxy è stato rinominato in AzureADPasswordProtectionProxy.exe. Se è in uso un firewall di terze parti, potrebbe essere necessario modificare le regole del firewall di conseguenza.
+  * Nota: se è stato usato un file di configurazione proxy HTTP in un'installazione proxy precedente, sarà necessario rinominarlo (da *proxyservice.exe.config* a *AzureADPasswordProtectionProxy.exe.config*) dopo l'aggiornamento.
 * Tutti i controlli di funzionalità con limiti di tempo sono stati rimossi dall'agente del controller di dominio.
 * Correzioni di bug secondari e miglioramenti della registrazione.
 

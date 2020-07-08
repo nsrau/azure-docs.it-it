@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
 ms.openlocfilehash: 04faafca0811e60ded47d1e91a82054a1c1cdb25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74406164"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB
@@ -47,7 +46,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
     <img src="./media/apache-kafka-spark-structured-streaming-cosmosdb/resource-manager-deploy.png" alt="Deploy to Azure"/>
     </a>
 
-    Il modello di Azure Resource Manager si trova nel repository GitHub per questo progetto ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
+    Il modello di Azure Resource Manager si trova nel repository GitHub per questo progetto ( [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb) ).
 
     Questo modello crea le risorse seguenti:
 
@@ -78,7 +77,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
     ![HDInsight valori di distribuzione personalizzati](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-1. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
+1. Leggere i **termini e le condizioni**e quindi selezionare Accetto **i termini e le condizioni indicati in precedenza**.
 
 1. Infine selezionare **Acquisto**. Potrebbero occorrere fino a 45 minuti per creare i cluster, la rete virtuale e l'account Cosmos DB.
 
@@ -128,7 +127,7 @@ I dati relativi all'endpoint documento e alla chiave primaria sono simili al tes
 
 ## <a name="get-the-notebooks"></a>Ottenere i notebook
 
-Il codice per l'esempio descritto in questo documento è disponibile all' [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)indirizzo.
+Il codice per l'esempio descritto in questo documento è disponibile all'indirizzo [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb) .
 
 ## <a name="upload-the-notebooks"></a>Caricare i notebook
 

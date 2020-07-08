@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74232748"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controllo delle versioni in Funzioni permanenti (Funzioni di Azure)
@@ -47,9 +46,9 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> Gli esempi di C# precedenti hanno come destinazione Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Gli esempi di C# precedenti hanno come destinazione Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
-Questa modifica funziona correttamente per tutte le nuove istanze della funzione dell'agente di orchestrazione, ma interrompe tutte le istanze in corso. Si consideri, ad esempio, il caso in cui un'istanza `Foo`di orchestrazione chiama una funzione denominata, ottiene un valore booleano e quindi i checkpoint. Se la modifica della firma viene distribuita a questo punto, l'istanza per cui è stato applicato il checkpoint ha immediatamente esito negativo quando riprende e riesegue la chiamata a `context.CallActivityAsync<int>("Foo")`. Questo errore si verifica perché il risultato nella tabella di cronologia `bool` è, ma il nuovo codice tenta di deserializzarlo `int`in.
+Questa modifica funziona correttamente per tutte le nuove istanze della funzione dell'agente di orchestrazione, ma interrompe tutte le istanze in corso. Si consideri, ad esempio, il caso in cui un'istanza di orchestrazione chiama una funzione denominata `Foo` , ottiene un valore booleano e quindi i checkpoint. Se la modifica della firma viene distribuita a questo punto, l'istanza per cui è stato applicato il checkpoint ha immediatamente esito negativo quando riprende e riesegue la chiamata a `context.CallActivityAsync<int>("Foo")`. Questo errore si verifica perché il risultato nella tabella di cronologia è, `bool` ma il nuovo codice tenta di deserializzarlo in `int` .
 
 Questo esempio è solo uno dei diversi modi in cui una modifica della firma può interrompere le istanze esistenti. In generale, se è necessario modificare il modo in cui un agente di orchestrazione chiama una funzione, la modifica può diventare un problema.
 
@@ -85,9 +84,9 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> Gli esempi di C# precedenti hanno come destinazione Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Gli esempi di C# precedenti hanno come destinazione Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext` . Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
-Questa modifica aggiunge una chiamata di funzione a **SendNotification** tra **Foo** e **Bar**. Non sono presenti modifiche della firma. Il problema si verifica quando un'istanza esistente riprende dopo la chiamata a **Bar**. Durante la riproduzione, se viene restituita `true`la chiamata originale a **foo** , la riesecuzione dell'agente di orchestrazione chiamerà **SendNotification**, che non si trova nella cronologia di esecuzione. Di conseguenza, il framework di attività permanenti ha esito negativo e genera un'eccezione `NonDeterministicOrchestrationException` perché ha rilevato una chiamata a **SendNotification** quando era prevista la visualizzazione di una chiamata a **Bar**. È possibile che si verifichi lo stesso tipo di problema quando si aggiungono chiamate alle API " `CreateTimer`durevoli", ad esempio, `WaitForExternalEvent`e così via.
+Questa modifica aggiunge una chiamata di funzione a **SendNotification** tra **Foo** e **Bar**. Non sono presenti modifiche della firma. Il problema si verifica quando un'istanza esistente riprende dopo la chiamata a **Bar**. Durante la riproduzione, se viene restituita la chiamata originale a **foo** `true` , la riesecuzione dell'agente di orchestrazione chiamerà **SendNotification**, che non si trova nella cronologia di esecuzione. Di conseguenza, il framework di attività permanenti ha esito negativo e genera un'eccezione `NonDeterministicOrchestrationException` perché ha rilevato una chiamata a **SendNotification** quando era prevista la visualizzazione di una chiamata a **Bar**. È possibile che si verifichi lo stesso tipo di problema quando si aggiungono chiamate alle API "durevoli", ad esempio `CreateTimer` , `WaitForExternalEvent` e così via.
 
 ## <a name="mitigation-strategies"></a>Strategie di mitigazione
 
@@ -116,7 +115,7 @@ Il modo migliore per garantire che le modifiche di rilievo vengano distribuite i
 
 * Distribuire tutti gli aggiornamenti come funzioni completamente nuove, lasciando le funzioni esistenti così come sono. Questa operazione può risultare complessa perché i chiamanti delle nuove versioni della funzione devono essere aggiornati anche seguendo le stesse linee guida.
 * Distribuire tutti gli aggiornamenti come una nuova app per le funzioni con un account di archiviazione diverso.
-* Distribuire una nuova copia dell'app per le funzioni con lo stesso account di archiviazione ma con `taskHub` un nome aggiornato. Le distribuzioni affiancate sono la tecnica consigliata.
+* Distribuire una nuova copia dell'app per le funzioni con lo stesso account di archiviazione ma con un `taskHub` nome aggiornato. Le distribuzioni affiancate sono la tecnica consigliata.
 
 ### <a name="how-to-change-task-hub-name"></a>Come modificare il nome dell'hub attività
 
@@ -144,7 +143,7 @@ L'hub attività può essere configurato nel file *host.json* come indicato di se
 }
 ```
 
-Il valore predefinito per Durable Functions V1. x è `DurableFunctionsHub`. A partire da Durable Functions v 2.0, il nome predefinito dell'hub attività è uguale al nome dell'app per le funzioni in `TestHubName` Azure o se è in esecuzione all'esterno di Azure.
+Il valore predefinito per Durable Functions V1. x è `DurableFunctionsHub` . A partire da Durable Functions v 2.0, il nome predefinito dell'hub attività è uguale al nome dell'app per le funzioni in Azure o `TestHubName` se è in esecuzione all'esterno di Azure.
 
 Tutte le entità di Archiviazione di Azure sono denominate in base al valore di configurazione `hubName`. Se si assegna un nuovo nome all'hub attività, verificare che per la nuova versione dell'applicazione vengano create code separate e la tabella di cronologia. L'app per le funzioni, tuttavia, arresterà l'elaborazione degli eventi per le orchestrazioni o le entità create con il nome dell'hub attività precedente.
 

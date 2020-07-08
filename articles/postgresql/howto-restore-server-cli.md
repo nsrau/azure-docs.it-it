@@ -8,10 +8,9 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: f0ea24133d7b6acdc4b099ee21a8711a2d99095d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74775705"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server in database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando di Azure
@@ -81,7 +80,7 @@ I valori relativi al percorso e al piano tariffario per il server ripristinato s
 
 Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
+Il nuovo server creato durante un ripristino non dispone delle regole del firewall o degli endpoint servizio di rete virtuale presenti nel server originale. Per il nuovo server, queste regole devono essere impostate separatamente.
 
 ## <a name="geo-restore"></a>Ripristino geografico
 Se il server è stato configurato per backup con ridondanza geografica, è possibile creare un nuovo server dal backup di quel server esistente. Questo nuovo server può essere creato in qualsiasi area in cui è disponibile Database di Azure per PostgreSQL.  
@@ -120,7 +119,7 @@ Quando si crea un nuovo server tramite un ripristino geografico, il server eredi
 
 Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
+Il nuovo server creato durante un ripristino non dispone delle regole del firewall o degli endpoint servizio di rete virtuale presenti nel server originale. Per il nuovo server, queste regole devono essere impostate separatamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sui [backup](concepts-backup.md) del servizio

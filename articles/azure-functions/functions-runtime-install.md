@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74226731"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installare l'anteprima del runtime di Funzioni di Azure 2
@@ -99,7 +98,7 @@ Per completare l'installazione del runtime di Funzioni di Azure è necessario co
 
 Per creare la prima funzione nell'anteprima del runtime di Funzioni di Azure
 
-1. Passare al **portale di runtime di funzioni di Azure** , `https://<machinename>.<domain>` ad esempio `https://mycomputer.mydomain.com`.
+1. Passare al **portale di runtime di funzioni di Azure** , `https://<machinename>.<domain>` ad esempio `https://mycomputer.mydomain.com` .
 
 1. Viene richiesto di effettuare l'**accesso**. Se distribuito in un dominio usare il nome utente e la password dell'account di dominio, altrimenti usare il nome utente e la password dell'account locale per accedere al portale.
 

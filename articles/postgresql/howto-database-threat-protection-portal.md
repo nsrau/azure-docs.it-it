@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 8b7f52ea318432e97a450a54526f6481b14139c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74776144"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection per database di Azure per PostgreSQL-server singolo
@@ -27,7 +26,7 @@ Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurez
 > Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per PostgreSQL viene distribuito nei server per utilizzo generico e ottimizzati per la memoria.
 
 ## <a name="set-up-threat-detection"></a>Impostare il rilevamento delle minacce
-1. Avviare il portale di Azure all' [https://portal.azure.com](https://portal.azure.com)indirizzo.
+1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com) .
 2. Passare alla pagina di configurazione del Database di Azure per PostgreSQL che si vuole proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)**.
 3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)**:
 
@@ -62,5 +61,5 @@ Fare clic su **Avvisi di sicurezza** sotto **PROTEZIONE DALLE MINACCE** per avvi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Per altre informazioni sui prezzi, vedere la [pagina sui Prezzi di Database di Azure per PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/)  

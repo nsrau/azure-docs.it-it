@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74267316"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Motivazione e vantaggi
@@ -53,7 +52,7 @@ Azure HDInsight è una distribuzione cloud dei componenti di Hadoop. Azure HDIns
 
 - **Estendibilità con strumenti personalizzati o applicazioni di terze parti** - I cluster HDInsight possono essere estesi con i componenti installati e integrati con altre soluzioni per Big Data mediante distribuzioni [con un clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) in Azure Marketplace.
 
-- **Facile gestione, amministrazione e monitoraggio** : Azure HDInsight si integra con i [log](../hdinsight-hadoop-oms-log-analytics-tutorial.md) di monitoraggio di Azure per fornire una singola interfaccia con cui è possibile monitorare tutti i cluster.
+- **Facile gestione, amministrazione e monitoraggio** : Azure HDInsight si integra con i [log](../hdinsight-hadoop-oms-log-analytics-tutorial.md)   di monitoraggio di Azure per fornire una singola interfaccia con cui è possibile monitorare tutti i cluster.
 
 - **Integrazione con altri servizi di Azure** - HDInsight può essere integrato facilmente con altri popolari servizi di Azure, tra cui:
 

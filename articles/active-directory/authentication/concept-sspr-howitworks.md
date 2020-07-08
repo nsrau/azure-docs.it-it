@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74848579"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
@@ -36,7 +35,7 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
 
 1. L'utente seleziona il collegamento **Problemi di accesso all'account?** o accede direttamente a [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
    * In base alle impostazioni locali del browser viene eseguito il rendering dell'esperienza nella lingua appropriata. L'esperienza di reimpostazione della password viene localizzata nelle stesse lingue supportate da Office 365.
-   * Per visualizzare il portale di reimpostazione della password in una lingua localizzata diversa, aggiungere "? MKT =" alla fine dell'URL di reimpostazione della password con l'esempio [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us)che segue la localizzazione in spagnolo.
+   * Per visualizzare il portale di reimpostazione della password in una lingua localizzata diversa, aggiungere "? MKT =" alla fine dell'URL di reimpostazione della password con l'esempio che segue la localizzazione in spagnolo [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us) .
 2. L'utente immette un ID utente e un captcha.
 3. Azure AD verifica se l'utente può usare questa funzionalità tramite le operazioni seguenti:
    * Verifica che questa funzionalità sia abilitata per l'utente e che all'utente sia assegnata una licenza Azure AD.
@@ -66,7 +65,7 @@ Se è abilitata la reimpostazione della password self-service, è necessario sel
 Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi di autenticazione abilitati dall'amministratore.
 
 > [!IMPORTANT]
-> A partire da marzo 2019, le opzioni per le telefonate non saranno disponibili per gli utenti di multi-factor authentication e SSPR in un tenant gratuito/di valutazione Azure AD. Questa modifica non ha alcun effetto sui messaggi SMS. La telefonata continuerà a essere disponibile per gli utenti in tenant Azure AD a pagamento. Questa modifica ha effetto solo sui tenant di Azure AD gratuiti/di valutazione.
+> A partire da marzo 2019, le opzioni per le telefonate non saranno disponibili per gli utenti di multi-factor authentication e SSPR in un tenant gratuito/di valutazione Azure AD. Questa modifica non ha alcun effetto sui messaggi SMS. La chiamata telefonica continuerà a essere disponibile per gli utenti nei tenant di Azure AD a pagamento. Questa modifica ha effetto solo sui tenant di Azure AD gratuiti/di prova.
 
 > [!WARNING]
 > Gli account assegnati i ruoli di amministratore di Azure verrà richiesto di utilizzare i metodi definiti nella sezione [Differenze dei criteri di reimpostazione degli amministratori](concept-sspr-policy.md#administrator-reset-policy-differences).
@@ -92,7 +91,7 @@ Quando si usa un'app per dispositivi mobili, ad esempio l'app Microsoft Authenti
 | :---: | :---: | :---: |
 | Funzionalità disponibili delle app per dispositivi mobili | Codice | Codice o notifica |
 
-Gli utenti non hanno la possibilità di registrare l'app per dispositivi mobili durante la registrazione per la reimpostazione della [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)password self-service da. Gli utenti possono registrare l'app per [https://aka.ms/mfasetup](https://aka.ms/mfasetup)dispositivi mobili in o nella nuova anteprima registrazione info di [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)sicurezza all'indirizzo.
+Gli utenti non hanno la possibilità di registrare l'app per dispositivi mobili durante la registrazione per la reimpostazione della password self-service da [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Gli utenti possono registrare l'app per dispositivi mobili in [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o nella nuova anteprima registrazione info di sicurezza all'indirizzo [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
 
 > [!WARNING]
 > È necessario abilitare la [registrazione convergente per la reimpostazione password self-service e Azure Multi-Factor Authentication (anteprima pubblica)](concept-registration-mfa-sspr-converged.md) prima che gli utenti siano in grado di accedere alla nuova esperienza in [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -209,15 +208,15 @@ Gli articoli seguenti forniscono altre informazioni sull'uso della reimpostazion
 
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Eseguire la registrazione per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
-* [Hai una domanda per le licenze?](concept-sspr-licensing.md)
+* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
+* [Domande sulle licenze](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
 * [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Credo che qualcosa sia rotto. Ricerca per categorie risolvere i problemi di SSPR?](active-directory-passwords-troubleshoot.md)
+* [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Metodi di autenticazione di Azure AD disponibili e quantità necessaria"

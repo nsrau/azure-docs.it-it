@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896010"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usare Media Encoder Standard per generare automaticamente una scala a bitrate  
@@ -47,7 +46,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app. config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file di app.config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Esempio
 
@@ -205,7 +204,7 @@ L'origine con altezza "360" e una frequenza frame "29.970" produce 3 livelli vid
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

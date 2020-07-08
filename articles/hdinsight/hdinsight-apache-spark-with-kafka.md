@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: d868cdd346c79cf77d4f8c1ea6e4b20adcd99b6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74327388"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Esempio dello streaming Apache Spark (DStream) con Apache Kafka in HDInsight
@@ -63,7 +62,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
     ![HDInsight parametri di distribuzione personalizzati](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
-1. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
+1. Leggere i **termini e le condizioni**e quindi selezionare Accetto **i termini e le condizioni indicati in precedenza**.
 
 1. Infine selezionare **Acquisto**. La creazione dei cluster richiede circa 20 minuti.
 
@@ -76,7 +75,7 @@ Dopo avere create le risorse, verrà visualizzata una pagina di riepilogo.
 
 ## <a name="use-the-notebooks"></a>Usare i notebook
 
-Il codice per l'esempio descritto in questo documento è disponibile all' [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka)indirizzo.
+Il codice per l'esempio descritto in questo documento è disponibile all'indirizzo [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka) .
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 
@@ -90,4 +89,4 @@ Questo esempio ha illustrato l'uso di Spark per leggere e scrivere in Kafka. Per
 
 * [Introduzione ad Apache Kafka (anteprima) in HDInsight](kafka/apache-kafka-get-started.md)
 * [Usare MirrorMaker per creare una replica di Apache Kafka in HDInsight](kafka/apache-kafka-mirroring.md)
-* [usare Apache Storm con Apache Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)
+* [Usare Apache Storm con Apache Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74706371"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello con Azure Site Recovery
@@ -65,7 +64,7 @@ Site Recovery è indipendente dall'applicazione e dovrebbe funzionare con qualsi
 **Hyper-V** | Sì | Sì
 **VMware** | Sì | Sì
 **Server fisico** | Sì | Sì
-**Azure** | N/D | Sì
+**Azure** | ND | Sì
 
 
 ### <a name="things-to-keep-in-mind"></a>Aspetti da considerare
@@ -102,7 +101,7 @@ Seguire [queste linee guida](site-recovery-vmware-to-azure.md) per avviare la re
 Per i siti con connessione Internet, [creare un profilo di Gestione traffico di tipo "Priorità"](../traffic-manager/traffic-manager-create-profile.md) nella sottoscrizione di Azure. Configurare quindi il DNS e il profilo di Gestione traffico nel modo seguente.
 
 
-| **In cui** | **origine** | **Destinazione**|
+| **In cui** | **Origine** | **Destinazione**|
 | --- | --- | --- |
 | DNS pubblico | DNS pubblico per siti di SharePoint <br/><br/> Esempio: sharepoint.contoso.com | Gestione traffico <br/><br/> contososharepoint.trafficmanager.net |
 | DNS locale | sharepointonprem.contoso.com | IP pubblico nella farm locale |

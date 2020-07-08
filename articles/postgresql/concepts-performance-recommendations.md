@@ -7,17 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: a30af0c8bef47a37fe3439e885d3895a2c826225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74768470"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Suggerimenti sulle prestazioni in database di Azure per PostgreSQL-server singolo
 
 **Si applica a:** Database di Azure per PostgreSQL: versioni a server singolo 9,6, 10, 11
 
-La funzionalità raccomandazioni per le prestazioni analizza i database per creare suggerimenti personalizzati per migliorare le prestazioni. Per produrre le raccomandazioni, l'analisi esamina le varie caratteristiche del database, incluso lo schema. Abilitare [query Store](concepts-query-store.md) sul server per usare completamente la funzionalità delle raccomandazioni per le prestazioni. Una volta implementate le indicazioni sulle prestazioni, è consigliabile testare le prestazioni per valutare l'effetto di tali modifiche. 
+La funzionalità raccomandazioni per le prestazioni analizza i database per creare suggerimenti personalizzati per migliorare le prestazioni. Per produrre le raccomandazioni, l'analisi prende in considerazione varie caratteristiche dei database, tra cui lo schema. Attivare [Query Store](concepts-query-store.md) sul server per sfruttare al massimo le potenzialità di Raccomandazioni per le prestazioni. Dopo avere implementato una raccomandazione per le prestazioni, è necessario testare le prestazioni per valutare l'impatto di tali modifiche. 
 
 ## <a name="permissions"></a>Autorizzazioni
 Autorizzazioni **Proprietario** oppure **Collaboratore** necessarie per eseguire l'analisi usando la funzionalità Raccomandazioni per gli elementi consigliati.
@@ -29,20 +28,20 @@ Aprire **suggerimenti sulle prestazioni** dalla sezione **prestazioni intelligen
 
 ![Pagina di destinazione Elementi consigliati per le prestazioni](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-Selezionare **analizza** e scegliere un database che inizierà l'analisi. A seconda del carico di lavoro, il completamento dell'analisi potrebbe richiedere alcuni minuti. Al termine dell'analisi, verrà inviata una notifica nel portale. L'analisi esegue un esame approfondito del database. Si consiglia di eseguire l'analisi durante i periodi di minore traffico. 
+Selezionare **Analizza** e scegliere un database per avviare l'analisi. A seconda del carico di lavoro, il completamento dell'analisi potrebbe richiedere alcuni minuti. Al termine dell'analisi, verrà inviata una notifica nel portale. L'analisi esegue un esame approfondito del database. Si consiglia quindi di effettuarla durante i periodi di minore traffico. 
 
 Nella finestra **raccomandazioni** viene visualizzato un elenco di raccomandazioni, se trovate.
 
 ![Nuova pagina Raccomandazioni per le prestazioni](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 
-Le raccomandazioni non vengono applicate automaticamente. Per applicare la raccomandazione, copiare il testo della query ed eseguirlo dal client preferito. Ricordarsi di eseguire il test e il monitoraggio per valutare la raccomandazione. 
+Le raccomandazioni non vengono applicate automaticamente. Per applicare una raccomandazione, copiare il testo della query ed eseguirlo dal client preferito. Non dimenticare di eseguire le operazioni di test e monitoraggio per valutare la raccomandazione. 
 
 ## <a name="recommendation-types"></a>Tipi di raccomandazione
 
 Attualmente sono supportati due tipi di consigli: *create index* e *Drop index*.
 
 ### <a name="create-index-recommendations"></a>Raccomandazioni relative alla creazione di indici
-I suggerimenti per la *creazione* di indici suggeriscono nuovi indici per velocizzare le query di esecuzione più frequenti o che richiedono molto tempo nel carico di lavoro. Questo tipo di raccomandazione richiede l'abilitazione di [query Store](concepts-query-store.md) . Query Store raccoglie informazioni sulle query e fornisce le statistiche dettagliate sul runtime di query e sulla frequenza utilizzate dall'analisi per apportare le indicazioni.
+Le raccomandazioni di tipo *Crea indice* suggeriscono nuovi indici per velocizzare le query che, nell'ambito del carico di lavoro, vengono eseguite più di frequente o richiedono più tempo. Per questo tipo di raccomandazione è necessario che sia attivato [Query Store](concepts-query-store.md). Query Store raccoglie informazioni sulle query e fornisce le statistiche dettagliate di frequenza e runtime delle query usate dall'analisi per generare le raccomandazioni.
 
 ### <a name="drop-index-recommendations"></a>Raccomandazioni relative all'eliminazione di indici
 Oltre a rilevare gli indici mancanti, database di Azure per PostgreSQL analizza le prestazioni degli indici esistenti. Se un indice viene usato raramente o ridondante, l'analizzatore consiglia di eliminarlo.

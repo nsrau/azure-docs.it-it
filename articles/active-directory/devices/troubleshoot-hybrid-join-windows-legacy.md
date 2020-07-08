@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74379110"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
@@ -26,7 +25,7 @@ Questo articolo è applicabile solo ai dispositivi seguenti:
 - Windows 8.1 
 - Windows Server 2008 R2 
 - Windows Server 2012 
-- Windows Server 2012 R2 
+- R2 per Windows Server 2012 
 
 Per Windows 10 o Windows Server 2016, vedere [Risoluzione dei problemi relativi a dispositivi Windows 10 e Windows Server 2016 aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-current.md).
 
@@ -36,7 +35,7 @@ Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all
 
 Questo articolo fornisce indicazioni sulla risoluzione di potenziali problemi.  
 
-**Informazioni utili:** 
+**Cosa è necessario sapere:** 
 
 - L'aggiunta ad Azure AD ibrido per i dispositivi Windows di livello inferiore funziona in modo leggermente diverso rispetto a Windows 10. Molti clienti non si rendono conto di dover configurare AD FS (per i domini federati) o Seamless SSO (per i domini gestiti).
 - Per i clienti con domini federati, se il punto di connessione del servizio (SCP) è stato configurato in modo da puntare al nome del dominio gestito (ad esempio, contoso.onmicrosoft.com invece di contoso.com), l'aggiunta ad Azure AD ibrido per i dispositivi Windows di livello inferiore non funzionerà.
@@ -73,7 +72,7 @@ Se il dispositivo non è stato aggiunto a Azure AD in modalità ibrida, è possi
    - È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad **autoworkplace.exe** di richiedere automaticamente un token.
    - Gli URL di AD FS e di Azure AD potrebbero non essere presenti nell'area intranet di Internet Explorer sul client.
    - Problemi di connettività di rete potrebbero impedire ad **autoworkplace.exe** di raggiungere gli URL di AD FS o di Azure AD. 
-   - **Autoarea di lavoro. exe** richiede che il client abbia una linea di controllo diretta dal client al controller di dominio ad locale dell'organizzazione, il che significa che il join Azure ad ibrido riesce solo quando il client è connesso alla rete Intranet dell'organizzazione.
+   - **Autoworkplace.exe** richiede che il client abbia una linea di controllo diretta dal client al controller di dominio ad locale dell'organizzazione, il che significa che il join Azure ad ibrido riesce solo quando il client è connesso alla rete Intranet dell'organizzazione.
    - L'organizzazione usa il Single Sign-On di Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` non sono presenti nelle impostazioni Intranet di IE del dispositivo e l'opzione **Consenti aggiornamenti alla barra di stato tramite script** non è abilitata per l'area Intranet.
 - Non si è connessi come utente di dominio
 

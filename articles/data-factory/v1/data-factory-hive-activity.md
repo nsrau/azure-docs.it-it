@@ -13,24 +13,23 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703346"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Hive in Azure Data Factory 
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
 > * [Attività hive](data-factory-hive-activity.md) 
-> * [Attività di Pig](data-factory-pig-activity.md)
+> * [Attività Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
-> * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
 > * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics attività U-SQL](data-factory-usql-activity.md)
-> * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
+> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Trasformare dati tramite l'attività Hive in Data Factory](../transform-data-using-hadoop-hive.md).
@@ -77,7 +76,7 @@ L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md
 | name |Nome dell'attività |Sì |
 | description |Testo descrittivo per lo scopo dell'attività |No |
 | type |HDinsightHive |Sì |
-| inputs |Input utilizzati dall'attività Hive |No |
+| input |Input utilizzati dall'attività Hive |No |
 | outputs |Output generati dall'attività Hive |Sì |
 | linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
 | script |Specificare lo script Hive inline |No |
@@ -242,9 +241,9 @@ Per usare lo script con parametri Hive, eseguire le operazioni seguenti:
     FROM HiveSampleIn Group by ProfileID
     ```
   ## <a name="see-also"></a>Vedere anche
-* [Attività di Pig](data-factory-pig-activity.md)
+* [Attività Pig](data-factory-pig-activity.md)
 * [Attività MapReduce](data-factory-map-reduce.md)
-* [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+* [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)
 * [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

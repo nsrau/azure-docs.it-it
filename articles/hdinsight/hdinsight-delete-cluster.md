@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 2912777c001a36ec913e2cfd618091ada5aa107a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74807137"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Eliminare un cluster HDInsight tramite browser, PowerShell o l'interfaccia della riga di comando di Azure
@@ -26,7 +25,7 @@ La fatturazione del cluster HDInsight inizia dopo la creazione del cluster e si 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Dal menu a sinistra passare a **tutti i servizi** > **analisi** > **HDInsight cluster** e selezionare il cluster.
+2. Dal menu a sinistra passare a **tutti i servizi**  >  **analisi**  >  **HDInsight cluster** e selezionare il cluster.
 
 3. Nella visualizzazione predefinita selezionare l'icona **Elimina** . Seguire la richiesta per eliminare il cluster.
 

@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
 ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792531"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Gestire documenti EDIFACT con segmenti UNH2.5 nelle App per la logica di Azure
 
-Se un segmento na 2.5 è presente in un documento EDIFACT, il segmento viene utilizzato per la ricerca dello schema. Ad esempio, in questo messaggio EDIFACT di esempio, il campo na `EAN008`è:
+Se un segmento na 2.5 è presente in un documento EDIFACT, il segmento viene utilizzato per la ricerca dello schema. Ad esempio, in questo messaggio EDIFACT di esempio, il campo na è `EAN008` :
 
 `UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
 
@@ -29,7 +28,7 @@ Per gestire questo messaggio, attenersi alla procedura descritta di seguito:
 
 ## <a name="update-the-schema"></a>Aggiornare lo schema
 
-Per elaborare il messaggio, è necessario distribuire uno schema con il nome del nodo radice na 2.5. Ad esempio, il nome radice dello schema per il campo di esempio `EFACT_D03B_ORDERS_EAN008`è. Per ognuno `D03B_ORDERS` dei quali è presente un segmento di un altro intervallo 2.5, è necessario distribuire un singolo schema.
+Per elaborare il messaggio, è necessario distribuire uno schema con il nome del nodo radice na 2.5. Ad esempio, il nome radice dello schema per il campo di esempio è `EFACT_D03B_ORDERS_EAN008` . Per ognuno dei `D03B_ORDERS` quali è presente un segmento di un altro intervallo 2.5, è necessario distribuire un singolo schema.
 
 ## <a name="add-schema-to-edifact-agreement"></a>Aggiungi schema a contratto EDIFACT
 
@@ -43,7 +42,7 @@ Per decodificare il messaggio in arrivo, configurare lo schema nelle impostazion
 
 1. Configurare lo schema nelle impostazioni di ricezione dell'accordo EDIFACT.
 
-1. Selezionare l'accordo EDIFACT e selezionare **modifica come JSON**. Aggiungere il valore per l'oggetto di ricezione 2.5 alla `schemaReferences` sezione dell'accordo di ricezione:
+1. Selezionare l'accordo EDIFACT e selezionare **modifica come JSON**. Aggiungere il valore per l'oggetto di ricezione 2.5 alla sezione dell'accordo di ricezione `schemaReferences` :
 
    ![Aggiungere l'accordo per la ricezione di un contratto](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
 
@@ -59,7 +58,7 @@ Per codificare il messaggio in arrivo, configurare lo schema nelle impostazioni 
 
 1. Selezionare il contratto EDIFACT e fare clic su **Modifica come JSON**.  Aggiungere il valore UNH2.5 nel contratto di invio **schemaReferences**
 
-1. Selezionare l'accordo EDIFACT e selezionare **modifica come JSON**. Aggiungere il valore di prepari 2.5 alla sezione dell' `schemaReferences` accordo di invio:
+1. Selezionare l'accordo EDIFACT e selezionare **modifica come JSON**. Aggiungere il valore di prepari 2.5 alla sezione dell'accordo di invio `schemaReferences` :
 
    ![Aggiunta di un contratto per l'invio di un contratto](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 

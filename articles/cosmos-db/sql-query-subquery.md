@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870565"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Esempi di sottoquery SQL per Azure Cosmos DB
@@ -63,7 +62,7 @@ Per questa query, l'indice corrisponderà a qualsiasi documento con un tag denom
 
 La clausola WHERE applicherà quindi il predicato del filtro a ogni tupla <c, t, n, s>. Se, ad esempio, un documento corrispondente include 10 elementi in ognuna delle tre matrici, si espanderà fino a 1 x 10 x 10 x 10 (ovvero 1.000) Tuple. L'uso di sottoquery consente di filtrare gli elementi della matrice aggiunti prima di unirli all'espressione successiva.
 
-Questa query è equivalente a quella precedente, ma usa sottoquery:
+Questa query è equivalente alla precedente, ma usa le sottoquery:
 
 ```sql
 SELECT Count(1) AS Count
@@ -79,7 +78,7 @@ Si supponga che un solo elemento nella matrice dei tag corrisponda al filtro e c
 
 Le sottoquery consentono di ottimizzare le query con espressioni costose, ad esempio funzioni definite dall'utente (UDF), stringhe complesse o espressioni aritmetiche. È possibile utilizzare una sottoquery insieme a un'espressione di JOIN per valutare l'espressione una sola volta, ma farvi riferimento più volte.
 
-La query seguente esegue due volte `GetMaxNutritionValue` la funzione definita dall'utente:
+La query seguente esegue due volte la funzione definita dall'utente `GetMaxNutritionValue` :
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -109,7 +108,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-L'approccio non è limitato alle funzioni definite dall'utente. Si applica a qualsiasi espressione potenzialmente costosa. Ad esempio, è possibile adottare lo stesso approccio con la funzione `avg`matematica:
+L'approccio non è limitato alle funzioni definite dall'utente. Si applica a qualsiasi espressione potenzialmente costosa. Ad esempio, è possibile adottare lo stesso approccio con la funzione matematica `avg` :
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -366,7 +365,7 @@ Se la parola chiave VALUE nella sottoquery precedente viene omessa, la query res
 SELECT EXISTS (SELECT undefined) 
 ```
 
-La sottoquery includerà l'elenco dei valori nell'elenco selezionato in un oggetto. Se l'elenco selezionato non contiene valori, la sottoquery restituirà il singolo valore '{}'. Questo valore è definito, pertanto EXISTs restituisce true.
+La sottoquery includerà l'elenco dei valori nell'elenco selezionato in un oggetto. Se l'elenco selezionato non contiene valori, la sottoquery restituirà il singolo valore ' {} '. Questo valore è definito, pertanto EXISTs restituisce true.
 
 ### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Esempio: riscrittura ARRAY_CONTAINS e JOIN come EXISTs
 
@@ -388,7 +387,7 @@ WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 
 Inoltre, ARRAY_CONTAINS possibile verificare solo se un valore è uguale a qualsiasi elemento all'interno di una matrice. Se sono necessari filtri più complessi sulle proprietà della matrice, usare JOIN.
 
-Si consideri la query seguente che filtra in base `nutritionValue` alle unità e alle proprietà nella matrice: 
+Si consideri la query seguente che filtra in base alle unità e alle `nutritionValue` proprietà nella matrice: 
 
 ```sql
 SELECT VALUE c.description

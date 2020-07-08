@@ -13,10 +13,9 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74232115"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
@@ -73,11 +72,11 @@ In questo progetto si definiranno i destinatari che utilizzeranno e monitorerann
 
 ### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
-Quando i progetti tecnologici hanno esito negativo, in genere lo fanno a causa di una mancata corrispondenza delle aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](https://aka.ms/deploymentplans). Assicurarsi inoltre che i ruoli stakeholder nel progetto siano ben comprensibili documentando gli stakeholder e i rispettivi input e responsabilità del progetto.
+Quando i progetti tecnologici non hanno successo, in genere la causa è legata alle diverse aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](https://aka.ms/deploymentplans). Assicurarsi inoltre che i ruoli stakeholder nel progetto siano ben comprensibili documentando gli stakeholder e i rispettivi input e responsabilità del progetto.
 
 ### <a name="plan-communications"></a>Pianificare le comunicazioni
 
-La comunicazione è fondamentale per il successo di un nuovo servizio. Comunica in modo proattivo con gli utenti in che modo cambiano l'esperienza, quando verrà modificata e come ottenere supporto in caso di problemi.
+La comunicazione è fondamentale per il successo di un nuovo servizio. Comunica in modo proattivo con gli utenti su come cambierà l'esperienza, quando verrà modificata, e su come ottenere supporto in caso di problemi.
 
 ### <a name="document-your-current-infrastructure-and-policies"></a>Documentare l'infrastruttura e i criteri correnti
 
@@ -127,7 +126,7 @@ Vedere come [inviare dati ai log di Monitoraggio di Azure](https://docs.microsof
 
 È anche possibile installare le visualizzazioni predefinite per Azure AD log attività per monitorare gli scenari comuni che coinvolgono gli eventi di accesso e di controllo.
 
-Informazioni su come [installare e usare le visualizzazioni di log Analytics per i log attività di Azure ad](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views).
+Vedere come [installare e usare le viste di analisi dei log per i log attività di Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views).
 
 #### <a name="stream-logs-to-your-azure-event-hub"></a>Eseguire lo streaming dei log nell'hub eventi di Azure
 
@@ -171,7 +170,7 @@ A seconda delle decisioni prese in precedenza utilizzando le linee guida di prog
 
 [Inviare i log a monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-[Installare e usare le visualizzazioni di log Analytics per Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
+[Installare e usare le viste di analisi dei log per Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
 
 [Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
 

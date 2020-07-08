@@ -12,17 +12,16 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3508865d9f89501cf70e09087c6a609beb6662b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74273192"
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mapping delle attestazioni utente per Collaborazione B2B in Azure Active Directory
 
 Azure Active Directory (Azure AD) supporta la personalizzazione delle attestazioni rilasciate nel token SAML per gli utenti di Collaborazione B2B. Quando un utente esegue l'autenticazione all'applicazione, Azure AD rilascia un token SAML all'applicazione contenente informazioni (o attestazioni) sull'utente, che lo identificano in modo univoco. Per impostazione predefinita, sono inclusi il nome utente, l'indirizzo di posta elettronica, il nome e il cognome dell'utente.
 
-Nel [portale di Azure](https://portal.azure.com) è possibile visualizzare o modificare le attestazioni inviate all'applicazione nel token SAML. Per accedere alle impostazioni, selezionare **Azure Active Directory** > **applicazioni aziendali** > applicazione configurata per Single Sign-on > **Single Sign-on**. Visualizzare le impostazioni del token SAML nella sezione **Attributi utente**.
+Nel [portale di Azure](https://portal.azure.com) è possibile visualizzare o modificare le attestazioni inviate all'applicazione nel token SAML. Per accedere alle impostazioni, selezionare **Azure Active Directory**  >  **applicazioni aziendali** > applicazione configurata per Single Sign-on > **Single Sign-on**. Visualizzare le impostazioni del token SAML nella sezione **Attributi utente**.
 
 ![Visualizzazione degli attributi del token SAML nell'interfaccia utente](media/claims-mapping/view-claims-in-saml-token.png)
 

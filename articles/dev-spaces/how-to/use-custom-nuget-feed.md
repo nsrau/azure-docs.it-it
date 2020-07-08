@@ -9,10 +9,9 @@ description: Usare un feed NuGet personalizzato per accedere ai pacchetti NuGet 
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 manager: gwallace
 ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74325734"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Usare un feed NuGet personalizzato con Azure Dev Spaces
@@ -31,7 +30,7 @@ Aggiungere un [riferimento al pacchetto](https://docs.microsoft.com/nuget/consum
 </ItemGroup>
 ```
 
-Creare un file [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) nella cartella del progetto e impostare le `packageSources` sezioni `packageSourceCredentials` e per il feed NuGet. La `packageSources` sezione contiene l'URL del feed, che deve essere accessibile dal cluster AKS. `packageSourceCredentials` Sono le credenziali per l'accesso al feed. Ad esempio:
+Creare un file di [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) nella cartella del progetto e impostare `packageSources` le `packageSourceCredentials` sezioni e per il feed NuGet. La `packageSources` sezione contiene l'URL del feed, che deve essere accessibile dal cluster AKS. `packageSourceCredentials`Sono le credenziali per l'accesso al feed. Ad esempio:
 
 ```xml
 <packageSources>
@@ -53,10 +52,10 @@ COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]
 ```
 
 > [!TIP]
-> In Windows, `NuGet.Config` `Nuget.Config`, e `nuget.config` funziona come nomi di file validi. In Linux è solo `NuGet.Config` un nome file valido per il file. Poiché Azure Dev Spaces USA Docker e Linux, questo file deve essere denominato `NuGet.Config`. È possibile correggere la denominazione manualmente o eseguendo `dotnet restore --configfile nuget.config`.
+> In Windows, `NuGet.Config` , `Nuget.Config` e `nuget.config` funziona come nomi di file validi. In Linux è solo `NuGet.Config` un nome file valido per il file. Poiché Azure Dev Spaces USA Docker e Linux, questo file deve essere denominato `NuGet.Config` . È possibile correggere la denominazione manualmente o eseguendo `dotnet restore --configfile nuget.config` .
 
 
-Se si usa Git, non è necessario avere le credenziali per il feed NuGet nel controllo della versione. Aggiungere `NuGet.Config` a `.gitignore` per il progetto in modo che il `NuGet.Config` file non venga aggiunto al controllo della versione. Azure Dev Spaces sarà necessario questo file durante il processo di compilazione dell'immagine del contenitore, ma per impostazione predefinita rispetta le regole `.gitignore` definite `.dockerignore` in e durante la sincronizzazione. Per modificare il valore predefinito e consentire Azure Dev Spaces di sincronizzare `NuGet.Config` il file, aggiornare `azds.yaml` il file:
+Se si usa Git, non è necessario avere le credenziali per il feed NuGet nel controllo della versione. Aggiungere `NuGet.Config` a `.gitignore` per il progetto in modo che il `NuGet.Config` file non venga aggiunto al controllo della versione. Azure Dev Spaces sarà necessario questo file durante il processo di compilazione dell'immagine del contenitore, ma per impostazione predefinita rispetta le regole definite in `.gitignore` e `.dockerignore` durante la sincronizzazione. Per modificare il valore predefinito e consentire Azure Dev Spaces di sincronizzare il `NuGet.Config` file, aggiornare il `azds.yaml` file:
 
 ```yaml
 build:
@@ -67,7 +66,7 @@ ignore:
 
 Se non si usa Git, è possibile ignorare questo passaggio.
 
-La volta successiva che si `azds up` esegue o `F5` si raggiunge il Visual Studio Code o Visual Studio, Azure Dev Spaces Sincronizza `NuGet.Config` il file e lo usa per installare le dipendenze del pacchetto.
+La volta successiva che si esegue `azds up` o si raggiunge il `F5` Visual Studio Code o Visual Studio, Azure Dev Spaces sincronizza il `NuGet.Config` file e lo usa per installare le dipendenze del pacchetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,18 +1,17 @@
 ---
-title: Esempio di trigger e binding di funzioni di Azure
+title: Esempio di trigger e binding di Funzioni di Azure
 description: Informazioni su come configurare le associazioni di funzioni di Azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74227233"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Esempio di trigger e binding di funzioni di Azure
+# <a name="azure-functions-trigger-and-binding-example"></a>Esempio di trigger e binding di Funzioni di Azure
 
 Questo articolo illustra come configurare un [trigger e le associazioni](./functions-triggers-bindings.md) in una funzione di Azure.
 
@@ -82,7 +81,7 @@ public class Person
 
 ## <a name="javascript-example"></a>Esempio JavaScript
 
-Lo stesso file *Function. JSON* può essere usato con una funzione JavaScript:
+È possibile usare lo stesso *function.jsnel* file con una funzione JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage

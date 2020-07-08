@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b3e2db9b9769dee7599a2446b272e04cc0bedf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703382"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Trasformare i dati in Azure Data Factory
@@ -92,7 +91,7 @@ Azure Data Factory supporta le seguenti attività di trasformazione di dati e i 
 | [Maiale](data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
-| [Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |Macchina virtuale di Azure |
+| [Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md) |Macchina virtuale di Azure |
 | [Stored procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse o SQL Server |
 | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |Azure Data Lake Analytics. |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Batch di Azure |

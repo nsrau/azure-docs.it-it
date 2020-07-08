@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74888496"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Connettersi all'API di servizi multimediali V3-Java
@@ -33,7 +32,7 @@ In questo articolo viene usato il Visual Studio Code per sviluppare l'app di ese
    - JDK
    - Apache Maven
    - Pacchetto di estensione Java
-- Assicurarsi di impostare `JAVA_HOME` le variabili `PATH` di ambiente e.
+- Assicurarsi di impostare `JAVA_HOME` le `PATH` variabili di ambiente e.
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
 - Seguire i passaggi nell'argomento [Access Apis (API di accesso](access-api-cli-how-to.md) ). Registrare l'ID sottoscrizione, l'ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant necessari in un passaggio successivo.
 
@@ -43,17 +42,17 @@ Vedere anche:
 - [Gestione dei progetti Java in VS Code](https://code.visualstudio.com/docs/java/java-project)
 
 > [!IMPORTANT]
-> Esaminare le [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
+> Vedere [Convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="create-a-maven-project"></a>Creare un progetto Maven
 
-Aprire uno strumento da riga di comando `cd` e una directory in cui si desidera creare il progetto.
+Aprire uno strumento da riga di comando e `cd` una directory in cui si desidera creare il progetto.
     
 ```
 mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-Quando si esegue il comando, vengono `pom.xml`creati `App.java`gli altri file, e. 
+Quando si esegue il comando, `pom.xml` `App.java` vengono creati gli altri file, e. 
 
 ## <a name="add-dependencies"></a>Aggiungere le dipendenze
 

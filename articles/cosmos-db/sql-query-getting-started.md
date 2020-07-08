@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
 ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74873336"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introduzione alle query SQL
@@ -23,7 +22,7 @@ Azure Cosmos DB gli account API SQL supportano l'esecuzione di query sugli eleme
 
 ## <a name="upload-sample-data"></a>Carica dati di esempio
 
-Nell'account di Cosmos DB dell'API SQL creare un contenitore denominato `Families`. Creare due semplici elementi JSON nel contenitore. È possibile eseguire la maggior parte delle query di esempio nell'Azure Cosmos DB eseguire query docs utilizzando questo set di dati.
+Nell'account di Cosmos DB dell'API SQL creare un contenitore denominato `Families` . Creare due semplici elementi JSON nel contenitore. È possibile eseguire la maggior parte delle query di esempio nell'Azure Cosmos DB eseguire query docs utilizzando questo set di dati.
 
 ### <a name="create-json-items"></a>Crea elementi JSON
 
@@ -52,7 +51,7 @@ Il codice seguente crea due semplici elementi JSON sulle famiglie. Gli elementi 
 }
 ```
 
-Il secondo elemento usa `givenName` e `familyName` invece di `firstName` e `lastName`.
+Il secondo elemento usa `givenName` e `familyName` invece di `firstName` e `lastName` .
 
 ```json
 {
@@ -88,7 +87,7 @@ Il secondo elemento usa `givenName` e `familyName` invece di `firstName` e `last
 
 Provare alcune query sui dati JSON per comprendere alcuni aspetti chiave del linguaggio di query SQL di Azure Cosmos DB.
 
-La query seguente restituisce gli elementi in cui `id` il campo `AndersenFamily`corrisponde a. Poiché si tratta di `SELECT *` una query, l'output della query è l'elemento JSON completo. Per ulteriori informazioni sulla sintassi SELECT, vedere [istruzione SELECT](sql-query-select.md). 
+La query seguente restituisce gli elementi in cui il `id` campo corrisponde a `AndersenFamily` . Poiché si tratta di una `SELECT *` query, l'output della query è l'elemento JSON completo. Per ulteriori informazioni sulla sintassi SELECT, vedere [istruzione SELECT](sql-query-select.md). 
 
 ```sql
     SELECT *
@@ -118,7 +117,7 @@ I risultati della query sono:
     }]
 ```
 
-La query seguente riformatta l'output JSON in una forma diversa. La query proietta un nuovo oggetto `Family` JSON con due campi selezionati `Name` e `City`, quando la città degli indirizzi corrisponde allo stato. "NY, NY" corrisponde a questo caso.
+La query seguente riformatta l'output JSON in una forma diversa. La query proietta un nuovo `Family` oggetto JSON con due campi selezionati `Name` e `City` , quando la città degli indirizzi corrisponde allo stato. "NY, NY" corrisponde a questo caso.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -137,7 +136,7 @@ I risultati della query sono:
     }]
 ```
 
-La query seguente restituisce tutti i nomi di elementi figlio specificati nella famiglia le `id` cui `WakefieldFamily`corrispondenze, ordinate per città.
+La query seguente restituisce tutti i nomi di elementi figlio specificati nella famiglia le cui `id` corrispondenze `WakefieldFamily` , ordinate per città.
 
 ```sql
     SELECT c.givenName
@@ -160,11 +159,11 @@ I risultati sono:
 
 Negli esempi precedenti vengono illustrati diversi aspetti del linguaggio di query di Cosmos DB:  
 
-* Poiché l'API SQL funziona sui valori JSON, gestisce le entità a forma di albero invece di righe e colonne. È possibile fare riferimento ai nodi della struttura ad albero in qualsiasi profondità arbitraria, ad esempio `Node1.Node2.Node3…..Nodem`, in modo simile al `<table>.<column>` riferimento in due parti di in ANSI SQL.
+* Poiché l'API SQL funziona sui valori JSON, gestisce le entità a forma di albero invece di righe e colonne. È possibile fare riferimento ai nodi della struttura ad albero in qualsiasi profondità arbitraria, ad esempio `Node1.Node2.Node3…..Nodem` , in modo simile al riferimento in due parti di `<table>.<column>` in ANSI SQL.
 
 * Poiché il linguaggio di query funziona con dati senza schema, è necessario associare il sistema di tipi dinamicamente. La stessa espressione potrebbe produrre tipi differenti per elementi differenti. Il risultato di una query è un valore JSON valido, ma non è garantito che sia di uno schema fisso.  
 
-* Cosmos DB supporta solo gli elementi JSON completi. Il sistema di tipi e le espressioni sono limitati a gestire solo i tipi JSON. Per ulteriori informazioni, vedere la [specifica JSON](https://www.json.org/).  
+* Cosmos DB supporta solo gli elementi JSON completi. Il sistema di tipi e le espressioni sono quindi limitati all'interazione esclusiva con i tipi JSON. Per altre informazioni, vedere le [specifiche JSON](https://www.json.org/).  
 
 * Un contenitore Cosmos è una raccolta senza schema di elementi JSON. Le relazioni all'interno e tra gli elementi contenitore vengono acquisite in modo implicito dal contenimento, non dalle relazioni di chiave primaria e chiave esterna. Questa funzionalità è importante per i join intra-Item descritti più avanti in questo articolo.
 

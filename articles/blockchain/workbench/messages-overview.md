@@ -5,10 +5,9 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74324500"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrazione della messaggistica di Azure Blockchain Workbench
@@ -471,7 +470,7 @@ Contiene le informazioni su un contratto. Il messaggio include una sezione con l
 |--------------------|-------------|
 | workflowPropertyId | Identificatore univoco della proprietà del flusso di lavoro in Azure Blockchain Workbench |
 | name | Nome della proprietà del flusso di lavoro |
-| value | Valore della proprietà del flusso di lavoro |
+| Valore | Valore della proprietà del flusso di lavoro |
 
 Esempio di *ContractMessage* da Blockchain Workbench:
 
@@ -582,7 +581,7 @@ Contiene informazioni quando viene richiamata una funzione del contratto, ad ese
 | Nome | Descrizione |
 |------|-------------|
 | name | Nome parametro |
-| value | Valore del parametro |
+| Valore | Valore del parametro |
 
 #### <a name="event-message-transaction-information"></a>Informazioni sulla transazione del messaggio di evento
 
@@ -698,7 +697,7 @@ Contiene informazioni quando un'applicazione viene caricata in Workbench, ad ese
 |------|-------------|
 | id | Identificatore univoco della proprietà del flusso di lavoro dell'applicazione in Azure Blockchain Workbench |
 | name | Nome proprietà |
-| type | Tipo di proprietà |
+| tipo | Tipo di proprietà |
 
 Esempio di *EventMessage ApplicationIngestion* da Blockchain Workbench:
 
@@ -855,7 +854,7 @@ Contiene informazioni quando a un utente viene assegnato un ruolo in Workbench, 
 | Nome | Descrizione |
 |------|-------------|
 | id | Identificatore univoco dell'utente in Azure Blockchain Workbench |
-| type | Tipo dell'assegnatore |
+| tipo | Tipo dell'assegnatore |
 | chainIdentifier | Identificatore univoco dell'utente nel libro mastro |
 
 #### <a name="roleassignment-assignee"></a>Assegnatario di RoleAssignment
@@ -863,7 +862,7 @@ Contiene informazioni quando a un utente viene assegnato un ruolo in Workbench, 
 | Nome | Descrizione |
 |------|-------------|
 | id | Identificatore univoco dell'utente in Azure Blockchain Workbench |
-| type | Tipo dell'assegnatario |
+| tipo | Tipo dell'assegnatario |
 | chainIdentifier | Identificatore univoco dell'utente nel libro mastro |
 
 Esempio di *EventMessage RoleAssignment* da Blockchain Workbench:

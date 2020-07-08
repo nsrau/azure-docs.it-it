@@ -14,10 +14,9 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3eb98f543e17981be0d5b9ab08fa4e146659b47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74206786"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quattro passaggi per una solida base di identità con Azure Active Directory
@@ -166,7 +165,7 @@ Il controllo e la registrazione degli eventi correlati alla sicurezza e degli av
 * C'è qualcosa di sospetto o dannoso nel tenant?
 * Chi ha avuto effetto durante un evento imprevisto della sicurezza?
 
-I report e i log di sicurezza offrono un record elettronico delle attività sospette e aiutano a rilevare criteri che possono indicare tentativi esterni di penetrazione nella rete e attacchi interni. È possibile utilizzare il controllo per monitorare le attività degli utenti, documentare la conformità alle normative, eseguire analisi forensi e altro ancora. Gli avvisi forniscono notifiche di eventi di sicurezza.
+I report e i log di sicurezza offrono un record elettronico delle attività sospette e aiutano a rilevare criteri che possono indicare tentativi esterni di penetrazione nella rete e attacchi interni. È possibile usare la funzione di controllo per monitorare l'attività dell'utente, documentare la conformità alle normative, eseguire analisi forensi e altro ancora. Gli avvisi forniscono notifiche di eventi di sicurezza.
 
 ### <a name="assign-least-privileged-admin-roles-for-operations"></a>Assegnare ruoli di amministratore con privilegi minimi per le operazioni
 

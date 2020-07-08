@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74871143"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Join in Azure Cosmos DB
@@ -21,7 +20,7 @@ Gli inner join generano un prodotto incrociato completo dei set che partecipano 
 
 ## <a name="syntax"></a>Sintassi
 
-Il linguaggio supporta la sintassi `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Questa query restituisce un set di tuple con `N` i valori. Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias del contenitore sui rispettivi set. 
+Il linguaggio supporta la sintassi `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` . Questa query restituisce un set di tuple con `N` i valori. Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias del contenitore sui rispettivi set. 
 
 Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
@@ -118,7 +117,7 @@ Il risultato è:
     }]
 ```
 
-Nell'esempio seguente, il join è un prodotto incrociato tra due oggetti JSON, la radice `id` dell'elemento `children` e la sottoradice. Il fatto che `children` è una matrice non è efficace nel join, perché tratta di una singola radice che è la `children` matrice. Il risultato contiene solo due risultati, perché il prodotto incrociato di ogni elemento con la matrice restituisce esattamente un solo elemento.
+Nell'esempio seguente, il join è un prodotto incrociato tra due oggetti JSON, la radice dell'elemento `id` e la `children` sottoradice. Il fatto che `children` è una matrice non è efficace nel join, perché tratta di una singola radice che è la `children` matrice. Il risultato contiene solo due risultati, perché il prodotto incrociato di ogni elemento con la matrice restituisce esattamente un solo elemento.
 
 ```sql
     SELECT f.id
@@ -165,11 +164,11 @@ I risultati sono:
 
 L'origine FROM della clausola JOIN è un iteratore. Il flusso nell'esempio precedente è quindi:  
 
-1. Espandere ogni elemento `c` figlio nella matrice.
-2. Applicare un prodotto incrociato con la radice dell' `f` elemento con ogni elemento `c` figlio che il primo passaggio è bidimensionale.
-3. Infine, proiettare solo la `f` `id` proprietà dell'oggetto radice.
+1. Espandere ogni elemento figlio `c` nella matrice.
+2. Applicare un prodotto incrociato con la radice dell'elemento `f` con ogni elemento figlio `c` che il primo passaggio è bidimensionale.
+3. Infine, proiettare solo la proprietà dell'oggetto radice `f` `id` .
 
-Il primo elemento, `AndersenFamily`, contiene un solo `children` elemento, quindi il set di risultati contiene solo un singolo oggetto. Il secondo elemento, `WakefieldFamily`, contiene due `children`, quindi il prodotto incrociato produce due oggetti, uno `children` per ogni elemento. I campi radice in entrambi gli elementi sono uguali, proprio come ci si aspetterebbe in un prodotto incrociato.
+Il primo elemento, `AndersenFamily` , contiene un solo `children` elemento, quindi il set di risultati contiene solo un singolo oggetto. Il secondo elemento, `WakefieldFamily` , contiene due `children` , quindi il prodotto incrociato produce due oggetti, uno per ogni `children` elemento. I campi radice in entrambi gli elementi sono uguali, proprio come ci si aspetterebbe in un prodotto incrociato.
 
 L'utilità reale della clausola JOIN consiste nel formare Tuple dal prodotto incrociato in una forma altrimenti difficile da proiettare. Nell'esempio seguente viene filtrata la combinazione di una tupla che consente all'utente di scegliere una condizione soddisfatta dalle tuple complessive.
 
@@ -224,9 +223,9 @@ Nell'estensione seguente dell'esempio precedente viene eseguito un doppio join. 
     }
 ```
 
-`AndersenFamily`ha un figlio con un solo animale, quindi il prodotto incrociato restituisce una riga (\*1\*1 1) da questa famiglia. `WakefieldFamily`ha due figli, solo uno dei quali ha animali domestici, ma l'elemento figlio ha due animali domestici. Il prodotto incrociato per questa famiglia restituisce\*1\*1 2 = 2 righe.
+`AndersenFamily`ha un figlio con un solo animale, quindi il prodotto incrociato restituisce una riga (1 \* 1 \* 1) da questa famiglia. `WakefieldFamily`ha due figli, solo uno dei quali ha animali domestici, ma l'elemento figlio ha due animali domestici. Il prodotto incrociato per questa famiglia restituisce 1 \* 1 \* 2 = 2 righe.
 
-Nell'esempio seguente è presente un filtro aggiuntivo per `pet`, che esclude tutte le tuple in cui il nome dell'animale domestico non `Shadow`lo è. È possibile compilare tuple da matrici, filtrare in base a qualsiasi elemento della tupla e proiettare qualsiasi combinazione degli elementi.
+Nell'esempio seguente è presente un filtro aggiuntivo per `pet` , che esclude tutte le tuple in cui il nome dell'animale domestico non lo è `Shadow` . È possibile compilare tuple da matrici, filtrare in base a qualsiasi elemento della tupla e proiettare qualsiasi combinazione degli elementi.
 
 ```sql
     SELECT 
@@ -254,6 +253,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva](sql-query-getting-started.md)
+- [Introduzione](sql-query-getting-started.md)
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Sottoquery:](sql-query-subquery.md)
+- [Sottoquery](sql-query-subquery.md)

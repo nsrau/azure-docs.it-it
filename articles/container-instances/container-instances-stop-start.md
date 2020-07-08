@@ -4,13 +4,12 @@ description: Informazioni su come arrestare o avviare manualmente un gruppo di c
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: c9f8afea33c65df940d02823ec394697d2786d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74533432"
 ---
-# <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Arrestare o avviare manualmente i contenitori nelle istanze di contenitore di Azure
+# <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Arrestare o avviare manualmente i contenitori in Istanze di Azure Container
 
 L'impostazione dei [criteri di riavvio](container-instances-restart-policy.md) di un gruppo di contenitori determina il modo in cui le istanze del contenitore vengono avviate o interrotte per È possibile eseguire l'override dell'impostazione predefinita arrestando o avviando manualmente un gruppo di contenitori.
 
@@ -24,7 +23,7 @@ Quando i contenitori vengono riciclati, le [risorse](container-instances-contain
 
 L'azione di arresto non ha effetto se il gruppo di contenitori è già stato terminato (si trova nello stato SUCCEEDED o Failed). Ad esempio, un gruppo di contenitori con attività del contenitore Run-Once che è stato eseguito correttamente termina con lo stato succeeded. Il tentativo di arrestare il gruppo in tale stato non modifica lo stato. 
 
-## <a name="start"></a>Inizia
+## <a name="start"></a>Avvia
 
 Quando un gruppo di contenitori viene arrestato, perché i contenitori sono terminati autonomamente oppure il gruppo è stato arrestato manualmente, è possibile avviare i contenitori. Ad esempio, usare il comando [AZ container Start][az-container-start] o portale di Azure per avviare manualmente i contenitori nel gruppo. Se l'immagine di un contenitore viene aggiornata, verrà inserita una nuova immagine. 
 
@@ -34,7 +33,7 @@ Tutti i contenitori in un gruppo di contenitori vengono avviati da questa azione
 
 Dopo aver avviato o riavviato manualmente un gruppo di contenitori, questo funzionerà in base ai criteri di riavvio configurati.
   
-## <a name="restart"></a>Riavvio
+## <a name="restart"></a>Riavvia
 
 È possibile riavviare un gruppo di contenitori mentre è in esecuzione, ad esempio usando il comando [AZ container restart][az-container-restart] . Questa operazione riavvia tutti i contenitori nel gruppo di contenitori. Se l'immagine di un contenitore viene aggiornata, verrà inserita una nuova immagine. 
 

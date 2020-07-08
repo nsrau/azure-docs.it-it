@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792433"
 ---
-# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Aggiungere partner commerciali agli account di integrazione per app per la logica di Azure
+# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Aggiungere partner commerciali agli account di integrazione per App per la logica di Azure
 
-In [app](../logic-apps/logic-apps-overview.md)per la logica di Azure è possibile creare flussi di lavoro di integrazione business-to-business (B2B) automatici usando un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) con le app per la logica. Per rappresentare l'organizzazione e altri utenti, è possibile creare e aggiungere partner commerciali come elementi all'account di integrazione. I partner sono entità che partecipano alle transazioni B2B e scambiano messaggi tra loro.
+In [app](../logic-apps/logic-apps-overview.md)per la logica di Azure è possibile creare flussi di lavoro di integrazione business-to-business (B2B) automatici usando un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) con le app per la logica. Per rappresentare l'organizzazione e altri utenti, è possibile creare e aggiungere partner commerciali come elementi all'account di integrazione. I partner sono entità che partecipano alle transazioni e allo scambio di messaggi B2B.
 
 Prima di creare questi partner, assicurarsi di discutere e condividere le informazioni con i partner su come identificare e convalidare i messaggi inviati dall'altro. Dopo aver accettato questi dettagli, si è pronti per creare i partner nell'account di integrazione.
 
@@ -89,9 +88,9 @@ Scegliere il riquadro **Partner**.
    | **Partner Classification** | No | Tipo di organizzazione del partner |
    | **Codice Supply Chain** | No | Il codice della catena di fornitura del partner, ad esempio, "Information Technology" o "Electronic Components" |
    | **Nome contatto** | No | Nome del contatto del partner |
-   | **Indirizzo di posta elettronica** | No | Indirizzo di posta elettronica del partner |
+   | **Posta elettronica** | No | Indirizzo di posta elettronica del partner |
    | **Fax** | No | Numero di fax del partner |
-   | **Telefono** | No | Il numero di telefono del partner |
+   | **Telephone** | No | Il numero di telefono del partner |
    ||||
 
 1. Al termine, scegliere **OK** per salvare le modifiche.

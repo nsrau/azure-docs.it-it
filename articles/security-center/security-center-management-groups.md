@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74559338"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
@@ -40,7 +39,7 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
 
  
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **tutti i servizi** > **gruppi di gestione**.
+2. Selezionare **Tutti i servizi** > **Gruppi di gestione**.
 3. Nella pagina principale selezionare **Nuovo Gruppo di gestione.** 
 
     ![Gruppo principale](./media/security-center-management-groups/main.png) 
@@ -189,7 +188,7 @@ Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati a
 In questo articolo è stato illustrato come ottenere visibilità a livello di tenant per il Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Monitoraggio dell'integrità della sicurezza nel centro sicurezza di Azure](security-center-monitoring.md)
+> [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
 > [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)

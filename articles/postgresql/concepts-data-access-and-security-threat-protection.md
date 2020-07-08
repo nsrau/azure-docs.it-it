@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74768742"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection nel database di Azure per PostgreSQL-server singolo
@@ -41,6 +40,6 @@ Advanced Threat Protection per Database di Azure per PostgreSQL rileva le attivi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Per altre informazioni sui prezzi, vedere la [pagina sui Prezzi di Database di Azure per PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/) 
 * Configurare [Advanced Threat Protection per Database di Azure per PostgreSQL](howto-database-threat-protection-portal.md) usando il portale di Azure  

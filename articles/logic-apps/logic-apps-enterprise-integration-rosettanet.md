@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792426"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Scambiare messaggi RosettaNet per l'integrazione aziendale B2B in app per la logica di Azure
@@ -118,8 +117,8 @@ Per aggiungere una configurazione del processo PIP all'account di integrazione, 
    | **Host Identity (Identità host)** | Sì | Un identificatore per il partner host |
    | **Guest Partner (Partner guest)** | Sì | Un contratto richiede un partner host e un partner guest. Il partner guest rappresenta l'organizzazione che intrattiene attività commerciali con il partner host. |
    | **identità guest** | Sì | Un identificatore per il partner guest |
-   | **Receive Settings (Impostazioni di ricezione)** | Variabile | Queste proprietà si applicano a tutti i messaggi ricevuti dal partner host |
-   | **Send Settings (Impostazioni di invio)** | Variabile | Queste proprietà si applicano a tutti i messaggi inviati dal partner host |  
+   | **Receive Settings (Impostazioni di ricezione)** | Varia | Queste proprietà si applicano a tutti i messaggi ricevuti dal partner host |
+   | **Send Settings (Impostazioni di invio)** | Varia | Queste proprietà si applicano a tutti i messaggi inviati dal partner host |  
    | **Riferimenti PIP RosettaNet** | Sì | Riferimenti PIP per l'accordo. Tutti i messaggi RosettaNet richiedono configurazioni PIP. |
    ||||
 
@@ -132,9 +131,9 @@ Per aggiungere una configurazione del processo PIP all'account di integrazione, 
       | Proprietà | Obbligatoria | Descrizione |
       |----------|----------|-------------|
       | **Il messaggio deve essere firmato** | No | Firma i messaggi in ingresso con il certificato selezionato. |
-      | **Certificato** | Sì, se la firma è abilitata | Certificato da usare per la firma |
+      | **Certificate** | Sì, se la firma è abilitata | Certificato da usare per la firma |
       | **Enable message encryption (Abilita la crittografia dei messaggi)** | No | Crittografare i messaggi in ingresso con il certificato selezionato. |
-      | **Certificato** | Sì, se la crittografia è abilitata | Certificato da usare per la crittografia |
+      | **Certificate** | Sì, se la crittografia è abilitata | Certificato da usare per la crittografia |
       ||||
 
    1. In ogni selezione selezionare il rispettivo [certificato](./logic-apps-enterprise-integration-certificates.md), che è stato precedentemente aggiunto all'account di integrazione, da usare per la firma o la crittografia.
@@ -149,10 +148,10 @@ Per aggiungere una configurazione del processo PIP all'account di integrazione, 
       |----------|----------|-------------|
       | **Enable message signing (Abilita la firma dei messaggi)** | No | Firma i messaggi in uscita con l'algoritmo di firma e il certificato selezionati. |
       | **Algoritmo di firma** | Sì, se la firma è abilitata | Algoritmo di firma da usare, in base al certificato selezionato |
-      | **Certificato** | Sì, se la firma è abilitata | Certificato da usare per la firma |
+      | **Certificate** | Sì, se la firma è abilitata | Certificato da usare per la firma |
       | **Enable message encryption (Abilita la crittografia dei messaggi)** | No | Crittografare in uscita con l'algoritmo e il certificato di crittografia selezionati. |
       | **Algoritmo di crittografia** | Sì, se la crittografia è abilitata | Algoritmo di crittografia da usare, in base al certificato selezionato |
-      | **Certificato** | Sì, se la crittografia è abilitata | Certificato da usare per la crittografia |
+      | **Certificate** | Sì, se la crittografia è abilitata | Certificato da usare per la crittografia |
       ||||
 
    1. In **endpoint**specificare gli URL necessari da usare per l'invio di messaggi di azione e riconoscimenti.
@@ -189,7 +188,7 @@ Per accelerare lo sviluppo e consigliare modelli di integrazione, è possibile u
 
 1. Dopo aver aggiunto il trigger, scegliere **nuovo passaggio**.
 
-   ![Aggiungi trigger di richiesta](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
+   ![Aggiungere un trigger di richiesta](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
 
 1. Nella casella di ricerca immettere "RosettaNet" e selezionare questa azione: **RosettaNet Decode**
 
@@ -201,9 +200,9 @@ Per accelerare lo sviluppo e consigliare modelli di integrazione, è possibile u
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Messaggio** | Sì | Messaggio RosettaNet da decodificare  |
-   | **Headers** | Sì | Intestazioni HTTP che forniscono i valori per la versione, ovvero la versione RNIF, e il tipo di risposta, che indica il tipo di comunicazione tra i partner e può essere sincrono o asincrono |
-   | **Ruolo** | Sì | Ruolo del partner host nel PIP |
+   | **Message** | Sì | Messaggio RosettaNet da decodificare  |
+   | **Intestazioni** | Sì | Intestazioni HTTP che forniscono i valori per la versione, ovvero la versione RNIF, e il tipo di risposta, che indica il tipo di comunicazione tra i partner e può essere sincrono o asincrono |
+   | **Role** | Sì | Ruolo del partner host nel PIP |
    ||||
 
    Dall'azione di decodifica RosettaNet, l'output, insieme ad altre proprietà, include il **segnale in uscita**, che è possibile scegliere di codificare e tornare al partner o eseguire qualsiasi altra azione sull'output.
@@ -218,7 +217,7 @@ Per accelerare lo sviluppo e consigliare modelli di integrazione, è possibile u
 
 1. Dopo aver aggiunto il trigger, scegliere **nuovo passaggio**.
 
-   ![Aggiungi trigger di richiesta](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
+   ![Aggiungere un trigger di richiesta](media/logic-apps-enterprise-integration-rosettanet/request-trigger.png)
 
 1. Nella casella di ricerca immettere "RosettaNet" e selezionare questa azione: **RosettaNet Encode**
 
@@ -230,14 +229,14 @@ Per accelerare lo sviluppo e consigliare modelli di integrazione, è possibile u
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Messaggio** | Sì | Messaggio RosettaNet da codificare  |
+   | **Message** | Sì | Messaggio RosettaNet da codificare  |
    | **Partner host** | Sì | Nome del partner host |
    | **Partner Guest** | Sì | Nome del partner Guest |
    | **Codice PIP** | Sì | Codice PIP |
    | **Versione PIP** | Sì | Versione PIP |  
    | **Identità dell'istanza PIP** | Sì | Identificatore univoco per questo messaggio PIP |  
    | **Tipo di messaggio** | Sì | Tipo di messaggio da codificare. |  
-   | **Ruolo** | Sì | Ruolo del partner host |
+   | **Role** | Sì | Ruolo del partner host |
    ||||
 
    Il messaggio codificato è ora pronto per l'invio al partner.

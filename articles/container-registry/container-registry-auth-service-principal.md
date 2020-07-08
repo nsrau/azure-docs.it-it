@@ -4,10 +4,9 @@ description: Consentire l'accesso alle immagini del registro contenitori privato
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74455400"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticazione al Registro Azure Container con entità servizio
@@ -24,7 +23,7 @@ Nel contesto del Registro Azure Container è possibile creare un'entità servizi
 
 Usando un'entità servizio Azure AD, è possibile fornire un accesso limitato al registro di sistema del contenitore privato. Creare entità servizio diverse per ogni applicazione o servizio, ciascuna con diritti di accesso personalizzati al registro di sistema. Poiché è possibile evitare di condividere le credenziali tra servizi e applicazioni, è possibile ruotare le credenziali o revocare l'accesso solamente all'entità servizio (e quindi all'applicazione) scelta.
 
-Ad esempio, configurare l'applicazione Web in modo che usi un'entità servizio che la fornisca `pull` solo l'accesso alle immagini, mentre il sistema di compilazione usa un'entità servizio che `push` fornisce `pull` l'accesso sia a che a. Se lo sviluppo dell'applicazione cambia mano, è possibile ruotare le credenziali dell'entità servizio senza influire sul sistema di compilazione.
+Ad esempio, configurare l'applicazione Web in modo che usi un'entità servizio che la fornisca `pull` solo l'accesso alle immagini, mentre il sistema di compilazione usa un'entità servizio che fornisce l'accesso sia a che a `push` `pull` . Se lo sviluppo dell'applicazione cambia mano, è possibile ruotare le credenziali dell'entità servizio senza influire sul sistema di compilazione.
 
 ## <a name="when-to-use-a-service-principal"></a>Quando usare un'entità servizio
 
@@ -47,12 +46,12 @@ Per l'accesso singolo a un registro di sistema, ad esempio quando si esegue il p
 
 ## <a name="authenticate-with-the-service-principal"></a>Eseguire l'autenticazione con l'entità servizio
 
-Quando si dispone di un'entità servizio a cui è stato concesso l'accesso al registro contenitori, è possibile configurarne le credenziali per l'accesso a servizi e applicazioni "privi di intestazioni `docker login` " oppure immetterli usando il comando. Usare i valori seguenti:
+Quando si dispone di un'entità servizio a cui è stato concesso l'accesso al registro contenitori, è possibile configurarne le credenziali per l'accesso a servizi e applicazioni "privi di intestazioni" oppure immetterli usando il `docker login` comando. Usare i valori seguenti:
 
 * **Nome utente** : ID dell'applicazione dell'entità servizio (noto anche come *ID client*)
 * **Password** : password dell'entità servizio (detta anche *segreto client*)
 
-Ogni valore è un GUID del form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+Ogni valore è un GUID del form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . 
 
 > [!TIP]
 > È possibile rigenerare la password di un'entità servizio eseguendo il comando [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset).
@@ -66,7 +65,7 @@ Ad esempio, usare le credenziali per eseguire il pull di un'immagine da un regis
 
 ### <a name="use-with-docker-login"></a>Usare con l'account di accesso di Docker
 
-È possibile eseguire `docker login` usando un'entità servizio. Nell'esempio seguente, l'ID applicazione dell'entità servizio viene passato nella variabile `$SP_APP_ID`di ambiente e la password nella variabile. `$SP_PASSWD` Per le procedure consigliate per gestire le credenziali Docker, vedere la Guida di riferimento al comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
+È possibile eseguire `docker login` usando un'entità servizio. Nell'esempio seguente, l'ID applicazione dell'entità servizio viene passato nella variabile di ambiente `$SP_APP_ID` e la password nella variabile `$SP_PASSWD` . Per le procedure consigliate per gestire le credenziali Docker, vedere la Guida di riferimento al comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
 ```bash
 # Log in to Docker with service principal credentials
@@ -93,7 +92,7 @@ Eseguire quindi [AZ ACR login][az-acr-login] per l'autenticazione con il registr
 az acr login --name myregistry
 ```
 
-L'interfaccia della riga di comando usa il token `az login` creato quando è stato eseguito per autenticare la sessione con il registro di sistema.
+L'interfaccia della riga di comando usa il token creato quando è stato eseguito `az login` per autenticare la sessione con il registro di sistema.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

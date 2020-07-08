@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74768385"
 ---
 # <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query 
@@ -32,7 +31,7 @@ Nella pagina del portale del database di Azure per il server PostgreSQL selezion
 
 ![Informazioni dettagliate sulle prestazioni delle query a esecuzione prolungata](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-La scheda **query con esecuzione prolungata** Mostra le prime cinque query per durata media per esecuzione, aggregate in intervalli di 15 minuti. È possibile visualizzare altre query selezionando **Numero di query** dall'elenco a discesa. I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
+La scheda **query con esecuzione prolungata** Mostra le prime cinque query per durata media per esecuzione, aggregate in intervalli di 15 minuti. È possibile visualizzare altre query selezionando l'elenco a discesa **numero di query** . I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
 
 È possibile fare clic e trascinare nel grafico per limitare l'elenco a un intervallo di tempo specifico. In alternativa, usare le icone di ingrandimento e riduzione per visualizzare rispettivamente un intervallo di tempo superiore o inferiore.
 
@@ -40,7 +39,7 @@ Nella tabella sotto il grafico sono riportati altri dettagli sulle query con ese
 
 Selezionare la scheda **Statistiche di attesa** per visualizzare le corrispondenti visualizzazioni in attesa nel server.
 
-![Informazioni dettagliate prestazioni query attese statistiche](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+![Statistiche di attesa di Informazioni dettagliate prestazioni query](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## <a name="considerations"></a>Considerazioni
 * Informazioni dettagliate prestazioni query non è disponibile per le [repliche di lettura](concepts-read-replicas.md).

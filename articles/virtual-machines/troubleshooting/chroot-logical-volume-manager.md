@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74684138"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Risoluzione dei problemi di una VM Linux quando non è possibile accedere alla console seriale di Azure e il layout del disco usa LVM (Logical Volume Manager)
@@ -65,7 +64,7 @@ La maggior parte degli scenari, il disco snapshot collegato viene visualizzato c
 
 ![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-Indica **\*** una partizione di avvio ed è necessario montare entrambe le partizioni.
+**\*** Indica una partizione di avvio ed è necessario montare entrambe le partizioni.
 
 Eseguire il comando **lsblk** per visualizzare il LVM della macchina virtuale interessata
 
@@ -143,7 +142,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 È possibile utilizzare i comandi per installare, rimuovere e aggiornare il software. Risolvere i problemi relativi alle macchine virtuali per correggere gli errori.
 
 
-Eseguire il comando lsblk e/Rescue è ora/e/Rescue/boot è/boot ![chroot](./media/chroot-logical-volume-manager/chrooted.png)
+Eseguire il comando lsblk e/Rescue è ora/e/Rescue/boot è/boot ![ chroot](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Eseguire correzioni
 
@@ -171,13 +170,13 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 Il comando **grep** elenca i kernel che **grub. cfg** è in grado di riconoscere.
 ![Kernel](./media/chroot-logical-volume-manager/kernels.png)
 
-l' **elenco GRUB2-editenv** Visualizza il kernel che verrà caricato al prossimo ![avvio predefinito del kernel](./media/chroot-logical-volume-manager/kernel-default.png)
+l' **elenco GRUB2-editenv** Visualizza il kernel che verrà caricato al prossimo avvio ![ predefinito del kernel](./media/chroot-logical-volume-manager/kernel-default.png)
 
-**GRUB2-set-default** viene usato per passare a un altro ![set di GRUB2 kernel](./media/chroot-logical-volume-manager/grub2-set-default.png)
+**GRUB2-set-default** viene usato per passare a un altro ![ set di GRUB2 kernel](./media/chroot-logical-volume-manager/grub2-set-default.png)
 
-l'elenco **GRUB2-editenv** Visualizza il kernel che verrà caricato al successivo ![avvio del nuovo kernel](./media/chroot-logical-volume-manager/kernel-new.png)
+l'elenco **GRUB2-editenv** Visualizza il kernel che verrà caricato al successivo avvio del ![ nuovo kernel](./media/chroot-logical-volume-manager/kernel-new.png)
 
-**GRUB2-mkconfig** ricompila grub. cfg usando le versioni richieste ![di GRUB2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
+**GRUB2-mkconfig** ricompila grub. cfg usando le versioni richieste di ![ GRUB2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
 
 
 
@@ -190,7 +189,7 @@ Eseguire il comando **LVS** per verificare quali **LVS** sono disponibili per il
 
 Uscire dall'ambiente **chroot** montare la richiesta **LV**
 
-![Avanzate](./media/chroot-logical-volume-manager/advanced.png)
+![Avanzato](./media/chroot-logical-volume-manager/advanced.png)
 
 Ora accedere di nuovo all'ambiente **chroot** eseguendo
 
@@ -198,14 +197,14 @@ Ora accedere di nuovo all'ambiente **chroot** eseguendo
 
 Tutti LVs devono essere visibili come partizioni montate
 
-![Avanzate](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Avanzato](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Eseguire una query sul **kernel** installato
 
-![Avanzate](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Avanzato](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-Se necessario, rimuovere o aggiornare il **kernel**
-![Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
+Se necessario, rimuovere o aggiornare il **kernel** 
+ ![ Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
 ### <a name="example-3---enable-serial-console"></a>Esempio 3: abilitare la console seriale
@@ -252,15 +251,15 @@ umount /rescue
 
 Scollegare il disco dalla macchina virtuale di ripristino ed eseguire uno scambio su disco.
 
-Selezionare la macchina virtuale dai **dischi** del portale e selezionare **Scollega**
-![scollega disco](./media/chroot-logical-volume-manager/detach-disk.png) 
+Selezionare la macchina virtuale dai **dischi** del portale e selezionare **Scollega** 
+ ![ Scollega disco](./media/chroot-logical-volume-manager/detach-disk.png) 
 
-Salva le modifiche ![Salva scollega](./media/chroot-logical-volume-manager/save-detach.png) 
+Salva le modifiche ![ Salva scollega](./media/chroot-logical-volume-manager/save-detach.png) 
 
 Il disco ora diventa disponibile per consentire lo scambio con il disco del sistema operativo originale della VM interessata.
 
-Spostarsi nella portale di Azure alla macchina virtuale che ha avuto esito negativo e selezionare **dischi** -> **scambio disco**
-![del sistema operativo](./media/chroot-logical-volume-manager/swap-disk.png) 
+Spostarsi nella portale di Azure alla macchina virtuale che ha avuto esito negativo e selezionare **dischi**  ->  **scambio disco del sistema operativo** 
+ ![](./media/chroot-logical-volume-manager/swap-disk.png) 
 
 Completare i campi il disco **scelto** è il disco dello snapshot appena scollegato nel passaggio precedente. È necessario anche il nome della macchina virtuale interessata, quindi selezionare **OK** .
 

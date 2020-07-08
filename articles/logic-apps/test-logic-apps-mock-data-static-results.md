@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74790271"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testare app per la logica con dati fittizi impostando risultati statici
@@ -25,7 +24,7 @@ Ad esempio, se si configurano i risultati statici per l'azione Invia messaggi di
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
 
-* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * App per la logica in cui si vogliono configurare i risultati statici
 
@@ -49,12 +48,12 @@ Ad esempio, se si configurano i risultati statici per l'azione Invia messaggi di
       |----------|-------------|
       | **Status** | Stato dell'azione da restituire. |
       | **Codice di stato** | Codice di stato specifico da restituire. |
-      | **Headers** | Contenuto dell'intestazione da restituire. |
+      | **Intestazioni** | Contenuto dell'intestazione da restituire. |
       |||
 
       ![Selezionare "Abilita risultato statico"](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
 
-      Per immettere i dati fittizi nel formato JavaScript Object Notation (JSON), scegliere **passa alla modalità JSON** (![Scegli "passa alla modalità JSON"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
+      Per immettere i dati fittizi nel formato JavaScript Object Notation (JSON), scegliere **passa alla modalità JSON** ( ![ Scegli "passa alla modalità JSON" ](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png) ).
 
    1. Per le proprietà facoltative, aprire l'elenco **Seleziona campi facoltativi** e selezionare le proprietà che si desidera simulare.
 
@@ -62,7 +61,7 @@ Ad esempio, se si configurano i risultati statici per l'azione Invia messaggi di
 
 1. Quando si è pronti per il salvataggio, scegliere **fine**.
 
-   Nell'angolo superiore destro dell'azione, la barra del titolo Mostra ora un'icona del becher di test (![icona per i risultati](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)statici), che indica che sono stati abilitati i risultati statici.
+   Nell'angolo superiore destro dell'azione, la barra del titolo Mostra ora un'icona del becher di test ( ![ icona per i risultati statici ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), che indica che sono stati abilitati i risultati statici.
 
    ![Icona che mostra i risultati statici abilitati](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
@@ -90,7 +89,7 @@ Se l'app per la logica ha un'esecuzione precedente con output che è possibile r
 
 1. Quando si apre la casella **risultato statico** , scegliere uno dei due passaggi:
 
-   * Per incollare un oggetto JSON completo, scegliere **passa alla modalità JSON** (![Scegli "passa alla modalità JSON"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
+   * Per incollare un oggetto JSON completo, scegliere **passa alla modalità JSON** ( ![ Scegli "passa alla modalità JSON" ](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png) ):
 
      ![Scegliere "passa alla modalità JSON" per l'oggetto completo](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
 
@@ -102,7 +101,7 @@ Se l'app per la logica ha un'esecuzione precedente con output che è possibile r
 
    ![Modalità JSON](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. Al termine, scegliere **Fine**. In alternativa, per tornare alla finestra di progettazione, scegliere **Cambia modalità editor** (![scegliere "cambia modalità](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)Editor").
+1. Al termine, scegliere **Fine**. In alternativa, per tornare alla finestra di progettazione, scegliere **Cambia modalità editor** ( ![ scegliere "cambia modalità editor" ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) ).
 
 <a name="find-runs-mock-data"></a>
 
@@ -120,7 +119,7 @@ La cronologia delle esecuzioni dell'app per la logica identifica le esecuzioni i
 
 1. Per visualizzare le azioni che utilizzano risultati statici, selezionare l'esecuzione desiderata in cui la colonna **risultati statici** è impostata su **abilitata**.
 
-   Le azioni che usano risultati statici mostrano l'icona del becher![di test (icona](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)per i risultati statici), ad esempio:
+   Le azioni che usano risultati statici mostrano l'icona del becher ![ di test (icona per i risultati statici ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), ad esempio:
 
    ![Cronologia di esecuzione-azioni che usano risultati statici](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
@@ -128,15 +127,15 @@ La cronologia delle esecuzioni dell'app per la logica identifica le esecuzioni i
 
 La disattivazione dei risultati statici non elimina i valori dall'ultima installazione. Quindi, quando si attivano i risultati statici la volta successiva, è possibile continuare a usare i valori precedenti.
 
-1. Individuare l'azione in cui si desidera disabilitare gli output statici. Nell'angolo superiore destro dell'azione scegliere l'icona del becher di test (![icona per i risultati](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)statici).
+1. Individuare l'azione in cui si desidera disabilitare gli output statici. Nell'angolo superiore destro dell'azione scegliere l'icona del becher di test ( ![ icona per i risultati statici ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ).
 
    ![Disabilitare i risultati statici](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1. Scegliere **Disattiva risultato** > statico**completato**.
+1. Scegliere **Disattiva risultato statico**  >  **completato**.
 
    ![Disabilitare i risultati statici](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Informazioni di riferimento
 
 Per altre informazioni su questa impostazione nelle definizioni del flusso di lavoro sottostanti, vedere [risultati statici-riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md#static-results) e [impostazioni di configurazione di runtimeConfiguration. staticResult-Runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 

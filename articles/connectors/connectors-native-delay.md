@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74787337"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Ritardare l'esecuzione dell'azione successiva in app per la logica di Azure
@@ -30,9 +29,9 @@ Di seguito sono riportati alcuni esempi di modalità di utilizzo di queste azion
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per ottenere un account Azure gratuito](https://azure.microsoft.com/free/).
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Informazioni di base sulle app per la [logica](../logic-apps/logic-apps-overview.md). Prima di poter usare un'azione, l'app per la logica deve iniziare con un trigger. È possibile usare qualsiasi trigger desiderato e aggiungere altre azioni prima di aggiungere un'azione di ritardo. Questo argomento usa un trigger Office 365 Outlook. Se non si ha familiarità con le app per la logica, scoprire [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conoscenze di base di [app per la logica](../logic-apps/logic-apps-overview.md). Prima di poter usare un'azione, l'app per la logica deve iniziare con un trigger. È possibile usare qualsiasi trigger desiderato e aggiungere altre azioni prima di aggiungere un'azione di ritardo. Questo argomento usa un trigger Office 365 Outlook. Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-delay"></a>
 
@@ -53,7 +52,7 @@ Di seguito sono riportati alcuni esempi di modalità di utilizzo di queste azion
    | Proprietà | Nome JSON | Obbligatoria | Type | Descrizione |
    |----------|-----------|----------|------|-------------|
    | Conteggio | count | Sì | Integer | Il numero di unità di tempo di ritardo |
-   | Unità | unit | Sì | string | Unità di tempo, ad `Second`esempio:, `Minute`, `Hour`, `Day`, o `Week``Month` |
+   | Unità | unit | Sì | string | Unità di tempo, ad esempio: `Second` ,, `Minute` `Hour` , `Day` , `Week` o`Month` |
    ||||||
 
 1. Aggiungere eventuali altre azioni che si desidera eseguire nel flusso di lavoro.

@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
 ms.openlocfilehash: ff21b059e712489c1914b2d12c6aa6a3d78d66d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792173"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalidare XML per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
@@ -23,19 +22,19 @@ Spesso negli scenari B2B, i partner commerciali di un accordo devono assicurarsi
 
 * Una sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, [iscriversi per ottenere un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* App per la logica vuota o esistente in cui si vuole usare l'azione di convalida XML. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* App per la logica vuota o esistente in cui si vuole usare l'azione di convalida XML. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associato alla sottoscrizione di Azure è collegato all'app per la logica in cui si prevede di usare l'azione di convalida XML e contiene lo schema che si vuole usare per la convalida del contenuto XML. Sia l'app per la logica che l'account di integrazione devono esistere nella stessa località o nell'area di Azure.
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associato alla sottoscrizione di Azure è collegato all'app per la logica in cui si prevede di usare l'azione di convalida XML e contiene lo schema che si vuole usare per la convalida del contenuto XML. Sia l'app per la logica che l'account di integrazione devono essere nella stessa località o nella stessa area di Azure.
 
 ## <a name="add-xml-validation-action"></a>Aggiungi azione di convalida XML
 
-1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-1. Se si dispone di un'app per la logica vuota, nella casella di ricerca della finestra di progettazione dell' `HTTP request` app per la logica immettere come filtro e selezionare il trigger **quando viene ricevuta una richiesta http** . In caso contrario, continuare con il passaggio successivo.
+1. Se si dispone di un'app per la logica vuota, nella casella di ricerca della finestra di progettazione dell'app per la logica immettere `HTTP request` come filtro e selezionare il trigger **quando viene ricevuta una richiesta http** . In caso contrario, continuare con il passaggio successivo.
 
 1. Nell'ultimo passaggio del flusso di lavoro selezionare **nuovo passaggio**.
 
-   Per aggiungere un'azione tra i passaggi esistenti, spostare il puntatore sulla freccia che connette tali passaggi, in modo che venga visualizzato**+** il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi esistenti, spostare il puntatore sulla freccia che connette tali passaggi, in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
 1. In **Scegliere un'azione** selezionare **Predefinita**. Nella casella di ricerca immettere `xml validation` come filtro. Nell'elenco azioni selezionare **convalida XML**.
 

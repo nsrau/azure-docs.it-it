@@ -1,6 +1,6 @@
 ---
 title: Ridimensionare un'app in ASE V1
-description: Ridimensionamento di un'app in un ambiente del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+description: Ridimensionamento di un'app in un ambiente del servizio app. Questo documento è rivolto solo ai clienti che usano l'ambiente del servizio app v1 legacy.
 author: ccompy
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
@@ -8,10 +8,9 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74688673"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Ridimensionamento di app in un ambiente del servizio app V1

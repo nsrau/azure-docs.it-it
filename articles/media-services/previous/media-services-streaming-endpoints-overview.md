@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74885637"
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 In Servizi multimediali di Microsoft Azure (AMS) un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Servizi multimediali fornisce inoltre un'integrazione completa della rete CDN di Azure. Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live, da un "video on demand" o da un download progressivo dell'asset associato a un account di Servizi multimediali. Ogni account di Servizi multimediali di Azure include un servizio StreamingEndpoint predefinito. Nell'account è possibile creare altri servizi StreamingEndpoint. Esistono due versioni di servizi StreamingEndpoint, ovvero 1.0 e 2.0. A partire dal 10 gennaio 2017, ogni account di AMS appena creato includerà lo StreamingEndpoint **predefinito** della versione 2.0. Anche gli altri endpoint di streaming che verranno aggiunti a questo account avranno la versione 2.0. Questa modifica non influisce sugli account esistenti. La versione dei servizi StreamingEndpoint è la versione 1.0, che può essere aggiornata alla versione 2.0. Questa modifica influenzerà il comportamento, la fatturazione e le funzionalità (per altre informazioni, vedere la sezione **Tipologie e versioni di streaming** documentata di seguito).
 
@@ -77,10 +76,10 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 
 |Type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Classico|1.0|0|N/D|Gratuito|
-|Endpoint di streaming standard (anteprima)|2.0|0|Sì|A pagamento|
-|Unità di streaming Premium|1.0|>0|Sì|A pagamento|
-|Unità di streaming Premium|2.0|>0|Sì|A pagamento|
+|Classic|1.0|0|ND|Gratuito|
+|Endpoint di streaming standard (anteprima)|2.0|0|Sì|Paid|
+|Unità di streaming Premium|1.0|>0|Sì|Paid|
+|Unità di streaming Premium|2.0|>0|Sì|Paid|
 
 ### <a name="features"></a>Funzionalità
 
@@ -88,7 +87,7 @@ Funzionalità|Standard|Premium
 ---|---|---
 Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
-Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
+Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì
 Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive.
@@ -102,11 +101,11 @@ Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contr
 
 ## <a name="migration-between-types"></a>Migrazione tra le tipologie
 
-From | A | Azione
+From | A | Action
 ---|---|---
 Classico|Standard|È necessario fornire il consenso esplicito
-Classico|Premium| Scalabilità (unità di streaming aggiuntive)
-Standard/Premium|Classico|Non disponibile (se la versione dell'endpoint di streaming è 1.0. È consentito modificare la tipologia classica impostando Scaleunits su "0")
+Classic|Premium| Scalabilità (unità di streaming aggiuntive)
+Standard/Premium|Classic|Non disponibile (se la versione dell'endpoint di streaming è 1.0. È consentito modificare la tipologia classica impostando Scaleunits su "0")
 Standard (con/senza la rete CDN)|Premium con le stesse configurazioni|Consentito nello stato **avviato**. (tramite il Portale di Azure)
 Premium (con/senza la rete CDN)|Standard con le stesse configurazioni|Consentito nello stato **avvio** (tramite il Portale di Azure)
 Standard (con/senza la rete CDN)|Premium con diverse configurazioni|Consentito nello stato **interrotto** (tramite il Portale di Azure). Non consentito nello stato di esecuzione.
@@ -120,6 +119,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

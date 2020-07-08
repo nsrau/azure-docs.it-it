@@ -13,24 +13,23 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703375"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività di streaming di Hadoop in Azure Data Factory
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
 > * [Attività hive](data-factory-hive-activity.md) 
-> * [Attività di Pig](data-factory-pig-activity.md)
+> * [Attività Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
-> * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
 > * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics attività U-SQL](data-factory-usql-activity.md)
-> * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
+> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Trasformare dati tramite l'attività di streaming di Hadoop in Data Factory](../transform-data-using-hadoop-streaming.md).
@@ -224,7 +223,7 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 ```
 ## <a name="see-also"></a>Vedere anche
 * [Attività hive](data-factory-hive-activity.md)
-* [Attività di Pig](data-factory-pig-activity.md)
+* [Attività Pig](data-factory-pig-activity.md)
 * [Attività MapReduce](data-factory-map-reduce.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)
 * [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)

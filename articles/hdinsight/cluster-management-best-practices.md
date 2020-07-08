@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74782021"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Procedure consigliate per la gestione dei cluster HDInsight
@@ -23,7 +22,7 @@ Informazioni sulle procedure consigliate per la gestione dei cluster HDInsight.
 
 | Opzione | Documenti |
 |---|---|
-| Data factory di Azure | [Creare cluster Apache Hadoop on demand in HDInsight con Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
+| Azure Data Factory | [Creare cluster Apache Hadoop on demand in HDInsight con Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | Modello di Gestione risorse personalizzato | [Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | Modelli di Guida introduttiva | [Modelli di avvio rapido di HDInsight](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
 | Esempi di Azure | [Esempi di Azure HDInsight](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
@@ -40,7 +39,7 @@ Informazioni sulle procedure consigliate per la gestione dei cluster HDInsight.
 
 | Opzione | Documenti |
 |---|---|
-| Azioni script | [Personalizzare i cluster HDInsight di Azure usando azioni script](./hdinsight-hadoop-customize-cluster-linux.md) |
+| Azioni script | [Personalizzare i cluster Azure HDInsight con azioni script](./hdinsight-hadoop-customize-cluster-linux.md) |
 | Bootstrap | [Personalizzare cluster HDInsight tramite Bootstrap](./hdinsight-hadoop-customize-cluster-bootstrap.md) |
 | Metastore esterni | [Usare gli archivi di metadati esterni in Azure HDInsight](./hdinsight-use-external-metadata-stores.md) |
 | Database Ambari personalizzato | [Configurare cluster HDInsight con un database Ambari personalizzato](./hdinsight-custom-ambari-db.md) |
@@ -58,10 +57,10 @@ Informazioni sulle procedure consigliate per la gestione dei cluster HDInsight.
 
 | Opzione | Documenti |
 |---|---|
-| Autoscale | [Ridimensionare automaticamente i cluster Azure HDInsight](./hdinsight-autoscale-clusters.md) |
+| Autoscale | [Dimensionare automaticamente i cluster Azure HDInsight](./hdinsight-autoscale-clusters.md) |
 | Ridimensionamento manuale | [Ridimensionare i cluster HDInsight di Azure](./hdinsight-scaling-best-practices.md) |
 | Monitoraggio con Ambari| [Monitorare le prestazioni del cluster in Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
-| Monitoraggio con i log di monitoraggio di Azure | [Usare log di Monitoraggio di Azure per monitorare i cluster di HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+| Monitoraggio con i log di monitoraggio di Azure | [Usare i log di Monitoraggio di Azure per monitorare i cluster HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>Ricerca per categorie controllare i cluster HDInsight eliminati?
 

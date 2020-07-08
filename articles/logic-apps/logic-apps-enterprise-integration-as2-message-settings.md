@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74793035"
 ---
 # <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Informazioni di riferimento per le impostazioni dei messaggi AS2 in app per la logica di Azure con Enterprise Integration Pack
@@ -49,7 +48,7 @@ Questo riferimento descrive le proprietà che è possibile impostare per specifi
 | **Enable message signing (Abilita la firma dei messaggi)** | No | Specifica se tutti i messaggi in uscita devono essere firmati digitalmente. Se è necessaria la firma, selezionare i valori seguenti: <p>-Nell'elenco **algoritmo di firma** selezionare l'algoritmo da usare per la firma dei messaggi. <br>-Nell'elenco **certificato** selezionare un certificato privato del partner host esistente per la firma dei messaggi. Se non si dispone di un certificato, vedere altre informazioni sull' [aggiunta di certificati](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Enable message encryption (Abilita la crittografia dei messaggi)** | No | Specifica se tutti i messaggi in uscita devono essere crittografati. Se è necessaria la crittografia, selezionare i valori seguenti: <p>-Nell'elenco **algoritmo di crittografia** selezionare l'algoritmo del certificato pubblico del partner Guest da usare per crittografare i messaggi. <br>-Nell'elenco **certificato** selezionare un certificato privato del partner guest esistente per la crittografia dei messaggi in uscita. Se non si dispone di un certificato, vedere altre informazioni sull' [aggiunta di certificati](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Abilita compressione messaggio** | No | Specifica se devono essere compressi tutti i messaggi in uscita. |
-| **Espandi intestazioni HTTP** | No | Inserisce l'intestazione `content-type` http su una sola riga. |
+| **Espandi intestazioni HTTP** | No | Inserisce l' `content-type` intestazione HTTP su una sola riga. |
 | **Trasmetti nome file in intestazione MIME** | No | Specifica se includere il nome file nell'intestazione MIME. |
 | **Richiedi MDN** | No | Specifica se ricevere notifiche di disposizione messaggi (MDN) per tutti i messaggi in uscita. |
 | **Richiedi MDN firmato** | No | Specifica se ricevere messaggi MDN firmati per tutti i messaggi in uscita. Se è necessaria la firma, dall'elenco **algoritmo MIC** selezionare l'algoritmo da usare per la firma dei messaggi. |

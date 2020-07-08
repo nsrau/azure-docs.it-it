@@ -1,6 +1,6 @@
 ---
 title: Configurare l'ambiente del servizio app V1
-description: Configurazione, gestione e monitoraggio del ambiente del servizio app V1. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+description: Configurazione, gestione e monitoraggio del ambiente del servizio app V1. Questo documento è rivolto solo ai clienti che usano l'ambiente del servizio app v1 legacy.
 author: ccompy
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
@@ -8,10 +8,9 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74687266"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configurazione di un ambiente del servizio app v1
@@ -125,13 +124,13 @@ In un ambiente del servizio app, tutti i piani di servizio app sono dedicati. Di
 ### <a name="settings"></a>Impostazioni
 Il pannello dell'ambiente del servizio app include una sezione **Impostazioni** che contiene diverse funzionalità importanti.
 
-**Proprietà delle impostazioni** > **Properties**: il pannello **Impostazioni** viene aperto automaticamente quando si apre il pannello dell'ambiente del servizio app. Nella parte superiore è disponibile la voce **Proprietà**. In questa sezione sono presenti alcune voci visualizzate anche nella sezione **Informazioni di base**. Le voci particolarmente utili sono **Indirizzo IP virtuale** e **Indirizzo IP in uscita**.
+**Impostazioni**  >  di **Proprietà**: il pannello **Impostazioni** viene aperto automaticamente quando si apre il pannello dell'ambiente del servizio app. Nella parte superiore è disponibile la voce **Proprietà**. In questa sezione sono presenti alcune voci visualizzate anche nella sezione **Informazioni di base**. Le voci particolarmente utili sono **Indirizzo IP virtuale** e **Indirizzo IP in uscita**.
 
 ![Pannello Impostazioni e Proprietà][4]
 
-**Impostazioni** > **indirizzi IP**: quando si crea un'app IP Secure Sockets Layer (SSL) nell'ambiente del servizio app, è necessario un indirizzo di IP SSL. Per ottenerne uno, è necessario che l'ambiente del servizio app possieda indirizzi IP SSL da allocare. Quando viene creato, l'ambiente del servizio app ha un indirizzo IP SSL a tale scopo, ma è possibile aggiungerne altri. Per gli indirizzi IP SSL aggiuntivi è previsto un addebito, come indicato nella sezione relativa alle connessioni SSL in [Prezzi di Servizio app ][AppServicePricing]. Il prezzo indicato è il prezzo aggiuntivo per la connessione IP SSL.
+**Impostazioni**  >  di **Indirizzi IP**: quando si crea un'app Secure Sockets Layer IP (SSL) nell'ambiente del servizio app, è necessario un indirizzo di IP SSL. Per ottenerne uno, è necessario che l'ambiente del servizio app possieda indirizzi IP SSL da allocare. Quando viene creato, l'ambiente del servizio app ha un indirizzo IP SSL a tale scopo, ma è possibile aggiungerne altri. Per gli indirizzi IP SSL aggiuntivi è previsto un addebito, come indicato nella sezione relativa alle connessioni SSL in [Prezzi di Servizio app ][AppServicePricing]. Il prezzo indicato è il prezzo aggiuntivo per la connessione IP SSL.
 
-**Impostazioni** > pool di / **lavoro****pool Front-End**: ognuno di questi pannelli del pool di risorse offre la possibilità di visualizzare solo le informazioni sul pool di risorse, oltre a fornire controlli per la scalabilità completa del pool di risorse.  
+**Impostazioni**  >  di Pool Front- **end**  /  **Pool di lavoro**: ognuno di questi pannelli del pool di risorse offre la possibilità di visualizzare solo le informazioni sul pool di risorse, oltre a fornire controlli per la scalabilità completa del pool di risorse.  
 
 Il pannello di base per ogni pool di risorse mostra un grafico con le metriche relative al pool di risorse specifico. Esattamente come per i grafici del pannello dell'ambiente del servizio app, è possibile passare al grafico e impostare gli avvisi desiderati. La procedura di configurazione di un avviso dal pannello dell'ambiente del servizio app per un pool di risorse specifico equivale alla stessa operazione nel pool di risorse. Dal pannello **Impostazioni** del pool di lavoro è possibile accedere a tutti i piani di servizio app o le app in esecuzione nel pool di lavoro.
 
@@ -154,7 +153,7 @@ Per eseguire l'operazione di ridimensionamento nel pannello dell'ambiente del se
 
 ![Interfaccia utente Piano][6]
 
-Per usare le funzionalità di scalabilità automatica o manuale in un pool di risorse specifico, passare a **Impostazioni** > pool di**lavoro** pool**front-end** / in base alle esigenze. Aprire quindi il pool che si vuole modificare. Passare a **Impostazioni** > **scale out** o **Impostazioni** > **scalabilità verticale**. Il pannello **Aumenta istanze** consente di controllare la quantità di istanze. **Aumenta prestazioni** consente di controllare le dimensioni delle risorse.  
+Per usare le funzionalità di scalabilità automatica o manuale in un pool di risorse specifico, passare a **Impostazioni**pool di lavoro pool  >  **front-end**in base alle  /  **Worker Pools** esigenze. Aprire quindi il pool che si vuole modificare. Passare a **Impostazioni**  >  **scale out** o **Impostazioni**  >  **scalabilità verticale**. Il pannello **Aumenta istanze** consente di controllare la quantità di istanze. **Aumenta prestazioni** consente di controllare le dimensioni delle risorse.  
 
 ![Interfaccia utente Impostazione Piano][7]
 

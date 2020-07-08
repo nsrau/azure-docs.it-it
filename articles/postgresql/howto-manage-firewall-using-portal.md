@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: aeef22bf96221061a444f40e16e33343fafe511c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74770306"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Creare e gestire le regole del firewall per database di Azure per PostgreSQL-server singolo usando il portale di Azure
@@ -53,10 +52,10 @@ Per consentire alle applicazioni da Azure di stabilire la connessione al server 
 
 ## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Gestione delle regole del firewall a livello di server esistenti tramite il portale di Azure
 Ripetere i passaggi per gestire le regole del firewall.
-* Per aggiungere il computer corrente, fare clic sul pulsante + **Aggiungi indirizzo IP corrente**. Fare clic su **Salva** per salvare le modifiche.
-* Per aggiungere ulteriori indirizzi IP, digitare nome della regola, indirizzo IP iniziale e indirizzo IP finale. Fare clic su **Salva** per salvare le modifiche.
-* Per modificare una regola esistente, fare clic su uno dei campi nella regola e modificare. Fare clic su **Salva** per salvare le modifiche.
-* Per eliminare una regola esistente, fare clic sui puntini di sospensione […] e fare clic su **Elimina** per rimuovere la regola. Fare clic su **Salva** per salvare le modifiche.
+* Per aggiungere il computer corrente, fare clic sul pulsante + **Aggiungi indirizzo IP corrente**. È consigliabile fare clic su **Salva** per salvare le modifiche.
+* Per aggiungere ulteriori indirizzi IP, digitare nome della regola, indirizzo IP iniziale e indirizzo IP finale. È consigliabile fare clic su **Salva** per salvare le modifiche.
+* Per modificare una regola esistente, fare clic su uno dei campi nella regola e modificare. È consigliabile fare clic su **Salva** per salvare le modifiche.
+* Per eliminare una regola esistente, fare clic sui puntini di sospensione […] e fare clic su **Elimina** per rimuovere la regola. È consigliabile fare clic su **Salva** per salvare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Analogamente, è possibile creare uno script per [creare e gestire regole del firewall di database di Azure per PostgreSQL usando l'interfaccia della riga](howto-manage-firewall-using-cli.md)di comando

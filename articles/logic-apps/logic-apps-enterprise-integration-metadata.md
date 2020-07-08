@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792464"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gestire i metadati degli elementi dagli account di integrazione con App per la logica di Azure ed Enterprise Integration Pack
@@ -27,7 +26,7 @@ ms.locfileid: "74792464"
 
   * [Partner](logic-apps-enterprise-integration-partners.md)
   * [Contratto](logic-apps-enterprise-integration-agreements.md)
-  * [SCHEMA](logic-apps-enterprise-integration-schemas.md)
+  * [Schema](logic-apps-enterprise-integration-schemas.md)
   * [Mappa](logic-apps-enterprise-integration-maps.md)
 
 * Un'app per la logica collegata all'account di integrazione e ai metadati dell'elemento che si vogliono usare. Se l'app per la logica non è già collegata, vedere l'articolo su [come collegare app per la logica agli account di integrazione](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
@@ -53,7 +52,7 @@ ms.locfileid: "74792464"
 
 1. Nel portale di Azure aprire l'app per la logica collegata all'account di integrazione desiderato. 
 
-1. Nella finestra di progettazione dell'app per la logica, se si aggiunge il passaggio per ottenere i metadati nel trigger o nell'ultima azione del flusso di lavoro, scegliere **nuovo passaggio** > **Aggiungi un'azione**. 
+1. Nella finestra di progettazione dell'app per la logica, se si aggiunge il passaggio per ottenere i metadati nel trigger o nell'ultima azione del flusso di lavoro, scegliere **nuovo passaggio**  >  **Aggiungi un'azione**. 
 
 1. Nella casella di ricerca, digitare "account di integrazione". Nella casella di ricerca scegliere **Tutti**. Dall'elenco delle azioni selezionare questa azione: **ricerca artefatto dell'account di integrazione-account di integrazione**
 
@@ -87,7 +86,7 @@ ms.locfileid: "74792464"
       |----------|----------|-------|-------------| 
       | **Metodo** | Sì | <*da operazione a esecuzione*> | Operazione HTTP da eseguire sull'elemento. Ad esempio, questa azione HTTP usa il metodo **GET**. | 
       | **URI** | Sì | <*metadati-posizione*> | Per accedere al valore dei metadati `routingUrl` dall'elemento recuperato si può usare un'espressione, ad esempio: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Headers** | No | <*valori di intestazione*> | Qualsiasi intestazione di output del trigger da passare nell'azione HTTP. Ad esempio, per passare il valore della proprietà `headers` del trigger è possibile usare un'espressione, ad esempio: <p>`@triggeroutputs()['headers']` | 
+      | **Intestazioni** | No | <*valori di intestazione*> | Qualsiasi intestazione di output del trigger da passare nell'azione HTTP. Ad esempio, per passare il valore della proprietà `headers` del trigger è possibile usare un'espressione, ad esempio: <p>`@triggeroutputs()['headers']` | 
       | **Corpo** | No | <*corpo-contenuto*> | Qualsiasi altro contenuto che si vuole passare tramite la proprietà `body` dell'azione HTTP. Questo esempio passa i valori `properties` dell'elemento nell'azione HTTP: <p>1. fare clic all'interno della proprietà **Body** per visualizzare l'elenco di contenuto dinamico. Se non compaiono proprietà, scegliere **Altre informazioni**. <br>2. dall'elenco di contenuto dinamico, in **ricerca artefatto dell'account di integrazione**, selezionare **Proprietà**. | 
       |||| 
 

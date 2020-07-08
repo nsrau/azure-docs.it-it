@@ -7,16 +7,15 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: bcddd64afca29ac9fdd5d284fc8f809ff9e2477d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74535691"
 ---
 # <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>Gestire un database di Azure per il server PostgreSQL usando il portale di Azure
 Questo articolo illustra come gestire i server del database di Azure per PostgreSQL. Le attività di gestione includono il ridimensionamento di calcolo e archiviazione, la reimpostazione della password amministratore e la visualizzazione dei dettagli del server.
 
-## <a name="sign-in"></a>Accedere
+## <a name="sign-in"></a>Accesso
 Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Creare un server
@@ -90,7 +89,7 @@ Se non è più necessario, è possibile eliminare il server.
 
 1. Selezionare il server nella portale di Azure. Nella finestra **Panoramica** selezionare **Elimina**.
 
-    ![Elimina](./media/howto-create-manage-server-portal/overview-delete.png)
+    ![eliminare](./media/howto-create-manage-server-portal/overview-delete.png)
 
 2. Digitare il nome del server nella casella di input per confermare che si tratta del server che si desidera eliminare.
 

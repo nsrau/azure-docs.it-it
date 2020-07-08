@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.reviewer: sngun
 ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74869834"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Vincoli di chiave univoca in Azure Cosmos DB
@@ -45,15 +44,15 @@ Se si cerca di inserire un altro elemento con le combinazioni elencate nella tab
 
 * Per impostare una chiave univoca per un contenitore esistente, creare un nuovo contenitore con il vincolo di chiave univoca. Usare lo strumento di migrazione dei dati appropriato per spostare i dati dal contenitore esistente a quello nuovo. Per i contenitori SQL usare l'[Utilità di migrazione dati](import-data.md) per spostare i dati. Per i contenitori MongoDB usare [mongoimport.exe o mongorestore.exe](mongodb-migrate.md) per spostare i dati.
 
-* I criteri di chiave univoca possono contenere un massimo di 16 valori di percorso. Ad esempio, i valori possono essere `/firstName`, `/lastName`e `/address/zipCode`. I singoli criteri di chiave univoca possono avere un massimo di 10 vincoli o combinazioni di vincoli di chiave univoca. I percorsi combinati di ogni vincolo di chiave univoca non devono superare i 60 byte. Nell'esempio precedente, nome, cognome e indirizzo di posta elettronica rappresentano un unico vincolo, che usa 3 dei 16 possibili percorsi.
+* I criteri di chiave univoca possono contenere un massimo di 16 valori di percorso. Ad esempio, i valori possono essere `/firstName` , `/lastName` e `/address/zipCode` . I singoli criteri di chiave univoca possono avere un massimo di 10 vincoli o combinazioni di vincoli di chiave univoca. I percorsi combinati di ogni vincolo di chiave univoca non devono superare i 60 byte. Nell'esempio precedente, nome, cognome e indirizzo di posta elettronica rappresentano un unico vincolo, che usa 3 dei 16 possibili percorsi.
 
 * Quando un contenitore dispone di un criterio di chiave univoca, gli addebiti delle [unità richiesta](request-units.md) per creare, aggiornare ed eliminare un elemento sono leggermente più elevati.
 
 * Le chiavi univoche di tipo sparse non sono supportate. Se non sono definiti alcuni valori di percorso univoci, questi vengono considerati come valori Null facenti parte del vincolo di univocità. Per questo motivo può essere presente un solo elemento con valore Null per soddisfare il vincolo.
 
-* I nomi delle chiavi univoche distinguono tra maiuscole e minuscole. Si consideri, ad esempio, un contenitore con il vincolo `/address/zipcode`di chiave univoca impostato su. Se i dati hanno un campo denominato `ZipCode`, Azure Cosmos DB inserisce "null" come chiave univoca perché `zipcode` non è uguale a `ZipCode`. A causa di questa distinzione tra maiuscole e minuscole, tutti gli altri record con ZipCode non possono essere inseriti, in quanto il valore "null" duplicato viola il vincolo di chiave univoca.
+* I nomi delle chiavi univoche distinguono tra maiuscole e minuscole. Si consideri, ad esempio, un contenitore con il vincolo di chiave univoca impostato su `/address/zipcode` . Se i dati hanno un campo denominato `ZipCode` , Azure Cosmos DB inserisce "null" come chiave univoca perché `zipcode` non è uguale a `ZipCode` . A causa di questa distinzione tra maiuscole e minuscole, tutti gli altri record con ZipCode non possono essere inseriti, in quanto il valore "null" duplicato viola il vincolo di chiave univoca.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle [partizioni logiche](partition-data.md)
+* Altre informazioni sulle [partizioni logiche](partition-data.md)
 * Scopri [come definire chiavi univoche](how-to-define-unique-keys.md) durante la creazione di un contenitore

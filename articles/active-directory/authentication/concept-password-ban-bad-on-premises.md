@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b9d07099f8de996181948921330ef6744b302a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74848647"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Applicare la funzione della password di protezione di Azure AD per Windows Server Active Directory
@@ -87,7 +86,7 @@ La distribuzione di Azure AD la protezione delle password in una foresta Active 
 
 La foresta Active Directory e tutti i servizi proxy distribuiti in una foresta devono essere registrati con lo stesso tenant. Non è supportata la registrazione di una foresta Active Directory o di tutti i servizi proxy in tale foresta in tenant Azure AD diversi. I sintomi di tale distribuzione configurata in modo errato includono l'impossibilità di scaricare i criteri password.
 
-## <a name="download"></a>Download
+## <a name="download"></a>Scarica
 
 I due programmi di installazione degli agenti necessari per la protezione Azure AD password sono disponibili nell' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 

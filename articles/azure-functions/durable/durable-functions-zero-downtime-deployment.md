@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74231264"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Distribuzione senza tempi di inattività per Durable Functions
@@ -54,17 +53,17 @@ Per configurare questo scenario, attenersi alla procedura riportata di seguito.
 
 1. Per ogni slot, impostare l' [impostazione dell'applicazione AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) sulla stringa di connessione di un account di archiviazione condiviso. Questa stringa di connessione dell'account di archiviazione viene usata dal runtime di funzioni di Azure. Questo account viene usato dal runtime di funzioni di Azure e gestisce le chiavi della funzione.
 
-1. Per ogni slot, creare una nuova impostazione di app, ad esempio `DurableManagementStorage`. Impostarne il valore sulla stringa di connessione di account di archiviazione diversi. Questi account di archiviazione vengono usati dall'estensione Durable Functions per l' [esecuzione affidabile](durable-functions-checkpointing-and-replay.md). Usare un account di archiviazione separato per ogni slot. Non contrassegnare questa impostazione come impostazione dello slot di distribuzione.
+1. Per ogni slot, creare una nuova impostazione di app, ad esempio `DurableManagementStorage` . Impostarne il valore sulla stringa di connessione di account di archiviazione diversi. Questi account di archiviazione vengono usati dall'estensione Durable Functions per l' [esecuzione affidabile](durable-functions-checkpointing-and-replay.md). Usare un account di archiviazione separato per ogni slot. Non contrassegnare questa impostazione come impostazione dello slot di distribuzione.
 
-1. Nella [sezione durableTask del file host. JSON](durable-functions-bindings.md#hostjson-settings)dell'app per le funzioni specificare `azureStorageConnectionStringName` come nome dell'impostazione dell'app creata nel passaggio 3.
+1. Nella [sezione durableTask dell'host.jsapp per](durable-functions-bindings.md#hostjson-settings)le funzioni specificare `azureStorageConnectionStringName` come nome dell'impostazione dell'app creata nel passaggio 3.
 
 Il diagramma seguente illustra la configurazione descritta degli slot di distribuzione e degli account di archiviazione. In questo potenziale scenario di pre-distribuzione, la versione 2 di un'app per le funzioni è in esecuzione nello slot di produzione, mentre la versione 1 rimane nello slot di staging.
 
 ![Slot di distribuzione e account di archiviazione](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>esempi di host. JSON
+### <a name="hostjson-examples"></a>host.jsesempi
 
-I frammenti JSON seguenti sono esempi di impostazioni della stringa di connessione nel file *host. JSON* .
+I frammenti JSON seguenti sono esempi di impostazioni della stringa di connessione nel *host.jssu* file.
 
 #### <a name="functions-20"></a>Funzioni 2,0
 
@@ -164,7 +163,7 @@ Il router monitora lo stato delle orchestrazioni nella versione 1.0.1 e rimuove 
 
 ### <a name="tracking-store-settings"></a>Impostazioni archivio di rilevamento
 
-Ogni app per le funzioni deve usare code di pianificazione separate, possibilmente in account di archiviazione separati. Se si desidera eseguire una query su tutte le istanze di orchestrazioni in tutte le versioni dell'applicazione, è possibile condividere le tabelle di istanze e di cronologia nelle app per le funzioni. È possibile condividere le tabelle `trackingStoreConnectionStringName` configurando `trackingStoreNamePrefix` le impostazioni e nel file di [Impostazioni host. JSON](durable-functions-bindings.md#host-json) in modo che tutti usino gli stessi valori.
+Ogni app per le funzioni deve usare code di pianificazione separate, possibilmente in account di archiviazione separati. Se si desidera eseguire una query su tutte le istanze di orchestrazioni in tutte le versioni dell'applicazione, è possibile condividere le tabelle di istanze e di cronologia nelle app per le funzioni. È possibile condividere le tabelle configurando le `trackingStoreConnectionStringName` `trackingStoreNamePrefix` Impostazioni e nel [host.js](durable-functions-bindings.md#host-json) nel file di impostazioni in modo che tutti usino gli stessi valori.
 
 Per altre informazioni, vedere [gestire le istanze in Durable Functions in Azure](durable-functions-instance-management.md).
 

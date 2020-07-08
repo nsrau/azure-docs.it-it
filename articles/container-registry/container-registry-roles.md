@@ -4,10 +4,9 @@ description: Usare il controllo degli accessi in base al ruolo di Azure e gestio
 ms.topic: article
 ms.date: 12/02/2019
 ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74893485"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Ruoli e autorizzazioni di Registro Azure Container
@@ -18,7 +17,7 @@ Il servizio Azure Container Registry supporta un set di [ruoli di Azure predefin
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Proprietario | X | X | X | X | X | X |  |  
 | Collaboratore | X | X | X |  X | X | X |  |  
-| Lettore | X |  |  | X |  |  |  |
+| Reader | X |  |  | X |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
@@ -66,7 +65,7 @@ La possibilità di configurare i criteri in un registro di sistema. I criteri in
 
 ## <a name="sign-images"></a>Firma di immagini
 
-La possibilità di firmare immagini, in genere assegnate a un processo automatizzato, che utilizza un'entità di servizio. Questa autorizzazione viene in genere combinata con un'[immagine push](#push-image) per consentire l'inserimento di un'immagine attendibile a un registro di sistema. Per informazioni dettagliate, vedere [Attendibilità dei contenuti in Registro Azure Container](container-registry-content-trust.md).
+La possibilità di firmare immagini, in genere assegnate a un processo automatizzato, che utilizza un'entità di servizio. Questa autorizzazione viene in genere combinata con un'[immagine push](#push-image) per consentire l'inserimento di un'immagine attendibile a un registro di sistema. Per informazioni dettagliate, vedere [attendibilità del contenuto in Azure container Registry](container-registry-content-trust.md).
 
 ## <a name="custom-roles"></a>Ruoli personalizzati
 
@@ -81,7 +80,7 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 Per definire un ruolo personalizzato, vedere [passaggi per la creazione di un ruolo personalizzato](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 > [!IMPORTANT]
-> In un ruolo personalizzato, Azure Container Registry attualmente non supporta i caratteri jolly, `Microsoft.ContainerRegistry/*` ad `Microsoft.ContainerRegistry/registries/*` esempio o, che concedono l'accesso a tutte le azioni corrispondenti. Specificare un'azione obbligatoria singolarmente nel ruolo.
+> In un ruolo personalizzato, Azure Container Registry attualmente non supporta i caratteri jolly, ad esempio `Microsoft.ContainerRegistry/*` o, `Microsoft.ContainerRegistry/registries/*` che concedono l'accesso a tutte le azioni corrispondenti. Specificare un'azione obbligatoria singolarmente nel ruolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

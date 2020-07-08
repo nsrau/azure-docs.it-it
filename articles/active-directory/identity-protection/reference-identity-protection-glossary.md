@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74232353"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossario di Azure Active Directory Identity Protection
@@ -53,13 +52,13 @@ Stato di rilevamento del rischio impostato manualmente da un utente di Identity 
 ### <a name="impossible-travel-from-atypical-locations"></a>Trasferimento impossibile con posizioni atipiche
 Rilevamento dei rischi attivato quando vengono rilevati due accessi per lo stesso utente, in cui almeno uno di essi si trova in una posizione di accesso atipica e dove il tempo tra gli accessi è inferiore al tempo minimo necessario per spostarsi fisicamente tra queste posizioni.  
 
-### <a name="investigation"></a>Analisi
+### <a name="investigation"></a>Ricerca della causa
 Il processo di revisione di attività, log e altre informazioni rilevanti relative a un rilevamento dei rischi per decidere se sono necessarie procedure di correzione o mitigazione, comprendere se e come l'identità è stata compromessa e comprendere come è stata usata l'identità compromessa.
 
 ### <a name="leaked-credentials"></a>Credenziali perse
 Rilevamento dei rischi attivato quando le credenziali dell'utente corrente (nome utente e password) vengono trovate pubblicate nel Dark Web dai ricercatori.
 
-### <a name="mitigation"></a>Misura di prevenzione
+### <a name="mitigation"></a>Strategia di riduzione del rischio
 Azione che consente di limitare o eliminare la possibilità che un utente malintenzionato sfrutti un'identità o un dispositivo compromesso senza ripristinare l'identità o il dispositivo a uno stato sicuro. Una mitigazione non risolve i rilevamenti di rischio precedenti associati all'identità o al dispositivo.
 
 ### <a name="multi-factor-authentication"></a>Autenticazione a più fattori
@@ -89,7 +88,7 @@ Rilevamento di anomalie e valutazione del rischio di un evento, ad esempio un te
 ### <a name="remediated-risk-detection"></a>Corretti (rilevamento del rischio)
 Stato di rilevamento del rischio impostato automaticamente da Identity Protection, che indica che il rilevamento dei rischi è stato risolto utilizzando l'azione di correzione standard per questo tipo di rilevamento dei rischi. Ad esempio, quando viene reimpostata la password utente, molti rilevamenti dei rischi che indicano che la password precedente è stata compromessa vengono risolti automaticamente.
 
-### <a name="remediation"></a>Correzione
+### <a name="remediation"></a>Soluzione
 Azione che consente di proteggere un'identità o un dispositivo che in precedenza è stato ritenuto o sospettato essere compromesso. Un'azione di correzione ripristina l'identità o il dispositivo a uno stato sicuro e risolve i rilevamenti di rischio precedenti associati all'identità o al dispositivo.
 
 ### <a name="resolved-risk-detection"></a>Risolto (rilevamento del rischio)

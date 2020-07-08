@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74887069"
 ---
 # <a name="azure-media-services-error-codes"></a>Codici di errore di Servizi multimediali di Azure
@@ -122,6 +121,6 @@ Per gestire questo errore, è consigliabile usare la logica di ripetizione dei t
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
