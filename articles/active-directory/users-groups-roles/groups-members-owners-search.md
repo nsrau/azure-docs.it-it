@@ -8,18 +8,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 92674ed9d39ea9e84d477d19aadbaeda6da6f32c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78206113"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728266"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Cerca in gruppi e membri (anteprima) in Azure Active Directory
 
@@ -45,7 +44,7 @@ Se si verificano problemi, è possibile tornare all'esperienza legacy selezionan
 
 ## <a name="group-search-and-sorting"></a>Ricerca e ordinamento di gruppi
 
-La ricerca nell'elenco dei gruppi è stata migliorata in modo che, quando è possibile immettere una stringa di ricerca, `startswith` la ricerca esegua automaticamente una ricerca di sottostringa e nell'elenco di nomi di gruppo. La ricerca della sottostringa viene eseguita solo su parole intere e non include caratteri speciali. La ricerca di sottostringhe distingue tra maiuscole e minuscole.
+La ricerca nell'elenco dei gruppi è stata migliorata in modo che, quando è possibile immettere una stringa di ricerca, la ricerca esegua automaticamente una `startswith` ricerca di sottostringa e nell'elenco di nomi di gruppo. La ricerca della sottostringa viene eseguita solo su parole intere e non include caratteri speciali. La ricerca di sottostringhe distingue tra maiuscole e minuscole.
 
 ![nuove ricerche di sottostringhe nella pagina tutti i gruppi](./media/groups-members-owners-search/groups-search-preview.png)
 

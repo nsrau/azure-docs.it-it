@@ -7,12 +7,11 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: f4caa9160280b0f65f84bed36b5209d08d7f7c11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dd73c6a388cde55db5437442492d53768eb03866
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279429"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343150"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informazioni sui dispositivi VPN e sui parametri IPsec/IKE per connessioni del Gateway VPN da sito a sito
 
@@ -141,9 +140,9 @@ Nelle tabelle seguenti:
 | Versione IKE                   |IKEv1          |IKEv1 e IKEv2                              |
 | Algoritmi di crittografia e di hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
 | Durata dell'associazione di sicurezza (tempo)            |3.600 secondi  |27.000 secondi                               |
-| Durata dell'associazione di sicurezza (byte)           |102.400.000 KB | -                                           |
+| Durata dell'associazione di sicurezza (byte)           |102.400.000 KB |102.400.000 KB                               |
 | Perfect Forward Secrecy (PFS) |No             |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
-| Rilevamento peer inattivo     |Non supportate  |Supportato                                    |
+| Rilevamento peer inattivo     |Non supportato  |Supportato                                    |
 
 
 ### <a name="routebased-vpn-ipsec-security-association-ike-quick-mode-sa-offers"></a><a name ="RouteBasedOffers"></a>Offerte per associazioni di sicurezza IPsec VPN basate su route (associazione di sicurezza IKE Modalità rapida)
@@ -152,7 +151,7 @@ La tabella seguente elenca le offerte per associazioni di sicurezza IPsec (IKE M
 
 #### <a name="azure-gateway-as-initiator"></a>Gateway Azure come iniziatore
 
-|-  |**Crittografia**|**autenticazione**|**Gruppo PFS**|
+|-  |**Crittografia**|**Autenticazione**|**Gruppo PFS**|
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |nessuno         |
 | 2 |AES256        |SHA1              |nessuno         |
@@ -163,7 +162,7 @@ La tabella seguente elenca le offerte per associazioni di sicurezza IPsec (IKE M
 
 #### <a name="azure-gateway-as-responder"></a>Gateway Azure come risponditore
 
-|-  |**Crittografia**|**autenticazione**|**Gruppo PFS**|
+|-  |**Crittografia**|**Autenticazione**|**Gruppo PFS**|
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |nessuno         |
 | 2 |AES256        |SHA1              |nessuno         |

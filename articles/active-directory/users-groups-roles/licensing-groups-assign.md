@@ -7,7 +7,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 04/29/2020
@@ -15,12 +15,11 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 0524e8756e86771ab555eaa853e3955fe69c8549
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582703"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727654"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Assegnare licenze agli utenti in base all'appartenenza ai gruppi in Azure Active Directory
 
@@ -59,7 +58,7 @@ Quando si assegnano licenze a un gruppo, Azure AD elabora tutti i membri esisten
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Passaggio 2: verificare che l'assegnazione iniziale sia terminata
 
-1. Passare a **Azure Active Directory** > **gruppi**. Consente di selezionare il gruppo a cui sono state assegnate le licenze.
+1. Passare a **Azure Active Directory**  >  **gruppi**. Consente di selezionare il gruppo a cui sono state assegnate le licenze.
 
 1. Nella pagina gruppo selezionare **licenze**. Questo consente di verificare rapidamente se le licenze sono state completamente assegnate agli utenti e se ci sono errori che richiedono attenzione. Sono disponibili le informazioni seguenti:
 
@@ -71,17 +70,17 @@ Quando si assegnano licenze a un gruppo, Azure AD elabora tutti i membri esisten
 
    ![errori di licenza e stato delle licenze](./media/licensing-groups-assign/assignment-errors.png)
 
-1. Per informazioni più dettagliate sull'elaborazione delle licenze, vedere **Azure Active Directory** > **utenti e gruppi gruppi** > *nome* > del gruppo**log di controllo**. Controllare le attività seguenti:
+1. Per informazioni più dettagliate sull'elaborazione delle licenze, vedere **Azure Active Directory**  >  **utenti e gruppi gruppi**  >  *nome del gruppo*  >  **log di controllo**. Controllare le attività seguenti:
 
-   - Attività: `Start applying group based license to users`. Viene registrato quando il sistema preleva la modifica dell'assegnazione della licenza per il gruppo e avvia l'applicazione a tutti i membri utente. Contiene informazioni sulla modifica apportata.
+   - Attività: `Start applying group based license to users` . Viene registrato quando il sistema preleva la modifica dell'assegnazione della licenza per il gruppo e avvia l'applicazione a tutti i membri utente. Contiene informazioni sulla modifica apportata.
 
-   - Attività: `Finish applying group based license to users`. Viene registrato quando il nostro sistema completa l'elaborazione di tutti gli utenti del gruppo. Contiene un riepilogo di quanti utenti sono stati elaborati correttamente e il numero di utenti a cui non è stato possibile assegnare le licenze di gruppo.
+   - Attività: `Finish applying group based license to users` . Viene registrato quando il nostro sistema completa l'elaborazione di tutti gli utenti del gruppo. Contiene un riepilogo di quanti utenti sono stati elaborati correttamente e il numero di utenti a cui non è stato possibile assegnare le licenze di gruppo.
 
    [Leggere questa sezione](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) per ulteriori informazioni su come usare i log di controllo per analizzare le modifiche apportate dalle licenze basate sui gruppi.
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passaggio 3: Controllare i problemi relativi alle licenze e risolverli
 
-1. Passare a **Azure Active Directory** > **gruppi**e individuare il gruppo a cui sono state assegnate le licenze.
+1. Passare a **Azure Active Directory**  >  **gruppi**e individuare il gruppo a cui sono state assegnate le licenze.
 1. Nella pagina gruppo selezionare **licenze**. La notifica nella parte superiore della pagina mostra che sono presenti 10 utenti a cui non è stato possibile assegnare le licenze. Aprirlo per visualizzare un elenco di tutti gli utenti in uno stato di errore di licenza per questo gruppo.
 1. La colonna **N. assegnazioni con errori** indica che non è stato possibile assegnare entrambe le licenze prodotto agli utenti. La colonna **Principali cause dell'errore** contiene la causa dell'errore. In questo caso si tratta di **Piani di servizio in conflitto**.
 

@@ -16,7 +16,6 @@ ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1db812fb9c1503771bec0b1795ee8c15bb70014a
 ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/12/2020
 ms.locfileid: "84727705"

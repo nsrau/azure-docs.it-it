@@ -8,18 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aff304b0866092badc515df7201fb4873acc298e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 05bcf589e685d0a35a58bb1e8069a6ce3699b61c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582935"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728385"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Modificare l'appartenenza a gruppi statica in dinamica in Azure Active Directory
 
@@ -33,7 +32,7 @@ In Azure Active Directory (Azure AD) è possibile modificare l'appartenenza a un
 ## <a name="change-the-membership-type-for-a-group"></a>Modificare il tipo di appartenenza per un gruppo
 
 1. Accedere all'interfaccia di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account di amministratore globale o di amministratore dell'organizzazione Azure ad.
-2. Selezionare **Gruppi**.
+2. Selezionare **gruppi**.
 3. Dall'elenco **Tutti i gruppi** aprire il gruppo che si vuole modificare.
 4. Selezionare **Proprietà**.
 5. Nella pagina **Proprietà** del gruppo selezionare Assegnato (statico), Utente dinamico o Dispositivo dinamico come **Tipo di appartenenza**, a seconda del tipo di appartenenza desiderato. Per l'appartenenza dinamica è possibile usare il generatore di regole per selezionare le opzioni per una regola semplice oppure scrivere manualmente una regola di appartenenza. 

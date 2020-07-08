@@ -5,13 +5,12 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/03/2018
-ms.openlocfilehash: ee7a2f49641eb0cfe1f8a4bffb44c7f8642408fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/29/2020
+ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670645"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424466"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione Wire Data 2.0 (anteprima) in monitoraggio di Azure
 
@@ -19,12 +18,15 @@ ms.locfileid: "77670645"
 
 I dati in transito sono dati di prestazioni e di rete consolidati che vengono raccolti da computer connessi tramite Windows o Linux all'agente di Log Analytics e includono i dati monitorati da Operations Manager nell'ambiente in uso. I dati di rete vengono combinati con altri dati di log per consentire la correlazione dei dati.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 Oltre all'agente di Log Analytics, la soluzione Wire Data usa le istanze di Microsoft Dependency Agent installate nei computer dell'infrastruttura IT. Le istanze di Dependency Agent monitorano i dati di rete inviati da e verso i computer per i livelli di rete 2-3 del [modello OSI](https://en.wikipedia.org/wiki/OSI_model), che includono le diverse porte e i vari protocolli usati. I dati vengono quindi inviati al monitoraggio di Azure tramite agenti.  
 
 >[!NOTE]
->Se è già stata eseguita la distribuzione di Mapping dei servizi o si sta considerando Mapping dei servizi o [monitoraggio di Azure per le macchine virtuali](../../azure-monitor/insights/vminsights-overview.md), è disponibile un nuovo set di dati sulle metriche di connessione che raccoglie e archivia in monitoraggio di Azure che fornisce informazioni comparabili ai dati in transito.
+>La soluzione Wire data è stata sostituita con la [soluzione mapping dei servizi](service-map.md).  Entrambi usano l'agente Log Analytics e Dependency Agent per raccogliere i dati di connessione di rete in monitoraggio di Azure. 
+> 
+>I clienti esistenti che usano la soluzione Wire data possono continuare a usarlo. Si pubblicheranno le linee guida per una sequenza temporale di migrazione per il passaggio a Mapping dei servizi.
+>
+>I nuovi clienti devono installare la [soluzione mapping dei servizi](service-map.md) o [monitoraggio di Azure per le macchine virtuali](vminsights-overview.md).  Il set di dati Mapping dei servizi è paragonabile ai dati in transito.  Monitoraggio di Azure per le macchine virtuali include il set di dati Mapping dei servizi con ulteriori dati sulle prestazioni e funzionalità per l'analisi. 
+
 
 Per impostazione predefinita, monitoraggio di Azure registra i dati relativi alle prestazioni della CPU, della memoria, del disco e della rete dai contatori incorporati in Windows e Linux, oltre che da altri contatori delle prestazioni che è possibile specificare. La raccolta dei dati di rete e di altro tipo viene eseguita in tempo reale per ogni agente, inclusi subnet e protocolli a livello di applicazione usati dal computer.  Wire Data esamina i dati di rete a livello di applicazione, non a livello di trasporto TCP, più basso. La soluzione non esamina ACK e SYN singoli. Dopo l'esecuzione dell'handshake, la connessione viene considerata attiva e viene contrassegnata come connessa. La connessione rimane attiva finché entrambe le parti acconsentono all'apertura del socket e alla trasmissione di dati nei due sensi. Quando uno dei due lati chiude la connessione, viene contrassegnato come disconnesso.  Viene quindi contata solo la larghezza di banda dei pacchetti completati correttamente e non vengono segnalati i nuovi tentativi di invio né i pacchetti la cui trasmissione non è riuscita.
 
@@ -113,7 +115,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per Dependency Agent
 | Versione sistema operativo | Versione del kernel |
 |:--|:--|
 | 7.4 | 3.10.0-693 |
-| 7.5 | 3.10.0-862 |
+| 7,5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
 
 ##### <a name="red-hat-linux-6"></a>Red Hat Linux 6
@@ -153,7 +155,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per Dependency Agent
 
 ### <a name="dependency-agent-downloads"></a>Download di Dependency Agent
 
-| File | Sistema operativo | Versione | SHA-256 |
+| File | OS | Versione | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
@@ -175,7 +177,7 @@ Per configurare la soluzione Wire Data per le proprie aree di lavoro, seguire qu
 
 Per installare o disinstallare l'agente sono necessari i privilegi di amministratore.
 
-Dependency Agent viene installato nei computer che eseguono Windows tramite Installdependencyagent-Windows. exe. Se si esegue questo file eseguibile senza opzioni, avvia una procedura guidata che consente di completare l'installazione in modo interattivo.
+Dependency Agent viene installato nei computer che eseguono Windows con InstallDependencyAgent-Windows.exe. Se si esegue questo file eseguibile senza opzioni, avvia una procedura guidata che consente di completare l'installazione in modo interattivo.
 
 Usare la procedura seguente per installare Dependency Agent in ogni computer che esegue Windows:
 
@@ -390,7 +392,7 @@ Per ogni tipo di dati di input vene creato un record con tipo _WireData_. I reco
 | ReceivedBytes | Quantità di byte ricevuta |
 | ProtocolName | Nome del protocollo di rete usato |
 | IPVersion | Versione IP |
-| Direction | In ingresso o in uscita |
+| Direzione | In ingresso o in uscita |
 | MaliciousIP | Indirizzo IP di un'origine dannosa nota |
 | Gravità | Gravità del software dannoso sospetto |
 | RemoteIPCountry | Paese/area geografica dell'indirizzo IP remoto |

@@ -13,12 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: ee9dfc11cad61d6190ae4a2382f0124207c32c4c
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.openlocfilehash: 23ee7ba7a5456916eb307e21aa2074924614cb4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801621"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84418144"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -30,29 +29,31 @@ Servizi multimediali di Azure consente di offrire eventi live per i clienti nel 
 - Un codificatore video live in grado di convertire i segnali provenienti da una fotocamera (o da un altro dispositivo, come un portatile) in un feed di contributi inviato a Servizi multimediali. Il feed di contributi può includere segnali relativi alla pubblicità, ad esempio i marcatori SCTE-35.<br/>Per un elenco dei codificatori consigliati di streaming live, vedere [Codificatori di streaming live consigliati](recommended-on-premises-live-encoders.md). Vedere anche questo Blog: [produzione di streaming live con OBS](https://link.medium.com/ttuwHpaJeT).
 - I componenti in Servizi multimediali, che consentono di inserire, visualizzare in anteprima, includere in un pacchetto, registrare, crittografare e trasmettere l'evento live ai clienti o a una rete CDN per un'ulteriore distribuzione.
 
+Per i clienti che desiderano distribuire contenuti a destinatari Internet di grandi dimensioni, è consigliabile abilitare la rete CDN nell' [endpoint di streaming](streaming-endpoint-concept.md).
+
 Questo articolo fornisce una panoramica e informazioni aggiuntive sullo streaming live con servizi multimediali e collegamenti ad altri articoli pertinenti.
  
 > [!NOTE]
-> È possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) v3, visualizzare [asset](assets-concept.md) v3 e ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](https://docs.microsoft.com/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
+> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare le [risorse](assets-concept.md)V3, ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](https://docs.microsoft.com/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
-## <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti
+## <a name="dynamic-packaging-and-delivery"></a>Creazione dinamica dei pacchetti e distribuzione
 
 Con servizi multimediali è possibile sfruttare i vantaggi della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md), che consente di visualizzare in anteprima e trasmettere i flussi live in [formati MPEG Dash, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) dal feed di contributi inviato al servizio. Gli utenti possono riprodurre il flusso live con qualsiasi lettore compatibile per HLS, DASH o Smooth Streaming. È possibile usare [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) nelle applicazioni web o per dispositivi mobili per distribuire lo streaming in uno di questi protocolli.
 
 ## <a name="dynamic-encryption"></a>Crittografia dinamica
 
-La crittografia dinamica consente di crittografare dinamicamente i contenuti live o su richiesta con AES-128 o uno dei tre sistemi principali Digital Rights Management (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. Per altre informazioni, vedere [crittografia dinamica](content-protection-overview.md).
+La crittografia dinamica consente di crittografare dinamicamente i contenuti live o su richiesta con AES-128 o uno dei tre sistemi principali Digital Rights Management (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. Per altre informazioni, vedere [Crittografia dinamica](content-protection-overview.md).
 
 > [!NOTE]
 > Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="dynamic-manifest"></a>Manifesto dinamico
+## <a name="dynamic-filtering"></a>Filtro dinamico
 
 Il filtro dinamico viene usato per controllare il numero di tracce, formati, velocità in bit e finestre temporali di presentazione inviate ai lettori. Per altre informazioni, vedere [filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
 
 ## <a name="live-event-types"></a>Tipi di evento live
 
-Gli [eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Un evento live può essere impostato su un *pass-through* (un codificatore live locale invia un flusso a bitrate multiplo) o sulla *codifica live* (un codificatore live locale invia un flusso a bitrate singolo). Per informazioni dettagliate sullo streaming live in servizi multimediali V3, vedere [eventi live e output Live](live-events-outputs-concept.md).
+[Gli eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Un evento live può essere impostato su un *pass-through* (un codificatore live locale invia un flusso a bitrate multiplo) o sulla *codifica live* (un codificatore live locale invia un flusso a bitrate singolo). Per informazioni dettagliate sullo streaming live in servizi multimediali V3, vedere [eventi live e output Live](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Pass-through
 
@@ -68,7 +69,7 @@ Quando si usa la codifica cloud con servizi multimediali, è necessario configur
 
 ### <a name="live-transcription-preview"></a>Trascrizione in tempo reale (anteprima)
 
-La trascrizione in tempo reale è una funzionalità che è possibile usare con gli eventi live che sono pass-through o la codifica live. Per ulteriori informazioni, vedere [trascrizione in tempo reale](live-transcription.md). Quando questa funzionalità è abilitata, il servizio usa la funzionalità di [riconoscimento vocale](../../cognitive-services/speech-service/speech-to-text.md) dei servizi cognitivi per trascrivere le parole pronunciate nell'audio in ingresso nel testo. Questo testo viene quindi reso disponibile per il recapito insieme a video e audio nei protocolli MPEG-DASH e HLS.
+La trascrizione in tempo reale è una funzionalità che è possibile usare con gli eventi live che sono pass-through o la codifica live. Per ulteriori informazioni, vedere [trascrizione in tempo reale](live-transcription.md). Quando questa funzionalità è abilitata, il servizio usa la funzionalità [Riconoscimento vocale](../../cognitive-services/speech-service/speech-to-text.md) di Servizi cognitivi per trascrivere le parole pronunciate nell'audio in ingresso in testo. Questo testo viene quindi reso disponibile per il recapito insieme a video e audio nei protocolli MPEG-DASH e HLS.
 
 > [!NOTE]
 > Attualmente, la trascrizione in tempo reale è disponibile come funzionalità di anteprima negli Stati Uniti occidentali 2.
@@ -84,7 +85,7 @@ Per comprendere il flusso di lavoro di streaming live in servizi multimediali V3
 ### <a name="general-steps"></a>Passaggi generali
 
 1. Nell'account di servizi multimediali verificare che l' **endpoint di streaming** (Origin) sia in esecuzione. 
-2. Creare un [evento Live](live-events-outputs-concept.md). <br/>Quando si crea l'evento, è possibile impostarne l'avvio automatico. In alternativa, è possibile avviare l'evento quando si è pronti ad avviare lo streaming.<br/> Quando l'avvio automatico è impostato su true, l'evento live verrà avviato subito dopo la creazione. La fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
+2. Creare un [evento live](live-events-outputs-concept.md). <br/>Quando si crea l'evento, è possibile impostarne l'avvio automatico. In alternativa, è possibile avviare l'evento quando si è pronti ad avviare lo streaming.<br/> Quando l'avvio automatico è impostato su true, l'evento live verrà avviato subito dopo la creazione. La fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare in modo esplicito stop sulla risorsa evento Live per interrompere ulteriormente la fatturazione. Per ulteriori informazioni, vedere [gli Stati degli eventi live e la fatturazione](live-event-states-billing.md).
 3. Ottenere gli URL di inserimento e configurare il codificatore locale in modo da usare l'URL per inviare il feed di contributo.<br/>Vedere i [codificatori live consigliati](recommended-on-premises-live-encoders.md).
 4. Ottenere l'URL di anteprima e usarlo per verificare che l'input dal codificatore venga effettivamente ricevuto.
 5. Creare un nuovo oggetto **Asset** . 
@@ -96,15 +97,15 @@ Per comprendere il flusso di lavoro di streaming live in servizi multimediali V3
 7. Creare un **localizzatore di streaming** con i [tipi di criteri di streaming predefiniti](streaming-policy-concept.md).
 
     Per pubblicare l'output Live, è necessario creare un localizzatore di streaming per l'asset associato. 
-8. Elencare i percorsi nel **localizzatore di streaming** per ottenere gli URL da usare (questi sono deterministici).
+8. Elenca i percorsi presenti nel **localizzatore di streaming** per ottenere gli URL da usare, ovvero deterministici.
 9. Ottenere il nome host per l' **endpoint di streaming** (Origin) da cui si vuole eseguire il flusso.
 10. Combinare l'URL del passaggio 8 con il nome host del passaggio 9 per ottenere l'URL completo.
-11. Se si vuole interrompere la creazione dell'**evento live** visualizzabile, è necessario arrestare lo streaming dell'evento ed eliminare il **localizzatore di streaming**.
+11. Se si vuole interrompere l'esecuzione dell' **evento Live** , è necessario arrestare lo streaming dell'evento ed eliminare il **localizzatore di streaming**.
 12. Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui in precedenza è stato effettuato il provisioning, attenersi alla procedura seguente.
 
     * Interrompere il push del flusso dal codificatore.
-    * Arrestare l'evento live. Dopo l'arresto, l'evento live non è soggetto ad alcun addebito. Quando occorrerà riavviarlo, avrà lo stesso URL di inserimento, per cui non sarà necessario riconfigurare il codificatore.
-    * È possibile arrestare l'endpoint di streaming, a meno che non si voglia continuare a fornire l'archivio dell'evento live come flusso su richiesta. Se l'evento live è stato arrestato, non è soggetto ad alcun addebito.
+    * Arrestare l'evento live. Una volta arrestato, l'evento Live non comporterà alcun addebito. Quando occorrerà riavviarlo, avrà lo stesso URL di inserimento, per cui non sarà necessario riconfigurare il codificatore.
+    * È possibile arrestare l'endpoint di streaming, a meno che non si voglia continuare a fornire l'archivio dell'evento live come flusso su richiesta. Se l'evento Live si trova nello stato interrotto, non verrà addebitato alcun addebito.
 
 L'asset a cui viene archiviata l'output Live, diventa automaticamente un asset su richiesta quando viene eliminato l'output in tempo reale. È necessario eliminare tutti gli output Live prima che un evento live possa essere arrestato. È possibile usare un flag facoltativo [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) per rimuovere automaticamente gli output Live all'arresto. 
 
@@ -115,9 +116,9 @@ L'asset a cui viene archiviata l'output Live, diventa automaticamente un asset s
 
 - [Codificatori live consigliati](recommended-on-premises-live-encoders.md)
 - [Utilizzo di un DVR cloud](live-event-cloud-dvr.md)
-- [Confronto tra le funzionalità dei tipi di eventi live](live-event-types-comparison.md)
+- [Confronto tra le funzionalità di tipi di eventi attivi](live-event-types-comparison.md)
 - [Stati e fatturazione](live-event-states-billing.md)
-- [Latenza](live-event-latency.md)
+- [Latency](live-event-latency.md)
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

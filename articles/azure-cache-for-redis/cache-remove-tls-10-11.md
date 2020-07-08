@@ -6,12 +6,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: b7b3556896f2d8bb8fea7ffc4543356e248df60d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848822"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84423922"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Rimuovere TLS 1.0 and 1.1 per l'uso con cache di Azure per Redis
 
@@ -31,16 +30,18 @@ Questo articolo offre indicazioni generali su come rilevare le dipendenze da que
 
 Le date di entrata in vigore di queste modifiche sono:
 
-| Cloud                | Data di inizio della fase 1 | Data di inizio della fase 2      |
-|----------------------|--------------------|-------------------------|
-| Azure (globale)       |  13 gennaio 2020  | 11 maggio 2020            |
-| Azure Government     |  13 marzo 2020    | 11 maggio 2020            |
-| Azure Germania        |  13 marzo 2020    | 11 maggio 2020            |
-| 21Vianet per Azure Cina |  13 marzo 2020    | 11 maggio 2020            |
+| Cloud                | Data di inizio della fase 1 | Data di inizio della fase 2         |
+|----------------------|--------------------|----------------------------|
+| Azure (globale)       |  13 gennaio 2020  | Posticipato a causa di COVID 19  |
+| Azure Government     |  13 marzo 2020    | Posticipato a causa di COVID 19  |
+| Azure Germania        |  13 marzo 2020    | Posticipato a causa di COVID 19  |
+| 21Vianet per Azure Cina |  13 marzo 2020    | Posticipato a causa di COVID 19  |
+
+Nota: nuova data per la fase 2 non ancora determinata
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Verificare se l'applicazione è già conforme
 
-Il modo più semplice per verificare se l'applicazione funzionerà con TLS 1.2 consiste nell'impostare il valore **Versione minima TLS** su TLS 1.2 in una cache di test o di gestione temporanea usata. L'impostazione **Versione minima TLS** si trova nelle [Impostazioni avanzate](cache-configure.md#advanced-settings) dell'istanza della cache nel portale di Azure. Se l'applicazione continua a funzionare come previsto dopo questa modifica, è probabile che sia conforme. Potrebbe essere necessario configurare alcune librerie client Redis usate dall'applicazione in modo specifico per abilitare TLS 1.2, in modo che possano connettersi alla cache di Azure per Redis tramite il protocollo di sicurezza.
+Il modo più semplice per verificare se l'applicazione funzionerà con TLS 1,2 consiste nell'impostare il valore della **versione minima di TLS** su TLS 1,2 in una cache di test o di gestione temporanea, quindi eseguire i test. L'impostazione **Versione minima TLS** si trova nelle [Impostazioni avanzate](cache-configure.md#advanced-settings) dell'istanza della cache nel portale di Azure.  Se l'applicazione continua a funzionare come previsto dopo questa modifica, è probabile che sia conforme. Potrebbe essere necessario configurare la libreria client Redis usata dall'applicazione per abilitare TLS 1,2 al fine di connettersi alla cache di Azure per Redis.
 
 ## <a name="configure-your-application-to-use-tls-12"></a>Configurare l'applicazione per l'uso di TLS 1.2
 
@@ -57,9 +58,9 @@ Per impostazione predefinita, i client .NET Redis usano la versione più recente
 
 Per impostazione predefinita, i client .NET Core Redis usano la versione di TLS predefinita del sistema operativo che ovviamente dipende da quest'ultimo. 
 
-A seconda della versione del sistema operativo e di altre patch che hanno eventualmente modificato la versione di TLS predefinita, la versione di TLS del sistema operativo può essere molto varia. Anche se non sono disponibili informazioni complete al riguardo, per il sistema operativo Windows in particolare è possibile trovare altre informazioni [qui](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12). 
+A seconda della versione del sistema operativo e di eventuali patch applicate, la versione valida di TLS predefinita può variare. Sebbene esista un'unica fonte di informazioni su questo argomento, di [seguito](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) è riportato un articolo per Windows. 
 
-Tuttavia, se si usa un sistema operativo precedente, o semplicemente per sicurezza, è consigliabile configurare manualmente la versione TLS preferita tramite il client.
+Tuttavia, se si usa un sistema operativo precedente o si vuole semplicemente assicurarsi, è consigliabile configurare manualmente la versione di TLS preferita tramite il client.
 
 
 ### <a name="java"></a>Java

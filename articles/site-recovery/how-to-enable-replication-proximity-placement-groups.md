@@ -5,12 +5,11 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: 204ac3be46ac7ba0e1ea96e50379ca417b1299ce
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 9fabf6cf4c8a3afc2d119fca2c8cdc2526ddbebb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84415866"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicare le macchine virtuali di Azure in esecuzione nei gruppi di posizionamento di prossimità in un'altra area
 
@@ -27,6 +26,9 @@ In uno scenario tipico, è possibile che le macchine virtuali siano in esecuzion
 - L'approccio migliore consiste nell'eseguire il failover/failback delle macchine virtuali in un gruppo di posizionamento di prossimità. Tuttavia, se la macchina virtuale non può essere inserita all'interno del posizionamento di prossimità durante il failover/failback, il failover/failback continuerà a verificarsi e le macchine virtuali verranno create all'esterno di un gruppo di posizionamento di prossimità.
 -  Se un set di disponibilità viene aggiunto a un gruppo di posizionamento di prossimità e durante il failover/failback le macchine virtuali nel set di disponibilità hanno un vincolo di allocazione, le macchine virtuali verranno create al di fuori del set di disponibilità e del gruppo di posizionamento di prossimità.
 -  Site Recovery per i gruppi di posizionamento di prossimità non è supportato per i dischi non gestiti.
+
+> [!Note]
+> Azure Site Recovery non supporta il failback da dischi gestiti per scenari da Hyper-V ad Azure. Di conseguenza, il failback dal gruppo di posizionamento di prossimità in Azure a Hyper-V non è supportato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -58,7 +60,7 @@ $OSdiskId = $vm.StorageProfile.OsDisk.ManagedDisk.Id
 $RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 $RecoveryReplicaDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 
-$OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id ` -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType ` -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType -RecoveryProximityPlacementGroupId $recPpg.Id
+$OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id ` -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType ` -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
 # Data disk
 $datadiskId1 = $vm.StorageProfile.DataDisks[0].ManagedDisk.Id

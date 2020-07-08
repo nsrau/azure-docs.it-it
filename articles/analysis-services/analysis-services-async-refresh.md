@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8381e391afa0f8866f511d3d85e02467c6d9ba5d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413383"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 
@@ -30,7 +29,7 @@ L'URL di base presenta questo formato:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Si consideri ad esempio un modello denominato AdventureWorks in un `myserver`server denominato, che si trova nell'area di Azure Stati Uniti occidentali. Il nome del server è:
+Si consideri ad esempio un modello denominato AdventureWorks in un server denominato `myserver` , che si trova nell'area di Azure Stati Uniti occidentali. Il nome del server è:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -56,7 +55,7 @@ Ad esempio, è possibile usare il verbo POST sulla raccolta Refreshes per esegui
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido nell'intestazione di autorizzazione e devono soddisfare i requisiti seguenti:
 
@@ -99,8 +98,8 @@ Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
 | Nome             | Type  | Descrizione  |Predefinito  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
-| `CommitMode`     | Enum  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |
+| `Type`           | Enumerazione  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
+| `CommitMode`     | Enumerazione  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |
 | `MaxParallelism` | Int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/analysis-services/tmsl/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
 | `RetryCount`     | Int   | Indica il numero massimo di tentativi dell'operazione prima che venga considerata non riuscita.      |     0    |
 | `Objects`        | Array | Una matrice di oggetti da elaborare. Ogni oggetto include: "table" quando viene elaborata un'intera tabella oppure "table" e "partition" quando viene elaborata una partizione. Se non viene specificato alcun oggetto, viene aggiornato l'intero modello. |   Elaborare l'intero modello      |
@@ -121,7 +120,7 @@ CommitMode equivale a partialBatch. Viene usato quando si esegue un caricamento 
 |`failed`     |   Operazione non riuscita.      |
 |`succeeded`      |   Operazione riuscita.      |
 
-## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
+## <a name="get-refreshesrefreshid"></a>OTTENERE/refreshes/\<refreshId>
 
 Per controllare lo stato di un'operazione di aggiornamento, usare il verbo GET sull'ID aggiornamento. Ecco un esempio del corpo della risposta. Se l'operazione è in corso, `inProgress` viene restituito nello stato.
 
@@ -158,20 +157,20 @@ Per ottenere un elenco delle operazioni di aggiornamento cronologiche per un mod
 [
     {
         "refreshId": "1344a272-7893-4afa-a4b3-3fb87222fdac",
-        "startTime": "2017-12-09T01:58:04.76",
-        "endTime": "2017-12-09T01:58:12.607",
+        "startTime": "2017-12-07T02:06:57.1838734Z",
+        "endTime": "2017-12-07T02:07:00.4929675Z",
         "status": "succeeded"
     },
     {
         "refreshId": "474fc5a0-3d69-4c5d-adb4-8a846fa5580b",
-        "startTime": "2017-12-07T02:05:48.32",
-        "endTime": "2017-12-07T02:05:54.913",
+        "startTime": "2017-12-07T01:05:54.157324Z",
+        "endTime": "2017-12-07T01:05:57.353371Z",
         "status": "succeeded"
     }
 ]
 ```
 
-## <a name="delete-refreshesrefreshid"></a>DELETE /refreshes/\<refreshId>
+## <a name="delete-refreshesrefreshid"></a>Elimina/refreshes/\<refreshId>
 
 Per annullare un'operazione di aggiornamento in corso, usare il verbo DELETE sull'ID aggiornamento.
 
@@ -218,7 +217,7 @@ Nell'esempio di codice viene usata l'autenticazione basata su [entità servizio]
 Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md) per altre informazioni su come configurare un'entità servizio e assegnare le autorizzazioni necessarie in Azure Analysis Services. Dopo aver completato i passaggi, eseguire i passaggi aggiuntivi seguenti:
 
 1.    Nell'esempio di codice trovare **stringa Authority =...**, sostituire **Common** con l'ID tenant dell'organizzazione.
-2.    Aggiungere o rimuovere il commento in modo che la classe ClientCredential venga usata per creare un'istanza dell'oggetto cred. Assicurarsi che l'accesso ai valori \<App ID> e \<App Key> sia eseguito in modo sicuro o usare l'autenticazione basata su certificato per le entità servizio.
+2.    Aggiungere o rimuovere il commento in modo che la classe ClientCredential venga usata per creare un'istanza dell'oggetto cred. Verificare \<App ID> che i \<App Key> valori e siano accessibili in modo sicuro o usare l'autenticazione basata su certificati per le entità servizio.
 3.    Eseguire l'esempio.
 
 

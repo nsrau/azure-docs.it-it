@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562b551bc8a46a45135bf6a9a8e328b4b0e74f98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 182f51a150c2ef944b0104b73c63028e915c1a4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80048254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728334"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
@@ -134,7 +133,7 @@ Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di P
    Connect-AzureAD
    ```
 
-1. Configurare le impostazioni di scadenza usare il cmdlet New-AzureADMSGroupLifecyclePolicy per impostare la durata di tutti i gruppi di Office 365 nell'organizzazione Azure AD su 365 giorni. Le notifiche di rinnovo per i gruppi di Office 365 senza proprietario verrannoemailaddress@contoso.cominviate a' '
+1. Configurare le impostazioni di scadenza usare il cmdlet New-AzureADMSGroupLifecyclePolicy per impostare la durata di tutti i gruppi di Office 365 nell'organizzazione Azure AD su 365 giorni. Le notifiche di rinnovo per i gruppi di Office 365 senza proprietario verranno inviate a' emailaddress@contoso.com '
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -144,7 +143,7 @@ Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di P
 
    - ID dei criteri
    - La durata di tutti i gruppi di Office 365 nell'organizzazione Azure AD è impostata su 365 giorni
-   - Le notifiche di rinnovo per i gruppi di Office 365 senza proprietario verrannoemailaddress@contoso.cominviate a' .'
+   - Le notifiche di rinnovo per i gruppi di Office 365 senza proprietario verranno inviate a' emailaddress@contoso.com .'
   
    ```powershell
    Get-AzureADMSGroupLifecyclePolicy
