@@ -4,15 +4,15 @@ description: Aumento del limite delle connessioni di rete
 author: anavinahar
 ms.author: anavin
 ms.date: 01/23/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9b5c7043b06172c2d4931ca1c3fd3ac5d0e80883
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76547806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764266"
 ---
 # <a name="networking-limit-increase"></a>Aumento del limite delle connessioni di rete
 
@@ -69,7 +69,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 Seguire queste istruzioni per creare una richiesta di supporto usando l'utilizzo e la **quota** nella portale di Azure.
 
-1. Da https://portal.azure.comcercare e selezionare le **sottoscrizioni**.
+1. Da https://portal.azure.com cercare e selezionare le **sottoscrizioni**.
 
     ![Sottoscrizioni](./media/networking-quota-request/search-for-suscriptions.png)
 
@@ -77,7 +77,7 @@ Seguire queste istruzioni per creare una richiesta di supporto usando l'utilizzo
 
     ![Seleziona sottoscrizione](./media/networking-quota-request/select-subscription-change-quota.png)
 
-1. Selezionare **Utilizzo e quote**.
+1. Selezionare **utilizzo e quote**
 
     ![Selezionare Utilizzo e quote](./media/networking-quota-request/select-usage-plus-quotas.png)
 

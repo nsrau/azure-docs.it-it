@@ -1,24 +1,24 @@
 ---
 title: Ottenere informazioni su un modello convertito
-description: Descrizione di tutti i parametri di conversione del modello
+description: Descrizione di tutti i parametri per la conversione dei modelli
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681519"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805001"
 ---
 # <a name="get-information-about-a-converted-model"></a>Ottenere informazioni su un modello convertito
 
-Il file arrAsset prodotto dal servizio di conversione è destinato esclusivamente all'utilizzo da parte del servizio di rendering. In alcuni casi, tuttavia, è possibile che si desideri accedere alle informazioni su un modello senza avviare una sessione di rendering. Pertanto, il servizio di conversione inserisce un file JSON accanto al file arrAsset nel contenitore di output. Se, ad esempio, un `buggy.gltf` file viene convertito, il contenitore di output conterrà un `buggy.info.json` file denominato accanto all' `buggy.arrAsset`asset convertito. Contiene informazioni sul modello di origine, sul modello convertito e sulla conversione stessa.
+Il file arrAsset prodotto dal servizio di conversione è destinato esclusivamente all'utilizzo da parte del servizio di rendering. In alcuni casi, tuttavia, è possibile che si desideri accedere alle informazioni su un modello senza avviare una sessione di rendering. Pertanto, il servizio di conversione inserisce un file JSON accanto al file arrAsset nel contenitore di output. Se, ad esempio, un file `buggy.gltf` viene convertito, il contenitore di output conterrà un file denominato `buggy.info.json` accanto all'asset convertito `buggy.arrAsset` . Contiene informazioni sul modello di origine, sul modello convertito e sulla conversione stessa.
 
 ## <a name="example-info-file"></a>File di *informazioni* di esempio
 
-Di seguito è riportato un esempio di file di *informazioni* prodotto dalla `buggy.gltf`conversione di un file denominato:
+Di seguito è riportato un esempio di file di *informazioni* prodotto dalla conversione di un file denominato `buggy.gltf` :
 
 ```JSON
 {
@@ -100,7 +100,7 @@ In questa sezione vengono registrate le informazioni sul formato del file di ori
 In questa sezione vengono fornite informazioni sulla scena di origine. Spesso si verificano discrepanze tra i valori di questa sezione e i valori equivalenti nello strumento che ha creato il modello di origine. Queste differenze sono previste perché il modello viene modificato durante i passaggi di esportazione e conversione.
 
 * `numMeshes`: Numero di parti mesh, in cui ogni parte può fare riferimento a un singolo materiale.
-* `numFaces`: Numero totale di _triangoli_ nell'intero modello. Si noti che la mesh viene triangolata durante la conversione.
+* `numFaces`: Numero totale di _triangoli_ nell'intero modello. Si noti che la mesh viene triangolata durante la conversione. Questo numero contribuisce al limite del poligono nelle [dimensioni della macchina virtuale per il rendering standard](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: Numero totale di vertici nell'intero modello.
 * `numMaterial`: Numero totale di materiali nell'intero modello.
 * `numFacesSmallestMesh`: Numero di triangoli nella mesh più piccola del modello.

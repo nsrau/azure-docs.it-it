@@ -3,23 +3,23 @@ title: Azure Active Directory Application Proxy e Qlik Sense | Microsoft Docs
 description: Attivare il proxy di applicazione nel portale di Azure e installare i connettori per il proxy inverso.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edf63da0fd09f829f936b54eb088c34dfe029a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9696d48db7d051f3a8bdf16f93438fb71f025dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79036989"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760049"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy e Qlik Sense 
 Azure Active Directory Application Proxy e Qlik Sense hanno collaborato assieme per permettere di usare con facilità l'Application Proxy e fornire l'accesso remoto alla distribuzione Qlik Sense.  
@@ -38,7 +38,7 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 
 
 1. Accedere al portale di Azure come amministratore globale. 
-2. Selezionare **Azure Active Directory** > **applicazioni aziendali**. 
+2. Selezionare **Azure Active Directory**  >  **applicazioni aziendali**. 
 3. Selezionare **Aggiungi** nella parte superiore del pannello. 
 4. Selezionare **Applicazione locale**. 
 5. Compilare i campi obbligatori con le informazioni della nuova app. Usare le seguenti linee guida per le impostazioni: 
@@ -59,7 +59,7 @@ Seguire gli stessi passaggi usati per l'applicazione n°1, con le eccezioni segu
 ## <a name="testing"></a>Test 
 L'applicazione è ora pronta per il test. Accedere all'URL esterno usato per pubblicare Qlik Sense nell'applicazione n°1 e accedere come utente assegnato a entrambe le applicazioni.  
 
-## <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 Per altre informazioni sulla pubblicazione di Qlik Sense con il proxy di applicazione, vedere gli articoli della community di Qlik seguenti: 
 - [Azure AD con autenticazione integrata di Windows tramite una delega vincolata Kerberos con Qlik Sense](https://community.qlik.com/docs/DOC-20183)
 - [Integrazione di Qlik Sense con Azure AD proxy di applicazione](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)

@@ -6,14 +6,14 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75456686"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753261"
 ---
-# <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Archiviare e gestire i valori usando le variabili in app per la logica di Azure
+# <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Archiviare e gestire i valori usando le variabili in App per la logica di Azure
 
 Questo articolo illustra come creare e usare le variabili usate per archiviare i valori nell'app per la logica. Le variabili, ad esempio, consentono di tenere traccia del numero di esecuzioni di un ciclo. Per eseguire l'iterazione di una matrice o controllare una matrice per un elemento specifico, è possibile usare una variabile per fare riferimento al numero di indice per ogni elemento della matrice.
 
@@ -22,7 +22,7 @@ Questo articolo illustra come creare e usare le variabili usate per archiviare i
 * Ottenere o fare riferimento al valore della variabile.
 * Aumentare o diminuire la variabile di un valore costante, noto anche come *incremento* e *decremento*.
 * Assegnare un valore diverso alla variabile.
-* Inserire o *aggiungere* il valore della variabile come ultima volta in una stringa o matrice.
+* Inserire o *aggiungere* il valore della variabile come ultimo elemento in una stringa o in una matrice.
 
 Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per la logica che le crea. Inoltre persistono in tutte le iterazioni di ciclo all'interno di un'istanza dell'app per la logica. Quando si fa riferimento a una variabile, usare il nome della variabile come token, non il nome dell'azione, che rappresenta il modo consueto per fare riferimento agli output di un'azione.
 
@@ -57,7 +57,7 @@ Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per 
 
      ![Aggiungere un'azione](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato**+** il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
+   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato il segno più ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca di **Scegliere un'azione** immettere `variables` come filtro. Nell'elenco azioni selezionare **Inizializza variabile**.
 
@@ -68,7 +68,7 @@ Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per 
    | Proprietà | Obbligatoria | valore |  Descrizione |
    |----------|----------|-------|--------------|
    | **Nome** | Sì | <*nome variabile*> | Nome della variabile da incrementare |
-   | **Type** | Sì | <*tipo di variabile*> | Tipo di dati per la variabile |
+   | **Tipo** | Sì | <*tipo di variabile*> | Tipo di dati per la variabile |
    | **Valore** | No | <*valore iniziale*> | Valore iniziale della variabile <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore iniziale della variabile. |
    |||||
 
@@ -76,7 +76,7 @@ Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per 
 
    ![Inizializzare una variabile](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-1. Continuare quindi ad aggiungere le azioni desiderate. Al termine, fare clic su **Salva**nella barra degli strumenti della finestra di progettazione.
+1. Continuare quindi ad aggiungere le azioni desiderate. Al termine, sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
 Se si passa dalla finestra di progettazione all'editor della visualizzazione codice, ecco il modo in cui viene visualizzata l'azione **Inizializza variabile** nella definizione dell'app per la logica, che è nel formato JavaScript Object Notation (JSON):
 
@@ -97,7 +97,7 @@ Se si passa dalla finestra di progettazione all'editor della visualizzazione cod
 ```
 
 > [!NOTE]
-> Sebbene l'azione **Inizializza variabile** includa `variables` una sezione strutturata come matrice, l'azione può creare una sola variabile alla volta. Ogni nuova variabile richiede una singola azione di **inizializzazione della variabile** .
+> Sebbene l'azione **Inizializza variabile** includa una `variables` sezione strutturata come matrice, l'azione può creare una sola variabile alla volta. Ogni nuova variabile richiede una singola azione di **inizializzazione della variabile** .
 
 Ecco alcuni esempi per altri tipi di variabili:
 
@@ -179,7 +179,7 @@ Ecco alcuni esempi per altri tipi di variabili:
 
 Per recuperare o fare riferimento al contenuto di una variabile è anche possibile usare la [funzione variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) in Logic App Designer (Progettazione app per la logica) e l'editor di visualizzazione del codice. Per fare riferimento a una variabile, usare il nome della variabile come token, non il nome dell'azione, che è il modo usuale per fare riferimento agli output di un'azione.
 
-Questa espressione, ad esempio, ottiene gli elementi dalla variabile di matrice [creata in precedenza in questo articolo](#append-value) tramite `variables()` la funzione. La `string()` funzione restituisce il contenuto della variabile in formato stringa:`"1, 2, 3, red"`
+Questa espressione, ad esempio, ottiene gli elementi dalla variabile di matrice [creata in precedenza in questo articolo](#append-value) tramite la `variables()` funzione. La `string()` funzione restituisce il contenuto della variabile in formato stringa:`"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -215,7 +215,7 @@ Per aumentare o *incrementare* una variabile con un valore costante, aggiungere 
 
    ![Esempio di un valore di incremento](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
-1. Al termine, fare clic su **Salva**nella barra degli strumenti della finestra di progettazione.
+1. Al termine, sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
 Se si passa dalla finestra di progettazione all'editor della visualizzazione codice, ecco il modo in cui viene visualizzata l'azione **incrementa variabile** all'interno della definizione dell'app per la logica, in formato JSON:
 
@@ -247,7 +247,7 @@ Le variabili vengono comunemente usate per contare il numero di volte in cui vie
 
    ![Cercare e includere allegati](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-1. Aggiungere l'azione [**Initialize variable**](#create-variable) (Inizializzare una variabile). Creare una variabile di tipo `Count` integer denominata con un valore iniziale pari a zero.
+1. Aggiungere l'azione [**Initialize variable**](#create-variable) (Inizializzare una variabile). Creare una variabile di tipo integer denominata `Count` con un valore iniziale pari a zero.
 
    ![Aggiungere un'azione per "Initialize variable" (Inizializzare una variabile)](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 

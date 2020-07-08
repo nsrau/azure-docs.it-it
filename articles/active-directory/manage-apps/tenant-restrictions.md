@@ -3,8 +3,8 @@ title: Uso delle restrizioni del tenant per gestire l'accesso alle app SaaS - Az
 description: Come usare le restrizioni del tenant per stabilire quali utenti possono accedere alle app in base al tenant Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680128"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763024"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso delle restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -74,7 +74,7 @@ Per ogni richiesta in ingresso a login.microsoftonline.com, login.microsoft.com 
 
 Le intestazioni devono includere gli elementi seguenti:
 
-- Per *Restrict-Access-To-Tenants*, usare un valore di \<elenco tenant consentiti\>, ovvero un elenco delimitato da virgole contenente i tenant a cui gli utenti possono accedere. È possibile usare qualsiasi dominio registrato con un tenant per individuare il tenant nell'elenco. Ad esempio, per consentire l'accesso ai tenant Contoso e Fabrikam, la coppia nome/valore è simile a questa: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- Per *Restrict-Access-to-Tenants*, usare un valore di \<permitted tenant list\> , ovvero un elenco delimitato da virgole di tenant a cui si vuole consentire agli utenti di accedere. È possibile usare qualsiasi dominio registrato con un tenant per individuare il tenant nell'elenco. Ad esempio, per consentire l'accesso ai tenant Contoso e Fabrikam, la coppia nome/valore è simile a questa: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
 
 - Per *Restrict-Access-Context*, usare un valore ID di directory singola, dichiarando quale tenant imposta Restrizioni del tenant. Ad esempio, per dichiarare Contoso come tenant per l'impostazione dei criteri di Restrizioni del tenant, la coppia nome/valore è simile a questa: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
@@ -155,7 +155,7 @@ Fiddler è un proxy di debug Web gratuito, utilizzabile per acquisire e modifica
 
    1. Nello strumento Fiddler Web Debugger, selezionare il menu **Rules** (Regole) e selezionare **Customize Rules…** (Personalizza regole…) per aprire il file CustomRules.
 
-   2. Aggiungere le righe seguenti all'inizio della funzione `OnBeforeRequest`. Sostituire il \<dominio del tenant\> con un dominio registrato con il proprio tenant, ad esempio `contoso.onmicrosoft.com`. Sostituire \<l'ID della directory\> con l'identificatore GUID di Azure AD del proprio tenant.
+   2. Aggiungere le righe seguenti all'inizio della funzione `OnBeforeRequest`. Sostituire \<tenant domain\> con un dominio registrato con il tenant (ad esempio, `contoso.onmicrosoft.com` ). Sostituire \<directory ID\> con l'identificatore GUID Azure ad del tenant.
 
       ```JScript.NET
       if (

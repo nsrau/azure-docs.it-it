@@ -2,25 +2,25 @@
 title: Problemi di accesso a Azure AD app della raccolta configurata per SSO | Microsoft Docs
 description: Come risolvere i problemi relativi a un'applicazione raccolta Azure AD configurata per la Single Sign-On delle password.
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fd17d9e066be6a1abff5165436a09b8921184e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6eebde3a7c6163b7faf92be193fe442cd5b74d2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68381300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759114"
 ---
 # <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Problemi di accesso con un'app della raccolta Azure AD configurata per SSO
 
@@ -47,7 +47,7 @@ I browser seguenti supportano l'accesso SSO basato su password:
 
 ## <a name="install-the-access-panel-browser-extension"></a>Installare l'estensione del browser per il pannello di accesso
 
-A tale scopo, seguire questa procedura:
+Attenersi ai passaggi descritti di seguito.
 
 1. Aprire il [Pannello di accesso](https://myapps.microsoft.com) in un browser supportato e accedere come utente in Azure ad.
 
@@ -95,7 +95,7 @@ Per configurare un'app dalla raccolta di Azure AD, è necessario eseguire queste
 
 ### <a name="add-the-app-from-the-azure-ad-gallery"></a>Aggiungere l'app dalla raccolta di Azure AD
 
-A tale scopo, seguire questa procedura:
+Attenersi ai passaggi descritti di seguito.
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e accedere come amministratore globale o coamministratore.
 
@@ -119,7 +119,7 @@ A tale scopo, seguire questa procedura:
 
 ### <a name="configure-the-app-for-password-sso"></a>Configurare l'app per la password SSO
 
-A tale scopo, seguire questa procedura:
+Attenersi ai passaggi descritti di seguito.
 
 1. Aprire il [portale di Azure](https://portal.azure.com/) e accedere come amministratore globale o coamministratore.
 

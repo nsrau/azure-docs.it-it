@@ -7,17 +7,17 @@ author: adamabmsft
 manager: mtillman
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ec9a4daad139a4930174ba9e3445e1cda1f8c54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461311"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764044"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -387,7 +387,7 @@ Questo esempio mostra cosa si può prevedere se è stato seguito questo articolo
 
 ### <a name="template-representation-of-our-example-dashboard"></a>Rappresentazione basata su modello del dashboard di esempio
 
-La versione del modello del dashboard ha definito tre parametri `virtualMachineName`, `virtualMachineResourceGroup`, e. `dashboardName`  I parametri permettono di fare in modo che il dashboard punti a una macchina virtuale di Azure diversa a ogni distribuzione. Questo dashboard può essere configurato e distribuito a livello di codice per puntare a qualsiasi macchina virtuale di Azure. Per testare questa funzionalità, copiare il modello seguente e incollarlo nella [pagina di distribuzione del modello portale di Azure](https://portal.azure.com/#create/Microsoft.Template).
+La versione del modello del dashboard ha definito tre parametri `virtualMachineName` , `virtualMachineResourceGroup` , e `dashboardName` .  I parametri permettono di fare in modo che il dashboard punti a una macchina virtuale di Azure diversa a ogni distribuzione. Questo dashboard può essere configurato e distribuito a livello di codice per puntare a qualsiasi macchina virtuale di Azure. Per testare questa funzionalità, copiare il modello seguente e incollarlo nella [pagina di distribuzione del modello portale di Azure](https://portal.azure.com/#create/Microsoft.Template).
 
 Questo esempio distribuisce solo un dashboard, ma il linguaggio del modello permette di distribuire più risorse e di generare un bundle di uno o più dashboard insieme.
 

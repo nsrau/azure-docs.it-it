@@ -2,21 +2,21 @@
 title: Configurare la modalità con cui gli utenti finali forniscono il consenso alle applicazioni usando Azure AD
 description: Di seguito viene descritto come gestire la modalità e le tempistiche con cui gli utenti possono fornire il consenso alle applicazioni che avranno accesso ai dati dell'organizzazione.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0a508e52189938447ea6fc1928d441d81deab392
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 0c9844d5e3f65dba5e51170367cfd16715a08883
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763466"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurare la modalità con cui gli utenti finali forniscono il consenso alle applicazioni
 
@@ -49,7 +49,7 @@ Per configurare le impostazioni di consenso utente tramite il portale di Azure:
 1. In **User consent for applications** (Consenso utente per le applicazioni) selezionare l'impostazione di consenso che si intende configurare per tutti gli utenti.
 1. Per salvare le impostazioni, fare clic su **Save** (Salva).
 
-![Impostazioni per il consenso utente](./media/configure-user-consent/setting-for-all-users.png)
+:::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Impostazioni per il consenso utente":::
 
 > [!TIP]
 > Si consideri [l'abilitazione del flusso di lavoro di consenso amministratore](configure-admin-consent-workflow.md) per consentire agli utenti di richiedere all'amministratore la revisione e l'approvazione di un'applicazione per la quale l'utente non è autorizzato a fornire il consenso, ad esempio quando il consenso dell'utente è stato disabilitato o quando un'applicazione richiede le autorizzazioni che l'utente non è autorizzato a concedere.
@@ -102,7 +102,7 @@ Le classificazioni delle autorizzazioni consentono di identificare l'effetto del
 
 In questo esempio è stato classificato il set minimo di autorizzazioni necessarie per Single Sign-On:
 
-![Classificazioni delle autorizzazioni](./media/configure-user-consent/permission-classifications.png)
+:::image type="content" source="media/configure-user-consent/permission-classifications.png" alt-text="Classificazioni delle autorizzazioni":::
 
 > [!TIP]
 > Per l'API Microsoft Graph, le autorizzazioni minime necessarie per eseguire Single Sign-on di base sono `openid`, `profile`, `User.Read` e `offline_access`. Con queste autorizzazioni un'app può leggere i dettagli del profilo dell'utente che ha eseguito l'accesso e può gestire l'accesso anche quando l'utente non usa più l'app.
@@ -192,7 +192,7 @@ I proprietari dei gruppi possono autorizzare le applicazioni, ad esempio quelle 
 
 In questo esempio, tutti i proprietari del gruppo possono fornire il consenso alle app che accedono ai dati dei gruppi:
 
-![Classificazioni delle autorizzazioni](./media/configure-user-consent/group-owner-consent.png)
+:::image type="content" source="media/configure-user-consent/group-owner-consent.png" alt-text="Impostazioni di consenso del proprietario del gruppo":::
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Configurare il consenso del proprietario del gruppo usando PowerShell
 

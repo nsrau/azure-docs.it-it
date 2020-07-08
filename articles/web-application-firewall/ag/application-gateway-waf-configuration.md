@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77526791"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84752480"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limiti ed elenchi di esclusione delle dimensioni delle richieste del Web Application Firewall
 
@@ -31,7 +31,6 @@ Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione in bas
 * Il nome dell'attributo della richiesta (args) può essere aggiunto come elemento di esclusione, ad esempio:
 
    * Nome campo modulo
-   * Entità XML
    * Entità JSON
    * Argomenti della stringa di query dell'URL
 
@@ -82,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Quindi, se l' `http://www.contoso.com/?user%281%29=fdafdasfda` URL viene passato a WAF, non valuterà la stringa **fdafdasfda**, ma valuterà comunque il nome del parametro **User %281 %29**. 
+Quindi, se l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` viene passato a WAF, non valuterà la stringa **fdafdasfda**, ma valuterà comunque il nome del parametro **User %281 %29**. 
 
 ## <a name="waf-request-size-limits"></a>Limiti di dimensioni di richiesta WAF
 
@@ -103,4 +102,4 @@ Web application firewall offre anche una funzione configurabile per attivare o d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato le impostazioni di WAF, viene descritto come visualizzare i log WAF. Per altre informazioni, vedere [diagnostica del gateway applicazione](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+Dopo aver configurato le impostazioni di WAF, viene descritto come visualizzare i log WAF. Per altre informazioni, vedere [Diagnostica del gateway applicazione](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).

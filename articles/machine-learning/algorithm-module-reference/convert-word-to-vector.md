@@ -1,5 +1,5 @@
 ---
-title: Convert Word to Vector
+title: 'Converti Word in vector: riferimento al modulo'
 titleSuffix: Azure Machine Learning
 description: Informazioni su come usare tre modelli Word2Vec forniti per estrarre un vocabolario e i corrispondenti incorporamenti di parole da un corpus di testo.
 services: machine-learning
@@ -9,72 +9,79 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: e0e796b75690bcacc6be8ef29b8b490c7faa40af
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 21b207ece1a2a7fd6f218716912d4c4d2c2f1ee2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853653"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753882"
 ---
-# <a name="convert-word-to-vector"></a>Convert Word to Vector
+# <a name="convert-word-to-vector-module"></a>Converti Word in modulo Vector
 
-Questo articolo descrive come usare il modulo **Convert Word to Vector** nella finestra di progettazione di Azure Machine Learning (anteprima) per applicare diversi modelli Word2Vec (Word2Vec, FastText, modello Glove con training preliminare) sul corpus di testo specificato come input e generare un vocabolario con incorporamenti di parole.
+Questo articolo descrive come usare il modulo Convert Word to Vector in Azure Machine Learning Designer (Preview) per eseguire queste attività:
 
-Questo modulo usa la libreria Gensim. Per ulteriori informazioni su Gensim, vedere il [sito Web ufficiale](https://radimrehurek.com/gensim/apiref.html) che include le esercitazioni e la spiegazione degli algoritmi.
+- Applicare diversi modelli Word2Vec (Word2Vec, FastText, guanto con training) sul corpus di testo specificato come input.
+- Genera un vocabolario con incorporamenti di Word.
 
-### <a name="more-about-convert-word-to-vector"></a>Altre informazioni su Convert Word to Vector
+Questo modulo usa la libreria Gensim. Per ulteriori informazioni su Gensim, vedere il [sito web ufficiale](https://radimrehurek.com/gensim/apiref.html), che include le esercitazioni e una spiegazione degli algoritmi.
 
-In generale, la conversione di parole in vettori, o la vettorializzazione delle parole, è un processo di elaborazione del linguaggio naturale, che usa modelli o tecniche di linguaggio per eseguire il mapping di parole nello spazio vettoriale, ovvero rappresentare ogni parola in base a un vettore di numeri reali. Inoltre, consente alle parole con significati simili di avere rappresentazioni simili.
+### <a name="more-about-converting-words-to-vectors"></a>Altre informazioni sulla conversione di parole in vettori
 
-Gli incorporamenti di Word possono essere usati come input iniziale per le attività NLP a valle, ad esempio la classificazione del testo, l'analisi del sentiment e così via.
+In generale, la conversione di parole in vettori, o di vettori di parole, è un processo di elaborazione del linguaggio naturale (PNL). Il processo usa modelli di linguaggio o tecniche per eseguire il mapping di parole nello spazio vettoriale, ovvero per rappresentare ogni parola da un vettore di numeri reali. Nel frattempo, consente alle parole con significati simili avere rappresentazioni simili.
 
-Tra le varie tecnologie di incorporamento delle parole, in questo modulo sono stati implementati tre metodi ampiamente usati, tra cui due modelli con training online, Word2Vec e FastText, e un modello con training preliminare, glove-wiki-gigaword-100. I modelli online vengono sottoposti a training sui dati di input, mentre il training preliminare avviene offline su un corpus di testo di dimensioni maggiori, come Wikipedia o Google News. In genere contiene circa 100 miliardi parole, per cui il loro incorporamento rimane costante durante la vettorizzazione. I modelli di parole con training preliminare offrono vantaggi come tempi di training ridotti, codifica di vettori di parole migliori e prestazioni complessive migliorate.
+Gli incorporamenti di Word possono essere usati come input iniziale per le attività di PNL a valle, ad esempio la classificazione del testo e l'analisi dei sentimenti.
 
-+ Word2Vec è una delle tecniche più diffuse per apprendere gli incorporamenti di parole con la rete neurale superficiale. La teoria viene discussa nel seguente paper (in inglese), disponibile per il download in formato PDF: [Efficient Estimation of Word Representations in Vector Space, Mikolov, Tomas, et al](https://arxiv.org/pdf/1301.3781.pdf). L'implementazione in questo modulo si basa sulla [libreria Gensim per Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html).
+Tra le varie tecnologie di incorporamento di Word, in questo modulo sono stati implementati tre metodi ampiamente usati. Due, Word2Vec e FastText, sono modelli di training online. L'altro è un modello pretrainato, Glove-wiki-gigaword-100. 
 
-+ La teoria FastText è illustrata nel paper seguente (in inglese), disponibile per il download in formato PDF: [Enriching Word Vectors with Subword Information, Bojanowski, Piotr, et al](https://arxiv.org/pdf/1607.04606.pdf). L'implementazione in questo modulo si basa sulla [libreria Gensim per FastText](https://radimrehurek.com/gensim/models/fasttext.html).
+I modelli di training online vengono sottoposti a training sui dati di input. I modelli con training preliminare vengono sottoposti a training offline in un corpus di testo di dimensioni maggiori, ad esempio Wikipedia, Google News, che in genere contiene circa 100 miliardi parole. L'incorporamento delle parole rimane costante durante la vettorizzazione di parole. I modelli di Word con training avanzato offrono vantaggi, ad esempio tempi di training ridotti, codificati per vettori di parole migliori e miglioramento delle prestazioni complessive.
 
-+ La raccolta glove-wiki-gigaword-100 per modelli Glove con training preliminare è basata sul corpus di testo di Wikipedia, con 5,6 miliardi di token e 400.000 termini in minuscolo e disponibile per il download in formato PDF (in inglese): [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/pubs/glove.pdf).
+Di seguito sono riportate alcune informazioni sui metodi:
+
++ Word2Vec è una delle tecniche più diffuse per apprendere gli incorporamenti di Word usando una rete neurale superficiale. La teoria è illustrata in questo documento, disponibile come download PDF: [stima efficiente delle rappresentazioni di Word nello spazio vettoriale, di Mikolov, Tomas, et al](https://arxiv.org/pdf/1301.3781.pdf). L'implementazione in questo modulo si basa sulla [libreria Gensim per Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html).
+
++ La teoria FastText è illustrata in questo documento, disponibile come download PDF: [arricchimento di vettori di Word con informazioni sulle sottoparole, da Bojanowski, Piotr, et al](https://arxiv.org/pdf/1607.04606.pdf). L'implementazione in questo modulo si basa sulla [libreria Gensim per FastText](https://radimrehurek.com/gensim/models/fasttext.html).
+
++ Il modello con training con il guanto è Glove-wiki-gigaword-100. Si tratta di una raccolta di vettori sottoposti a training in base a un corpus di testo di Wikipedia, che contiene i token 5,6 miliardi e 400.000 parole di vocabolario non incluse nel caso. È disponibile un download PDF: [GloVe: vettori globali per la rappresentazione di Word](https://nlp.stanford.edu/pubs/glove.pdf).
 
 ## <a name="how-to-configure-convert-word-to-vector"></a>Come configurare Convert Word to Vector
 
-Questo modulo richiede un set di dati contenente una colonna di testo (meglio se pre-elaborato).
+Questo modulo richiede un set di dati contenente una colonna di testo. Il testo pre-elaborato è migliore.
 
 1. Aggiungere il modulo **Convert Word to Vector** alla pipeline.
 
-2. Come input per il modulo, fornire un set di dati contenente una o più colonne di testo.
+2. Come input per il modulo, fornire un set di dati che contenga una o più colonne di testo.
 
-3. Per **Target column** (Colonna di destinazione), scegliere solo una colonna contenente il testo da elaborare.
+3. Per **colonna di destinazione**scegliere solo una colonna contenente il testo da elaborare.
 
-    In generale, poiché questo modulo crea un vocabolario a partire dal testo, il contenuto varia a seconda delle colonne. Questo comporta un contenuto del vocabolario diverso, pertanto il modulo accetta solo una colonna di destinazione.
+    Poiché questo modulo crea un vocabolario da testo, il contenuto delle colonne è diverso, il che comporta un contenuto del vocabolario diverso. Per questo motivo il modulo accetta solo una colonna di destinazione.
 
-4. Per **Word2Vec strategy** (Strategia Word2Vec), scegliere tra `GloVe pretrained English Model`, `Gensim Word2Vec` e `Gensim FastText`.
+4. Per la **strategia Word2Vec**, scegliere da **GloVe pretrained English Model**, **Gensim Word2Vec**e **Gensim FastText**.
 
-5. Se **Word2Vec strategy** è `Gensim Word2Vec` oppure `Gensim FastText`:
+5. Se la **strategia Word2Vec** è **Gensim Word2Vec** o **Gensim FastText**:
 
-    + **Word2Vec Training Algorithm** (Algoritmo di training Word2Vec). Scegliere tra `Skip_gram` e `CBOW`. La differenza viene illustrata nel [paper](https://arxiv.org/pdf/1301.3781.pdf) originale.
+    + Per l' **algoritmo di training Word2Vec**, scegliere tra **Skip_gram** e **CBOW**. La differenza viene introdotta nel [documento originale (PDF)](https://arxiv.org/pdf/1301.3781.pdf).
 
-        Il metodo predefinito è `Skip_gram`.
+        Il metodo predefinito è **Skip_gram**.
 
-    + **Length of word embedding** (Lunghezza dell'incorporamento di parole). Specificare la dimensionalità dei vettori di parole. Corrisponde al parametro `size` in Gensim.
+    + Per la **lunghezza dell'incorporamento di Word**, specificare la dimensionalità dei vettori di parole. Questa impostazione corrisponde al `size` parametro in Gensim.
 
-        Il valore embedding_size predefinito è 100.
+        Le dimensioni predefinite di incorporamento sono pari a 100.
 
-    + **Context window size** (Dimensioni finestra di contesto). Specificare la distanza massima tra la parola stimata e la parola corrente. Corrisponde al parametro `window` in Gensim.
+    + In **dimensioni finestra di contesto**specificare la distanza massima tra la parola da stimare e la parola corrente. Questa impostazione corrisponde al `window` parametro in Gensim.
 
-        La dimensione predefinita della finestra è 5.
+        Le dimensioni predefinite della finestra sono pari a 5.
 
-    + **Numero di periodi**. Specificare il numero di periodi (iterazioni) nel corpus. Corrisponde al parametro `iter` in Gensim.
+    + Per **Number of epochs**, specificare il numero di epoche (iterazioni) sul corpus. Questa impostazione corrisponde al `iter` parametro in Gensim.
 
-        Il numero di periodi predefinito è 5.
+        Il numero di Epoch predefinito è 5.
 
-6. Per **Maximum vocabulary size** (Dimensioni massime del vocabolario), specificare il numero massimo di parole nel vocabolario generato.
+6. Per le **dimensioni massime del vocabolario**, specificare il numero massimo di parole nel vocabolario generato.
 
     Se sono presenti più parole univoche, eliminare quelle meno frequenti.
 
-    Il valore predefinito per le dimensioni del vocabolario è 10000.
+    La dimensione predefinita del vocabolario è 10.000.
 
-7. Per **Minimum word count** (Numero minimo di parole), specificare un numero minimo di parole per far sì che il modulo ignori tutte le parole che hanno una frequenza inferiore a tale valore.
+7. Per il **numero minimo di parole**, fornire un numero minimo di parole. Il modulo ignorerà tutte le parole con una frequenza inferiore a questo valore.
 
     Il valore predefinito è 5.
 
@@ -84,17 +91,15 @@ Questo modulo richiede un set di dati contenente una colonna di testo (meglio se
 
 Il modulo ha un output:
 
-+ **Vocabulary with embeddings** (Vocabolario con incorporamenti): contiene il vocabolario generato, insieme all'incorporamento di ogni parola. Una dimensione occupa una colonna.
++ **Vocabolario con incorporamenti**: contiene il vocabolario generato, insieme all'incorporamento di ogni parola. Una dimensione occupa una colonna.
 
-### <a name="result-examples"></a>Esempi di risultati
+L'esempio seguente illustra come funziona il modulo Convert Word to Vector. Questo modulo viene applicato con le impostazioni predefinite al set di dati di Wikipedia SP 500 pre-elaborato fornito in Azure Machine Learning (anteprima).
 
-Per illustrare il funzionamento del modulo **Convert Word to Vector**, l'esempio seguente applica il modulo con le impostazioni predefinite al set di dati Wikipedia SP 500 pre-elaborato fornito in Azure Machine Learning (anteprima).
+### <a name="source-dataset"></a>Set di dati di origine
 
-#### <a name="source-dataset"></a>Set di dati di origine
+Il set di dati contiene una colonna di categoria, insieme al testo completo recuperato da wikipedia. Questa tabella contiene solo alcuni esempi rappresentativi.
 
-Il set di dati contiene una colonna per la categoria e il testo completo recuperato da Wikipedia. Questa tabella contiene solo alcuni esempi rappresentativi.
-
-|text|
+|Text|
 |----------|
 |nasdaq 100 component s p 500 component foundation founder location city apple campus 1 infinite loop street infinite loop cupertino california cupertino california location country united states...|
 |br nasdaq 100 nasdaq 100 component br s p 500 s p 500 component industry computer software foundation br founder charles geschke br john warnock location adobe systems...|
@@ -102,9 +107,9 @@ Il set di dati contiene una colonna per la categoria e il testo completo recuper
 |s p 500 s p 500 component industry conglomerate company conglomerate foundation founder location city fairfield connecticut fairfield connecticut location country usa area...|
 |br s p 500 s p 500 component foundation 1903 founder william s harley br arthur davidson harley davidson founder arthur davidson br walter davidson br william a davidson location...|
 
-#### <a name="output-vocabulary-with-embeddings"></a>Vocabolario di output con incorporamenti
+### <a name="output-vocabulary-with-embeddings"></a>Vocabolario di output con incorporamenti
 
-La tabella seguente contiene l'output di questo modulo accettando il set di dati Wikipedia SP 500 come input. La colonna più a sinistra indica il vocabolario, mentre il vettore di incorporamento è rappresentato dai valori delle colonne rimanenti nella stessa riga.
+La tabella seguente contiene l'output di questo modulo, prendendo come input il set di dati di Wikipedia SP 500. La colonna più a sinistra indica il vocabolario. Il vettore di incorporamento è rappresentato dai valori delle colonne rimanenti nella stessa riga.
 
 |Vocabolario|Dim. incorporamento 0|Dim. incorporamento 1|Dim. incorporamento 2|Dim. incorporamento 3|Dim. incorporamento 4|Dim. incorporamento 5|...|Dim. incorporamento 99|
 |-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
@@ -121,27 +126,27 @@ campus|-0.281835|0.29312|0.106966|-0.031385|0.100777|-0.061452|...|0.05978
 infinite|-0.263074|0.245753|0.07058|-0.164666|0.162857|-0.027345|...|-0.0525
 loop|-0.391421|0.52366|0.141503|-0.105423|0.084503|-0.018424|...|-0.0521
 
-In questo esempio è stato usato il parametro `Gensim Word2Vec` predefinito come **strategia di Word2Vec**, l'**algoritmo di training** è `Skip-gram` e la **lunghezza dell'incorporamento di parole** è 100, quindi sono disponibili 100 colonne di incorporamento.
+In questo esempio è stato usato il valore predefinito **Gensim Word2Vec** per la **strategia Word2Vec**e l' **algoritmo di training** è **Skip-Gram**. La **lunghezza dell'incorporamento di Word** è 100, quindi sono disponibili 100 colonne di incorporamento.
 
 ## <a name="technical-notes"></a>Note tecniche
 
 Questa sezione contiene suggerimenti e risposte alle domande più frequenti.
 
-+ Differenza tra il modello con training online e quello con training preliminare
++ Differenza tra il modello di training online e quello pretrainato:
 
-    In questo **modello Convert Word to Vector** sono state fornite tre diverse strategie: due modelli con training online e un modello con training preliminare. Il modello con training online usa il set di dati di input come dati di training e genera il vocabolario e i vettori di parole durante il training. Il modello con training preliminare, invece, è già stato sottoposto a training con un corpus di testi molto più ampio, tratto ad esempio da Wikipedia o Twitter, per cui il modello con training preliminare è in realtà una raccolta di coppie parola-incorporamento.  
+    In questo modulo Converti Word in Vector sono state fornite tre diverse strategie: due modelli di training online e un modello con training. I modelli di training online usano il set di dati di input come dati di training e generano il vocabolario e i vettori di parole durante il training. Il modello con training preliminare è già stato sottoposto a training da un corpus di testo molto più ampio, ad esempio il testo di Wikipedia o Twitter. Il modello sottoposto a training è in realtà una raccolta di coppie di parole/incorporamento.  
 
-    Se il modello Glove con training preliminare viene scelto come strategia di vettorizzazione delle parole, questo riepiloga un vocabolario dal set di dati di input e genera il vettore di incorporamento per ogni parola a partire dal modello con training preliminare, senza formazione online. L'uso di un modello con training preliminare può ridurre il tempo di training e ottenere prestazioni migliori, soprattutto quando le dimensioni del set di dati di input sono relativamente piccole.
+    Se il modello con training preliminare del guanto viene scelto come strategia di vettorizzazione della parola, viene riepilogato un vocabolario dal set di dati di input e viene generato un vettore di incorporamento per ogni parola dal modello con training preliminare. Senza formazione online, l'uso di un modello con training automatico può ridurre i tempi di training. Offre prestazioni migliori, soprattutto se le dimensioni del set di dati di input sono relativamente ridotte.
 
-+ Dimensioni dell'incorporamento
++ Dimensioni di incorporamento:
 
-    In generale, la lunghezza dell'incorporamento di parole è impostata sull'ordine delle centinaia (ad esempio 100, 200 o 300) per ottenere prestazioni ottimali. Questo perché gli incorporamenti di piccole dimensioni comportano poco spazio per i vettori, il che può causare collisioni tra incorporamenti di parole.  
+    In generale, la lunghezza dell'incorporamento di Word è impostata su un centinaio (ad esempio 100, 200, 300) per ottenere prestazioni ottimali. Il motivo è che una piccola dimensione di incorporamento significa uno spazio vettoriale ridotto, che potrebbe causare conflitti di incorporamento delle parole.  
 
-    Per i modelli con training preliminare, la lunghezza degli incorporamenti di parole è fissa. In questa implementazione, la dimensione di incorporamento di glove-wiki-gigaword-100 è 100.
+    Per i modelli sottoposti a training, la lunghezza degli incorporamenti di Word è fissa. In questa implementazione, la dimensione di incorporamento di Glove-wiki-gigaword-100 è 100.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
 
-Per un elenco degli errori specifici dei moduli di della finestra di progettazione (anteprima), vedere [Codici di errore di Machine Learning](designer-error-codes.md).
+Per un elenco degli errori specifici dei moduli di progettazione (anteprima), vedere [Machine Learning codici di errore](designer-error-codes.md).

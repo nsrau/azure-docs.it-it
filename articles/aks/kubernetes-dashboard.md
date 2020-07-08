@@ -2,36 +2,60 @@
 title: Gestire un cluster del servizio Azure Kubernetes con il dashboard Web
 description: Di seguito sono riportate informazioni su come usare il dashboard dell'interfaccia utente Web Kubernetes incorporato per gestire un cluster del servizio Azure Kubernetes
 services: container-service
+author: mlearned
 ms.topic: article
-ms.date: 10/08/2018
-ms.openlocfilehash: 15fcf765be0a754575713eebcdaa7d68e1c299b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.author: mlearned
+ms.openlocfilehash: 1754e166cd5c5a3d7309bc8c6f6459cdd0852396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77595349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762905"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accesso al dashboard di Kubernetes con il servizio Azure Kubernetes
 
 Kubernetes include un dashboard web che può essere utilizzato per le operazioni di gestione di base. Questo dashboard consente di visualizzare lo stato di integrità di base e le metriche per le applicazioni, creare e distribuire servizi e modificare applicazioni esistenti. Questo articolo spiega come accedere al dashboard di Kubernetes tramite l’interfaccia della riga di comando di Azure e quindi mostra alcune operazioni di base del dashboard.
 
-Per altre informazioni sul dashboard di Kubernetes, vedere [Web UI (Dashboard) (Interfaccia utente Web - Dashboard)][kubernetes-dashboard].
+Per altre informazioni sul dashboard di Kubernetes, vedere [Web UI (Dashboard) (Interfaccia utente Web - Dashboard)][kubernetes-dashboard]. AKS usa la versione 2,0 e successive del Dashboard Open Source.
+
+> [!WARNING]
+> **Il componente aggiuntivo del dashboard AKS è impostato per la deprecazione.** 
+> * Il dashboard Kubernetes è abilitato per impostazione predefinita per i cluster che eseguono una versione Kubernetes inferiore a 1,18.
+> * Il componente aggiuntivo del dashboard verrà disabilitato per impostazione predefinita per tutti i nuovi cluster creati in Kubernetes 1,18 o versione successiva. 
+ > * A partire da Kubernetes 1,19 in anteprima, AKS non supporterà più l'installazione dell'addon gestito di Kube-dashboard. 
+ > * I cluster esistenti con il componente aggiuntivo abilitato non saranno interessati. Gli utenti continueranno a essere in grado di installare manualmente il Dashboard Open Source come software installato dall'utente.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi dettagliati contenuti in questo documento presuppongono che sia stato creato un cluster del servizio Azure Kubernetes e che sia stata stabilita una connessione `kubectl` al cluster. Se è necessario creare un cluster del servizio Azure Kubernetes, vedere la [Guida introduttiva al servizio Azure Kubernetes][aks-quickstart].
+I passaggi descritti in questo documento presuppongono che sia stato creato un cluster AKS e che sia stata stabilita una `kubectl` connessione con il cluster. Se è necessario creare un cluster del servizio Azure Kubernetes, vedere la [Guida introduttiva al servizio Azure Kubernetes][aks-quickstart].
 
-È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessaria anche l'interfaccia della riga di comando di Azure versione 2.6.0 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+
+## <a name="disable-the-kubernetes-dashboard"></a>Disabilitare il dashboard di Kubernetes
+
+Il componente aggiuntivo Kube-dashboard è **abilitato per impostazione predefinita nei cluster precedenti a K8s 1,18**. Il componente aggiuntivo può essere disabilitato eseguendo il comando seguente.
+
+``` azure-cli
+az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
+```
 
 ## <a name="start-the-kubernetes-dashboard"></a>Avviare il dashboard Kubernetes
 
-Usare il comando [az servizio Azure Kubernetes browse][az-aks-browse] per avviare il dashboard di Kubernetes. L'esempio seguente apre il dashboard per il cluster denominato *myAKSCluster* in un gruppo di risorse denominato *myResourceGroup*:
+Per avviare il dashboard di Kubernetes in un cluster, usare il comando [AZ AKS browse][az-aks-browse] . Questo comando richiede l'installazione dell'addon di Kube-dashboard nel cluster, che è incluso per impostazione predefinita nei cluster che eseguono una versione precedente a Kubernetes 1,18.
+
+L'esempio seguente apre il dashboard per il cluster denominato *myAKSCluster* in un gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Questo comando crea un proxy tra il sistema di sviluppo e l'API Kubernetes e apre il dashboard di Kubernetes in un Web browser. Se nel dashboard Kubernetes non si apre un Web browser, copiare e incollare l'indirizzo URL indicato nell'interfaccia della riga di comando di Azure, in genere `http://127.0.0.1:8001`.
+
+> [!NOTE]
+> Se il dashboard non è visibile `http://127.0.0.1:8001` , è possibile indirizzare manualmente agli indirizzi seguenti. I cluster con 1,16 o versioni successive usano HTTPS e richiedono un endpoint separato.
+> * K8s 1,16 o versione successiva:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+> * K8s 1,15 e versioni precedenti:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -62,22 +86,63 @@ You have the following options to sign in to your cluster's dashboard:
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 
 After you choose a method to sign in, the Kubernetes dashboard is displayed. If you chose to use *token* or *skip*, the Kubernetes dashboard will use the permissions of the currently logged in user to access the cluster.
--->
 
 > [!IMPORTANT]
-> Se il cluster del servizio Azure Container utilizza RBAC, è necessario creare un *ClusterRoleBinding* prima di poter accedere correttamente al dashboard. Per impostazione predefinita, il dashboard Kubernetes viene distribuito con accesso in lettura minimo e visualizza errori di accesso di Controllo degli accessi in base al ruolo. Il dashboard Kubernetes attualmente non supporta credenziali specificate dall'utente per determinare il livello di accesso, ma usa i ruoli concessi all'account del servizio. Un amministratore del cluster può scegliere di concedere accesso aggiuntivo all'account del servizio *kubernetes-dashboard*. Questo tuttavia può costituire un vettore per l'escalation dei privilegi. È anche possibile integrare l'autenticazione di Azure Active Directory per fornire un livello di accesso più granulare.
+> If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. The Kubernetes dashboard does not currently support user-provided credentials to determine the level of access, rather it uses the roles granted to the service account. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
 > 
-> Per creare un'associazione, usare il comando [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] . Nell'esempio seguente viene illustrato come creare un'associazione di esempio, tuttavia questo binding di esempio non applica alcun componente di autenticazione aggiuntivo e può causare un utilizzo non sicuro. Il dashboard di Kubernetes è aperto a tutti gli utenti con accesso all'URL. Non esporre pubblicamente il dashboard di Kubernetes.
+> To create a binding, use the [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] command. The following example shows how to create a sample binding, however, this sample binding does not apply any additional authentication components and may lead to insecure use. The Kubernetes dashboard is open to anyone with access to the URL. Do not expose the Kubernetes dashboard publicly.
 >
 > ```console
 > kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 > ```
 > 
-> Per ulteriori informazioni sull'uso dei diversi metodi di autenticazione, consultare il wiki del dashboard di Kubernetes sui [controlli di accesso][dashboard-authentication].
+> For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
+-->
+
+## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>Accedere al dashboard (kubernetes 1.16 +)
+
+> [!IMPORTANT]
+> A partire da [v 1.10.1 del dashboard di Kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) o Kubernetes v 1.16 + non è più possibile usare l'account del servizio "Kubernetes-Dashboard" per recuperare le risorse a causa di una [correzione della sicurezza in tale versione](https://github.com/kubernetes/dashboard/pull/3400). Di conseguenza, le richieste senza informazioni di autenticazione restituiscono un errore 401 non autorizzato. Un bearer token recuperato da un account del servizio può comunque essere usato come in questo [esempio di dashboard Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), ma ciò influisce sul flusso di accesso del componente aggiuntivo del dashboard rispetto alle versioni precedenti.
+>
+>Se si esegue ancora una versione precedente alla 1,16, è comunque possibile concedere le autorizzazioni all'account del servizio "kubernetes-Dashboard", ma questa operazione **non è consigliata**:
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
+
+La schermata iniziale visualizzata richiede un kubeconfig o un token. Entrambe le opzioni richiedono le autorizzazioni per le risorse per visualizzare tali risorse nel dashboard.
+
+![schermata di accesso](./media/kubernetes-dashboard/login.png)
+
+**Usare un kubeconfig**
+
+Per i cluster Azure AD abilitati e non Azure AD abilitati, è possibile passare un kubeconfig. Verificare che i token di accesso siano validi se i token sono scaduti è possibile aggiornare i token tramite kubectl.
+
+1. Impostare il kubeconfig amministratore con`az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
+1. Selezionare `Kubeconfig` e fare clic `Choose kubeconfig file` per aprire il selettore file
+1. Selezionare il file kubeconfig (il valore predefinito è $HOME/.Kube/config)
+1. Fare clic su`Sign In`.
+
+**Usare un token**
+
+1. Per i **cluster non Azure ad abilitati**, eseguire `kubectl config view` e copiare il token associato all'account utente del cluster.
+1. Incollare l'opzione token all'accesso.    
+1. Fare clic su`Sign In`.
+
+Per i cluster Azure AD abilitati, recuperare il token AAD con il comando seguente. Verificare di aver sostituito il gruppo di risorse e il nome del cluster nel comando.
+
+```
+## Update <RESOURCE_GROUP and <AKS_NAME> with your input.
+
+kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROUP>_<AKS_NAME>")].user.auth-provider.config.access-token}'
+```
+
+Una volta completata l'operazione, verrà visualizzata una pagina simile alla seguente.
 
 ![Pagina Panoramica del dashboard Web di Kubernetes](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ## <a name="create-an-application"></a>Creare un'applicazione
+
+Per la procedura seguente è necessario che l'utente disponga delle autorizzazioni per le rispettive risorse. 
 
 Per vedere come il dashboard di Kubernetes può ridurre la complessità delle attività di gestione, è possibile creare un'applicazione. È possibile creare un'applicazione dal dashboard di Kubernetes fornendo input di testo, un file YAML, o tramite una procedura guidata per la grafica.
 

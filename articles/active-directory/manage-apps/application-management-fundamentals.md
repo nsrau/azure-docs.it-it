@@ -3,27 +3,28 @@ title: 'Gestione delle applicazioni: procedure consigliate e consigli | Microsof
 description: Informazioni sulle procedure consigliate e consigli per la gestione delle applicazioni in Azure Active Directory. Informazioni su come usare il provisioning automatico e pubblicare app locali con il proxy di applicazione.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: reference
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6534efb6fcd07ee3b9f3979cabf2feb77496a8b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c633f6d311d052b9f9388a38b17c6459aec4b6cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74085291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760270"
 ---
 # <a name="application-management-best-practices"></a>Procedure consigliate per la gestione delle applicazioni
+
 Questo articolo contiene indicazioni e procedure consigliate per la gestione delle applicazioni in Azure Active Directory (Azure AD), l'uso del provisioning automatico e la pubblicazione di app locali con il proxy di applicazione.
 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>App cloud e consigli Single Sign-On
@@ -33,7 +34,7 @@ Questo articolo contiene indicazioni e procedure consigliate per la gestione del
 | Usa SSO federato basato su SAML  | Quando un'applicazione la supporta, utilizzare SSO federato basato su SAML con Azure AD anziché SSO basato su password e ADFS.  | 
 | Usare SHA-256 per la firma del certificato  | Per impostazione predefinita, Azure AD usa l'algoritmo SHA-256 per firmare la risposta SAML. Usare SHA-256, a meno che l'applicazione non richieda SHA-1 (vedere le [Opzioni di firma del certificato](certificate-signing-options.md) e il [problema di accesso all'applicazione](application-sign-in-problem-application-error.md)).  | 
 | Richiedi assegnazione utente  | Per impostazione predefinita, gli utenti possono accedere alle applicazioni aziendali senza essere loro assegnati. Tuttavia, se l'applicazione espone ruoli o se si desidera che l'applicazione venga visualizzata nel pannello di accesso di un utente, richiedere l'assegnazione dell'utente. (Vedere [le linee guida per gli sviluppatori per l'integrazione di applicazioni](developer-guidance-for-integrating-applications.md)).  | 
-| Distribuire il pannello di accesso app personali agli utenti | Il [Pannello](end-user-experiences.md) di `https://myapps.microsoft.com` accesso è un portale basato sul Web che fornisce agli utenti un singolo punto di ingresso per le applicazioni basate sul cloud assegnate. Con l'aggiunta di funzionalità aggiuntive, ad esempio la gestione dei gruppi e la reimpostazione della password self-service, gli utenti possono trovarle nel pannello di accesso. Vedere [pianificare una distribuzione del pannello di accesso](access-panel-deployment-plan.md).
+| Distribuire il pannello di accesso app personali agli utenti | Il [Pannello](end-user-experiences.md) di accesso `https://myapps.microsoft.com` è un portale basato sul Web che fornisce agli utenti un singolo punto di ingresso per le applicazioni basate sul cloud assegnate. Con l'aggiunta di funzionalità aggiuntive, ad esempio la gestione dei gruppi e la reimpostazione della password self-service, gli utenti possono trovarle nel pannello di accesso. Vedere [pianificare una distribuzione del pannello di accesso](access-panel-deployment-plan.md).
 | USA assegnazione gruppo  | Se incluso nella sottoscrizione, assegnare i gruppi a un'applicazione in modo da poter delegare la gestione degli accessi in corso al proprietario del gruppo. (Vedere [le linee guida per gli sviluppatori per l'integrazione di applicazioni](developer-guidance-for-integrating-applications.md)).   | 
 | Stabilire un processo per la gestione dei certificati | La durata massima di un certificato di firma è di tre anni. Per prevenire o ridurre al minimo le interruzioni dovute alla scadenza di un certificato, usare i ruoli e le liste di distribuzione di posta elettronica per assicurarsi che le notifiche delle modifiche relative ai certificati siano monitorate attentamente. |
 

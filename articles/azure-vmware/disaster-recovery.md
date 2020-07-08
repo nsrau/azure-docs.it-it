@@ -3,18 +3,18 @@ title: Completare un ripristino di emergenza di macchine virtuali
 description: Questo articolo illustra come completare un ripristino di emergenza di macchine virtuali tramite AVS
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 86f823444d4fff3edf8651f4d949c71d2c981ec7
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749944"
 ---
-# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Completare un ripristino di emergenza di macchine virtuali con la soluzione VMWare di Azure
+# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Completare un ripristino di emergenza di macchine virtuali con la soluzione VMware di Azure
 
-Questo articolo contiene il processo per completare un ripristino di emergenza delle macchine virtuali con la soluzione VMWare Hybrid Cloud Extension (HCX) e l'uso di un cloud privato della soluzione VMWare di Azure come sito di ripristino o di destinazione.
+Questo articolo contiene il processo per completare un ripristino di emergenza delle macchine virtuali con la soluzione VMware Hybrid Cloud Extension (HCX) e l'uso di un cloud privato della soluzione VMware di Azure come sito di ripristino o di destinazione.
 
-VMWare HCX fornisce varie operazioni che forniscono controllo e granularità precisi nei criteri di replica. Le operazioni disponibili includono:
+VMware HCX fornisce varie operazioni che forniscono controllo e granularità precisi nei criteri di replica. Le operazioni disponibili includono:
 
 - Reverse: dopo un'emergenza. Reverse consente di rendere il sito B il sito di origine e il sito A in cui si trova la VM protetta.
 
@@ -144,7 +144,7 @@ La replica può essere monitorata nella sezione dei dettagli di ogni macchina vi
 
 ## <a name="disaster-recovery-plan-automation"></a>Automazione del piano di ripristino di emergenza
 
-VMWare HCX attualmente non dispone di un meccanismo incorporato per creare e automatizzare un piano di ripristino di emergenza. Questa funzionalità non esiste in HCX. Tuttavia, fornisce un set di API REST, incluse le API per l'operazione di ripristino di emergenza.
+VMware HCX attualmente non dispone di un meccanismo incorporato per creare e automatizzare un piano di ripristino di emergenza. Questa funzionalità non esiste in HCX. Tuttavia, fornisce un set di API REST, incluse le API per l'operazione di ripristino di emergenza.
 
 La specifica API può accedere all'interno di HCX Manager nell'URL.
 

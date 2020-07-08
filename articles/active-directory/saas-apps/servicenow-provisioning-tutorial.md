@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: da62efff5db5c71b087657b0eec93f8dd4702665
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780523"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751495"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Esercitazione: Configurare ServiceNow per il provisioning utenti automatico
 
@@ -54,12 +54,19 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 1. Identificare il nome dell'istanza di ServiceNow. Il nome dell'istanza è disponibile nell'URL usato per accedere a ServiceNow. Nell'esempio seguente il nome dell'istanza è dev35214.
 
-![Istanza di ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![Istanza di ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
 
-    
 2. Ottenere le credenziali per un amministratore in ServiceNow. Passare al profilo utente in ServiceNow e verificare che l'utente disponga del ruolo di amministratore. 
 
-![Ruolo amministratore ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+   ![Ruolo amministratore ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+
+3. Assicurarsi che le impostazioni seguenti siano **disabilitate** in ServiceNow:
+
+   1. Selezionare **sicurezza di sistema**  >  **impostazioni di sicurezza elevata**  >  **richiedere l'autenticazione di base per le richieste di schema in ingresso**.
+   2. Selezione **proprietà di sistema**  >  i**servizi Web**  >  **richiedono l'autorizzazione di base per le richieste SOAP in ingresso**.
+     
+   > [!IMPORTANT]
+   > Se queste impostazioni sono *abilitate*, il motore di provisioning non riuscirà a comunicare con ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere ServiceNow dalla raccolta di applicazioni di Azure AD
 
@@ -67,11 +74,11 @@ Aggiungere ServiceNow dalla raccolta di applicazioni di Azure AD per iniziare a 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
-Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà effettuato il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà effettuato il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà effettuato il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 * Quando si assegnano utenti e gruppi a ServiceNow, è necessario selezionare un ruolo diverso da **Accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
 
-* Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di implementare a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-servicenow"></a>Passaggio 5. Configurare il provisioning utenti automatico per ServiceNow 
@@ -128,13 +135,13 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni**. Il ciclo di sincronizzazione iniziale richiede più tempo dei cicli successivi, che verranno eseguiti circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. 
+L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni**. Il ciclo di sincronizzazione iniziale richiede più tempo dei cicli successivi, che verranno eseguiti ogni 40 minuti circa quando il servizio di provisioning di Azure AD è in esecuzione. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
-1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato effettuato il provisioning con esito positivo o negativo
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento
+1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
+2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
@@ -142,6 +149,14 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * **EntryJoiningPropertyValueIsMissing:** Esaminare i [mapping degli attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) per identificare l'attributo corrispondente. Questo valore deve essere presente nell'utente o nel gruppo di cui si sta tentando di effettuare il provisioning. 
 * Esaminare l'[API SOAP di ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) per informazioni su eventuali requisiti o limitazioni, ad esempio, il formato per specificare il codice paese per un utente
 * Per impostazione predefinita, le richieste di provisioning vengono inviate a https://{nome-istanza}. servizio-ora. com/{nome-tabella}. Se è necessario un URL tenant personalizzato, è possibile specificare l'intero URL nel campo del nome dell'istanza.
+* **ServiceNowInstanceInvalid** 
+  
+  `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
+
+   Questo errore indica un problema di comunicazione con l'istanza di ServiceNow. Controllare per assicurarsi che le impostazioni seguenti siano *disabilitate* in ServiceNow:
+   
+   1. Selezionare **sicurezza di sistema**  >  **impostazioni di sicurezza elevata**  >  **richiedere l'autenticazione di base per le richieste di schema in ingresso**.
+   2. Selezione **proprietà di sistema**  >  i**servizi Web**  >  **richiedono l'autorizzazione di base per le richieste SOAP in ingresso**.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

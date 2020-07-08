@@ -3,17 +3,17 @@ title: Usare il visualizzatore errori di disegno di Mappe di Azure
 description: Questo articolo illustra come visualizzare avvisi ed errori restituiti dall'API di conversione di Creator.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681946"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791121"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Uso del visualizzatore errori di disegno di Mappe di Azure
 
@@ -78,15 +78,15 @@ Aprire il file _index.html_ con uno dei browser seguenti, prestando attenzione a
 
 Dopo aver avviato lo strumento del visualizzatore errori di disegno, verrà visualizzata la pagina per il caricamento. La pagina di caricamento contiene una casella per il trascinamento della selezione. Tale casella funge anche da pulsante che consente di avviare una finestra di dialogo Esplora file.
 
-![App del visualizzatore errori di disegno - Pagina iniziale](./media/drawing-errors-visualizer/start-page.png)
+:::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="App del visualizzatore errori di disegno - Pagina iniziale":::
 
 Il file _ConversionWarningsAndErrors.json_ è stato inserito nella radice della directory scaricata. Per caricare il file _ConversionWarningsAndErrors.json_, è possibile trascinarlo nella casella di trascinamento della selezione oppure fare clic sulla casella, individuare il file nella finestra di dialogo Esplora file e quindi caricarlo.
 
-![App del visualizzatore errori di disegno - Caricamento dei dati con trascinamento della selezione](./media/drawing-errors-visualizer/loading-data.gif)
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="App del visualizzatore errori di disegno - Caricamento dei dati con trascinamento della selezione":::
 
-Dopo aver caricato il file _ConversionWarningsAndErrors.json_, verrà visualizzato un elenco di errori e avvisi del pacchetto di disegno. Per ogni errore o avviso viene specificato il layer, il livello e un messaggio dettagliato. È ora possibile passare ai singoli errori per visualizzare altre informazioni su come risolverli.  
+Dopo aver caricato il file _ConversionWarningsAndErrors.json_, verrà visualizzato un elenco di errori e avvisi del pacchetto di disegno. Per ogni errore o avviso viene specificato il layer, il livello e un messaggio dettagliato. Per visualizzare informazioni dettagliate su un errore o un avviso, fare clic sul collegamento **Dettagli** . Al di sotto dell'elenco verrà visualizzata una sezione intratta. È ora possibile passare ai singoli errori per visualizzare altre informazioni su come risolverli.
 
-![App del visualizzatore errori di disegno - Errori e avvisi](./media/drawing-errors-visualizer/errors.png)
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="App del visualizzatore errori di disegno - Errori e avvisi":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,55 +5,55 @@ titleSuffix: Azure Virtual WAN
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: alzam
-ms.openlocfilehash: 74347ce969b6a5ffd57f5ca8396517e78590f3f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76c65d194d03dd1b7ff4cc2f3b45d84ff7909968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059450"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753367"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Creare un tenant di Azure Active Directory per le connessioni del protocollo OpenVPN VPN utente
 
 Quando ci si connette alla VNet, è possibile usare l'autenticazione basata su certificati o l'autenticazione RADIUS. Tuttavia, quando si usa il protocollo VPN aperto, è anche possibile usare l'autenticazione Azure Active Directory. Questo articolo illustra come configurare un tenant di Azure AD per l'autenticazione VPN per l'utente WAN virtuale (da punto a sito).
 
 > [!NOTE]
-> Azure AD autenticazione è supportata solo per le&reg; connessioni di protocollo OpenVPN.
+> Azure AD autenticazione è supportata solo per le &reg; connessioni di protocollo OpenVPN.
 >
 
-## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. creare il tenant di Azure AD
+## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Creare il tenant di Azure AD
 
-Creare un tenant di Azure AD usando la procedura descritta nell'articolo [creare un nuovo tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
+Creare un tenant di Azure AD usando la procedura descritta nell'articolo [Creare un nuovo tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md):
 
 * Nome dell'organizzazione
 * Nome di dominio iniziale
 
 Esempio:
 
-   ![Nuovo tenant Azure AD](./media/openvpn-create-azure-ad-tenant/newtenant.png)
+   ![Nuovo tenant di Azure AD](./media/openvpn-create-azure-ad-tenant/newtenant.png)
 
 ## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. creare Azure AD utenti tenant
 
-Successivamente, creare due account utente. Creare un account amministratore globale e un account utente Master. L'account utente master viene usato come account di incorporamento Master (account del servizio). Quando si crea un account utente Azure AD tenant, si regola il ruolo della directory per il tipo di utente che si desidera creare.
+Successivamente, creare due account utente. Creare un account amministratore globale e un account utente Master. L'account utente master viene usato come account di incorporamento master (account del servizio). Quando si crea un account utente del tenant di Azure AD, si regola il ruolo della directory per il tipo di utente che si desidera creare.
 
-Usare la procedura descritta in [questo articolo](../active-directory/fundamentals/add-users-azure-active-directory.md) per creare almeno due utenti per il tenant di Azure ad. Assicurarsi di modificare il **ruolo della directory** per creare i tipi di account:
+Usare la procedura descritta in [questo articolo](../active-directory/fundamentals/add-users-azure-active-directory.md) per creare almeno due utenti per il tenant di Azure AD. Assicurarsi di modificare il **ruolo della directory** per creare i tipi di account:
 
 * Amministratore globale
 * Utente
 
 ## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. abilitare l'autenticazione Azure AD nel gateway VPN
 
-1. Individuare l'ID directory della directory che si desidera utilizzare per l'autenticazione. Viene elencato nella sezione proprietà della pagina Active Directory.
+1. Individuare l'ID directory della directory da usare per l'autenticazione. Questo è elencato nella sezione Proprietà della pagina Active Directory.
 
     ![ID directory](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. Copiare l'ID directory.
 
-3. Accedere al portale di Azure come utente a cui viene assegnato il ruolo di **amministratore globale** .
+3. Accedere al portale di Azure come utente con il ruolo di **amministratore globale**.
 
-4. Quindi, concedere il consenso dell'amministratore. Copiare e incollare l'URL relativo alla posizione di distribuzione nella barra degli indirizzi del browser:
+4. Accordare quindi il consenso amministratore. Copiare e incollare l'URL relativo alla posizione di distribuzione nella barra degli indirizzi del browser:
 
     Pubblico
 
@@ -79,11 +79,11 @@ Usare la procedura descritta in [questo articolo](../active-directory/fundamenta
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
-5. Se richiesto, selezionare l'account **amministratore globale** .
+5. Se richiesto, selezionare l'account di **amministratore globale**.
 
     ![ID directory](./media/openvpn-create-azure-ad-tenant/pick.png)
 
-6. Selezionare **Accetto** quando richiesto.
+6. Quando richiesto, selezionare **Accetta**.
 
     ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 

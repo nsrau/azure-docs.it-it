@@ -3,24 +3,24 @@ title: Errore durante l'aggiunta di un'applicazione della raccolta di Azure AD| 
 description: Informazioni sui problemi frequenti che si riscontrano quando si aggiungono applicazioni della raccolta di Azure AD e sulle azioni da eseguire per risolverli
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/11/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4387a3ca02297311cd9ab025c315ca3324cbbbe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65784436"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760406"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Errore durante l'aggiunta di un'applicazione della raccolta di Azure AD
 
@@ -99,7 +99,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 - **UPN **: l'utente che ha eseguito l'operazione
 
-  -   Esempio: **tperkins\@F128.info**
+  -   Esempio: **tperkins \@ F128.info**
 
 - **ID tenant**: ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
 
@@ -125,7 +125,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 -   **Dettagli**: la descrizione dettagliata di ciò che si è verificato come conseguenza dell'operazione
 
-    -   Esempio: l' **URL `https://bing.com/` interno non è valido perché è già in uso**
+    -   Esempio: l' **URL interno non `https://bing.com/` è valido perché è già in uso**
 
 -   **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o del gruppo di 
 -   engineer

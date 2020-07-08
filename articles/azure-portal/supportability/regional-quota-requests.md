@@ -4,15 +4,15 @@ description: Come richiedere un aumento del limite di quota vCPU per un'area nel
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9236989f7bbb4695db24f86a2a049f5bb58f302a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd4a770aee43709c46ab4c1baf965941d8d2c3ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843685"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763857"
 ---
 # <a name="standard-quota-increase-limits-by-region"></a>Quota standard: aumentare i limiti per area
 
@@ -42,17 +42,17 @@ Per altre informazioni su come aumentare i limiti di vCPU per le VM spot, vedere
 
 Per richiedere un aumento della quota di vCPU per area da **Guida e supporto tecnico**:
 
-1. Scegliere **Guida e supporto**dal menu [portale di Azure](https://portal.azure.com) .
+1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Guida e supporto**.
 
    ![Collegamento "Guida e supporto"](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. In **Guida e supporto**selezionare **nuova richiesta di supporto**.
+1. In **Guida e supporto** selezionare **Nuova richiesta di supporto**.
 
     ![Nuova richiesta di supporto](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-1. Per **Tipo di problema** selezionare **Limiti del servizio e della sottoscrizione (quote)**.
+1. Per **tipo di problema**selezionare **limiti per servizio e sottoscrizione (quote)**.
 
-   ![Seleziona un tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
+   ![Selezionare un tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
 1. Per **Subscription (sottoscrizione**) selezionare la sottoscrizione di cui si vuole aumentare la quota.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803975"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali
 
@@ -49,9 +49,9 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 
 | Proprietà | Descrizione |
 |:--|:--|
-|Direction |Direzione della connessione. Il valore è *inbound* o *outbound* |
+|Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
 |Computer |FQDN del computer |
-|Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
+|Processo |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
 |SourceIp |Indirizzo IP dell'origine |
 |DestinationIp |Indirizzo IP della destinazione |
 |DestinationPort |Numero di porta della destinazione |
@@ -130,7 +130,7 @@ Ogni record in VMBoundPort è identificato dai campi seguenti:
 
 | Proprietà | Descrizione |
 |:--|:--|
-|Process | Identità del processo o dei gruppi di processi a cui è associata la porta.|
+|Processo | Identità del processo o dei gruppi di processi a cui è associata la porta.|
 |IP | Indirizzo IP porta (può essere un IP con caratteri jolly, *0.0.0.0*) |
 |Porta |Numero di porta |
 |Protocollo | Protocollo.  Ad esempio *TCP* o *UDP* (attualmente è supportato solo *TCP* ).|
@@ -226,7 +226,7 @@ I record con un tipo di *VMProcess* includono dati di inventario per i processi 
 |Computer | FQDN del computer | 
 |AgentId | ID univoco dell'agente di Log Analytics |
 |Computer | Nome della risorsa Azure Resource Manager per il computer esposto da ServiceMap. Il formato è *m-{GUID}*, dove *GUID* è lo stesso GUID di AgentId. | 
-|Process | Identificatore univoco del processo di Mapping dei servizi. Il formato è *p-{GUID}*. 
+|Processo | Identificatore univoco del processo di Mapping dei servizi. Il formato è *p-{GUID}*. 
 |Eseguibile | Nome dell'eseguibile del processo | 
 |DisplayName | Nome visualizzato del processo |
 |Ruolo | Ruolo del processo: *webserver*, *appServer*, *databaseserver*, *ldapServer*, *smbServer* |
@@ -442,19 +442,19 @@ I record con un tipo di *InsightsMetrics* hanno dati sulle prestazioni del siste
 |Computer | FQDN del computer | 
 |Origine | *vm.azm.ms* |
 |Spazio dei nomi | Categoria del contatore delle prestazioni | 
-|Name | Nome del contatore delle prestazioni. |
+|Nome | Nome del contatore delle prestazioni. |
 |Val | Valore raccolto | 
 |Tag | Dettagli correlati sul record. Vedere la tabella seguente per i tag usati con tipi di record diversi.  |
 |AgentId | Identificatore univoco per l'agente di ogni computer |
-|Tipo | *InsightsMetrics* |
+|Type | *InsightsMetrics* |
 |_ResourceId_ | ID risorsa della macchina virtuale |
 
 Nella tabella seguente sono elencati i contatori delle prestazioni attualmente raccolti nella tabella *InsightsMetrics* :
 
-| Spazio dei nomi | Name | Descrizione | Unità | Tag |
+| Spazio dei nomi | Nome | Descrizione | Unità | Tag |
 |:---|:---|:---|:---|:---|
 | Computer    | Heartbeat             | Heartbeat computer                        | | |
-| Memoria      | AvailableMB           | Byte disponibili memoria                    | Byte          | memorySizeMB-dimensioni totali della memoria|
+| Memory      | AvailableMB           | Byte disponibili memoria                    | Megabyte      | memorySizeMB-dimensioni totali della memoria|
 | Rete     | WriteBytesPerSecond   | Byte di scrittura di rete al secondo            | Byte al secondo | NetworkDeviceId-ID del dispositivo<br>byte-totale byte inviati |
 | Rete     | ReadBytesPerSecond    | Byte di lettura rete al secondo             | Byte al secondo | networkDeviceId-ID del dispositivo<br>byte-totale byte ricevuti |
 | Processore   | UtilizationPercentage | Percentuale di utilizzo del processore          | Percentuale        | totalCpus-CPU totali |
@@ -467,7 +467,7 @@ Nella tabella seguente sono elencati i contatori delle prestazioni attualmente r
 | LogicalDisk | ReadLatencyMs         | Millisecondo latenza lettura disco logico     | Millisecondi   | mountId-ID montaggio del dispositivo |
 | LogicalDisk | ReadBytesPerSecond    | Byte di lettura del disco logico al secondo        | Byte al secondo | mountId-ID montaggio del dispositivo |
 | LogicalDisk | FreeSpacePercentage   | Percentuale di spazio disponibile sul disco logico        | Percentuale        | mountId-ID montaggio del dispositivo |
-| LogicalDisk | FreeSpaceMB           | Byte spazio disponibile su disco logico             | Byte          | mountId-ID montaggio del dispositivo<br>diskSizeMB-dimensioni totali del disco |
+| LogicalDisk | FreeSpaceMB           | Byte spazio disponibile su disco logico             | Megabyte      | mountId-ID montaggio del dispositivo<br>diskSizeMB-dimensioni totali del disco |
 | LogicalDisk | Byte al secondo        | Byte disco logico al secondo             | Byte al secondo | mountId-ID montaggio del dispositivo |
 
 

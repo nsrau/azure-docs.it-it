@@ -8,14 +8,14 @@ ms.service: storage
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c8a5555c5c33255fdc5902a115e7e9103a4e936f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e5a85bcc4ded3b4bf3fcbcaf095d7c8ef01c458
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79410064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805307"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Fornire una chiave di crittografia per una richiesta all'archivio BLOB (anteprima)
 
@@ -25,7 +25,7 @@ I client che effettuano richieste nell'archiviazione BLOB di Azure possono forni
 
 Quando un'applicazione client fornisce una chiave di crittografia per la richiesta, archiviazione di Azure esegue in modo trasparente la crittografia e la decrittografia durante la lettura e la scrittura dei dati BLOB. Archiviazione di Azure scrive un hash SHA-256 della chiave di crittografia insieme al contenuto del BLOB. L'hash viene usato per verificare che tutte le operazioni successive eseguite sul BLOB usino la stessa chiave di crittografia.
 
-Archiviazione di Azure non archivia o gestisce la chiave di crittografia che il client invia con la richiesta. La chiave viene eliminata in modo sicuro non appena il processo di crittografia o decrittografia è completo.
+Archiviazione di Azure non archivia o gestisce la chiave di crittografia che il client invia con la richiesta. La chiave viene rimossa in modo sicuro non appena il processo di crittografia o decrittografia è stato completato.
 
 Quando un client crea o aggiorna un BLOB usando una chiave fornita dal cliente nella richiesta, le successive richieste di lettura e scrittura per tale BLOB devono anche fornire la chiave. Se la chiave non viene fornita su una richiesta di un BLOB che è già stata crittografata con una chiave fornita dal cliente, la richiesta ha esito negativo con codice di errore 409 (conflitto).
 
@@ -39,7 +39,7 @@ Ogni snapshot BLOB può avere una propria chiave di crittografia.
 
 Per le chiamate REST, i client possono usare le intestazioni seguenti per passare in modo sicuro le informazioni sulla chiave di crittografia per una richiesta all'archiviazione BLOB:
 
-|Intestazione di richiesta | Descrizione |
+|Intestazione della richiesta | Descrizione |
 |---------------|-------------|
 |`x-ms-encryption-key` |Obbligatorio per le richieste di scrittura e di lettura. Valore della chiave di crittografia AES-256 con codifica Base64. |
 |`x-ms-encryption-key-sha256`| Obbligatorio per le richieste di scrittura e di lettura. SHA256 con codifica Base64 della chiave di crittografia. |
@@ -52,13 +52,13 @@ La specifica delle chiavi di crittografia nella richiesta è facoltativa. Tuttav
 Le operazioni di archiviazione BLOB seguenti supportano l'invio di chiavi di crittografia fornite dal cliente su una richiesta:
 
 - [Put Blob](/rest/api/storageservices/put-blob)
-- [Elenco Put Block](/rest/api/storageservices/put-block-list)
+- [Put Block List](/rest/api/storageservices/put-block-list)
 - [Put Block](/rest/api/storageservices/put-block)
 - [Inserisci blocco da URL](/rest/api/storageservices/put-block-from-url)
 - [Put Page](/rest/api/storageservices/put-page)
-- [Inserisci pagina dall'URL](/rest/api/storageservices/put-page-from-url)
+- [Put Page from URL](/rest/api/storageservices/put-page-from-url)
 - [Append Block](/rest/api/storageservices/append-block)
-- [Impostare le proprietà BLOB](/rest/api/storageservices/set-blob-properties)
+- [Set Blob Properties](/rest/api/storageservices/set-blob-properties)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Get Blob](/rest/api/storageservices/get-blob)
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
@@ -77,4 +77,4 @@ Per ruotare una chiave di crittografia usata per crittografare un BLOB, scaricar
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Specificare una chiave fornita dal cliente per una richiesta all'archivio BLOB con .NET](../blobs/storage-blob-customer-provided-key.md)
-- [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)

@@ -3,24 +3,24 @@ title: Errore durante l'aggiunta di un'applicazione non inclusa nella raccolta |
 description: Comprendere i problemi frequenti che si riscontrano durante l'aggiunta di applicazioni personalizzate non incluse nella raccolta
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/11/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: ce103ca6c958b0524d753da25c2a79aadfb7c8b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65784485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760287"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Errore durante l'aggiunta di un'applicazione non inclusa nella raccolta
 
@@ -96,7 +96,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 - **UPN **: l'utente che ha eseguito l'operazione
 
-  *  Esempio: **tperkins\@F128.info**
+  *  Esempio: **tperkins \@ F128.info**
 
 - **ID tenant**: ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
 
@@ -122,7 +122,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 - **Dettagli**: la descrizione dettagliata di ciò che si è verificato come conseguenza dell'operazione
 
-  *  Esempio: l' **URL `https://bing.com/` interno non è valido perché è già in uso**
+  *  Esempio: l' **URL interno non `https://bing.com/` è valido perché è già in uso**
 
 - **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o del gruppo di 
 - engineer

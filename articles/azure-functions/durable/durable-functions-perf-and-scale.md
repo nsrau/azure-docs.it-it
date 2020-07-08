@@ -1,16 +1,16 @@
 ---
 title: Prestazioni e scalabilità in Funzioni permanenti - Azure
-description: Introduzione all'estensione Funzioni permanenti per Funzioni di Azure.
+description: Introduzione all'estensione Durable Functions per Funzioni di Azure.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762123"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -28,7 +28,7 @@ Quando è necessario eseguire un'istanza di orchestrazione, le righe appropriate
 
 La tabella **instances** è un'altra tabella di archiviazione di Azure che contiene gli Stati di tutte le istanze di orchestrazione e di entità all'interno di un hub attività. In seguito alla creazione di istanze, nuove righe vengono aggiunte alla tabella. La chiave di partizione di questa tabella è l'ID dell'istanza di orchestrazione o la chiave di entità e la chiave di riga è una costante fissa. È presente una riga per ogni orchestrazione o istanza di entità.
 
-Questa tabella viene usata per soddisfare le richieste di query di `GetStatusAsync` istanza dalle API ( `getStatus` .NET) e (JavaScript), nonché dall' [API HTTP di query sullo stato](durable-functions-http-api.md#get-instance-status). Il contenuto della tabella viene mantenuto coerente con quello della tabella **Cronologia** citata in precedenza. L'uso di una tabella di Archiviazione di Azure separata per soddisfare in modo efficiente le operazioni di query di istanza in questo modo è influenzata dal [modello di separazione e responsabilità per query e comandi (CQRS, Command and Query Responsibility Segregation)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Questa tabella viene usata per soddisfare le richieste di query di istanza dalle `GetStatusAsync` API (.NET) e `getStatus` (JavaScript), nonché dall' [API HTTP di query sullo stato](durable-functions-http-api.md#get-instance-status). Il contenuto della tabella viene mantenuto coerente con quello della tabella **Cronologia** citata in precedenza. L'uso di una tabella di Archiviazione di Azure separata per soddisfare in modo efficiente le operazioni di query di istanza in questo modo è influenzata dal [modello di separazione e responsabilità per query e comandi (CQRS, Command and Query Responsibility Segregation)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Trigger di code interne
 
@@ -48,16 +48,23 @@ Le code di controllo contengono messaggi di diverso tipo relativi al ciclo di vi
 
 L'estensione di attività durevole implementa un algoritmo di backup esponenziale casuale per ridurre l'effetto del polling delle code inattive sui costi delle transazioni di archiviazione. Quando viene trovato un messaggio, il runtime verifica immediatamente la presenza di un altro messaggio. Quando non viene trovato alcun messaggio, attende un certo periodo di tempo prima di riprovare. Dopo i tentativi successivi non riusciti di ottenere un messaggio in coda, il tempo di attesa continua ad aumentare fino a raggiungere il tempo di attesa massimo, che per impostazione predefinita è 30 secondi.
 
-Il ritardo massimo di polling può essere configurato tramite `maxQueuePollingInterval` la proprietà nel [file host. JSON](../functions-host-json.md#durabletask). L'impostazione di questa proprietà su un valore superiore può comportare latenze di elaborazione dei messaggi più elevate. Le latenze più elevate sarebbero previste solo dopo periodi di inattività. L'impostazione di questa proprietà su un valore inferiore può comportare costi di archiviazione più elevati a causa di un aumento delle transazioni di archiviazione.
+Il ritardo massimo di polling può essere configurato tramite la `maxQueuePollingInterval` proprietà nell' [host.jssu file](../functions-host-json.md#durabletask). L'impostazione di questa proprietà su un valore superiore può comportare latenze di elaborazione dei messaggi più elevate. Le latenze più elevate sarebbero previste solo dopo periodi di inattività. L'impostazione di questa proprietà su un valore inferiore può comportare costi di archiviazione più elevati a causa di un aumento delle transazioni di archiviazione.
 
 > [!NOTE]
 > Quando viene eseguito nei piani di consumo e Premium di funzioni di Azure, il [controller di scalabilità di funzioni di Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) eseguirà il polling di ogni controllo e coda di elementi di lavoro ogni 10 secondi. Questo polling aggiuntivo è necessario per determinare quando attivare le istanze delle app per le funzioni e prendere decisioni di scalabilità. Al momento della stesura di questa operazione, questo intervallo di 10 secondi è costante e non può essere configurato.
 
+### <a name="orchestration-start-delays"></a>Ritardi di avvio dell'orchestrazione
+Le istanze delle orchestrazioni vengono avviate inserendo un `ExecutionStarted` messaggio in una delle code di controllo dell'hub attività. In determinate condizioni, è possibile osservare ritardi tra più secondi tra il momento in cui un'orchestrazione è pianificata per l'esecuzione e l'avvio dell'esecuzione. Durante questo intervallo di tempo, l'istanza di orchestrazione rimane nello `Pending` stato. Questo ritardo può essere causato da due possibili cause:
+
+1. **Code di controllo con backlog**: se la coda di controllo per l'istanza contiene un numero elevato di messaggi, potrebbe essere necessario tempo prima che il `ExecutionStarted` messaggio venga ricevuto ed elaborato dal runtime. I backlog dei messaggi possono verificarsi quando le orchestrazioni elaborano molti eventi simultaneamente. Gli eventi che passano alla coda di controllo includono eventi di avvio dell'orchestrazione, completamenti di attività, timer durevoli, terminazione ed eventi esterni. Se questo ritardo si verifica in circostanze normali, provare a creare un nuovo hub attività con un numero maggiore di partizioni. La configurazione di più partizioni provocherà la creazione di più code di controllo per la distribuzione del carico da parte del runtime.
+
+2. **Ritardi di polling**: un'altra situazione comune dei ritardi dell'orchestrazione è il [comportamento di polling di back-off descritto in precedenza per le code di controllo](#queue-polling). Tuttavia, questo ritardo è previsto solo quando un'app viene scalata orizzontalmente a due o più istanze. Se è presente una sola istanza dell'app o se l'istanza dell'app che avvia l'orchestrazione è anche la stessa che esegue il polling della coda di controllo di destinazione, non ci sarà un ritardo di polling della coda. Per ridurre i ritardi di polling, è possibile aggiornare il **host.jssulle** impostazioni, come descritto in precedenza.
+
 ## <a name="storage-account-selection"></a>Selezione dell'account di archiviazione
 
-Le code, le tabelle e i BLOB usati da Durable Functions vengono creati in un account di archiviazione di Azure configurato. È possibile specificare l'account da usare usando l' `durableTask/storageProvider/connectionStringName` impostazione o `durableTask/azureStorageConnectionStringName` l'impostazione in Durable functions 1. x nel file **host. JSON** .
+Le code, le tabelle e i BLOB usati da Durable Functions vengono creati in un account di archiviazione di Azure configurato. L'account da usare può essere specificato usando l' `durableTask/storageProvider/connectionStringName` impostazione (o l' `durableTask/azureStorageConnectionStringName` impostazione in Durable functions 1. x) nell' **host.jssul** file.
 
-### <a name="durable-functions-2x"></a>Durable Functions 2. x
+### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
 ```json
 {
@@ -71,7 +78,7 @@ Le code, le tabelle e i BLOB usati da Durable Functions vengono creati in un acc
 }
 ```
 
-### <a name="durable-functions-1x"></a>Durable Functions 1. x
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
 
 ```json
 {
@@ -87,9 +94,9 @@ Se non specificato, come valore predefinito viene usato l'account di archiviazio
 
 ## <a name="orchestrator-scale-out"></a>Scalabilità orizzontale dell'agente di orchestrazione
 
-Le funzioni di attività sono senza stato e vengono scalate orizzontalmente in modo automatico tramite l'aggiunta di macchine virtuali. Le funzioni e le entità dell'agente di orchestrazione, invece, vengono *partizionate* in una o più code di controllo. Il numero di code di controllo viene definito nel file **host.json**. Il frammento di codice host. JSON di `durableTask/storageProvider/partitionCount` esempio seguente imposta `durableTask/partitionCount` la proprietà (o in Durable functions 1 `3`. x) su.
+Le funzioni di attività sono senza stato e vengono scalate orizzontalmente in modo automatico tramite l'aggiunta di macchine virtuali. Le funzioni e le entità dell'agente di orchestrazione, invece, vengono *partizionate* in una o più code di controllo. Il numero di code di controllo viene definito nel file **host.json**. Nell'esempio seguente host.jssu snippet imposta la `durableTask/storageProvider/partitionCount` Proprietà (o `durableTask/partitionCount` in Durable functions 1. x) su `3` .
 
-### <a name="durable-functions-2x"></a>Durable Functions 2. x
+### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
 ```json
 {
@@ -103,7 +110,7 @@ Le funzioni di attività sono senza stato e vengono scalate orizzontalmente in m
 }
 ```
 
-### <a name="durable-functions-1x"></a>Durable Functions 1. x
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
 
 ```json
 {
@@ -150,7 +157,7 @@ Anche le funzioni di entità vengono eseguite su un singolo thread e le operazio
 
 Funzioni di Azure supporta l'esecuzione di più funzioni contemporaneamente in una singola istanza di app. Tale esecuzione simultanea consente di aumentare il parallelismo e riduce al minimo il numero di "avvii a freddo" che si verificano in genere per un'app tipica. Tuttavia, la concorrenza elevata può esaurire le risorse di sistema per macchina virtuale, ad esempio connessioni di rete o memoria disponibile. A seconda dei requisiti dell'app per le funzioni, potrebbe essere necessario limitare la concorrenza per ogni istanza per evitare il rischio di esaurimento della memoria in situazioni di carico elevato.
 
-È possibile configurare i limiti di concorrenza di attività, agenti di orchestrazione e funzioni di entità nel file **host. JSON** . Le impostazioni rilevanti sono `durableTask/maxConcurrentActivityFunctions` per le funzioni di `durableTask/maxConcurrentOrchestratorFunctions` attività e per le funzioni dell'agente di orchestrazione e dell'entità.
+I limiti di concorrenza di attività, agenti di orchestrazione e funzioni di entità possono essere configurati nella **host.jssu** file. Le impostazioni rilevanti sono `durableTask/maxConcurrentActivityFunctions` per le funzioni di attività e per le funzioni dell'agente `durableTask/maxConcurrentOrchestratorFunctions` di orchestrazione e dell'entità.
 
 ### <a name="functions-20"></a>Funzioni 2,0
 
@@ -185,7 +192,7 @@ Nell'esempio precedente, un massimo di 10 funzioni dell'agente di orchestrazione
 
 Le sessioni estese sono un'impostazione che mantiene le orchestrazioni e le entità in memoria anche dopo che hanno terminato l'elaborazione dei messaggi. L'abilitazione delle sessioni estese provoca in genere la riduzione delle operazioni di I/O in relazione all'account di Archiviazione di Azure e un miglioramento complessivo della velocità effettiva.
 
-È possibile abilitare le sessioni estese `durableTask/extendedSessionsEnabled` impostando su `true` nel file **host. JSON** . L' `durableTask/extendedSessionIdleTimeoutInSeconds` impostazione può essere utilizzata per controllare per quanto tempo una sessione inattiva verrà mantenuta in memoria:
+È possibile abilitare le sessioni estese impostando su `durableTask/extendedSessionsEnabled` `true` nel **host.jssu** file. L' `durableTask/extendedSessionIdleTimeoutInSeconds` impostazione può essere utilizzata per controllare per quanto tempo una sessione inattiva verrà mantenuta in memoria:
 
 **Funzioni 2,0**
 ```json
@@ -214,13 +221,13 @@ Le sessioni estese sono un'impostazione che mantiene le orchestrazioni e le enti
 1. L'utilizzo della memoria dell'app per le funzioni è un aumento complessivo.
 2. È possibile che si verifichi una riduzione complessiva della velocità effettiva in presenza di più esecuzioni di funzioni di agente di orchestrazione o di funzione dell'entità temporanee.
 
-Ad esempio, se `durableTask/extendedSessionIdleTimeoutInSeconds` è impostato su 30 secondi, un agente di orchestrazione di breve durata o un episodio di funzione di entità che viene eseguito in meno di 1 secondo occupa ancora memoria per 30 secondi. Viene inoltre conteggiato rispetto `durableTask/maxConcurrentOrchestratorFunctions` alla quota indicata in precedenza, impedendo potenzialmente l'esecuzione di altre funzioni dell'agente di orchestrazione o di entità.
+Ad esempio, se `durableTask/extendedSessionIdleTimeoutInSeconds` è impostato su 30 secondi, un agente di orchestrazione di breve durata o un episodio di funzione di entità che viene eseguito in meno di 1 secondo occupa ancora memoria per 30 secondi. Viene inoltre conteggiato rispetto alla `durableTask/maxConcurrentOrchestratorFunctions` quota indicata in precedenza, impedendo potenzialmente l'esecuzione di altre funzioni dell'agente di orchestrazione o di entità.
 
 Le sezioni successive illustrano gli effetti specifici delle sessioni estese sulle funzioni dell'agente di orchestrazione e dell'entità.
 
 ### <a name="orchestrator-function-replay"></a>Riproduzione delle funzioni dell'agente di orchestrazione
 
-Come accennato in precedenza, le funzioni dell'agente di orchestrazione vengono riprodotte tramite il contenuto della tabella **Cronologia**. Per impostazione predefinita, il codice della funzione dell'agente di orchestrazione viene riprodotto ogni volta che un batch di messaggi viene rimosso da un coda di controllo. Anche se si usa il fan-out, il modello di fan-in e sono in attesa del completamento di tutte le attività (ad esempio `Task.WhenAll` , usando in `context.df.Task.all` .NET o in JavaScript), saranno presenti Riproduci che si verificano quando i batch delle risposte alle attività vengono elaborati nel tempo. Quando sono abilitate le sessioni estese, le istanze della funzione dell'agente di orchestrazione vengono mantenute in memoria più a lungo e i nuovi messaggi possono essere elaborati senza una riproduzione completa
+Come accennato in precedenza, le funzioni dell'agente di orchestrazione vengono riprodotte tramite il contenuto della tabella **Cronologia**. Per impostazione predefinita, il codice della funzione dell'agente di orchestrazione viene riprodotto ogni volta che un batch di messaggi viene rimosso da un coda di controllo. Anche se si usa il fan-out, il modello di fan-in e sono in attesa del completamento di tutte le attività (ad esempio, usando `Task.WhenAll` in .NET o `context.df.Task.all` in JavaScript), saranno presenti Riproduci che si verificano quando i batch delle risposte alle attività vengono elaborati nel tempo. Quando sono abilitate le sessioni estese, le istanze della funzione dell'agente di orchestrazione vengono mantenute in memoria più a lungo e i nuovi messaggi possono essere elaborati senza una riproduzione completa
 
 Il miglioramento delle prestazioni delle sessioni estese è spesso osservato nelle situazioni seguenti:
 

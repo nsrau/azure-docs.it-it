@@ -3,22 +3,22 @@ title: Integrazione con AD Application Proxy in un server registrazione disposit
 titleSuffix: Azure Active Directory
 description: Linee guida per la distribuzione di un Azure Active Directory Application Proxy per proteggere il server registrazione dispositivi.
 services: active-directory
-author: CelesteDG
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/17/2020
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 4ccd8834671725ace72497391090f81eb197ad6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77032257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760797"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Eseguire l'integrazione con Azure AD proxy di applicazione in un server del servizio Registrazione dispositivi di rete (registrazione dispositivi)
 
@@ -45,18 +45,18 @@ Azure AD proxy di applicazione si basa su Azure. Offre una notevole quantità di
 1. Leggere le condizioni d'uso. Al termine, selezionare **Accetta le condizioni e scarica**.
 1. Copiare il file di installazione del connettore del proxy di applicazione Azure AD nel server registrazione dispositivi. 
    > È possibile installare il connettore in qualsiasi server all'interno della rete aziendale con accesso a registrazione dispositivi. Non è necessario installarlo nel server registrazione dispositivi.
-1. Eseguire il file di installazione, ad esempio *AADApplicationProxyConnectorInstaller. exe*. Accettare le condizioni di licenza software.
+1. Eseguire il file di installazione, ad esempio *AADApplicationProxyConnectorInstaller.exe*. Accettare le condizioni di licenza software.
 1. Durante l'installazione, viene richiesto di registrare il connettore con il proxy dell'applicazione nella directory Azure AD.
    * Fornire le credenziali per un amministratore globale o dell'applicazione nella directory Azure AD. Le credenziali di amministratore globale o dell'applicazione Azure AD possono essere diverse dalle credenziali di Azure nel portale.
 
         > [!NOTE]
         > L'account amministratore globale o dell'applicazione usato per registrare il connettore deve appartenere alla stessa directory in cui si Abilita il servizio proxy di applicazione.
         >
-        > Se, ad esempio, il dominio Azure AD è *contoso.com*, l'amministratore globale o dell'applicazione `admin@contoso.com` deve essere o un altro alias valido in tale dominio.
+        > Se, ad esempio, il dominio Azure AD è *contoso.com*, l'amministratore globale o dell'applicazione deve essere `admin@contoso.com` o un altro alias valido in tale dominio.
 
    * Se è attivata la configurazione sicurezza avanzata di Internet Explorer per il server in cui si installa il connettore, la schermata di registrazione potrebbe essere bloccata. Per consentire l'accesso, seguire le istruzioni nel messaggio di errore o disattivare sicurezza avanzata di Internet Explorer durante il processo di installazione.
    * Se la registrazione del connettore non riesce, vedere [risolvere i problemi del proxy dell'applicazione](application-proxy-troubleshoot.md).
-1. Al termine dell'installazione, viene visualizzata una nota per gli ambienti con un proxy in uscita. Per configurare il connettore del proxy di applicazione Azure AD per il funzionamento tramite il proxy in uscita, eseguire lo script specificato `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`, ad esempio.
+1. Al termine dell'installazione, viene visualizzata una nota per gli ambienti con un proxy in uscita. Per configurare il connettore del proxy di applicazione Azure AD per il funzionamento tramite il proxy in uscita, eseguire lo script specificato, ad esempio `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1` .
 1. Nella pagina proxy di applicazione del portale di Azure il nuovo connettore è elencato con lo stato *attivo*, come illustrato nell'esempio seguente:
 
     ![Il nuovo connettore del proxy di applicazione Azure AD visualizzato come attivo nella portale di Azure](./media/active-directory-app-proxy-protect-ndes/connected-app-proxy.png)
@@ -83,7 +83,7 @@ Azure AD proxy di applicazione si basa su Azure. Offre una notevole quantità di
 
 1. Verificare se è possibile accedere al server registrazione dispositivi tramite il proxy di applicazione Azure AD incollando il collegamento copiato al passaggio 10 in un browser. Verrà visualizzata una pagina iniziale predefinita di IIS.
 
-1. Come test finale, aggiungere il percorso *MSCEP. dll* all'URL esistente incollato nel passaggio precedente:
+1. Come test finale, aggiungere il percorso *mscep.dll* all'URL esistente incollato nel passaggio precedente:
 
    https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
 

@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c7091592f8806b6f6655315ae1faace286c2c1f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4af9c23e2599ad666908763720a5f01303b8d50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78207693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805488"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorizzare l'accesso ai dati BLOB o della coda con l'interfaccia della riga di comando
 
@@ -26,7 +26,7 @@ Archiviazione di Azure fornisce estensioni per l'interfaccia della riga di coman
 
 ## <a name="specify-how-data-operations-are-authorized"></a>Specificare come vengono autorizzate le operazioni sui dati
 
-I comandi dell'interfaccia della riga di comando di Azure per la lettura e `--auth-mode` la scrittura di dati BLOB e di Accodamento includono Specificare questo parametro per indicare come deve essere autorizzata un'operazione sui dati:
+I comandi dell'interfaccia della riga di comando di Azure per la lettura e la scrittura di dati BLOB e di Accodamento includono `--auth-mode` Specificare questo parametro per indicare come deve essere autorizzata un'operazione sui dati:
 
 - Impostare il `--auth-mode` parametro su `login` per accedere usando un'entità di sicurezza Azure ad (scelta consigliata).
 - Impostare il `--auth-mode` parametro sul valore legacy `key` per tentare di recuperare la chiave di accesso dell'account da usare per l'autorizzazione. Se si omette il `--auth-mode` parametro, l'interfaccia della riga di comando di Azure tenterà anche di recuperare la chiave di accesso.
@@ -34,7 +34,7 @@ I comandi dell'interfaccia della riga di comando di Azure per la lettura e `--au
 Per usare il `--auth-mode` parametro, verificare di avere installato l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Eseguire `az --version` per controllare la versione installata.
 
 > [!IMPORTANT]
-> Se si omette il `--auth-mode` parametro o lo si imposta `key`su, l'interfaccia della riga di comando di Azure tenterà di usare la chiave di accesso dell'account per l'autorizzazione. In questo caso, Microsoft consiglia di specificare la chiave di accesso nel comando o nella variabile di ambiente **AZURE_STORAGE_KEY** . Per ulteriori informazioni sulle variabili di ambiente, vedere la sezione [impostare le variabili di ambiente per i parametri di autorizzazione](#set-environment-variables-for-authorization-parameters).
+> Se si omette il `--auth-mode` parametro o lo si imposta su `key` , l'interfaccia della riga di comando di Azure tenterà di usare la chiave di accesso dell'account per l'autorizzazione. In questo caso, Microsoft consiglia di specificare la chiave di accesso nel comando o nella variabile di ambiente **AZURE_STORAGE_KEY** . Per ulteriori informazioni sulle variabili di ambiente, vedere la sezione [impostare le variabili di ambiente per i parametri di autorizzazione](#set-environment-variables-for-authorization-parameters).
 >
 > Se non si specifica la chiave di accesso, l'interfaccia della riga di comando di Azure tenterà di chiamare il provider di risorse di archiviazione di Azure per recuperarla per ogni operazione. L'esecuzione di molte operazioni sui dati che richiedono una chiamata al provider di risorse può causare la limitazione delle richieste. Per altre informazioni sui limiti dei provider di risorse, vedere [obiettivi di scalabilità e prestazioni per il provider di risorse di archiviazione di Azure](scalability-targets-resource-provider.md).
 
@@ -54,7 +54,7 @@ Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione
 
 L'esempio seguente illustra come creare un contenitore dall'interfaccia della riga di comando di Azure usando le credenziali Azure AD. Per creare il contenitore, è necessario accedere all'interfaccia della riga di comando di Azure e sono necessari un gruppo di risorse e un account di archiviazione. Per informazioni su come creare queste risorse, vedere [Guida introduttiva: creare, scaricare ed elencare BLOB con l'interfaccia](../blobs/storage-quickstart-blobs-cli.md)della riga di comando di Azure.
 
-1. Prima di creare il contenitore, assegnare il ruolo di [collaboratore dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli RBAC, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](storage-auth-aad-rbac.md).
+1. Prima di creare il contenitore, assegnare il ruolo [Collaboratore ai dati dei BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni sui dati nell'account di archiviazione. Per altre informazioni sull'assegnazione di ruoli RBAC, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > Le assegnazioni di ruolo RBAC potrebbero richiedere alcuni minuti per la propagazione.
@@ -103,7 +103,7 @@ az storage container create \
 |    AZURE_STORAGE_KEY                  |    Chiave dell'account di archiviazione. Questa variabile deve essere usata insieme al nome dell'account di archiviazione.                                                                                                                                                                                                                                                                          |
 |    AZURE_STORAGE_CONNECTION_STRING    |    Stringa di connessione che include la chiave dell'account di archiviazione o un token di firma di accesso condiviso. Questa variabile deve essere usata insieme al nome dell'account di archiviazione.                                                                                                                                                                                                                       |
 |    AZURE_STORAGE_SAS_TOKEN            |    Token di firma di accesso condiviso (SAS). Questa variabile deve essere usata insieme al nome dell'account di archiviazione.                                                                                                                                                                                                                                                            |
-|    AZURE_STORAGE_AUTH_MODE            |    Modalità di autorizzazione con cui eseguire il comando. I valori consentiti sono `login` ( `key`scelta consigliata) o. Se si specifica `login`, l'interfaccia della riga di comando di Azure usa le credenziali Azure ad per autorizzare l'operazione sui dati. Se si specifica la modalità `key` legacy, l'interfaccia della riga di comando di Azure tenterà di eseguire una query per la chiave di accesso dell'account e di autorizzare il comando con la chiave.    |
+|    AZURE_STORAGE_AUTH_MODE            |    Modalità di autorizzazione con cui eseguire il comando. I valori consentiti sono `login` (scelta consigliata) o `key` . Se si specifica `login` , l'interfaccia della riga di comando di Azure usa le credenziali Azure ad per autorizzare l'operazione sui dati. Se si specifica la `key` modalità legacy, l'interfaccia della riga di comando di Azure tenterà di eseguire una query per la chiave di accesso dell'account e di autorizzare il comando con la chiave.    |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

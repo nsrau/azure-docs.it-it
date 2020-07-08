@@ -5,17 +5,17 @@ services: azure-portal
 keywords: ''
 author: santhoshsomayajula
 ms.date: 01/29/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.author: mblythe
-ms.openlocfilehash: accdfbd939fad73ca7d008450c358d366e7f8b70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 248c643c5f1865451abbe201e7033efedb8a7e39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76900786"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763942"
 ---
 # <a name="export-or-delete-user-settings"></a>Esportare o eliminare le impostazioni utente
 
@@ -33,7 +33,7 @@ ms.locfileid: "76900786"
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nell'intestazione del portale selezionare ![Impostazioni icona](media/azure-portal-export-delete-settings/settings-icon.png) **Impostazioni**.
+1. Nell'intestazione del portale selezionare ![ Impostazioni icona ](media/azure-portal-export-delete-settings/settings-icon.png) **Impostazioni**.
 
 1. Selezionare **Esporta tutte le impostazioni** o **Elimina tutte le impostazioni e i dashboard privati**.
 

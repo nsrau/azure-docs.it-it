@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Informazioni sulla trascrizione Live di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,83 +12,178 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/19/2019
-ms.author: juliako
-ms.openlocfilehash: b364b6e70e3b5723c483bc3435f0c3a152c03aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/12/2019
+ms.author: inhenkel
+ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79499867"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84765013"
 ---
 # <a name="live-transcription-preview"></a>Trascrizione in tempo reale (anteprima)
 
 Servizi multimediali di Azure offre video, audio e testo in protocolli diversi. Quando si pubblica il flusso live con MPEG-DASH o HLS/CMAF, insieme a video e audio, il servizio recapita il testo trascritto in TTML compatibile con IMSC 1.1. Il recapito è incluso nei frammenti MPEG-4 Part 30 (ISO/IEC 14496-30). Se si usa il recapito tramite HLS/TS, il testo viene recapitato come VTT in blocchi.
 
-Questo articolo descrive come abilitare la trascrizione in tempo reale quando si trasmette un evento live con servizi multimediali di Azure V3. Prima di continuare, assicurarsi di avere familiarità con l'uso delle API REST di servizi multimediali V3 (vedere [questa esercitazione](stream-files-tutorial-with-rest.md) per informazioni dettagliate). È anche necessario avere familiarità con il concetto di [streaming live](live-streaming-overview.md) . È consigliabile completare l'esercitazione [streaming live con servizi multimediali](stream-live-tutorial-with-api.md) .
+Quando si attiva la trascrizione in tempo reale, vengono applicati addebiti aggiuntivi. Per informazioni sui prezzi, vedere la sezione video live della [pagina dei prezzi di servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
 
-> [!NOTE]
-> Attualmente, la trascrizione in tempo reale è disponibile solo come funzionalità di anteprima nell'area Stati Uniti occidentali 2. Supporta la trascrizione di parole pronunciate in inglese in testo. Le informazioni di riferimento sulle API per questa funzionalità sono disponibili in anteprima. i dettagli non sono disponibili con i documenti REST.
+Questo articolo descrive come abilitare la trascrizione in tempo reale quando si trasmette un evento live con servizi multimediali di Azure. Prima di continuare, assicurarsi di avere familiarità con l'uso delle API REST di servizi multimediali V3 (vedere [questa esercitazione](stream-files-tutorial-with-rest.md) per informazioni dettagliate). È anche necessario avere familiarità con il concetto di [streaming live](live-streaming-overview.md) . È consigliabile completare l'esercitazione [streaming live con servizi multimediali](stream-live-tutorial-with-api.md) .
 
-## <a name="creating-the-live-event"></a>Creazione dell'evento Live
+## <a name="live-transcription-preview-regions-and-languages"></a>Lingue e lingue dell'anteprima della trascrizione in tempo reale
 
-Per creare l'evento Live, inviare l'operazione PUT alla versione 2019-05-01-Preview, ad esempio:
+La trascrizione in tempo reale è disponibile nelle aree geografiche seguenti:
+
+- Asia sud-orientale
+- Europa occidentale
+- Europa settentrionale
+- Stati Uniti orientali
+- Stati Uniti centrali
+- Stati Uniti centro-meridionali
+- Stati Uniti occidentali 2
+- Brasile meridionale
+
+Questo è l'elenco delle lingue disponibili che possono essere trascritte, usare il codice lingua nell'API.
+
+| Linguaggio | Codice lingua |
+| -------- | ------------- |
+| Catalano  | ca-ES |
+| Danese (Danimarca) | da-DK |
+| Tedesco (Germania) | de-DE |
+| Inglese (Australia) | en-AU |
+| Inglese (Canada) | en-CA |
+| Inglese (Regno Unito) | en-GB |
+| Inglese (India) | en-IN |
+| Inglese (Nuova Zelanda) | en-NZ |
+| Inglese (Stati Uniti) | it-IT |
+| Spagnolo (Spagna) | es-ES |
+| Spagnolo (Messico) | es-MX |
+| Finlandese (Finlandia) | fi-FI |
+| Francese (Canada) | fr-CA |
+| Francese (Francia) | fr-FR |
+| Italiano (Italia) | it-IT |
+| Olandese (Paesi Bassi) | nl-NL |
+| Portoghese (Brasile) | pt-BR |
+| Portoghese (Portogallo) | pt-PT |
+| Svedese (Svezia) | sv-SE |
+
+## <a name="create-the-live-event-with-live-transcription"></a>Crea l'evento live con la trascrizione in tempo reale
+
+Per creare un evento live con la trascrizione attivata, inviare l'operazione PUT con la versione API 2019-05-01-Preview, ad esempio:
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-L'operazione ha il corpo seguente, in cui viene creato un evento Live pass-through con RTMP come protocollo di inserimento. Si noti l'aggiunta di una proprietà trascrizioni. L'unico valore consentito per la lingua è en-US.
+L'operazione ha il corpo seguente, in cui viene creato un evento Live pass-through con RTMP come protocollo di inserimento. Si noti l'aggiunta di una proprietà trascrizioni.
 
 ```
-{ 
-  "properties": { 
+{
+  "properties": {
+    "description": "Demonstrate how to enable live transcriptions",
+    "input": {
+      "streamingProtocol": "RTMP",
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "preview": {
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "encoding": {
+      "encodingType": "None"
+    },
+    "transcriptions": [
+      {
+        "language": "en-US"
+      }
+    ],
+    "vanityUrl": false,
+    "streamOptions": [
+      "Default"
+    ]
+  },
+  "location": "West US 2"
+}
+```
+
+## <a name="start-or-stop-transcription-after-the-live-event-has-started"></a>Avvia o arresta la trascrizione dopo l'avvio dell'evento Live
+
+È possibile avviare e arrestare la trascrizione in tempo reale mentre l'evento Live si trova nello stato in esecuzione. Per altre informazioni sull'avvio e l'arresto di eventi live, vedere la sezione operazioni a esecuzione prolungata in [sviluppare con le API di servizi multimediali V3](media-services-apis-overview.md#long-running-operations).
+
+Per attivare le trascrizioni Live o aggiornare il linguaggio di trascrizione, applicare patch all'evento Live per includere una proprietà "trascrizioni". Per disattivare le trascrizioni Live, rimuovere la proprietà "trascrizioni" dall'oggetto evento Live.  
+
+> [!NOTE]
+> L'attivazione o la disattivazione della trascrizione **più di una volta** durante l'evento Live non è un scenario supportato.
+
+Si tratta della chiamata di esempio per attivare le trascrizioni in tempo reale.
+
+PATCH```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
+
+```
+{
+  "properties": {
     "description": "Demonstrate how to enable live transcriptions", 
-    "input": { 
-      "streamingProtocol": "RTMP", 
-      "accessControl": { 
-        "ip": { 
-          "allow": [ 
-            { 
-              "name": "Allow All", 
-              "address": "0.0.0.0", 
-              "subnetPrefixLength": 0 
-            } 
-          ] 
-        } 
-      } 
-    }, 
-    "preview": { 
-      "accessControl": { 
-        "ip": { 
-          "allow": [ 
-            { 
-              "name": "Allow All", 
-              "address": "0.0.0.0", 
-              "subnetPrefixLength": 0 
-            } 
-          ] 
-        } 
-      } 
-    }, 
-    "encoding": { 
-      "encodingType": "None" 
-    }, 
-    "transcriptions": [ 
-      { 
-        "language": "en-US" 
-      } 
-    ], 
-    "vanityUrl": false, 
-    "streamOptions": [ 
-      "Default" 
-    ] 
-  }, 
-  "location": "West US 2" 
-} 
+    "input": {
+      "streamingProtocol": "RTMP",
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "preview": {
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "encoding": {
+      "encodingType": "None"
+    },
+    "transcriptions": [
+      {
+        "language": "en-US"
+      }
+    ],
+    "vanityUrl": false,
+    "streamOptions": [
+      "Default"
+    ]
+  },
+  "location": "West US 2"
+}
 ```
-
-Eseguire il polling dello stato dell'evento live fino a quando non passa allo stato "Running", che indica che è ora possibile inviare un feed RTMP di contributo. È ora possibile seguire la stessa procedura descritta in questa esercitazione, ad esempio il controllo del feed di anteprima e la creazione di output Live.
 
 ## <a name="transcription-delivery-and-playback"></a>Recapito e riproduzione della trascrizione
 
@@ -101,10 +196,8 @@ Vedere l'articolo Panoramica della creazione [dinamica dei pacchetti](dynamic-pa
 
 Per l'anteprima, di seguito sono riportati i problemi noti della trascrizione Live:
 
-* La funzionalità è disponibile solo negli Stati Uniti occidentali 2.
-* Le app devono usare le API di anteprima, descritte nella [specifica openapi di servizi multimediali V3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
-* L'unica lingua supportata è l'inglese (en-US).
-* Con la protezione del contenuto, è supportata solo la crittografia della busta AES.
+- Le app devono usare le API di anteprima, descritte nella [specifica openapi di servizi multimediali V3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
+- La protezione DRM (Digital Rights Management) non si applica alla traccia del testo, ma è possibile solo la crittografia della busta AES.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

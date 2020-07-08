@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: de1a22ed6e9707767c0d097a9250f0bdd31414d5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b49dc6ef2bfee311bc3ca524a5ccb0a4e4b5ca9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788961"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84793703"
 ---
 ## <a name="create-an-image-gallery"></a>Creare un raccolta di immagini 
 
@@ -21,7 +21,7 @@ Una raccolta di immagini è la risorsa principale usata per l'abilitazione della
 
 I caratteri consentiti per i nomi delle raccolte sono lettere maiuscole o minuscole, numeri e punti. Il nome della raccolta non può contenere trattini.   I nomi di raccolta devono essere univoci all'interno della sottoscrizione. 
 
-Creare una raccolta di immagini usando [sig az create](/cli/azure/sig#az-sig-create). Nell'esempio seguente viene creato un gruppo di risorse denominato Gallery denominata *myGalleryRG* negli *Stati Uniti orientali*e *una raccolta denominata Gallery.*
+Creare una raccolta di immagini usando [sig az create](/cli/azure/sig#az-sig-create). L'esempio seguente crea un gruppo di risorse denominato *myGalleryRG* nell'area *Stati Uniti orientali* e una raccolta denominata *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -30,9 +30,9 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## <a name="share-the-gallery"></a>Condividere la raccolta
 
-È possibile condividere immagini tra sottoscrizioni tramite il controllo degli accessi in base al ruolo (RBAC). È possibile condividere immagini nella raccolta, nella definizione dell'immagine o nella versione dell'immagine leve. Qualsiasi utente che disponga delle autorizzazioni di lettura per una versione dell'immagine, anche tra le sottoscrizioni, sarà in grado di distribuire una VM usando la versione dell'immagine.
+È possibile condividere immagini tra sottoscrizioni usando il controllo degli accessi in base al ruolo. È possibile condividere immagini a livello della raccolta, della definizione dell'immagine o della versione dell'immagine. Qualsiasi utente che abbia autorizzazioni di lettura per una versione di immagine, anche tra sottoscrizioni diverse, potrà distribuire una VM usando la versione dell'immagine.
 
-Si consiglia di condividere con altri utenti a livello di raccolta. Per ottenere l'ID oggetto della raccolta, usare [AZ sig Show](/cli/azure/sig#az-sig-show).
+È consigliabile condividere con altri utenti a livello di raccolta. Per ottenere l'ID oggetto della raccolta, usare [az sig show](/cli/azure/sig#az-sig-show).
 
 ```azurecli-interactive
 az sig show \
@@ -41,7 +41,7 @@ az sig show \
    --query id
 ```
 
-Usare l'ID oggetto come ambito, insieme a un indirizzo di posta elettronica e [AZ Role Assignment create](/cli/azure/role/assignment#az-role-assignment-create) per concedere a un utente l'accesso alla raccolta di immagini condivise. Sostituire `<email-address>` e `<gallery iD>` con le informazioni desiderate.
+Usare l'ID oggetto come ambito, insieme a un indirizzo di posta elettronica e a [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create), per concedere a un utente l'accesso a Raccolta immagini condivise. Sostituire `<email-address>` e `<gallery iD>` con le informazioni personalizzate.
 
 ```azurecli-interactive
 az role assignment create \

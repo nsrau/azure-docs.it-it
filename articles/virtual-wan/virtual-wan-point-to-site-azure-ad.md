@@ -4,15 +4,15 @@ description: Informazioni su come configurare l'autenticazione Azure Active Dire
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: 703b832d58f2374eac131cfd380ba27f2c890618
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd80724d62c71fdec81965fb4aa6a07a6233a288
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753952"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurare l'autenticazione Azure Active Directory per la VPN utente
 
@@ -108,7 +108,7 @@ Una configurazione da punto a sito definisce i parametri per la connessione di c
 
    ![nuovo sito](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
 5. Immettere il **Pool di indirizzi** da cui gli indirizzi IP verranno assegnati ai client VPN.
-6. Fare clic su **conferma**.
+6. Fare clic su **Conferma**.
 7. Il completamento dell'operazione potrà richiedere fino a 30 minuti.
 
 ## <a name="download-vpn-profile"></a><a name="device"></a>Scaricare il profilo VPN
@@ -125,7 +125,7 @@ Usare il profilo VPN per configurare i client.
 Per connettersi, è necessario scaricare il client VPN di Azure e importare il profilo client VPN scaricato nei passaggi precedenti in ogni computer che dovrà connettersi alla rete virtuale.
 
 > [!NOTE]
-> Azure AD autenticazione è supportata solo per le&reg; connessioni di protocollo OpenVPN.
+> Azure AD autenticazione è supportata solo per le &reg; connessioni di protocollo OpenVPN.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Per scaricare il client VPN di Azure
@@ -136,33 +136,33 @@ Usare questo [collegamento](https://www.microsoft.com/p/azure-vpn-client-preview
 
 1. Nella pagina selezionare **Importa**.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
+    ![importazione](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
 
 2. Individuare il file XML del profilo e selezionarlo. Con il file selezionato, selezionare **Apri**.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
+    ![importazione](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
 
 3. Specificare il nome del profilo e selezionare **Salva**.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
+    ![importazione](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
 
 4. Selezionare **Connetti** per connettersi alla VPN.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
+    ![importazione](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
 
 5. Una volta stabilita la connessione, l'icona diventerà verde mostrerà lo stato **Connesso**.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
+    ![importazione](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Per eliminare un profilo client
 
 1. Selezionare i puntini di sospensione (...) accanto al profilo client da eliminare. Selezionare quindi **Rimuovi**.
 
-    ![Elimina](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![eliminare](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![Elimina](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![eliminare](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnosticare i problemi di connessione
 
