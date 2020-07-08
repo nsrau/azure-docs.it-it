@@ -9,11 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698955"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
 
@@ -58,10 +57,10 @@ Ecco i prerequisiti di configurazione per il servizio Gestione dispositivi StorS
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Per il servizio Gestione dispositivi StorSimple
 
-Prima di iniziare:
+Prima di iniziare, verificare che:
 
 * Si dispone dell'account Microsoft con credenziali di accesso.
-* Verificare di avere un account di archiviazione di Microsoft Azure con credenziali di accesso.
+* Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
 * La sottoscrizione di Microsoft Azure deve essere abilitata per il servizio Gestione dispositivi StorSimple.
 
 ### <a name="for-the-storsimple-virtual-array"></a>Per l'array virtuale StorSimple
@@ -78,7 +77,7 @@ Prima di distribuire un array virtuale, è necessario:
 
 ### <a name="for-the-datacenter-network"></a>Per la rete del data center
 
-Prima di iniziare:
+Prima di iniziare, verificare che:
 
 * La rete nel data center viene configurata in base ai requisiti di rete per il dispositivo StorSimple. Per ulteriori informazioni, vedere l'articolo relativo ai [requisiti di sistema StorSimple Virtual Array](storsimple-ova-system-requirements.md).
 * L'array virtuale StorSimple dispone di una larghezza di banda Internet dedicata a 5 Mbps (o superiore) sempre disponibile. La larghezza di banda non deve essere condivisa con altre applicazioni.
@@ -127,7 +126,7 @@ Eseguire i passaggi seguenti nell' [portale di Azure](https://portal.azure.com/)
 
 #### <a name="to-get-the-virtual-array-image"></a>Per ottenere l'immagine dell'array virtuale
 
-1. Accedi al [portale di Azure](https://portal.azure.com/). 
+1. Accedere al [portale di Azure](https://portal.azure.com/). 
 2. Nel portale di Azure fare clic su **Sfoglia > Gestione dispositivi StorSimple**.
 3. Selezionare un servizio Gestione dispositivi StorSimple esistente. Nel pannello **Gestione dispositivi StorSimple** fare clic su **Avvio rapido**. 
 4. Fare clic sul collegamento corrispondente all'immagine che si desidera scaricare dall'Area download Microsoft. I file di immagine sono pari a circa 4,8 GB.
@@ -149,7 +148,7 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/
 
 1. Passare al servizio Gestione dispositivi, selezionare e fare doppio clic. Si apre il pannello **Panoramica**.
 2. Selezionare **Credenziali dell'account di archiviazione** nella sezione **Configurazione**.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4. Nel pannello **Aggiungi un account di archiviazione** eseguire le operazioni seguenti:
    
    1. Per **Sottoscrizione** selezionare **Corrente**.
@@ -158,7 +157,7 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/
    
    3. Selezionare**Abilita** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Selezionare **Disabilita** solo se si opera all'interno di un cloud privato.
    
-   4. Fare clic su **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
+   4. Scegliere **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
    
       ![Aggiungere le credenziali di un account di archiviazione esistente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 

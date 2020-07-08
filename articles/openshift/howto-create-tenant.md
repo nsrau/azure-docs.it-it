@@ -7,11 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84694906"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Creare un tenant di Azure AD per Azure Red Hat OpenShift
 
@@ -28,7 +27,7 @@ Per creare un tenant:
 3. Specificare un **nome**per l'organizzazione.
 4. Specificare un **nome di dominio iniziale**. A questa operazione verrà aggiunto *onmicrosoft.com* . È possibile riusare il valore per *nome organizzazione* qui.
 5. Scegliere un paese o un'area geografica in cui verrà creato il tenant.
-6. Scegliere **Crea**.
+6. Fare clic su **Crea**.
 7. Dopo la creazione del tenant di Azure AD, selezionare il collegamento **fare clic qui per gestire la nuova directory** . Il nome del nuovo tenant dovrebbe essere visualizzato in alto a destra nella portale di Azure:  
 
     ![Screenshot del portale che mostra il nome del tenant in alto a destra][tenantcallout]  

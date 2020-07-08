@@ -13,11 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1a57173311278c5e3e0304aeb12d4d6999379eb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262789"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84692326"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usare Microsoft Authenticator o Portale aziendale Intune nelle applicazioni Novell
 
@@ -36,7 +35,7 @@ Usare anche le istruzioni riportate nelle sezioni seguenti per configurare l'aut
 Usare la procedura seguente per abilitare l'app Novell. iOS per comunicare con l'app [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) .
 
 ### <a name="step-1-enable-broker-support"></a>Passaggio 1: abilitare il supporto broker
-È necessario abilitare il supporto del broker per le `PublicClientApplication`singole istanze di. Il supporto è disabilitato per impostazione predefinita. Quando si crea `PublicClientApplication` tramite `PublicClientApplicationBuilder`, usare il `WithBroker()` parametro come illustrato nell'esempio riportato di seguito. Per `WithBroker()` impostazione predefinita, il parametro è impostato su true.
+È necessario abilitare il supporto del broker per le singole istanze di `PublicClientApplication` . Il supporto è disabilitato per impostazione predefinita. Quando si crea `PublicClientApplication` tramite `PublicClientApplicationBuilder` , usare il `WithBroker()` parametro come illustrato nell'esempio riportato di seguito. Per `WithBroker()` impostazione predefinita, il parametro è impostato su true.
 
 ```csharp
 var app = PublicClientApplicationBuilder
@@ -48,7 +47,7 @@ var app = PublicClientApplicationBuilder
 
 ### <a name="step-2-enable-keychain-access"></a>Passaggio 2: abilitare l'accesso Keychain
 
-Per abilitare l'accesso keychain, è necessario disporre di un gruppo di accesso a Keychain per l'applicazione. Quando si crea l' `WithIosKeychainSecurityGroup()` applicazione, è possibile usare l'API per impostare il gruppo di accesso a Keychain:
+Per abilitare l'accesso keychain, è necessario disporre di un gruppo di accesso a Keychain per l'applicazione. `WithIosKeychainSecurityGroup()`Quando si crea l'applicazione, è possibile usare l'API per impostare il gruppo di accesso a Keychain:
 
 ```csharp
 var builder = PublicClientApplicationBuilder
@@ -89,7 +88,7 @@ Questo metodo viene richiamato ogni volta che l'applicazione viene avviata. Vien
 Sempre nel `AppDelegate.cs` file è necessario impostare una finestra degli oggetti. In genere, per Novell iOS non è necessario impostare la finestra degli oggetti. Tuttavia è necessaria una finestra oggetto per inviare e ricevere risposte dal broker. 
 
 Per configurare la finestra oggetto: 
-1. Nel `AppDelegate.cs` file impostare `App.RootViewController` su un nuovo. `UIViewController()` Questa assegnazione garantisce che la chiamata al broker includa `UIViewController`. Se questa impostazione viene assegnata in modo errato, è possibile che venga ricevuto questo errore:
+1. Nel `AppDelegate.cs` file impostare `App.RootViewController` su un nuovo `UIViewController()` . Questa assegnazione garantisce che la chiamata al broker includa `UIViewController` . Se questa impostazione viene assegnata in modo errato, è possibile che venga ricevuto questo errore:
 
       `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 
@@ -119,9 +118,9 @@ Per configurare la finestra oggetto:
 ### <a name="step-5-register-a-url-scheme"></a>Passaggio 5: registrare uno schema URL
 MSAL.NET usa gli URL per richiamare il broker e quindi restituisce la risposta del broker all'app. Per completare la round trip, registrare uno schema URL per l'app nel `Info.plist` file.
 
-Il `CFBundleURLSchemes` nome deve includere `msauth.` come prefisso. Seguire il prefisso con `CFBundleURLName`. 
+Il `CFBundleURLSchemes` nome deve includere `msauth.` come prefisso. Seguire il prefisso con `CFBundleURLName` . 
 
-Nello schema URL, `BundleId` identifica in modo univoco l'app: `$"msauth.(BundleId)"`. Quindi, `BundleId` se `com.yourcompany.xforms`è, lo schema dell'URL `msauth.com.yourcompany.xforms`è.
+Nello schema URL, `BundleId` identifica in modo univoco l'app: `$"msauth.(BundleId)"` . Quindi `BundleId` , se è `com.yourcompany.xforms` , lo schema dell'URL è `msauth.com.yourcompany.xforms` .
 
 > [!NOTE]
 > Questo schema URL diventa parte dell'URI di reindirizzamento che identifica in modo univoco l'app quando riceve la risposta dal broker.
@@ -170,7 +169,7 @@ Ad esempio:
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
 
-Si noti che l'URI di Reindirizzamento `CFBundleURLSchemes` corrisponde al nome incluso nel `Info.plist` file.
+Si noti che l'URI di reindirizzamento corrisponde al `CFBundleURLSchemes` nome incluso nel `Info.plist` file.
 
 ### <a name="step-8-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Passaggio 8: assicurarsi che l'URI di reindirizzamento sia registrato con l'app
 
@@ -180,7 +179,7 @@ Il portale di registrazione delle app offre una nuova esperienza che consente di
 
 Per calcolare l'URI di reindirizzamento:
 
-1. Nel portale di registrazione delle app scegliere **autenticazione** > **provare la nuova esperienza**.
+1. Nel portale di registrazione delle app scegliere **autenticazione**  >  **provare la nuova esperienza**.
 
    ![Prova la nuova esperienza di registrazione delle app](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
@@ -204,7 +203,7 @@ Al termine della procedura, l'URI di reindirizzamento viene calcolato per l'uten
 
 ### <a name="step-1-enable-broker-support"></a>Passaggio 1: abilitare il supporto broker
 
-Il supporto del broker è abilitato per ogni singolo PublicClientApplication. È disabilitata per impostazione predefinita. Usare il `WithBroker()` parametro (impostato su true per impostazione predefinita) quando si `IPublicClientApplication` crea l' `PublicClientApplicationBuilder`oggetto tramite l'oggetto.
+Il supporto del broker è abilitato per ogni singolo PublicClientApplication. È disabilitata per impostazione predefinita. Usare il `WithBroker()` parametro (impostato su true per impostazione predefinita) quando si crea l'oggetto `IPublicClientApplication` tramite l'oggetto `PublicClientApplicationBuilder` .
 
 ```CSharp
 var app = PublicClientApplicationBuilder
@@ -217,7 +216,7 @@ var app = PublicClientApplicationBuilder
 ### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Passaggio 2: aggiornare AppDelegate per gestire il callback
 
 Quando MSAL.NET chiama il broker, il broker chiamerà a sua volta l'applicazione con il metodo OnActivityResult (). Poiché MSAL attenderà la risposta dal broker, l'applicazione deve instradare il risultato a MSAL.NET.
-Questa operazione può essere eseguita instradando il risultato `SetAuthenticationContinuationEventArgs(int requestCode, Result resultCode, Intent data)` a eseguendo l'override del metodo OnActivityResult () come illustrato di seguito.
+Questa operazione può essere eseguita instradando il risultato a `SetAuthenticationContinuationEventArgs(int requestCode, Result resultCode, Intent data)` eseguendo l'override del metodo OnActivityResult () come illustrato di seguito.
 
 ```CSharp
 protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -256,7 +255,7 @@ L'URI di reindirizzamento necessario per l'applicazione dipende dal certificato 
 Example: msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
 ```
 
-L'ultima parte dell'URI, `hgbUYHVBYUTvuvT&Y6tr554365466=`, è la firma con cui l'apk è firmato, con codifica Base64.
+L'ultima parte dell'URI, `hgbUYHVBYUTvuvT&Y6tr554365466=` , è la firma con cui l'apk è firmato, con codifica Base64.
 Tuttavia, durante la fase di sviluppo dell'applicazione con Visual Studio, se si esegue il debug del codice senza firmare l'apk con un certificato specifico, Visual Studio firmerà il file apk per l'utente a scopo di debug, assegnando all'APK una firma univoca per il computer su cui è basata. Pertanto, ogni volta che si compila l'app in un computer diverso, è necessario aggiornare l'URI di reindirizzamento nel codice dell'applicazione e la registrazione dell'applicazione nella portale di Azure per eseguire l'autenticazione con MSAL. 
 
 Durante il debug, è possibile che si verifichi un'eccezione MSAL (o un messaggio di log) indicante che l'URI di reindirizzamento specificato non è corretto. **Questa eccezione fornirà anche l'URI di reindirizzamento che è necessario usare** con il computer corrente in cui si esegue il debug. È possibile utilizzare questo URI di reindirizzamento per continuare a sviluppare per il tempo.

@@ -17,11 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253832"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698768"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -123,7 +122,7 @@ Alcuni carichi di lavoro di Office 365 prevedono determinate restrizioni per le 
 | Carico di lavoro | Restrizioni |
 | --------- | --------- |
 | Exchange Online | Per altre informazioni sulle topologie ibride supportate da Exchange Online, vedere [Distribuzioni ibride con più insiemi di strutture di Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype for Business Online | Quando si usano più foreste locali, sarà supportata solo la topologia di tipo foresta account-risorse. Per altre informazioni, vedere [Requisiti ambientali di Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Skype for Business | Quando si usano più foreste locali, sarà supportata solo la topologia di tipo foresta account-risorse. Per altre informazioni, vedere [Requisiti ambientali di Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 Un'organizzazione più grande può provare a usare la funzionalità [PreferredDataLocation di Office 365](how-to-connect-sync-feature-preferreddatalocation.md), che consente di definire l'area del data center in cui si trovano le risorse dell'utente.
 

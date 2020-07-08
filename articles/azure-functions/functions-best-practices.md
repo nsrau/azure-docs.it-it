@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277778"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697691"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
@@ -24,7 +23,7 @@ Questo articolo definisce le procedure consigliate per creare e definire l'archi
 
 Le funzioni con esecuzione prolungata e di grandi dimensioni possono causare problemi di timeout imprevisti. Per altre informazioni sui timeout per un piano di hosting specifico, vedere [durata del timeout dell'app](functions-scale.md#timeout)per le funzioni. 
 
-Una funzione può diventare grande a causa di molte dipendenze di node. js. L'importazione delle dipendenze può anche fare aumentare i tempi di caricamento causando timeout imprevisti. Le dipendenze vengono caricate in modo sia esplicito che implicito. Un singolo modulo caricato dal codice potrebbe caricare i propri moduli aggiuntivi. 
+Una funzione può diventare grande a causa di molte dipendenze Node.js. L'importazione delle dipendenze può anche fare aumentare i tempi di caricamento causando timeout imprevisti. Le dipendenze vengono caricate in modo sia esplicito che implicito. Un singolo modulo caricato dal codice potrebbe caricare i propri moduli aggiuntivi. 
 
 Quando è possibile, suddividere le funzioni di grandi dimensioni in gruppi di funzioni più piccoli che possono interagire tra loro e restituire rapidamente le risposte. Ad esempio, un webhook o una funzione di trigger HTTP potrebbe richiedere una risposta di riconoscimento entro un determinato limite di tempo; è comune che i webhook richiedano una risposta immediata. È possibile passare il payload del trigger HTTP in una coda perché venga elaborato da una funzione di trigger della coda. Questo approccio consente di rinviare il lavoro effettivo e restituire una risposta immediata.
 
@@ -74,7 +73,7 @@ Riutilizzare le connessioni alle risorse esterne, quando possibile. Vedere [come
 
 ### <a name="avoid-sharing-storage-accounts"></a>Evitare di condividere gli account di archiviazione
 
-Quando si crea un'app per le funzioni, è necessario associarla a un account di archiviazione. La connessione dell'account di archiviazione viene mantenuta nell' [impostazione dell'applicazione AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+Quando si crea un'app per le funzioni, è necessario associarla a un account di archiviazione. La connessione dell'account di archiviazione viene mantenuta nell'impostazione dell'applicazione [AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
 
 [!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
@@ -92,29 +91,29 @@ Non usare la registrazione dettagliata nel codice di produzione, che ha un impat
 
 La programmazione asincrona è una procedura consigliata, soprattutto quando sono interessati le operazioni di I/O di blocco.
 
-In C# evitare sempre di fare riferimento `Result` alla proprietà o `Wait` al metodo chiamante `Task` su un'istanza. Questo approccio può causare l'esaurimento di un thread.
+In C# evitare sempre di fare riferimento alla `Result` proprietà o al `Wait` metodo chiamante su un' `Task` istanza. Questo approccio può causare l'esaurimento di un thread.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ### <a name="use-multiple-worker-processes"></a>Usare più processi di lavoro
 
-Per impostazione predefinita, qualsiasi istanza host per functions usa un singolo processo di lavoro. Per migliorare le prestazioni, soprattutto con i runtime a thread singolo come Python, usare il [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) per aumentare il numero di processi di lavoro per host (fino a 10). Funzioni di Azure tenta quindi di distribuire uniformemente le chiamate di funzioni simultanee tra questi thread di lavoro. 
+Per impostazione predefinita, qualsiasi istanza host per functions usa un singolo processo di lavoro. Per migliorare le prestazioni, soprattutto con i runtime a thread singolo come Python, usare il [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) per aumentare il numero di processi di lavoro per host (fino a 10). Funzioni di Azure prova quindi a distribuire uniformemente le chiamate di funzioni simultanee tra questi processi di lavoro. 
 
-Il FUNCTIONS_WORKER_PROCESS_COUNT si applica a ogni host creato dalle funzioni durante la scalabilità orizzontale dell'applicazione per soddisfare la domanda. 
+FUNCTIONS_WORKER_PROCESS_COUNT si applica a ogni host creato da Funzioni quando le istanze dell'applicazione vengono aumentate per soddisfare la domanda. 
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Ricevere messaggi in batch, se possibile
 
 Alcuni trigger come l'hub eventi consentono di ricevere un batch di messaggi in un'unica chiamata.  L'invio di messaggi in batch offre prestazioni notevolmente migliori.  È possibile configurare le dimensioni massime del batch nel file `host.json` come descritto nella [documentazione di riferimento su host.json](functions-host-json.md)
 
-Per le funzioni C#, è possibile modificare il tipo in una matrice fortemente tipizzata.  Anziché `EventData sensorEvent`, la firma del metodo può essere, ad esempio, `EventData[] sensorEvent`.  Per gli altri linguaggi, è necessario impostare in modo esplicito la proprietà Cardinality in `function.json` in `many` modo da abilitare l'invio in batch, [come illustrato di seguito](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+Per le funzioni C#, è possibile modificare il tipo in una matrice fortemente tipizzata.  Anziché `EventData sensorEvent`, la firma del metodo può essere, ad esempio, `EventData[] sensorEvent`.  Per gli altri linguaggi, è necessario impostare in modo esplicito la proprietà Cardinality in in modo `function.json` `many` da abilitare l'invio in batch, [come illustrato di seguito](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configurare i comportamenti degli host per migliorare la gestione della concorrenza
 
 Il file `host.json` nell'app per le funzioni consente di configurare i comportamenti del trigger e del runtime dell'host.  Oltre ai comportamenti di invio in batch, è possibile gestire anche la concorrenza in una serie di trigger. La modifica dei valori di queste opzioni consente spesso di applicare a ogni istanza la scalabilità appropriata per soddisfare le esigenze delle funzioni richiamate.
 
-Le impostazioni nel file host. JSON si applicano a tutte le funzioni all'interno dell'app, all'interno di una *singola istanza* della funzione. Se, ad esempio, si dispone di un'app per le funzioni con [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) due funzioni http e richieste impostate su 25, una richiesta a uno dei trigger http viene conteggiata per le 25 richieste simultanee condivise.  Quando l'app per le funzioni viene ridimensionata a 10 istanze, le due funzioni consentono di eseguire in modo efficace 250 richieste simultanee (10 istanze * 25 richieste simultanee per istanza). 
+Le impostazioni nel host.jssu file si applicano a tutte le funzioni all'interno dell'app, all'interno di una *singola istanza* della funzione. Se, ad esempio, si dispone di un'app per le funzioni con due funzioni HTTP e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) richieste impostate su 25, una richiesta a uno dei trigger http viene conteggiata per le 25 richieste simultanee condivise.  Quando l'app per le funzioni viene ridimensionata a 10 istanze, le due funzioni consentono di eseguire in modo efficace 250 richieste simultanee (10 istanze * 25 richieste simultanee per istanza). 
 
-Altre opzioni di configurazione host sono disponibili nell' [articolo configurazione di host. JSON](functions-host-json.md).
+Altre opzioni di configurazione host sono disponibili nell' [articolohost.jsdi configurazione](functions-host-json.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

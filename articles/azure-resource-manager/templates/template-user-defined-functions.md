@@ -3,12 +3,11 @@ title: Funzioni definite dall'utente nei modelli
 description: Viene descritto come definire e utilizzare funzioni definite dall'utente in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 2c09572a460aa028b23987033d2b77e2aad8a0cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 69f4e98d389cc8dbe5cd3f4b628189676c501106
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943209"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84672936"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funzioni definite dall'utente nel modello di Azure Resource Manager
 
@@ -48,7 +47,7 @@ Nell'esempio seguente viene illustrato un modello che include una funzione defin
 
 ```json
 {
- "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+ "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
  "contentVersion": "1.0.0.0",
  "parameters": {
    "storageNamePrefix": {

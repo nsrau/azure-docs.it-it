@@ -13,11 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84690184"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlli pagina in Gestione API di Azure
 Gestione API di Azure mette a disposizione i seguenti controlli per l'uso nei modelli del portale per sviluppatori.  
@@ -81,7 +80,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 ```  
   
 ### <a name="parameters"></a>Parametri  
- Nessuno.  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `basic-signin` nei seguenti modelli del portale per sviluppatori:  
@@ -100,12 +99,12 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 ```  
   
 ### <a name="parameters"></a>Parametri  
- Nessuno.  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `paging-control` nei seguenti modelli del portale per sviluppatori:  
   
--   [Elenco API](api-management-api-templates.md#APIList)  
+-   [Elenco delle API](api-management-api-templates.md#APIList)  
   
 -   [Elenco di problemi](api-management-issue-templates.md#IssueList)  
   
@@ -123,7 +122,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 ```  
   
 ### <a name="parameters"></a>Parametri  
- Nessuno.  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `providers` nei seguenti modelli del portale per sviluppatori:  
@@ -142,12 +141,12 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 ```  
   
 ### <a name="parameters"></a>Parametri  
- Nessuno.  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `search-control` nei seguenti modelli del portale per sviluppatori:  
   
--   [Elenco API](api-management-api-templates.md#APIList)  
+-   [Elenco delle API](api-management-api-templates.md#APIList)  
   
 -   [Elenco dei prodotti](api-management-product-templates.md#ProductList)  
   
@@ -163,12 +162,12 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 ```  
   
 ### <a name="parameters"></a>Parametri  
- Nessuno.  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `sign-up` nei seguenti modelli del portale per sviluppatori:  
   
--   [Iscrizione](api-management-page-templates.md#SignUp)  
+-   [Registrati](api-management-page-templates.md#SignUp)  
   
 ##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subscribe-button  
  Il controllo `subscribe-button` consente di sottoscrivere un utente a un prodotto.  
@@ -182,7 +181,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 ```  
   
 ### <a name="parameters"></a>Parametri  
- Nessuno.  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `subscribe-button` nei seguenti modelli del portale per sviluppatori:  

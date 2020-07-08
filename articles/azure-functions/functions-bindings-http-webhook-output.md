@@ -6,11 +6,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277622"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697443"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Associazioni di output HTTP di funzioni di Azure
 
@@ -18,8 +17,8 @@ Usare l'associazione di output HTTP per rispondere al mittente della richiesta H
 
 Il valore restituito predefinito per una funzione attivata tramite HTTP è:
 
-- `HTTP 204 No Content`con un corpo vuoto in functions 2. x e versioni successive
-- `HTTP 200 OK`con un corpo vuoto nelle funzioni 1. x
+- `HTTP 204 No Content` con un corpo vuoto in Funzioni 2.x e versioni successive
+- `HTTP 200 OK` con un corpo vuoto in Funzioni 1.x
 
 ## <a name="configuration"></a>Configurazione
 
@@ -28,8 +27,8 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |Proprietà  |Descrizione  |
 |---------|---------|
 | **type** |Il valore deve essere impostato su `http`. |
-| **direzione** | Il valore deve essere impostato su `out`. |
-| **name** | Nome della variabile usato nel codice della funzione per la risposta, o `$return`per usare il valore restituito. |
+| **direction** | Il valore deve essere impostato su `out`. |
+| **nome** | Nome della variabile usato nel codice della funzione per la risposta, o `$return`per usare il valore restituito. |
 
 ## <a name="usage"></a>Utilizzo
 
@@ -39,7 +38,7 @@ Per le risposte di esempio, vedere l'[esempio di trigger](./functions-bindings-h
 
 ## <a name="hostjson-settings"></a>impostazioni host.json
 
-Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il file host. JSON di esempio seguente contiene solo le impostazioni della versione 2. x + per questa associazione. Per ulteriori informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere informazioni di [riferimento su host. JSON per funzioni di Azure](functions-host-json.md).
+Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il host.jsdi esempio nel file seguente contiene solo le impostazioni versione 2. x + per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere [host.jsdi riferimento per funzioni di Azure](functions-host-json.md).
 
 > [!NOTE]
 > Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md#http).
@@ -66,11 +65,11 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
-| customHeaders|none|Consente di impostare intestazioni personalizzate nella risposta HTTP. Nell'esempio precedente l' `X-Content-Type-Options` intestazione viene aggiunta alla risposta per evitare lo sniffing del tipo di contenuto. |
-|dynamicThrottlesEnabled|true<sup>\*</sup>|Se questa impostazione è abilitata, la pipeline di elaborazione della richiesta controlla periodicamente i contatori `connections/threads/processes/memory/cpu/etc` delle prestazioni del sistema, ad esempio e se uno di questi contatori supera una soglia elevata predefinita (80%), le richieste `429 "Too Busy"` verranno rifiutate con una risposta fino a quando i contatori non tornano ai livelli normali.<br/><sup>\*</sup>Il valore predefinito in un piano a `true`consumo è. Il valore predefinito in un piano dedicato `false`è.|
-|HSTS|non abilitato|Quando `isEnabled` è impostato su `true`, viene applicato il [comportamento di sicurezza del trasporto http Strict (HSTS) di .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) , come definito nella [ `HstsOptions` classe](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Nell'esempio precedente viene inoltre impostata [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) la proprietà su 10 giorni. Le proprietà supportate `hsts` di sono: <table><tr><th>Proprietà</th><th>Descrizione</th></tr><tr><td>excludedHosts</td><td>Matrice di stringhe di nomi host per cui non viene aggiunta l'intestazione HSTS.</td></tr><tr><td>includeSubDomains</td><td>Valore booleano che indica se il parametro includeSubDomain dell'intestazione Strict-Transport-Security è abilitato.</td></tr><tr><td>maxAge</td><td>Stringa che definisce il parametro max-age dell'intestazione Strict-Transport-Security.</td></tr><tr><td>preload</td><td>Valore booleano che indica se il parametro preload dell'intestazione Strict-Transport-Security è abilitato.</td></tr></table>|
-|maxConcurrentRequests|100<sup>\*</sup>|Numero massimo di funzioni HTTP eseguite in parallelo. Questo valore consente di controllare la concorrenza, che consente di gestire l'utilizzo delle risorse. Ad esempio, si potrebbe avere una funzione HTTP che usa un numero elevato di risorse di sistema (memoria/CPU/socket) in modo che causi problemi quando la concorrenza è troppo elevata. Oppure è possibile che si disponga di una funzione che esegue richieste in uscita per un servizio di terze parti e tali chiamate devono essere limitate. In questi casi potrebbe risultare utile l'applicazione di una limitazione. <br/><sup>*</sup>Il valore predefinito per un piano a consumo è 100. Il valore predefinito per un piano dedicato è unbounded`-1`().|
-|maxOutstandingRequests|200<sup>\*</sup>|Il numero massimo di richieste in sospeso che verrà mantenuto in un determinato intervallo. Questo limite include le richieste che vengono messe in coda ma non hanno avviato l'esecuzione, nonché le esecuzioni in corso. Le richieste in arrivo che superano questo limite vengono rifiutate con la risposta 429 "Occupato". Ciò consente ai chiamanti di usare strategie di ripetizione dei tentativi basate sul tempo e di controllare la latenza massima delle richieste. Questa impostazione controlla solo l'accodamento che si verifica all'interno del percorso di esecuzione dell'host dello script. Altre code, ad esempio la coda di richieste ASP.NET, saranno valide e non interessate da questa impostazione. <br/><sup>\*</sup>Il valore predefinito per un piano a consumo è 200. Il valore predefinito per un piano dedicato è unbounded`-1`().|
+| customHeaders|Nessuno|Consente di impostare intestazioni personalizzate nella risposta HTTP. Nell'esempio precedente l'intestazione viene aggiunta `X-Content-Type-Options` alla risposta per evitare lo sniffing del tipo di contenuto. |
+|dynamicThrottlesEnabled|true<sup>\*</sup>|Se questa impostazione è abilitata, la pipeline di elaborazione della richiesta controlla periodicamente i contatori delle prestazioni del sistema, ad esempio `connections/threads/processes/memory/cpu/etc` e se uno di questi contatori supera una soglia elevata predefinita (80%), le richieste verranno rifiutate con una `429 "Too Busy"` risposta fino a quando i contatori non tornano ai livelli normali.<br/><sup>\*</sup>Il valore predefinito in un piano a consumo è `true` . Il valore predefinito in un piano dedicato è `false` .|
+|HSTS|non abilitato|Quando `isEnabled` è impostato su `true` , viene applicato il [comportamento di sicurezza del trasporto http Strict (HSTS) di .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) , come definito nella [ `HstsOptions` classe](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Nell'esempio precedente viene inoltre impostata la [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) proprietà su 10 giorni. Le proprietà supportate di `hsts` sono: <table><tr><th>Proprietà</th><th>Descrizione</th></tr><tr><td>excludedHosts</td><td>Matrice di stringhe di nomi host per cui non viene aggiunta l'intestazione HSTS.</td></tr><tr><td>includeSubDomains</td><td>Valore booleano che indica se il parametro includeSubDomain dell'intestazione Strict-Transport-Security è abilitato.</td></tr><tr><td>maxAge</td><td>Stringa che definisce il parametro max-age dell'intestazione Strict-Transport-Security.</td></tr><tr><td>preload</td><td>Valore booleano che indica se il parametro preload dell'intestazione Strict-Transport-Security è abilitato.</td></tr></table>|
+|maxConcurrentRequests|100<sup>\*</sup>|Numero massimo di funzioni HTTP eseguite in parallelo. Questo valore consente di controllare la concorrenza, che consente di gestire l'utilizzo delle risorse. Ad esempio, si potrebbe avere una funzione HTTP che usa un numero elevato di risorse di sistema (memoria/CPU/socket) in modo che causi problemi quando la concorrenza è troppo elevata. Oppure è possibile che si disponga di una funzione che esegue richieste in uscita per un servizio di terze parti e tali chiamate devono essere limitate. In questi casi potrebbe risultare utile l'applicazione di una limitazione. <br/><sup>*</sup>Il valore predefinito per un piano a consumo è 100. Il valore predefinito per un piano dedicato è unbounded ( `-1` ).|
+|maxOutstandingRequests|200<sup>\*</sup>|Il numero massimo di richieste in sospeso che verrà mantenuto in un determinato intervallo. Questo limite include le richieste che vengono messe in coda ma non hanno avviato l'esecuzione, nonché le esecuzioni in corso. Le richieste in arrivo che superano questo limite vengono rifiutate con la risposta 429 "Occupato". Ciò consente ai chiamanti di usare strategie di ripetizione dei tentativi basate sul tempo e di controllare la latenza massima delle richieste. Questa impostazione controlla solo l'accodamento che si verifica all'interno del percorso di esecuzione dell'host dello script. Altre code, ad esempio la coda di richieste ASP.NET, saranno valide e non interessate da questa impostazione. <br/><sup>\*</sup>Il valore predefinito per un piano a consumo è 200. Il valore predefinito per un piano dedicato è unbounded ( `-1` ).|
 |routePrefix|api|Il prefisso della route che si applica a tutte le route. Utilizzare una stringa vuota per rimuovere il prefisso predefinito. |
 
 ## <a name="next-steps"></a>Passaggi successivi

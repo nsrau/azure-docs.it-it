@@ -1,29 +1,28 @@
 ---
 title: Errori di risorsa non trovati
-description: Viene descritto come risolvere gli errori quando non è possibile trovare una risorsa durante la distribuzione con un modello di Azure Resource Manager.
+description: Viene descritto come risolvere gli errori quando non è possibile trovare una risorsa. L'errore può verificarsi durante la distribuzione di un modello di Azure Resource Manager o durante l'esecuzione di azioni di gestione.
 ms.topic: troubleshooting
-ms.date: 01/21/2020
-ms.openlocfilehash: b6f433118092e46f734d4b65040dd97c2fcb58d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/10/2020
+ms.openlocfilehash: 224af4ce0fe5053201f25d8207f4ca8cdc73e638
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773253"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667948"
 ---
-# <a name="resolve-not-found-errors-for-azure-resources"></a>Risolvere gli errori relativi alle risorse di Azure non trovate
+# <a name="resolve-resource-not-found-errors"></a>Risolvere gli errori di risorsa non trovata
 
-Questo articolo descrive gli errori che possono essere visualizzati quando è impossibile trovare una risorsa durante la distribuzione.
+Questo articolo descrive l'errore che si verifica quando non è possibile trovare una risorsa durante un'operazione. In genere, questo errore viene visualizzato durante la distribuzione delle risorse. Questo errore viene visualizzato anche quando si esegue attività di gestione e Azure Resource Manager non riesce a trovare la risorsa richiesta. Se, ad esempio, si tenta di aggiungere tag a una risorsa che non esiste, viene visualizzato questo errore.
 
 ## <a name="symptom"></a>Sintomo
 
-Quando il modello include il nome di una risorsa che non può essere risolta, l'utente riceve un errore simile al seguente:
+Sono presenti due codici di errore che indicano che la risorsa non è stata trovata. L'errore **NotFound** restituisce un risultato simile al seguente:
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Se si usa la funzione [reference](template-functions-resource.md#reference) o la funzione [listKeys](template-functions-resource.md#listkeys) con una risorsa che non può essere risolta, verrà visualizzato l'errore seguente:
+L'errore **ResourceNotFound** restituisce un risultato simile al seguente:
 
 ```
 Code=ResourceNotFound;
@@ -33,11 +32,23 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>Causa
 
-Resource Manager deve recuperare le proprietà di una risorsa, ma non riesce a identificare la risorsa nella sottoscrizione.
+Gestione risorse necessario recuperare le proprietà di una risorsa, ma non è possibile trovare la risorsa nelle sottoscrizioni.
 
-## <a name="solution-1---set-dependencies"></a>Soluzione 1: impostare le dipendenze
+## <a name="solution-1---check-resource-properties"></a>Soluzione 1: controllare le proprietà delle risorse
 
-Se si sta provando a distribuire la risorsa mancante nel modello, verificare se è necessario aggiungere una dipendenza. Azure Resource Manager consente di ottimizzare la distribuzione creando risorse in parallelo, quando ciò è possibile. Se una risorsa deve essere distribuita dopo un'altra, nel modello è necessario usare l'elemento **dependsOn**. Ad esempio, quando si distribuisce un'app Web deve esistere il piano di servizio app. Se non è stato specificato che l'app Web dipende dal piano di servizio app, Resource Manager crea entrambe le risorse contemporaneamente. Viene visualizzato un errore che segnala che la risorsa del piano di servizio app non è stata trovata perché non esiste ancora quando si prova a impostare una proprietà nell'app Web. È possibile prevenire questo errore impostando la dipendenza nell'app Web.
+Quando si riceve questo errore durante un'attività di gestione, controllare i valori forniti per la risorsa. I tre valori da controllare sono:
+
+* Nome risorsa
+* Nome del gruppo di risorse
+* Subscription
+
+Se si usa PowerShell o l'interfaccia della riga di comando di Azure, verificare se si sta eseguendo il comando nella sottoscrizione che contiene la risorsa. È possibile modificare la sottoscrizione con [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) o [AZ account set](/cli/azure/account#az-account-set). Molti comandi forniscono anche un parametro di sottoscrizione che consente di specificare una sottoscrizione diversa da quella del contesto corrente.
+
+In caso di problemi durante la verifica delle proprietà, accedere al [portale](https://portal.azure.com). Trovare la risorsa che si sta provando a usare ed esaminare il nome della risorsa, il gruppo di risorse e la sottoscrizione.
+
+## <a name="solution-2---set-dependencies"></a>Soluzione 2: impostare le dipendenze
+
+Se viene ricevuto questo errore durante la distribuzione di un modello, potrebbe essere necessario aggiungere una dipendenza. Azure Resource Manager consente di ottimizzare la distribuzione creando risorse in parallelo, quando ciò è possibile. Se una risorsa deve essere distribuita dopo un'altra, nel modello è necessario usare l'elemento **dependsOn**. Ad esempio, quando si distribuisce un'app Web deve esistere il piano di servizio app. Se non è stato specificato che l'app Web dipende dal piano di servizio app, Resource Manager crea entrambe le risorse contemporaneamente. Viene visualizzato un errore che segnala che la risorsa del piano di servizio app non è stata trovata perché non esiste ancora quando si prova a impostare una proprietà nell'app Web. È possibile prevenire questo errore impostando la dipendenza nell'app Web.
 
 ```json
 {
@@ -70,9 +81,13 @@ In caso di problemi relativi alle dipendenze, è necessario esaminare in modo ap
 
    ![distribuzione sequenziale](./media/error-not-found/deployment-events-sequence.png)
 
-## <a name="solution-2---get-resource-from-different-resource-group"></a>Soluzione 2: ottenere risorse da un gruppo di risorse diverso
+## <a name="solution-3---get-external-resource"></a>Soluzione 3-ottenere una risorsa esterna
 
-Se la risorsa è inclusa in un gruppo di risorse differente da quello distribuito, usare la funzione [resourceId](template-functions-resource.md#resourceid) per ottenere il nome completo della risorsa.
+Quando si distribuisce un modello ed è necessario ottenere una risorsa esistente in una sottoscrizione o un gruppo di risorse diverso, usare la [funzione ResourceId](template-functions-resource.md#resourceid). Questa funzione restituisce per ottenere il nome completo della risorsa.
+
+I parametri della sottoscrizione e del gruppo di risorse nella funzione resourceId sono facoltativi. Se non vengono forniti, per impostazione predefinita si tratta della sottoscrizione e del gruppo di risorse correnti. Quando si lavora con una risorsa in un gruppo di risorse o una sottoscrizione diversa, assicurarsi di specificare tali valori.
+
+Nell'esempio seguente viene ottenuto l'ID risorsa per una risorsa esistente in un gruppo di risorse diverso.
 
 ```json
 "properties": {
@@ -81,22 +96,39 @@ Se la risorsa è inclusa in un gruppo di risorse differente da quello distribuit
 }
 ```
 
-## <a name="solution-3---check-reference-function"></a>Soluzione 3: controllare la funzione reference
-
-Cercare un'espressione contenente la funzione [reference](template-functions-resource.md#reference). I valori forniti variano a seconda che la risorsa sia nello stesso modello, gruppo di risorse e sottoscrizione. Controllare che ai parametri vengano passati i valori necessari per lo scenario. Se la risorsa è in un altro gruppo di risorse, fornire l'ID risorsa completo. Ad esempio, per fare riferimento a un account di archiviazione in un altro gruppo di risorse, usare:
-
-```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
-```
-
 ## <a name="solution-4---get-managed-identity-from-resource"></a>Soluzione 4: ottenere l'identità gestita dalla risorsa
 
 Se si distribuisce una risorsa che crea in modo implicito un' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md), è necessario attendere che la risorsa venga distribuita prima di recuperare i valori nell'identità gestita. Se si passa il nome dell'identità gestita alla funzione [Reference](template-functions-resource.md#reference) , gestione risorse tenta di risolvere il riferimento prima della distribuzione della risorsa e dell'identità. Al contrario, passare il nome della risorsa a cui viene applicata l'identità. Questo approccio assicura che la risorsa e l'identità gestita vengano distribuite prima che Gestione risorse risolve la funzione di riferimento.
 
 Nella funzione Reference usare `Full` per ottenere tutte le proprietà, inclusa l'identità gestita.
 
-Ad esempio, per ottenere l'ID tenant per un'identità gestita applicata a un set di scalabilità di macchine virtuali, usare:
+Il modello è:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+> [!IMPORTANT]
+> Non usare il modello:
+>
+> `"[reference(concat(resourceId(<resource-provider-namespace>, <resource-name>),'/providers/Microsoft.ManagedIdentity/Identities/default'),<API-version>).principalId]"`
+>
+> Il modello non riuscirà.
+
+Ad esempio, per ottenere l'ID entità per un'identità gestita applicata a una macchina virtuale, usare:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+In alternativa, per ottenere l'ID tenant per un'identità gestita applicata a un set di scalabilità di macchine virtuali, usare:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+```
+
+## <a name="solution-5---check-functions"></a>Soluzione 5-funzioni di controllo
+
+Quando si distribuisce un modello, cercare le espressioni che usano le funzioni [Reference](template-functions-resource.md#reference) o [listKeys](template-functions-resource.md#listkeys) . I valori forniti variano a seconda che la risorsa sia nello stesso modello, gruppo di risorse e sottoscrizione. Verificare di fornire i valori dei parametri richiesti per lo scenario. Se la risorsa è in un altro gruppo di risorse, fornire l'ID risorsa completo. Ad esempio, per fare riferimento a un account di archiviazione in un altro gruppo di risorse, usare:
+
+```json
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```

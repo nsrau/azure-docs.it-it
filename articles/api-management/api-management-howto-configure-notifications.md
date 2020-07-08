@@ -14,11 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84690303"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
 
@@ -56,7 +55,7 @@ Se non si dispone di un'istanza del servizio Gestione API, completare la guida i
 
     ![Destinatari delle notifiche][api-management-email-addresses]
 
-4.  Fare clic su **Aggiungi**.
+4.  Premere **Aggiungi**.
 
 ## <a name="configure-notification-templates"></a><a name="email-templates"> </a>Configurare i modelli di notifica
 

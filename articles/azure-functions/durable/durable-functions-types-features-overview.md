@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277882"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697708"
 ---
 # <a name="durable-functions-types-and-features"></a>Tipi e funzionalità Durable Functions
 
@@ -36,7 +35,7 @@ Diversamente dalle funzioni dell'agente di orchestrazione, le funzioni di attivi
 > [!NOTE]
 > Poiché le funzioni di attività garantiscono solo l'esecuzione *almeno una volta* , è consigliabile rendere la logica della funzione di attività *idempotente* quando possibile.
 
-Usare un [trigger di attività](durable-functions-bindings.md#activity-trigger) per definire una funzione di attività. Le funzioni .NET ricevono `DurableActivityContext` come parametro. È anche possibile associare il trigger a qualsiasi altro oggetto serializzabile in JSON per passare gli input alla funzione. In JavaScript, è possibile accedere a un input tramite `<activity trigger binding name>` la proprietà nell' [ `context.bindings` oggetto](../functions-reference-node.md#bindings). Alle funzioni di attività può essere passato un solo valore. Per passare più valori, è necessario utilizzare tuple, matrici o tipi complessi.
+Usare un [trigger di attività](durable-functions-bindings.md#activity-trigger) per definire una funzione di attività. Le funzioni .NET ricevono `DurableActivityContext` come parametro. È anche possibile associare il trigger a qualsiasi altro oggetto serializzabile in JSON per passare gli input alla funzione. In JavaScript, è possibile accedere a un input tramite la `<activity trigger binding name>` proprietà nell' [ `context.bindings` oggetto](../functions-reference-node.md#bindings). Alle funzioni di attività può essere passato un solo valore. Per passare più valori, è necessario utilizzare tuple, matrici o tipi complessi.
 
 > [!NOTE]
 > È possibile attivare una funzione di attività solo da una funzione dell'agente di orchestrazione.

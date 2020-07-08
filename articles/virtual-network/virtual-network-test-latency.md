@@ -9,25 +9,24 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 00efc2754948d53d4f80a6261dbd4041b358185b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74896371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687804"
 ---
 # <a name="test-vm-network-latency"></a>Testare la latenza di rete delle macchine virtuali
 
-Per ottenere risultati più accurati, misurare la latenza di rete della macchina virtuale (VM) di Azure con uno strumento progettato per l'attività. Gli strumenti disponibili pubblicamente, ad esempio SockPerf (per Linux) e latte. exe (per Windows), possono isolare e misurare la latenza di rete escludendo altri tipi di latenza, ad esempio la latenza dell'applicazione. Questi strumenti si concentrano sul tipo di traffico di rete che influiscono sulle prestazioni dell'applicazione (in particolare Transmission Control Protocol [TCP] e il traffico UDP (User Datagram Protocol). 
+Per ottenere risultati più accurati, misurare la latenza di rete della macchina virtuale (VM) di Azure con uno strumento progettato per l'attività. Gli strumenti disponibili pubblicamente, ad esempio SockPerf (per Linux) e latte.exe (per Windows), possono isolare e misurare la latenza di rete escludendo altri tipi di latenza, ad esempio la latenza dell'applicazione. Questi strumenti si concentrano sul tipo di traffico di rete che influiscono sulle prestazioni dell'applicazione (in particolare Transmission Control Protocol [TCP] e il traffico UDP (User Datagram Protocol). 
 
 Altri strumenti comuni di connettività, ad esempio ping, possono misurare la latenza, ma i risultati potrebbero non rappresentare il traffico di rete usato nei carichi di lavoro reali. Ciò è dovuto al fatto che la maggior parte di questi strumenti utilizza il Internet Control Message Protocol (ICMP), che può essere trattato in modo diverso dal traffico dell'applicazione e i cui risultati potrebbero non essere applicabili ai carichi di lavoro che utilizzano TCP e UDP. 
 
-Per un test accurato della latenza di rete dei protocolli usati dalla maggior parte delle applicazioni, SockPerf (per Linux) e latte. exe (per Windows) producono i risultati più rilevanti. Questo articolo illustra entrambi gli strumenti.
+Per il test accurato della latenza di rete dei protocolli usati dalla maggior parte delle applicazioni, SockPerf (per Linux) e latte.exe (per Windows) producono i risultati più rilevanti. Questo articolo illustra entrambi gli strumenti.
 
 ## <a name="overview"></a>Panoramica
 
@@ -45,7 +44,7 @@ Utilizzando due macchine virtuali, una come mittente e una come ricevente, viene
 ### <a name="tools-for-testing"></a>Strumenti per il test
 Per misurare la latenza, sono disponibili due opzioni dello strumento diverse:
 
-* Per i sistemi basati su Windows: [latte. exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* Per sistemi basati su Windows: [latte.exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 * Per sistemi basati su Linux: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
 Usando questi strumenti, è possibile garantire che vengano misurati solo i tempi di recapito del payload TCP o UDP e non i tipi di pacchetti ICMP (ping) o altri tipi di pacchetti che non vengono usati dalle applicazioni e non influiscono sulle prestazioni.
@@ -69,29 +68,29 @@ Quando si analizzano i risultati dei test, tenere presenti le raccomandazioni se
 
 ## <a name="test-vms-that-are-running-windows"></a>Testare le macchine virtuali che eseguono Windows
 
-### <a name="get-latteexe-onto-the-vms"></a>Ottenere latte. exe nelle VM
+### <a name="get-latteexe-onto-the-vms"></a>Ottenere latte.exe sulle macchine virtuali
 
-Scaricare la [versione più recente di latte. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
+Scaricare la [versione più recente di latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
 
-Si consiglia di inserire Lattes. exe in una cartella separata, ad esempio *c:\Tools*.
+Provare a inserire latte.exe in una cartella separata, ad esempio *c:\Tools*.
 
-### <a name="allow-latteexe-through-windows-defender-firewall"></a>Consenti latte. exe attraverso Windows Defender Firewall
+### <a name="allow-latteexe-through-windows-defender-firewall"></a>Consenti latte.exe tramite Windows Defender Firewall
 
-Nel *ricevitore*creare una regola Consenti in Windows Defender Firewall per consentire l'arrivo del traffico latte. exe. È più semplice consentire l'intero programma di caffellatte. exe per nome, anziché consentire porte TCP specifiche in ingresso.
+Nel *ricevitore*creare una regola di accesso in Windows Defender Firewall per consentire l'arrivo del traffico latte.exe. È più semplice consentire l'intero programma di latte.exe in base al nome, anziché consentire porte TCP specifiche in ingresso.
 
-Consentire a caffellatte. exe di usare Windows Defender Firewall eseguendo il comando seguente:
+Consentire latte.exe tramite Windows Defender Firewall eseguendo il comando seguente:
 
 ```cmd
 netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
 ```
 
-Ad esempio, se è stato copiato latte. exe nella cartella *c:\Tools* , si tratta del comando seguente:
+Se, ad esempio, si è copiato latte.exe nella cartella *c:\Tools* , il comando sarà il seguente:
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>Esegui test di latenza
 
-* Sul *ricevitore*avviare latte. exe (eseguirlo dalla finestra cmd, non da PowerShell):
+* Sul *ricevitore*, avviare latte.exe (eseguirlo dalla finestra cmd, non da PowerShell):
 
     ```cmd
     latte -a <Receiver IP address>:<port> -i <iterations>
@@ -105,13 +104,13 @@ Ad esempio, se è stato copiato latte. exe nella cartella *c:\Tools* , si tratta
 
     `latte -a 10.0.0.4:5005 -i 65100`
 
-* Sul *mittente*avviare latte. exe (eseguirlo dalla finestra cmd, non da PowerShell):
+* Sul *mittente*avviare latte.exe (eseguirlo dalla finestra cmd, non da PowerShell):
 
     ```cmd
     latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    Il comando risultante è identico a quello del ricevitore, eccetto con l'aggiunta di&nbsp;*-c* per indicare che si tratta del *client*o del *mittente*:
+    Il comando risultante è identico a quello del ricevitore, eccetto con l'aggiunta di &nbsp; *-c* per indicare che si tratta del *client*o del *mittente*:
 
     `latte -c -a 10.0.0.4:5005 -i 65100`
 

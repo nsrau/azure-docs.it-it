@@ -18,11 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698598"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
 L'obiettivo di questo documento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri documenti.
@@ -140,7 +139,7 @@ Per passare da objectGUID a ConsistencyGuid come attributo dell'ancoraggio di or
 
 3. Immettere le credenziali di amministratore di Azure AD e fare clic su **Avanti**.
 
-4. La procedura guidata di Azure AD Connect analizza lo stato dell'attributo ms-DS-ConsistencyGuid in Active Directory locale. Se l'attributo non è configurato in uno qualsiasi degli oggetti della directory, Azure AD Connect conclude che nessun'altra applicazione sta usando l'attributo e che quindi sia possibile usarlo come attributo dell'ancoraggio di origine. Scegliere **Avanti** per continuare.
+4. La procedura guidata di Azure AD Connect analizza lo stato dell'attributo ms-DS-ConsistencyGuid in Active Directory locale. Se l'attributo non è configurato in uno qualsiasi degli oggetti della directory, Azure AD Connect conclude che nessun'altra applicazione sta usando l'attributo e che quindi sia possibile usarlo come attributo dell'ancoraggio di origine. Fare clic su **Avanti** per continuare.
 
    ![Abilitare ConsistencyGuid per una distribuzione esistente: passaggio 4](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 

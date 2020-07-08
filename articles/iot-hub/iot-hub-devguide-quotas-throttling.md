@@ -8,11 +8,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688977"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -40,7 +39,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | -------- | ------- | ------- | ------- |
 | [Operazioni del registro delle identità](#identity-registry-operations-throttle) (creazione, recupero, elenco, aggiornamento, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | [Nuove connessioni a dispositivi](#device-connections-throttle) (questo limite si applica alla frequenza delle _nuove connessioni_, non al numero totale di connessioni) | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24 nuove connessioni/sec, ma si hanno almeno 100 nuove conessioni/sec tra le unità. Con nove unità S1 si otterranno 108 nuove connessioni/sec (9\*12) tra le unità. | 120 nuove connessioni/sec/unità | 6.000 nuove connessioni/sec/unità |
-| Inoltri dal dispositivo al cloud | Superiore a 100 operazioni di invio/sec o 12 operazioni di invio/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma sono presenti almeno 100 operazioni di invio/sec tra le unità. Con nove unità S1, sono disponibili 108 operazioni di invio/sec (\*9 12) tra le unità. | 120 operazioni di invio/sec/unità | 6.000 operazioni di invio/sec/unità |
+| Inoltri dal dispositivo al cloud | Superiore a 100 operazioni di invio/sec o 12 operazioni di invio/sec/unità <br/> Ad esempio, due unità S1 sono 2 \* 12 = 24/sec, ma sono presenti almeno 100 operazioni di invio/sec tra le unità. Con nove unità S1, sono disponibili 108 operazioni di invio/sec (9 \* 12) tra le unità. | 120 operazioni di invio/sec/unità | 6.000 operazioni di invio/sec/unità |
 | Inoltri dal cloud al dispositivo<sup>1</sup> | 1,67 operazioni di invio/sec/unità (100 messaggi/min/unità) | 1,67 operazioni di invio/sec/unità (100 operazioni di invio/min/unità) | 83,33 operazioni di invio/sec/unità (5.000 operazioni di invio/min/unità) |
 | Ricezioni dal cloud al dispositivo<sup>1</sup> <br/> (solo quando il dispositivo usa HTTPS)| 16,67 operazioni di ricezione/sec/unità (operazioni di ricezione 1.000/min/unità) | 16,67 operazioni di ricezione/sec/unità (operazioni di ricezione 1.000/min/unità) | 833,33 operazioni di ricezione/sec/unità (operazioni di ricezione 50.000/min/unità) |
 | Caricamento di file | 1,67 avvio caricamento file/sec/unità (100/min/unità) | 1,67 avvio caricamento file/sec/unità (100/min/unità) | 83,33 avvio caricamento file/sec/unità (5000/min/unità) |
@@ -75,9 +74,9 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 
 ### <a name="traffic-shaping"></a>Shaping del traffico
 
-Per gestire il traffico in sequenza, l'hub Internet accetta le richieste sopra la limitazione per un periodo di tempo limitato. Le prime richieste verranno elaborate immediatamente. Tuttavia, se il numero di richieste continua a violare la limitazione, l'hub Internet inizia a inserire le richieste in una coda ed elaborate alla tariffa limite. Questo effetto è denominato *shaping del traffico*. Inoltre, le dimensioni della coda sono limitate. Se la violazione della limitazione continua, alla fine la coda si riempie e l'hub delle cose inizia a rifiutare `429 ThrottlingException`le richieste con.
+Per gestire il traffico in sequenza, l'hub Internet accetta le richieste sopra la limitazione per un periodo di tempo limitato. Le prime richieste verranno elaborate immediatamente. Tuttavia, se il numero di richieste continua a violare la limitazione, l'hub Internet inizia a inserire le richieste in una coda ed elaborate alla tariffa limite. Questo effetto è denominato *shaping del traffico*. Inoltre, le dimensioni della coda sono limitate. Se la violazione della limitazione continua, alla fine la coda si riempie e l'hub delle cose inizia a rifiutare le richieste con `429 ThrottlingException` .
 
-Ad esempio, si usa un dispositivo simulato per inviare i messaggi da dispositivo a Cloud 200 al secondo all'hub delle cose S1 (con un limite di 100/sec D2C inviati). Per il primo minuto o due, i messaggi vengono elaborati immediatamente. Tuttavia, poiché il dispositivo continua a inviare un numero maggiore di messaggi rispetto al limite di limitazione, l'hub delle cose inizia a elaborare solo 100 messaggi al secondo e inserisce il resto in una coda. Si inizia a notare un aumento della latenza. A questo punto, si `429 ThrottlingException` inizia a ricevere il riempimento della coda e il "numero di errori di limitazione" nelle [metriche dell'hub](iot-hub-metrics.md) delle cose inizia ad aumentare.
+Ad esempio, si usa un dispositivo simulato per inviare i messaggi da dispositivo a Cloud 200 al secondo all'hub delle cose S1 (con un limite di 100/sec D2C inviati). Per il primo minuto o due, i messaggi vengono elaborati immediatamente. Tuttavia, poiché il dispositivo continua a inviare un numero maggiore di messaggi rispetto al limite di limitazione, l'hub delle cose inizia a elaborare solo 100 messaggi al secondo e inserisce il resto in una coda. Si inizia a notare un aumento della latenza. A questo punto, si inizia a ricevere il `429 ThrottlingException` riempimento della coda e il "numero di errori di limitazione" nelle [metriche dell'hub](iot-hub-metrics.md) delle cose inizia ad aumentare.
 
 ### <a name="identity-registry-operations-throttle"></a>Limitazione delle operazioni del registro di sistema delle identità
 

@@ -3,16 +3,15 @@ title: Controllo di manutenzione per le macchine virtuali di Azure con il portal
 description: Informazioni su come controllare quando viene applicata la manutenzione alle VM di Azure usando il controllo di manutenzione e il portale di Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: c0cb4800bdabe5eb500422fca55b3060b6422e8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4232f4cd39c3f6dd6efa0bf78959798ea842e2dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82139238"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676047"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Controllare gli aggiornamenti con il controllo di manutenzione e i portale di Azure
 
@@ -26,7 +25,7 @@ Il controllo della manutenzione consente di decidere quando applicare gli aggior
 
    ![Screenshot che illustra come aprire le configurazioni di manutenzione](media/virtual-machines-maintenance-control-portal/maintenance-configurations-search.png)
 
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 
    ![Screenshot che illustra come aggiungere una configurazione di manutenzione](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add.png)
 
@@ -38,7 +37,7 @@ Il controllo della manutenzione consente di decidere quando applicare gli aggior
 
    ![Screenshot che illustra come aggiungere tag a una configurazione di manutenzione](media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags.png)
 
-1. Esaminare il riepilogo. Scegliere **Crea**.
+1. Esaminare il riepilogo. Fare clic su **Crea**.
 
    ![Screenshot che illustra come creare una configurazione di manutenzione](media/virtual-machines-maintenance-control-portal/maintenance-configurations-create.png)
 

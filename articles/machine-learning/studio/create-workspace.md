@@ -5,21 +5,18 @@ description: Per usare Azure Machine Learning Studio (versione classica), è nec
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 7b01e7667392d475bcab70dcd3dfaad2c3956e8f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: ede84fefed7db9d2afcc0ad65833ab2c0fefbc03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696525"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning Studio (classica)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Per usare Azure Machine Learning Studio (versione classica), è necessario disporre di un'area di lavoro di Machine Learning Studio (classica). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 
@@ -45,7 +42,7 @@ Per aprire un'area di lavoro in Machine Learning Studio (versione classica), è 
 
      ![Creare una nuova area di lavoro di studio (classica)](./media/create-workspace/create-new-workspace.png)
 
-5. Scegliere **Crea**.
+5. Fare clic su **Crea**.
 
    Machine Learning è attualmente disponibile in un numero limitato di aree. Se la sottoscrizione non include una di queste aree, è possibile che venga visualizzato il messaggio di errore "non sono presenti sottoscrizioni nelle aree consentite".  Per richiedere l'aggiunta di un'area alla sottoscrizione, creare una nuova richiesta al supporto tecnico Microsoft dal portale di Azure, scegliere **Fatturazione** come tipo di problema, quindi seguire le istruzioni per inviare la richiesta.
 
@@ -56,7 +53,7 @@ Se si elimina accidentalmente l'account di archiviazione, ricrearlo con lo stess
 
 Una volta distribuita l'area di lavoro, è possibile aprirla in Machine Learning Studio (classica).
 
-1. Passare a Machine Learning Studio (versione classica) [https://studio.azureml.net/](https://studio.azureml.net/)all'indirizzo.
+1. Passare a Machine Learning Studio (versione classica) all'indirizzo [https://studio.azureml.net/](https://studio.azureml.net/) .
 
 2. Selezionare l'area di lavoro nell'angolo in alto a destra.
 

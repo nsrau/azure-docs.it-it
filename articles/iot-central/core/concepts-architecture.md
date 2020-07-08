@@ -9,11 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271642"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695335"
 ---
 # <a name="azure-iot-central-architecture"></a>Architettura di Azure IoT Central
 
@@ -168,7 +167,7 @@ Le funzionalità di sicurezza all'interno di Azure IoT Central includono:
 La shell dell'interfaccia utente è un'applicazione browser HTML5 moderna e reattiva.
 Un amministratore può personalizzare l'interfaccia utente dell'applicazione applicando temi personalizzati e modificando i collegamenti della Guida in modo che puntino alle risorse della Guida personalizzate. Per altre informazioni sulla personalizzazione dell'interfaccia utente, vedere [l'articolo personalizzare l'interfaccia utente di Azure IOT Central](howto-customize-ui.md) .
 
-Un operatore può creare dashboard di applicazione personalizzati. È possibile avere diversi dashboard che visualizzano dati diversi e passano tra loro.
+Un operatore può creare dashboard di applicazione personalizzati. È possibile avere più dashboard che visualizzano dati diversi e passare dall'uno all'altro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

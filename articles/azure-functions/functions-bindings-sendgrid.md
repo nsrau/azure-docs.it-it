@@ -6,11 +6,10 @@ ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697358"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
 
@@ -203,7 +202,7 @@ module.exports = function (context, input) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene illustrata una funzione attivata tramite HTTP che invia un messaggio di posta elettronica utilizzando l'associazione SendGrid. È possibile specificare i valori predefiniti nella configurazione dell'associazione. Ad esempio, l'indirizzo di posta elettronica *da* viene configurato in *Function. JSON*. 
+Nell'esempio seguente viene illustrata una funzione attivata tramite HTTP che invia un messaggio di posta elettronica utilizzando l'associazione SendGrid. È possibile specificare i valori predefiniti nella configurazione dell'associazione. Ad esempio, l'indirizzo di posta elettronica *da* viene configurato in *function.js*. 
 
 ```json
 {
@@ -260,7 +259,7 @@ def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResp
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nell'esempio seguente viene usata `@SendGridOutput` l'annotazione dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per inviare un messaggio di posta elettronica tramite l'associazione di output SendGrid.
+Nell'esempio seguente viene `@SendGridOutput` usata l'annotazione dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per inviare un messaggio di posta elettronica tramite l'associazione di output SendGrid.
 
 ```java
 package com.function;
@@ -330,11 +329,11 @@ public static void Run(
 }
 ```
 
-Per un esempio completo, vedere l'[esempio in C#](#example).
+Per un esempio completo, vedere [esempio in C#](#example).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script C#.
+Gli attributi non sono supportati da Script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -346,24 +345,24 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'annotazione [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) consente di configurare in modo dichiarativo l'associazione SendGrid fornendo valori di configurazione. Per altri dettagli, vedere le sezioni di [esempio](#example) e di [configurazione](#configuration) .
+L'annotazione [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) consente di configurare in modo dichiarativo l'associazione SendGrid fornendo valori di configurazione. Per altri dettagli, vedere le sezioni di [esempio](#example) e [configurazione](#configuration).
 
 ---
 
 ## <a name="configuration"></a>Configurazione
 
-La tabella seguente elenca le proprietà di configurazione dell'associazione disponibili nel file *Function. JSON* e `SendGrid` l'attributo o l'annotazione.
+Nella tabella seguente sono elencate le proprietà di configurazione dell'associazione disponibili nella *function.jssu* file e l' `SendGrid` attributo o l'annotazione.
 
-| *Function. JSON* (proprietà) | Proprietà attribute/annotation | Descrizione | Facoltativo |
+| *function.jssulla* proprietà | Proprietà attribute/annotation | Description | Facoltativo |
 |--------------------------|-------------------------------|-------------|----------|
-| type |n/d| Il valore deve essere impostato su `sendGrid`.| No |
+| tipo |n/d| Il valore deve essere impostato su `sendGrid`.| No |
 | direction |n/d| Il valore deve essere impostato su `out`.| No |
 | name |n/d| Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Questo valore è `$return` quando viene restituito un solo valore. | No |
 | apiKey | ApiKey | Il nome di un'impostazione dell'app che contiene la chiave API. Se non è impostato, il nome predefinito dell'impostazione dell'app è *AzureWebJobsSendGridApiKey*.| No |
 | to| A | Indirizzo e-mail del destinatario. | Sì |
 | da| From | Indirizzo di posta elettronica del mittente. |  Sì |
 | subject| Oggetto | Oggetto del messaggio di posta elettronica. | Sì |
-| text| Testo | Contenuto del messaggio di posta elettronica. | Sì |
+| text| Text | Contenuto del messaggio di posta elettronica. | Sì |
 
 Le proprietà facoltative possono avere valori predefiniti definiti nell'associazione e aggiunti o sottoposti a override a livello di codice.
 
@@ -373,7 +372,7 @@ Le proprietà facoltative possono avere valori predefiniti definiti nell'associa
 
 ## <a name="hostjson-settings"></a>impostazioni host.json
 
-Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il file host. JSON di esempio seguente contiene solo le impostazioni della versione 2. x + per questa associazione. Per ulteriori informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere informazioni di [riferimento su host. JSON per funzioni di Azure](functions-host-json.md).
+Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il host.jsdi esempio nel file seguente contiene solo le impostazioni versione 2. x + per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere [host.jsdi riferimento per funzioni di Azure](functions-host-json.md).
 
 > [!NOTE]
 > Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).

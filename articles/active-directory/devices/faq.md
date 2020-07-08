@@ -11,16 +11,15 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c238600d412e53ad665214492e292aa395655b78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79497528"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689045"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
-## <a name="general-faq"></a>Domande frequenti generali
+## <a name="general-faq"></a>Domande frequenti di carattere generale
 
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>D: Di recente è stato registrato un dispositivo. Perché non è possibile visualizzare il dispositivo sotto le informazioni utente nel portale di Azure? Oppure perché il proprietario del dispositivo è contrassegnato come N/D per i dispositivi ibridi aggiunti ad Azure Active Directory (Azure AD)?
 
@@ -43,7 +42,7 @@ Sotto **Dispositivi utente** vengono elencati solo i dispositivi seguenti:
 - Per le versioni del sistema operativo di livello inferiore, eseguire `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
 
 **R:** Per informazioni sulla risoluzione dei problemi, vedere gli articoli seguenti:
-- [Risoluzione dei problemi relativi ai dispositivi tramite il comando dsregcmd](troubleshoot-device-dsregcmd.md)
+- [Risoluzione dei problemi dei dispositivi con il comando dsregcmd](troubleshoot-device-dsregcmd.md)
 - [Risoluzione dei problemi relativi a dispositivi Windows 10 e Windows Server 2016 aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
 - [Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
 
@@ -100,7 +99,7 @@ Vedere di seguito il modo in cui è possibile rettificare queste azioni.
 
       Per Azure AD dispositivi Windows 10 registrati, seguire questa procedura:
 
-      1. Passare a **Impostazioni** > **account** > **Accedi all'ufficio o all'Istituto di istruzione**. 
+      1. Passare a **Impostazioni**  >  **account**  >  **Accedi all'ufficio o all'Istituto di istruzione**. 
       1. Selezionare l'account e selezionare **Disconnetti**.
       1. Fare clic su "+ Connetti" e registrare di nuovo il dispositivo eseguendo il processo di accesso.
 
@@ -148,7 +147,7 @@ Vedere di seguito il modo in cui è possibile rettificare queste azioni.
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>D: Ricerca per categorie separare un dispositivo Azure AD aggiunto localmente nel dispositivo?
 
-**R:** Per i dispositivi puri Azure AD aggiunti, assicurarsi di disporre di un account amministratore locale offline o crearne uno. Non è possibile accedere con le credenziali di un utente Azure AD. Passare quindi a **Impostazioni** > **account** > **Accedi all'ufficio o all'Istituto di istruzione**. Selezionare l'account e quindi **Disconnetti**. Seguire le istruzioni e, quando richiesto, fornire le credenziali di amministratore locale. Riavviare il dispositivo per completare il processo di separazione.
+**R:** Per i dispositivi puri Azure AD aggiunti, assicurarsi di disporre di un account amministratore locale offline o crearne uno. Non è possibile accedere con le credenziali di un utente Azure AD. Passare quindi a **Impostazioni**  >  **account**  >  **Accedi all'ufficio o all'Istituto di istruzione**. Selezionare l'account e quindi **Disconnetti**. Seguire le istruzioni e, quando richiesto, fornire le credenziali di amministratore locale. Riavviare il dispositivo per completare il processo di separazione.
 
 ---
 
@@ -175,6 +174,8 @@ Gli utenti eliminati o disabilitati che non hanno effettuato l'accesso in preced
 ### <a name="q-why-do-my-users-have-issues-on-azure-ad-joined-devices-after-changing-their-upn"></a>D: perché gli utenti hanno problemi nei dispositivi Azure AD aggiunti dopo la modifica dell'UPN?
 
 **R:** Attualmente, le modifiche UPN non sono completamente supportate nei dispositivi Azure AD aggiunti. Dopo la modifica dell'UPN, quindi, l'autenticazione degli utenti ad Azure AD avrà esito negativo. Di conseguenza, gli utenti riscontreranno problemi a livello di accesso SSO e accesso condizionale sui propri dispositivi. Per risolvere il problema, gli utenti devono accedere a Windows tramite il riquadro "Altro utente" specificando il nuovo UPN. Microsoft sta lavorando per risolvere questo problema, che non riguarda tuttavia gli utenti che accedono con Windows Hello for Business. 
+
+Le modifiche UPN sono supportate con l'aggiornamento di Windows 10 2004. Gli utenti dei dispositivi con questo aggiornamento non avranno alcun problema dopo aver modificato il UPN
 
 ---
 
@@ -267,6 +268,8 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 
 **R:** Attualmente le modifiche UPN non sono completamente supportate con i dispositivi ibridi Azure AD aggiunti. Dopo aver modificato il proprio UPN, gli utenti potranno accedere al dispositivo e alle applicazioni locali, ma l'autenticazione ad Azure AD avrà esito negativo. Di conseguenza, gli utenti riscontreranno problemi a livello di accesso SSO e accesso condizionale sui propri dispositivi. A questo punto, è necessario separare il dispositivo dal Azure AD (eseguire "dsregcmd/Leave" con privilegi elevati) e riunirlo (si verifica automaticamente) per risolvere il problema. Microsoft sta lavorando per risolvere questo problema, che non riguarda tuttavia gli utenti che accedono con Windows Hello for Business. 
 
+Le modifiche UPN sono supportate con l'aggiornamento di Windows 10 2004. Gli utenti dei dispositivi con questo aggiornamento non avranno alcun problema dopo aver modificato il UPN
+
 ---
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>D: i dispositivi Windows 10 Hybrid Azure AD aggiunti richiedono la visione del controller di dominio per ottenere l'accesso alle risorse cloud?
@@ -286,8 +289,8 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 ### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>D: Ricerca per categorie rimuovere uno stato Azure AD registrato per un dispositivo localmente?
 
 **Un** 
-- Per i dispositivi registrati Azure ad Windows 10, passare a **Impostazioni** > **account** > **Accedi all'ufficio o all'Istituto di istruzione**. Selezionare l'account e quindi **Disconnetti**. La registrazione del dispositivo è per profilo utente in Windows 10.
-- Per iOS e Android, è possibile usare le **Impostazioni** > dell'applicazione Microsoft Authenticator**registrazione del dispositivo** e selezionare **Annulla registrazione del dispositivo**.
+- Per i dispositivi registrati Azure ad Windows 10, passare a **Impostazioni**  >  **account**  >  **Accedi all'ufficio o all'Istituto di istruzione**. Selezionare l'account e quindi **Disconnetti**. La registrazione del dispositivo è per profilo utente in Windows 10.
+- Per iOS e Android, è possibile usare le **Impostazioni**dell'applicazione Microsoft Authenticator  >  **registrazione del dispositivo** e selezionare **Annulla registrazione del dispositivo**.
 - Per macOS, è possibile usare l'applicazione Portale aziendale Microsoft Intune per annullare la registrazione del dispositivo dalla gestione e rimuovere eventuali registrazioni. 
 
 ---
@@ -307,7 +310,7 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 
 **R:** Seguire questa procedura:
 
-1.    [Creare i criteri di conformità del dispositivo](/intune/compliance-policy-create-mac-os)
+1.    [Creare criteri di conformità](/intune/compliance-policy-create-mac-os)
 1.    [Definire un criterio di accesso condizionale per i dispositivi macOS](../active-directory-conditional-access-azure-portal.md) 
 
 **Osservazioni**

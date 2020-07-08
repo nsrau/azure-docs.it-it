@@ -9,11 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687498"
 ---
 # <a name="extended-geojson-geometries"></a>Geometrie estese GeoJSON
 
@@ -27,7 +26,7 @@ La [specifica GeoJSON][1] supporta solo le geometrie seguenti:
 * MultiPoint
 * MultiPolygon
 * Point
-* Polygon
+* Poligono
 
 Alcune API di Azure Maps accettano geometrie che non fanno parte della [specifica GeoJSON][1]. Ad esempio, la [ricerca all'interno](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) dell'API Geometry accetta il cerchio e i poligoni.
 
@@ -37,7 +36,7 @@ Questo articolo illustra in dettaglio come Mappe di Azure estende la [specifica 
 
 La `Circle` geometria non è supportata dalla [specifica GeoJSON][1]. Viene usato un `GeoJSON Point Feature` oggetto per rappresentare un cerchio.
 
-Una `Circle` geometria rappresentata utilizzando `GeoJSON Feature` l'oggetto __deve__ contenere le coordinate e le proprietà seguenti:
+Una `Circle` geometria rappresentata utilizzando l' `GeoJSON Feature` oggetto __deve__ contenere le coordinate e le proprietà seguenti:
 
 - Center
 
@@ -49,7 +48,7 @@ Una `Circle` geometria rappresentata utilizzando `GeoJSON Feature` l'oggetto __d
 
 - Sottotipo
 
-    La geometria circle deve contenere anche la proprietà `subType`. Questa proprietà deve essere una parte delle proprietà `GeoJSON Feature`di e il relativo valore deve essere _Circle_
+    La geometria circle deve contenere anche la proprietà `subType`. Questa proprietà deve essere una parte delle `GeoJSON Feature` proprietà di e il relativo valore deve essere _Circle_
 
 #### <a name="example"></a>Esempio
 
@@ -69,19 +68,19 @@ Ecco come si rappresenterà un cerchio usando un `GeoJSON Feature` oggetto. Si c
 }          
 ```
 
-## <a name="rectangle"></a>Rectangle
+## <a name="rectangle"></a>Rettangolo
 
 La `Rectangle` geometria non è supportata dalla [specifica GeoJSON][1]. Viene usato un `GeoJSON Polygon Feature` oggetto per rappresentare un rettangolo. L'estensione Rectangle viene utilizzata principalmente dal modulo degli strumenti di disegno di Web SDK.
 
-Una `Rectangle` geometria rappresentata utilizzando `GeoJSON Polygon Feature` l'oggetto __deve__ contenere le coordinate e le proprietà seguenti:
+Una `Rectangle` geometria rappresentata utilizzando l' `GeoJSON Polygon Feature` oggetto __deve__ contenere le coordinate e le proprietà seguenti:
 
 - Angoli
 
-    Gli angoli del rettangolo sono rappresentati usando le coordinate di `GeoJSON Polygon` un oggetto. Devono essere presenti cinque coordinate, una per ogni angolo. E, una quinta coordinata uguale alla prima coordinata, per chiudere l'anello del poligono. Si presuppone che queste coordinate siano allineate e che lo sviluppatore possa ruotarle come desiderato.
+    Gli angoli del rettangolo sono rappresentati usando le coordinate di un `GeoJSON Polygon` oggetto. Devono essere presenti cinque coordinate, una per ogni angolo. E, una quinta coordinata uguale alla prima coordinata, per chiudere l'anello del poligono. Si presuppone che queste coordinate siano allineate e che lo sviluppatore possa ruotarle come desiderato.
 
 - Sottotipo
 
-    La geometria del rettangolo deve contenere anche `subType` la proprietà. Questa proprietà deve essere una parte delle proprietà `GeoJSON Feature`di e il relativo valore deve essere _Rectangle_
+    La geometria del rettangolo deve contenere anche la `subType` Proprietà. Questa proprietà deve essere una parte delle `GeoJSON Feature` proprietà di e il relativo valore deve essere _Rectangle_
 
 ### <a name="example"></a>Esempio
 
@@ -108,6 +107,6 @@ Altre informazioni sui dati GeoJSON in mappe di Azure:
 Esaminare il Glossario dei termini tecnici comuni associati a mappe di Azure e alle applicazioni di Business Intelligence per la posizione:
 
 > [!div class="nextstepaction"]
-> [Glossario mappe di Azure](glossary.md)
+> [Glossario di Mappe di Azure](glossary.md)
 
 [1]: https://tools.ietf.org/html/rfc7946

@@ -12,11 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251622"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687447"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenari per l'analisi avanzata in Azure Machine Learning
 Questo articolo descrive le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con il [Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Il TDSP offre un approccio sistematico per consentire ai team di collaborare sulla compilazione di applicazioni intelligenti. Gli scenari presentati illustrano le opzioni disponibili nel flusso di lavoro dell'elaborazione dei dati basato su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
@@ -35,7 +34,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 > 
 > 
 
-## <a name="scenario-1-small-to-medium-tabular-dataset-in-local-files"></a><a name="smalllocal"></a>Scenario \#1: set di dati tabulari medio-piccolo in file locali
+## <a name="scenario-1-small-to-medium-tabular-dataset-in-local-files"></a><a name="smalllocal"></a>Scenario \# 1: set di dati tabulari medio-piccolo in file locali
 ![File locali medio-piccoli][1]
 
 #### <a name="additional-azure-resources-none"></a>Risorse di Azure aggiuntive: nessuna
@@ -101,7 +100,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 1. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data] (Importa dati). Incollare la query necessaria che estrae i campi, crea funzionalità ed esempi di dati, se necessario, direttamente nella query di [importazione dati][import-data] .
 1. Compilare un flusso di esperimento di Azure Machine Learning iniziando con il set di dati inserito.
 
-## <a name="scenario-5-large-dataset-in-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>Scenario \#5: set di dati di grandi dimensioni in file locali, SQL Server di destinazione in una macchina virtuale di Azure
+## <a name="scenario-5-large-dataset-in-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>Scenario \# 5: set di dati di grandi dimensioni in file locali, SQL Server di destinazione in una macchina virtuale di Azure
 ![File locali di grandi dimensioni al database SQL in Azure][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)
@@ -138,7 +137,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 1. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data] (Importa dati). Incollare la query necessaria che estrae i campi, crea funzionalità ed esempi di dati, se necessario, direttamente nella query di [importazione dati][import-data] .
 1. Semplificare il flusso di esperimento di Azure Machine Learning iniziando con il set di dati caricato
 
-## <a name="scenario-6-large-dataset-in-a-sql-server-database-on-premises-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>Scenario \#6: set di dati di grandi dimensioni in un database di SQL Server locale, destinate SQL Server in una macchina virtuale di Azure
+## <a name="scenario-6-large-dataset-in-a-sql-server-database-on-premises-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>Scenario \# 6: set di dati di grandi dimensioni in un database di SQL Server locale, destinate SQL Server in una macchina virtuale di Azure
 ![Database SQL locale di grandi dimensioni  al database SQL locale in Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)

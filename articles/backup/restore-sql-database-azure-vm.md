@@ -4,11 +4,10 @@ description: Questo articolo descrive come ripristinare SQL Server database in e
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687430"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -95,7 +94,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
 ### <a name="restore-and-overwrite"></a>Ripristinare e sovrascrivere
 
-1. Nel menu **configurazione ripristino** , in **where to Restore**, selezionare **overwrite DB** > **OK**.
+1. Nel menu **configurazione ripristino** , in **where to Restore**, selezionare **overwrite DB**  >  **OK**.
 
     ![Selezionare Sovrascrivi database](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
@@ -117,7 +116,7 @@ Per ripristinare i dati di backup come file con estensione bak anziché come dat
     >- Eseguire `PsExec -s cmd` per accedere a NT AUTHORITY\SYSTEM Shell
     >   - Eseguire `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
     >   - Verificare l'accesso con`dir \\<storageacct>.file.core.windows.net\<filesharename>`
-    >- Avviare un ripristino come file dall'insieme di credenziali per il `\\<storageacct>.file.core.windows.net\<filesharename>` backup a come percorso<BR>
+    >- Avviare un ripristino come file dall'insieme di credenziali per il backup a `\\<storageacct>.file.core.windows.net\<filesharename>` come percorso<BR>
     È possibile scaricare PsExec tramite<https://docs.microsoft.com/sysinternals/downloads/psexec>
 
 4. Selezionare **OK**.

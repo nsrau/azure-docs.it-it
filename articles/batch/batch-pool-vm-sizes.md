@@ -1,15 +1,14 @@
 ---
 title: Scegliere le dimensioni delle macchine virtuali per i pool
 description: Come scegliere tra le dimensioni delle macchine virtuali disponibili per i nodi di calcolo nei pool di Azure Batch
-ms.topic: how-to
-ms.date: 09/12/2019
+ms.topic: conceptual
+ms.date: 06/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2e0d403f405d58c0d7488ac6d0c306be2f2d79ea
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: c1621bbbe6676144176636346f3f5c34db169b7a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84693159"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -35,9 +34,13 @@ I pool di Azure Batch in configurazione macchina virtuale supportano quasi tutte
 | DC | nessuno |
 | Dv2, DSv2 | Tutte le dimensioni |
 | Dv3, Dsv3 | Tutte le dimensioni |
-| Dav4, Dasv4 | Nessuna - non ancora disponibile |
+| Dav4<sup>1</sup> | Nessuna - non ancora disponibile |
+| Dasv4<sup>1</sup> | Tutte le dimensioni, ad eccezione di Standard_D48as_v4, Standard_D64as_v4, Standard_D96as_v4 |
+| Ddv4, Ddsv4 |  Nessuna - non ancora disponibile |
 | Ev3, Esv3 | Tutte le dimensioni, ad eccezione di E64is_v3 e E64i_v3 |
-| Eav4, Easv4 | Nessuna - non ancora disponibile |
+| Eav4<sup>1</sup> | Tutte le dimensioni, ad eccezione di Standard_E48a_v4, Standard_E64a_v4, Standard_E96a_v4 |
+| Easv4<sup>1</sup> | Tutte le dimensioni, ad eccezione di Standard_E48as_v4, Standard_E64as_v4, Standard_E96as_v4 |
+| Edv4, Edsv4 |  Nessuna - non ancora disponibile |
 | F, Fs | Tutte le dimensioni |
 | Fsv2 | Tutte le dimensioni |
 | G, Gs | Tutte le dimensioni |
@@ -46,8 +49,8 @@ I pool di Azure Batch in configurazione macchina virtuale supportano quasi tutte
 | HBv2<sup>1</sup> | Tutte le dimensioni |
 | HC<sup>1</sup> | Tutte le dimensioni |
 | Ls | Tutte le dimensioni |
-| Lsv2 | Nessuna - non ancora disponibile |
-| M<sup>1</sup> | Tutte le dimensioni, ad eccezione di M64, M64m, M128, M128m |
+| Lsv2<sup>1</sup> | Tutte le dimensioni |
+| M<sup>1</sup> | Tutte le dimensioni |
 | Mv2 | Nessuna - non ancora disponibile |
 | NC | Tutte le dimensioni |
 | NCv2<sup>1</sup> | Tutte le dimensioni |

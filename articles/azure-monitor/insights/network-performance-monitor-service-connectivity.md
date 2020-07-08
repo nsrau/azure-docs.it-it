@@ -7,11 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249243"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84690015"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
@@ -69,7 +68,7 @@ Iniziare a creare i test per monitorare la connettività di rete agli endpoint d
 
 9. Se non si vuole creare eventi di integrità per gli elementi selezionati, deselezionare **Abilita il monitoraggio dell'integrità nelle destinazioni incluse in questo test**. 
 10. Scegliere le condizioni di monitoraggio. È possibile impostare soglie personalizzate per la generazione di eventi di integrità immettendo valori di soglia. Ogni volta che il valore della condizione supera la soglia selezionata per la coppia di rete/subnet selezionata, viene generato un evento di integrità. 
-11. Selezionare **Salva** per salvare la configurazione. 
+11. Selezionare **Save (Salva** ) per salvare la configurazione. 
 
     ![Configurazioni di test di Monitoraggio connettività servizio](media/network-performance-monitor-service-endpoint/service-endpoint-configuration.png)
 

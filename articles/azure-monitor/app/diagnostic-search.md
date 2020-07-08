@@ -4,11 +4,10 @@ description: Ricercare e filtrare elementi di telemetria non elaborata inviata d
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275984"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695658"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
 
@@ -56,12 +55,12 @@ Aprire il menu a discesa tipi di evento e scegliere i tipi di evento che si desi
 
 I tipi di eventi sono i seguenti:
 
-* **Tracciare** - i[log di diagnostica](../../azure-monitor/app/asp-net-trace-logs.md) , incluse le chiamate a TrackTrace, log4Net, NLog e System. Diagnostic. Trace.
+* **Traccia**  -  [Log di diagnostica](../../azure-monitor/app/asp-net-trace-logs.md) , incluse le chiamate a TrackTrace, log4net, NLog e System. Diagnostic. Trace.
 * **Richiesta**: richieste HTTP ricevute dall'applicazione server, tra cui pagine, script, immagini, file di stile e dati. Questi eventi vengono usati per creare grafici di panoramica di richieste e risposte.
-* **Page View** - [Telemetria delle visualizzazioni pagina inviate dal client Web](../../azure-monitor/app/javascript.md), utilizzate per creare report di visualizzazione pagina.
+* **Visualizzazione pagina**  -  [Dati di telemetria inviati dal client Web](../../azure-monitor/app/javascript.md), usati per creare report di visualizzazione pagina.
 * **Evento personalizzato**: se sono state inserite chiamate in TrackEvent() per [tenere traccia dell'utilizzo](../../azure-monitor/app/api-custom-events-metrics.md), è possibile cercarle qui.
 * **Eccezione** : eccezioni non rilevate [nel server](../../azure-monitor/app/asp-net-exceptions.md)e quelle che si registrano con trackexception ().
-* **Le chiamate alle dipendenze** - [dall'applicazione server](../../azure-monitor/app/asp-net-dependencies.md) ad altri servizi, ad esempio le API REST o i database, e le chiamate AJAX dal [codice client](../../azure-monitor/app/javascript.md).
+* **Dipendenza**  -  di [Chiamate dall'applicazione server](../../azure-monitor/app/asp-net-dependencies.md) ad altri servizi, ad esempio le API REST o i database, e le chiamate AJAX dal [codice client](../../azure-monitor/app/javascript.md).
 * **Disponibilità**: risultati dei [test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrare in base ai valori delle proprietà
@@ -92,7 +91,7 @@ Per trovare tutti gli elementi con lo stesso valore della proprietà, digitarli 
 
 Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiudere i caratteri speciali.
 
-| Stringa | *Non* trovato | Trovato |
+| string | *Non* trovato | Trovato |
 | --- | --- | --- |
 | ControllerHome.Info |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Stati Uniti|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`

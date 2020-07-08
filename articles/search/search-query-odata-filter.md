@@ -20,11 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84692802"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintassi di $filter OData in Azure ricerca cognitiva
 
@@ -60,15 +59,15 @@ variable ::= identifier | field_path
 
 I tipi di espressioni booleane includono:
 
-- Espressioni di filtro della `any` raccolta `all`che usano o. Questi applicano i criteri di filtro ai campi della raccolta. Per altre informazioni, vedere [operatori di raccolte OData in Azure ricerca cognitiva](search-query-odata-collection-operators.md).
-- Espressioni logiche che combinano altre espressioni booleane usando gli `and`operatori `or`, e `not`. Per altre informazioni, vedere [operatori logici OData in Azure ricerca cognitiva](search-query-odata-logical-operators.md).
-- Espressioni di confronto, che consentono di confrontare campi o variabili di intervallo con valori `eq`costanti `ne`usando `gt`gli `lt`operatori `ge`,, `le`,, e. Per altre informazioni, vedere [operatori di confronto OData in ricerca cognitiva di Azure](search-query-odata-comparison-operators.md). Le espressioni di confronto vengono usate anche per confrontare le distanze tra le coordinate geospaziali usando la `geo.distance` funzione. Per altre informazioni, vedere [funzioni Geo-spaziali OData in Azure ricerca cognitiva](search-query-odata-geo-spatial-functions.md).
-- Valori letterali booleani `true` e `false`. Queste costanti possono essere utili a volte quando si generano filtri a livello di codice, ma in caso contrario non tendono a essere usate in pratica.
+- Espressioni di filtro della raccolta che usano `any` o `all` . Questi applicano i criteri di filtro ai campi della raccolta. Per altre informazioni, vedere [operatori di raccolte OData in Azure ricerca cognitiva](search-query-odata-collection-operators.md).
+- Espressioni logiche che combinano altre espressioni booleane usando gli operatori `and` , `or` e `not` . Per altre informazioni, vedere [operatori logici OData in Azure ricerca cognitiva](search-query-odata-logical-operators.md).
+- Espressioni di confronto, che consentono di confrontare campi o variabili di intervallo con valori costanti usando gli operatori,,,, `eq` `ne` `gt` `lt` `ge` e `le` . Per altre informazioni, vedere [operatori di confronto OData in ricerca cognitiva di Azure](search-query-odata-comparison-operators.md). Le espressioni di confronto vengono usate anche per confrontare le distanze tra le coordinate geospaziali usando la `geo.distance` funzione. Per altre informazioni, vedere [funzioni Geo-spaziali OData in Azure ricerca cognitiva](search-query-odata-geo-spatial-functions.md).
+- Valori letterali booleani `true` e `false` . Queste costanti possono essere utili a volte quando si generano filtri a livello di codice, ma in caso contrario non tendono a essere usate in pratica.
 - Chiamate a funzioni booleane, tra cui:
   - `geo.intersects`, che verifica se un punto specificato si trova all'interno di un poligono specificato. Per altre informazioni, vedere [funzioni Geo-spaziali OData in Azure ricerca cognitiva](search-query-odata-geo-spatial-functions.md).
-  - `search.in`, che confronta un campo o una variabile di intervallo con ogni valore in un elenco di valori. Per altre informazioni, vedere [funzione `search.in` OData in Azure ricerca cognitiva](search-query-odata-search-in-function.md).
-  - `search.ismatch`e `search.ismatchscoring`, che eseguono operazioni di ricerca full-text in un contesto di filtro. Per ulteriori informazioni, vedere [funzioni di ricerca full-text OData in Azure ricerca cognitiva](search-query-odata-full-text-search-functions.md).
-- Percorsi dei campi o variabili di intervallo `Edm.Boolean`di tipo. Se, ad esempio, l'indice dispone di un campo `IsEnabled` booleano denominato e si desidera restituire tutti i documenti in `true`cui il campo è, l'espressione di filtro `IsEnabled`può essere solo il nome.
+  - `search.in`, che confronta un campo o una variabile di intervallo con ogni valore in un elenco di valori. Per altre informazioni, vedere [ `search.in` funzione OData in Azure ricerca cognitiva](search-query-odata-search-in-function.md).
+  - `search.ismatch`e `search.ismatchscoring` , che eseguono operazioni di ricerca full-text in un contesto di filtro. Per ulteriori informazioni, vedere [funzioni di ricerca full-text OData in Azure ricerca cognitiva](search-query-odata-full-text-search-functions.md).
+- Percorsi dei campi o variabili di intervallo di tipo `Edm.Boolean` . Se, ad esempio, l'indice dispone di un campo booleano denominato `IsEnabled` e si desidera restituire tutti i documenti in cui il campo è `true` , l'espressione di filtro può essere solo il nome `IsEnabled` .
 - Espressioni booleane tra parentesi. L'utilizzo delle parentesi consente di determinare in modo esplicito l'ordine delle operazioni in un filtro. Per ulteriori informazioni sulla precedenza predefinita degli operatori OData, vedere la sezione successiva.
 
 ### <a name="operator-precedence-in-filters"></a>Precedenza tra gli operatori nei filtri
@@ -82,7 +81,7 @@ Se si scrive un'espressione di filtro senza parentesi intorno alle relative espr
 | Operatori logici | `and` |
 | Operatori logici | `or` |
 
-Un operatore più elevato nella tabella precedente verrà "associato in modo più rigoroso" ai propri operandi rispetto ad altri operatori. Ad esempio, `and` è di precedenza `or`superiore a e gli operatori di confronto sono con precedenza maggiore di uno di essi, quindi le due espressioni seguenti sono equivalenti:
+Un operatore più elevato nella tabella precedente verrà "associato in modo più rigoroso" ai propri operandi rispetto ad altri operatori. Ad esempio, `and` è di precedenza superiore a `or` e gli operatori di confronto sono con precedenza maggiore di uno di essi, quindi le due espressioni seguenti sono equivalenti:
 
     Rating gt 0 and Rating lt 3 or Rating gt 7 and Rating lt 10
     ((Rating gt 0) and (Rating lt 3)) or ((Rating gt 7) and (Rating lt 10))
@@ -95,7 +94,7 @@ Verrà ricevuto questo messaggio di errore:
 
     Invalid expression: A unary operator with an incompatible type was detected. Found operand type 'Edm.Int32' for operator kind 'Not'.
 
-Questo errore si verifica perché l'operatore è associato solo al `Rating` campo, che è di tipo `Edm.Int32`e non all'intera espressione di confronto. La correzione consiste nell'inserire l'operando `not` di tra parentesi:
+Questo errore si verifica perché l'operatore è associato solo al `Rating` campo, che è di tipo `Edm.Int32` e non all'intera espressione di confronto. La correzione consiste nell'inserire l'operando di `not` tra parentesi:
 
     not (Rating gt 5)
 
@@ -146,11 +145,11 @@ Trovare tutti gli alberghi senza chat room:
 
     $filter=not Rooms/any()
 
-Trovare tutti gli alberghi entro 10 chilometri da un punto di riferimento specificato `Location` (dove è un campo `Edm.GeographyPoint`di tipo):
+Trovare tutti gli alberghi entro 10 chilometri da un punto di riferimento specificato (dove `Location` è un campo di tipo `Edm.GeographyPoint` ):
 
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 
-Trova tutti gli alberghi all'interno di un viewport specificato, descritto come `Location` poligono (dove è un campo di tipo EDM. GeographyPoint). Il poligono deve essere chiuso, vale a dire che il primo e l'ultimo set di punti devono essere uguali. Inoltre, [i punti devono essere elencati in ordine antiorario](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Trova tutti gli alberghi all'interno di un viewport specificato, descritto come poligono (dove `Location` è un campo di tipo EDM. GeographyPoint). Il poligono deve essere chiuso, vale a dire che il primo e l'ultimo set di punti devono essere uguali. Inoltre, [i punti devono essere elencati in ordine antiorario](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
 
@@ -178,7 +177,7 @@ Trovare documenti con la parola "waterfront". Questa query di filtro è identica
 
     $filter=search.ismatchscoring('waterfront')
 
-Trovare i documenti con la parola "hostel" e classificazione 4 o superiore oppure i documenti con la parola "motel" e classificazione 5. Questa richiesta non può essere espressa senza `search.ismatchscoring` la funzione poiché combina la ricerca full-text con le operazioni `or`di filtro usando.
+Trovare i documenti con la parola "hostel" e classificazione 4 o superiore oppure i documenti con la parola "motel" e classificazione 5. Questa richiesta non può essere espressa senza la `search.ismatchscoring` funzione poiché combina la ricerca full-text con le operazioni di filtro usando `or` .
 
     $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
 

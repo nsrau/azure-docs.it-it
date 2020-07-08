@@ -6,11 +6,10 @@ ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
 ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277518"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697341"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrare le estensioni di binding di funzioni di Azure
 
@@ -33,7 +32,7 @@ La tabella seguente indica quando e come registrare le associazioni.
 
 ## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Bundle di estensione per lo sviluppo locale
 
-Bundle di estensione è una tecnologia di distribuzione che consente di aggiungere un set compatibile di estensioni di associazione di funzioni all'app per le funzioni. Quando si compila l'app, viene aggiunto un set predefinito di estensioni. I pacchetti di estensione definiti in un bundle sono compatibili tra loro, consentendo di evitare conflitti tra i pacchetti. Si abilitano i bundle di estensione nel file host. JSON dell'app.  
+Bundle di estensione è una tecnologia di distribuzione che consente di aggiungere un set compatibile di estensioni di associazione di funzioni all'app per le funzioni. Quando si compila l'app, viene aggiunto un set predefinito di estensioni. I pacchetti di estensione definiti in un bundle sono compatibili tra loro, consentendo di evitare conflitti tra i pacchetti. I bundle di estensione sono abilitati nell'host.jsdell'app su file.  
 
 È possibile usare i bundle di estensione con la versione 2. x e le versioni successive del runtime di funzioni. Quando si sviluppa localmente, assicurarsi di usare la versione più recente di [Azure Functions Core Tools](functions-run-local.md#v2).
 
@@ -41,13 +40,13 @@ Usare i bundle di estensione per lo sviluppo locale usando Azure Functions Core 
 
 Se non si usano i bundle di estensione, è necessario installare .NET Core 2. x SDK nel computer locale prima di installare le estensioni di binding. I bundle di estensione rimuovono questo requisito per lo sviluppo locale. 
 
-Per usare i bundle di estensione, aggiornare il file *host. JSON* in modo da includere la `extensionBundle`voce seguente per:
+Per usare i bundle di estensione, aggiornare il *host.jssu* file in modo da includere la voce seguente per `extensionBundle` :
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>Libreria\# di classi C con Visual Studio
+## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Libreria di classi C con Visual Studio
 
 In **Visual Studio**è possibile installare i pacchetti dalla console di gestione pacchetti usando il comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) , come illustrato nell'esempio seguente:
 

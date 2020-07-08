@@ -7,18 +7,15 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: c0dd5c8cd61d1c7abf11d97e858fdc30d774e456
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: HT
+ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259117"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678359"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dati personalizzati e cloud-init in Macchine virtuali di Azure
 
-## <a name="what-is-custom-data"></a>Che cosa sono i dati personalizzati?
-
-Spesso i clienti chiedono come possono inserire uno script o altri metadati in una macchina virtuale Microsoft Azure in fase di provisioning.  In altri cloud, questo concetto viene spesso indicato con il termine dati utente.  In Microsoft Azure, è presente una funzionalità simile denominata dati personalizzati. 
+Potrebbe essere necessario inserire uno script o altri metadati in una macchina virtuale Microsoft Azure in fase di provisioning.  In altri cloud, questo concetto viene spesso indicato con il termine dati utente.  In Microsoft Azure, è presente una funzionalità simile denominata dati personalizzati. 
 
 I dati personalizzati vengono resi disponibili alla macchina virtuale solo durante il primo avvio o la configurazione iniziale, vale a dire durante il "provisioning". Il provisioning è il processo in cui i parametri di creazione della VM (ad esempio nome host, nome utente, password, certificati, dati personalizzati, chiavi, ecc.) vengono resi disponibili alla VM ed elaborati da un agente di provisioning, ad esempio [Agente Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) e [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
 

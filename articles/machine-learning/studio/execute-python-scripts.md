@@ -5,21 +5,18 @@ description: Informazioni su come usare il modulo Execute Python script per usar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4afb6dca94642ab9b908a4f07ff5de56677626f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696304"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Eseguire script di Python Machine Learning in Azure Machine Learning Studio (versione classica)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Python è uno strumento prezioso nello strumento di molti data scientist. Viene usato in ogni fase dei flussi di lavoro di apprendimento automatico tipici, tra cui esplorazione dei dati, estrazione di funzionalità, training e convalida del modello e distribuzione.
 
@@ -27,7 +24,7 @@ Questo articolo descrive come usare il modulo Execute Python script per usare il
 
 ## <a name="using-the-execute-python-script-module"></a>Uso del modulo Execute Python script
 
-L'interfaccia principale per Python in studio (classico) è tramite il modulo [Execute Python script][execute-python-script] . Accetta fino a tre input e produce fino a due output, analogamente al modulo [Execute R script][execute-r-script] . Il codice Python viene immesso nella casella parametro tramite una funzione del punto di ingresso denominata `azureml_main`appositamente denominata.
+L'interfaccia principale per Python in studio (classico) è tramite il modulo [Execute Python script][execute-python-script] . Accetta fino a tre input e produce fino a due output, analogamente al modulo [Execute R script][execute-r-script] . Il codice Python viene immesso nella casella parametro tramite una funzione del punto di ingresso denominata appositamente denominata `azureml_main` .
 
 ![Eseguire il modulo di script Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -35,7 +32,7 @@ L'interfaccia principale per Python in studio (classico) è tramite il modulo [E
 
 ### <a name="input-parameters"></a>Parametri di input
 
-Gli input per il modulo Python vengono esposti come dataframe Pandas. La `azureml_main` funzione accetta un massimo di due frame di dataframe Panda facoltativi come parametri.
+Gli input per il modulo Python vengono esposti come dataframe Pandas. La `azureml_main` funzione accetta un massimo di due frame di Dataframe Panda facoltativi come parametri.
 
 Il mapping delle porte di input ai parametri della funzione è di tipo posizionale:
 
@@ -43,7 +40,7 @@ Il mapping delle porte di input ai parametri della funzione è di tipo posiziona
 - Il secondo input, se connesso, è mappato al secondo parametro della funzione.
 - Il terzo input viene usato per [importare moduli Python aggiuntivi](#import-modules).
 
-Di seguito è riportata una semantica più dettagliata della modalità di mapping delle porte `azureml_main` di input ai parametri della funzione.
+Di seguito è riportata una semantica più dettagliata della modalità di mapping delle porte di input ai parametri della `azureml_main` funzione.
 
 ![Tabella delle configurazioni della porta di input e della firma Python risultante](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
@@ -81,9 +78,9 @@ Viene quindi creato un file Hello.zip contenente Hello.py:
 
 ![File zip contenente il codice Python definito dall'utente](./media/execute-python-scripts/figure5.png)
 
-Caricare il file zip come set di dati in studio (classico). Quindi creare ed eseguire un esperimento che usa il codice Python nel file Hello. zip collegando il codice alla terza porta di input del modulo **Execute Python script (Esegui script Python** ), come illustrato nella figura seguente.
+Caricare il file zip come set di dati in studio (classico). Quindi creare ed eseguire un esperimento che usa il codice Python nel file di Hello.zip connetterlo alla terza porta di input del modulo **Execute Python script (Esegui script Python** ), come illustrato nella figura seguente.
 
-![Esperimento di esempio con Hello. zip come input per un modulo Execute Python script](./media/execute-python-scripts/figure6a.png)
+![Esperimento di esempio con Hello.zip come input per un modulo Execute Python script](./media/execute-python-scripts/figure6a.png)
 
 ![Codice Python definito dall'utente caricato come file zip](./media/execute-python-scripts/figure6b.png)
 

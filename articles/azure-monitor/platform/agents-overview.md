@@ -8,11 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: a7e6a3a299df8112fe4fbcf457516894c1766b8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84686665"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -34,7 +33,7 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 | Ambienti supportati | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | 
 | Requisiti dell'agente  | nessuno | nessuno | Richiede Log Analytics Agent |
 | Dati raccolti | Log eventi<br>eventi ETW<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Log delle app .NET<br>Dump di arresto anomalo<br>Log di diagnostica agente | Log eventi<br>Prestazioni<IIS logs><br>Log basati su file<br>Informazioni dettagliate e soluzioni<br>Altri servizi | Dettagli e dipendenze del processo<br>Metriche della connessione di rete |
-| Dati inviati a | Archiviazione di Azure<br>Metriche di monitoraggio di Azure<br>Hub eventi | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure |
+| Dati inviati a | Archiviazione di Azure<br>Metriche di Monitoraggio di Azure<br>Hub eventi | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure |
 
 
 ### <a name="linux-agents"></a>Agenti Linux
@@ -44,7 +43,7 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 | Ambienti supportati | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale |
 | Requisiti dell'agente  | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
 | Dati raccolti | syslog<br>Prestazioni | Prestazioni | syslog<br>Prestazioni| Dettagli e dipendenze del processo<br>Metriche della connessione di rete |
-| Dati inviati a | Archiviazione di Azure<br>Hub eventi | Metriche di monitoraggio di Azure | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure |
+| Dati inviati a | Archiviazione di Azure<br>Hub eventi | Metriche di Monitoraggio di Azure | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure |
 
 ## <a name="log-analytics-agent"></a>Agente di Log Analytics
 
@@ -118,5 +117,5 @@ L'estensione Log Analytics per [Windows](../../virtual-machines/extensions/oms-w
 Per ulteriori informazioni su ciascuno degli agenti, fare quanto segue:
 
 - [Panoramica dell'agente di Log Analytics](log-analytics-agent.md)
-- [Panoramica sull'estensione Diagnostica di Azure](diagnostics-extension-overview.md)
+- [Panoramica dell’estensione Diagnostica di Azure](diagnostics-extension-overview.md)
 - [Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md)

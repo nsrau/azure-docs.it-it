@@ -7,11 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274775"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689011"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query log di monitoraggio di Azure
 I gruppi di computer in monitoraggio di Azure consentono di definire l'ambito delle [query di log](../log-query/log-query-overview.md) a un determinato set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
@@ -127,7 +126,7 @@ Per ogni appartenenza a gruppi di computer creata da Active Directory o WSUS vie
 | `GroupFullName` |Percorso completo del gruppo, con origine e nome dell'origine. |
 | `GroupSource` |Origine da cui il gruppo è stato raccolto. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
 | `GroupSourceName` |Nome dell'origine da cui il gruppo è stato raccolto.  Per Active Directory, corrisponde al nome del dominio. |
-| `ManagementGroupName` |Nome del gruppo di gestione per gli agenti SCOM.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
+| `ManagementGroupName` |Nome del gruppo di gestione per gli agenti SCOM.  Per gli altri agenti corrisponde a AOI-\<workspace ID\> |
 | `TimeGenerated` |Data e ora in cui il gruppo di computer è stato creato o aggiornato. |
 
 ## <a name="next-steps"></a>Passaggi successivi

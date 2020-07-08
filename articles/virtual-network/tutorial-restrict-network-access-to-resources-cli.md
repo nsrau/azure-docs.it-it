@@ -11,18 +11,17 @@ Customer intent: I want only resources in a virtual network subnet to access an 
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d08dd2705c69f3fa8f8e0830e487833f7cf96f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74186394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689334"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -35,7 +34,7 @@ Gli endpoint servizio di rete virtuale consentono di limitare l'accesso di rete 
 * Verificare che venga consentito l'accesso a una risorsa da una subnet
 * Verificare che venga rifiutato l'accesso a una risorsa da una subnet e da Internet
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -272,7 +271,7 @@ La creazione della VM richiede alcuni minuti. Dopo la creazione, prendere nota d
 
 ## <a name="confirm-access-to-storage-account"></a>Verificare che venga consentito l'accesso a un account di archiviazione
 
-Eseguire SSH nella VM *myVmPrivate*. Sostituire * \<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale *myVmPrivate* .
+Eseguire SSH nella VM *myVmPrivate*. Sostituire *\<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale *myVmPrivate* .
 
 ```bash 
 ssh <publicIpAddress>
@@ -316,7 +315,7 @@ Creare una directory per un punto di montaggio:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Provare a montare la condivisione file di Azure nella directory creata. Questo articolo presuppone che sia stata distribuita la versione più recente di Ubuntu. Se si usano versioni meno recenti di Ubuntu, vedere [Eseguire il montaggio in Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per istruzioni aggiuntive sul montaggio di condivisioni file. Prima di eseguire il comando seguente, `<storage-account-name>` sostituire con il nome dell' `<storage-account-key>` account e con la chiave recuperata in [creare un account di archiviazione](#create-a-storage-account):
+Provare a montare la condivisione file di Azure nella directory creata. Questo articolo presuppone che sia stata distribuita la versione più recente di Ubuntu. Se si usano versioni meno recenti di Ubuntu, vedere [Eseguire il montaggio in Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per istruzioni aggiuntive sul montaggio di condivisioni file. Prima di eseguire il comando seguente, sostituire `<storage-account-name>` con il nome dell'account e `<storage-account-key>` con la chiave recuperata in [creare un account di archiviazione](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino

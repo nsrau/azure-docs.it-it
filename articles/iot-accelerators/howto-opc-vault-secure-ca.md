@@ -9,11 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271707"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687073"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Eseguire il servizio di gestione certificati dell'insieme di credenziali OPC in modo sicuro
 
@@ -82,7 +81,7 @@ Usare la funzionalità di autenticazione a più fattori (detta anche autenticazi
 
 Il servizio certificati deve disporre di un piano di risposta di sicurezza aggiornato sul file, che contiene contatti dettagliati di risposta agli eventi imprevisti.
 
-### <a name="security-updates"></a>Aggiornamenti per la sicurezza
+### <a name="security-updates"></a>Aggiornamenti della sicurezza
 
 Tutti i sistemi devono essere monitorati e aggiornati continuamente con gli aggiornamenti della sicurezza più recenti.
 

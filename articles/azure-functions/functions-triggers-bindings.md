@@ -6,11 +6,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276504"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687651"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -44,7 +43,7 @@ I trigger e le associazioni sono definiti in modo diverso a seconda dell'approcc
 | Piattaforma | Trigger e associazioni sono configurati da... |
 |-------------|--------------------------------------------|
 | Libreria di classi C# | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorazione di metodi e parametri con attributi C# |
-| Tutti gli altri (inclusi portale di Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aggiornamento di [Function. JSON](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
+| Tutti gli altri (inclusi portale di Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aggiornamento [difunction.json](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
 
 Il portale fornisce un'interfaccia utente per questa configurazione, ma è possibile modificare il file direttamente aprendo l' **Editor avanzato** disponibile tramite la scheda **integra** della funzione.
 
@@ -69,7 +68,7 @@ Tutti i trigger e le associazioni hanno una proprietà `direction` nel file [fun
 
 - Per i trigger, la direzione è sempre `in`
 - Le associazioni di input e di output usano `in` e `out`
-- Alcune associazioni supportano una direzione speciale `inout`. Se si usa `inout`, solo l' **Editor avanzato** è disponibile tramite la scheda **integrazione** nel portale.
+- Alcune associazioni supportano una direzione speciale `inout`. Se si usa `inout` , solo l' **Editor avanzato** è disponibile tramite la scheda **integrazione** nel portale.
 
 Quando si usano gli [attributi in una libreria di classi](functions-dotnet-class-library.md) per configurare i trigger e le associazioni, la direzione viene specificata in un costruttore di attributo o dedotta dal tipo di parametro.
 

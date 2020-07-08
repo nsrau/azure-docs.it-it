@@ -8,12 +8,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 77145c691f5b2b6364de64e491aac3c84495d464
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 3b32468c9795f603ac38854415bca9d653d7c101
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674978"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creare e leggere messaggi dell'hub IoT
 
@@ -75,11 +74,9 @@ Per altre informazioni sulla codifica e la decodifica dei messaggi inviati trami
 
 I nomi delle proprietà di sistema variano in base all'endpoint a cui vengono indirizzati i messaggi. Per informazioni dettagliate su questi nomi, vedere la tabella seguente.
 
-
 |Nome della proprietà di sistema|Hub eventi|Archiviazione di Azure|Bus di servizio|Griglia di eventi|
 |--------------------|----------|-------------|-----------|----------|
 |ID del messaggio|message-id|messageId|MessageId|message-id|
-|Ora accodamento hub IoT|iothub-enqueuedtime|enqueuedTime|iothub-enqueuedtime|iothub-enqueuedtime|
 |ID utente|user-id|userId|UserId|user-id|
 |ID dispositivo di connessione|iothub-connection-device-id| connectionDeviceId|iothub-connection-device-id|iothub-connection-device-id|
 |ID modulo di connessione|iothub-connection-module-id|connectionModuleId|iothub-connection-module-id|iothub-connection-module-id|
@@ -87,7 +84,7 @@ I nomi delle proprietà di sistema variano in base all'endpoint a cui vengono in
 |Metodo di autenticazione della connessione|iothub-connection-auth-method|connectionAuthMethod|iothub-connection-auth-method|iothub-connection-auth-method|
 |contentType|content-type|contentType|ContentType|iothub-content-type|
 |contentEncoding|content-encoding|contentEncoding|ContentEncoding|iothub-content-encoding|
-|iothub-enqueuedtime|iothub-enqueuedtime|enqueuedTime|     |iothub-enqueuedtime|
+|iothub-enqueuedtime|iothub-enqueuedtime|enqueuedTime| N/D |iothub-enqueuedtime|
 |iothub-interface-name|iothub-interface-name|interfaceName|Iothub-interface-name|iothub-interface-name|
 |CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
 

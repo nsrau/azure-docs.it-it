@@ -3,21 +3,20 @@ title: Spostare il gruppo di sicurezza di rete di Azure (NSG) in un'altra area d
 description: Usare il modello di Azure Resource Manager per spostare il gruppo di sicurezza di rete di Azure da un'area di Azure a un'altra usando il portale di Azure.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: dce267178c3caf813ccdcac4bba86ccfde3f3421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a22dc6dc0c4fc199d3f262b18aeeae5090a06dce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75647187"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689317"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Spostare il gruppo di sicurezza di rete di Azure (NSG) in un'altra area usando il portale di Azure
 
 Esistono diversi scenari in cui si vuole spostare il gruppi esistente da un'area a un'altra. Ad esempio, è possibile creare un NSG con le stesse regole di configurazione e sicurezza per il test. Potrebbe anche essere necessario spostare un NSG in un'altra area nell'ambito della pianificazione del ripristino di emergenza.
 
-I gruppi di sicurezza di Azure non possono essere spostati da un'area all'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare le regole di sicurezza e configurazione esistenti di un NSG.  È quindi possibile organizzare la risorsa in un'altra area esportando il NSG in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area.  Per altre informazioni su Gestione risorse e sui modelli, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+I gruppi di sicurezza di Azure non possono essere spostati da un'area all'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare le regole di sicurezza e configurazione esistenti di un NSG.  È quindi possibile organizzare la risorsa in un'altra area esportando il NSG in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area.  Per altre informazioni su Resource Manager e sui modelli, vedere [Avvio rapido: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -35,17 +34,17 @@ I gruppi di sicurezza di Azure non possono essere spostati da un'area all'altra.
 - Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di gruppi per questo processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
-## <a name="prepare-and-move"></a>Preparare e spostare
+## <a name="prepare-and-move"></a>Preparazione e spostamento
 I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per la configurazione e la regola di sicurezza spostare usando un modello di Gestione risorse e spostare le regole di sicurezza e configurazione NSG nell'area di destinazione usando il portale.
 
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Esportare il modello e distribuirlo dal portale
 
-1. Accedere ai**gruppi di risorse** [portale di Azure](https://portal.azure.com) > .
+1. Accedere ai [Azure portal](https://portal.azure.com)  >  **gruppi di risorse**portale di Azure.
 2. Individuare il gruppo di risorse che contiene il NSG di origine e fare clic su di esso.
-3. Selezionare > **Impostazioni** > **Esporta modello**.
+3. Selezionare > **Impostazioni**  >  **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
-5. Fare clic su **modello** > **modifica parametri** per aprire il file **Parameters. JSON** nell'editor online.
+5. Fare clic su **modello**  >  **modifica parametri** per aprire il **parameters.js** nel file nell'editor online.
 6. Per modificare il parametro del nome NSG, modificare la proprietà **value** in **Parameters**:
 
     ```json
@@ -64,7 +63,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
 
 8.  Fare clic su **Salva** nell'editor.
 
-9.   > Fare **clic su modello****modifica modello** per aprire il file **template. JSON** nell'editor online.
+9.  Fare **clic su modello**  >  **modifica modello** per aprire il **template.js** nel file nell'editor online.
 
 10. Per modificare l'area di destinazione in cui verranno spostate le regole di sicurezza e configurazione NSG, modificare la proprietà **location** in **Resources** nell'editor online:
 
@@ -84,11 +83,11 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
 
     ```
 
-11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
+11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti**centrali  =  **centralus**.
 
-12. È anche possibile modificare altri parametri nel modello, se si sceglie, e sono facoltativi in base ai requisiti:
+12. Se lo si desidera, è anche possibile modificare altri parametri nel modello, che sono facoltativi in base ai requisiti:
 
-    * **Regole di sicurezza** : è possibile modificare le regole distribuite nel NSG di destinazione aggiungendo o rimuovendo regole nella sezione **SecurityRules** del file **template. JSON** :
+    * **Regole di sicurezza** : è possibile modificare le regole che vengono distribuite nella NSG di destinazione aggiungendo o rimuovendo regole nella sezione **SecurityRules** della **template.jssu** file:
 
         ```json
            "resources": [
@@ -124,7 +123,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
             }
         ```
 
-      Per completare l'aggiunta o la rimozione delle regole nel NSG di destinazione, è necessario modificare anche i tipi di regole personalizzati alla fine del file **template. JSON** nel formato dell'esempio seguente:
+      Per completare l'aggiunta o la rimozione delle regole nel NSG di destinazione, è necessario modificare anche i tipi di regole personalizzati alla fine del **template.js** nel file nel formato dell'esempio seguente:
 
       ```json
            {
@@ -153,11 +152,11 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
 
 13. Fare clic su **Salva** nell'editor online.
 
-14. Fare clic su**sottoscrizione** di **base** > per scegliere la sottoscrizione in cui verrà distribuita la NSG di destinazione.
+14. Fare **BASICS**clic su  >  **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuita la NSG di destinazione.
 
-15. Fare clic su**gruppo di risorse** **nozioni di base** > per scegliere il gruppo di risorse in cui verrà distribuito il NSG di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il NSG di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del NSG esistente.
+15. Fare **BASICS**clic su  >  **gruppo di risorse** nozioni di base per scegliere il gruppo di risorse in cui verrà distribuito il NSG di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il NSG di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del NSG esistente.
 
-16. Il **BASICS** > **percorso** di base della verifica è impostato sul percorso di destinazione in cui si desidera distribuire il NSG.
+16. Il percorso di **base**della verifica  >  **Location** è impostato sul percorso di destinazione in cui si desidera distribuire il NSG.
 
 17. Verificare in **Impostazioni** che il nome corrisponda al nome immesso nell'editor di parametri precedente.
 
@@ -175,7 +174,7 @@ Per eseguire il commit delle modifiche e completare lo spostamento del NSG, elim
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato spostato un gruppo di sicurezza di rete di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo trasferimento di risorse tra aree e ripristino di emergenza in Azure, vedere:
+In questa esercitazione è stato spostato un gruppo di sicurezza di rete di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo spostamento di risorse tra aree e sul ripristino di emergenza in Azure, vedere:
 
 
 - [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

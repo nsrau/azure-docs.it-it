@@ -6,13 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/24/2020
-ms.openlocfilehash: 0a83117d6d58f45d6ee1de2b8d61c2157738fc75
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.date: 06/10/2020
+ms.openlocfilehash: feb1cc132bf5463550a2e7921f347c8f2f48260e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667999"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Abilitare Gestione aggiornamenti con il modello di Azure Resource Manager
 
@@ -23,12 +22,9 @@ Per abilitare la funzionalità Gestione aggiornamenti di Automazione di Azure ne
 * Collegamento dell'account di Automazione all'area di lavoro Log Analytics, se non è già collegato.
 * Abilitazione di Gestione aggiornamenti.
 
-Il modello non automatizza l'abilitazione di una o più macchine virtuali di Azure o non di Azure.
+Il modello non automatizza l'abilitazione di Gestione aggiornamenti in una o più macchine virtuali di Azure o non Azure.
 
-Se si dispone già di un'area di lavoro Log Analytics e di un account di Automazione distribuiti in un'area supportata della sottoscrizione, questi non sono collegati. Nell'area di lavoro Gestione aggiornamenti non è ancora abilitato. L'uso di questo modello crea il collegamento e distribuisce Gestione aggiornamenti per le macchine virtuali. 
-
->[!NOTE]
->L'utente **nxautomation** abilitato come parte di Gestione aggiornamenti in Linux esegue solo runbook firmati.
+Se si dispone già di un'area di lavoro Log Analytics e di un account di Automazione distribuiti in un'area supportata della sottoscrizione, questi non sono collegati. Con questo modello viene creato il collegamento e viene distribuito Gestione aggiornamenti.
 
 ## <a name="api-versions"></a>Versioni dell'API
 
@@ -36,8 +32,8 @@ La tabella seguente elenca le versioni dell'API per le risorse usate in questo m
 
 | Risorsa | Tipo di risorsa | Versione dell'API |
 |:---|:---|:---|
-| Area di lavoro | aree di lavoro | 2017-03-15-preview |
-| Account di Automazione | automation | 2015-10-31 | 
+| Area di lavoro | aree di lavoro | 2020-03-01-anteprima |
+| Account di Automazione | automation | 2018-06-30 | 
 | Soluzione | solutions | 2015-11-01-preview |
 
 ## <a name="before-using-the-template"></a>Prima di usare il modello
@@ -48,10 +44,11 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 Il modello JSON è configurato in modo da richiedere:
 
-* Nome dell'area di lavoro
-* Area in cui creare l'area di lavoro
-* Nome dell'account di Automazione
-* Area in cui creare l'account
+* Nome dell'area di lavoro.
+* Area in cui creare l'area di lavoro.
+* Per abilitare le autorizzazioni per risorse o aree di lavoro.
+* Nome dell'account di Automazione.
+* Area in cui creare l'account.
 
 Il modello JSON specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. È possibile archiviare il modello in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione. Per altre informazioni sull'uso dei modelli, vedere [Distribuire le risorse con i modelli di Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -59,7 +56,6 @@ I parametri seguenti nel modello vengono impostati con un valore predefinito per
 
 * sku: il valore predefinito è il nuovo piano tariffario per GB rilasciato nel modello di prezzi di aprile 2018
 * conservazione dei dati: il valore predefinito è trenta giorni
-* prenotazione della capacità: il valore predefinito è 100 GB
 
 >[!WARNING]
 >Se si crea o si configura un'area di lavoro Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**.
@@ -114,18 +110,17 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
                 "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
             }
         },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
-            }
-        },
         "location": {
             "type": "string",
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -150,13 +145,11 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -168,7 +161,7 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
             "resources": [
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "location": "[resourceGroup().location]",
+                    "location": "[parameters('location')]",
                     "name": "[variables('Updates').name]",
                     "type": "Microsoft.OperationsManagement/solutions",
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
@@ -189,7 +182,7 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
         },
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [],
@@ -201,10 +194,10 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
             },
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
@@ -242,8 +235,7 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per usare Gestione aggiornamenti per le VM, vedere [Gestire aggiornamenti e patch per le macchine virtuali di Azure](automation-tutorial-update-management.md).
+
 * Se l'area di lavoro Log Analytics non è più necessaria, vedere le istruzioni riportate in [Scollegare l'area di lavoro dall'account di Automazione per Gestione aggiornamenti](automation-unlink-workspace-update-management.md).
-* Per eliminare VM da Gestione aggiornamenti, vedere [Rimuovere macchine virtuali da Gestione aggiornamenti](automation-remove-vms-from-update-management.md).
-* Per risolvere gli errori generali di Gestione aggiornamenti, vedere [Risolvere i problemi di Gestione aggiornamenti](troubleshoot/update-management.md).
-* Per risolvere i problemi relativi all'agente di Windows Update, vedere [Risolvere i problemi dell'agente di Windows Update](troubleshoot/update-agent-issues.md).
-* Per risolvere i problemi relativi all'agente di aggiornamento di Linux, vedere[Risolvere i problemi dell'agente di aggiornamento Linux](troubleshoot/update-agent-issues-linux.md).
+
+* Per eliminare macchine virtuali da Gestione aggiornamenti, vedere [Rimuovere macchine virtuali da Gestione aggiornamenti](automation-remove-vms-from-update-management.md).

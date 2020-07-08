@@ -5,21 +5,18 @@ description: Come convertire un esperimento di training in un esperimento predit
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 4cbc17e0352b9dfed3df9bbbd1480b9846f7ae75
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 3fcf4e180233c6ceaa552b3505462639569ed974
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208483"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84696389"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio (classico)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (classico) consente di compilare e testare una soluzione analitica predittiva. È quindi possibile distribuire la soluzione come servizio Web.
 
@@ -174,7 +171,7 @@ Per scaricare il set di dati, aprire Machine Learning Studio (classico). Aprire 
 
 ![Scaricare il set di dati dall'area di disegno di studio (classico)](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
-Fare clic su **Prova**. Lo stato del processo di esecuzione del batch verrà visualizzato a destra sotto **Test Batch Jobs** (Test Processi batch).
+Fare clic su **Test**. Lo stato del processo di esecuzione del batch verrà visualizzato a destra sotto **Test Batch Jobs** (Test Processi batch).
 
 ![Testare il processo di esecuzione batch con il portale dei servizi Web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
@@ -212,7 +209,7 @@ I prezzi sono specifici per ogni area, quindi è necessario definire un piano di
 6. Nell'elenco a discesa **Resource Group** (Gruppo di risorse) selezionare un gruppo di risorse per il piano. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. In **Plan Name** (Nome piano) digitare il nome del piano.
 8. In **Plan Options**(Opzioni piano) selezionare il livello di fatturazione per il nuovo piano.
-9. Scegliere **Crea**.
+9. Fare clic su **Crea**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Eseguire la distribuzione del servizio Web in un'altra area
 
