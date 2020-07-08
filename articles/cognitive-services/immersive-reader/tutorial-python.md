@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si creerà un'applicazione Python che avvia lo strumento di lettura immersiva.
 services: cognitive-services
 author: dylankil
-manager: nitinme
+manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: dylankil
 ms.custom: tracking-python
-ms.openlocfilehash: fb95e21f9df5cf5eded03ea51f56bab86bbbecb3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ea9e6e1f06bacd28a4e9894039de824c3a5b4af4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609132"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044941"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Esercitazione: Avviare lo strumento di lettura immersiva usando il progetto di esempio Python
 

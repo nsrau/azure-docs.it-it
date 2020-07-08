@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 51b9c827d453eef2e2e75e1aa5222204eaa38d0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525533"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044380"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento anomalie in Analisi di flusso di Azure
 
@@ -117,7 +117,7 @@ Le prestazioni di questi modelli dipendono dalle dimensioni della cronologia, da
 * **Dimensioni cronologia** : questi modelli vengono eseguiti in modo lineare con le **dimensioni della cronologia**. Maggiore è la dimensione della cronologia, più è lunga la lunghezza dei modelli per assegnare un nuovo evento al punteggio. Ciò è dovuto al fatto che i modelli confrontano il nuovo evento con tutti gli eventi passati nel buffer della cronologia.
 * **Durata finestra** : la **durata della finestra** deve riflettere il tempo necessario per ricevere il numero di eventi specificato dalle dimensioni della cronologia. Senza questo numero di eventi nella finestra, analisi di flusso di Azure avrebbe imputato i valori mancanti. Di conseguenza, l'utilizzo della CPU è una funzione delle dimensioni della cronologia.
 * **Carico dell'evento** : maggiore è il **carico dell'evento**, maggiore è il lavoro eseguito dai modelli, che influisca sul consumo della CPU. Il processo può essere scalato orizzontalmente in modo imbarazzante, supponendo che sia opportuno che la logica di business usi più partizioni di input.
-* **Function level partitioning** - Il partizionamento a livello di funzione del partizionamento a livello ```PARTITION BY``` di funzione**viene eseguito** usando all'interno della chiamata di funzione di rilevamento anomalie. Questo tipo di partizionamento aggiunge un overhead, in quanto lo stato deve essere mantenuto per più modelli nello stesso momento. Il partizionamento a livello di funzione viene usato in scenari come il partizionamento a livello di dispositivo.
+* Partizionamento a livello di **funzione**  -  Il **partizionamento a livello di funzione** viene eseguito usando ```PARTITION BY``` all'interno della chiamata di funzione di rilevamento anomalie. Questo tipo di partizionamento aggiunge un overhead, in quanto lo stato deve essere mantenuto per più modelli nello stesso momento. Il partizionamento a livello di funzione viene usato in scenari come il partizionamento a livello di dispositivo.
 
 ### <a name="relationship"></a>Relazione
 Le dimensioni della cronologia, la durata della finestra e il carico totale degli eventi sono correlate nel modo seguente:
@@ -133,14 +133,14 @@ La tabella seguente include le osservazioni sulla velocità effettiva per un sin
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2,200 |
 | 600 | 728 | 1.650 |
-| 6000 | 10.910 | 1.100 |
+| 6000 | 10.910 | 1\.100 |
 
 La tabella seguente include le osservazioni sulla velocità effettiva per un singolo nodo (6 SU) per il caso partizionato:
 
 | Dimensioni cronologia (eventi) | Durata finestra (MS) | Totale eventi di input al secondo | Conteggio dispositivi |
 | --------------------- | -------------------- | -------------------------- | ------------ |
-| 60 | 1.091 | 1.100 | 10 |
-| 600 | 10.910 | 1.100 | 10 |
+| 60 | 1.091 | 1\.100 | 10 |
+| 600 | 10.910 | 1\.100 | 10 |
 | 6000 | 218.182 | <550 | 10 |
 | 60 | 21.819 | 550 | 100 |
 | 600 | 218.182 | 550 | 100 |
@@ -149,16 +149,16 @@ La tabella seguente include le osservazioni sulla velocità effettiva per un sin
 Il codice di esempio per eseguire le configurazioni non partizionate sopra è disponibile nel [repository di Azure in streaming su larga scala](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) . Il codice crea un processo di analisi di flusso senza partizionamento a livello di funzione, che usa l'hub eventi come input e output. Il carico di input viene generato utilizzando client di test. Ogni evento di input è un documento JSON 1 KB. Gli eventi simulano un dispositivo Internet che invia dati JSON (per un massimo di 1K dispositivi). Le dimensioni della cronologia, della durata della finestra e del carico totale degli eventi sono diverse rispetto a 2 partizioni di input.
 
 > [!Note]
-> Per una stima più accurata, personalizzare gli esempi per adattarlo allo scenario.
+> Per una stima più accurata, personalizzare gli esempi per adattarli allo scenario.
 
 ### <a name="identifying-bottlenecks"></a>Identificazione di colli di bottiglia
-Usare il riquadro metriche nel processo di analisi di flusso di Azure per identificare i colli di bottiglia nella pipeline. Esaminare **gli eventi di input/output** per la velocità effettiva e il ["ritardo della filigrana"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) o **gli eventi con backlog** per verificare se il processo è in grado di mantenere la frequenza di input. Per le metriche dell'hub eventi, cercare **le richieste limitate** e modificare di conseguenza le unità di soglia. Per Cosmos DB metrica, esaminare il **numero massimo di ur/sec utilizzati per ogni intervallo di chiavi di partizione** in velocità effettiva per assicurarsi che gli intervalli di chiavi di partizione siano utilizzati in modo uniforme. Per il database SQL di Azure, monitorare IO e **CPU**del **log** .
+Usare il riquadro Metriche nel processo di Analisi di flusso di Azure per identificare i colli di bottiglia nella pipeline. Vedere **Eventi di input/output** per la velocità effettiva e ["Ritardo limite"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) o **Eventi con backlog** per verificare se il processo è in grado di mantenere la frequenza di input. Per le metriche dell'hub eventi, cercare **Richieste limitate** e modificare di conseguenza le unità di soglia. Per le metriche di Cosmos DB, vedere **Numero massimo di unità richiesta al secondo usate per intervallo di chiavi di partizione** in "Velocità effettiva" per assicurarsi che gli intervalli delle chiavi di partizione siano usati in modo uniforme. Per il database SQL di Azure, monitorare **I/O LOG** e **CPU**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

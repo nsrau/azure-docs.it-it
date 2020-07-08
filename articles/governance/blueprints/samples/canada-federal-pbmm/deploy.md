@@ -3,12 +3,12 @@ title: Distribuire l'esempio di progetto Canada Federal PBMM
 description: Procedura di distribuzione per l'esempio di progetto Canada Federal PBMM, inclusi i dettagli dei parametri degli artefatti del progetto.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: f9234b3ff44d3536380e19cb685ca4e3bbd9b0a5
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 5cbca772212f361fb7020dbfbdca20ca236c1ff0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005702"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045009"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Distribuire gli esempi di progetto Canada Federal PBMM
 
@@ -98,7 +98,7 @@ Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito |Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi: `[]` |
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Area di lavoro Log Analytics per VM Windows |Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Anteprima\]: Verifica controlli Canada Federal PBMM e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |ID dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate |Si tratta dell'ID (GUID) dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate. |
-|\[Anteprima\]: Verifica controlli Canada Federal PBMM e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica |Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[Anteprima\]: Verifica controlli Canada Federal PBMM e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica |Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
 |\[Anteprima\]: Verifica controlli Canada Federal PBMM e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Gruppo Administrators |Gruppo. Esempio: `Administrator; myUser1; myUser2` |
 |\[Anteprima\]: Verifica controlli Canada Federal PBMM e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco di utenti che devono essere inclusi nel gruppo Administrators della macchina virtuale Windows |Elenco delimitato da punto e virgola con i membri da includere nel gruppo locale Administrators. Esempio: `Administrator; myUser1; myUser2` |
 |Distribuisci Advanced Threat Protection negli account di archiviazione |Assegnazione di criteri |Effetto |Per informazioni sugli effetti dei criteri, vedere [Informazioni sugli effetti di Criteri di Azure](../../../policy/concepts/effects.md). |

@@ -2,13 +2,13 @@
 title: Spostare le macchine virtuali di Azure in una nuova sottoscrizione o in un gruppo di risorse
 description: Usare Azure Resource Manager per spostare le macchine virtuali in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/06/2020
+ms.openlocfilehash: c85ec175d802a29de7a8a87ee7a51c0916762a5a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744628"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044550"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Spostare le linee guida per le macchine virtuali
 
@@ -24,6 +24,18 @@ Non sono ancora supportati gli scenari seguenti:
 * Non è possibile spostare le macchine virtuali in una rete virtuale esistente in una nuova sottoscrizione quando non si spostano tutte le risorse nella rete virtuale.
 * Le macchine virtuali con priorità bassa e i set di scalabilità di macchine virtuali con priorità bassa non possono essere spostati tra gruppi di risorse o sottoscrizioni.
 * Non è possibile spostare le macchine virtuali in un set di disponibilità singolarmente.
+
+## <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
+
+Non è possibile spostare una macchina virtuale integrata con un insieme di credenziali delle chiavi per implementare [crittografia dischi di Azure per macchine virtuali Linux](../../../virtual-machines/linux/disk-encryption-overview.md) o [crittografia dischi di Azure per macchine virtuali Windows](../../../virtual-machines/windows/disk-encryption-overview.md). Per spostare la macchina virtuale, è necessario disabilitare la crittografia.
+
+```azurecli-interactive
+az vm encryption disable --resource-group demoRG --name myVm1
+```
+
+```azurepowershell-interactive
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+```
 
 ## <a name="virtual-machines-with-azure-backup"></a>Macchine virtuali con backup di Azure
 

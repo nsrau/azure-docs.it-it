@@ -3,12 +3,12 @@ title: Distribuire l'esempio di progetto per i controlli HIPAA HITRUST
 description: Procedura di distribuzione per l'esempio di progetto HIPAA HITRUST, inclusi i dettagli dei parametri dell'artefatto del progetto.
 ms.date: 12/03/2019
 ms.topic: sample
-ms.openlocfilehash: a4277dbbf40a9ab8651598203e9279bca00eb164
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b3101d67e281f3b613b95e3f3ef5f620ae44cec7
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75470736"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044839"
 ---
 # <a name="deploy-the-hipaa-hitrust-blueprint-sample"></a>Distribuire l'esempio di progetto per i controlli HIPAA HITRUST
 
@@ -98,7 +98,7 @@ Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito |Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi: `[]` |
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Area di lavoro Log Analytics per VM Windows |Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Anteprima\]: Verifica controlli HITRUST/HIPAA e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |ID dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate |Si tratta dell'ID (GUID) dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate. |
-|\[Anteprima\]: Verifica controlli HITRUST/HIPAA e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica |Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[Anteprima\]: Verifica controlli HITRUST/HIPAA e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica |Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
 |\[Anteprima\]: Verifica controlli HITRUST/HIPAA e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Gruppo Administrators |Gruppo. Esempio: `Administrator; myUser1; myUser2` |
 |\[Anteprima\]: Verifica controlli HITRUST/HIPAA e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo |Assegnazione di criteri |Elenco di utenti che devono essere inclusi nel gruppo Administrators della macchina virtuale Windows |Elenco delimitato da punto e virgola con i membri da includere nel gruppo locale Administrators. Esempio: `Administrator; myUser1; myUser2` |
 |Distribuisci Advanced Threat Protection negli account di archiviazione |Assegnazione di criteri |Effetto |Per informazioni sugli effetti dei criteri, vedere [Informazioni sugli effetti di Criteri di Azure](../../../policy/concepts/effects.md). |

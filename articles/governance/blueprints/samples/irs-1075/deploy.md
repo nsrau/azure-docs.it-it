@@ -3,12 +3,12 @@ title: Esempio di progetto IRS 1075
 description: Procedura di distribuzione per l'esempio di progetto IRS 1075 (rev. 11-2016), inclusi i dettagli dei parametri degli artefatti del progetto.
 ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 7faf1042f695ac43b2fa22d2685149426cb1ed80
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59e9194e3f7839ce0826717e2f8fcef35de7decb
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653092"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044771"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Distribuire l'esempio di progetto IRS 1075
 
@@ -94,7 +94,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
 |Verificare i controlli IRS 1075 (rev. 11-2016) e distribuire estensioni di VM specifiche per supportare i requisiti di controllo|Assegnazione di criteri|ID dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate|Si tratta dell'ID (GUID) dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate.|
-|Verificare i controlli IRS 1075 (rev. 11-2016) e distribuire estensioni di VM specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Verificare i controlli IRS 1075 (rev. 11-2016) e distribuire estensioni di VM specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |Verificare i controlli IRS 1075 (rev. 11-2016) e distribuire estensioni di VM specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco di utenti che devono essere esclusi dal gruppo Administrators della macchina virtuale Windows|Elenco delimitato da punto e virgola con i membri da escludere dal gruppo locale Administrators, ad esempio Administrator; utente1; utente2|
 |Verificare i controlli IRS 1075 (rev. 11-2016) e distribuire estensioni di VM specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco di utenti che devono essere inclusi nel gruppo Administrators della macchina virtuale Windows|Elenco delimitato da punto e virgola con i membri da includere nel gruppo locale Administrators. ad esempio Administrator; utente1; utente2|
 |Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux|Assegnazione di criteri|Area di lavoro Log Analytics per i set di scalabilità di macchine virtuali Linux|Se quest'area di lavoro non rientra nell'ambito dell'assegnazione, è necessario concedere manualmente le autorizzazioni di "Collaboratore di Log Analytics" (o simile) all'ID entità di sicurezza dell'assegnazione dei criteri.|

@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 0c54b862704905b282869c5f2e9c374a173897ab
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 92e224448d26c24c073bd81b7f9e001fa8a09898
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609914"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044686"
 ---
-# <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Python per il servizio Device Provisioning in hub IoT
+# <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Avvio rapido: Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Python per il servizio Device Provisioning in hub IoT
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
@@ -87,15 +87,17 @@ Questo articolo descrive le registrazioni singole.
 
 3. Nella finestra di output immettere `i` per la registrazione singola quando richiesto. Nella finestra di output viene visualizzato un certificato X.509 generato in locale per il dispositivo simulato. 
     
-    Copiare il primo certificato negli Appunti. Iniziare con la prima occorrenza di:
+    ```output
+    Copy the first certificate to clipboard. Begin with the first occurrence of:
     
         -----BEGIN CERTIFICATE----- 
         
-    Terminare la copia in corso dopo la prima occorrenza di:
+    End you copying after the first occurrence of:
     
         -----END CERTIFICATE-----
         
-    Assicurarsi di includere anche queste due righe. 
+    Make sure to include both of those lines as well.
+    ``` 
 
     ![Applicazione di registrazione dispositivo Dice](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  

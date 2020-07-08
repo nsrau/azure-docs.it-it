@@ -3,12 +3,12 @@ title: Distribuire l'esempio di progetto ISO 27001
 description: Procedura di distribuzione per l'esempio di progetto ISO 27001 autonomo, inclusi i dettagli dei parametri dell'artefatto del progetto.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9eaf559f0c1e6c99d3a2469d63eddea1c1ae9867
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922512"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044652"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Distribuire l'esempio di progetto ISO 27001
 
@@ -109,7 +109,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows|Assegnazione di criteri|Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Windows da aggiungere all'ambito|Una matrice vuota può essere usata per indicare l'assenza di parametri facoltativi: \[\]|
 |SKU degli account di archiviazione consentiti|Assegnazione di criteri|Elenco di SKU di archiviazione consentiti|Elenco di SKU che possono essere specificati per gli account di archiviazione.|
 |SKU delle macchine virtuali consentiti|Assegnazione di criteri|Elenco di SKU delle macchine virtuali consentiti|Elenco di SKU che possono essere specificati per le macchine virtuali.|
-|Iniziativa progetto per ISO 27001|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Iniziativa progetto per ISO 27001|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

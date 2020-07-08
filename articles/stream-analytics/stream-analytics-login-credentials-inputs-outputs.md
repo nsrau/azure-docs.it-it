@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ae639dd7c5a42fc6880240988f0fb2817b09f43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3154447e4df64b9b335beae99cfd208d1a21efc4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75425966"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044414"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Ruotare le credenziali di accesso per input e output in un processo di Analisi di flusso
 
@@ -49,11 +49,11 @@ Questa sezione illustra la procedura da seguire per rigenerare le credenziali pe
 
 ### <a name="sql-database"></a>Database SQL
 
-Se è necessario connettersi al database SQL per aggiornare le credenziali di accesso di un utente esistente, è possibile eseguire questa operazione tramite il portale di Azure o con uno strumento sul lato client, ad esempio SQL Server Management Studio. Questa sezione illustra la procedura da seguire per aggiornare le credenziali tramite il portale di Azure.
+È necessario connettersi al database SQL per aggiornare le credenziali di accesso di un utente esistente. è possibile eseguire questa operazione tramite il portale di Azure o con uno strumento sul lato client, ad esempio SQL Server Management Studio. Questa sezione illustra la procedura da seguire per aggiornare le credenziali tramite il portale di Azure.
 
 1. Accedere al portale di Azure e passare al database SQL usato come input/output per il processo di Analisi di flusso.    
 2. Da **Esplora dati** connettersi al database e selezionare il tipo di autorizzazione come **Autenticazione di SQL Server**, quindi digitare i dati nei campi **Account di accesso** e **Password** e infine fare clic su **OK**.  
-   ![Rigenerare le credenziali per il database SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
+   ![Rigenera le credenziali per il database SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. Nella scheda della query modificare la password per uno degli utenti eseguendo la query seguente, facendo attenzione a sostituire `<user_name>` con il nome utente e `<new_password>` con la nuova password:  
 
@@ -64,7 +64,7 @@ Se è necessario connettersi al database SQL per aggiornare le credenziali di ac
 
 4. Prendere nota della nuova password.    
 5. Dal portale di Azure passare al processo di Analisi di flusso, selezionare **Arresta** e attendere l'arresto del processo.    
-6. Individuare l'output del database SQL per cui ruotare le credenziali. Aggiornare la password e salvare le modifiche.    
+6. Individuare l'output del database SQL per il quale si desidera ruotare le credenziali. Aggiornare la password e salvare le modifiche.    
 7. Al salvataggio delle modifiche, verrà automaticamente avviato un test di connessione. Assicurarsi che abbia esito positivo.    
 8. Passare alla sezione [Avviare il processo dall'ultimo arresto](#start-your-job-from-the-last-stopped-time).
 
@@ -82,7 +82,7 @@ Se è necessario connettersi al database SQL per aggiornare le credenziali di ac
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -5,16 +5,16 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: troubleshooting
+ms.date: 06/18/2020
+ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127761"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044516"
 ---
-# <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Risolvere i problemi di analisi di flusso di Azure usando i log delle risorse
+# <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Risolvere i problemi di Analisi di flusso di Azure usando i log delle risorse
 
 In alcuni casi un processo di Analisi di flusso di Azure arresta l'elaborazione in modo imprevisto. È importante essere in grado di risolvere i problemi di questo tipo di eventi. Gli errori potrebbero essere causati da un risultato imprevisto della query, dalla connettività ai dispositivi o da un'interruzione imprevista del servizio. I log delle risorse in analisi di flusso consentono di identificare la fonte di problemi quando si verificano e di ridurre il tempo di recupero.
 
@@ -59,23 +59,23 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
 È consigliabile attivare i log delle risorse e inviarli ai log di monitoraggio di Azure. Sono **disattivate** per impostazione predefinita. Per attivarli, attenersi alla procedura seguente:
 
-1.  Accedere al portale di Azure e andare al processo di Analisi di flusso. In **Monitoraggio**selezionare **Log di diagnostica**. Selezionare quindi **Attiva diagnostica**.
+1.  [Creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) se non ne è già presente uno. Si consiglia di usare l'area di lavoro Log Analytics nella stessa area del processo di analisi di flusso.
+
+2.  Accedere al portale di Azure e andare al processo di Analisi di flusso. In **Monitoraggio**selezionare **Log di diagnostica**. Selezionare quindi **Attiva diagnostica**.
 
     ![Spostamento dei pannelli nei log delle risorse](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Creare un **Nome** in **Impostazioni di diagnostica** e selezionare la casella accanto a **Invia a Log Analytics**. Quindi aggiungere o creare una nuova **area di lavoro Log Analytics**. Selezionare le caselle **Esecuzione** e **Creazione** in **LOG**, e **AllMetrics** in **METRICA**. Fare clic su **Save**. È consigliabile usare un'area di lavoro Log Analytics nella stessa area di Azure del processo di analisi di flusso per evitare costi aggiuntivi.
+2.  Specificare un **nome** nel **nome delle impostazioni di diagnostica** e selezionare le caselle per l' **esecuzione** e la **creazione** in **log**e **AllMetrics** in **metrica**. Selezionare quindi **Invia a log Analytics** e scegliere l'area di lavoro. Fare clic su **Salva**.
 
-    ![Impostazioni per i log delle risorse](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
+    ![Impostazioni per i log delle risorse](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. All'avvio del processo di analisi di flusso, i log delle risorse vengono indirizzati all'area di lavoro Log Analytics. Per visualizzare i log delle risorse per il processo, selezionare **log** nella sezione **monitoraggio** .
 
    ![Log delle risorse sotto il monitoraggio](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Analisi di flusso offre query predefinite che consentono di cercare facilmente i log a cui si è interessati. Le 3 categorie sono **generale**, **errori dei dati di input** e **errori dei dati di output**. Per visualizzare, ad esempio, un riepilogo di tutti gli errori del processo negli ultimi 7 giorni, è possibile selezionare l' **esecuzione** della query predefinita appropriata. 
+4. Analisi di flusso offre query predefinite che consentono di cercare facilmente i log a cui si è interessati. È possibile selezionare le query predefinite nel riquadro a sinistra e quindi selezionare **Esegui**. I risultati della query vengono visualizzati nel riquadro inferiore. 
 
-   ![Log delle risorse sotto il monitoraggio](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
-
-   ![Risultati dei log](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
+   ![Log delle risorse sotto il monitoraggio](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>Categorie di log delle risorse
 
@@ -94,14 +94,14 @@ Analisi di flusso di Azure acquisisce due categorie di log di risorse:
 
 Tutti i log vengono archiviati in formato JSON. Ogni voce include i campi stringa comuni seguenti:
 
-Name | Descrizione
+Nome | Descrizione
 ------- | -------
 time | Timestamp del log (in UTC).
 resourceId | ID della risorsa interessata dall'operazione, in lettere maiuscole. Include l'ID sottoscrizione, il gruppo di risorse e il nome del processo. Ad esempio, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | Categoria del log, ovvero **Execution** o **Authoring**.
 operationName | Il nome dell'operazione registrata. Ad esempio, **Send Events: SQL output Write failure to mysqloutput**.
 status | Stato dell'operazione. Ad esempio **Failed** o **Succeeded**.
-level | Il livello del log. Ad esempio **Error**, **Warning** o **Informational**.
+livello | Il livello del log. Ad esempio **Error**, **Warning** o **Informational**.
 properties | Dettagli specifici delle voci di log; serializzazione come stringa JSON. Per altre informazioni, vedere le sezioni seguenti in questo articolo.
 
 ### <a name="execution-log-properties-schema"></a>Schema delle proprietà dei log di esecuzione
@@ -112,11 +112,11 @@ I log di esecuzione hanno informazioni sugli eventi che si sono verificati duran
 
 Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è in questa categoria di log. Questi log vengono creati più spesso durante le operazioni di lettura dei dati, serializzazione e scrittura. Questi log non includono errori di connettività. Gli errori di connettività vengono trattati come eventi generici. È possibile ottenere altre informazioni sulla cause di diversi [errori di dati di input e di output](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-Name | Descrizione
+Nome | Descrizione
 ------- | -------
 Source (Sorgente) | Nome dell'input o dell'output del processo in cui si è verificato l'errore.
-Messaggio | Messaggio associato all'errore.
-Tipo | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
+Message | Messaggio associato all'errore.
+Type | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 Data | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
 
 In base al valore **operationName**, lo schema degli errori nei dati è il seguente:
@@ -133,17 +133,17 @@ In base al valore **operationName**, lo schema degli errori nei dati è il segue
 
 Gli eventi generici sono tutti gli altri.
 
-Name | Descrizione
+Nome | Descrizione
 -------- | --------
 Errore | (facoltativo) Informazioni sugli errori. In genere, quando disponibili, si tratta di informazioni sulle eccezioni.
-Messaggio| Messaggio del log.
-Tipo | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
+Message| Messaggio del log.
+Type | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 ID correlazione | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) che identifica in modo univoco l'esecuzione del processo. Tutte le voci del log di esecuzione dal momento dell'avvio del processo fino a quando il processo viene interrotto hanno lo stesso valore **ID correlazione**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
-* [Introduzione ad Analisi dei flussi](stream-analytics-real-time-fraud-detection.md)
-* [Ridimensionare i processi di Analisi di flusso](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
+* [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Errori dei dati di analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/data-errors)

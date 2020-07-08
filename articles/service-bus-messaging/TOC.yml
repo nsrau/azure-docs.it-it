@@ -182,6 +182,10 @@
           href: service-bus-nodejs-how-to-use-queues.md
         - name: Pubblicare ed effettuare la sottoscrizione ai messaggi (azure-sb legacy)
           href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+    - name: Integrare
+      items:
+        - name: Integrazione con RabbitMQ
+          href: service-bus-integrate-with-rabbitmq.md
     - name: Gestione
       items:
         - name: Aggiornare automaticamente le unità di messaggistica

@@ -1,17 +1,17 @@
 ---
-title: Creare una cache HPC di Azure
+title: Creare un'istanza di cache HPC di Azure
 description: Come creare un'istanza di Cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73582186"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045808"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Pianificare lo spazio dei nomi aggregato
 
@@ -29,14 +29,14 @@ Si consideri, ad esempio, un sistema in cui un'istanza di cache HPC di Azure vie
 
 I dati del modello vengono archiviati in un Data Center e le informazioni necessarie per questo processo vengono archiviate nelle sottodirectory seguenti:
 
-    /goldline/templates/acme2017/sku798
-    /goldline/templates/acme2017/sku980 
+* */goldline/templates/acme2017/sku798*
+* */goldline/templates/acme2017/sku980* 
 
 Il sistema di archiviazione dei Data Center espone le esportazioni seguenti:
 
-    /
-    /goldline
-    /goldline/templates
+* */*
+* */goldline*
+* */goldline/templates*
 
 I dati da analizzare sono stati copiati in un contenitore di archiviazione BLOB di Azure denominato "SourceCollection" tramite l' [utilità CLFSLoad](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
 
@@ -57,7 +57,7 @@ Poiché i percorsi di origine NFS sono sottodirectory della stessa esportazione,
 | *Indirizzo IP o nome host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *Indirizzo IP o nome host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Un'applicazione client può montare la cache e accedere facilmente ai percorsi ``/source``di file dello spazio dei ``/templates/sku798``nomi aggregati, e ``/templates/sku980``.
+Un'applicazione client può montare la cache e accedere facilmente ai percorsi di file dello spazio dei nomi aggregati ``/source`` , ``/templates/sku798`` e ``/templates/sku980`` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

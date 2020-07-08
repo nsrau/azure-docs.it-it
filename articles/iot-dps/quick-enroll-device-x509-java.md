@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 534956a53615cfafeffa611127bc8c3cc4493753
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 594e6092483e86f579ae980e56f42c1a4bad7cbd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77604908"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044635"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Java
 
@@ -66,37 +66,37 @@ La procedura seguente illustra come aggiungere i dettagli del provisioning del d
         1. In una finestra di comando passare alla cartella **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_** .
         2. Compilare lo strumento con questo comando:
 
-                ```cmd\sh
-                mvn clean install
-                ```
+            ```cmd\sh
+            mvn clean install
+            ```
 
         4. Eseguire lo strumento con questi comandi:
 
-                ```cmd\sh
-                cd target
-                java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-                ```
+            ```cmd\sh
+            cd target
+            java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+            ```
 
         5. Quando richiesto, è facoltativamente possibile immettere un _nome comune_ per i certificati.
         6. Lo strumento genera in locale un **certificato client**, la **chiave privata del certificato client** e il **certificato radice**.
         7. Copiare il **certificato radice**, incluse le righe **_-----BEGIN CERTIFICATE-----_** ed **_-----END CERTIFICATE-----_** . 
         8. Assegnare il valore del **certificato radice** al parametro **PUBLIC_KEY_CERTIFICATE_STRING**, come illustrato sotto:
 
-                ```Java
-                private static final String PUBLIC_KEY_CERTIFICATE_STRING =
-                        "-----BEGIN CERTIFICATE-----\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                        "-----END CERTIFICATE-----\n";
-                ```
+            ```Java
+            private static final String PUBLIC_KEY_CERTIFICATE_STRING =
+            "-----BEGIN CERTIFICATE-----\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "-----END CERTIFICATE-----\n";
+            ```
 
         9. Chiudere la finestra di comando o immettere **n** quando richiesto per *Codice di verifica*. 
  

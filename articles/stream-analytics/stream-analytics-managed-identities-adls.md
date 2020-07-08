@@ -4,15 +4,15 @@ description: Questo articolo descrive come usare le identità gestite per autent
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 01741ea56b9e6f55c1393e88fc7991d410c33119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 551f0065f1547e94d93993a38795234f455b9eef
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254378"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044397"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticare analisi di flusso per Azure Data Lake Storage Gen1 usando identità gestite
 

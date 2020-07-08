@@ -5,15 +5,15 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9d8d87e0a2fb21603802f533a3566aa6743a9a79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831892"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045077"
 ---
 # <a name="troubleshoot-input-connections"></a>Risolvere i problemi delle connessioni di input
 
@@ -138,6 +138,28 @@ FROM data
 ### <a name="ensure-that-inputs-bind-to-different-consumer-groups"></a>Assicurarsi che gli input siano associati a gruppi di consumer diversi
 
 Per le query in cui tre o più input sono connessi allo stesso gruppo di consumer di hub eventi, creare gruppi di consumer separati. Ciò richiede la creazione di input di Analisi di flusso aggiuntivi.
+
+### <a name="create-separate-inputs-with-different-consumer-groups"></a>Creare input distinti con gruppi di consumer diversi
+
+È possibile creare input distinti con gruppi di consumer diversi per lo stesso hub eventi. La query di Unione seguente è un esempio in cui *InputOne* e *InputTwo* si riferiscono alla stessa origine Hub eventi. Qualsiasi query può avere input distinti con gruppi di consumer diversi. La query UNION è solo un esempio.
+
+```sql
+WITH 
+DataOne AS 
+(
+SELECT * FROM InputOne 
+),
+
+DataTwo AS 
+(
+SELECT * FROM InputTwo 
+),
+
+SELECT foo FROM DataOne
+UNION 
+SELECT foo FROM DataTwo
+
+```
 
 ## <a name="get-help"></a>Ottenere aiuto
 

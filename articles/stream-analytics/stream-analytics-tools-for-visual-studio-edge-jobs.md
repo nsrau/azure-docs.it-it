@@ -5,15 +5,15 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 07f109b3d5539f7cd87a12fb42a36803573c2bdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44b84c03dd9c070fd7ca3764a0dc50e8caa9e1fc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75354557"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045162"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Sviluppare processi Edge di Analisi di flusso usando gli strumenti di Visual Studio
 
@@ -29,7 +29,7 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
  
 ## <a name="create-a-stream-analytics-edge-project"></a>Creare un progetto Edge di analisi di flusso 
 
-In Visual Studio selezionare **file** > **nuovo** > **progetto**. Passare all'elenco **Modelli** a sinistra > espandere **Analisi di flusso di Azure** > **Stream Analytics Edge** (Analisi di flusso - Edge)  > **Azure Stream Analytics Edge Application** (Applicazione Edge di Analisi di flusso). Specificare un nome per il progetto, il percorso e il nome della soluzione, quindi scegliere **OK**.
+In Visual Studio selezionare **file**  >  **nuovo**  >  **progetto**. Passare all'elenco **Modelli** a sinistra > espandere **Analisi di flusso di Azure** > **Stream Analytics Edge** (Analisi di flusso - Edge)  > **Azure Stream Analytics Edge Application** (Applicazione Edge di Analisi di flusso). Specificare un nome per il progetto, il percorso e il nome della soluzione, quindi scegliere **OK**.
 
 ![Nuovo progetto Edge di analisi di flusso in Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
@@ -121,6 +121,6 @@ La finestra di visualizzazione di processo offre la possibilità di eseguire ope
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni su Azure IoT Edge](../iot-edge/about-iot-edge.md)
+* [Ulteriori informazioni su Azure IoT Edge](../iot-edge/about-iot-edge.md)
 * [Esercitazione su Analisi di flusso di Azure in IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Invio di commenti e suggerimenti al team tramite questo sondaggio](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

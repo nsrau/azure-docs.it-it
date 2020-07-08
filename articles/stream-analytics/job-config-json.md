@@ -1,21 +1,21 @@
 ---
-title: Campi JobConfig. JSON di analisi di flusso di Azure
-description: Questo articolo elenca i campi supportati per il file JobConfig. JSON di analisi di flusso di Azure usato per creare processi in Visual Studio Code.
+title: JobConfig.jsdi analisi di flusso di Azure sui campi
+description: Questo articolo elenca i campi supportati per la JobConfig.jsdi analisi di flusso di Azure nel file usato per creare processi in Visual Studio Code.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
-ms.openlocfilehash: 27ed553035ce9d7abf57ffe93078df9c17b8408c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0676b987725a33049d9da3256bdd4e6dc8028d00
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617957"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045179"
 ---
-# <a name="azure-stream-analytics-jobconfigjson-fields"></a>Campi JobConfig. JSON di analisi di flusso di Azure
+# <a name="azure-stream-analytics-jobconfigjson-fields"></a>JobConfig.jsdi analisi di flusso di Azure sui campi
 
-I campi seguenti sono supportati nel file *JobConfig. JSON* usato per [creare un processo di analisi di flusso di Azure usando Visual Studio Code](quick-create-vs-code.md).
+I campi seguenti sono supportati nell' *JobConfig.jssu* file usato per [creare un processo di analisi di flusso di Azure usando Visual Studio Code](quick-create-vs-code.md).
 
 ```json
 {
@@ -50,12 +50,12 @@ I campi seguenti sono supportati nel file *JobConfig. JSON* usato per [creare un
 |GlobalStorage. AccountName|stringa|No|L'account di archiviazione globale viene usato per archiviare il contenuto correlato al processo di analisi di flusso, ad esempio snapshot dei dati di riferimento SQL.|
 |GlobalStorage. AccountKey|stringa|No|Chiave corrispondente per l'account di archiviazione globale.|
 |DataSourceCredentialDomain|stringa|No|Proprietà riservata per l'archiviazione locale delle credenziali.|
-|ScriptType|stringa|Sì|Proprietà riservata per indicare il tipo del file di origine. Il valore accettabile è "JobConfig" per JobConfig. JSON.|
-|Tag|Coppie chiave-valore JSON|No|I tag sono coppie nome/valore che consentono di classificare le risorse e visualizzare la fatturazione consolidata applicando lo stesso tag a più risorse e gruppi di risorse. I nomi di tag non fanno distinzione tra maiuscole e minuscole e i valori dei tag fanno distinzione tra maiuscole|
+|ScriptType|string|Sì|Proprietà riservata per indicare il tipo del file di origine. Il valore accettabile è "JobConfig" per JobConfig.json.|
+|Tag|Coppie chiave-valore JSON|No|I tag sono coppie nome-valore che consentono di classificare le risorse e visualizzare dati di fatturazione consolidati tramite l'applicazione dello stesso tag a più risorse e gruppi di risorse. I nomi di tag non fanno distinzione tra maiuscole e minuscole e i valori dei tag fanno distinzione tra maiuscole|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-vs-code.md)
 * [Eseguire test locali delle query di Analisi di flusso con dati di esempio con Visual Studio Code](visual-studio-code-local-run.md)
-* [Testare le query di analisi di flusso in locale rispetto all'input del flusso Live usando Visual Studio Code](visual-studio-code-local-run-live-input.md)
-*[distribuire un processo di analisi di flusso di Azure tramite ci/CD NPM Package](setup-cicd-vs-code.md)
+* [Testare le query di analisi di flusso in locale rispetto all'input del flusso Live usando Visual Studio Code](visual-studio-code-local-run-live-input.md) 
+* [Distribuire un processo di analisi di flusso di Azure tramite ci/CD NPM Package](setup-cicd-vs-code.md)

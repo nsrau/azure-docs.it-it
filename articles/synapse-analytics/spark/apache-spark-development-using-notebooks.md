@@ -1,24 +1,25 @@
 ---
-title: Creare, sviluppare e gestire notebook di Azure Synapse Studio (anteprima)
+title: Notebook di sinapsi Studio
 description: Questo articolo illustra come creare e sviluppare notebook di Azure Synapse Studio (anteprima) per la preparazione e la visualizzazione dei dati.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.custom: tracking-python
+ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702108"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045689"
 ---
-# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Creare, sviluppare e gestire notebook di Azure Synapse Studio (anteprima)
+# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire i notebook di sinapsi Studio (anteprima) in Azure sinapsi Analytics
 
-Un notebook di Azure Synapse Studio (anteprima) è un'interfaccia Web che consente di creare file che contengono codice in tempo reale, visualizzazioni e testo descrittivo. I notebook possono essere usati per convalidare idee ed eseguire esperimenti rapidi per ottenere informazioni cognitive dettagliate dai dati. I notebook sono anche ampiamente usati per la preparazione e la visualizzazione dei dati, l'apprendimento automatico e altri scenari di Big Data.
+Un notebook di sinapsi Studio (anteprima) è un'interfaccia Web che consente di creare file che contengono codice in tempo reale, visualizzazioni e testo descrittivo. I notebook possono essere usati per convalidare idee ed eseguire esperimenti rapidi per ottenere informazioni cognitive dettagliate dai dati. I notebook sono anche ampiamente usati per la preparazione e la visualizzazione dei dati, l'apprendimento automatico e altri scenari di Big Data.
 
 Con un notebook di Azure Synapse Studio è possibile:
 
@@ -109,7 +110,7 @@ Non è possibile fare riferimento a dati o variabili direttamente tra linguaggi 
 
 ### <a name="ide-style-intellisense"></a>IntelliSense di tipo IDE
 
-I notebook di Azure Synapse Studio sono integrati nell'editor Monaco e consentono di aggiungere la funzionalità IntelliSense di tipo IDE all'editor di celle. L'evidenziazione della sintassi, il generatore di errori e i completamenti automatici del codice consentono di scrivere codice e identificare più rapidamente i problemi.
+I notebook di Azure Synapse Studio sono integrati nell'editor Monaco e consentono di aggiungere la funzionalità IntelliSense di tipo IDE all'editor di celle. L'evidenziazione della sintassi, il marcatore di errore e i completamenti automatici del codice consentono di scrivere codice e identificare più rapidamente i problemi.
 
 Le funzionalità di IntelliSense hanno livelli di maturità diversi per i diversi linguaggi. Usare la tabella seguente per visualizzare gli elementi supportati.
 
@@ -343,7 +344,7 @@ Analogamente a Jupyter Notebook, i notebook di Azure Synapse Studio hanno un'int
 
    ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. La modalità di modifica è indicata da un cursore di testo che richiede di digitare nell'area dell'editor. Quando una cella si trova in modalità di modifica, è possibile digitare nella cella. Per passare alla modalità di modifica, premere `Enter` o usare il mouse per fare clic sull'area dell'editor di una cella.
+2. La modalità di modifica è indicata da un cursore di testo che richiede di digitare nell'area dell'editor. Quando una cella è in modalità di modifica, è possibile digitare nella cella. Per passare alla modalità di modifica, premere `Enter` o usare il mouse per fare clic sull'area dell'editor di una cella.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 

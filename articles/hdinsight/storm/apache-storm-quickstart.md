@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 24173b553f30f652caf20b1ec7500fd9c4d2f7a0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8f13c813eee9bcfde578ba210c5aa2f2fe1cac2c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73241231"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045026"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Guida introduttiva: Creare e monitorare una topologia Apache Storm in Azure HDInsight
 
@@ -82,16 +82,18 @@ Usare la procedura seguente per monitorare la topologia con l'interfaccia utente
 
 4. Quando si visualizzano i dettagli di uno spout o di un bolt, selezionare una voce nella colonna **Porta** della sezione **Esecutori** per visualizzare i dettagli relativi a una specifica istanza del componente.
 
-        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
-        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
-        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
-        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
-        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
-        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
-        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
-        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
+```output
+2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
+2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
+2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
+2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
+2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
+2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
+2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
+2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
+```
 
-    In questo esempio, la parola **seven** è stata rilevata 1493957 volte. In altri termini, il numero indica le occorrenze della parola dall'avvio della topologia.
+In questo esempio, la parola **seven** è stata rilevata 1493957 volte. In altri termini, il numero indica le occorrenze della parola dall'avvio della topologia.
 
 ## <a name="stop-the-topology"></a>Arrestare la topologia
 

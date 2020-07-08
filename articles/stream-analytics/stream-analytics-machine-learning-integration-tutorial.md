@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: b33aeeee03fa57d87a60fd4c1904d5e4a86dd004
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c7a9a4c31ad7282782f45a8e2a4457cd159ee77
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80067083"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044448"
 ---
 # <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Eseguire l'analisi dei sentimenti con analisi di flusso e Azure Machine Learning Studio di Azure (versione classica)
 
@@ -139,7 +139,7 @@ Il processo ottiene l'input dal file CSV caricato in precedenza nell'archivio BL
 3. Completare il pannello **Archivio BLOB** con questi valori:
 
    
-   |Campo  |Valore  |
+   |Campo  |valore  |
    |---------|---------|
    |**Alias di input** | Usare il nome `datainput` e specificare l'opzione **Selezionare l'archiviazione BLOB dalle sottoscrizioni correnti**.       |
    |**Account di archiviazione**  |  Selezionare l'account di archiviazione creato in precedenza.  |
@@ -148,7 +148,7 @@ Il processo ottiene l'input dal file CSV caricato in precedenza nell'archivio BL
 
    ![Impostazioni per l'input del nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ### <a name="configure-the-job-output"></a>Configurare l'output del processo
 Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input. 
@@ -159,7 +159,7 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
 
 3. Completare il pannello **Archivio BLOB** con questi valori:
 
-   |Campo  |Valore  |
+   |Campo  |valore  |
    |---------|---------|
    |**Alias di output** | Usare il nome `datamloutput` e specificare l'opzione **Selezionare l'archiviazione BLOB dalle sottoscrizioni correnti**.       |
    |**Account di archiviazione**  |  Selezionare l'account di archiviazione creato in precedenza.  |
@@ -168,7 +168,7 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
 
    ![Impostazioni per l'input del nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
-4. Fare clic su **Save**.   
+4. Fare clic su **Salva**.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Aggiungere la funzione di Machine Learning 
@@ -182,7 +182,7 @@ In questa sezione dell'esercitazione si definisce una funzione nel processo di A
 
 3. Completare il pannello **Funzione di Azure Machine Learning** con questi valori:
 
-   |Campo  |Valore  |
+   |Campo  |valore  |
    |---------|---------|
    | **Alias di funzione** | Usare il nome `sentiment` e selezionare l'opzione **Specificare le impostazioni della funzione di Azure Machine Learning manualmente** che consente di immettere l'URL e la chiave.      |
    | **URL**| Incollare l'URL del servizio Web.|
@@ -190,7 +190,7 @@ In questa sezione dell'esercitazione si definisce una funzione nel processo di A
   
    ![Impostazioni per aggiungere la funzione Machine Learning al processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Creare una query per trasformare i dati
 

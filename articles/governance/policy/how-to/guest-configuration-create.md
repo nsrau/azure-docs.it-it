@@ -3,12 +3,12 @@ title: Come creare criteri di Configurazione guest per Windows
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: a8231840cc20f03da44d489ae5226e7a0b4e0d48
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: b53c8ec8189516305de8b0b8c05b2be8ea49f7f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835955"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045128"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di Configurazione guest per Windows
 
@@ -84,11 +84,14 @@ Per una panoramica dei concetti e della terminologia DSC, vedere [Panoramica di 
 
 ### <a name="how-guest-configuration-modules-differ-from-windows-powershell-dsc-modules"></a>Differenze tra i moduli Configurazione guest e i moduli Windows PowerShell DSC
 
-Quando viene eseguito il controllo di un computer tramite Configurazione guest:
+Quando la configurazione Guest controlla un computer, la sequenza di eventi è diversa da quella di Windows PowerShell DSC.
 
 1. L'agente esegue prima di tutto `Test-TargetResource` per determinare se la configurazione è nello stato corretto.
 1. Il valore booleano restituito dalla funzione determina se lo stato di Azure Resource Manager per l'assegnazione guest deve essere conforme o non conforme.
 1. Il provider esegue `Get-TargetResource` per restituire lo stato corrente di ogni impostazione, in modo che siano disponibili informazioni dettagliate sia sul motivo per cui un computer non è conforme sia per confermare che lo stato corrente è conforme.
+
+I parametri nei criteri di Azure che passano i valori alle assegnazioni di configurazione Guest devono essere di tipo _stringa_ .
+Non è possibile passare matrici tramite parametri, anche se la risorsa DSC supporta matrici.
 
 ### <a name="get-targetresource-requirements"></a>Requisiti di Get-TargetResource
 
@@ -138,7 +141,7 @@ class ResourceName : OMI_BaseResource
 
 ### <a name="configuration-requirements"></a>Requisiti di configurazione
 
-Il nome della configurazione personalizzata deve essere coerente ovunque. Il nome del file ZIP per il pacchetto di contenuto, il nome della configurazione nel file MOF e il nome dell'assegnazione guest nel modello di Resource Manager devono essere uguali.
+Il nome della configurazione personalizzata deve essere coerente ovunque. Il nome del file con estensione zip per il pacchetto di contenuto, il nome della configurazione nel file MOF e il nome dell'assegnazione Guest nel modello di Azure Resource Manager (modello ARM) devono essere uguali.
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Scaffolding di un progetto di Configurazione guest
 
@@ -163,7 +166,7 @@ Il formato del pacchetto deve essere un file ZIP.
 ### <a name="storing-guest-configuration-artifacts"></a>Archiviazione degli artefatti di Configurazione guest
 
 Il pacchetto ZIP deve essere archiviato in un percorso accessibile dalle macchine virtuali gestite.
-È ad esempio possibile usare repository GitHub, un repository di Azure o Archiviazione di Azure. Se si preferisce non rendere pubblico il pacchetto, è possibile includere un [token di firma di accesso condiviso](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) nell'URL.
+È ad esempio possibile usare repository GitHub, un repository di Azure o Archiviazione di Azure. Se si preferisce non rendere pubblico il pacchetto, è possibile includere un [token di firma di accesso condiviso](../../../storage/common/storage-sas-overview.md) nell'URL.
 È anche possibile implementare un [endpoint servizio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) per i computer in una rete privata, anche se questa configurazione si applica solo all'accesso al pacchetto e non alla comunicazione con il servizio.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Procedura dettagliata per la creazione di criteri di controllo di Configurazione guest personalizzati per Windows
@@ -220,7 +223,7 @@ Poiché l'agente valuta effettivamente l'ambiente locale, nella maggior parte de
 Parametri del cmdlet `Test-GuestConfigurationPackage`:
 
 - **Name**: nome dei criteri di Configurazione guest.
-- **Parameter**: parametri dei criteri forniti in formato di tabella hash.
+- **Parametro**: Parametri dei criteri forniti in formato tabella hash.
 - **Path**: percorso completo del pacchetto di Configurazione guest.
 
 Eseguire il comando seguente per testare il pacchetto creato nel passaggio precedente:
@@ -408,7 +411,7 @@ Di seguito è riportato un frammento di codice di esempio di una definizione dei
 
 Configurazione guest supporta l'override delle proprietà di una configurazione in fase di esecuzione. Ciò significa che i valori nel file MOF del pacchetto non devono essere considerati statici. I valori di override vengono forniti tramite Criteri di Azure e non influiscono sul modo in cui le configurazioni vengono create o compilate.
 
-I cmdlet `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` includono un parametro denominato **Parameters**. Questo parametro accetta una definizione di tabella hash che include tutti i dettagli su ogni parametro e crea le sezioni necessarie di ogni file usato per la definizione di Criteri di Azure.
+I cmdlet `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` includono un parametro denominato **Parameter**. Questo parametro accetta una definizione di tabella hash che include tutti i dettagli su ogni parametro e crea le sezioni necessarie di ogni file usato per la definizione di Criteri di Azure.
 
 Nell'esempio seguente viene creata una definizione dei criteri per controllare un servizio, in cui l'utente seleziona un'opzione in un elenco al momento dell'assegnazione dei criteri.
 
@@ -431,15 +434,15 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
     -Path '.\policyDefinitions' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 
 ## <a name="extending-guest-configuration-with-third-party-tools"></a>Estensione di Configurazione guest con strumenti di terze parti
 
 > [!Note]
-> Questa funzionalità è attualmente in anteprima e richiede la versione del modulo Configurazione guest 1.20.1, che è possibile installare usando `Install-Module GuestConfiguration -AllowPrerelease`.
-> Nella versione 1.20.1 questa funzionalità è disponibile solo per le definizioni dei criteri che controllano i computer Windows
+> Questa funzionalità è in anteprima e richiede la versione del modulo di configurazione Guest 1.20.3, che può essere installata usando `Install-Module GuestConfiguration -AllowPrerelease` .
+> Nella versione 1.20.3 questa funzionalità è disponibile solo per le definizioni dei criteri che controllano i computer Windows
 
 I pacchetti di artefatti per Configurazione guest possono essere estesi per includere strumenti di terze parti.
 Per l'estensione di Configurazione guest è necessario sviluppare due componenti.
@@ -465,7 +468,14 @@ Solo il cmdlet `New-GuestConfigurationPackage` richiede una modifica rispetto al
 Installare i moduli necessari nell'ambiente di sviluppo:
 
 ```azurepowershell-interactive
-Install-Module GuestConfiguration, gcInSpec
+# Update PowerShellGet if needed to allow installing PreRelease versions of modules
+Install-Module PowerShellGet -Force
+
+# Install GuestConfiguration module prerelease version
+Install-Module GuestConfiguration -allowprerelease
+
+# Install commmunity supported gcInSpec module
+Install-Module gcInSpec
 ```
 
 Creare prima di tutto il file YaML usato da InSpec. Il file fornisce informazioni di base sull'ambiente. Di seguito è illustrato un esempio:
@@ -482,7 +492,7 @@ supports:
   - os-family: windows
 ```
 
-Salvare questo file in una cartella denominata `wmi_service` nella directory del progetto.
+Salvare il file denominato `wmi_service.yml` in una cartella denominata `wmi_service` nella directory del progetto.
 
 Creare quindi il file Ruby con l'astrazione del linguaggio InSpec usata per controllare il computer.
 
@@ -501,7 +511,7 @@ end
 
 ```
 
-Salvare il file in una nuova cartella denominata `controls` all'interno della directory `wmi_service`.
+Salvare il file `wmi_service.rb` in una nuova cartella denominata `controls` all'interno della `wmi_service` Directory.
 
 Creare infine una configurazione, importare il modulo risorse **GuestConfiguration** e usare la risorsa `gcInSpec` per impostare il nome del profilo InSpec.
 
@@ -509,7 +519,7 @@ Creare infine una configurazione, importare il modulo risorse **GuestConfigurati
 # Define the configuration and import GuestConfiguration
 Configuration wmi_service
 {
-    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.0.0'}
+    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
     node 'wmi_service'
     {
         gcInSpec wmi_service
@@ -552,7 +562,8 @@ Eseguire il comando seguente per creare un pacchetto usando la configurazione fo
 New-GuestConfigurationPackage `
   -Name 'wmi_service' `
   -Configuration './Config/wmi_service.mof' `
-  -FilesToInclude './wmi_service'
+  -FilesToInclude './wmi_service'  `
+  -Path './package' 
 ```
 
 ## <a name="policy-lifecycle"></a>Ciclo di vita dei criteri

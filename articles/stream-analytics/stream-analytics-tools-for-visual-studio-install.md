@@ -5,14 +5,14 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2018
-ms.openlocfilehash: fa3990d2239da71fb27f4c9a06699f758fcfe7a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 464e8fbf624dfa84ec54bf6a7e0ce202d047e15d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75354374"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045111"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Installare gli strumenti di Analisi di flusso di Azure per Visual Studio
 
@@ -20,15 +20,15 @@ Visual Studio 2019 e Visual Studio 2017 supportano Azure Data Lake e gli strumen
 
 Per altre informazioni sull'uso degli strumenti, vedere [Guida introduttiva: creare un processo di analisi di flusso di Azure con Visual Studio](stream-analytics-quick-create-vs.md).
 
-## <a name="install"></a>Installazione di
+## <a name="install"></a>Installazione
 
 Le edizioni Visual Studio Enterprise (Ultimate/Premium), Professional e community supportano gli strumenti. Express Edition e Visual Studio per Mac non li supportano.
 
-Si consiglia Visual Studio 2019.
+Si consiglia di usare Visual Studio 2019.
 
 ### <a name="install-for-visual-studio-2019-and-2017"></a>Installare per Visual Studio 2019 e 2017<a name="recommended-visual-studio-2019-and-2017"></a>
 
-Gli strumenti di analisi di flusso e Azure Data Lake fanno parte dei carichi di lavoro di sviluppo e **archiviazione dei dati e di elaborazione** di **Azure** . Abilitare uno di questi due carichi di lavoro durante l'installazione. Se Visual Studio è già installato, selezionare **strumenti** > **Ottieni strumenti e funzionalità** per aggiungere i carichi di lavoro.
+Gli strumenti di analisi di flusso e Azure Data Lake fanno parte dei carichi di lavoro di sviluppo e **archiviazione dei dati e di elaborazione** di **Azure** . Abilitare uno di questi due carichi di lavoro durante l'installazione. Se Visual Studio è già installato, selezionare **strumenti**  >  **Ottieni strumenti e funzionalità** per aggiungere i carichi di lavoro.
 
 Scaricare [Visual studio 2019 (Preview 2 o versione successiva) o Visual studio 2017 (15,3 o](https://www.visualstudio.com/) versione successiva) e seguire le istruzioni per l'installazione.
 
@@ -42,7 +42,7 @@ Selezionare il carico di lavoro **sviluppo di Azure** come illustrato:
 
 Dopo aver aggiunto il carico di lavoro, aggiornare gli strumenti. Questa procedura si riferisce a Visual Studio 2019:
 
-1. Selezionare **estensioni** > **Gestisci estensioni**.
+1. Selezionare **estensioni**  >  **Gestisci estensioni**.
 
 1. In **Gestisci estensioni**selezionare **aggiornamenti** e scegliere **Azure Data Lake e strumenti di analisi di flusso**.
 
@@ -64,8 +64,8 @@ Per Visual Studio 2019 e Visual Studio 2017, un nuovo promemoria della versione 
 
 Per Visual Studio 2015 e Visual Studio 2013, gli strumenti verificano automaticamente la presenza di nuove versioni. Seguire le istruzioni per installare la versione più recente.
 
-## <a name="uninstall"></a>Uninstall
+## <a name="uninstall"></a>Disinstallare
 
-È possibile disinstallare Azure Data Lake e gli strumenti di analisi di flusso. Per Visual Studio 2019 o Visual Studio 2017, scegliere **strumenti** > **Ottieni strumenti e funzionalità**. Per **modificare**, deselezionare **Azure Data Lake e gli strumenti di analisi di flusso**. Viene visualizzato nel carico di lavoro **elaborazione e archiviazione dati** o nel carico di lavoro **sviluppo di Azure** .
+È possibile disinstallare Azure Data Lake e gli strumenti di analisi di flusso. Per Visual Studio 2019 o Visual Studio 2017, scegliere **strumenti**  >  **Ottieni strumenti e funzionalità**. Per **modificare**, deselezionare **Azure Data Lake e gli strumenti di analisi di flusso**. Viene visualizzato nel carico di lavoro **elaborazione e archiviazione dati** o nel carico di lavoro **sviluppo di Azure** .
 
-Per disinstallare da Visual Studio 2015 o Visual Studio 2013, passare a **Pannello** > di controllo**programmi e funzionalità**. Disinstallare **Microsoft Azure Data Lake e gli strumenti di analisi di flusso per Visual Studio**.
+Per disinstallare da Visual Studio 2015 o Visual Studio 2013, passare a **Pannello di controllo**  >  **programmi e funzionalità**. Disinstallare **Microsoft Azure Data Lake e gli strumenti di analisi di flusso per Visual Studio**.

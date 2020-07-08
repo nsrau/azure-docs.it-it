@@ -4,14 +4,14 @@ description: Questo articolo illustra come crittografare i dati privati usati da
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
-ms.openlocfilehash: 8d201beb2ff4aba815749b12a506d2292779cb82
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 637ac97d1e054599ec297344ff0c5fff600c8487
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857280"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045349"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protezione dei dati in analisi di flusso di Azure 
 
@@ -36,7 +36,7 @@ Usare la procedura seguente per configurare l'account di archiviazione per gli a
 
 1. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure. 
 
-1. Selezionare **Analytics analisi** >di **flusso processo** dall'elenco risultati. 
+1. Selezionare **Analytics analisi**   > di **flusso processo**   dall'elenco risultati. 
 
 1. Compilare la pagina del processo di analisi di flusso con i dettagli necessari, ad esempio il nome, l'area e la scala. 
 

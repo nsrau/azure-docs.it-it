@@ -3,12 +3,12 @@ title: Ottenere i dati di conformità ai criteri
 description: Le valutazioni e gli effetti di Criteri di Azure determinano la conformità. Informazioni su come ottenere informazioni dettagliate sulle risorse di Azure.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 55f0b471eff15140de0a586fd5d326d9cd913b1a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 53c946c59862451859616cb87d1101ae8fd5f15b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747095"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045196"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -34,7 +34,7 @@ Le valutazioni delle iniziative e dei criteri assegnati sono il risultato di div
 
 - Un criterio o un'iniziativa già assegnata a un ambito viene aggiornata. Il ciclo di valutazione e la tempistica per questo scenario sono gli stessi di quelli per una nuova assegnazione a un ambito.
 
-- Una risorsa viene distribuita a un ambito con un'assegnazione tramite Resource Manager, REST, l'interfaccia della riga di comando di Azure o Azure PowerShell. In questo scenario l'evento di effetto (Append, Audit, Deny, Deploy) e le informazioni sullo stato conforme per la singola risorsa diventano disponibili nel portale e negli SDK dopo circa 15 minuti. Questo evento non causa una valutazione di altre risorse.
+- Una risorsa viene distribuita in un ambito con un'assegnazione tramite Azure Resource Manager, REST, l'interfaccia della riga di comando di Azure o Azure PowerShell. In questo scenario l'evento di effetto (Append, Audit, Deny, Deploy) e le informazioni sullo stato conforme per la singola risorsa diventano disponibili nel portale e negli SDK dopo circa 15 minuti. Questo evento non causa una valutazione di altre risorse.
 
 - Ciclo di valutazione della conformità standard. Le assegnazioni vengono automaticamente rivalutate ogni 24 ore. Un criterio o un'iniziativa estesa di molte risorse può richiedere tempo, pertanto non è prevedibile quando verrà completato il ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
 
@@ -148,6 +148,9 @@ La percentuale di conformità viene determinata dividendo le risorse **conformi*
 Per _totale delle risorse_ si intende la somma delle risorse **conformi**, **non conformi** e **in conflitto**. I valori di conformità complessiva corrispondono alla somma delle risorse distinte **conformi** divisa per la somma di tutte le risorse distinte. Nell'immagine seguente sono presenti 20 risorse distinte applicabili, di cui una sola **Non conforme**. La conformità complessiva delle risorse è pari al 95% (19 su 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Esempio di conformità dei criteri dalla pagina Conformità" border="false":::
+
+> [!NOTE]
+> La conformità alle normative in criteri di Azure è una funzionalità in anteprima. Le proprietà di conformità da SDK e pagine del portale sono diverse per le iniziative abilitate. Per ulteriori informazioni, vedere [conformità normativa](../concepts/regulatory-compliance.md)
 
 ## <a name="portal"></a>Portale
 
@@ -426,7 +429,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-Se si dispone di un'[area di lavoro Log Analytics](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` dalla [soluzione di Analisi log attività](../../../azure-monitor/platform/activity-log-collect.md) collegata alla sottoscrizione in uso, è anche possibile visualizzare i risultati di non conformità dal ciclo di valutazione usando semplici query Kusto e la tabella `AzureActivity`. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
+Se si dispone di un'[area di lavoro Log Analytics](../../../azure-monitor/log-query/log-query-overview.md) con `AzureActivity` dalla [soluzione di Analisi log attività](../../../azure-monitor/platform/activity-log.md) collegata alla sottoscrizione in uso, è anche possibile visualizzare i risultati di non conformità dal ciclo di valutazione usando semplici query Kusto e la tabella `AzureActivity`. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Conformità di Criteri di Azure con i log di Monitoraggio di Azure" border="false":::
 

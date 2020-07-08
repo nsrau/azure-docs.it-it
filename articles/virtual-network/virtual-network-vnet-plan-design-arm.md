@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186017"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045502"
 ---
 # <a name="plan-virtual-networks"></a>Pianificare le reti virtuali
 
@@ -61,7 +61,7 @@ Una rete virtuale può essere segmentata in una o più subnet fino a raggiungere
 - Ogni subnet deve disporre di un intervallo di indirizzi univoci, specificato nel formato CIDR all'interno dello spazio di indirizzi della rete virtuale. L'intervallo di indirizzi non può sovrapporsi ad altre subnet all'interno della rete virtuale.
 - Se si prevede di distribuire alcune risorse del servizio di Azure in una rete virtuale, potrebbero richiedere, o creare, le proprie subnet, in tal caso ci deve essere abbastanza spazio non allocato per consentire loro di farlo. Per determinare se un servizio di Azure crea una propria subnet, vedere le informazioni per ogni [servizio di Azure che può essere distribuito in una rete virtuale](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Ad esempio, se si connette una rete virtuale a una rete locale tramite un Gateway VPN di Azure, la rete virtuale deve avere una subnet dedicata per il gateway. Altre informazioni sulle [subnet del gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
 - Per impostazione predefinita, Azure indirizza il traffico di rete tra tutte le subnet in una rete virtuale. È possibile eseguire l'override di routing per evitare il routing di Azure tra le subnet, oppure per instradare il traffico tra subnet attraverso un' appliance virtuale di rete, ad esempio. Se è necessario che il traffico tra le risorse nella stessa rete virtuale fluisca attraverso un'appliance virtuale di rete (vulnerabilità), distribuire le risorse in subnet diverse. Altre informazioni in [sicurezza](#security).
-- È possibile limitare l'accesso alle risorse di Azure, come ad esempio un account di archiviazione di Azure o un database SQL di Azure, per le subnet specifiche con un endpoint servizio di rete virtuale. Inoltre, è possibile negare l'accesso alle risorse da internet. È possibile creare più subnet e abilitare un endpoint del servizio per alcune subnet, ma non altro. Altre informazioni sugli [endpoint del servizio](virtual-network-service-endpoints-overview.md) e sulle risorse di Azure per cui è possibile abilitarli.
+- È possibile limitare l'accesso alle risorse di Azure, ad esempio un account di archiviazione di Azure o un database SQL di Azure, a subnet specifiche con un endpoint del servizio di rete virtuale. Inoltre, è possibile negare l'accesso alle risorse da internet. È possibile creare più subnet e abilitare un endpoint del servizio per alcune subnet, ma non altro. Altre informazioni sugli [endpoint del servizio](virtual-network-service-endpoints-overview.md) e sulle risorse di Azure per cui è possibile abilitarli.
 - È possibile associare zero o un gruppo di sicurezza di rete ad ogni subnet in una rete virtuale. È possibile associare lo stesso gruppo di protezione o un altro per ogni subnet di rete. Ogni gruppo di sicurezza di rete contiene regole che consentono o negano il traffico da e verso le origini e le destinazioni. Vedere altre informazioni sui [gruppi di sicurezza di rete](#traffic-filtering).
 
 ## <a name="security"></a>Sicurezza
@@ -107,7 +107,7 @@ Le risorse in una rete virtuale non possono risolvere i nomi delle risorse nella
 
 Azure usa il [Controllo degli accessi basato sui ruoli](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) per le risorse. Le autorizzazioni vengono assegnate a un [ambito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) nella seguente gerarchia: gruppo di gestione, sottoscrizione, gruppo di risorse e singola risorsa. Per altre informazioni sulla gerarchia, vedere [organizzare le risorse](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Per lavorare con reti virtuali di Azure e con tutte le funzionalità correlate, come ad esempio il peering, i gruppi di sicurezza di rete, gli endpoint del servizio e le tabelle di route, è possibile assegnare i membri dell'organizzazione ai ruoli incorporati [Proprietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Collaboratore](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), o [Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e assegnare il ruolo all'ambito appropriato. Se si desidera assegnare autorizzazioni specifiche per un subset delle funzionalità di rete virtuale, creare un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e assegnare le autorizzazioni specifiche necessarie per le [reti virtuali](manage-virtual-network.md#permissions), le [subnet e gli endpoint del servizio](virtual-network-manage-subnet.md#permissions), le [interfacce di rete](virtual-network-network-interface.md#permissions), il [peering](virtual-network-manage-peering.md#permissions), i [gruppi di sicurezza di rete e delle applicazioni](manage-network-security-group.md#permissions), o le [tabelle route](manage-route-table.md#permissions) al ruolo.
 
-## <a name="policy"></a>Criteri
+## <a name="policy"></a>Policy
 
 Criteri di Azure consente di creare, assegnare e gestire le definizioni dei criteri. Le definizioni dei criteri applicano regole diverse alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'organizzazione. Criteri di Azure esegue una valutazione delle risorse, alla ricerca delle risorse che non sono conformi alle definizioni di criteri specificate. Ad esempio, è possibile definire e applicare un criterio che consente la creazione di reti virtuali solo in un gruppo di risorse o in un'area specifici. Un altro criterio potrebbe richiedere che a tutte le subnet sia associato un gruppo di sicurezza di rete. I criteri vengono quindi valutati durante la creazione e l'aggiornamento delle risorse.
 

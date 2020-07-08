@@ -3,12 +3,12 @@ title: Partizionamento dei servizi di Service Fabric
 description: Illustra come partizionare i servizi con stato di Service Fabric. Le partizioni consentono di archiviare i dati nei computer locali, in modo da poter ridimensionare dati e calcolo allo stesso tempo.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e395fc31550dfdbedf963db0d648191453d016b2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115155"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045417"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partizionare Reliable Services di Service Fabric
 Questo articolo offre un'introduzione ai concetti di base del partizionamento di Reliable Services di Azure Service Fabric. Il codice sorgente usato nell'articolo è disponibile anche in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -21,11 +21,11 @@ Per i servizi senza stato un partizionamento può essere considerato un'unità l
 
 ![Servizio senza stato](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-Sono disponibili due tipi di soluzioni di servizio senza stato. La prima è un servizio che rende persistente lo stato esternamente, ad esempio in un database SQL di Azure (come un sito Web che archivia informazioni e dati sulle sessioni), e la seconda include servizi solo di calcolo (ad esempio, una calcolatrice o l'anteprima di un'immagine) che non gestiscono alcuno stato persistente.
+Sono disponibili due tipi di soluzioni di servizio senza stato. Il primo è un servizio che rende permanente lo stato esterno, ad esempio in un database nel database SQL di Azure, ad esempio un sito Web che archivia le informazioni e i dati della sessione. e la seconda include servizi solo di calcolo (ad esempio, una calcolatrice o l'anteprima di un'immagine) che non gestiscono alcuno stato persistente.
 
 In entrambi i casi, il partizionamento di un servizio senza stato è uno scenario molto raro e la scalabilità e la disponibilità in genere si ottengono aggiungendo altre istanze. I soli casi in cui è opportuno considerare più partizioni per le istanze di un servizio senza stato sono quelli in cui è necessario soddisfare speciali richieste di routing,
 
-ad esempio, quando gli utenti con ID compresi in un determinato intervallo devono essere gestiti solo da una particolare istanza del servizio. È possibile partizionare un servizio senza stato anche quando, ad esempio, è presente un back-end molto partizionato, come un database SQL partizionato, e si vuole controllare quale istanza del servizio deve scrivere nella partizione di database oppure eseguire altre operazioni di preparazione nel servizio senza stato che richiedono le stesse informazioni sul partizionamento usate nel back-end. Tali tipi di scenario possono essere risolti anche in modo diverso e non richiedono necessariamente il partizionamento del servizio.
+ad esempio, quando gli utenti con ID compresi in un determinato intervallo devono essere gestiti solo da una particolare istanza del servizio. Un altro esempio di quando è possibile partizionare un servizio senza stato è quando si dispone di un back-end effettivamente partizionato (ad esempio, un database partizionato nel database SQL) e si vuole controllare quale istanza del servizio deve scrivere nella partizione del database, o eseguire altre operazioni di preparazione nel servizio senza stato che richiede le stesse informazioni di partizionamento usate nel back-end. Tali tipi di scenario possono essere risolti anche in modo diverso e non richiedono necessariamente il partizionamento del servizio.
 
 La parte restante di questa procedura dettagliata riguarda i servizi con stato.
 
@@ -115,7 +115,7 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
 > 
 > 
 
-1. Aprire > **file**di **Visual Studio** > **nuovo** > **progetto**.
+1. Aprire file di **Visual Studio**  >  **File**  >  **nuovo**  >  **progetto**.
 2. Nella finestra di dialogo **Nuovo progetto** scegliere l'applicazione Service Fabric.
 3. Assegnare al progetto il nome "AlphabetPartitions".
 4. Nella finestra di dialogo **Create a Service** (Crea un servizio) scegliere il servizio **con stato** e assegnargli il nome "Alphabet.Processing".

@@ -4,14 +4,14 @@ description: Questo articolo descrive come usare analisi di flusso di Azure per 
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: 5a3aa3786469c3df37b53cb82bdd396871689297
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443648"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045264"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Scenari di geoschermatura e aggregazione geospaziale con analisi di flusso di Azure
 
@@ -29,7 +29,7 @@ I dati di riferimento usati in questo esempio hanno le informazioni georecinzion
 
 ### <a name="define-geofences-in-reference-data"></a>Definire geobarriere nei dati di riferimento
 
-Un geofence può essere definito usando un oggetto GeoJSON. Per i processi con compatibilità con la versione 1,2 e successive, è possibile definire Geofence anche usando WKT (well known `NVARCHAR(MAX)`Text) come. WKT è uno standard Open Geospatial Consortium (OGC) usato per rappresentare i dati spaziali in un formato testuale.
+Un geofence può essere definito usando un oggetto GeoJSON. Per i processi con compatibilità con la versione 1,2 e successive, è possibile definire Geofence anche usando WKT (Well Known Text) come `NVARCHAR(MAX)` . WKT è uno standard Open Geospatial Consortium (OGC) usato per rappresentare i dati spaziali in un formato testuale.
 
 Le funzioni geospaziali predefinite possono usare i limiti geografici definiti per verificare se un elemento si trova all'interno o all'esterno di un poligono Geofence specifico.
 
@@ -37,18 +37,18 @@ La tabella seguente è un esempio di dati di riferimento Geofence che possono es
 
 |SiteID|SiteName|Recinto virtuale|AllowedDeviceID|
 |------|--------|--------|---------------|
-|1|"Redmond Building 41"|"POLYGON ((-122.1337357922017 47.63782998329432,-122.13373042778369 47.637634793257305,-122.13346757130023 47.637642022530954,-122.13348902897235 47.637508280806806,-122.13361777500506 47.637508280806806,-122.13361241058703 47.63732393354484,-122.13265754417773 47.63730947490855,-122.13266290859576 47.637519124743164,-122.13302232460376 47.637515510097955,-122.13301696018573 47.63764925180358,-122.13272728161212 47.63764925180358,-122.13274873928424 47.63784082716388,-122.13373579220172 47.63782998329432))"|B|
-|2|"Redmond Building 40"|"POLYGON ((-122.1336154507967 47.6366745947009,-122.13361008637867 47.636483015064535,-122.13349206918201 47.636479400347675,-122.13349743360004 47.63636372927573,-122.13372810357532 47.63636372927573,-122.13373346799335 47.63617576323771,-122.13263912671528 47.63616491902258,-122.13264985555134 47.63635649982525,-122.13304682248554 47.636367344000604,-122.13305218690357 47.63650831807564,-122.13276250832996 47.636497473929516,-122.13277323716602 47.63668543881025,-122.1336154507967 47.6366745947009))"|Un|
+|1|"Redmond Building 41"|"POLYGON ((-122.1337357922017 47.63782998329432,-122.13373042778369 47.637634793257305,-122.13346757130023 47.637642022530954,-122.13348902897235 47.637508280806806,-122.13361777500506 47.637508280806806,-122.13361241058703 47.63732393354484,-122.13265754417773 47.63730947490855,-122.13266290859576 47.637519124743164,-122.13302232460376 47.637515510097955,-122.13301696018573 47.63764925180358,-122.13272728161212 47.63764925180358,-122.13274873928424 47.63784082716388,-122.13373579220172 47.63782998329432))"|"B"|
+|2|"Redmond Building 40"|"POLYGON ((-122.1336154507967 47.6366745947009,-122.13361008637867 47.636483015064535,-122.13349206918201 47.636479400347675,-122.13349743360004 47.63636372927573,-122.13372810357532 47.63636372927573,-122.13373346799335 47.63617576323771,-122.13263912671528 47.63616491902258,-122.13264985555134 47.63635649982525,-122.13304682248554 47.636367344000604,-122.13305218690357 47.63650831807564,-122.13276250832996 47.636497473929516,-122.13277323716602 47.63668543881025,-122.1336154507967 47.6366745947009))"|"A"|
 |3|"Redmond building 22"|"POLYGON ((-122.13611660248233 47.63758544698554,-122.13635263687564 47.6374083293018,-122.13622389084293 47.63733603619712,-122.13622389084293 47.63717699101473,-122.13581619507266 47.63692757827657,-122.13559625393344 47.637046862778135,-122.13569281345798 47.637144458985965,-122.13570890671207 47.637314348246214,-122.13611660248233 47.63758544698554))"|C|
 
 ### <a name="generate-alerts-with-geofence"></a>Genera avvisi con Geofence
 
-I dispositivi possono emettere l'ID e la posizione ogni minuto tramite un `DeviceStreamInput`flusso denominato. La tabella seguente è un flusso di input.
+I dispositivi possono emettere l'ID e la posizione ogni minuto tramite un flusso denominato `DeviceStreamInput` . La tabella seguente è un flusso di input.
 
 |DeviceID|GeoPosition|
 |--------|-----------|
-|Un|"POINT (-122.13292341559497 47.636318374032726)"|
-|B|"POINT (-122.13338475554553 47.63743531308874)"|
+|"A"|"POINT (-122.13292341559497 47.636318374032726)"|
+|"B"|"POINT (-122.13338475554553 47.63743531308874)"|
 |C|"POINT (-122.13354001095752 47.63627622505007)"|
 
 È possibile scrivere una query che unisce il flusso del dispositivo con i dati di riferimento geofence e genera un avviso ogni volta che un dispositivo è esterno a un edificio consentito.
@@ -100,8 +100,8 @@ La tabella seguente contiene i dati di streaming delle "corse".
 
 |UserID|FromLocation|ToLocation|TripRequestedTime|
 |------|------------|----------|-----------------|
-|Un|"POINT (-74.00726861389182 40.71610611981975)"|"POINT (-73.98615095917779 40.703107386025835)"|"2019-03-12T07:00:00Z"|
-|B|"POINT (-74.00249841021645 40.723827238895666)"|"POINT (-74.01160699942085 40.71378884930115)"|"2019-03-12T07:01:00Z"|
+|"A"|"POINT (-74.00726861389182 40.71610611981975)"|"POINT (-73.98615095917779 40.703107386025835)"|"2019-03-12T07:00:00Z"|
+|"B"|"POINT (-74.00249841021645 40.723827238895666)"|"POINT (-74.01160699942085 40.71378884930115)"|"2019-03-12T07:01:00Z"|
 |C|"POINT (-73.99680120565864 40.716439898624024)"|"POINT (-73.98289663412544 40.72582343969828)"|"2019-03-12T07:02:00Z"|
 |"D"|"POINT (-74.00741090068288 40.71615626755086)"|"POINT (-73.97999843120539 40.73477895807408)"|"2019-03-12T07:03:00Z"|
 

@@ -5,14 +5,14 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 11e68aaa7c70d4f888c0009bc28d9bb90f431f3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56fb677ca80c047fb90c58a3e0aedb41e6d4a3f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75354453"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045094"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per l'integrazione e lo sviluppo 
 Questo articolo descrive come usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per configurare un processo di integrazione e distribuzione continua.
@@ -34,13 +34,17 @@ Come l'esperienza standard di Visual Studio MSBuild, per compilare un progetto s
 
 Quando viene compilato un progetto di Analisi di flusso per Visual Studio, vengono generati i seguenti due file del modello di Azure Resource Manager nella cartella **bin/[Debug/Retail]/Deploy**: 
 
-*  File del modello di Resource Manager
+* File del modello di Resource Manager
 
-       [ProjectName].JobTemplate.json 
+   ```
+   [ProjectName].JobTemplate.json 
+   ```
 
-*  File dei parametri di Resource Manager
-
-       [ProjectName].JobTemplate.parameters.json   
+* File dei parametri di Resource Manager
+   
+   ```
+   [ProjectName].JobTemplate.parameters.json
+   ```
 
 I parametri predefiniti nel file parameters.json corrispondono alle impostazioni del progetto di Visual Studio. Se si vuole distribuire in un altro ambiente, sostituire i parametri di conseguenza.
 

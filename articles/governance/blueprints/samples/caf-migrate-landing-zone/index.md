@@ -3,12 +3,12 @@ title: Panoramica dell'esempio di progetto della zona di destinazione per la mig
 description: Panoramica e architettura del progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework (CAF) per Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: c4720ec3e94ee928553cd62017831e5158ac9b97
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 45479fd6fa3a49d2639e587d3dba2aaaf567d0b1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459866"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044822"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Panoramica del progetto di esempio della zona di destinazione per la migrazione di Microsoft Cloud Adoption Framework per Azure
 
@@ -28,7 +28,7 @@ Questo ambiente è costituito da diversi servizi di Azure usati per offrire una 
 - [Analisi dei log](../../../../azure-monitor/overview.md), distribuito per garantire la registrazione di tutte le azioni e tutti i servizi in una posizione centrale dal momento in cui viene avviata la migrazione
 - [Centro sicurezza di Azure](../../../../security-center/security-center-intro.md) (versione standard), distribuito per fornire la protezione dalle minacce per i carichi di lavoro di cui è stata eseguita la migrazione
 - [Rete virtuale di Azure](../../../../virtual-network/virtual-networks-overview.md), distribuito per fornire rete e subnet isolate per la macchina virtuale
-- [Progetto Azure Migrate](../../../..//migrate/migrate-overview.md), distribuito per l'individuazione e la valutazione Verranno aggiunti gli strumenti per la valutazione e la migrazione sia del server che del database.  
+- [Progetto Azure Migrate](../../../../migrate/migrate-services-overview.md), distribuito per l'individuazione e la valutazione Verranno aggiunti gli strumenti per la valutazione e la migrazione sia del server che del database.  
 
 
 Tutti questi elementi sono conformi a procedure comprovate pubblicate in [Centro architetture di Azure - Architetture di riferimento di Azure](/azure/architecture/reference-architectures/).

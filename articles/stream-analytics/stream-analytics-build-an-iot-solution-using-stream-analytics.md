@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426453"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044584"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
 
@@ -113,7 +113,7 @@ Per completare la soluzione, è necessaria una sottoscrizione di Microsoft Azure
 Per poter usare al meglio il credito Azure gratuito, seguire la procedura riportata nella sezione "Eseguire la pulizia dell'account Azure" alla fine di questo articolo.
 
 ## <a name="deploy-the-sample"></a>Distribuire l'esempio
-Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in pochi clic. La definizione della soluzione è ospitata nel repository [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp)GitHub all'indirizzo.
+Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in pochi clic. La definizione della soluzione è ospitata nel repository GitHub all'indirizzo [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp) .
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Distribuire il modello TollApp nel portale di Azure
 1. Per distribuire l'ambiente TollApp in Azure, usare questo collegamento per [distribuire il modello TollApp di Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -189,7 +189,7 @@ Per avviare il processo di streaming, completare questi passaggi:
 
 3. Selezionare l'intestazione **Esplora dati** per aprire la pagina Esplora dati.
 
-4. Espandere i**documenti**di **tollAppDatabase** > **tollAppCollection** > .
+4. Espandere i documenti di **tollAppDatabase**  >  **tollAppCollection**  >  **Documents**.
 
 5. Nell'elenco di ID diversi documenti vengono visualizzati solo quando è disponibile l'output.
 

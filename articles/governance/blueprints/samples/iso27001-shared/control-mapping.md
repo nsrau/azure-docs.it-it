@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto Servizi condivisi ISO 27001
 description: Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 448808a54cd313ca0acf0b8db40172bc8e0f1e06
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 0c400ebde894e03116c1b87c1c3655f9efa1ce0a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919857"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044737"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001
 
@@ -28,7 +28,7 @@ La presenza di un solo proprietario di sottoscrizioni di Azure non consente la r
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Classificazione delle informazioni
 
-Il [Servizio Valutazione della vulnerabilità di SQL](/azure/sql-database/sql-vulnerability-assessment) può aiutare a individuare i dati sensibili archiviati nei database e include suggerimenti per la loro classificazione. Questo progetto assegna una definizione dei [Criteri di Azure](../../../policy/overview.md) per controllare che le vulnerabilità identificate durante l'analisi della Valutazione della vulnerabilità di SQL vengano risolte.
+Il [Servizio Valutazione della vulnerabilità di SQL](../../../../azure-sql/database/sql-vulnerability-assessment.md) può aiutare a individuare i dati sensibili archiviati nei database e include suggerimenti per la loro classificazione. Questo progetto assegna una definizione dei [Criteri di Azure](../../../policy/overview.md) per controllare che le vulnerabilità identificate durante l'analisi della Valutazione della vulnerabilità di SQL vengano risolte.
 
 - \[Anteprima\]: Monitorare i risultati della valutazione della vulnerabilità di SQL nel Centro sicurezza di Azure
 

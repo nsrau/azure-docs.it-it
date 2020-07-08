@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: deb6c2439cc84f196b7f42fd9f49d3ebfd057cbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76962200"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045825"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Distribuire un processo di analisi di flusso di Azure tramite CI/CD NPM Package 
 
@@ -27,7 +27,7 @@ Per altre informazioni sulla distribuzione con PowerShell, vedere [distribuire c
 
 È possibile [scaricare il pacchetto](https://www.npmjs.com/package/azure-streamanalytics-cicd) direttamente oppure installarlo a [livello globale](https://docs.npmjs.com/downloading-and-installing-packages-globally) tramite il `npm install -g azure-streamanalytics-cicd` comando. Si tratta dell'approccio consigliato, che può essere usato anche in un'attività script di PowerShell o dell'interfaccia della riga di comando di Azure di una pipeline di compilazione in **Azure Pipelines**.
 
-Dopo aver installato il pacchetto, utilizzare il comando seguente per restituire i modelli di Azure Resource Manager. L'argomento **ScriptPath** è il percorso assoluto del file **asaql** nel progetto. Assicurarsi che i file asaproj. JSON e JobConfig. JSON si trovino nella stessa cartella con il file script. Se **OutputPath** non è specificato, i modelli verranno inseriti nella cartella **deploy** nella cartella **bin** del progetto.
+Dopo aver installato il pacchetto, utilizzare il comando seguente per restituire i modelli di Azure Resource Manager. L'argomento **ScriptPath** è il percorso assoluto del file **asaql** nel progetto. Verificare che il asaproj.jse JobConfig.jssui file si trovino nella stessa cartella del file script. Se **OutputPath** non è specificato, i modelli verranno inseriti nella cartella **deploy** nella cartella **bin** del progetto.
 
 ```powershell
 azure-streamanalytics-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
@@ -39,15 +39,19 @@ azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/sc
 
 Quando un progetto di analisi di flusso Visual Studio Code viene compilato correttamente, genera i seguenti due Azure Resource Manager file modello nella cartella **bin/[debug/Retail]/deploy** : 
 
-*  File del modello di Resource Manager
+* File del modello di Resource Manager
 
-       [ProjectName].JobTemplate.json 
+   ```
+   [ProjectName].JobTemplate.json 
+   ```
 
-*  File dei parametri di Resource Manager
+* File dei parametri di Resource Manager
 
-       [ProjectName].JobTemplate.parameters.json   
+   ```
+   [ProjectName].JobTemplate.parameters.json
+   ```   
 
-I parametri predefiniti nel file Parameters. JSON sono delle impostazioni nel progetto Visual Studio Code. Se si vuole distribuire in un altro ambiente, sostituire i parametri di conseguenza.
+I parametri predefiniti presenti nel parameters.jsfile sono inclusi nelle impostazioni del progetto Visual Studio Code. Se si vuole distribuire in un altro ambiente, sostituire i parametri di conseguenza.
 
 > [!NOTE]
 > Per tutte le credenziali, i valori predefiniti sono impostati su Null. È **obbligatorio** impostare i valori prima di eseguire la distribuzione nel cloud.
@@ -110,7 +114,7 @@ Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual
    |-|-|
    |Nome visualizzato|Copia file in: $ (Build. artifactstagingdirectory)|
    |Cartella di origine|`$(system.defaultworkingdirectory)`| 
-   |Sommario| `**\Deploy\**` |
+   |Contenuto| `**\Deploy\**` |
    |Cartella di destinazione| `$(build.artifactstagingdirectory)`|
 
    ![Immettere le configurazioni per l'attività di copia](./media/setup-cicd-vs-code/copy-config.png)
@@ -153,12 +157,12 @@ Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual
    |Sottoscrizione di Azure| Scegliere la propria sottoscrizione.|
    |Action| *Creare o aggiornare un gruppo di risorse*|
    |Resource group| Scegliere un nome per il gruppo di risorse di test che conterrà il processo di analisi di flusso.|
-   |Percorso|Scegliere il percorso del gruppo di risorse di test.|
+   |Location|Scegliere il percorso del gruppo di risorse di test.|
    |Percorso del modello| *Artefatto collegato*|
-   |Modello| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.json |
-   |Parametri di modelli|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.json|
+   |Modello| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.js |
+   |Parametri di modelli|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.js|
    |Eseguire l'override dei parametri del modello|-Input_IoTHub1_iotHubNamespace $ (test_eventhubname)|
-   |Modalità di distribuzione|Incrementale|
+   |Modalità di distribuzione|Incremental|
 
 3. Dall'elenco a discesa attività selezionare **Distribuisci processo in ambiente di produzione**.
 
@@ -170,12 +174,12 @@ Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual
    |Sottoscrizione di Azure| Scegliere la propria sottoscrizione.|
    |Action| *Creare o aggiornare un gruppo di risorse*|
    |Resource group| Scegliere un nome per il gruppo di risorse di produzione che conterrà il processo di analisi di flusso.|
-   |Percorso|Scegliere il percorso del gruppo di risorse di produzione.|
+   |Location|Scegliere il percorso del gruppo di risorse di produzione.|
    |Percorso del modello| *Artefatto collegato*|
-   |Modello| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.json |
-   |Parametri di modelli|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.json|
+   |Modello| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.js |
+   |Parametri di modelli|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.js|
    |Eseguire l'override dei parametri del modello|-Input_IoTHub1_iotHubNamespace $ (eventhubname)|
-   |Modalità di distribuzione|Incrementale|
+   |Modalità di distribuzione|Incremental|
 
 ### <a name="create-release"></a>Crea versione
 

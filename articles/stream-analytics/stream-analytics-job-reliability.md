@@ -5,15 +5,15 @@ author: jseb225
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2d21e081b274bd985c48dac91fff5203a6b5b8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d62f87a6bf33bbbd85b68c9d2e0c6f4a93adf16
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75425998"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044431"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantire l'affidabilità dei processi di Analisi di flusso durante gli aggiornamenti del servizio
 
@@ -32,7 +32,7 @@ L'articolo su **[disponibilità e aree abbinate](https://docs.microsoft.com/azur
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
-* [Introduzione ad Analisi dei flussi](stream-analytics-real-time-fraud-detection.md)
-* [Ridimensionare i processi di Analisi di flusso](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
+* [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)

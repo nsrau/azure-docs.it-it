@@ -4,14 +4,14 @@ description: Questo articolo descrive come usare le identità gestite per autent
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: a8699b3942fe3a4b23f1d72036b7364cdab36f8e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 757dd7280867e9b31fdc0750fc0848de8f266770
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651960"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045621"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Usare le identità gestite per accedere al database SQL di Azure da un processo di Analisi di flusso di Azure (anteprima)
 
@@ -70,7 +70,7 @@ Dopo aver creato un'identità gestita, è necessario selezionare un amministrato
 
 Successivamente, occorre creare un utente di un database indipendente nel database SQL mappato all'identità di Azure Active Directory. L'utente di un database indipendente non ha un account di accesso per il database master, ma viene mappato a un'identità nella directory associata al database. L'identità di Azure Active Directory può essere un singolo account utente o un gruppo. In questo caso, si vuole creare un utente di un database indipendente per il processo di Analisi di flusso. 
 
-1. Connettersi al database SQL tramite SQL Server Management Studio. Il **Nome utente** è un utente Azure Active Directory con l'autorizzazione **ALTER ANY USER**. L'amministratore impostato in SQL Server è un esempio. Usare l'autenticazione **Azure Active Directory - Universale con supporto MFA**. 
+1. Connettersi al database SQL utilizzando SQL Server Management Studio. Il **Nome utente** è un utente Azure Active Directory con l'autorizzazione **ALTER ANY USER**. L'amministratore impostato in SQL Server è un esempio. Usare l'autenticazione **Azure Active Directory - Universale con supporto MFA**. 
 
    ![Connessione a SQL Server](./media/sql-db-output-managed-identity/connect-sql-server.png)
 
@@ -96,7 +96,7 @@ Successivamente, occorre creare un utente di un database indipendente nel databa
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
-1. Affinché Azure Active Directory di Microsoft verifichi se il processo di Analisi di flusso ha accesso al database SQL, è necessario concedere ad Azure Active Directory autorizzazione per la comunicazione con il database. A tale scopo, passare nuovamente alla pagina "Firewall e rete virtuale" nel portale di Azure e abilitare "Consenti ai servizi e alle risorse di Azure di accedere a questo server". 
+1. Affinché Azure Active Directory di Microsoft verifichi se il processo di Analisi di flusso ha accesso al database SQL, è necessario concedere ad Azure Active Directory autorizzazione per la comunicazione con il database. A tale scopo, passare alla pagina "firewall e rete virtuale" in portale di Azure di nuovo e abilitare "Consenti ai servizi e alle risorse di Azure di accedere a questo server". 
 
    ![Firewall e rete virtuale](./media/sql-db-output-managed-identity/allow-access.png)
 

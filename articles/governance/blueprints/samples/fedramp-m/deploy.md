@@ -3,12 +3,12 @@ title: Distribuire l'esempio di progetto FedRAMP Moderate
 description: Procedura di distribuzione per l'esempio di progetto FedRAMP Moderate, inclusi i dettagli dei parametri dell'artefatto del progetto.
 ms.date: 05/14/2020
 ms.topic: sample
-ms.openlocfilehash: af29dafe071bcd50c24c7ff7dc1aaf4a2d60ae4c
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 80c33fc854b00aa9fc33d288b8b466c80596a078
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816251"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044788"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Distribuire l'esempio di progetto FedRAMP Moderate
 
@@ -94,7 +94,7 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
 |\[Anteprima\]: Verifica controlli FedRAMP Moderate e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|ID dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate|Si tratta dell'ID (GUID) dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate.|
-|\[Anteprima\]: Verifica controlli FedRAMP Moderate e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Anteprima\]: Verifica controlli FedRAMP Moderate e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[Anteprima\]: Verifica controlli FedRAMP Moderate e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco di utenti che devono essere esclusi dal gruppo Administrators della macchina virtuale Windows|Elenco delimitato da punto e virgola con i membri da escludere dal gruppo locale Administrators, ad esempio Administrator; utente1; utente2|
 |\[Anteprima\]: Verifica controlli FedRAMP Moderate e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco di utenti che devono essere inclusi nel gruppo Administrators della macchina virtuale Windows|Elenco delimitato da punto e virgola con i membri da includere nel gruppo locale Administrators. ad esempio Administrator; utente1; utente2|
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per i set di scalabilità di macchine virtuali Linux|Assegnazione di criteri|Area di lavoro Log Analytics per i set di scalabilità di macchine virtuali Linux|Se quest'area di lavoro non rientra nell'ambito dell'assegnazione, è necessario concedere manualmente le autorizzazioni di "Collaboratore di Log Analytics" (o simile) all'ID entità di sicurezza dell'assegnazione dei criteri.|

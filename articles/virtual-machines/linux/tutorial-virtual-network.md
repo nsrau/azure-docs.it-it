@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5527fbfc05eb5aadf5c5775fb9987a88d5ba81bb
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 8e5c03876de8ca078c6e89b8ca101602e4e4cf52
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460444"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045740"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Esercitazione: Creare e gestire reti virtuali di Azure per macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
@@ -38,7 +38,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="vm-networking-overview"></a>Panoramica della rete per le VM
 
-Le reti virtuali di Azure consentono connessioni di rete sicure tra macchine virtuali, Internet e altri servizi di Azure come il database SQL di Azure. Le reti virtuali sono suddivise in segmenti logici denominati subnet. Le subnet vengono usate per controllare il flusso di rete e come limite di sicurezza. Quando si distribuisce una VM, questa include in genere un'interfaccia di rete virtuale collegata a una subnet.
+Le reti virtuali di Azure consentono connessioni di rete sicure tra macchine virtuali, Internet e altri servizi di Azure come Database SQL di Azure. Le reti virtuali sono suddivise in segmenti logici denominati subnet. Le subnet vengono usate per controllare il flusso di rete e come limite di sicurezza. Quando si distribuisce una VM, questa include in genere un'interfaccia di rete virtuale collegata a una subnet.
 
 Dopo avere completato l'esercitazione, vengono create le seguenti risorse di rete virtuale:
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ff4fb08b1e627184760bb0a33797b2a324d4c55
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80066845"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045910"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -150,7 +150,7 @@ L'esempio seguente illustra l'installazione dell'estensione Microsoft Antimalwar
 
 ### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
-Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Ad esempio, il codice JSON seguente proviene da un modello di Resource Manager che consente di distribuire un set di macchine virtuali con bilanciamento del carico e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
+Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Ad esempio, il codice JSON seguente è tratto da un modello di Gestione risorse distribuisce un set di macchine virtuali con carico bilanciato e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
 
 Per altre informazioni, vedere il [modello di Resource Manager completo](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 

@@ -5,14 +5,14 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 106b1f0b765700803d2cd55b5e049fae5be3dfad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76847199"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045400"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Eseguire il debug di query di analisi di flusso di Azure localmente usando il diagramma processi in Visual Studio
 
@@ -20,7 +20,7 @@ I processi che restituiscono nessun risultato o risultati imprevisti sono scenar
 
 ## <a name="debug-a-query-using-job-diagram"></a>Eseguire il debug di una query usando il diagramma del processo
 
-Uno script di analisi di flusso di Azure viene usato per trasformare i dati di input in dati di output. Il diagramma dei processi Mostra come il flusso di dati dalle origini di input (hub eventi, hub Internet e così via) attraverso più passaggi di query e, infine, i sink di output. Ogni passaggio della query viene mappato a un set di risultati temporaneo definito nello script `WITH` mediante un'istruzione. Per individuare l'origine di un problema, è possibile visualizzare i dati e le metriche di ogni passaggio della query in ogni set di risultati intermedi.
+Uno script di analisi di flusso di Azure viene usato per trasformare i dati di input in dati di output. Il diagramma dei processi Mostra come il flusso di dati dalle origini di input (hub eventi, hub Internet e così via) attraverso più passaggi di query e, infine, i sink di output. Ogni passaggio della query viene mappato a un set di risultati temporaneo definito nello script mediante un' `WITH` istruzione. Per individuare l'origine di un problema, è possibile visualizzare i dati e le metriche di ogni passaggio della query in ogni set di risultati intermedi.
 
 > [!NOTE]
 > Questo diagramma di processo Mostra solo i dati e le metriche per i test locali in un singolo nodo. Non deve essere utilizzato per l'ottimizzazione delle prestazioni e la risoluzione dei problemi.
@@ -42,7 +42,7 @@ Scegliere l'origine di input e di output nell'editor di script e selezionare **E
 
 2. Selezionare il passaggio della query e selezionare **Anteprima** nella finestra di dialogo visualizzata. Il set di risultati viene visualizzato in una scheda della finestra dei risultati inferiore.
 
-   ![Risultato anteprima Diagramma processi](./media/debug-locally-using-job-diagram/preview-result.png)
+   ![Anteprima dei risultati nel diagramma di processo](./media/debug-locally-using-job-diagram/preview-result.png)
 
 ### <a name="view-step-metrics"></a>Visualizzare le metriche del passaggio
 
@@ -71,7 +71,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
 |Metrica|Descrizione|
 |-|-|
 |**TaxiRide**| Nome dell'input.|
-|**Conteggio righe**| Numero di righe generate dal passaggio.|
+|**Row Count**| Numero di righe generate dal passaggio.|
 |**Dimensioni dei dati**| Dimensioni dei dati generati da questo passaggio.|
 |**Input locale**| Usare i dati locali come input.|
 
@@ -82,7 +82,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
 |Metrica|Descrizione|
 |-|-|
 |**TripData**|Nome del set di risultati temporaneo.|
-|**Conteggio righe**| Numero di righe generate dal passaggio.|
+|**Row Count**| Numero di righe generate dal passaggio.|
 |**Dimensioni dei dati**| Dimensioni dei dati generati da questo passaggio.|
   
 #### <a name="output-sinks-live-output"></a>Sink di output (output Live)
@@ -102,7 +102,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
 |-|-|
 |**regionaggEH**|Nome dell'output.|
 |**Output locale**| Risultato dell'output in un file locale.|
-|**Conteggio righe**| Il numero di righe restituite al file locale.|
+|**Row Count**| Il numero di righe restituite al file locale.|
 |**Dimensioni dei dati**| Dimensioni dell'output dei dati nel file locale.|
 
 ### <a name="close-job-diagram"></a>Chiudi Diagramma processi

@@ -5,18 +5,18 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2019
-ms.openlocfilehash: c0a108565a6a0f62c6252113f984e8b10967c5db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75461186"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044567"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurazione dei criteri di ordinamento degli eventi per analisi di flusso di Azure
 
-Questo articolo descrive come configurare e usare i criteri di arrivo in ritardo e di eventi non ordinati in analisi di flusso di Azure. Questi criteri vengono applicati solo quando si usa la clausola [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nella query.
+Questo articolo descrive come configurare e usare i criteri di arrivo in ritardo e di eventi non ordinati in analisi di flusso di Azure. Questi criteri vengono applicati solo quando si usa la clausola [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nella query e vengono applicati solo per le origini di input cloud.
 
 ## <a name="event-time-and-arrival-time"></a>Ora dell'evento e ora di arrivo
 
@@ -40,7 +40,7 @@ Ecco un esempio di questi criteri in azione.
 <br> **Criteri di arrivo in ritardo:** 15 secondi
 <br> **Criteri non ordinati:** 8 secondi
 
-| N. evento. | Ora dell'evento | Ora di arrivo | System.Timestamp | Spiegazione |
+| N. evento. | Ora evento | Ora di arrivo | System.Timestamp | Spiegazione |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | L'evento è arrivato in ritardo e all'esterno del livello di tolleranza. Il tempo dell'evento viene quindi regolato in modo da ottenere la tolleranza massima per arrivo.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | L'evento è arrivato in ritardo ma entro il livello di tolleranza. L'ora dell'evento non viene modificata.  |

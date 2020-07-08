@@ -566,12 +566,12 @@
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
-            - name: Console ASP.NET
-              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
-              href: app/console.md
             - name: App non HTTP/app in background
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
+            - name: Console .NET
+              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
+              href: app/console.md
             - name: Java
               items:
                 - name: App Web
