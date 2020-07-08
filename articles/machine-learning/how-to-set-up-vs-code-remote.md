@@ -5,16 +5,15 @@ description: Configurare VS Code remoto per eseguire il debug interattivo del co
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77169748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433129"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Eseguire il debug interattivo su un'istanza di calcolo Azure Machine Learning con VS Code remoto
 
@@ -34,7 +33,7 @@ Nelle piattaforme Windows è necessario [installare un client SSH compatibile co
 
 ## <a name="get-ip-and-ssh-port"></a>Ottenere la porta IP e SSH 
 
-1. Passare a Azure Machine Learning Studio all'indirizzo https://ml.azure.com/.
+1. Passare a Azure Machine Learning Studio all'indirizzo https://ml.azure.com/ .
 
 2. Selezionare l' [area di lavoro](concept-workspace.md).
 1. Fare clic sulla scheda **istanze di calcolo** .
@@ -94,7 +93,7 @@ Di seguito sono riportati alcuni dettagli sui campi:
 |Utente|Questa operazione deve essere `azureuser` |
 |IdentityFile|Deve puntare al file in cui è stata salvata la chiave privata |
 
-A questo punto, si dovrebbe essere in grado di eseguire ssh nell'istanza di calcolo usando la sintassi abbreviata usata in precedenza, `ssh azmlci1`. 
+A questo punto, si dovrebbe essere in grado di eseguire ssh nell'istanza di calcolo usando la sintassi abbreviata usata in precedenza, `ssh azmlci1` . 
 
 ## <a name="connect-vs-code-to-the-instance"></a>Connetti VS Code all'istanza 
 
@@ -114,4 +113,4 @@ Da questo punto in poi si sta lavorando completamente sull'istanza di calcolo ed
 
 Ora che è stato configurato Visual Studio Code remoto, è possibile usare un'istanza di calcolo come calcolo remoto da Visual Studio Code per eseguire il debug interattivo del codice. 
 
-[Esercitazione: eseguire il training del primo modello ml](tutorial-1st-experiment-sdk-train.md) Mostra come usare un'istanza di calcolo con un notebook integrato.
+In [Esercitazione: Eseguire il training del primo modello di Machine Learning](tutorial-1st-experiment-sdk-train.md) viene illustrato come usare un'istanza di calcolo con un notebook integrato.

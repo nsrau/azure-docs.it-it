@@ -1,19 +1,18 @@
 ---
 title: Autenticazione e autorizzazione
 description: Informazioni sui diversi modi di eseguire l'autenticazione per Ancoraggi nello spazio di Azure usando un'app o un servizio e sui livelli di controllo disponibili per limitare l'accesso ad Ancoraggi nello spazio di Azure.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: baf5252a6b158855739546c2a03e63dceee6701e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653367"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456505"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per Ancoraggi nello spazio di Azure
 
@@ -39,7 +38,6 @@ Le chiavi dell'account consentono di iniziare a usare il servizio Ancoraggi spaz
 Il modo più semplice per iniziare è usare le chiavi dell'account per accedere all'account di Ancoraggi nello spazio di Azure. Le chiavi dell'account sono disponibili nel portale di Azure. Accedere all'account e selezionare la scheda "Chiavi".
 
 ![Panoramica sull'autenticazione per Ancoraggi nello spazio di Azure](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
-
 
 Le chiavi disponibili sono due e per l'accesso all'account di Ancoraggi nello spazio sono valide entrambe, l'una contemporaneamente all'altra. È consigliabile aggiornare regolarmente la chiave usata per accedere all'account. La disponibilità di due chiavi valide separate consente di eseguire gli aggiornamenti delle chiavi senza incorrere in tempi di inattività, perché la chiave primaria e quella secondaria possono essere aggiornate l'una alternativamente all'altra.
 
@@ -175,13 +173,14 @@ Il token di accesso di Azure AD viene recuperato tramite la [libreria MSAL](../.
         1.  Nel portale di Azure selezionare **Azure Active Directory** e quindi **Registrazioni app**
         2.  Selezionare **Registrazione nuova applicazione**
         3.  Immettere il nome dell'applicazione, impostare il tipo di applicazione su **App Web/API** e immettere l'URL di autenticazione per il servizio. Quindi fare clic su **Crea**.
-        4.  Nell'applicazione fare clic su **Impostazioni** e quindi selezionare la scheda **Chiavi**. Immettere il nome della chiave, selezionare un periodo di durata e fare clic su **Salva**. Assicurarsi di salvare il valore della chiave visualizzato in quel momento perché sarà necessario includerlo nel codice del servizio Web.
+        4.  In tale applicazione, fare clic su **Impostazioni**, quindi selezionare la scheda **certificati e segreti** . creare un nuovo segreto client, selezionare una durata e fare clic su **Aggiungi**. Assicurarsi di salvare il valore del segreto, perché sarà necessario includerlo nel codice del servizio Web.
     2.  Concedere all'applicazione e/o agli utenti l'accesso alla risorsa:
         1.  Accedere alla risorsa di Ancoraggi nello spazio nel portale di Azure
         2.  Passare alla scheda **Controllo di accesso (IAM)**
         3.  Fare clic su **Aggiungi un'assegnazione di ruolo**
         1.  [Selezionare un ruolo](#role-based-access-control)
         2.  Nel campo **Seleziona** immettere i nomi delle applicazioni create e alle quali si desidera assegnare l'accesso. Se si desidera che gli utenti dell'app dispongano di ruoli diversi rispetto all'account di Ancoraggi nello spazio, è necessario registrare più applicazioni in Azure AD e assegnare un ruolo distinto a ognuno. Quindi implementare la logica di autorizzazione in modo che venga usato il ruolo degli utenti corretto.
+        3.  Nota: nella selezione **Aggiungi assegnazione ruolo** si vuole che l'opzione **assegna accesso** a sia impostata su "Azure ad utente, gruppo o entità servizio".
     3.  Premere **Salva**.
 2.  Nel codice (si noti che è possibile usare l'esempio di servizio incluso in GitHub):
     1.  Usare l'ID, il segreto e l'URI di reindirizzamento dell'applicazione di Azure AD come parametri ID client, segreto e RedirectUri in MSAL

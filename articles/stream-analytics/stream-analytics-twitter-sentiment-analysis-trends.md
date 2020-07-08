@@ -6,14 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 60fde4ca1d8aaf47367fcdb4b5dc7c73753b7496
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834765"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040776"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
 
@@ -159,7 +158,7 @@ Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, 
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Alias di input| *TwitterStream* | Immettere un alias per l'input. |
-   |Subscription  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure da usare. |
+   |Subscription  | \<Your subscription\> |  Selezionare la sottoscrizione di Azure da usare. |
    |Spazio dei nomi dell'hub eventi | *asa-twitter-eventhub* |
    |Nome dell'hub eventi | *socialtwitter-eh* | Scegliere *Usa esistente*. Quindi, selezionare l'Hub eventi creato.|
    |Tipo di compressione eventi| GZip | Il tipo di compressione dati.|
@@ -225,7 +224,7 @@ Sono stati specificati l'input del processo, la query e l'output. A questo punto
 3. Nella pagina **Avvia processo**, per **Ora di inizio dell'output del processo**, selezionare **Ora** e quindi selezionare **Avvia**.
 
 ## <a name="get-support"></a>Supporto
-Per ulteriore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Per maggiore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

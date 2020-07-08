@@ -7,12 +7,11 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: afe97fd1736fbaa6858adb2fc658b4ab34546f84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888790"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456847"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
@@ -127,7 +126,7 @@ Per gli eventi nello schema di Griglia di eventi, usare i valori seguenti per l'
 
 * ID
 * Argomento
-* Subject
+* Oggetto
 * EventType
 * DataVersion
 * Dati dell'evento (ad esempio, Data.key1)
@@ -155,10 +154,10 @@ I valori possibili sono i seguenti.
 
 I filtri avanzati presentano le limitazioni seguenti:
 
-* Cinque filtri avanzati per ogni sottoscrizione di Griglia di eventi
+* 5 filtri avanzati e 25 valori di filtro in tutti i filtri per ogni sottoscrizione di griglia di eventi
 * 512 caratteri per ogni valore stringa
 * Cinque valori per gli operatori **in** e **not in**
-* Chiavi con ** `.` il carattere (punto)** . Ad esempio, `http://schemas.microsoft.com/claims/authnclassreference` o `john.doe@contoso.com`. Attualmente non è disponibile alcun supporto per i caratteri di escape nelle chiavi. 
+* Chiavi con il carattere ** `.` (punto)** . Ad esempio, `http://schemas.microsoft.com/claims/authnclassreference` o `john.doe@contoso.com`. Attualmente non è disponibile alcun supporto per i caratteri di escape nelle chiavi. 
 
 È possibile usare l'elemento key in più filtri.
 

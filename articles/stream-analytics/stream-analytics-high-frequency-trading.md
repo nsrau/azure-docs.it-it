@@ -5,15 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 06a4bdb8a8ee5d458347d30b53f740952151799e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2196fe825570c371f4590868e994780b16a9c552
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426219"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040946"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulazione di trading ad alta frequenza con Analisi di flusso
 La combinazione di linguaggio SQL, funzioni definite dall'utente di JavaScript e aggregazioni definite dall'utente in Analisi di flusso di Azure consente agli utenti di eseguire analisi avanzate. Le analisi avanzate possono includere il training e l'assegnazione dei punteggi di Machine Learning online, oltre alla simulazione di processi con stato. Questo articolo illustra come eseguire la regressione lineare in un processo di Analisi di flusso di Azure che esegue il training e l'assegnazione di punteggi in modo continuo in uno scenario di trading ad alta frequenza.

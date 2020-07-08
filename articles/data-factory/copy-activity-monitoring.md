@@ -9,14 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417845"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249704"
 ---
 # <a name="monitor-copy-activity"></a>Monitorare l'attività di copia
 
@@ -26,7 +25,7 @@ Questo articolo illustra come monitorare l'esecuzione dell'attività di copia in
 
 ## <a name="monitor-visually"></a>Monitorare visivamente
 
-Una volta creata e pubblicata una pipeline in Azure Data Factory, è possibile associarla a un trigger o avviare manualmente un'esecuzione ad hoc. È possibile monitorare tutte le esecuzioni della pipeline in modo nativo nell'esperienza utente di Azure Data Factory. Informazioni sul monitoraggio Azure Data Factory in generale dal monitoraggio [visivo Azure Data Factory](monitor-visually.md).
+Dopo aver creato e pubblicato una pipeline in Azure Data Factory, è possibile associarla a un trigger o avviare manualmente un'esecuzione ad hoc. È possibile monitorare tutte le esecuzioni della pipeline in modo nativo nell'esperienza utente di Azure Data Factory. Informazioni sul monitoraggio Azure Data Factory in generale dal monitoraggio [visivo Azure Data Factory](monitor-visually.md).
 
 Per monitorare l'esecuzione dell'attività di copia, passare all'interfaccia utente di data factory **& monitoraggio** . Nella scheda **monitoraggio** viene visualizzato un elenco di esecuzioni di pipeline, fare clic sul collegamento **nome pipeline** per accedere all'elenco delle esecuzioni di attività nell'esecuzione della pipeline.
 
@@ -48,7 +47,7 @@ I **Dettagli di esecuzione e le durate** inferiori descrivono i passaggi chiave 
 
 ## <a name="monitor-programmatically"></a>Monitorare a livello di codice
 
-I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle prestazioni vengono restituiti anche nella sezione**output** dell' **esecuzione** > dell'attività di copia, che viene utilizzata per eseguire il rendering della visualizzazione di monitoraggio dell'interfaccia utente. Di seguito è riportato un elenco completo delle proprietà che possono essere restituite. Verranno visualizzate solo le proprietà applicabili allo scenario di copia. Per informazioni sul monitoraggio delle esecuzioni di attività a livello di programmazione in generale, vedere [monitorare un data factory di Azure a livello di codice](monitor-programmatically.md).
+I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle prestazioni vengono restituiti anche nella sezione output dell' **esecuzione dell'attività di copia**  >  **Output** , che viene utilizzata per eseguire il rendering della visualizzazione di monitoraggio dell'interfaccia utente. Di seguito è riportato un elenco completo delle proprietà che possono essere restituite. Verranno visualizzate solo le proprietà applicabili allo scenario di copia. Per informazioni sul monitoraggio delle esecuzioni di attività a livello di programmazione in generale, vedere [monitorare un data factory di Azure a livello di codice](monitor-programmatically.md).
 
 | Nome proprietà  | Descrizione | Unità nell'output |
 |:--- |:--- |:--- |
@@ -58,8 +57,8 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle pr
 | filesWritten | Numero di file scritti/sottoposte a commit nel sink basato su file. | Valore Int64 (senza unità) |
 | sourcePeakConnections | Numero massimo di connessioni simultanee stabilite nell'archivio dati di origine durante l'esecuzione dell'attività di copia. | Valore Int64 (senza unità) |
 | sinkPeakConnections | Numero massimo di connessioni simultanee stabilite nell'archivio dati sink durante l'esecuzione dell'attività di copia. | Valore Int64 (senza unità) |
-| rowsRead | Numero di righe lette dall'origine (non applicabile per la copia binaria). | Valore Int64 (senza unità) |
-| rowsCopied | Numero di righe copiate nel sink (non applicabile per la copia binaria). | Valore Int64 (senza unità) |
+| rowsRead | Numero di righe lette dall'origine. Questa metrica non si applica quando si copiano i file così come sono senza analizzarli, ad esempio quando i set di dati di origine e sink sono di tipo binario o di altro tipo di formato con impostazioni identiche. | Valore Int64 (senza unità) |
+| rowsCopied | Numero di righe copiate nel sink. Questa metrica non si applica quando si copiano i file così come sono senza analizzarli, ad esempio quando i set di dati di origine e sink sono di tipo binario o di altro tipo di formato con impostazioni identiche.  | Valore Int64 (senza unità) |
 | rowsSkipped | Numero di righe non compatibili ignorate. È possibile abilitare le righe incompatibili da ignorare impostando `enableSkipIncompatibleRow` su true. | Valore Int64 (senza unità) |
 | copyDuration | Durata dell'esecuzione della copia. | Valore Int32, in secondi |
 | throughput | Frequenza di trasferimento dei dati. | Numero a virgola mobile, in KBps |
@@ -68,10 +67,10 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle pr
 | sqlDwPolyBase | Indica se la polibase viene utilizzata quando i dati vengono copiati in SQL Data Warehouse. | Boolean |
 | redshiftUnload | Indica se lo SCARICAmento viene utilizzato quando i dati vengono copiati da spostamento verso il suo | Boolean |
 | hdfsDistcp | Indica se DistCp viene usato quando i dati vengono copiati da HDFS. | Boolean |
-| effectiveIntegrationRuntime | Runtime di integrazione (IR) o Runtime usati per potenziare l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)`. | Testo (stringa) |
+| effectiveIntegrationRuntime | Runtime di integrazione (IR) o Runtime usati per potenziare l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)` . | Testo (stringa) |
 | usedDataIntegrationUnits | Le unità di integrazione dati effettive durante la copia. | Valore Int32 |
 | usedParallelCopies | Proprietà parallelCopies effettiva durante la copia. | Valore Int32 |
-| redirectRowPath | Percorso del log delle righe incompatibili ignorate nell'archivio BLOB configurato nella `redirectIncompatibleRowSettings` proprietà. Vedere [tolleranza di errore](copy-activity-overview.md#fault-tolerance). | Testo (stringa) |
+| redirectRowPath | Percorso del log delle righe incompatibili ignorate nell'archivio BLOB configurato nella `redirectIncompatibleRowSettings` Proprietà. Vedere [tolleranza di errore](copy-activity-overview.md#fault-tolerance). | Testo (stringa) |
 | executionDetails | Ulteriori dettagli sulle fasi dell'attività di copia e sui passaggi, le durate, le configurazioni e così via corrispondenti. Non è consigliabile analizzare questa sezione perché potrebbe cambiare. Per comprendere meglio il modo in cui è possibile comprendere e risolvere i problemi relativi alle prestazioni di copia, vedere la sezione [monitoraggio visivo](#monitor-visually) . | Array |
 | perfRecommendation | Copia suggerimenti per l'ottimizzazione delle prestazioni. Per informazioni dettagliate, vedere Suggerimenti per l' [ottimizzazione delle prestazioni](copy-activity-performance-troubleshooting.md#performance-tuning-tips) . | Array |
 
@@ -153,6 +152,6 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle pr
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli altri articoli relativi all'attività di copia:
 
-\-[Panoramica dell'attività di copia](copy-activity-overview.md)
+\- [Panoramica dell'attività di copia](copy-activity-overview.md)
 
 \- [Prestazioni dell'attività di copia](copy-activity-performance.md)

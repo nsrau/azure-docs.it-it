@@ -9,16 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 0a9728e05aee27e74054a77e2c9be7dc08968207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4aec156821a7d38907602cc1def0459dbf996b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455860"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84447561"
 ---
 # <a name="train-model-module"></a>Modulo Train Model
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare questo modulo per eseguire il training di un modello di classificazione o di regressione. Il training viene eseguito dopo aver definito un modello e avere impostato i relativi parametri e richiede i dati con tag. È inoltre possibile utilizzare **Train Model** per ripetere il training di un modello esistente con nuovi dati. 
 
@@ -64,7 +63,7 @@ In Azure Machine Learning la creazione e l'uso di un modello di apprendimento au
   
 5.  Inviare la pipeline. Se si dispone di una grande quantità di dati, l'operazione può richiedere alcuni minuti.
 
-## <a name="results"></a><a name="bkmk_results"></a>Risultati
+## <a name="results"></a>Risultati
 
 Dopo il training del modello:
 

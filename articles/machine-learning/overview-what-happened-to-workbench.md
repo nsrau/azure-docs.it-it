@@ -5,17 +5,16 @@ description: Informazioni sulle possibili funzionalità disponibili senza l'appl
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
-ms.openlocfilehash: 9b49eb6237346a76903202a118331383c5a8f623
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 53f8fb79e965c09ad59ada085b9cfd27014bd140
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944246"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433063"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Che cosa è successo ad Azure Machine Learning Workbench?
 
@@ -87,7 +86,7 @@ Ora che il supporto per l'interfaccia della riga di comando precedente è termin
 
 Nella versione più recente, i modelli sono distribuiti come servizi Web in Istanze di Azure Container o nei cluster del servizio Azure Kubernetes. È anche possibile distribuire i modelli in dispositivi FPGA e in Azure IoT Edge.
 
-Per altre informazioni, vedere gli articoli seguenti:
+Altre informazioni sono disponibili in questi articoli:
 + [Dove e come eseguire la distribuzione dei modelli](how-to-deploy-and-where.md)
 + [Esercitazione: distribuire modelli con Azure Machine Learning](tutorial-deploy-models-with-aml.md)
 

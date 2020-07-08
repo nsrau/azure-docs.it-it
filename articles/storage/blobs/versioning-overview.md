@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123837"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433583"
 ---
 # <a name="blob-versioning-preview"></a>Controllo delle versioni dei BLOB (anteprima)
 
@@ -83,7 +82,7 @@ Quando è abilitata la funzionalità di controllo delle versioni dei BLOB per un
 Per i BLOB di pagine e i BLOB di Accodamento, solo un subset di operazioni write ed Delete attiva la creazione di una versione. tra cui:
 
 - [Put Blob](/rest/api/storageservices/put-blob)
-- [Elenco Put Block](/rest/api/storageservices/put-block-list)
+- [Put Block List](/rest/api/storageservices/put-block-list)
 - [Delete Blob](/rest/api/storageservices/delete-blob)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Copy Blob](/rest/api/storageservices/copy-blob)
@@ -167,7 +166,7 @@ Il diagramma seguente mostra cosa accade quando si crea uno snapshot di un BLOB 
 È possibile autorizzare l'accesso alle versioni BLOB usando uno degli approcci seguenti:
 
 - Utilizzando il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza Azure Active Directory (Azure AD). Microsoft consiglia di usare Azure AD per una maggiore sicurezza e semplicità d'uso. Per altre informazioni sull'uso di Azure AD con le operazioni BLOB, vedere [autorizzare l'accesso a BLOB e code usando Azure Active Directory](../common/storage-auth-aad.md).
-- Usando una firma di accesso condiviso (SAS) per delegare l'accesso alle versioni BLOB. Specificare l'ID versione per il tipo di risorsa firmato `bv` , che rappresenta una versione BLOB, per creare un token SAS per le operazioni in una versione specifica. Per altre informazioni sulle firme di accesso condiviso, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../common/storage-sas-overview.md).
+- Usando una firma di accesso condiviso (SAS) per delegare l'accesso alle versioni BLOB. Specificare l'ID versione per il tipo di risorsa firmato `bv` , che rappresenta una versione BLOB, per creare un token SAS per le operazioni in una versione specifica. Per altre informazioni sulle firme di accesso condiviso, vedere [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso](../common/storage-sas-overview.md).
 - Utilizzando le chiavi di accesso dell'account per autorizzare le operazioni sulle versioni dei BLOB con la chiave condivisa. Per altre informazioni, vedere [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
 
 Il controllo delle versioni del BLOB è progettato per proteggere i dati da eliminazioni accidentali o dannose. Per migliorare la protezione, l'eliminazione di una versione BLOB richiede autorizzazioni speciali. Le sezioni seguenti descrivono le autorizzazioni necessarie per eliminare una versione BLOB.
@@ -178,8 +177,8 @@ La tabella seguente illustra le azioni RBAC che supportano l'eliminazione di un 
 
 | Descrizione | Operazione del servizio BLOB | Azione dati RBAC obbligatoria | Supporto del ruolo incorporato RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Eliminazione della versione corrente del BLOB | Delete Blob | **Microsoft. storage/storageAccounts/blobServices/Containers/Blobs/Delete/actionDeleting** | Collaboratore ai dati del BLOB di archiviazione |
-| Eliminazione di una versione | Delete Blob | **Microsoft. storage/storageAccounts/blobServices/Containers/Blobs/deleteBlobVersion/** | Proprietario dei dati del BLOB di archiviazione |
+| Eliminazione della versione corrente del BLOB | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Collaboratore ai dati del BLOB di archiviazione |
+| Eliminazione di una versione | Delete Blob | **Microsoft. storage/storageAccounts/blobServices/Containers/Blobs/deleteBlobVersion/Action** | Proprietario dei dati del BLOB di archiviazione |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametri della firma di accesso condiviso (SAS)
 
@@ -189,7 +188,7 @@ La tabella seguente illustra l'autorizzazione necessaria per una firma di access
 
 | **Autorizzazione** | **Simbolo URI** | **Operazioni consentite** |
 |----------------|----------------|------------------------|
-| Delete         | x              | Eliminare una versione BLOB. |
+| Elimina         | x              | Eliminare una versione BLOB. |
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 

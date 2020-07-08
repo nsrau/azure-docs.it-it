@@ -5,18 +5,17 @@ description: Informazioni su come abilitare HTTPS per proteggere un servizio Web
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a58b0120feaba907c62bc646f4f85d9185227fed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80287340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432867"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Usare TLS per proteggere un servizio Web tramite Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +53,7 @@ Le differenze tra le [destinazioni di distribuzione](how-to-deploy-and-where.md)
 
 ## <a name="get-a-domain-name"></a>Immettere un nome di dominio
 
-Se non si dispone già di un nome di dominio, acquistarne uno da un *registrar*. Il processo e il prezzo variano tra i registrar. Il registrar fornisce gli strumenti per gestire il nome di dominio. Questi strumenti vengono usati per eseguire il mapping di un nome di dominio completo (FQDN) (\.ad esempio www contoso.com) all'indirizzo IP che ospita il servizio Web.
+Se non si dispone già di un nome di dominio, acquistarne uno da un *registrar*. Il processo e il prezzo variano tra i registrar. Il registrar fornisce gli strumenti per gestire il nome di dominio. Questi strumenti vengono usati per eseguire il mapping di un nome di dominio completo (FQDN) (ad esempio www \. contoso.com) all'indirizzo IP che ospita il servizio Web.
 
 ## <a name="get-a-tlsssl-certificate"></a>Ottenere un certificato TLS/SSL
 
@@ -63,7 +62,7 @@ Esistono diversi modi per ottenere un certificato TLS/SSL (certificato digitale)
 * Un **certificato**. Il certificato deve contenere la catena di certificati completa e deve essere "con codifica PEM".
 * Una **chiave**. La chiave deve anche essere codificata con PEM.
 
-Quando si richiede un certificato, è necessario fornire il nome di dominio completo dell'indirizzo che si prevede di utilizzare per il servizio Web (ad esempio\., www contoso.com). Per verificare l'identità del servizio Web, l'indirizzo indicato nel certificato e l'indirizzo utilizzato dai client vengono confrontati. Se gli indirizzi non corrispondono, il client riceve un messaggio di errore.
+Quando si richiede un certificato, è necessario fornire il nome di dominio completo dell'indirizzo che si prevede di utilizzare per il servizio Web (ad esempio, www \. contoso.com). Per verificare l'identità del servizio Web, l'indirizzo indicato nel certificato e l'indirizzo utilizzato dai client vengono confrontati. Se gli indirizzi non corrispondono, il client riceve un messaggio di errore.
 
 > [!TIP]
 > Se l'autorità di certificazione non può fornire il certificato e la chiave come file con codifica PEM, è possibile usare un'utilità come [openssl](https://www.openssl.org/) per modificare il formato.
@@ -87,7 +86,7 @@ Quando si esegue la distribuzione in AKS, è possibile creare un nuovo cluster A
 
 Il metodo **enable_ssl** può utilizzare un certificato fornito da Microsoft o da un certificato acquistato.
 
-  * Quando si usa un certificato di Microsoft, è necessario usare il parametro *leaf_domain_label* . Questo parametro genera il nome DNS per il servizio. Ad esempio, il valore "contoso" crea un nome di dominio "Contoso\<Six-random-characters>. \<azureregion>. cloudapp.Azure.com ", dove \<azureregion> è l'area che contiene il servizio. Facoltativamente, è possibile usare il parametro *overwrite_existing_domain* per sovrascrivere la *leaf_domain_label*esistente.
+  * Quando si usa un certificato di Microsoft, è necessario usare il parametro *leaf_domain_label* . Questo parametro genera il nome DNS per il servizio. Ad esempio, il valore "contoso" crea un nome di dominio "Contoso \<six-random-characters> . \<azureregion> .. cloudapp.azure.com ", dove \<azureregion> è l'area che contiene il servizio. Facoltativamente, è possibile usare il parametro *overwrite_existing_domain* per sovrascrivere la *leaf_domain_label*esistente.
 
     Per distribuire (o ridistribuire) il servizio con TLS abilitato, impostare il parametro *ssl_enabled* su "true" laddove applicabile. Impostare il parametro *ssl_certificate* sul valore del file del *certificato* . Impostare il *ssl_key* sul valore del file di *chiave* .
 
@@ -172,6 +171,10 @@ I certificati TLS/SSL scadono e devono essere rinnovati. Questa situazione si ve
 
 Se il certificato è stato originariamente generato da Microsoft (quando si usa il *leaf_domain_label* per creare il servizio), usare uno degli esempi seguenti per aggiornare il certificato:
 
+> [!IMPORTANT]
+> * Se il certificato esistente è ancora valido, usare `renew=True` (SDK) o `--ssl-renew` (CLI) per forzare la configurazione a rinnovarla. Ad esempio, se il certificato esistente è ancora valido per 10 giorni e non si usa `renew=True` , il certificato potrebbe non essere rinnovato.
+> * Quando il servizio è stato distribuito in origine, `leaf_domain_label` viene usato per creare un nome DNS usando il modello `<leaf-domain-label>######.<azure-region>.cloudapp.azure.net` . Per mantenere il nome esistente (incluse le 6 cifre generate originariamente), usare il `leaf_domain_label` valore originale. Non includere le 6 cifre generate.
+
 **Usare l'SDK**
 
 ```python
@@ -183,7 +186,7 @@ from azureml.core.compute.aks import SslConfiguration
 aks_target = AksCompute(ws, clustername)
 
 # Update the existing certificate by referencing the leaf domain label
-ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True)
+ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True, renew=True)
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
@@ -191,7 +194,7 @@ aks_target.update(update_config)
 **Usare l'interfaccia della riga di comando**
 
 ```azurecli
-az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True
+az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True --ssl-renew
 ```
 
 Per ulteriori informazioni, vedere la documentazione di riferimento seguente:
@@ -241,7 +244,7 @@ Per ulteriori informazioni, vedere la documentazione di riferimento seguente:
 
 ## <a name="disable-tls"></a>Disabilitare TLS
 
-Per disabilitare TLS per un modello distribuito nel servizio Azure Kubernetes, creare un `SslConfiguration` con `status="Disabled"`, quindi eseguire un aggiornamento:
+Per disabilitare TLS per un modello distribuito nel servizio Azure Kubernetes, creare un `SslConfiguration` con `status="Disabled"` , quindi eseguire un aggiornamento:
 
 ```python
 from azureml.core.compute import AksCompute
@@ -259,5 +262,5 @@ aks_target.update(update_config)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Viene illustrato come:
-+ [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md) (Come usare un modello di Machine Learning distribuito come servizio Web)
++ [Utilizzare un modello di apprendimento automatico distribuito come servizio Web](how-to-consume-web-service.md)
 + [Eseguire in modo sicuro gli esperimenti e l'inferenza all'interno di una rete virtuale di Azure](how-to-enable-virtual-network.md)

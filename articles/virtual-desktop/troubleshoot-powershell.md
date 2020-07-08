@@ -5,27 +5,26 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce19c670df5062a11bf86e9c383a322f9033818d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 6e4459eea07f60d90dad692d6625dd45c5038093
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612011"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456964"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>PowerShell con Desktop virtuale Windows
 
 >[!IMPORTANT]
->Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
+>Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
 >
-> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Usare questo articolo per risolvere errori e problemi quando si usa PowerShell con desktop virtuale di Windows. Per ulteriori informazioni su Servizi Desktop remoto PowerShell, vedere la pagina relativa al [desktop virtuale di Windows PowerShell](/powershell/module/windowsvirtualdesktop/).
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -36,7 +35,7 @@ Questa sezione elenca i comandi di PowerShell che vengono in genere utilizzati d
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Errore: New-AzRoleAssignment: le informazioni fornite non sono mappate a un ID oggetto AD
 
 ```powershell
-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
 **Motivo:** L'utente specificato dal parametro *-SignInName* non è stato trovato nel Azure Active Directory associato all'ambiente di desktop virtuale di Windows. 
@@ -73,15 +72,15 @@ Correzione: nel messaggio di errore viene pubblicato un elenco di aree supportat
 New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
 ```
 
-**Motivo:** Mancata corrispondenza della posizione. Tutti i pool host, i gruppi di applicazioni e le aree di lavoro hanno un percorso in cui archiviare i metadati del servizio. Tutti gli oggetti creati che sono associati tra loro devono trovarsi nella stessa posizione. Se, ad esempio, si trova in `eastus`un pool di host, è necessario creare anche i gruppi di `eastus`applicazioni in. Se si crea un'area di lavoro per registrare questi gruppi di applicazioni in, è necessario che `eastus` sia presente anche tale area di lavoro.
+**Motivo:** Mancata corrispondenza della posizione. Tutti i pool host, i gruppi di applicazioni e le aree di lavoro hanno un percorso in cui archiviare i metadati del servizio. Tutti gli oggetti creati che sono associati tra loro devono trovarsi nella stessa posizione. Se, ad esempio, si trova in un pool di host `eastus` , è necessario creare anche i gruppi di applicazioni in `eastus` . Se si crea un'area di lavoro per registrare questi gruppi di applicazioni in, è necessario che sia presente anche tale area di lavoro `eastus` .
 
 **Correzione:** Recuperare il percorso in cui è stato creato il pool host, quindi assegnare il gruppo di applicazioni che si sta creando nello stesso percorso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica sulla risoluzione dei problemi relativi a desktop virtuale Windows e alle tracce di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview.md).
+- Per una panoramica sulla risoluzione dei problemi relativi a Desktop virtuale Windows e alle tracce di escalation, consultare [Panoramica della risoluzione dei problemi, feedback e supporto](troubleshoot-set-up-overview.md).
 - Per risolvere i problemi durante la configurazione dell'ambiente desktop virtuale Windows e dei pool host, vedere [creazione di ambienti e pool host](troubleshoot-set-up-issues.md).
-- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
+- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in Desktop virtuale Windows, consultare [Configurazione di macchine virtuali nell'host sessione](troubleshoot-vm-configuration.md).
 - Per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows, vedere [connessioni al servizio desktop virtuale di Windows](troubleshoot-service-connection.md).
 - Per risolvere i problemi relativi ai client di Desktop remoto, vedere [risoluzione dei problemi del client di desktop remoto](troubleshoot-client.md)
 - Per ulteriori informazioni sul servizio, vedere [ambiente desktop virtuale di Windows](environment-setup.md).

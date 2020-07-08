@@ -10,14 +10,13 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 0938888b7343b441725faace7a5f20d8f50674c8
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: 28b687577f01d6e83f012a51bd18ad082f2bd48d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872057"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433271"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dove salvare e scrivere file per esperimenti di Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +50,7 @@ Your total snapshot size exceeds the limit of 300.0 MB
 
 Per correggere l'errore, archiviare i file dell'esperimento in un archivio dati. Se non è possibile usare un archivio dati, la tabella seguente offre soluzioni alternative possibili.
 
-Descrizione&nbsp;esperimento|Soluzione limite di archiviazione
+&nbsp;Descrizione esperimento|Soluzione limite di archiviazione
 ---|---
 Meno di 2000 file & non possono usare un archivio dati| Sostituisci limite dimensioni snapshot con <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Questa operazione può richiedere alcuni minuti a seconda del numero e delle dimensioni dei file.
 Deve usare una directory di script specifica| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
@@ -64,14 +63,14 @@ A causa dell'isolamento degli esperimenti di training, le modifiche apportate ai
 
 Quando si scrivono le modifiche, è consigliabile scrivere file in un archivio dati Azure Machine Learning. Vedere [accedere ai dati dagli archivi dati](how-to-access-data.md).
 
-Se non è necessario un archivio dati, scrivere i file nella `./outputs` cartella e/ `./logs` o.
+Se non è necessario un archivio dati, scrivere i file nella `./outputs` cartella e/o `./logs` .
 
 >[!Important]
-> Due cartelle, *output* e *log*, ricevono un trattamento speciale per Azure Machine Learning. Durante il training, quando si scrivono file`./outputs` in`./logs` cartelle e, i file vengono caricati automaticamente nella cronologia di esecuzione, in modo da potervi accedere al termine dell'esecuzione.
+> Due cartelle, *output* e *log*, ricevono un trattamento speciale per Azure Machine Learning. Durante il training, quando si scrivono file `./outputs` in `./logs` cartelle e, i file vengono caricati automaticamente nella cronologia di esecuzione, in modo da potervi accedere al termine dell'esecuzione.
 
-* Per l' `./outputs` **output, ad esempio i messaggi di stato o i risultati** di assegnazione dei punteggi, scrivere i file nella cartella, in modo che siano salvati in modo permanente come artefatti nella cronologia di esecuzione. Tenere presente il numero e le dimensioni dei file scritti in questa cartella, in quanto la latenza può verificarsi quando il contenuto viene caricato nella cronologia di esecuzione. Se la latenza rappresenta un problema, è consigliabile scrivere file in un archivio dati.
+* **Per l'output, ad esempio i messaggi di stato o i risultati** di assegnazione dei punteggi, scrivere i file nella `./outputs` cartella, in modo che siano salvati in modo permanente come artefatti nella cronologia di esecuzione. Tenere presente il numero e le dimensioni dei file scritti in questa cartella, in quanto la latenza può verificarsi quando il contenuto viene caricato nella cronologia di esecuzione. Se la latenza rappresenta un problema, è consigliabile scrivere file in un archivio dati.
 
-* **Per salvare il file scritto come log nella cronologia di esecuzione,** scrivere `./logs` i file nella cartella. Poiché i log vengono caricati in tempo reale, questo metodo è adatto per lo streaming di aggiornamenti dinamici da un'esecuzione remota.
+* **Per salvare il file scritto come log nella cronologia di esecuzione,** scrivere i file nella `./logs` cartella. Poiché i log vengono caricati in tempo reale, questo metodo è adatto per lo streaming di aggiornamenti dinamici da un'esecuzione remota.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

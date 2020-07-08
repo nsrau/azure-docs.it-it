@@ -4,18 +4,17 @@ description: Informazioni su come caricare i mapping di origine nel contenitore 
 ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
-ms.date: 03/04/2020
-ms.openlocfilehash: 4b452b31338760a8f53eed54420319101836bc00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: d5f01bb3034ab060227230071a21284177840e83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249738"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Supporto della mappa di origine per le applicazioni JavaScript
 
 Application Insights supporta il caricamento delle mappe di origine nel contenitore BLOB dell'account di archiviazione.
-È possibile usare le mappe di origine per unminify gli stack di chiamate trovati nella pagina dei dettagli della transazione end-to-end. Qualsiasi eccezione inviata da [JavaScript SDK][ApplicationInsights-JS] o [node. js SDK][ApplicationInsights-Node.js] può essere unminified con le mappe di origine.
+È possibile usare le mappe di origine per unminify gli stack di chiamate trovati nella pagina dei dettagli della transazione end-to-end. Eventuali eccezioni inviate da [JavaScript SDK][ApplicationInsights-JS] o [SDKNode.js][ApplicationInsights-Node.js] possono essere unminified con le mappe di origine.
 
 ![Unminify di uno stack di chiamate mediante collegamento a un account di archiviazione](./media/source-map-support/details-unminify.gif)
 
@@ -24,14 +23,16 @@ Application Insights supporta il caricamento delle mappe di origine nel contenit
 Se si ha già un account di archiviazione o un contenitore BLOB esistente, è possibile ignorare questo passaggio.
 
 1. [Creare un nuovo account di archiviazione.][create storage account]
-2. [Creare un contenitore BLOB][create blob container] nell'account di archiviazione. Assicurarsi di impostare il "livello di accesso pubblico" su `Private`per assicurarsi che le mappe di origine non siano accessibili pubblicamente.
+2. [Creare un contenitore BLOB][create blob container] nell'account di archiviazione. Assicurarsi di impostare il "livello di accesso pubblico" su per `Private` assicurarsi che le mappe di origine non siano accessibili pubblicamente.
 
 > [!div class="mx-imgBorder"]
 >![Il livello di accesso del contenitore deve essere impostato su privato](./media/source-map-support/container-access-level.png)
 
 ## <a name="push-your-source-maps-to-your-blob-container"></a>Eseguire il push delle mappe di origine al contenitore BLOB
 
-È necessario integrare la pipeline di distribuzione continua con l'account di archiviazione configurando il codice per caricare automaticamente i mapping di origine nel contenitore BLOB configurato. Non caricare i mapping di origine in una sottocartella nel contenitore BLOB; Attualmente la mappa di origine verrà recuperata solo dalla cartella radice.
+È necessario integrare la pipeline di distribuzione continua con l'account di archiviazione configurando il codice per caricare automaticamente i mapping di origine nel contenitore BLOB configurato.
+
+Le mappe di origine possono essere caricate nel contenitore di archiviazione BLOB con la stessa struttura di cartelle in cui sono state compilate & distribuite con. Un caso di utilizzo comune consiste nel prefisso di una cartella di distribuzione con la relativa versione, ad esempio `1.2.3/static/js/main.js` . Quando si unminifying tramite un contenitore BLOB di Azure denominato `sourcemaps` , si tenterà di recuperare una mappa di origine che si trova in `sourcemaps/1.2.3/static/js/main.js.map` .
 
 ### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Caricare i mapping di origine tramite Azure Pipelines (scelta consigliata)
 
@@ -74,7 +75,7 @@ Qualsiasi utente nel portale che usa questa funzionalità deve essere almeno ass
 ### <a name="source-map-not-found"></a>Mappa di origine non trovata
 
 1. Verificare che la mappa di origine corrispondente venga caricata nel contenitore BLOB corretto
-2. Verificare che il file di mapping di origine sia denominato dopo il file JavaScript a cui viene eseguito il `.map`mapping, con suffisso.
+2. Verificare che il file di mapping di origine sia denominato dopo il file JavaScript a cui viene eseguito il mapping, con suffisso `.map` .
     - Ad esempio, `/static/js/main.4e2ca5fa.chunk.js` eseguirà la ricerca del BLOB denominato`main.4e2ca5fa.chunk.js.map`
 3. Controllare la console del browser per verificare se sono stati registrati errori. Includere questo in qualsiasi ticket di supporto.
 

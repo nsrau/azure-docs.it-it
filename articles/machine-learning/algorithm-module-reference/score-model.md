@@ -9,16 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 56d8cad05a42da8de680ade487dddee9a97aab3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 361199bd380b126ec41fb8a5587a2ebd78cd6f24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80364179"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84447612"
 ---
-# <a name="score-model-module"></a>Modulo Score Model
+# <a name="score-model"></a>Assegnare il punteggio al modello
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare questo modulo per generare stime usando un modello di classificazione o regressione con training.
 

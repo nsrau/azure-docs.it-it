@@ -8,16 +8,15 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 454420d9b2f4e3cf834490da79f3571691f25bc1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121117"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449312"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gestire le chiavi dell'account di archiviazione con Key Vault e Azure PowerShell
 
-Un account di archiviazione di Azure usa le credenziali che includono un nome di account e una chiave. La chiave viene generata automaticamente e funge da password, anziché come chiave crittografica. Key Vault gestisce le chiavi degli account di archiviazione archiviando tali chiavi come Key Vault segreti. 
+Un account di archiviazione di Azure usa le credenziali che includono un nome di account e una chiave. La chiave viene generata automaticamente e funge da password, anziché come chiave crittografica. Key Vault gestisce le chiavi dell'account di archiviazione rigenerando periodicamente tali chiavi nell'account di archiviazione e fornisce token di firma di accesso condiviso per l'accesso delegato alle risorse nell'account di archiviazione.
 
 È possibile usare la funzionalità chiave dell'account di archiviazione gestita di Key Vault per elencare (sincronizzare) le chiavi con un account di archiviazione di Azure e rigenerare (ruotare) periodicamente le chiavi. È possibile gestire le chiavi sia per gli account di archiviazione che per gli account di archiviazione classici.
 
@@ -55,7 +54,7 @@ Per completare questa guida, è innanzitutto necessario eseguire le operazioni s
 
 - [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
 - [Creare un insieme di credenziali delle chiavi](quick-create-powershell.md)
-- [Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md?tabs=azure-powershell). Il nome dell'account di archiviazione deve usare solo lettere minuscole e numeri. La lunghezza del nome deve essere compresa tra 3 e 24 caratteri.
+- [Creare un account di Archiviazione di Azure](../../storage/common/storage-account-create.md?tabs=azure-powershell). Il nome dell'account di archiviazione deve usare solo lettere minuscole e numeri. La lunghezza del nome deve essere compresa tra 3 e 24 caratteri.
       
 
 ## <a name="manage-storage-account-keys"></a>Gestire le chiavi dell'account di archiviazione

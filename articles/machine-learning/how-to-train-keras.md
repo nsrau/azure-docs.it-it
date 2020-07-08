@@ -5,18 +5,17 @@ description: Informazioni su come eseguire il training e registrare un modello d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba7976d602412037578d0a324916718b2d515aac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14649d3e7bc12205283863f725a902a3cef20290
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433868"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Eseguire il training e registrare un modello di classificazione keras con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,9 +32,9 @@ Per informazioni sulle differenze tra Machine Learning e Deep Learning, vedere l
 
 Eseguire questo codice in uno degli ambienti seguenti:
 
-- Azure Machine Learning istanza di calcolo: nessun download o installazione necessaria
+- Istanza di calcolo di Azure Machine Learning: nessun download o installazione necessaria
 
-     - Completare l' [esercitazione: configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md) per creare un server notebook dedicato precaricato con l'SDK e il repository di esempio.
+     - Completare l'[Esercitazione: Configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md) per creare un server di notebook dedicato con l'SDK e il repository di esempi precaricati.
     - Nella cartella Samples nel server notebook trovare un notebook completato e espanso passando a questa directory: **How-to-use-azureml > training-with-Deep-learning > Train-iperparameter-Tune-deploy-with-keras** Folder.
 
  - Server Jupyter Notebook personale
@@ -65,9 +64,9 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Offre una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) oggetto.
 
-Creare un oggetto dell'area di `config.json` lavoro dal file creato nella [sezione Prerequisiti](#prerequisites).
+Creare un oggetto dell'area di lavoro dal `config.json` file creato nella [sezione Prerequisiti](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
@@ -131,9 +130,9 @@ Per altre informazioni sulle destinazioni di calcolo, vedere l'articolo [che cos
 
 ## <a name="create-a-tensorflow-estimator-and-import-keras"></a>Creare un TensorFlow Estimator e importare keras
 
-[TensorFlow Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fornisce un modo semplice per avviare i processi di training di TensorFlow nella destinazione di calcolo. Poiché keras viene eseguito su TensorFlow, è possibile usare lo strumento di stima TensorFlow e importare la libreria keras usando `pip_packages` l'argomento.
+[TensorFlow Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fornisce un modo semplice per avviare i processi di training di TensorFlow nella destinazione di calcolo. Poiché keras viene eseguito su TensorFlow, è possibile usare lo strumento di stima TensorFlow e importare la libreria keras usando l' `pip_packages` argomento.
 
-Per prima cosa, ottenere i dati dall'archivio dati dell' `Dataset` area di lavoro usando la classe.
+Per prima cosa, ottenere i dati dall'archivio dati dell'area di lavoro usando la `Dataset` classe.
 
 ```python
 dataset = Dataset.get_by_name(ws, 'mnist dataset')
@@ -142,7 +141,7 @@ dataset = Dataset.get_by_name(ws, 'mnist dataset')
 dataset.to_path()
 ```
 
-Lo strumento di stima TensorFlow viene implementato tramite [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) la classe generica, che può essere usata per supportare qualsiasi Framework. Inoltre, creare un dizionario `script_params` che contiene le impostazioni dell'iperparametro DNN. Per altre informazioni sui modelli di training con lo strumento di stima generico, vedere eseguire il training dei [modelli con Azure Machine Learning usando Estimator](how-to-train-ml-models.md)
+Lo strumento di stima TensorFlow viene implementato tramite la classe generica [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) , che può essere usata per supportare qualsiasi Framework. Inoltre, creare un dizionario `script_params` che contiene le impostazioni dell'iperparametro DNN. Per altre informazioni sui modelli di training che usano lo strumento di stima generico, vedere [Eseguire il training dei modelli con Azure Machine Learning usando lo strumento di stima](how-to-train-ml-models.md)
 
 ```python
 from azureml.train.dnn import TensorFlow
@@ -163,7 +162,7 @@ est = TensorFlow(source_directory=script_folder,
                  use_gpu=True)
 ```
 
-## <a name="submit-a-run"></a>Invia un'esecuzione
+## <a name="submit-a-run"></a>Inviare un'esecuzione
 
 L' [oggetto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
 
@@ -184,7 +183,7 @@ Quando l'esecuzione viene eseguita, vengono eseguite le fasi seguenti:
 
 ## <a name="register-the-model"></a>Registrare il modello
 
-Dopo aver eseguito il training del modello DNN, è possibile registrarlo nell'area di lavoro. Con la registrazione del modello è possibile archiviare e deversionere i modelli nell'area di lavoro per semplificare la [gestione e la distribuzione del modello](concept-model-management-and-deployment.md).
+Dopo aver eseguito il training del modello DNN, è possibile registrarlo nell'area di lavoro. Con la registrazione dei modelli è possibile archiviare i modelli e creare le relative versioni nell'area di lavoro per semplificare la [gestione e la distribuzione dei modelli](concept-model-management-and-deployment.md).
 
 ```Python
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')
@@ -193,7 +192,7 @@ model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/mod
 > [!TIP]
 > Il modello appena registrato viene distribuito esattamente come qualsiasi altro modello registrato in Azure Machine Learning, indipendentemente dallo strumento di stima utilizzato per il training. La procedura di distribuzione contiene una sezione sulla registrazione dei modelli, ma è possibile passare direttamente alla [creazione di una destinazione di calcolo](how-to-deploy-and-where.md#choose-a-compute-target) per la distribuzione, poiché si dispone già di un modello registrato.
 
-È anche possibile scaricare una copia locale del modello. Questa operazione può essere utile per eseguire altre operazioni di convalida del modello localmente. Nello script di training, `mnist-keras.py`un oggetto TensorFlow Saver Salva in modo permanente il modello in una cartella locale (locale nella destinazione di calcolo). È possibile usare l'oggetto Run per scaricare una copia dall'archivio dati.
+È anche possibile scaricare una copia locale del modello. Questa operazione può essere utile per eseguire altre operazioni di convalida del modello localmente. Nello script di training, `mnist-keras.py` un oggetto TensorFlow Saver Salva in modo permanente il modello in una cartella locale (locale nella destinazione di calcolo). È possibile usare l'oggetto Run per scaricare una copia dall'archivio dati.
 
 ```Python
 # Create a model folder in the current directory

@@ -6,12 +6,11 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: b398f739189232f39a2fee06fc6e6ff0d53348f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656621"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449516"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Domande frequenti sulla velocità effettiva con provisioning a scalabilità automatica in Azure Cosmos DB
 
@@ -86,6 +85,10 @@ Sì, la scalabilità automatica è supportata per i database con velocità effet
 
 ### <a name="what-is-the-number-of-allowed-containers-per-shared-throughput-database-when-autoscale-is-enabled"></a>Qual è il numero di contenitori consentito per database con velocità effettiva condivisa quando è abilitata la scalabilità automatica?
 Azure Cosmos DB impone un massimo di 25 contenitori per un database con velocità effettiva condivisa. Questo valore si applica ai database con velocità effettiva con scalabilità automatica o con provisioning standard (manuale). 
+
+### <a name="what-is-the-impact-of-autoscale-on-database-consistency-level"></a>Qual è l'effetto della scalabilità automatica sul livello di coerenza del database?
+Non vi è alcun effetto sulla scalabilità automatica sul livello di coerenza del database.
+Per ulteriori informazioni sui livelli di coerenza disponibili, vedere l'articolo relativo ai [livelli di coerenza](consistency-levels.md) .
 
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>Qual è il limite di archiviazione associato a ciascun valore massimo di UR/s?  
 Il limite di archiviazione in GB per ogni numero massimo di UR/s corrisponde al numero massimo di UR/s del database o del contenitore / 100. Se ad esempio il numero massimo di UR/s è 20.000, la risorsa può supportare 200 GB di spazio di archiviazione. Vedere l'articolo sui [limiti della scalabilità automatica](provision-throughput-autoscale.md#autoscale-limits) per le opzioni disponibili per il numero massimo di UR/s e lo spazio di archiviazione corrispondente. 

@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 18a5e11d2341fb020fc442d2f9ce7c1d44de9d0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1865e1a2ff9a01f75b9849fb340dc0d080feabc1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260436"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248285"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -32,13 +31,13 @@ In questo articolo vengono descritti i set di dati, la procedura di definizione 
 > Se non si ha dimestichezza con Data Factory, vedere [Introduzione al servizio Azure Data Factory](data-factory-introduction.md). Se non si ha esperienza diretta nella creazione di data factory, vedere l'[esercitazione sulla trasformazione dei dati](data-factory-build-your-first-pipeline.md) e [quella sullo spostamento dei dati](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per comprendere meglio questi argomenti.
 
 ## <a name="overview"></a>Panoramica
-Una data factory può comprendere una o più pipeline. Una **pipeline** è un raggruppamento logico di **attività** che insieme eseguono un compito. Le attività in una pipeline definiscono le azioni da eseguire sui dati. Ad esempio, è possibile usare un'attività di copia per copiare i dati da un Server SQL locale a un'archiviazione BLOB di Azure. Quindi, si può usare un'attività Hive che esegue uno script Hive in un cluster HDInsight di Azure per elaborare i dati dall'archiviazione BLOB per produrre dati di output. Infine, è possibile usare una seconda attività di copia per copiare i dati di output in Azure SQL Data Warehouse per la compilazione delle soluzioni di report di business intelligence (BI). Per ulteriori informazioni sulle pipeline e le attività, vedere [pipeline e attività in Azure Data Factory](data-factory-create-pipelines.md).
+Una data factory può comprendere una o più pipeline. Una **pipeline** è un raggruppamento logico di **attività** che insieme eseguono un compito. Le attività in una pipeline definiscono le azioni da eseguire sui dati. Ad esempio, è possibile usare un'attività di copia per copiare i dati da un database di SQL Server nell'archiviazione BLOB di Azure. Quindi, si può usare un'attività Hive che esegue uno script Hive in un cluster HDInsight di Azure per elaborare i dati dall'archiviazione BLOB per produrre dati di output. Infine, è possibile usare una seconda attività di copia per copiare i dati di output in Azure SQL Data Warehouse per la compilazione delle soluzioni di report di business intelligence (BI). Per ulteriori informazioni sulle pipeline e le attività, vedere [pipeline e attività in Azure Data Factory](data-factory-create-pipelines.md).
 
 Un'attività può assumere zero o più **set**di dati di input e generare uno o più set di dati di output. Un set di dati di input rappresenta l'input per un'attività nella pipeline, un set di dati di output rappresenta l'output dell'attività. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti. Un set di dati BLOB di Azure, ad esempio, specifica il contenitore BLOB e la cartella nell'archiviazione BLOB da cui la pipeline dovrà leggere i dati.
 
 Prima di creare un set di dati, creare un **servizio collegato** per collegare l'archivio dati alla data factory. I servizi collegati sono molto simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti di SQL. Il servizio collegato Archiviazione di Azure,ad esempio, collega l'account di archiviazione alla data factory. Un set di dati BLOB di Azure rappresenta il contenitore e la cartella BLOB che contengono i BLOB di input da elaborare.
 
-Di seguito è riportato uno scenario di esempio. Per copiare i dati da un'archiviazione BLOB a un Database SQL, si creano due servizi collegati: Archiviazione di Azure e Database SQL di Azure. Quindi, si creano due set di dati: un set di dati BLOB di Azure, che si riferisce al servizio collegato Archiviazione di Azure, e un set di dati della tabella SQL di Azure, che si riferisce al servizio collegato Database SQL di Azure. I servizi collegati Archiviazione di Azure e Database SQL di Azure contengono stringhe di connessione usate da Data Factory in fase di runtime per connettersi rispettivamente all'archiviazione di Azure e al database SQL di Azure. Il set di dati BLOB di Azure specifica il contenitore e una cartella BLOB che contengono i BLOB di input presenti nell'archiviazione BLOB di Azure. Il set di dati della tabella SQL di Azure specifica la tabella SQL del database SQL in cui verranno copiati i dati.
+Di seguito è riportato uno scenario di esempio. Per copiare dati da un archivio BLOB al database SQL, si creano due servizi collegati: archiviazione di Azure e database SQL di Azure. Si creano quindi due set di dati: un set di dati BLOB di Azure, che si riferisce al servizio collegato Archiviazione di Azure, e un set di dati della tabella SQL di Azure, che si riferisce al servizio collegato Database SQL di Azure. I servizi collegati Archiviazione di Azure e Database SQL di Azure contengono stringhe di connessione usate da Data Factory in fase di runtime per connettersi rispettivamente all'archiviazione di Azure e al database SQL di Azure. Il set di dati BLOB di Azure specifica il contenitore e una cartella BLOB che contengono i BLOB di input presenti nell'archiviazione BLOB di Azure. Il set di dati della tabella SQL di Azure specifica la tabella SQL del database SQL in cui verranno copiati i dati.
 
 Nel diagramma seguente viene illustrata la relazione tra pipeline, attività, set di dati e il servizio collegato in Data Factory:
 
@@ -77,15 +76,15 @@ Un set di dati in Data Factory viene definito in formato JSON come segue:
 
 La tabella seguente descrive le proprietà nel codice JSON precedente:
 
-| Proprietà | Descrizione | Obbligatoria | Impostazione predefinita |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
-| name |Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |N/D |
-| type |Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [tipo di set di dati](#Type). |Sì |N/D |
-| structure |Schema del set di dati.<br/><br/>Per informazioni dettagliate, vedere [struttura del set di dati](#Structure). |No |N/D |
-| typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio: BLOB di Azure, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e sulle relative proprietà, vedere [tipo di set di dati](#Type). |Sì |N/D |
+| name |Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |ND |
+| type |Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [tipo di set di dati](#Type). |Sì |ND |
+| structure |Schema del set di dati.<br/><br/>Per informazioni dettagliate, vedere [struttura del set di dati](#Structure). |No |ND |
+| typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio BLOB di Azure Blob, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#Type). |Sì |ND |
 | external | Flag booleano per specificare se un set di dati è generato o meno in modo esplicito da una pipeline della data factory. Se il set di dati di input per un'attività non viene generato dalla pipeline corrente, impostare questo flag su true. Impostare questo flag su true per il set di dati di input della prima attività nella pipeline.  |No |false |
-| availability | Definisce l'intervallo di elaborazione, ad esempio orario o giornaliero, o il modello di sezionamento per la produzione di set di dati. Ogni unità di dati usata e prodotta da un'esecuzione di attività prende il nome di sezione di dati. Se la disponibilità di un set di dati di output è impostata su giornaliera, ad esempio frequenza: giorno, intervallo: 1, viene prodotta una sezione ogni giorno. <br/><br/>Per informazioni dettagliate, vedere Disponibilità dei set di dati. <br/><br/>Per informazioni dettagliate sul modello di sezionamento dei set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md). |Sì |N/D |
-| policy |Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per informazioni dettagliate, vedere la sezione [Criteri di set di dati](#Policy). |No |N/D |
+| availability | Definisce l'intervallo di elaborazione, ad esempio orario o giornaliero, o il modello di sezionamento per la produzione di set di dati. Ogni unità di dati usata e prodotta da un'esecuzione di attività prende il nome di sezione di dati. Se la disponibilità di un set di dati di output è impostata su giornaliera, ad esempio frequenza: giorno, intervallo: 1, viene prodotta una sezione ogni giorno. <br/><br/>Per informazioni dettagliate, vedere Disponibilità dei set di dati. <br/><br/>Per informazioni dettagliate sul modello di sezionamento dei set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md). |Sì |ND |
+| Criterio |Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per informazioni dettagliate, vedere la sezione [Criteri di set di dati](#Policy). |No |ND |
 
 ## <a name="dataset-example"></a>Esempio di set di dati
 Nell'esempio seguente il set di dati rappresenta una **tabella denominata MyTable** in un database SQL.
@@ -111,8 +110,8 @@ Nell'esempio seguente il set di dati rappresenta una **tabella denominata MyTabl
 
 Tenere presente quanto segue:
 
-* **type** è impostato su AzureSqlTable.
-* La proprietà del tipo **tableName**, specifica del tipo AzureSqlTable, è impostata su MyTable.
+* il **tipo** è impostato su AzureSqlTable.
+* la proprietà **TableName** Type (specifica del tipo AzureSqlTable) è impostata su MyTable.
 * **linkedServiceName** fa riferimento a un servizio collegato di tipo AzureSqlDatabase, definito nel frammento di codice JSON successivo.
 * L'oggetto **availability frequency** è impostato su Day e **interval** è impostato su 1. Ciò significa che la sezione di set di dati viene prodotta ogni giorno.
 
@@ -149,7 +148,7 @@ Il tipo del set di dati dipende dall'archivio dati usato. Vedere la tabella segu
 > [!NOTE]
 > Gli archivi dati con * possono essere locali o in un'infrastruttura distribuita come servizio (IaaS) di Azure. Questi archivi di dati richiedono l'installazione del [gateway di gestione dati](data-factory-data-management-gateway.md).
 
-Nell'esempio della sezione precedente, il tipo di set di dati è impostato su **AzureSqlTable**. Analogamente, per un set di dati BLOB di Azure, il tipo del set di dati è impostato su **AzureBlob**, come illustrato nel codice JSON seguente:
+Nell'esempio della sezione precedente, il tipo di set di dati è impostato su **AzureSqlTable**. Analogamente, per un set di dati BLOB di Azure, il tipo di set di dati è impostato su **AzureBlob** come illustrato nel codice JSON seguente:
 
 ```json
 {
@@ -231,13 +230,13 @@ Viene prodotto il set di dati di output ogni ora entro gli orari di inizio e fin
 
 La tabella seguente descrive le proprietà che è possibile usare nella sezione availability:
 
-| Proprietà | Descrizione | Obbligatoria | Impostazione predefinita |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
-| frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: minuto, ora, giorno, settimana, mese |Sì |N/D |
-| interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Frequency x interval" determina la frequenza con cui viene generata la sezione. Se ad esempio è necessario suddividere il set di dati su base oraria, impostare <b>frequency</b> su <b>Hour</b> e <b>interval</b> su <b>1</b>.<br/><br/>Notare che se si specifica **frequency** come **Minute**, è necessario impostare interval su un valore non inferiore a 15. |Sì |N/D |
+| frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: minuto, ora, giorno, settimana, mese |Sì |ND |
+| interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Frequency x interval" determina la frequenza con cui viene generata la sezione. Se ad esempio è necessario suddividere il set di dati su base oraria, impostare <b>frequency</b> su <b>Hour</b> e <b>interval</b> su <b>1</b>.<br/><br/>Notare che se si specifica **frequency** come **Minute**, è necessario impostare interval su un valore non inferiore a 15. |Sì |ND |
 | style |Specifica se la sezione deve essere generata all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequency** è impostata su **Month** e **style** è impostata su **EndOfInterval**, la sezione viene generata l'ultimo giorno del mese. Se **style** è impostata su **StartOfInterval**, la sezione viene generata il primo giorno del mese.<br/><br/>Se **frequency** è impostata su **Day** e **style** è impostata su **EndOfInterval**, la sezione viene generata nell'ultima ora del giorno.<br/><br/>Se **frequency** è impostata su **Hour** e **style** è impostata su **EndOfInterval**, la sezione viene generata alla fine dell'ora. Ad esempio, una sezione per il periodo 13.00 - 14.00 viene generata alle 14.00. |No |EndOfInterval |
 | anchorDateTime |Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/>Si noti che se questa proprietà include parti della data più granulari rispetto alla frequenza specificata, le parti più granulari vengono ignorate. Ad esempio, se l'**intervallo** è **orario** (frequency: hour e interval: 1) e la proprietà **anchorDateTime** contiene **minuti e secondi**, le parti di **anchorDateTime** relative a minuti e secondi vengono ignorate. |No |01/01/0001 |
-| offset |Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/>Notare che se si specifica sia **anchorDateTime** che **offset**, il risultato sarà lo spostamento combinato. |No |N/D |
+| offset |Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/>Notare che se si specifica sia **anchorDateTime** che **offset**, il risultato sarà lo spostamento combinato. |No |ND |
 
 ### <a name="offset-example"></a>Esempio di offset
 Per impostazione predefinita, le sezioni giornaliere (`"frequency": "Day", "interval": 1`) iniziano alle 00.00 (mezzanotte) UTC (Coordinated Universal Time). Se, invece, si desidera impostare l'ora di inizio alle 06:00 UTC, impostare l'offset come illustrato nel frammento riportato di seguito:
@@ -278,10 +277,10 @@ Il seguente set di dati è mensile e viene generato il giorno 3 di ogni mese all
 La sezione **policy** nella definizione del set di dati stabilisce i criteri o la condizione che le sezioni del set di dati devono soddisfare.
 
 ### <a name="validation-policies"></a>Criteri di convalida
-| Nome criteri | Descrizione | Applicato a | Obbligatoria | Impostazione predefinita |
+| Nome criteri | Descrizione | Applicato a | Necessario | Predefinito |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Verifica che i dati presenti nell'**archiviazione BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |Archiviazione BLOB di Azure |No |N/D |
-| minimumRows |Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>Tabella di Azure</li></ul> |No |N/D |
+| minimumSizeMB |Verifica che i dati presenti nell'**archiviazione BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |Archiviazione BLOB di Azure |No |ND |
+| minimumRows |Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>database SQL di Azure</li><li>Tabella di Azure</li></ul> |No |ND |
 
 #### <a name="examples"></a>Esempi
 **minimumSizeMB:**
@@ -316,7 +315,7 @@ A meno che non sia generato da Data Factory, il set di dati deve essere contrass
 
 | Nome | Descrizione | Obbligatoria | Valore predefinito |
 | --- | --- | --- | --- |
-| dataDelay |Tempo di ritardo del controllo della disponibilità dei dati esterni per la sezione specificata. Ad esempio, è possibile ritardare un controllo orario usando questa impostazione.<br/><br/>Si applica solo all'ora corrente. Ad esempio, se in questo momento sono le 13:00 e questo valore è di 10 minuti, la convalida inizia alle 13:10.<br/><br/>Si noti che questa impostazione non influisce sulle sezioni passate. Le sezioni con l' **ora** + di fine della sezione**datadelay** < **ora** vengono elaborate senza alcun ritardo.<br/><br/>I valori orari superiori a 23:59 ore devono essere specificati nel formato `day.hours:minutes:seconds`. Per specificare 24 ore, ad esempio, non usare 24:00:00. Usare invece 1.00:00:00. Il valore 24:00:00 viene considerato 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. |No |0 |
+| dataDelay |Tempo di ritardo del controllo della disponibilità dei dati esterni per la sezione specificata. Ad esempio, è possibile ritardare un controllo orario usando questa impostazione.<br/><br/>Si applica solo all'ora corrente. Ad esempio, se in questo momento sono le 13:00 e questo valore è di 10 minuti, la convalida inizia alle 13:10.<br/><br/>Si noti che questa impostazione non influisce sulle sezioni passate. Le sezioni con l' **ora di fine della sezione**  +  **datadelay**  <  **ora** vengono elaborate senza alcun ritardo.<br/><br/>I valori orari superiori a 23:59 ore devono essere specificati nel formato `day.hours:minutes:seconds`. Per specificare 24 ore, ad esempio, non usare 24:00:00. Usare invece 1.00:00:00. Il valore 24:00:00 viene considerato 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. |No |0 |
 | retryInterval |Tempo di attesa tra un errore e il tentativo successivo. Questa impostazione si applica all'ora corrente. Se il tentativo precedente ha avuto esito negativo, il tentativo successivo si avvia dopo il periodo **retryInterval**. <br/><br/>Se in questo momento sono le 13:00, viene avviato il primo tentativo. Se la durata per completare il primo controllo di convalida è 1 minuto e l'operazione non è riuscita, il tentativo successivo è alle 13:00 + 1 min (durata) + 1 min (intervallo tentativi) = 13:02. <br/><br/>Per le sezioni passate, non si verifica alcun ritardo. La ripetizione avviene immediatamente. |No |00:01:00 (1 minute) |
 | retryTimeout |Timeout per ogni nuovo tentativo.<br/><br/>Se questa proprietà è impostata su 10 minuti, la convalida deve essere completata entro 10 minuti. Se sono necessari più di 10 minuti per eseguire la convalida, il tentativo viene sospeso.<br/><br/>Se tutti i tentativi per la convalida raggiungono il timeout, la sezione viene contrassegnata come **TimedOut**. |No |00:10:00 (10 minutes) |
 | maximumRetry |Numero di tentativi di controllo della disponibilità dei dati esterni. Il valore massimo consentito è 10. |No |3 |

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: c3b514c79be87cd136375b4853226426965f4185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4253e496aca4cbf71fab7ef0ee388b1356df5c16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456794"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selezionare e distribuire un agente di sicurezza nel dispositivo Internet delle cose
 
@@ -44,7 +43,7 @@ L'agente di sicurezza basato su C ha un footprint di memoria inferiore ed è la 
 
 |     | Agente sicurezza basato su C | Agente sicurezza basato su C# |
 | --- | ----------- | --------- |
-| Open Source | Disponibile con [licenza mit](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-cs) | Disponibile con [licenza mit](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-c) |
+| Open Source | Disponibile con [licenza mit](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-c) | Disponibile con [licenza mit](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-cs) |
 | Linguaggio di sviluppo    | C | C# |
 | Piattaforme Windows supportate? | No | Sì |
 | Prerequisiti di Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
@@ -60,7 +59,7 @@ L'agente di sicurezza basato su C ha un footprint di memoria inferiore ed è la 
 
 ## <a name="security-agent-installation-guidelines"></a>Linee guida per l'installazione degli agenti di sicurezza
 
-Per **Windows**: lo script Install SecurityAgent. ps1 deve essere eseguito da una finestra di PowerShell amministratore.
+Per **Windows**: lo script di installazione di SecurityAgent.ps1 deve essere eseguito da una finestra di PowerShell amministratore.
 
 Per **Linux**: InstallSecurityAgent.sh deve essere eseguito come superuser. È consigliabile predisporre il comando di installazione con "sudo".
 
@@ -97,7 +96,7 @@ Nell'elenco seguente sono incluse tutte le piattaforme attualmente supportate.
 |C#|Ubuntu 18.04    |x64, ARMv7|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 Internet core, Build 17763    |x64|
+|C#|Windows 10 IoT Core, build 17763    |x64|
 |
 
 ## <a name="next-steps"></a>Passaggi successivi

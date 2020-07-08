@@ -5,25 +5,21 @@ description: Informazioni su come raccogliere Azure Machine Learning i dati del 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: laobri
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475438"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432988"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
->[!IMPORTANT]
-> Il Azure Machine Learning SDK di monitoraggio verrà ritirato a breve. L'SDK è ancora appropriato per gli sviluppatori che attualmente usano l'SDK per monitorare la tendenza dei dati nei modelli. Per i nuovi clienti è tuttavia consigliabile usare il monitoraggio semplificato [dei dati con Application Insights](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights).
 
 Questo articolo illustra come raccogliere i dati del modello di input da Azure Machine Learning. Viene anche illustrato come distribuire i dati di input in un cluster di Azure Kubernetes Service (AKS) e archiviare i dati di output nell'archivio BLOB di Azure.
 
@@ -56,7 +52,7 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 ```
 
 >[!NOTE]
-> Nelle versioni di Azure Machine Learning SDK per Python precedenti alla versione 0.1.0 A16, l' `designation` argomento è denominato. `identifier` Se il codice è stato sviluppato con una versione precedente, è necessario aggiornarlo di conseguenza.
+> Nelle versioni di Azure Machine Learning SDK per Python precedenti alla versione 0.1.0 A16, l' `designation` argomento è denominato `identifier` . Se il codice è stato sviluppato con una versione precedente, è necessario aggiornarlo di conseguenza.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -125,7 +121,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file dell'amb
 
 1. Aprire l'area di lavoro.
 
-1. Selezionare **distribuzioni** > **selezionare** > **modifica**servizio.
+1. Selezionare **distribuzioni**  >  **selezionare**  >  **modifica**servizio.
 
    ![Modificare il servizio](././media/how-to-enable-data-collection/EditService.PNG)
 
@@ -143,7 +139,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file dell'amb
 
 1. Aprire l'area di lavoro.
 
-1. Selezionare **distribuzioni** > **selezionare** > **modifica**servizio.
+1. Selezionare **distribuzioni**  >  **selezionare**  >  **modifica**servizio.
 
    [![Selezionare l'opzione modifica](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
@@ -189,7 +185,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file dell'amb
 
     [![Impostazione Power BI BLOB](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
-1. Aggiungere il nome dell'account di archiviazione e immettere la chiave di archiviazione. È possibile trovare queste informazioni selezionando **Impostazioni** > **chiavi di accesso** nel BLOB.
+1. Aggiungere il nome dell'account di archiviazione e immettere la chiave di archiviazione. È possibile trovare queste informazioni selezionando **Impostazioni**  >  **chiavi di accesso** nel BLOB.
 
 1. Selezionare il contenitore di **dati del modello** e scegliere **modifica**.
 
@@ -199,7 +195,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file dell'amb
 
 1. Immettere il percorso del modello nel filtro. Se si desidera cercare solo i file di un anno o un mese specifico, è sufficiente espandere il percorso del filtro. Ad esempio, per cercare solo i dati di marzo, usare questo percorso filtro:
 
-   /modelData/\<SubscriptionId>/\<resourcegroupname>/\<workspacename>/\<WebServiceName>/\<ModelName>/\<modelversion>/\<Designation>\</Year>/3
+   /modelData/ \<subscriptionid> / \<resourcegroupname> / \<workspacename> / \<webservicename> / \<modelname> / \<modelversion> / \<designation> / \<year> /3
 
 1. Filtrare i dati rilevanti in base ai valori del **nome** . Se sono stati archiviati stime e input, è necessario creare una query per ciascuna di esse.
 
@@ -227,7 +223,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file dell'amb
 
     [![Selezione dell'opzione di caricamento dei dati di databricks](./media/how-to-enable-data-collection/dbupload.png)](././media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-1. Selezionare **Crea nuova tabella** e selezionare **altre origini** > dati**archiviazione** > BLOB di Azure**Crea tabella nel notebook**.
+1. Selezionare **Crea nuova tabella** e selezionare **altre origini dati**  >  **archiviazione BLOB**  >  **di Azure crea tabella nel notebook**.
 
     [![Creazione della tabella databricks](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 

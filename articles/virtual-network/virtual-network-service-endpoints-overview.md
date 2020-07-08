@@ -13,24 +13,23 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: ae9d219c376aa704be34088a4f7c48c35baa9669
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: MT
+ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509500"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85444455"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
-Gli endpoint di servizio della rete virtuale (VNet) estendono lo spazio di indirizzi privato della rete virtuale. Gli endpoint estendono anche l'identità della VNet ai servizi di Azure tramite una connessione diretta. Gli endpoint consentono di associare le risorse critiche dei servizi di Azure solo alle proprie reti virtuali. Il traffico che transita dalla rete virtuale al servizio di Azure rimane sempre nella rete backbone di Microsoft Azure.
+L'endpoint di servizio della rete virtuale (VNet) offre connettività sicura e diretta ai servizi di Azure tramite un percorso ottimizzato tramite la rete backbone di Azure. Gli endpoint consentono di associare le risorse critiche dei servizi di Azure solo alle proprie reti virtuali. Gli endpoint di servizio consentono agli indirizzi IP privati in VNet di raggiungere l'endpoint di un servizio di Azure senza la necessità di un indirizzo IP pubblico nella VNet.
 
-Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. *Microsoft.\* * Resource è racchiuso tra parentesi. Abilitare questa risorsa dal lato subnet durante la configurazione degli endpoint di servizio per il servizio:
+Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. *Microsoft. \* * Resource è racchiuso tra parentesi. Abilitare questa risorsa dal lato subnet durante la configurazione degli endpoint di servizio per il servizio:
 
 **Disponibile a livello generale**
 
 - **[Archiviazione di Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft. storage*): disponibile a livello generale in tutte le aree di Azure.
-- **[Database SQL di Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure.
-- **[Azure SQL data warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure.
+- **[Database SQL di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure.
+- **[Azure SQL data warehouse](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure.
 - **[Database di Azure per il server PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
 - **[Database di Azure per il server MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
 - **[Database di Azure per MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
@@ -39,7 +38,7 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. *
 - **[Bus di servizio di Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. ServiceBus*): disponibile a livello generale in tutte le aree di Azure.
 - **[Hub eventi di Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. EventHub*): disponibile a livello generale in tutte le aree di Azure.
 - **[Azure Data Lake Store generazione 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. AzureActiveDirectory*): disponibile a livello generale in tutte le aree di Azure in cui è disponibile ADLS Gen1.
-- **[Servizio app Azure](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)**: disponibile a livello generale in tutte le aree di Azure in cui è disponibile il servizio app.
+- **[Servizio app Azure](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft. Web*): disponibile a livello generale in tutte le aree di Azure in cui è disponibile il servizio app.
 
 **Anteprima pubblica**
 
@@ -76,7 +75,7 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 
   Per impostazione predefinita, le risorse del servizio di Azure protette per le reti virtuali non sono raggiungibili da reti locali. Se si vuole consentire il traffico dall'ambiente locale, è necessario autorizzare anche gli indirizzi IP pubblici (generalmente NAT) dall'ambiente locale o da ExpressRoute. È possibile aggiungere questi indirizzi IP tramite la configurazione del firewall IP per le risorse dei servizi di Azure.
 
-  ExpressRoute: se si usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per il peering pubblico o il peering Microsoft dalla propria sede, è necessario identificare gli indirizzi IP NAT che si sta usando. Per il peering pubblico, ogni circuito ExpressRoute usa due indirizzi IP NAT, per impostazione predefinita, applicato al traffico del servizio di Azure quando il traffico entra nel backbone di rete Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT sono forniti dal cliente o forniti dal provider di servizi.Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse.Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Per altre informazioni su NAT per il peering pubblico e Microsoft ExpressRoute, vedere [requisiti NAT di ExpressRoute](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+  ExpressRoute: se si usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per il peering pubblico o il peering Microsoft dalla propria sede, è necessario identificare gli indirizzi IP NAT che si sta usando. Per il peering pubblico, ogni circuito ExpressRoute usa due indirizzi IP NAT, per impostazione predefinita, applicato al traffico del servizio di Azure quando il traffico entra nel backbone di rete Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT sono forniti dal cliente o forniti dal provider di servizi.Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse.Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Per altre informazioni su NAT per il peering pubblico e Microsoft ExpressRoute, vedere [requisiti NAT di ExpressRoute](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 ![Associazione di servizi di Azure a reti virtuali](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -90,7 +89,7 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 
 ### <a name="considerations"></a>Considerazioni
 
-- Dopo aver abilitato un endpoint di servizio, gli indirizzi IP di origine delle macchine virtuali nell'opzione della subnet. Gli indirizzi IP di origine passano dall'uso di indirizzi IPv4 pubblici all'uso dell'indirizzo IPv4 privato durante la comunicazione con il servizio da tale subnet. Eventuali connessioni TCP aperte per il servizio vengono chiuse durante questo passaggio. Verificare che non siano in esecuzione attività critiche quando si abilita o disabilita un endpoint di servizio per un servizio in una subnet. Assicurarsi anche che le applicazioni possano connettersi automaticamente ai servizi di Azure dopo il cambio di indirizzo IP.
+- Dopo aver abilitato un endpoint di servizio, gli indirizzi IP di origine passano dall'uso di indirizzi IPv4 pubblici all'uso dell'indirizzo IPv4 privato durante la comunicazione con il servizio da tale subnet. Eventuali connessioni TCP aperte per il servizio vengono chiuse durante questo passaggio. Verificare che non siano in esecuzione attività critiche quando si abilita o disabilita un endpoint di servizio per un servizio in una subnet. Assicurarsi anche che le applicazioni possano connettersi automaticamente ai servizi di Azure dopo il cambio di indirizzo IP.
 
   Il cambio di indirizzo IP interessa solo il traffico del servizio dalla propria rete virtuale. Non vi è alcun effetto su altri traffici indirizzati a o dagli indirizzi IPv4 pubblici assegnati alle macchine virtuali. Per i servizi di Azure, se sono presenti regole del firewall che usano indirizzi IP pubblici di Azure, queste regole smetteranno di funzionare con il passaggio agli indirizzi privati della rete virtuale.
 - Con gli endpoint di servizio, le voci DNS per i servizi di Azure rimangono invariate oggi e continuano a risolversi in indirizzi IP pubblici assegnati al servizio di Azure.
@@ -147,8 +146,8 @@ Per domande frequenti, vedere [domande frequenti sull'endpoint di servizio di re
 
 - [Configurare gli endpoint servizio di rete virtuale](tutorial-restrict-network-access-to-resources.md)
 - [Proteggere un account di archiviazione di Azure in una rete virtuale](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Proteggere un database SQL di Azure in una rete virtuale](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Proteggere un Azure SQL Data Warehouse a una rete virtuale](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+- [Proteggere un database SQL di Azure in una rete virtuale](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Proteggere un Azure SQL Data Warehouse a una rete virtuale](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integrazione di servizi di Azure nelle reti virtuali](virtual-network-for-azure-services.md)
 - [Criteri degli endpoint servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

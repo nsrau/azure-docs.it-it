@@ -10,12 +10,11 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: cd787881957d78f179107e46b2650de4618c7724
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ccb95064f756ef035b7da92d029680f1c195982b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282325"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958736"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Piattaforme dati supportate nella Data Science Virtual Machine
 
@@ -39,13 +38,15 @@ I seguenti strumenti della piattaforma dati sono supportati in DSVM.
 
 ### <a name="setup"></a>Configurazione
 
-Il server di database è già preconfigurato e i servizi Windows correlati a SQL Server (ad `SQL Server (MSSQLSERVER)`esempio) sono impostati per l'esecuzione automatica. L'unico passaggio manuale prevede l'abilitazione di analisi nel database tramite Microsoft Machine Learning Server. È possibile abilitare l'analisi eseguendo il comando seguente come azione monouso in SQL Server Management Studio (SSMS). Eseguire questo comando dopo l'accesso come amministratore del computer, aprire una nuova query in SSMS e verificare che il database selezionato sia `master`:
+Il server di database è già preconfigurato e i servizi Windows correlati a SQL Server ( `SQL Server (MSSQLSERVER)` ad esempio) sono impostati per l'esecuzione automatica. L'unico passaggio manuale prevede l'abilitazione di analisi nel database tramite Microsoft Machine Learning Server. È possibile abilitare l'analisi eseguendo il comando seguente come azione monouso in SQL Server Management Studio (SSMS). Eseguire questo comando dopo l'accesso come amministratore del computer, aprire una nuova query in SSMS e verificare che il database selezionato sia `master` :
 
-        CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
+```sql
+CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
+```
 
-        (Replace %COMPUTERNAME% with your VM name.)
-       
-Per eseguire SQL Server Management Studio, è possibile cercare "SQL Server Management Studio" nell'elenco dei programmi oppure utilizzare Windows Search per trovarlo ed eseguirlo. Quando vengono richieste le credenziali, selezionare **autenticazione di Windows** e usare il nome ```localhost``` del computer o nel campo **nome SQL Server** .
+Sostituire% COMPUTERname% con il nome della macchina virtuale.
+
+Per eseguire SQL Server Management Studio, è possibile cercare "SQL Server Management Studio" nell'elenco dei programmi oppure utilizzare Windows Search per trovarlo ed eseguirlo. Quando vengono richieste le credenziali, selezionare **autenticazione di Windows** e usare il nome del computer o ```localhost``` nel campo **nome SQL Server** .
 
 ### <a name="how-to-use-and-run-it"></a>Come usarlo ed eseguirlo
 
@@ -55,7 +56,7 @@ Inoltre, DSVM include driver ODBC e JDBC per comunicare con SQL Server, database
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Come viene configurato e installato in DSVM? 
 
- SQL Server viene installato in modo standard. È disponibile in `C:\Program Files\Microsoft SQL Server`. L'istanza di Machine Learning Server nel database si trova in `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. Il DSVM dispone anche di un'istanza autonoma Machine Learning Server autonoma, installata `C:\Program Files\Microsoft\R Server\R_SERVER`in. Queste due istanze di Machine Learning Server non condividono le librerie.
+ SQL Server viene installato in modo standard. È disponibile in `C:\Program Files\Microsoft SQL Server`. L'istanza di Machine Learning Server nel database si trova in `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES` . Il DSVM dispone anche di un'istanza autonoma Machine Learning Server autonoma, installata in `C:\Program Files\Microsoft\R Server\R_SERVER` . Queste due istanze di Machine Learning Server non condividono le librerie.
 
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (autonomo)
@@ -76,17 +77,19 @@ Inoltre, DSVM include driver ODBC e JDBC per comunicare con SQL Server, database
 ### <a name="setup"></a>Configurazione
 Prima di essere eseguito in un contesto Spark in Microsoft Machine Learning Server in Ubuntu Linux edizione DSVM, è necessario completare un unico passaggio di configurazione per abilitare un singolo nodo locale Hadoop HDFS e l'istanza Yarn. Per impostazione predefinita, i servizi Hadoop sono installati ma disabilitati su DSVM. Per abilitarli, eseguire i comandi seguenti come radice la prima volta:
 
-    echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
-    cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
-    chmod 0600 ~hadoop/.ssh/authorized_keys
-    chown hadoop:hadoop ~hadoop/.ssh/id_rsa
-    chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
-    chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
-    systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+```bash
+echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
+cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
+chmod 0600 ~hadoop/.ssh/authorized_keys
+chown hadoop:hadoop ~hadoop/.ssh/id_rsa
+chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
+chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
+systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+```
 
-È possibile arrestare i servizi correlati a Hadoop quando non sono più necessari eseguendo ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```.
+È possibile arrestare i servizi correlati a Hadoop quando non sono più necessari eseguendo ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` .
 
-Un esempio che illustra come sviluppare e testare MRS in un contesto di Spark remoto, ovvero l'istanza di Spark autonoma in DSVM, viene fornito e disponibile nella `/dsvm/samples/MRS` directory.
+Un esempio che illustra come sviluppare e testare MRS in un contesto di Spark remoto, ovvero l'istanza di Spark autonoma in DSVM, viene fornito e disponibile nella `/dsvm/samples/MRS` Directory.
 
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Come viene configurato e installato in DSVM? 
@@ -97,7 +100,7 @@ Un esempio che illustra come sviluppare e testare MRS in un contesto di Spark re
 
 Le librerie per accedere ai dati dall'archiviazione BLOB di Azure o Azure Data Lake Storage, usando le librerie di Machine Learning Microsoft MMLSpark, sono preinstallate in $SPARK _HOME/Jars. Questi JAR vengono caricati automaticamente all'avvio di Spark. Per impostazione predefinita, Spark usa i dati nel disco locale. 
 
-Per l'istanza di Spark in DSVM per accedere ai dati archiviati nell'archivio BLOB o Azure Data Lake Storage, è necessario creare e configurare `core-site.xml` il file in base al modello trovato in $Spark _HOME/conf/Core-site.XML.template. È inoltre necessario disporre delle credenziali appropriate per accedere all'archiviazione BLOB e Azure Data Lake Storage. Si noti che i file di modello usano segnaposto per l'archiviazione BLOB e le configurazioni Azure Data Lake Storage.
+Per l'istanza di Spark in DSVM per accedere ai dati archiviati nell'archivio BLOB o Azure Data Lake Storage, è necessario creare e configurare il `core-site.xml` file in base al modello trovato in $SPARK _HOME/conf/core-site.xml. template. È inoltre necessario disporre delle credenziali appropriate per accedere all'archiviazione BLOB e Azure Data Lake Storage. Si noti che i file di modello usano segnaposto per l'archiviazione BLOB e le configurazioni Azure Data Lake Storage.
 
-Per informazioni più dettagliate sulla creazione di Azure Data Lake Storage credenziali del servizio, vedere [autenticazione con Azure Data Lake storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Dopo aver immesso le credenziali per l'archiviazione BLOB o Azure Data Lake Storage nel file core-site. XML, è possibile fare riferimento ai dati archiviati in tali origini tramite il prefisso URI di wasb://o adl://.
+Per informazioni più dettagliate sulla creazione di Azure Data Lake Storage credenziali del servizio, vedere [autenticazione con Azure Data Lake storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Dopo aver immesso le credenziali per l'archiviazione BLOB o Azure Data Lake Storage nel file di core-site.xml, è possibile fare riferimento ai dati archiviati in tali origini tramite il prefisso URI di wasb://o adl://.
 

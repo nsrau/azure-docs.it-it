@@ -10,12 +10,11 @@ ms.date: 04/21/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: cea5fb507225f063e2d48c56fae254e123a8f72b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81772119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193396"
 ---
 # <a name="query-acceleration-sql-language-reference-preview"></a>Guida di riferimento al linguaggio SQL per l'accelerazione delle query (anteprima)
 
@@ -32,7 +31,7 @@ L'unica istruzione SQL supportata da accelerazione query è l'istruzione SELECT.
 SELECT * FROM table [WHERE expression] [LIMIT limit]
 ```
 
-Per i dati in formato CSV *table* , la tabella `BlobStorage`deve essere.  Ciò significa che la query verrà eseguita in base a qualsiasi blob specificato nella chiamata REST.
+Per i dati in formato CSV, la *tabella* deve essere `BlobStorage` .  Ciò significa che la query verrà eseguita in base a qualsiasi blob specificato nella chiamata REST.
 Per i dati in formato JSON, *Table* è un "descrittore di tabella".   Vedere la sezione [descrittori di tabella](#table-descriptors) di questo articolo.
 
 Nell'esempio seguente, per ogni riga per cui l' *espressione* where restituisce true, questa istruzione restituirà una nuova riga effettuata dalla valutazione di ciascuna espressione di proiezione.
@@ -54,7 +53,7 @@ Nell'esempio seguente vengono restituiti offset appropriati per la suddivisione 
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-<a id="data-types" />
+<a id="data-types"></a>
 
 ## <a name="data-types"></a>Tipi di dati
 
@@ -109,7 +108,7 @@ Ecco alcuni esempi:
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
 
-La funzione [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) consente di cercare un modello. Di seguito sono riportati alcuni esempi che usano la funzione [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) per cercare la stringa ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``di dati.
+La funzione [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) consente di cercare un modello. Di seguito sono riportati alcuni esempi che usano la funzione [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) per cercare la stringa di dati ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i `` .
 
 |Query|Esempio|
 |--|--|
@@ -129,7 +128,7 @@ Attualmente si convertono tutti i [formati di data di IS08601 standard](https://
 
 #### <a name="date_add-function"></a>Funzione DATE_ADD
 
-Il linguaggio SQL per l'accelerazione delle query supporta anno, mese, giorno, ora, minuto e ``DATE_ADD`` secondo per la funzione.
+Il linguaggio SQL per l'accelerazione delle query supporta anno, mese, giorno, ora, minuto e secondo per la ``DATE_ADD`` funzione.
 
 Esempi:
 
@@ -140,7 +139,7 @@ DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 
 #### <a name="date_diff-function"></a>Funzione DATE_DIFF
 
-Il linguaggio SQL per l'accelerazione delle query supporta anno, mese, giorno, ora, minuto e ``DATE_DIFF`` secondo per la funzione.
+Il linguaggio SQL per l'accelerazione delle query supporta anno, mese, giorno, ora, minuto e secondo per la ``DATE_DIFF`` funzione.
 
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
@@ -149,7 +148,7 @@ DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
 
 #### <a name="extract-function"></a>ESTRAi funzione
 
-Per ESTRAi diversi dalla parte della data supportata ``DATE_ADD`` per la funzione, il linguaggio SQL di accelerazione query supporta timezone_hour e timezone_minute come parte della data.
+Per ESTRAi diversi dalla parte della data supportata per la ``DATE_ADD`` funzione, il linguaggio SQL di accelerazione query supporta timezone_hour e timezone_minute come parte della data.
 
 Esempi:
 
@@ -167,7 +166,7 @@ TO_STRING(TimeStamp , format)
 TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 ```
 
-In questa tabella vengono descritte le stringhe che è possibile utilizzare per specificare il formato ``TO_STRING`` di output della funzione.
+In questa tabella vengono descritte le stringhe che è possibile utilizzare per specificare il formato di output della ``TO_STRING`` funzione.
 
 |Stringa di formato    |Output                               |
 |-----------------|-------------------------------------|
@@ -220,7 +219,7 @@ Un'istruzione SELECT può contenere una o più espressioni di proiezione o una s
 
 |Expression|Descrizione|
 |--|--|
-|[CONTEGGIO (\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Restituisce il numero di record che corrispondono all'espressione del predicato.|
+|[CONTEGGIO ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Restituisce il numero di record che corrispondono all'espressione del predicato.|
 |[CONTEGGIO (espressione)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Restituisce il numero di record per i quali Expression è diverso da null.|
 |[MEDIA (espressione)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Restituisce la media dei valori non null dell'espressione.|
 |[MIN (espressione)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Restituisce il valore minimo non null dell'espressione.|
@@ -229,13 +228,13 @@ Un'istruzione SELECT può contenere una o più espressioni di proiezione o una s
 
 ### <a name="missing"></a>MANCANTE
 
-L' ``IS MISSING`` operatore è l'unico non standard supportato dal linguaggio SQL per l'accelerazione delle query.  Per i dati JSON, se un campo non è presente in un particolare record di input, ``IS MISSING`` il campo dell'espressione restituirà il valore booleano true.
+L' ``IS MISSING`` operatore è l'unico non standard supportato dal linguaggio SQL per l'accelerazione delle query.  Per i dati JSON, se un campo non è presente in un particolare record di input, il campo dell'espressione ``IS MISSING`` restituirà il valore booleano true.
 
-<a id="table-descriptors" />
+<a id="table-descriptors"></a>
 
 ## <a name="table-descriptors"></a>Descrittori di tabella
 
-Per i dati CSV, il nome della tabella `BlobStorage`è sempre.  Ad esempio:
+Per i dati CSV, il nome della tabella è sempre `BlobStorage` .  Ad esempio:
 
 ```sql
 SELECT * FROM BlobStorage
@@ -287,7 +286,7 @@ SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 La query ottiene tutti i campi, ma seleziona solo la latitudine.
 
-Se si desidera accedere solo al valore `dimensions` dell'oggetto JSON, è possibile utilizzare fare riferimento a tale oggetto nella query. Ad esempio:
+Se si desidera accedere solo al `dimensions` valore dell'oggetto JSON, è possibile utilizzare fare riferimento a tale oggetto nella query. Ad esempio:
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions
@@ -300,9 +299,9 @@ SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 ```
 
 > [!NOTE]
-> BlobStorage e BlobStorage [\*] fanno entrambi riferimento all'intero oggetto. Tuttavia, se si ha un percorso nella clausola FROM, è necessario usare BlobStorage [\*]. Path
+> BlobStorage e BlobStorage [ \* ] fanno entrambi riferimento all'intero oggetto. Tuttavia, se si ha un percorso nella clausola FROM, è necessario usare BlobStorage [ \* ]. Path
 
-<a id="sys-split" />
+<a id="sys-split"></a>
 
 ## <a name="syssplit"></a>Sys. Split
 

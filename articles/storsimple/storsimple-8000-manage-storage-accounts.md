@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 65aa83731be97b59a36a5baf60ea308690a0dcf8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 306d3a14d759ac73e78626a4c2ec6abc69d3df85
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515027"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usare il servizio Gestione dispositivi StorSimple per gestire le credenziali degli account di archiviazione
 
@@ -77,7 +76,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 
 1. Passare al servizio Gestione dispositivi StorSimple, selezionare e fare doppio clic. Si apre il pannello **Panoramica**.
 2. Selezionare **Credenziali dell'account di archiviazione** nella sezione **Configurazione**. Elenca le credenziali di un qualsiasi account di archiviazione esistente associate al servizio Gestione dispositivi StorSimple.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4. Nel pannello **Aggiungi credenziali dell'account di archiviazione** seguire questa procedura:
    
     1. Per **Sottoscrizione** selezionare **Altro**.
@@ -88,7 +87,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
    
     4. Per abilitare TLS, fare clic sul pulsante **Abilita** per creare un canale sicuro per la comunicazione di rete tra il servizio StorSimple Device Manager e il cloud. Fare clic sul pulsante **Disabilita** solo se si opera all'interno di un cloud privato.
    
-    5. Fare clic su **Aggiungi**. Quando la creazione della credenziale dell'account di archiviazione viene completata, si riceve una notifica.
+    5. Scegliere **Aggiungi**. Quando la creazione della credenziale dell'account di archiviazione viene completata, si riceve una notifica.
 
 5. La credenziale dell'account di archiviazione appena creata viene visualizzata nel pannello del servizio Gestione dispositivi StorSimple in **Credenziali dell'account di archiviazione**.
    

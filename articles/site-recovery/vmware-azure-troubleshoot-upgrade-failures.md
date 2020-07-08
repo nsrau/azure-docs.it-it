@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a6e4b415a9fe8ea80a84e415879df9d2f359478
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75893905"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84434379"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Risoluzione dei problemi di aggiornamento del provider di Microsoft Azure Site Recovery
 
@@ -65,4 +64,16 @@ Per risolvere il problema.
 
 1. Usare Gestione attività per monitorare lo stato di avanzamento dell'installazione. Quando il processo per CX_THIRDPARTY_SETUP.EXE non è più visibile in Gestione attività, procedere con il passaggio successivo.
 1. Verificare che C:\thirdparty esista e che la cartella contenga le librerie RRD.
-1. Tornare alla cartella in cui è stato scaricato il programma di installazione unificata ed eseguire MicrosoftAzureSiteRecoveryUnifiedSetup.exe per completare l'aggiornamento. 
+1. Tornare alla cartella in cui è stato scaricato il programma di installazione unificata ed eseguire MicrosoftAzureSiteRecoveryUnifiedSetup.exe per completare l'aggiornamento.
+
+## <a name="upgrade-failure-due-to-master-target-installation-failure"></a>Aggiornamento non riuscito a causa di un errore di installazione della destinazione master
+
+Quando si esegue l'aggiornamento di Microsoft Azure provider di Site Recovery (DRA), l'installazione di destinazione master ha esito negativo con l'errore "il percorso di installazione non esiste e/o non dispone di 1 GB di spazio disponibile e/o non esiste in un'unità fissa".
+
+Il problema potrebbe essere dovuto a un valore null per un parametro nella chiave del registro di sistema. Per risolvere il problema:
+
+1. Avviare l'editor del registro di sistema (regedit.exe) e aprire il ramo HKEY_LOCAL_MACHINE \SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4.
+1. Controllare il valore della chiave ' InstallDirectory '.Se è null, aggiungere il valore della directory di installazione corrente.
+1. Analogamente, aprire il ramo HKEY_LOCAL_MACHINE \SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5 nell'editor del registro di sistema.
+1. Esaminare il valore della chiave ' InstallDirectory ' e aggiungere il valore della directory di installazione corrente.
+1. Eseguire di nuovo il programma di installazione della configurazione unificata.

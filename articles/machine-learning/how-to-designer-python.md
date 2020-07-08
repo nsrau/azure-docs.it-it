@@ -1,23 +1,22 @@
 ---
-title: Python
+title: Esegui script Python nella finestra di progettazione
 titleSuffix: Azure Machine Learning
 description: Informazioni su come trasformare i dati nella finestra di progettazione Azure Machine Learning tramite Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.custom: designer
-ms.openlocfilehash: e27844f9f534ea4db1aba53c12fb3947e7269846
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.custom: designer, tracking-python
+ms.openlocfilehash: 31028ba0417f312aa0caaf49cb4b2d432f89979f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644462"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041014"
 ---
-# <a name="execute-python-code-in-azure-machine-learning-designer"></a>Eseguire codice Python nella finestra di progettazione di Azure Machine Learning
+# <a name="run-python-code-in-azure-machine-learning-designer"></a>Eseguire codice Python in Azure Machine Learning Designer
 
 Questo articolo illustra come usare il modulo [Execute Python Script](algorithm-module-reference/execute-python-script.md) per aggiungere la logica personalizzata alla finestra di progettazione di Azure Machine Learning. Nella procedura seguente si usa la libreria Pandas per eseguire semplici operazioni di progettazione di funzionalità.
 

@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b0ebe6cb505fa2a145dd3cbb94398912f2933a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e183a1e8cac8eec2806a35603c40a44aadac502
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77369706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193498"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Uso di Azure Data Lake Storage Gen2 per i requisiti di Big Data
 
@@ -54,7 +53,7 @@ Ecco un elenco di strumenti che è possibile usare per inserire dati trasmessi.
 
 |Strumento | Indicazioni |
 |---|--|
-|Analisi di flusso di Azure|[Avvio rapido: creare un processo di Analisi di flusso di Azure tramite il portale di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Uscita per Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
+|Analisi di flusso di Azure|[Avvio rapido: Creare un processo di Analisi di flusso tramite il portale di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Uscita per Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
 |Azure HDInsight Storm | [Scrivere in Apache Hadoop HDFS da Apache Storm in HDInsight](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
 
 ### <a name="relational-data"></a>Dati relazionali
@@ -65,7 +64,7 @@ Ecco un elenco di strumenti che è possibile usare per inserire dati relazionali
 
 |Strumento | Indicazioni |
 |---|--|
-|Data factory di Azure | [Attività Copy in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure Data Factory | [Attività Copy in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Dati di log del server Web (caricamento tramite applicazioni personalizzate)
 
@@ -75,7 +74,7 @@ Ecco un elenco di strumenti che è possibile usare per inserire dati log del ser
 
 |Strumento | Indicazioni |
 |---|--|
-|Data factory di Azure | [Attività Copy in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
+|Azure Data Factory | [Attività Copy in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 |Interfaccia della riga di comando di Azure|[Interfaccia della riga di comando di Azure](data-lake-storage-directory-file-acl-cli.md)|
 |Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
 
@@ -91,7 +90,7 @@ Ecco un elenco di strumenti che è possibile usare per inserire i dati associati
 |---|--|
 |Apache DistCp | [Usare DistCp per copiare dati tra i BLOB del servizio di Archiviazione di Azure e Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |Strumento AzCopy | [Trasferire dati con AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Data factory di Azure | [Copiare dati da e verso Azure Data Lake Storage Gen2 tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
+|Azure Data Factory | [Copiare dati da e verso Azure Data Lake Storage Gen2 tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Dati archiviati in locale o in cluster IaaS Hadoop
 
@@ -129,7 +128,7 @@ Usare il connettore Power BI per creare rappresentazioni visive dei dati archivi
 
 È anche possibile che si voglia scaricare o spostare i dati da Azure Data Lake Storage Gen2 per scenari simili ai seguenti:
 
-* Spostare i dati in altri repository per l'interfaccia con le pipeline di elaborazione dati esistenti. È possibile, ad esempio, che sia necessario spostare i dati da Data Lake Storage Gen2 al database SQL di Azure o al server SQL locale.
+* Spostare i dati in altri repository per l'interfaccia con le pipeline di elaborazione dati esistenti. Ad esempio, potrebbe essere necessario spostare i dati da Data Lake Storage Gen2 al database SQL di Azure o a un'istanza di SQL Server.
 
 * Scaricare i dati nel computer locale per l'elaborazione in ambienti IDE durante la creazione di prototipi di applicazioni.
 
@@ -139,7 +138,7 @@ Ecco un elenco di strumenti che è possibile usare per scaricare dati da Data La
 
 |Strumento | Indicazioni |
 |---|--|
-|Data factory di Azure | [Attività Copy in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure Data Factory | [Attività Copy in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 |Apache DistCp | [Usare DistCp per copiare dati tra i BLOB del servizio di Archiviazione di Azure e Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |Esplora archivi Azure|[Usare Azure Storage Explorer per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
 |Strumento AzCopy|[Trasferire i dati con AzCopy e l'archiviazione BLOB](../common/storage-use-azcopy-blobs.md)|

@@ -2,18 +2,14 @@
 title: Risolvere i problemi di distribuzione relativi alla funzionalità Automazione di Azure
 description: Questo articolo spiega come risolvere i problemi che si verificano durante la distribuzione della funzionalità Automazione di Azure.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/22/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
-ms.openlocfilehash: 4c4c43d8522c6f507d458c56abc445e2da35fa6d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: ca2f866dc882e003469163a22d32d3d72031443a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801030"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione di funzionalità
 
@@ -71,7 +67,7 @@ Questo errore è causato da autorizzazioni non corrette o mancanti nella macchin
 
 #### <a name="resolution"></a>Risoluzione
 
-Assicurarsi di disporre delle [autorizzazioni per la distribuzione delle funzionalità](../automation-role-based-access-control.md#feature-setup-permissions) appropriate, quindi riprovare a distribuire la funzionalità. Se viene visualizzato il messaggio di errore `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, assicurarsi di disporre dell'autorizzazione `Microsoft.OperationalInsights/workspaces/read` per poter determinare se la macchina virtuale è abilitata per un'area di lavoro.
+Assicurarsi di disporre delle [autorizzazioni per la distribuzione delle funzionalità](../automation-role-based-access-control.md#feature-setup-permissions) appropriate, quindi riprovare a distribuire la funzionalità. Se viene visualizzato il messaggio di errore `The solution cannot be enabled on this VM because the permission to read the workspace is missing` , vedere le seguenti [informazioni sulla risoluzione dei problemi](update-management.md#failed-to-enable-error).
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: la distribuzione della funzionalità non riesce e viene visualizzato il messaggio "Non è stato possibile configurare l'account di Automazione per la registrazione diagnostica"
 

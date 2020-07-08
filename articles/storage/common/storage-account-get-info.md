@@ -8,13 +8,12 @@ ms.author: mhopkins
 ms.date: 08/06/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
-ms.openlocfilehash: 1495ed55c24a0f94b911d60d1db0f32940ea134a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: 0a8eca9e7b3e890b67daf915ffe733dd54ef5896
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515051"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Ottenere il tipo di account di archiviazione e il nome dello SKU con .NET
 
@@ -24,9 +23,9 @@ Le informazioni sull'account sono disponibili nelle versioni del servizio a part
 
 ## <a name="about-account-type-and-sku-name"></a>Informazioni sul tipo di account e il nome dello SKU
 
-**Tipo di account**: i tipi di `BlobStorage`conto `BlockBlobStorage`validi `FileStorage`sono `Storage`,, `StorageV2`, e. [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md) contiene altre informazioni, incluse le descrizioni dei vari account di archiviazione.
+**Tipo di account**: i tipi di conto validi sono `BlobStorage` ,, `BlockBlobStorage` `FileStorage` , `Storage` e `StorageV2` . [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md) contiene altre informazioni, incluse le descrizioni dei vari account di archiviazione.
 
-**Nome SKU**: i nomi di SKU `Premium_LRS`validi `Premium_ZRS`includono `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS`, `Standard_RAGZRS`,, `Standard_ZRS`e. I nomi degli SKU fanno distinzione tra maiuscole e minuscole e sono campi stringa nella [classe SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
+**Nome SKU**: i nomi di SKU validi includono,,, `Premium_LRS` `Premium_ZRS` `Standard_GRS` `Standard_GZRS` , `Standard_LRS` , `Standard_RAGRS` , `Standard_RAGZRS` e `Standard_ZRS` . I nomi degli SKU fanno distinzione tra maiuscole e minuscole e sono campi stringa nella [classe SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
 
 ## <a name="retrieve-account-information"></a>Recuperare le informazioni sull'account
 
