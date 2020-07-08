@@ -5,12 +5,12 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1de3afc380c5c3c82a869de0ff2319b013e26438
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 602d11b20e50ec5ba56d0d9c1762292c07d0b67b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945342"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procedura dettagliata sull'API REST di monitoraggio di Azure
 
@@ -95,7 +95,7 @@ Usare l'[API REST relativa alle definizione delle metriche del Monitoraggio di A
 
 **Metodo**: GET
 
-**URI richiesta**: https:\/\/Management.Azure.com/subscriptions/*{SubscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/{*resourceProviderNamespace}*/*{ResourceType}*/*{resourceName}*/Providers/Microsoft.Insights/metricDefinitions? API-Version =*{apiVersion}*
+**URI richiesta**: https: \/ \/ Management.Azure.com/subscriptions/*{SubscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/{*resourceProviderNamespace}* / *{ResourceType}* / *{resourceName}*/Providers/Microsoft.Insights/metricDefinitions? API-Version =*{apiVersion}*
 
 Ad esempio, per recuperare le definizioni delle metriche per un account di archiviazione di Azure, la richiesta avrebbe il seguente aspetto:
 
@@ -239,7 +239,7 @@ Usare il nome "value" della metrica (non "localizedValue") per tutte le richiest
 
 **Metodo**: GET
 
-**URI richiesta**: https\://Management.Azure.com/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/providers/*{Resource-Provider-Namespace}*/*{Resource-Type}*/*{Resource-Name}*/Providers/Microsoft.Insights/Metrics? metricnames =*{metrica}*&TimeSpan =*{StartTime/EndTime}*&$Filter =*{Filter}*&ResultType = Metadata&API-Version =*{apiVersion}*
+**URI richiesta**: https \: //Management.Azure.com/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/providers/*{Resource-Provider-Namespace}* / *{Resource-Type}* / *{Resource-Name}*/Providers/Microsoft.Insights/Metrics? metricnames =*{metrica}*&TimeSpan =*{StartTime/EndTime}*&$Filter =*{Filter}*&ResultType = Metadata&API-Version =*{apiVersion}*
 
 Ad esempio, per recuperare l'elenco dei valori di dimensione creati per la “dimensione Nome API' per la metrica "Transazioni", in cui la dimensione del GeoType è pari a "Primary" durante l'intervallo di tempo specificato, la richiesta sarà la seguente:
 
@@ -312,7 +312,7 @@ Usare il nome "value" della metrica (non "localizedValue") per tutte le richiest
 
 **Metodo**: GET
 
-**URI richiesta**: https:\//Management.Azure.com/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/providers/*{Resource-Provider-Namespace}*/*{Resource-Type}*/*{Resource-Name}*/Providers/Microsoft.Insights/Metrics? metricnames =*{Metric}*&TimeSpan =*{StartTime/EndTime}*&$Filter =*{Filter}*&interval =*{timeGrain}*&Aggregation =*{aggreation}*&API-Version =*{apiVersion}*
+**URI richiesta**: https: \/ /Management.Azure.com/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/providers/*{Resource-Provider-Namespace}* / *{Resource-Type}* / *{Resource-Name}*/Providers/Microsoft.Insights/Metrics? metricnames =*{Metric}*&TimeSpan =*{StartTime/EndTime}*&$Filter =*{Filter}*&interval =*{timeGrain}*&Aggregation =*{aggreation}*&API-Version =*{apiVersion}*
 
 Ad esempio, per recuperare le prime 3 API, con valori decrescenti, per il numero di "Transazioni" durante un intervallo di 5 min, in cui il GeotType era "Primary", la richiesta sarà la seguente:
 
@@ -391,7 +391,7 @@ Usare l'[API REST relativa alle definizione delle metriche del Monitoraggio di A
 
 **Metodo**: GET
 
-**URI richiesta**: https:\/\/Management.Azure.com/subscriptions/*{SubscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/{*resourceProviderNamespace}*/*{ResourceType}*/*{resourceName}*/Providers/Microsoft.Insights/metricDefinitions? API-Version =*{apiVersion}*
+**URI richiesta**: https: \/ \/ Management.Azure.com/subscriptions/*{SubscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/{*resourceProviderNamespace}* / *{ResourceType}* / *{resourceName}*/Providers/Microsoft.Insights/metricDefinitions? API-Version =*{apiVersion}*
 
 Ad esempio, per recuperare le definizioni delle metriche per un'app per la logica di Azure, la richiesta avrebbe il seguente aspetto:
 
@@ -654,7 +654,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per recuperare l'ID risorsa per un account di archiviazione di Azure usando l'interfaccia della riga `az storage account show` di comando di Azure, eseguire il comando, come illustrato nell'esempio seguente:
+Per recuperare l'ID risorsa per un account di archiviazione di Azure usando l'interfaccia della riga di comando di Azure, eseguire il `az storage account show` comando, come illustrato nell'esempio seguente:
 
 ```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
@@ -705,16 +705,30 @@ Il risultato dovrebbe essere simile all'esempio seguente:
 
 ## <a name="retrieve-activity-log-data"></a>Recuperare i dati del registro attività
 
-Oltre alle definizioni delle metriche e ai valori correlati, è anche possibile usare l'API REST di monitoraggio di Azure per recuperare interessanti informazioni aggiuntive relative alle risorse di Azure. Ad esempio, è possibile eseguire query sui dati del [registro attività](https://msdn.microsoft.com/library/azure/dn931934.aspx) . Nell'esempio seguente viene illustrato l'uso dell'API REST di monitoraggio di Azure per eseguire query sui dati del registro attività all'interno di un intervallo di date specifico per una sottoscrizione di Azure:
+Oltre alle definizioni delle metriche e ai valori correlati, è anche possibile usare l'API REST di monitoraggio di Azure per recuperare interessanti informazioni aggiuntive relative alle risorse di Azure. Ad esempio, è possibile eseguire query sui dati del [registro attività](https://msdn.microsoft.com/library/azure/dn931934.aspx) . Le richieste di esempio seguenti usano l'API REST di monitoraggio di Azure per eseguire una query sul log attività.
 
-```powershell
-$apiVersion = "2015-04-01"
-$filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -Verbose
+Ottenere i log attività con filtro:
+
+``` HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
+```
+
+Ottenere i log attività con filtro e selezione:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+Ottenere i log attività con selezione:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+Ottenere i log attività senza filtro o selezione:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file
@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/18/2019
 ms.openlocfilehash: e3cb977871af2e6cd7a59dd48505090dd29e8a76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75541803"
 ---
 1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com).
@@ -26,7 +26,7 @@ ms.locfileid: "75541803"
     
 1. Passare alla sezione relativa alla finestra di progettazione dell'area di lavoro per visualizzare l'elenco delle bozze della pipeline. 
     
-    È possibile trovare i servizi Web convertiti passando agli endpoint in**tempo reale**degli **endpoint** > .
+    È possibile trovare i servizi Web convertiti passando agli **Endpoints**endpoint in  >  **tempo reale**degli endpoint.
 
 1. Selezionare una bozza della pipeline per aprirla.
 

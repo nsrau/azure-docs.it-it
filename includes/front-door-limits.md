@@ -9,10 +9,10 @@ ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
 ms.openlocfilehash: 148ec3eccce71ab7a4a6c1391c0fa4753c248bd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335084"
 ---
 | Risorsa | Limite |
@@ -51,7 +51,7 @@ ms.locfileid: "80335084"
 
 |  | Con la codifica di trasferimento in blocchi (CTE) | Senza blocco HTTP |
 | ---- | ------- | ------- |
-| **Scarica** | Non è previsto alcun limite per le dimensioni del download. | Non è previsto alcun limite per le dimensioni del download. |
+| **Scaricare** | Non è previsto alcun limite per le dimensioni del download. | Non è previsto alcun limite per le dimensioni del download. |
 | **Carica** |    Non esiste alcun limite se ogni caricamento della CTE è inferiore a 2 GB. | Le dimensioni non possono essere superiori a 2 GB. |
 
 ### <a name="other-limits"></a>Altri limiti

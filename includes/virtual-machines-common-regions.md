@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76020992"
 ---
 È importante comprendere dove e come funzionano le macchine virtuali (VM) in Azure, così come le possibilità di ottimizzare le prestazioni, la disponibilità e la ridondanza. Questo articolo offre una panoramica delle funzionalità di disponibilità e ridondanza di Azure.
@@ -42,7 +42,7 @@ Ogni area di Azure è associata a un'altra area con la stessa collocazione geogr
 
 Esempi di coppie di aree includono:
 
-| Primaria | Secondari |
+| Principale | Secondari |
 |:--- |:--- |
 | Stati Uniti occidentali |Stati Uniti orientali |
 | Europa settentrionale |Europa occidentale |
@@ -56,7 +56,7 @@ Alcuni servizi o funzionalità delle VM sono disponibili solo in determinate are
 ## <a name="storage-availability"></a>Disponibilità dell'archiviazione
 Conoscere le aree geografiche di Azure diventa importante quando si considerano le opzioni disponibili per la replica dell'archiviazione. A seconda del tipo di archiviazione, sono disponibili opzioni di replica diverse.
 
-**Managed Disks di Azure**
+**Azure Managed Disks**
 * Archiviazione con ridondanza locale (LRS)
   * I dati vengono replicati tre volte all'interno dell'area in cui è stato creato l'account di archiviazione.
 
@@ -78,12 +78,12 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 | I dati possono essere letti dalla località secondaria e da quella primaria. |No |No |No |Sì |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 
-Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). Per altre informazioni su Managed disks, vedere [Panoramica di Azure Managed disks](../articles/virtual-machines/windows/managed-disks-overview.md).
+Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).
 
 ### <a name="storage-costs"></a>Costi di archiviazione
 I prezzi variano a seconda del tipo di archiviazione e della disponibilità selezionata.
 
-**Managed Disks di Azure**
+**Azure Managed Disks**
 * Managed Disks Premium si basa su unità SSD, Managed Disks Standard invece su normali dischi a rotazione. Per Managed Disks Premium e Standard l'addebito avviene in base alla capacità di cui è stato effettuato il provisioning per il disco.
 
 **Dischi non gestiti**

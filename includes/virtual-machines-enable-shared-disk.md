@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81008344"
 ---
 ## <a name="limitations"></a>Limitazioni
@@ -27,12 +27,12 @@ ms.locfileid: "81008344"
 
 ### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>Distribuire un'unità SSD Premium come disco condiviso
 
-Per distribuire un disco gestito con la funzionalità disco condiviso abilitata, usare la nuova `maxShares` proprietà e definire un valore maggiore di 1. Questo rende il disco condivisibile tra più macchine virtuali.
+Per distribuire un disco gestito con la funzionalità disco condiviso abilitata, usare la nuova proprietà `maxShares` e definire un valore maggiore di 1. Questo rende il disco condivisibile tra più macchine virtuali.
 
 > [!IMPORTANT]
-> Il valore di `maxShares` può essere impostato o modificato solo quando un disco viene smontato da tutte le macchine virtuali. Vedere le [dimensioni dei dischi](#disk-sizes) per i valori consentiti per `maxShares`.
+> Il valore di `maxShares` può essere impostato o modificato solo quando un disco viene smontato da tutte le macchine virtuali. Vedere le [dimensioni dei dischi](#disk-sizes) per i valori consentiti per `maxShares` .
 
-Prima di usare il modello seguente, `[parameters('dataDiskName')]`sostituire `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`, e `[parameters('maxShares')]` con i propri valori.
+Prima di usare il modello seguente, sostituire `[parameters('dataDiskName')]` ,, `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]` e `[parameters('maxShares')]` con i propri valori.
 
 ```json
 { 
@@ -77,10 +77,10 @@ Prima di usare il modello seguente, `[parameters('dataDiskName')]`sostituire `[r
 
 #### <a name="cli"></a>CLI
 
-Per distribuire un disco gestito con la funzionalità disco condiviso abilitata, impostare `maxShares` il parametro su un valore maggiore di 1. Questo rende il disco condivisibile tra più macchine virtuali.
+Per distribuire un disco gestito con la funzionalità disco condiviso abilitata, impostare il `maxShares` parametro su un valore maggiore di 1. Questo rende il disco condivisibile tra più macchine virtuali.
 
 > [!IMPORTANT]
-> Il valore di `maxShares` può essere impostato o modificato solo quando un disco viene smontato da tutte le macchine virtuali. Vedere le [dimensioni dei dischi](#disk-sizes) per i valori consentiti per `maxShares`.
+> Il valore di `maxShares` può essere impostato o modificato solo quando un disco viene smontato da tutte le macchine virtuali. Vedere le [dimensioni dei dischi](#disk-sizes) per i valori consentiti per `maxShares` .
 
 ```azurecli
 #Creating an Ultra shared Disk 
@@ -95,12 +95,12 @@ az disk show -g rg1 -n clidisk
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Per distribuire un disco gestito con la funzionalità disco condiviso abilitata, utilizzare la `maxShares` proprietà e definire un valore maggiore di 1. Questo rende il disco condivisibile tra più macchine virtuali.
+Per distribuire un disco gestito con la funzionalità disco condiviso abilitata, utilizzare la proprietà `maxShares` e definire un valore maggiore di 1. Questo rende il disco condivisibile tra più macchine virtuali.
 
 > [!IMPORTANT]
-> Il valore di `maxShares` può essere impostato o modificato solo quando un disco viene smontato da tutte le macchine virtuali. Vedere le [dimensioni dei dischi](#disk-sizes) per i valori consentiti per `maxShares`.
+> Il valore di `maxShares` può essere impostato o modificato solo quando un disco viene smontato da tutte le macchine virtuali. Vedere le [dimensioni dei dischi](#disk-sizes) per i valori consentiti per `maxShares` .
 
-Prima di usare il modello seguente, `[parameters('dataDiskName')]`sostituire `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]`,, `[parameters('diskIOPSReadWrite')]`, `[parameters('diskMBpsReadWrite')]`, `[parameters('diskIOPSReadOnly')]`, e `[parameters('diskMBpsReadOnly')]` con valori personalizzati.
+Prima di usare il modello seguente, sostituire,,,, `[parameters('dataDiskName')]` `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` , `[parameters('diskMBpsReadWrite')]` , `[parameters('diskIOPSReadOnly')]` e `[parameters('diskMBpsReadOnly')]` con valori personalizzati.
 
 ```json
 {
@@ -170,7 +170,7 @@ Prima di usare il modello seguente, `[parameters('dataDiskName')]`sostituire `[r
 
 ### <a name="using-azure-shared-disks-with-your-vms"></a>Uso di dischi condivisi di Azure con le macchine virtuali
 
-Una volta distribuito un disco condiviso con `maxShares>1`, è possibile montare il disco in una o più macchine virtuali.
+Una volta distribuito un disco condiviso con `maxShares>1` , è possibile montare il disco in una o più macchine virtuali.
 
 > [!IMPORTANT]
 > Tutte le macchine virtuali che condividono un disco devono essere distribuite nello stesso [gruppo di posizionamento di prossimità](../articles/virtual-machines/windows/proximity-placement-groups.md).

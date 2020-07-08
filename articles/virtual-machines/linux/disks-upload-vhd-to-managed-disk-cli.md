@@ -4,16 +4,16 @@ description: Informazioni su come caricare un disco rigido virtuale in un disco 
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
+ms.date: 06/15/2020
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: c32915617d3149eee42bfdfd03d22f9ce5799ef2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580222"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945631"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Caricare un disco rigido virtuale in Azure o copiare un disco gestito in un'altra area-interfaccia della riga di comando di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "82580222"
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Scaricare la versione più recente [di AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
-- [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+- [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 - Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale di dimensioni fisse [preparato per Azure](../windows/prepare-for-upload-vhd-image.md), archiviato localmente.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
@@ -38,15 +38,18 @@ Questo tipo di disco gestito ha due stati univoci:
 - ActiveUpload, il che significa che il disco è pronto per ricevere un caricamento e che la firma di accesso condiviso è stata generata.
 
 > [!NOTE]
-> In uno di questi Stati, il disco gestito verrà fatturato in base ai [prezzi standard di HDD](https://azure.microsoft.com/pricing/details/managed-disks/), indipendentemente dal tipo effettivo di disco. Ad esempio, un P10 verrà fatturato come S10. Questo valore sarà true fino `revoke-access` a quando non viene chiamato sul disco gestito, operazione necessaria per il fissaggio del disco a una macchina virtuale.
+> In uno di questi Stati, il disco gestito verrà fatturato in base ai [prezzi standard di HDD](https://azure.microsoft.com/pricing/details/managed-disks/), indipendentemente dal tipo effettivo di disco. Ad esempio, un P10 verrà fatturato come S10. Questo valore sarà true fino a quando non `revoke-access` viene chiamato sul disco gestito, operazione necessaria per il fissaggio del disco a una macchina virtuale.
 
 ## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuoto
 
-Prima di poter creare un HDD standard vuoto per il caricamento, saranno necessarie le dimensioni del file VHD da caricare, in byte. Per ottenere questo valore, è possibile usare `wc -c <yourFileName>.vhd` o `ls -al <yourFileName>.vhd`. Questo valore viene usato quando si specifica il parametro **--upload-size-bytes** .
+Prima di poter creare un HDD standard vuoto per il caricamento, saranno necessarie le dimensioni del file VHD da caricare, in byte. Per ottenere questo valore, è possibile usare `wc -c <yourFileName>.vhd` o `ls -al <yourFileName>.vhd` . Questo valore viene usato quando si specifica il parametro **--upload-size-bytes** .
 
 Creare un HDD standard vuoto per il caricamento specificando il parametro **--for-upload** e il parametro **--upload-size-bytes** in un cmdlet di [creazione disco](/cli/azure/disk#az-disk-create) :
 
-`<yourresourcegroupname>`Sostituire `<yourdiskname>` `<yourregion>` con i valori selezionati. Il `--upload-size-bytes` parametro contiene un valore di esempio `34359738880`di, che deve essere sostituito con un valore appropriato.
+Sostituire `<yourdiskname>` `<yourresourcegroupname>` `<yourregion>` con i valori selezionati. Il `--upload-size-bytes` parametro contiene un valore di esempio di `34359738880` , che deve essere sostituito con un valore appropriato.
+
+> [!TIP]
+> Se si sta creando un disco del sistema operativo, aggiungere--Hyper-v-Generation <yourGeneration> a `az disk create` .
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -56,7 +59,7 @@ Se si vuole caricare un'unità SSD Premium o un'unità SSD standard, sostituire 
 
 Ora che è stato creato un disco gestito vuoto configurato per il processo di caricamento, è possibile caricarvi un disco rigido virtuale. Per caricare un disco rigido virtuale sul disco, è necessario disporre di una firma di accesso condiviso scrivibile, in modo che sia possibile farvi riferimento come destinazione per il caricamento.
 
-Per generare una firma di accesso condiviso scrivibile del disco gestito vuoto `<yourdiskname>`, `<yourresourcegroupname>`sostituire e, quindi usare il comando seguente:
+Per generare una firma di accesso condiviso scrivibile del disco gestito vuoto, sostituire `<yourdiskname>` e `<yourresourcegroupname>` , quindi usare il comando seguente:
 
 ```azurecli
 az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level Write --duration-in-seconds 86400
@@ -84,7 +87,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 Una volta completato il caricamento e non è più necessario scrivere altri dati sul disco, revocare la firma di accesso condiviso. La revoca della firma di accesso condiviso modificherà lo stato del disco gestito e consentirà di aggiungere il disco a una macchina virtuale.
 
-Sostituire `<yourdiskname>`e `<yourresourcegroupname>`, quindi usare il comando seguente per rendere il disco utilizzabile:
+Sostituire `<yourdiskname>` e `<yourresourcegroupname>` , quindi usare il comando seguente per rendere il disco utilizzabile:
 
 ```azurecli
 az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
@@ -99,7 +102,10 @@ Lo script seguente consente di eseguire questa operazione per l'utente, il proce
 > [!IMPORTANT]
 > È necessario aggiungere un offset di 512 quando si specificano le dimensioni del disco in byte di un disco gestito da Azure. Questo perché Azure omette il piè di pagina quando restituisce le dimensioni del disco. Se non si esegue questa operazione, la copia avrà esito negativo. Lo script seguente esegue già questa operazione.
 
-`<sourceResourceGroupHere>`Sostituire `<sourceDiskNameHere>`, `<targetDiskNameHere>`,, `<targetResourceGroupHere>`e `<yourTargetLocationHere>` (un esempio di un valore di posizione sarebbe uswest2) con i valori, quindi eseguire lo script seguente per copiare un disco gestito.
+Sostituire `<sourceResourceGroupHere>` , `<sourceDiskNameHere>` , `<targetDiskNameHere>` , `<targetResourceGroupHere>` e `<yourTargetLocationHere>` (un esempio di un valore di posizione sarebbe uswest2) con i valori, quindi eseguire lo script seguente per copiare un disco gestito.
+
+> [!TIP]
+> Se si sta creando un disco del sistema operativo, aggiungere--Hyper-v-Generation <yourGeneration> a `az disk create` .
 
 ```azurecli
 sourceDiskName = <sourceDiskNameHere>

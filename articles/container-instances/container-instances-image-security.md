@@ -1,15 +1,15 @@
 ---
-title: Sicurezza per le istanze di contenitore
+title: Considerazioni sulla sicurezza per le istanze di contenitore
 description: Suggerimenti per proteggere le immagini e i segreti per le istanze di contenitore di Azure e considerazioni generali sulla sicurezza per qualsiasi piattaforma di contenitori
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 87fa28cf9bdb546a5f108284023a9f787645a1fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d339683c8864b85f7ccb1ac3c982f03aa7abf103
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457995"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907024"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerazioni sulla sicurezza per le istanze di contenitore di Azure
 
@@ -18,6 +18,9 @@ Questo articolo presenta considerazioni sulla sicurezza per l'uso di istanze di 
 > [!div class="checklist"]
 > * **Consigli sulla sicurezza** per la gestione di immagini e segreti per istanze di contenitore di Azure
 > * **Considerazioni sull'ecosistema di contenitori** per tutto il ciclo di vita del contenitore, per qualsiasi piattaforma di contenitori
+
+Per consigli completi che consentiranno di migliorare il comportamento di sicurezza della distribuzione, vedere la [baseline della sicurezza di Azure per le istanze di contenitore](security-baseline.md).
+
 
 ## <a name="security-recommendations-for-azure-container-instances"></a>Raccomandazioni sulla sicurezza per istanze di contenitore di Azure
 
@@ -140,6 +143,8 @@ Mantenere un audit trail accurato di accesso amministrativo all'ecosistema di co
 * Log delle risorse per [istanze di contenitore di Azure](container-instances-log-analytics.md) e [Azure container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+* Vedere la [baseline della sicurezza di Azure per le istanze di contenitore](security-baseline.md) per indicazioni complete che consentono di migliorare il comportamento di sicurezza della distribuzione.
 
 * Altre informazioni sull'uso del [Centro sicurezza di Azure](../security-center/container-security.md) per il rilevamento delle minacce in tempo reale negli ambienti in contenitori.
 

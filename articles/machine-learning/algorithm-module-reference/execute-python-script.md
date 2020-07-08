@@ -6,43 +6,44 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/16/2020
+ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983602"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907551"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive il modulo Execute Python script in Azure Machine Learning Designer (Preview).
 
-Usare questo modulo per eseguire il codice Python. Per altre informazioni sull'architettura e i principi di progettazione di Python, vedere [l'articolo seguente](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
+Usare questo modulo per eseguire il codice Python. Per altre informazioni sui principi di architettura e progettazione di Python, vedere [questo articolo](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
-Con Python è possibile eseguire attività che non sono attualmente supportate dai moduli esistenti, ad esempio:
+Con Python è possibile eseguire attività che i moduli esistenti non supportano, ad esempio:
 
-+ Visualizzazione dei dati tramite`matplotlib`
-+ Uso delle librerie Python per enumerare i set di impostazioni e i modelli nell'area di lavoro
-+ Lettura, caricamento e manipolazione di dati da origini non supportate dal modulo [Import Data](./import-data.md)
-+ Esegui il tuo codice di apprendimento approfondito 
++ Visualizzazione dei dati tramite `matplotlib` .
++ Uso delle librerie Python per enumerare i set di impostazioni e i modelli nell'area di lavoro.
++ Lettura, caricamento e manipolazione di dati da origini non supportate dal modulo [Import Data](./import-data.md) .
++ Esegui il tuo codice di apprendimento avanzato. 
 
 
 Azure Machine Learning usa la distribuzione anaconda di Python, che include molte utilità comuni per l'elaborazione dei dati. La versione Anaconda verrà aggiornata automaticamente. La versione corrente è:
  -  Distribuzione di Anaconda 4.5 + per Python 3,6 
 
 I pacchetti preinstallati sono:
--    adal = = 1.2.2
--    applicationinsights = = 0.11.9
+-    adal==1.2.2
+-    applicationinsights==0.11.9
 -    attrs = = 19.3.0
 -    Azure-comune = = 1.1.25
 -    Azure-Core = = 1.3.0
--    Azure-graphrbac = = 0.61.1
+-    azure-graphrbac==0.61.1
 -    Azure-Identity = = 1.3.0
--    Azure-Mgmt-Authorization = = 0.60.0
--    Azure-Mgmt-containerregistry = = 2.8.0
+-    azure-mgmt-authorization==0.60.0
+-    azure-mgmt-containerregistry==2.8.0
 -    Azure-Mgmt-insieme di credenziali delle credenziali = = 2.2.0
 -    Azure-Mgmt-Resource = = 8.0.1
 -    Azure-Mgmt-storage = = 8.0.0
@@ -58,28 +59,28 @@ I pacchetti preinstallati sono:
 -    azureml-Model-Management-SDK = = 1.0.1 B6. post1
 -    azureml-pipeline-Core = = 1.1.5
 -    azureml-telemetria = = 1.1.5.3
--    backports. tempfile = = 1.0
--    backports. WeakRef = = 1.0. post1
+-    backports.tempfile==1.0
+-    backports.weakref==1.0.post1
 -    boto3 = = 1.12.29
 -    botocore = = 1.15.29
 -    cachetools = = 4.0.0
 -    Certified = = 2019.11.28
--    CFFI = = 1.12.3
--    bietola = = 3.0.4
+-    cffi==1.12.3
+-    chardet==3.0.4
 -    fare clic = = 7.1.1
 -    cloudpickle = = 1.3.0
 -    ConfigParser = = 3.7.4
 -    contextlib2 = = 0.6.0. post1
 -    crittografia = = 2.8
--    Cycler = = 0.10.0
--    Aneto = = 0.3.1.1
--    distro = = 1.4.0
+-    cycler==0.10.0
+-    dill==0.3.1.1
+-    distro==1.4.0
 -    Docker = = 4.2.0
--    docutils = = 0.15.2
+-    docutils==0.15.2
 -    dotnetcore2 = = 2.1.13
 -    Flask = = 1.0.3
--    fusepy = = 3.0.1
--    gensim = = 3.8.1 indica
+-    fusepy==3.0.1
+-    gensim==3.8.1
 -    Google-API-Core = = 1.16.0
 -    Google-auth = = 1.12.0
 -    Google-Cloud-Core = = 1.3.0
@@ -89,7 +90,7 @@ I pacchetti preinstallati sono:
 -    gunicorn = = 19.9.0
 -    IDNA = = 2.9
 -    sbilanciato-Learn = = 0.4.3
--    ISODate = = 0.6.0
+-    isodate==0.6.0
 -    itsdangerous = = 1.1.0
 -    Jeepney = = 0.4.3
 -    jinja2 = = 2.11.1
@@ -98,9 +99,9 @@ I pacchetti preinstallati sono:
 -    JSON-Logging-py = = 0.2
 -    jsonpickle = = 1.3
 -    jsonschema = = 3.0.1
--    kiwisolver = = 1.1.0
+-    kiwisolver==1.1.0
 -    Liac-ARFF = = 2.4.0
--    lightgbm = = 2.2.3
+-    lightgbm==2.2.3
 -    markupsafe = = 1.1.1
 -    Matplotlib = = 3.1.3
 -    altro-itertools = = 6.0.0
@@ -108,10 +109,10 @@ I pacchetti preinstallati sono:
 -    MSAL = = 1.1.0
 -    msrest = = 0.6.11
 -    msrestazure = = 0.6.3
--    NDG-httpsclient = = 0.5.1
+-    ndg-httpsclient==0.5.1
 -    nimbusml = = 1.6.1
 -    NumPy = = 1.18.2
--    oauthlib = = 3.1.0
+-    oauthlib==3.1.0
 -    Pandas = = 0.25.3
 -    pathspec = = 0.7.0
 -    PIP = = 20.0.2
@@ -127,11 +128,11 @@ I pacchetti preinstallati sono:
 -    PyParsing = = 2.4.6
 -    pyrsistent = = 0.16.0
 -    Python-dateutil = = 2.8.1
--    pytz = = 2019.3
+-    pytz==2019.3
 -    richieste-oauthlib = = 1.3.0
 -    richieste = = 2.23.0
 -    RSA = = 4.0
--    ruamel. YAML = = 0.15.89
+-    ruamel.yaml==0.15.89
 -    s3transfer = = 0.3.3
 -    Scikit-learn = = 0.22.2
 -    SciPy = = 1.4.1
@@ -144,26 +145,37 @@ I pacchetti preinstallati sono:
 -    Werkzeug = = 0.16.1
 -    Wheel = = 0.34.2
 
- Per installare altri pacchetti non inclusi nell'elenco pre-installato, ad esempio *Scikit-misc*, aggiungere il codice seguente allo script: 
+ Per installare i pacchetti che non sono inclusi nell'elenco preinstallato (ad esempio, *Scikit-varie*), aggiungere il codice seguente allo script: 
 
  ```python
 import os
 os.system(f"pip install scikit-misc")
 ```
+
+Usare il codice seguente per installare i pacchetti per ottenere prestazioni migliori, in particolare per l'inferenza:
+```python
+import importlib.util
+package_name = 'scikit-misc'
+spec = importlib.util.find_spec(package_name)
+if spec is None:
+    import os
+    os.system(f"pip install scikit-misc")
+```
+
 > [!NOTE]
-> Se la pipeline contiene più moduli Execute Python script e sono necessari gli stessi pacchetti che non sono presenti nell'elenco preinstallato, installare rispettivamente i pacchetti in ogni modulo. 
+> Se la pipeline contiene più moduli Execute Python script che richiedono pacchetti non inclusi nell'elenco preinstallato, installare i pacchetti in ogni modulo.
 
 ## <a name="upload-files"></a>Caricare file
-Lo **script Execute Python** supporta il caricamento di file con [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
+Il modulo Execute Python script supporta il caricamento di file tramite il [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
 
-L'esempio seguente illustra come caricare un file di immagine nel modulo **Execute Python script** :
+L'esempio seguente illustra come caricare un file di immagine nel modulo Execute Python script:
 
 ```Python
 
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# imports up here can be used to
+# Imports up here can be used to
 import pandas as pd
 
 # The entry point function must have two input arguments:
@@ -185,70 +197,70 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     run.upload_file(f"graphics/{img_file}", img_file)
 
     # Return value must be of a sequence of pandas.DataFrame
-    # E.g.
+    # For example:
     #   -  Single return value: return dataframe1,
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
 }
 ```
 
-Al termine dell'esecuzione della pipeline, è possibile visualizzare l'anteprima dell'immagine nel pannello di destra del modulo
+Al termine dell'esecuzione della pipeline, è possibile visualizzare l'anteprima dell'immagine nel riquadro di destra del modulo.
 
 > [!div class="mx-imgBorder"]
-> ![Immagine caricata](media/module/upload-image-in-python-script.png)
+> ![Anteprima dell'immagine caricata](media/module/upload-image-in-python-script.png)
 
 ## <a name="how-to-configure-execute-python-script"></a>Come configurare Execute Python script
 
-Il modulo **Execute Python script** contiene codice Python di esempio che è possibile usare come punto di partenza. Per configurare il modulo **Execute Python script (Esegui script Python** ), fornire un set di input e codice Python da eseguire nella casella di testo **script Python** .
+Il modulo Execute Python script contiene codice Python di esempio che è possibile usare come punto di partenza. Per configurare il modulo Execute Python script (Esegui script Python), fornire un set di input e codice Python da eseguire nella casella di testo **script Python** .
 
 1. Aggiungere il modulo **Execute Python script (Esegui script Python** ) alla pipeline.
 
 2. Aggiungere e connettersi a **DataSet1** tutti i set di dati della finestra di progettazione che si desidera utilizzare per l'input. Fare riferimento a questo set di dati nello script Python come **DataFrame1**.
 
-    L'uso di un set di dati è facoltativo se si vuole generare dati con Python o usare il codice Python per importare i dati direttamente nel modulo.
+    L'utilizzo di un set di dati è facoltativo. Usare questa impostazione se si vuole generare dati tramite Python o usare il codice Python per importare i dati direttamente nel modulo.
 
-    Questo modulo supporta l'aggiunta di un secondo set di dati in **Dataset2**. Fare riferimento al secondo set di dati nello script Python come DataFrame2.
+    Questo modulo supporta l'aggiunta di un secondo set di dati in **Dataset2**. Fare riferimento al secondo set di dati nello script Python come **DataFrame2**.
 
-    I set di dati archiviati in Azure Machine Learning vengono convertiti automaticamente in **Pandas** data. frames quando vengono caricati con questo modulo.
+    I set di dati archiviati in Azure Machine Learning vengono convertiti automaticamente in frame di dati Pandas quando vengono caricati con questo modulo.
 
-    ![Esegui mappa di input Python](media/module/python-module.png)
+    ![Mappa di input di Execute Python](media/module/python-module.png)
 
-4. Per includere nuovi pacchetti o codice Python, aggiungere il file compresso contenente queste risorse personalizzate nel **bundle di script**. L'input per il **bundle di script** deve essere un file compresso caricato nell'area di lavoro come set di dati di tipo file. È possibile caricare il set di dati nella pagina **set** di dati ed è possibile trascinare il modulo DataSet dall'elenco set di dati **personali** nell'albero del modulo a sinistra nella pagina Creazione e modifica della finestra di progettazione. 
+4. Per includere nuovi pacchetti o codice Python, aggiungere il file compresso che contiene queste risorse personalizzate nel **bundle di script**. L'input per il **bundle di script** deve essere un file compresso caricato nell'area di lavoro come set di dati di tipo file. È possibile caricare il set di dati nella pagina asset **set** di dati. È possibile trascinare il modulo DataSet dall'elenco **set** di dati personali nell'albero del modulo a sinistra nella pagina Creazione e modifica della finestra di progettazione. 
 
     Qualsiasi file contenuto nell'archivio compresso caricato può essere usato durante l'esecuzione della pipeline. Se l'archivio include una struttura di directory, la struttura viene mantenuta, ma è necessario anteporre una directory denominata **src** al percorso.
 
 5. Nella casella di testo **script Python** Digitare o incollare uno script Python valido.
 
     > [!NOTE]
-    > Prestare attenzione durante la scrittura dello script e assicurarsi che non si verifichino errori di sintassi, ad esempio l'uso di oggetti non dichiarati o di moduli non importati. Prestare anche particolare attenzione all'elenco dei moduli preinstallati. Per importare i moduli non elencati, installare i pacchetti corrispondenti nello script, ad esempio
+    >  Prestare attenzione durante la scrittura dello script. Verificare che non siano presenti errori di sintassi, ad esempio l'uso di variabili non dichiarate o di moduli o funzioni non importati. Prestare particolare attenzione all'elenco dei moduli preinstallati. Per importare i moduli non elencati, installare i pacchetti corrispondenti nello script, ad esempio:
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")
     > ```
     
-    La casella di testo **script Python** è già popolata con alcune istruzioni nei commenti e il codice di esempio per l'accesso ai dati e l'output. È necessario modificare o sostituire questo codice. Assicurarsi di seguire le convenzioni Python relative a rientri e maiuscole e minuscole.
+    La casella di testo **script Python** viene prepopolata con alcune istruzioni nei commenti e il codice di esempio per l'accesso ai dati e l'output. È necessario modificare o sostituire questo codice. Seguire le convenzioni Python per rientro e maiuscole/minuscole:
 
     + Lo script deve contenere una funzione denominata `azureml_main` come punto di ingresso per questo modulo.
-    + La funzione del punto di ingresso deve avere due argomenti `Param<dataframe1>` di `Param<dataframe2>`input: e, anche quando questi argomenti non vengono usati nello script.
-    + I file compressi connessi alla terza porta di input vengono decompressi e archiviati nella directory, `.\Script Bundle`, che viene anche aggiunta a Python. `sys.path` 
+    + La funzione del punto di ingresso deve avere due argomenti di input, `Param<dataframe1>` e `Param<dataframe2>` , anche quando questi argomenti non vengono usati nello script.
+    + I file compressi connessi alla terza porta di input vengono decompressi e archiviati nella directory `.\Script Bundle` , che viene anche aggiunta a Python `sys.path` . 
 
-    Quindi, se il file zip contiene `mymodule.py`, importarlo `import mymodule`usando.
+    Se il file con estensione zip contiene `mymodule.py` , importarlo usando `import mymodule` .
 
-    + Due set di impostazioni possono essere restituiti alla finestra di progettazione, che deve essere una sequenza `pandas.DataFrame`di tipo. È possibile creare altri output nel codice Python e scriverli direttamente in archiviazione di Azure.
+    Due set di impostazioni possono essere restituiti alla finestra di progettazione, che deve essere una sequenza di tipo `pandas.DataFrame` . È possibile creare altri output nel codice Python e scriverli direttamente in archiviazione di Azure.
 
-6. Inviare la pipeline oppure selezionare il modulo e fare clic su **Esegui selezione** per eseguire solo lo script Python.
+6. Inviare la pipeline oppure selezionare il modulo e selezionare **Esegui selezione** per eseguire solo lo script Python.
 
     Tutti i dati e il codice vengono caricati in una macchina virtuale ed eseguiti usando l'ambiente Python specificato.
 
 ## <a name="results"></a>Risultati
 
-I risultati di tutti i calcoli eseguiti dal codice Python incorporato devono essere forniti come Pandas. Dataframe, che viene automaticamente convertito nel formato Azure Machine Learning set di dati, in modo che sia possibile usare i risultati con altri moduli della pipeline.
+I risultati di qualsiasi calcolo dal codice Python incorporato devono essere forniti come `pandas.DataFrame` , che viene automaticamente convertito nel formato del set di dati Azure Machine Learning. È quindi possibile usare i risultati con altri moduli della pipeline.
 
 Il modulo restituisce due set di impostazioni:  
   
-+ **Set di dati results 1**, definito dal primo dataframe Pandas restituito nello script Python
++ Il set di dati **dei risultati 1**, definito dal primo frame di dati Pandas restituito in uno script Python.
 
-+ **Set di dati di risultati 2**, definito dal secondo dataframe Pandas restituito nello script Python
++ Set di dati di **risultati 2**, definito dal secondo frame di dati Pandas restituito in uno script Python.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

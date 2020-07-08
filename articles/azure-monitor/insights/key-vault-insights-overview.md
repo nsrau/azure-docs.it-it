@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302493"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945461"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoraggio del servizio Key Vault con Monitoraggio di Azure per Key Vault (anteprima)
 Monitoraggio di Azure per Key Vault (anteprima) offre il monitoraggio completo degli insiemi di credenziali delle chiavi mettendo a disposizione una vista unificata delle richieste, delle prestazioni, degli errori e della latenza di Key Vault.
@@ -158,55 +158,51 @@ Le personalizzazioni vengono salvate in una cartella di lavoro personalizzata pe
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
+Per indicazioni generali sulla risoluzione dei problemi, vedere l'articolo dedicato alla [risoluzione dei](troubleshoot-workbooks.md)problemi di Insights basato sulla cartella di lavoro.
+
 Questa sezione fornisce un supporto per la diagnosi e la risoluzione di alcuni dei problemi più comuni che possono verificarsi durante l'uso di Monitoraggio di Azure per Key Vault (anteprima). Usare l'elenco che segue per individuare le informazioni pertinenti a un problema specifico.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Risoluzione dei problemi di prestazioni o degli errori
 
 Per risolvere i problemi relativi agli insiemi di credenziali delle chiavi identificati con Monitoraggio di Azure per Key Vault (anteprima), vedere la [documentazione di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
-### <a name="why-can-i-only-see-200-key-vaults"></a>Perché si vedono solo 200 insiemi di credenziali delle chiavi?
+### <a name="why-can-i-only-see-200-key-vaults"></a>Perché è possibile visualizzare solo gli insiemi di credenziali delle chiavi 200
 
 È previsto un limite di 200 insiemi di credenziali delle chiavi che è possibile selezionare e visualizzare. A prescindere dal numero di sottoscrizioni selezionate, il numero di insiemi di credenziali delle chiavi selezionati prevede un limite di 200.
 
-### <a name="what-will-happen-when-a-pinned-item-is-clicked"></a>Che cosa succede quando si fa clic su un elemento aggiunto al dashboard?
-
-Quando si fa clic su un elemento aggiunto nel dashboard, viene aperta una delle istanze seguenti:
-* Se le informazioni dettagliate sono state salvate, verrà aperta l'istanza delle informazioni dettagliate salvata nel momento in cui è stata aggiunta al dashboard.
-* Se le informazioni dettagliate non sono state salvate, verrà aperta una nuova istanza di informazioni dettagliate.
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Perché non è possibile vedere tutte le sottoscrizioni nel selettore di sottoscrizioni?
+### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Perché non vengono visualizzate tutte le sottoscrizioni nella selezione della sottoscrizione
 
 Vengono mostrate solo le sottoscrizioni che contengono insiemi di credenziali delle chiavi, scelte tramite il filtro di sottoscrizioni selezionato, che sono selezionate nella sezione "Directory e sottoscrizione" nell'intestazione del portale di Azure.
 
 ![Screenshot del filtro di sottoscrizioni](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Si riceve un messaggio di errore che segnala che la query supera il numero massimo di aree di lavoro/aree consentite. Come risolvere il problema?
+### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Viene ricevuto un messaggio di errore che segnala che la query supera il numero massimo di aree di lavoro/aree consentite ", cosa fare ora
 
 Attualmente è previsto un limite di 25 aree e 200 aree di lavoro. Per visualizzare i dati, sarà necessario ridurre il numero di sottoscrizioni e/o di gruppi di risorse.
 
-### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Come è possibile apportare modifiche o aggiungere altre visualizzazioni alle informazioni dettagliate di Key Vault?
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Desidero apportare modifiche o aggiungere altre visualizzazioni a Key Vault Insights, come faccio
 
 Per apportare modifiche, selezionare "Modalità di modifica" per modificare la cartella di lavoro, quindi è possibile salvare il lavoro come una nuova cartella di lavoro associata a una sottoscrizione e a un gruppo di risorse designati.
 
-### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Qual è la cadenza temporale dopo che è stata bloccata una parte delle cartelle di lavoro?
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Qual è il tempo di granularità dopo che è stata aggiunta una parte delle cartelle di lavoro
 
 La cadenza temporale è automatica, quindi dipende dall'intervallo di tempo selezionato.
 
-### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual è l'intervallo di tempo quando viene bloccata una parte della cartella di lavoro?
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual è l'intervallo di tempo in cui una parte della cartella di lavoro è bloccata
 
 L'intervallo di tempo dipende dalle impostazioni del dashboard.
 
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Perché non vengono visualizzati dati per un'istanza di Key Vault nelle sezioni di operazioni e latenza?
+### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Perché non vengono visualizzati dati per la Key Vault nelle sezioni operazioni & latenza
 
 Per visualizzare i dati basati su log, è necessario abilitare i log per ogni insieme di credenziali delle chiavi da monitorare. Questa operazione può essere eseguita nelle impostazioni di diagnostica per ogni insieme di credenziali delle chiavi. Sarà necessario inviare i dati a un'area di lavoro Log Analytics designata.
 
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Se i log per Key Vault sono stati abilitati, perché non è ancora possibile visualizzare i dati nelle sezioni di operazioni e latenza?
+### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Sono già stati abilitati i log per la Key Vault, perché non è ancora possibile visualizzare i dati in Operations & latenza
 
 Attualmente, i log di diagnostica non funzionano in modo retroattivo, quindi i dati inizieranno a essere visualizzati dopo che saranno state eseguite azioni negli insiemi di credenziali delle chiavi. Pertanto, può essere necessario del tempo, da diverse ore a un giorno, a seconda della quantità di attività eseguite nell'insieme di credenziali delle chiavi.
 
 Inoltre, se è stato selezionato un numero elevato di insiemi di credenziali delle chiavi e di sottoscrizioni, potrebbe non essere possibile visualizzare i dati a causa delle limitazioni delle query. Per visualizzare i dati, può essere necessario ridurre il numero di sottoscrizioni o degli insiemi di credenziali selezionati. 
 
-### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>È possibile vedere altri dati o creare visualizzazioni personali? Come si apportano modifiche alle informazioni dettagliate di Key Vault?
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>È possibile vedere altri dati o creare visualizzazioni personali? Come è possibile apportare modifiche a Key Vault Insights
 
 È possibile modificare la cartella di lavoro esistente, tramite la modalità di modifica, quindi salvare il lavoro come una nuova cartella di lavoro che conterrà tutte le nuove modifiche.
 

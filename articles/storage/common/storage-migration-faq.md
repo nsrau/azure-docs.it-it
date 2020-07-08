@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: d594f3cf556fe311e0b7400a23fd61d0336fe5f1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1d8275d11b845df43238dce82beabe89d6464799
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651127"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944696"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -215,19 +215,20 @@ Non c'è una soluzione di backup. File di Azure supporta comunque anche la copia
 - Da una condivisione a un contenitore BLOB all'interno di un account di archiviazione o in un altro account di archiviazione.
 
 Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-use-azcopy.md).
+
 ## <a name="configuration"></a>Configurazione
 
 **Come si modifica la località secondaria nell'area Europa per un account di archiviazione?**
 
 L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene determinata in base a quella primaria e non è possibile modificarla. Per altre informazioni, vedere [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy.md).
 
-**Dove è possibile ottenere altre informazioni su Crittografia del servizio di archiviazione di Azure?**  
+**Dove è possibile ottenere altre informazioni sulla crittografia di archiviazione di Azure?**  
 
 Vedere gli articoli seguenti:
 
--  [Guida alla sicurezza di Archiviazione di Azure](../blobs/security-recommendations.md)
-
--  [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
+- [Usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di archiviazione di Azure](encryption-customer-managed-keys.md)
+- [Fornire una chiave di crittografia per una richiesta all'archivio BLOB (anteprima)](encryption-customer-provided-keys.md)
 
 **Come è possibile crittografare i dati in un account di archiviazione?**
 
@@ -253,19 +254,19 @@ Se si dispone di macchine virtuali, è necessario completare alcuni passaggi agg
 
 Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
 
--   Usare un token di firma di accesso condiviso (SAS) per consentire l'accesso a una risorsa.
+- Usare un token di firma di accesso condiviso (SAS) per fornire l'accesso a una risorsa.
 
--   Fornire a un utente la chiave primaria o secondaria per l'account di archiviazione. Per altre informazioni, vedere [Gestire le chiavi di accesso dell'account di archiviazione](storage-account-keys-manage.md).
+- Fornire a un utente la chiave primaria o secondaria per l'account di archiviazione. Per altre informazioni, vedere [Gestire le chiavi di accesso dell'account di archiviazione](storage-account-keys-manage.md).
 
--   Modificare i criteri di accesso per consentire l'accesso anonimo. Per altre informazioni, vedere [Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+- Modificare i criteri di accesso per consentire l'accesso anonimo. Per altre informazioni, vedere [Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
 **Dove è installato AzCopy?**
 
--   Se si accede ad AzCopy dalla riga di comando di Archiviazione di Microsoft Azure, digitare **AzCopy**. La riga di comando viene installata insieme ad AzCopy.
+- Se si accede ad AzCopy dalla riga di comando di Archiviazione di Microsoft Azure, digitare **AzCopy**. La riga di comando viene installata insieme ad AzCopy.
 
--   Se è stata installata la versione a 32 bit, sarà disponibile qui: **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
+- Se è stata installata la versione a 32 bit, sarà disponibile qui: **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
 
--   Se è stata installata la versione a 64 bit, sarà disponibile qui: **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
+- Se è stata installata la versione a 64 bit, sarà disponibile qui: **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
 
 **Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Come è possibile, ad esempio, fare in modo che "https:\///nomeaccountarchiviazione.blob.core.windows.net/images/image.gif" venga visualizzato come "https:\///www.contoso.com/images/image.gif"?**
 
@@ -284,15 +285,15 @@ Per accedere all'archiviazione ridondante, è necessaria l'archiviazione con rid
 
 **Per un account di archiviazione replicato (ad esempio l'archiviazione con ridondanza della zona, l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura), come è possibile accedere ai dati archiviati nell'area secondaria?**
 
--   Se si usa l'archiviazione con ridondanza della zona o l'archiviazione con ridondanza geografica, non è possibile accedere ai dati nell'area secondaria a meno che non si avvii un failover in tale area. Per altre informazioni sul processo di failover, vedere [Ripristino di emergenza e failover dell'account di archiviazione](storage-disaster-recovery-guidance.md).
+- Se si usa l'archiviazione con ridondanza della zona o l'archiviazione con ridondanza geografica, non è possibile accedere ai dati nell'area secondaria a meno che non si avvii un failover in tale area. Per altre informazioni sul processo di failover, vedere [Ripristino di emergenza e failover dell'account di archiviazione](storage-disaster-recovery-guidance.md).
 
--   Se si usa l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati dell'area secondaria in qualsiasi momento. Utilizzare una delle seguenti modalità:  
+- Se si usa l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati dell'area secondaria in qualsiasi momento. Utilizzare una delle seguenti modalità:  
 
-    - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. Ad esempio:  
+  - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. Ad esempio:  
 
       `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
-    - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
+  - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
 **Come si usa il protocollo FTP per accedere ai dati che si trovano in un account di archiviazione?**
 
@@ -300,6 +301,6 @@ Non è possibile accedere direttamente a un account di archiviazione usando FTP.
 
 Se si vuole solo scaricare i dati senza dover usare Storage Explorer o un'applicazione simile, potrebbe essere necessario usare un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

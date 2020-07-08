@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67179822"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -27,7 +27,7 @@ Le entità possono avere fino a 255 proprietà, incluse tre proprietà di sistem
 
 ### <a name="add-table-entities"></a>Aggiungere le entità di tabella
 
-Aggiungere entità a una tabella usando **Add-AzTableRow**. Questi esempi usano chiavi di partizione con `partition1` valori `partition2`e e chiavi di riga uguali alle abbreviazioni di stato. Le proprietà in ogni entità sono `username` e `userid`. 
+Aggiungere entità a una tabella usando **Add-AzTableRow**. Questi esempi usano chiavi di partizione con valori `partition1` e e `partition2` chiavi di riga uguali alle abbreviazioni di stato. Le proprietà in ogni entità sono `username` e `userid` . 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Questo comando restituisce risultati simili a quelli riportati nella tabella seguente:
 
-| userid | nomeutente | partition | rowkey |
+| userid | username | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 I risultati sono simili a quelli riportati nella tabella seguente:
 
-| userid | nomeutente | partition | rowkey |
+| userid | username | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -101,10 +101,10 @@ Get-AzTableRow -table $cloudTable `
 
 Questa query recupera un record.
 
-|campo|value|
+|campo|Valore|
 |----|----|
 | userid | 1 |
-| nomeutente | Chris |
+| username | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -118,10 +118,10 @@ Get-AzTableRow `
 
 Questa query recupera un record.
 
-|campo|value|
+|campo|Valore|
 |----|----|
 | userid | 1 |
-| nomeutente | Chris |
+| username | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -153,10 +153,10 @@ Get-AzTableRow -table $cloudTable `
 
 I risultati mostrano il record Jessie2.
 
-|campo|value|
+|campo|Valore|
 |----|----|
 | userid | 2 |
-| nomeutente | Jessie2 |
+| username | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 

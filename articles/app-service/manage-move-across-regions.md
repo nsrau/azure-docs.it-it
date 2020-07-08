@@ -4,18 +4,18 @@ description: Informazioni su come spostare le risorse del servizio app da un'are
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c19c18e8d9980b75acd9790dba712fbb6b2a4b1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77925709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945478"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Spostare un'app del servizio app in un'altra area
 
 Questo articolo descrive come spostare le risorse del servizio app in un'area di Azure diversa. È possibile spostare le risorse in un'altra area per diversi motivi. Ad esempio, per sfruttare i vantaggi di una nuova area di Azure, per distribuire le funzionalità o i servizi disponibili solo in aree specifiche, per soddisfare i requisiti di governance e criteri interni oppure in risposta ai requisiti della pianificazione della capacità.
 
-Le risorse del servizio app sono specifiche dell'area e non possono essere spostate tra le aree. È necessario creare una copia delle risorse esistenti del servizio app nell'area di destinazione, spostare il contenuto nella nuova app. Se l'app di origine usa un dominio personalizzato, è possibile [eseguirne la migrazione alla nuova app nell'area di destinazione](manage-custom-dns-migrate-domain.md) al termine dell'operazione.
+Le risorse del servizio app sono specifiche dell'area e non possono essere spostate tra le aree. È necessario creare una copia delle risorse esistenti del servizio app nell'area di destinazione, quindi spostare il contenuto nella nuova app. Se l'app di origine usa un dominio personalizzato, è possibile [eseguirne la migrazione alla nuova app nell'area di destinazione](manage-custom-dns-migrate-domain.md) al termine dell'operazione.
 
 Per semplificare la copia dell'app, è possibile [clonare una singola app del servizio app](app-service-web-app-cloning.md) in un piano di servizio app in un'altra area, ma presenta alcune [limitazioni](app-service-web-app-cloning.md#current-restrictions), in particolare in quanto non supporta le app Linux.
 
@@ -30,7 +30,7 @@ Per semplificare la copia dell'app, è possibile [clonare una singola app del se
 Identificare tutte le risorse del servizio app attualmente in uso. Ad esempio:
 
 - App del servizio app
-- [Piani di servizio app](overview-hosting-plans.md)
+- [Piani del servizio app](overview-hosting-plans.md)
 - [Slot di distribuzione](deploy-staging-slots.md)
 - [Domini personalizzati acquistati in Azure](manage-custom-dns-buy-domain.md)
 - [Certificati SSL](configure-ssl-certificate.md)
@@ -46,7 +46,7 @@ Alcune risorse, ad esempio i certificati importati o le connessioni ibride, cont
 1. [Creare un backup dell'app di origine](manage-backup.md).
 1. [Creare un'app in un nuovo piano di servizio app nell'area di destinazione](app-service-plan-manage.md#create-an-app-service-plan).
 2. [Ripristinare il backup nell'app di destinazione](web-sites-restore.md)
-2. Se si usa un dominio personalizzato, [associarlo preventivamente all'app](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) di destinazione `awverify.` con e [abilitare il dominio nell'app di destinazione](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
+2. Se si usa un dominio personalizzato, [associarlo preventivamente all'app di destinazione](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) con `awverify.` e [abilitare il dominio nell'app di destinazione](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
 3. Configurare tutto il resto nell'app di destinazione in modo che corrisponda all'app di origine e verificare la configurazione.
 4. Quando si è pronti per il dominio personalizzato in modo che punti all'app di destinazione, [modificare il mapping del nome di dominio](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
 

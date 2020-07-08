@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 202acff5bae87174781dc6c914bebf0494dfcf05
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871442"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975793"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Creare una VM Windows con rete accelerata usando Azure PowerShell
 
@@ -57,7 +57,7 @@ Le distribuzioni seguenti sono supportate direttamente dalla raccolta di Azure:
 - **Windows Server 2016 Datacenter** 
 - **Windows Server 2012 R2 Datacenter**
 
-## <a name="limitations-and-constraints"></a>Limitazioni e vincoli
+## <a name="limitations-and-constraints"></a>Limiti e vincoli
 
 ### <a name="supported-vm-instances"></a>Istanze di VM supportate
 
@@ -66,6 +66,10 @@ La funzionalità rete accelerata è supportata per la maggior parte delle istanz
 Nelle istanze che supportano l'Hyper-Threading, la rete accelerata è supportata nelle istanze di VM con quattro o più vCPU. Le serie supportate sono: D/Dsv3, D/Dsv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
 
 Per altre informazioni sulle istanze di VM, vedere [dimensioni per le macchine virtuali Windows in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="custom-images"></a>Immagini personalizzate
+
+Se si usa un'immagine personalizzata e l'immagine supporta la rete accelerata, assicurarsi di avere i driver necessari che funzionano con le schede NIC Mellanox ConnectX-3 e ConnectX-4 LX in Azure.
 
 ### <a name="regions"></a>Regioni
 
@@ -244,7 +248,7 @@ Dopo aver creato la VM in Azure, connettersi alla macchina virtuale e verificare
 
 3. Nella pagina Panoramica macchina virtuale, se lo **stato** della macchina virtuale è elencato come **creazione**, attendere che Azure finisca di creare la macchina virtuale. Lo **stato** verrà modificato in **in esecuzione** al termine della creazione della macchina virtuale.
 
-4. Dalla barra degli strumenti panoramica macchina virtuale selezionare **Connetti** > **RDP** > **Scarica file RDP**.
+4. Dalla barra degli strumenti panoramica macchina virtuale selezionare **Connetti**  >  **RDP**  >  **Scarica file RDP**.
 
 5. Aprire il file con estensione RDP, quindi accedere alla macchina virtuale con le credenziali immesse nella sezione [creare una macchina virtuale e collegare l'interfaccia di rete](#create-a-vm-and-attach-the-network-interface) . Se non si è mai stabilita una connessione a una VM Windows in Azure, vedere [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
@@ -327,7 +331,7 @@ Un set di scalabilità di macchine virtuali è leggermente diverso, ma segue lo 
 3. Impostare gli aggiornamenti applicati su automatico in modo che le modifiche vengano rilevate immediatamente:
 
     ```azurepowershell
-    $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    $vmss.UpgradePolicy.Mode = "Automatic"
     
     Update-AzVmss -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `

@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 63fee90be773f61bfef73e21a272192eea5f789c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: HT
+ms.openlocfilehash: 496f519ba5e4eb17060ee35ed86fba45c85336d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905732"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java in Linux per il servizio app di Azure
 
@@ -44,7 +44,7 @@ Nel portale di Azure sono disponibili report sulle prestazioni, visualizzazioni 
 
 ### <a name="stream-diagnostic-logs"></a>Eseguire lo streaming dei log di diagnostica
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 Per altre informazioni, vedere [Eseguire lo streaming dei log in Cloud Shell](../troubleshoot-diagnostic-logs.md#in-cloud-shell).
 

@@ -3,12 +3,12 @@ title: Concetti-cloud privati e cluster
 description: Informazioni sulle funzionalità principali dei data center e dei cluster vSphere definiti dal software VMware di Azure in una soluzione VMware in Azure di VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f51b76b654a43d690aa5c97fa9df99fad1f47d7a
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740382"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906990"
 ---
 # <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Concetti relativi al cloud privato e ai cluster di Azure VMware Solution (AVS) Preview
 
@@ -61,10 +61,10 @@ I criteri e i processi generali per l'aggiornamento del software della piattafor
 
 La gestione del ciclo di vita e la manutenzione dell'host vengono eseguite senza alcun effetto sulla capacità o sulle prestazioni dei cluster di cloud privati. Esempi di manutenzione automatica degli host includono gli aggiornamenti del firmware e la riparazione o la sostituzione dell'hardware.
 
-Microsoft è responsabile della gestione del ciclo di vita di appliance NSX-T come i bordi NSX-T Manager e NSX-T. Microsoft è anche responsabile del bootstrap della configurazione di rete, ad esempio la creazione del gateway di livello 0 e l'abilitazione del routing nord-sud. In qualità di amministratore del cloud privato AVS, l'utente è responsabile della configurazione NSX-T SDN, ad esempio segmenti di rete, regole firewall distribuite, gateway di livello 1 e bilanciamento del carico.
+Microsoft è responsabile della gestione del ciclo di vita di appliance NSX-T, ad esempio NSX-T Manager e NSX-T Edge. Microsoft è anche responsabile del bootstrap della configurazione di rete, ad esempio la creazione del gateway di livello 0 e l'abilitazione del routing nord-sud. In qualità di amministratore del cloud privato AVS, l'utente è responsabile della configurazione NSX-T SDN, ad esempio segmenti di rete, regole firewall distribuite, gateway di livello 1 e bilanciamento del carico.
 
 > [!IMPORTANT]
-> Un amministratore AVS non deve modificare la configurazione dei bordi NSX-T o del gateway di livello 0. Questo può comportare una perdita di servizio.
+> Un amministratore AVS non deve modificare la configurazione del gateway NSX-T Edge o di livello 0. Questo può comportare una perdita di servizio.
 
 ## <a name="backup-and-restoration"></a>Backup e ripristino
 

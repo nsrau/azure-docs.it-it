@@ -1,37 +1,39 @@
 ---
-title: Valutare le prestazioni dei modelli
+title: Valutazione & la convalida incrociata di modelli
 titleSuffix: ML Studio (classic) - Azure
-description: Informazioni su come valutare le prestazioni del modello in Azure Machine Learning Studio (classico) e sulle metriche disponibili per questa attività.
+description: Informazioni sulle metriche che è possibile usare per monitorare le prestazioni del modello in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 3c041834b9ad191817cdf1380b0a75efc7639bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd6c291cd703d56f86dc26c041eb39023bba0578
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945104"
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Come valutare le prestazioni del modello in Azure Machine Learning Studio (versione classica)
+# <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Valutare le prestazioni del modello in Azure Machine Learning Studio (classico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+Questo articolo illustra le metriche che è possibile usare per monitorare le prestazioni del modello in Azure Machine Learning Studio (classico).  La valutazione delle prestazioni di un modello è una delle fasi principali nel processo di analisi scientifica dei dati. Indica quanto è stato positivo il punteggio (stime) di un set di dati da un modello sottoposto a training. Azure Machine Learning Studio (classico) supporta la valutazione del modello tramite due dei moduli principali di Machine Learning: 
++ [Evaluate Model][evaluate-model] (Valuta modello) 
++ [Cross-Validate Model][cross-validate-model]
 
-In questo articolo viene illustrato come valutare le prestazioni di un modello in Azure Machine Learning Studio (classico) e viene fornita una breve spiegazione delle metriche disponibili per questa attività. L'argomento presenta inoltre tre scenari di apprendimento sorvegliato comuni: 
+Questi moduli consentono all'utente di osservare le prestazioni del proprio modello in termini di una serie di metriche comunemente usate in Machine Learning e nella statistica.
 
+La valutazione dei modelli deve essere considerata insieme a:
++ [Ottimizzazione dei parametri per gli algoritmi](algorithm-parameters-optimize.md)
++ [Interpretabilità dei modelli](interpret-model-results.md)
+
+L'argomento presenta inoltre tre scenari di apprendimento sorvegliato comuni: 
 * Regressione
 * Classificazione binaria 
 * Classificazione multiclasse
 
-
-
-La valutazione delle prestazioni di un modello è una delle fasi principali nel processo di analisi scientifica dei dati. Indica quanto è stato positivo il punteggio (stime) di un set di dati da un modello sottoposto a training. 
-
-Azure Machine Learning Studio (classico) supporta la valutazione del modello tramite due moduli di apprendimento automatico principali: [Evaluate Model][evaluate-model] e [Cross-Validate Model][cross-validate-model]. Questi moduli consentono all'utente di osservare le prestazioni del proprio modello in termini di una serie di metriche comunemente usate in Machine Learning e nella statistica.
 
 ## <a name="evaluation-vs-cross-validation"></a>Confronto tra la valutazione e la convalida incrociata
 La valutazione e la convalida incrociata sono due modi standard di misurare le prestazioni del proprio modello. Entrambi generano metriche di valutazione che l'utente può usare per controllare o mettere a confronto quelle di altri modelli.
@@ -49,10 +51,10 @@ Si supponga di voler stimare il prezzo di un'automobile usando funzionalità com
 Aggiungere i moduli seguenti all'area di lavoro in Azure Machine Learning Studio (versione classica):
 
 * Automobile price data (Raw)
-* [Linear Regression][linear-regression]
+* [Linear Regression][linear-regression] (Regressione lineare)
 * [Eseguire il training del modello][train-model]
-* [Assegnare il punteggio al modello][score-model]
-* [Valutare il modello][evaluate-model]
+* [Score Model][score-model] (Punteggio modello)
+* [Evaluate Model][evaluate-model] (Valuta modello)
 
 Connettere le porte come indicato nella figura 1 seguente e impostare la colonna delle etichette nel modulo [Train Model][train-model] su *price*.
 
@@ -93,8 +95,8 @@ Aggiungere i moduli seguenti all'area di lavoro in Azure Machine Learning Studio
 * Adult Census Income Binary Classification dataset
 * [Regressione logistica a due classi][two-class-logistic-regression]
 * [Eseguire il training del modello][train-model]
-* [Assegnare il punteggio al modello][score-model]
-* [Valutare il modello][evaluate-model]
+* [Score Model][score-model] (Punteggio modello)
+* [Evaluate Model][evaluate-model] (Valuta modello)
 
 Connettere le porte come indicato nella figura 5 seguente e impostare la colonna delle etichette del modulo [Train Model][train-model] su *income*.
 
@@ -144,8 +146,8 @@ Aggiungere i moduli seguenti all'area di lavoro in Azure Machine Learning Studio
 * [Foresta delle decisioni multiclasse][multiclass-decision-forest]
 * [Dividere dati][split]
 * [Eseguire il training del modello][train-model]
-* [Assegnare il punteggio al modello][score-model]
-* [Valutare il modello][evaluate-model]
+* [Score Model][score-model] (Punteggio modello)
+* [Evaluate Model][evaluate-model] (Valuta modello)
 
 Connettere le porte come mostrato in basso nella figura 10.
 

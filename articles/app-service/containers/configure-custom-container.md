@@ -3,12 +3,12 @@ title: Configurare un contenitore Linux personalizzato
 description: Informazioni su come configurare un contenitore Linux personalizzato nel servizio app Azure. Questo articolo illustra le attività di configurazione più comuni.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 6baa1fbd4932aa83a54081ff166dcae7f258fff9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57281bedb34078dff6878d69be1bfe7f7300f545
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905800"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurare un contenitore Linux personalizzato per il servizio app Azure
 
@@ -18,7 +18,7 @@ Questa guida fornisce concetti chiave e istruzioni per la contenitori di app Lin
 
 ## <a name="configure-port-number"></a>Configurare il numero di porta
 
-Il server Web nell'immagine personalizzata può usare una porta diversa da 80. Si indica ad Azure la porta utilizzata dal contenitore personalizzato usando l'impostazione dell' `WEBSITES_PORT` app. La pagina di GitHub per l'[esempio di Python in questa esercitazione](https://github.com/Azure-Samples/docker-django-webapp-linux) indica che è necessario impostare `WEBSITES_PORT` su _8000_. È possibile impostarlo eseguendo il [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nella cloud Shell. Ad esempio:
+Il server Web nell'immagine personalizzata può usare una porta diversa da 80. Si indica ad Azure la porta utilizzata dal contenitore personalizzato usando l'impostazione dell' `WEBSITES_PORT` app. La pagina di GitHub per l'[esempio di Python in questa esercitazione](https://github.com/Azure-Samples/docker-django-webapp-linux) indica che è necessario impostare `WEBSITES_PORT` su _8000_. È possibile impostarlo eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) il comando nella cloud Shell. Ad esempio:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -26,7 +26,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Configurare le variabili di ambiente
 
-Il contenitore personalizzato può usare variabili di ambiente che devono essere fornite esternamente. È possibile passarli in eseguendo il [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nella cloud Shell. Ad esempio:
+Il contenitore personalizzato può usare variabili di ambiente che devono essere fornite esternamente. È possibile passarli in eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) il comando nella cloud Shell. Ad esempio:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
@@ -38,9 +38,9 @@ Questo metodo funziona sia per le app a contenitore singolo che per le app a pi�
 
 È possibile usare la directory */Home* nell'file System dell'app per salvare in modo permanente i file tra i riavvii e condividerli tra le istanze. Il `/home` nell'app viene fornito per consentire all'app contenitore di accedere a un archivio permanente.
 
-Quando l'archiviazione persistente è disabilitata, le `/home` Scritture nella directory non vengono rese persistenti tra i riavvii dell'app o tra più istanze. L'unica eccezione è la `/home/LogFiles` directory, che viene usata per archiviare i log di Docker e del contenitore. Quando è abilitata l' `/home` archiviazione persistente, tutte le Scritture nella directory sono persistenti ed è possibile accedervi da tutte le istanze di un'app con scalabilità orizzontale.
+Quando l'archiviazione persistente è disabilitata, le Scritture nella `/home` Directory non vengono rese persistenti tra i riavvii dell'app o tra più istanze. L'unica eccezione è la `/home/LogFiles` Directory, che viene usata per archiviare i log di Docker e del contenitore. Quando è abilitata l'archiviazione persistente, tutte le Scritture nella `/home` Directory sono persistenti ed è possibile accedervi da tutte le istanze di un'app con scalabilità orizzontale.
 
-Per impostazione predefinita, l'archiviazione persistente è *abilitata* e l'impostazione non è esposta nelle impostazioni dell'applicazione. Per disabilitarlo, impostare l' `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione dell'app eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) il comando nella cloud Shell. Ad esempio:
+Per impostazione predefinita, l'archiviazione persistente è *abilitata* e l'impostazione non è esposta nelle impostazioni dell'applicazione. Per disabilitarlo, impostare l' `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione dell'app eseguendo il [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nella cloud Shell. Ad esempio:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
@@ -54,9 +54,9 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 SSH consente la comunicazione sicura tra un contenitore e un client. Per consentire a un contenitore personalizzato di supportare SSH, è necessario aggiungerlo alla Dockerfile stessa.
 
 > [!TIP]
-> Tutti i contenitori Linux predefiniti hanno aggiunto le istruzioni SSH nei repository di immagini. È possibile seguire le istruzioni seguenti con il [repository node. js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) per vedere come è abilitato.
+> Tutti i contenitori Linux predefiniti hanno aggiunto le istruzioni SSH nei repository di immagini. È possibile seguire le istruzioni seguenti con il [repositoryNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) per vedere come è abilitato.
 
-- Usare l'istruzione [Run](https://docs.docker.com/engine/reference/builder/#run) per installare il server SSH e impostare la password per l'account radice su `"Docker!"`. Per un'immagine basata su [Alpine Linux](https://hub.docker.com/_/alpine), ad esempio, sono necessari i comandi seguenti:
+- Usare l'istruzione [Run](https://docs.docker.com/engine/reference/builder/#run) per installare il server SSH e impostare la password per l'account radice su `"Docker!"` . Per un'immagine basata su [Alpine Linux](https://hub.docker.com/_/alpine), ad esempio, sono necessari i comandi seguenti:
 
     ```Dockerfile
     RUN apk add openssh \
@@ -88,29 +88,29 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Per consent
     /usr/sbin/sshd
     ```
 
-    Per un esempio, vedere come il [contenitore default node. js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) avvia il server SSH.
+    Per un esempio, vedere come il [contenitore predefinitoNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) avvia il server SSH.
 
 ## <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="configure-multi-container-apps"></a>Configurare app multicontenitore
 
 - [Usare l'archiviazione persistente in Docker Compose](#use-persistent-storage-in-docker-compose)
-- [Limiti di anteprima](#preview-limitations)
+- [Limitazioni di anteprima](#preview-limitations)
 - [Opzioni di Docker Compose](#docker-compose-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>Usare l'archiviazione persistente in Docker Compose
 
 Per il corretto funzionamento di app a più contenitori come WordPress è necessario disporre di un archivio permanente. Per abilitarla, la configurazione del Docker Compose deve puntare a una posizione di archiviazione *all'esterno* del contenitore. Le posizioni di archiviazione all'interno del contenitore non rendono permanente le modifiche oltre il riavvio dell'app.
 
-Abilitare l'archiviazione permanente impostando `WEBSITES_ENABLE_APP_SERVICE_STORAGE` l'impostazione dell'app usando il comando [AZ webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in cloud Shell.
+Abilitare l'archiviazione permanente impostando l' `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione dell'app usando il comando [AZ webapp config appSettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in cloud Shell.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-Nel file *Docker-compose. yml* mappare l' `volumes` opzione a `${WEBAPP_STORAGE_HOME}`. 
+Nel file *Docker-compose. yml* mappare l' `volumes` opzione a `${WEBAPP_STORAGE_HOME}` . 
 
 `WEBAPP_STORAGE_HOME` è una variabile di ambiente nel servizio app mappata all'archiviazione permanente per l'app. Ad esempio:
 
@@ -165,7 +165,7 @@ L'uso di un contenitore personalizzato con integrazione VNet può richiedere una
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: eseguire la distribuzione da un repository di contenitori privati](tutorial-custom-docker-image.md)
+> [Esercitazione: Eseguire la distribuzione da un repository di contenitore privato](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
-> [Esercitazione: app WordPress multicontenitore](tutorial-multi-container-app.md)
+> [Esercitazione: App WordPress multicontenitore](tutorial-multi-container-app.md)

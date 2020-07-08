@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -9,15 +9,15 @@ ms.date: 01/07/2020
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: feed8b21833d4244d027d64d5e6547b94e4fa66f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75945171"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>Cosa accade all'app durante la distribuzione?
 
-Tutti i metodi di distribuzione ufficialmente supportati consentono di apportare modifiche ai file `/home/site/wwwroot` nella cartella dell'app. Questi file vengono usati per eseguire l'app. Pertanto, la distribuzione può avere esito negativo a causa di file bloccati. L'app può anche comportarsi in modo imprevedibile durante la distribuzione, perché non tutti i file vengono aggiornati contemporaneamente. Questa operazione non è auspicabile per un'app rivolte ai clienti. Per evitare questi problemi sono disponibili varie alternative:
+Tutti i metodi di distribuzione ufficialmente supportati consentono di apportare modifiche ai file nella `/home/site/wwwroot` cartella dell'app. Questi file vengono usati per eseguire l'app. Pertanto, la distribuzione può avere esito negativo a causa di file bloccati. L'app può anche comportarsi in modo imprevedibile durante la distribuzione, perché non tutti i file vengono aggiornati contemporaneamente. Questa operazione non è auspicabile per un'app rivolte ai clienti. Per evitare questi problemi sono disponibili varie alternative:
 
 - [Eseguire l'app direttamente dal pacchetto zip](../articles/app-service/deploy-run-package.md) senza decomprimerla.
 - Arresta l'app o abilitare la modalità offline per l'app durante la distribuzione. Per altre informazioni, vedere [gestire i file bloccati durante la distribuzione](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).

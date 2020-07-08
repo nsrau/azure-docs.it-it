@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: scheduler
 ms.service: scheduler
 author: derek1ee
@@ -9,10 +9,10 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: eb13d889cb72911e2268b7538a74336befe3320b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75392254"
 ---
 Nella tabella seguente viene descritto ciascuno dei principali quote, limiti, impostazioni predefinite e limitazioni nell'utilità di pianificazione di Azure.
@@ -30,7 +30,7 @@ Nella tabella seguente viene descritto ciascuno dei principali quote, limiti, im
 | **Numero di intestazioni** | Il numero massimo di intestazioni è di 50 intestazioni. | 
 | **Dimensioni aggregate dell'intestazione** | Le dimensioni massime dell'intestazione di aggregazione sono 4.096 caratteri. |
 | **Timeout** | Il timeout della richiesta è statico, ovvero non è configurabile. e è 60 secondi per le azioni HTTP. Per le operazioni con tempi di esecuzione più lunghi, seguire i protocolli asincroni HTTP. Restituire, ad esempio, un errore 202 immediatamente, ma continuare a lavorare in background. | 
-| **Cronologia processo** | Il corpo della risposta massimo archiviato nella cronologia processo è pari a 2.048 byte. |
+| **Cronologia dei processi** | Il corpo della risposta massimo archiviato nella cronologia processo è pari a 2.048 byte. |
 | **Periodo di memorizzazione della cronologia dei processi** | La cronologia processo viene mantenuta per un massimo di due mesi o fino alle ultime 1.000 esecuzioni. | 
 | **Memorizzazione di processi completati e con errori** | I processi completati e con errori vengono conservati per 60 giorni. |
 ||| 

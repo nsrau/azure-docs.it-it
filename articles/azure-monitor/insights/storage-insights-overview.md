@@ -3,15 +3,15 @@ title: Monitorare i servizi di Archiviazione di Azure con Monitoraggio di Azure 
 description: Questo articolo descrive la funzionalità Monitoraggio di Azure per l'archiviazione, che consente agli amministratori dell'archiviazione di comprendere rapidamente i problemi di prestazioni e utilizzo degli account di archiviazione di Azure.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: e69e00eb9db43a76af1d6e541f44f750452cf858
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800062"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944492"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con Monitoraggio di Azure per l'archiviazione
 
@@ -228,6 +228,8 @@ In questo esempio si usa la cartella di lavoro sulla capacità dell'account di a
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
+Per indicazioni generali sulla risoluzione dei problemi, vedere l'articolo dedicato alla [risoluzione dei](troubleshoot-workbooks.md)problemi di Insights basato sulla cartella di lavoro.
+
 Questa sezione fornisce un supporto per la diagnosi e la risoluzione di alcuni dei problemi più comuni che possono verificarsi durante l'uso di Monitoraggio di Azure per l'archiviazione. Usare l'elenco che segue per individuare le informazioni pertinenti a un problema specifico.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Risoluzione dei problemi di prestazioni, capacità o disponibilità
@@ -237,24 +239,6 @@ Per risolvere i problemi relativi all'archiviazione identificati con Monitoraggi
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Perché è possibile vedere solo 200 account di archiviazione?
 
 Per il numero di account di archiviazione selezionati esiste un limite di 200, indipendentemente dal numero di sottoscrizioni selezionate.
-
-### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>Cosa accade quando si fa clic su un riquadro aggiunto di recente nel dashboard?
-
-* Se si fa clic in un punto qualsiasi del riquadro, verrà visualizzata la scheda da cui è stato aggiunto il riquadro. Se, ad esempio, si aggiunge un grafico nella scheda "Panoramica account di archiviazione", quando si fa clic su tale riquadro nel dashboard verrà aperta la visualizzazione predefinita. Se invece si aggiunge un grafico dalla propria copia salvata, verrà aperta la visualizzazione della copia salvata.
-* L'icona del filtro nella parte superiore sinistra del titolo apre la scheda "Configura le impostazioni del riquadro".
-* L'icona con i puntini di sospensione in alto a destra offre le opzioni per personalizzare i dati del titolo, personalizzare, aggiornare, e rimuovere dal dashboard.
-
-### <a name="what-happens-when-i-save-a-workbook"></a>Cosa accade quando si salva una cartella di lavoro?
-
-* Quando si salva una cartella di lavoro, è possibile crearne una nuova copia con le proprie modifiche e cambiare il titolo. Salvando, la cartella di lavoro non viene sovrascritta. La cartella di lavoro corrente sarà sempre la visualizzazione predefinita.
-* Una cartella di lavoro **non salvata** è semplicemente la visualizzazione predefinita.
-
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Perché non è possibile visualizzare tutte le sottoscrizioni nel portale?
-
-All'avvio il portale mostrerà i dati solo per le sottoscrizioni selezionate. Per modificare le sottoscrizioni selezionate, andare in alto a destra e fare clic sul blocco appunti con l'icona di un filtro. Verrà visualizzata la scheda Directory e sottoscrizione.
-
-![Directory e sottoscrizione](./media/storage-insights-overview/fqa3.png)
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Come si fa a modificare la colorazione e la soglia per la disponibilità?
 
@@ -273,7 +257,7 @@ Attualmente vengono visualizzati fino a tre tipi diversi di errori, il resto vie
 
     ![Passare alle metriche e fare clic su Modifica e quindi su "Transactions, Sum" (Transazioni, Somma)](./media/storage-insights-overview/fqa7.png)
 
-1. Modificare quindi il numero di divisioni.
+3. Modificare quindi il numero di divisioni.
 
     ![Selezionare i parametri della metrica"](./media/storage-insights-overview/fqa7-2.png)
 
@@ -282,37 +266,6 @@ Se si vogliono visualizzare n tipi di errore diversi, specificare splitByLimit c
 ###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Si è salvata la cartella di lavoro in un account di archiviazione. Perché non si riesce più a trovarla?
 
 Ogni cartella di lavoro viene salvata nell'account di archiviazione in cui è stata salvata. Provare a trovare lo specifico account di archiviazione in cui l'utente ha salvato la cartella di lavoro. Altrimenti, non è possibile trovare una specifica cartella di lavoro senza conoscere la risorsa (account di archiviazione).
-
-### <a name="what-is-time-range"></a>Che cos'è l'intervallo di tempo?
-
-L'intervallo di tempo mostra i dati di un determinato periodo. Se, ad esempio, l'intervallo di tempo è di 24 ore, vengono visualizzati i dati delle ultime 24 ore.
-
-### <a name="what-is-time-granularity-time-grain"></a>Che cos'è la granularità temporale?
-
-La granularità temporale è la differenza di tempo tra due punti dati. Se, ad esempio, l'intervallo di tempo è impostato su 1 secondo, le metriche vengono raccolte ogni secondo.
-
-### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Qual è la granularità temporale dopo aver aggiunto una parte delle cartelle di lavoro a un dashboard?
-
-La granularità temporale predefinita è impostata su automatica, attualmente non può essere modificata.
-
-### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Come si modifica l'intervallo di tempo del passaggio della cartella di lavoro nel dashboard?
-
-Per impostazione predefinita, l'intervallo di tempo nel riquadro del dashboard è impostato su 24 ore. Per modificarlo, fare clic sui puntini di sospensione in alto a destra, selezionare **Personalizza dati riquadro**, selezionare "Eseguire l'override delle impostazioni di ora del dashboard a livello del riquadro" e quindi selezionare un intervallo di tempo usando il menu a discesa.  
-
-![Selezionare i puntini di sospensione nell'angolo destro del riquadro e scegliere Personalizza dati riquadro](./media/storage-insights-overview/fqa-data-settings.png)
-
-![In Configura le impostazioni del riquadro selezionare l'elenco a discesa dell'intervallo di tempo per modificarlo](./media/storage-insights-overview/fqa-timespan.png)
-
-### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Come si modifica il titolo della cartella di lavoro o di un passaggio della cartella di lavoro aggiunto a un dashboard?
-
-Il titolo della cartella di lavoro o del passaggio della cartella di lavoro aggiunto a un dashboard mantiene lo stesso nome che aveva nella cartella di lavoro. Per modificare il titolo è necessario salvare una copia della cartella di lavoro. Sarà quindi possibile assegnare un nome alla cartella di lavoro prima di fare clic su Salva.
-
-![Selezionare Salva nella parte superiore per salvare una copia della cartella di lavoro e modificarne il nome](./media/storage-insights-overview/fqa-change-workbook-name.png)
-
-Per modificare il nome di un passaggio nella cartella di lavoro salvata, selezionare Modifica sotto il passaggio e quindi selezionare l'ingranaggio in fondo alle impostazioni.
-
-![Selezionare Modifica nella parte inferiore di un passaggio della cartella di lavoro per aprire le impostazioni](./media/storage-insights-overview/fqa-edit.png)
-![Nelle impostazioni selezionare l'ingranaggio in fondo per poter modificare il nome del passaggio](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

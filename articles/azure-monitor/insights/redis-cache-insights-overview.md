@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847362"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945410"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Esplorare Monitoraggio di Azure per la cache di Azure per Redis (anteprima)
 
@@ -179,6 +179,10 @@ Le cartelle di lavoro vengono salvate in un gruppo di risorse nella sezione **Re
 Dopo aver salvato la cartella di lavoro personalizzata, passare alla raccolta di cartelle di lavoro per aprirla.
 
 ![Barra dei comandi con l'opzione Raccolta evidenziata](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Per informazioni aggiuntive sulla risoluzione dei problemi, vedere l'articolo dedicato alla [risoluzione dei problemi](troubleshoot-workbooks.md)di Insights basato sulla cartella di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

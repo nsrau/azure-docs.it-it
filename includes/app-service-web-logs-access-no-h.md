@@ -8,23 +8,25 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: e6c4b07d01a4992e22107cb7d524646f439c37c6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67180623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905868"
 ---
-È possibile accedere ai log della console generati dall'interno del contenitore. Attivare prima la registrazione del contenitore eseguendo il comando seguente in Cloud Shell:
+Per accedere ai log della console generati dall'interno del codice dell'applicazione nel servizio app, attivare la registrazione diagnostica eseguendo il comando seguente nel [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --docker-container-logging filesystem
+az webapp log config --resource-group <resource-group-name> --name <app-name> --application-logging true --level Verbose
 ```
 
-Dopo che la registrazione del contenitore è attivata, eseguire il comando seguente per visualizzare il flusso di registrazione:
+I valori possibili per `--level` sono: `Error` ,, `Warning` `Info` e `Verbose` . Ogni livello successivo include il livello precedente. Ad esempio: `Error` include solo i messaggi di errore e `Verbose` include tutti i messaggi.
+
+Dopo aver attivato la registrazione diagnostica, eseguire il comando seguente per visualizzare il flusso di log:
 
 ```azurecli-interactive
-az webapp log tail --name <app-name> --resource-group myResourceGroup
+az webapp log tail --resource-group <resource-group-name> --name <app-name>
 ```
 
 Se i log di console non sono immediatamente visibili, controllare nuovamente dopo 30 secondi.

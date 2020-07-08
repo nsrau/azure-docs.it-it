@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/17/2020
-ms.openlocfilehash: d154029e20ed952ca371685b00d5520f9d7850c8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.date: 06/15/2020
+ms.openlocfilehash: 146deba7a0ef1e0dc5ffe03f9ad414e752058274
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873833"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945376"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da Monitoraggio di Azure?
 Questo articolo descrive le applicazioni e i servizi monitorati da Monitoraggio di Azure. 
@@ -31,7 +31,7 @@ Le informazioni dettagliate forniscono un'esperienza di monitoraggio personalizz
 | [Monitoraggio di Azure per le reti (anteprima)](insights/network-insights-overview.md) | Offre una panoramica completa dell'integrità e delle metriche di tutte le risorse di rete. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse, in modo da poter, ad esempio, identificare le risorse che ospitano il sito Web semplicemente cercando il nome del sito Web. |
 [Monitoraggio di Azure per gruppi di risorse (anteprima)](insights/resource-group-insights.md) |  Consente di analizzare e diagnosticare i problemi riscontrati dalle singole risorse, offrendo al contempo un contesto dell'integrità e delle prestazioni del gruppo di risorse nel suo complesso. |
 | [Monitoraggio di Azure per l'archiviazione](insights/storage-insights-overview.md) | Offre un monitoraggio completo degli account di Archiviazione di Azure offrendo una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di Archiviazione di Azure. |
-| [Monitoraggio di Azure per le macchine virtuali](insights/container-insights-overview.md) | Consente di monitorare le macchine virtuali di Azure e i set di scalabilità di macchine virtuali su larga scala. Analizza le prestazioni e l'integrità delle macchine virtuali Windows e Linux, monitorando i processi e le dipendenze da altre risorse e processi esterni. |
+| [Monitoraggio di Azure per le macchine virtuali](insights/vminsights-overview.md) | Consente di monitorare le macchine virtuali di Azure e i set di scalabilità di macchine virtuali su larga scala. Analizza le prestazioni e l'integrità delle macchine virtuali Windows e Linux, monitorando i processi e le dipendenze da altre risorse e processi esterni. |
 | [Monitoraggio di Azure per Key Vault (anteprima)](insights/key-vaults-insights-overview.md) | Offre il monitoraggio completo degli insiemi di credenziali delle chiavi mettendo a disposizione una vista unificata delle richieste, delle prestazioni, degli errori e della latenza di Key Vault. |
 | [Monitoraggio di Azure per la cache di Azure per Redis (anteprima)](insights/redis-cache-insights-overview.md) |  Offre una vista unificata e interattiva delle prestazioni complessive, degli errori, della capacità e dell'integrità operativa. |
 
@@ -137,8 +137,7 @@ La tabella seguente elenca i servizi di Azure e i dati che raccolgono in Monitor
 |Hub di notifica | Sì | No | No |  |
 |Set di dati Open | No | No | No |  |
 |Policy | No | No | No |  |
-|Power BI | Sì | Sì | No |  |
-|Power BI Embedded | No | No | No |  |
+|Power BI Embedded | Sì | Sì | No |  |
 |Collegamento privato | No | No | No |  |
 |Piattaforma di comunicazione spooling del progetto | No | No | No |  |
 |Red Hat OpenShift | No | No | No |  |
@@ -201,7 +200,7 @@ Sono disponibili anche altre soluzioni per il monitoraggio di applicazioni e ser
 |:---|:---|
 | [Controllo integrità Active Directory](insights/ad-assessment.md) | Consente di valutare il livello di rischio e l'integrità di ambienti Active Directory. |
 | [Stato replica di Active Directory](insights/ad-replication-status.md) | Controlla periodicamente l'ambiente Active Directory per rilevare eventuali errori di replica. |
-| [Analisi log attività](platform/activity-log-view.md#azure-portal) | Visualizzare le voci del log attività. |
+| [Analisi log attività](platform/activity-log.md#activity-log-analytics-monitoring-solution) | Visualizzare le voci del log attività. |
 | [Analisi DNS (anteprima)](insights/dns-analytics.md) | Raccoglie, analizza e mette in relazione i log di controllo e analisi DNS di Windows e altri dati correlati dei server DNS. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Consente di raccogliere, visualizzare e analizzare le metriche relative a prestazioni e integrità del sistema Cloud Foundry tra più distribuzioni. |
 | [Contenitori](insights/containers.md) | Consente di visualizzare e gestire gli host dei contenitori Docker e Windows. |

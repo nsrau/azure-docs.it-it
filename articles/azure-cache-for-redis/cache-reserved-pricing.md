@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: aded023c9f4c045f612e33d32c1e3ac71afddf02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77530302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974841"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per la cache di Azure per le risorse di calcolo Redis con capacità riservata
 
@@ -30,15 +30,15 @@ Per informazioni dettagliate sul modo in cui i clienti aziendali e i clienti con
 
 ## <a name="determine-the-right-cache-size-before-purchase"></a>Determinare le dimensioni corrette della cache prima dell'acquisto
 
-Le dimensioni della prenotazione devono essere basate sulla quantità totale di risorse di calcolo usate dalla cache esistente o presto distribuita in un'area specifica e usando lo stesso livello di servizio.
+Le dimensioni della prenotazione devono essere basate sulla quantità totale di memoria utilizzata dalla cache esistente o presto distribuita in un'area specifica e utilizzando lo stesso livello di servizio.
 
-Si supponga, ad esempio, di eseguire una cache vCore per utilizzo generico, quinta generazione – 32 e due cache con ottimizzazione per la memoria, quinta generazione-16 vCore. Si supponga, inoltre, di pianificare la distribuzione entro il prossimo mese con un server di database vCore, quinta generazione – 32 e un server di database con ottimizzazione per la memoria, quinta generazione – 16 vCore. Supponiamo che tu sappia che ti serviranno queste risorse per almeno un anno. In questo caso, è necessario acquistare una prenotazione di 64 (2x32) Vcore, 1 anno per utilizzo generico per database singolo-quinta generazione e una prenotazione 48 (2x16 + 16) vCore 1 anno per l'ottimizzazione della memoria per database singolo-quinta generazione
+Si supponga, ad esempio, di eseguire due cache, una a 13 GB e l'altra a 26 GB. Sono necessari entrambi per almeno un anno. Si supponga inoltre di voler pianificare la scalabilità delle cache da 13 GB esistenti a 26 GB per un mese per soddisfare la richiesta stagionale, quindi eseguire il ridimensionamento. In questo caso, è possibile acquistare una cache P1 e una cache P2 o 3 P1 in una prenotazione di un anno per ottimizzare il risparmio. Si riceverà uno sconto sulla quantità totale di memoria cache riservata, indipendentemente dal modo in cui tale quantità viene allocata tra le cache.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Acquistare la cache di Azure per la capacità riservata di redis
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Selezionare **tutte le prenotazioni dei servizi** > **Reservations**.
+2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3. Selezionare **Aggiungi** e quindi nel riquadro prenotazioni acquisti selezionare cache di **Azure per Redis** per acquistare una nuova prenotazione per le cache.
 4. Compilare i campi obbligatori. I database nuovi o esistenti che corrispondono agli attributi selezionati sono idonei per ottenere lo sconto per la capacità riservata. Il numero effettivo della cache di Azure per le istanze di redis che ottengono lo sconto dipendono dall'ambito e dalla quantità selezionati.
 
@@ -59,7 +59,7 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 
-È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="cache-size-flexibility"></a>Flessibilità della dimensione della cache
 
@@ -77,7 +77,7 @@ Lo sconto relativo alla prenotazione viene applicato automaticamente alla cache 
 
 * Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-    * [Che cosa sono le prenotazioni di Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+    * [Informazioni sulle prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
     * [Gestire le prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
     * [Comprendere lo sconto sulle prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
     * [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)

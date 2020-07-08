@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: functions
 author: nzthiago
 ms.service: azure-functions
@@ -9,15 +9,15 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: eca2d3359614875e5bff0c9bb67f006f0a8cdba1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77198327"
 ---
 ## <a name="function-app-timeout-duration"></a><a name="timeout"></a>Durata timeout app per le funzioni 
 
-La durata del timeout di un'app per le funzioni è `functionTimeout` definita dalla proprietà nel file di progetto [host. JSON](../articles/azure-functions/functions-host-json.md#functiontimeout) . La tabella seguente mostra i valori predefiniti e massimi in minuti per entrambi i piani e per le diverse versioni di runtime:
+La durata del timeout di un'app per le funzioni è definita dalla `functionTimeout` proprietà nel file di progetto [host.js](../articles/azure-functions/functions-host-json.md#functiontimeout) . La tabella seguente mostra i valori predefiniti e massimi in minuti per entrambi i piani e per le diverse versioni di runtime:
 
 | Piano | Versione runtime | Predefinito | Massimo |
 |------|---------|---------|---------|

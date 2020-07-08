@@ -5,16 +5,16 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: 514cc25e1959145c65fe60cd3054cec4ed28f44d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa2b82e70b1a1372076483c7405c32b66da377af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617418"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974433"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes
 
-Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è necessario definire un meccanismo di autenticazione. Questo articolo fornisce esempi per la configurazione dell'autenticazione tra questi due servizi di Azure. 
+Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è necessario definire un meccanismo di autenticazione. Questa operazione viene implementata come parte dell'interfaccia della riga di comando e del portale concedendo le autorizzazioni necessarie al record di verifica. Questo articolo fornisce esempi per la configurazione dell'autenticazione tra questi due servizi di Azure. 
 
 Con l'interfaccia della riga di comando di Azure è possibile configurare l'integrazione da AKS a ACR con pochi semplici comandi. Questa integrazione consente di assegnare il ruolo AcrPull all'entità servizio associata al cluster AKS.
 
@@ -23,7 +23,7 @@ Con l'interfaccia della riga di comando di Azure è possibile configurare l'inte
 Gli esempi presentano i requisiti seguenti:
 
 * **Proprietario** o ruolo di **amministratore dell'account di Azure** nella sottoscrizione di **Azure**
-* Versione 2.0.73 o successiva dell'interfaccia della riga di comando di Azure
+* Versione 2.7.0 o successiva dell'interfaccia della riga di comando di Azure
 
 Per evitare di dover usare un **proprietario** o un ruolo di **amministratore dell'account di Azure** , è possibile configurare manualmente un'entità servizio o usare un'entità servizio esistente per autenticare ACR da AKS. Per altre informazioni, vedere [Autenticazione al Registro Azure Container con entità servizio](../container-registry/container-registry-auth-service-principal.md) o [Eseguire l'autenticazione da Kubernetes con un segreto per il pull](../container-registry/container-registry-auth-kubernetes.md).
 
@@ -33,7 +33,7 @@ Per evitare di dover usare un **proprietario** o un ruolo di **amministratore de
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
-$MYACR=myContainerRegistry
+MYACR=myContainerRegistry
 
 # Run the following line to create an Azure Container Registry if you do not already have one
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
@@ -142,6 +142,10 @@ NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
+
+### <a name="troubleshooting"></a>Risoluzione dei problemi
+* Altre informazioni sulla [diagnostica ACR](../container-registry/container-registry-diagnostics-audit-logs.md)
+* Altre informazioni su [ACR Health](../container-registry/container-registry-check-health.md)
 
 <!-- LINKS - external -->
 [AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create

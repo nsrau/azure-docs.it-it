@@ -1,78 +1,78 @@
 ---
-title: Configurare app node. js
-description: Informazioni su come configurare un contenitore node. js predefinito per l'app. Questo articolo illustra le attività di configurazione più comuni.
+title: Configurare app Node.js
+description: Informazioni su come configurare un contenitore Node.js predefinito per l'app. Questo articolo illustra le attività di configurazione più comuni.
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: fdc5129fc395f99cb4c244414ea952b2776dc4dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 699c77e937fc13cadf742d193ab1b0b8f00a2726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905715"
 ---
-# <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurare un'app node. js Linux per il servizio app Azure
+# <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurare un'app Linux Node.js per app Azure servizio
 
-Le app node. js devono essere distribuite con tutte le dipendenze NPM richieste. Il motore di distribuzione del servizio app (kudu) `npm install --production` viene eseguito automaticamente quando si distribuisce un [repository git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)o un [pacchetto zip](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) con processi di compilazione attivati. Se si distribuiscono i file tramite [FTP/S](../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), tuttavia, è necessario caricare manualmente i pacchetti necessari.
+Node.js le app devono essere distribuite con tutte le dipendenze NPM richieste. Il motore di distribuzione del servizio app (kudu) viene eseguito automaticamente `npm install --production` quando si distribuisce un [repository git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)o un [pacchetto zip](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) con processi di compilazione attivati. Se si distribuiscono i file tramite [FTP/S](../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), tuttavia, è necessario caricare manualmente i pacchetti necessari.
 
-Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori node. js che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima la [Guida introduttiva a node. js](quickstart-nodejs.md) e [node. js con MongoDB](tutorial-nodejs-mongodb-app.md) .
+Questa guida fornisce i concetti chiave e le istruzioni per Node.js gli sviluppatori che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima l'esercitazione [Node.js avvio rapido](quickstart-nodejs.md) e [Node.js con MongoDB](tutorial-nodejs-mongodb-app.md) .
 
-## <a name="show-nodejs-version"></a>Mostra versione di node. js
+## <a name="show-nodejs-version"></a>Mostra versione Node.js
 
-Per visualizzare la versione corrente di node. js, eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
+Per visualizzare la versione corrente di Node.js, eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-Per visualizzare tutte le versioni supportate di node. js, eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
+Per visualizzare tutte le versioni di Node.js supportate, eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep NODE
 ```
 
-## <a name="set-nodejs-version"></a>Impostare la versione di node. js
+## <a name="set-nodejs-version"></a>Imposta versione Node.js
 
-Per impostare l'app su una [versione supportata di node. js](#show-nodejs-version), eseguire il comando seguente nella [cloud Shell](https://shell.azure.com):
+Per impostare l'app su una [versione di Node.js supportata](#show-nodejs-version), eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|10.14"
 ```
 
-Questa impostazione specifica la versione di node. js da usare, sia in fase di esecuzione che durante il ripristino automatico dei pacchetti in Kudu.
+Questa impostazione specifica la versione Node.js da usare, sia in fase di esecuzione che durante il ripristino automatico dei pacchetti in Kudu.
 
 > [!NOTE]
-> È necessario impostare la versione di node. js nel progetto `package.json`. Il motore di distribuzione viene eseguito in un contenitore separato che contiene tutte le versioni di node. js supportate.
+> È necessario impostare la versione del Node.js nel progetto `package.json` . Il motore di distribuzione viene eseguito in un contenitore separato che contiene tutte le versioni di Node.js supportate.
 
 ## <a name="customize-build-automation"></a>Personalizzare l'automazione della compilazione
 
-Se si distribuisce l'app usando i pacchetti git o zip con l'automazione della compilazione attivata, l'automazione della compilazione del servizio app esegue la sequenza seguente:
+Se si distribuisce l'app usando pacchetti GIT o ZIP con l'automazione della compilazione attivata, l'automazione della compilazione del servizio app esegue la sequenza seguente:
 
-1. Eseguire uno script personalizzato se specificato `PRE_BUILD_SCRIPT_PATH`da.
-1. Eseguire `npm install` senza flag, che include NPM `preinstall` e `postinstall` script e installa `devDependencies`anche.
-1. Eseguire `npm run build` se nel file *Package. JSON*viene specificato uno script di compilazione.
-1. Eseguire `npm run build:azure` se una compilazione: script di Azure è specificato nel file *Package. JSON*.
-1. Eseguire uno script personalizzato se specificato `POST_BUILD_SCRIPT_PATH`da.
+1. Esegue lo script personalizzato se specificato da `PRE_BUILD_SCRIPT_PATH`.
+1. Eseguire `npm install` senza flag, che include NPM `preinstall` e `postinstall` script e installa anche `devDependencies` .
+1. Eseguire `npm run build` se nel *package.js*viene specificato uno script di compilazione.
+1. Eseguire `npm run build:azure` se una compilazione: lo script di Azure è specificato nella *package.js*.
+1. Esegue lo script personalizzato se specificato da `POST_BUILD_SCRIPT_PATH`.
 
 > [!NOTE]
-> Come descritto in [NPM docs](https://docs.npmjs.com/misc/scripts), gli script `prebuild` denominati e `postbuild` vengono `build`eseguiti rispettivamente prima e dopo, se specificati. `preinstall`ed `postinstall` eseguono rispettivamente prima e `install`dopo.
+> Come descritto in [NPM docs](https://docs.npmjs.com/misc/scripts), gli script denominati `prebuild` e `postbuild` vengono eseguiti rispettivamente prima e dopo `build` , se specificati. `preinstall`ed `postinstall` eseguono rispettivamente prima e dopo `install` .
 
-`PRE_BUILD_COMMAND`e `POST_BUILD_COMMAND` sono variabili di ambiente vuote per impostazione predefinita. Per eseguire i comandi di pre-compilazione `PRE_BUILD_COMMAND`, definire. Per eseguire i comandi di post-compilazione `POST_BUILD_COMMAND`, definire.
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` sono variabili di ambiente vuote per impostazione predefinita. Per eseguire comandi pre-compilazione, definire `PRE_BUILD_COMMAND`. Per eseguire comandi post-compilazione, definire `POST_BUILD_COMMAND`.
 
-Nell'esempio seguente vengono specificate le due variabili a una serie di comandi, separate da virgole.
+Nell'esempio seguente vengono specificate le due variabili, separate da virgole, per una serie di comandi.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-Per altre variabili di ambiente per personalizzare l'automazione della compilazione, vedere [configurazione di Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+Per altre variabili di ambiente per personalizzare l'automazione della compilazione, vedere [Configurazione Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
-Per altre informazioni sull'esecuzione del servizio app e sulla compilazione di app node. js in Linux, vedere [la documentazione di Oryx: come vengono rilevate e compilate le app node. js](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md).
+Per altre informazioni sull'esecuzione del servizio app e sulla compilazione di app Node.js in Linux, vedere [la documentazione di Oryx: come vengono rilevate e compilate le app Node.js](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md).
 
-## <a name="configure-nodejs-server"></a>Configurare il server node. js
+## <a name="configure-nodejs-server"></a>Configurare Node.js server
 
-I contenitori node. js sono dotati di [PM2](https://pm2.keymetrics.io/), un gestore di processi di produzione. È possibile configurare l'app per iniziare a usare PM2 o con NPM oppure con un comando personalizzato.
+I contenitori di Node.js sono dotati di [PM2](https://pm2.keymetrics.io/), un gestore di processi di produzione. È possibile configurare l'app per iniziare a usare PM2 o con NPM oppure con un comando personalizzato.
 
 - [Esegui comando personalizzato](#run-custom-command)
 - [Esegui NPM Start](#run-npm-start)
@@ -80,7 +80,7 @@ I contenitori node. js sono dotati di [PM2](https://pm2.keymetrics.io/), un gest
 
 ### <a name="run-custom-command"></a>Esegui comando personalizzato
 
-Il servizio app può avviare l'app usando un comando personalizzato, ad esempio un eseguibile come *Run.sh*. Per eseguire `npm run start:prod`ad esempio, eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
+Il servizio app può avviare l'app usando un comando personalizzato, ad esempio un eseguibile come *Run.sh*. Per eseguire ad esempio `npm run start:prod` , eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
@@ -88,7 +88,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Esegui NPM Start
 
-Per avviare l'app usando `npm start`, è sufficiente assicurarsi che `start` uno script si trovi nel file *Package. JSON* . Ad esempio:
+Per avviare l'app usando `npm start` , è sufficiente assicurarsi che uno `start` script si trovi nel *package.js* file. Ad esempio:
 
 ```json
 {
@@ -101,7 +101,7 @@ Per avviare l'app usando `npm start`, è sufficiente assicurarsi che `start` uno
 }
 ```
 
-Per usare un file *Package. JSON* personalizzato nel progetto, eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
+Per usare un *package.js* personalizzato nel progetto, eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
@@ -109,19 +109,19 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-with-pm2"></a>Eseguire con PM2
 
-Il contenitore avvia automaticamente l'app con PM2 quando si trova uno dei file node. js comuni nel progetto:
+Il contenitore avvia automaticamente l'app con PM2 quando si trova uno dei file di Node.js comuni nel progetto:
 
 - *bin/www*
 - *server.js*
 - *app.js*
 - *index.js*
-- *hostingstart. js*
-- Uno dei [file PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file)seguenti: *Process. JSON* e *Ecosystem. config. js*
+- *hostingstart.js*
+- Uno dei [file PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file)seguenti: *process.jsin* e *ecosystem.config.js*
 
 È anche possibile configurare un file di avvio personalizzato con le estensioni seguenti:
 
 - Un file con *estensione js*
-- Un [file PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) con estensione *JSON*, *config. js*, *YAML*o *yml*
+- Un [file PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) con estensione *JSON*, *.config.js*, *YAML*o *yml*
 
 Per aggiungere un file di avvio personalizzato, eseguire il comando seguente nel [cloud Shell](https://shell.azure.com):
 
@@ -134,9 +134,9 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > [!NOTE]
 > Il debug remoto è attualmente in fase di anteprima.
 
-È possibile eseguire il debug dell'app node. js in modalità remota in [Visual Studio Code](https://code.visualstudio.com/) se viene configurata per l' [esecuzione con PM2](#run-with-pm2), tranne quando viene eseguita con *. config. js, *. yml o *. YAML*.
+È possibile eseguire il debug dell'app Node.js in modalità remota [Visual Studio Code](https://code.visualstudio.com/) se viene configurata per l' [esecuzione con PM2](#run-with-pm2), tranne quando viene eseguita con * .config.js, *. yml o *. YAML*.
 
-Nella maggior parte dei casi, non è necessaria alcuna configurazione aggiuntiva per l'app. Se l'app viene eseguita con un file *Process. JSON* (predefinito o personalizzato), deve avere una `script` proprietà nella radice JSON. Ad esempio:
+Nella maggior parte dei casi, non è necessaria alcuna configurazione aggiuntiva per l'app. Se l'app viene eseguita con un *process.jssu* file (impostazione predefinita o personalizzata), deve avere una `script` proprietà nella radice JSON. Ad esempio:
 
 ```json
 {
@@ -154,7 +154,7 @@ Al termine del debug, arrestare il debugger selezionando **Disconnetti**. Quando
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
-Nel servizio app è possibile [configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) al di fuori del codice dell'app. Sarà quindi possibile accedervi usando il modello node. js standard. Ad esempio, per accedere a un'impostazione dell'app denominata `NODE_ENV`, usare il codice seguente:
+Nel servizio app è possibile [configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) al di fuori del codice dell'app. Quindi, è possibile accedervi usando il modello di Node.js standard. Ad esempio, per accedere a un'impostazione dell'app denominata `NODE_ENV`, usare il codice seguente:
 
 ```javascript
 process.env.NODE_ENV
@@ -162,9 +162,9 @@ process.env.NODE_ENV
 
 ## <a name="run-gruntbowergulp"></a>Esegui grugnito/Bower/Gulp
 
-Per impostazione predefinita, Kudu `npm install --production` viene eseguito quando viene riconosciuta un'app node. js distribuita. Se l'app richiede uno degli strumenti di automazione più diffusi, ad esempio grugnito, Bower o Gulp, è necessario fornire uno [script di distribuzione personalizzato](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) per eseguirlo.
+Per impostazione predefinita, Kudu viene eseguito `npm install --production` quando riconosce una Node.js app viene distribuita. Se l'app richiede uno degli strumenti di automazione più diffusi, ad esempio grugnito, Bower o Gulp, è necessario fornire uno [script di distribuzione personalizzato](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) per eseguirlo.
 
-Per abilitare il repository per l'esecuzione di questi strumenti, è necessario aggiungerli alle dipendenze in *Package. JSON.* Ad esempio:
+Per abilitare il repository per l'esecuzione di questi strumenti, è necessario aggiungerli alle dipendenze in *package.js.* Ad esempio:
 
 ```json
 "dependencies": {
@@ -192,17 +192,17 @@ Aprire *deploy.sh* e trovare la `Deployment` sezione, che ha un aspetto simile a
 # ----------
 ```
 
-Questa sezione termina con l' `npm install --production`esecuzione di. Aggiungere la sezione di codice è necessario eseguire lo strumento necessario *alla fine* della `Deployment` sezione:
+Questa sezione termina con l'esecuzione di `npm install --production` . Aggiungere la sezione di codice è necessario eseguire lo strumento necessario *alla fine* della `Deployment` sezione:
 
 - [Bower](#bower)
 - [Gulp](#gulp)
 - [Grunt](#grunt)
 
-Vedere un [esempio nell'esempio mean. js, in](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135)cui lo script di distribuzione esegue anche un `npm install` comando personalizzato.
+Vedere un [esempio nell'esempio MEAN.js, in](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135)cui lo script di distribuzione esegue anche un `npm install` comando personalizzato.
 
 ### <a name="bower"></a>Bower
 
-Questo frammento `bower install`di codice viene eseguito.
+Questo frammento di codice viene eseguito `bower install` .
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
@@ -215,7 +215,7 @@ fi
 
 ### <a name="gulp"></a>Gulp
 
-Questo frammento `gulp imagemin`di codice viene eseguito.
+Questo frammento di codice viene eseguito `gulp imagemin` .
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
@@ -228,7 +228,7 @@ fi
 
 ### <a name="grunt"></a>Grunt
 
-Questo frammento `grunt`di codice viene eseguito.
+Questo frammento di codice viene eseguito `grunt` .
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
@@ -255,7 +255,7 @@ if (req.secure) {
 
 ## <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>Aprire una sessione SSH nel browser
 
@@ -263,14 +263,14 @@ if (req.secure) {
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Quando un'app node. js funzionante si comporta in modo diverso nel servizio app o presenta errori, provare a eseguire le operazioni seguenti:
+Quando un'app Node.js funzionante si comporta in modo diverso nel servizio app o presenta errori, provare a eseguire le operazioni seguenti:
 
 - [Accedere al flusso di log](#access-diagnostic-logs).
-- Testare l'app localmente in modalità di produzione. Il servizio app esegue le app node. js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione localmente. Ad esempio:
-    - A seconda del file *Package. JSON*, è possibile installare pacchetti diversi per la modalità di`dependencies` produzione ( `devDependencies`rispetto a).
+- Testare l'app in locale nella modalità di produzione. Il servizio app esegue le app Node.js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione in locale. Ad esempio:
+    - A seconda del *package.jsin*, è possibile installare pacchetti diversi per la modalità di produzione ( `dependencies` rispetto a `devDependencies` ).
     - Alcuni framework Web possono distribuire i file statici in modo diverso in modalità di produzione.
     - Alcuni framework Web possono usare script di avvio personalizzati durante l'esecuzione in modalità di produzione.
-- Eseguire l'app nel servizio app in modalità di sviluppo. In [mean. js](https://meanjs.org/), ad esempio, è possibile impostare l'app sulla modalità di sviluppo in fase di esecuzione impostando [ `NODE_ENV` l'impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
+- Eseguire l'app nel servizio app in modalità di sviluppo. Ad esempio, in [MEAN.js](https://meanjs.org/), è possibile impostare l'app sulla modalità di sviluppo in fase di esecuzione impostando [l' `NODE_ENV` impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 

@@ -2,13 +2,13 @@
 title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.date: 05/08/2020
+ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653327"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945444"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creare risorse a livello di tenant
 
@@ -72,7 +72,7 @@ Per l'interfaccia della riga di comando di Azure usare [az deployment tenant cre
 az deployment tenant create \
   --name demoTenantDeployment \
   --location WestUS \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 Per Azure PowerShell usare [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
@@ -81,7 +81,7 @@ Per Azure PowerShell usare [New-AzTenantDeployment](/powershell/module/az.resour
 New-AzTenantDeployment `
   -Name demoTenantDeployment `
   -Location "West US" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 Per l'API REST, usare [Distribuzioni - Creare o aggiornare nell'ambito del tenant](/rest/api/resources/deployments/createorupdateattenantscope).
@@ -117,7 +117,7 @@ Per le distribuzioni a livello di tenant, esistono alcune considerazioni importa
 
 ## <a name="create-management-group"></a>Creare un gruppo di gestione
 
-Il [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) crea un gruppo di gestione.
+Il [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) crea un gruppo di gestione.
 
 ```json
 {
@@ -143,7 +143,7 @@ Il [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/m
 
 ## <a name="assign-role"></a>Assegnare un ruolo
 
-Il [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) assegna un ruolo nell'ambito del tenant.
+Il [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) assegna un ruolo nell'ambito del tenant.
 
 ```json
 {

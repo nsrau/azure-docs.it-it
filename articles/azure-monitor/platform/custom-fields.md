@@ -6,17 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655362"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906803"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creare campi personalizzati in un'area di lavoro Log Analytics in monitoraggio di Azure (anteprima)
 
 > [!NOTE]
 > Questo articolo descrive come analizzare i dati di testo in un'area di lavoro di Log Analytics mentre vengono raccolti. Si consiglia di analizzare i dati di testo in un filtro di query dopo che sono stati raccolti seguendo le linee guida descritte in [analizzare i dati di testo in monitoraggio di Azure](../log-query/parse-text.md). Offre diversi vantaggi rispetto all'utilizzo di campi personalizzati.
+
+> [!IMPORTANT]
+> I campi personalizzati aumentano la quantità di dati raccolti nell'area di lavoro Log Analytics, che può aumentare i costi. Per informazioni dettagliate, vedere [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](manage-cost-storage.md#pricing-model).
 
 La funzionalità **campi personalizzati** di monitoraggio di Azure consente di estendere i record esistenti nell'area di lavoro log Analytics aggiungendo i propri campi ricercabili.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
 
@@ -50,7 +53,7 @@ Il primo passaggio consiste nell'identificare i record che conterranno il campo 
 ### <a name="step-2---perform-initial-extract"></a>Passaggio 2: Eseguire l'estrazione iniziale
 Dopo aver identificato i record che conterranno il campo personalizzato, occorre identificare i dati da estrarre.  Log Analytics usa queste informazioni per identificare schemi analoghi in record simili.  Nel passaggio successivo sarà possibile convalidare i risultati e fornire altri dettagli che Log Analytics potrà usare nell'analisi.
 
-1. Nel record di esempio evidenziare il testo con cui popolare il campo personalizzato.  Verrà quindi visualizzata una finestra di dialogo per fornire un nome e un tipo di dati per il campo ed eseguire l'estrazione iniziale.  I caratteri ** \_CF** verranno aggiunti automaticamente.
+1. Nel record di esempio evidenziare il testo con cui popolare il campo personalizzato.  Verrà quindi visualizzata una finestra di dialogo per fornire un nome e un tipo di dati per il campo ed eseguire l'estrazione iniziale.  I caratteri ** \_ CF** verranno aggiunti automaticamente.
 2. Fare clic su **Extract** per eseguire un'analisi dei record raccolti.  
 3. Le sezioni **Riepilogo** e **Risultati della ricerca** visualizzano i risultati dell'estrazione e consentono di verificarne l'accuratezza.  **Summary** visualizza i criteri usati per identificare i record e un conteggio per ciascuno dei valori di dati identificati.  **Search Results** contiene un elenco dettagliato dei record corrispondenti ai criteri.
 

@@ -5,15 +5,15 @@ services: databox
 author: priestlg
 ms.service: databox
 ms.subservice: disk
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 74828bfd3a110739afc211a530c11c74387b70ed
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 81fc8de7e5a70ebb95e06a8e362cda41f8bfe1aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945019"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Usare la spedizione autogestita per Azure Data Box Disk nel portale di Azure
 
@@ -28,6 +28,7 @@ La spedizione autogestita è disponibile come opzione quando si [ordina Azure Da
 * Giappone
 * Singapore
 * Corea del Sud
+* India (anteprima)
 
 ## <a name="use-self-managed-shipping"></a>Usare la spedizione autogestita
 
@@ -43,7 +44,7 @@ Quando si effettua l'ordine di Data Box Disk, è possibile scegliere l'opzione d
 
    ![Spedizione autogestita](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Dopo aver preparato il dispositivo, è possibile pianificare il ritiro. Nell'ordine di Azure Data Box Disk passare a **Panoramica**, quindi selezionare **Pianifica ritiro**.
+4. Una volta che il dispositivo è stato preparato ed è stata ricevuta una notifica di posta elettronica, è possibile pianificare un pickup. Nell'ordine di Azure Data Box Disk passare a **Panoramica**, quindi selezionare **Pianifica ritiro**.
 
    ![Ordine di un dispositivo Data Box per il ritiro](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-01b.png)
 
@@ -57,11 +58,11 @@ Quando si effettua l'ordine di Data Box Disk, è possibile scegliere l'opzione d
 
    Prendere nota del **codice di autorizzazione**.
 
-   In base ai requisiti di sicurezza, al momento della pianificazione del ritiro e della consegna, è necessario indicare il nome della persona che si presenterà per il ritiro e la consegna.
+   In base ai requisiti di sicurezza, al momento della pianificazione del prelievo, è necessario presentare il nome della persona che arriverà per la selezione.
 
    È anche necessario specificare i dettagli relativi a chi accederà al data center per il ritiro. L'utente o il punto di contatto deve esibire un documento d'identità valido che verrà convalidato presso il data center.
 
-   La persona che ritira il dispositivo deve avere anche il **codice di autorizzazione**. Il codice di autorizzazione viene convalidato al momento del ritiro nel data center.
+   La persona che ritira il dispositivo deve avere anche il **codice di autorizzazione**. Il codice di autorizzazione è univoco per un prelievo o un rilascio e viene convalidato nel Data Center.
 
 7. L'ordine assume automaticamente lo stato **Ritirato** dopo che il dispositivo è stato ritirato dal data center.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 05000f4c670860be249d80b0e695a8a8760510be
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: HT
+ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945495"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Esplorare Monitoraggio di Azure per Azure Cosmos DB
 
@@ -119,6 +119,10 @@ Poiché questa esperienza è basata sui modelli delle cartelle di lavoro di Moni
 Le cartelle di lavoro vengono salvate all'interno di un gruppo di risorse, ovvero nella sezione **Report personali** privata o nella sezione **Report condivisi** accessibile a tutti gli utenti che hanno accesso al gruppo di risorse. Dopo aver salvato la cartella di lavoro personalizzata, per avviarla è necessario passare alla raccolta di cartelle di lavoro.
 
 ![Avviare la raccolta di cartelle di lavoro dalla barra dei comandi](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Per informazioni aggiuntive sulla risoluzione dei problemi, vedere l'articolo dedicato alla [risoluzione dei problemi](troubleshoot-workbooks.md)di Insights basato sulla cartella di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

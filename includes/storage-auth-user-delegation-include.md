@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: includere file
 services: storage
 author: tamram
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: a0a4a10797109cb3363027e2445259d06d9aa071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76118088"
 ---
 ## <a name="about-the-user-delegation-sas"></a>Informazioni sulla firma di accesso condiviso della delega utente
@@ -24,4 +24,4 @@ Microsoft consiglia di utilizzare le credenziali di Azure AD quando possibile co
 > [!CAUTION]
 > Qualsiasi client che dispone di una firma di accesso condiviso valida può accedere ai dati nell'account di archiviazione come consentito dalla firma di accesso condiviso. È importante proteggere una firma di accesso condiviso da un utilizzo dannoso o imprevisto. Usare la discrezione per la distribuzione di una firma di accesso condiviso e un piano per la revoca di una firma di accesso condiviso compromessa.
 
-Per altre informazioni sulle firme di accesso condiviso, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../articles/storage/common/storage-sas-overview.md).
+Per altre informazioni sulle firme di accesso condiviso, vedere [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso](../articles/storage/common/storage-sas-overview.md).

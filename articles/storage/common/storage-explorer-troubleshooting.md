@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974518"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
-Microsoft Azure Storage Explorer è un'app autonoma che semplifica l'uso dei dati di archiviazione di Azure in Windows, macOS e Linux. L'app può connettersi ad account di archiviazione ospitati in Azure, cloud nazionali e Azure Stack.
+Microsoft Azure Storage Explorer è un'app autonoma che facilita l'uso dei dati con Archiviazione di Azure in Windows, macOS e Linux. L'app può connettersi ad account di archiviazione ospitati in Azure, cloud nazionali e Azure Stack.
 
 Questa guida riepiloga le soluzioni per i problemi che si verificano comunemente in Storage Explorer.
 
@@ -48,7 +48,7 @@ Storage Explorer inoltre possibile utilizzare le chiavi dell'account per autenti
 
 Archiviazione di Azure offre due livelli di accesso: _gestione_ e _dati_. Le sottoscrizioni e gli account di archiviazione sono accessibili tramite il livello di gestione. È possibile accedere a contenitori, BLOB e altre risorse dati tramite il livello dati. Se ad esempio si vuole ottenere un elenco degli account di archiviazione da Azure, si invia una richiesta all'endpoint di gestione. Se si desidera un elenco di contenitori BLOB in un account, inviare una richiesta all'endpoint di servizio appropriato.
 
-I ruoli RBAC possono contenere autorizzazioni per la gestione o l'accesso a livello di dati. Il ruolo Reader, ad esempio, concede l'accesso in sola lettura alle risorse del livello di gestione.
+I ruoli RBAC possono concedere autorizzazioni per la gestione o l'accesso a livello di dati. Il ruolo Reader, ad esempio, concede l'accesso in sola lettura alle risorse del livello di gestione.
 
 In modo rigoroso, il ruolo Reader non fornisce autorizzazioni per i livelli di dati e non è necessario per l'accesso al livello dati.
 
@@ -58,7 +58,14 @@ Se non si dispone di un ruolo che concede autorizzazioni per i livelli di gestio
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Cosa accade se non è possibile ottenere le autorizzazioni del livello di gestione necessarie dall'amministratore?
 
-Attualmente non è disponibile una soluzione relativa al controllo degli accessi in base al ruolo per questo problema. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Se si vuole accedere a contenitori o code BLOB, è possibile connettersi a tali risorse usando le credenziali di Azure.
+
+1. Aprire la finestra di dialogo Connetti.
+2. Selezionare "Aggiungi una risorsa tramite Azure Active Directory (Azure AD). Scegliere Avanti.
+3. Selezionare l'account utente e il tenant associati alla risorsa a cui si sta eseguendo la connessione. Scegliere Avanti.
+4. Selezionare il tipo di risorsa, immettere l'URL della risorsa e immettere un nome visualizzato univoco per la connessione. Scegliere Avanti. Fare clic su Connetti.
+
+Per altri tipi di risorse, non è attualmente disponibile una soluzione relativa al controllo degli accessi in base al ruolo. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-built-in-rbac-roles"></a>Ruoli RBAC predefiniti predefiniti
 
@@ -75,13 +82,13 @@ Sono disponibili diversi ruoli RBAC predefiniti che possono fornire le autorizza
 
 Gli errori dei certificati si verificano in genere in una delle situazioni seguenti:
 
-- L'app è connessa tramite un _proxy trasparente_, ovvero un server, ad esempio il server aziendale, sta intercettando il traffico HTTPS, decrittografarlo e quindi crittografarlo usando un certificato autofirmato.
+- L'app è connessa tramite un _proxy trasparente_. Ciò significa che un server (ad esempio il server aziendale) intercetta il traffico HTTPS, lo decrittografa e quindi lo crittografa usando un certificato autofirmato.
 - Si sta eseguendo un'applicazione che inserisce un certificato TLS/SSL autofirmato nei messaggi HTTPS ricevuti. Esempi di applicazioni che inseriscono certificati includono il software antivirus e di ispezione del traffico di rete.
 
 Quando Storage Explorer visualizza un certificato autofirmato o non attendibile, non è più in grado di riconoscere se il messaggio HTTPS ricevuto è stato modificato. Se si dispone di una copia del certificato autofirmato, è possibile indicare Storage Explorer di considerarla attendibile attenendosi alla procedura seguente:
 
 1. Ottenere una copia X. 509 (. cer) codificata in base 64 del certificato.
-2. Passare a **modifica** > certificati**SSL** > **Importa certificati**, quindi usare il selettore file per trovare, selezionare e aprire il file con estensione cer.
+2. Passare a **modifica**certificati  >  **SSL**  >  **Importa certificati**, quindi usare il selettore file per trovare, selezionare e aprire il file con estensione cer.
 
 Questo problema può verificarsi anche se sono presenti più certificati (radice e intermedio). Per correggere l'errore, è necessario aggiungere entrambi i certificati.
 
@@ -91,12 +98,12 @@ Se non si è certi della provenienza del certificato, attenersi alla procedura s
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): una qualsiasi delle versioni leggere dovrebbe essere sufficiente.
     * Mac e Linux: devono essere inclusi nel sistema operativo.
 2. Eseguire OpenSSL.
-    * Windows: aprire la directory di installazione, selezionare **/bin/**, quindi fare doppio clic su **openssl. exe**.
+    * Windows: aprire la directory di installazione, selezionare **/bin/**, quindi fare doppio clic su **openssl.exe**.
     * Mac e Linux: eseguire `openssl` da un terminale.
 3. Eseguire `s_client -showcerts -connect microsoft.com:443`.
-4. Cercare i certificati autofirmati. Se non si è certi di quali certificati sono autofirmati, prendere nota di dove si `("s:")` `("i:")` trova l'oggetto e l'emittente.
-5. Quando si individuano certificati autofirmati, per ognuno di essi copiare e incollare tutti gli elementi da ( `-----BEGIN CERTIFICATE-----` e `-----END CERTIFICATE-----` inclusi) in un nuovo file con estensione cer.
-6. Aprire Storage Explorer e passare a **modifica** > **certificati** > SSL**Importa certificati**. Usare quindi la selezione file per trovare, selezionare e aprire i file con estensione cer creati.
+4. Cercare i certificati autofirmati. Se non si è certi di quali certificati sono autofirmati, prendere nota di dove si trova l'oggetto `("s:")` e l'emittente `("i:")` .
+5. Quando si individuano certificati autofirmati, per ognuno di essi copiare e incollare tutti gli elementi da (e inclusi) `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` in un nuovo file con estensione cer.
+6. Aprire Storage Explorer e passare a **modifica**  >  **certificati SSL**  >  **Importa certificati**. Usare quindi la selezione file per trovare, selezionare e aprire i file con estensione cer creati.
 
 Se non è possibile trovare alcun certificato autofirmato seguendo questa procedura, contattare Microsoft tramite lo strumento di feedback. È anche possibile aprire Storage Explorer dalla riga di comando usando il `--ignore-certificate-errors` flag. Quando viene aperto con questo flag, Storage Explorer ignora gli errori del certificato.
 
@@ -106,7 +113,7 @@ Se non è possibile trovare alcun certificato autofirmato seguendo questa proced
 
 Le finestre di dialogo di accesso vuote si verificano spesso quando Active Directory Federation Services (AD FS) richiede Storage Explorer di eseguire un reindirizzamento, che non è supportato da Electron. Per risolvere questo problema, è possibile provare a usare il flusso del codice del dispositivo per l'accesso. A questo scopo, attenersi alla procedura seguente:
 
-1. Sulla barra degli strumenti verticale sinistra aprire **Impostazioni**. Nel pannello impostazioni passare ad **applicazione** > **Accedi**. Abilitare l' **accesso tramite il flusso di codice del dispositivo**.
+1. Sulla barra degli strumenti verticale sinistra aprire **Impostazioni**. Nel pannello impostazioni passare ad **applicazione**  >  **Accedi**. Abilitare l' **accesso tramite il flusso di codice del dispositivo**.
 2. Aprire la finestra di dialogo **Connetti** (tramite l'icona a forma di spina sulla barra verticale a sinistra o selezionando **Aggiungi account** nel pannello account).
 3. Scegliere l'ambiente a cui si vuole accedere.
 4. Selezionare **Accedi**.
@@ -176,7 +183,7 @@ Se non è possibile rimuovere un account collegato o una risorsa di archiviazion
 > Chiudere Storage Explorer prima di eliminare le cartelle.
 
 > [!NOTE]
-> Se sono stati importati certificati SSL, eseguire il backup del contenuto della `certs` directory. In un secondo momento, è possibile usare il backup per reimportare i certificati SSL.
+> Se sono stati importati certificati SSL, eseguire il backup del contenuto della `certs` Directory. In un secondo momento, è possibile usare il backup per reimportare i certificati SSL.
 
 ## <a name="proxy-issues"></a>Problemi di proxy
 
@@ -231,7 +238,7 @@ Se vengono visualizzate le chiavi dell'account, archiviare un problema in GitHub
 
 Se si riceve questo messaggio di errore quando si tenta di aggiungere una connessione personalizzata, i dati di connessione archiviati in Gestione credenziali locale potrebbero essere danneggiati. Per risolvere il problema, provare a eliminare le connessioni locali danneggiate, quindi aggiungerle nuovamente:
 
-1. Avviare Storage Explorer. Dal menu, passare a **Guida** > **strumenti di sviluppo**.
+1. Avviare Storage Explorer. Dal menu, passare a **Guida**  >  **strumenti di sviluppo**.
 2. Nella finestra aperta, nella scheda **applicazione** , passare alla risorsa di **archiviazione locale** (lato sinistro) > **file://**.
 3. A seconda del tipo di connessione con cui si verifica un problema, cercare la relativa chiave e quindi copiarne il valore in un editor di testo. Il valore è una matrice dei nomi di connessione personalizzati, come il seguente:
     * Account di archiviazione
@@ -245,7 +252,7 @@ Se si riceve questo messaggio di errore quando si tenta di aggiungere una connes
         * `StorageExplorer_CustomConnections_Queues_v1`
     * Tabelle
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. Dopo aver salvato i nomi di connessione correnti, impostare il valore Strumenti di sviluppo su `[]`.
+4. Dopo aver salvato i nomi di connessione correnti, impostare il valore Strumenti di sviluppo su `[]` .
 
 Se si desidera mantenere le connessioni non danneggiate, è possibile utilizzare la procedura seguente per individuare le connessioni danneggiate. Se non si desidera perdere tutte le connessioni esistenti, è possibile ignorare questi passaggi e seguire le istruzioni specifiche della piattaforma per cancellare i dati di connessione.
 
@@ -259,13 +266,13 @@ Dopo aver attraversato tutte le connessioni, per tutti i nomi delle connessioni 
 
 1. Nel menu **Start** cercare **Gestione credenziali** e aprirlo.
 2. Passare a **Windows credentials**.
-3. In **credenziali generiche**cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. In **credenziali generiche**cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Eliminare queste voci e aggiungere di nuovo le connessioni.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Aprire Spotlight (Command + barra spaziatrice) e cercare **l'accesso Keychain**.
-2. Cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Eliminare queste voci e aggiungere di nuovo le connessioni.
 
 # <a name="linux"></a>[Linux](#tab/Linux)
@@ -273,7 +280,7 @@ Dopo aver attraversato tutte le connessioni, per tutti i nomi delle connessioni 
 La gestione delle credenziali locali varia a seconda della distribuzione di Linux. Se la distribuzione di Linux non fornisce uno strumento GUI integrato per la gestione delle credenziali locali, è possibile installare uno strumento di terze parti per gestire le credenziali locali. Ad esempio, è possibile usare [cavalluccio](https://wiki.gnome.org/Apps/Seahorse/), uno strumento di interfaccia utente grafica open source per la gestione delle credenziali locali di Linux.
 
 1. Aprire lo strumento di gestione delle credenziali locale e trovare le credenziali salvate.
-2. Cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Eliminare queste voci e aggiungere di nuovo le connessioni.
 ---
 
@@ -290,12 +297,14 @@ Se ci si connette a un servizio tramite un URL SAS e si verifica un errore:
 Se è stata accidentalmente collegata usando un URL SAS non valido e non è possibile scollegarlo, attenersi alla procedura seguente:
 
 1. Quando si esegue Storage Explorer, premere F12 per aprire la finestra di Strumenti di sviluppo.
-2. Nella scheda **applicazione** selezionare **local storage** > **file://** nell'albero a sinistra.
+2. Nella scheda **applicazione** selezionare **local storage**  >  **file://** nell'albero a sinistra.
 3. Trovare la chiave associata al tipo di servizio dell'URI SAS che ha generato il problema. Ad esempio, se l'URI SAS non valido fa riferimento a un contenitore BLOB, cercare la chiave denominata `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4. Il valore della chiave deve essere una matrice JSON. Individuare l'oggetto associato all'URI errato, quindi eliminarlo.
 5. Premere CTRL + R per ricaricare Storage Explorer.
 
 ## <a name="linux-dependencies"></a>Dipendenze Linux
+
+### <a name="snap"></a>Snap
 
 Storage Explorer 1.10.0 e versioni successive è disponibile come snap dall'archivio snap. Lo snap Storage Explorer installa automaticamente tutte le dipendenze e viene aggiornato quando è disponibile una nuova versione dello snap-in. L'installazione del Storage Explorer snap è il metodo consigliato per l'installazione.
 
@@ -305,64 +314,83 @@ Storage Explorer richiede l'uso di un gestore delle password, che potrebbe esser
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
+### <a name="targz-file"></a>File con estensione tar. gz
+
 È anche possibile scaricare l'applicazione come file con estensione tar. gz, ma è necessario installare le dipendenze manualmente.
 
-> [!IMPORTANT]
-> Storage Explorer come specificato nel download di. tar. gz è supportato solo per le distribuzioni di Ubuntu. Altre distribuzioni non sono state verificate e possono richiedere pacchetti alternativi o aggiuntivi.
+Storage Explorer come specificato nel download di. tar. gz è supportato solo per le versioni seguenti di Ubuntu. Storage Explorer potrebbe funzionare in altre distribuzioni di Linux, ma non sono ufficialmente supportate.
 
-Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
+- Ubuntu 20,04 x64
+- Ubuntu 18,04 x64
+- Ubuntu 16,04 x64
 
-* [Runtime di .NET Core 2,2](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
-* `libgconf-2-4`
-* `libgnome-keyring0` o `libgnome-keyring-dev`
-* `libgnome-keyring-common`
+Storage Explorer richiede l'installazione di .NET Core nel sistema. Si consiglia .NET Core 2,1, ma Storage Explorer funzionerà anche con 2,2.
 
 > [!NOTE]
-> Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2,0. Se è installata una versione più recente di .NET Core, è necessario applicare una [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Se si esegue Storage Explorer 1.8.0 o versione successiva, si dovrebbe essere in grado di usare fino a .NET Core 2,2. Le versioni successive a 2,2 non sono state verificate per funzionare in questo momento.
+> Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2,0. Se è installata una versione più recente di .NET Core, è necessario applicare una [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Se si esegue Storage Explorer 1.8.0 o versione successiva, è necessario almeno .NET Core 2,1.
 
-# <a name="ubuntu-1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
-1. Scaricare Storage Explorer.
-2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
-3. Eseguire il comando seguente:
+1. Scaricare il file Storage Explorer. tar. gz.
+2. Installare il [runtime di .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Scaricare Storage Explorer.
-2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
-3. Eseguire il comando seguente:
+1. Scaricare il file Storage Explorer. tar. gz.
+2. Installare il [runtime di .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. Scaricare Storage Explorer.
-2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
-3. Eseguire il comando seguente:
+1. Scaricare il file Storage Explorer. tar. gz.
+2. Installare il [runtime di .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt install libgnome-keyring-dev
-   ```
-
-# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
-
-1. Scaricare Storage Explorer.
-2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
-3. Eseguire il comando seguente:
-   ```bash
-   sudo apt install libgnome-keyring-dev
+   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 ---
+
+Molte librerie richieste da Storage Explorer vengono preinstallate con le installazioni standard di Canonical di Ubuntu. Per gli ambienti personalizzati potrebbero mancare alcune di queste librerie. Se si verificano problemi durante l'avvio di Storage Explorer, è consigliabile assicurarsi che nel sistema siano installati i pacchetti seguenti:
+
+- iproute2
+- libasound2
+- libatm1
+- libgconf2-4
+- libnspr4
+- libnss3
+- libpulse0
+- libsecret-1-0
+- libx11-xcb1
+- libxss1
+- libxtables11
+- libxtst6
+- xdg-utils
 
 ### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Applicazione di patch Storage Explorer per le versioni più recenti di .NET Core
 
 Per Storage Explorer 1.7.0 o versioni precedenti, potrebbe essere necessario applicare patch alla versione di .NET Core usata da Storage Explorer:
 
 1. Scaricare la versione 1.5.43 di StreamJsonRpc [da NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Cercare il collegamento "Scarica pacchetto" sul lato destro della pagina.
-2. Dopo aver scaricato il pacchetto, modificare l'estensione del file `.nupkg` da `.zip`a.
+2. Dopo aver scaricato il pacchetto, modificare l'estensione del file da `.nupkg` a `.zip` .
 3. Decomprimere il pacchetto.
 4. Aprire la cartella `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Copiare `StreamJsonRpc.dll` nei percorsi seguenti nella cartella Storage Explorer:
