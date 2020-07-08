@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ef52d74f7ae6e7e0d8c58e3b1972a0a1227c6b5
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75658798"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962204"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux
 
@@ -37,7 +37,7 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 
 I dump dell'heap vengono abilitati mediante il passaggio di opzioni (talvolta noto come parametri) a JVM quando viene avviato un servizio. Per la maggior parte dei servizi [Apache Hadoop](https://hadoop.apache.org/) è possibile modificare lo script della shell usato per avviare il servizio per passare queste opzioni.
 
-In ogni script è presente un'esportazione per ** \* \_gli opz**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
+In ogni script è presente un'esportazione per gli ** \* \_ opz**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
 
 I processi di mapping e riduzione sono leggermente diversi, in quanto queste operazioni sono processi figlio del servizio MapReduce. Ogni processo di mapping o riduzione viene eseguito in un contenitore figlio e ci sono due elementi che contengono le opzioni di JVM. Entrambi sono contenuti in **mapred-site.xml**:
 
@@ -45,13 +45,13 @@ I processi di mapping e riduzione sono leggermente diversi, in quanto queste ope
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]  
-> Si consiglia di usare [Apache Ambari](https://ambari.apache.org/) per modificare le impostazioni di script e mapred-site. XML, in quanto Ambari gestisce la replica delle modifiche tra i nodi del cluster. Per i passaggi specifici, vedere la sezione [Uso di Apache Ambari](#using-apache-ambari).
+> È consigliabile usare [Apache Ambari](https://ambari.apache.org/) per modificare gli script e le impostazioni di mapred-site.xml, in quanto Ambari gestisce la replica delle modifiche tra i nodi del cluster. Per i passaggi specifici, vedere la sezione [Uso di Apache Ambari](#using-apache-ambari).
 
 ### <a name="enable-heap-dumps"></a>Abilitare i dump dell'heap
 
 L'opzione seguente abilita il dump dell'heap quando si verifica un OutOfMemoryError:
 
-    -XX:+HeapDumpOnOutOfMemoryError
+`-XX:+HeapDumpOnOutOfMemoryError`
 
 **+** Indica che questa opzione è abilitata. L'impostazione predefinita è disabilitata.
 
@@ -62,7 +62,7 @@ L'opzione seguente abilita il dump dell'heap quando si verifica un OutOfMemoryEr
 
 Il percorso predefinito per il file di dump è la directory di lavoro corrente. È possibile controllare dove viene archiviato il file usando l'opzione seguente:
 
-    -XX:HeapDumpPath=/path
+`-XX:HeapDumpPath=/path`
 
 Ad esempio, se si usa `-XX:HeapDumpPath=/tmp`, il dump viene archiviato nella directory /tmp.
 
@@ -70,7 +70,7 @@ Ad esempio, se si usa `-XX:HeapDumpPath=/tmp`, il dump viene archiviato nella di
 
 È anche possibile generare uno script quando si verifica un **OutOfMemoryError** . Ad esempio, attivando una notifica per sapere che si è verificato l'errore. Usare l'opzione seguente per attivare uno script su un __OutOfMemoryError__:
 
-    -XX:OnOutOfMemoryError=/path/to/script
+`-XX:OnOutOfMemoryError=/path/to/script`
 
 > [!NOTE]  
 > Poiché Apache Hadoop è un sistema distribuito, tutti gli script usati devono essere posizionati in tutti i nodi del cluster in cui viene eseguito il servizio.
@@ -91,7 +91,7 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
     ![Elenco filtrato di configurazione di Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. Individuare la ** \* \_voce opz** per il servizio per il quale si desidera abilitare i dump dell'heap e aggiungere le opzioni che si desidera abilitare. Nella figura seguente è stato aggiunto `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` alla voce **HADOOP\_NAMENODE\_OPTS**:
+4. Individuare la voce ** \* \_ opz** per il servizio per il quale si desidera abilitare i dump dell'heap e aggiungere le opzioni che si desidera abilitare. Nella figura seguente è stato aggiunto `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` alla voce **HADOOP\_NAMENODE\_OPTS**:
 
     ![Apache Ambari Hadoop-NameNode-opz](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 

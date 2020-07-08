@@ -4,15 +4,15 @@ description: Questo articolo offre un'introduzione al supporto di TLS end-to-end
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: adaf3dea5855a4af75977cb820ae12675c7f2ced
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648129"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962102"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Panoramica della terminazione TLS e di TLS end-to-end con il gateway applicazione
 
@@ -68,7 +68,7 @@ Per il gateway applicazione e lo SKU WAF v1, i criteri TLS si applicano sia al t
 
 Per il gateway applicazione e lo SKU WAF v2, i criteri TLS si applicano solo al traffico front-end e tutte le crittografie vengono offerte al server back-end, che ha il controllo per selezionare crittografie specifiche e la versione di TLS durante l'handshake.
 
-Il gateway applicazione comunica solo con i server back-end che hanno inserito il certificato nell'elenco elementi consentiti per il gateway applicazione o i cui certificati sono firmati da autorità di certificazione note e il nome comune (CN) del certificato corrisponde al nome host nelle impostazioni del back-end HTTP. Questi includono i servizi di Azure attendibili, come Servizio app di Azure/App Web e Gestione API di Azure.
+Il gateway applicazione comunica solo con i server back-end che consentono di elencare il certificato con il gateway applicazione o i cui certificati sono firmati da autorità di certificazione note e il CN del certificato corrisponde al nome host nelle impostazioni del back-end HTTP. Questi includono i servizi di Azure attendibili, come Servizio app di Azure/App Web e Gestione API di Azure.
 
 Se i certificati dei membri nel pool back-end non sono firmati da autorità di certificazione note, ogni istanza nel pool back-end con TLS end-to-end abilitato deve essere configurata con un certificato per consentire la comunicazione protetta. L'aggiunta del certificato garantisce che il gateway applicazione comunichi solo con istanze di back-end note, proteggendo ulteriormente la comunicazione end-to-end.
 
@@ -80,9 +80,9 @@ Se i certificati dei membri nel pool back-end non sono firmati da autorità di c
 
 In questo esempio, le richieste che usano TLS1.2 vengono instradate ai server back-end in Pool1 con TLS end-to-end.
 
-## <a name="end-to-end-tls-and-whitelisting-of-certificates"></a>TLS end-to-end e aggiunta dei certificati all'elenco elementi consentiti
+## <a name="end-to-end-tls-and-allow-listing-of-certificates"></a>TLS end-to-end e Consenti l'elenco dei certificati
 
-Il gateway applicazione comunica solo con istanze back-end note, il cui certificato è incluso nell'elenco dei consentiti del gateway applicazione. Esistono alcune differenze nel processo di configurazione di TLS end-to-end a seconda della versione del gateway applicazione usata. Nella sezione seguente vengono illustrate singolarmente.
+Il gateway applicazione comunica solo con istanze di back-end note che consentono di elencare il certificato con il gateway applicazione. Esistono alcune differenze nel processo di configurazione di TLS end-to-end a seconda della versione del gateway applicazione usata. Nella sezione seguente vengono illustrate singolarmente.
 
 ## <a name="end-to-end-tls-with-the-v1-sku"></a>TLS end-to-end con lo SKU v1
 
@@ -90,7 +90,7 @@ Per abilitare TLS end-to-end con i server back-end e in modo che il gateway appl
 
 Per i probe di integrità HTTPS, lo SKU v1 del gateway applicazione usa una corrispondenza esatta del certificato di autenticazione (chiave pubblica del certificato del server back-end e non del certificato radice) da caricare nelle impostazioni HTTP.
 
-Sono quindi consentite solo le connessioni a back-end noti e inclusi nell'elenco. I backend rimanenti sono considerati non integri dai probe di integrità. I certificati autofirmati vengono usati a scopo di test e non sono consigliati per i carichi di lavoro. Prima dell'uso, questi certificati devono essere aggiunti all'elenco dei consentiti nel gateway applicazione, come descritto nei passaggi precedenti.
+Sono quindi consentite solo le connessioni a backend noti e consentiti. I backend rimanenti sono considerati non integri dai probe di integrità. I certificati autofirmati vengono usati a scopo di test e non sono consigliati per i carichi di lavoro. Questi certificati devono essere consentiti nell'elenco con il gateway applicazione, come descritto nei passaggi precedenti prima di poter essere usati.
 
 > [!NOTE]
 > La configurazione di un certificato di autenticazione e un certificato radice trusted non è necessaria per servizi di Azure attendibili, come Servizio app di Azure. Vengono considerati attendibili per impostazione predefinita.
@@ -111,7 +111,7 @@ I certificati di autenticazione sono stati deprecati e sostituiti da certificati
 
 - Oltre alla corrispondenza del certificato radice, il gateway applicazione v2 verifica anche se l'impostazione Host specificata nell'impostazione HTTP di back-end corrisponde a quella del nome comune presentata dal certificato TLS/SSL del server back-end. Quando si tenta di stabilire una connessione TLS al back-end, il gateway applicazione v2 imposta l'estensione Indicazione nome server (SNI) sull'host specificato nell'impostazione HTTP di back-end.
 
-- Se si sceglie **pick hostname from backend address** (selezionare il nome host dall'indirizzo di back-end) anziché il campo Host nell'impostazione HTTP di back-end, l'intestazione SNI è sempre impostata sul nome di dominio completo del pool di back-end e il nome comune sul certificato TLS/SSL del server back-end deve corrispondere al nome di dominio completo. I membri del pool di back-end con indirizzi IP non sono supportati in questo scenario.
+- Se si sceglie **Seleziona nome host dalla destinazione back-end** anziché il campo host nell'impostazione http back-end, l'intestazione SNI è sempre impostata sul nome di dominio completo del pool back-end e il CN nel server back-end del certificato TLS/SSL deve corrispondere al relativo nome di dominio completo. I membri del pool di back-end con indirizzi IP non sono supportati in questo scenario.
 
 - Il certificato radice è un certificato radice con codifica base64 dai certificati del server back-end.
 
@@ -138,10 +138,10 @@ Scenario | v1 | v2 |
 Scenario | v1 | v2 |
 | --- | --- | --- |
 | Intestazione SNI (server_name) durante l'handshake TLS come FQDN | Imposta come FQDN dal pool back-end. In base a [RFC 6066](https://tools.ietf.org/html/rfc6066), gli indirizzi letterali IPv4 e IPv6 non sono consentiti nel nome host SNI. <br> **Nota:** il nome di dominio completo nel pool back-end deve essere risolto da DNS nell'indirizzo IP del server back-end (pubblico o privato) | L'intestazione SNI (server_name) è impostata come nome host dal probe personalizzato associato alle impostazioni HTTP (se configurato) oppure dal nome host indicato nelle impostazioni HTTP oppure dal nome di dominio completo indicato nel pool back-end. L'ordine di precedenza è probe personalizzato > impostazioni HTTP > pool back-end. <br> **Nota:** se i nomi host configurati in impostazioni HTTP e il probe personalizzato sono diversi, in base all'ordine di precedenza SNI verrà impostato come nome host dal probe personalizzato.
-| Se l'indirizzo del pool back-end è un indirizzo IP (v1) o se il nome host del probe personalizzato è configurato come indirizzo IP (v2) | SNI (server_name) non verrà impostato. <br> **Nota:** in questo caso, il server back-end deve essere in grado di restituire un certificato predefinito/di fallback che deve essere inserito nell'elenco elementi consentiti nelle impostazioni HTTP come certificato di autenticazione. Se nel server back-end non sono configurati certificati predefiniti/di fallback ed è previsto SNI, il server potrebbe reimpostare la connessione con conseguenti errori di probe | Nell'ordine di precedenza sopra indicato, in presenza di un indirizzo IP come nome host, l'indicazione SNI non verrà impostata come da [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Nota:** l'indicazione SNI non verrà impostata nei probe v2 anche se non viene configurato alcun probe personalizzato e non viene impostato alcun nome host nelle impostazioni HTTP o nel pool back-end |
+| Se l'indirizzo del pool back-end è un indirizzo IP (v1) o se il nome host del probe personalizzato è configurato come indirizzo IP (v2) | SNI (server_name) non verrà impostato. <br> **Nota:** In questo caso, il server back-end deve essere in grado di restituire un certificato predefinito/di fallback e questo dovrebbe essere consentito nell'elenco impostazioni HTTP in certificato di autenticazione. Se nel server back-end non sono configurati certificati predefiniti/di fallback ed è previsto SNI, il server potrebbe reimpostare la connessione con conseguenti errori di probe | Nell'ordine di precedenza sopra indicato, in presenza di un indirizzo IP come nome host, l'indicazione SNI non verrà impostata come da [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Nota:** l'indicazione SNI non verrà impostata nei probe v2 anche se non viene configurato alcun probe personalizzato e non viene impostato alcun nome host nelle impostazioni HTTP o nel pool back-end |
 
 > [!NOTE] 
-> Se non è configurato un probe personalizzato, il gateway applicazione invia un probe predefinito nel formato \<protocollo\>://127.0.0.1:\<porta\>/. Un probe HTTPS predefinito, ad esempio, verrà inviato come https://127.0.0.1:443/. Si noti che il nome 127.0.0.1 qui indicato viene usato solo come intestazione host HTTP e come da RFC 6066 non verrà usato come intestazione SNI. Per altre informazioni sugli errori relativi ai probe di integrità, vedere la [guida alla risoluzione dei problemi di integrità di back-end](application-gateway-backend-health-troubleshooting.md).
+> Se non è configurato un probe personalizzato, il gateway applicazione invia un probe predefinito nel formato- \<protocol\> ://127.0.0.1: \<port\> /. Un probe HTTPS predefinito, ad esempio, verrà inviato come https://127.0.0.1:443/. Si noti che il nome 127.0.0.1 qui indicato viene usato solo come intestazione host HTTP e come da RFC 6066 non verrà usato come intestazione SNI. Per altre informazioni sugli errori relativi ai probe di integrità, vedere la [guida alla risoluzione dei problemi di integrità di back-end](application-gateway-backend-health-troubleshooting.md).
 
 #### <a name="for-live-traffic"></a>Per il traffico in tempo reale
 

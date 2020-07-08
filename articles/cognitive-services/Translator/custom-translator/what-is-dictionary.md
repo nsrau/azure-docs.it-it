@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 510c75b6e1a06ab800128534a72c5e1f6e510600
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 826da5c3754ad03ac1fb62288f0b03ee2353d1f3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997044"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962263"
 ---
 # <a name="what-is-a-dictionary"></a>Cos’è un dizionario?
 
-Un dizionario è una coppia allineata di documenti che specifica un elenco di espressioni o frasi e le traduzioni corrispondenti. Utilizzare un dizionario per il training se si desidera che Microsoft Translator traduca sempre tutte le istanze delle espressioni o delle frasi con la traduzione indicata nel dizionario. I dizionari sono detti talvolta glossari o termbase. È possibile considerare il dizionario come forza bruta "copy and Replace" per tutti i termini elencati. Inoltre, il servizio Microsoft Translator personalizzato consente di compilare e utilizzare i propri dizionari per scopi generici per migliorare la qualità della traduzione. Tuttavia, un dizionario fornito dal cliente assume la precedenza e verrà cercato prima di cercare parole o frasi.
+Un dizionario è una coppia allineata di documenti che specifica un elenco di espressioni o frasi e le traduzioni corrispondenti. Usare un dizionario nel training, quando si vuole che Translator converta sempre tutte le istanze della frase o frase di origine, usando la traduzione fornita nel dizionario. I dizionari sono detti talvolta glossari o termbase. È possibile considerare il dizionario come forza bruta "copy and Replace" per tutti i termini elencati. Inoltre, la funzionalità di conversione personalizzata consente di compilare e utilizzare i propri dizionari per scopi generali per migliorare la qualità della traduzione. Tuttavia, un dizionario fornito dal cliente assume la precedenza e verrà cercato prima di cercare parole o frasi.
 
 I dizionari funzionano solo per i progetti in coppie di linguaggi che hanno un modello di rete neurale Microsoft generale completamente supportato. [Visualizzare l'elenco completo delle lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
