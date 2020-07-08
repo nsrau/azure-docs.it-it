@@ -4,12 +4,11 @@ description: Informazioni su come gestire e monitorare i backup degli agenti Ser
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025102"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057824"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup degli agenti Servizi di ripristino di Microsoft Azure (MARS) con il servizio backup di Azure
 
@@ -22,7 +21,7 @@ Quando si modificano i criteri di backup, è possibile aggiungere nuovi elementi
 - **Aggiungi elementi** usare questa opzione solo per aggiungere nuovi elementi per il backup. Per rimuovere gli elementi esistenti, utilizzare l'opzione **Rimuovi elementi** o **impostazioni di esclusione** .  
 - **Rimuovi elementi** usare questa opzione per rimuovere gli elementi dal backup.
   - Usare **le impostazioni di esclusione** per rimuovere tutti gli elementi all'interno di un volume anziché **rimuovere gli elementi**.
-  - La cancellazione di tutte le selezioni in un volume comporta la conservazione dei backup obsoleti degli elementi in base alle impostazioni di conservazione al momento dell'ultimo backup, senza ambito per la modifica.
+  - La cancellazione di tutte le selezioni in un volume comporta la conservazione dei backup obsoleti degli elementi in base alle impostazioni di conservazione al momento dell'ultimo backup, senza l'ambito della modifica.
   - Riselezionando questi elementi, viene effettuato un primo backup completo e le nuove modifiche ai criteri non vengono applicate ai backup precedenti.
   - La deselezione di un intero volume mantiene il backup passato senza alcun ambito per la modifica dei criteri di conservazione.
 - **Impostazioni di esclusione** usare questa opzione per escludere elementi specifici dal backup.
@@ -125,7 +124,7 @@ Esistono due modi per arrestare la protezione del backup di file e cartelle:
 
     ![Arrestare un backup pianificato.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Viene richiesto di immettere un PIN di sicurezza (Personal Identification Number), che è necessario generare manualmente. A tale scopo, accedere prima al portale di Azure.
-5. Passare a **Recovery Services vault** > **Impostazioni** > dell'insieme di credenziali di servizi di ripristino**Proprietà**.
+5. Passare a impostazioni dell'insieme di credenziali di **servizi di ripristino**  >  **Settings**  >  **Proprietà**.
 6. In **pin di sicurezza**selezionare **genera**. Copiare questo PIN. Il PIN è valido solo per cinque minuti.
 7. Nella console di gestione incollare il PIN e quindi fare clic su **OK**.
 
@@ -156,7 +155,7 @@ Se la protezione è stata interrotta durante la conservazione dei dati e si è d
 
 Viene usata una passphrase per crittografare e decrittografare i dati durante il backup o il ripristino del computer locale o locale usando l'agente MARS da o verso Azure. Se la passphrase è stata persa o dimenticata, è possibile rigenerare la passphrase (purché il computer sia ancora registrato con l'insieme di credenziali di servizi di ripristino e il backup sia configurato) attenendosi alla procedura seguente:
 
-- Dalla console dell'agente Mars passare al **riquadro** > azioni**modifica proprietà** >. Passare quindi alla **scheda crittografia**.<br>
+- Dalla console dell'agente Mars passare al **riquadro azioni**  >  **modifica proprietà** >. Passare quindi alla **scheda crittografia**.<br>
 - Selezionare la casella di controllo **Cambia passphrase** .<br>
 - Immettere una nuova passphrase o fare clic su **genera passphrase**.
 - Fare clic su **Sfoglia** per salvare la nuova passphrase.
@@ -167,6 +166,27 @@ Viene usata una passphrase per crittografare e decrittografare i dati durante il
 
     ![Genera passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
 - Verificare che la passphrase venga salvata in modo sicuro in un percorso alternativo (diverso dalla macchina di origine), preferibilmente nella Azure Key Vault. Tenere traccia di tutte le passphrase se è stato eseguito il backup di più computer con gli agenti MARS.
+
+## <a name="managing-backup-data-for-unavailable-machines"></a>Gestione dei dati di backup per computer non disponibili
+
+Questa sezione illustra uno scenario in cui la macchina virtuale di origine protetta con MARS non è più disponibile perché è stata eliminata, danneggiata, infettata da malware/ransomware o è stata rilasciata.
+
+Per questi computer, il servizio backup di Azure garantisce che l'ultimo punto di ripristino non scada (ovvero non viene eliminato) in base alle regole di conservazione specificate nei criteri di backup. Pertanto, è possibile ripristinare in modo sicuro il computer.  Si considerino gli scenari seguenti che è possibile eseguire sui dati di cui è stato eseguito il backup:
+
+### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Scenario 1: il computer di origine non è disponibile e non è più necessario mantenere i dati di backup
+
+- È possibile eliminare i dati di cui è stato eseguito il backup dal portale di Azure usando la procedura descritta in [questo articolo](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+### <a name="scenario-2-the-source-machine-is-unavailable-and-you-need-to-retain-backup-data"></a>Scenario 2: il computer di origine non è disponibile ed è necessario conservare i dati di backup
+
+La gestione dei criteri di backup per MARS viene eseguita tramite la console MARS e non tramite il portale. Se è necessario estendere le impostazioni di conservazione per i punti di ripristino esistenti prima della scadenza, è necessario ripristinare il computer, installare la console di MARS ed estendere il criterio.
+
+- Per ripristinare il computer, seguire questa procedura:
+  - [Ripristinare la macchina virtuale in un computer di destinazione alternativo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - Ricreare il computer di destinazione con lo stesso nome host del computer di origine
+  - Installare l'agente e ripetere la registrazione nello stesso insieme di credenziali e con la stessa passphrase
+  - Avviare il client MARS per estendere la durata di conservazione in base ai requisiti
+- Il computer appena ripristinato, protetto con MARS, continuerà a eseguire i backup.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,11 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739365"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955489"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Origini dati delle prestazioni di Windows e Linux in Monitoraggio di Azure
 I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Monitoraggio di Azure può raccogliere i contatori delle prestazioni a intervalli frequenti per l'analisi NRT (Near Real Time) e l'aggregazione di dati sulle prestazioni per l'analisi e la creazione di report a più lungo termine.
@@ -41,7 +40,7 @@ Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Win
 
     Quando si raccolgono i contatori delle prestazioni di SQL Server da istanze denominate, tutti i contatori di tali istanze iniziano con *MSSQL$*, seguito dal nome dell'istanza.  Ad esempio, per raccogliere il contatore Percentuale riscontri cache log di tutti i database dall'oggetto delle prestazioni del database per l'istanza di SQL denominata INST2, specificare `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Fare **+** clic o premere **invio** per aggiungere il contatore all'elenco.
+2. Fare clic **+** o premere **invio** per aggiungere il contatore all'elenco.
 3. Quando si aggiunge un contatore, per **Intervallo di campionamento** verrà usato il valore predefinito di 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
 4. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
 
@@ -53,22 +52,24 @@ Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Lin
 
 1. Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti.  Per gli agenti Linux, viene inviato un file di configurazione all'agente di raccolta dati Fluentd.  Per modificare questo file manualmente in ogni agente Linux, deselezionare la casella *Apply below configuration to my Linux machines* (Applica la configurazione seguente alle macchine Linux) e attenersi alle istruzioni seguenti.
 2. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  
-3. Fare **+** clic o premere **invio** per aggiungere il contatore all'elenco di altri contatori per l'oggetto.
+3. Fare clic **+** o premere **invio** per aggiungere il contatore all'elenco di altri contatori per l'oggetto.
 4. Tutti i contatori per un oggetto usano lo stesso **intervallo di campionamento**.  Il valore predefinito è 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
 5. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurare i contatori delle prestazioni di Linux nel file di configurazione
-Anziché usare il portale di Azure per configurare i contatori delle prestazioni di Linux, è possibile modificare i file di configurazione direttamente nell'agente di Linux.  Le metriche delle prestazioni da raccogliere sono controllate dalla configurazione in **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
+Anziché usare il portale di Azure per configurare i contatori delle prestazioni di Linux, è possibile modificare i file di configurazione direttamente nell'agente di Linux.  Le metriche delle prestazioni da raccogliere sono controllate dalla configurazione in **/etc/opt/Microsoft/omsagent/Workspace \<workspace id\> /conf/omsagent.conf**.
 
 Ogni oggetto o categoria delle metriche delle prestazioni da raccogliere deve essere definito nel file di configurazione come singolo elemento `<source>` . La sintassi segue il modello seguente.
 
-    <source>
-      type oms_omi  
-      object_name "Processor"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+```xml
+<source>
+    type oms_omi  
+    object_name "Processor"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 
 I parametri di questo elemento sono descritti nella tabella seguente.
@@ -85,28 +86,28 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 
 | Nome oggetto | Nome contatore |
 |:--|:--|
-| Logical Disk | % Free Inodes |
-| Logical Disk | % Free Space |
-| Logical Disk | % Used Inodes |
-| Logical Disk | % Used Space |
-| Logical Disk | Byte letti da disco/sec  |
-| Logical Disk | Letture disco/sec  |
-| Logical Disk | Disk Transfers/sec |
-| Logical Disk | Byte scritti su disco/sec |
-| Logical Disk | Scritture disco/sec |
-| Logical Disk | Free Megabytes |
-| Logical Disk | Logical Disk Bytes/sec |
-| Memoria | % Available Memory |
-| Memoria | % Available Swap Space |
-| Memoria | % Used Memory |
-| Memoria | % Used Swap Space |
-| Memoria | Available MBytes Memory |
-| Memoria | Available MBytes Swap |
-| Memoria | Page Reads/sec |
-| Memoria | Page Writes/sec |
-| Memoria | Pages/sec |
-| Memoria | Used MBytes Swap Space |
-| Memoria | Used Memory MBytes |
+| Disco logico | % Free Inodes |
+| Disco logico | % Free Space |
+| Disco logico | % Used Inodes |
+| Disco logico | % Used Space |
+| Disco logico | Byte letti da disco/sec |
+| Disco logico | Letture disco/sec |
+| Disco logico | Disk Transfers/sec |
+| Disco logico | Byte scritti su disco/sec |
+| Disco logico | Scritture disco/sec |
+| Disco logico | Free Megabytes |
+| Disco logico | Logical Disk Bytes/sec |
+| Memory | % Available Memory |
+| Memory | % Available Swap Space |
+| Memory | % Used Memory |
+| Memory | % Used Swap Space |
+| Memory | Available MBytes Memory |
+| Memory | Available MBytes Swap |
+| Memory | Page Reads/sec |
+| Memory | Page Writes/sec |
+| Memory | Pages/sec |
+| Memory | Used MBytes Swap Space |
+| Memory | Used Memory MBytes |
 | Rete | Total Bytes Transmitted |
 | Rete | Total Bytes Received |
 | Rete | Total Bytes |
@@ -115,14 +116,14 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Rete | Total Rx Errors |
 | Rete | Total Tx Errors |
 | Rete | Total Collisions |
-| Physical Disk | Media letture disco/sec |
-| Physical Disk | Media sec/trasferimento disco |
-| Physical Disk | Media scritture disco/sec |
+| Physical Disk | Avg. Disk sec/Read |
+| Physical Disk | Avg. Disk sec/Transfer |
+| Physical Disk | Avg. Disk sec/Write |
 | Physical Disk | Physical Disk Bytes/sec |
-| Process | Pct Privileged Time |
-| Process | Pct User Time |
-| Process | Used Memory kBytes |
-| Process | Virtual Shared Memory |
+| Processo | Pct Privileged Time |
+| Processo | Pct User Time |
+| Processo | Used Memory kBytes |
+| Processo | Virtual Shared Memory |
 | Processore | % DPC Time |
 | Processore | % Idle Time |
 | Processore | % Interrupt Time |
@@ -131,48 +132,50 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Processore | % Privileged Time |
 | Processore | % di tempo processore |
 | Processore | % User Time |
-| Sistema | Free Physical Memory |
-| Sistema | Free Space in Paging Files |
-| Sistema | Free Virtual Memory |
-| Sistema | Processi |
-| Sistema | Size Stored In Paging Files |
-| Sistema | Uptime |
-| Sistema | Utenti |
+| System | Free Physical Memory |
+| System | Free Space in Paging Files |
+| System | Free Virtual Memory |
+| System | Processi |
+| System | Size Stored In Paging Files |
+| System | Uptime |
+| System | Utenti |
 
 
 Di seguito è illustrata la configurazione predefinita per le metriche delle prestazioni.
 
-    <source>
-      type oms_omi
-      object_name "Physical Disk"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+```xml
+<source>
+    type oms_omi
+    object_name "Physical Disk"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Logical Disk"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+<source>
+    type oms_omi
+    object_name "Logical Disk"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Processor"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Processor"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 30s
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Memory"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Memory"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 ## <a name="data-collection"></a>Raccolta dati
 Monitoraggio di Azure raccoglierà tutti i contatori delle prestazioni specificati in base all'intervallo di campionamento definito per tutti gli agenti in cui è installato il contatore.  I dati non vengono aggregati e i dati non elaborati sono disponibili in tutte le visualizzazioni di query di log per la durata specificata dall'area di lavoro di log Analytics.
@@ -184,7 +187,7 @@ Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate n
 |:--- |:--- |
 | Computer |Computer da cui è stato raccolto l'evento. |
 | CounterName |Nome del contatore delle prestazioni. |
-| CounterPath |Percorso completo del contatore nel formato \\\\\<Computer>\\oggetto(istanza)\\contatore. |
+| CounterPath |Percorso completo del contatore nel \\ \\ \<Computer> \\ contatore dell'oggetto Form (istanza) \\ . |
 | CounterValue |Valore numerico del contatore. |
 | InstanceName |Nome dell'istanza dell'evento.  Vuoto se l'istanza non è presente. |
 | ObjectName |Nome dell'oggetto prestazioni |
@@ -194,7 +197,7 @@ Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate n
 ## <a name="sizing-estimates"></a>Stime di dimensionamento
  Secondo una stima approssimativa per la raccolta di un determinato contatore a intervalli di 10 secondi, le dimensioni equivalgono a circa 1 MB al giorno per istanza.  Con la formula seguente è quindi possibile stimare i requisiti di spazio di archiviazione per un contatore specifico.
 
-    1 MB x (number of counters) x (number of agents) x (number of instances)
+> 1 MB x (numero di contatori) x (numero di agenti) x (numero di istanze)
 
 ## <a name="log-queries-with-performance-records"></a>Query di log con record delle prestazioni
 La tabella seguente mostra alcuni esempi di query di log che recuperano i record delle prestazioni.

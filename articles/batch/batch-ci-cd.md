@@ -5,12 +5,11 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 72f976071a5fc65c8e96f6b3cd5c0094785e287b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726843"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956662"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usare Azure Pipelines per compilare e distribuire soluzioni HPC
 
@@ -28,8 +27,8 @@ In questo esempio verrà creata una pipeline di compilazione e versione per dist
 
 Per seguire la procedura descritta in questo articolo, sono necessari un'organizzazione di Azure DevOps e un progetto team.
 
-* [Creare un'organizzazione di Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Creare un progetto in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Creare un'organizzazione di Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+* [Creare un progetto in Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
 
 ### <a name="source-control-for-your-environment"></a>Controllo del codice sorgente per l'ambiente
 
@@ -48,7 +47,7 @@ La struttura della codebase usata in questo esempio è simile alla seguente:
 
 Questa sezione presuppone che l'utente abbia familiarità con il controllo della versione e la progettazione di modelli di Resource Manager. Se non si ha familiarità con questi concetti, vedere le pagine seguenti per altre informazioni.
 
-* [What is source control?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops) (Informazioni sul codice sorgente)
+* [What is source control?](/azure/devops/user-guide/source-control?view=azure-devops) (Informazioni sul codice sorgente)
 * [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
@@ -62,7 +61,7 @@ Per questo esempio, è disponibile un modello di soluzione end-to-end (deploymen
 
 ![Esempio di una struttura di modelli collegati con i modelli di Azure Resource Manager](media/batch-ci-cd/ARMTemplateHierarchy.png)
 
-Il primo modello che verrà esaminato è per un account di Archiviazione di Azure. La soluzione richiede un account di archiviazione per distribuire l'applicazione nell'account di Azure Batch. Per la compilazione di modelli di Resource Manager per gli account di Archiviazione di Azure, è opportuno tenere presente la [guida di riferimento del modello di Resource Manager per i tipi di risorse Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions).
+Il primo modello che verrà esaminato è per un account di Archiviazione di Azure. La soluzione richiede un account di archiviazione per distribuire l'applicazione nell'account di Azure Batch. Per la compilazione di modelli di Resource Manager per gli account di Archiviazione di Azure, è opportuno tenere presente la [guida di riferimento del modello di Resource Manager per i tipi di risorse Microsoft.Storage](/azure/templates/microsoft.storage/allversions).
 
 ```json
 {
@@ -102,7 +101,7 @@ Il primo modello che verrà esaminato è per un account di Archiviazione di Azur
 }
 ```
 
-Successivamente, verrà esaminato il modello dell'account di Azure Batch. L'account di Azure Batch funge da piattaforma per eseguire numerose applicazioni tra pool (raggruppamenti di computer). Per la compilazione di modelli di Resource Manager per gli account di Azure Batch, è opportuno tenere presente la [guida di riferimento del modello di Resource Manager per i tipi di risorse Microsoft.Batch](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions).
+Successivamente, verrà esaminato il modello dell'account di Azure Batch. L'account di Azure Batch funge da piattaforma per eseguire numerose applicazioni tra pool (raggruppamenti di computer). Per la compilazione di modelli di Resource Manager per gli account di Azure Batch, è opportuno tenere presente la [guida di riferimento del modello di Resource Manager per i tipi di risorse Microsoft.Batch](/azure/templates/microsoft.batch/allversions).
 
 ```json
 {
@@ -141,7 +140,7 @@ Successivamente, verrà esaminato il modello dell'account di Azure Batch. L'acco
 }
 ```
 
-Il modello successivo illustra un esempio di creazione di un pool di Azure Batch (computer back-end per l'elaborazione delle applicazioni). Per la compilazione di modelli di Resource Manager per i pool degli account di Azure Batch, è opportuno tenere presente la [guida di riferimento del modello di Resource Manager per i tipi di risorse Microsoft.Batch](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions).
+Il modello successivo illustra un esempio di creazione di un pool di Azure Batch (computer back-end per l'elaborazione delle applicazioni). Per la compilazione di modelli di Resource Manager per i pool degli account di Azure Batch, è opportuno tenere presente la [guida di riferimento del modello di Resource Manager per i tipi di risorse Microsoft.Batch](/azure/templates/microsoft.batch/allversions).
 
 ```json
 {
@@ -309,7 +308,7 @@ Ora che il codice sorgente è configurato, è possibile iniziare la prima compil
 
 ## <a name="continuous-integration"></a>Integrazione continua
 
-[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=azure-devops), all'interno di Azure DevOps Services, consente di implementare una pipeline di compilazione, test e distribuzione per le applicazioni.
+[Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), all'interno di Azure DevOps Services, consente di implementare una pipeline di compilazione, test e distribuzione per le applicazioni.
 
 In questa fase della pipeline, i test vengono in genere eseguiti per convalidare il codice e compilare i componenti del software appropriati. Il numero e i tipi di test e le eventuali attività aggiuntive eseguite dipendono dalla strategia di compilazione e versione più ampia.
 
@@ -323,9 +322,9 @@ In questo esempio si prenderà in esame la cartella **hpc-application**. La cart
 
 1. Per creare una pipeline di compilazione, sono disponibili due opzioni:
 
-    a. [Uso della finestra di progettazione grafica](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). A tale scopo, fare clic su "Usa la finestra di progettazione grafica" nella pagina **Nuova pipeline**.
+    a. [Uso della finestra di progettazione grafica](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). A tale scopo, fare clic su "Usa la finestra di progettazione grafica" nella pagina **Nuova pipeline**.
 
-    b. [Uso delle compilazioni YAML](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=azure-devops). È possibile creare una nuova pipeline YAML facendo clic sull'opzione Azure Repos o GitHub nella pagina Nuova pipeline. In alternativa, è possibile archiviare l'esempio seguente nel controllo del codice sorgente e fare riferimento a un file YAML esistente facendo clic sulla finestra di progettazione grafica e quindi usando il modello di YAML.
+    b. [Uso delle compilazioni YAML](/azure/devops/pipelines/get-started-yaml?view=azure-devops). È possibile creare una nuova pipeline YAML facendo clic sull'opzione Azure Repos o GitHub nella pagina Nuova pipeline. In alternativa, è possibile archiviare l'esempio seguente nel controllo del codice sorgente e fare riferimento a un file YAML esistente facendo clic sulla finestra di progettazione grafica e quindi usando il modello di YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,11 +356,11 @@ In questo esempio si prenderà in esame la cartella **hpc-application**. La cart
     ![Visualizzazione degli output live dalla compilazione](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> Se si usa un'applicazione client per eseguire l'applicazione di Azure Batch per HPC, è necessario creare una definizione di compilazione separata per tale applicazione. Per le guide pratiche, vedere la documentazione di [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/index?view=azure-devops).
+> Se si usa un'applicazione client per eseguire l'applicazione di Azure Batch per HPC, è necessario creare una definizione di compilazione separata per tale applicazione. Per le guide pratiche, vedere la documentazione di [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops).
 
 ## <a name="continuous-deployment"></a>Distribuzione continua
 
-Azure Pipelines viene usato anche per distribuire l'applicazione e l'infrastruttura sottostante. [Pipeline di versione](https://docs.microsoft.com/azure/devops/pipelines/release) è il componente che consente la distribuzione continua e automatizza il processo di rilascio.
+Azure Pipelines viene usato anche per distribuire l'applicazione e l'infrastruttura sottostante. [Pipeline di versione](/azure/devops/pipelines/release) è il componente che consente la distribuzione continua e automatizza il processo di rilascio.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Distribuzione dell'applicazione e dell'infrastruttura sottostante
 

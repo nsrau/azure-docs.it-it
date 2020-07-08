@@ -4,21 +4,20 @@ description: Come espandere un pool di host esistente con nuovi host di sessione
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4313f36a0b250be9646c6658b98f15037374729
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615526"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214282"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Espandi un pool di host esistente con nuovi host sessione
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione 2019, che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali Windows introdotti nell'aggiornamento di Spring 2020, vedere [questo articolo](../expand-existing-host-pool.md).
+>Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../expand-existing-host-pool.md).
 
 Quando si aumenta l'utilizzo all'interno del pool host, potrebbe essere necessario espandere il pool host esistente con nuovi host di sessione per gestire il nuovo carico.
 
@@ -57,12 +56,12 @@ Di seguito viene illustrato come ridistribuire il modello di Azure Resource Mana
      - Se è stato creato il pool di host originale con l'offerta di Azure Marketplace, selezionare la distribuzione a partire da **RDS. Wvd-provision-host-pool**.
      - Se il pool di host originale è stato creato con il modello di Azure Resource Manager GitHub, selezionare la distribuzione denominata **Microsoft. template**.
 6. Selezionare **Ridistribuisci**.
-     
+
      >[!NOTE]
      >Se il modello non viene ridistribuito automaticamente quando si seleziona **Ridistribuisci**, selezionare **modello** nel pannello sul lato sinistro del browser, quindi selezionare **Distribuisci**.
 
 7. Selezionare il gruppo di risorse che contiene le VM host della sessione corrente nel pool di host esistente.
-     
+
      >[!NOTE]
      >Se viene visualizzato un errore che indica di selezionare un gruppo di risorse diverso anche se quello immesso è corretto, selezionare un altro gruppo di risorse e quindi selezionare il gruppo di risorse originale.
 
@@ -85,7 +84,7 @@ Tutti i valori in questa sezione devono corrispondere a quanto specificato al mo
 3.    Per *area*selezionare la stessa area in cui si trovano le VM host della sessione del pool host esistente.
 4.    Per *nome Hostpool*immettere il nome del pool host esistente.
 5.    Per *tipo di desktop*selezionare il tipo di desktop che corrisponde al pool host esistente.
-6.    Per *gli utenti desktop predefiniti*, immettere un elenco delimitato da virgole di eventuali utenti aggiuntivi che si desidera accedere ai client desktop virtuali Windows e accedere a un desktop al termine dell'offerta di Azure Marketplace. Ad esempio, se si desidera user3@contoso.com assegnare e user4@contoso.com accedere, immettere user3@contoso.com,.user4@contoso.com
+6.    Per *gli utenti desktop predefiniti*, immettere un elenco delimitato da virgole di eventuali utenti aggiuntivi che si desidera accedere ai client desktop virtuali Windows e accedere a un desktop al termine dell'offerta di Azure Marketplace. Ad esempio, se si desidera assegnare user3@contoso.com e user4@contoso.com accedere, immettere user3@contoso.com , user4@contoso.com .
 7.    Selezionare **Avanti: Configura macchina virtuale**.
 
 >[!NOTE]
@@ -96,7 +95,7 @@ Tutti i valori in questa sezione devono corrispondere a quanto specificato al mo
 Tutti i valori dei parametri in questa sezione devono corrispondere a quanto specificato al momento della creazione del pool host e delle VM host della sessione, ad eccezione del numero totale di macchine virtuali. Il numero di macchine virtuali immesse sarà il numero di macchine virtuali nel pool di host espanso:
 
 1. Selezionare le dimensioni della VM corrispondenti alle VM host della sessione esistente.
-    
+
     >[!NOTE]
     >Se le dimensioni specifiche della VM che si cercano non vengono visualizzate nel selettore di dimensioni, significa che non ne è stato ancora eseguito l'onboarding nello strumento di Azure Marketplace. Per richiedere le dimensioni della VM, creare una richiesta oppure aggiornarne una esistente nel [forum UserVoice di Desktop virtuale Windows](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 

@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: HT
+ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844506"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057671"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Creare un account di Rendering remoto di Azure
 
@@ -28,20 +27,24 @@ Per creare un account per il servizio di Rendering remoto di Azure, sono necessa
     1. Impostare "Nome risorsa" sul nome dell'account
     1. Aggiornare la "Sottoscrizione" se necessario
     1. Impostare il "Gruppo di risorse" su un gruppo di risorse a scelta
+    1. Selezionare un'area dall'elenco a discesa ' località' in cui deve essere creata la risorsa. Vedere la sezione Osservazioni sulle [aree dell'account](create-an-account.md#account-regions) di seguito.
 1. Dopo aver creato l'account, accedere e:
     1. nella scheda *Panoramica* annotare l'ID account
     1. nella scheda *Impostazioni > Chiavi di accesso*, annotare la "Chiave primaria" dell'account (questa è la chiave dell'account privata)
+
+### <a name="account-regions"></a>Aree dell'account
+Il percorso specificato durante la creazione dell'account di un account determina l'area a cui è assegnata la risorsa account. Questa operazione non può essere modificata dopo la creazione. Tuttavia, l'account può essere usato per connettersi a una sessione di rendering remoto in qualsiasi [area supportata](./../reference/regions.md), indipendentemente dalla posizione dell'account.
 
 ### <a name="retrieve-the-account-information"></a>Recuperare le informazioni dell'account
 
 Per gli esempi e le esercitazioni è necessario fornire l'ID e una chiave dell'account. Ad esempio, nel file **arrconfig.json** usato per gli script di esempio di PowerShell:
 
 ```json
-    "accountSettings": {
-        "arrAccountId": "<fill in the account ID from the Azure portal>",
-        "arrAccountKey": "<fill in the account key from the Azure portal>",
-        "region": "<select from available regions>"
-    },
+"accountSettings": {
+    "arrAccountId": "<fill in the account ID from the Azure portal>",
+    "arrAccountKey": "<fill in the account key from the Azure portal>",
+    "region": "<select from available regions>"
+},
 ```
 
 vedere l'[elenco delle aree disponibili](../reference/regions.md) per compilare l'opzione *area*.
@@ -89,6 +92,7 @@ A questo punto si presuppone che si disponga di un account di archiviazione. Pas
 > Nel caso in cui l'account di Rendering remoto non sia elencato, fare riferimento a questa [sezione di risoluzione dei problemi](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Ripetere l'aggiunta di nuovi ruoli altre due volte per le rispettive selezioni dall'elenco a discesa **Ruolo**:
+
 * **Collaboratore account di archiviazione**
 * **Collaboratore ai dati del BLOB di archiviazione**
 

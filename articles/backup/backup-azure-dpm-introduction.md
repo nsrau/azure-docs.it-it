@@ -2,13 +2,12 @@
 title: Preparare il server DPM per il backup dei carichi di lavoro
 description: Questo articolo illustra come preparare i backup di System Center Data Protection Manager (DPM) in Azure usando il servizio backup di Azure.
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/11/2020
+ms.openlocfilehash: 7c2b811685ec9ea5f8fe752a5a1c73611a624b62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273462"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718326"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 
@@ -48,7 +47,7 @@ Tipi di file supportati | Questi tipi di file possono essere sottoposti a backup
 Tipi di file non supportati | Server nei file system che distinguono tra maiuscole e minuscole; collegamenti reali, ignorati; reparse point, ignorati; crittografati e compressi, ignorati; crittografati e sparse, ignorati; flusso compresso; analisi di flusso.
 Archiviazione locale | Ogni computer di cui si desidera eseguire il backup deve disporre di spazio di archiviazione locale disponibile almeno il 5% delle dimensioni dei dati di cui viene eseguito il backup. Se, ad esempio, si esegue il backup di 100 GB di dati, è necessario un minimo di 5 GB di spazio disponibile nello spazio di lavoro.
 Archiviazione dell'insieme di credenziali | Non esiste alcun limite alla quantità di dati di cui è possibile eseguire il backup in un insieme di credenziali di backup di Azure, ma le dimensioni di un'origine dati (ad esempio una macchina virtuale o un database) non devono superare 54.400 GB.
-Azure ExpressRoute | Se Azure ExpressRoute è configurato con peering privato o Microsoft, non può essere usato per eseguire il backup dei dati in Azure.<br/><br/> Se Azure ExpressRoute è configurato con il peering pubblico, può essere usato per eseguire il backup dei dati in Azure.<br/><br/> **Nota:** Il peering pubblico è deprecato per i nuovi circuiti.
+Azure ExpressRoute | È possibile eseguire il backup dei dati tramite Azure ExpressRoute con il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft. Il backup sul peering privato non è supportato.<br/><br/> **Con peering pubblico**: garantire l'accesso ai seguenti domini/indirizzi:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Con il peering Microsoft**selezionare i servizi/le aree e i valori della community pertinenti seguenti:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure area (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>-Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>Per ulteriori informazioni, vedere [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).<br/><br/>**Nota**: il peering pubblico è deprecato per i nuovi circuiti.
 Agente di Backup di Azure | Se DPM è in esecuzione in System Center 2012 SP1, installare il rollup 2 o successivo per DPM SP1. È necessario per l'installazione dell'agente.<br/><br/> Questo articolo descrive come distribuire la versione più recente dell'agente di Backup di Azure, noto anche come agente del servizio di ripristino di Microsoft Azure. Se è stata distribuita una versione precedente, eseguire l'aggiornamento alla versione più recente per garantire che il backup funzioni come previsto.
 
 Prima di iniziare è necessario disporre di un account di Azure su cui è abilitata la funzionalità Backup di Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Informazioni sui [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
@@ -103,9 +102,9 @@ Scaricare le credenziali dell'insieme di credenziali in un computer locale come 
 
     ![Menu dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. In **Properties** > **backup Credentials**fare clic su **download**. Il portale genera il file delle credenziali dell'insieme di credenziali usando una combinazione del nome dell'insieme di credenziali e della data corrente e lo rende disponibile per il download.
+4. In **Properties**  >  **backup Credentials**fare clic su **download**. Il portale genera il file delle credenziali dell'insieme di credenziali usando una combinazione del nome dell'insieme di credenziali e della data corrente e lo rende disponibile per il download.
 
-    ![Download](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Scarica](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
 5. Fare clic su **Salva** per scaricare le credenziali dell'insieme di credenziali nella cartella o su **Salva con nome** per specificare un percorso. La generazione del file potrebbe impiegare fino a un minuto.
 
@@ -119,7 +118,7 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
     ![Menu dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Nella pagina **Proprietà** scaricare l'agente di Backup di Azure.
 
-    ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Scarica](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Al termine del download eseguire MARSAgentInstaller.exe. per installare l'agente in un computer DPM.
 5. Selezionare una cartella di installazione e una cartella della cache per l'agente. Lo spazio disponibile nel percorso della cache deve essere almeno il 5% dei dati di backup.

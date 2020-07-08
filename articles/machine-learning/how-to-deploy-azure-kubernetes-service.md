@@ -1,21 +1,20 @@
 ---
-title: Come distribuire i modelli nel servizio Azure Kubernetes
+title: Distribuire modelli ML nel servizio Kubernetes
 titleSuffix: Azure Machine Learning
 description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando il servizio Azure Kubernetes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 01/16/2020
-ms.openlocfilehash: aec1b7f7bf60be34d21d52ca652a776cf3275fe8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 16465ff823fab1b13f43aec33cb41f9b26b5c054
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392557"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -53,7 +52,7 @@ Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribui
 
     Per ulteriori informazioni sull'impostazione di queste variabili, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
-- I frammenti di codice dell' __interfaccia__ della riga di comando in questo articolo `inferenceconfig.json` presuppongono che sia stato creato un documento. Per ulteriori informazioni sulla creazione di questo documento, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+- I frammenti di codice dell' __interfaccia__ della riga di comando in questo articolo presuppongono che sia stato creato un `inferenceconfig.json` documento. Per ulteriori informazioni sulla creazione di questo documento, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
 ## <a name="create-a-new-aks-cluster"></a>Creare un nuovo cluster AKS
 
@@ -67,7 +66,7 @@ La creazione o il fissaggio di un cluster AKS è un processo di tipo One-Time pe
 Se si vuole creare un cluster AKS per __lo sviluppo__, la __convalida__e il __test__ anziché l'ambiente di produzione, è possibile specificare lo __scopo del cluster__ per il __test__di sviluppo.
 
 > [!WARNING]
-> Se si imposta `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, il cluster creato non è adatto per il traffico a livello di produzione e può aumentare i tempi di inferenza. Anche i cluster di sviluppo/test non garantiscono la tolleranza di errore. Si consiglia almeno 2 CPU virtuali per i cluster di sviluppo/test.
+> Se si imposta `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` , il cluster creato non è adatto per il traffico a livello di produzione e può aumentare i tempi di inferenza. Anche i cluster di sviluppo/test non garantiscono la tolleranza di errore. Si consiglia almeno 2 CPU virtuali per i cluster di sviluppo/test.
 
 Gli esempi seguenti illustrano come creare un nuovo cluster AKS usando l'SDK e l'interfaccia della riga di comando:
 
@@ -92,7 +91,7 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> Per [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se si scelgono valori personalizzati `agent_count` per `vm_size`e e `cluster_purpose` non `DEV_TEST`è, è necessario assicurarsi che `agent_count` moltiplicato per `vm_size` sia maggiore o uguale a 12 CPU virtuali. Se, ad esempio, si usa `vm_size` un di "Standard_D3_v2", che ha 4 CPU virtuali, è necessario scegliere una `agent_count` di 3 o una versione successiva.
+> Per [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py) , se si scelgono valori personalizzati per `agent_count` e `vm_size` e `cluster_purpose` non è `DEV_TEST` , è necessario assicurarsi che `agent_count` moltiplicato per `vm_size` sia maggiore o uguale a 12 CPU virtuali. Se, ad esempio, si usa un `vm_size` di "Standard_D3_v2", che ha 4 CPU virtuali, è necessario scegliere una `agent_count` di 3 o una versione successiva.
 >
 > Il Azure Machine Learning SDK non fornisce il supporto per il ridimensionamento di un cluster AKS. Per ridimensionare i nodi del cluster, usare l'interfaccia utente per il cluster AKS in Azure Machine Learning Studio. È possibile modificare solo il numero di nodi, non le dimensioni della macchina virtuale del cluster.
 
@@ -122,11 +121,11 @@ Se si dispone già del cluster AKS nella sottoscrizione di Azure ed è la versio
 >
 > Se si vuole proteggere il cluster AKS con una rete virtuale di Azure, è necessario creare prima la rete virtuale. Per altre informazioni, vedere la pagina relativa a [sperimentazione e inferenza sicure con rete virtuale di Azure](how-to-enable-virtual-network.md#aksvnet).
 
-Quando si connette un cluster AKS a un'area di lavoro, è possibile definire il modo in cui si userà il `cluster_purpose` cluster impostando il parametro.
+Quando si connette un cluster AKS a un'area di lavoro, è possibile definire il modo in cui si userà il cluster impostando il `cluster_purpose` parametro.
 
-Se non si imposta il `cluster_purpose` parametro, o non si `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`imposta, il cluster deve avere almeno 12 CPU virtuali disponibili.
+Se non si imposta il `cluster_purpose` parametro, o non si imposta `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD` , il cluster deve avere almeno 12 CPU virtuali disponibili.
 
-Se si imposta `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, il cluster non deve avere 12 CPU virtuali. Per lo sviluppo e il test sono consigliate almeno 2 CPU virtuali. Tuttavia, un cluster configurato per lo sviluppo/test non è adatto per il traffico a livello di produzione e può aumentare i tempi di inferenza. Anche i cluster di sviluppo/test non garantiscono la tolleranza di errore.
+Se si imposta `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` , il cluster non deve avere 12 CPU virtuali. Per lo sviluppo e il test sono consigliate almeno 2 CPU virtuali. Tuttavia, un cluster configurato per lo sviluppo/test non è adatto per il traffico a livello di produzione e può aumentare i tempi di inferenza. Anche i cluster di sviluppo/test non garantiscono la tolleranza di errore.
 
 > [!WARNING]
 > Non creare più allegati simultanei nello stesso cluster AKS dall'area di lavoro. Ad esempio, se si connette un cluster AKS a un'area di lavoro usando due nomi diversi. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
@@ -137,6 +136,7 @@ Per altre informazioni sulla creazione di un cluster AKS con l'interfaccia della
 
 * [Creare un cluster del servizio Azure Kubernetes (interfaccia della riga di comando)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Creare un cluster AKS (portale)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
+* [Creare un cluster AKS (modello ARM nei modelli di avvio rapido di Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 Gli esempi seguenti illustrano come alleghi un cluster AKS esistente all'area di lavoro:
 
@@ -241,7 +241,7 @@ Analizzare e innalzare di livello le versioni del modello in modo controllato us
     > [!NOTE]
     > Se non si tiene conto del 100% del traffico, qualsiasi percentuale rimanente viene instradata alla versione dell'endpoint __predefinito__ . Se, ad esempio, si configura la versione endpoint ' test ' per ottenere il 10% del traffico è prod ' per il 30%, il 60% rimanente verrà inviato alla versione dell'endpoint predefinito.
     >
-    > La prima versione dell'endpoint creata viene automaticamente configurata come predefinita. È possibile modificare questo valore `is_default=True` impostando quando si crea o si aggiorna una versione dell'endpoint.
+    > La prima versione dell'endpoint creata viene automaticamente configurata come predefinita. È possibile modificare questo valore impostando `is_default=True` quando si crea o si aggiorna una versione dell'endpoint.
      
 * Contrassegnare una versione dell'endpoint come __controllo__ o __trattamento__. Ad esempio, la versione corrente dell'endpoint di produzione potrebbe essere il controllo, mentre i nuovi modelli potenziali vengono distribuiti come versioni di trattamento. Dopo aver valutato le prestazioni delle versioni di trattamento, se una supera il controllo corrente, è possibile che venga innalzata al nuovo ambiente di produzione/controllo.
 
@@ -327,7 +327,7 @@ endpoint.delete_version(version_name="versionb")
 
 Quando si esegue la distribuzione nel servizio Azure Kubernetes, l'autenticazione __basata su chiavi__ è abilitata per impostazione predefinita. È anche possibile abilitare l'autenticazione __basata su token__ . Per l'autenticazione basata su token è necessario che i client usino un account Azure Active Directory per richiedere un token di autenticazione, usato per eseguire richieste al servizio distribuito.
 
-Per __disabilitare__ l'autenticazione, impostare `auth_enabled=False` il parametro durante la creazione della configurazione di distribuzione. Nell'esempio seguente viene disabilitata l'autenticazione tramite l'SDK:
+Per __disabilitare__ l'autenticazione, impostare il `auth_enabled=False` parametro durante la creazione della configurazione di distribuzione. Nell'esempio seguente viene disabilitata l'autenticazione tramite l'SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
@@ -337,7 +337,7 @@ Per informazioni sull'autenticazione da un'applicazione client, vedere la pagina
 
 ### <a name="authentication-with-keys"></a>Autenticazione con chiavi
 
-Se è abilitata l'autenticazione della chiave, è `get_keys` possibile usare il metodo per recuperare una chiave di autenticazione primaria e secondaria:
+Se è abilitata l'autenticazione della chiave, è possibile usare il `get_keys` metodo per recuperare una chiave di autenticazione primaria e secondaria:
 
 ```python
 primary, secondary = service.get_keys()
@@ -349,13 +349,13 @@ print(primary)
 
 ### <a name="authentication-with-tokens"></a>Autenticazione con token
 
-Per abilitare l'autenticazione del token, `token_auth_enabled=True` impostare il parametro durante la creazione o l'aggiornamento di una distribuzione. Nell'esempio seguente viene abilitata l'autenticazione del token tramite l'SDK:
+Per abilitare l'autenticazione del token, impostare il `token_auth_enabled=True` parametro durante la creazione o l'aggiornamento di una distribuzione. Nell'esempio seguente viene abilitata l'autenticazione del token tramite l'SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
 ```
 
-Se l'autenticazione basata su token è abilitata, `get_token` è possibile usare il metodo per recuperare un token JWT e l'ora di scadenza del token:
+Se l'autenticazione basata su token è abilitata, è possibile usare il `get_token` metodo per recuperare un token JWT e l'ora di scadenza del token:
 
 ```python
 token, refresh_by = service.get_token()
@@ -363,9 +363,11 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Sarà necessario richiedere un nuovo token dopo l' `refresh_by` ora del token.
+> Sarà necessario richiedere un nuovo token dopo l'ora del token `refresh_by` .
 >
 > Microsoft consiglia di creare l'area di lavoro di Azure Machine Learning nella stessa area del cluster del servizio Azure Kubernetes. Per eseguire l'autenticazione con un token, il servizio Web effettuerà una chiamata all'area in cui viene creata l'area di lavoro Azure Machine Learning. Se l'area dell'area di lavoro non è disponibile, non sarà possibile recuperare un token per il servizio Web, anche se il cluster si trova in un'area diversa da quella dell'area di lavoro. In questo modo, l'autenticazione basata su token risulta non disponibile fino a quando l'area dell'area di lavoro non sarà nuovamente disponibile. Inoltre, maggiore è la distanza tra l'area del cluster e l'area dell'area di lavoro, più tempo sarà necessario per recuperare un token.
+>
+> Per recuperare un token, è necessario usare l'SDK Azure Machine Learning o il comando [AZ ml Service Get-Access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
 ## <a name="update-the-web-service"></a>Aggiornare il servizio Web
 

@@ -1,23 +1,13 @@
 ---
 title: Filtri per gli argomenti del bus di servizio di Azure | Microsoft Docs
 description: Questo articolo illustra in che modo i sottoscrittori possono definire i messaggi che vogliono ricevere da un argomento specificando filtri.
-services: service-bus-messaging
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 6e780268d4b8c1a512ce82b1ca10a2f6b7b894b7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: b722c040248c199782f6c8dea020ae582762e102
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339962"
 ---
 # <a name="topic-filters-and-actions"></a>Filtri e azioni per gli argomenti
 
@@ -39,7 +29,7 @@ Il bus di servizio supporta tre condizioni di filtro.
      - **ReplyTo**
      - **ReplyToSessionId**
      - **SessionId** 
-     - **A**
+     - **To**
      - qualsiasi proprietà definita dall'utente. 
      
      Esiste una corrispondenza quando il valore di una proprietà di un messaggio in arrivo è uguale al valore specificato nel filtro di correlazione. Per le espressioni stringa, nel confronto viene fatta distinzione tra maiuscole e minuscole. Quando si specificano più proprietà per la corrispondenza, vengono combinate dal filtro con una condizione di AND logico e il filtro quindi corrisponde se corrispondono tutte le condizioni.
@@ -64,7 +54,7 @@ Il routing usa i filtri per distribuire i messaggi tra le sottoscrizioni dell'ar
 
 
 > [!NOTE]
-> Attualmente il portale di Azure non consente di specificare le regole di filtro per le sottoscrizioni. Per definire le regole di sottoscrizione, è possibile usare uno qualsiasi degli SDK o dei modelli di Azure Resource Manager supportati. 
+> Poiché il portale di Azure supporta ora la funzionalità Service Bus Explorer, i filtri di sottoscrizione possono essere creati o modificati dal portale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli esempi seguenti: 

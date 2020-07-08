@@ -7,17 +7,16 @@ author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
-ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c5667a03d127441a9a911ff4b8daba0b3b138e3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711749"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso dei servizi di bilanciamento del carico in Azure
 
@@ -65,7 +64,7 @@ Il diagramma seguente illustra l'architettura di questi scenario:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Passaggio 1: creare un profilo di Gestione traffico
 
-1. Nella portale di Azure fare clic su **Crea una risorsa** > **rete** > **profilo** > di gestione traffico**Crea**.
+1. Nella portale di Azure fare clic su **Crea una risorsa**  >  **rete**  >  **profilo di gestione traffico**  >  **Crea**.
 2. Immettere le informazioni di base seguenti:
 
    * **Nome**: assegnare al profilo di Gestione traffico un nome del prefisso DNS.
@@ -80,7 +79,7 @@ Il diagramma seguente illustra l'architettura di questi scenario:
 
 ### <a name="step-2-create-the-application-gateways"></a>Passaggio 2: creare il gateway applicazione
 
-1. Nel riquadro sinistro della portale di Azure fare clic su **Crea una risorsa** > **rete** > **gateway applicazione**.
+1. Nel riquadro sinistro della portale di Azure fare clic su **Crea una risorsa**  >  **rete**  >  **gateway applicazione**.
 2. Inserire le seguenti informazioni di base sul gateway applicazione:
 
    * **Nome** : nome del gateway applicazione.
@@ -154,11 +153,11 @@ In questo scenario Gestione traffico è connesso ai gateway applicazione (come c
 
 In questo scenario Load Balancer distribuisce le connessioni dal livello Web al database all'interno di un cluster a disponibilità elevata.
 
-Se il cluster di database a disponibilità elevata usa SQL Server AlwaysOn, per istruzioni dettagliate vedere [Configurare uno o più listener nei gruppi di disponibilità AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
+Se il cluster di database a disponibilità elevata usa SQL Server AlwaysOn, per istruzioni dettagliate vedere [Configurare uno o più listener nei gruppi di disponibilità AlwaysOn](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md).
 
 Per altri dettagli sulla configurazione di un servizio di bilanciamento del carico interno, vedere [Creare un servizio di bilanciamento del carico interno nel portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. Nel riquadro sinistro della portale di Azure fare clic su **Crea una risorsa** > **rete** > **bilanciamento del carico**.
+1. Nel riquadro sinistro della portale di Azure fare clic su **Crea una risorsa**  >  **rete**  >  **bilanciamento del carico**.
 2. Scegliere un nome per il bilanciamento del carico.
 3. Impostare **tipo** su **interno**e scegliere la rete virtuale e la subnet appropriate per il servizio di bilanciamento del carico.
 4. In **assegnazione indirizzo IP**selezionare **dinamico** o **statico**.

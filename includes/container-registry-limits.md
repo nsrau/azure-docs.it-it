@@ -5,20 +5,20 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 19d0be6a032868c6683cd5b6bbfa7f07306171fb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683434"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242075"
 ---
 | Risorsa | Basic | Standard | Premium |
 |---|---|---|---|
-| Archiviazione<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
-| Dimensioni massime livello immagini | 200 GiB | 200 GiB | 200 GiB |
+| Archiviazione inclusa<sup>1</sup> (GIB) | 10 | 100 | 500 |
+| Limite di archiviazione (TiB) | 20| 20 | 20 |
+| Dimensioni massime livello immagine (GiB) | 200 | 200 | 200 |
 | Operazioni di lettura al minuto<sup>2, 3</sup> | 1\.000 | 3,000 | 10,000 |
 | Operazioni di scrittura al minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
 | MBps di larghezza di banda per il download<sup>2</sup> | 30 | 60 | 100 |
@@ -35,7 +35,7 @@ ms.locfileid: "83683434"
 | &bull; repository per mapping di ambito | N/D | N/D | 500 |
 
 
-<sup>1</sup>I limiti di archiviazione specificati sono la quantità di archiviazione *inclusa* per ogni livello. Viene addebitata una tariffa giornaliera aggiuntiva per GiB di archiviazione di immagini oltre questi limiti. Per informazioni sui costi, vedere [Prezzi di Registro Azure Container][pricing].
+<sup>1</sup> archiviazione inclusa nella tariffa giornaliera per ogni livello. Per una risorsa di archiviazione aggiuntiva, viene addebitata una tariffa giornaliera aggiuntiva per GiB, fino al limite di archiviazione. Per informazioni sui costi, vedere [Prezzi di Registro Azure Container][pricing].
 
 <sup>2</sup> I dati delle *operazioni di lettura*, *operazioni di scrittura* e *larghezza di banda* sono stime minime. Registro Azure Container migliora le prestazioni in base alle necessità d'uso.
 

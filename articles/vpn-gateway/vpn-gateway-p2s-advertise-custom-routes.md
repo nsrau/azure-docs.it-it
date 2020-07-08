@@ -4,15 +4,14 @@ description: Passaggi per annunciare le route personalizzate ai client da punto 
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3588755e2aab1c84d443e917eca8c7fca280b49a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ad007514e48ea751257884ba6e9ccb3965442d36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987571"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Annunciare route personalizzate per client VPN P2S
 
@@ -22,7 +21,7 @@ Si consiglia di annunciare route personalizzate a tutti i client VPN da punto a 
 
 ## <a name="to-advertise-custom-routes"></a>Per annunciare route personalizzate
 
-Per annunciare route personalizzate, usare `Set-AzVirtualNetworkGateway cmdlet`. Nell'esempio seguente viene illustrato come annunciare l'IP per le [tabelle dell'account di archiviazione contoso](https://contoso.table.core.windows.net).
+Per annunciare route personalizzate, usare `Set-AzVirtualNetworkGateway cmdlet` . Nell'esempio seguente viene illustrato come annunciare l'IP per le [tabelle dell'account di archiviazione contoso](https://contoso.table.core.windows.net).
 
 1. Ping *contoso.Table.Core.Windows.NET* e annotare l'indirizzo IP. Ad esempio:
 

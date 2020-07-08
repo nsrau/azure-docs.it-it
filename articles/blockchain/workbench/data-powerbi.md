@@ -2,18 +2,17 @@
 title: Usare i dati di Azure Blockchain Workbench in Microsoft Power BI
 description: Informazioni su come caricare e visualizzare i dati del database SQL di Azure Blockchain Workbench in Microsoft Power BI.
 ms.date: 04/22/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: sunri
-ms.openlocfilehash: 4245603fee5b3d24488426c3dc2d026a3c0d7848
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2a5e67a8416c57c1a0cb039733a93608a8919be6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082527"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214231"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Usare i dati di Azure Blockchain Workbench in Microsoft Power BI
 
-Microsoft Power BI offre la possibilità di generare facilmente report potenti dai database SQL con Power BI Desktop e di pubblicarli in [https://www.powerbi.com](https://www.powerbi.com).
+Microsoft Power BI offre la possibilità di generare facilmente report potenti dai database SQL con Power BI Desktop e di pubblicarli in [https://www.powerbi.com](https://www.powerbi.com) .
 
 Questo articolo contiene una procedura dettagliata su come connettersi al database SQL di Azure Blockchain Workbench da Power BI Desktop, creare un report e distribuirlo in powerbi.com.
 
@@ -26,7 +25,7 @@ Questo articolo contiene una procedura dettagliata su come connettersi al databa
 1.  Aprire Power BI Desktop.
 2.  Selezionare **Recupera dati**.
 
-    ![Recuperare i dati](./media/data-powerbi/get-data.png)
+    ![Recupera dati](./media/data-powerbi/get-data.png)
 3.  Selezionare **SQL Server** nell'elenco dei tipi di origine dati.
 
 4.  Specificare il nome del server e del database nella finestra di dialogo. Specificare se si desidera importare i dati o eseguire una **DirectQuery**. Selezionare **OK**.

@@ -6,16 +6,15 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: b77efd7e5cf7ff016605e0ba2e74cff9ea8dab89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75478877"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057620"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concedere l'accesso per creare sottoscrizioni di Azure Enterprise (anteprima)
 
-Come cliente di Azure, in [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), è possibile fornire a un altro utente o entità servizio l'autorizzazione per creare sottoscrizioni fatturate al proprio account. Questo articolo descrive come usare il [controllo degli accessi in base al ruolo (RBAC)](../../active-directory/role-based-access-control-configure.md) per condividere la capacità di creare sottoscrizioni e come controllare le creazioni di sottoscrizioni. È necessario disporre di un ruolo Proprietario per l'account da condividere.
+Come cliente di Azure, in [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), è possibile fornire a un altro utente o entità servizio l'autorizzazione per creare sottoscrizioni fatturate al proprio account. Questo articolo descrive come usare il [controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/role-assignments-portal.md) per condividere la capacità di creare sottoscrizioni e come controllare le creazioni di sottoscrizioni. È necessario disporre di un ruolo Proprietario per l'account da condividere.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -60,7 +59,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
     }
     ```
 
-    Utilizzare la `principalName` proprietà per identificare l'account a cui si desidera concedere l'accesso al proprietario RBAC. Copiare l' `name` oggetto di quell'account. Se ad esempio si vuole concedere l'accesso del SignUpEngineering@contoso.com proprietario RBAC all'account di registrazione, copiare. ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ID oggetto dell'account di registrazione. Incollare questo valore in un punto in modo che sia possibile usarlo nel passaggio `enrollmentAccountObjectId`successivo come.
+    Utilizzare la `principalName` proprietà per identificare l'account a cui si desidera concedere l'accesso al proprietario RBAC. Copiare l'oggetto `name` di quell'account. Se ad esempio si vuole concedere l'accesso del proprietario RBAC all' SignUpEngineering@contoso.com account di registrazione, copiare ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . ID oggetto dell'account di registrazione. Incollare questo valore in un punto in modo che sia possibile usarlo nel passaggio successivo come `enrollmentAccountObjectId` .
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -78,7 +77,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Utilizzare la `principalName` proprietà per identificare l'account a cui si desidera concedere l'accesso al proprietario RBAC. Copiare l' `ObjectId` oggetto di quell'account. Se ad esempio si vuole concedere l'accesso del SignUpEngineering@contoso.com proprietario RBAC all'account di registrazione, copiare. ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` Incollare questo ID oggetto in un punto in modo che sia possibile usarlo nel passaggio successivo `enrollmentAccountObjectId`come.
+    Utilizzare la `principalName` proprietà per identificare l'account a cui si desidera concedere l'accesso al proprietario RBAC. Copiare l'oggetto `ObjectId` di quell'account. Se ad esempio si vuole concedere l'accesso del proprietario RBAC all' SignUpEngineering@contoso.com account di registrazione, copiare ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . Incollare questo ID oggetto in un punto in modo che sia possibile usarlo nel passaggio successivo come `enrollmentAccountObjectId` .
 
     # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -109,14 +108,14 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
 
     ---
 
-    Utilizzare la `principalName` proprietà per identificare l'account a cui si desidera concedere l'accesso al proprietario RBAC. Copiare l' `name` oggetto di quell'account. Se ad esempio si vuole concedere l'accesso del SignUpEngineering@contoso.com proprietario RBAC all'account di registrazione, copiare. ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ID oggetto dell'account di registrazione. Incollare questo valore in un punto in modo che sia possibile usarlo nel passaggio `enrollmentAccountObjectId`successivo come.
+    Utilizzare la `principalName` proprietà per identificare l'account a cui si desidera concedere l'accesso al proprietario RBAC. Copiare l'oggetto `name` di quell'account. Se ad esempio si vuole concedere l'accesso del proprietario RBAC all' SignUpEngineering@contoso.com account di registrazione, copiare ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . ID oggetto dell'account di registrazione. Incollare questo valore in un punto in modo che sia possibile usarlo nel passaggio successivo come `enrollmentAccountObjectId` .
 
 1. <a id="userObjectId"></a>Ottenere l'ID oggetto dell'utente o del gruppo a cui si vuole assegnare il ruolo di proprietario RBAC
 
     1. Nella portale di Azure cercare **Azure Active Directory**.
     1. Se si desidera concedere l'accesso utente, fare clic su **utenti** nel menu a sinistra. Se si desidera concedere l'accesso a un gruppo, fare clic su **gruppi**.
     1. Selezionare l'utente o il gruppo a cui si desidera assegnare il ruolo di proprietario RBAC.
-    1. Se è stato selezionato un utente, l'ID oggetto verrà trovato nella pagina del profilo. Se è stato selezionato un gruppo, l'ID oggetto sarà presente nella pagina panoramica. Copiare il valore **ObjectID** facendo clic sull'icona a destra della casella di testo. Incollarlo in un punto in modo che sia possibile usarlo nel passaggio `userObjectId`successivo come.
+    1. Se è stato selezionato un utente, l'ID oggetto verrà trovato nella pagina del profilo. Se è stato selezionato un gruppo, l'ID oggetto sarà presente nella pagina panoramica. Copiare il valore **ObjectID** facendo clic sull'icona a destra della casella di testo. Incollarlo in un punto in modo che sia possibile usarlo nel passaggio successivo come `userObjectId` .
 
 1. Concedere all'utente o al gruppo il ruolo di proprietario RBAC nell'account di registrazione
 
@@ -124,7 +123,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
 
     # <a name="rest"></a>[REST](#tab/rest-2)
 
-    Eseguire il comando seguente, sostituendo ```<enrollmentAccountObjectId>``` con `name` l'oggetto copiato nel primo passaggio (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Sostituire ```<userObjectId>``` con l'ID oggetto copiato dal secondo passaggio.
+    Eseguire il comando seguente, sostituendo ```<enrollmentAccountObjectId>``` con l'oggetto `name` copiato nel primo passaggio ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Sostituire ```<userObjectId>``` con l'ID oggetto copiato dal secondo passaggio.
 
     ```json
     PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
@@ -158,7 +157,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell-2)
 
-    Eseguire il comando [New-AzRoleAssignment](../../active-directory/role-based-access-control-manage-access-powershell.md) seguente, sostituendo ```<enrollmentAccountObjectId>``` con `ObjectId` l'oggetto raccolto nel primo passaggio```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```(). Sostituire ```<userObjectId>``` con l'ID oggetto raccolto nel secondo passaggio.
+    Eseguire il comando [New-AzRoleAssignment](../../role-based-access-control/role-assignments-powershell.md) seguente, sostituendo ```<enrollmentAccountObjectId>``` con l'oggetto `ObjectId` raccolto nel primo passaggio ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Sostituire ```<userObjectId>``` con l'ID oggetto raccolto nel secondo passaggio.
 
     ```azurepowershell-interactive
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -166,7 +165,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
 
     # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli-2)
 
-    Eseguire il comando [AZ Role Assignment create](../../active-directory/role-based-access-control-manage-access-azure-cli.md) seguente ```<enrollmentAccountObjectId>``` sostituendo `name` con il copiato nel primo passaggio (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Sostituire ```<userObjectId>``` con l'ID oggetto raccolto nel secondo passaggio.
+    Eseguire il comando [AZ Role Assignment create](../../role-based-access-control/role-assignments-cli.md) seguente sostituendo ```<enrollmentAccountObjectId>``` con il `name` copiato nel primo passaggio ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Sostituire ```<userObjectId>``` con l'ID oggetto raccolto nel secondo passaggio.
 
     ```azurecli-interactive
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -180,7 +179,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
 
 Per monitorare le sottoscrizioni create tramite questa API, usare l'[API del log attività del tenant](/rest/api/monitor/tenantactivitylogs). Attualmente non è possibile usare PowerShell, l'interfaccia della riga di comando o il portale di Azure per monitorare la creazione delle sottoscrizioni.
 
-1. Come amministratore del tenant di Azure AD [elevare l'accesso](../../active-directory/role-based-access-control-tenant-admin-access.md) quindi assegnare un ruolo di lettore all'utente di controllo sull'ambito `/providers/microsoft.insights/eventtypes/management`.
+1. Come amministratore del tenant di Azure AD [elevare l'accesso](../../role-based-access-control/elevate-access-global-admin.md) quindi assegnare un ruolo di lettore all'utente di controllo sull'ambito `/providers/microsoft.insights/eventtypes/management`.
 1. Come utente di controllo, chiamare l'[API del log attività del tenant](/rest/api/monitor/tenantactivitylogs) per visualizzare le attività di creazione della sottoscrizione. Esempio:
 
     ```

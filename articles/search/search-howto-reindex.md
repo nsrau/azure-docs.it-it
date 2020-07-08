@@ -7,13 +7,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/18/2020
+ms.openlocfilehash: 96177686e78a0595ac4ad49b9969b22d862facd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77498369"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85051736"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Come ricompilare un indice in Azure ricerca cognitiva
 
@@ -21,7 +20,17 @@ Questo articolo illustra come ricompilare un indice di ricerca cognitiva di Azur
 
 Una *ricompilazione* consiste nell'eliminare e ricreare le strutture dei dati fisiche associate a un indice, inclusi tutti gli indici invertiti basati sui campi. In ricerca cognitiva di Azure non è possibile eliminare e ricreare i singoli campi. Per ricompilare un indice, è necessario eliminare tutti i dati di archiviazione dei campi, ricreati in base a uno schema di indice esistente o modificato, e quindi ripopolarli con i dati di cui è stato eseguito il push nell'indice o il pull da origini esterne. 
 
-Ricompilare gli indici durante lo sviluppo è un'operazione consueta, ma potrebbe presentarsi la necessità di ricompilare un indice anche a livello di produzione in seguito a modifiche strutturali, come l'aggiunta di tipi complessi o l'aggiunta di campi agli strumenti suggerimenti.
+Durante lo sviluppo si ricompilano gli indici durante l'iterazione sulla progettazione degli indici, ma potrebbe essere necessario ricompilare un indice a livello di produzione per supportare le modifiche strutturali, ad esempio l'aggiunta di tipi complessi o l'aggiunta di campi ai suggerimenti.
+
+## <a name="rebuild-versus-refresh"></a>"Ricompila" rispetto a "Aggiorna"
+
+La ricompilazione non deve essere confusa con l'aggiornamento del contenuto di un indice con documenti nuovi, modificati o eliminati. L'aggiornamento di un corpus di ricerca è quasi un dato in ogni app di ricerca, con alcuni scenari che richiedono aggiornamenti aggiornati, ad esempio quando un corpus di ricerca deve riflettere le modifiche dell'inventario in un'app di vendita online.
+
+Fino a quando non si modifica la struttura dell'indice, è possibile aggiornare un indice utilizzando le stesse tecniche utilizzate per caricare l'indice inizialmente:
+
+* Per l'indicizzazione in modalità push, chiamare [Aggiungi, aggiornare o eliminare documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per eseguire il push delle modifiche a un indice.
+
+* Per gli indicizzatori, è possibile [pianificare l'esecuzione dell'indicizzatore](search-howto-schedule-indexers.md) e usare il rilevamento delle modifiche o i timestamp per identificare il Delta. Se gli aggiornamenti devono essere riflessi più velocemente rispetto a quello che può essere gestito da un'utilità di pianificazione, è invece possibile usare l'indicizzazione in modalità push.
 
 ## <a name="rebuild-conditions"></a>Condizioni di ricompilazione
 

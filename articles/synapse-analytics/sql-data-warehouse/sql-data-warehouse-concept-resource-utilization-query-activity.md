@@ -6,17 +6,16 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7c09e9d9f93ead6f894c954f647ebe33918cf41d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213551"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitoraggio dell'attività di query e dell'utilizzo delle risorse in Azure Synapse Analytics
 
@@ -49,7 +48,7 @@ Nel portale di Azure sono disponibili le metriche seguenti per Synapse SQL. Tali
 Aspetti da considerare quando si visualizzano le metriche e si configurano gli avvisi:
 
 - Uso DWU è solo una **rappresentazione di alto livello dell'utilizzo** nel pool SQL e non deve essere inteso come un indicatore complessivo dell'utilizzo. Per determinare se aumentarlo o ridurlo, prendere in considerazione tutti i fattori che possono essere interessati dal valore DWU, ad esempio concorrenza, memoria, tempdb e capacità della cache adattiva. È consigliabile [eseguire il carico di lavoro con impostazioni DWU diverse](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) per determinare l'impostazione più adatta a soddisfare gli obiettivi di business.
-- Le connessioni riuscite e non riuscite vengono segnalate per un data warehouse specifico e non per il server logico
+- Le connessioni non riuscite e riuscite vengono segnalate per una data warehouse particolare, non per il server stesso.
 - La percentuale di memoria riflette l'utilizzo anche se il data warehouse è in stato di inattività, ma non riflette il consumo di memoria del carico di lavoro attivo. Usare e tenere traccia di questa metrica insieme ad altri fattori (tempdb, cache Gen2) per un approccio olistico per determinare se il ridimensionamento con l'aggiunta di capacità della cache aumenterà le prestazioni del carico di lavoro per soddisfare i requisiti.
 
 ## <a name="query-activity"></a>Attività di query

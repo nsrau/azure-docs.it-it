@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 99a2f32c3f76d7fec475c9b299f7208b4db29cfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fd2c58b07f3be5d5fa6d99d0c8c64906b81e7de4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650924"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86036985"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Definire la struttura degli eventi con Anteprima di Time Series Insights
 
@@ -33,7 +32,7 @@ Le procedure consigliate generali includono:
 Per ottenere prestazioni ottimali per le query, attenersi alle regole seguenti:
 
 * Non inviare proprietà non necessarie. Time Series Insights le fatture di anteprima per utilizzo. È consigliabile archiviare ed elaborare solo i dati di cui si esegue la query.
-* Usare i campi di istanza per i dati statici. Questa procedura consente di evitare l'invio di dati statici in rete. I campi di istanza, un componente del modello Time Series, funzionano come i dati di riferimento nel servizio Time Series Insights disponibile a livello generale. Per ulteriori informazioni sui campi di istanza, vedere [modello Time Series](./time-series-insights-update-tsm.md).
+* Usare i campi di istanza per i dati statici. Questa procedura consente di evitare l'invio di dati statici in rete. I campi di istanza, un componente del modello Time Series, funzionano come i dati di riferimento nel servizio Time Series Insights disponibile a livello generale. Per ulteriori informazioni sui campi di istanza, vedere [modello Time Series](./concepts-model-overview.md).
 * Condividere le proprietà delle dimensioni tra due o più eventi. Questa procedura consente di inviare i dati in rete in modo più efficiente.
 * Non usare un annidamento troppo profondo delle matrici. Time Series Insights anteprima supporta fino a due livelli di matrici annidate contenenti oggetti. Anteprima di Time Series Insights rende flat le matrici nei messaggi in più eventi con coppie di valori delle proprietà.
 * Se sono disponibili solo alcune misure per tutti gli eventi o per la maggior parte degli eventi, è consigliabile inviare tali misure come proprietà separate nello stesso oggetto. Inviarli separatamente riduce il numero di eventi e potrebbe migliorare le prestazioni delle query perché è necessario elaborare un numero inferiore di eventi.
@@ -53,8 +52,8 @@ Durante l'inserimento, i payload che contengono oggetti annidati verranno resi b
    Diventa: `data_flow` se bidimensionale.
 
 > [!IMPORTANT]
-> * Azure Time Series Insights anteprima usa caratteri di sottolineatura (`_`) per la delineatura della colonna.
-> * Si noti la differenza rispetto alla disponibilità generale che usa`.`invece i punti ().
+> * Azure Time Series Insights anteprima usa caratteri `_` di sottolineatura () per la delineatura della colonna.
+> * Si noti la differenza rispetto alla disponibilità generale che usa invece i punti ( `.` ).
 
 Di seguito sono illustrati gli scenari più complessi.
 
@@ -95,7 +94,7 @@ Viene inviato un singolo messaggio dell'hub di Azure, in cui l'array esterno con
 
 **Takeaway**
 
-* Il codice JSON di esempio include una matrice esterna che usa i dati dell' [istanza della serie temporale](./time-series-insights-update-tsm.md#time-series-model-instances) per aumentare l'efficienza del messaggio. Anche se le istanze della serie temporale non cambiano probabilmente i metadati del dispositivo, fornisce spesso proprietà utili per l'analisi dei dati.
+* Il codice JSON di esempio include una matrice esterna che usa i dati dell' [istanza della serie temporale](./concepts-model-overview.md#time-series-model-instances) per aumentare l'efficienza del messaggio. Anche se le istanze della serie temporale non cambiano probabilmente i metadati del dispositivo, fornisce spesso proprietà utili per l'analisi dei dati.
 
 * Il codice JSON combina due o più messaggi (uno da ogni dispositivo) in un singolo payload che salva la larghezza di banda nel tempo.
 
@@ -106,7 +105,7 @@ Viene inviato un singolo messaggio dell'hub di Azure, in cui l'array esterno con
 
 #### <a name="time-series-instance"></a>Istanza della serie temporale 
 
-Si esaminerà ora come usare l'istanza della [serie temporale](./time-series-insights-update-tsm.md#time-series-model-instances) per modellare il JSON in modo ottimale. 
+Si esaminerà ora come usare l'istanza della [serie temporale](./concepts-model-overview.md#time-series-model-instances) per modellare il JSON in modo ottimale. 
 
 > [!NOTE]
 > Gli [ID di serie temporali](./time-series-insights-update-how-to-id.md) seguenti sono *deviceIds*.
@@ -146,7 +145,7 @@ Si esaminerà ora come usare l'istanza della [serie temporale](./time-series-ins
 
 Anteprima di Time Series Insights crea un join di una tabella (dopo la trasformazione in flat) durante la fase di query. La tabella include colonne aggiuntive, ad esempio **Type**.
 
-| deviceId  | Tipo | L1 | L2 | timestamp | Frequenza series_Flow ft3/s | Pressione del petrolio series_Engine |
+| deviceId  | Type | L1 | L2 | timestamp | Frequenza series_Flow ft3/s | Pressione del petrolio series_Engine |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULATOR | Battery System | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | SIMULATOR |   Battery System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
@@ -180,7 +179,7 @@ Si consideri il codice JSON seguente:
 }
 ```
 
-Nell'esempio precedente, la `data["flow"]` proprietà bidimensionale presenta un conflitto di denominazione con la `data_flow` proprietà.
+Nell'esempio precedente, la proprietà bidimensionale `data["flow"]` presenta un conflitto di denominazione con la `data_flow` Proprietà.
 
 In questo caso, il valore della proprietà *più recente* sovrascrive quello precedente. 
 

@@ -4,12 +4,11 @@ description: Descrive come distribuire un servizio in più aree con Azure Deploy
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 424cd79a6c63200e1f101cf178b1fd2c9083161e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76152528"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057926"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Abilitare procedure di distribuzione sicure con Deployment Manager di Azure (anteprima pubblica)
 
@@ -30,7 +29,7 @@ Si distribuisce il modello di topologia prima di distribuire il modello di imple
 
 Risorse aggiuntive:
 
-- Il [riferimento all'API REST di Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- Il [riferimento all'API REST di Azure Deployment Manager](/rest/api/deploymentmanager/).
 - [Esercitazione: usare Deployment Manager di Azure con modelli di gestione risorse](./deployment-manager-tutorial.md).
 - [Esercitazione: usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 - [Usare un esempio di Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
@@ -193,7 +192,7 @@ Nel modello di implementazione si crea un'origine artefatto per i file binari da
 
 ### <a name="steps"></a>Passaggi
 
-È possibile definire un passaggio da eseguire prima o dopo l'operazione di distribuzione. Attualmente sono disponibili solo `wait` il passaggio e il passaggio ' healthCheck '.
+È possibile definire un passaggio da eseguire prima o dopo l'operazione di distribuzione. Attualmente sono disponibili solo il passaggio `wait` e il passaggio ' healthCheck '.
 
 Il passaggio wait sospende la distribuzione prima di continuare. Consente di verificare che il servizio sia in esecuzione come previsto prima di distribuire l'unità di servizio successiva. L'esempio seguente illustra il formato generale di un passaggio wait.
 
@@ -300,7 +299,7 @@ Il modello e file di parametri devono conoscere il percorso corretto per ottener
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "deployPackageUri": {

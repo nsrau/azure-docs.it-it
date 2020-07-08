@@ -5,16 +5,15 @@ description: Risolvere i problemi relativi alle eccezioni del modulo nella fines
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: bfb70aaa092cc62fbff87e9e3e327ee7364f8701
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 2e84d2f7c1a45f1ef18e5dc32b58d75bb17e2516
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213755"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Eccezioni e codici di errore per la finestra di progettazione (anteprima)
 
@@ -1110,7 +1109,7 @@ Vedere gli articoli seguenti per informazioni sull'esecuzione di query di Hive p
 
  Se è presente un messaggio generato da SQL segnalato dall'eccezione del modulo, intervenire in base all'errore segnalato. I messaggi di errore, ad esempio, includono a volte istruzioni specifiche sul probabile errore:
 + *No such column or missing database* (Questa colonna non è presente oppure manca il database), indica che è possibile che sia stato digitato un nome di colonna errato. Se si è certi che il nome della colonna è corretto, provare a usare le parentesi quadre o le virgolette per racchiudere l'identificatore di colonna.
-+ *SQL logic error near (Errore logico SQL vicino a)\<SQL keyword\>* , indica che potrebbe essere presente un errore di sintassi prima della parola chiave specificata
++ * \<SQL keyword\> Errore della logica SQL *, che indica che è possibile che sia presente un errore di sintassi prima della parola chiave specificata
 
   
 |Messaggi di eccezione|
@@ -1504,7 +1503,7 @@ Risoluzione:
 
 
 ## <a name="error-0159"></a>Errore 0159
- L'eccezione si verifica se la directory del modello passata al modulo non è valida. 
+ Si verifica un'eccezione se la directory del modello del modulo non è valida. 
 
 |Messaggi di eccezione|
 |------------------------------------------------------------|
@@ -1519,7 +1518,7 @@ Eccezione interna della libreria.
 
 Questo errore viene generato per acquisire errori interni del motore che altrimenti non verrebbero gestiti. La cause di questo errore potrebbero quindi variare a seconda del modulo che ha generato l'errore.  
 
-Per ottenere assistenza, è consigliabile pubblicare il messaggio dettagliato che accompagna l'errore nel forum di Azure Machine Learning, insieme a una descrizione dello scenario, inclusi i dati usati come input. Questo feedback consentirà classificare gli errori in ordine di priorità e di identificare i problemi più importanti da approfondire.  
+Per ottenere ulteriore assistenza, è consigliabile pubblicare il messaggio dettagliato che accompagna l'errore nel [Forum di Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), insieme a una descrizione dello scenario, inclusi i dati utilizzati come input. Questo feedback consentirà classificare gli errori in ordine di priorità e di identificare i problemi più importanti da approfondire.  
 
 |Messaggi di eccezione|
 |------------------------|

@@ -5,17 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: 2eaa2202ac6c2f0fac0f53c6eeb2f5d08c764f1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773946"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413349"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Associazioni di output di Griglia di eventi di Azure per Funzioni di Azure
 
-È possibile usare l'associazione di output di Griglia di eventi per scrivere eventi in un argomento personalizzato. È necessario avere una [chiave di accesso per l'argomento personalizzato](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key) valida.
+È possibile usare l'associazione di output di Griglia di eventi per scrivere eventi in un argomento personalizzato. È necessario avere una [chiave di accesso per l'argomento personalizzato](../event-grid/security-authenticate-publishing-clients.md) valida.
 
 Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-event-grid.md).
 
@@ -162,7 +161,7 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. Invia quindi un evento all'argomento personalizzato di Griglia di eventi, come specificato da `topicEndpointUri`.
+L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. Invia quindi un evento all'argomento personalizzato, come specificato da `topicEndpointUri` .
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -187,7 +186,7 @@ Ecco i dati di associazione nel file *function.json*:
 }
 ```
 
-Di seguito è riportato l'esempio di Python per inviare un evento a un argomento personalizzato di Griglia di eventi impostando `EventGridOutputEvent`:
+Di seguito è riportato l'esempio Python per inviare un evento a un argomento personalizzato impostando `EventGridOutputEvent` :
 
 ```python
 import logging

@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242082"
 ---
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
@@ -451,7 +450,7 @@ Gli SKU dei dischi da 8 TiB, 16 TiB e 32 TiB sono supportati in tutte le aree in
 
 **L'abilitazione della memorizzazione nella cache dell'host è supportata in tutte le dimensioni del disco?**
 
-La memorizzazione nella cache dell'host in modalità Sola lettura e Lettura/Scrittura è supportata per dimensioni del disco minori di 4 TiB. Per dimensioni del disco superiori a 4 TiB, non è supportata l'impostazione dell'opzione di memorizzazione nella cache diversa da Nessuno. È consigliabile sfruttare la memorizzazione nella cache per una dimensione disco inferiore in merito alla quale sarà possibile osservare l'incremento delle prestazioni con i dati memorizzati nella cache per la macchina virtuale.
+La memorizzazione nella cache dell'host (ReadOnly e lettura/scrittura) è supportata su dimensioni del disco inferiori a 4 TiB. Ciò significa che tutti i dischi di cui è stato eseguito il provisioning fino a 4095 GiB possono sfruttare i vantaggi della memorizzazione nella cache dell'host. La memorizzazione nella cache dell'host non è supportata per le dimensioni dei dischi maggiori o uguali a 4096 GiB. Ad esempio, un disco P50 Premium fornito a 4095 GiB può sfruttare i vantaggi della memorizzazione nella cache dell'host e un disco P50 di cui è stato effettuato il provisioning a 4096 GiB non può sfruttare la memorizzazione nella cache dell'host. È consigliabile sfruttare la memorizzazione nella cache per una dimensione disco inferiore in merito alla quale sarà possibile osservare l'incremento delle prestazioni con i dati memorizzati nella cache per la macchina virtuale.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
 

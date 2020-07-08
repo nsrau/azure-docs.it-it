@@ -5,33 +5,32 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 06/18/2020
 ms.author: spelluru
-ms.openlocfilehash: 4d96f28b98cccada2ac5c77589acc6df1430bb02
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 4d81845ab61d8a84b9bad47ede4a027cd772c499
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85412933"
 ---
-# <a name="event-delivery-with-managed-identity"></a>Distribuzione di eventi con Identità gestita
-Questo articolo descrive come abilitare l'[identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md) per un dominio o un argomento di Griglia di eventi di Azure. Usare l'identità per inviare eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
+# <a name="event-delivery-with-a-managed-identity"></a>Recapito di eventi con un'identità gestita
+Questo articolo descrive come abilitare un' [identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md) per gli argomenti o i domini di griglia di eventi di Azure. Usare l'identità per inviare eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
 
 Di seguito sono elencati i passaggi illustrati nel dettaglio in questo articolo:
 1. Creare un argomento o un dominio con un'identità assegnata dal sistema oppure aggiornare un argomento o un dominio esistente per abilitare l'identità. 
-2. Aggiungere l'identità a un ruolo appropriato (ad esempio: Mittente dei dati del bus di servizio) nella destinazione (ad esempio: una coda del bus di servizio)
-3. Quando si creano sottoscrizioni di eventi, abilitare l'utilizzo dell'identità per recapitare gli eventi alla destinazione. 
+1. Aggiungere l'identità a un ruolo appropriato, ad esempio il mittente dei dati del bus di servizio, nella destinazione, ad esempio una coda del bus di servizio.
+1. Quando si creano sottoscrizioni di eventi, abilitare l'utilizzo dell'identità per recapitare gli eventi alla destinazione. 
 
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>Creazione di un argomento o di un dominio con un'identità
 Per prima cosa si vedrà creare un argomento o un dominio con un'identità gestita dal sistema.
 
-### <a name="using-azure-portal"></a>Uso del portale di Azure
-È possibile abilitare l'identità assegnata dal sistema per un argomento o un dominio mentre viene creata nel portale di Azure. Nell'immagine seguente viene illustrato come abilitare l'identità gestita dal sistema per un argomento. In pratica, selezionare l'opzione **Abilita identità assegnata dal sistema** nella pagina **Avanzate** della procedura guidata di creazione dell'argomento. Questa opzione verrà visualizzata nella pagina **Avanzate** della procedura di creazione guidata del dominio. 
+### <a name="use-the-azure-portal"></a>Usare il portale di Azure
+È possibile abilitare l'identità assegnata dal sistema per un argomento o un dominio durante la creazione nel portale di Azure. Nell'immagine seguente viene illustrato come abilitare un'identità gestita dal sistema per un argomento. In pratica, selezionare l'opzione **Abilita identità assegnata dal sistema** nella pagina **Avanzate** della procedura guidata di creazione dell'argomento. Questa opzione verrà visualizzata nella pagina **Avanzate** della creazione guidata dominio. 
 
 ![Abilitare l'identità durante la creazione di un argomento](./media/managed-service-identity/create-topic-identity.png)
 
-### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
-È possibile anche usare l'interfaccia della riga di comando di Azure per creare un argomento o un dominio con un'identità assegnata dal sistema. Usare il comando `az eventgrid topic create` con il parametro `--identity` impostato su `systemassigned`. Se non si specifica un valore per questo parametro, viene usato il valore predefinito `noidentity`. 
+### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+È anche possibile usare l'interfaccia della riga di comando di Azure per creare un argomento o un dominio con un'identità assegnata dal sistema. Usare il comando `az eventgrid topic create` con il parametro `--identity` impostato su `systemassigned`. Se non si specifica un valore per questo parametro, viene usato il valore predefinito `noidentity`. 
 
 ```azurecli-interactive
 # create a topic with a system-assigned identity
@@ -40,19 +39,24 @@ az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCAT
 
 Analogamente, è possibile usare il comando `az eventgrid domain create` per creare un dominio con un'identità gestita dal sistema.
 
-## <a name="enable-identity-for-an-existing-topic-or-domain"></a>Abilitare l'identità per un argomento o un dominio esistente
-Nella sezione precedente si è appreso come abilitare un'identità gestita dal sistema durante la creazione di un argomento o di un dominio. Questa sezione illustra come abilitare l'identità gestita dal sistema per un argomento o un dominio esistente. 
+## <a name="enable-an-identity-for-an-existing-topic-or-domain"></a>Abilitare un'identità per un argomento o un dominio esistente
+Nella sezione precedente è stato illustrato come abilitare un'identità gestita dal sistema durante la creazione di un argomento o di un dominio. In questa sezione viene illustrato come abilitare un'identità gestita dal sistema per un argomento o un dominio esistente. 
 
-### <a name="using-azure-portal"></a>Uso del portale di Azure
-1. Passare al [portale di Azure](https://portal.azure.com)
-2. Cercare **argomenti di Griglia di eventi** nella barra di ricerca.
+### <a name="use-the-azure-portal"></a>Usare il portale di Azure
+La procedura seguente illustra come abilitare l'identità gestita dal sistema per un argomento. I passaggi per l'abilitazione di un'identità per un dominio sono simili. 
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Cercare gli **argomenti di griglia di eventi** nella barra di ricerca nella parte superiore.
 3. Selezionare l'**argomento** per cui si vuole abilitare l'identità gestita. 
 4. Passare alla scheda **Identità**. 
-5. Attivare l'opzione per abilitare l'identità. 
+5. Attivare l'opzione per **abilitare l'identità** . 
+1. Selezionare **Salva** sulla barra degli strumenti per salvare l'impostazione. 
 
-    È possibile seguire una procedura simile per abilitare un'identità per un dominio di Griglia di eventi.
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Pagina identità per un argomento"::: 
 
-### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+È possibile utilizzare passaggi simili per abilitare un'identità per un dominio di griglia di eventi.
+
+### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 Usare il comando `az eventgrid topic update` con `--identity` impostato su `systemassigned` per abilitare un'identità assegnata dal sistema per un argomento esistente. Se si vuole disabilitare l'identità, specificare il valore `noidentity`. 
 
 ```azurecli-interactive
@@ -62,40 +66,40 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 Il comando per l'aggiornamento di un dominio esistente è simile (`az eventgrid domain update`).
 
-## <a name="supported-destinations-and-role-based-access-check-rbac-roles"></a>Destinazioni supportate e ruoli Controllo degli accessi in base al ruolo
-Dopo aver abilitato un'identità per un argomento o un dominio di Griglia di eventi, Azure crea automaticamente un'identità in Azure Active Directory (Azure AD). Aggiungere questa identità ai ruoli Controllo degli accessi in base al ruolo appropriati, in modo che l'argomento o il dominio possa inoltrare eventi alle destinazioni supportate. Ad esempio, aggiungere l'identità al ruolo **Mittente dei dati di Hub eventi di Azure** per uno spazio dei nomi di Hub eventi in modo che l'argomento di Griglia di eventi possa inoltrare eventi ad Hub eventi nello spazio dei nomi di pertinenza.  
+## <a name="supported-destinations-and-rbac-roles"></a>Destinazioni e ruoli RBAC supportati
+Dopo aver abilitato l'identità per l'argomento o il dominio di griglia di eventi, Azure crea automaticamente un'identità in Azure Active Directory. Aggiungere questa identità ai ruoli appropriati per il controllo degli accessi in base al ruolo, in modo che l'argomento o il dominio possa inviare gli eventi alle destinazioni supportate. Ad esempio, aggiungere l'identità al ruolo di **mittente dei dati di hub eventi di Azure** per uno spazio dei nomi di hub eventi di Azure in modo che l'argomento di griglia di eventi possa inviare eventi a hub eventi in tale spazio dei nomi. 
 
-Griglia di eventi di Azure supporta attualmente argomenti o domini configurati con un'identità gestita assegnata dal sistema per inoltrare eventi alle destinazioni seguenti. Questa tabella elenca anche i ruoli in cui deve trovarsi l'identità per consentire all'argomento di inoltrare eventi.
+Griglia di eventi di Azure supporta attualmente gli argomenti o i domini configurati con un'identità gestita assegnata dal sistema per l'invio di eventi alle destinazioni seguenti. Questa tabella elenca anche i ruoli in cui deve trovarsi l'identità per consentire all'argomento di inoltrare eventi.
 
 | Destination | Ruolo di controllo degli accessi in base al ruolo | 
 | ----------- | --------- | 
 | Code e argomenti del bus di servizio | [Mittente dei dati del bus di servizio di Azure](../service-bus-messaging/authenticate-application.md#built-in-rbac-roles-for-azure-service-bus) |
-| Hub eventi | [Mittente dei dati di Hub eventi di Azure](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
-| Archiviazione BLOB | [Collaboratore ai dati del BLOB di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Archiviazione code |[Mittente dei messaggi sui dati della coda di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Hub eventi di Azure | [Mittente dei dati di Hub eventi di Azure](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
+| Archiviazione BLOB di Azure | [Collaboratore ai dati del BLOB di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
+| Archiviazione code di Azure |[Mittente dei messaggi sui dati della coda di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
 
-## <a name="add-identity-to-rbac-roles-on-destinations"></a>Aggiungere un'identità ai ruoli Controllo degli accessi in base al ruolo nelle destinazioni
+## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>Aggiungere un'identità ai ruoli RBAC nelle destinazioni
 Questa sezione descrive come aggiungere un'identità relativa a un argomento o un dominio a un ruolo Controllo degli accessi in base al ruolo. 
 
-### <a name="using-azure-portal"></a>Uso del portale di Azure
-È possibile usare il **portale di Azure** per assegnare l'identità dell'argomento/dominio a un ruolo appropriato, in modo che l'argomento/dominio possa inoltrare eventi alla destinazione. 
+### <a name="use-the-azure-portal"></a>Usare il portale di Azure
+È possibile utilizzare il portale di Azure per assegnare l'identità dell'argomento o del dominio a un ruolo appropriato, in modo che l'argomento o il dominio possano inviare eventi alla destinazione. 
 
-Nell'esempio seguente viene aggiunta un'identità gestita relativa a un argomento di Griglia di eventi denominato **msitesttopic** al ruolo **Mittente dei dati del bus di servizio di Azure** per uno **spazio dei nomi** del bus di servizio contenente una risorsa della coda o dell'argomento. Quando si aggiunge l'identità a un ruolo a livello di spazio dei nomi, l'argomento può inoltrare eventi a tutte le entità con quel ruolo nello spazio dei nomi. 
+Nell'esempio seguente viene aggiunta un'identità gestita relativa a un argomento di Griglia di eventi denominato **msitesttopic** al ruolo **Mittente dei dati del bus di servizio di Azure** per uno spazio dei nomi del bus di servizio contenente una risorsa della coda o dell'argomento. Quando si aggiunge al ruolo a livello di spazio dei nomi, l'argomento può inviare eventi a tutte le entità all'interno dello spazio dei nomi. 
 
-1. Passare allo  **spazio dei nomi del bus di servizio** nel [portale di Azure](https://portal.azure.com). 
-2. Selezionare **Controllo di accesso** nel riquadro a sinistra. 
-3. Nella sezione **Aggiungi un'assegnazione di ruolo** selezionare **Aggiungi**. 
-4. Nella pagina **Aggiungi un'assegnazione di ruolo** seguire questa procedura:
+1. Passare allo **spazio dei nomi del bus di servizio** nel [portale di Azure](https://portal.azure.com). 
+1. Selezionare **controllo di accesso** nel riquadro sinistro. 
+1. Nella sezione **Aggiungi un'assegnazione di ruolo** selezionare **Aggiungi**. 
+1. Nella pagina **Aggiungi un'assegnazione di ruolo** seguire questa procedura:
     1. Selezionare il ruolo. In questo caso: **Mittente dei dati del bus di servizio di Azure**. 
-    2. Selezionare l'**identità** relativa all'argomento o al dominio. 
-    3. Selezionare **Salva** per salvare la configurazione.
+    1. Selezionare l'**identità** relativa all'argomento o al dominio. 
+    1. Selezionare **Save (Salva** ) per salvare la configurazione.
 
 Per aggiungere un'identità agli altri ruoli specificati nella tabella, sarà necessario seguire una procedura simile. 
 
-### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
-L'esempio riportato in questa sezione illustra come usare l'**interfaccia della riga di comando di Azure** per aggiungere un'identità a un ruolo Controllo degli accessi in base al ruolo. I comandi di esempio fanno riferimento ad argomenti di Griglia di eventi, ma sono simili a quelli per i domini di Griglia di eventi. 
+### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+L'esempio in questa sezione illustra come usare l'interfaccia della riga di comando di Azure per aggiungere un'identità a un ruolo RBAC. I comandi di esempio fanno riferimento ad argomenti di Griglia di eventi, ma sono simili a quelli per i domini di Griglia di eventi. 
 
-#### <a name="get-principal-id-for-the-topics-system-identity"></a>Ottenere l'ID entità di sicurezza per l'identità di sistema dell'argomento 
+#### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Ottenere l'ID entità per l'identità di sistema dell'argomento 
 Per prima cosa, ottenere l'ID entità di sicurezza dell'identità gestita dal sistema dell'argomento e assegnare l'identità ai ruoli appropriati.
 
 ```azurecli-interactive
@@ -103,7 +107,7 @@ topic_pid=$(az ad sp list --display-name "$<TOPIC NAME>" --query [].objectId -o 
 ```
 
 #### <a name="create-a-role-assignment-for-event-hubs-at-various-scopes"></a>Creare un'assegnazione di ruolo per Hub eventi in diversi ambiti 
-Nell'esempio di interfaccia della riga di comando seguente viene illustrato come aggiungere l'identità di un argomento al ruolo **Mittente dei dati di Hub eventi di Azure** a livello di spazio dei nomi o di Hub eventi. Se si crea l'assegnazione di ruolo a livello di spazio dei nomi, l'argomento potrà inviare eventi a tutti gli Hub eventi compresi in quello spazio dei nomi. Se invece si crea l'assegnazione di ruolo a livello di Hub eventi, l'argomento potrà inoltrare gli eventi solo a quello specifico Hub eventi. 
+Nell'esempio di interfaccia della riga di comando seguente viene illustrato come aggiungere l'identità di un argomento al ruolo **Mittente dei dati di Hub eventi di Azure** a livello di spazio dei nomi o di Hub eventi. Se si crea l'assegnazione di ruolo a livello di spazio dei nomi, l'argomento può inviare eventi a tutti gli hub eventi in tale spazio dei nomi. Se si crea un'assegnazione di ruolo a livello di hub eventi, l'argomento può inviare eventi solo a tale hub eventi specifico. 
 
 
 ```azurecli-interactive
@@ -118,8 +122,8 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$names
 az role assignment create --role "$role" --assignee "$topic_pid" --scope "$eventhubresourceid" 
 ```
 
-#### <a name="create-a-role-assignment-for-service-bus-topic-at-various-scopes"></a>Creare un'assegnazione di ruolo per l'argomento del bus di servizio in vari ambiti 
-Nell'esempio di interfaccia della riga di comando seguente viene illustrato come aggiungere l'identità di un argomento al ruolo **Mittente dei dati del bus di servizio di Azure** a livello di spazio dei nomi o di argomento del bus di servizio. Se si crea l'assegnazione di ruolo a livello di spazio dei nomi, l'argomento di Griglia di eventi potrà inoltrare gli eventi a tutte le entità (code o argomenti del bus di servizio) comprese in quello spazio dei nomi. Se invece si crea l'assegnazione a livello di coda o argomento del bus di servizio, l'argomento di Griglia di eventi potrà inoltrare gli eventi solo alla coda o all'argomento di quello specifico bus di servizio. 
+#### <a name="create-a-role-assignment-for-a-service-bus-topic-at-various-scopes"></a>Creare un'assegnazione di ruolo per un argomento del bus di servizio in vari ambiti 
+Nell'esempio di interfaccia della riga di comando seguente viene illustrato come aggiungere l'identità di un argomento al ruolo **Mittente dei dati del bus di servizio di Azure** a livello di spazio dei nomi o di argomento del bus di servizio. Se si crea l'assegnazione di ruolo a livello di spazio dei nomi, l'argomento di griglia di eventi può inviare eventi a tutte le entità (code o argomenti del bus di servizio) all'interno di tale spazio dei nomi. Se si crea un'assegnazione di ruolo a livello di coda o argomento del bus di servizio, l'argomento di griglia di eventi può inviare eventi solo a tale coda o argomento del bus di servizio specifico. 
 
 ```azurecli-interactive
 role="Azure Service Bus Data Sender" 
@@ -133,20 +137,20 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$names
 az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbustopicresourceid" 
 ```
 
-## <a name="create-event-subscriptions-that-use-identity"></a>Creare sottoscrizioni di eventi che usano l'identità
-Se si ha un argomento o un dominio con un'identità gestita dal sistema e si aggiunge l'identità al ruolo appropriato nella destinazione, si è pronti per creare sottoscrizioni che usino tale identità. 
+## <a name="create-event-subscriptions-that-use-an-identity"></a>Creare sottoscrizioni di eventi che usano un'identità
+Quando si dispone di un argomento o di un dominio con un'identità gestita dal sistema e l'identità è stata aggiunta al ruolo appropriato nella destinazione, si è pronti per creare sottoscrizioni che utilizzano l'identità. 
 
-### <a name="using-azure-portal"></a>Uso del portale di Azure
-Quando si crea una sottoscrizione evento, nella sezione **DETTAGLI ENDPOINT** viene visualizzata un'opzione che consente di abilitare l'utilizzo dell'identità assegnata dal sistema per un endpoint. 
+### <a name="use-the-azure-portal"></a>Usare il portale di Azure
+Quando si crea una sottoscrizione di eventi, viene visualizzata un'opzione per abilitare l'utilizzo di un'identità assegnata dal sistema per un endpoint nella sezione **Dettagli endpoint** . 
 
-![Abilitare l'identità durante la creazione della sottoscrizione evento per la coda del bus di servizio](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
+![Abilitare l'identità durante la creazione di una sottoscrizione di eventi per una coda del bus di servizio](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
 
-Nella scheda **Funzionalità aggiuntive** è possibile anche abilitare l'utilizzo dell'identità assegnata dal sistema da usare per i messaggi non recapitabili. 
+È anche possibile abilitare l'uso di un'identità assegnata dal sistema da usare per i messaggi non recapitabili nella scheda **funzionalità aggiuntive** . 
 
 ![Abilitare l'identità assegnata dal sistema per l'inserimento nella coda di messaggi non recapitabili](./media/managed-service-identity/enable-deadletter-identity.png)
 
-### <a name="using-azure-cli---service-bus-queue"></a>Uso dell'interfaccia della riga di comando di Azure - Coda del bus di servizio 
-Questa sezione illustra come usare l'**interfaccia della riga di comando di Azure** per abilitare l'utilizzo dell'identità assegnata dal sistema per recapitare gli eventi a una coda del bus di servizio. L'identità deve essere un membro del ruolo **Mittente dei dati del bus di servizio di Azure**. Deve essere anche un membro del ruolo **Collaboratore ai dati del BLOB di archiviazione** nell'account di archiviazione usato per i messaggi non recapitabili. 
+### <a name="use-the-azure-cli---service-bus-queue"></a>Usare l'interfaccia della riga di comando di Azure-coda Service Bus 
+Questa sezione illustra come usare l'interfaccia della riga di comando di Azure per consentire l'uso di un'identità assegnata dal sistema per recapitare gli eventi a una coda del bus di servizio. L'identità deve essere un membro del ruolo **Mittente dei dati del bus di servizio di Azure**. Deve essere anche un membro del ruolo **Collaboratore ai dati del BLOB di archiviazione** nell'account di archiviazione usato per i messaggi non recapitabili. 
 
 #### <a name="define-variables"></a>Definire le variabili
 Per prima cosa, specificare i valori per le variabili seguenti da usare nel comando dell'interfaccia della riga di comando. 
@@ -161,8 +165,8 @@ queueid=$(az servicebus queue show --namespace-name <SERVICE BUS NAMESPACE NAME>
 sb_esname = "<Specify a name for the event subscription>" 
 ```
 
-#### <a name="create-an-event-subscription-using-managed-identity-for-delivery"></a>creare una sottoscrizione evento usando l'identità gestita per il recapito 
-Questo comando di esempio crea una sottoscrizione evento per un argomento di Griglia di eventi con il tipo di endpoint impostato su **Coda del bus di servizio**. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Creare una sottoscrizione di eventi usando un'identità gestita per il recapito 
+Questo comando di esempio crea una sottoscrizione di eventi per un argomento di griglia di eventi con un tipo di endpoint impostato sulla **coda del bus di servizio**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -173,8 +177,8 @@ az eventgrid event-subscription create
     -n $sb_esname 
 ```
 
-#### <a name="create-an-event-subscription-using-managed-identity-for-delivery-and-dead-lettering"></a>creare una sottoscrizione evento usando l'identità gestita per il recapito e l'inserimento nella coda di messaggi non recapitabili
-Questo comando di esempio crea una sottoscrizione evento per un argomento di Griglia di eventi con il tipo di endpoint impostato su **Coda del bus di servizio**. Specifica inoltre che l'identità gestita dal sistema deve essere usata anche per i messaggi non recapitabili. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery-and-dead-lettering"></a>Creare una sottoscrizione di eventi usando un'identità gestita per il recapito e la ricezione di messaggi non recapitabili
+Questo comando di esempio crea una sottoscrizione di eventi per un argomento di griglia di eventi con un tipo di endpoint impostato sulla **coda del bus di servizio**. Specifica inoltre che l'identità gestita dal sistema deve essere utilizzata per i messaggi non recapitabili. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -190,8 +194,8 @@ az eventgrid event-subscription create
     -n $sb_esnameq 
 ```
 
-### <a name="azure-cli---event-hubs"></a>Interfaccia della riga di comando di Azure - Hub eventi 
-Questa sezione illustra come usare l'**interfaccia della riga di comando di Azure** per abilitare l'utilizzo dell'identità assegnata dal sistema per recapitare gli eventi a un Hub eventi. L'identità deve essere un membro del ruolo **Mittente dei dati di Hub eventi di Azure**. Deve essere anche un membro del ruolo **Collaboratore ai dati del BLOB di archiviazione** nell'account di archiviazione usato per i messaggi non recapitabili. 
+### <a name="use-the-azure-cli---event-hubs"></a>Usare l'interfaccia della riga di comando di Azure-Hub eventi 
+Questa sezione illustra come usare l'interfaccia della riga di comando di Azure per consentire l'uso di un'identità assegnata dal sistema per recapitare gli eventi a un hub eventi. L'identità deve essere un membro del ruolo **Mittente dei dati di Hub eventi di Azure**. Deve essere anche un membro del ruolo **Collaboratore ai dati del BLOB di archiviazione** nell'account di archiviazione usato per i messaggi non recapitabili. 
 
 #### <a name="define-variables"></a>Definire le variabili
 ```azurecli-interactive
@@ -203,8 +207,8 @@ hubid=$(az eventhubs eventhub show --name <EVENT HUB NAME> --namespace-name <NAM
 eh_esname = "<SPECIFY EVENT SUBSCRIPTION NAME>" 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery"></a>creare una sottoscrizione evento usando l'identità gestita per il recapito 
-Questo comando di esempio crea una sottoscrizione evento per un argomento di Griglia di eventi con il tipo di endpoint impostato su **Hub eventi**. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Creare una sottoscrizione di eventi usando un'identità gestita per il recapito 
+Questo comando di esempio crea una sottoscrizione di eventi per un argomento di griglia di eventi con un tipo di endpoint impostato su **Hub eventi**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -215,8 +219,8 @@ az eventgrid event-subscription create
     -n $sbq_esname 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery--deadletter"></a>Creare una sottoscrizione evento usando l'identità gestita per il recapito e l'inserimento nella coda di messaggi non recapitabili 
-Questo comando di esempio crea una sottoscrizione evento per un argomento di Griglia di eventi con il tipo di endpoint impostato su **Hub eventi**. Specifica inoltre che l'identità gestita dal sistema deve essere usata anche per i messaggi non recapitabili. 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery--deadletter"></a>Creare una sottoscrizione di eventi usando un'identità gestita per il recapito + DeadLetter 
+Questo comando di esempio crea una sottoscrizione di eventi per un argomento di griglia di eventi con un tipo di endpoint impostato su **Hub eventi**. Specifica inoltre che l'identità gestita dal sistema deve essere utilizzata per i messaggi non recapitabili. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -232,8 +236,8 @@ az eventgrid event-subscription create
     -n $eh_esname 
 ```
 
-### <a name="azure-cli---azure-storage-queue"></a>Interfaccia della riga di comando di Azure - Coda di Archiviazione di Azure 
-Questa sezione illustra come usare l'**interfaccia della riga di comando di Azure** per abilitare l'utilizzo dell'identità assegnata dal sistema per recapitare gli eventi a una coda di Archiviazione di Azure. L'identità deve essere un membro di **Collaboratore ai dati dei BLOB di archiviazione** nell'account di archiviazione.
+### <a name="use-the-azure-cli---azure-storage-queue"></a>Usare l'interfaccia della riga di comando di Azure-coda archiviazione di Azure 
+Questa sezione illustra come usare l'interfaccia della riga di comando di Azure per consentire l'uso di un'identità assegnata dal sistema per recapitare gli eventi a una coda di archiviazione di Azure. L'identità deve essere un membro di **Collaboratore ai dati dei BLOB di archiviazione** nell'account di archiviazione.
 
 #### <a name="define-variables"></a>Definire le variabili  
 
@@ -251,7 +255,7 @@ queueid="$storageid/queueservices/default/queues/<QUEUE NAME>"
 sa_esname = "<SPECIFY EVENT SUBSCRIPTION NAME>" 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery"></a>Creare una sottoscrizione evento usando l'identità gestita per il recapito 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Creare una sottoscrizione di eventi usando un'identità gestita per il recapito 
 
 ```azurecli-interactive
 az eventgrid event-subscription create 
@@ -262,7 +266,7 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
-#### <a name="create-event-subscription-using-managed-identity-for-delivery--deadletter"></a>Creare una sottoscrizione evento usando l'identità gestita per il recapito e l'inserimento nella coda di messaggi non recapitabili 
+#### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery--deadletter"></a>Creare una sottoscrizione di eventi usando un'identità gestita per il recapito + DeadLetter 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)

@@ -2,22 +2,21 @@
 title: Creare & pubblicare Single Sign-On documentazione per l'applicazione
 description: Linee guida per i fornitori di software indipendenti per l'integrazione con Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb223ec8ab7b5c053136c78d3b4ca30ad4da4e18
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 3c758e90548dd22b5abfb731f674f83dfbde9819
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74232274"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955982"
 ---
 # <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>Creare e pubblicare Single Sign-On documentazione per l'applicazione   
 
@@ -61,4 +60,4 @@ Quando l'applicazione viene elencata con la raccolta di applicazioni di Azure Ac
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Elencare l'applicazione nella raccolta di applicazioni Azure AD](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[Elencare l'applicazione nella raccolta di applicazioni Azure AD](https://docs.microsoft.com/Azure/active-directory/develop/howto-app-gallery-listing)

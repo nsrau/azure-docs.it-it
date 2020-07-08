@@ -2,21 +2,20 @@
 title: Informazioni sul funzionamento del provisioning di Azure AD | Microsoft Docs
 description: Informazioni sul funzionamento del provisioning di Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: HT
+ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781651"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -172,7 +171,7 @@ Tutte le operazioni eseguite dal servizio di provisioning utenti vengono registr
 
 Il servizio di provisioning di Azure AD mantiene sincronizzati i sistemi di origine e di destinazione tramite il deprovisioning degli account quando gli utenti non devono più avere accesso. 
 
-Il servizio di provisioning di Azure AD eliminerà temporaneamente un utente in un'applicazione quando l'applicazione supporta l'eliminazione temporanea (richiesta di aggiornamento con active = false) e si verifica uno degli eventi seguenti:
+Il servizio di provisioning di Azure AD eliminerà temporaneamente un utente in un'applicazione quando l'applicazione supporta le eliminazioni automatiche (richiesta di aggiornamento con Active = false) e si verifica uno degli eventi seguenti:
 
 * L'account utente viene eliminato in Azure AD
 *   L'utente non è più assegnato all'applicazione

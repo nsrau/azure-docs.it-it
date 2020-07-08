@@ -8,10 +8,9 @@ ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869937"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Panoramica della diagnostica del servizio app di Azure
@@ -38,11 +37,11 @@ Nella Home page di diagnostica del servizio app è possibile scegliere la catego
 
 ## <a name="interactive-interface"></a>Interfaccia interattiva
 
-Dopo aver selezionato una categoria della Home page più adatta al problema dell'app, l'interfaccia interattiva di diagnostica del servizio app, Genie, può essere utile per la diagnosi e la risoluzione dei problemi con l'app. È possibile usare i collegamenti ai riquadri forniti da Genie per visualizzare il report di diagnostica completo della categoria di problemi a cui si è interessati. I collegamenti ai riquadri consentono di accedere direttamente alle metriche di diagnostica.
+Dopo aver selezionato una categoria della Home page più adatta al problema dell'app, l'interfaccia interattiva di diagnostica del servizio app, Genie, può essere utile per la diagnosi e la risoluzione dei problemi con l'app. È possibile usare i collegamenti ai riquadri forniti da Genie per visualizzare il report di diagnostica completo della categoria di problemi a cui si è interessati. I collegamenti nei riquadri consentono di accedere direttamente alle metriche di diagnostica.
 
 ![Riquadro dei collegamenti](./media/app-service-diagnostics/tile-shortcuts-2.png)
 
-Dopo aver fatto clic su questi riquadri, è possibile visualizzare un elenco di argomenti correlati al problema descritto nel riquadro. In questi argomenti vengono forniti frammenti di informazioni rilevanti dal report completo. È possibile fare clic su uno di questi argomenti per esaminare ulteriormente i problemi. È anche possibile fare clic su **Visualizza report completo** per esplorare tutti gli argomenti in una singola pagina.
+Dopo aver fatto clic su questi riquadri, è possibile visualizzare un elenco di argomenti correlati al problema descritto nel riquadro. Questi argomenti forniscono frammenti del report completo contenenti informazioni rilevanti. È possibile fare clic su uno di questi argomenti per esaminare ulteriormente i problemi. È anche possibile fare clic su **Visualizza report completo** per esplorare tutti gli argomenti in una singola pagina.
 
 ![Argomenti](./media/app-service-diagnostics/application-logs-insights-3.png)
 
