@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: iot-hub
 author: chrissie926
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68883771"
 ---
 ## <a name="create-a-module-identity"></a>Creare un'identità del modulo
@@ -29,13 +29,13 @@ Quando si esegue questa app console vengono generati un ID e una chiave univoci 
 
     ![Immettere il nome e il Framework per la soluzione di Visual Studio](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
-1. In Visual Studio aprire **strumenti** > **gestione** > pacchetti NuGet**Gestisci pacchetti NuGet per la soluzione**. Selezionare la scheda **Sfoglia**.
+1. In Visual Studio aprire **strumenti**  >  **Gestione pacchetti NuGet**  >  **Gestisci pacchetti NuGet per la soluzione**. Selezionare la scheda **Sfoglia**.
 
 1. Cercare **Microsoft. Azure. Devices**. Selezionarlo e quindi selezionare **Installa**.
 
     ![Installare la versione corrente di .NET Service SDK dell'hub Azure](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
 
-1. Aggiungere le seguenti `using` istruzioni all'inizio del file **Program.cs** :
+1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -104,11 +104,11 @@ Quando si esegue questa app console vengono generati un ID e una chiave univoci 
 
     Il `AddDeviceAsync` metodo crea un'identità del dispositivo con ID **myFirstDevice**. Se questo ID dispositivo è già presente nel registro delle identità, il codice recupera semplicemente le informazioni sul dispositivo esistenti. L'app visualizzerà quindi la chiave primaria per l'identità. Usare questa chiave nell'app per dispositivo simulato per connettersi all'hub.
 
-    Il `AddModuleAsync` metodo crea un'identità del modulo con ID **MyFirstModule** nel dispositivo **myFirstDevice**. Se tale ID modulo esiste già nel registro delle identità, il codice recupera semplicemente le informazioni sul modulo esistente. L'app visualizzerà quindi la chiave primaria per l'identità. Usare questa chiave nell'app del modulo simulato per connettersi all'hub.
+    Il `AddModuleAsync` metodo crea un'identità del modulo con ID **myFirstModule** nel dispositivo **myFirstDevice**. Se tale ID modulo esiste già nel registro delle identità, il codice recupera semplicemente le informazioni sul modulo esistente. L'app visualizzerà quindi la chiave primaria per l'identità. Usare questa chiave nell'app del modulo simulato per connettersi all'hub.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 1. Eseguire l'app e prendere nota della chiave del dispositivo e della chiave del modulo.
 
 > [!NOTE]
-> Il registro delle identità dell'hub Internet archivia solo le identità del dispositivo e del modulo per abilitare l'accesso sicuro all'hub. Il registro delle identità archivia gli ID dispositivo e le chiavi da usare come credenziali di sicurezza. Il registro delle identità archivia anche un flag di abilitazione/disabilitazione per ogni dispositivo che consente di disabilitare l'accesso per un dispositivo. Se l'app deve archiviare altri metadati specifici del dispositivo, deve usare un archivio specifico dell'applicazione. Non esiste alcun flag abilitato/disabilitato per le identità del modulo. Per altre informazioni, vedere [Guida](../articles/iot-hub/iot-hub-devguide-identity-registry.md)per gli sviluppatori dell'hub Internet.
+> Il registro delle identità dell'hub Internet archivia solo le identità del dispositivo e del modulo per abilitare l'accesso sicuro all'hub. Il registro delle identità archivia gli ID dispositivo e le chiavi da usare come credenziali di sicurezza. Il registro delle identità archivia anche un flag di abilitazione/disabilitazione per ogni dispositivo che consente di disabilitare l'accesso per un dispositivo. Se l'app deve archiviare altri metadati specifici del dispositivo, deve usare un archivio specifico dell'applicazione. Non esiste alcun flag abilitato/disabilitato per le identità del modulo. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'hub IoT](../articles/iot-hub/iot-hub-devguide-identity-registry.md).

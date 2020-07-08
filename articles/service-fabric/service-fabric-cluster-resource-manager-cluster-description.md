@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259474"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrivere un cluster di Service Fabric usando cluster Gestione risorse
 La funzionalità cluster Gestione risorse di Azure Service Fabric fornisce diversi meccanismi per la descrizione di un cluster:
@@ -83,9 +83,9 @@ Il diagramma seguente mostra tre domini di aggiornamento con striping in tre dom
 
 Esistono vantaggi e svantaggi per avere un numero elevato di domini di aggiornamento. Più domini di aggiornamento indicano che ogni passaggio dell'aggiornamento è più granulare e influiscono su un numero minore di nodi o servizi. Un minor numero di servizi deve spostarsi alla volta, introducendo meno varianza nel sistema. Ciò tende a migliorare l'affidabilità, perché il servizio è influenzato da eventuali problemi introdotti durante l'aggiornamento. Un maggior numero di domini di aggiornamento significa anche che è necessario un buffer meno disponibile negli altri nodi per gestire l'effetto dell'aggiornamento. 
 
-Se, ad esempio, si dispone di cinque domini di aggiornamento, i nodi in ognuna gestiscono approssimativamente il 20% del traffico. Se è necessario arrestare il dominio di aggiornamento per un aggiornamento, il carico di solito deve andare da qualche parte. Poiché si dispone di quattro domini di aggiornamento rimanenti, ognuno deve disporre di spazio per circa il 5% del traffico totale. Più domini di aggiornamento significano che è necessario meno buffer nei nodi del cluster. 
+Se, ad esempio, si dispone di cinque domini di aggiornamento, i nodi in ognuna gestiscono approssimativamente il 20% del traffico. Se è necessario arrestare il dominio di aggiornamento per un aggiornamento, il carico di solito deve andare da qualche parte. Poiché si dispone di quattro domini di aggiornamento rimanenti, ognuno deve disporre di spazio per circa il 25% del traffico totale. Più domini di aggiornamento significano che è necessario meno buffer nei nodi del cluster.
 
-Prendere in considerazione la presenza di 10 domini di aggiornamento. In tal caso, ogni dominio di aggiornamento gestisce solo il 10% del traffico totale. Quando si esegue un aggiornamento per il cluster, è necessario che ogni dominio disponga di spazio solo per circa il 1,1% del traffico totale. Più domini di aggiornamento consentono in genere di eseguire i nodi a un utilizzo più elevato, perché è necessaria una capacità meno riservata. Lo stesso vale per i domini di errore.  
+Prendere in considerazione la presenza di 10 domini di aggiornamento. In tal caso, ogni dominio di aggiornamento gestisce solo il 10% del traffico totale. Quando si esegue un aggiornamento per il cluster, è necessario che ogni dominio disponga di spazio solo sull'11% del traffico totale. Più domini di aggiornamento consentono in genere di eseguire i nodi a un utilizzo più elevato, perché è necessaria una capacità meno riservata. Lo stesso vale per i domini di errore.  
 
 Il lato negativo della presenza di molti domini di aggiornamento consiste nel fatto che gli aggiornamenti tendono a richiedere più tempo. Service Fabric attende un breve periodo di tempo dopo il completamento di un dominio di aggiornamento ed esegue i controlli prima di avviare l'aggiornamento di quello successivo. Questi ritardi consentono di rilevare i problemi introdotti in seguito all'aggiornamento prima che l'aggiornamento continui. Questo compromesso è accettabile perché evita che modifiche non valide abbiano un impatto eccessivo sul servizio in un determinato momento.
 
@@ -247,7 +247,7 @@ Nel layout precedente, se il valore **TargetReplicaSetSize** è cinque e N1 vien
 ## <a name="configuring-fault-and-upgrade-domains"></a>Configurazione di domini di errore e di aggiornamento
 Nelle distribuzioni di Service Fabric ospitate da Azure, i domini di errore e i domini di aggiornamento vengono definiti automaticamente. Service Fabric recupera semplicemente le informazioni sull'ambiente da Azure e le usa.
 
-Se si sta creando un cluster (o si vuole eseguire una particolare topologia nello sviluppo), è possibile fornire le informazioni sul dominio di errore e sul dominio di aggiornamento manualmente. In questo esempio viene definito un cluster di sviluppo locale a nove nodi che si estende su tre Data Center (ognuno con tre rack). Questo cluster dispone anche di tre domini di aggiornamento con striping tra questi tre Data Center. Di seguito è riportato un esempio di configurazione in ClusterManifest. XML:
+Se si sta creando un cluster (o si vuole eseguire una particolare topologia nello sviluppo), è possibile fornire le informazioni sul dominio di errore e sul dominio di aggiornamento manualmente. In questo esempio viene definito un cluster di sviluppo locale a nove nodi che si estende su tre Data Center (ognuno con tre rack). Questo cluster dispone anche di tre domini di aggiornamento con striping tra questi tre Data Center. Di seguito è riportato un esempio di configurazione in ClusterManifest.xml:
 
 ```xml
   <Infrastructure>
@@ -268,7 +268,7 @@ Se si sta creando un cluster (o si vuole eseguire una particolare topologia nell
   </Infrastructure>
 ```
 
-Questo esempio USA ClusterConfig. JSON per le distribuzioni autonome:
+Questo esempio USA ClusterConfig.json per le distribuzioni autonome:
 
 ```json
 "nodes": [
@@ -363,7 +363,7 @@ Per supportare questi tipi di configurazioni, Service Fabric include tag che è 
 ### <a name="built-in-node-properties"></a>Proprietà predefinite del nodo
 Service Fabric definisce alcune proprietà predefinite del nodo che possono essere usate automaticamente, pertanto non è necessario definirle. Le proprietà predefinite definite in ogni nodo sono **NodeType** e **NodeName**. 
 
-Ad esempio, è possibile scrivere un vincolo di posizionamento `"(NodeType == NodeType03)"`come. **NodeType** è una proprietà di uso comune. È utile perché corrisponde a 1:1 con un tipo di computer. Ogni tipo di computer corrisponde a un tipo di carico di lavoro in un'applicazione tradizionale a più livelli.
+Ad esempio, è possibile scrivere un vincolo di posizionamento come `"(NodeType == NodeType03)"` . **NodeType** è una proprietà di uso comune. È utile perché corrisponde a 1:1 con un tipo di computer. Ogni tipo di computer corrisponde a un tipo di carico di lavoro in un'applicazione tradizionale a più livelli.
 
 <center>
 
@@ -401,7 +401,7 @@ Di seguito sono riportati alcuni esempi di istruzioni di vincolo di base:
 
 È possibile posizionare il servizio solo sui nodi in cui l'istruzione del vincolo di posizionamento generale restituisce "True". I nodi che non dispongono di una proprietà definita non corrispondono ad alcun vincolo di posizionamento che contiene la proprietà.
 
-Si immagini che siano state definite le proprietà del nodo seguenti per un tipo di nodo in ClusterManifest. XML:
+Si direbbe che le proprietà del nodo seguenti sono state definite per un tipo di nodo in ClusterManifest.xml:
 
 ```xml
     <NodeType Name="NodeType01">
@@ -413,7 +413,7 @@ Si immagini che siano state definite le proprietà del nodo seguenti per un tipo
     </NodeType>
 ```
 
-Nell'esempio seguente vengono illustrate le proprietà dei nodi definite tramite ClusterConfig. JSON per le distribuzioni autonome o template. JSON per i cluster ospitati in Azure. 
+Nell'esempio seguente vengono illustrate le proprietà dei nodi definite tramite ClusterConfig.json per le distribuzioni autonome o Template.jssu per i cluster ospitati da Azure. 
 
 > [!NOTE]
 > Nel modello di Azure Resource Manager, il tipo di nodo viene in genere parametrizzato. Sembrerebbe `"[parameters('vmNodeType1Name')]"` piuttosto che NodeType01.
@@ -447,7 +447,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
-Se tutti i nodi di NodeType01 sono validi, è anche possibile selezionare il tipo di nodo con `"(NodeType == NodeType01)"`il vincolo.
+Se tutti i nodi di NodeType01 sono validi, è anche possibile selezionare il tipo di nodo con il vincolo `"(NodeType == NodeType01)"` .
 
 I vincoli di posizionamento di un servizio possono essere aggiornati dinamicamente in fase di esecuzione. Se necessario, è possibile spostare un servizio in tutto il cluster, aggiungere e rimuovere i requisiti e così via. Service Fabric garantisce che il servizio rimanga attivo e disponibile anche quando vengono apportati questi tipi di modifiche.
 
@@ -478,7 +478,7 @@ Le metriche sono diverse dai vincoli di posizionamento e dalle proprietà dei no
 
 Proprio come per i vincoli di posizionamento e le proprietà dei nodi, Service Fabric cluster Gestione risorse non comprende il significato dei nomi delle metriche. I nomi delle metriche sono semplicemente stringhe. È consigliabile dichiarare le unità come parte dei nomi di metrica creati quando potrebbero essere ambigui.
 
-## <a name="capacity"></a>Capacity
+## <a name="capacity"></a>Capacità
 Se è stato disattivato tutto il *bilanciamento*delle risorse, Service Fabric cluster gestione risorse assicurerà comunque che nessun nodo superi la propria capacità. Gestire i sovraccarichi di capacità è possibile, a meno che il cluster non sia pieno o il carico di lavoro sia maggiore rispetto a qualsiasi altro nodo. La capacità è un altro *vincolo* che cluster gestione risorse USA per comprendere la quantità di risorse di un nodo. La capacità rimanente verrà registrata anche per il cluster nel suo complesso. 
 
 Sia la capacità che l'utilizzo a livello di servizio sono espressi in termini di metriche. Ad esempio, la metrica potrebbe essere "ClientConnections" e un nodo potrebbe avere una capacità per "ClientConnections" di 32.768. Altri nodi possono avere altri limiti. Un servizio in esecuzione su tale nodo può dire che sta attualmente utilizzando 32.256 della metrica "ClientConnections".
@@ -505,7 +505,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ClientConnections,High,1024,0)
 ```
 
-È possibile visualizzare le capacità definite nel manifesto del cluster. Di seguito è riportato un esempio per ClusterManifest. XML:
+È possibile visualizzare le capacità definite nel manifesto del cluster. Di seguito è riportato un esempio per ClusterManifest.xml:
 
 ```xml
     <NodeType Name="NodeType03">
@@ -515,7 +515,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
     </NodeType>
 ```
 
-Di seguito è riportato un esempio di capacità definite tramite ClusterConfig. JSON per le distribuzioni autonome o template. JSON per i cluster ospitati in Azure: 
+Di seguito è riportato un esempio di capacità definite tramite ClusterConfig.json per le distribuzioni autonome o Template.jsper i cluster ospitati in Azure: 
 
 ```json
 "nodeTypes": [
@@ -548,7 +548,7 @@ La capacità memorizzata nel buffer è un'altra funzionalità del cluster Gestio
 
 La capacità memorizzata nel buffer viene specificata a livello globale per ogni metrica per tutti i nodi. Il valore scelto per la capacità riservata è una funzione del numero di domini di errore e di aggiornamento presenti nel cluster. Un maggior numero di domini di errore e di aggiornamento significa che è possibile scegliere un numero inferiore per la capacità memorizzata nel buffer. Se si dispone di molti domini, ci si può aspettare la mancata disponibilità di porzioni inferiori del cluster durante gli aggiornamenti e gli errori. Specificare la capacità memorizzata nel buffer ha senso solo se è stata specificata anche la capacità del nodo per una metrica.
 
-Di seguito è riportato un esempio di come specificare la capacità memorizzata nel buffer in ClusterManifest. XML:
+Di seguito è riportato un esempio di come specificare la capacità memorizzata nel buffer in ClusterManifest.xml:
 
 ```xml
         <Section Name="NodeBufferPercentage">
@@ -557,7 +557,7 @@ Di seguito è riportato un esempio di come specificare la capacità memorizzata 
         </Section>
 ```
 
-Di seguito è riportato un esempio di come specificare la capacità memorizzata nel buffer tramite ClusterConfig. JSON per le distribuzioni autonome o template. JSON per i cluster ospitati in Azure:
+Di seguito è riportato un esempio di come specificare la capacità memorizzata nel buffer tramite ClusterConfig.json per le distribuzioni autonome o Template.jsper i cluster ospitati in Azure:
 
 ```json
 "fabricSettings": [

@@ -6,7 +6,7 @@ ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 70b7a869c8b8147f978987b99b4918f573da6d0f
 ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/27/2020
 ms.locfileid: "84014818"

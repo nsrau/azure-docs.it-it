@@ -17,7 +17,7 @@ ms.locfileid: "82072638"
 ---
 ### <a name="general-query-limits"></a>Limiti di query generali
 
-| Limite | Descrizione |
+| Limite | Description |
 |:---|:---|
 | Linguaggio di query | Monitoraggio di Azure usa lo stesso [linguaggio di query di Kusto](/azure/kusto/query/) di Azure Esplora dati. Vedere le [differenze del linguaggio di query del log di monitoraggio di Azure](../articles/azure-monitor/log-query/data-explorer-difference.md) per gli elementi del linguaggio KQL non supportati in monitoraggio di Azure. |
 | Aree di Azure | Le query di log possono avere un sovraccarico eccessivo quando i dati si estendono Log Analytics aree di lavoro in più aree di Azure. Per informazioni dettagliate, vedere [limiti della query](../articles/azure-monitor/log-query/scope.md#query-limits) . |
@@ -27,7 +27,7 @@ ms.locfileid: "82072638"
 Monitoraggio di Azure presenta diversi limiti di limitazione per la protezione dagli utenti che inviano un numero eccessivo di query. Questo comportamento può potenzialmente sovraccaricare le risorse back-end del sistema e compromettere la velocità di risposta del servizio. I limiti seguenti sono progettati per proteggere i clienti dalle interruzioni e garantire un livello di servizio coerente. La limitazione e i limiti dell'utente sono progettati per influito solo sullo scenario di utilizzo estremo e non devono essere rilevanti per l'utilizzo tipico.
 
 
-| Measure | Limite per utente | Descrizione |
+| Measure | Limite per utente | Description |
 |:---|:---|:---|
 | Query simultanee | 5 | Se per l'utente sono già in esecuzione 5 query, le nuove query vengono inserite in una coda di concorrenza per singolo utente. Al termine di una delle query in esecuzione, la query successiva verrà ritirata dalla coda e avviata. Non sono incluse le query dalle regole di avviso.
 | Tempo nella coda di concorrenza | 2,5 minuti | Se una query si trova nella coda per più di 2,5 minuti senza essere avviata, verrà terminata con una risposta di errore HTTP con codice 429. |

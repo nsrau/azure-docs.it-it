@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: includere file
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73034547"
 ---
 Quando si progetta un sistema, è importante comprendere le potenziali minacce e aggiungere le difese appropriate di conseguenza, perché il sistema è definito da una progettazione e un'architettura specifiche. È importante progettare il prodotto tenendo conto della sicurezza, perché comprendere in che modo un utente malintenzionato potrebbe compromettere un sistema aiuta ad implementare le misure appropriate fin dall'inizio.
@@ -177,7 +177,7 @@ In ognuna delle categorie descritte nell'architettura IoT di Azure, in questo es
 
 **Elevazione dei privilegi (E)**: è possibile forzare un dispositivo che esegue una funzione specifica a eseguire un'altra operazione. Ad esempio, una valvola che è programmata per aprirsi a metà può essere indotta ad aprirsi completamente.
 
-| **Componente** | **Threat** | **Misura di prevenzione** | **Rischio** | **Implementazione** |
+| **Componente** | **Threat** | **Strategia di riduzione del rischio** | **Rischio** | **Implementazione** |
 | --- | --- | --- | --- | --- |
 | Dispositivo |S |Assegnazione dell'identità al dispositivo e autenticazione del dispositivo |Sostituzione del dispositivo o di parte dello stesso con un altro dispositivo Come stabilire se si sta comunicando con il dispositivo giusto? |Autenticazione del dispositivo con Transport Layer Security (TLS) o IPSec. L'infrastruttura deve supportare l'uso di una chiave precondivisa (PSK) nei dispositivi che non riescono a gestire la crittografia asimmetrica completa. Utilizzare Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Applicare meccanismi a prova di manomissione al dispositivo, ad esempio rendendo molto difficile, se non impossibile, estrarre chiavi e altro materiale crittografico dallo stesso. |Il rischio esiste se un utente sta manomettendo il dispositivo (intromissione fisica). Come è possibile accertarsi che il dispositivo non sia stato manomesso. |La soluzione più efficace è una funzionalità TPM (Trusted Platform Module) che consente l'archiviazione delle chiavi in speciali circuiti su chip da cui non è possibile leggerle, ma solo usarle per le operazioni di crittografia che le adoperano, senza mai divulgarle. Crittografia della memoria del dispositivo. Gestione delle chiavi per il dispositivo. Firma del codice. |
@@ -220,7 +220,7 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 Minacce presenti nel percorso di comunicazione tra dispositivi, dispositivi e gateway sul campo e dispositivo e gateway cloud. La tabella seguente contiene alcune indicazioni sui socket aperti nel dispositivo/VPN:
 
-| **Componente** | **Threat** | **Misura di prevenzione** | **Rischio** | **Implementazione** |
+| **Componente** | **Threat** | **Strategia di riduzione del rischio** | **Rischio** | **Implementazione** |
 | --- | --- | --- | --- | --- |
 | Dispositivo - Hub IoT |TID |(D)TLS (PSK/RSA) per crittografare il traffico |Intercettazione o interferenza nella comunicazione tra il dispositivo e il gateway |Sicurezza a livello di protocollo. Con i protocolli personalizzati, è necessario capire come proteggerli. Nella maggior parte dei casi, la comunicazione avviene dal dispositivo all'hub IoT (connessione avviata dal dispositivo). |
 | Da dispositivo a dispositivo |TID |(D) TLS (PSK/RSA) per crittografare il traffico. |Lettura dei dati in transito tra i dispositivi. Manomissione dei dati. Sovraccarico del dispositivo con nuove connessioni |Sicurezza a livello di protocollo (MQTT/AMQP/HTTP/CoAP). Con i protocolli personalizzati, è necessario capire come proteggerli. La soluzione per la minaccia Denial of Service consiste nell'eseguire il peering dei dispositivi attraverso un gateway cloud o sul campo e far sì che agiscano solo da client verso la rete. Il peering può comportare una connessione diretta tra i peer dopo che è stata negoziata dal gateway |
@@ -244,7 +244,7 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 Ogni dispositivo e gateway sul campo prevede un tipo di archiviazione (temporanea per accodamento dei dati, archiviazione di immagini del sistema operativo).
 
-| **Componente** | **Threat** | **Misura di prevenzione** | **Rischio** | **Implementazione** |
+| **Componente** | **Threat** | **Strategia di riduzione del rischio** | **Rischio** | **Implementazione** |
 | --- | --- | --- | --- | --- |
 | Archiviazione nel dispositivo |TRID |Crittografia di archiviazione, firma dei log |Lettura dei dati dalla risorsa di archiviazione (dati PII), manomissione dei dati di telemetria. Manomissione dei dati di controllo del comando in coda o memorizzati nella cache. La manomissione di pacchetti di configurazione o aggiornamento del firmware memorizzati nella cache o in coda in locale può compromettere il sistema operativo e/o i componenti del sistema |Crittografia, codice di autenticazione messaggi (MAC) o firma digitale. Laddove possibile, un controllo di accesso complesso attraverso elenchi di controllo di accesso (ACL) o autorizzazioni. |
 | Immagine del sistema operativo del dispositivo |TRID | |Manomissione del sistema operativo/sostituzione dei componenti del sistema operativo |Partizione del sistema operativo di sola lettura, immagine del sistema operativo firmata, crittografia |
