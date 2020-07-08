@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
 ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77121730"
 ---
 # <a name="azure-dns-faq"></a>Domande frequenti su DNS di Azure
@@ -42,7 +41,7 @@ Per altre informazioni, vedere la pagina relativa al [contratto di Servizio per 
 
 Un dominio è un nome univoco nel Domain Name System, ad esempio contoso.com.
 
-Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Il dominio contoso.com può contenere, ad esempio, diversi record DNS. I record possono includere mail.contoso.com per un server di posta elettronica\.e www contoso.com per un sito Web. e sono ospitati nella zona DNS contoso.com.
+Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Il dominio contoso.com può contenere, ad esempio, diversi record DNS. I record possono includere mail.contoso.com per un server di posta elettronica e www \. contoso.com per un sito Web. e sono ospitati nella zona DNS contoso.com.
 
 Un nome di dominio è *solo un nome*, mentre una zona DNS è una risorsa di dati contenente i record DNS per un nome di dominio. È possibile usare DNS di Azure per ospitare una zona DNS e gestire i record DNS per un dominio in Azure. Offre anche server dei nomi DNS per rispondere alle query DNS da Internet.
 

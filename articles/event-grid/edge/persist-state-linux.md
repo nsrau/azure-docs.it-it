@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086663"
 ---
 # <a name="persist-state-in-linux"></a>Mantieni stato in Linux
@@ -25,7 +24,7 @@ Per impostazione predefinita, solo i metadati sono persistenti e gli eventi rima
 Questo articolo illustra i passaggi per distribuire il modulo di griglia di eventi con la persistenza nelle distribuzioni di Linux.
 
 > [!NOTE]
->Il modulo di griglia di eventi viene eseguito come utente con privilegi limitati `2000` con UID `eventgriduser`e nome.
+>Il modulo di griglia di eventi viene eseguito come utente con privilegi limitati con UID `2000` e nome `eventgriduser` .
 
 ## <a name="persistence-via-volume-mount"></a>Persistenza tramite montaggio del volume
 
@@ -170,7 +169,7 @@ Aspetti importanti da notare sugli eventi di salvataggio permanente:
 * La persistenza degli eventi è configurata in una sottoscrizione di eventi in fase di creazione e non può essere modificata dopo la creazione della sottoscrizione di eventi. Per abilitare o disabilitare la persistenza degli eventi, è necessario eliminare e ricreare la sottoscrizione di eventi.
 * Il mantenimento degli eventi è quasi sempre più lento rispetto alle operazioni di memoria, ma la differenza di velocità dipende in modo estremamente dalle caratteristiche dell'unità. Il compromesso tra velocità e affidabilità è inerente a tutti i sistemi di messaggistica, ma in genere si limita a essere visibile su larga scala.
 
-Per abilitare la persistenza degli eventi in una sottoscrizione `persistencePolicy` di `true`eventi, impostare su:
+Per abilitare la persistenza degli eventi in una sottoscrizione di eventi, impostare su `persistencePolicy` `true` :
 
  ```json
         {

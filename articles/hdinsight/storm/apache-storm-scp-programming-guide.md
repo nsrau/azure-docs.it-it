@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: ddf69a75a39911293277a4a4189cf4e79256e09d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77186870"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guida alla programmazione SCP per Apache Storm in Azure HDInsight
@@ -357,7 +356,7 @@ public void Abort();
     public T GetAttribute<T>(string key);
 ```
 
-Quando **simpleMode** è impostato su **true**, il metodo **commit** Elimina il elemento znode corrispondente in ZooKeeper. In caso contrario, il metodo elimina il elemento znode corrente e aggiunge un nuovo nodo nel\_percorso di cui è stato eseguito il commit.
+Quando **simpleMode** è impostato su **true**, il metodo **commit** Elimina il elemento znode corrispondente in ZooKeeper. In caso contrario, il metodo elimina il elemento znode corrente e aggiunge un nuovo nodo nel percorso di cui è stato eseguito il commit \_ .
 
 ### <a name="scpruntime"></a>SCPRuntime
 
@@ -441,8 +440,8 @@ SCP.NET ha aggiunto le funzioni seguenti per definire le topologie transazionali
 | **scp-tx-batch-bolt** |*exec-name*<br />*args*<br />*campi* |Definisce un Bolt di batch transazionale. La funzione esegue l'applicazione specificata da *Exec-Name* e USA *args.*<br /><br />Il parametro *Fields* specifica i campi di output per il Bolt. |
 | **scp-tx-commit-bolt** |*exec-name*<br />*args*<br />*campi* |Definisce un Bolt di commit transazionale. La funzione esegue l'applicazione specificata da *Exec-Name* e USA *args*.<br /><br />Il parametro *Fields* specifica i campi di output per il Bolt. |
 | **nontx-topologia** |*topology-name*<br />*spout-map*<br />*bolt-map* |Definisce una topologia non transazionale con il nome della topologia, la mappa di definizione dei beccucci e la mappa di definizione dei Bolt. |
-| **scp-spout** |*exec-name*<br />*args*<br />*campi*<br />*parametri* |Definisce un beccuccio non transazionale. La funzione esegue l'applicazione specificata da *Exec-Name* e USA *args*.<br /><br />Il parametro *Fields* specifica i campi di output per il beccuccio.<br /><br />Il parametro *Parameters* è facoltativo. Usarlo per specificare parametri come "non transazionale. ACK. Enabled". |
-| **scp-bolt** |*exec-name*<br />*args*<br />*campi*<br />*parametri* |Definisce un Bolt non transazionale. La funzione esegue l'applicazione specificata da *Exec-Name* e USA *args*.<br /><br />Il parametro *Fields* specifica i campi di output per il Bolt<br /><br />Il parametro *Parameters* è facoltativo. Usarlo per specificare parametri come "non transazionale. ACK. Enabled". |
+| **scp-spout** |*exec-name*<br />*args*<br />*campi*<br />*parameters* |Definisce un beccuccio non transazionale. La funzione esegue l'applicazione specificata da *Exec-Name* e USA *args*.<br /><br />Il parametro *Fields* specifica i campi di output per il beccuccio.<br /><br />Il parametro *Parameters* è facoltativo. Usarlo per specificare parametri come "non transazionale. ACK. Enabled". |
+| **scp-bolt** |*exec-name*<br />*args*<br />*campi*<br />*parameters* |Definisce un Bolt non transazionale. La funzione esegue l'applicazione specificata da *Exec-Name* e USA *args*.<br /><br />Il parametro *Fields* specifica i campi di output per il Bolt<br /><br />Il parametro *Parameters* è facoltativo. Usarlo per specificare parametri come "non transazionale. ACK. Enabled". |
 
 SCP.NET definisce le parole chiave seguenti:
 
@@ -456,7 +455,7 @@ SCP.NET definisce le parole chiave seguenti:
 
 SCP.NET definisce anche questi parametri usati di frequente:
 
-| Parametro | Descrizione |
+| Parametro | Description |
 | --- | --- |
 | "plugin.name" |Nome del file exe del plug-in C# |
 | "plugin.args" |Argomenti del plug-in |
@@ -668,7 +667,7 @@ public interface ICustomizedInteropJavaDeserializer {
 
 ## <a name="scp-host-mode"></a>Modalità host SCP
 
-In questa modalità è possibile compilare il codice come DLL e usare SCPHost. exe come fornito da SCP per inviare una topologia. Un file di specifica ha un aspetto simile al seguente:
+In questa modalità è possibile compilare il codice come DLL e usare SCPHost.exe come fornito da SCP per inviare una topologia. Un file di specifica ha un aspetto simile al seguente:
 
 ```csharp
 (scp-spout
@@ -679,10 +678,10 @@ In questa modalità è possibile compilare il codice come DLL e usare SCPHost. e
   })
 ```
 
-Qui, `"plugin.name"` viene specificato come `"SCPHost.exe"`, fornito da SCP SDK. SCPHost. exe accetta tre parametri nell'ordine seguente:
+Qui, `"plugin.name"` viene specificato come `"SCPHost.exe"` , fornito da SCP SDK. SCPHost.exe accetta tre parametri nell'ordine seguente:
 
-1. Nome della DLL, che in `"HelloWorld.dll"` questo esempio è.
-1. Nome della classe, che in `"Scp.App.HelloWorld.Generator"` questo esempio è.
+1. Nome della DLL, che `"HelloWorld.dll"` in questo esempio è.
+1. Nome della classe, che `"Scp.App.HelloWorld.Generator"` in questo esempio è.
 1. Nome di un metodo statico pubblico, che può essere richiamato per ottenere un'istanza di **ISCPPlugin**.
 
 In modalità host compilare il codice come DLL per la chiamata della piattaforma SCP. Poiché la piattaforma può quindi ottenere il controllo completo dell'intera logica di elaborazione, si consiglia di inviare la topologia in modalità host SCP. In questo modo viene semplificata l'esperienza di sviluppo. Offre inoltre maggiore flessibilità e una migliore compatibilità con le versioni precedenti.
@@ -693,7 +692,7 @@ In modalità host compilare il codice come DLL per la chiamata della piattaforma
 
 Nell'esempio HelloWorld semplice riportato di seguito viene illustrato un SCP.NET. Usa una topologia non transazionale con un beccuccio denominato **Generator** e due Bolt chiamati **splitter** e **Counter**. Il beccuccio del **Generatore** genera in modo casuale le frasi ed emette le frasi per la **barra di divisione**. Il Bolt **splitter** divide le frasi in parole ed emette queste parole nel Bolt del **contatore** . Il Bolt del **contatore** usa un dizionario per registrare l'occorrenza di ogni parola.
 
-Questo esempio include due file di specifica: HelloWorld. spec e\_HelloWorld EnableAck. spec. Il codice C# può determinare se il riconoscimento è abilitato ottenendo l' `pluginConf` oggetto dal lato Java.
+Questo esempio include due file di specifica: HelloWorld. spec e HelloWorld \_ EnableAck. spec. Il codice C# può determinare se il riconoscimento è abilitato ottenendo l' `pluginConf` oggetto dal lato Java.
 
 ```csharp
 /* demo how to get pluginConf info */
@@ -728,7 +727,7 @@ public void Fail(long seqId, Dictionary<string, Object> parms)
 
 ### <a name="helloworldtx"></a>HelloWorldTx
 
-Nell'esempio HelloWorldTx seguente viene illustrato come implementare la topologia transazionale. Nell'esempio è presente un beccuccio denominato **Generator**, un Bolt batch denominato **partial-count**e un Bolt di commit denominato **count-Sum**. L'esempio include anche tre file di testo esistenti: DataSource0. txt, DataSource1. txt e DataSource2. txt.
+Nell'esempio HelloWorldTx seguente viene illustrato come implementare la topologia transazionale. Nell'esempio è presente un beccuccio denominato **Generator**, un Bolt batch denominato **partial-count**e un Bolt di commit denominato **count-Sum**. L'esempio include anche tre file di testo esistenti: DataSource0.txt, DataSource1.txt e DataSource2.txt.
 
 In ogni transazione, il beccuccio del **Generatore** seleziona in modo casuale due file dai tre file esistenti e genera i due nomi di file al Bolt del **conteggio parziale** . Bolt **conteggio parziale** :
 
@@ -783,11 +782,11 @@ public void FinishBatch(Dictionary<string, Object> parms)
 
 ### <a name="hybridtopology"></a>HybridTopology
 
-Questa topologia contiene un becco Java e un Bolt C#. Usa l'implementazione di serializzazione e deserializzazione predefinita fornita dalla piattaforma SCP. Vedere il file HybridTopology. spec nella cartella Examples\\HybridTopology per informazioni dettagliate sui file di specifica. Vedere anche SubmitTopology. bat per informazioni su come specificare il CLASSPATH Java.
+Questa topologia contiene un becco Java e un Bolt C#. Usa l'implementazione di serializzazione e deserializzazione predefinita fornita dalla piattaforma SCP. Vedere il file HybridTopology. spec nella cartella Examples \\ HybridTopology per informazioni dettagliate sui file di specifica. Per informazioni su come specificare il CLASSPATH Java, vedere anche SubmitTopology.bat.
 
 ### <a name="scphostdemo"></a>SCPHostDemo
 
-Questo esempio è in sostanza identico a HelloWorld. L'unica differenza è che il codice viene compilato come una DLL e la topologia viene inviata tramite SCPHost. exe. Per una spiegazione più dettagliata, vedere la sezione modalità host SCP.
+Questo esempio è in sostanza identico a HelloWorld. L'unica differenza è che il codice viene compilato come una DLL e la topologia viene inviata usando SCPHost.exe. Per una spiegazione più dettagliata, vedere la sezione modalità host SCP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

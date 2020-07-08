@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 00348d36c38fdbfdf69a2e4e80a4c720268b40c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025368"
 ---
 # <a name="manage-accounts-on-the-azure-vmware-solution-by-cloudsimple-portal"></a>Gestire gli account nella soluzione VMware di Azure tramite il portale di CloudSimple
@@ -35,6 +34,6 @@ Per rimuovere una voce, fare clic su **X**.
 
 ## <a name="cloudsimple-operator-access"></a>Accesso dell'operatore CloudSimple
 
-L'impostazione dell'accesso dell'operatore consente a CloudSimple di semplificare la risoluzione dei problemi permettendo a un tecnico del supporto di accedere al portale di CloudSimple.  L'impostazione è abilitata per impostazione predefinita. Tutte le azioni eseguite dal tecnico del supporto quando si è connessi all'account del cliente vengono registrate e disponibili per la revisione nella pagina di**controllo** dell' **attività** > .
+L'impostazione dell'accesso dell'operatore consente a CloudSimple di semplificare la risoluzione dei problemi permettendo a un tecnico del supporto di accedere al portale di CloudSimple.  L'impostazione è abilitata per impostazione predefinita. Tutte le azioni eseguite dal tecnico del supporto quando si è connessi all'account del cliente vengono registrate e disponibili per la revisione nella pagina di controllo dell' **attività**  >  **Audit** .
 
 Fare clic sull'interruttore abilitata per l'accesso dell' **operatore CloudSimple** per attivare o disattivare l'accesso.

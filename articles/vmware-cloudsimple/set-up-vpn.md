@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77087135"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configurare una connessione VPN al cloud privato CloudSimple
@@ -57,13 +56,13 @@ Nell'esempio seguente viene illustrata l'importazione della connessione tramite 
 
 2. Apertura della viscosità nel computer.
 
-3. Fare clic **+** sull'icona e selezionare **Importa connessione** > **dal file**.
+3. Fare clic sull' **+** icona e selezionare **Importa connessione**  >  **dal file**.
 
     ![Importa configurazione VPN da file](media/import-p2s-vpn-config.png)
 
 4. Selezionare il file di configurazione OpenVPN (con estensione ovpn) per il protocollo che si vuole usare e fare clic su **Apri**.
 
-    ![VPN](media/import-p2s-vpn-config-choose-ovpn.png)
+    ![Connessione](media/import-p2s-vpn-config-choose-ovpn.png)
 
 La connessione viene ora visualizzata nel menu di viscosità.
 
@@ -71,7 +70,7 @@ La connessione viene ora visualizzata nel menu di viscosità.
 
 Per connettersi alla VPN usando il client di viscosità OpenVPN, selezionare la connessione dal menu. L'icona di menu viene aggiornata per indicare che la connessione è stata stabilita.
 
-![VPN](media/vis03.png)
+![Connessione](media/vis03.png)
 
 ### <a name="connecting-to-multiple-private-clouds"></a>Connessione a più cloud privati
 
@@ -79,7 +78,7 @@ Una connessione VPN da punto a sito risolve i nomi DNS del primo cloud privato c
 
 1. Avviare il [portale di CloudSimple](access-cloudsimple-portal.md).
 
-2. Passare a **risorse** > Cloud**privati** e selezionare il cloud privato a cui si vuole connettersi.
+2. Passare a **risorse**Cloud  >  **privati** e selezionare il cloud privato a cui si vuole connettersi.
 
 3. Nella pagina **Riepilogo** del cloud privato copiare l'indirizzo IP del server DNS del cloud privato in **informazioni di base**.
 
@@ -87,7 +86,7 @@ Una connessione VPN da punto a sito risolve i nomi DNS del primo cloud privato c
 
 4. Fare clic con il pulsante destro del mouse sull'icona di viscosità nella barra delle applicazioni del computer e selezionare **Preferenze**.
 
-    ![VPN](media/vis00.png)
+    ![Connessione](media/vis00.png)
 
 5. Selezionare la connessione VPN CloudSimple.
 
@@ -97,7 +96,7 @@ Una connessione VPN da punto a sito risolve i nomi DNS del primo cloud privato c
 
     ![Modifica connessione VPN](media/viscosity-edit-connection.png)
 
-7. Fare clic sulla scheda **rete** e immettere gli indirizzi IP del server DNS del cloud privato separati da una virgola o da ```cloudsimple.io```uno spazio e dal dominio come.  Selezionare **Ignora impostazioni DNS inviate dal server VPN**.
+7. Fare clic sulla scheda **rete** e immettere gli indirizzi IP del server DNS del cloud privato separati da una virgola o da uno spazio e dal dominio come ```cloudsimple.io``` .  Selezionare **Ignora impostazioni DNS inviate dal server VPN**.
 
     ![Rete VPN](media/viscosity-edit-connection-networking.png)
 

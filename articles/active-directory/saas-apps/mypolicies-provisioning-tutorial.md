@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 353da826b6e339d40a5d85bbf63caac5bf7094f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061367"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Esercitazione: configurare i criteri per il provisioning utenti automatico
@@ -41,7 +40,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assigning-users-to-mypolicies"></a>Assegnazione di utenti a criteri
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere ai criteri. Dopo aver stabilito questo, è possibile assegnare questi utenti e/o gruppi a i criteri seguendo le istruzioni riportate qui:
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
@@ -50,13 +49,13 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 * È consigliabile assegnare un singolo Azure AD utente a criteri per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-* Quando si assegna un utente a criteri di associazione, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo di **accesso predefinito** vengono esclusi dal provisioning.
+* Quando si assegna un utente a criteri di associazione, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
 
 ## <a name="setup-mypolicies-for-provisioning"></a>Configurare i criteri per il provisioning
 
 Prima di configurare i criteri per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning di SCIM nei criteri.
 
-1. Per ottenere il token segreto necessario per configurare **support@mypolicies.com** il provisioning di SCIM, rivolgersi al rappresentante dei criteri.
+1. Per **support@mypolicies.com** ottenere il token segreto necessario per configurare il provisioning di SCIM, rivolgersi al rappresentante dei criteri.
 
 2.  Salvare il valore del token fornito dal rappresentante dei criteri. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione per i criteri nel portale di Azure.
 
@@ -70,7 +69,7 @@ Per configurare i criteri per il provisioning utenti automatico con Azure AD, è
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -91,7 +90,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 ### <a name="to-configure-automatic-user-provisioning-for-mypolicies-in-azure-ad"></a>Per configurare il provisioning utenti automatico per i criteri in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -99,16 +98,16 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Collegamento di myPolicies nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **provisioning** .
+3. Selezionare la scheda **Provisioning**.
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare la **modalità di provisioning** su **automatico**.
+4. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://<myPoliciesCustomDomain>.mypolicies.com/scim` l'URL del **tenant** in cui `<myPoliciesCustomDomain>` è il dominio personalizzato dei criteri. Dall'URL è possibile recuperare il dominio Customer dei criteri.
-Esempio: `<demo0-qa>`. mypolicies.com.
+5. Nella sezione **credenziali amministratore** immettere l' `https://<myPoliciesCustomDomain>.mypolicies.com/scim` URL del **tenant** in cui `<myPoliciesCustomDomain>` è il dominio personalizzato dei criteri. Dall'URL è possibile recuperare il dominio Customer dei criteri.
+Esempio: `<demo0-qa>` . mypolicies.com.
 
 6. In **token segreto**immettere il valore del token recuperato in precedenza. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi ai criteri. Se la connessione ha esito negativo, verificare che l'account di criteri di gruppo disponga delle autorizzazioni di amministratore e riprovare.
 
@@ -153,7 +152,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

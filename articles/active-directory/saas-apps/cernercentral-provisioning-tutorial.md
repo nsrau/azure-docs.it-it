@@ -16,10 +16,9 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ed04d8fdcc2d79c66e2ebc53c737c78664e4621
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058317"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cerner Central per il provisioning utenti automatico
@@ -93,7 +92,7 @@ Per effettuare il provisioning degli account utente in Cerner Central, è necess
 
 7. Selezionare l'istanza di Cerner Central e quindi la scheda **Provisioning**.
 
-8. Impostare la **modalità di provisioning** su **automatico**.
+8. Impostare **Modalità di provisioning** su **Automatico**.
 
    ![Provisioning in Cerner Central](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
@@ -127,7 +126,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 * [Cerner Central: Publishing identity data using Azure AD (Cerner Central: Pubblicazione dei dati sull'identità con Azure AD)](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Esercitazione sulla configurazione di Cerner Central per l'accesso Single Sign-On con Azure Active Directory](cernercentral-tutorial.md)
-* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

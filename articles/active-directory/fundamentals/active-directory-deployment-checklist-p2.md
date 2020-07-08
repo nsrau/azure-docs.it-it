@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063646"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guida alla distribuzione delle funzionalità di Azure Active Directory
@@ -64,7 +63,7 @@ Si procede sulla base della struttura definita nella fase 1 con l'importazione d
 
 | Attività | Dettagli | Licenza richiesta |
 | ---- | ------ | ---------------- |
-| [Installare Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Preparare la sincronizzazione degli utenti dalla directory locale esistente al cloud. | Azure AD Free |
+| [Installa Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Preparare la sincronizzazione degli utenti dalla directory locale esistente al cloud. | Azure AD Free |
 | [Implementare la sincronizzazione dell'hash delle password](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Sincronizzare gli hash delle password per consentire la replica delle modifiche delle password, il rilevamento e la correzione di password non valide e la segnalazione di credenziali perse. | Azure AD Free |
 | [Procedura: Configurare il writeback delle password](../authentication/howto-sspr-writeback.md) | Consentire il writeback delle modifiche delle password nel cloud in un ambiente di Windows Server Active Directory locale. | Azure AD Premium P1 |
 | [Implementare Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | Abilitare il monitoraggio delle statistiche di integrità della chiave per i server Azure AD Connect, i server AD FS e i controller di dominio. | Azure AD Premium P1 |

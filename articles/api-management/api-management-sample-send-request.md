@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190006"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso di servizi esterni dal servizio Gestione API di Azure
@@ -104,7 +103,7 @@ Dall'oggetto della risposta è possibile recuperare il corpo e lo standard RFC 7
 
 In alternativa, se il server di autorizzazione non include il campo "attivo" per indicare se il token è valido, usare uno strumento come il poster per determinare quali proprietà sono impostate in un token valido. Se, ad esempio, una risposta del token valida contiene una proprietà denominata "expires_in", verificare che il nome della proprietà esista nella risposta del server di autorizzazione in questo modo:
 
-<quando il contesto condition = "@ ((IResponse). Variabili ["tokenstate"]). Body.As<JObject>(). Property ("expires_in") = = null) ">
+<quando il contesto condition = "@ ((IResponse). Variabili ["tokenstate"]). Body.As <JObject> (). Property ("expires_in") = = null) ">
 
 ### <a name="reporting-failure"></a>Creazione di report sull'errore
 Per individuare un token non valido e, in tal caso restituire una risposta 401, è possibile usare i criteri `<choose>`.
@@ -285,6 +284,6 @@ I criteri completi saranno simili ai seguenti:
 
 Nella configurazione dell'operazione segnaposto, è possibile configurare la risorsa del dashboard in modo che venga memorizzata nella cache per almeno un'ora. 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Il servizio Gestione API di Azure offre criteri flessibili che possono essere applicati in modo selettivo al traffico HTTP e consentono la realizzazione di servizi back-end. Se si desidera migliorare il gateway API con funzioni di avviso, verifica e convalida o creare nuove risorse complesse basate su più servizi back-end, `send-request` e i criteri correlati offrono numerose possibilità.
 

@@ -1,6 +1,6 @@
 ---
 title: Console seriale di Azure per Linux | Microsoft Docs
-description: Console seriale bidirezionale per macchine virtuali di Azure e set di scalabilità di macchine virtuali.
+description: Console seriale bidirezionale per macchine virtuali di Azure e set di scalabilità di macchine virtuali di Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -14,31 +14,30 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: b1f7708c9bd213e201ba4eb8837a191dca68ca9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77167007"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console seriale di Azure per Linux
 
-La console seriale nel portale di Azure fornisce l'accesso a una console basata su testo per le macchine virtuali Linux e le istanze del set di scalabilità di macchine virtuali. Questa connessione seriale si connette alla porta seriale ttyS0 della VM o dell'istanza del set di scalabilità di macchine virtuali, garantendo l'accesso indipendentemente dalla rete o dallo stato del sistema operativo. È possibile accedere alla console seriale solo usando la portale di Azure ed è consentita solo per gli utenti che hanno un ruolo accesso di collaboratore o superiore alla macchina virtuale o al set di scalabilità di macchine virtuali.
+La console seriale nel portale di Azure fornisce l'accesso a una console basata su testo per le macchine virtuali Linux e le istanze del set di scalabilità di macchine virtuali. Questa connessione seriale si connette alla porta seriale ttyS0 della VM o dell'istanza del set di scalabilità di macchine virtuali, garantendo l'accesso indipendentemente dalla rete o dallo stato del sistema operativo. L'accesso alla console seriale è consentito solo tramite il portale di Azure e solo agli utenti con il ruolo di Collaboratore o superiore per l'accesso alla macchina virtuale o al set di scalabilità di macchine virtuali.
 
-La console seriale funziona allo stesso modo per le macchine virtuali e le istanze del set di scalabilità di macchine virtuali. In questo documento, tutte le menzioni delle macchine virtuali includeranno in modo implicito le istanze del set di scalabilità di macchine virtuali, se non diversamente specificato.
+La console seriale funziona allo stesso modo per istanze di macchine virtuali e per set di scalabilità di macchine virtuali. In questo documento, se non diversamente specificato, ogni riferimento a macchine virtuali include in modo implicito le istanze dei set di scalabilità di macchine virtuali.
 
 Per la documentazione sulla console seriale per Windows, vedere [console seriale per Windows](../windows/serial-console.md).
 
 > [!NOTE]
-> La console seriale è disponibile a livello generale nelle aree globali di Azure e in anteprima pubblica in Azure per enti pubblici. Non è ancora disponibile nel cloud di Azure China.
+> La console seriale è disponibile a livello generale nelle aree globali di Azure e in anteprima pubblica in Azure per enti pubblici. Non è ancora disponibile nel cloud Azure Cina.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- L'istanza della VM o del set di scalabilità di macchine virtuali deve usare il modello di distribuzione di gestione delle risorse. Le distribuzioni classiche non sono supportate.
+- L'istanza della macchina virtuale o del set di scalabilità di macchine virtuali deve usare il modello di distribuzione di Resource Manager. Le distribuzioni classiche non sono supportate.
 
-- L'account che usa la console seriale deve avere il [ruolo Collaboratore macchina virtuale per la macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e l'account di archiviazione di [diagnostica di avvio](boot-diagnostics.md)
+- Un account che usa la console seriale deve avere il [ruolo Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) per la macchina virtuale e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md)
 
-- L'istanza della VM o del set di scalabilità di macchine virtuali deve avere un utente basato su password. È possibile crearne uno con la funzione di [reimpostazione della password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) dell'estensione di accesso alla macchina virtuale. Selezionare **Reimposta password** nella sezione **Supporto e risoluzione dei problemi**.
+- L'istanza della macchina virtuale o del set di scalabilità di macchine virtuali deve avere un utente basato su password. È possibile crearne uno con la funzione di [reimpostazione della password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) dell'estensione di accesso alla macchina virtuale. Selezionare **Reimposta password** nella sezione **Supporto e risoluzione dei problemi**.
 
 - Per la VM o l'istanza del set di scalabilità di macchine virtuali deve essere abilitata la [diagnostica di avvio](boot-diagnostics.md)
 
@@ -46,7 +45,7 @@ Per la documentazione sulla console seriale per Windows, vedere [console seriale
 
 - Per le impostazioni specifiche delle distribuzioni Linux, vedere [Disponibilità delle distribuzioni della console seriale per Linux](#serial-console-linux-distribution-availability).
 
-- La VM o l'istanza del set di scalabilità di macchine virtuali deve essere `ttys0`configurata per l'output seriale in. Si tratta dell'impostazione predefinita per le immagini di Azure, ma è consigliabile eseguire una doppia verifica sulle immagini personalizzate. Dettagli di [seguito](#custom-linux-images).
+- La VM o l'istanza del set di scalabilità di macchine virtuali deve essere configurata per l'output seriale in `ttys0` . Si tratta dell'impostazione predefinita per le immagini di Azure, ma è consigliabile eseguire una doppia verifica sulle immagini personalizzate. Dettagli di [seguito](#custom-linux-images).
 
 
 > [!NOTE]
@@ -70,7 +69,7 @@ SUSE        | Le immagini SLES più recenti disponibili in Azure hanno l'accesso
 Oracle Linux        | L'accesso alla console seriale è abilitato per impostazione predefinita.
 
 ### <a name="custom-linux-images"></a>Immagini personalizzate di Linux
-Per abilitare la console seriale per l'immagine personalizzata della VM Linux, abilitare l'accesso alla console nel file */etc/inittab* per l'esecuzione di un terminale in `ttyS0`. Ad esempio: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Potrebbe anche essere necessario generare un Getty in ttyS0. Questa operazione può essere eseguita `systemctl start serial-getty@ttyS0.service`con.
+Per abilitare la console seriale per l'immagine personalizzata della VM Linux, abilitare l'accesso alla console nel file */etc/inittab* per l'esecuzione di un terminale in `ttyS0`. Ad esempio: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Potrebbe anche essere necessario generare un Getty in ttyS0. Questa operazione può essere eseguita con `systemctl start serial-getty@ttyS0.service` .
 
 Sarà anche possibile aggiungere ttyS0 come destinazione per l'output seriale. Per altre informazioni sulla configurazione di un'immagine personalizzata per l'uso con la console seriale, vedere i requisiti di sistema generali in [creare e caricare un disco rigido virtuale Linux in Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
@@ -88,7 +87,7 @@ Interazione con bootloader | Riavviare la macchina virtuale all'interno del pann
 
 ## <a name="disable-the-serial-console"></a>Disabilitare la console seriale
 
-Per impostazione predefinita, per tutte le sottoscrizioni è abilitato l'accesso alla console seriale. È possibile disabilitare la console seriale a livello di sottoscrizione o di VM/set di scalabilità di macchine virtuali. Per istruzioni dettagliate, vedere [abilitare e disabilitare la console seriale di Azure](./serial-console-enable-disable.md).
+Per impostazione predefinita, per tutte le sottoscrizioni l'accesso alla console seriale è abilitato. È possibile disabilitare la console seriale a livello di sottoscrizione o a livello di macchina virtuale/set di scalabilità di macchine virtuali. Per istruzioni dettagliate, vedere [Abilitare e disabilitare la console seriale di Azure](./serial-console-enable-disable.md).
 
 ## <a name="serial-console-security"></a>Sicurezza della console seriale
 
@@ -120,52 +119,52 @@ Usare il tasto **TAB** della tastiera per eseguire la navigazione nell'interfacc
 La console seriale viene fornita con il supporto dell'utilità per la lettura dello schermo incorporato. La navigazione con un'utilità per la lettura dello schermo attivata consentirà la lettura a voce alta del testo alternativo del pulsante attualmente selezionato da parte dell'utilità per la lettura dello schermo.
 
 ## <a name="known-issues"></a>Problemi noti
-Sono stati rilevati alcuni problemi con la console seriale e il sistema operativo della macchina virtuale. Ecco un elenco di questi problemi e i passaggi per la mitigazione delle macchine virtuali Linux. Questi problemi e mitigazioni si applicano sia alle macchine virtuali che alle istanze dei set di scalabilità di macchine virtuali. Se non corrispondono all'errore visualizzato, vedere gli errori comuni del servizio console seriale in caso di [errori comuni della console seriale](./serial-console-errors.md).
+La console seriale presenta alcuni problemi con il sistema operativo della macchina virtuale. Ecco un elenco di questi problemi e i passaggi per la mitigazione delle macchine virtuali Linux. Le descrizioni dei problemi e delle relative mitigazioni si applicano sia alle macchine virtuali che alle istanze di set di scalabilità di macchine virtuali. Se tali descrizioni non corrispondono all'errore visualizzato, vedere gli errori comuni del servizio console seriale in [Errori comuni della console seriale](./serial-console-errors.md).
 
-Problema                           |   Misura di prevenzione
+Problema                           |   Strategia di riduzione del rischio
 :---------------------------------|:--------------------------------------------|
-Se si preme il tasto **INVIO** dopo il banner della connessione, non viene visualizzato un prompt di accesso. | GRUB potrebbe non essere configurato correttamente. Eseguire i comandi seguenti: `grub2-mkconfig -o /etc/grub2-efi.cfg` e/o `grub2-mkconfig -o /etc/grub2.cfg`. Per altre informazioni, vedere [Premendo INVIO, non accade nulla](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo problema può verificarsi se si esegue una macchina virtuale personalizzata, un dispositivo con protezione avanzata o una configurazione di GRUB che causa la mancata connessione di Linux alla porta seriale.
+Se si preme il tasto **INVIO** dopo il banner della connessione, non viene visualizzato un prompt di accesso. | GRUB potrebbe non essere configurato correttamente. Eseguire i comandi seguenti: `grub2-mkconfig -o /etc/grub2-efi.cfg` e/o `grub2-mkconfig -o /etc/grub2.cfg` . Per altre informazioni, vedere [Premendo INVIO, non accade nulla](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo problema può verificarsi se si esegue una macchina virtuale personalizzata, un dispositivo con protezione avanzata o una configurazione di GRUB che causa la mancata connessione di Linux alla porta seriale.
 Il testo della console seriale occupa solo una parte delle dimensioni dello schermo (spesso dopo l'uso di un editor di testo). | Le console seriali non supportano la negoziazione sulle dimensioni della finestra ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)): questo significa che non sarà presente alcun segnale SIGWINCH inviato per aggiornare le dimensioni dello schermo e la macchina virtuale non avrà alcuna conoscenza delle dimensioni del terminale. Installare xterm o un'utilità analoga per fornire il comando `resize` e quindi eseguire `resize`.
 L'operazione di incollare le stringhe lunghe non funziona. | La console seriale limita la lunghezza delle stringhe incollate nel terminale a 2048 caratteri per impedire il sovraccarico della larghezza di banda della porta seriale.
-Input da tastiera irregolare nelle immagini SLES BYOS. L'input da tastiera viene riconosciuto solo sporadicamente. | Si tratta di un problema con il pacchetto Plymouth. Plymouth non deve essere eseguito in Azure perché non è necessaria una schermata iniziale e Plymouth interferisce con la possibilità di usare la console seriale. Rimuovere Plymouth con `sudo zypper remove plymouth` e quindi riavviare. In alternativa, modificare la riga del kernel della configurazione di GRUB aggiungendo `plymouth.enable=0` alla fine della riga. Questa operazione può essere eseguita [modificando la voce di avvio in fase di avvio](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)oppure modificando la riga `/etc/default/grub`di GRUB_CMDLINE_LINUX in, ricompilando GRUB con `grub2-mkconfig -o /boot/grub2/grub.cfg`e riavviando il sistema.
+Input da tastiera irregolare nelle immagini SLES BYOS. L'input da tastiera viene riconosciuto solo sporadicamente. | Si tratta di un problema con il pacchetto Plymouth. Plymouth non deve essere eseguito in Azure perché non è necessaria una schermata iniziale e Plymouth interferisce con la possibilità di usare la console seriale. Rimuovere Plymouth con `sudo zypper remove plymouth` e quindi riavviare. In alternativa, modificare la riga del kernel della configurazione di GRUB aggiungendo `plymouth.enable=0` alla fine della riga. Questa operazione può essere eseguita [modificando la voce di avvio in fase di avvio](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)oppure modificando la riga di GRUB_CMDLINE_LINUX in `/etc/default/grub` , ricompilando GRUB con `grub2-mkconfig -o /boot/grub2/grub.cfg` e riavviando il sistema.
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-**D. come è possibile inviare commenti e suggerimenti?**
+**D. Come è possibile inviare commenti e suggerimenti?**
 
-A. Fornire commenti e suggerimenti segnalando un problema GitHub in https://aka.ms/serialconsolefeedback. In alternativa (meno consigliabile), è possibile inviare commenti e suggerimenti tramite azserialhelp@microsoft.com o nella categoria della macchina virtuale di https://feedback.azure.com.
+R. Fornire commenti e suggerimenti segnalando un problema GitHub in https://aka.ms/serialconsolefeedback. In alternativa (meno consigliabile), è possibile inviare commenti e suggerimenti tramite azserialhelp@microsoft.com o nella categoria della macchina virtuale di https://feedback.azure.com.
 
-**D. la console seriale supporta le funzionalità di copia e incolla?**
+**D. La console seriale supporta le operazioni di copia e incolla?**
 
-A. Sì. Usare **CTRL**+**MAIUSC**+**C** e **CTRL**+**Shift**MAIUSC+**V** per copiare e incollare nel terminale.
+R. Sì. Usare **CTRL**+**MAIUSC**+**C** e **CTRL**+**MAIUSC**+**V** per copiare e incollare nel terminale.
 
 **D. è possibile utilizzare la console seriale anziché una connessione SSH?**
 
-A. Anche se ciò potrebbe essere tecnicamente possibile, la console seriale è destinata a essere usata principalmente come strumento di risoluzione dei problemi nelle situazioni in cui la connettività tramite SSH non è possibile. Non è consigliabile usare la console seriale in sostituzione di SSH per i motivi seguenti:
+R. Anche se ciò potrebbe essere tecnicamente possibile, la console seriale è destinata a essere usata principalmente come strumento di risoluzione dei problemi nelle situazioni in cui la connettività tramite SSH non è possibile. Non è consigliabile usare la console seriale in sostituzione di SSH per i motivi seguenti:
 
 - La console seriale non ha la stessa larghezza di banda di SSH. Poiché si tratta di una connessione di solo testo, più interazioni intense con l'interfaccia utente grafica sono difficili.
 - L'accesso alla console seriale avviene attualmente solo tramite nome utente e password. Poiché le chiavi SSH sono molto più sicure rispetto alle combinazioni di nome utente/password, dal punto di vista della sicurezza di accesso è consigliabile usare SSH con la console seriale.
 
 **D. chi può abilitare o disabilitare la console seriale per la sottoscrizione?**
 
-A. Per abilitare o disabilitare la console seriale a livello di sottoscrizione, è necessario avere le autorizzazioni di scrittura per la sottoscrizione. I ruoli con autorizzazione di scrittura sono quelli di amministratore o proprietario. Anche i ruoli personalizzati possono avere le autorizzazioni di scrittura.
+R. Per abilitare o disabilitare la console seriale a livello di sottoscrizione, è necessario avere le autorizzazioni di scrittura per la sottoscrizione. I ruoli con autorizzazione di scrittura sono quelli di amministratore o proprietario. Anche i ruoli personalizzati possono avere le autorizzazioni di scrittura.
 
 **D. chi può accedere alla console seriale per la VM o il set di scalabilità di macchine virtuali?**
 
-A. Per accedere alla console seriale, è necessario avere il ruolo Collaboratore macchina virtuale o versione successiva per una VM o un set di scalabilità di macchine virtuali.
+R. Per accedere alla console seriale, è necessario avere il ruolo Collaboratore macchina virtuale o versione successiva per una VM o un set di scalabilità di macchine virtuali.
 
-**D. la console seriale non visualizza nulla, cosa devo fare?**
+**D. La console seriale non visualizza nulla, cosa bisogna fare?**
 
-A. L'immagine probabilmente non è configurata correttamente per l'accesso alla console seriale. Per informazioni sulla configurazione dell'immagine per abilitare la console seriale, vedere [Disponibilità delle distribuzioni della console seriale per Linux](#serial-console-linux-distribution-availability).
+R. L'immagine probabilmente non è configurata correttamente per l'accesso alla console seriale. Per informazioni sulla configurazione dell'immagine per abilitare la console seriale, vedere [Disponibilità delle distribuzioni della console seriale per Linux](#serial-console-linux-distribution-availability).
 
-**D. è la console seriale disponibile per i set di scalabilità di macchine virtuali?**
+**D. La console seriale è disponibile per i set di scalabilità di macchine virtuali?**
 
-A. Sì lo è! Vedere [console seriale per i set di scalabilità di macchine virtuali](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
+R. Sì. Vedere [Console seriale per i set di scalabilità di macchine virtuali](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 **D. Se si configura la VM o il set di scalabilità di macchine virtuali usando solo l'autenticazione con chiave SSH, è ancora possibile usare la console seriale per connettersi alla macchina virtuale/istanza del set di scalabilità di macchine virtuali?**
 
-A. Sì. Poiché la console seriale non richiede le chiavi SSH, è sufficiente configurare una combinazione di nome utente/password. È possibile farlo selezionando **Reimposta password** nel portale di Azure e usare tali credenziali per accedere alla console seriale.
+R. Sì. Poiché la console seriale non richiede le chiavi SSH, è sufficiente configurare una combinazione di nome utente/password. È possibile farlo selezionando **Reimposta password** nel portale di Azure e usare tali credenziali per accedere alla console seriale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare la console seriale per [accedere a GRUB e alla modalità utente singolo](serial-console-grub-single-user-mode.md).

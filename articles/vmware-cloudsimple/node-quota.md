@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 83dc9e26e03eb955d88340d1ed21084d4e685ed8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019639"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limiti della quota del nodo CloudSimple
@@ -32,10 +31,10 @@ Quattro nodi è la quantità predefinita disponibile per l'acquisto quando la so
 
 Nei dettagli del ticket di supporto specificare il numero di nodi e lo SKU del nodo necessari.
 
-* SKU del nodo
+* SKU nodi
 * Numero di nodi aggiuntivi per i quali si richiede l'aumento della quota
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Acquistare nodi](create-nodes.md)
+* [Nodi di acquisto](create-nodes.md)
 * [Panoramica sui nodi CloudSimple](cloudsimple-node.md)

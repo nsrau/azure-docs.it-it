@@ -4,10 +4,9 @@ description: Informazioni su come montare un volume emptyDir per condividere dat
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 64a3c83008f163167528a5e5987fe2316942d5bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77117748"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Montare un volume emptyDir in Istanze di Azure Container
@@ -35,7 +34,7 @@ Le dimensioni massime di un volume di *EmptyDir* Linux sono di 50 GB.
 
 Per montare un volume emptyDir in un'istanza di contenitore, è possibile eseguire la distribuzione usando un [modello Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups), un [file YAML](container-instances-reference-yaml.md)o altri metodi programmatici per distribuire un gruppo di contenitori.
 
-Per prima cosa, `volumes` popolare la matrice nella sezione `properties` del gruppo di contenitori del file. Successivamente per ogni contenitore del gruppo di contenitori in cui si desidera montare il volume *emptyDir*, popolare la matrice `volumeMounts` nella sezione `properties` della definizione del contenitore.
+Per prima cosa, popolare la `volumes` matrice nella `properties` sezione del gruppo di contenitori del file. Successivamente per ogni contenitore del gruppo di contenitori in cui si desidera montare il volume *emptyDir*, popolare la matrice `volumeMounts` nella sezione `properties` della definizione del contenitore.
 
 Ad esempio, il modello di Resource Manager seguente crea un gruppo di contenitori costituito da due contenitori, ognuno dei quali monta il volume *emptyDir*:
 

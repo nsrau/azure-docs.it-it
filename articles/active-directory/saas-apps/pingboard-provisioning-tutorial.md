@@ -16,10 +16,9 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061276"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Esercitazione: Configurare Pingboard per il provisioning utenti automatico
@@ -74,7 +73,7 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
     b. Accedere a [Pingboard](https://pingboard.com/) usando l'account amministratore.
 
-    c. Selezionare **Add-Ons** > **integrazioni** > componenti aggiuntivi**Azure Active Directory**.
+    c. Selezionare **Add-Ons**  >  **integrazioni**componenti aggiuntivi  >  **Azure Active Directory**.
 
     d. Passare alla scheda **Configure** (Configura) e selezionare **Enable user provisioning from Azure** (Abilita provisioning utenti da Azure).
 
@@ -100,6 +99,6 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestire il provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configura accesso Single Sign-On](pingboard-tutorial.md)
+* [Configurare l'accesso Single Sign-On](pingboard-tutorial.md)

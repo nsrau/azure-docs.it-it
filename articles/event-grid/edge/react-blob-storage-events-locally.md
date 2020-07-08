@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086599"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Esercitazione: rispondere agli eventi di archiviazione BLOB in IoT Edge (anteprima)
@@ -43,7 +42,7 @@ Esistono diversi modi per distribuire i moduli in un dispositivo IoT Edge e tutt
 1. Passare all'hub IoT.
 1. Selezionare **IOT Edge** dal menu nella sezione **gestione automatica dei dispositivi** . 
 1. Fare clic sull'ID del dispositivo di destinazione dall'elenco di dispositivi
-1. Selezionare **Set Modules** (Configura i moduli). Mantieni aperta la pagina. Si procederà con la procedura descritta nella sezione successiva.
+1. Selezionare **imposta moduli**. Mantieni aperta la pagina. Si procederà con la procedura descritta nella sezione successiva.
 
 ### <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
@@ -134,7 +133,7 @@ Questa sezione illustra come distribuire il modulo di archiviazione BLOB di Azur
 
    > [!IMPORTANT]
    > - Il modulo di archiviazione BLOB può pubblicare eventi usando HTTPS e HTTP. 
-   > - Se è stata abilitata l'autenticazione basata su client per EventGrid, assicurarsi di aggiornare il valore di EVENTGRID_ENDPOINT per consentire HTTPS, come segue: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438`.
+   > - Se è stata abilitata l'autenticazione basata su client per EventGrid, assicurarsi di aggiornare il valore di EVENTGRID_ENDPOINT per consentire HTTPS, come segue: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438` .
    > - Aggiungere anche un'altra variabile `AllowUnknownCertificateAuthority=true` di ambiente al codice JSON precedente. Quando si comunica con EventGrid tramite HTTPS, **AllowUnknownCertificateAuthority** consente al modulo di archiviazione di considerare attendibili i certificati del server EventGrid autofirmati.
 
 4. Aggiornare il codice JSON copiato con le informazioni seguenti:
@@ -199,7 +198,7 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
     > - Per il flusso HTTPS, se l'autenticazione client viene abilitata tramite il certificato, la richiesta curl sarà:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
 2. I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. Per ricevere qualsiasi evento, è necessario creare una sottoscrizione di griglia di eventi per l'argomento **MicrosoftStorage** .
-    1. Creare blobsubscription. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md)
+    1. Creare blobsubscription.jssu con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md)
 
        ```json
         {
@@ -217,7 +216,7 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
        >[!NOTE]
        > La proprietà **EndpointType** specifica che il Sottoscrittore è un **webhook**.  **EndpointUrl** specifica l'URL in cui il Sottoscrittore è in ascolto di eventi. Questo URL corrisponde all'esempio di funzione di Azure distribuito in precedenza.
 
-    2. Eseguire il comando seguente per creare una sottoscrizione per l'argomento. Verificare che sia `200 OK`visualizzato il codice di stato http.
+    2. Eseguire il comando seguente per creare una sottoscrizione per l'argomento. Verificare che sia visualizzato il codice di stato HTTP `200 OK` .
 
        ```sh
        curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
@@ -328,27 +327,27 @@ Di seguito è riportato l'elenco delle proprietà di evento supportate, i relati
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | stringa | Identificatore univoco dell'evento. |
-| data | oggetto | Dati relativi all'evento di archiviazione BLOB. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | string | Identificatore univoco dell'evento. |
+| data | object | Dati relativi all'evento di archiviazione BLOB. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| api | stringa | L'operazione che ha attivato l'evento. Può essere uno dei valori seguenti: <ul><li>BlobCreated: i valori consentiti sono: `PutBlob` e`PutBlockList`</li><li>BlobDeleted: i valori consentiti sono `DeleteBlob`, `DeleteAfterUpload` e `AutoDelete`. <p>L' `DeleteAfterUpload` evento viene generato quando il BLOB viene eliminato automaticamente perché la proprietà desiderata deleteAfterUpload è impostata su true. </p><p>`AutoDelete`l'evento viene generato quando il BLOB viene eliminato automaticamente perché il valore della proprietà desiderata deleteAfterMinutes è scaduto.</p></li></ul>|
-| clientRequestId | stringa | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Per informazioni dettagliate, vedere [formato del log](/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | stringa | ID richiesta generato dal servizio per l'operazione dell'API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
-| eTag | stringa | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
-| contentType | stringa | Il tipo di contenuto specificato per il BLOB. |
+| api | string | L'operazione che ha attivato l'evento. Può essere uno dei valori seguenti: <ul><li>BlobCreated: i valori consentiti sono: `PutBlob` e`PutBlockList`</li><li>BlobDeleted: i valori consentiti sono `DeleteBlob` , `DeleteAfterUpload` e `AutoDelete` . <p>L' `DeleteAfterUpload` evento viene generato quando il BLOB viene eliminato automaticamente perché la proprietà desiderata deleteAfterUpload è impostata su true. </p><p>`AutoDelete`l'evento viene generato quando il BLOB viene eliminato automaticamente perché il valore della proprietà desiderata deleteAfterMinutes è scaduto.</p></li></ul>|
+| clientRequestId | string | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Per informazioni dettagliate, vedere [formato del log](/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | string | ID richiesta generato dal servizio per l'operazione dell'API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
+| eTag | string | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
+| contentType | string | Il tipo di contenuto specificato per il BLOB. |
 | contentLength | integer | La dimensione del BLOB in byte. |
-| blobType | stringa | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
-| url | stringa | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: * \<storage-account-name\>\<. blob.Core.Windows.NET/nome-\>/\<file-nome-\>contenitore*. <br>Se il client usa un'API REST di data Lake storage, l'URL ha questa struttura: * \<storage-account-name\>. DFS.Core.Windows.NET/\<nome file\>/\<-System\>*-Name. |
+| blobType | string | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
+| url | string | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: * \<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\> *. <br>Se il client usa un'API REST di Data Lake Storage, l'URL ha questa struttura: * \<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\> *. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

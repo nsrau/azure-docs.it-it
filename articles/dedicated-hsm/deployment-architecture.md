@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77048562"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Architettura di distribuzione del servizio HSM dedicato di Azure
@@ -71,6 +70,6 @@ Altri argomenti sui concetti:
 
 * [Disponibilità elevata](high-availability.md)
 * [Sicurezza fisica](physical-security.md)
-* [Funzionalità di rete](networking.md)
-* [Supportabilità](supportability.md)
-* [Monitoraggio](monitoring.md)
+* [Rete](networking.md)
+* [Facilità di supporto](supportability.md)
+* [Monitoring](monitoring.md)

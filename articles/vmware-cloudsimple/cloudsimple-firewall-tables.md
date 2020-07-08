@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025045"
 ---
 # <a name="firewall-tables-overview"></a>Panoramica delle tabelle del firewall
@@ -29,9 +28,9 @@ Nella tabella seguente vengono descritti i parametri di una regola del firewall.
 | **Priority** | Un numero compreso tra 100 e 4096, con 100 è la priorità più alta. Le regole vengono elaborate in ordine di priorità. Quando il traffico rileva una corrispondenza della regola, l'elaborazione della regola viene arrestata. Di conseguenza, le regole con priorità più bassa che hanno gli stessi attributi delle regole con priorità più alta non vengono elaborate.  Prestare attenzione per evitare regole in conflitto. |
 | **Rilevamento dello stato** | Il rilevamento può essere senza stato (cloud privato, Internet o VPN) o con stato (IP pubblico).  |
 | **Protocollo** | Le opzioni includono any, TCP o UDP. Se è necessario ICMP, usare Any. |
-| **Direction** | Definisce se la regola si applica al traffico in ingresso o in uscita. |
+| **Direzione** | Definisce se la regola si applica al traffico in ingresso o in uscita. |
 | **Azione** | Consentire o negare il tipo di traffico definito nella regola. |
-| **origine** | Un indirizzo IP, un blocco CIDR (Inter-Domain Routing) senza classe (ad esempio, 10.0.0.0/24) o any.  Specificando un intervallo, un tag di servizio o un gruppo di sicurezza delle applicazioni è possibile creare un minor numero di regole di sicurezza. |
+| **Origine** | Un indirizzo IP, un blocco CIDR (Inter-Domain Routing) senza classe (ad esempio, 10.0.0.0/24) o any.  Specificando un intervallo, un tag di servizio o un gruppo di sicurezza delle applicazioni è possibile creare un minor numero di regole di sicurezza. |
 | **Porta di origine** | Porta da cui ha origine il traffico di rete.  È possibile specificare una singola porta o un intervallo di porte, ad esempio 443 o 8000-8080. Specificando intervalli è possibile creare un minor numero di regole di sicurezza. |
 | **Destinazione** | Un indirizzo IP, un blocco CIDR (Inter-Domain Routing) senza classe (ad esempio, 10.0.0.0/24) o any.  Specificando un intervallo, un tag di servizio o un gruppo di sicurezza delle applicazioni è possibile creare un minor numero di regole di sicurezza.  |
 | **Porta di destinazione** | Porta a cui fluisce il traffico di rete.  È possibile specificare una singola porta o un intervallo di porte, ad esempio 443 o 8000-8080. Specificando intervalli è possibile creare un minor numero di regole di sicurezza.|
@@ -53,12 +52,12 @@ Per il flusso del traffico in direzione inversa potrebbero essere necessarie alt
 
 In ogni tabella del firewall vengono create le regole predefinite seguenti.
 
-|Priorità|Name|Rilevamento dello stato|Direction|Tipo di traffico|Protocollo|Source (Sorgente)|Porta di origine|Destination|Porta di destinazione|Action|
+|Priorità|Nome|Rilevamento dello stato|Direzione|Tipo di traffico|Protocollo|Source (Sorgente)|Porta di origine|Destination|Porta di destinazione|Action|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|Consenti-tutti-a-Internet|Con stato|In uscita|IP pubblico o traffico Internet|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Allow|
+|65000|Consenti-tutti-a-Internet|Con stato|In uscita|IP pubblico o traffico Internet|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Consenti|
 |65001|Deny-All-da-Internet|Con stato|In ingresso|IP pubblico o traffico Internet|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Nega|
-|65002|Consenti-tutti-a-Intranet|Senza stato|In uscita|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Allow|
-|65003|Consenti tutto da Intranet|Senza stato|In ingresso|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Allow|
+|65002|Consenti-tutti-a-Intranet|Senza stato|In uscita|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Consenti|
+|65003|Consenti tutto da Intranet|Senza stato|In ingresso|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Consenti|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

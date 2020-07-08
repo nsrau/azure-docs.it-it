@@ -15,10 +15,9 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a83d6ae2e3ed13f0d03e0fdc87a3b45a4119ba88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162753"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Eseguire lo streaming live con codificatori locali usando portale di Azure
@@ -30,15 +29,15 @@ ms.locfileid: "77162753"
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra come usare il portale di Azure per creare un **canale** configurato per la distribuzione pass-through. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione è necessario quanto segue:
 
-* Un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Account di Servizi multimediali. Per creare un account di servizi multimediali, vedere [come creare un account di servizi multimediali](media-services-portal-create-account.md).
+* Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
 * Una webcam. Ad esempio, [codificatore Telestream Wirecast](media-services-configure-wirecast-live-encoder.md). 
 
 È consigliabile vedere gli articoli seguenti:
@@ -111,7 +110,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
 2. Nella finestra **Impostazioni** fare clic su **Streaming live**. 
    
-    ![Guida introduttiva](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
+    ![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
     Verrà visualizzata la finestra **Streaming live** .
 3. Fare clic su **Creazione rapida** per creare un canale pass-through con il protocollo di inserimento RTMP.
@@ -157,6 +156,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

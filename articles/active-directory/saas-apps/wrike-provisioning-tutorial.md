@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 5dd4f5ac6152c22b5e2a84ecc0774672bcd5590b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77064190"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Esercitazione: configurare Wrike per il provisioning utenti automatico
@@ -40,7 +39,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account utente in Wrike con autorizzazioni di amministratore
 
 ## <a name="assign-users-to-wrike"></a>Assegnare gli utenti a Wrike
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti o i gruppi assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, decidere quali utenti o gruppi in Azure AD necessario accedere a Wrike. Assegnare quindi tali utenti o gruppi a Wrike seguendo le istruzioni riportate qui:
 
@@ -50,7 +49,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, decidere qua
 
 * È consigliabile assegnare un singolo utente Azure AD a Wrike per testare la configurazione del provisioning utenti automatico. È possibile assegnare altri utenti o gruppi in un secondo momento.
 
-* Quando si assegna un utente a Wrike, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo di accesso predefinito vengono esclusi dal provisioning.
+* Quando si assegna un utente a Wrike, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning.
 
 ## <a name="set-up-wrike-for-provisioning"></a>Configurare Wrike per il provisioning
 
@@ -68,7 +67,7 @@ Prima di configurare Wrike per il provisioning utenti automatico con Azure AD, �
 
     ![URL di base](media/Wrike-provisioning-tutorial/Wrike-tenanturl.png)
 
-4. Selezionare **API** > **Azure scim**.
+4. Selezionare **API**  >  **Azure scim**.
 
     ![Azure SCIM](media/Wrike-provisioning-tutorial/Wrike-add-scim.png)
 
@@ -91,7 +90,7 @@ Per aggiungere Wrike dalla raccolta di applicazioni Azure AD, seguire questa pro
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -113,7 +112,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Configurare il provisioning utenti automatico per Wrike in Azure AD
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni** > aziendali**tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**  >  **tutte le applicazioni**.
 
     ![Tutte le applicazioni](common/enterprise-applications.png)
 
@@ -121,11 +120,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Collegamento di Wrike nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **provisioning** .
+3. Selezionare la scheda **Provisioning**.
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare la **modalità di provisioning** su **automatico**.
+4. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Modalità di provisioning impostata su automatica](common/provisioning-automatic.png)
 
@@ -133,7 +132,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![URL tenant + token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. Nella casella **posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche degli errori di provisioning. Selezionare la casella di controllo **Invia una notifica di posta elettronica quando si verifica un errore** .
+7. Nella casella **posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche degli errori di provisioning. Selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
     ![E-mail di notifica](common/provisioning-notification-email.png)
 
@@ -157,17 +156,17 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-14. Quando si è pronti per il provisioning, selezionare **Salva**.
+14. Quando si è pronti per eseguire il provisioning, selezionare **Salva**.
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti o gruppi definiti nell' **ambito** nella sezione **Impostazioni** . La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive. Per ulteriori informazioni sul tempo necessario per l'esecuzione del provisioning da parte di utenti o gruppi, vedere [quanto tempo sarà necessario per il provisioning degli utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti o i gruppi definiti nell'**Ambito** della sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive. Per ulteriori informazioni sul tempo necessario per l'esecuzione del provisioning da parte di utenti o gruppi, vedere [quanto tempo sarà necessario per il provisioning degli utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-È possibile usare la sezione **stato corrente** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su Wrike. Per altre informazioni, vedere [controllare lo stato del provisioning dell'utente](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Per leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
+È possibile usare la sezione **stato corrente** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su Wrike. Per altre informazioni, vedere [Controllare lo stato del provisioning utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Per leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestire il provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -7,10 +7,9 @@ ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77083511"
 ---
 # <a name="reliable-services-overview"></a>Panoramica di Reliable Services
@@ -74,7 +73,7 @@ Quando viene effettuata una chiamata da un client, viene richiamato il metodo ap
 
 La mancata archiviazione di qualsiasi stato interno rende semplice il servizio Calculator di esempio. La maggior parte dei servizi non è però realmente senza stato. Al contrario, esternalizzano il proprio stato in un altro archivio. Ad esempio, un'app Web che mantiene lo stato delle sessioni in una cache o in un archivio di backup non è senza stato.
 
-Un esempio comune di come i servizi senza stato vengono usati in Service Fabric è un servizio front-end che espone l'API pubblica di un'applicazione Web. Il servizio front-end richiede quindi ai servizi con stato di completare la richiesta di un utente. In questo caso, le chiamate provenienti dai client vengono indirizzate a una porta conosciuta, ad esempio la porta 80, dove è in ascolto il servizio senza stato. Il servizio senza stato riceve la chiamata, determina se quest'ultima proviene da una parte attendibile e identifica il servizio a cui è destinata.  Il servizio senza stato inoltra quindi la chiamata alla partizione corretta del servizio con stato e attende una risposta. Quando il servizio senza stato riceve una risposta, risponde al client originale. Un esempio di tale servizio è costituito dall'esempio *Service Fabric Introduzione* ([C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)), tra gli altri esempi di Service Fabric nel repository.
+Un esempio comune di come i servizi senza stato vengono usati in Service Fabric è un servizio front-end che espone l'API pubblica di un'applicazione Web. Il servizio front-end richiede quindi ai servizi con stato di completare la richiesta di un utente. In questo caso, le chiamate provenienti dai client vengono indirizzate a una porta conosciuta, ad esempio la porta 80, dove è in ascolto il servizio senza stato. Il servizio senza stato riceve la chiamata, determina se quest'ultima proviene da una parte attendibile e identifica il servizio a cui è destinata.  Il servizio senza stato inoltra quindi la chiamata alla partizione corretta del servizio con stato e attende una risposta. Quando il servizio senza stato riceve una risposta, risponde al client originale. Un esempio di tale servizio è costituito dall'esempio *Service Fabric Introduzione* ([C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)  /  [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)), tra gli altri esempi di Service Fabric nel repository.
 
 ### <a name="stateful-reliable-services"></a>Reliable Services con stato
 
@@ -82,11 +81,11 @@ Un *servizio con stato* è uno che deve avere una parte dello stato mantenuta co
 
 Attualmente la maggior parte dei servizi archivia il proprio stato esternamente, perché gli archivi esterni assicurano affidabilità, disponibilità, scalabilità e coerenza dello stato. In Service Fabric, i servizi non devono necessariamente archiviare esternamente il proprio stato. Service Fabric si occupa di questi requisiti sia per il codice che per lo stato del servizio.
 
-Si supponga di voler scrivere un servizio di elaborazione immagini. Per l'elaborazione, il servizio accetta un'immagine e la serie di conversioni da eseguire su di essa. Il servizio restituisce un listener di comunicazione (si supponga che sia un'API Web) che espone un'API come `ConvertImage(Image i, IList<Conversion> conversions)`. Quando riceve una richiesta, il servizio lo archivia in un oggetto `IReliableQueue`e restituisce un ID al client in modo che possa tenere traccia della richiesta.
+Si supponga di voler scrivere un servizio di elaborazione immagini. Per l'elaborazione, il servizio accetta un'immagine e la serie di conversioni da eseguire su di essa. Il servizio restituisce un listener di comunicazione (si supponga che sia un'API Web) che espone un'API come `ConvertImage(Image i, IList<Conversion> conversions)`. Quando riceve una richiesta, il servizio lo archivia in un oggetto `IReliableQueue` e restituisce un ID al client in modo che possa tenere traccia della richiesta.
 
 In questo servizio `RunAsync()` potrebbe essere più complesso. Il servizio dispone di un ciclo all'interno di relativo `RunAsync()` che effettua il pull delle richieste da `IReliableQueue` ed esegue le conversioni richieste. I risultati vengono memorizzati un `IReliableDictionary` in modo che, al ritorno del client, possano ottenere le immagini convertite. Per garantire che anche in caso di problemi l'immagine non vada persa, questo servizio Reliable Services effettua il pull dalla coda, esegue le conversioni e archivia il risultato in una singola transazione. In questo modo il messaggio viene rimosso dalla coda e i risultati vengono archiviati nel dizionario dei risultati solo dopo il completamento delle conversioni. In alternativa, il servizio potrebbe estrarre l'immagine dalla coda e memorizzarla immediatamente in un archivio remoto. Questo ridurrebbe la quantità di stato che il servizio deve gestire, ma aumenterebbe la complessità, poiché il servizio deve a quel punto conservare i metadati necessari per gestire l'archivio remoto. Con entrambi gli approcci, in caso di errori durante l'operazione, la richiesta rimane nella coda in attesa di elaborazione.
 
-Sebbene questo servizio suoni come un tipico servizio .NET, la differenza consiste nel fatto che le strutture di dati`IReliableQueue` utilizzate `IReliableDictionary`(e) sono fornite da Service Fabric e sono altamente affidabili, disponibili e coerenti.
+Sebbene questo servizio suoni come un tipico servizio .NET, la differenza consiste nel fatto che le strutture di dati utilizzate ( `IReliableQueue` e `IReliableDictionary` ) sono fornite da Service Fabric e sono altamente affidabili, disponibili e coerenti.
 
 ## <a name="when-to-use-reliable-services-apis"></a>Quando usare le API Reliable Services
 

@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 15af18177cea217612a4d5276d130abe02d339f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77160761"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Supporto Active Directory Federation Services in MSAL.NET
@@ -47,7 +46,7 @@ Le versioni di AD FS supportate in questo scenario federato sono AD FS V2, AD FS
 Quando si acquisisce un token usando `AcquireTokenByIntegratedAuthentication` i `AcquireTokenByUsernamePassword` metodi o, MSAL.NET ottiene il provider di identità da contattare in base al nome utente.  MSAL.NET riceve un [token SAML 1,1](reference-saml-tokens.md) dopo aver contattato il provider di identità.  MSAL.NET fornisce quindi il token SAML per Azure AD come asserzione utente (simile al [flusso per conto di](msal-authentication-flows.md#on-behalf-of)) per ottenere un JWT.
 
 ## <a name="msal-connects-directly-to-ad-fs"></a>MSAL si connette direttamente a AD FS
-MSAL.NET supporta la connessione a AD FS 2019, che è conforme a Open ID Connect e che comprende PKCE e gli ambiti. Questo supporto richiede che un Service Pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) venga applicato a Windows Server. Quando ci si connette direttamente a AD FS, l'autorità che si vuole usare per compilare l'applicazione è simile `https://mysite.contoso.com/adfs/`a.
+MSAL.NET supporta la connessione a AD FS 2019, che è conforme a Open ID Connect e che comprende PKCE e gli ambiti. Questo supporto richiede che un Service Pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) venga applicato a Windows Server. Quando ci si connette direttamente a AD FS, l'autorità che si vuole usare per compilare l'applicazione è simile a `https://mysite.contoso.com/adfs/` .
 
 Attualmente non sono previsti piani per supportare una connessione diretta a:
 

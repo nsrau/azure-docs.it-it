@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 65167169248d83ebfec2c49c308673ec9315934e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019758"
 ---
 # <a name="migrating-data-to-azure-vmware-solution-by-using-azure-data-box"></a>Migrazione dei dati alla soluzione VMware di Azure tramite Azure Data Box
@@ -133,7 +132,7 @@ Verrà eseguita la migrazione della macchina virtuale all'archivio dati NFS da D
 
 ### <a name="clone-a-virtual-machine-or-a-virtual-machine-template-to-the-data-box-datastore"></a>Clonare una macchina virtuale o un modello di macchina virtuale nell'archivio dati Data Box
 
-1. Fare clic con il pulsante destro del mouse su una macchina virtuale o su un modello di macchina virtuale che si desidera clonare. Selezionare **Clone** > **Clone to Virtual Machine**.
+1. Fare clic con il pulsante destro del mouse su una macchina virtuale o su un modello di macchina virtuale che si desidera clonare. Selezionare **Clone**  >  **Clone to Virtual Machine**.
 
     ![Clone della macchina virtuale](media/databox-migration-vm-clone.png)
 
@@ -227,12 +226,12 @@ Prima di tutto, copiare i dati di archiviazione BLOB in un disco gestito in una 
 
 4. Installare [AzCopy nella macchina virtuale Linux](../storage/common/storage-use-azcopy-v10.md).
 
-5. Scaricare i dati dall'archiviazione BLOB di Azure nel disco gestito usando AzCopy.  Sintassi del comando `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`:.  Sostituire `<storage-account-name>` con il nome dell'account di archiviazione `<container-name>` di Azure e con il contenitore che include i dati copiati tramite Data Box.
+5. Scaricare i dati dall'archiviazione BLOB di Azure nel disco gestito usando AzCopy.  Sintassi del comando: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"` .  Sostituire `<storage-account-name>` con il nome dell'account di archiviazione di Azure e `<container-name>` con il contenitore che include i dati copiati tramite Data Box.
 
 6. Installare il server NFS nella macchina virtuale Linux:
 
-    - In una distribuzione Ubuntu/Debian: `sudo apt install nfs-kernel-server`.
-    - In una distribuzione Enterprise Linux: `sudo yum install nfs-utils`.
+    - In una distribuzione Ubuntu/Debian: `sudo apt install nfs-kernel-server` .
+    - In una distribuzione Enterprise Linux: `sudo yum install nfs-utils` .
 
 7. Modificare l'autorizzazione della cartella nel disco gestito in cui sono stati copiati i dati dall'archivio BLOB di Azure.  Modificare le autorizzazioni per tutte le cartelle che si desidera esportare come una condivisione NFS.
 
@@ -241,7 +240,7 @@ Prima di tutto, copiare i dati di archiviazione BLOB in un disco gestito in una 
     chown nfsnobody:nfsnobody /<folder>/<subfolder>
     ```
 
-8. Assegnare le autorizzazioni per gli indirizzi IP del client per accedere alla condivisione NFS `/etc/exports` modificando il file.
+8. Assegnare le autorizzazioni per gli indirizzi IP del client per accedere alla condivisione NFS modificando il `/etc/exports` file.
 
     ```bash
     sudo vi /etc/exports

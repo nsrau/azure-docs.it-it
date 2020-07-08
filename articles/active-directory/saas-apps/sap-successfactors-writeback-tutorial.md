@@ -15,10 +15,9 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060049"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Esercitazione: configurare il writeback degli attributi da Azure AD a SAP SuccessFactors (anteprima)
@@ -116,13 +115,13 @@ In questa sezione vengono illustrati i passaggi per
 
 5. Cercare il **writeback SuccessFactors**e aggiungere tale app dalla raccolta.
 
-6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**
+6. Dopo aver aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **provisioning**
 
-7. Impostare **Modalità di** **provisioning** su **Automatico**
+7. Impostare la **modalità** di **provisioning** su **automatico**
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
-   * **Nome utente amministratore** : immettere il nome utente dell'account utente dell'API SuccessFactors, con l'ID società accodato. Il formato è: **username\@companyID**
+   * **Nome utente amministratore** : immettere il nome utente dell'account utente dell'API SuccessFactors, con l'ID società accodato. Il formato è: **username \@ companyID**
 
    * **Password amministratore:** Immettere la password dell'account utente dell'API SuccessFactors. 
 
@@ -157,7 +156,7 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
    >[!NOTE]
    >Il writeback SuccessFactors supporta solo l'attributo email. Per aggiungere nuovi attributi, non usare **Aggiungi nuovo mapping** . 
 
-1. Per salvare i mapping, fare clic su **Salva** nella parte superiore della sezione mapping attributi.
+1. Per salvare i mapping, fare clic su **Save**, Salva, nella parte superiore della sezione Attribute-Mapping, Mapping attributi.
 
 Dopo aver completato la configurazione di mapping di attributo, è ora possibile [abilitare e avviare il servizio di provisioning utenti](#enable-and-launch-user-provisioning).
 
@@ -170,7 +169,7 @@ Una volta completate le configurazioni dell'app di provisioning di SuccessFactor
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Save**.
+2. Fare clic su **Salva**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nel tenant di SuccessFactors. È possibile controllare l'indicatore di stato per tenere traccia dello stato di avanzamento del ciclo di sincronizzazione. 
 

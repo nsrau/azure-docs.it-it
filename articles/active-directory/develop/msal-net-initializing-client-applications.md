@@ -14,16 +14,15 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77084004"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inizializzare applicazioni client usando MSAL.NET
 Questo articolo descrive l'inizializzazione di applicazioni client pubbliche e riservate con Microsoft Authentication Library per .NET (MSAL.NET).  Per altre informazioni sui tipi di applicazioni client e sulle opzioni di configurazione dell'applicazione, vedere la [Panoramica](msal-client-applications.md).
 
-Con MSAL.NET 3. x, la modalità consigliata per creare un'istanza di un'applicazione consiste nell'usare i generatori di applicazioni: `PublicClientApplicationBuilder` e `ConfidentialClientApplicationBuilder`. Offrono un meccanismo potente per configurare l'applicazione dal codice, da un file di configurazione o persino combinando entrambi gli approcci.
+Con MSAL.NET 3. x, la modalità consigliata per creare un'istanza di un'applicazione consiste nell'usare i generatori di applicazioni: `PublicClientApplicationBuilder` e `ConfidentialClientApplicationBuilder` . Offrono un meccanismo potente per configurare l'applicazione dal codice, da un file di configurazione o persino combinando entrambi gli approcci.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di inizializzare un'applicazione, è prima necessario [registrarla](quickstart-register-app.md) in modo che l'app possa essere integrata con la piattaforma di identità Microsoft.  Dopo la registrazione, è possibile che siano necessarie le informazioni seguenti (disponibili nella portale di Azure):
@@ -48,7 +47,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
 
 ### <a name="initializing-a-confidential-client-application-from-code"></a>Inizializzazione di un'applicazione client riservata dal codice
 
-Analogamente, il codice seguente crea un'istanza di un'applicazione riservata, ovvero un'app `https://myapp.azurewebsites.net`Web in, che gestisce i token degli utenti nella Microsoft Azure cloud pubblico, con gli account aziendali e dell'Istituto di istruzione o con gli account Microsoft personali. L'applicazione viene identificata con il provider di identità condividendo un segreto client:
+Analogamente, il codice seguente crea un'istanza di un'applicazione riservata, ovvero un'app Web in `https://myapp.azurewebsites.net` , che gestisce i token degli utenti nella Microsoft Azure cloud pubblico, con gli account aziendali e dell'Istituto di istruzione o con gli account Microsoft personali. L'applicazione viene identificata con il provider di identità condividendo un segreto client:
 
 ```csharp
 string redirectUri = "https://myapp.azurewebsites.net";
@@ -79,7 +78,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### <a name="initializing-a-confidential-client-application-from-configuration-options"></a>Inizializzazione di un'applicazione client riservata dalle opzioni di configurazione
 
-Lo stesso tipo di modello si applica alle applicazioni client riservate. È anche possibile aggiungere altri parametri usando `.WithXXX` i modificatori (in questo caso un certificato).
+Lo stesso tipo di modello si applica alle applicazioni client riservate. È anche possibile aggiungere altri parametri usando i `.WithXXX` modificatori (in questo caso un certificato).
 
 ```csharp
 ConfidentialClientApplicationOptions options = GetOptions(); // your own method
@@ -90,7 +89,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ## <a name="builder-modifiers"></a>Modificatori di generatore
 
-Nei frammenti di codice che usano i generatori di applicazioni, è `.With` possibile applicare un numero di metodi come modificatori (ad `.WithCertificate` esempio `.WithRedirectUri`e). 
+Nei frammenti di codice che usano i generatori di applicazioni, `.With` è possibile applicare un numero di metodi come modificatori (ad esempio `.WithCertificate` e `.WithRedirectUri` ). 
 
 ### <a name="modifiers-common-to-public-and-confidential-client-applications"></a>Modificatori comuni a applicazioni client pubbliche e riservate
 
@@ -104,7 +103,7 @@ I modificatori che è possibile impostare in un client pubblico o in un generato
 |`.WithClientId(string)` | Esegue l'override dell'ID client.|
 |`.WithComponent(string)` | Imposta il nome della libreria utilizzando MSAL.NET (per motivi di telemetria). |
 |`.WithDebugLoggingCallback()` | Se viene chiamato, l'applicazione chiamerà `Debug.Write` semplicemente l'abilitazione delle tracce di debug. Per altre informazioni, vedere [Registrazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging).|
-|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Imposta i parametri di query aggiuntivi a livello di applicazione che verranno inviati in tutte le richieste di autenticazione. Questa operazione viene sottoponibile a override a ogni livello di metodo di `.WithExtraQueryParameters pattern`acquisizione di token (con lo stesso).|
+|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Imposta i parametri di query aggiuntivi a livello di applicazione che verranno inviati in tutte le richieste di autenticazione. Questa operazione viene sottoponibile a override a ogni livello di metodo di acquisizione di token (con lo stesso `.WithExtraQueryParameters pattern` ).|
 |`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Abilita scenari avanzati, ad esempio la configurazione di un proxy HTTP, oppure per forzare l'uso di un determinato HttpClient (ad esempio in ASP.NET Core app/API Web).|
 |`.WithLogging()` | Se chiamato, l'applicazione chiamerà un callback con tracce di debug. Per altre informazioni, vedere [Registrazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging).|
 |`.WithRedirectUri(string redirectUri)` | Esegue l'override dell'URI di reindirizzamento predefinito. Nel caso di applicazioni client pubbliche, questo sarà utile per gli scenari che coinvolgono il broker.|

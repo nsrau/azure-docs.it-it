@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: 95cb0371c4b2181d8f09991fe6e652c0e939f3e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063357"
 ---
 # <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Esercitazione: configurare Proxyclick per il provisioning utenti automatico
@@ -49,7 +48,7 @@ Prima di configurare Proxyclick per il provisioning utenti automatico con Azure 
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -63,7 +62,7 @@ Prima di configurare Proxyclick per il provisioning utenti automatico con Azure 
 
 ## <a name="assigning-users-to-proxyclick"></a>Assegnazione di utenti a Proxyclick
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a Proxyclick. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a Proxyclick seguendo le istruzioni riportate qui:
 
@@ -73,7 +72,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 * È consigliabile assegnare un singolo Azure AD utente a Proxyclick per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-* Quando si assegna un utente a Proxyclick, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo di **accesso predefinito** vengono esclusi dal provisioning.
+* Quando si assegna un utente a Proxyclick, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
 
 ## <a name="configuring-automatic-user-provisioning-to-proxyclick"></a>Configurazione del provisioning utenti automatico in Proxyclick 
 
@@ -84,7 +83,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 ### <a name="to-configure-automatic-user-provisioning-for-proxyclick-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Proxyclick in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -92,17 +91,17 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Collegamento di Proxyclick nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **provisioning** .
+3. Selezionare la scheda **Provisioning**.
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare la **modalità di provisioning** su **automatico**.
+4. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
 5. Per recuperare l' **URL del tenant** e il **token segreto** dell'account Proxyclick, seguire la procedura dettagliata descritta nel passaggio 6.
 
-6. Accedere a [Proxyclick Admin Console](https://app.proxyclick.com/login//?destination=%2Fdefault). Passare a **Settings** > **Integrations** > **Browse Marketplace**.
+6. Accedere a [Proxyclick Admin Console](https://app.proxyclick.com/login//?destination=%2Fdefault). Passare a **Settings**  >  **Integrations**  >  **Browse Marketplace**.
 
     ![Impostazioni Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick09.png)
 
@@ -120,7 +119,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Provisioning utenti di Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick05.png)
 
-    L'interfaccia utente di configurazione delle impostazioni appropriate dovrebbe ora essere visualizzata in**integrazioni** **Impostazioni** > . Selezionare **Impostazioni** in **Azure ad (provisioning utenti)**.
+    L'interfaccia utente di configurazione delle impostazioni appropriate dovrebbe ora **Settings**essere visualizzata in  >  **integrazioni**impostazioni. Selezionare **Impostazioni** in **Azure ad (provisioning utenti)**.
 
     ![Creazione di Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick06.png)
 
@@ -130,13 +129,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 7. Quando si popolano i campi indicati nel passaggio 5, fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Proxyclick. Se la connessione non riesce, verificare che l'account Proxyclick disponga delle autorizzazioni di amministratore e riprovare.
 
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![token](common/provisioning-testconnection-tenanturltoken.png)
 
 8. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Proxyclick**.
 
@@ -171,7 +170,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

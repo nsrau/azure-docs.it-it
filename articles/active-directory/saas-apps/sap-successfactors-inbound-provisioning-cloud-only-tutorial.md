@@ -15,10 +15,9 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063223"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Esercitazione: configurare SAP SuccessFactors per il provisioning utenti di Azure AD (anteprima)
@@ -163,13 +162,13 @@ Questa sezione illustra la procedura per il provisioning degli account utente da
 
 5. Cercare **SuccessFactors per Azure Active Directory il provisioning utenti**e aggiungere tale app dalla raccolta.
 
-6. Dopo avere aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **Provisioning**
+6. Dopo aver aggiunto l'app e visualizzato la schermata dei dettagli dell'app, selezionare **provisioning**
 
-7. Impostare **Modalità di** **provisioning** su **Automatico**
+7. Impostare la **modalità** di **provisioning** su **automatico**
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
-   * **Nome utente amministratore** : immettere il nome utente dell'account utente dell'API SuccessFactors, con l'ID società accodato. Il formato è: **username\@companyID**
+   * **Nome utente amministratore** : immettere il nome utente dell'account utente dell'API SuccessFactors, con l'ID società accodato. Il formato è: **username \@ companyID**
 
    * **Password amministratore:** Immettere la password dell'account utente dell'API SuccessFactors. 
 
@@ -197,21 +196,21 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
       * Attributo: personIdExternal
 
-      * Operatore: Corrispondenza REGEX
+      * Operator: REGEX Match (Corrispondenza REGEX)
 
       * Valore: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * Esempio: Solo i dipendenti, senza i lavoratori occasionali
+   * Esempio: solo i dipendenti, senza i lavoratori occasionali
 
       * Attributo: EmployeeID
 
-      * Operatore: NON È NULL
+      * Operator: IS NOT NULL (NON È NULL)
 
    > [!TIP]
    > Quando si configura l'app di provisioning per la prima volta, è necessario testare e verificare i mapping degli attributi e le espressioni per assicurarsi che restituisca il risultato desiderato. Microsoft consiglia di usare i filtri di ambito nell' **ambito dell'oggetto di origine** per testare i mapping con alcuni utenti di test di SuccessFactors. Dopo avere verificato che i mapping funzionino è possibile rimuovere il filtro o espanderlo gradualmente in modo da includere altri utenti.
 
    > [!CAUTION] 
-   > Il comportamento predefinito del motore di provisioning è disabilitare/eliminare gli utenti che non rientrano nell'ambito. Questo potrebbe non essere auspicabile in SuccessFactors per Azure AD l'integrazione. Per eseguire l'override di questo comportamento predefinito, vedere l'articolo [ignorare l'eliminazione di account utente che non rientrano nell'ambito](../app-provisioning/skip-out-of-scope-deletions.md)
+   > Il comportamento predefinito del motore di provisioning è disabilitare/eliminare gli utenti che non rientrano nell'ambito. Questo potrebbe non essere auspicabile in SuccessFactors per Azure AD l'integrazione. Per eseguire l'override di questo comportamento predefinito, fare riferimento all'articolo [Ignorare l'eliminazione di account utente che non rientrano nell'ambito](../app-provisioning/skip-out-of-scope-deletions.md)
   
 1. Nel campo **Target Object Actions** (Azioni oggetto di destinazione) è possibile applicare un filtro a livello globale per le azioni che vengono eseguite in Active Directory. **Creazione** e **Aggiornamento** sono le più comuni.
 
@@ -227,7 +226,7 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
          * **Direct** : scrive il valore dell'attributo SuccessFactors nell'attributo di Active Directory, senza modifiche
 
-         * **Constant** -scrive un valore stringa costante statico nell'attributo ad
+         * **Costant** (Costante): scrive un valore stringa costante statico nell'attributo di AD
 
          * **Espressione** : consente di scrivere un valore personalizzato nell'attributo di Active Directory, in base a uno o più attributi SuccessFactors. [Per altre informazioni, vedere questo articolo sulle espressioni](../app-provisioning/functions-for-customizing-application-data.md).
 
@@ -236,7 +235,7 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
       * **Valore predefinito**: facoltativo. Se l'attributo di origine ha un valore vuoto, il mapping eseguirà la scrittura di questo valore.
             Nella maggior parte delle configurazioni questo campo viene lasciato vuoto.
 
-      * **Attributo di destinazione** : l'attributo utente in Active Directory.
+      * **Attributo di destinazione**: l'attributo utente in Active Directory.
 
       * **Corrisponde a oggetti che usano questo attributo** , indipendentemente dal fatto che questo mapping debba essere usato per identificare in modo univoco gli utenti tra SuccessFactors e Active Directory. Questo valore viene in genere impostato sul campo ID di lavoro per SuccessFactors, che in genere viene mappato a uno degli attributi ID dipendente in Active Directory.
 
@@ -244,11 +243,11 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
       * **Applica questo mapping**
 
-         * **Sempre** : applica il mapping sia all'azione di creazione che all'aggiornamento dell'utente
+         * **Sempre**: applica il mapping sia all'azione di creazione che all'azione di aggiornamento dell'utente
 
-         * **Solo durante la creazione** : applicare questo mapping solo alle azioni di creazione dell'utente
+         * **Only during creation** (Solo durante la creazione): applica il mapping solo alle azioni di creazione dell'utente
 
-1. Per salvare i mapping, fare clic su **Salva** nella parte superiore della sezione mapping attributi.
+1. Per salvare i mapping, fare clic su **Save**, Salva, nella parte superiore della sezione Attribute-Mapping, Mapping attributi.
 
 Dopo aver completato la configurazione di mapping di attributo, è ora possibile [abilitare e avviare il servizio di provisioning utenti](#enable-and-launch-user-provisioning).
 
@@ -261,7 +260,7 @@ Una volta completate le configurazioni dell'app di provisioning di SuccessFactor
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Save**.
+2. Fare clic su **Salva**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nel tenant di SuccessFactors. È possibile controllare l'indicatore di stato per tenere traccia dello stato di avanzamento del ciclo di sincronizzazione. 
 

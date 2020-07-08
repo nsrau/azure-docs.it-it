@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77185918"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migrazione dei criteri classici dell'accesso condizionale
@@ -33,7 +32,7 @@ Questo articolo spiega cosa è necessario sapere per eseguire la migrazione dei 
 
 ## <a name="classic-policies"></a>Criteri classici
 
-Nella [portale di Azure](https://portal.azure.com)i criteri di accesso condizionale sono reperibili **in Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza. È anche possibile che l'organizzazione disponga di criteri di accesso condizionale meno recenti non creati usando questa pagina. ovvero i *criteri classici*. I criteri classici sono criteri di accesso condizionale creati in:
+Nella [portale di Azure](https://portal.azure.com)i criteri di accesso condizionale sono reperibili in **Azure Active Directory**  >  **Security**  >  **accesso condizionale**di sicurezza. È anche possibile che l'organizzazione disponga di criteri di accesso condizionale meno recenti non creati usando questa pagina. Questi criteri sono noti come *criteri classici*. I criteri classici sono criteri di accesso condizionale creati in:
 
 - Portale di Azure classico
 - Portale di Intune classico
@@ -107,7 +106,7 @@ In questo caso, è possibile consolidare i criteri classici in un unico criterio
 
 ![Controlli di concessione dell'accesso condizionale](./media/policy-migration/62.png)
 
-### <a name="device-platforms"></a>Piattaforme del dispositivo
+### <a name="device-platforms"></a>Piattaforme per dispositivi
 
 I criteri classici con controlli basati su app sono preconfigurati con iOS e Android come condizione per le piattaforme di dispositivo. 
 

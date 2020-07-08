@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 714148815fa4ff543ecbf86ab21e8d51fe775543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77153775"
 ---
 # <a name="select-columns-in-dataset-module"></a>Selezionare le colonne nel modulo DataSet
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare questo modulo per scegliere un subset di colonne da usare nelle operazioni downstream. Il modulo non rimuove fisicamente le colonne dal set di dati di origine. viene invece creato un subset di colonne, in modo analogo a una *vista* o *proiezione*del database.
 
@@ -40,7 +39,7 @@ Sono disponibili più opzioni nel modulo per la scelta delle colonne in base al 
 
     Se è stato connesso un set di dati già popolato, verrà visualizzato un elenco di colonne disponibili. Se non viene visualizzata alcuna colonna, potrebbe essere necessario eseguire i moduli upstream per visualizzare l'elenco di colonne.
 
-    Per filtrare l'elenco, digitare nella casella di ricerca. Se, ad esempio, si digita la `w` lettera nella casella di ricerca, l'elenco verrà filtrato in modo da visualizzare i nomi delle `w`colonne che contengono la lettera.
+    Per filtrare l'elenco, digitare nella casella di ricerca. Se, ad esempio, si digita la lettera `w` nella casella di ricerca, l'elenco verrà filtrato in modo da visualizzare i nomi delle colonne che contengono la lettera `w` .
 
     Selezionare le colonne e fare clic sul pulsante freccia destra per spostare le colonne selezionate nell'elenco nel riquadro di destra.
 
@@ -87,7 +86,7 @@ L'indice di colonna si riferisce all'ordine della colonna all'interno del set di
 
 + Le colonne sono numerate in modo sequenziale a partire da 1.  
 + Per ottenere un intervallo di colonne, usare un trattino. 
-+ Le specifiche aperte, ad esempio `1-` o `-3` , non sono consentite.
++ Le specifiche aperte, ad esempio `1-` o, `-3` non sono consentite.
 + I valori di indice o i nomi di colonna duplicati non sono consentiti e potrebbero verificarsi errori.
 
 Ad esempio, supponendo che il set di dati includa almeno otto colonne, è possibile incollare uno degli esempi seguenti per restituire più colonne non contigue: 
@@ -96,7 +95,7 @@ Ad esempio, supponendo che il set di dati includa almeno otto colonne, è possib
 + `1,3-8`
 + `1,3-6,4` 
 
-Nell'esempio finale non viene generato un errore. restituisce tuttavia una singola istanza della colonna `4`.
+Nell'esempio finale non viene generato un errore. restituisce tuttavia una singola istanza della colonna `4` .
 
 
 

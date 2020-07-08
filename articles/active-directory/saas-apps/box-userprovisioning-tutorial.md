@@ -16,10 +16,9 @@ ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1397b4189a9c2c15e3878687ea8c67c1da7567f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058570"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Esercitazione: Configurare Box per il provisioning utenti automatico
@@ -93,7 +92,7 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 3. Selezionare l'istanza di Box e quindi la scheda **Provisioning**.
 
-4. Impostare la **modalità di provisioning** su **automatico**. 
+4. Impostare **Modalità di provisioning** su **Automatico**. 
 
     ![provisioning](./media/box-userprovisioning-tutorial/provisioning.png)
 
@@ -111,7 +110,7 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 9. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
 
-10. Fare clic su **Salva.**
+10. Fare clic su **Salva**.
 
 11. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to Slack** (Sincronizza utenti di Azure Active Directory in Box).
 
@@ -119,7 +118,7 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 13. Per abilitare il servizio di provisioning di Azure AD per Box, impostare **Stato del provisioning** su **Sì** nella sezione Impostazioni
 
-14. Fare clic su **Salva.**
+14. Fare clic su **Salva**.
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Box nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning per l'app Box.
 
@@ -132,6 +131,6 @@ Nel tenant di Box gli utenti sincronizzati sono elencati in **Utenti gestiti** d
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](tutorial-list.md)
+* [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 * [Configura accesso Single Sign-on](box-tutorial.md)

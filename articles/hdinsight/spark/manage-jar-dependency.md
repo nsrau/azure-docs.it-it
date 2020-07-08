@@ -9,15 +9,14 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.openlocfilehash: da3387dd9846847f7643ded43c8cbff8ed8b166e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77135733"
 ---
 # <a name="jar-dependency-management-best-practices"></a>Procedure consigliate per la gestione delle dipendenze JAR
 
-I componenti installati nei cluster HDInsight hanno dipendenze da librerie di terze parti. In genere, questi componenti incorporati fanno riferimento a una versione specifica dei moduli comuni come guava. Quando si invia un'applicazione con le relative dipendenze, può verificarsi un conflitto tra versioni diverse dello stesso modulo. Se la versione del componente a cui si fa riferimento prima nel classpath, i componenti predefiniti possono generare eccezioni a causa dell'incompatibilità della versione. Tuttavia, se i componenti predefiniti inseriscono le rispettive dipendenze prima del classpath, l'applicazione potrebbe `NoSuchMethod`generare errori come.
+I componenti installati nei cluster HDInsight hanno dipendenze da librerie di terze parti. In genere, questi componenti incorporati fanno riferimento a una versione specifica dei moduli comuni come guava. Quando si invia un'applicazione con le relative dipendenze, può verificarsi un conflitto tra versioni diverse dello stesso modulo. Se la versione del componente a cui si fa riferimento prima nel classpath, i componenti predefiniti possono generare eccezioni a causa dell'incompatibilità della versione. Tuttavia, se i componenti predefiniti inseriscono le rispettive dipendenze prima del classpath, l'applicazione potrebbe generare errori come `NoSuchMethod` .
 
 Per evitare conflitti di versione, è consigliabile ombreggiare le dipendenze dell'applicazione.
 
@@ -32,9 +31,9 @@ Uber-jar è un singolo file jar che contiene il file jar dell'applicazione e le 
 ### <a name="shade-package-using-maven"></a>Ombreggiatura di un pacchetto con Maven
 Maven può compilare applicazioni scritte sia in Java che in scala. Maven-Shade-plugin può aiutarti a creare con facilità un uber-jar ombreggiato.
 
-L'esempio seguente illustra un file `pom.xml` che è stato aggiornato per ombreggiare un pacchetto con Maven-Shade-plugin.  La sezione `<relocation>…</relocation>` XML sposta le classi dal `com.google.guava` pacchetto al `com.google.shaded.guava` pacchetto spostando le voci del file jar corrispondenti e riscrivendo il bytecode interessato.
+L'esempio seguente illustra un file `pom.xml` che è stato aggiornato per ombreggiare un pacchetto con Maven-Shade-plugin.  La sezione XML `<relocation>…</relocation>` Sposta le classi dal pacchetto al `com.google.guava` pacchetto `com.google.shaded.guava` spostando le voci del file jar corrispondenti e riscrivendo il bytecode interessato.
 
-Dopo la `pom.xml`modifica, è possibile `mvn package` eseguire per compilare il file uber-jar ombreggiato.
+Dopo `pom.xml` la modifica, è possibile eseguire `mvn package` per compilare il file uber-jar ombreggiato.
 
 ```xml
   <build>
@@ -65,9 +64,9 @@ Dopo la `pom.xml`modifica, è possibile `mvn package` eseguire per compilare il 
 ```
 
 ### <a name="shade-package-using-sbt"></a>Ombreggiatura di un pacchetto con SBT
-SBT è anche uno strumento di compilazione per scala e Java. SBT non dispone di un plug-in Shade come Maven-Shade-plugin. È possibile modificare `build.sbt` il file in modo da ombreggiare i pacchetti. 
+SBT è anche uno strumento di compilazione per scala e Java. SBT non dispone di un plug-in Shade come Maven-Shade-plugin. È possibile modificare il `build.sbt` file in modo da ombreggiare i pacchetti. 
 
-Ad esempio, per ombreggiare `com.google.guava`, è possibile aggiungere il comando seguente al `build.sbt` file:
+Ad esempio, per ombreggiare `com.google.guava` , è possibile aggiungere il comando seguente al `build.sbt` file:
 
 ```scala
 assemblyShadeRules in assembly := Seq(
@@ -75,7 +74,7 @@ assemblyShadeRules in assembly := Seq(
 )
 ```
 
-Quindi, è possibile `sbt clean` eseguire `sbt assembly` e per compilare il file jar ombreggiato. 
+Quindi, è possibile eseguire `sbt clean` e `sbt assembly` per compilare il file jar ombreggiato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,10 +7,9 @@ ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77152993"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione git locale al servizio app Azure
@@ -45,7 +44,7 @@ Il modo più semplice per abilitare la distribuzione git locale per l'app con il
 
 ### <a name="get-the-deployment-url"></a>Ottenere l'URL di distribuzione
 
-Per ottenere l'URL per abilitare la distribuzione git locale per un'app esistente, [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) eseguire nel cloud Shell. Sostituire \<nome app> e \<nome gruppo> con i nomi dell'app e il relativo gruppo di risorse di Azure.
+Per ottenere l'URL per abilitare la distribuzione git locale per un'app esistente, eseguire [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) nel cloud Shell. Sostituire \<app-name> e \<group-name> con i nomi dell'app e del relativo gruppo di risorse di Azure.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -54,17 +53,17 @@ az webapp deployment source config-local-git --name <app-name> --resource-group 
 > Se si usa un piano app-Service di Linux, è necessario aggiungere questo parametro:--Runtime Python | 3.7
 
 
-In alternativa, per creare una nuova app abilitata per git [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) , eseguire nel cloud Shell con `--deployment-local-git` il parametro. Sostituire \<nome app>, \<nome gruppo> e \<nome piano> con i nomi per la nuova app git, il gruppo di risorse di Azure e il relativo piano di servizio app Azure.
+In alternativa, per creare una nuova app abilitata per git, eseguire [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) nel cloud Shell con il `--deployment-local-git` parametro. Sostituire \<app-name> , \<group-name> e \<plan-name> con i nomi per la nuova app git, il gruppo di risorse di Azure e il relativo piano di servizio app Azure.
 
 ```azurecli-interactive
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
-Entrambi i comandi restituiscono un URL `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`come:. Usare questo URL per distribuire l'app nel passaggio successivo.
+Entrambi i comandi restituiscono un URL come: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git` . Usare questo URL per distribuire l'app nel passaggio successivo.
 
 Invece di usare questo URL a livello di account, è anche possibile abilitare git locale usando le credenziali a livello di app. App Azure servizio genera automaticamente le credenziali per ogni app. 
 
-Ottenere le credenziali dell'app eseguendo il comando seguente nella Cloud Shell. Sostituire \<nome app> e \<nome gruppo> con il nome dell'app e il nome del gruppo di risorse di Azure.
+Ottenere le credenziali dell'app eseguendo il comando seguente nella Cloud Shell. Sostituire \<app-name> e \<group-name> con il nome dell'app e il nome del gruppo di risorse di Azure.
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
@@ -74,17 +73,17 @@ Usare l'URL che restituisce per distribuire l'app nel passaggio successivo.
 
 ### <a name="deploy-the-web-app"></a>Distribuire l'app Web
 
-1. Aprire una finestra del terminale locale nel repository git locale e aggiungere un'area remota di Azure. Nel comando seguente sostituire \<URL> con l'URL specifico dell'utente di distribuzione o con l'URL specifico dell'app ottenuto nel passaggio precedente.
+1. Aprire una finestra del terminale locale nel repository git locale e aggiungere un'area remota di Azure. Nel comando seguente sostituire \<url> con l'URL specifico dell'utente di distribuzione o con l'URL specifico dell'app ottenuto nel passaggio precedente.
    
    ```bash
    git remote add azure <url>
    ```
    
-1. Eseguire il push in Azure Remote `git push azure master`con. 
+1. Eseguire il push in Azure remote con `git push azure master` . 
    
 1. Nella finestra **git Credential Manager** immettere la [password dell'utente di distribuzione](#configure-a-deployment-user)e non la password di accesso di Azure.
    
-1. Esaminare l'output. È possibile che venga visualizzata un'automazione specifica del runtime, ad esempio MSBuild `npm install` per ASP.NET, per node. `pip install` js e per Python. 
+1. Esaminare l'output. È possibile che venga visualizzata un'automazione specifica del runtime, ad esempio MSBuild per ASP.NET, `npm install` per Node.js e `pip install` per Python. 
    
 1. Passare all'app nell'portale di Azure per verificare che il contenuto sia distribuito.
 
@@ -125,17 +124,17 @@ Per abilitare la distribuzione git locale per l'app con Azure Pipelines (antepri
    
    ![Copiare l'URL del repository git](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
-1. Nella finestra del terminale locale aggiungere un'area remota di Azure al repository git locale. Nel comando sostituire \<URL> con l'URL del repository git ottenuto nel passaggio precedente.
+1. Nella finestra del terminale locale aggiungere un'area remota di Azure al repository git locale. Nel comando sostituire \<url> con l'URL del repository git ottenuto nel passaggio precedente.
    
    ```bash
    git remote add azure <url>
    ```
    
-1. Eseguire il push in Azure Remote `git push azure master`con. 
+1. Eseguire il push in Azure remote con `git push azure master` . 
    
 1. Nella pagina **git Credential Manager** accedere con il nome utente di VisualStudio.com. Per altri metodi di autenticazione, vedere [Cenni preliminari sull'autenticazione Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
    
-1. Al termine della distribuzione, visualizzare lo stato di avanzamento `https://<azure_devops_account>.visualstudio.com/<project_name>/_build`della compilazione in e lo stato `https://<azure_devops_account>.visualstudio.com/<project_name>/_release`della distribuzione in.
+1. Al termine della distribuzione, visualizzare lo stato di avanzamento della compilazione in `https://<azure_devops_account>.visualstudio.com/<project_name>/_build` e lo stato della distribuzione in `https://<azure_devops_account>.visualstudio.com/<project_name>/_release` .
    
 1. Passare all'app nell'portale di Azure per verificare che il contenuto sia distribuito.
 
@@ -149,10 +148,10 @@ Quando si usa Git per la pubblicazione in un'app del servizio app in Azure, è p
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|L'app non è in esecuzione.|avviare l'app nel portale di Azure. La distribuzione Git non è disponibile quando l'app Web è arrestata.|
 |`Couldn't resolve host 'hostname'`|Le informazioni sull'indirizzo per il controllo remoto ' Azure ' non sono corrette.|usare il comando `git remote -v` per elencare tutti i repository remoti, insieme agli URL associati. Verificare che l'URL del repository remoto 'azure' sia corretto. Se necessario, rimuovere e ricreare questo repository remoto usando l'URL corretto.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Non è stato specificato un ramo `git push`durante o non è stato impostato `push.default` il valore `.gitconfig`in.|Eseguire `git push` nuovamente, specificando il ramo master `git push azure master`:.|
-|`src refspec [branchname] does not match any.`|Si è tentato di effettuare il push in un ramo diverso dal master nel computer remoto ' Azure '.|Eseguire `git push` nuovamente, specificando il ramo master `git push azure master`:.|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Non è stato specificato un ramo durante `git push` o non è stato impostato il `push.default` valore in `.gitconfig` .|Eseguire `git push` nuovamente, specificando il ramo master: `git push azure master` .|
+|`src refspec [branchname] does not match any.`|Si è tentato di effettuare il push in un ramo diverso dal master nel computer remoto ' Azure '.|Eseguire `git push` nuovamente, specificando il ramo master: `git push azure master` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|questo errore può verificarsi se si tenta di eseguire il push di un repository Git di grandi dimensioni tramite HTTPS.|Modificare la configurazione git nel computer locale per renderla `postBuffer` più grande. Ad esempio: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|È stata distribuita un'app node. js con un file _Package. JSON_ che specifica altri moduli necessari.|Esaminare i `npm ERR!` messaggi di errore prima di questo errore per maggiore contesto sull'errore. Di seguito sono riportate le cause note di questo errore e `npm ERR!` i messaggi corrispondenti:<br /><br />**File Package. JSON non valido**:`npm ERR! Couldn't read dependencies.`<br /><br />**Il modulo nativo non dispone di una distribuzione binaria per Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />o <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|È stata distribuita un'app di Node.js con un _package.jsin_ un file che specifica altri moduli necessari.|Esaminare i `npm ERR!` messaggi di errore prima di questo errore per maggiore contesto sull'errore. Di seguito sono riportate le cause note di questo errore e i `npm ERR!` messaggi corrispondenti:<br /><br />**package.jsnon valido nel file**:`npm ERR! Couldn't read dependencies.`<br /><br />**Il modulo nativo non dispone di una distribuzione binaria per Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />o <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

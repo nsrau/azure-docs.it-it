@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 469e926932ffa11ef9f2a262b78a587ba435549e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77023991"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurare l'interfaccia di passaggio dei messaggi per HPC
@@ -120,7 +119,7 @@ Seguire il processo di installazione.
 
 [Scaricare Intel MPI](https://software.intel.com/mpi-library/choose-download).
 
-Modificare la variabile di ambiente I_MPI_FABRICS a seconda della versione. Per Intel MPI 2018, usare `I_MPI_FABRICS=shm:ofa` e per 2019, usare `I_MPI_FABRICS=shm:ofi`.
+Modificare la variabile di ambiente I_MPI_FABRICS a seconda della versione. Per Intel MPI 2018, usare `I_MPI_FABRICS=shm:ofa` e per 2019, usare `I_MPI_FABRICS=shm:ofi` .
 
 Il blocco del processo funziona correttamente per le PPN 15, 30 e 60 per impostazione predefinita.
 
@@ -141,7 +140,7 @@ CC=<mpi-install-path/bin/mpicc>CXX=<mpi-install-path/bin/mpicxx> ./configure
 make
 ```
 
-I benchmark MPI si trovano `mpi/` nella cartella.
+I benchmark MPI si trovano nella `mpi/` cartella.
 
 
 ## <a name="discover-partition-keys"></a>Individua chiavi di partizione

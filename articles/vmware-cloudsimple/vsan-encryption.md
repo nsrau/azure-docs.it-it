@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77020642"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Configurare la crittografia rete VSAN per il cloud privato CloudSimple
@@ -79,7 +78,7 @@ Per distribuire un cluster HyTrust di controllo delle attività nel Azure Resour
 4. Convertire l'indirizzo IP privato del controllo di stato in un indirizzo IP statico.
 5. Eseguire la connessione SSH alla macchina virtuale di controllo usando il relativo indirizzo IP pubblico e la chiave privata della coppia di chiavi citata in precedenza.
 6. Quando richiesto nella shell SSH, selezionare `No` per impostare il nodo come nodo di controllo delle maiuscole iniziale.
-7. Aggiungere altri nodi di controllo di stato ripetendo i passaggi 3-5 di `Yes` questa procedura e selezionando quando viene richiesto di aggiungere a un cluster esistente.
+7. Aggiungere altri nodi di controllo di stato ripetendo i passaggi 3-5 di questa procedura e selezionando `Yes` quando viene richiesto di aggiungere a un cluster esistente.
 
 ### <a name="hytrust-webui-configure-the-kmip-server"></a>HyTrust WebUI: configurare il server KMIP
 

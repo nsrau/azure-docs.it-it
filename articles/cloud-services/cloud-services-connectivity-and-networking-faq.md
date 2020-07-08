@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
 ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019401"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di connettività e rete per Servizi cloud di Azure: domande frequenti
@@ -65,14 +64,14 @@ L'algoritmo di distribuzione usato è un hash a 5 tuple (IP di origine, porta di
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>In che modo è possibile reindirizzare il traffico in ingresso per l'URL predefinito del servizio cloud a un URL personalizzato?
 
-URL Rewrite Module per IIS può essere usato per reindirizzare il traffico in arrivo all'URL predefinito per il servizio cloud (ad esempio, \*.cloudapp.net) ad alcuni nomi/URL personalizzati. Poiché il modulo URL Rewrite è abilitato nei ruoli Web per impostazione predefinita e le regole sono configurate nel file Web. config dell'applicazione, è sempre disponibile nella macchina virtuale indipendentemente dai riavvii o dalle ricreazioni delle immagini. Per ulteriori informazioni, vedere:
+URL Rewrite Module per IIS può essere usato per reindirizzare il traffico in arrivo all'URL predefinito per il servizio cloud (ad esempio, \*.cloudapp.net) ad alcuni nomi/URL personalizzati. Poiché il modulo URL Rewrite è abilitato nei ruoli Web per impostazione predefinita e le regole sono configurate nella web.config dell'applicazione, è sempre disponibile nella macchina virtuale indipendentemente dai riavvii/riimmagini. Per ulteriori informazioni, vedere:
 
 - [Create rewrite rules for the URL Rewrite module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module) (Creare regole di riscrittura per URL Rewrite Module)
 - [Remove a default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top) (Rimuovere un collegamento predefinito)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Come posso bloccare/disabilitare il traffico in ingresso per l'URL predefinito del servizio cloud?
 
-È possibile impedire il traffico in ingresso per l'URL/nome predefinito del servizio cloud (ad esempio, \*.cloudapp.net). Impostare l'intestazione host su un nome DNS personalizzato (ad esempio, www\.MyCloudService.com) nella configurazione dell'associazione del sito nel file di definizione del servizio cloud (*. csdef), come indicato di seguito:
+È possibile impedire il traffico in ingresso per l'URL/nome predefinito del servizio cloud (ad esempio, \*.cloudapp.net). Impostare l'intestazione host su un nome DNS personalizzato (ad esempio, www \. MyCloudService.com) nella configurazione dell'associazione del sito nel file di definizione del servizio cloud (*. csdef), come indicato di seguito:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -110,7 +109,7 @@ Questo file contiene gli intervalli di indirizzi IP, inclusi gli intervalli di c
 
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Come è possibile usare le reti virtuali di Azure Resource Manager con i servizi cloud?
 
-I servizi cloud non possono trovarsi nelle reti virtuali di Azure Resource Manager. Le reti virtuali di Resource Manager e le reti virtuali della distribuzione classica possono essere connesse tramite peering. Per altre informazioni, vedere [peering di rete virtuale](../virtual-network/virtual-network-peering-overview.md).
+I servizi cloud non possono trovarsi nelle reti virtuali di Azure Resource Manager. Le reti virtuali di Resource Manager e le reti virtuali della distribuzione classica possono essere connesse tramite peering. Per altre informazioni, vedere [Peering di rete virtuale](../virtual-network/virtual-network-peering-overview.md).
 
 
 ## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>Come è possibile ottenere l'elenco di IP pubblici usati dai servizi cloud?

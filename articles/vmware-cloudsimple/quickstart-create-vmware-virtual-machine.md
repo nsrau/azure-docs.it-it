@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ab613c251bc43a025e0381046805ec998a04227
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019554"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Guida introduttiva: usare macchine virtuali VMware in Azure
@@ -30,7 +29,7 @@ Creare una macchina virtuale nel cloud privato dall'interfaccia utente di vCente
 
 2. Cercare **Macchine virtuali CloudSimple**.
 
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 
     ![Creare una macchina virtuale CloudSimple](media/create-cloudsimple-virtual-machine.png)
 
@@ -42,8 +41,8 @@ Creare una macchina virtuale nel cloud privato dall'interfaccia utente di vCente
     | ------------ | ------------- |
     | Subscription | Sottoscrizione di Azure associata al cloud privato.  |
     | Gruppo di risorse | Gruppo di risorse a cui verrà assegnata la macchina virtuale. È possibile selezionare un gruppo esistente o crearne uno nuovo. |
-    | Name | Nome per identificare la macchina virtuale.  |
-    | Percorso | Area di Azure in cui è ospitata questa macchina virtuale.  |
+    | Nome | Nome per identificare la macchina virtuale.  |
+    | Location | Area di Azure in cui è ospitata questa macchina virtuale.  |
     | Cloud privato | CloudSimple cloud privato in cui si vuole creare la macchina virtuale. |
     | Pool di risorse | Pool di risorse mappato per la macchina virtuale. Selezionare un pool di risorse tra quelli disponibili. |
     | Modello vSphere | modello vSphere per la macchina virtuale.  |
@@ -61,7 +60,7 @@ Creare una macchina virtuale nel cloud privato dall'interfaccia utente di vCente
 
     Per le interfacce di rete, fare clic su **Aggiungi interfaccia di rete** e configurare le impostazioni seguenti.
 
-    | Controllo | Descrizione |
+    | Controllo | Description |
     | ------------ | ------------- |
     | Nome | Immettere un nome per identificare l'interfaccia.  |
     | Rete | Selezionare dall'elenco di gruppi di porte distribuite configurate nel cloud privato vSphere.  |
@@ -70,10 +69,10 @@ Creare una macchina virtuale nel cloud privato dall'interfaccia utente di vCente
 
     Per i dischi, fare clic su **Aggiungi disco** e configurare le impostazioni seguenti.
 
-    | Item | Descrizione |
+    | Elemento | Descrizione |
     | ------------ | ------------- |
     | Nome | Immettere un nome per identificare il disco.  |
-    | Dimensioni | Selezionare una delle dimensioni disponibili.  |
+    | Dimensione | Selezionare una delle dimensioni disponibili.  |
     | Controller SCSI | Selezionare un controller SCSI per il disco.  |
     | Mode | Determina la modalità di partecipazione del disco negli snapshot. Scegliere una delle opzioni seguenti: <br> -Permanente indipendente: tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Indipendente non persistente: le modifiche scritte nel disco vengono eliminate quando si spegne o si reimposta la macchina virtuale.  La modalità indipendente non permanente consente di riavviare la macchina virtuale sempre nello stesso stato. Per altre informazioni, vedere la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentazione di VMware</a>.
 

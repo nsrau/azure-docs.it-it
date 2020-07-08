@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77048607"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario con PowerShell (Resource Manager)
@@ -210,7 +209,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 
 ##  <a name="configure-network-mapping"></a>Configurare il mapping di rete
 
-1. Usare questo comando per recuperare i server per l'insieme di credenziali corrente. Il comando Archivia i server Site Recovery nella variabile `$Servers` di matrice.
+1. Usare questo comando per recuperare i server per l'insieme di credenziali corrente. Il comando Archivia i server Site Recovery nella `$Servers` variabile di matrice.
 
    ```azurepowershell
    $Servers = Get-AzRecoveryServicesAsrFabric
@@ -227,7 +226,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
    > [!NOTE]
    > Il server Virtual Machine Manager di origine può essere il primo o secondo nella matrice di server. Controllare i nomi dei server Virtual Machine Manager e recuperare le reti in modo appropriato.
 
-1. Il cmdlet crea un mapping tra la rete primaria e la rete di ripristino. Specifica la rete primaria come primo elemento di `$PrimaryNetworks`. Specifica la rete di ripristino come primo elemento di `$RecoveryNetworks`.
+1. Il cmdlet crea un mapping tra la rete primaria e la rete di ripristino. Specifica la rete primaria come primo elemento di `$PrimaryNetworks` . Specifica la rete di ripristino come primo elemento di `$RecoveryNetworks` .
 
    ```azurepowershell
    New-AzRecoveryServicesAsrNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
@@ -261,7 +260,7 @@ Dopo aver configurato correttamente server, cloud e reti, abilitare la protezion
 > 1. Abilitare il failover a Managed disks aggiornando le proprietà della macchina virtuale
 > 1. Usare il `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet per recuperare l'ID del disco per ogni disco dell'elemento protetto
 > 1. Creare un oggetto Dictionary usando `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` il cmdlet per contenere il mapping dell'ID disco al set di crittografia del disco. Questi set di crittografia del disco devono essere creati in precedenza dall'utente nell'area di destinazione.
-> 1. Aggiornare le proprietà della macchina `Set-AzRecoveryServicesAsrReplicationProtectedItem` virtuale usando il cmdlet passando l'oggetto Dictionary nel parametro **DiskIdToDiskEncryptionSetMap** .
+> 1. Aggiornare le proprietà della macchina virtuale usando `Set-AzRecoveryServicesAsrReplicationProtectedItem` il cmdlet passando l'oggetto Dictionary nel parametro **DiskIdToDiskEncryptionSetMap** .
 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test
 

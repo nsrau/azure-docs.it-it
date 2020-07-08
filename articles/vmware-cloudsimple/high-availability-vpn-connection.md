@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025266"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurare una connessione a disponibilità elevata da locale a gateway VPN CloudSimple
@@ -97,7 +96,7 @@ access-list ipsec-acl extended permit ip object AZ_inside object CS_inside
 
 ### <a name="5-configure-the-transform-set"></a>5. configurare il set di trasformazioni
 
-Configurare il set di trasformazione (TS), che deve coinvolgere la ```ikev1```parola chiave. Gli attributi di crittografia e hash specificati nel TS devono corrispondere ai parametri elencati nella [configurazione predefinita per i gateway VPN CloudSimple](cloudsimple-vpn-gateways.md).
+Configurare il set di trasformazione (TS), che deve coinvolgere la parola chiave ```ikev1``` . Gli attributi di crittografia e hash specificati nel TS devono corrispondere ai parametri elencati nella [configurazione predefinita per i gateway VPN CloudSimple](cloudsimple-vpn-gateways.md).
 
 ```
 crypto ipsec ikev1 transform-set devtest39 esp-aes-256 esp-sha-hmac 
@@ -147,7 +146,7 @@ Per il funzionamento della VPN da sito a sito, è necessario consentire UDP 500/
 
 ### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. creare interfacce tunnel primarie e secondarie
 
-Accedere a palo alto firewall, selezionare**interfacce** > di **rete** > **tunnel** > **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Accedere a palo alto firewall, selezionare interfacce di **rete**  >  **Interfaces**  >  **tunnel**  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 * Nome dell'interfaccia. Il primo campo viene popolato automaticamente con la parola chiave ' tunnel '. Nel campo adiacente immettere un numero compreso tra 1 e 9999. Questa interfaccia verrà usata come interfaccia tunnel principale per il trasporto del traffico da sito a sito tra il Data Center locale e il cloud privato.
 * Commento. Immettere i commenti per una semplice identificazione dello scopo del tunnel
@@ -162,12 +161,12 @@ Poiché questa configurazione è per una VPN a disponibilità elevata, sono nece
 
 Le route sono necessarie per le subnet locali per raggiungere le subnet del cloud privato CloudSimple.
 
-Selezionare **Network** >  > **router virtuali**di rete le**Route** > statiche*predefinite* > **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Selezionare **Network**  >  **router virtuali**di rete  >  *default*  >  le**Route statiche**predefinite  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 * Name. Immettere un nome per identificare facilmente lo scopo della route.
 * Destinazione. Specificare le subnet del cloud privato CloudSimple da raggiungere tramite le interfacce del tunnel S2S dall'ambiente locale
 * Interfaccia. Selezionare l'interfaccia del tunnel primario creata nel passaggio 1 (sezione 2) nell'elenco a discesa. In questo esempio è tunnel. 20.
-* Hop successivo. Selezionare **nessuno**.
+* Hop successivo. Selezionare **Nessuno**.
 * Distanza amministrativa. Lasciare il valore predefinito.
 * Metrica. Immettere un valore compreso tra 1 e 65535. La chiave consiste nell'immettere una metrica inferiore per la route corrispondente all'interfaccia del tunnel primario rispetto alla route corrispondente all'interfaccia del tunnel secondario che rende la route precedente preferita. Se il valore della metrica del tunnel. 20 è 20 anziché un valore della metrica pari a 30 per il tunnel. 30, è preferibile il tunnel. 20.
 * Tabella di route. Lasciare il valore predefinito.
@@ -180,7 +179,7 @@ Ripetere i passaggi precedenti per creare un'altra route per le subnet del cloud
 
 Definire un profilo crittografico che specifichi i protocolli e gli algoritmi per l'identificazione, l'autenticazione e la crittografia da usare per la configurazione di tunnel VPN in IKEv1 fase 1.
 
-Selezionare **rete** > **espandere profili** > di rete**IKE Crypto** > **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Selezionare **rete**  >  **espandere profili di rete**  >  **IKE Crypto**  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 * Name. Immettere un nome per il profilo di crittografia IKE.
 * Gruppo DH. Fare clic su **Aggiungi** e selezionare il gruppo DH appropriato.
@@ -193,7 +192,7 @@ Selezionare **rete** > **espandere profili** > di rete**IKE Crypto** > **Aggiung
 
 Definire i gateway IKE per stabilire la comunicazione tra i peer attraverso ogni estremità del tunnel VPN.
 
-Selezionare **rete** > **espandere profili** > di rete**gateway** > IKE**Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Selezionare **rete**  >  **espandere profili di rete**  >  **gateway IKE**  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 Scheda Generale:
 
@@ -203,7 +202,7 @@ Scheda Generale:
 * Interfaccia. Selezionare l'interfaccia pubblica o esterna.
 * Indirizzo IP locale. Lasciare il valore predefinito.
 * Tipo di indirizzo IP peer. Selezionare **IP**.
-* Indirizzo peer. Immettere l'indirizzo IP del peer VPN CloudSimple primario.
+* Peer Address (Indirizzo peer). Immettere l'indirizzo IP del peer VPN CloudSimple primario.
 * L'autenticazione. Selezionare la **chiave precondivisa**.
 * Chiave pre-condivisa/conferma chiave precondivisa. Immettere la chiave precondivisa in modo che corrisponda alla chiave del gateway VPN CloudSimple.
 * Identificazione locale. Immettere l'indirizzo IP pubblico del palo alto firewall locale.
@@ -224,7 +223,7 @@ Ripetere i passaggi precedenti per creare il gateway IKE secondario.
 
 ### <a name="5-define-ipsec-crypto-profiles"></a>5. definire i profili di crittografia IPSEC
 
-Selezionare **rete** > **espandere profili** > di rete**IPSec crittografia** > **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Selezionare **rete**  >  **espandere profili di rete**  >  **IPSec crittografia**  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 * Name. Immettere un nome per il profilo di crittografia IPsec.
 * Protocollo IPsec. Selezionare **ESP**.
@@ -238,7 +237,7 @@ Ripetere i passaggi precedenti per creare un altro profilo di crittografia IPsec
 
 ### <a name="6-define-monitor-profiles-for-tunnel-monitoring"></a>6. definire i profili di monitoraggio per il monitoraggio del tunnel
 
-Selezionare **rete** > **espandere** > **Monitor**monitoraggio > profili di rete**Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Selezionare **rete**  >  **espandere**  >  **monitoraggio**profili di rete  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 * Name. Immettere un nome del profilo di monitoraggio da usare per il monitoraggio del tunnel per la reazione proattiva all'errore.
 * Azione. Selezionare **failover**.
@@ -247,7 +246,7 @@ Selezionare **rete** > **espandere** > **Monitor**monitoraggio > profili di rete
 
 ### <a name="7-set-up-primary-and-secondary-ipsec-tunnels"></a>7. configurare i tunnel IPsec primari e secondari.
 
-Selezionare i**tunnel** > IPSec di **rete** > **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
+Selezionare **Network**  >  i**tunnel IPSec**di rete  >  **Aggiungi**, configurare i campi seguenti e fare clic su **OK**.
 
 Scheda Generale:
 
@@ -263,7 +262,7 @@ Scheda Generale:
 * IP di destinazione. Immettere qualsiasi indirizzo IP appartenente alla subnet del cloud privato CloudSimple consentita tramite la connessione da sito a sito. Verificare che le interfacce del tunnel, ad esempio tunnel. 20-10.64.5.2/32 e tunnel. 30-10.64.6.2/32, in palo alto, siano autorizzate a raggiungere l'indirizzo IP del cloud privato CloudSimple tramite la VPN da sito a sito. Per gli ID proxy, vedere la configurazione seguente.
 * Profilo. Selezionare il profilo di monitoraggio.
 
-Scheda ID proxy: fare clic su **IPv4** > **Aggiungi** e configurare quanto segue:
+Scheda ID proxy: fare clic su **IPv4**  >  **Aggiungi** e configurare quanto segue:
 
 * ID proxy. Immettere un nome per il traffico interessante. Potrebbero essere presenti più ID proxy trasportati all'interno di un tunnel IPsec.
 * Local. Specificare le subnet locali che possono comunicare con subnet del cloud privato tramite la VPN da sito a sito.

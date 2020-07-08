@@ -20,13 +20,12 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77153877"
 ---
-# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Panoramica del linguaggio OData `$filter`per `$orderby`, e `$select` in Azure ricerca cognitiva
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Panoramica del linguaggio OData per `$filter` , `$orderby` e `$select` in Azure ricerca cognitiva
 
 Azure ricerca cognitiva supporta un subset della sintassi delle espressioni OData per le espressioni **$Filter**, **$OrderBy**e **$Select** . Le espressioni filtro vengono valutate durante l'analisi della query, vincolando la ricerca a campi specifici o aggiungendo criteri di corrispondenza durante le analisi dell'indice. Le espressioni order-by vengono applicate come passaggio di post-elaborazione su un set di risultati per ordinare i documenti restituiti. Le espressioni Select determinano i campi del documento inclusi nel set di risultati. La sintassi di queste espressioni è diversa dalla sintassi di query [semplice](query-simple-syntax.md) o [completa](query-lucene-syntax.md) utilizzata nel parametro di **ricerca** , anche se c'è una sovrapposizione nella sintassi per i campi di riferimento.
 
@@ -66,26 +65,26 @@ identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 
 Un percorso di campo è composto da uno o più **identificatori** separati da barre. Ogni identificatore è una sequenza di caratteri che deve iniziare con una lettera ASCII o un carattere di sottolineatura e contenere solo lettere, cifre o caratteri di sottolineatura ASCII. Le lettere possono essere maiuscole o minuscole.
 
-Un identificatore può fare riferimento al nome di un campo o a una variabile di **intervallo** nel contesto di un'espressione di [raccolta](search-query-odata-collection-operators.md) (`any` o `all`) in un filtro. Una variabile di intervallo è analoga a una variabile di ciclo che rappresenta l'elemento corrente della raccolta. Per le raccolte complesse, tale variabile rappresenta un oggetto, motivo per cui è possibile utilizzare i percorsi dei campi per fare riferimento a sottocampi della variabile. Questo è analogo alla notazione del punto in molti linguaggi di programmazione.
+Un identificatore può fare riferimento al nome di un campo o a una variabile di **intervallo** nel contesto di un'espressione di [raccolta](search-query-odata-collection-operators.md) ( `any` o `all` ) in un filtro. Una variabile di intervallo è analoga a una variabile di ciclo che rappresenta l'elemento corrente della raccolta. Per le raccolte complesse, tale variabile rappresenta un oggetto, motivo per cui è possibile utilizzare i percorsi dei campi per fare riferimento a sottocampi della variabile. Questo è analogo alla notazione del punto in molti linguaggi di programmazione.
 
 Nella tabella seguente sono riportati alcuni esempi di percorsi dei campi:
 
 | Percorso campo | Descrizione |
 | --- | --- |
 | `HotelName` | Fa riferimento a un campo di primo livello dell'indice |
-| `Address/City` | Si riferisce al campo `City` secondario di un campo complesso nell'indice; `Address` è di tipo `Edm.ComplexType` in questo esempio |
-| `Rooms/Type` | Si riferisce al campo `Type` secondario di un campo di raccolta complesso nell'indice; `Rooms` è di tipo `Collection(Edm.ComplexType)` in questo esempio |
-| `Stores/Address/Country` | Si riferisce al campo `Country` secondario del `Address` sottocampo di un campo di raccolta complesso nell'indice; `Stores` è di tipo `Collection(Edm.ComplexType)` ed `Address` è di tipo `Edm.ComplexType` in questo esempio |
+| `Address/City` | Si riferisce al campo `City` secondario di un campo complesso nell'indice. `Address` è di tipo `Edm.ComplexType` in questo esempio |
+| `Rooms/Type` | Si riferisce al campo `Type` secondario di un campo di raccolta complesso nell'indice. `Rooms` è di tipo `Collection(Edm.ComplexType)` in questo esempio |
+| `Stores/Address/Country` | Fa riferimento al campo `Country` secondario del `Address` sottocampo di un campo di raccolta complesso nell'indice. `Stores` è di tipo `Collection(Edm.ComplexType)` e `Address` è di tipo `Edm.ComplexType` in questo esempio |
 | `room/Type` | Fa riferimento al `Type` sottocampo della variabile di `room` intervallo, ad esempio nell'espressione di filtro`Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | Si riferisce al campo `Country` secondario del `Address` sottocampo della variabile di `store` intervallo, ad esempio nell'espressione di filtro.`Stores/any(store: store/Address/Country eq 'Canada')` |
+| `store/Address/Country` | Si riferisce al `Country` campo secondario del `Address` sottocampo della variabile di `store` intervallo, ad esempio nell'espressione di filtro.`Stores/any(store: store/Address/Country eq 'Canada')` |
 
 Il significato di un percorso di campo varia a seconda del contesto. Nei filtri, il percorso di un campo fa riferimento al valore di una *singola istanza* di un campo nel documento corrente. In altri contesti, ad esempio **$OrderBy**, **$SELECT**o nella [ricerca sul campo nella sintassi Lucene completa](query-lucene-syntax.md#bkmk_fields), un percorso di campo fa riferimento al campo stesso. Questa differenza ha alcune conseguenze sull'uso dei percorsi dei campi nei filtri.
 
-Si consideri `Address/City`il percorso del campo. In un filtro si fa riferimento a una singola città per il documento corrente, ad esempio "San Francisco". Al contrario, `Rooms/Type` si riferisce al campo `Type` secondario per molte stanze, ad esempio "standard" per la prima stanza, "Deluxe" per la seconda stanza e così via. Poiché `Rooms/Type` non fa riferimento a una *singola istanza* del sottocampo `Type`, non può essere utilizzato direttamente in un filtro. Per filtrare il tipo di stanza, usare invece un' [espressione lambda](search-query-odata-collection-operators.md) con una variabile di intervallo, come indicato di seguito:
+Si consideri il percorso del campo `Address/City` . In un filtro si fa riferimento a una singola città per il documento corrente, ad esempio "San Francisco". Al contrario, `Rooms/Type` si riferisce al `Type` campo secondario per molte stanze, ad esempio "standard" per la prima stanza, "Deluxe" per la seconda stanza e così via. Poiché `Rooms/Type` non fa riferimento a una *singola istanza* del sottocampo `Type` , non può essere utilizzato direttamente in un filtro. Per filtrare il tipo di stanza, usare invece un' [espressione lambda](search-query-odata-collection-operators.md) con una variabile di intervallo, come indicato di seguito:
 
     Rooms/any(room: room/Type eq 'deluxe')
 
-In questo esempio, la variabile `room` di intervallo viene visualizzata `room/Type` nel percorso del campo. In questo modo `room/Type` , si riferisce al tipo di spazio corrente nel documento corrente. Si tratta di una singola istanza del `Type` sottocampo, che può quindi essere utilizzata direttamente nel filtro.
+In questo esempio, la variabile `room` di intervallo viene visualizzata nel `room/Type` percorso del campo. In questo modo, `room/Type` si riferisce al tipo di spazio corrente nel documento corrente. Si tratta di una singola istanza del `Type` sottocampo, che può quindi essere utilizzata direttamente nel filtro.
 
 ### <a name="using-field-paths"></a>Uso dei percorsi dei campi
 
@@ -93,7 +92,7 @@ I percorsi dei campi vengono usati in molti parametri delle [API REST di Azure r
 
 | API | Nome parametro | Restrizioni |
 | --- | --- | --- |
-| [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `suggesters/sourceFields` | Nessuno |
+| [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `suggesters/sourceFields` | nessuno |
 | [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `scoringProfiles/text/weights` | Può fare riferimento solo a campi **ricercabili** |
 | [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `scoringProfiles/functions/fieldName` | Può fare riferimento solo a campi **filtrabili** |
 | [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`Quando `queryType` è`full` | Può fare riferimento solo a campi **ricercabili** |
@@ -126,7 +125,7 @@ La tabella seguente illustra esempi di costanti per ognuno dei tipi di dati supp
 
 Le costanti di stringa in OData sono delimitate da virgolette singole. Se è necessario creare una query con una costante di stringa che può contenere virgolette singole, è possibile eseguire il escape delle virgolette incorporate tramite il raddoppio.
 
-Ad esempio, una frase con un apostrofo non formattato come "Alice ' s Car" verrebbe rappresentata in OData come `'Alice''s car'`costante di stringa.
+Ad esempio, una frase con un apostrofo non formattato come "Alice ' s Car" verrebbe rappresentata in OData come costante di stringa `'Alice''s car'` .
 
 > [!IMPORTANT]
 > Quando si creano i filtri a livello di codice, è importante ricordare che le costanti di stringa di escape provengono dall'input dell'utente. Questo consente di ridurre la possibilità di [attacchi injection](https://wikipedia.org/wiki/SQL_injection), soprattutto quando si usano i filtri per implementare la [rimozione della sicurezza](search-security-trimming-for-azure-search.md).
@@ -229,7 +228,7 @@ select_expression ::= '*' | field_path(',' field_path)*
 > [!NOTE]
 > Per la EBNF completa, vedere informazioni [di riferimento sulla sintassi delle espressioni OData per Azure ricerca cognitiva](search-query-odata-syntax-reference.md) .
 
-I parametri **$OrderBy** e **$SELECT** sono elenchi delimitati da virgole di espressioni più semplici. Il parametro **$Filter** è un'espressione booleana composta da sottoespressioni più semplici. Queste sottoespressioni vengono combinate utilizzando operatori [ `and` `or` `not` ](search-query-odata-logical-operators.md)logici, ad esempio, e, operatori di confronto [ `eq`come `lt`, `gt`, e così via](search-query-odata-comparison-operators.md), e operatori di raccolta quali [ `any` e `all` ](search-query-odata-collection-operators.md).
+I parametri **$OrderBy** e **$SELECT** sono elenchi delimitati da virgole di espressioni più semplici. Il parametro **$Filter** è un'espressione booleana composta da sottoespressioni più semplici. Queste sottoespressioni vengono combinate utilizzando operatori logici, ad esempio, [ `and` `or` e `not` ](search-query-odata-logical-operators.md), operatori di confronto come [ `eq` ,, `lt` `gt` e così via](search-query-odata-comparison-operators.md), e operatori di raccolta quali [ `any` e `all` ](search-query-odata-collection-operators.md).
 
 I parametri **$Filter**, **$OrderBy**e **$Select** vengono esaminati in modo più dettagliato negli articoli seguenti:
 

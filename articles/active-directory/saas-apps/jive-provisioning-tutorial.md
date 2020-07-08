@@ -16,10 +16,9 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602eed65745eea1fd9096508c442a27ea79bcba9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057735"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Esercitazione: Configurare Jive per il provisioning utenti automatico
@@ -66,7 +65,7 @@ Come parte di questa procedura, specificare un token di sicurezza utente da rich
 
 1. Selezionare l'istanza di Jive e quindi la scheda **Provisioning**.
 
-1. Impostare la **modalità di provisioning** su **automatico**. 
+1. Impostare **Modalità di provisioning** su **Automatico**. 
 
     ![provisioning](./media/jive-provisioning-tutorial/provisioning.png)
 
@@ -80,13 +79,13 @@ Come parte di questa procedura, specificare un token di sicurezza utente da rich
       
       > [!NOTE]
       > L'URL del tenant di Jive è l'URL usato dall'organizzazione per accedere a Jive.  
-      > L'URL in genere ha il formato seguente: **www.\<organizzazione\>.jive.com**.          
+      > In genere, l'URL ha il formato seguente: **www. \<organization\> . jive.com**.          
 
 1. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app Jive.
 
 1. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo seguente.
 
-1. Fare clic su **Salva.**
+1. Fare clic su **Salva**.
 
 1. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to Jive** (Sincronizza utenti di Azure Active Directory in Jive).
 
@@ -94,7 +93,7 @@ Come parte di questa procedura, specificare un token di sicurezza utente da rich
 
 1. Per abilitare il servizio di provisioning di Azure AD per Jive, impostare **Stato del provisioning** su **Sì** nella sezione Impostazioni.
 
-1. Fare clic su **Salva.**
+1. Fare clic su **Salva**.
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Jive nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app Jive.
 
@@ -102,6 +101,6 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](tutorial-list.md)
+* [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 * [Configura accesso Single Sign-on](jive-tutorial.md)

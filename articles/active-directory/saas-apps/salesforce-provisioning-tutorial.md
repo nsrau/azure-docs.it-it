@@ -16,10 +16,9 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b8038896a11b65e835ce71f5fc34e85723cc91a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060522"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce per il provisioning utenti automatico
@@ -70,7 +69,7 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 3. Selezionare l'istanza di Salesforce e quindi la scheda **Provisioning**.
 
-4. Impostare la **modalità di provisioning** su **automatico**.
+4. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![provisioning](./media/salesforce-provisioning-tutorial/provisioning.png)
 
@@ -96,13 +95,13 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 10. Copiare il token, passare alla finestra di Azure AD e incollarlo nel campo **Token segreto**.
 
-11. L'**URL del tenant** deve essere immesso se l'istanza di Salesforce si trova in Salesforce Government Cloud. In caso contrario, è facoltativo. Immettere l'URL del tenant usando il formato "https://\<your-instance\>.my.salesforce.com" sostituendo \<your-instance\> con il nome dell'istanza di Salesforce.
+11. L'**URL del tenant** deve essere immesso se l'istanza di Salesforce si trova in Salesforce Government Cloud. In caso contrario, è facoltativo. Immettere l'URL del tenant usando il formato "https:// \<your-instance\> . My.salesforce.com", sostituendo \<your-instance\> con il nome dell'istanza di Salesforce.
 
 12. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app Salesforce.
 
 13. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo qui di seguito.
 
-14. Fare clic su **Salva.**  
+14. Fare clic su **Salva**.  
 
 15. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to Salesforce** (Sincronizza utenti di Azure Active Directory in Salesforce).
 
@@ -110,7 +109,7 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 17. Per abilitare il servizio di provisioning di Azure AD per Salesforce, impostare **Stato del provisioning** su **Attivato** nella sezione Impostazioni
 
-18. Fare clic su **Salva.**
+18. Fare clic su **Salva**.
 
 > [!NOTE]
 > Una volta eseguito il provisioning degli utenti nell'applicazione Salesforce, è necessario che l'amministratore configuri le impostazioni specifiche del linguaggio. Per ulteriori informazioni sulla configurazione della lingua, vedere [questo](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) articolo.
@@ -126,7 +125,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
     * L'accesso all'API Web è abilitato per l'utente.
 * Il servizio di provisioning Azure AD supporta il linguaggio di provisioning, le impostazioni locali e il fuso orario per un utente. Questi attributi si trovano nei mapping degli attributi predefiniti, ma non dispongono di un attributo di origine predefinito. Assicurarsi di selezionare l'attributo di origine predefinito e che l'attributo di origine sia nel formato previsto da SalesForce. Ad esempio, localeSidKey per la lingua inglese (Stati Uniti) è en_US. Esaminare le linee guida fornite [qui](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) per determinare il formato localeSidKey appropriato. I formati languageLocaleKey sono disponibili [qui](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5). Oltre a garantire la correttezza del formato, potrebbe essere necessario assicurarsi che la lingua sia abilitata per gli utenti, come descritto [qui](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5). 
 * **SalesforceLicenseLimitExceeded:** Impossibile creare l'utente nell'applicazione di destinazione perché non sono disponibili licenze per questo utente. Ottenere licenze aggiuntive per l'applicazione di destinazione o esaminare le assegnazioni degli utenti e la configurazione del mapping degli attributi per assicurarsi che gli utenti corretti vengano assegnati con gli attributi corretti.
-* **SalesforceDuplicateUserName:** Non è possibile eseguire il provisioning dell'utente perché contiene un Salesforce.com ' username ' duplicato in un altro tenant di Salesforce.com.In Salesforce.com i valori per l'attributo ' username ' devono essere univoci in tutti i tenant di Salesforce.com.Per impostazione predefinita, il userPrincipalName di un utente in Azure Active Directory diventa il nome utente in Salesforce.com.Sono disponibili due opzioni.Un'opzione consiste nell'individuare e rinominare l'utente con ' username ' duplicato nell'altro tenant Salesforce.com, se si amministra anche tale tenant.L'altra opzione consiste nel rimuovere l'accesso dall'utente Azure Active Directory al tenant Salesforce.com con cui è integrata la directory. Questa operazione verrà ritentata al successivo tentativo di sincronizzazione. 
+* **SalesforceDuplicateUserName:** Non è possibile eseguire il provisioning dell'utente perché contiene un Salesforce.com ' username ' duplicato in un altro tenant di Salesforce.com.In Salesforce.com i valori per l'attributo ' username ' devono essere univoci in tutti i tenant di Salesforce.com.Per impostazione predefinita, il userPrincipalName di un utente in Azure Active Directory diventa il nome utente in Salesforce.com.Sono disponibili due opzioni:Un'opzione consiste nell'individuare e rinominare l'utente con ' username ' duplicato nell'altro tenant Salesforce.com, se si amministra anche tale tenant.L'altra opzione consiste nel rimuovere l'accesso dall'utente Azure Active Directory al tenant Salesforce.com con cui è integrata la directory. Questa operazione verrà ritentata al successivo tentativo di sincronizzazione. 
 * **SalesforceRequiredFieldMissing:** Salesforce richiede che determinati attributi siano presenti nell'utente per creare o aggiornare correttamente l'utente. Nell'utente manca uno degli attributi obbligatori. Assicurarsi che gli attributi, ad esempio posta elettronica e alias, siano popolati in tutti gli utenti di cui si vuole eseguire il provisioning in Salesforce. È possibile definire l'ambito degli utenti che non dispongono di questi attributi usando [filtri di ambito basati su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 * Il mapping predefinito degli attributi per il provisioning in Salesforce include l'espressione SingleAppRoleAssignments per eseguire il mapping di appRoleAssignments in Azure AD a ProfileName in Salesforce. Assicurarsi che gli utenti non dispongano di più assegnazioni di ruolo app in Azure AD perché il mapping degli attributi supporta solo il provisioning di un ruolo. 
 * Salesforce richiede che gli aggiornamenti della posta elettronica vengano approvati manualmente prima di essere modificati. Di conseguenza, è possibile che vengano visualizzate più voci nei log di provisioning per aggiornare l'indirizzo di posta elettronica dell'utente (fino a quando la modifica della posta elettronica non è stata approvata).
@@ -134,6 +133,6 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](tutorial-list.md)
+* [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 * [Configura accesso Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

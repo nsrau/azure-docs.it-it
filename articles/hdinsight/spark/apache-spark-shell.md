@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162804"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Eseguire Apache Spark dalla shell Spark
@@ -21,7 +20,7 @@ Una shell [Apache Spark](https://spark.apache.org/) interattiva fornisce un ambi
 
 ## <a name="run-an-apache-spark-shell"></a>Eseguire una Shell Apache Spark
 
-1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster in uso e quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -59,7 +58,7 @@ Una shell [Apache Spark](https://spark.apache.org/) interattiva fornisce un ambi
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. Eseguire una query su un file CSV. Si noti che la lingua seguente `spark-shell` funziona `pyspark`per e.
+1. Eseguire una query su un file CSV. Si noti che la lingua seguente funziona per `spark-shell` e `pyspark` .
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
@@ -105,7 +104,7 @@ Per accedere all'istanza di SparkSession, immettere `spark`. Per accedere all'is
 
 ## <a name="important-shell-parameters"></a>Parametri importanti della shell
 
-Il comando della shell Spark`spark-shell`(, `pyspark`o) supporta molti parametri della riga di comando. Per visualizzare un elenco completo dei parametri, avviare la shell Spark con l'opzione `--help`. Alcuni di questi parametri possono essere applicati solo `spark-submit`a, che esegue il wrapping della shell di Spark.
+Il comando della shell Spark ( `spark-shell` , o `pyspark` ) supporta molti parametri della riga di comando. Per visualizzare un elenco completo dei parametri, avviare la shell Spark con l'opzione `--help`. Alcuni di questi parametri possono essere applicati solo a `spark-submit` , che esegue il wrapping della shell di Spark.
 
 | switch | description | esempio |
 | --- | --- | --- |

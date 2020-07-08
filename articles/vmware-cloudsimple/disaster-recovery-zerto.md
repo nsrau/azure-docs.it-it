@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77083140"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurare il cloud privato CloudSimple come sito di ripristino di emergenza per i carichi di lavoro VMware locali
@@ -51,7 +50,7 @@ Le sezioni seguenti descrivono come distribuire una soluzione di ripristino di e
 Per abilitare la replica virtuale Zerto dall'ambiente locale al cloud privato, completare i prerequisiti seguenti.
 
 1. [Configurare una connessione VPN da sito a sito tra la rete locale e il cloud privato CloudSimple](set-up-vpn.md).
-2. [Configurare la ricerca DNS in modo che i componenti di gestione del cloud privato vengano trasmessi ai server DNS del cloud privato](on-premises-dns-setup.md).  Per abilitare l'invio della ricerca DNS, creare una voce di area di invio nel server DNS locale per `*.cloudsimple.io` i server DNS CloudSimple.
+2. [Configurare la ricerca DNS in modo che i componenti di gestione del cloud privato vengano trasmessi ai server DNS del cloud privato](on-premises-dns-setup.md).  Per abilitare l'invio della ricerca DNS, creare una voce di area di invio nel server DNS locale per i `*.cloudsimple.io` server DNS CloudSimple.
 3. Configurare la ricerca DNS in modo che i componenti vCenter locali vengano trasmessi ai server DNS locali.  I server DNS devono essere raggiungibili dal cloud privato di CloudSimple tramite VPN da sito a sito. Per assistenza, inviare una [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), fornendo le informazioni seguenti.  
 
     * Nome di dominio DNS locale
@@ -93,6 +92,6 @@ Per abilitare la replica virtuale Zerto dall'ambiente locale al cloud privato, c
 6. Personalizzare le impostazioni di rete per le singole macchine virtuali, se necessario, e creare il VPG.
 7. Test del failover dopo il completamento della replica.
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Informazioni di riferimento
 
 [Documentazione di Zerto](https://www.zerto.com/myzerto/technical-documentation/)

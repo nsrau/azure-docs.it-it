@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77084047"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guida alla migrazione da ADAL a MSAL per Android
@@ -40,12 +39,12 @@ Supporto:
 L'API pubblica MSAL introduce importanti modifiche, tra cui:
 
 - Un nuovo modello per l'accesso ai token:
-  - ADAL fornisce l'accesso ai token tramite `AuthenticationContext`, che rappresenta il server. MSAL fornisce l'accesso ai token tramite `PublicClientApplication`, che rappresenta il client. Gli sviluppatori client non devono creare una nuova `PublicClientApplication` istanza per ogni autorità con cui devono interagire. È necessaria `PublicClientApplication` una sola configurazione.
+  - ADAL fornisce l'accesso ai token tramite `AuthenticationContext` , che rappresenta il server. MSAL fornisce l'accesso ai token tramite `PublicClientApplication` , che rappresenta il client. Gli sviluppatori client non devono creare una nuova `PublicClientApplication` istanza per ogni autorità con cui devono interagire. `PublicClientApplication`È necessaria una sola configurazione.
   - Supporto per la richiesta di token di accesso usando gli ambiti oltre agli identificatori di risorsa.
   - Supporto per il consenso incrementale. Gli sviluppatori possono richiedere gli ambiti quando l'utente accede a più funzionalità nell'app, incluse quelle non incluse durante la registrazione dell'app.
   - Le autorità non vengono più convalidate in fase di esecuzione. Lo sviluppatore dichiara invece un elenco di "autorità note" durante lo sviluppo.
 - Modifiche API token:
-  - In ADAL, `AcquireToken()` esegue prima di tutto una richiesta invisibile all'utente. In caso contrario, esegue una richiesta interattiva. Questo comportamento ha comportato la relyinging di `AcquireToken`alcuni sviluppatori solo in, il che ha comportato la richiesta di credenziali a volte da parte dell'utente. MSAL richiede che gli sviluppatori siano intenzionali quando l'utente riceve un prompt dell'interfaccia utente.
+  - In ADAL, `AcquireToken()` esegue prima di tutto una richiesta invisibile all'utente. In caso contrario, esegue una richiesta interattiva. Questo comportamento ha comportato la relyinging di alcuni sviluppatori solo in, il che ha comportato `AcquireToken` la richiesta di credenziali a volte da parte dell'utente. MSAL richiede che gli sviluppatori siano intenzionali quando l'utente riceve un prompt dell'interfaccia utente.
     - `AcquireTokenSilent`genera sempre una richiesta invisibile all'utente che ha esito positivo o negativo.
     - `AcquireToken`restituisce sempre una richiesta che richiede all'utente tramite l'interfaccia utente.
 - MSAL supporta l'accesso da un browser predefinito o da una visualizzazione Web incorporata:
@@ -83,10 +82,10 @@ Gli amministratori dell'organizzazione possono fornire il consenso alle autorizz
 
 ### <a name="authenticate-and-request-authorization-for-all-permissions-on-first-use"></a>Autenticare e richiedere l'autorizzazione per tutte le autorizzazioni al primo utilizzo
 
-Se attualmente si usa ADAL e non è necessario usare il consenso incrementale, il modo più semplice per iniziare a usare MSAL consiste nel effettuare `acquireToken` una richiesta usando il `AcquireTokenParameter` nuovo oggetto e impostando il valore dell'ID della risorsa.
+Se attualmente si usa ADAL e non è necessario usare il consenso incrementale, il modo più semplice per iniziare a usare MSAL consiste nel effettuare una `acquireToken` richiesta usando il nuovo `AcquireTokenParameter` oggetto e impostando il valore dell'ID della risorsa.
 
 > [!CAUTION]
-> Non è possibile impostare entrambi gli ambiti e un ID di risorsa. Se si tenta di impostare entrambi, verrà generato `IllegalArgumentException`un oggetto.
+> Non è possibile impostare entrambi gli ambiti e un ID di risorsa. Se si tenta di impostare entrambi, verrà generato un oggetto `IllegalArgumentException` .
 
  Questo comporterà lo stesso comportamento V1 usato. Tutte le autorizzazioni richieste nella registrazione dell'app vengono richieste dall'utente durante la prima interazione.
 
@@ -108,7 +107,7 @@ L'oggetto Parameters usato per eseguire la richiesta a MSAL supporta:
 
 ### <a name="constructing-publicclientapplication"></a>Creazione di PublicClientApplication
 
-Quando si usa MSAL, si crea un'istanza `PublicClientApplication`di. Questo oggetto modella l'identità dell'app e viene usato per eseguire richieste a una o più autorità. Con questo oggetto verrà configurata l'identità del client, l'URI di reindirizzamento, l'autorità predefinita, se usare il browser del dispositivo e la visualizzazione Web incorporata, il livello di log e altro ancora.
+Quando si usa MSAL, si crea un'istanza di `PublicClientApplication` . Questo oggetto modella l'identità dell'app e viene usato per eseguire richieste a una o più autorità. Con questo oggetto verrà configurata l'identità del client, l'URI di reindirizzamento, l'autorità predefinita, se usare il browser del dispositivo e la visualizzazione Web incorporata, il livello di log e altro ancora.
 
 È possibile configurare in modo dichiarativo questo oggetto con JSON, che è possibile fornire come file o archiviare come una risorsa all'interno dell'APK.
 
@@ -116,7 +115,7 @@ Sebbene questo oggetto non sia un singleton, internamente USA Shared `Executors`
 
 ### <a name="business-to-business"></a>Business to business
 
-In ADAL ogni organizzazione richiesta da token di accesso richiede un'istanza separata di `AuthenticationContext`. In MSAL non è più un requisito. È possibile specificare l'autorità da cui si desidera richiedere un token come parte della richiesta interattiva o invisibile all'utente.
+In ADAL ogni organizzazione richiesta da token di accesso richiede un'istanza separata di `AuthenticationContext` . In MSAL non è più un requisito. È possibile specificare l'autorità da cui si desidera richiedere un token come parte della richiesta interattiva o invisibile all'utente.
 
 ### <a name="migrate-from-authority-validation-to-known-authorities"></a>Eseguire la migrazione dalla convalida dell'autorità alle autorità note
 
@@ -125,7 +124,7 @@ MSAL non dispone di un flag per abilitare o disabilitare la convalida dell'autor
 > [!TIP]
 > Se si è un utente di Azure Business to consumer (B2C), questo significa che non è più necessario disabilitare la convalida dell'autorità. In alternativa, includere tutti i criteri di Azure AD B2C supportati come autorità nella configurazione di MSAL.
 
-Se si tenta di usare un'autorità che non è nota a Microsoft e non è inclusa nella configurazione, si otterrà `UnknownAuthorityException`.
+Se si tenta di usare un'autorità che non è nota a Microsoft e non è inclusa nella configurazione, si otterrà `UnknownAuthorityException` .
 
 ### <a name="logging"></a>Registrazione
 È ora possibile configurare la registrazione in modo dichiarativo come parte della configurazione, come indicato di seguito:
@@ -152,11 +151,11 @@ Sam funziona per Contoso.com, ma gestisce macchine virtuali di Azure appartenent
 
 L'aggiunta dell'account Contoso.com di Sam come membro di Fabrikam.com comporterebbe la creazione di un nuovo record in Fabrikam. com Azure Active Directory per Sam. Il record di Sam nel Azure Active Directory è noto come oggetto utente. In questo caso, tale oggetto utente punterà di nuovo all'oggetto utente di Sam in Contoso.com. L'oggetto utente Fabrikam di Sam è la rappresentazione locale di Sam e viene usato per archiviare le informazioni sull'account associato a Sam nel contesto di Fabrikam.com. In Contoso.com, il titolo di Sam è Senior DevOps Consultant. In Fabrikam, il titolo di Sam è un appaltatore-macchine virtuali. In Contoso.com, Sam non è responsabile, né autorizzato, per gestire le macchine virtuali. In Fabrikam.com, si tratta dell'unica funzione del processo. Tuttavia, Sam ha ancora un solo set di credenziali di cui tenere traccia, ovvero le credenziali emesse da Contoso.com.
 
-Una volta effettuata `acquireToken` una chiamata riuscita, verrà visualizzato un riferimento a un `IAccount` oggetto che può essere usato nelle richieste successive `acquireTokenSilent` .
+Una volta `acquireToken` effettuata una chiamata riuscita, verrà visualizzato un riferimento a un `IAccount` oggetto che può essere usato nelle richieste successive `acquireTokenSilent` .
 
 ### <a name="imultitenantaccount"></a>IMultiTenantAccount
 
-Se si dispone di un'app che accede a attestazioni relative a un account di ogni tenant in cui è rappresentato l'account, è possibile eseguire `IAccount` il cast `IMultiTenantAccount`degli oggetti a. Questa interfaccia fornisce una mappa di `ITenantProfiles`, con chiave in base all'ID tenant, che consente di accedere alle attestazioni che appartengono all'account in ognuno dei tenant da cui è stato richiesto un token rispetto all'account corrente.
+Se si dispone di un'app che accede a attestazioni relative a un account di ogni tenant in cui è rappresentato l'account, è possibile eseguire il cast `IAccount` degli oggetti a `IMultiTenantAccount` . Questa interfaccia fornisce una mappa di `ITenantProfiles` , con chiave in base all'ID tenant, che consente di accedere alle attestazioni che appartengono all'account in ognuno dei tenant da cui è stato richiesto un token rispetto all'account corrente.
 
 Attestazioni alla radice di `IAccount` e `IMultiTenantAccount` contengono sempre le attestazioni dal tenant principale. Se non è stata ancora effettuata una richiesta per un token all'interno del tenant principale, questa raccolta sarà vuota.
 
@@ -235,7 +234,7 @@ public interface SilentAuthenticationCallback {
 
 ## <a name="migrate-to-the-new-exceptions"></a>Eseguire la migrazione alle nuove eccezioni
 
-In ADAL è presente un tipo di eccezione, `AuthenticationException`, che include un metodo per il recupero del `ADALError` valore enum.
+In ADAL è presente un tipo di eccezione, `AuthenticationException` , che include un metodo per il recupero del `ADALError` valore enum.
 In MSAL è presente una gerarchia di eccezioni e ognuna ha un proprio set di codici di errore specifici associati.
 
 Elenco di eccezioni MSAL

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77087544"
 ---
 # <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Elemento Microsoft. ManagedIdentity. IdentitySelector dell'interfaccia utente
@@ -69,7 +68,7 @@ Le identità selezionate vengono visualizzate nella tabella. L'utente può aggiu
 
 ## <a name="remarks"></a>Osservazioni
 
-- Utilizzare **DefaultValue. systemAssignedIdentity** per impostare un valore iniziale per il controllo delle opzioni di identità assegnato dal sistema. Il valore predefinito è **off**. Sono consentiti i valori seguenti:
+- Utilizzare **defaultValue.systemAssignedIdentity** per impostare un valore iniziale per il controllo delle opzioni di identità assegnato dal sistema. Il valore predefinito è **off**. Sono consentiti i valori seguenti:
   - **On** : un'identità assegnata al sistema viene assegnata alla risorsa.
   - **Disattivato** : un'identità assegnata dal sistema non viene assegnata alla risorsa.
   - **Ononly** : un'identità assegnata a un sistema viene assegnata alla risorsa. Gli utenti non possono modificare questo valore durante la distribuzione.

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
 ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162209"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architettura di Apache Hadoop in Azure HDInsight
@@ -56,17 +55,17 @@ Per annullare l'eliminazione di un file dall'account di archiviazione, vedere:
 * [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../storage/blobs/storage-blob-soft-delete.md)
 * [Annulla l'eliminazione del BLOB](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
 
-### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage generazione 1
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
 
 [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
 
 ### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
 
-[Problemi noti con Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-known-issues.md)
+[Problemi noti di Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-known-issues.md)
 
 ## <a name="trash-purging"></a>Eliminazione del cestino
 
-La `fs.trash.interval` proprietà da **HDFS** > **Advanced Core-site** deve rimanere sul valore `0` predefinito perché non è necessario archiviare i dati nel file system locale. Questo valore non influisce sugli account di archiviazione remoti (WASB, ADLS GEN1, ABFS)
+La `fs.trash.interval` proprietà da **HDFS**  >  **Advanced Core-site** deve rimanere sul valore predefinito `0` perché non è necessario archiviare i dati nel file system locale. Questo valore non influisce sugli account di archiviazione remoti (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a3eed033ba6a1a6f9237116a53ec7751ae906fe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025351"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Garantire la disponibilità elevata dell'applicazione durante l'esecuzione in VMware in Azure
@@ -47,7 +46,7 @@ Un utente che crea un cloud privato può selezionare un'area di Azure e un grupp
 
 ## <a name="availability-zones"></a>Zone di disponibilità
 
-Le zone di disponibilità sono un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Le zone di disponibilità sono posizioni fisiche speciali all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Ogni area ha una zona di disponibilità. Per ulteriori informazioni, vedere [che cosa sono zone di disponibilità in Azure?](../availability-zones/az-overview.md).
+Le zone di disponibilità offrono una soluzione a disponibilità elevata che consente di proteggere le applicazioni e i dati da eventuali guasti del data center. Le zone di disponibilità sono posizioni fisiche speciali all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Ogni area ha una zona di disponibilità. Per ulteriori informazioni, vedere [che cosa sono zone di disponibilità in Azure?](../availability-zones/az-overview.md).
 
 ## <a name="redundant-azure-expressroute-circuits"></a>Circuiti ExpressRoute di Azure ridondanti
 

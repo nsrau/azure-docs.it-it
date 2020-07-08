@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77111775"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Usare un'identità gestita da Azure nelle attività ACR 
@@ -52,7 +51,7 @@ Se si prevede di usare solo un'identità assegnata dal sistema, ignorare questo 
 
 Quando si crea un'attività ACR, è possibile abilitare facoltativamente un'identità assegnata dall'utente, un'identità assegnata dal sistema o entrambe. Ad esempio, passare il `--assign-identity` parametro quando si esegue il comando [AZ ACR task create][az-acr-task-create] nell'interfaccia della riga di comando di Azure.
 
-Per abilitare un'identità assegnata dal sistema, `--assign-identity` passare senza valore o `assign-identity [system]`. Il comando di esempio seguente crea un'attività Linux da un repository GitHub pubblico che compila `hello-world` l'immagine e Abilita un'identità gestita assegnata dal sistema:
+Per abilitare un'identità assegnata dal sistema, passare senza `--assign-identity` valore o `assign-identity [system]` . Il comando di esempio seguente crea un'attività Linux da un repository GitHub pubblico che compila l' `hello-world` immagine e Abilita un'identità gestita assegnata dal sistema:
 
 ```azurecli
 az acr task create \
@@ -64,7 +63,7 @@ az acr task create \
     --assign-identity
 ```
 
-Per abilitare un'identità assegnata dall'utente, `--assign-identity` passare con un valore dell' *ID risorsa* dell'identità. Il comando di esempio seguente crea un'attività Linux da un repository GitHub pubblico che compila `hello-world` l'immagine e Abilita un'identità gestita assegnata dall'utente:
+Per abilitare un'identità assegnata dall'utente, passare `--assign-identity` con un valore dell' *ID risorsa* dell'identità. Il comando di esempio seguente crea un'attività Linux da un repository GitHub pubblico che compila l' `hello-world` immagine e Abilita un'identità gestita assegnata dall'utente:
 
 ```azurecli
 az acr task create \
@@ -105,7 +104,7 @@ az role assignment create \
 
 Se l'attività richiede credenziali per eseguire il pull o il push di immagini in un altro registro personalizzato o per accedere ad altre risorse, aggiungere le credenziali all'attività. Eseguire il comando [AZ ACR Task Credential Add][az-acr-task-credential-add] per aggiungere le credenziali e passare il `--use-identity` parametro per indicare che l'identità può accedere alle credenziali. 
 
-Ad esempio, per aggiungere le credenziali per un'identità assegnata dal sistema per l'autenticazione con il registro *targetregistry*contenitori di Azure `use-identity [system]`targetregistry, passare:
+Ad esempio, per aggiungere le credenziali per un'identità assegnata dal sistema per l'autenticazione con il registro contenitori di Azure *targetregistry*, passare `use-identity [system]` :
 
 ```azurecli
 az acr task credential add \
@@ -115,7 +114,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Per aggiungere le credenziali per un'identità assegnata dall'utente per l'autenticazione con il *targetregistry*del `use-identity` registro di sistema, passare con un valore dell' *ID client* dell'identità. Ad esempio:
+Per aggiungere le credenziali per un'identità assegnata dall'utente per l'autenticazione con il *targetregistry*del registro di sistema, passare `use-identity` con un valore dell' *ID client* dell'identità. Ad esempio:
 
 ```azurecli
 az acr task credential add \
@@ -125,7 +124,7 @@ az acr task credential add \
     --use-identity <clientID>
 ```
 
-È possibile ottenere l'ID client dell'identità eseguendo il comando [AZ Identity Show][az-identity-show] . L'ID client è un GUID del modulo `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+È possibile ottenere l'ID client dell'identità eseguendo il comando [AZ Identity Show][az-identity-show] . L'ID client è un GUID del modulo `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` .
 
 ### <a name="5-run-the-task"></a>5. eseguire l'attività
 

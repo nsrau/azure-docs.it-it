@@ -8,10 +8,9 @@ ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062150"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
@@ -44,7 +43,7 @@ Per altre informazioni sul funzionamento di Azure Analysis Services con il gatew
 * Accedere ad Azure con un account di Azure AD per lo stesso [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) della sottoscrizione in cui si sta registrando il gateway. Gli account Azure B2B (guest) non sono supportati per l'installazione e registrazione di un gateway.
 * Se le origini dati si trovano in un'istanza di Rete virtuale di Azure (VNet), è necessario configurare la proprietà del server [AlwaysUseGateway](analysis-services-vnet-gateway.md).
 
-## <a name="download"></a><a name="download"></a>Download
+## <a name="download"></a><a name="download"></a>Scarica
 
  [Scaricare il gateway](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
@@ -67,20 +66,20 @@ Per altre informazioni sul funzionamento di Azure Analysis Services con il gatew
    > [!NOTE]
    > Se si accede con un account di dominio, questo viene mappato all'account aziendale in Azure AD. L'account aziendale viene usato come amministratore del gateway.
 
-## <a name="register"></a><a name="register"></a>Register
+## <a name="register"></a><a name="register"></a>Registrazione
 
 Per creare una risorsa per il gateway in Azure, è necessario registrare l'istanza locale installata con il servizio cloud gateway. 
 
 1.  Selezionare l'opzione **Consente di registrare un nuovo gateway in questo computer**.
 
-    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Registrazione](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Digitare un nome e la chiave di ripristino per il gateway. Per impostazione predefinita, il gateway usa l'area predefinita della sottoscrizione. Se è necessario selezionare un'area diversa, selezionare **Cambia area**.
 
     > [!IMPORTANT]
     > Salvare la chiave di ripristino in un luogo sicuro. La chiave di ripristino è necessaria per poter acquisire la proprietà, eseguire la migrazione o ripristinare un gateway. 
 
-   ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Registrazione](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-an-azure-gateway-resource"></a><a name="create-resource"></a>Creare una risorsa per il gateway di Azure
@@ -125,7 +124,7 @@ Dopo aver installato e registrato il gateway, è necessario creare una risorsa d
 
     ![Connessione del server alla risorsa del gateway riuscita](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-È tutto. Se è necessario aprire le porte o risolvere eventuali problemi, vedere l'articolo su [Gateway dati locale](analysis-services-gateway.md).
+Questo è tutto. Se è necessario aprire le porte o risolvere eventuali problemi, vedere l'articolo su [Gateway dati locale](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

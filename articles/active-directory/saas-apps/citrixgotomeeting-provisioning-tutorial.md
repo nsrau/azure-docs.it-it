@@ -16,10 +16,9 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0ac06fc3018b4230cbf32712067c48400599082
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058264"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Esercitazione: Configurare GoToMeeting per il provisioning utenti automatico
@@ -63,7 +62,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 1. Selezionare l'istanza di GoToMeeting e quindi la scheda **Provisioning**.
 
-1. Impostare **Modalità di provisioning** su **Automatico**. 
+1. Impostare la modalità di **provisioning** su **automatico**. 
 
     ![provisioning](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
@@ -77,7 +76,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 1. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
 
-1. Fare clic su **Salva.**
+1. Fare clic su **Salva**.
 
 1. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to GoToMeeting** (Sincronizza utenti di Azure Active Directory in GoToMeeting).
 
@@ -85,7 +84,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 1. Per abilitare il servizio di provisioning di Azure AD per GoToMeeting, impostare **Stato del provisioning** su **Sì** nella sezione Impostazioni.
 
-1. Fare clic su **Salva.**
+1. Fare clic su **Salva**.
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a GoToMeeting nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app GoToMeeting.
 
@@ -93,7 +92,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](tutorial-list.md)
+* [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 * [Configura accesso Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 

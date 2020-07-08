@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086619"
 ---
 # <a name="persist-state-in-windows"></a>Mantieni stato in Windows
@@ -73,9 +72,9 @@ I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per ma
     1. Avviare Esplora file.
     1. Passare alla cartella a cui punta **mountpoint**.
     1. Fare clic con il pulsante destro del mouse su, quindi scegliere **Proprietà**.
-    1. Selezionare **sicurezza**.
+    1. Scegliere **Sicurezza**.
     1. In * nome gruppo o utente selezionare **modifica**.
-    1. Selezionare **Aggiungi**, immettere `Users`, selezionare **Controlla nomi**e quindi fare clic su **OK**.
+    1. Selezionare **Aggiungi**, immettere `Users` , selezionare **Controlla nomi**e quindi fare clic su **OK**.
     1. In *autorizzazioni per utenti*selezionare **modifica**, quindi fare clic su **OK**.
 1. Usare le **associazioni** per montare il volume e ridistribuire il modulo di griglia di eventi da portale di Azure
 
@@ -112,7 +111,7 @@ I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per ma
     ```
 
    >[!IMPORTANT]
-   >Non modificare la seconda parte del valore di binding. Punta a una posizione specifica nel modulo. Per il modulo di griglia di eventi in Windows, deve essere **C\\:\\app metadataDb**.
+   >Non modificare la seconda parte del valore di binding. Punta a una posizione specifica nel modulo. Per il modulo di griglia di eventi in Windows, deve essere **C: \\ app \\ metadataDb**.
 
 
     Ad esempio,
@@ -176,7 +175,7 @@ Anziché montare un volume, è possibile creare una directory nel sistema host e
     ```
 
     >[!IMPORTANT]
-    >Non modificare la seconda parte del valore di binding. Punta a una posizione specifica nel modulo. Per il modulo di griglia di eventi in Windows, deve essere **C:\\app\\metadataDb**.
+    >Non modificare la seconda parte del valore di binding. Punta a una posizione specifica nel modulo. Per il modulo di griglia di eventi in Windows, deve essere **C: \\ app \\ metadataDb**.
 
     Ad esempio,
 
@@ -220,7 +219,7 @@ Aspetti importanti da notare sugli eventi di salvataggio permanente:
 * La persistenza degli eventi è configurata in una sottoscrizione di eventi in fase di creazione e non può essere modificata dopo la creazione della sottoscrizione di eventi. Per abilitare o disabilitare la persistenza degli eventi, è necessario eliminare e ricreare la sottoscrizione di eventi.
 * Il mantenimento degli eventi è quasi sempre più lento rispetto alle operazioni di memoria, ma la differenza di velocità dipende in modo estremamente dalle caratteristiche dell'unità. Il compromesso tra velocità e affidabilità è inerente a tutti i sistemi di messaggistica, ma diventa notevolmente evidente su larga scala.
 
-Per abilitare la persistenza degli eventi in una sottoscrizione `persistencePolicy` di `true`eventi, impostare su:
+Per abilitare la persistenza degli eventi in una sottoscrizione di eventi, impostare su `persistencePolicy` `true` :
 
  ```json
         {

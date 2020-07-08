@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: 518d86fff04a23f1c1e63c44c53485b99f30637d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057839"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Esercitazione: configurare l'harness per il provisioning utenti automatico
@@ -41,7 +40,7 @@ Lo scenario descritto in questo articolo presuppone che siano già stati soddisf
 
 ## <a name="assign-users-to-harness"></a>Assegnazione di utenti a harness
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, decidere quali utenti o gruppi in Azure AD necessario accedere a harness. È quindi possibile assegnare tali utenti o gruppi a harness seguendo le istruzioni riportate in [assegnare un utente o un gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md).
 
@@ -49,11 +48,11 @@ Prima di configurare e abilitare il provisioning utenti automatico, decidere qua
 
 * È consigliabile assegnare un singolo utente Azure AD per eseguire il test della configurazione del provisioning utenti automatico. È possibile assegnare altri utenti o gruppi in un secondo momento.
 
-* Quando si assegna un utente a harness, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di **assegnazione** . Gli utenti con il ruolo di *accesso predefinito* vengono esclusi dal provisioning.
+* Quando si assegna un utente a harness, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di **assegnazione** . Gli utenti con il ruolo *Accesso predefinito* vengono esclusi dal provisioning.
 
 ## <a name="set-up-harness-for-provisioning"></a>Configurare l'harness per il provisioning
 
-1. Accedere alla console di [amministrazione di harness](https://app.harness.io/#/login), quindi passare a **Continuous Security** > **Access Management**.
+1. Accedere alla console di [amministrazione di harness](https://app.harness.io/#/login), quindi passare a **Continuous Security**  >  **Access Management**.
 
     ![Console di amministrazione harness](media/harness-provisioning-tutorial/admin.png)
 
@@ -86,7 +85,7 @@ Prima di configurare l'harness per il provisioning utenti automatico con Azure A
 
     ![Pulsante "Azure Active Directory"](common/select-azuread.png)
 
-1. Selezionare **applicazioni** > aziendali**tutte le applicazioni**.
+1. Selezionare **applicazioni aziendali**  >  **tutte le applicazioni**.
 
     ![Collegamento "Tutte le applicazioni"](common/enterprise-applications.png)
 
@@ -110,7 +109,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
 Per configurare il provisioning utenti automatico per harness in Azure AD, procedere come segue:
 
-1. Nella [portale di Azure](https://portal.azure.com)selezionare **applicazioni** > aziendali**tutte le applicazioni**.
+1. Nella [portale di Azure](https://portal.azure.com)selezionare **applicazioni aziendali**  >  **tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -130,7 +129,7 @@ Per configurare il provisioning utenti automatico per harness in Azure AD, proce
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. Nella casella **URL tenant** immettere **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`**.  
+   a. Nella casella **URL tenant** immettere **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** .  
    b. Nella casella **token segreto** immettere il valore del token di autenticazione scim salvato nel passaggio 6 della sezione "configurare l'harness per il provisioning".  
    c. Selezionare **Test connessione** per assicurarsi che Azure ad possa connettersi al cablaggio. Se la connessione non riesce, verificare che l'account harness disponga di autorizzazioni di *amministratore* , quindi riprovare.
 
@@ -166,7 +165,7 @@ Per configurare il provisioning utenti automatico per harness in Azure AD, proce
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-1. Quando si è pronti per il provisioning, selezionare **Salva**.
+1. Quando si è pronti per eseguire il provisioning, selezionare **Salva**.
 
     ![Pulsante Salva del provisioning](common/provisioning-configuration-save.png)
 
@@ -176,7 +175,7 @@ Per altre informazioni su come leggere i log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestire il provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

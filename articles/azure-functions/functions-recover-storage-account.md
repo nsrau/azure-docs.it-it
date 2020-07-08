@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063782"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Errore di risoluzione dei problemi: "runtime di Funzioni di Azure non è raggiungibile"
@@ -26,7 +25,7 @@ Nella parte restante di questo articolo vengono illustrate le cause seguenti di 
 
 Ogni app per le funzioni richiede un account di archiviazione per funzionare. Se tale account viene eliminato, la funzione non funzionerà.
 
-Per iniziare, cercare il nome dell'account di archiviazione nelle impostazioni dell'applicazione. `AzureWebJobsStorage` O `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contiene il nome dell'account di archiviazione incluso in una stringa di connessione. Per altre informazioni, vedere [riferimento alle impostazioni dell'app per funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
+Per iniziare, cercare il nome dell'account di archiviazione nelle impostazioni dell'applicazione. `AzureWebJobsStorage`O `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contiene il nome dell'account di archiviazione incluso in una stringa di connessione. Per altre informazioni, vedere [riferimento alle impostazioni dell'app per funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
 
 Cercare l'account di archiviazione nell'portale di Azure per verificare se esiste ancora. Se è stato eliminato, ricreare l'account di archiviazione e sostituire le stringhe di connessione di archiviazione. Il codice della funzione viene perso ed è necessario ridistribuirlo.
 
@@ -66,7 +65,7 @@ L'app per le funzioni deve essere in grado di accedere all'account di archiviazi
 
 Se è configurata una quota di esecuzione giornaliera, l'app per le funzioni è temporaneamente disabilitata, causando la mancata disponibilità di molti dei controlli del portale. 
 
-Per verificare la quota nella [portale di Azure](https://portal.azure.com), selezionare **funzionalità** > della piattaforma**app per le funzioni impostazioni** nell'app per le funzioni. Se si supera la **quota di utilizzo giornaliera** impostata, viene visualizzato il messaggio seguente:
+Per verificare la quota nella [portale di Azure](https://portal.azure.com), selezionare **funzionalità della piattaforma**  >  **app per le funzioni impostazioni** nell'app per le funzioni. Se si supera la **quota di utilizzo giornaliera** impostata, viene visualizzato il messaggio seguente:
 
   > "La app per le funzioni ha raggiunto la quota di utilizzo giornaliero ed è stata arrestata fino all'intervallo di 24 ore successivo."
 

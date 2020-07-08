@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 6ae423305b39c1335b5db1cd893d5f817be1929b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060865"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Esercitazione: configurare RFPIO per il provisioning utenti automatico
@@ -41,7 +40,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assigning-users-to-rfpio"></a>Assegnazione di utenti a RFPIO
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a RFPIO. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a RFPIO seguendo le istruzioni riportate qui:
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
@@ -50,7 +49,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 * È consigliabile assegnare un singolo Azure AD utente a RFPIO per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-* Quando si assegna un utente a RFPIO, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo di **accesso predefinito** vengono esclusi dal provisioning.
+* Quando si assegna un utente a RFPIO, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
 
 ## <a name="setup-rfpio-for-provisioning"></a>Configurare RFPIO per il provisioning
 
@@ -64,7 +63,7 @@ Prima di configurare RFPIO per il provisioning utenti automatico con Azure AD, s
     
     ![Amministratore di RFPIO](media/rfpio-provisioning-tutorial/aadtest.png)
 
-3.  Passare a **gestione** > utenti**scim****sicurezza** > .
+3.  Passare a **Gestione utenti**  >  **SECURITY**  >  **scim**sicurezza.
 
     ![RFPIO aggiungere SCIM](media/rfpio-provisioning-tutorial/scim.png)
 
@@ -86,7 +85,7 @@ Per configurare RFPIO per il provisioning utenti automatico con Azure AD, è nec
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -107,7 +106,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 ### <a name="to-configure-automatic-user-provisioning-for-rfpio-in-azure-ad"></a>Per configurare il provisioning utenti automatico per RFPIO in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -115,15 +114,15 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Collegamento di RFPIO nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **provisioning** .
+3. Selezionare la scheda **Provisioning**.
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare la **modalità di provisioning** su **automatico**.
+4. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` in **URL tenant**. Un valore di esempio `https://Azure-test1.rfpio.com/rfpserver/scim/v2`è. Immettere il valore del **token API scim** recuperato in precedenza nel **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a RFPIO. Se la connessione non riesce, verificare che l'account RFPIO disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` in **URL tenant**. Un valore di esempio è `https://Azure-test1.rfpio.com/rfpserver/scim/v2` . Immettere il valore del **token API scim** recuperato in precedenza nel **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a RFPIO. Se la connessione non riesce, verificare che l'account RFPIO disponga delle autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -131,7 +130,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a RFPIO**.
 
@@ -165,7 +164,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
