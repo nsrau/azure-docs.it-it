@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e75ad29c5b4a76de5317991995f132c6cb53bbe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6da21e9aa3b3b4cafec71a4d1881b9eb32b4dedc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70211836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356220"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>Risoluzione dei problemi: installazione di Azure AD Connect
 
-## <a name="recommended-steps"></a>**Procedure consigliate**
+## <a name="recommended-steps"></a>**Procedura consigliata**
 Individuare il [tipo di installazione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation) adatto alle proprie esigenze. Se si soddisfano i criteri per l'installazione rapida, è consigliabile procedere con questo tipo di installazione. L'installazione rapida offre opzioni minime per completare l'installazione, pertanto è meno probabile che si verifichino problemi. 
 
 Se tuttavia non si soddisfano i criteri per l'installazione rapida ed è necessario eseguire l'installazione personalizzata, di seguito vengono fornite alcune procedure consigliate che è possibile seguire per evitare problemi comuni. Per maggiore semplicità, vengono citate di seguito solo opzioni selettive:

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/02/2020
+ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa90775df4462328ed7c39e70c8dd1989248e308
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: 1cd18ae9fd3814765e77dad672909343d651913e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900521"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355506"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -56,7 +56,7 @@ L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nel
 
 L'ID dei provider di identità viene configurato nell'elemento del percorso utente **ClaimsExchange**. Per localizzare il titolo del provider di identità **ElementType** è impostato su `ClaimsProvider` mentre **StringId** è impostato sull'ID di `ClaimsExchange`.
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -75,7 +75,7 @@ L'ID dei provider di identità viene configurato nell'elemento del percorso uten
 
 L'esempio seguente localizza il provider di identità Facebook sull'arabo:
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">فيس بوك</LocalizedString>
 ```
 
@@ -219,7 +219,7 @@ Di seguito sono elencati gli ID relativi a un [controllo di visualizzazione Veri
 
 ### <a name="example"></a>Esempio
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
@@ -229,6 +229,31 @@ Di seguito sono elencati gli ID relativi a un [controllo di visualizzazione Veri
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_new_code">Send New Code</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_verify_code">Verify Code</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="verification_control_code_sent">Verification code has been sent. Please copy it to the input box below.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="restful-service-error-messages"></a>Messaggi di errore del servizio RESTful
+
+Di seguito sono riportati gli ID dei messaggi di errore relativi al [profilo tecnico del servizio RESTful](restful-technical-profile.md) :
+
+| ID | Valore predefinito |
+| -- | ------------- |
+|DefaultUserMessageIfRequestFailed | Non è stato possibile stabilire la connessione all'endpoint del servizio RESTful. URL del servizio RESTful:{0} |
+|UserMessageIfCircuitOpen | {0}URL del servizio RESTful:{1} |
+|UserMessageIfDnsResolutionFailed | Non è stato possibile risolvere il nome host dell'endpoint del servizio RESTful. URL del servizio RESTful:{0} |
+|UserMessageIfRequestTimeout | Non è stato possibile stabilire la connessione all'endpoint del servizio RESTful entro i secondi limite del timeout {0} . URL del servizio RESTful:{1} |
+
+
+### <a name="example"></a>Esempio
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="DefaultUserMessageIfRequestFailed">Failed to establish connection to restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCircuitOpen">Unable to connect to the restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfDnsResolutionFailed">Failed to resolve the hostname of the restful service endpoint.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfRequestTimeout">Failed to establish connection to restful service end point within timeout limit.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -248,7 +273,7 @@ Di seguito sono elencati gli ID relativi ai messaggi di errore di un [profilo te
 
 ### <a name="example"></a>Esempio
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
@@ -257,6 +282,33 @@ Di seguito sono elencati gli ID relativi ai messaggi di errore di un [profilo te
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfServerError">Cannot use MFA service, please try again later.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">Your request has been throttled, please try again later.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Wrong code entered, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="azure-ad-sspr"></a>Reimpostazione della password self-service di Azure AD
+
+Di seguito sono riportati gli ID per Azure AD messaggi di errore del [profilo tecnico SSPR](aad-sspr-technical-profile.md) :
+
+| ID | Valore predefinito |
+| -- | ------------- |
+|UserMessageIfChallengeExpired | Il codice è scaduto.|
+|UserMessageIfInternalError | Si è verificato un errore interno del servizio di posta elettronica. riprovare più tardi.|
+|UserMessageIfThrottled | Sono state inviate troppe richieste. riprovare più tardi.|
+|UserMessageIfVerificationFailedNoRetry | È stato superato il numero massimo di tentativi di verifica.|
+|UserMessageIfVerificationFailedRetryAllowed | La verifica non è riuscita. riprovare.|
+
+
+### <a name="example"></a>Esempio
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInternalError">We are having trouble verifying your email address. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">There have been too many requests to verify this email address. Please wait a while, then try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">That code is expired. Please request a new code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -275,7 +327,7 @@ Di seguito sono elencati gli ID relativi ai messaggi di errore di un [profilo te
 
 ### <a name="example"></a>Esempio
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
@@ -286,7 +338,6 @@ Di seguito sono elencati gli ID relativi ai messaggi di errore di un [profilo te
   </LocalizedStrings>
 </LocalizedResources>
 ```
-
 
 ## <a name="claims-transformations-error-messages"></a>Messaggi di errore relativi alle trasformazioni delle attestazioni
 
@@ -300,7 +351,7 @@ Di seguito sono elencati gli ID dei messaggi di errore relativi alle trasformazi
 
 ### <a name="example"></a>Esempio
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>

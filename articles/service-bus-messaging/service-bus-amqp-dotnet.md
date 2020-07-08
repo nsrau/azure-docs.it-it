@@ -1,25 +1,14 @@
 ---
 title: Bus di servizio di Azure con .NET e AMQP 1.0 | Microsoft Docs
 description: Questo articolo descrive come usare il bus di servizio di Azure da un'applicazione .NET usando AMQP (Advanced Messaging Queuing Protocol).
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 8157efac5ff1fc135659a84b4f4825ff36307480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297663"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340178"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usare il bus di servizio da .NET con AMQP 1.0
 
@@ -27,7 +16,7 @@ Il supporto per AMQP 1.0 è disponibile nel pacchetto Service Bus versione 2.1 o
 
 ## <a name="configure-net-applications-to-use-amqp-10"></a>Configurare le applicazioni .NET per l'uso di AMQP 1.0
 
-Per impostazione predefinita, la libreria client .NET del bus di servizio comunica con il bus di servizio tramite un protocollo dedicato basato su SOAP. Per usare AMQP 1.0 anziché il protocollo predefinito, è necessaria una configurazione esplicita nella stringa di connessione del bus di servizio, come illustrato nella sezione successiva. A parte questa modifica, il codice dell'applicazione rimane invariato quando si usa AMQP 1.0.
+Per impostazione predefinita, la libreria client .NET del bus di servizio comunica con il servizio del bus di servizio usando il protocollo AMQP. È anche possibile specificare in modo esplicito AMQP come tipo di trasporto, come illustrato nella sezione seguente. 
 
 Nella versione corrente alcune funzionalità API non sono supportate se si usa AMQP. Queste funzionalità non supportate sono elencate nella sezione [Differenze di comportamento](#behavioral-differences). Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si utilizza AMQP.
 
@@ -79,7 +68,7 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | Datetime |timestamp |Valore AMQP |
 | Guid |uuid |Valore AMQP |
 | byte[] |BINARY |Valore AMQP |
-| stringa |stringa |Valore AMQP |
+| string |string |Valore AMQP |
 | System.Collections.IList |list |Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. |
 | System.Array |array |Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. |
 | System.Collections.IDictionary |map |Valore AMQP: la raccolta può includere solo gli elementi definiti in questa tabella. Nota: sono supportate solo chiavi di tipo String. |

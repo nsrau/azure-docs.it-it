@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af0f68ca9520c1715463212da80aaabed48f8269
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128688"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338212"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti
 
@@ -103,13 +103,13 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 - Assicurarsi che le impostazioni a livello di sito consentano l'accesso Guest (le stesse opzioni selezionate come indicato in precedenza). Per ulteriori informazioni, vedere [attivare o disattivare la condivisione esterna per un sito](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
 
-### <a name="review-your-office-365-group-sharing-settings"></a>Esaminare le impostazioni di condivisione del gruppo Office 365
+### <a name="review-your-microsoft-365-group-sharing-settings"></a>Esaminare le impostazioni di condivisione del gruppo di Microsoft 365
 
-- Se si desidera includere i gruppi di Office 365 nei pacchetti di accesso per gli utenti esterni, assicurarsi che l'impostazione Consenti **agli utenti di aggiungere nuovi Guest all'organizzazione** sia impostata **su on** per consentire l'accesso guest. Per ulteriori informazioni, vedere [Manage Guest Access to Office 365 groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Se si desidera includere Microsoft 365 gruppi nei pacchetti di accesso per gli utenti esterni, assicurarsi che l'impostazione Consenti **agli utenti di aggiungere nuovi Guest all'organizzazione** sia impostata **su on** per consentire l'accesso guest. Per ulteriori informazioni, vedere [gestire l'accesso Guest ai gruppi di Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
-- Se si vuole che gli utenti esterni siano in grado di accedere al sito di SharePoint Online e alle risorse associate a un gruppo di Office 365, assicurarsi di attivare la condivisione esterna di SharePoint Online. Per altre informazioni, vedere [attivare o disattivare la condivisione esterna](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Se si desidera che gli utenti esterni siano in grado di accedere al sito di SharePoint Online e alle risorse associate a un gruppo Microsoft 365, assicurarsi di attivare la condivisione esterna di SharePoint Online. Per altre informazioni, vedere [attivare o disattivare la condivisione esterna](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Per informazioni su come impostare i criteri Guest per i gruppi di Office 365 a livello di directory in PowerShell, vedere [esempio: configurare i criteri Guest per i gruppi a livello di directory](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Per informazioni su come impostare i criteri Guest per Microsoft 365 gruppi a livello di directory in PowerShell, vedere [esempio: configurare i criteri Guest per i gruppi a livello di directory](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Esaminare le impostazioni di condivisione dei team
 
@@ -125,7 +125,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 1. Nel menu a sinistra, nella sezione **gestione dei diritti** , fare clic su **Impostazioni**.
 
-1. Fare clic su **Edit**.
+1. Fare clic su **Modifica**.
 
     ![Impostazioni per gestire il ciclo di vita degli utenti esterni](./media/entitlement-management-external-users/settings-external-users.png)
 

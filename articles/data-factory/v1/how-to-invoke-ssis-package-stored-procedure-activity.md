@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ea86c4670a8eb6dc5e2133ed01045e8aada0f707
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab3b5c2ba892205f87235f7f0ce009719016622d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75438794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322129"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chiamare un pacchetto SSIS usando l'attività stored procedure in Azure Data Factory
 Questo articolo descrive come chiamare un pacchetto SSIS da una pipeline di Azure Data Factory usando un'attività stored procedure. 
@@ -29,7 +29,7 @@ Questo articolo descrive come chiamare un pacchetto SSIS da una pipeline di Azur
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="azure-sql-database"></a>database SQL di Azure 
-La procedura dettagliata riportata in questo articolo usa un database SQL di Azure che ospita il catalogo SSIS. È anche possibile usare un'istanza gestita di database SQL di Azure.
+La procedura dettagliata in questo articolo usa il database SQL di Azure. È anche possibile usare un Istanza gestita SQL di Azure.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Creare un runtime di integrazione SSIS di Azure
 Se non è disponibile, creare un runtime di integrazione SSIS di Azure seguendo le istruzioni dettagliate riportate in [Esercitazione: Distribuire pacchetti SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Non è possibile usare la versione 1 di Data Factory per creare un runtime di integrazione Azure-SSIS. 
@@ -82,7 +82,7 @@ Tenere presente quanto segue:
 * Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro dei ruoli **collaboratore** o **proprietario** oppure un **amministratore** della sottoscrizione di Azure.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Creare un servizio collegato Database SQL di Azure
-Creare un servizio collegato per collegare il database SQL di Azure che ospita il catalogo SSIS alla data factory. Data Factory usa le informazioni in questo servizio collegato per connettersi al database SSISDB ed esegue una stored procedure per l'esecuzione di un pacchetto SSIS. 
+Creare un servizio collegato per collegare il database nel database SQL di Azure che ospita il catalogo SSIS al data factory. Data Factory usa le informazioni in questo servizio collegato per connettersi al database SSISDB ed esegue una stored procedure per l'esecuzione di un pacchetto SSIS. 
 
 1. Creare un file JSON denominato **AzureSqlDatabaseLinkedService.json** nella cartella **C:\ADF\RunSSISPackage** con il contenuto seguente: 
 
@@ -190,7 +190,7 @@ In questo passaggio viene creata una pipeline con un'attività stored procedure.
 
     È possibile continuare a eseguire questo cmdlet fino a quando la sezione non passa allo stato **Pronto** oppure **Operazione non riuscita**. 
 
-    È possibile eseguire la query seguente rispetto al database SSISDB nel server SQL di Azure per verificare che il pacchetto sia stato eseguito. 
+    È possibile eseguire la query seguente sul database SSISDB nel server per verificare che il pacchetto sia stato eseguito. 
 
     ```sql
     select * from catalog.executions

@@ -1,23 +1,14 @@
 ---
 title: "Bus di servizio di Azure: eseguire la migrazione a un'autorizzazione di firma di accesso condiviso"
 description: Informazioni sulla migrazione dal servizio di controllo di accesso Azure Active Directory all'autorizzazione di firma di accesso condiviso.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: 532bbaf0b983b2d4310780686777cbe895afebe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 9ef6eda205af150a20236da68e1b6b1dbf91059e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76774613"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340115"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Bus di servizio: eseguire la migrazione dal servizio di controllo di accesso Azure Active Directory all'autorizzazione di firma di accesso condiviso
 

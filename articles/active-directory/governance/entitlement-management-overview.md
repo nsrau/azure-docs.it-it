@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44c8a46c844b9bc4b92702323df18addb207dd6c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 2f05fa9f9f31011f04aee0d2bedbcd4c4dad5d39
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338200"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
@@ -67,13 +67,13 @@ La gestione entitlement introduce in Azure AD il concetto di *pacchetto di acces
  Ecco i tipi di risorse per cui è possibile gestire l'accesso degli utenti con la gestione entitlement:
 
 - Appartenenza a gruppi di sicurezza di Azure AD
-- Appartenenza a gruppi e team di Office 365
+- Appartenenza di gruppi di Microsoft 365 e team
 - Assegnazione ad applicazioni aziendali di Azure AD, tra cui applicazioni SaaS e con integrazioni personalizzate che supportano la federazione/Single Sign-On e/o il provisioning
 - Appartenenza a siti di SharePoint Online
 
-È anche possibile controllare l'accesso ad altre risorse che si basano sui gruppi di sicurezza di Azure AD o su Gruppi di Office 365.  Ad esempio:
+È anche possibile controllare l'accesso ad altre risorse che si basano su Azure AD gruppi di sicurezza o gruppi di Microsoft 365.  Ad esempio:
 
-- È possibile concedere agli utenti le licenze per Microsoft Office 365 usando un gruppo di sicurezza di Azure AD in un pacchetto di accesso e configurando [licenze basate sui gruppi](../users-groups-roles/licensing-groups-assign.md) per tale gruppo
+- È possibile concedere agli utenti le licenze per Microsoft 365 usando un gruppo di sicurezza Azure AD in un pacchetto di accesso e configurando le [licenze basate sui gruppi](../users-groups-roles/licensing-groups-assign.md) per quel gruppo
 - È possibile concedere agli utenti l'accesso per gestire le risorse di Azure usando un gruppo di sicurezza di Azure AD in un pacchetto di e creando un'[assegnazione di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) per tale gruppo
 
 ## <a name="how-do-i-control-who-gets-access"></a>Come si controlla chi ottiene l'accesso?

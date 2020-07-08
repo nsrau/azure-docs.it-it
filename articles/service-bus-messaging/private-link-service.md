@@ -1,18 +1,16 @@
 ---
 title: Integrare il bus di servizio di Azure con il servizio Collegamento privato di Azure
 description: Informazioni su come integrare il bus di servizio di Azure con il servizio Collegamento privato di Azure
-services: service-bus-messaging
 author: spelluru
 ms.author: spelluru
-ms.date: 03/13/2020
-ms.service: service-bus-messaging
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a78375a3acf5c56d9a59c0f4b6113a063f8c431a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340433"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link"></a>Integrare il bus di servizio di Azure con Collegamento privato di Azure
 

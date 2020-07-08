@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e70348ba1638057fdab579c1f2799a0f5aa77a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341366"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -153,59 +153,59 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 
 È possibile acquistare più di un circuito ExpressRoute per area geopolitica. Un maggior numero di connessioni offre vantaggi significativi in termini di disponibilità elevata, grazie alla ridondanza geografica. Se si hanno più circuiti ExpressRoute, si riceverà lo stesso set di prefissi annunciati da Microsoft nei percorsi per il peering Microsoft e per il peering pubblico. Questo significa che saranno disponibili più percorsi dalla propria rete a Microsoft. In questo caso, all'interno della rete potrebbero essere prese decisioni di routing non ottimali, che possono a propria volta determinare esperienze di connettività non ottimali per diversi servizi. Per prendere decisioni di routing appropriate e offrire un servizio di [routing ottimale agli utenti](expressroute-optimize-routing.md), è possibile usare i valori della community.
 
-| **Area di Microsoft Azure** | **Community BGP regionale** | **Community BGP di archiviazione** | **Community BGP SQL** | **Cosmos DB community BGP** |
-| --- | --- | --- | --- | --- |
+| **Area di Microsoft Azure** | **Community BGP regionale** | **Community BGP di archiviazione** | **Community BGP SQL** | **Cosmos DB community BGP** | **Community BGP di backup** |
+| --- | --- | --- | --- | --- | --- |
 | **America del Nord** | |
-| Stati Uniti orientali | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
-| Stati Uniti orientali 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
-| Stati Uniti occidentali | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
-| Stati Uniti occidentali 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
-| Stati Uniti centro-occidentali | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
-| Stati Uniti centro-settentrionali | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
-| Stati Uniti centro-meridionali | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
-| Stati Uniti centrali | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
-| Canada centrale | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
-| Canada orientale | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
+| Stati Uniti orientali | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 | 12076:55004 |
+| Stati Uniti orientali 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 | 12076:55005 |
+| Stati Uniti occidentali | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
+| Stati Uniti occidentali 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
+| Stati Uniti centro-occidentali | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 | 12076:55027 |
+| Stati Uniti centro-settentrionali | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 | 12076:55007 |
+| Stati Uniti centro-meridionali | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 | 12076:55008 |
+| Stati Uniti centrali | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 | 12076:55009 |
+| Canada centrale | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 | 12076:55020 |
+| Canada orientale | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 | 12076:55021 |
 | **America del Sud** | |
-| Brasile meridionale | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
+| Brasile meridionale | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 | 12076:55014 |
 | **Europa** | |
-| Europa settentrionale | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
-| Europa occidentale | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
-| Regno Unito meridionale | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
-| Regno Unito occidentale | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
-| Francia centrale | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
-| Francia meridionale | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
-| Svizzera settentrionale | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
-| Svizzera occidentale | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
-| Germania settentrionale | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
-| Germania centro-occidentale | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
-| Norvegia orientale | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
-| Norvegia occidentale | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
+| Europa settentrionale | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 | 12076:55003 |
+| Europa occidentale | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 | 12076:55002 |
+| Regno Unito meridionale | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 | 12076:55024 |
+| Regno Unito occidentale | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 | 12076:55025 |
+| Francia centrale | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 | 12076:55030 |
+| Francia meridionale | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 | 12076:55031 |
+| Svizzera settentrionale | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 12076:55038 |
+| Svizzera occidentale | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 12076:55039 | 
+| Germania settentrionale | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 12076:55040 | 
+| Germania centro-occidentale | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 12076:55041 | 
+| Norvegia orientale | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 12076:55042 | 
+| Norvegia occidentale | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 12076:55043 | 
 | **Asia Pacifico** | |
-| Asia orientale | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
-| Asia sud-orientale | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
+| Asia orientale | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 | 12076:55010 |
+| Asia sud-orientale | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
 | **Giappone** | |
-| Giappone orientale | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
-| Giappone occidentale | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
+| Giappone orientale | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
+| Giappone occidentale | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
 | **Australia** | |
-| Australia orientale | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
-| Australia sud-orientale | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
+| Australia orientale | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 | 12076:55015 |
+| Australia sud-orientale | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
 | **Australia Government** | |
-| Australia centrale | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
-| Australia centrale 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |
+| Australia centrale | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 | 12076:55032 |
+| Australia centrale 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 | 12076:55033 |
 | **India** | |
-| India meridionale | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 |
-| India occidentale | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
-| India centrale | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
-| **Corea** | |
-| Corea meridionale | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
-| Corea centrale | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
+| India meridionale | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 | 12076:55019 |
+| India occidentale | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 | 12076:55018 |
+| India centrale | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 | 12076:55017 |
+| **Corea del Sud** | |
+| Corea meridionale | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 | 12076:55028 |
+| Corea centrale | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 | 12076:55029 |
 | **Sud Africa**| |
-| Sudafrica settentrionale | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| Sudafrica occidentale | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| Sudafrica settentrionale | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 | 12076:55034 |
+| Sudafrica occidentale | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 | 12076:55035 |
 | **Emirati Arabi Uniti**| |
-| Emirati Arabi Uniti settentrionali | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
-| Emirati Arabi Uniti centrali | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
+| Emirati Arabi Uniti settentrionali | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 | 12076:55036 |
+| Emirati Arabi Uniti centrali | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 | 12076:55037 |
 
 
 Tutte le route annunciate da Microsoft verranno contrassegnate con il valore della community appropriato. 
@@ -218,19 +218,21 @@ Tutte le route annunciate da Microsoft verranno contrassegnate con il valore del
 ### <a name="service-to-bgp-community-value"></a>Valore della community da servizio a BGP
 Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP. Per un elenco completo dei valori più recenti, è possibile eseguire il cmdlet "Get-AzBgpServiceCommunity".
 
-| **Servizio** | **Valore della community BGP** |
+| **Service** | **Valore della community BGP** |
 | --- | --- |
-| Exchange Online * * | 12076:5010 |
-| SharePoint Online * * | 12076:5020 |
-| Skype for business online * * | 12076:5030 |
-| CRM Online * * * |12076:5040 |
-| Servizi globali di Azure* | 12076:5050 |
+| Exchange Online\*\* | 12076:5010 |
+| SharePoint Online\*\* | 12076:5020 |
+| Skype for business online\*\*/\*\*\* | 12076:5030 |
+| CRM Online\*\*\*\* |12076:5040 |
+| Servizi globali di Azure\* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
+| Azure Resource Manager |12076:5070 |
 | Altri servizi online di Office 365 * * | 12076:5100 |
 
-* I servizi globali di Azure includono al momento solo Azure DevOps. \
-* * Autorizzazione richiesta da Microsoft, vedere [configurare i filtri di route per il peering Microsoft](how-to-routefilter-portal.md)\
-CRM Online supporta Dynamics v 8.2 e versioni precedenti. Per le versioni successive, selezionare la community regionale per le distribuzioni di Dynamics.
+\*I servizi globali di Azure includono al momento solo Azure DevOps. \
+\*\*Autorizzazione richiesta da Microsoft, vedere [configurare i filtri di route per il peering Microsoft](how-to-routefilter-portal.md)\
+\*\*\*Questa community pubblica anche le route necessarie per i servizi Microsoft teams. \
+\*\*\*\*CRM Online supporta Dynamics v 8.2 e versioni precedenti. Per le versioni successive, selezionare la community regionale per le distribuzioni di Dynamics.
 
 > [!NOTE]
 > Microsoft non riconosce eventuali valori di BGP Community impostati sulle route pubblicate su Microsoft.
@@ -241,7 +243,7 @@ CRM Online supporta Dynamics v 8.2 e versioni precedenti. Per le versioni succes
 
 | **Area di Azure per cloud nazionali**| **Valore della community BGP** |
 | --- | --- |
-| **Enti pubblici Stati Uniti** |  |
+| **US Government** |  |
 | US Gov Arizona | 12076:51106 |
 | US Gov Iowa | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
@@ -252,7 +254,7 @@ CRM Online supporta Dynamics v 8.2 e versioni precedenti. Per le versioni succes
 
 | **Servizio dei cloud nazionali** | **Valore della community BGP** |
 | --- | --- |
-| **Enti pubblici Stati Uniti** |  |
+| **US Government** |  |
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype for Business Online |12076:5130 |

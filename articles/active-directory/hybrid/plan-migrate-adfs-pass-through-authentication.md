@@ -7,24 +7,27 @@ manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 05/31/2019
+ms.topic: conceptual
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13a5fc216abc890c19ce3a2d75335431fe2a6799
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 626bc12b01428b90de1cbafe28bd7493e7ed1743
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79528643"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356645"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Eseguire la migrazione dalla federazione all'autenticazione pass-through per Azure Active Directory
 
 Questo articolo descrive come spostare i domini dell'organizzazione da Active Directory Federation Services (AD FS) all'autenticazione pass-through.
 
 > [!NOTE]
-> Per modificare il metodo di autenticazione è necessario pianificare, testare e potenzialmente inattività. L'implementazione di gestione [temporanea](how-to-connect-staged-rollout.md) fornisce un modo alternativo per testare e migrare gradualmente dalla Federazione all'autenticazione cloud usando l'autenticazione pass-through.
+> Per cambiare metodo di autenticazione sono necessarie attività di pianificazione, test e possibilmente tempo di inattività. L'implementazione di gestione [temporanea](how-to-connect-staged-rollout.md) fornisce un modo alternativo per testare e migrare gradualmente dalla Federazione all'autenticazione cloud usando l'autenticazione pass-through.
+> 
+> Se si prevede di usare l'implementazione di gestione temporanea, è necessario ricordare di disattivare le funzionalità di implementazione di gestione temporanea dopo aver terminato il ritaglio.  Per altre informazioni, vedere [eseguire la migrazione all'autenticazione cloud usando l'implementazione di gestione temporanea](how-to-connect-staged-rollout.md)
+
 
 ## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>Prerequisiti per la migrazione all'autenticazione pass-through
 
@@ -223,7 +226,7 @@ Ora che la soluzione è stata pianificata, è possibile implementarla. L'impleme
 
 Per consentire agli utenti di usufruire dell'accesso Single Sign-On facile, è necessario aggiungere un URL di Azure AD alle impostazioni dell'area Intranet degli utenti usando Criteri di gruppo in Active Directory.
 
-Per impostazione predefinita, i Web browser calcolano automaticamente l'area corretta, Internet o Intranet, in base a un URL. Ad esempio, **http:\/\/contoso/** esegue il mapping all'area Intranet e **http\/\/: Intranet.contoso.com** esegue il mapping all'area Internet (perché l'URL contiene un punto). I browser inviano ticket Kerberos a un endpoint del cloud, come l'URL di Azure AD, solo se l'URL in questione viene esplicitamente aggiunto all'area Intranet del browser.
+Per impostazione predefinita, i Web browser calcolano automaticamente l'area corretta, Internet o Intranet, in base a un URL. Ad esempio, **http: \/ \/ Contoso/** esegue il mapping all'area intranet e **http: \/ \/ Intranet.contoso.com** esegue il mapping all'area Internet (perché l'URL contiene un punto). I browser inviano ticket Kerberos a un endpoint del cloud, come l'URL di Azure AD, solo se l'URL in questione viene esplicitamente aggiunto all'area Intranet del browser.
 
 Completare questi passaggi per [implementare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start) le modifiche necessarie nei dispositivi.
 
@@ -269,7 +272,7 @@ Prima di tutto, cambiare il metodo di accesso:
 
 Distribuire quindi i metodi di autenticazione aggiuntivi:
 
-1. Nella portale di Azure passare a **Azure Active Directory** > **Azure ad Connect**, quindi selezionare **autenticazione pass-through**.
+1. Nella portale di Azure passare a **Azure Active Directory**  >  **Azure ad Connect**, quindi selezionare **autenticazione pass-through**.
 2. Nella pagina **Autenticazione pass-through** selezionare il pulsante **Scarica**.
 3. Nella pagina **Scaricare l'agente** selezionare **Accetta le condizioni e scarica**.
 
@@ -331,7 +334,7 @@ Prima di tutto, abilitare l'autenticazione pass-through:
 
 Distribuire quindi gli agenti di autenticazione aggiuntivi:
 
-1. Nella portale di Azure passare a **Azure Active Directory** > **Azure ad Connect**, quindi selezionare **autenticazione pass-through**.
+1. Nella portale di Azure passare a **Azure Active Directory**  >  **Azure ad Connect**, quindi selezionare **autenticazione pass-through**.
 2. Nella pagina **Autenticazione pass-through** selezionare il pulsante **Scarica**. 
 3. Nella pagina **Scaricare l'agente** selezionare **Accetta le condizioni e scarica**.
  
@@ -359,7 +362,7 @@ Completare la conversione usando il modulo Azure AD PowerShell:
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
    ```
  
-3. Nel portale di Azure ad selezionare **Azure Active Directory** > **Azure ad Connect**.
+3. Nel portale di Azure ad selezionare **Azure Active Directory**  >  **Azure ad Connect**.
 4. Dopo aver convertito tutti i domini federati, verificare le impostazioni di questi campi:
    * **Federazione** deve essere impostato su **Disabilitato**.
    * **Accesso Single Sign-On facile** deve essere impostato su **Abilitato**.
@@ -378,7 +381,7 @@ Quando il tenant usava l'identità federata, gli utenti venivano reindirizzati d
 Per testare l'autenticazione pass-through:
 
 1. Aprire Internet Explorer in modalità InPrivate per evitare che la funzionalità di accesso Single Sign-On facile esegua automaticamente l'accesso.
-2. Passare alla pagina di accesso di Office 365 ([https://portal.office.com](https://portal.office.com/)).
+2. Passare alla pagina di accesso di Office 365 ( [https://portal.office.com](https://portal.office.com/) ).
 3. Immettere l'UPN di un utente e quindi fare clic su **Avanti**. Assicurarsi di immettere l'UPN di un utente ibrido che è stato sincronizzato dall'istanza di Active Directory locale e che in precedenza ha usato l'autenticazione federata. Verrà visualizzata una pagina in cui immettere il nome utente e la password:
 
    ![Screenshot che mostra la pagina di accesso in cui immettere un nome utente](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)

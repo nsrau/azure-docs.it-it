@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffa6f2fbdcde41d81e268779c3a0586bd8310792
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16a9c8ddfbc2c2a45067080dc68a759de226591b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339573"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creare e gestire un catalogo di risorse in Azure AD gestione dei diritti
 
@@ -53,11 +53,11 @@ Un catalogo è un contenitore di risorse e pacchetti di accesso. Si crea un cata
 
 ### <a name="creating-a-catalog-programmatically"></a>Creazione di un catalogo a livello di codice
 
-È anche possibile creare un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell' `EntitlementManagement.ReadWrite.All` autorizzazione delegata può chiamare l'API per [creare un accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+È anche possibile creare un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [creare un accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
 
 ## <a name="add-resources-to-a-catalog"></a>Aggiungere risorse a un catalogo
 
-Per includere le risorse in un pacchetto di accesso, le risorse devono esistere in un catalogo. I tipi di risorse che è possibile aggiungere sono i gruppi, le applicazioni e i siti di SharePoint Online. I gruppi possono essere gruppi di Office 365 creati dal cloud o gruppi di sicurezza Azure AD creati dal cloud. Le applicazioni possono essere Azure AD applicazioni aziendali, incluse le applicazioni SaaS e le applicazioni federate a Azure AD. I siti possono essere siti di SharePoint Online o raccolte di siti di SharePoint Online.
+Per includere le risorse in un pacchetto di accesso, le risorse devono esistere in un catalogo. I tipi di risorse che è possibile aggiungere sono i gruppi, le applicazioni e i siti di SharePoint Online. I gruppi possono essere gruppi di Microsoft 365 creati dal cloud o gruppi di sicurezza Azure AD creati dal cloud. Le applicazioni possono essere Azure AD applicazioni aziendali, incluse le applicazioni SaaS e le applicazioni federate a Azure AD. I siti possono essere siti di SharePoint Online o raccolte di siti di SharePoint Online.
 
 **Ruolo prerequisiti:** Vedere i [ruoli necessari per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
@@ -83,7 +83,7 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Aggiunta di una risorsa a un catalogo a livello di codice
 
-È anche possibile aggiungere una risorsa a un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato o un catalogo e un proprietario di risorse con un'applicazione che dispone dell' `EntitlementManagement.ReadWrite.All` autorizzazione delegata può chiamare l'API per [creare un accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
+È anche possibile aggiungere una risorsa a un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato o un catalogo e un proprietario di risorse con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [creare un accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
 
 ## <a name="remove-resources-from-a-catalog"></a>Rimuovere risorse da un catalogo
 
@@ -155,7 +155,7 @@ Per assegnare un utente al ruolo di proprietario del catalogo, attenersi alla pr
 
 ### <a name="deleting-a-catalog-programmatically"></a>Eliminazione di un catalogo a livello di codice
 
-È anche possibile eliminare un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell' `EntitlementManagement.ReadWrite.All` autorizzazione delegata può chiamare l'API per [eliminare un accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+È anche possibile eliminare un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l'API per [eliminare un accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 901f2b56bc045dc9a9837dd18b2e6ce7169aa3b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 510787b395388f0dc895b9646aee8208013f3b42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76964227"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322029"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Risolvere i problemi comuni della condivisione dati di Azure 
 
@@ -64,7 +64,7 @@ Per la condivisione basata su SQL sono necessarie autorizzazioni aggiuntive. Per
 
 "L'utente x non esiste nel database SQL"
 
-Se questo errore viene visualizzato quando si aggiunge un set di dati da un'origine basata su SQL, è possibile che non sia stato creato un utente per l'identità gestita di condivisione dati di Azure nel SQL Server.  Per risolvere il problema, eseguire lo script seguente:
+Se questo errore viene visualizzato quando si aggiunge un set di dati da un'origine basata su SQL, è possibile che non sia stato creato un utente per l'identità gestita di condivisione dati di Azure nel database SQL.  Per risolvere il problema, eseguire lo script seguente:
 
 ```sql
     create user "<share_acct_name>" from external provider; 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 811feb26e492efeb505f43202bee484d3edfb8a5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 391851927d03a557483afa2656e315b28c613956
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658597"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322634"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastruttura di sicurezza: Gestione della configurazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -288,7 +288,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | SQL Azure, locale |
 | **Attributes (Attributi)**              | N/D, versione SQL: V12 |
-| **Riferimenti**              | [Come configurare un firewall per il database SQL di Azure](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configurare Windows Firewall per l'accesso al motore di database](https://msdn.microsoft.com/library/ms175043) |
+| **Riferimenti**              | [Come configurare un firewall del database SQL di Azure](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [configurare un Windows Firewall per l'accesso motore di database](https://msdn.microsoft.com/library/ms175043) |
 | **Passaggi** | I sistemi firewall contribuiscono a impedire l'accesso non autorizzato alle risorse del computer. Per accedere a un'istanza del motore di database di SQL Server tramite un firewall, è necessario configurare il firewall sul computer che esegue SQL Server per consentire l'accesso. |
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato nell'API Web ASP.NET

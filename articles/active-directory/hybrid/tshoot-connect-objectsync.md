@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73d4239dd34f2a64aa7b3edbf88bad4348e01291
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81407009"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356203"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione degli oggetti con la sincronizzazione di Azure AD Connect
 Questo articolo include la procedura per la risoluzione dei problemi relativi alla sincronizzazione degli oggetti tramite l'attività di risoluzione dei problemi. Per informazioni sulla risoluzione dei problemi in Connect di Azure Active Directory (Azure AD), guardare [questo breve video](https://aka.ms/AADCTSVideo).
@@ -43,7 +43,7 @@ Per eseguire l'attività di risoluzione dei problemi nella procedura guidata, se
 I parametri di input seguenti sono necessari per l'attività di risoluzione dei problemi:
 1.  **Nome distinto oggetto**: si tratta del nome distinto dell'oggetto che necessita di risoluzione dei problemi.
 2.  **Nome connettore di Active Directory**: si tratta del nome della foresta di AD in cui si trova l'oggetto indicato in precedenza.
-3.  Credenziali di amministratore globale delle ![credenziali di amministratore globale del tenant Azure ad](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Credenziali ![ di amministratore globale delle credenziali di amministratore globale del tenant Azure ad](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Informazioni sui risultati dell'attività di risoluzione dei problemi
 L'attività di risoluzione dei problemi effettua i controlli seguenti:

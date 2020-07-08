@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: b935355cce36a6e26b168db286ab40248f8f0f68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79471728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322312"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoraggio di metriche e log in front-end di Azure
 
 Con l'uso di Azure front door è possibile monitorare le risorse nei modi seguenti:
 
-- **Metriche**. Il front-end di Azure dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
+- **Metrics** (Metriche). Il front-end di Azure dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
 - **Log**. I log attività e di diagnostica consentono di salvare o utilizzare le prestazioni, l'accesso e altri dati da una risorsa a scopo di monitoraggio.
 
 ### <a name="metrics"></a>Metriche
@@ -81,18 +81,19 @@ La porta anteriore fornisce attualmente log di diagnostica (in batch ogni ora). 
 | ClientPort | Porta IP del client che ha effettuato la richiesta. |
 | HttpMethod | Metodo HTTP usato dalla richiesta. |
 | HttpStatusCode | Codice di stato HTTP restituito dal proxy. |
-| HttpStatusDetails | Stato risultante della richiesta. Il significato di questo valore stringa è reperibile in una tabella di riferimento sullo stato. |
+| HttpStatusDetails | Stato risultante nella richiesta. Il significato di questo valore stringa è disponibile in una tabella di riferimento sullo stato. |
 | HttpVersion | Tipo della richiesta o della connessione. |
 | POP | Nome breve del perimetro in cui è stata sbarcata la richiesta. |
-| RequestBytes | Dimensioni del messaggio di richiesta HTTP in byte, incluse le intestazioni della richiesta e il corpo della richiesta. |
+| RequestBytes | Dimensioni del messaggio di richiesta HTTP in byte, inclusi intestazioni e corpo della richiesta. |
 | RequestUri | URI della richiesta ricevuta. |
 | ResponseBytes | Byte inviati dal server back-end come risposta.  |
 | RoutingRuleName | Nome della regola di routing a cui corrisponde la richiesta. |
-| SecurityProtocol | Versione del protocollo TLS/SSL utilizzata dalla richiesta o null se non è presente alcuna crittografia. |
+| RulesEngineMatchNames | Nomi delle regole corrispondenti alla richiesta. |
+| SecurityProtocol | Versione del protocollo TLS/SSL usata dalla richiesta o Null se non è stato usato alcun tipo di crittografia. |
 | SentToOriginShield | Campo booleano che rappresenta se si è verificato un mancato riscontro nella cache sul primo ambiente e la richiesta è stata inviata alla cache regionale. Ignorare questo campo se la regola di routing è un reindirizzamento o quando la memorizzazione nella cache non è abilitata. |
-| TimeTaken | Periodo di tempo impiegato dall'azione, in millisecondi. |
-| TrackingReference | Stringa di riferimento univoca che identifica una richiesta servita dalla porta anteriore, inviata anche come intestazione X-Azure-Ref al client. Obbligatorio per la ricerca dei dettagli nei log di accesso per una richiesta specifica. |
-| UserAgent | Tipo di browser utilizzato dal client. |
+| TimeTaken | Durata dell'azione, in millisecondi. |
+| TrackingReference | Stringa di riferimento univoca che identifica una richiesta fornita da Frontdoor, inviata anche come intestazione X-Azure-Ref al client. Obbligatoria per la ricerca di dettagli nei log di accesso per una richiesta specifica. |
+| UserAgent | Tipo di browser usato dal client. |
 
 **Nota:** Per diverse configurazioni di routing e comportamenti del traffico, alcuni dei campi come backendHostname, cacheStatus, sentToOriginShield e POP Field possono rispondere con valori diversi. La tabella seguente illustra i diversi valori. questi campi avranno per diversi scenari:
 

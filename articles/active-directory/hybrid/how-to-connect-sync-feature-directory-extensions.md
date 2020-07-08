@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80438319a6337dd6f28f9bdca8a428829b6cb0b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3afec7c31488529af9ba15100c914899a0d1d808
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77917914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357461"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Servizio di sincronizzazione Azure AD Connect: estensioni della directory
 È possibile usare le estensioni della directory per estendere lo schema in Azure Active Directory (Azure AD) con attributi personalizzati dall'istanza di Active Directory locale. Questa funzionalità consente di compilare app line-of-business che utilizzano attributi che continuano a essere gestiti in locale. Questi attributi possono essere utilizzati tramite le [estensioni](https://docs.microsoft.com/graph/extensibility-overview
@@ -60,14 +60,14 @@ Durante l'installazione di Azure AD Connect viene registrata un'applicazione in 
 
 Assicurarsi di selezionare **tutte le applicazioni** per visualizzare questa app.
 
-Gli attributi sono preceduti dall' **estensione \_{ApplicationId}\_**. ApplicationId ha lo stesso valore per tutti gli attributi nel tenant del Azure AD. Questo valore sarà necessario per tutti gli altri scenari in questo argomento.
+Gli attributi sono preceduti dall' **estensione \_ {ApplicationID} \_ **. ApplicationId ha lo stesso valore per tutti gli attributi nel tenant del Azure AD. Questo valore sarà necessario per tutti gli altri scenari in questo argomento.
 
 ## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Visualizzazione degli attributi tramite l'API Microsoft Graph
 
 Questi attributi sono ora disponibili tramite l'API di Microsoft Graph, usando [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> Nell'API Microsoft Graph è necessario richiedere gli attributi da restituire. Selezionare in modo esplicito gli attributi seguenti `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`:.
+> Nell'API Microsoft Graph è necessario richiedere gli attributi da restituire. Selezionare in modo esplicito gli attributi seguenti: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` .
 >
 > Per altre informazioni, vedere [Microsoft Graph: Usare parametri di query](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5585f0cd04dca4145f0322db9d625e35372b24b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82632fb104438e1b5279b1525fbce2b6d8e7ceeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78298344"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356883"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronizzazione delle identità e resilienza degli attributi duplicati
 La resilienza degli attributi duplicati è una funzionalità di Azure Active Directory che eliminerà i conflitti causati dai conflitti **userPrincipalName** e SMTP **ProxyAddress** durante l'esecuzione di uno degli strumenti di sincronizzazione Microsoft.
@@ -40,7 +40,7 @@ Se viene eseguito un tentativo di effettuare il provisioning di un nuovo oggetto
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportamento con resilienza degli attributi duplicati
 Invece di causare un errore di provisioning o di aggiornamento di un oggetto a causa di un attributo duplicato, Azure Active Directory "mette in quarantena" l'attributo duplicato che violerebbe il vincolo di univocità. Se questo attributo è obbligatorio per il provisioning, ad esempio UserPrincipalName, il servizio assegna un valore segnaposto. Il formato di questi valori temporanei è  
-_** \@ \<OriginalPrefix>+\<4DigitNumber>InitialTenantDomain>. onmicrosoft.com. \<**_
+_** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.com**_.
 
 Il processo di resilienza degli attributi gestisce solo i valori UPN e SMTP **ProxyAddress** .
 
@@ -116,7 +116,7 @@ Per eseguire una ricerca di stringhe estesa, usare il flag **-SearchString** . P
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>Una quantità limitata o tutti
-1. **MaxResults \<int>** può essere usato per limitare la query a un numero specifico di valori.
+1. **MaxResults \<Int>** può essere usato per limitare la query a un numero di valori specifico.
 2. **All** può essere usato per garantire il recupero di tutti i risultati nel caso sia presente un numero di errori elevato.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
@@ -147,9 +147,9 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
 1. Per gli oggetti con configurazioni di attributo specifiche continuano a verificarsi errori di esportazione, diversamente dagli attributi duplicati che vengono messi in quarantena.  
    Ad esempio:
    
-    a. Il nuovo utente viene creato in Active Directory con un UPN di **\@Joe contoso.com** e ProxyAddress **SMTP\@: Joe contoso.com**
+    a. Il nuovo utente viene creato in Active Directory con un UPN di **joe \@ contoso.com** e ProxyAddress **SMTP: Joe \@ contoso.com**
    
-    b. Le proprietà di questo oggetto sono in conflitto con un gruppo esistente, dove ProxyAddress è **SMTP\@: Joe contoso.com**.
+    b. Le proprietà di questo oggetto sono in conflitto con un gruppo esistente, dove ProxyAddress è **SMTP: Joe \@ contoso.com**.
    
     c. Al momento dell'esportazione viene generato un errore per un **conflitto di ProxyAddress** , invece di mettere in quarantena gli attributi in conflitto. L'operazione viene ritentata durante ogni ciclo di sincronizzazione successivo, come avveniva prima dell'abilitazione della funzionalità di resilienza.
 2. Se in locale vengono creati due gruppi con lo stesso indirizzo SMTP, uno non riesce a effettuare il provisioning al primo tentativo, con un errore duplicato **ProxyAddress** standard. Il valore duplicato viene tuttavia messo correttamente in quarantena al successivo ciclo di sincronizzazione.
@@ -159,23 +159,23 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
 1. Il messaggio di errore dettagliato per due oggetti in un set di conflitti UPN è lo stesso. Ciò indica che per entrambi l'UPN è stato modificato o messo in quarantena, mentre in realtà i dati sono stati modificati solo per uno di essi.
 2. Il messaggio di errore dettagliato per un conflitto di UPN mostra il valore displayName errato per un utente il cui UPN è stato modificato o messo in quarantena. Ad esempio:
    
-    a. **L'utente A esegue la** sincronizzazione prima con **UPN =\@utente contoso.com**.
+    a. **L'utente A esegue la** sincronizzazione prima con **UPN = utente \@ contoso.com**.
    
-    b. Si è tentato di sincronizzare l' **utente B** con **UPN\@= user contoso.com**.
+    b. Si è tentato di sincronizzare l' **utente B** con **UPN = user \@ contoso.com**.
    
-    c. **Utente B** UPN viene modificato in **User1234\@contoso.onmicrosoft.com** e **l'\@utente contoso.com** viene aggiunto a **tipo dirsyncprovisioningerrors causati**.
+    c. **Utente B** UPN viene modificato in **User1234 \@ contoso.onmicrosoft.com** e l' **utente \@ contoso.com** viene aggiunto a **tipo dirsyncprovisioningerrors causati**.
    
-    d. Il messaggio di errore per l' **utente B** deve indicare che l' **utente A** dispone già di **\@contoso.com utente** come UPN, ma Visualizza il DisplayName dell' **utente b** .
+    d. Il messaggio di errore per l' **utente B** deve indicare che l' **utente A** dispone già di ** \@ contoso.com utente** come UPN, ma Visualizza il DisplayName dell' **utente b** .
 
 **Segnalazione dell'errore di sincronizzazione delle identità**:
 
 Il collegamento per i *passaggi per risolvere il problema* non è corretto:  
     ![Utenti attivi](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Active users")  
 
-Deve puntare a [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
+Deve puntare a [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency) .
 
 ## <a name="see-also"></a>Vedere anche
-* [Sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)
 * [Identificare gli errori di sincronizzazione della directory in Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

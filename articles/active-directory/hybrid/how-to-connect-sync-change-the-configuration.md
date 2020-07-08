@@ -7,17 +7,17 @@ manager: daveba
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9fb43061b42a43755564f825fa01e65dacad3e5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357869"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
 Questo articolo illustra in dettaglio come apportare modifiche alla configurazione predefinita nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Include i passaggi per alcuni scenari comuni. Con queste informazioni si potranno apportare semplici modifiche alla propria configurazione in base alle regole di business.
@@ -243,7 +243,7 @@ Non tutti gli attributi di Azure AD vengono importati in locale nello spazio di 
  5. Fare clic su **OK** per salvare.
 ![Aggiungere l'attributo di origine allo schema di AD Connector locale](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Passaggio 3: Aggiungere UserType allo schema di Azure AD Connector
+### <a name="step-3-add-the-usertype-attribute-to-the-azure-ad-connector-schema"></a>Passaggio 3: aggiungere l'attributo UserType allo schema del connettore Azure AD
 Per impostazione predefinita, l'attributo UserType non viene importato nello spazio di Azure AD Connect. Per aggiungere l'attributo UserType all'elenco degli attributi importati:
 
  1. Passare alla scheda **Connettori** in Synchronization Service Manager.
@@ -340,7 +340,7 @@ In generale, un ciclo di sincronizzazione completo è necessario perché sono st
 
 1. Eseguire un'**importazione completa** in **AD Connector locale**:
 
-   1. Passare alla scheda **Operazioni** in Synchronization Service Manager.
+   1. Passare alla scheda **Connettori** in Synchronization Service Manager.
    2. Fare clic con il pulsante destro del mouse su **AD Connector locale** e selezionare **Esegui**.
    3. Nella finestra di dialogo popup selezionare **Importazione completa** e fare clic su **OK**.
    4. Attendere il completamento dell'operazione.

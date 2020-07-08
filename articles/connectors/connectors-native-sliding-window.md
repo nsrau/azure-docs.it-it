@@ -3,19 +3,19 @@ title: Pianificare le attività per gestire i dati contigui
 description: Creare ed eseguire attività ricorrenti che gestiscono dati contigui usando finestre scorrevoli in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 103805fbf395dc120acc96fbcee273abcf14939d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004568"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322101"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Pianificare ed eseguire attività per dati contigui usando il trigger finestra temporale scorrevole in app per la logica di Azure
 
-Per eseguire regolarmente attività, processi o processi che devono gestire i dati in blocchi contigui, è possibile avviare il flusso di lavoro dell'app per la logica con il trigger della **finestra temporale scorrevole** . È possibile impostare una data e un'ora, nonché un fuso orario per l'avvio del flusso di lavoro e una ricorrenza per la ripetizione del flusso di lavoro. Se vengono perse ricorrenze per qualsiasi motivo, questo trigger elabora le ricorrenze perse. Ad esempio, quando si sincronizzano i dati tra il database e l'archiviazione di backup, utilizzare il trigger finestra temporale scorrevole in modo che i dati vengano sincronizzati senza interruzioni. Per altre informazioni sui trigger di pianificazione e sulle azioni predefinite, vedere [pianificare ed eseguire attività ricorrenti automatizzate, attività e flussi di lavoro con app per la logica di Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Per eseguire regolarmente attività, processi o processi che devono gestire i dati in blocchi contigui, è possibile avviare il flusso di lavoro dell'app per la logica con il trigger della **finestra temporale scorrevole** . È possibile impostare una data e un'ora, nonché un fuso orario per l'avvio del flusso di lavoro e una ricorrenza per la ripetizione del flusso di lavoro. Se per qualsiasi motivo le ricorrenze non vengono rilevate, ad esempio a causa di rotture o flussi di lavoro disabilitati, questo trigger elabora le ricorrenze perse. Ad esempio, quando si sincronizzano i dati tra il database e l'archiviazione di backup, utilizzare il trigger finestra temporale scorrevole in modo che i dati vengano sincronizzati senza interruzioni. Per altre informazioni sui trigger di pianificazione e sulle azioni predefinite, vedere [pianificare ed eseguire attività ricorrenti automatizzate, attività e flussi di lavoro con app per la logica di Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Ecco alcuni modelli supportati da questo trigger:
 
@@ -32,15 +32,15 @@ Per le differenze tra questo trigger e il trigger di ricorrenza o per altre info
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per ottenere un account Azure gratuito](https://azure.microsoft.com/free/).
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Informazioni di base sulle app per la [logica](../logic-apps/logic-apps-overview.md). Se non si ha familiarità con le app per la logica, scoprire [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conoscenze di base di [app per la logica](../logic-apps/logic-apps-overview.md). Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-sliding-window-trigger"></a>Aggiungi trigger finestra temporale scorrevole
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota.
 
-1. Quando viene visualizzata la finestra di progettazione dell'app per la logica, `sliding window` nella casella di ricerca immettere come filtro. Dall'elenco trigger selezionare il trigger **finestra temporale scorrevole** come primo passaggio del flusso di lavoro dell'app per la logica.
+1. Quando viene visualizzata la finestra di progettazione dell'app per la logica, nella casella di ricerca immettere `sliding window` come filtro. Dall'elenco trigger selezionare il trigger **finestra temporale scorrevole** come primo passaggio del flusso di lavoro dell'app per la logica.
 
    ![Selezionare il trigger finestra temporale scorrevole](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
 
@@ -50,7 +50,7 @@ Per le differenze tra questo trigger e il trigger di ricorrenza o per altre info
 
    | Proprietà | Nome JSON | Obbligatoria | Type | Descrizione |
    |----------|----------|-----------|------|-------------|
-   | **Intervallo** | `interval` | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi <br>-Settimana: 1-71 settimane <br>- Giorno: 1-500 giorni <br>- Ora: 1-12.000 ore <br>- Minuto: 1-72.000 minuti <br>- Secondo: 1-9.999.999 secondi <p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. |
+   | **Interval** | `interval` | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi <br>-Settimana: 1-71 settimane <br>- Giorno: 1-500 giorni <br>- Ora: 1-12.000 ore <br>- Minuto: 1-72.000 minuti <br>- Secondo: 1-9.999.999 secondi <p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. |
    | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** |
    ||||||
 
@@ -58,9 +58,9 @@ Per le differenze tra questo trigger e il trigger di ricorrenza o per altre info
 
    Per altre opzioni di ricorrenza, aprire l'elenco **Aggiungi nuovo parametro** . Tutte le opzioni selezionate vengono visualizzate nel trigger dopo la selezione.
 
-   | Proprietà | Obbligatoria | Nome JSON | Tipo | Descrizione |
+   | Proprietà | Obbligatoria | Nome JSON | Type | Descrizione |
    |----------|----------|-----------|------|-------------|
-   | **Ritardo  ** | No | delay | string | Durata per ritardare ogni ricorrenza utilizzando la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
+   | **Ritardo** | No | delay | string | Durata per ritardare ogni ricorrenza utilizzando la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
    | **Fuso orario** | No | timeZone | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. |
    | **Ora di inizio** | No | startTime | string | Specificare una data e un'ora di inizio nel formato seguente: <p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Quindi, ad esempio, se si desidera il 18 settembre 2017 alle 2:00 PM, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio ora solare Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** l'ora di inizio deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le ricorrenze avanzate il trigger non viene attivato prima dell'ora di inizio. [*In quali modi posso usare la data e l'ora di inizio?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||

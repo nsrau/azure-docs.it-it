@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 723411191d0990583d039a0fc9651437480807b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983263"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357410"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Lo scopo di questo argomento è illustrare come configurare l'attributo per la posizione dei dati preferita in Azure Active Directory (Azure AD) Connect Sync. Quando un utente usa funzionalità multigeo in Office 365, questo attributo viene usato per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -50,7 +50,7 @@ Le aree geografiche di Office 365 disponibili per Multi-Geo Capabilities sono:
 | India | IND |
 | Giappone | JPN |
 | Corea del Sud | KOR |
-| Sud Africa | ZAF |
+| Sudafrica | ZAF |
 | Svizzera | CHE |
 | Emirati Arabi Uniti | ARE |
 | Regno Unito | GBR |
@@ -138,16 +138,16 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 1. Avviare **Synchronization Rules Editor** (Editor delle regole di sincronizzazione) passando a **START** > **Synchronization Rules Editor** (Editor delle regole di sincronizzazione).
 2. Impostare il filtro di ricerca **Direzione** su **In arrivo**.
 3. Per creare una nuova regola in entrata, fare clic sul pulsante **Aggiungi nuova regola**.
-4. Nella scheda **Descrizione** specificare la configurazione seguente:
+4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | valore | Dettagli |
+    | Attributo | Valore | Dettagli |
     | --- | --- | --- |
     | Nome | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
     | Descrizione | *Fornire una descrizione personalizzata* |  |
     | Connected System | *Selezionare l'istanza di Active Directory Connector locale* |  |
     | Connected System Object Type | **Utente** |  |
-    | Metaverse Object Type | **Persona** |  |
-    | Tipo di collegamento | **Aggiungi** |  |
+    | Metaverse Object Type | **Person** |  |
+    | Tipo di collegamento | **Join** |  |
     | Precedenza | *Scegliere un numero compreso tra 1 e 99* | I numeri compresi tra 1 e 99 sono riservati alle regole di sincronizzazione personalizzate. Non scegliere un valore usato da un'altra regola di sincronizzazione. |
 
 5. Lasciare vuoto il **filtro di ambito** per includere tutti gli oggetti. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
@@ -167,16 +167,16 @@ La regola di sincronizzazione in uscita consente il flusso del valore dell'attri
 1. Passare all' **Editor delle regole di sincronizzazione**.
 2. Impostare il filtro di ricerca **Direzione** da **In uscita**.
 3. Selezionare **Aggiungi nuova regola**.
-4. Nella scheda **Descrizione** specificare la configurazione seguente:
+4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | valore | Dettagli |
+    | Attributo | Valore | Dettagli |
     | ----- | ------ | --- |
     | Nome | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
-    | Descrizione | *Fornire una descrizione* ||
+    | Descrizione | *Inserire una descrizione* ||
     | Connected System | *Selezionare il connettore di Azure AD* ||
     | Connected System Object Type | **Utente** ||
-    | Metaverse Object Type | **Persona** ||
-    | Tipo di collegamento | **Aggiungi** ||
+    | Metaverse Object Type | **Person** ||
+    | Tipo di collegamento | **Join** ||
     | Precedenza | *Scegliere un numero compreso tra 1 e 99* | I numeri compresi tra 1 e 99 sono riservati alle regole di sincronizzazione personalizzate. Non scegliere un valore usato da un'altra regola di sincronizzazione. |
 
 5. Passare alla scheda **filtro ambito** e aggiungere un singolo gruppo di filtri di ambito con due clausole:
@@ -188,7 +188,7 @@ La regola di sincronizzazione in uscita consente il flusso del valore dell'attri
 
     L'ambito del filtro determina a quali oggetti di Azure AD viene applicata la regola di sincronizzazione in uscita. In questo esempio viene usato lo stesso filtro di ambito dalla regola di sincronizzazione "out to Azure AD – User Identity" OOB (out-of-box). Impedisce che la regola di sincronizzazione venga applicata agli oggetti **utente** non sincronizzati da un Active Directory locale. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
 
-6. Passare alla scheda **Trasformazione** e implementare la regola di trasformazione seguente:
+6. Passare alla scheda **trasformazione** e implementare la regola di trasformazione seguente:
 
     | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
@@ -277,5 +277,5 @@ Altre informazioni sul modello di configurazione nel motore di sincronizzazione:
 
 Argomenti generali:
 
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

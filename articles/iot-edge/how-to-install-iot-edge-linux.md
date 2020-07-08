@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 06/22/2020
 ms.author: kgremban
-ms.openlocfilehash: 947f224426b3a70c39cbf94ee888c5c353b3993b
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d73f3a37bb084533733b27b49ac171747cee814c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321887"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installare il runtime Azure IoT Edge in sistemi Linux basati su Debian
 
@@ -25,7 +25,7 @@ Questo articolo elenca i passaggi per installare il runtime di Azure IoT Edge in
 > [!NOTE]
 > I pacchetti disponibili nei repository di software Linux sono soggetti alle condizioni di licenza indicate in ogni pacchetto (/usr/share/doc/*nome-pacchetto*). Prima di usare il pacchetto, leggere le condizioni di licenza. L'installazione e l'uso del pacchetto costituiscono accettazione di tali condizioni. Se non si accettano le condizioni di licenza, non usare il pacchetto.
 
-## <a name="install-the-latest-runtime-version"></a>Installare la versione più recente del runtime
+## <a name="install-iot-edge-and-container-runtimes"></a>Installare IoT Edge e runtime del contenitore
 
 Usare le sezioni seguenti per installare la versione più recente di Azure IoT Edge Runtime nel dispositivo.
 
@@ -62,14 +62,14 @@ Copiare l'elenco generato.
    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
    ```
 
-Installare la chiave pubblica di Microsoft GPG
+Installare la chiave pubblica di Microsoft GPG.
 
    ```bash
    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
-### <a name="install-the-container-runtime"></a>Installare il runtime per contenitori
+### <a name="install-a-container-runtime"></a>Installare un runtime del contenitore
 
 Azure IoT Edge si basa su un runtime per contenitori [compatibile con OCI](https://www.opencontainers.org/). Per gli scenari di produzione, è consigliabile usare il motore [basato su Moby](https://mobyproject.org/) fornito di seguito. Il motore Moby è l'unico motore di contenitori supportato ufficialmente con Azure IoT Edge. Le immagini del contenitore Docker CE/EE sono compatibili con il runtime di Moby.
 
@@ -97,67 +97,33 @@ Se si verificano errori durante l'installazione del runtime del contenitore Moby
 
 Il **daemon di sicurezza di IOT Edge** fornisce e gestisce gli standard di sicurezza sul dispositivo IOT Edge. Il daemon viene avviato a ogni avvio del dispositivo e ne esegue il bootstrap avviando la parte restante del runtime IoT Edge.
 
-Il comando di installazione installa anche la versione standard del **libiothsm** , se non è già presente.
-
 Aggiornare gli elenchi di pacchetti nel dispositivo.
 
    ```bash
    sudo apt-get update
    ```
 
-Installare il daemon di sicurezza. Il pacchetto è installato in `/etc/iotedge/`.
+Verificare quali versioni di IoT Edge sono disponibili.
+
+   ```bash
+   apt list -a iotedge
+   ```
+
+Se si vuole installare la versione più recente del daemon di sicurezza, usare il comando seguente che installa anche la versione più recente del pacchetto **libiothsm-STD** :
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-Una volta completata l'installazione di IoT Edge, l'output richiederà di aggiornare il file di configurazione. Seguire i passaggi nella sezione [configurare il daemon di sicurezza](#configure-the-security-daemon) per completare il provisioning dei dispositivi.
+Se si vuole installare una versione specifica del daemon di sicurezza, specificare la versione dall'output dell'elenco apt. Specificare anche la stessa versione per il pacchetto **libiothsm-STD** , che altrimenti installerebbe la versione più recente. Ad esempio, il comando seguente installa la versione più recente della versione di 1.0.8:
 
-## <a name="install-a-specific-runtime-version"></a>Installare una versione runtime specifica
+   ```bash
+   sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
+   ```
 
-Se si vuole installare una versione specifica di Moby e di Azure IoT Edge runtime invece di usare le versioni più recenti, è possibile indirizzare i file dei componenti direttamente dal repository di IoT Edge GitHub. Usare la procedura seguente per ottenere tutti i componenti IoT Edge nel dispositivo: il motore di Moby e l'interfaccia della riga di comando, il libiothsm e infine il daemon di sicurezza IoT Edge. Passare alla sezione successiva, [configurare il daemon di sicurezza](#configure-the-security-daemon), se non si desidera passare a una versione specifica del runtime.
+Se la versione che si vuole installare non è elencata, seguire la procedura descritta in [Install Runtime using Release assets](#install-runtime-using-release-assets). In questa sezione viene illustrato come specificare come destinazione qualsiasi versione precedente del daemon di sicurezza IoT Edge o versione finale candidata.
 
-1. Passare alla [Azure IOT Edge versioni](https://github.com/Azure/azure-iotedge/releases)e individuare la versione di rilascio di destinazione.
-
-2. Espandere la sezione **Asset** per la versione.
-
-3. È possibile che non siano presenti aggiornamenti al motore Moby in una determinata versione. Se vengono visualizzati i file che iniziano con **Moby-Engine** e **Moby-CLI**, usare i comandi seguenti per aggiornare tali componenti. Se non viene visualizzato alcun file Moby, tornare indietro tra gli asset di versione precedenti fino a trovare la versione più recente.
-
-   1. Trovare il file del **motore di Moby** che corrisponde all'architettura del dispositivo IOT Edge. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
-
-   2. Usare il collegamento copiato nel comando seguente per installare la versione del motore di Moby:
-
-      ```bash
-      curl -L <moby-engine link> -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
-      ```
-
-   3. Trovare il file **Moby-CLI** corrispondente all'architettura del dispositivo IOT Edge. L'interfaccia della riga di comando di Moby è un componente facoltativo, ma può essere utile durante lo sviluppo. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
-
-   4. Usare il collegamento copiato nel comando seguente per installare la versione dell'interfaccia della riga di comando di Moby:
-
-      ```bash
-      curl -L <moby-cli link> -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
-      ```
-
-4. Ogni versione deve avere nuovi file per il daemon di sicurezza IoT Edge e hsmlib. Usare i comandi seguenti per aggiornare tali componenti.
-
-   1. Trovare il file **libiothsm-STD** che corrisponde all'architettura del dispositivo IOT Edge. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
-
-   2. Usare il collegamento copiato nel comando seguente per installare la versione di hsmlib:
-
-      ```bash
-      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
-      ```
-
-   3. Trovare il file **iotedge** corrispondente all'architettura del dispositivo IOT Edge. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
-
-   4. Usare il collegamento copiato nel comando seguente per installare la versione del daemon di sicurezza IoT Edge.
-
-      ```bash
-      curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
-      ```
-
-Una volta completata l'installazione di IoT Edge, l'output richiederà di aggiornare il file di configurazione. Seguire i passaggi della sezione successiva per completare il provisioning dei dispositivi.
+Una volta che IoT Edge è stato installato correttamente in `/etc/iotedge/` , l'output richiede di aggiornare il file di configurazione. Passare alla sezione successiva per completare il provisioning dei dispositivi.
 
 ## <a name="configure-the-security-daemon"></a>Configurare il daemon di sicurezza
 
@@ -186,7 +152,7 @@ provisioning:
   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-Per incollare il contenuto degli Appunti `Shift+Right Click` in nano `Shift+Insert`o premere.
+Per incollare il contenuto degli Appunti in nano `Shift+Right Click` o premere `Shift+Insert` .
 
 Salvare e chiudere il file.
 
@@ -200,7 +166,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Opzione 2: Provisioning automatico
 
-È possibile eseguire il provisioning automatico dei dispositivi IoT Edge usando il [servizio Device provisioning in hub Azure](../iot-dps/index.yml). Attualmente, IoT Edge supporta due meccanismi di attestazione quando si usa il provisioning automatico, ma i requisiti hardware possono avere un effetto sulle scelte. I dispositivi Raspberry Pi, ad esempio, non sono dotati di un chip Trusted Platform Module (TPM) per impostazione predefinita. Per altre informazioni, vedere gli articoli seguenti:
+È possibile eseguire il provisioning automatico dei dispositivi IoT Edge usando il [servizio Device provisioning in hub Azure](../iot-dps/index.yml). Attualmente, IoT Edge supporta tre meccanismi di attestazione quando si usa il provisioning automatico, ma i requisiti hardware possono avere un effetto sulle scelte. I dispositivi Raspberry Pi, ad esempio, non sono dotati di un chip Trusted Platform Module (TPM) per impostazione predefinita. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Creare ed effettuare il provisioning di un dispositivo IoT Edge con un TPM virtuale in una macchina virtuale Linux](how-to-auto-provision-simulated-device-linux.md)
 * [Creare ed effettuare il provisioning di un dispositivo IoT Edge usando certificati X. 509](how-to-auto-provision-x509-certs.md)
@@ -258,7 +224,7 @@ provisioning:
     symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-Per incollare il contenuto degli Appunti `Shift+Right Click` in nano `Shift+Insert`o premere.
+Per incollare il contenuto degli Appunti in nano `Shift+Right Click` o premere `Shift+Insert` .
 
 Salvare e chiudere il file. `CTRL + X`, `Y`, `Enter`
 
@@ -290,7 +256,7 @@ Eseguire lo [strumento per la risoluzione dei problemi](troubleshoot.md#run-the-
 sudo iotedge check
 ```
 
-Fino a quando non si distribuisce il primo modulo per IoT Edge nel dispositivo, il modulo del sistema **$edgeHub** non verrà distribuito nel dispositivo. Di conseguenza, il controllo automatico restituirà un errore per il controllo `Edge Hub can bind to ports on host` della connettività. Questo errore può essere ignorato a meno che non avvenga dopo la distribuzione di un modulo nel dispositivo.
+Fino a quando non si distribuisce il primo modulo per IoT Edge nel dispositivo, il modulo del sistema **$edgeHub** non verrà distribuito nel dispositivo. Di conseguenza, il controllo automatico restituirà un errore per il `Edge Hub can bind to ports on host` controllo della connettività. Questo errore può essere ignorato a meno che non avvenga dopo la distribuzione di un modulo nel dispositivo.
 
 Infine, elencare i moduli in esecuzione:
 
@@ -318,7 +284,55 @@ Molti produttori di dispositivi incorporati spediscono immagini del dispositivo 
    ./check-config.sh
    ```
 
-Questo comando fornisce un output dettagliato che contiene lo stato delle funzionalità del kernel usate dal runtime di Moby. È necessario assicurarsi che tutti gli elementi in `Generally Necessary` e `Network Drivers` siano abilitati per garantire che il kernel sia completamente compatibile con il runtime di Moby.  Se sono state identificate le funzionalità mancanti, abilitarle ricompilando il kernel dall'origine e selezionando i moduli associati da includere nel file kernel. config appropriato.  Analogamente, se si usa un generatore di configurazione kernel `defconfig` come `menuconfig`o, trovare e abilitare le rispettive funzionalità e ricompilare il kernel di conseguenza.  Dopo aver distribuito il kernel appena modificato, eseguire di nuovo lo script Check-config per verificare che tutte le funzionalità necessarie siano state abilitate correttamente.
+Questo comando fornisce un output dettagliato che contiene lo stato delle funzionalità del kernel usate dal runtime di Moby. È necessario assicurarsi che tutti gli elementi in `Generally Necessary` e `Network Drivers` siano abilitati per garantire che il kernel sia completamente compatibile con il runtime di Moby.  Se sono state identificate le funzionalità mancanti, abilitarle ricompilando il kernel dall'origine e selezionando i moduli associati da includere nel file kernel. config appropriato.  Analogamente, se si usa un generatore di configurazione kernel come `defconfig` o `menuconfig` , trovare e abilitare le rispettive funzionalità e ricompilare il kernel di conseguenza.  Dopo aver distribuito il kernel appena modificato, eseguire di nuovo lo script Check-config per verificare che tutte le funzionalità necessarie siano state abilitate correttamente.
+
+## <a name="install-runtime-using-release-assets"></a>Installare il runtime usando gli asset di versione
+
+Usare la procedura descritta in questa sezione se si vuole installare una versione specifica di Moby e il runtime di Azure IoT Edge che non è disponibile tramite `apt-get install` . L'elenco di pacchetti Microsoft contiene solo un set limitato di versioni recenti e le relative versioni secondarie, quindi questi passaggi sono destinati a chiunque voglia installare una versione precedente o una versione finale candidata.
+
+Usando i comandi CURL, è possibile indirizzare i file dei componenti direttamente dal repository GitHub IoT Edge. Usare la procedura seguente per ottenere tutti i componenti IoT Edge nel dispositivo: il motore di Moby e l'interfaccia della riga di comando, il libiothsm e infine il daemon di sicurezza IoT Edge.
+
+1. Passare alla [Azure IOT Edge versioni](https://github.com/Azure/azure-iotedge/releases)e individuare la versione di rilascio di destinazione.
+
+2. Espandere la sezione **Asset** per la versione.
+
+3. È possibile che non siano presenti aggiornamenti al motore Moby in una determinata versione. Se vengono visualizzati i file che iniziano con **Moby-Engine** e **Moby-CLI**, usare i comandi seguenti per aggiornare tali componenti. Se non viene visualizzato alcun file Moby, tornare indietro tra gli asset di versione precedenti fino a trovare la versione più recente.
+
+   1. Trovare il file del **motore di Moby** che corrisponde all'architettura del dispositivo IOT Edge. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
+
+   2. Usare il collegamento copiato nel comando seguente per installare la versione del motore di Moby:
+
+      ```bash
+      curl -L <moby-engine link> -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
+      ```
+
+   3. Trovare il file **Moby-CLI** corrispondente all'architettura del dispositivo IOT Edge. L'interfaccia della riga di comando di Moby è un componente facoltativo, ma può essere utile durante lo sviluppo. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
+
+   4. Usare il collegamento copiato nel comando seguente per installare la versione dell'interfaccia della riga di comando di Moby:
+
+      ```bash
+      curl -L <moby-cli link> -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
+      ```
+
+4. Ogni versione deve avere nuovi file per il daemon di sicurezza IoT Edge e hsmlib. Usare i comandi seguenti per aggiornare tali componenti.
+
+   1. Trovare il file **libiothsm-STD** che corrisponde all'architettura del dispositivo IOT Edge. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
+
+   2. Usare il collegamento copiato nel comando seguente per installare la versione di hsmlib:
+
+      ```bash
+      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
+      ```
+
+   3. Trovare il file **iotedge** corrispondente all'architettura del dispositivo IOT Edge. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
+
+   4. Usare il collegamento copiato nel comando seguente per installare la versione del daemon di sicurezza IoT Edge.
+
+      ```bash
+      curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+      ```
+
+Una volta che IoT Edge è stato installato correttamente in `/etc/iotedge` , l'output richiede di aggiornare il file di configurazione. Seguire i passaggi nella sezione [configurare il daemon di sicurezza](#configure-the-security-daemon) per completare il provisioning dei dispositivi.
 
 ## <a name="uninstall-iot-edge"></a>Disinstallare IoT Edge
 

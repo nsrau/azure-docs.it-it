@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b2a0d0b77b6db481b13785907a1359d2bbe3e9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfb6e0608609a3940affd83a0aa235a2ef7c041c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984505"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357563"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Modifica della password dell'account del servizio ADSync
 Se si modifica la password dell'account del servizio ADSync, il servizio di sincronizzazione non sarà in grado di avviarsi correttamente finché non si abbandona la chiave di crittografia e non si reinizializza la password dell'account del servizio ADSync. 
@@ -122,6 +122,6 @@ Ora che il servizio di sincronizzazione ha accesso alla chiave di crittografia e
 ## <a name="next-steps"></a>Passaggi successivi
 **Argomenti generali**
 
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

@@ -1,24 +1,14 @@
 ---
 title: Che cos'è il servizio di inoltro di Azure? | Microsoft Docs
 description: Questo articolo offre una panoramica del servizio Inoltro di Azure, che consente di sviluppare applicazioni cloud che utilizzano servizi locali in esecuzione nella rete aziendale senza aprire una connessione firewall o apportare modifiche di notevole impatto all'infrastruttura di rete.
-services: service-bus-relay
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus-relay
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: spelluru
-ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322639"
 ---
 # <a name="what-is-azure-relay"></a>Che cos'è il servizio di inoltro di Azure?
 Il servizio Inoltro di Azure consente di esporre in modo sicuro nel cloud pubblico i servizi in esecuzione che vengono eseguiti nella rete aziendale. È possibile eseguire questa operazione senza aprire una porta nel firewall o apportare modifiche di notevole impatto all'infrastruttura di rete aziendale. 
@@ -40,7 +30,7 @@ Nel modello di trasferimento dei dati con inoltro i passaggi di base sono i segu
 4. Il servizio di inoltro *inoltra* quindi i dati al servizio locale tramite il socket bidirezionale dedicato al client. Il client non necessita di una connessione diretta al servizio locale. Non deve conoscere la posizione del servizio. Il servizio locale, a sua volta, non richiede la presenza di porte in ingresso aperte nel firewall.
 
 
-## <a name="features"></a>Caratteristiche 
+## <a name="features"></a>Funzionalità 
 Il servizio di inoltro di Azure include due funzionalità.
 
 - [Connessioni ibride](#hybrid-connections) : USA i socket Web standard aperti che consentono scenari multipiattaforma.

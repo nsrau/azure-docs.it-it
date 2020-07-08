@@ -1,26 +1,14 @@
 ---
 title: Log di diagnostica del bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica di tutti i log operativi e di diagnostica disponibili per il bus di servizio di Azure.
-keywords: ''
-documentationcenter: .net
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618737"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337526"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Abilitare i log di diagnostica per il bus di servizio
 
@@ -37,7 +25,7 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON) nell
 
 Le stringhe JSON dei log operativi includono gli elementi elencati nella tabella seguente:
 
-| Name | Descrizione |
+| Nome | Descrizione |
 | ------- | ------- |
 | ActivityId | ID interno, usato per identificare l'attività specificata |
 | EventName | Nome operazione |
@@ -98,7 +86,7 @@ Per impostazione predefinita, i log operativi sono disabilitati. Per abilitare i
 
 1. Configurare le impostazioni di diagnostica eseguendo le operazioni seguenti:
 
-   a. Nella casella **nome** immettere un nome per le impostazioni di diagnostica.  
+   a. Nella casella **Nome** immettere un nome per le impostazioni di diagnostica.  
 
    b. Selezionare una delle tre destinazioni seguenti per i log di diagnostica:  
    - Se si seleziona **archivia in un account di archiviazione**, è necessario configurare l'account di archiviazione in cui verranno archiviati i log di diagnostica.  
@@ -111,9 +99,9 @@ Per impostazione predefinita, i log operativi sono disabilitati. Per abilitare i
 
 1. Selezionare **Salva**.
 
-Le nuove impostazioni hanno effetto in circa 10 minuti. I log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **log di diagnostica** .
+Le nuove impostazioni diventano effettive entro 10 minuti circa. I log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**.
 
-Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

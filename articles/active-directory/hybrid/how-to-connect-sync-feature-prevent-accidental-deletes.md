@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 55270889c8c284335d5aa7b545718da419ba8d84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71827135"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357359"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
 Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect.
@@ -58,7 +58,7 @@ Se si tratta di un messaggio inatteso, ricercare la causa e intraprendere eventu
 
 ![Spazio connettore di ricerca](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] Se non si è certi che si desidera eliminare tutte le eliminazioni e si desidera andare a un percorso più sicuro. È possibile usare il cmdlet di PowerShell `Enable-ADSyncExportDeletionThreshold` : per impostare una nuova soglia anziché disabilitare la soglia che potrebbe consentire eliminazioni indesiderate. 
+[!NOTE] Se non si è certi che si desidera eliminare tutte le eliminazioni e si desidera andare a un percorso più sicuro. È possibile usare il cmdlet di PowerShell: `Enable-ADSyncExportDeletionThreshold` per impostare una nuova soglia anziché disabilitare la soglia che potrebbe consentire eliminazioni indesiderate. 
 
 ## <a name="if-all-deletes-are-desired"></a>Se si desiderano tutte le eliminazioni
 Se si desidera tutte le eliminazioni, eseguire le operazioni seguenti:
@@ -72,5 +72,5 @@ Se si desidera tutte le eliminazioni, eseguire le operazioni seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 **Argomenti generali**
 
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

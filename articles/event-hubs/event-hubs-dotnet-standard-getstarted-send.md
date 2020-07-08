@@ -1,24 +1,14 @@
 ---
 title: Inviare e ricevere eventi da Hub eventi di Azure usando .NET (obsoleto)
 description: Questo articolo fornisce una procedura dettagliata per la creazione di un'app .NET Core che invia/riceve eventi da e verso hub eventi di Azure usando il vecchio pacchetto Microsoft. Azure. EventHubs.
-services: event-hubs
-documentationcenter: na
-author: spelluru
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/11/2020
-ms.author: spelluru
-ms.openlocfilehash: 2a3b14acad4990059a27201b7e1e6b9e93123194
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: bd8476c89fea94a9d1b4a101841c11137d4dd5be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320789"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Inviare eventi o ricevere eventi da Hub eventi di Azure usando .NET Core (Microsoft. Azure. EventHubs)
 Questa Guida introduttiva illustra come inviare eventi e ricevere eventi da un hub eventi usando la libreria .NET Core **Microsoft. Azure. EventHubs** .
@@ -201,7 +191,7 @@ Aggiungere il [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Micro
 ## <a name="receive-events"></a>Ricevere eventi
 Questa sezione illustra come scrivere un'applicazione console .NET Core che riceve messaggi da un hub eventi usando l' [host processore di eventi](event-hubs-event-processor-host.md). L'[host processore di eventi](event-hubs-event-processor-host.md) è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'host processore di eventi è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare l'host processore di eventi per un ricevitore singolo.
 > [!NOTE]
-> È possibile scaricare questa Guida introduttiva come esempio dalle [stringhe GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), `EventHubConnectionString` Replace `EventHubName`e `StorageAccountName`, `StorageAccountKey`, e `StorageContainerName` con i valori dell'hub eventi ed eseguirlo. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
+> È possibile scaricare questa Guida introduttiva come esempio dalle stringhe [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), Replace `EventHubConnectionString` e,, `EventHubName` `StorageAccountName` `StorageAccountKey` e `StorageContainerName` con i valori dell'hub eventi ed eseguirlo. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -375,7 +365,7 @@ Leggere gli articoli seguenti:
     
     Questi esempi usano la libreria **Microsoft. Azure. EventHubs** precedente, ma è possibile aggiornarla facilmente usando la libreria **Azure. Messaging. EventHubs** più recente. Per spostare l'esempio da usando la libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft. Azure. EventHubs ad Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Funzionalità e terminologia in hub eventi di Azure](event-hubs-features.md)
+- [Funzionalità e terminologia di Hub eventi di Azure](event-hubs-features.md)
 - [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 

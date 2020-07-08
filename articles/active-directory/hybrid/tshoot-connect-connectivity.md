@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f55f291575aea40cba8551a5fec535f63a90150c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a329ec32e241d88a56fc7031904777888ac194ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610446"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356407"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività Azure AD
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -70,13 +70,13 @@ Se si usa un **account Microsoft** anziché un account **dell'istituto di istruz
 ![Viene usato un account Microsoft](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>L'endpoint MFA non è raggiungibile
-Questo errore viene visualizzato se l' **https://secure.aadcdn.microsoftonline-p.com** endpoint non è raggiungibile e l'amministratore globale dispone dell'autenticazione a più fattori abilitata.
+Questo errore viene visualizzato se l'endpoint **https://secure.aadcdn.microsoftonline-p.com** non è raggiungibile e l'amministratore globale dispone dell'autenticazione a più fattori abilitata.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Se viene visualizzato questo errore, verificare che l'endpoint **secure.aadcdn.microsoftonline-p.com** sia stato aggiunto al proxy.
 
 ### <a name="the-password-cannot-be-verified"></a>La password non può essere verificata
-Se l'installazione guidata riesce a connettersi a Azure AD, ma non è possibile verificare la password, viene visualizzato questo errore: ![password errata.](./media/tshoot-connect-connectivity/badpassword.png)
+Se l'installazione guidata riesce a connettersi a Azure AD, ma non è possibile verificare la password, viene visualizzato questo errore: ![ password errata.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * È una password temporanea e deve essere modificata? È effettivamente la password corretta? Provare ad accedere a `https://login.microsoftonline.com` da un computer diverso dal server di Azure AD Connect e verificare che l'account sia utilizzabile.
 
@@ -96,7 +96,7 @@ Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![p
 | Errore | Testo dell'errore | Commento |
 | --- | --- | --- |
 | 403 |Accesso negato |Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
-| 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che questa impostazione sia configurata in Machine. config. Assicurarsi inoltre di utilizzare gli account di dominio per l'utente che esegue la procedura guidata e per l'account del servizio. |
+| 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che questa impostazione sia configurata nel machine.config. Assicurarsi inoltre di utilizzare gli account di dominio per l'utente che esegue la procedura guidata e per l'account del servizio. |
 
 ### <a name="proxy-idle-timeout-setting"></a>Impostazione del timeout di inattività del proxy
 Quando Azure AD Connect invia una richiesta di esportazione ad Azure AD, potrebbero volerci fino a 5 minuti affinché Azure AD elabori la richiesta prima di generare una risposta. Questo può verificarsi soprattutto se sono presenti un numero di oggetti del gruppo con appartenenza a un gruppo di grandi dimensioni incluso nella stessa richiesta di esportazione. Verificare che il timeout di inattività del proxy sia configurato per essere superiore ai 5 minuti. In caso contrario, è possibile che si verifichino problemi di connettività intermittente con Azure Active Directory nel server di Azure AD Connect.

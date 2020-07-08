@@ -1,19 +1,19 @@
 ---
 title: Importare dati in un indice di ricerca usando portale di Azure
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come usare la procedura guidata Importa dati nel portale di Azure per inserire i dati di Azure da Cosmos DB, archiviazione BLOB, archiviazione tabelle, database SQL e SQL Server in macchine virtuali di Azure.
+description: Informazioni su come usare la procedura guidata Importa dati nel portale di Azure per eseguire la ricerca per indicizzazione dei dati di Azure da Cosmos DB, archiviazione BLOB, archiviazione tabelle, database SQL, SQL Istanza gestita e SQL Server in macchine virtuali di Azure.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321382"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Importazione guidata dati per Azure ricerca cognitiva
 
@@ -65,8 +65,8 @@ La procedura guidata **Importa dati** si connette a un'origine dati esterna usan
 | ---------- | ----------- |
 | **Origine dati esistente** |Se nel servizio di ricerca sono già definiti indicizzatori, potrebbe essere presente una definizione dell'origine dati che è possibile riutilizzare. In Azure ricerca cognitiva gli oggetti origine dati vengono utilizzati solo dagli indicizzatori. È possibile creare un oggetto origine dati a livello di codice o tramite la procedura guidata **Importa dati** e riutilizzarli in base alle esigenze.|
 | **Esempi**| Azure ricerca cognitiva offre due origini dati di esempio predefinite che vengono usate nelle esercitazioni e nelle guide introduttive: un database SQL immobiliare e un database di hotel ospitato su Cosmos DB. Per una procedura dettagliata basata sull'esempio di Hotel, vedere l'articolo relativo alla [creazione di un indice nella portale di Azure](search-get-started-portal.md) Guida introduttiva. |
-| [**database SQL di Azure**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Il nome del servizio, le credenziali per un utente di database con autorizzazione di lettura e un nome di database possono essere specificati nella pagina o tramite una stringa di connessione ADO.NET. Per visualizzare o personalizzare le proprietà, scegliere l'opzione relativa alla stringa di connessione. <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione.|
-| **SQL Server in una macchina virtuale di Azure** |Specificare un nome completo del servizio, un ID utente, una password e un database come stringa di connessione. Per usare questa origine dati, è necessario avere già installato un certificato nell'archivio locale che esegue la crittografia della connessione. Per istruzioni, vedere [connessione di una macchina virtuale SQL ad Azure ricerca cognitiva](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
+| [**Database SQL di Azure o SQL Istanza gestita**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Il nome del servizio, le credenziali per un utente di database con autorizzazione di lettura e un nome di database possono essere specificati nella pagina o tramite una stringa di connessione ADO.NET. Per visualizzare o personalizzare le proprietà, scegliere l'opzione relativa alla stringa di connessione. <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione.|
+| **SQL Server in una macchina virtuale Azure** |Specificare un nome completo del servizio, un ID utente, una password e un database come stringa di connessione. Per usare questa origine dati, è necessario avere già installato un certificato nell'archivio locale che esegue la crittografia della connessione. Per istruzioni, vedere [connessione di una macchina virtuale SQL ad Azure ricerca cognitiva](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Tra i requisiti: l'account, il database e la raccolta. Tutti i documenti nella raccolta verranno inclusi nell'indice. È possibile definire una query per rendere flat o filtrare il set di righe oppure lasciare vuota la query. Una query non è obbligatoria in questa procedura guidata.|
 | [**Archiviazione BLOB di Azure**](search-howto-indexing-azure-blob-storage.md) |Tra i requisiti: l'account di archiviazione e un contenitore. Facoltativamente, se i nomi dei BLOB seguono una convenzione di denominazione virtuale a scopo di raggruppamento, è possibile specificare la porzione directory virtuale del nome come una cartella nel contenitore. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). |
 | [**Archiviazione tabelle di Azure**](search-howto-indexing-azure-tables.md) |Tra i requisiti: l'account di archiviazione e un nome di tabella. Facoltativamente, è possibile specificare una query per recuperare un subset delle tabelle. Per altre informazioni, vedere [Indicizzazione nell'archivio tabelle di Azure con Ricerca di Azure](search-howto-indexing-azure-tables.md). |
@@ -93,7 +93,7 @@ La procedura guidata Importa dati viene avviata dalla barra dei comandi della pa
 
    ![Comando Importa dati nel portale](./media/search-import-data-portal/import-data-cmd2.png "Avviare la procedura guidata Importa dati")
 
-È anche possibile avviare l' **importazione dei dati** da altri servizi di Azure, tra cui Azure Cosmos DB, il database SQL di Azure e l'archiviazione BLOB di Azure. Cercare **aggiungi ricerca cognitiva di Azure** nel riquadro di spostamento a sinistra della pagina Panoramica del servizio.
+È anche possibile avviare l' **importazione dei dati** da altri servizi di Azure, tra cui Azure Cosmos DB, database SQL di Azure, SQL istanza gestita e archiviazione BLOB di Azure. Cercare **aggiungi ricerca cognitiva di Azure** nel riquadro di spostamento a sinistra della pagina Panoramica del servizio.
 
 <a name="index-definition"></a>
 
@@ -105,7 +105,7 @@ La procedura guidata genera un indice incompleto, che verrà popolato con i docu
 
 1. Il tipo di dati è appropriato per i dati in ingresso? Azure ricerca cognitiva supporta i [tipi di dati EDM (Entity Data Model)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). Per i dati SQL di Azure è presente un [grafico di mapping](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) che definisce valori equivalenti. Per ulteriori informazioni, vedere [mapping dei campi e trasformazioni](search-indexer-field-mappings.md).
 
-1. Si dispone di un campo che può fungere da *chiave*? Questo campo deve essere Edm. String e deve identificare in modo univoco un documento. Per i dati relazionali, è possibile eseguirne il mapping a una chiave primaria. Per i `metadata-storage-path`BLOB, potrebbe essere. Se i valori dei campi includono spazi o trattini, è necessario impostare l'opzione **Chiavi di codifica Base 64** nel passaggio **Crea un indicizzatore**, in **Opzioni avanzate**, per evitare il controllo di convalida per questi caratteri.
+1. Si dispone di un campo che può fungere da *chiave*? Questo campo deve essere Edm. String e deve identificare in modo univoco un documento. Per i dati relazionali, è possibile eseguirne il mapping a una chiave primaria. Per i BLOB, potrebbe essere `metadata-storage-path` . Se i valori dei campi includono spazi o trattini, è necessario impostare l'opzione **Chiavi di codifica Base 64** nel passaggio **Crea un indicizzatore**, in **Opzioni avanzate**, per evitare il controllo di convalida per questi caratteri.
 
 1. Impostare gli attributi per determinare il modo in cui tale campo viene utilizzato in un indice. 
 

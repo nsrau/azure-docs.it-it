@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af5a9b5b5dd8eb6b6bec8440287918d1f8610064
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71176684"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357920"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Accesso Single Sign-On facile di Azure Active Directory: approfondimento tecnico
 
@@ -39,12 +39,12 @@ Questa sezione è composta da tre parti:
 
 L'accesso SSO facile viene abilitato con Azure AD Connect, come illustrato [qui](how-to-connect-sso-quick-start.md). Durante l'abilitazione della funzionalità, si verificano i passaggi seguenti:
 
-- Un account computer (`AZUREADSSOACC`) viene creato nel Active Directory locale (ad) in ogni foresta di Active Directory sincronizzata con Azure ad (usando Azure ad Connect).
+- Un account computer ( `AZUREADSSOACC` ) viene creato nel Active Directory locale (ad) in ogni foresta di Active Directory sincronizzata con Azure ad (usando Azure ad Connect).
 - Inoltre, vengono creati diversi nomi dell'entità servizio (SPN) Kerberos da usare durante il processo di accesso Azure AD.
 - La chiave di decrittografia Kerberos dell'account computer viene condivisa in modo sicuro con Azure AD. Se sono presenti più foreste di Active Directory, ogni account computer avrà una propria chiave di decrittografia Kerberos univoca.
 
 >[!IMPORTANT]
-> Per `AZUREADSSOACC` motivi di sicurezza, l'account computer deve essere fortemente protetto. Solo gli amministratori di dominio devono essere in grado di gestire l'account computer. Verificare che la delega Kerberos nell'account computer sia disabilitata e che nessun altro account in Active Directory disponga delle autorizzazioni di delega `AZUREADSSOACC` per l'account computer. Archiviare l'account computer in un'unità organizzativa in cui sono protetti da eliminazioni accidentali e in cui solo gli amministratori di dominio hanno accesso. La chiave di decrittografia Kerberos nell'account computer deve anche essere considerata sensibile. È consigliabile [rinnovare la chiave di decrittografia di Kerberos](how-to-connect-sso-faq.md) dell'account computer `AZUREADSSOACC` almeno ogni 30 giorni.
+> `AZUREADSSOACC`Per motivi di sicurezza, l'account computer deve essere fortemente protetto. Solo gli amministratori di dominio devono essere in grado di gestire l'account computer. Verificare che la delega Kerberos nell'account computer sia disabilitata e che nessun altro account in Active Directory disponga delle autorizzazioni di delega per l' `AZUREADSSOACC` account computer. Archiviare l'account computer in un'unità organizzativa in cui sono protetti da eliminazioni accidentali e in cui solo gli amministratori di dominio hanno accesso. La chiave di decrittografia Kerberos nell'account computer deve anche essere considerata sensibile. È consigliabile [rinnovare la chiave di decrittografia di Kerberos](how-to-connect-sso-faq.md) dell'account computer `AZUREADSSOACC` almeno ogni 30 giorni.
 
 Una volta completata l'installazione, l'accesso SSO facile funziona esattamente come qualsiasi altro accesso che usa l'autenticazione integrata di Windows (NTLM).
 
@@ -96,6 +96,6 @@ Il diagramma seguente illustra tutti i componenti e i passaggi interessati.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [**Guida introduttiva**](how-to-connect-sso-quick-start.md): avvio ed esecuzione di Accesso SSO facile di Azure AD.
-- [**Domande**](how-to-connect-sso-faq.md) frequenti: risposte alle domande più frequenti.
-- [**Risoluzione dei problemi**](tshoot-connect-sso.md) : informazioni su come risolvere i problemi comuni relativi alla funzionalità.
+- [**Domande frequenti**](how-to-connect-sso-faq.md): risposte alle domande più frequenti.
+- [**Risoluzione dei problemi**](tshoot-connect-sso.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.

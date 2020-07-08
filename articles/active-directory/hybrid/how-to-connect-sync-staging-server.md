@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18c982b09aa8a28d520c709c9b8db2c9be4c7bb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261021"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356951"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: server di staging e ripristino di emergenza
 Con un server in modalità di gestione temporanea è possibile apportare modifiche alla configurazione e visualizzarle in anteprima prima di attivare il server. È anche possibile eseguire operazioni di importazione e sincronizzazione complete per verificare che tutte le modifiche siano previste prima di introdurle nell'ambiente di produzione.
@@ -49,8 +49,8 @@ Coloro che hanno una conoscenza delle tecnologie di sincronizzazione precedenti 
 ### <a name="verify-the-configuration-of-a-server"></a>Verificare la configurazione di un server
 Per applicare questo metodo, seguire questa procedura:
 
-1. [Preparare](#prepare)
-2. [Configurazione](#configuration)
+1. [Preparazione](#prepare)
+2. [Configuration](#configuration)
 3. [Importare e sincronizzare](#import-and-synchronize)
 4. [Verificare](#verify)
 5. [Cambiare il server attivo](#switch-active-server)
@@ -270,5 +270,5 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 ## <a name="next-steps"></a>Passaggi successivi
 **Argomenti generali**  
 
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)  
+* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)  
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)  

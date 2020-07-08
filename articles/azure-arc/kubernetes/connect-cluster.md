@@ -8,25 +8,49 @@ author: mlearned
 ms.author: mlearned
 description: Connettere un cluster Kubernetes abilitato per Azure Arc con Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, contenitori
-ms.openlocfilehash: 962b6a17743ea2beed1e16503739c55c83babbce
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.custom: references_regions
+ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860546"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341394"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Connettere un cluster Kubernetes abilitato per Azure Arc (anteprima)
 
-Connettere un cluster Kubernetes ad Azure Arc. 
+Connettere un cluster Kubernetes ad Azure Arc.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Verificare che siano disponibili i requisiti seguenti:
 
-* Un cluster Kubernetes operativo
-* È necessario disporre dell'accesso con kubeconfig e dell'accesso cluster-admin. 
+* Un cluster Kubernetes in esecuzione. Se non si dispone di un cluster Kubernetes esistente, è possibile usare una delle guide seguenti per creare un cluster di test:
+  * Creare un cluster Kubernetes usando [Kubernetes in Docker (Kind)](https://kind.sigs.k8s.io/)
+  * Creare un cluster Kubernetes con Docker per [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) o [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
+* È necessario un file kubeconfig per accedere al cluster e al ruolo di amministratore del cluster nel cluster per la distribuzione degli agenti Kubernetes abilitati per Arc.
 * L'utente o l'entità servizio usata con i comandi `az login` e `az connectedk8s connect` deve avere le autorizzazioni 'Read' (Lettura) e 'Write' (Scrittura) per il tipo di risorsa 'Microsoft.Kubernetes/connectedclusters'. Il ruolo "Azure Arc for Kubernetes onboarding" (Onboarding Azure Arc per Kubernetes) con queste autorizzazioni può essere usato per le assegnazioni di ruolo nell'utente o nell'entità servizio usata con l'interfaccia della riga di comando di Azure per l'onboarding.
-* Versione più recente delle estensioni *connectedk8s* e *k8sconfiguration*
+* Helm 3 è necessario per l'onboarding del cluster usando l'estensione connectedk8s. Per soddisfare questo requisito, [installare la versione più recente di Helm 3](https://helm.sh/docs/intro/install) .
+* L'interfaccia della riga di comando di Azure versione 2.3 + è necessaria per l'installazione delle estensioni dell'interfaccia della riga di comando Kubernetes [Installare l'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure o eseguire l'aggiornamento alla versione più recente per assicurarsi che l'interfaccia della riga di comando di Azure versione 2.3
+* Installare le estensioni dell'interfaccia della riga di comando di Arc Enabled Kubernetes:
+  
+  Installare l'estensione `connectedk8s`, che consente di connettere i cluster Kubernetes ad Azure:
+  
+  ```console
+  az extension add --name connectedk8s
+  ```
+  
+  Installare l'estensione `k8sconfiguration`:
+  
+  ```console
+  az extension add --name k8sconfiguration
+  ```
+  
+  Se si desidera aggiornare le estensioni in un secondo momento, eseguire i comandi seguenti:
+  
+  ```console
+  az extension update --name connectedk8s
+  az extension update --name k8sconfiguration
+  ```
 
 ## <a name="supported-regions"></a>Aree supportate
 
@@ -53,10 +77,8 @@ Per il funzionamento degli agenti di Azure Arc sono necessari i protocolli, le p
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
 
 az provider register --namespace Microsoft.KubernetesConfiguration
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
 ```
 
 La registrazione è un processo asincrono. La registrazione può richiedere circa 10 minuti. È possibile monitorare il processo di registrazione con i comandi seguenti:
@@ -67,27 +89,6 @@ az provider show -n Microsoft.Kubernetes -o table
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration -o table
-```
-
-## <a name="install-azure-cli-extensions"></a>Installare le estensioni dell'interfaccia della riga di comando di Azure
-
-Installare l'estensione `connectedk8s`, che consente di connettere i cluster Kubernetes ad Azure:
-
-```console
-az extension add --name connectedk8s
-```
-
-Installare l'estensione `k8sconfiguration`:
-
-```console
-az extension add --name k8sconfiguration
-```
-
-Eseguire i comandi seguenti per aggiornare le estensioni alle versioni più recenti.
-
-```console
-az extension update --name connectedk8s
-az extension update --name k8sconfiguration
 ```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -166,6 +167,8 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
+È anche possibile visualizzare questa risorsa nella [portale di Azure](https://portal.azure.com/). Dopo aver aperto il portale nel browser, passare al gruppo di risorse e alla risorsa Kubernetes di Azure Arc abilitata in base al nome della risorsa e agli input del nome del gruppo di risorse usati in precedenza nel `az connectedk8s connect` comando.
+
 Kubernetes abilitato per Azure Arc distribuisce alcuni operatori nello spazio dei nomi `azure-arc`. È possibile visualizzare le distribuzioni e i pod qui:
 
 ```console
@@ -203,18 +206,25 @@ Kubernetes abilitato per Azure Arc è costituito da alcuni agenti (operatori) ch
 * `deployment.apps/metrics-agent`: raccoglie le metriche di altri agenti Arc per assicurarsi che registrino prestazioni ottimali
 * `deployment.apps/cluster-metadata-operator`: raccoglie i metadati del cluster: versione del cluster, numero di nodi e versione dell'agente Arc
 * `deployment.apps/resource-sync-agent`: sincronizza con Azure i metadati del cluster sopra indicati
-* `deployment.apps/clusteridentityoperator`: gestisce il certificato di identità del servizio gestita (MSI) usato da altri agenti per le comunicazioni con Azure
+* `deployment.apps/clusteridentityoperator`: Azure Arc Enabled Kubernetes supporta attualmente l'identità assegnata dal sistema. clusteridentityoperator gestisce il certificato dell'identità del servizio gestito usato da altri agenti per la comunicazione con Azure.
 * `deployment.apps/flux-logs-agent`: raccoglie log degli operatori Flux distribuiti nel contesto della configurazione del controllo del codice sorgente
 
 ## <a name="delete-a-connected-cluster"></a>Eliminare un cluster connesso
 
 È possibile eliminare una risorsa `Microsoft.Kubernetes/connectedcluster` usando l'interfaccia della riga di comando di Azure o il portale di Azure.
 
-Il comando dell'interfaccia della riga di comando di Azure `az connectedk8s delete` rimuove la risorsa `Microsoft.Kubernetes/connectedCluster` in Azure. L'interfaccia della riga di comando di Azure elimina tutte le risorse di `sourcecontrolconfiguration` associate in Azure. L'interfaccia della riga di comando di Azure usa il comando helm uninstall per rimuovere gli agenti dal cluster.
 
-Il portale di Azure elimina la risorsa `Microsoft.Kubernetes/connectedcluster` in Azure ed elimina tutte le risorse `sourcecontrolconfiguration` associate in Azure.
+* **Eliminazione con l'interfaccia**della riga di comando di Azure: è possibile usare l'interfaccia della riga di comando di Azure seguente per avviare l'eliminazione della risorsa Kubernetes abilitata per Azure Arc.
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
+  Questa operazione consente `Microsoft.Kubernetes/connectedCluster` di rimuovere la risorsa e tutte le `sourcecontrolconfiguration` risorse associate in Azure. L'interfaccia della riga di comando di Azure usa Helm Uninstall per rimuovere anche gli agenti in esecuzione nel cluster.
 
-Per rimuovere gli agenti nel cluster è necessario eseguire `az connectedk8s delete` o `helm uninstall azurearcfork8s`.
+* **Eliminazione in portale di Azure**: l'eliminazione della risorsa Kubernetes abilitata per Azure Arc in portale di Azure Elimina la `Microsoft.Kubernetes/connectedcluster` risorsa e tutte le `sourcecontrolconfiguration` risorse associate in Azure, ma non elimina gli agenti in esecuzione nel cluster. Per eliminare gli agenti in esecuzione nel cluster, eseguire il comando seguente.
+
+  ```console
+  az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+  ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

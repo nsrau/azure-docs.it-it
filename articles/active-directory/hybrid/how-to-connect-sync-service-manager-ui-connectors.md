@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a013af680ecc84a2a981341ba4bb95148adc799f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357257"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso dei connettori con Sync Service Manager di Azure AD Connect
 
@@ -31,11 +31,11 @@ ms.locfileid: "79261047"
 La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sincronizzazione è connesso.
 
 ## <a name="connector-actions"></a>Azioni del connettore
-| Azione | Commento |
+| Action | Commento |
 | --- | --- |
 | Create |Non usare. Per la connessione ad altre foreste AD, usare l'installazione guidata. |
 | Proprietà |Si usa per i filtri di unità organizzativa e dominio. |
-| [Elimina](#delete) |Si usa per eliminare i dati nello spazio connettore o per eliminare la connessione a una foresta. |
+| [Eliminazione](#delete) |Si usa per eliminare i dati nello spazio connettore o per eliminare la connessione a una foresta. |
 | [Configura profili di esecuzione](#configure-run-profiles) |Fatta eccezione per i filtri di dominio, qui non è richiesta alcuna configurazione. Questa azione consente di visualizzare i profili di esecuzione già configurati. |
 | Esegui |Si usa per avviare l'esecuzione occasionale di un profilo. |
 | Arresto |Arresta un connettore che sta eseguendo attualmente un profilo. |

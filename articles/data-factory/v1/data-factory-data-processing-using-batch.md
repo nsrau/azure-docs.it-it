@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: HT
+ms.openlocfilehash: ab4e2f480ab0ef2deea3909d56f4fe1da17bbd07
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684413"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321406"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -38,8 +38,8 @@ Il servizio Batch consente di definire le risorse di calcolo di Azure per esegui
 
  Se non si ha familiarità con Batch, vedere gli articoli seguenti che aiutano a comprendere l'architettura e l'implementazione della soluzione descritta in questo articolo:   
 
-* [Nozioni di base di Batch](../../batch/batch-technical-overview.md)
-* [Panoramica delle funzionalità Batch](../../batch/batch-api-basics.md)
+* [Nozioni di base di Batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Panoramica delle funzionalità Batch](../../batch/batch-service-workflow-features.md)
 
 Facoltativamente, vedere la [documentazione di Batch](https://docs.microsoft.com/azure/batch/) per altre informazioni su Batch.
 
@@ -578,7 +578,7 @@ In questo passaggio si crea un servizio collegato per l'account di Batch, che ve
    d. Immettere l'URI del batch per la proprietà JSON **batchUri** .
 
       > [!IMPORTANT]
-      > L'URL del pannello **Account di Batch** è nel formato seguente: \<nomeaccount\>.\<area\>.batch.azure.com. Per la proprietà **batchUri** nello script JSON è necessario rimuovere a88"accountname."** dall'URL. Un esempio è `"batchUri": "https://eastus.batch.azure.com"`.
+      > L'URL del pannello **account batch** è nel formato seguente: \<accountname\> . \<region\> . batch.azure.com. Per la proprietà **batchUri** nello script JSON è necessario rimuovere a88"accountname."** dall'URL. Un esempio è `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -793,9 +793,9 @@ In questo passaggio si crea una pipeline con un'attività, ovvero l'attività pe
 
    * Nella pipeline esiste una sola attività ed è di tipo **DotNetActivity**.
    * **AssemblyName** è impostato sul nome della DLL **MyDotNetActivity.dll**.
-   * **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity**. Si tratta in sostanza di \<spazio dei nomi\>.\<nome classe\> nel codice.
+   * **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity**. Fondamentalmente \<namespace\> .\<classname\> nel codice.
    * **PackageLinkedService** è impostato su **StorageLinkedService** che punta all'archivio BLOB contenente il file ZIP dell'attività personalizzata. Se vengono usati account di archiviazione diversi per i file di input/output e per il file ZIP dell'attività personalizzata, è necessario creare un altro servizio collegato di Archiviazione. Questo articolo presuppone che venga usato lo stesso account di archiviazione.
-   * **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. Ha il formato: \<containerforthezip\>/\<nameofthezip.zip\>.
+   * **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. È nel formato \<containerforthezip\> / \<nameofthezip.zip\> .
    * L'attività personalizzata accetta **InputDataset** come input e **OutputDataset** come output.
    * La proprietà **linkedServiceName** dell'attività personalizzata punta ad **AzureBatchLinkedService** per indicare a Data Factory che l'attività personalizzata deve essere eseguita in Batch.
    * L'impostazione **concurrency** è importante. Se si usa il valore predefinito 1, le sezioni vengono elaborate una dopo l'altra, anche se sono disponibili 2 o più nodi di calcolo nel pool di Batch. In questo modo non si sfrutta la funzionalità di elaborazione parallela di Batch. Se si imposta **concurrency** su un valore superiore, ad esempio 2, potranno essere elaborate contemporaneamente due sezioni (corrispondenti a due attività in Batch). In questo caso vengono usate entrambe le macchine virtuali nel pool di Batch. Impostare quindi correttamente la proprietà concurrency.
@@ -925,7 +925,7 @@ Il debug è costituito da alcune tecniche di base.
    >
 1. L'attività personalizzata non usa il file **app.config** dal pacchetto. Pertanto, se il codice legge tutte le stringhe di connessione dal file di configurazione, l'attività non funzionerà in fase di esecuzione. La procedura consigliata quando si usa Batch è contenere tutti i segreti nell'insieme di Azure Key Vault. Quindi usare un'entità servizio basata su certificati per proteggere la chiave dell'insieme di credenziali e distribuire il certificato al pool di Batch. L'attività personalizzata di .NET può quindi accedere ai segreti dall'insieme di credenziali delle chiavi in fase di esecuzione. Questa è una soluzione generica e può essere ridimensionata per qualsiasi tipo di segreto, non solo per una stringa di connessione.
 
-    È una soluzione più semplice, ma non è consigliata. È possibile creare un servizio collegato database SQL con le impostazioni della stringa di connessione. È quindi possibile creare un set di dati che usi il servizio collegato e concatenare il set di dati come set di dati input fittizio per l'attività personalizzata di .NET. È quindi possibile accedere alla stringa di connessione del servizio collegato nel codice dell'attività personalizzata. Dovrebbe funzionare correttamente in fase di esecuzione.  
+    È una soluzione più semplice, ma non è consigliata. È possibile creare un servizio collegato del database SQL con le impostazioni della stringa di connessione. È quindi possibile creare un set di dati che usi il servizio collegato e concatenare il set di dati come set di dati input fittizio per l'attività personalizzata di .NET. È quindi possibile accedere alla stringa di connessione del servizio collegato nel codice dell'attività personalizzata. Dovrebbe funzionare correttamente in fase di esecuzione.  
 
 #### <a name="extend-the-sample"></a>Estendere l'esempio
 È possibile estendere questo esempio per ottenere altre informazioni sulle funzionalità di Data Factory e di Batch. Ad esempio, per elaborare le sezioni in un intervallo di tempo diverso, seguire questa procedura:
@@ -972,8 +972,8 @@ Dopo l'elaborazione dei dati, è possibile usarli con strumenti online come Powe
   * [Usare attività personalizzate in una pipeline di Data Factory](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Nozioni di base di Batch](../../batch/batch-technical-overview.md)
-  * [Cenni preliminari sulle funzionalità di Batch](../../batch/batch-api-basics.md)
+  * [Nozioni di base di Batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Panoramica delle funzionalità di batch](../../batch/batch-service-workflow-features.md)
   * [Creare e gestire un account di Batch nel portale di Azure](../../batch/batch-account-create-portal.md)
   * [Introduzione alla libreria client di Batch per .NET](../../batch/quick-run-dotnet.md)
 

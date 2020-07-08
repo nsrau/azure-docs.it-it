@@ -1,20 +1,14 @@
 ---
 title: Creare code e argomenti partizionati del bus di servizio di Azure | Microsoft Docs
 description: Descrive come partizionare code e argomenti del bus di servizio usando più broker messaggi.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 02/06/2020
-ms.author: aschhab
-ms.openlocfilehash: 671368993acb43c0d55eca73119effa934e3cff8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339647"
 ---
 # <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
 
@@ -30,6 +24,8 @@ Non è possibile modificare l'opzione di partizionamento su una coda o un argome
 Ogni coda o argomento partizionato è costituito da più partizioni. Ogni partizione è archiviata in un archivio di messaggistica diverso e gestita da un broker di messaggi diverso. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a una delle partizioni. La selezione viene eseguita in modo casuale dal bus di servizio o tramite una chiave di partizione che può essere specificata dal mittente.
 
 Quando un client vuole ricevere un messaggio da una coda partizionata o da una sottoscrizione a un argomento partizionato, il bus di servizio esegue una query su tutte le partizioni per i messaggi, quindi restituisce al ricevitore il primo messaggio ottenuto dagli archivi di messaggistica. Il bus di servizio memorizza nella cache gli altri messaggi e li restituisce quando riceve altre richieste. Un client destinatario non è a conoscenza del partizionamento; il comportamento verso il client di una coda o un argomento partizionato (ad esempio lettura, completamento, rinvio, non recapitabilità, prelettura) è identico a quello di un'entità normale.
+
+L'operazione di visualizzazione su un'entità non partizionata restituisce sempre il messaggio meno recente, ma non su un'entità partizionata. Viene invece restituito il messaggio meno recente in una delle partizioni il cui Broker di messaggi ha risposto per primo. Non esiste alcuna garanzia che il messaggio restituito sia quello meno recente in tutte le partizioni. 
 
 I messaggi a una coda o a un argomento partizionato non presentano costi aggiuntivi, né in invio né in ricezione.
 

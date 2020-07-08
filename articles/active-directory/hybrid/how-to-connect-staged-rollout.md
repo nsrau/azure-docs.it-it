@@ -5,21 +5,21 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/12/2020
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644158"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357852"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Eseguire la migrazione all'autenticazione cloud tramite un'implementazione a fasi (anteprima)
 
-Usando un'implementazione a fasi, è possibile eseguire la migrazione dall'autenticazione federata all'autenticazione cloud. Questo articolo illustra come eseguire il passaggio. Prima di iniziare l'implementazione a fasi, è tuttavia necessario considerare i possibili effetti in presenza di uno o più delle condizioni seguenti:
+Usando un approccio di implementazione a fasi è possibile evitare un cutover dell'intero dominio.  Questo consente di testare in modo selettivo gruppi di utenti con funzionalità di autenticazione cloud come Azure Multi-Factor Authentication (multi-factor authentication), accesso condizionale, protezione delle identità per le credenziali perse, governance delle identità e altri ancora.  Questo articolo illustra come eseguire il passaggio. Prima di iniziare l'implementazione a fasi, è tuttavia necessario considerare i possibili effetti in presenza di uno o più delle condizioni seguenti:
     
 -  È attualmente in uso un server Multi-Factor Authentication locale. 
 -  Si usano smart card per l'autenticazione. 
@@ -38,8 +38,8 @@ Per una panoramica della funzionalità, vedere il video seguente sull'implementa
 -   Si ha un tenant Azure Active Directory (Azure AD) con domini federati.
 
 -   Si è deciso di passare a una delle due opzioni seguenti:
-    - **Opzione A** - *sincronizzazione dell'hash delle password (sincronizzazione)*  + *accesso Single Sign-On facile (SSO)*
-    - **Opzione B** - *autenticazione pass-through* + *accesso Single Sign-On facile (SSO)*
+    - **Opzione A**  -  *sincronizzazione dell'hash delle password (sincronizzazione)*  +  *Single Sign-on seamless (SSO)*.  Per altre informazioni, vedere [che cos'è la sincronizzazione degli hash delle password](whatis-phs.md) e [che cos'è seamless SSO](how-to-connect-sso.md)
+    - **Opzione B**  -  autenticazione pass- *through*  +  accesso *SSO semplice*.  Per altre informazioni, vedere [che cos'è l'autenticazione pass-through](how-to-connect-pta.md)  
     
     Sebbene l'*accesso Single Sign-On facile* sia facoltativo, è consigliabile abilitarlo perché gli utenti che eseguono computer aggiunti a un dominio all'interno di una rete aziendale possano vivere un'esperienza di accesso automatica.
 
@@ -76,12 +76,12 @@ Per l'implementazione a fasi non sono supportati gli scenari riportati di seguit
     - I gruppi dinamici *non sono supportati* per l'implementazione a fasi.
     - Gli oggetti Contact all'interno del gruppo impediscono l'aggiunta del gruppo.
 
-- È comunque necessario eseguire il passaggio finale dall'autenticazione federata all'autenticazione cloud usando Azure AD Connect o PowerShell. L'implementazione a fasi non cambia i domini da federati a gestiti.
+- È comunque necessario eseguire il passaggio finale dall'autenticazione federata all'autenticazione cloud usando Azure AD Connect o PowerShell. L'implementazione a fasi non cambia i domini da federati a gestiti.  Per ulteriori informazioni sul dominio cutover, vedere [eseguire la migrazione dalla Federazione alla sincronizzazione degli hash delle password](plan-migrate-adfs-password-hash-sync.md) e [migrare dalla Federazione all'autenticazione pass-through](plan-migrate-adfs-pass-through-authentication.md)
+
+
 
 - Quando un gruppo di sicurezza viene aggiunto per l'implementazione a fasi per la prima volta, il limite di utenti è 200 per evitare che si verifichi un timeout nell'esperienza utente. Dopo aver aggiunto il gruppo, è possibile aggiungervi altri utenti direttamente, se necessario.
 
->[!NOTE]
-> Poiché gli endpoint tenant non inviano suggerimenti di accesso, non sono supportati per l'implementazione a fasi.  Le applicazioni SAML usano gli endpoint tenant e quindi non sono supportate per l'implementazione a fasi.
 
 ## <a name="get-started-with-staged-rollout"></a>Introduzione all'implementazione a fasi
 

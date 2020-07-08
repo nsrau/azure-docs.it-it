@@ -1,25 +1,14 @@
 ---
 title: Guida al protocollo AMQP 1.0 in Hub eventi e nel bus di servizio di Azure | Microsoft Docs
 description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
-services: service-bus-messaging,event-hubs
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77086166"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337885"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -217,7 +206,7 @@ Le sezioni seguenti spiegano quali proprietà delle sessioni di messaggi AMQP st
 
 Eventuali proprietà che l’applicazione deve definire dovranno essere mappate al mapping `application-properties` di AMQP.
 
-#### <a name="header"></a>intestazione
+#### <a name="header"></a>header
 
 | Nome campo | Utilizzo | Nome API |
 | --- | --- | --- |
@@ -233,7 +222,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 | --- | --- | --- |
 | message-id |Identificatore freeform definito dall'applicazione per questo messaggio. Usato per il rilevamento dei duplicati. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificatore dell'utente definito dall'applicazione, non interpretato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
-| to |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[A](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| to |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Indicatore del percorso di risposta definito dall'applicazione, non interpretato dal bus di servizio. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificatore della correlazione definito dall'applicazione, non interpretato dal bus di servizio. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -298,7 +287,7 @@ Il controller conclude l'attività transazionale inviando un `discharge` messagg
 
 #### <a name="sending-a-message-in-a-transaction"></a>Invio di un messaggio in una transazione
 
-Tutte le operazioni transazionali vengono eseguite con lo stato `transactional-state` di recapito transazionale che contiene transazione-ID. Nel caso di invio di messaggi, lo stato transazionale viene portato dal frame di trasferimento del messaggio. 
+Tutte le operazioni transazionali vengono eseguite con lo stato di recapito transazionale `transactional-state` che contiene transazione-ID. Nel caso di invio di messaggi, lo stato transazionale viene portato dal frame di trasferimento del messaggio. 
 
 | Client (controller) | | Bus di servizio (coordinatore) |
 | --- | --- | --- |
@@ -337,9 +326,9 @@ Tutti questi gesti richiedono un'interazione di tipo richiesta/risposta tra il c
 | Operazione logica | Client | Bus di servizio |
 | --- | --- | --- |
 | Creare un percorso di richiesta/risposta |--> attach(<br/>name={*nome collegamento*},<br/>handle={*handle numerico*},<br/>role=**sender**,<br/>source=**null**,<br/>target="myentity/$management"<br/>) |Nessuna azione |
-| Creare un percorso di richiesta/risposta |Nessuna azione |\<-- attach(<br/>name={*nome collegamento*},<br/>handle={*handle numerico*},<br/>role=**receiver**,<br/>source=null,<br/>target="myentity"<br/>) |
+| Creare un percorso di richiesta/risposta |Nessuna azione |\<-- attach(<br/>nome = {*nome collegamento*},<br/>handle={*handle numerico*},<br/>role=**receiver**,<br/>source=null,<br/>target="myentity"<br/>) |
 | Creare un percorso di richiesta/risposta |--> attach(<br/>name={*nome collegamento*},<br/>handle={*handle numerico*},<br/>role=**receiver**,<br/>source="myentity/$management",<br/>target="myclient$id"<br/>) | |
-| Creare un percorso di richiesta/risposta |Nessuna azione |\<-- attach(<br/>name={*nome collegamento*},<br/>handle={*handle numerico*},<br/>role=**sender**,<br/>source="myentity",<br/>target="myclient$id"<br/>) |
+| Creare un percorso di richiesta/risposta |Nessuna azione |\<-- attach(<br/>nome = {*nome collegamento*},<br/>handle={*handle numerico*},<br/>role=**sender**,<br/>source="myentity",<br/>target="myclient$id"<br/>) |
 
 Se la coppia di collegamenti è disponibile, l'implementazione del percorso di richiesta/risposta è molto semplice: una richiesta è un messaggio inviato a un'entità all'interno dell'infrastruttura di messaggistica che comprende questo modello. Nel messaggio di richiesta il campo *reply-to* nella sezione *properties* è impostato sull'identificatore *target* per il collegamento in cui recapitare la risposta. L'entità di gestione elabora la richiesta e recapita la risposta sul collegamento il cui identificatore *target* corrisponde all'identificatore *reply-to* indicato.
 
@@ -370,9 +359,9 @@ Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 
 | Chiave | Facoltativo | Tipo valore | Contenuti del valore |
 | --- | --- | --- | --- |
-| operazione |No |stringa |**put-token** |
-| type |No |stringa |Tipo di token inserito. |
-| name |No |stringa |"Destinatari" a cui è applicabile il token. |
+| operazione |No |string |**put-token** |
+| tipo |No |string |Tipo di token inserito. |
+| name |No |string |"Destinatari" a cui è applicabile il token. |
 | expiration |Sì |timestamp |Ora di scadenza del token. |
 
 La proprietà *name* identifica l'entità a cui deve essere associato il token. Nel bus di servizio corrisponde al percorso della coda o dell'argomento/sottoscrizione. La proprietà *type* identifica il tipo di token:
@@ -390,7 +379,7 @@ Il messaggio di risposta ha i valori *application-properties* seguenti:
 | Chiave | Facoltativo | Tipo valore | Contenuti del valore |
 | --- | --- | --- | --- |
 | status-code |No |INT |Codice di risposta HTTP **[RFC2616]**. |
-| status-description |Sì |stringa |Descrizione dello stato. |
+| status-description |Sì |string |Descrizione dello stato. |
 
 Il client può chiamare *put-token* ripetutamente e per qualsiasi entità nell'infrastruttura di messaggistica. I token hanno come ambito il client corrente e sono ancorati alla connessione corrente, quindi il server elimina eventuali token conservati al termine della connessione.
 

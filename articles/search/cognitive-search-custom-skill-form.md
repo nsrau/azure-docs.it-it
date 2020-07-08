@@ -6,14 +6,14 @@ manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c07c00345140d96bf3265fb280fe29b1274bdee6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321307"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Esempio: creare un'abilità personalizzata di riconoscimento del modulo
 
@@ -43,9 +43,9 @@ In primo luogo, aggiungere variabili di ambiente a livello di progetto. Individu
 * `FORMS_RECOGNIZER_RETRY_DELAY`con il valore impostato su 1000. Questo valore è il tempo in millisecondi di attesa del programma prima di ritentare la query.
 * `FORMS_RECOGNIZER_MAX_ATTEMPTS`con il valore impostato su 100. Questo valore indica il numero di volte in cui il programma eseguirà una query sul servizio durante il tentativo di ottenere una risposta corretta.
 
-Successivamente, aprire _AnalyzeForm.cs_ e trovare la `fieldMappings` variabile, che fa riferimento al file *Field-Mappings. JSON* . Questo file (e la variabile che vi fa riferimento) definisce l'elenco di chiavi che si desidera estrarre dai form e un'etichetta personalizzata per ciascuna chiave. Il valore `{ "Address:", "address" }, { "Invoice For:", "recipient" }` indica, ad esempio, che lo script salverà solo i valori per i `Address:` campi `Invoice For:` rilevati e che verranno etichettati rispettivamente `"address"` con `"recipient"`e.
+Successivamente, aprire _AnalyzeForm.cs_ e trovare la `fieldMappings` variabile, che fa riferimento all' *field-mappings.jssu* file. Questo file (e la variabile che vi fa riferimento) definisce l'elenco di chiavi che si desidera estrarre dai form e un'etichetta personalizzata per ciascuna chiave. Il valore indica, ad esempio, che lo `{ "Address:", "address" }, { "Invoice For:", "recipient" }` script salverà solo i valori per i campi rilevati `Address:` e `Invoice For:` che verranno etichettati `"address"` rispettivamente con e `"recipient"` .
 
-Infine, prendere nota `contentType` della variabile. Questo script esegue il modello di riconoscimento form specificato nei documenti remoti a cui fa riferimento l'URL, quindi il tipo di `application/json`contenuto è. Se si desidera analizzare i file locali includendo i relativi flussi di byte nelle richieste HTTP, è necessario modificare il `contentType` [tipo MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) appropriato per il file.
+Infine, prendere nota della `contentType` variabile. Questo script esegue il modello di riconoscimento form specificato nei documenti remoti a cui fa riferimento l'URL, quindi il tipo di contenuto è `application/json` . Se si desidera analizzare i file locali includendo i relativi flussi di byte nelle richieste HTTP, è necessario modificare il `contentType` [tipo MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) appropriato per il file.
 
 ## <a name="test-the-function-from-visual-studio"></a>Testare la funzione da Visual Studio
 
@@ -77,12 +77,12 @@ Iniziare con il modello del corpo della richiesta riportato di seguito.
 }
 ```
 
-Qui è necessario specificare l'URL di un modulo con lo stesso tipo dei moduli con cui si è eseguito il training. A scopo di test, è possibile usare uno dei moduli di training. Se è stata seguita la Guida introduttiva di cURL, i moduli saranno posizionati in un account di archiviazione BLOB di Azure. Aprire Azure Storage Explorer, individuare un file di modulo, fare clic con il pulsante destro del mouse su di esso e scegliere **Ottieni firma di accesso condiviso**. La finestra di dialogo successiva fornirà un URL e un token di firma di accesso condiviso. Immettere queste stringhe rispettivamente nei `"formUrl"` campi `"formSasToken"` e del corpo della richiesta.
+Qui è necessario specificare l'URL di un modulo con lo stesso tipo dei moduli con cui si è eseguito il training. A scopo di test, è possibile usare uno dei moduli di training. Se è stata seguita la Guida introduttiva di cURL, i moduli saranno posizionati in un account di archiviazione BLOB di Azure. Aprire Azure Storage Explorer, individuare un file di modulo, fare clic con il pulsante destro del mouse su di esso e scegliere **Ottieni firma di accesso condiviso**. La finestra di dialogo successiva fornirà un URL e un token di firma di accesso condiviso. Immettere queste stringhe rispettivamente nei `"formUrl"` `"formSasToken"` campi e del corpo della richiesta.
 
 > [!div class="mx-imgBorder"]
 > ![Azure Storage Explorer; è selezionato un documento PDF](media/cognitive-search-skill-form/form-sas.png)
 
-Se si vuole analizzare un documento remoto che non si trovi nell'archivio BLOB di Azure, incollare il relativo `"formUrl"` URL nel campo e `"formSasToken"` lasciare vuoto il campo.
+Se si vuole analizzare un documento remoto che non si trovi nell'archivio BLOB di Azure, incollare il relativo URL nel `"formUrl"` campo e lasciare `"formSasToken"` vuoto il campo.
 
 > [!NOTE]
 > Quando l'abilità è integrata in un skillt, l'URL e il token verranno forniti da ricerca cognitiva.
@@ -111,7 +111,7 @@ La risposta dovrebbe essere simile all'esempio seguente:
 
 Quando si è soddisfatti del comportamento della funzione, è possibile pubblicarla.
 
-1. Nel **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere **pubblica**. Scegliere **Crea nuova** > **pubblicazione**.
+1. Nel **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere **pubblica**. Scegliere **Crea nuova**  >  **pubblicazione**.
 1. Se non si è ancora connesso Visual Studio al proprio account di Azure, selezionare **Aggiungi un account**.
 1. Seguire le istruzioni visualizzate sullo schermo. Specificare un nome univoco per il servizio app, la sottoscrizione di Azure, il gruppo di risorse, il piano di hosting e l'account di archiviazione che si vuole usare. È possibile creare un nuovo gruppo di risorse, un nuovo piano di hosting e un nuovo account di archiviazione, se non sono già presenti. Al termine, selezionare **Crea**.
 1. Al termine della distribuzione, si noti l'URL del sito. Questo URL è l'indirizzo dell'app per le funzioni in Azure. Salvarlo in un percorso temporaneo.

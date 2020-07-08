@@ -1,19 +1,14 @@
 ---
 title: Usare l'archiviazione BLOB come archivio di checkpoint nell'hub Azure Stack (anteprima)
 description: Questo articolo descrive come usare l'archiviazione BLOB come archivio di checkpoint in hub eventi nell'hub Azure Stack (anteprima).
-services: event-hubs
-documentationcenter: na
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 03/18/2020
-ms.author: spelluru
-ms.openlocfilehash: 2938099383c32eac493e4b4bb620f03c76ca5c44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 0990941191827c66cd51d70216c75e106d0448fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82023656"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322368"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Usare l'archiviazione BLOB come archivio di checkpoint-Hub eventi nell'hub Azure Stack (anteprima)
 Se si usa l'archiviazione BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di storage BLOB SDK rispetto a quelle disponibili in genere in Azure, sarà necessario usare il codice per modificare la versione dell'API del servizio di archiviazione nella versione specifica supportata da tale ambiente. Ad esempio, se si esegue [Hub eventi in un hub Azure stack versione 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è la versione 2017-11-09. In questo caso, è necessario usare il codice per fare riferimento alla versione dell'API del servizio di archiviazione a 2017-11-09. Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione, vedere questi esempi su GitHub: 
@@ -34,7 +29,7 @@ The value for one of the HTTP headers is not in the correct format
 
 
 ## <a name="sample-error-message-in-python"></a>Messaggio di errore di esempio in Python
-Per Python, un errore di `azure.core.exceptions.HttpResponseError` viene passato al gestore `on_error(partition_context, error)` degli errori di `EventHubConsumerClient.receive()`. Tuttavia, il metodo `receive()` non genera un'eccezione. `print(error)`stamperà le seguenti informazioni sull'eccezione:
+Per Python, un errore di `azure.core.exceptions.HttpResponseError` viene passato al gestore degli errori `on_error(partition_context, error)` di `EventHubConsumerClient.receive()` . Tuttavia, il metodo `receive()` non genera un'eccezione. `print(error)`stamperà le seguenti informazioni sull'eccezione:
 
 ```bash
 The value for one of the HTTP headers is not in the correct format.

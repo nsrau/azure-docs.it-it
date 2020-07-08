@@ -1,83 +1,168 @@
 ---
-title: Guida alla risoluzione dei problemi-Hub eventi di Azure | Microsoft Docs
-description: Questo articolo fornisce un elenco delle eccezioni di messaggistica di Hub eventi di Azure e le relative azioni consigliate.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: na
+title: Risolvere i problemi di connettività-Hub eventi di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni sulla risoluzione dei problemi di connettività con hub eventi di Azure.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/16/2020
-ms.author: shvija
-ms.openlocfilehash: ab3cbdf938409f4eacffa10ae5cb20f8c36b5856
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124670"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322374"
 ---
-# <a name="azure-event-hubs---troubleshooting-guide"></a>Hub eventi di Azure-Guida alla risoluzione dei problemi
-Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi che possono verificarsi durante l'uso di Azure EventHubs.
+# <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Risolvere i problemi di connettività-Hub eventi di Azure
+Esistono diversi motivi per cui le applicazioni client non sono in grado di connettersi a un hub eventi. I problemi di connettività che si verificano potrebbero essere permanenti o temporanei. Se il problema si verifica sempre (permanente), è consigliabile controllare la stringa di connessione, le impostazioni del firewall dell'organizzazione, le impostazioni del firewall IP, le impostazioni di sicurezza di rete (endpoint di servizio, endpoint privati e così via) e altro ancora. Per i problemi temporanei, l'aggiornamento alla versione più recente dell'SDK, l'esecuzione di comandi per controllare i pacchetti eliminati e il recupero di tracce di rete possono essere utili per la risoluzione dei problemi. 
 
-## <a name="connectivity-certificate-or-timeout-issues"></a>Problemi di connettività, certificato o timeout
-I passaggi seguenti possono essere utili per la risoluzione dei problemi di connettività/certificato/timeout per tutti i servizi in *. servicebus.windows.net. 
+Questo articolo fornisce suggerimenti per la risoluzione dei problemi di connettività con hub eventi di Azure. 
 
-- Passare a o [wget](https://www.gnu.org/software/wget/) `https://<yournamespacename>.servicebus.windows.net/` . Consente di controllare se sono presenti problemi di filtro IP, rete virtuale o catena di certificati (più comuni quando si usa Java SDK).
+## <a name="troubleshoot-permanent-connectivity-issues"></a>Risolvere i problemi di connettività permanenti
+Se l'applicazione non è in grado di connettersi all'hub eventi, attenersi alla procedura descritta in questa sezione per risolvere il problema. 
 
-    Esempio di messaggio riuscito:
-    
-    ```xml
-    <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
+### <a name="check-if-there-is-a-service-outage"></a>Controllare se è presente un'interruzione del servizio
+Verificare l'interruzione del servizio Hub eventi di Azure nel [sito stato dei servizi di Azure](https://azure.microsoft.com/status/).
+
+### <a name="verify-the-connection-string"></a>Verificare la stringa di connessione 
+Verificare che la stringa di connessione utilizzata sia corretta. Vedere [ottenere](event-hubs-get-connection-string.md) la stringa di connessione per ottenere la stringa di connessione usando il portale di Azure, l'interfaccia della riga di comando o PowerShell. 
+
+Per i client Kafka, verificare che i file producer.config o consumer.config siano configurati correttamente. Per altre informazioni, vedere [inviare e ricevere messaggi con Kafka in hub eventi](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs).
+
+### <a name="check-if-the-ports-required-to-communicate-with-event-hubs-are-blocked-by-organizations-firewall"></a>Verificare che le porte necessarie per comunicare con hub eventi siano bloccate dal firewall dell'organizzazione
+Verificare che le porte usate per la comunicazione con hub eventi di Azure non siano bloccate nel firewall dell'organizzazione. Vedere la tabella seguente per le porte in uscita che è necessario aprire per comunicare con hub eventi di Azure. 
+
+| Protocollo | Porte | Dettagli | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 e 5672 | Vedere [Guida al protocollo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9093 | Vedere [Usare Hub eventi da applicazioni Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+
+Ecco un comando di esempio che verifica se la porta 5671 è bloccata.
+
+```powershell
+tnc <yournamespacename>.servicebus.windows.net -port 5671
+```
+
+In Linux:
+
+```shell
+telnet <yournamespacename>.servicebus.windows.net 5671
+```
+
+### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Verificare che gli indirizzi IP siano consentiti nel firewall aziendale
+Quando si lavora con Azure, a volte è necessario consentire URL o intervalli di indirizzi IP specifici nel firewall o nel proxy aziendale per accedere a tutti i servizi di Azure in uso o che si sta tentando di usare. Verificare che il traffico sia consentito sugli indirizzi IP usati da Hub eventi. Per gli indirizzi IP usati da Hub eventi di Azure: vedere [intervalli IP e tag di servizio di Azure-cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519) e [tag del servizio-EventHub](network-security.md#service-tags).
+
+Verificare anche che l'indirizzo IP per lo spazio dei nomi sia consentito. Per trovare gli indirizzi IP giusti per consentire le connessioni, attenersi alla procedura seguente:
+
+1. Al prompt dei comandi eseguire il comando seguente: 
+
     ```
-    
-    Esempio di messaggio di errore di errore:
-
-    ```json
-    <Error>
-        <Code>400</Code>
-        <Detail>
-            Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
-        </Detail>
-    </Error>
+    nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-- Eseguire il comando seguente per verificare se una porta è bloccata sul firewall. Le porte usate sono 443 (HTTPS), 5671 (AMQP) e 9093 (Kafka). A seconda della libreria usata, vengono usate anche altre porte. Ecco il comando di esempio che controlla se la porta 5671 è bloccata.
+2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. L'unico caso che prevede una modifica è il ripristino dello spazio dei nomi in un cluster diverso.
 
-    ```powershell
-    tnc <yournamespacename>.servicebus.windows.net -port 5671
+Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
+
+1. Per prima cosa, eseguire nslookup nello spazio dei nomi.
+
     ```
-
-    In Linux:
-
-    ```shell
-    telnet <yournamespacename>.servicebus.windows.net 5671
+    nslookup <yournamespace>.servicebus.windows.net
     ```
-- Quando si verificano problemi di connettività intermittenti, eseguire il comando seguente per verificare se sono presenti pacchetti eliminati. Questo comando tenterà di stabilire 25 connessioni TCP diverse ogni secondo con il servizio. Quindi, è possibile controllare il numero di riuscite/non riuscite e vedere anche latenza di connessione TCP. È possibile scaricare lo `psping` strumento da [qui](/sysinternals/downloads/psping).
+2. Annotare il nome nella sezione di **risposta non autorevole**, presente in uno dei formati seguenti: 
 
-    ```shell
-    .\psping.exe -n 25 -i 1 -q <yournamespacename>.servicebus.windows.net:5671 -nobanner     
     ```
-    È possibile utilizzare comandi equivalenti se si utilizzano altri strumenti, ad esempio `tnc` , `ping` e così via. 
-- Ottenere una traccia di rete se i passaggi precedenti non sono utili e analizzarli tramite strumenti come [Wireshark](https://www.wireshark.org/). Se necessario, contattare [supporto tecnico Microsoft](https://support.microsoft.com/) . 
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
+    ```
+3. Eseguire nslookup per ciascuna di esse con suffissi S1, S2 e S3 per ottenere gli indirizzi IP di tutte e tre le istanze in esecuzione in tre zone di disponibilità. 
 
-## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemi che possono verificarsi con gli aggiornamenti o i riavvii del servizio
-Gli aggiornamenti del servizio back-end e i riavvii possono provocare le seguenti conseguenze per le applicazioni:
+### <a name="check-if-the-application-needs-to-be-running-in-a-specific-subnet-of-a-vnet"></a>Controllare se l'applicazione deve essere in esecuzione in una subnet specifica di un VNET
+Verificare che l'applicazione sia in esecuzione in una subnet di rete virtuale che abbia accesso allo spazio dei nomi. In caso contrario, eseguire l'applicazione nella subnet che ha accesso allo spazio dei nomi o aggiungere l'indirizzo IP del computer in cui è in esecuzione l'applicazione al [firewall IP](event-hubs-ip-filtering.md). 
 
-- Le richieste possono essere temporaneamente limitate.
+Quando si crea un endpoint del servizio rete virtuale per uno spazio dei nomi di hub eventi, lo spazio dei nomi accetta il traffico solo dalla subnet associata all'endpoint del servizio. Si è verificata un'eccezione a questo comportamento. È possibile aggiungere indirizzi IP specifici nel firewall IP per abilitare l'accesso all'endpoint pubblico dell'hub eventi. Per altre informazioni, vedere [endpoint del servizio di rete](event-hubs-service-endpoints.md).
+
+### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Controllare le impostazioni del firewall IP per lo spazio dei nomi
+Verificare che l'indirizzo IP del computer in cui è in esecuzione l'applicazione non sia bloccato dal firewall IP.  
+
+Per impostazione predefinita, gli spazi dei nomi di Hub eventi sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+
+Le regole del firewall IP vengono applicate a livello dello spazio dei nomi di Hub eventi. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato. Qualsiasi tentativo di connessione proveniente da un indirizzo IP che non corrisponde a una regola di indirizzi IP consentiti nello spazio dei nomi di Hub eventi viene rifiutato come non autorizzato. Nella risposta non viene fatto riferimento alla regola IP. Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
+
+Per altre informazioni, vedere [configurare le regole del firewall IP per uno spazio dei nomi di hub eventi di Azure](event-hubs-ip-filtering.md). Per verificare se sono presenti problemi di filtro IP, rete virtuale o catena di certificati, vedere risolvere i problemi [relativi alla rete](#troubleshoot-network-related-issues).
+
+#### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>Trovare gli indirizzi IP bloccati dal firewall IP
+Abilitare i log di diagnostica per [gli eventi di connessione alla rete virtuale di hub eventi](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) seguendo le istruzioni riportate nei [log di diagnostica](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Viene visualizzato l'indirizzo IP per la connessione negata.
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
+
+### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>Controllare se è possibile accedere allo spazio dei nomi usando solo un endpoint privato
+Se lo spazio dei nomi di hub eventi è configurato per essere accessibile solo tramite endpoint privato, verificare che l'applicazione client acceda allo spazio dei nomi sull'endpoint privato. 
+
+Il [servizio di collegamento privato di Azure](../private-link/private-link-overview.md) consente di accedere a hub eventi di Azure tramite un **endpoint privato** nella rete virtuale. Un endpoint privato è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
+
+Per altre informazioni, vedere [configurare endpoint privati](private-link-service.md). 
+
+### <a name="troubleshoot-network-related-issues"></a>Risolvere i problemi relativi alla rete
+Per risolvere i problemi relativi alla rete con hub eventi, attenersi alla procedura seguente: 
+
+Passare a o [wget](https://www.gnu.org/software/wget/) `https://<yournamespacename>.servicebus.windows.net/` . Consente di controllare se sono presenti problemi di filtro IP, rete virtuale o catena di certificati (più comuni quando si usa Java SDK).
+
+Esempio di **messaggio riuscito**:
+
+```xml
+<feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
+```
+
+Esempio di **messaggio di errore di errore**:
+
+```json
+<Error>
+    <Code>400</Code>
+    <Detail>
+        Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
+    </Detail>
+</Error>
+```
+
+## <a name="troubleshoot-transient-connectivity-issues"></a>Risolvere i problemi di connettività temporanei
+Se si verificano problemi di connettività intermittenti, vedere le sezioni seguenti per suggerimenti sulla risoluzione dei problemi. 
+
+### <a name="use-the-latest-version-of-the-client-sdk"></a>Usare la versione più recente dell'SDK client
+Alcuni dei problemi di connettività temporanei potrebbero essere stati corretti nelle versioni successive dell'SDK rispetto a quello che si sta usando. Assicurarsi di usare la versione più recente degli SDK client nelle applicazioni. Gli SDK sono costantemente migliorati con funzionalità nuove o aggiornate e correzioni di bug, quindi è sempre consigliabile eseguire test con il pacchetto più recente. Controllare le note sulla versione per i problemi corretti e le funzionalità aggiunte o aggiornate. 
+
+Per informazioni sugli SDK client, vedere l'articolo [Hub eventi di Azure-SDK client](sdks.md) . 
+
+### <a name="run-the-command-to-check-dropped-packets"></a>Eseguire il comando per controllare i pacchetti eliminati
+Quando si verificano problemi di connettività intermittenti, eseguire il comando seguente per verificare se sono presenti pacchetti eliminati. Questo comando tenterà di stabilire 25 connessioni TCP diverse ogni secondo con il servizio. Quindi, è possibile controllare il numero di riuscite/non riuscite e vedere anche latenza di connessione TCP. È possibile scaricare lo `psping` strumento da [qui](/sysinternals/downloads/psping).
+
+```shell
+.\psping.exe -n 25 -i 1 -q <yournamespacename>.servicebus.windows.net:5671 -nobanner     
+```
+È possibile utilizzare comandi equivalenti se si utilizzano altri strumenti, ad esempio `tnc` , `ping` e così via. 
+
+Ottenere una traccia di rete se i passaggi precedenti non sono utili e analizzarli tramite strumenti come [Wireshark](https://www.wireshark.org/). Se necessario, contattare [supporto tecnico Microsoft](https://support.microsoft.com/) . 
+
+### <a name="service-upgradesrestarts"></a>Aggiornamenti/riavvii del servizio
+Potrebbero verificarsi problemi di connettività temporanei a causa degli aggiornamenti del servizio back-end e dei riavvii. Quando si verificano, è possibile che vengano visualizzati i sintomi seguenti: 
+
 - Potrebbe essere presente un calo nei messaggi/richieste in arrivo.
 - Il file di log può contenere messaggi di errore.
 - È possibile che le applicazioni siano disconnesse dal servizio per alcuni secondi.
+- Le richieste possono essere temporaneamente limitate.
 
-Se il codice dell'applicazione usa l'SDK, i criteri di ripetizione dei tentativi sono già incorporati e attivi. L'applicazione si riconnetterà senza conseguenze significative per l'applicazione o il flusso di lavoro.
-
+Se il codice dell'applicazione usa l'SDK, i criteri di ripetizione dei tentativi sono già incorporati e attivi. L'applicazione si riconnetterà senza conseguenze significative per l'applicazione o il flusso di lavoro. In caso contrario, riprovare a connettersi al servizio dopo un paio di minuti per verificare se i problemi sono stati rilasciati. 
 
 ## <a name="next-steps"></a>Passaggi successivi
+Vedere gli articoli seguenti:
 
-Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
-
-* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Creare un hub eventi](event-hubs-create.md)
-* [Domande frequenti su Hub eventi](event-hubs-faq.md)
+* [Risolvere i problemi di autenticazione e autorizzazione](troubleshoot-authentication-authorization.md)

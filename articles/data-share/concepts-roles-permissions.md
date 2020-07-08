@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 85b680aafd822b80edf543ca39787848129f1930
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265506"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322061"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Ruoli e requisiti per Condivisione dati di Azure 
 
@@ -24,6 +24,7 @@ Con il servizio Condivisione dati di Azure è possibile condividere i dati senza
 È necessario concedere l'identità gestita della risorsa di condivisione dati di Azure all'archivio dati di Azure. Il servizio di condivisione dati di Azure usa quindi questa identità gestita per leggere e scrivere i dati per la condivisione basata su snapshot e per stabilire un collegamento simbolico per la condivisione sul posto. 
 
 Per condividere o ricevere dati da un archivio dati di Azure, l'utente deve disporre almeno delle autorizzazioni seguenti. Per la condivisione basata su SQL sono necessarie autorizzazioni aggiuntive.
+
 * Autorizzazione per la scrittura nell'archivio dati di Azure. In genere, questa autorizzazione esiste nel ruolo **collaboratore** .
 * Autorizzazione per creare un'assegnazione di ruolo nell'archivio dati di Azure. In genere, l'autorizzazione per creare assegnazioni di ruolo è disponibile nel ruolo **proprietario** , ruolo amministratore accesso utenti o un ruolo personalizzato con Microsoft. autorizzazione/assegnazione ruolo/autorizzazione di scrittura assegnata. Questa autorizzazione non è necessaria se all'identità gestita della risorsa di condivisione dati è già stato concesso l'accesso all'archivio dati di Azure. Vedere la tabella seguente per il ruolo obbligatorio.
 
@@ -36,10 +37,10 @@ Di seguito è riportato un riepilogo dei ruoli assegnati all'identità gestita d
 |Azure Data Lake Gen1 | Proprietario | Non supportato
 |Azure Data Lake Gen2 | Lettore dei dati del BLOB di archiviazione | Collaboratore ai dati del BLOB di archiviazione
 |Azure SQL Server | Collaboratore database SQL | Collaboratore database SQL
-|Cluster di Azure Esplora dati | Collaboratore | Collaboratore
+|Cluster di Esplora dati di Azure | Collaboratore | Collaboratore
 |
 
-Per la condivisione basata su SQL, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure. Di seguito è riportato un riepilogo dell'autorizzazione richiesta dall'utente SQL.
+Per la condivisione basata su SQL, è necessario creare un utente SQL da un provider esterno nel database SQL di Azure con lo stesso nome della risorsa di condivisione dati di Azure. Di seguito è riportato un riepilogo dell'autorizzazione richiesta dall'utente SQL.
 
 | |  |  |
 |---|---|---|
@@ -48,8 +49,8 @@ Per la condivisione basata su SQL, è necessario creare un utente SQL da un prov
 |Azure Synapse Analytics (in precedenza SQL Data Warehouse) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
+### <a name="data-provider"></a>Provider di dati
 
-### <a name="data-provider"></a>Provider di dati 
 Per aggiungere un set di dati nella condivisione dati di Azure, è necessario concedere all'identità gestita della risorsa di condivisione dati del provider l'accesso all'archivio dati di Azure di origine. Ad esempio, nel caso dell'account di archiviazione, all'identità gestita della risorsa di condivisione dati viene concesso il ruolo lettore dati BLOB di archiviazione. 
 
 Questa operazione viene eseguita automaticamente dal servizio Condivisione dati di Azure quando l'utente aggiunge un set di dati tramite portale di Azure e l'utente dispone dell'autorizzazione appropriata. Ad esempio, l'utente è un proprietario dell'archivio dati di Azure o è un membro di un ruolo personalizzato a cui è assegnata l'autorizzazione Microsoft. Authorization/Role/Write. 
@@ -59,7 +60,7 @@ In alternativa, l'utente può avere il proprietario dell'archivio dati di Azure 
 Per creare un'assegnazione di ruolo per l'identità gestita della risorsa di condivisione dati, seguire questa procedura:
 
 1. Passare all'archivio dati di Azure.
-1. Selezionare **Controllo di accesso (IAM)**.
+1. Selezionare **Controllo di accesso (IAM)** .
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. In *ruolo*selezionare il ruolo nella tabella di assegnazione ruolo precedente (ad esempio, per account di archiviazione selezionare *lettore dati BLOB di archiviazione*).
 1. In *Seleziona*Digitare il nome della risorsa di condivisione dati di Azure.
@@ -77,7 +78,7 @@ In alternativa, l'utente può avere il proprietario dell'archivio dati di Azure 
 Per creare manualmente un'assegnazione di ruolo per l'identità gestita della risorsa di condivisione dati, seguire questa procedura:
 
 1. Passare all'archivio dati di Azure.
-1. Selezionare **Controllo di accesso (IAM)**.
+1. Selezionare **Controllo di accesso (IAM)** .
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. In *ruolo*selezionare il ruolo nella tabella di assegnazione ruolo precedente (ad esempio, per account di archiviazione selezionare *lettore dati BLOB di archiviazione*).
 1. In *Seleziona*Digitare il nome della risorsa di condivisione dati di Azure.

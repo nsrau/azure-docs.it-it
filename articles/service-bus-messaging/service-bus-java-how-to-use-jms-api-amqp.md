@@ -1,25 +1,15 @@
 ---
 title: Usare AMQP con l'API del servizio messaggi Java & il bus di servizio di Azure
 description: Come usare JMS (Java Message Service ) con il bus di servizio di Azure e il protocollo AMQP (Advanced Message Queuing Protocol) 1.0.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-editor: spelluru
-ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: Java
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cd06838abbb69af5684fdea18c42f6a8f95ffe2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ccea6175d0baec56b609538d15c32892bb2edff0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77371262"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341732"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Usare Java Message Service (JMS) con il bus di servizio di Azure e AMQP 1,0
 Questo articolo illustra come usare le funzionalità di messaggistica del bus di servizio di Azure (code e argomenti di pubblicazione/sottoscrizione) dalle applicazioni Java usando lo standard API JMS (Java Message Service) più diffuso. È disponibile un [Articolo complementare](service-bus-amqp-dotnet.md) che illustra come eseguire la stessa operazione usando l'API .NET del bus di servizio di Azure. È possibile consultare queste due guide per acquisire informazioni sulla messaggistica multipiattaforma con AMQP 1.0.
@@ -29,7 +19,7 @@ AMQP (Advanced Message Queuing Protocol) 1.0 è un protocollo di messaggistica w
 Il supporto per AMQP 1,0 nel bus di servizio di Azure significa che è possibile usare le funzionalità di Accodamento e di messaggistica negoziata di pubblicazione/sottoscrizione da una vasta gamma di piattaforme usando un protocollo binario efficiente. Inoltre, è possibile creare applicazioni costituite da componenti creati con un insieme di linguaggi, framework e sistemi operativi.
 
 ## <a name="get-started-with-service-bus"></a>Introduzione al bus di servizio
-Questa guida presuppone che sia già presente uno spazio dei nomi del bus di servizio `basicqueue`contenente una coda denominata. In caso contrario, è possibile [creare lo spazio dei nomi e la coda](service-bus-create-namespace-portal.md) usando il [portale di Azure](https://portal.azure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md).
+Questa guida presuppone che sia già presente uno spazio dei nomi del bus di servizio contenente una coda denominata `basicqueue` . In caso contrario, è possibile [creare lo spazio dei nomi e la coda](service-bus-create-namespace-portal.md) usando il [portale di Azure](https://portal.azure.com). Per altre informazioni su come creare spazi dei nomi e code del bus di servizio, vedere [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Le code e gli argomenti partizionati supportano anche AMQP. Per altre informazioni, vedere le [entità di messaggistica partizionate](service-bus-partitioning.md) e [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio](service-bus-partitioned-queues-and-topics-amqp-overview.md).
@@ -37,7 +27,7 @@ Questa guida presuppone che sia già presente uno spazio dei nomi del bus di ser
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Download della libreria client JMS basata su AMQP 1.0
-Per informazioni su dove scaricare la versione più recente della libreria client di Apache Qpid JMS AMQP 1,0, visitare [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+Per informazioni su dove scaricare la versione più recente della libreria client di Apache Qpid JMS AMQP 1,0, visitare [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html) .
 
 È necessario aggiungere i seguenti quattro file JAR dall'archivio di distribuzione AMQP 1.0 di Apache Qpid al CLASSPATH Java durante la compilazione e l'esecuzione di applicazioni JMS con il bus di servizio:
 
@@ -376,7 +366,7 @@ Inoltre, il bus di servizio di Azure separa il piano di controllo dal piano dati
 | createTemporaryQueue        | Creare una coda tramite portale/strumenti/API di gestione con *AutoDeleteOnIdle* impostato su un periodo di scadenza |
 | receiveNoWait               | usare il metodo Receive () fornito da Service Bus SDK e specificare un timeout molto basso o zero |
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Questa guida dettagliata ha illustrato come accedere alle funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) del bus di servizio da Java usando la diffusa API JMS e AMQP 1.0.
 
 È anche possibile utilizzare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui .NET, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà grazie al supporto per AMQP 1.0 nel bus di servizio.
