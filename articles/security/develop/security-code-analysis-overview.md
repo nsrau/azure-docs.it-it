@@ -1,7 +1,7 @@
 ---
 title: Panoramica della documentazione di analisi del codice di sicurezza Microsoft
 description: Questo articolo è una panoramica dell'estensione di analisi del codice di sicurezza Microsoft
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42ea5c6863e769f6d2664b3bcd48d15f00b6b5e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74851469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361320"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Informazioni sull'analisi del codice di sicurezza Microsoft
 
@@ -65,15 +65,11 @@ L'attività di compilazione dello scanner anti-malware è ora inclusa nell'esten
 
 ### <a name="binskim"></a>BinSkim
 
-BinSkim è uno scanner leggero PE (Portable Executable) che convalida le impostazioni del compilatore, le impostazioni del linker e altre caratteristiche relative alla sicurezza dei file binari. Questa attività di compilazione fornisce un wrapper della riga di comando per l'applicazione console binskim. exe. BinSkim è uno strumento open source. Per altre informazioni, vedere [BinSkim su GitHub](https://github.com/Microsoft/binskim).
+BinSkim è uno scanner leggero PE (Portable Executable) che convalida le impostazioni del compilatore, le impostazioni del linker e altre caratteristiche relative alla sicurezza dei file binari. Questa attività di compilazione fornisce un wrapper della riga di comando per l'applicazione console binskim.exe. BinSkim è uno strumento open source. Per altre informazioni, vedere [BinSkim su GitHub](https://github.com/Microsoft/binskim).
 
 ### <a name="credential-scanner"></a>Scanner delle credenziali
 
 Le password e altri segreti archiviati nel codice sorgente rappresentano un problema significativo. Credential scanner è uno strumento di analisi statica proprietario che consente di risolvere il problema. Lo strumento rileva credenziali, segreti, certificati e altro contenuto sensibile nel codice sorgente e nell'output di compilazione.
-
-### <a name="microsoft-security-risk-detection"></a>Rilevamento del rischio di sicurezza Microsoft
-
-Microsoft Security Risk Detection (MSRD) è un servizio basato sul cloud per i test fuzzy. Identifica i bug di sicurezza sfruttabili nel software. Questo servizio richiede una sottoscrizione e un'attivazione separate. Per ulteriori informazioni, vedere il [centro per sviluppatori MSRD](https://docs.microsoft.com/security-risk-detection/).
 
 ### <a name="roslyn-analyzers"></a>Analizzatori di Roslyn
 

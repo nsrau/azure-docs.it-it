@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f082ec896bf0542b63c8c1d0257679681334050
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60243525"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358668"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL
 Nelle versioni precedenti rispetto alla build più recente di Azure AD Connect la delega amministrativa, in caso di distribuzione di configurazioni che necessitano di SQL, non è supportata.  Gli utenti che vogliono installare Azure AD Connect devono avere autorizzazioni di amministratore del server per SQL Server.
@@ -58,7 +58,7 @@ Per effettuare il provisioning del database fuori banda e installare Azure AD Co
 
 3. Inviare un messaggio di posta elettronica all'amministratore di Azure AD Connect che include l'istanza di SQL Server e il nome di istanza da usare durante l'installazione di Azure AD Connect.
 
-## <a name="additional-information"></a>Altre informazioni
+## <a name="additional-information"></a>Informazioni aggiuntive
 Al termine del provisioning del database, l'amministratore di Azure AD Connect può installare e configurare la sincronizzazione locale in base alle necessità specifiche.
 
 Nel caso in cui l'amministratore SQL abbia ripristinato il database ADSync da un backup Azure AD Connect precedente, sarà necessario installare il nuovo server di Azure AD Connect usando un database esistente. Per ulteriori informazioni sull'installazione di Azure AD Connect con un database esistente, vedere [Install Azure ad Connect using an existing AdSync database](how-to-connect-install-existing-database.md).

@@ -11,17 +11,17 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 356697c4843742c12aa39d82602815e38dcca74a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897216"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359144"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorare la sincronizzazione di Azure AD Connect con Azure AD Connect Health
 La documentazione seguente è specifica per il monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health.  Per informazioni sul monitoraggio di AD FS con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](how-to-connect-health-adds.md).
@@ -88,7 +88,7 @@ Il report suddivide gli errori di sincronizzazione esistenti nelle categorie seg
 | Errore di convalida dei dati |Errori causati da dati non validi, ad esempio caratteri non supportati in attributi critici come UserPrincipalName o errori di formato che non superano la convalida prima della scrittura in Azure AD. |
 | Modifica del dominio federato | Errori che si verificano quando gli account usano un dominio federato diverso. |
 | Attributo di grandi dimensioni |Errori che si verificano quando uno o più attributi superano le dimensioni, la lunghezza o il numero consentito. |
-| Altri |Tutti gli altri errori che non rientrano nelle categorie precedenti. Questa categoria verrà suddivisa in sottocategorie in base ai commenti e suggerimenti. |
+| Altro |Tutti gli altri errori che non rientrano nelle categorie precedenti. Questa categoria verrà suddivisa in sottocategorie in base ai commenti e suggerimenti. |
 
 ![Riepilogo del report degli errori di sincronizzazione](./media/how-to-connect-health-sync/errorreport01.png)
 ![Categorie del report degli errori di sincronizzazione](./media/how-to-connect-health-sync/SyncErrorByTypes.PNG)
@@ -113,7 +113,7 @@ La selezione del pulsante "Esporta" consente di scaricare un file CSV con tutti 
 ### <a name="diagnose-and-remediate-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione 
 Per uno scenario con errori di sincronizzazione di attributi duplicati che comportano l'aggiornamento degli ancoraggi di origine, è possibile correggere gli errori direttamente dal portale. Per altre informazioni, vedere [Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati](how-to-connect-health-diagnose-sync-errors.md)
 
-## <a name="related-links"></a>Link correlati
+## <a name="related-links"></a>Collegamenti correlati
 * [Risoluzione degli problemi durante la sincronizzazione](tshoot-connect-sync-errors.md)
 * [Resilienza degli attributi duplicati](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)

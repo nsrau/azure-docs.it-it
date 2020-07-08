@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7f6b623cc5f864106dc2f119308370e80014a4c2
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: e4f31c560fe3dd91689b361ed520e466fd52da1c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360011"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Cambiare la password dell'account del connettore di Azure AD
 L'account di Azure AD Connector dovrebbe essere gratuito. Questo argomento descrive come reimpostare le credenziali in caso di necessità, Ad esempio, se un amministratore globale ha per errore, reimpostare la password dell'account usando PowerShell.
@@ -49,5 +49,5 @@ Evento 659 errore durante il recupero della configurazione di sincronizzazione d
 ## <a name="next-steps"></a>Passaggi successivi
 **Argomenti generali**
 
-* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

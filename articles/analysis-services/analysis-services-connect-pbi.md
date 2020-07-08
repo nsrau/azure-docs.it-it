@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6205c4189abfefc2ee9c4a273ebfd6773ea609b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e75329444c2ddb9401f32bccea400d90b633294
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411369"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361524"
 ---
 # <a name="connect-with-power-bi"></a>Connettersi con Power BI
 
@@ -25,7 +25,7 @@ Dopo aver creato un server in Azure e aver distribuito un modello tabulare nel s
   
 ## <a name="connect-in-power-bi-desktop"></a>Connettersi in Power BI Desktop
 
-1. In Power bi desktop fare clic su **Ottieni dati** > **Azure** > **Azure Analysis Services database**.
+1. In Power bi desktop fare clic su **Ottieni dati**  >  **Azure**  >  **Azure Analysis Services database**.
 
 2. In **Server** immettere il nome del server. Includere l'URL completo, ad esempio asazure://westcentralus.asazure.windows.net/advworks.
 
@@ -48,5 +48,5 @@ Dopo aver creato un server in Azure e aver distribuito un modello tabulare nel s
 
 ## <a name="see-also"></a>Vedere anche
 [Connetti a Azure Analysis Services](analysis-services-connect.md)   
-[Librerie client](analysis-services-data-providers.md)
+[Librerie client](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 

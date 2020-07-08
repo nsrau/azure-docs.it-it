@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 742bc307c90ad58b83b7d4c92f9546b87c163c3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdc8b68206161abdd1782561c904d4e670ecca22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77019282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358957"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Spostare il database di Azure AD Connect da SQL Server Express a SQL Server 
 
@@ -42,7 +42,7 @@ Seguire questa procedura per spostare il database di Azure AD Connect in un'ista
 8. Una volta collegato il database, tornare al server di Azure AD Connect e installare Azure AD Connect.
 9. Al termine dell'installazione del file con estensione msi, viene avviata la procedura guidata per l'installazione di Azure AD Connect in modalità rapida. Chiudere la schermata facendo clic sull'icona di chiusura.
    ![Schermata iniziale](./media/how-to-connect-install-move-db/db1.png)
-10. Avviare un nuovo prompt dei comandi o una nuova sessione di PowerShell. Passare a cartella \<unità> \Programmi\Microsoft Azure ad Connect. Eseguire il comando .\AzureADConnect.exe /useexistingdatabase per avviare la procedura guidata per l'installazione di Azure AD Connect con un database esistente.
+10. Avviare un nuovo prompt dei comandi o una nuova sessione di PowerShell. Passare alla cartella \<drive>\Programmi\Microsoft Azure AD Connect. Eseguire il comando .\AzureADConnect.exe /useexistingdatabase per avviare la procedura guidata per l'installazione di Azure AD Connect con un database esistente.
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Viene visualizzata la schermata iniziale di Azure AD Connect. Accettare le condizioni di licenza e l'informativa sulla privacy e quindi fare clic su **Continua**.
     ![Schermata iniziale](./media/how-to-connect-install-move-db/db3.png)
@@ -55,19 +55,19 @@ Seguire questa procedura per spostare il database di Azure AD Connect in un'ista
 14. Nella schermata **Connessione delle directory** la foresta di Active Directory esistente, configurata per la sincronizzazione delle directory, è visualizzata con accanto una croce rossa. Per sincronizzare le modifiche da una foresta locale di Active Directory è necessario un account di Active Directory Domain Services. La procedura guidata di Azure AD Connect non è in grado di recuperare le credenziali dell'account di Active Directory Domain Services archiviate nel database ADSync perché sono crittografate e possono essere decrittografate solo dal server di Azure AD Connect precedente. Fare clic su **Cambia credenziali** per specificare l'account di Active Directory Domain Services per la foresta di Active Directory.
     ![Directories](./media/how-to-connect-install-move-db/db6.png)
  
- 
+
 15. Nella finestra di dialogo popup è possibile (i) specificare le credenziali di amministratore dell'organizzazione e consentire ad Azure AD Connect di creare automaticamente l'account di Active Directory Domain Services oppure (ii) creare manualmente l'account di Active Directory Domain Services e specificarne le credenziali per Azure AD Connect. Dopo aver selezionato un'opzione e specificato le credenziali necessarie, fare clic su **OK** per chiudere la finestra di dialogo popup.
     ![Schermata iniziale](./media/how-to-connect-install-move-db/db7.png)
  
- 
+
 16. Una volta specificate le credenziali, la croce rossa viene sostituita con un segno di spunta verde. Fare clic su **Avanti**.
     ![Schermata iniziale](./media/how-to-connect-install-move-db/db8.png)
  
- 
+
 17. Nella schermata **pronto per la configurazione** fare clic su **Installa**.
     ![Schermata iniziale](./media/how-to-connect-install-move-db/db9.png)
  
- 
+
 18. Al termine dell'installazione, sul server di Azure AD Connect viene abilitata automaticamente la modalità di gestione temporanea. Prima di disabilitare questa modalità, è consigliabile esaminare la configurazione del server e le operazioni di esportazione in sospeso per eventuali modifiche impreviste. 
 
 ## <a name="next-steps"></a>Passaggi successivi

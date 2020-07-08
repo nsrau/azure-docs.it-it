@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9e602f9ed6a9132c78dbdf0ea3246cbeae80671
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 4f62a94c8ed8baa9979aa1469e785d26781af7f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832351"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361626"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -79,7 +79,7 @@ Un runbook richiede credenziali [appropriate](shared-resources/credentials.md) p
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 
-Automazione di Azure usa [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per monitorare le operazioni del computer. Per le operazioni sono necessari un'area di lavoro Log Analytics e gli [agenti di Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Automazione di Azure usa [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per monitorare le operazioni del computer. Per le operazioni sono necessari un'area di lavoro Log Analytics e gli [agenti di Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
 
 ### <a name="log-analytics-agent-for-windows"></a>Agente di Log Analytics per Windows
 

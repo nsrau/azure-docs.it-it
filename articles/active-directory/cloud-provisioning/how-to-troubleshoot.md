@@ -5,15 +5,15 @@ author: billmath
 ms.author: billmath
 manager: daveba
 ms.date: 12/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e41be4b76245f2567015eb0ede317830120ee61a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75549486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360793"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Risoluzione dei problemi di provisioning nel cloud
 
@@ -44,14 +44,14 @@ Questi elementi possono essere verificati nella portale di Azure e nel server lo
 Per verificare che l'agente sia visualizzato da Azure ed è integro, attenersi alla seguente procedura.
 
 1. Accedere al portale di Azure.
-1. A sinistra selezionare **Azure Active Directory** > **Azure ad Connect**. In centro selezionare **Manage provisioning (anteprima)**.
-1. Nella schermata **Azure ad provisioning (anteprima)** selezionare **verifica tutti gli agenti**.
+1. Sulla sinistra, selezionare **Azure Active Directory** > **Azure AD Connect**. Al centro, selezionare **Gestione del provisioning (anteprima)** .
+1. Nella schermata **Provisioning di Azure AD (anteprima)** selezionare **Verifica tutti gli agenti**.
 
    ![Esaminare tutti gli agenti](media/how-to-install/install7.png)</br>
  
 1. Nella schermata **agenti di provisioning locali** vengono visualizzati gli agenti installati. Verificare che l'agente in questione sia presente ed è contrassegnato come *integro*.
 
-   ![Schermata agenti di provisioning locale](media/how-to-install/install8.png)</br>
+   ![Schermata Agenti di provisioning locali](media/how-to-install/install8.png)</br>
 
 ### <a name="verify-the-port"></a>Verificare la porta
 
@@ -65,12 +65,12 @@ Questo test verifica che gli agenti possano comunicare con Azure tramite la port
 
 ### <a name="on-the-local-server"></a>Nel server locale
 
-Per verificare che l'agente sia in esecuzione, attenersi alla seguente procedura.
+Per verificare se l'agente è in esecuzione, seguire questa procedura.
 
-1. Nel server in cui è installato l'agente, aprire **Servizi** passando a tale server oppure **avviando** > **Esegui** > **Services. msc**.
-1. In **Servizi**verificare che **Microsoft Azure ad Connect agent Updater** e **Microsoft Azure ad Connect provisioning Agent** siano presenti e che il relativo stato sia *in esecuzione*.
+1. Nel server in cui è installato l'agente, aprire **Servizi** passando a tale server oppure **avviando**  >  **Esegui**  >  **Services. msc**.
+1. In **Servizi** assicurarsi che siano presenti i servizi **Microsoft Azure AD Connect Agent Updater** e **Microsoft Azure AD Connect Provisioning Agent** e che il relativo stato sia *In esecuzione*.
 
-   ![Schermata dei servizi](media/how-to-troubleshoot/troubleshoot1.png)
+   ![Schermata Servizi](media/how-to-troubleshoot/troubleshoot1.png)
 
 ### <a name="common-agent-installation-problems"></a>Problemi comuni di installazione dell'agente
 
@@ -86,8 +86,8 @@ Questo problema è in genere causato da criteri di gruppo che impediscono l'appl
 
 Per risolvere il problema, attenersi alla seguente procedura.
 
-1. Accedere al server con un account di amministratore.
-1. Per aprire i **Servizi** , passare a esso o **avviare** > **Run** > **Services. msc**.
+1. Accedere al server con un account amministratore.
+1. Aprire **Servizi** passando all'opzione relativa oppure selezionando **Start** > **Esegui** > **Services.msc**.
 1. In **Servizi**fare doppio clic su **Microsoft Azure ad Connetti agente di provisioning**.
 1. Nella scheda **accesso** modificare **questo account** in un amministratore di dominio. Riavviare quindi il servizio. 
 
@@ -99,7 +99,7 @@ Quando si tenta di registrare l'agente, è possibile che venga ricevuto il messa
 
 ![Messaggio di errore di timeout](media/how-to-troubleshoot/troubleshoot4.png)
 
-Questo problema in genere è dovuto al fatto che l'agente non è in grado di connettersi al servizio di identità ibrido e richiede la configurazione di un proxy HTTP. Per risolvere il problema, configurare un proxy in uscita. 
+Questo problema in genere è dovuto al fatto che l'agente non riesce a connettersi al servizio di gestione delle identità ibride e richiede la configurazione di un proxy HTTP. Per risolvere il problema, configurare un proxy in uscita. 
 
 L'agente di provisioning supporta l'uso di un proxy in uscita. È possibile configurarlo modificando il file di configurazione dell'agente *c:\programmi\microsoft Azure ad Connect provisioning Agent\AADConnectProvisioningAgent.exe.config*. Aggiungere le righe seguenti, verso la fine del file immediatamente prima del tag di chiusura `</configuration>` .
 Sostituire le variabili `[proxy-server]` e `[proxy-port]` con i valori di nome e porta del server proxy.
@@ -126,13 +126,13 @@ Per risolvere questo problema, modificare i criteri di esecuzione di PowerShell 
 
 ### <a name="log-files"></a>File di registro
 
-Per impostazione predefinita, l'agente genera messaggi di errore e informazioni di analisi dello stack minime. È possibile trovare i log di traccia nella cartella *C:\ProgramData\Microsoft\Azure il provisioning di AGENT\TRACE ad Connect*.
+Per impostazione predefinita, l'agente genera un numero ridotto di messaggi di errore e informazioni minime di analisi dello stack. È possibile trovare i log di traccia nella cartella *C:\ProgramData\Microsoft\Azure il provisioning di AGENT\TRACE ad Connect*.
 
 Per raccogliere ulteriori dettagli per la risoluzione dei problemi relativi agli agenti, attenersi alla seguente procedura.
 
 1. Arrestare il servizio **Microsoft Azure ad connettere l'agente di provisioning**.
 1. Creare una copia del file di configurazione originale: *c:\programmi\microsoft Azure ad Connect provisioning Agent\AADConnectProvisioningAgent.exe.config*.
-1. Sostituire la sezione `<system.diagnostics>` esistente con la seguente e tutti i messaggi di traccia andranno al file *ProvAgentTrace. log*.
+1. Sostituire la `<system.diagnostics>` sezione esistente con la seguente e tutti i messaggi di traccia andranno al file *ProvAgentTrace. log*.
 
    ```xml
      <system.diagnostics>

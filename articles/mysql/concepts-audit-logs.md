@@ -5,37 +5,35 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/19/2020
-ms.openlocfilehash: b42f0d7a8146f7f2b313959273abd22303c89a60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 8b12e1bd7bd67c3d22bdb62255b481d81976b969
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362126"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Log di controllo nel database di Azure per MySQL
 
 Nel database di Azure per MySQL il log di controllo è disponibile per gli utenti. Il log di controllo può essere usato per tenere traccia delle attività a livello di database e viene comunemente usato per la conformità.
 
-> [!IMPORTANT]
-> La funzionalità del log di controllo è attualmente in anteprima.
-
 ## <a name="configure-audit-logging"></a>Configurare la registrazione di controllo
+
+>[!IMPORTANT]
+> Si consiglia di registrare solo i tipi di evento e gli utenti necessari a scopo di controllo, in modo da garantire che le prestazioni del server non siano fortemente interessate.
 
 Per impostazione predefinita, il log di controllo è disabilitato. Per abilitarla, impostare `audit_log_enabled` su on.
 
 Altri parametri che è possibile modificare includono:
 
 - `audit_log_events`: controlla gli eventi da registrare. Vedere la tabella seguente per gli eventi di controllo specifici.
-- `audit_log_include_users`: Utenti MySQL da includere per la registrazione. Il valore predefinito per questo parametro è vuoto, che include tutti gli utenti per la registrazione. Questa operazione ha una priorità `audit_log_exclude_users`più elevata rispetto a. La lunghezza massima del parametro è di 512 caratteri.
-> [!Note]
-> `audit_log_include_users`ha una priorità maggiore `audit_log_exclude_users`rispetto a. `audit_log_include_users`  =  Se `demouser` , ad esempio, `audit_log_exclude_users`  =  `demouser`e, l'utente verrà incluso nei log di controllo perché `audit_log_include_users` ha una priorità più elevata.
+- `audit_log_include_users`: Utenti MySQL da includere per la registrazione. Il valore predefinito per questo parametro è vuoto, che include tutti gli utenti per la registrazione. Questa operazione ha una priorità più elevata rispetto a `audit_log_exclude_users` . La lunghezza massima del parametro è di 512 caratteri.
 - `audit_log_exclude_users`: Utenti di MySQL da escludere dalla registrazione. La lunghezza massima del parametro è di 512 caratteri.
 
-> [!Note]
-> Per `sql_text`, log verrà troncato se supera i 2048 caratteri.
+> [!NOTE]
+> `audit_log_include_users`ha una priorità maggiore rispetto a `audit_log_exclude_users` . Se, ad esempio, `audit_log_include_users`  =  `demouser` e `audit_log_exclude_users`  =  `demouser` , l'utente verrà incluso nei log di controllo perché `audit_log_include_users` ha una priorità più elevata.
 
-| **Evento** | **Descrizione** |
+| **Event** | **Descrizione** |
 |---|---|
 | `CONNECTION` | -Avvio della connessione (esito positivo o negativo) <br> -Riautenticazione utente con diversi utenti/password durante la sessione <br> -Terminazione connessione |
 | `DML_SELECT`| Query SELECT |
@@ -49,7 +47,7 @@ Altri parametri che è possibile modificare includono:
 
 ## <a name="access-audit-logs"></a>Accedere ai log di controllo
 
-I log di controllo sono integrati con i log di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di controllo nel server MySQL, è possibile crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per altre informazioni su come abilitare i log di diagnostica nella portale di Azure, vedere l' [articolo](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)relativo al portale di log di controllo.
+I log di audit sono integrati con i log di diagnostica di Monitoraggio di Azure. Dopo aver abilitato i log di audit nel server MySQL, è possibile emetterli nei log di Monitoraggio di Azure, Hub eventi o Archiviazione di Azure. Per altre informazioni su come abilitare i log di diagnostica nella portale di Azure, vedere l' [articolo](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)relativo al portale di log di controllo.
 
 ## <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
 
@@ -73,7 +71,7 @@ Le sezioni seguenti descrivono i dati di output dei log di controllo di MySQL in
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome del server |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (disponibile solo per MySQL 5,7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT` , `CHANGE USER` (disponibile solo per MySQL 5,7) |
 | `connection_id_d` | ID connessione univoco generato da MySQL |
 | `host_s` | Vuoto |
 | `ip_s` | Indirizzo IP del client che si connette a MySQL |
@@ -84,6 +82,9 @@ Le sezioni seguenti descrivono i dati di output dei log di controllo di MySQL in
 ### <a name="general"></a>Generale
 
 Lo schema riportato di seguito si applica ai tipi di evento GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN.
+
+> [!NOTE]
+> Per `sql_text` , log verrà troncato se supera i 2048 caratteri.
 
 | **Proprietà** | **Descrizione** |
 |---|---|
@@ -101,7 +102,7 @@ Lo schema riportato di seguito si applica ai tipi di evento GENERAL, DML_SELECT,
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome del server |
 | `event_class_s` | `general_log` |
-| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (disponibile solo per MySQL 5,6) |
+| `event_subclass_s` | `LOG`, `ERROR` , `RESULT` (disponibile solo per MySQL 5,6) |
 | `event_time` | Ora di inizio della query in formato timestamp UTC |
 | `error_code_d` | Codice di errore se la query non è riuscita. `0`indica nessun errore |
 | `thread_id_d` | ID del thread che ha eseguito la query |
@@ -114,7 +115,7 @@ Lo schema riportato di seguito si applica ai tipi di evento GENERAL, DML_SELECT,
 ### <a name="table-access"></a>Accesso alla tabella
 
 > [!NOTE]
-> I log di accesso alle tabelle vengono restituiti solo per MySQL 5,7.
+> I log di accesso alle tabelle vengono restituiti solo per MySQL 5,7.<br>Per `sql_text` , log verrà troncato se supera i 2048 caratteri.
 
 | **Proprietà** | **Descrizione** |
 |---|---|

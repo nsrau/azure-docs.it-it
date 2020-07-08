@@ -3,14 +3,14 @@ title: Usare il servizio Azure Kubernetes con il contratto di servizio relativo 
 description: Informazioni sull'offerta opzionale del contratto di servizio relativo al tempo di attività per il server API del servizio Azure Kubernetes.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: HT
+ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299554"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361575"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Servizio Azure Kubernetes: contratto di servizio relativo al tempo di attività
 
@@ -23,29 +23,45 @@ I clienti possono comunque creare cluster gratuiti senza limiti con un obiettivo
 > [!Important]
 > Per i cluster con blocco in uscita, vedere la pagina relativa a come [limitare il traffico in uscita](limit-egress-traffic.md) per aprire le porte appropriate.
 
+## <a name="region-availability"></a>Aree di disponibilità
+
+Il contratto di servizio per il tempo di esecuzione è disponibile nelle aree pubbliche in cui [è supportato AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government attualmente non è supportato.
+* Azure Cina 21Vianet attualmente non è supportato.
+
+## <a name="limitations"></a>Limitazioni
+
+* I cluster privati non sono attualmente supportati.
+
 ## <a name="sla-terms-and-conditions"></a>Termini e condizioni del contratto di servizio
 
 Il contratto di servizio relativo al tempo di attività è una funzionalità a pagamento abilitata per cluster. Il prezzo del contratto di servizio relativo al tempo di attività è determinato dal numero di cluster discreti e non dalle dimensioni dei singoli cluster. Per altre informazioni, consultare i [dettagli sui prezzi del contratto di servizio relativo al tempo di attività](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-* Interfaccia della riga di comando di Azure, versione 2.7.0 o successiva
+* Installare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure versione 2.8.0 o successiva
 
-## <a name="creating-a-cluster-with-uptime-sla"></a>Creazione di un cluster con il contratto di servizio relativo al tempo di attività
+## <a name="creating-a-new-cluster-with-uptime-sla"></a>Creazione di un nuovo cluster con contratto di servizio con tempo di esecuzione
+
+> [!NOTE]
+> Attualmente, se si Abilita il contratto di servizio per il tempo di esecuzione, non è possibile rimuoverlo da un cluster.
 
 Per creare un nuovo cluster con il contratto di servizio relativo al tempo di attività, usare l'interfaccia della riga di comando di Azure.
 
-L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
+# Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Viene inoltre abilitato Monitoraggio di Azure per i contenitori mediante il parametro *--enable-addons monitoring*.  Il completamento dell'operazione richiede diversi minuti.
+Usare il [`az aks create`][az-aks-create] comando per creare un cluster AKS. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Il completamento di questa operazione richiede alcuni minuti:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
+# Create an AKS cluster with uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-Il comando viene completato dopo pochi minuti e vengono restituite informazioni in formato JSON sul cluster. Il frammento di codice JSON seguente mostra il livello a pagamento per lo SKU, che indica che il cluster è abilitato con contratto di servizio relativo al tempo di attività.
+Il comando viene completato dopo pochi minuti e vengono restituite informazioni in formato JSON sul cluster. Il frammento di codice JSON seguente mostra il livello a pagamento per lo SKU, che indica che il cluster è abilitato con contratto di servizio con tempo di esecuzione:
 
 ```output
   },
@@ -55,15 +71,61 @@ Il comando viene completato dopo pochi minuti e vengono restituite informazioni 
   },
 ```
 
-## <a name="limitations"></a>Limitazioni
+## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Modificare un cluster esistente per usare il contratto di servizio con tempo di esecuzione
 
-* Attualmente non è consentita la conversione come cluster esistente per abilitare il contratto di servizio relativo al tempo di attività.
-* Attualmente non è possibile rimuovere il contratto di servizio relativo al tempo di attività da un cluster del servizio Azure Kubernetes dopo la creazione con abilitazione.  
-* I cluster privati non sono attualmente supportati.
+Facoltativamente, è possibile aggiornare i cluster esistenti per utilizzare il contratto di servizio con tempo di esecuzione.
+
+Se è stato creato un cluster AKS con i passaggi precedenti, eliminare il gruppo di risorse:
+
+```azurecli-interactive
+# Delete the existing cluster by deleting the resource group 
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+Creare un nuovo gruppo di risorse:
+
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+```
+
+Creare un nuovo cluster e non usare il contratto di servizio per il tempo di esecuzione:
+
+```azurecli-interactive
+# Create a new cluster without uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+```
+
+Usare il [`az aks update`][az-aks-nodepool-update] comando per aggiornare il cluster esistente:
+
+```azurecli-interactive
+# Update an existing cluster to use Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+ ```
+
+ Il frammento di codice JSON seguente mostra il livello a pagamento per lo SKU, che indica che il cluster è abilitato con contratto di servizio con tempo di esecuzione:
+
+ ```output
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Paid"
+  },
+  ```
+
+## <a name="clean-up"></a>Eseguire la pulizia
+
+Per evitare addebiti, pulire le risorse create. Per eliminare il cluster, usare il [`az group delete`][az-group-delete] comando per eliminare il gruppo di risorse AKS:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Usare [zone di disponibilità][availability-zones] per aumentare la disponibilità elevata con i carichi di lavoro del cluster del servizio Azure Kubernetes.
+
 Configurare il cluster per [limitare il traffico in uscita](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
@@ -79,3 +141,5 @@ Configurare il cluster per [limitare il traffico in uscita](limit-egress-traffic
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-group-delete]: /cli/azure/group#az-group-delete

@@ -8,17 +8,17 @@ editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4626e0149028a140d143fb8d0969a03b732201fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79036986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359756"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Correzione delle regole predefinite modificate in Azure AD Connect
 
@@ -49,7 +49,7 @@ Di seguito sono riportate le personalizzazioni comuni alle regole predefinite:
 
 Prima di modificare le regole:
 
-- Disabilitare l'utilità di pianificazione della sincronizzazione. Per impostazione predefinita, l' utilità di pianificazione viene eseguita ogni 30 minuti. Assicurarsi che non venga avviata mentre si apportano modifiche e si risolvono i problemi delle nuove regole. Per disabilitare temporaneamente l'utilità di pianificazione, avviare PowerShell ed eseguire `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+- Disabilitare l'utilità di pianificazione della sincronizzazione. Per impostazione predefinita, l' utilità di pianificazione viene eseguita ogni 30 minuti. Assicurarsi che non venga avviata mentre si apportano modifiche e si risolvono i problemi delle nuove regole. Per disabilitare temporaneamente l'utilità di pianificazione, avviare PowerShell ed eseguire `Set-ADSyncScheduler -SyncCycleEnabled $false` .
  ![Comandi di PowerShell per disabilitare l'utilità di pianificazione della sincronizzazione](media/how-to-connect-fix-default-rules/default3.png)
 
 - La modifica del filtro di ambito può causare l'eliminazione di oggetti nella directory di destinazione. Prestare attenzione prima di apportare qualsiasi modifica nell'ambito degli oggetti. Si consiglia di apportare modifiche a un server di staging prima di apportare modifiche al server attivo.
@@ -105,7 +105,7 @@ Mantieni il **filtro di ambito** e **le regole di join** vuote. Compilare la tra
 A questo punto è possibile creare un nuovo attributo per un flusso di oggetti utente da Active Directory a Azure Active Directory. È possibile usare questi passaggi per eseguire il mapping di qualsiasi attributo da qualsiasi oggetto a origine e destinazione. Per altre informazioni, vedere [creazione di regole di sincronizzazione personalizzate](how-to-connect-create-custom-sync-rule.md) e [preparare il provisioning degli utenti](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Eseguire l'override del valore di un attributo esistente
-Potrebbe essere necessario eseguire l'override del valore di un attributo di cui è già stato eseguito il mapping. Se, ad esempio, si desidera impostare sempre un valore null su un attributo in Azure AD, è sufficiente creare solo una regola in ingresso. Fare in modo che il `AuthoritativeNull`valore della costante,, fluisca all'attributo di destinazione. 
+Potrebbe essere necessario eseguire l'override del valore di un attributo di cui è già stato eseguito il mapping. Se, ad esempio, si desidera impostare sempre un valore null su un attributo in Azure AD, è sufficiente creare solo una regola in ingresso. Fare in modo che il valore della costante, `AuthoritativeNull` , fluisca all'attributo di destinazione. 
 
 >[!NOTE] 
 > Usare `AuthoritativeNull` anziché `Null` in questo caso. Questo è dovuto al fatto che il valore non null sostituisce il valore null, anche se ha una precedenza più bassa (un valore di numero più alto nella regola). `AuthoritativeNull`d'altra parte, non viene sostituito con un valore non null da altre regole. 
@@ -141,7 +141,7 @@ Non è possibile impostare questo attributo in Active Directory. Impostare il va
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-Il reparto è stato prima convertito da Source (Active Directory) a minuscole. Quindi, usando la `Left` funzione, abbiamo accettato solo i primi tre caratteri e confrontato `hrd`con. Se corrisponde, il valore viene impostato su `True`; in caso contrario `NULL`,. Quando si imposta il valore su null, un'altra regola con precedenza inferiore (un valore di numero più alto) può scrivere su di essa con una condizione diversa. Eseguire l'anteprima su un oggetto per convalidare la regola di sincronizzazione, come indicato nella sezione [convalida della regola di sincronizzazione](#validate-sync-rule) .
+Il reparto è stato prima convertito da Source (Active Directory) a minuscole. Quindi, usando la `Left` funzione, abbiamo accettato solo i primi tre caratteri e confrontato con `hrd` . Se corrisponde, il valore viene impostato su `True` ; in caso contrario, `NULL` . Quando si imposta il valore su null, un'altra regola con precedenza inferiore (un valore di numero più alto) può scrivere su di essa con una condizione diversa. Eseguire l'anteprima su un oggetto per convalidare la regola di sincronizzazione, come indicato nella sezione [convalida della regola di sincronizzazione](#validate-sync-rule) .
 
 ![Crea opzioni regola di sincronizzazione in ingresso](media/how-to-connect-fix-default-rules/default7a.png)
 
@@ -178,7 +178,7 @@ Nella finestra di anteprima selezionare **genera anteprima** e **Importa flusso 
 
 ![Anteprima](media/how-to-connect-fix-default-rules/default14.png)
  
-Si noti che la regola appena aggiunta viene eseguita sull'oggetto e l' `cloudFiltered` attributo è impostato su true.
+Si noti che la regola appena aggiunta viene eseguita sull'oggetto e l'attributo è impostato `cloudFiltered` su true.
 
 ![Anteprima](media/how-to-connect-fix-default-rules/default15a.png)
  

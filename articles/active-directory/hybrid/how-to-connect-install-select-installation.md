@@ -11,22 +11,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7275d115210100bdd4a3a2eb683c867a6a4a4f4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60348281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358702"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selezionare il tipo di installazione da usare per Azure AD Connect
 Per Azure AD Connect sono disponibili due tipi di installazione: rapida e personalizzata. Questo argomento consente di decidere quale opzione usare durante l'installazione.
 
-## <a name="express"></a>Express
+## <a name="express"></a>Rapida
 L'installazione rapida è l'opzione più comune e viene usata per circa il 90% di tutte le nuove installazioni. È stata progettata per fornire una configurazione adatta per la maggior parte degli scenari dei clienti.
 
 Richiede:
@@ -50,7 +50,7 @@ Casi in cui è comunque possibile usare l'installazione rapida:
 ## <a name="custom"></a>Personalizzato
 Il percorso personalizzato offre molte più opzioni rispetto a quello rapido e deve essere usato in tutti i casi in cui l'organizzazione non dispone della configurazione indicata nella sezione precedente per l'installazione rapida.
 
-Usare questo tipo nei seguenti casi:
+Utilizzare quando:
 
 - Non si ha accesso a un account amministratore dell'organizzazione in Active Directory.
 - Si dispone di più foreste o si prevede di sincronizzare più foreste in futuro.

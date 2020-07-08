@@ -3,14 +3,14 @@ title: Avviare un runbook di Automazione di Azure da un webhook
 description: Questo articolo illustra come usare un webhook per avviare un runbook in Automazione di Azure da una chiamata HTTP.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2578e15a60b2021d9e599018043c4834d0c07d34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361677"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Avviare un runbook da un webhook
 
@@ -21,11 +21,13 @@ Un webhook consente a un servizio esterno di avviare un runbook specifico in Aut
 
 ![Panoramica dei webhook](media/automation-webhooks/webhook-overview-image.png)
 
+Per informazioni sui requisiti dei client per TLS 1,2 con webhook, vedere l' [imposizione di tls 1,2 per automazione di Azure](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+
 ## <a name="webhook-properties"></a>Proprietà dei webhook
 
 La tabella seguente descrive le proprietà che devono essere configurate per un webhook.
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:--- |:--- |
 | Nome |Nome del webhook. È possibile specificare un nome qualsiasi, dal momento che non è esposto al client. Il nome viene usato solo per consentire all'utente di identificare il runbook in Automazione di Azure. Come procedura consigliata è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
 | URL |URL del webhook. Si tratta dell'indirizzo univoco che viene chiamato da un client con HTTP POST per avviare il runbook collegato al webhook. Viene generato automaticamente al momento della creazione del webhook. Non è possibile specificare un URL personalizzato. <br> <br> L'URL contiene un token di sicurezza che consente a un sistema di terze parti di chiamare il runbook senza alcuna autenticazione aggiuntiva. Per questo motivo, è consigliabile considerare l'URL come una password. Per motivi di sicurezza, è possibile visualizzare l'URL nel portale di Azure solo quando si crea il webhook. Prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
@@ -81,9 +83,13 @@ A questo punto, nell'interfaccia utente viene passato l'oggetto JSON seguente pe
 
 La sicurezza di un webhook si basa sulla privacy dell'URL corrispondente, che contiene un token di sicurezza che consente di chiamare il webhook. Automazione di Azure non esegue alcuna autenticazione per una richiesta, a condizione che questa venga inviata all'URL corretto. Per questo motivo, i client devono usare webhook per runbook che eseguono operazioni altamente sensibili solo se usano una modalità alternativa di convalida della richiesta.
 
-È possibile includere logica in un runbook per determinare se quest'ultimo viene chiamato da un webhook. Fare in modo che il runbook controlli la proprietà `WebhookName` del parametro `WebhookData`. Il runbook può eseguire ulteriori operazioni di convalida cercando informazioni specifiche nella proprietà `RequestHeader` e `RequestBody`.
+Prendere in considerazione le strategie seguenti:
 
-Un'altra strategia consiste nel fare in modo che il runbook esegua la convalida di una condizione esterna quando riceve una richiesta webhook. Si consideri ad esempio un runbook chiamato da GitHub ogni volta che viene eseguito un nuovo commit in un repository di GitHub. Il runbook può connettersi a GitHub per verificare che sia stato eseguito un nuovo commit prima di continuare.
+* È possibile includere logica in un runbook per determinare se quest'ultimo viene chiamato da un webhook. Fare in modo che il runbook controlli la proprietà `WebhookName` del parametro `WebhookData`. Il runbook può eseguire ulteriori operazioni di convalida cercando informazioni specifiche nella proprietà `RequestHeader` e `RequestBody`.
+
+* Fare in modo che il Runbook esegua una convalida di una condizione esterna quando riceve una richiesta di webhook. Si consideri ad esempio un runbook chiamato da GitHub ogni volta che viene eseguito un nuovo commit in un repository di GitHub. Il runbook può connettersi a GitHub per verificare che sia stato eseguito un nuovo commit prima di continuare.
+
+* Automazione di Azure supporta i tag del servizio rete virtuale di Azure, in particolare [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md) e attivare i webhook dall'interno della rete virtuale. I tag di servizio possono essere usati al posto di indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag del servizio **GuestAndHybridManagement** nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio di automazione. Questo tag di servizio non supporta l'abilitazione di un controllo più granulare limitando gli intervalli IP a un'area specifica.
 
 ## <a name="create-a-webhook"></a>Creare un webhook
 
@@ -101,7 +107,8 @@ Seguire questa procedura per creare un nuovo webhook collegato a un Runbook nel 
    ![URL webhook](media/automation-webhooks/copy-webhook-url.png)
 
 1. Fare clic su **Parameters** per specificare i valori per i parametri del Runbook. Se il runbook contiene parametri obbligatori, è possibile creare il webhook solo se si specificano i valori di tali parametri.
-1. Fare clic su **Create** per creare il webhook.
+
+2. Fare clic su **Create** per creare il webhook.
 
 ## <a name="use-a-webhook"></a>Usare un webhook
 

@@ -12,18 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d4281d3b6132e551283a71cd1801ef462fbfc68c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33ce2a496caa52609d8bdf8c92e29064ca4ae349
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146133"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362041"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Roadmap e versioni di analisi del codice di sicurezza Microsoft
 
-Il team di analisi del codice di sicurezza Microsoft in collaborazione con supporto tecnico Developer è orgoglioso di annunciare i miglioramenti recenti e imminenti per l'estensione MSCA. Vedere la roadmap riportata di seguito.
+Il team di analisi del codice di sicurezza Microsoft in collaborazione con supporto tecnico Developer è orgoglioso di annunciare i miglioramenti recenti e imminenti per l'estensione MSCA.
 
-![Rilasci](./media/security-code-analysis-releases/releases.png)
 
 ## <a name="credential-scanner-v20-released-in-april-2020"></a>Credential Scanner v 2.0: rilasciato ad aprile 2020
 
@@ -54,18 +53,25 @@ Il team di analisi del codice di sicurezza Microsoft in collaborazione con suppo
 
 ### <a name="improvements"></a>Miglioramenti
 
-- FUNZIONALITÀ: aggiornamento alla versione finale di SARIF V2 (versione 2.1.16). Ciò consente la memorizzazione nella cache dei risultati quando vengono superati gli hash dalla riga di comando, un miglioramento significativo delle prestazioni quando si analizza in modo ricorsivo le directory con più copie di destinazioni di analisi.
+- FUNZIONALITÀ: aggiornamento alla versione finale di SARIF V2 (versione 2.1.16). Questo aggiornamento consente la memorizzazione nella cache dei risultati quando si passano gli hash dalla riga di comando, un miglioramento significativo delle prestazioni quando si analizza in modo ricorsivo le directory con più copie di destinazioni di analisi.
 - CORREZIONE di BUG: correzione del digitazione in BA2021. Output DoNotMarkWritableSectionsAsExecutable.
 - PRESTAZIONI: eliminare IL caricamento del PDB per tutte le modalità non mista per gli assembly gestiti, inclusi i file binari della libreria IL (Ahead of Time compilati).
 - CORREZIONE falsa negativa: verificare che un PDB situato insieme a un file binario corrisponda effettivamente al file binario sotto l'analisi
 - FUNZIONALITÀ: fornire l'argomento--local-symbol-Directories per specificare percorsi di ricerca PDB aggiuntivi (locali, non simboli)
 - CORREZIONE di falsi positivi: ignora l'analisi guidata da PDB per il file exe bootstrap nativo di .NET Core, che non è un codice controllabile dall'utente.
 
-## <a name="whats-next-in-fy20"></a>Passaggi successivi in FY20
+## <a name="whats-next-in-q3-cy20"></a>Quali sono le novità del terzo trimestre CY20?
 
 - Strumento di analisi della sicurezza Java
 - Strumento di analisi della sicurezza Python
 - Pelucchi ES per sostituire i pelucchi di Servizi terminal per TypeScript e JavaScript
+- Strumento di analisi modelli di Gestione risorse
+
+## <a name="tool-deprecation-notification"></a>Notifica di deprecazione dello strumento
+
+### <a name="microsoft-security-risk-detection-msrd-is-deprecated-on-june-26-2020"></a>Microsoft Security Risk Detection (MSRD) è deprecato il 26 2020 giugno.
+
+Il servizio di fuzzing MSRD deprecato verrà sostituito con una piattaforma di fuzzing per sviluppatori self-hosted open source per Azure. Questa piattaforma è attualmente in fase di sviluppo e test in collaborazione con molti dei principali team di prodotti Microsoft. Questa piattaforma di fuzzing integrerà gli igienizzatori e consentirà i test fuzzy adattivi e di apprendimento integrati nelle pipeline di integrazione continua/recapito continuo che crescono nel tempo con i progetti software. La versione open source della piattaforma è prevista per la seconda metà del 2020.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

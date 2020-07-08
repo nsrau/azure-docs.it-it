@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3667dd529ce5542be84c5e357053d8cd11eb91e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca9afda3303d828bdbb162a9e18ac817b7f8091e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76908990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360657"
 ---
 # <a name="using-single-sign-on-with-cloud-provisioning"></a>Uso di Single Sign-on con il provisioning cloud
 Il documento seguente illustra come usare Single Sign-On con il provisioning cloud.

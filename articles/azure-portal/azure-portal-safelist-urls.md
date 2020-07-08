@@ -1,5 +1,5 @@
 ---
-title: Attendibilità degli URL portale di Azure nel firewall o nel server proxy
+title: Aggiungere gli URL del portale di Azure nell’elenco di indirizzi attendibili nel firewall o nel server proxy
 description: Aggiungere questi URL al bypass del server proxy per comunicare con il portale di Azure e i relativi servizi
 services: azure-portal
 keywords: ''
@@ -9,14 +9,14 @@ ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 399c64c88e78079432fcf7c09dafd199da83358b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67ccf6e2f113c0ec72cfcbccedf88017e452ec4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255050"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361660"
 ---
-# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Attendibilità degli URL portale di Azure nel firewall o nel server proxy
+# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Aggiungere gli URL del portale di Azure nell’elenco di indirizzi attendibili nel firewall o nel server proxy
 
 È possibile configurare i dispositivi di sicurezza locali per ignorare le restrizioni di sicurezza per gli URL portale di Azure. Questa configurazione può migliorare le prestazioni e la connettività tra la rete locale o l'area estesa e il cloud di Azure.
 
@@ -53,6 +53,7 @@ Gli endpoint URL per la portale di Azure di sicurezza sono specifici del cloud d
 #### <a name="us-government-cloud"></a>[Cloud per enti pubblici statunitensi](#tab/us-government-cloud)
 
 ```
+*.applicationinsights.us
 *.azure.us
 *.loganalytics.us
 *.microsoft.us

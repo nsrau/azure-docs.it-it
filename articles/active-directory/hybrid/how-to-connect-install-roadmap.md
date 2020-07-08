@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9ed613972f166f1f9955fc34e9bb640d87da6b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bee5ba92f6795df6635dc98a19cabaeb9692a470
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331432"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358736"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Roadmap di installazione di Azure AD Connect e Azure AD Connect Health
 
@@ -42,7 +42,7 @@ Il download per Azure AD Connect è disponibile nell' [Area download Microsoft](
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Installare Azure AD Connect - Passaggi successivi
 |Argomento |Collegamento|  
 | --- | --- |
-|Scaricare Azure AD Connect | [Scarica Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
+|Scaricare Azure AD Connect | [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Eseguire l'installazione con le Impostazioni rapide | [Installazione rapida di Azure AD Connect](./how-to-connect-install-express.md)|
 |Eseguire l'installazione mediante le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](./how-to-connect-install-custom.md)|
 |Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
@@ -97,7 +97,7 @@ Il modello di configurazione sincronizzato è chiamato [provisioning dichiarativ
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>Personalizzare il servizio di sincronizzazione Azure AD Connect - Passaggi successivi
 |Argomento |Collegamento|  
 | --- | --- |
-|Tutti gli articoli sul servizio di sincronizzazione Azure AD Connect | [Sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)|
+|Tutti gli articoli sul servizio di sincronizzazione Azure AD Connect | [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)|
 |concetti tecnici | [Azure AD Connect Sync: concetti tecnici](how-to-connect-sync-technical-concepts.md)|
 |Informazioni sulla configurazione predefinita | [Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita](concept-azure-ad-connect-sync-default-configuration.md)|
 |Informazioni su utenti e contatti | [Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti e contatti](concept-azure-ad-connect-sync-user-and-contacts.md)|
@@ -132,7 +132,7 @@ Per iniziare a usare Azure AD Connect Health sono molto semplici, seguire questa
 
 1. [Ottenere Azure ad Premium](../fundamentals/active-directory-get-started-premium.md) o [avviare una versione di valutazione](https://azure.microsoft.com/trial/get-started-active-directory/).
 2. [Scaricare e installare gli agenti Azure ad Connect Health](#download-and-install-azure-ad-connect-health-agent) nei server di identità.
-3. Visualizzare il dashboard Azure AD Connect Health all' [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)indirizzo.
+3. Visualizzare il dashboard Azure AD Connect Health all'indirizzo [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth) .
 
 > [!NOTE]
 > Tenere presente che, prima di visualizzare i dati nel dashboard di Azure AD Connect Health, è necessario installare gli agenti di Azure AD Connect Health nei server di destinazione.
@@ -178,4 +178,4 @@ Il portale di Azure AD Connect Health visualizza gli avvisi, il monitoraggio del
 - [Autenticazione pass-through](how-to-connect-pta.md)
 - [Azure AD Connect e federazione](how-to-connect-fed-whatis.md)
 - [Installare gli agenti di Azure AD Connect Health](how-to-connect-health-agent-install.md) 
-- [Sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)
+- [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)

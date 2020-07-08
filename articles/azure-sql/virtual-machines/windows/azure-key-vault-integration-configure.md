@@ -16,6 +16,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 966daa52652846004d163e230fab227a78c20f7d
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669257"

@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a859a10e02a5738ee023db5d653ea14403b9bcad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358447"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Passaggi successivi e come gestire Azure AD Connect
 Usare le procedure operative descritte in questo articolo per personalizzare Azure Active Directory Connect al fine di soddisfare le esigenze e i requisiti dell'organizzazione.  
@@ -74,7 +74,7 @@ La tabella seguente include un riepilogo di tali attività e una breve descrizio
 
 | Attività aggiuntive | Descrizione |
 | --- | --- |
-|**Impostazioni sulla privacy**|Visualizzare i dati di telemetria condivisi con Microsoft.|
+|**impostazioni del profilo**|Visualizzare i dati di telemetria condivisi con Microsoft.|
 |**Visualizzazione della configurazione corrente**|Consente di visualizzare la soluzione Azure AD Connect corrente.  Include impostazioni generali, directory sincronizzate e impostazioni di sincronizzazione. |
 | **Personalizzazione delle opzioni di sincronizzazione** |Consente di modificare la configurazione corrente, come l'aggiunta di altre foreste di Active Directory alla configurazione o l'attivazione di opzioni di sincronizzazione, ad esempio writeback di utenti, gruppi, dispositivi o password. |
 |**Configura le opzioni del dispositivo**|Opzioni del dispositivo disponibili per la sincronizzazione|

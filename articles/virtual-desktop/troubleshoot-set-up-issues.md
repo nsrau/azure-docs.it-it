@@ -8,36 +8,37 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a61babe58e1cb9438262186a7f4cf37cb10a34
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3e248e7af5fc9ed2bc144a4b302577be56524d7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612572"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361168"
 ---
-# <a name="host-pool-creation"></a>Creazione del pool host
+# <a name="host-pool-creation"></a>Creazione di pool di host
 
 >[!IMPORTANT]
->Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+>Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 >
-> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In questo articolo vengono illustrati i problemi durante la configurazione iniziale del tenant di desktop virtuale Windows e l'infrastruttura del pool di host sessione correlata.
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Acquisizione dell'immagine multisessione Enterprise di Windows 10
 
-Per usare l'immagine multisessione Enterprise di Windows 10, passare a Azure Marketplace, selezionare **Introduzione** > a**Microsoft Windows 10** > e [Windows 10 Enterprise multisessione, versione 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Per usare l'immagine multisessione Enterprise di Windows 10, passare a Azure Marketplace, selezionare **Introduzione**a  >  **Microsoft Windows 10** > e [Windows 10 Enterprise multisessione, versione 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemi relativi all'utilizzo del portale di Azure per creare pool host
 
 ### <a name="error-create-a-free-account-appears-when-accessing-the-service"></a>Errore: l'opzione "crea un account gratuito" viene visualizzata quando si accede al servizio
 
-![Immagine che mostra la portale di Azure che Visualizza il messaggio "crea un account gratuito"](media/create-new-account.png)
+> [!div class="mx-imgBorder"]
+> ![Immagine che mostra la portale di Azure che Visualizza il messaggio "crea un account gratuito"](media/create-new-account.png)
 
 **Causa**: non sono presenti sottoscrizioni attive nell'account con cui è stato effettuato l'accesso ad Azure oppure l'account non dispone delle autorizzazioni per visualizzare le sottoscrizioni. 
 
@@ -60,9 +61,10 @@ Seguire queste istruzioni per risolvere i problemi relativi alle distribuzioni n
 3. Una volta identificato l'errore, usare il messaggio di errore e le risorse in [risolvere gli errori comuni di distribuzione di Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) per risolvere il problema.
 4. Eliminare tutte le risorse create durante la distribuzione precedente e riprovare a distribuire il modello.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Errore: la distribuzione non è riuscita..\<. hostname>/JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Errore: la distribuzione non è riuscita... \<hostname> /JoinDomain
 
-![Screenshot della distribuzione non riuscita.](media/failure-joindomain.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot della distribuzione non riuscita.](media/failure-joindomain.png)
 
 Esempio di errore non elaborato:
 
@@ -103,7 +105,8 @@ Per risolvere il problema, eseguire le operazioni seguenti:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Errore: VMExtensionProvisioningError
 
-![Lo screenshot della distribuzione non è riuscito con lo stato di provisioning del terminale non riuscito.](media/failure-vmextensionprovisioning.png)
+> [!div class="mx-imgBorder"]
+> ![Lo screenshot della distribuzione non è riuscito con lo stato di provisioning del terminale non riuscito.](media/failure-vmextensionprovisioning.png)
 
 **Cause 1:** Errore temporaneo con l'ambiente desktop virtuale di Windows.
 
@@ -113,7 +116,8 @@ Per risolvere il problema, eseguire le operazioni seguenti:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Errore: il nome utente amministratore specificato non è consentito
 
-![Screenshot della distribuzione non riuscita. l'amministratore specificato non è consentito.](media/failure-username.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot della distribuzione non riuscita. l'amministratore specificato non è consentito.](media/failure-username.png)
 
 Esempio di errore non elaborato:
 
@@ -130,7 +134,8 @@ Esempio di errore non elaborato:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Errore: la macchina virtuale ha segnalato un errore durante l'elaborazione dell'estensione
 
-![Screenshot dell'operazione della risorsa completata con lo stato di provisioning terminal nella distribuzione non riuscita.](media/failure-processing.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot dell'operazione della risorsa completata con lo stato di provisioning terminal nella distribuzione non riuscita.](media/failure-processing.png)
 
 Esempio di errore non elaborato:
 
@@ -149,7 +154,8 @@ Esempio di errore non elaborato:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Errore: DeploymentFailed-la configurazione DSC di PowerShell ' FirstSessionHost ' è stata completata con errori
 
-![Screenshot della distribuzione non riuscito con la configurazione DSC di PowerShell ' FirstSessionHost ' completata con errori.](media/failure-dsc.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot della distribuzione non riuscito con la configurazione DSC di PowerShell ' FirstSessionHost ' completata con errori.](media/failure-dsc.png)
 
 Esempio di errore non elaborato:
 
@@ -254,12 +260,12 @@ the VM.\\\"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica sulla risoluzione dei problemi relativi a desktop virtuale Windows e alle tracce di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview.md).
-- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
+- Per una panoramica sulla risoluzione dei problemi relativi a Desktop virtuale Windows e alle tracce di escalation, consultare [Panoramica della risoluzione dei problemi, feedback e supporto](troubleshoot-set-up-overview.md).
+- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in Desktop virtuale Windows, consultare [Configurazione di macchine virtuali nell'host sessione](troubleshoot-vm-configuration.md).
 - Per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows, vedere [connessioni al servizio desktop virtuale di Windows](troubleshoot-service-connection.md).
 - Per risolvere i problemi relativi ai client di Desktop remoto, vedere [risoluzione dei problemi del client di desktop remoto](troubleshoot-client.md)
-- Per risolvere i problemi relativi all'uso di PowerShell con desktop virtuale di Windows, vedere [PowerShell per desktop virtuale di Windows](troubleshoot-powershell.md).
+- Per risolvere i problemi relativi all'uso di PowerShell con Desktop virtuale di Windows, consultare [PowerShell con Desktop virtuale Windows](troubleshoot-powershell.md).
 - Per ulteriori informazioni sul servizio, vedere [ambiente desktop virtuale di Windows](environment-setup.md).
-- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Per eseguire un'esercitazione di risoluzione dei problemi, vedere [Esercitazione: Risolvere i problemi delle distribuzioni dei modelli di Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../azure-resource-manager/templates/deployment-history.md).

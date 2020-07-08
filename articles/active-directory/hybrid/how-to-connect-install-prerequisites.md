@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6446b039d90e04c9fe7fca28b361f620183a0292
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2bcf7b5b8791b813a28133d8a662d1736aacf35a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80875742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358719"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo argomento descrive i prerequisiti e i requisiti hardware per Azure AD Connect.
@@ -62,20 +62,20 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 * Se viene distribuito Active Directory Federation Services, i server in cui viene installato AD FS o il proxy dell'applicazione Web devono essere Windows Server 2012 R2 o versione successiva. [Gestione remota Windows](#windows-remote-management) .
 * Se è in corso la distribuzione di Active Directory Federation Services, sono necessari [certificati TLS/SSL](#tlsssl-certificate-requirements).
 * Se viene distribuito Active Directory Federation Services, è necessario configurare la [risoluzione dei nomi](#name-resolution-for-federation-servers).
-* Se l'autenticazione a più fattori è abilitata per gli **https://secure.aadcdn.microsoftonline-p.com** amministratori globali, l'URL deve trovarsi nell'elenco dei siti attendibili. Viene richiesto di aggiungere il sito all'elenco dei siti attendibili quando viene richiesta la verifica MFA, se non è stata aggiunta prima. È possibile usare Internet Explorer per aggiungerlo ai siti attendibili.
-* Microsoft consiglia di eseguire la protezione avanzata del server Azure AD Connect per ridurre la superficie di attacco alla sicurezza per questo componente critico dell'ambiente IT.  Seguendo le indicazioni riportate di seguito si ridurranno i rischi per la sicurezza per l'organizzazione.
+* Se l'autenticazione a più fattori è abilitata per gli amministratori globali, l'URL **https://secure.aadcdn.microsoftonline-p.com** deve trovarsi nell'elenco dei siti attendibili. Viene richiesto di aggiungere il sito all'elenco dei siti attendibili quando viene richiesta la verifica MFA, se non è stata aggiunta prima. È possibile usare Internet Explorer per aggiungerlo ai siti attendibili.
+* Microsoft consiglia di applicare la protezione avanzata al server Azure AD Connect in uso per ridurre la superficie di attacco di sicurezza per questo componente critico dell'ambiente IT.  Seguendo le raccomandazioni riportate di seguito è possibile ridurre i rischi di sicurezza dell'organizzazione.
 
 * Distribuire Azure AD Connect in un server aggiunto a un dominio e limitare l'accesso amministrativo agli amministratori di dominio o ad altri gruppi di sicurezza strettamente controllati.
 
 Per altre informazioni, vedere: 
 
-* [Sicurezza dei gruppi Administrators](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [Protezione dei gruppi di amministratori](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Protezione degli account di amministratore predefiniti](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [Protezione degli account predefiniti Administrator](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Miglioramento della sicurezza e mantenimento della riduzione delle superfici di attacco](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [Miglioramento e mantenimento della sicurezza tramite riduzione delle superfici di attacco](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Riduzione della superficie di attacco Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Riduzione della superficie di attacco di Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server usato da Azure AD Connect
 * Per archiviare i dati sull'identità, Azure AD Connect richiede un database SQL. Per impostazione predefinita viene installato SQL Server 2012 Express LocalDB (una versione ridotta di SQL Server Express). SQL Server Express ha un limite di dimensioni di 10 GB che consente di gestire circa 100.000 oggetti. Se è necessario gestire un numero di oggetti directory maggiore, si dovrà installare una versione di SQL Server diversa. Il tipo di installazione di SQL Server può influisca sulle [prestazioni di Azure ad Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
@@ -110,7 +110,7 @@ Per altre informazioni, vedere:
     </system.net>
 ```
 
-* Se il server proxy richiede l'autenticazione, l'[account del servizio](reference-connect-accounts-permissions.md#adsync-service-account) deve trovarsi nel dominio ed è necessario specificare un [account del servizio personalizzato](how-to-connect-install-custom.md#install-required-components) tramite il percorso di installazione delle impostazioni personalizzate. È inoltre necessaria una modifica diversa a Machine. config. Con questa modifica in Machine. config, l'installazione guidata e il motore di sincronizzazione rispondono alle richieste di autenticazione dal server proxy. In tutte le pagine dell'istallazione guidata, esclusa la pagina **Configura**, vengono usate le credenziali dell'utente che ha effettuato l'accesso. Nella pagina **Configura** alla fine dell'installazione guidata il contesto passa all'[account del servizio](reference-connect-accounts-permissions.md#adsync-service-account) creato. La sezione machine.config dovrebbe essere simile alla seguente sezione.
+* Se il server proxy richiede l'autenticazione, l'[account del servizio](reference-connect-accounts-permissions.md#adsync-service-account) deve trovarsi nel dominio ed è necessario specificare un [account del servizio personalizzato](how-to-connect-install-custom.md#install-required-components) tramite il percorso di installazione delle impostazioni personalizzate. È anche necessario apportare una modifica diversa a machine.config. Con questa modifica in machine.config, l'installazione guidata e il motore di sincronizzazione rispondono alle richieste di autenticazione dal server proxy. In tutte le pagine dell'istallazione guidata, esclusa la pagina **Configura**, vengono usate le credenziali dell'utente che ha effettuato l'accesso. Nella pagina **Configura** alla fine dell'installazione guidata il contesto passa all'[account del servizio](reference-connect-accounts-permissions.md#adsync-service-account) creato. La sezione machine.config dovrebbe essere simile alla seguente sezione.
 
 ```
     <system.net>
@@ -129,7 +129,7 @@ Per altre informazioni, vedere:
 Per altre informazioni vedere MSDN sull'[elemento proxy predefinito](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i problemi di connettività](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 * Facoltativo: un account utente di prova per verificare la sincronizzazione.
 
 ## <a name="component-prerequisites"></a>Prerequisiti dei componenti
@@ -151,7 +151,7 @@ Prima della versione 1.1.614.0, per impostazione predefinita Azure AD Connect us
     ```
 2. For all operating systems, set this registry key and restart the server.
     ```
-    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\.NETFramework\v4.0.30319 "SchUseStrongCrypto" = DWORD: 00000001
+    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \. NETFramework\v4.0.30319 "SchUseStrongCrypto" = DWORD: 00000001
     ```
 4. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, then make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 

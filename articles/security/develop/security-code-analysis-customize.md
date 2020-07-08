@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871883"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362092"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurare e personalizzare le attività di compilazione
 
@@ -61,15 +61,15 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere la sch
 - In **destinazione**immettere uno o più identificatori per un file, una directory o un modello di filtro. Questi identificatori si risolvono in uno o più file binari da analizzare:
     - Più destinazioni specificate devono essere separate da un punto e virgola (;).
     - Un identificatore può essere un singolo file o contenere caratteri jolly.
-    - Le specifiche di directory devono sempre \\terminare con *.
+    - Le specifiche di directory devono sempre terminare con \\ *.
     - Esempi:
 
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
 
-- Se si seleziona **riga di comando** nell'elenco **tipo** , è necessario eseguire binskim. exe:
-     - Assicurarsi che i primi argomenti di binskim. exe siano il verbo **analizza** seguito da una o più specifiche del percorso. Ogni percorso può essere un percorso completo o un percorso relativo alla directory di origine.
+- Se si seleziona **riga di comando** nell'elenco **tipo** , è necessario eseguire binskim.exe:
+     - Assicurarsi che i primi argomenti per binskim.exe siano il verbo **analizza** seguito da una o più specifiche del percorso. Ogni percorso può essere un percorso completo o un percorso relativo alla directory di origine.
      - Più percorsi di destinazione devono essere separati da uno spazio.
      - È possibile omettere l'opzione **/o** o **/output** . Il valore di output viene aggiunto o sostituito.
      - Di seguito sono elencate le configurazioni da riga di comando standard.
@@ -78,7 +78,7 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere la sch
            analyze *.dll *.exe --recurse --verbose
 
           > [!NOTE]
-          > La \\* finale è importante se si specificano le directory per la destinazione.
+          > La * finale \\ è importante se si specificano le directory per la destinazione.
 
 Per ulteriori informazioni sugli argomenti della riga di comando di BinSkim, le regole in base all'ID o i codici di uscita, vedere il [manuale dell'utente di BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
@@ -103,40 +103,10 @@ Le opzioni disponibili includono:
   - **Match timeout**: periodo di tempo, in secondi, per il tentativo di ricerca di una corrispondenza di ricerca prima di abbandonare il controllo.
   - **Dimensioni del buffer di lettura**per l'analisi dei file: dimensioni in byte del buffer usato durante la lettura del contenuto. Il valore predefinito è 524.288.  
   - Numero **massimo di byte letti**dall'analisi dei file: il numero massimo di byte da leggere da un file durante l'analisi del contenuto. Il valore predefinito è 104.857.600.
-  - **Opzioni di controllo** > **eseguire questa attività**: specifica quando verrà eseguita l'attività. Selezionare **condizioni personalizzate** per specificare condizioni più complesse.
+  - **Opzioni**  >  di controllo **Esegui questa attività**: specifica quando verrà eseguita l'attività. Selezionare **condizioni personalizzate** per specificare condizioni più complesse.
   - **Versione**: la versione dell'attività di compilazione all'interno di Azure DevOps. Questa opzione non viene usata di frequente.
 
 Per informazioni sulla configurazione YAML per questa attività, vedere le [Opzioni YAML dello scanner di credenziali](yaml-configuration.md#credential-scanner-task)
-
-## <a name="microsoft-security-risk-detection-task"></a>Attività di rilevamento del rischio Microsoft per la sicurezza
-
-> [!NOTE]
-> Prima di usare l'attività MSRD, è necessario creare e configurare un account con il servizio Microsoft Security Risk Detection (MSRD). Questo servizio richiede un processo di onboarding separato. A differenza della maggior parte delle altre attività in questa estensione, questa attività richiede una sottoscrizione separata con MSRD.
->
-> Per istruzioni, fare riferimento al rilevamento dei rischi per la [sicurezza Microsoft](https://aka.ms/msrddocs) e al [rilevamento dei rischi per la sicurezza Microsoft:](https://docs.microsoft.com/security-risk-detection/how-to/) .
-
-Per informazioni dettagliate sulla configurazione di questa attività, vedere l'elenco seguente. Per qualsiasi elemento dell'interfaccia utente, è possibile passare il puntatore del mouse su tale elemento per ottenere la guida.
-
-   - **Nome dell'endpoint del servizio DevOps di Azure per MSRD**: un tipo generico di endpoint di servizio di Azure DevOps archivia l'URL dell'istanza di MSRD caricata e il token di accesso dell'API REST. Se è stato creato un endpoint di questo tipo, è possibile specificarlo qui. In caso contrario, selezionare il collegamento **Gestisci** per creare e configurare un nuovo endpoint del servizio per questa attività MSRD.
-   - **ID account**: un GUID che può essere recuperato dall'URL dell'account MSRD.
-   - **URL per i file binari**: elenco delimitato da punti e virgola di URL disponibili pubblicamente. Il computer di fuzzing usa questi URL per scaricare i file binari.
-   - **URL dei file di inizializzazione**: un elenco delimitato da punti e virgola di URL disponibili pubblicamente. Il computer di fuzzing usa questi URL per scaricare i seed. Specificare questo valore è facoltativo se i file di inizializzazione vengono scaricati insieme ai file binari.
-   - **Tipo di piattaforma**del sistema operativo: piattaforma del sistema operativo (OS) dei computer che eseguono il processo di fuzzing. I valori disponibili sono **Windows** e **Linux**.
-   - **Windows Edition/Linux Edition**: edizione del sistema operativo dei computer che eseguono il processo di fuzzing. È possibile sovrascrivere il valore predefinito se i computer hanno un'edizione diversa del sistema operativo.
-   - **Script di installazione del pacchetto**: lo script da eseguire in un computer di test. Questo script installa il programma di destinazione del test e le relative dipendenze prima dell'invio del processo di fuzzing.
-   - **Parametri di invio dei processi**:
-       - **Directory di inizializzazione**: il percorso della directory nel computer di fuzzing che contiene i semi.
-       - **Seed Extension**: estensione del nome file dei Seed.
-       - **Eseguibile del driver di test**: il percorso del file eseguibile di destinazione nel computer di fuzzing.
-       - **Architettura eseguibile del driver di test**: architettura del file eseguibile di destinazione. I valori disponibili sono **x86** e **amd64**.
-       - **Argomenti del driver di test**: gli argomenti della riga di comando passati al file eseguibile di test. L'argomento "% TestFile%", incluse le virgolette, viene sostituito automaticamente con il percorso completo del file di destinazione. Questo file viene analizzato dal driver di test ed è obbligatorio.
-       - Il processo del driver di test viene terminato **al completamento del test**: selezionare questa casella di controllo se il driver di test deve terminare al completamento. Cancellarlo se il driver di test deve essere chiuso forzatamente.
-       - **Durata massima (in secondi)**: stima del tempo ragionevolmente previsto che il programma di destinazione richiede per analizzare un file di input. Più accurata è la stima, più efficiente è l'esecuzione dell'app fuzzy.
-       - Il **driver di test può essere eseguito ripetutamente**: selezionare questa casella di controllo se il driver di test può essere eseguito ripetutamente senza dipendere da uno stato globale persistente o condiviso.
-       - Il **driver di test può essere rinominato**: selezionare questa casella di controllo se è possibile rinominare il file eseguibile del driver di test e continuare a funzionare correttamente.
-       - **L'applicazione di fuzzing viene eseguita come singolo processo del sistema operativo**: selezionare questa casella di controllo se il driver di test viene eseguito in un singolo processo del sistema operativo. Cancellarlo se il driver di test genera processi aggiuntivi.
-
-Per informazioni sulla configurazione YAML per questa attività, vedere [Microsoft Security Risk Detection opzioni YAML](yaml-configuration.md#microsoft-security-risk-detection-task)
 
 ## <a name="roslyn-analyzers-task"></a>Attività analizzatori Roslyn
 
@@ -153,11 +123,11 @@ Le opzioni disponibili includono:
 - **RuleSet**: i valori sono **SDL required**, **SDL consigliato**o un set di regole personalizzato.
 - **Versione degli analizzatori**: è consigliabile selezionare **più recente**.
 - **File di eliminazione avvisi del compilatore**: un file di testo con un elenco di ID avvisi che vengono eliminati.
-- **Opzioni di controllo** > **eseguire questa attività**: specifica quando verrà eseguita l'attività. Scegliere **condizioni personalizzate** per specificare condizioni più complesse.
+- **Opzioni**  >  di controllo **Esegui questa attività**: specifica quando verrà eseguita l'attività. Scegliere **condizioni personalizzate** per specificare condizioni più complesse.
 
 > [!NOTE]
 >
-> - Gli analizzatori Roslyn sono integrati con il compilatore e possono essere eseguiti solo come parte della compilazione csc. exe. Di conseguenza, questa attività richiede che il comando del compilatore eseguito in precedenza nella compilazione venga riprodotto o eseguito nuovamente. Questa riproduzione o esecuzione viene eseguita eseguendo una query Visual Studio Team Services (VSTS) per i log delle attività di compilazione di MSBuild.
+> - Gli analizzatori Roslyn sono integrati con il compilatore e possono essere eseguiti solo come parte della compilazione csc.exe. Di conseguenza, questa attività richiede che il comando del compilatore eseguito in precedenza nella compilazione venga riprodotto o eseguito nuovamente. Questa riproduzione o esecuzione viene eseguita eseguendo una query Visual Studio Team Services (VSTS) per i log delle attività di compilazione di MSBuild.
 >
 >   Non esiste un altro modo per l'attività per ottenere in modo affidabile la riga di comando di compilazione MSBuild dalla definizione di compilazione. È stata considerata l'aggiunta di una casella di testo a mano libera per consentire agli utenti di immettere le righe di comando. Tuttavia, sarebbe difficile tenere le righe di comando aggiornate e sincronizzate con la build principale.
 >

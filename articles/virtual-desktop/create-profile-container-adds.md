@@ -4,18 +4,18 @@ description: Questo articolo descrive come creare un contenitore di profili FSLo
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607283"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362442"
 ---
-# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Creare un contenitore di profili FSLogix con File di Azure
+# <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Creare un contenitore di profili con File di Azure e Azure AD DS
 
 In questo articolo viene illustrato come creare un contenitore di profili FSLogix con File di Azure e Azure Active Directory Domain Services (AD DS).
 
@@ -41,7 +41,7 @@ Per aggiungere un amministratore:
 
 ## <a name="set-up-an-azure-storage-account"></a>Configurare un account di archiviazione di Azure
 
-A questo punto è possibile abilitare l'autenticazione di Azure AD DS su Server Message Block (SMB). 
+A questo punto è possibile abilitare l'autenticazione di Azure AD DS su Server Message Block (SMB).
 
 Per abilitare l'autenticazione:
 
@@ -63,7 +63,7 @@ Per assegnare le autorizzazioni di accesso degli utenti:
 
 1. Dalla portale di Azure aprire la condivisione file creata in [configurare un account di archiviazione di Azure](#set-up-an-azure-storage-account).
 
-2. Selezionare **Controllo di accesso (IAM)**.
+2. Selezionare **Controllo di accesso (IAM)** .
 
 3. Selezionare **Aggiungi un'assegnazione di ruolo**.
 
@@ -93,7 +93,8 @@ Per ottenere la chiave di accesso dell'account di archiviazione:
 
     Verrà scaricato un file RDP che consente di accedere alla macchina virtuale con le proprie credenziali.
 
-    ![Screenshot della scheda RDP della finestra Connetti a macchina virtuale.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della scheda RDP della finestra Connetti a macchina virtuale.](media/rdp-tab.png)
 
 6. Dopo aver effettuato l'accesso alla macchina virtuale, eseguire un prompt dei comandi come amministratore.
 
@@ -103,13 +104,13 @@ Per ottenere la chiave di accesso dell'account di archiviazione:
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
      ```
 
-    - Sostituire `<desired-drive-letter>` con una lettera di unità di propria scelta (ad esempio `y:`,).
-    - Sostituire tutte le istanze `<storage-account-name>` di con il nome dell'account di archiviazione specificato in precedenza.
+    - Sostituire `<desired-drive-letter>` con una lettera di unità di propria scelta (ad esempio, `y:` ).
+    - Sostituire tutte le istanze di `<storage-account-name>` con il nome dell'account di archiviazione specificato in precedenza.
     - Sostituire `<share-name>` con il nome della condivisione creata in precedenza.
     - Sostituire `<storage-account-key>` con la chiave dell'account di archiviazione di Azure.
 
-    Ad esempio:  
-  
+    Ad esempio:
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -124,7 +125,7 @@ Per ottenere la chiave di accesso dell'account di archiviazione:
     - Sostituire `<user-email>` con l'UPN dell'utente che utilizzerà questo profilo per accedere alle VM host sessione.
 
     Ad esempio:
-     
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -137,30 +138,32 @@ Per configurare un contenitore del profilo FSLogix:
 
 1. Accedere alla VM host sessione configurata all'inizio di questo articolo, quindi [scaricare e installare l'agente FSLogix](/fslogix/install-ht/).
 
-2. Decomprimere il file dell'agente FSLogix scaricato e passare a**versioni** **x64** > , quindi aprire **FSLogixAppsSetup. exe**.
+2. Decomprimere il file dell'agente FSLogix scaricato e **x64**passare a  >  **versioni**x64, quindi aprire **FSLogixAppsSetup.exe**.
 
 3. Una volta avviato il programma di installazione, selezionare Accetto **i termini e le condizioni di licenza.** Se applicabile, specificare una nuova chiave.
 
 4. Selezionare **Installa**.
 
-5. Aprire l' **unità C**, quindi passare a **programmi** > **FSLogix** > **app** per assicurarsi che l'agente FSLogix sia stato installato correttamente.
+5. Aprire l' **unità C**, quindi passare a **programmi**  >  **FSLogix**  >  **app** per assicurarsi che l'agente FSLogix sia stato installato correttamente.
 
      >[!NOTE]
      > Se sono presenti più macchine virtuali nel pool host, sarà necessario ripetere i passaggi da 1 a 5 per ogni macchina virtuale.
 
 6. Eseguire l' **Editor del registro di sistema** (regedit) come amministratore.
 
-7. Passare a **computer** > **HKEY_LOCAL_MACHINE** > **software** > **FSLogix**, fare clic con il pulsante destro del mouse su **FSLogix**, scegliere **nuovo**, quindi selezionare **chiave**.
+7. Passare a **computer**  >  **HKEY_LOCAL_MACHINE**  >  **software**  >  **FSLogix**, fare clic con il pulsante destro del mouse su **FSLogix**, scegliere **nuovo**, quindi selezionare **chiave**.
 
 8. Creare una nuova chiave denominata **profiles**.
 
 9.  Fare clic con il pulsante destro del mouse su **profili**, scegliere **nuovo**, quindi selezionare **valore DWORD (32-bit).** Denominare il valore **abilitato** e impostare il valore **dei dati** su **1**.
 
-    ![Screenshot della chiave dei profili. Il file di REG_DWORD è evidenziato e il relativo valore di dati è impostato su 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della chiave dei profili. Il file di REG_DWORD è evidenziato e il relativo valore di dati è impostato su 1.](media/dword-value.png)
 
-10. Fare clic con il pulsante destro del mouse su **profili**, scegliere **nuovo**, quindi selezionare **valore multistringa**. Denominare il valore **VHDLocations** e impostare immettere l'URI per la `\\fsprofile.file.core.windows.net\share` condivisione file di Azure come valore di dati.
+10. Fare clic con il pulsante destro del mouse su **profili**, scegliere **nuovo**, quindi selezionare **valore multistringa**. Denominare il valore **VHDLocations** e impostare immettere l'URI per la condivisione file di Azure `\\fsprofile.file.core.windows.net\share` come valore di dati.
 
-    ![Screenshot della chiave dei profili che mostra il file VHDLocations. Il valore dei dati Mostra l'URI per la condivisione File di Azure.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della chiave dei profili che mostra il file VHDLocations. Il valore dei dati Mostra l'URI per la condivisione File di Azure.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>Assegnazione di utenti a un host sessione
 
@@ -197,19 +200,19 @@ Per assegnare gli utenti:
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
-    Analogamente ai cmdlet precedenti, assicurarsi di sostituire `<your-wvd-tenant>`, `<wvd-pool>`e `<user-principal>` con i valori pertinenti.
+    Analogamente ai cmdlet precedenti, assicurarsi di sostituire `<your-wvd-tenant>` , `<wvd-pool>` e `<user-principal>` con i valori pertinenti.
 
     Ad esempio:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
@@ -231,7 +234,7 @@ Per verificare il profilo:
 
 6. Selezionare l'icona **file** , quindi espandere la condivisione.
 
-    Se tutti gli elementi sono configurati correttamente, verrà visualizzata una **directory** con un nome formattato come segue `<user SID>-<username>`:.
+    Se tutti gli elementi sono configurati correttamente, verrà visualizzata una **directory** con un nome formattato come segue: `<user SID>-<username>` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

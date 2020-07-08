@@ -1,7 +1,7 @@
 ---
 title: Domande frequenti sulla documentazione di analisi del codice di sicurezza Microsoft
 description: Questo articolo contiene le domande frequenti sull'estensione di analisi del codice di sicurezza Microsoft
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -12,17 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: cb04a8e5a6d8c982a35cb5c448e4b6d93825bf73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d5eac2d3e2f3cd87ddad02aac68ce015163bd00
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460223"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362075"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 Domande? Per ulteriori informazioni, vedere le domande frequenti seguenti.
 
-## <a name="general-faq"></a>Domande frequenti generali
+## <a name="general-faq"></a>Domande frequenti di carattere generale
 
 ### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>È possibile installare l'estensione nell'istanza di Visual Studio Team Foundation Server anziché in un'istanza di Azure DevOps?
 
@@ -48,7 +48,7 @@ Nella maggior parte dei casi, le attività di compilazione di Azure DevOps sono 
 
 Differenze evidenti:
 
-- Gli strumenti vengono eseguiti dalla cartella di origine dell'agente $ (Build. SourcesDirectory) o da% BUILD_SOURCESDIRECTORY%. Un esempio è C:\agent\_work\1\s.
+- Gli strumenti vengono eseguiti dalla cartella di origine dell'agente $ (Build. SourcesDirectory) o da% BUILD_SOURCESDIRECTORY%. Un esempio è C:\agent \_ work\1\s.
 - I percorsi negli argomenti possono essere relativi alla radice della directory di origine elencata in precedenza. I percorsi possono anche essere assoluti. È possibile ottenere percorsi assoluti usando le variabili di compilazione di Azure DevOps o eseguendo un agente locale con i percorsi di distribuzione noti delle risorse locali.
 - Gli strumenti forniscono automaticamente un percorso o una cartella di file di output. Se si fornisce un percorso di output per un'attività di compilazione, tale percorso viene sostituito con un percorso del percorso noto dei log nell'agente di compilazione
 - Alcuni argomenti aggiuntivi della riga di comando sono stati modificati per alcuni strumenti. Un esempio è l'aggiunta o la rimozione di opzioni che assicurano che non venga avviata alcuna GUI.
@@ -63,7 +63,7 @@ Le attività di compilazione filtrano l'input dell'utente. Per questa domanda, i
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Dove vengono salvati i file di output generati dagli strumenti? 
 
-Le attività di compilazione aggiungono automaticamente i percorsi di output a questo percorso noto nell'agente di compilazione: $ (Agent.\_BuildDirectory) sdt\logs. Poiché si standardizza in questa posizione, tutti i team che producono o utilizzano log di analisi del codice hanno accesso all'output.
+Le attività di compilazione aggiungono automaticamente i percorsi di output a questo percorso noto nell'agente di compilazione: $ (Agent. BuildDirectory) \_ sdt\logs. Poiché si standardizza in questa posizione, tutti i team che producono o utilizzano log di analisi del codice hanno accesso all'output.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>È possibile accodare una compilazione per eseguire queste attività in un agente di compilazione ospitato? 
 
@@ -123,15 +123,15 @@ La chiave hash del segreto dal file di output CredScan è obbligatoria come illu
 
 L'espressione di file può essere un nome di file. Può anche essere la parte baseName di un percorso di file completo o un nome di file. I caratteri jolly non sono supportati.
 
-Gli esempi seguenti illustrano come escludere il \<file inputPath> \src\js\lib\angular.js
+Gli esempi seguenti illustrano come escludere il file \<InputPath>\src\JS\lib\angular.js
 
 Esempi di regole di eliminazione valide:
 
-- \<InputPath> \src\JS\lib\angular.js-disattiva il file nel percorso specificato
+- \<InputPath>\src\JS\lib\angular.js: disattiva il file nel percorso specificato
 - \src\JS\lib\angular.js
 - \JS\lib\angular.js
 - \lib\angular.js
-- angolare. js: Disattiva tutti i file con lo stesso nome
+- angular.js: Disattiva tutti i file con lo stesso nome
 
         {
             "tool": "Credential Scanner",
@@ -155,7 +155,7 @@ Esempi di regole di eliminazione valide:
 Le risorse seguenti consentono di gestire in modo sicuro i segreti e accedere a informazioni sensibili dalle applicazioni:
 
  - [Insieme di credenziali chiave Azure](../../key-vault/index.yml)
- - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
+ - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Azure AD identità del servizio gestita (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identità gestite nel servizio app Azure e funzioni di Azure](../../app-service/overview-managed-identity.md)
@@ -166,14 +166,14 @@ Per altre informazioni, vedere il post di Blog sulla [gestione dei segreti in mo
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>È possibile scrivere ricerche personalizzate?
 
-Credential scanner si basa su un set di ricerca di contenuto comunemente definito nel file buildsearchers. XML. Il file contiene una matrice di oggetti serializzati XML che rappresentano un oggetto **ContentSearcher** . Il programma viene distribuito con un set di ricerche ben collaudate. È anche possibile implementare ricerche personalizzate.
+Credential scanner si basa su un set di ricerca di contenuti comunemente definiti nel file di buildsearchers.xml. Il file contiene una matrice di oggetti serializzati XML che rappresentano un oggetto **ContentSearcher** . Il programma viene distribuito con un set di ricerche ben collaudate. È anche possibile implementare ricerche personalizzate.
 
 Un ricercatore di contenuti viene definito come segue:
 
 - **Nome**: nome del ricercatore descrittivo da usare nei file di output dello scanner delle credenziali. Si consiglia di usare la convenzione di denominazione dei casi di cammello per i nomi di ricerca.
 - **RuleId**: ID opaco stabile del ricercatore:
     - A un ricercatore predefinito di Credential scanner viene assegnato un valore **RuleId** come CSCAN0010, CSCAN0020 o CSCAN0030. L'ultima cifra è riservata per potenzialmente unire o dividere i gruppi di ricerca tramite espressioni regolari (Regex).
-    - Il valore **RuleId** per un ricercatore personalizzato deve avere il proprio spazio dei nomi. Gli esempi includono CSCAN\<-\>namespace 0010, CsCAN\<-\>namespace 0020 e CsCAN-\<Namespace\>0030.
+    - Il valore **RuleId** per un ricercatore personalizzato deve avere il proprio spazio dei nomi. Gli esempi includono CSCAN- \<Namespace\> 0010, CsCAN- \<Namespace\> 0020 e CsCAN- \<Namespace\> 0030.
     - Un nome di ricerca completo è la combinazione di un valore **RuleId** e di un nome di ricerca. Gli esempi includono CSCAN0010. KeyStoreFiles e CSCAN0020. Base64EncodedCertificate.
 - **ResourceMatchPattern**: Regex delle estensioni di file da controllare rispetto al Cercatore.
 - **ContentSearchPatterns**: matrice di stringhe contenenti istruzioni Regex per la corrispondenza. Se non sono definiti criteri di ricerca, vengono restituiti tutti i file corrispondenti al valore **ResourceMatchPattern** .
@@ -196,23 +196,23 @@ Messaggio di errore completo:
 
 Poiché le attività di analizzatore Roslyn vengono eseguite come parte della compilazione, l'albero di origine nel computer di compilazione deve essere in uno stato compilabile.
 
-Un passaggio tra i passaggi principali per la compilazione e l'analizzatore Roslyn potrebbe aver inserito l'albero di origine in uno stato che impedisce la compilazione. Questo passaggio aggiuntivo è probabilmente **dotnet. exe Publish**. Provare a duplicare il passaggio che esegue il ripristino di NuGet immediatamente prima del passaggio degli analizzatori Roslyn. Questo passaggio duplicato potrebbe riportare l'albero di origine in uno stato compilabile.
+Un passaggio tra i passaggi principali per la compilazione e l'analizzatore Roslyn potrebbe aver inserito l'albero di origine in uno stato che impedisce la compilazione. Questo passaggio aggiuntivo è probabilmente **dotnet.exe Publish**. Provare a duplicare il passaggio che esegue il ripristino di NuGet immediatamente prima del passaggio degli analizzatori Roslyn. Questo passaggio duplicato potrebbe riportare l'albero di origine in uno stato compilabile.
 
-##### <a name="cscexe-cant-create-an-analyzer-instance"></a>CSC. exe non è in grado di creare un'istanza dell'analizzatore
+##### <a name="cscexe-cant-create-an-analyzer-instance"></a>csc.exe non è possibile creare un'istanza dell'analizzatore
 
 Messaggio di errore completo:
 
-"' CSC. exe ' terminato con codice di errore 1. Impossibile creare un'istanza dell'analizzatore *aaaa* da C:\\*bbbb*. dll: Impossibile caricare il file o l'assembly ' Microsoft. CodeAnalysis, Version =*x*. x.x. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. The system cannot find the file specified" (Valore 'cwd' '/src' non valido. Impossibile trovare il file specificato)
+"csc.exe' terminato con codice di errore 1. Impossibile creare un'istanza dell'analizzatore *aaaa* da C: \\ *bbbb*. dll: Impossibile caricare il file o l'assembly ' Microsoft. CodeAnalysis, Version =*x*. X.x. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. The system cannot find the file specified" (Valore 'cwd' '/src' non valido. Impossibile trovare il file specificato)
 
-Verificare che il compilatore supporti gli analizzatori Roslyn. L'esecuzione del comando **csc. exe/version** dovrebbe indicare un valore di versione 2,6 o successiva.
+Verificare che il compilatore supporti gli analizzatori Roslyn. L'esecuzione del comando **csc.exe/Version** dovrebbe segnalare un valore di versione 2,6 o successiva.
 
 A volte un file con estensione csproj può sostituire l'installazione di Visual Studio del computer di compilazione facendo riferimento a un pacchetto di Microsoft.Net. Compilers. Se non si prevede di usare una versione specifica del compilatore, rimuovere i riferimenti a Microsoft.Net. Compilers. In caso contrario, verificare che anche la versione del pacchetto a cui si fa riferimento sia 2,6 o successiva.
 
-Provare a ottenere il percorso del log degli errori, specificato nell'opzione **/ErrorLog di CSC. exe** . L'opzione e il percorso vengono visualizzati nel log per l'attività di compilazione analizzatori Roslyn. Potrebbero avere un aspetto simile a **/ErrorLog: f:\ts-services-\_123 work\456\s\Some\Project\Code\Code.csproj.Sarif**
+Provare a ottenere il percorso del log degli errori, specificato nell'opzione **csc.exe/ErrorLog** . L'opzione e il percorso vengono visualizzati nel log per l'attività di compilazione analizzatori Roslyn. Potrebbero avere un aspetto simile a **/ErrorLog: f:\ts-services-123 \_ work\456\s\Some\Project\Code\Code.csproj.Sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>La versione del compilatore C# non è abbastanza recente
 
-Per ottenere le versioni più recenti del compilatore C#, passare a [Microsoft.NET. Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Per ottenere la versione installata, eseguire **csc. exe/version** al prompt dei comandi. Assicurarsi di fare riferimento a un pacchetto NuGet Microsoft.Net. Compilers versione 2,6 o successiva.
+Per ottenere le versioni più recenti del compilatore C#, passare a [Microsoft.NET. Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Per ottenere la versione installata, eseguire **csc.exe/Version** al prompt dei comandi. Assicurarsi di fare riferimento a un pacchetto NuGet Microsoft.Net. Compilers versione 2,6 o successiva.
 
 ##### <a name="msbuild-and-vsbuild-logs-arent-found"></a>I registri MSBuild e VSBuild non sono stati trovati
 

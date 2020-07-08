@@ -4,16 +4,16 @@ description: Come installare i Language Pack per le macchine virtuali con più s
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c40df9d821e069e2cd5ff0c42d5841f6b9041c96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70592d940e3766597475f4a7b90a3902a53406d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80634035"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361303"
 ---
 # <a name="install-language-packs"></a>Installare i language pack
 
@@ -32,11 +32,12 @@ Per installare i Language Pack:
 
 1. Accedere come amministratore.
 2. Assicurarsi di aver installato tutti gli aggiornamenti più recenti di Windows e Windows Store.
-3. Passare a **Impostazioni** > **ora &** > **area della**lingua.
+3. Passare a **Impostazioni**  >  **ora &**  >  **area della**lingua.
 4. In **paese o area geografica**selezionare il paese o l'area geografica preferita dal menu a discesa.
     In questo esempio si selezionerà **France**, come illustrato nello screenshot seguente:
 
-    ![Screenshot della pagina dell'area. L'area attualmente selezionata è Francia.](media/region-page-france.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della pagina dell'area. L'area attualmente selezionata è Francia.](media/region-page-france.png)
 
 5. Successivamente, selezionare **lingua**, quindi selezionare **Aggiungi una lingua**. Scegliere la lingua da installare dall'elenco e quindi fare clic su **Avanti**.
 6. Quando viene visualizzata la finestra **installa le funzionalità del linguaggio** , selezionare la casella **di controllo installa Language Pack e imposta come lingua di visualizzazione di Windows**.
@@ -45,19 +46,23 @@ Per installare i Language Pack:
 
     Viene ora eseguita una dimostrazione visiva rapida. Le immagini seguenti illustrano come installare i Language Pack in francese e olandese, quindi impostare il francese come lingua di visualizzazione.
 
-    ![Screenshot della pagina del linguaggio all'inizio del processo. La lingua di visualizzazione di Windows selezionata è l'inglese.](media/language-page-default.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della pagina del linguaggio all'inizio del processo. La lingua di visualizzazione di Windows selezionata è l'inglese.](media/language-page-default.png)
 
-    ![Screenshot della finestra di selezione della lingua. L'utente ha immesso "French" nella barra di ricerca per trovare i pacchetti della lingua francese.](media/select-language-french.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della finestra di selezione della lingua. L'utente ha immesso "French" nella barra di ricerca per trovare i pacchetti della lingua francese.](media/select-language-french.png)
 
-    ![Screenshot della pagina di installazione delle funzionalità del linguaggio. Il francese è selezionato come lingua preferita. Le opzioni selezionate sono "Imposta lingua di visualizzazione", "installa Language Pack", "riconoscimento vocale" e "grafia".](media/install-language-features.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della pagina di installazione delle funzionalità del linguaggio. Il francese è selezionato come lingua preferita. Le opzioni selezionate sono "Imposta lingua di visualizzazione", "installa Language Pack", "riconoscimento vocale" e "grafia".](media/install-language-features.png)
 
     Dopo aver installato i Language Pack, si noterà che i nomi dei Language Pack vengono visualizzati nell'elenco delle lingue.
 
-    ![Screenshot della pagina della lingua con i nuovi Language Pack installati. I Language Pack in francese e olandese sono elencati in "lingue preferite".](media/language-page-complete.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della pagina della lingua con i nuovi Language Pack installati. I Language Pack in francese e olandese sono elencati in "lingue preferite".](media/language-page-complete.png)
 
 9. Se viene visualizzata una finestra in cui viene chiesto di disconnettersi dalla sessione. Disconnettersi, quindi eseguire di nuovo l'accesso. La lingua di visualizzazione è ora la lingua selezionata.
 
-10.  Passare a clock del **Pannello** > di controllo**e** > **area geografica.**
+10.  Passare a clock del **Pannello di controllo**  >  **e**area geografica  >  **Region**.
 
 11.  Quando viene visualizzata la finestra **area** , selezionare la scheda **Amministrazione** , quindi selezionare **Copia impostazioni**.
 
@@ -67,7 +72,7 @@ Per installare i Language Pack:
 
 14.  Viene visualizzata una finestra che indica di riavviare la sessione. Selezionare **Riavvia adesso**.
 
-15.  Dopo aver eseguito l'accesso, tornare al clock del **Pannello** > di controllo**e** > all'**area**geografica.
+15.  Dopo aver eseguito l'accesso, tornare al clock del **Pannello di controllo**  >  **e**all'  >  **area**geografica.
 
 16.  Selezionare la scheda **Amministrazione** .
 
@@ -89,13 +94,13 @@ Per eseguire Sysprep nel computer:
 
 1. Aprire PowerShell come amministratore.
 2. Eseguire il cmdlet seguente per passare alla directory corretta:
-   
+
     ```powershell
     cd Windows\System32\Sysprep
     ```
 
 3. Eseguire quindi il cmdlet seguente:
-    
+
     ```powershell
     .\sysprep.exe
     ```
@@ -109,11 +114,12 @@ Per eseguire Sysprep nel computer:
 
 Se viene visualizzato un messaggio di errore durante il processo Sysprep, è necessario eseguire le operazioni seguenti:
 
-1. Aprire l' **unità C** e passare a **Windows** > **system32 Sysprep** > **Panther**, quindi aprire il file **Setuperr** .
+1. Aprire l' **unità C** e passare a **Windows**  >  **system32 Sysprep**  >  **Panther**, quindi aprire il file **Setuperr** .
 
    Il testo nel file di errore indica che è necessario disinstallare un pacchetto di linguaggio specifico, come illustrato nella figura seguente. Copiare il nome del pacchetto di lingua per il passaggio successivo.
 
-   ![Screenshot del file Setuperr. Il testo con il nome del pacchetto viene evidenziato in blu scuro.](media/setuperr-package-name.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot del file Setuperr. Il testo con il nome del pacchetto viene evidenziato in blu scuro.](media/setuperr-package-name.png)
 
 2. Aprire una nuova finestra di PowerShell ed eseguire il cmdlet seguente con il nome del pacchetto copiato nel passaggio 2 per rimuovere il pacchetto di lingua:
 
@@ -121,7 +127,7 @@ Se viene visualizzato un messaggio di errore durante il processo Sysprep, è nec
    Remove-AppxPackage <package name>
    ```
 
-3. Assicurarsi di aver rimosso il pacchetto eseguendo di nuovo il `Remove-AppxPackage` cmdlet. Se il pacchetto è stato rimosso correttamente, verrà visualizzato un messaggio che indica che il pacchetto che si sta tentando di rimuovere non esiste.
+3. Assicurarsi di aver rimosso il pacchetto eseguendo di `Remove-AppxPackage` nuovo il cmdlet. Se il pacchetto è stato rimosso correttamente, verrà visualizzato un messaggio che indica che il pacchetto che si sta tentando di rimuovere non esiste.
 
 4. Eseguire di `sysprep.exe` nuovo il cmdlet.
 
@@ -137,7 +143,8 @@ Per acquisire un'immagine:
 
 3. Immettere un nome per l'immagine nel campo **nome** e assegnarlo al gruppo di risorse usando il menu a discesa **gruppo di risorse** , come illustrato nella figura seguente.
 
-   ![Screenshot della finestra Crea immagine. Il nome che l'utente ha assegnato a questa immagine di test è "vmwvd-image-fr" ed è stato assegnato al gruppo di risorse "testwvdimagerg".](media/create-image.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot della finestra Crea immagine. Il nome che l'utente ha assegnato a questa immagine di test è "vmwvd-image-fr" ed è stato assegnato al gruppo di risorse "testwvdimagerg".](media/create-image.png)
 
 4. Selezionare **Crea**.
 

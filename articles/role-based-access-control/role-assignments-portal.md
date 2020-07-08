@@ -2,24 +2,20 @@
 title: Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il controllo degli accessi in base al ruolo portale di Azure
 description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando il portale di Azure e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 01/25/2020
+ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 88cb1e9893e0ca058e57ce12f00747a59248fb19
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 76f4f39e7def192b8cb97c37aefc9f67d82ad4be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362243"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure
 
@@ -35,11 +31,11 @@ Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
 
 ## <a name="access-control-iam"></a>Controllo di accesso (IAM)
 
-Il **controllo di accesso (IAM)** è il pannello usato per assegnare i ruoli per concedere l'accesso alle risorse di Azure. È noto anche come gestione delle identità e degli accessi e viene visualizzato in diverse posizioni nel portale di Azure. Di seguito viene riportato un esempio del pannello Controllo di accesso (IAM) per una sottoscrizione.
+Il **controllo di accesso (IAM)** è la pagina che in genere si usa per assegnare i ruoli per concedere l'accesso alle risorse di Azure. È noto anche come gestione delle identità e degli accessi e viene visualizzato in diverse posizioni nel portale di Azure. Di seguito viene illustrato un esempio della pagina controllo di accesso (IAM) per una sottoscrizione.
 
-![Pannello Controllo di accesso (IAM) per una sottoscrizione](./media/role-assignments-portal/access-control-subscription.png)
+![Pagina controllo di accesso (IAM) per una sottoscrizione](./media/role-assignments-portal/access-control-subscription.png)
 
-Per essere il più efficace con il pannello controllo di accesso (IAM), consente di rispondere alle tre domande seguenti quando si tenta di assegnare un ruolo:
+Per essere il più efficace con la pagina controllo di accesso (IAM), è utile se è possibile rispondere alle tre domande seguenti quando si tenta di assegnare un ruolo:
 
 1. **Chi deve accedere?**
 
@@ -61,17 +57,17 @@ In controllo degli accessi in base al ruolo di Azure per concedere l'accesso a u
 
 1. Fare clic sulla risorsa specifica per tale ambito.
 
-1. Fare clic su **controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
 1. Fare clic sulla scheda **assegnazioni di ruolo** per visualizzare le assegnazioni di ruolo in questo ambito.
 
     ![Scheda controllo di accesso (IAM) e assegnazioni di ruolo](./media/role-assignments-portal/role-assignments.png)
 
-1. Fare clic su **Aggiungi** > **Aggiungi assegnazione ruolo**.
+1. Fare clic su **Aggiungi**  >  **Aggiungi assegnazione ruolo**.
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
-   ![Menu Aggiungi](./media/role-assignments-portal/add-menu.png)
+   ![Menu Aggiungi assegnazione ruolo](./media/shared/add-role-assignment-menu.png)
 
     Verrà aperto il riquadro Aggiungi assegnazione di ruolo.
 
@@ -95,17 +91,17 @@ Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargl
 
 1. Fare clic sulla sottoscrizione in cui si intende concedere l'accesso.
 
-1. Fare clic su **controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
 1. Fare clic sulla scheda **assegnazioni di ruolo** per visualizzare le assegnazioni di ruolo per la sottoscrizione.
 
     ![Scheda controllo di accesso (IAM) e assegnazioni di ruolo](./media/role-assignments-portal/role-assignments.png)
 
-1. Fare clic su **Aggiungi** > **Aggiungi assegnazione ruolo**.
+1. Fare clic su **Aggiungi**  >  **Aggiungi assegnazione ruolo**.
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
-   ![Menu Aggiungi](./media/role-assignments-portal/add-menu.png)
+   ![Menu Aggiungi assegnazione ruolo](./media/shared/add-role-assignment-menu.png)
 
     Verrà aperto il riquadro Aggiungi assegnazione di ruolo.
 
@@ -118,6 +114,75 @@ Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargl
 1. Fare clic su **Salva** per assegnare un ruolo.
 
    Dopo qualche istante, all’utente viene assegnato il ruolo di Proprietario per l'ambito della sottoscrizione.
+
+## <a name="add-a-role-assignment-for-a-managed-identity-preview"></a>Aggiungere un'assegnazione di ruolo per un'identità gestita (anteprima)
+
+È possibile aggiungere assegnazioni di ruolo per un'identità gestita usando la pagina **controllo di accesso (IAM)** come descritto in precedenza in questo articolo. Quando si usa la pagina controllo di accesso (IAM), si inizia con l'ambito e quindi si seleziona l'identità e il ruolo gestiti. In questa sezione viene descritto un modo alternativo per aggiungere assegnazioni di ruolo per un'identità gestita. Utilizzando questa procedura, si inizia con l'identità gestita e quindi si selezionano l'ambito e il ruolo.
+
+> [!IMPORTANT]
+> L'aggiunta di un'assegnazione di ruolo per un'identità gestita usando questi passaggi alternativi è attualmente in anteprima.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### <a name="system-assigned-managed-identity"></a>Identità gestita assegnata dal sistema
+
+Seguire questa procedura per assegnare un ruolo a un'identità gestita assegnata dal sistema iniziando con l'identità gestita.
+
+1. Nella portale di Azure aprire un'identità gestita assegnata dal sistema.
+
+1. Nel menu a sinistra fare clic su **Identity**.
+
+    ![Identità gestita assegnata dal sistema](./media/shared/identity-system-assigned.png)
+
+1. In **autorizzazioni**fare clic su **assegnazioni di ruolo di Azure**.
+
+    Se i ruoli sono già stati assegnati all'identità gestita assegnata dal sistema selezionata, viene visualizzato l'elenco di assegnazioni di ruolo. Questo elenco include tutte le assegnazioni di ruolo per le quali si dispone dell'autorizzazione di lettura.
+
+    ![Assegnazioni di ruolo per un'identità gestita assegnata dal sistema](./media/shared/role-assignments-system-assigned.png)
+
+1. Per modificare la sottoscrizione, fare clic sull'elenco **sottoscrizione** .
+
+1. Fare clic su **Aggiungi assegnazione ruolo (anteprima)**.
+
+1. Usare gli elenchi a discesa per selezionare il set di risorse a cui si applica l'assegnazione di ruolo, ad esempio **sottoscrizione**, **gruppo di risorse**o risorsa.
+
+    Se non si dispone delle autorizzazioni di scrittura per l'assegnazione di ruolo per l'ambito selezionato, verrà visualizzato un messaggio inline. 
+
+1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
+
+   ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+
+1. Fare clic su **Salva** per assegnare un ruolo.
+
+   Dopo alcuni istanti, l'identità gestita viene assegnata al ruolo nell'ambito selezionato.
+
+### <a name="user-assigned-managed-identity"></a>Identità gestita assegnata dall'utente
+
+Seguire questa procedura per assegnare un ruolo a un'identità gestita assegnata dall'utente iniziando con l'identità gestita.
+
+1. Nella portale di Azure aprire un'identità gestita assegnata dall'utente.
+
+1. Nel menu a sinistra fare clic su **assegnazioni di ruolo di Azure**.
+
+    Se i ruoli sono già stati assegnati all'identità gestita assegnata dall'utente selezionata, viene visualizzato l'elenco di assegnazioni di ruolo. Questo elenco include tutte le assegnazioni di ruolo per le quali si dispone dell'autorizzazione di lettura.
+
+    ![Assegnazioni di ruolo per un'identità gestita assegnata dal sistema](./media/shared/role-assignments-user-assigned.png)
+
+1. Per modificare la sottoscrizione, fare clic sull'elenco **sottoscrizione** .
+
+1. Fare clic su **Aggiungi assegnazione ruolo (anteprima)**.
+
+1. Usare gli elenchi a discesa per selezionare il set di risorse a cui si applica l'assegnazione di ruolo, ad esempio **sottoscrizione**, **gruppo di risorse**o risorsa.
+
+    Se non si dispone delle autorizzazioni di scrittura per l'assegnazione di ruolo per l'ambito selezionato, verrà visualizzato un messaggio inline. 
+
+1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
+
+   ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment-with-scope.png)
+
+1. Fare clic su **Salva** per assegnare un ruolo.
+
+   Dopo alcuni istanti, l'identità gestita viene assegnata al ruolo nell'ambito selezionato.
 
 ## <a name="remove-a-role-assignment"></a>Rimuovere un'assegnazione di ruolo
 
@@ -144,6 +209,6 @@ In controllo degli accessi in base al ruolo di Azure è possibile rimuovere un'a
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Elencare le assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-list-portal.md)
-- [Esercitazione: concedere a un utente l'accesso alle risorse di Azure usando il portale di Azure](quickstart-assign-role-user-portal.md)
+- [Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il portale di Azure](quickstart-assign-role-user-portal.md)
 - [Risolvere i problemi relativi a RBAC di Azure](troubleshooting.md)
-- [Organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/overview.md)
+- [Organizzare le risorse con i gruppi di gestione di Azure ](../governance/management-groups/overview.md)

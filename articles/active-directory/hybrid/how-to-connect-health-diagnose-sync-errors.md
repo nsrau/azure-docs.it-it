@@ -11,16 +11,16 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b15250804dd316000aa20d6b97e9cccbfc36e9ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359093"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati
 
@@ -34,7 +34,7 @@ Per altre informazioni su Azure AD, vedere [Sincronizzazione delle identità e r
 
 ## <a name="problems"></a>I problemi
 ### <a name="a-common-scenario"></a>Scenario comune
-Quando si verificano gli errori di sincronizzazione **QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, è frequente che si sia verificato un conflitto di **UserPrincipalName** o **Proxy Addresses** in Azure AD. È possibile risolvere gli errori di sincronizzazione aggiornando l'oggetto di origine in conflitto dal lato locale. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Ad esempio, questa immagine indica che due utenti hanno un conflitto tra i **userPrincipalName**. Entrambi sono **Joe. J\@contoso.com**. Gli oggetti in conflitto vengono messi in quarantena in Azure AD.
+Quando si verificano gli errori di sincronizzazione **QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, è frequente che si sia verificato un conflitto di **UserPrincipalName** o **Proxy Addresses** in Azure AD. È possibile risolvere gli errori di sincronizzazione aggiornando l'oggetto di origine in conflitto dal lato locale. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Ad esempio, questa immagine indica che due utenti hanno un conflitto tra i **userPrincipalName**. Entrambi sono **Joe. J \@ contoso.com**. Gli oggetti in conflitto vengono messi in quarantena in Azure AD.
 
 ![Diagnosi di uno scenario comune per un errore di sincronizzazione](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 

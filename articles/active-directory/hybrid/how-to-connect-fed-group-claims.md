@@ -8,16 +8,16 @@ manager: daveba
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854128"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359960"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurare le attestazioni di gruppo per le applicazioni con Azure Active Directory
 
@@ -109,7 +109,7 @@ Per modificare i gruppi assegnati all'applicazione, selezionare l'applicazione n
 
 Per informazioni dettagliate sulla gestione dell'assegnazione dei gruppi alle applicazioni, vedere il documento [assegnare un utente o un gruppo a un'app aziendale](../../active-directory/manage-apps/assign-user-or-group-access-portal.md) .
 
-### <a name="advanced-options"></a>Advanced Options
+### <a name="advanced-options"></a>Opzioni avanzate
 
 Il modo in cui vengono emesse le attestazioni di gruppo può essere modificato dalle impostazioni in opzioni avanzate
 
@@ -143,7 +143,7 @@ I valori validi sono:
 | Selezione | Descrizione |
 |----------|-------------|
 | **Tutti** | Genera gruppi di sicurezza, elenchi di distribuzione e ruoli |
-| **SecurityGroup** | Emette i gruppi di sicurezza di cui l'utente è membro nell'attestazione dei gruppi |
+| **"SecurityGroup"** | Emette i gruppi di sicurezza di cui l'utente è membro nell'attestazione dei gruppi |
 | **"DirectoryRole** | Se all'utente sono assegnati ruoli della directory, questi vengono emessi come attestazione "WIDS" (i gruppi non verranno emessi) |
 | **"ApplicationGroup** | Emette solo i gruppi assegnati in modo esplicito all'applicazione e l'utente è un membro di |
 
@@ -153,9 +153,9 @@ I valori validi sono:
    "groupMembershipClaims": "SecurityGroup"
    ```
 
-   Per impostazione predefinita, il gruppo ObjectID verrà emesso nel valore dell'attestazione del gruppo.  Per modificare il valore dell'attestazione in modo che contenga gli attributi del gruppo locale o per modificare il tipo di attestazione in role, usare la configurazione di OptionalClaims come indicato di seguito:
+   Per impostazione predefinita, verrà restituito il gruppo ObjectID nel valore dell'attestazione del gruppo.  Per modificare il valore dell'attestazione in modo che contenga gli attributi del gruppo locale o per modificare il tipo di attestazione in un ruolo, usare la configurazione OptionalClaims come indicato di seguito:
 
-3. Imposta la configurazione del nome del gruppo attestazioni facoltative.
+3. Impostare le attestazioni facoltative della configurazione del nome del gruppo.
 
    Se si vuole che i gruppi nel token contengano gli attributi di gruppo AD locali, specificare l'attestazione facoltativa per il tipo di token da applicare alla sezione attestazioni facoltative.  È possibile elencare più tipi di token:
 
@@ -164,9 +164,9 @@ I valori validi sono:
    - Saml2Token per i token SAML.
 
    > [!NOTE]
-   > Il tipo Saml2Token si applica ai token di formato SAML 1.1 e SAML 2.0
+   > Il tipo Saml2Token si applica ai token nel formato SAML1.1 e SAML2.0
 
-   Per ogni tipo di token pertinente, modificare l'attestazione groups in modo da usare la sezione OptionalClaims nel manifesto. Lo schema OptionalClaims è il seguente:
+   Per ogni tipo di token pertinente, modificare l'attestazione dei gruppi affinché usi la sezione OptionalClaims nel manifesto. Lo schema OptionalClaims è il seguente:
 
    ```json
    {
@@ -179,17 +179,17 @@ I valori validi sono:
 
    | Schema delle attestazioni facoltativo | valore |
    |----------|-------------|
-   | **nome** | Deve essere "groups" |
-   | **origine** | Non usato. Omettere o specificare null |
-   | **essenziale** | Non usato. Omettere o specificare false |
-   | **AdditionalProperties** | Elenco di proprietà aggiuntive.  Le opzioni valide sono "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **name:** | Deve essere "groups" |
+   | **source:** | Non usato. Omettere o specificare null |
+   | **essential:** | Non usato. Omettere o specificare false |
+   | **additionalProperties:** | Elenco di proprietà aggiuntive.  Le opzioni valide sono "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
-   In additionalProperties è necessario solo un "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se è presente più di un oggetto, viene usato il primo e tutti gli altri vengono ignorati.
+   In additionalProperties è necessario solo un "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se sono presenti più proprietà, viene usata la prima e tutte le altre vengono ignorate.
 
-   Per alcune applicazioni sono necessarie informazioni sul gruppo relative all'utente nell'attestazione del ruolo.  Per modificare il tipo di attestazione in da un'attestazione di gruppo a un'attestazione di ruolo, aggiungere "emit_as_roles" alle proprietà aggiuntive.  I valori del gruppo verranno emessi nell'attestazione del ruolo.
+   Per alcune applicazioni sono necessarie informazioni sul gruppo relative all'utente nell'attestazione del ruolo.  Per modificare il tipo di attestazione in da un'attestazione di gruppo a un'attestazione di ruolo, aggiungere "emit_as_roles" alle proprietà aggiuntive.  I valori del gruppo verranno restituiti nell'attestazione del ruolo.
 
    > [!NOTE]
-   > Se viene utilizzato "emit_as_roles", qualsiasi ruolo applicazione configurato per l'assegnazione dell'utente non verrà visualizzato nell'attestazione del ruolo
+   > Se viene usata la proprietà "emit_as_roles", i ruoli applicazione configurati a cui l'utente è assegnato non verranno visualizzati nell'attestazione del ruolo
 
 ### <a name="examples"></a>Esempi
 
@@ -222,6 +222,6 @@ Per creare i nomi dei gruppi da restituire nel formato netbiosDomain\samAccountN
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Assegnare un utente o gruppo a un'app aziendale](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
-
-[Configurare le attestazioni per i ruoli](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
+- [Aggiungere l'autorizzazione utilizzando gruppi & attestazioni di gruppi a un'app Web ASP.NET Core (esempio di codice)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
+- [Assegnare un utente o gruppo a un'app aziendale](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
+- [Configurare le attestazioni per i ruoli](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

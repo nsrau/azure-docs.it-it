@@ -4,18 +4,18 @@ description: Come configurare Multi-Factor Authentication di Azure per una maggi
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a769b5584abbd6da89ccb6032e5f0c5ac8ea1cb1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 16abe8d155a0d7d7f65c69e6305da62bd8813ea4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930523"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361150"
 ---
-# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Abilitare Multi-Factor Authentication di Azure per desktop virtuale Windows
+# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Abilitare l'autenticazione a più fattori di Azure per Desktop virtuale Windows
 
 Il desktop virtuale Windows client per Windows è un'ottima opzione per l'integrazione di desktop virtuali Windows con il computer locale. Tuttavia, quando si configura l'account desktop virtuale di Windows nel client Windows, è necessario adottare alcune misure per proteggere gli utenti.
 
@@ -39,23 +39,24 @@ Ecco gli elementi necessari per iniziare:
 In questa sezione viene illustrato come creare un criterio di accesso condizionale che richiede l'autenticazione a più fattori quando ci si connette al desktop virtuale di Windows.
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-2. Passare a **Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza.
+2. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 3. Selezionare **Nuovi criteri**.
-4. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
+4. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.
 5. In **Assegnazioni** selezionare **Utenti e gruppi**.
-   - In **Includi**selezionare **Seleziona utenti e gruppi** > **utenti e** gruppi > scegliere il gruppo creato nella fase prerequisiti.
-   - Seleziona **Chiudi**.
-6. In **app Cloud o azioni** > **Includi**selezionare **Seleziona app**.
+   - In **Includi**selezionare **Seleziona utenti e gruppi**  >  **utenti e** gruppi > scegliere il gruppo creato nella fase prerequisiti.
+   - Selezionare **Operazione completata**.
+6. In **app Cloud o azioni**  >  **Includi**selezionare **Seleziona app**.
    - Scegliere **desktop virtuale Windows** (ID app 9cdead84-A844-4324-93f2-b2e6bb768d07), quindi **selezionare**, quindi fare clic su **fine**.
-   
-     ![Screenshot della pagina app o azioni cloud. Il desktop virtuale Windows e le app client desktop virtuali Windows sono evidenziate in rosso.](media/cloud-apps-enterprise.png)
+
+     > [!div class="mx-imgBorder"]
+     > ![Screenshot della pagina app o azioni cloud. Il desktop virtuale Windows e le app client desktop virtuali Windows sono evidenziate in rosso.](media/cloud-apps-enterprise.png)
 
      >[!NOTE]
      >Per trovare l'ID app dell'app che si vuole selezionare, passare ad **applicazioni aziendali** e selezionare **applicazioni Microsoft** dal menu a discesa tipo di applicazione.
 
-7. In **controllo** > di accesso**concedere**selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e quindi **selezionare**.
-8. In **Access controls** > **sessione**controlli di accesso selezionare **frequenza**di accesso, impostare il valore su **1** e unità su **ore**, quindi selezionare **Seleziona**.
-9. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
+7. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e quindi **selezionare**.
+8. In **sessione controlli di accesso**  >  **Session**selezionare **frequenza**di accesso, impostare il valore su **1** e unità su **ore**, quindi selezionare **Seleziona**.
+9. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 10. Selezionare **Crea** per abilitare i criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi

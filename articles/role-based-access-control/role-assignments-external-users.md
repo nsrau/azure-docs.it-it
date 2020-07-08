@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735760"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361905"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti Guest esterni usando il portale di Azure
 
@@ -49,9 +49,9 @@ I membri nativi di una directory (utenti membro) hanno autorizzazioni diverse ri
 
 Attenersi alla seguente procedura per aggiungere un utente guest alla directory usando la pagina Azure Active Directory.
 
-1. Assicurarsi che le impostazioni di collaborazione esterna dell'organizzazione siano configurate in modo che sia possibile invitare i guest. Per altre informazioni, vedere [abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](../active-directory/b2b/delegate-invitations.md).
+1. Assicurarsi che le impostazioni di collaborazione esterna dell'organizzazione siano configurate per consentire gli inviti agli utenti guest. Per altre informazioni, vedere [abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](../active-directory/b2b/delegate-invitations.md).
 
-1. Nella portale di Azure fare clic su **Azure Active Directory** > **utenti** > **nuovo utente Guest**.
+1. Nella portale di Azure fare clic su **Azure Active Directory**  >  **utenti**  >  **nuovo utente Guest**.
 
     ![Nuova funzionalità utente guest in portale di Azure](./media/role-assignments-external-users/invite-guest-user.png)
 
@@ -71,13 +71,13 @@ Per ulteriori informazioni sul processo di invito, vedere [Azure Active Director
 
 Nel controllo degli accessi in base al ruolo di Azure per concedere l'accesso, assegnare un ruolo. Per aggiungere un'assegnazione di ruolo per un utente Guest, seguire la [stessa procedura descritta](role-assignments-portal.md#add-a-role-assignment) per un utente membro, un gruppo, un'entità servizio o un'identità gestita. Attenersi alla procedura seguente per aggiungere un'assegnazione di ruolo per un utente guest in ambiti diversi.
 
-1. Nella portale di Azure fare clic su **tutti i servizi**.
+1. Nel portale di Azure fare clic su **Tutti i servizi**.
 
 1.  Consente di selezionare il set di risorse a cui viene applicato l'accesso, noto anche come ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
 
 1. Fare clic sulla risorsa specifica.
 
-1. Fare clic su **controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
     Lo screenshot seguente mostra un esempio del pannello controllo di accesso (IAM) per un gruppo di risorse. Se si apportano modifiche al controllo di accesso, si applicano solo al gruppo di risorse.
 
@@ -85,11 +85,13 @@ Nel controllo degli accessi in base al ruolo di Azure per concedere l'accesso, a
 
 1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questo ambito.
 
-1. Fare clic su **Aggiungi** > **assegnazione ruolo** per aprire il riquadro Aggiungi assegnazione ruolo.
+1. Fare clic su **Aggiungi** > **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
 
     Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
-    ![Menu Aggiungi](./media/role-assignments-external-users/add-menu.png)
+    ![Menu Aggiungi assegnazione ruolo](./media/shared/add-role-assignment-menu.png)
+
+    Verrà aperto il riquadro Aggiungi assegnazione di ruolo.
 
 1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
 
@@ -107,19 +109,21 @@ Per aggiungere un'assegnazione di ruolo per un utente Guest, seguire la [stessa 
 
 Se l'utente Guest non è ancora presente nella directory, è possibile invitare l'utente direttamente dal riquadro Aggiungi assegnazione ruolo.
 
-1. Nella portale di Azure fare clic su **tutti i servizi**.
+1. Nel portale di Azure fare clic su **Tutti i servizi**.
 
 1.  Consente di selezionare il set di risorse a cui viene applicato l'accesso, noto anche come ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
 
 1. Fare clic sulla risorsa specifica.
 
-1. Fare clic su **controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
 1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questo ambito.
 
-1. Fare clic su **Aggiungi** > **assegnazione ruolo** per aprire il riquadro Aggiungi assegnazione ruolo.
+1. Fare clic su **Aggiungi** > **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
 
-    ![Menu Aggiungi](./media/role-assignments-external-users/add-menu.png)
+    ![Menu Aggiungi assegnazione ruolo](./media/shared/add-role-assignment-menu.png)
+
+    Verrà aperto il riquadro Aggiungi assegnazione di ruolo.
 
 1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
 
@@ -153,7 +157,7 @@ Prima di rimuovere un utente Guest da una directory, è necessario rimuovere pri
 
 1. Nell'elenco delle assegnazioni di ruolo aggiungere un segno di spunta accanto all'utente guest con l'assegnazione di ruolo che si desidera rimuovere.
 
-   ![Rimuovi assegnazione di ruolo](./media/role-assignments-external-users/remove-role-assignment-select.png)
+   ![Rimuovere l'assegnazione di ruolo](./media/role-assignments-external-users/remove-role-assignment-select.png)
 
 1. Scegliere **Rimuovi**.
 
@@ -161,7 +165,7 @@ Prima di rimuovere un utente Guest da una directory, è necessario rimuovere pri
 
 1. Nella finestra con il messaggio di rimozione dell'assegnazione di ruolo fare clic su **Sì**.
 
-1. Nella barra di spostamento a sinistra fare clic su **Azure Active Directory** > **utenti**.
+1. Nella barra di spostamento a sinistra fare clic su **Azure Active Directory**  >  **utenti**.
 
 1. Fare clic sull'utente guest che si desidera rimuovere.
 

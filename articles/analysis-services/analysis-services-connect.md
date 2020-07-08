@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc671629934d80b3e727ca69f9026f534d05e160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1b4e56dfeae2d4b7826f3ad30bc5eb4b8672b85
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676640"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361473"
 ---
 # <a name="connecting-to-servers"></a>Connessione ai server
 
@@ -20,7 +20,7 @@ Questo articolo descrive la connessione a un server usando la modellazione dei d
 
 ## <a name="client-libraries"></a>Librerie client
 
-[Ottenere le librerie client più recenti](analysis-services-data-providers.md)
+[Ottenere le librerie client più recenti](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
 Tutte le connessioni a qualunque tipo di server richiedono le librerie client AMO, ADOMD.NET e OLEDB aggiornate per connettersi e interagire con un server di Analysis Services. Per SSMS, Visual Studio, Excel 2016 e versioni successive e Power BI, le librerie client più recenti vengono installate o aggiornate con le versioni mensili. In alcuni casi, tuttavia, è possibile che un'applicazione non abbia la versione più recente. Ad esempio, quando alcuni criteri ritardano gli aggiornamenti o quando gli aggiornamenti di Office 365 sono su Deferred Channel.
 

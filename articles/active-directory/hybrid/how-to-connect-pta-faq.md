@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 03/09/2020
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358294"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
@@ -44,7 +44,7 @@ No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a
 Sì. Tutte le funzionalità di accesso condizionale, tra cui Azure Multi-Factor Authentication, funzionano con l'autenticazione pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'autenticazione pass-through supporta "Alternate ID" come nome utente, al posto di "userPrincipalName"?
-L'accesso con un valore non UPN, ad esempio un indirizzo di posta elettronica alternativo, è attualmente testato in anteprima privata per l'autenticazione pass-through (PTA) e la sincronizzazione dell'hash delle password (pH).
+Sì, l'accesso con un valore non UPN, ad esempio un indirizzo di posta elettronica alternativo, è supportato sia per l'autenticazione pass-through sia per la sincronizzazione dell'hash delle password (pH). Per ulteriori informazioni sull' [ID di accesso alternativo](../authentication/howto-authentication-use-email-signin.md).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La sincronizzazione dell'hash delle password agisce da fallback per l'autenticazione pass-through?
 
@@ -113,7 +113,7 @@ La comunicazione tra ciascun agente di autenticazione pass-through e Azure AD è
 
 Finché l'agente di autenticazione pass-through è in esecuzione, rimane attivo e continua a gestire le richieste di accesso degli utenti. Per disinstallare un agente di autenticazione, andare a **Pannello di controllo -> Programmi -> Programmi e funzionalità** e disinstallare entrambi i programmi **Agente di autenticazione di Microsoft Azure AD Connect** e **Microsoft Azure AD Connect Agent Updater**.
 
-Se si osserva il pannello Autenticazione pass-through nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) dopo aver completato il passaggio precedente, si noterà l'agente di autenticazione indicato come **Inattivo**. Questo è il comportamento _previsto_. L'agente di autenticazione viene eliminato automaticamente dall'elenco dopo alcuni giorni.
+Se si osserva il pannello Autenticazione pass-through nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) dopo aver completato il passaggio precedente, si noterà l'agente di autenticazione indicato come **Inattivo**. Si tratta di un comportamento _previsto_. L'agente di autenticazione viene eliminato automaticamente dall'elenco dopo alcuni giorni.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Si usa già AD FS per eseguire l'accesso a Azure AD. Come si passa all'autenticazione pass-through?
 

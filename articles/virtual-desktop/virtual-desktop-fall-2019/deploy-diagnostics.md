@@ -4,21 +4,21 @@ description: Come distribuire lo strumento di diagnostica UX per desktop virtual
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6635fff957512b601fe0927769e4ea91e9270450
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362340"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione 2019, che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 >[!IMPORTANT]
 >A partire dal 16 marzo 2020, sono state disabilitate temporaneamente le query di diagnostica che hanno interessato l'esperienza utente a causa di un aumento della domanda sul servizio. In questo modo lo strumento smette di funzionare perché si basa su tali query per funzionare. Questo articolo verrà aggiornato quando le query di diagnostica sono nuovamente disponibili.
@@ -68,7 +68,7 @@ Questa sezione illustra come usare PowerShell per creare l'app Azure Active Dire
    ```powershell
    Connect-AzureAD
    ```
-4. Passare al [repository di GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) per i modelli di Servizi Desktop remoto ed eseguire lo script **CreateADAppRegistrationforDiagnostics. ps1** in PowerShell.
+4. Passare al [repository di GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) per i modelli di Servizi Desktop remoto ed eseguire lo script di **CreateADAppRegistrationforDiagnostics.ps1** in PowerShell.
 5.  Quando lo script richiede di assegnare un nome all'app, immettere un nome univoco per l'app.
 
 
@@ -93,7 +93,7 @@ Per la migliore esperienza possibile, è consigliabile configurare l'area di lav
 Per eseguire lo script di PowerShell:
 
 1.  Aprire PowerShell come amministratore.
-2.  Passare al [repository di GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) per i modelli di Servizi Desktop remoto ed eseguire lo script **CreateLogAnalyticsWorkspaceforDiagnostics. ps1** in PowerShell.
+2.  Passare al [repository di GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) per i modelli di Servizi Desktop remoto ed eseguire lo script di **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** in PowerShell.
 3. Per i parametri inserire i valori seguenti:
 
     - Per **ResourceGroupName**, immettere il nome del gruppo di risorse.
@@ -115,13 +115,13 @@ Di seguito viene illustrato come configurare manualmente i contatori delle prest
 1. Aprire il browser Internet e accedere al [portale di Azure](https://portal.azure.com/) con l'account amministrativo.
 2. Passare quindi a **log Analytics aree di lavoro** per esaminare i contatori delle prestazioni di Windows configurati.
 3. Nella sezione **Impostazioni** selezionare **Impostazioni avanzate**.
-4. Passare quindi ai**contatori delle prestazioni di Windows** **Data** > e aggiungere i contatori seguenti:
+4. Passare quindi ai **Data**  >  **contatori delle prestazioni di Windows** data e aggiungere i contatori seguenti:
 
-    -   Disco logico (\*)\\% di spazio disponibile
-    -   Disco logico (C:)\\lunghezza media coda del disco
-    -   Memoria (\*)\\MByte disponibili
-    -   Informazioni processore (\*)\\tempo processore
-    -   Ritardo input utente per sessione (\*)\\-ritardo input massimo
+    -   Disco logico ( \* ) \\ % di spazio disponibile
+    -   Disco logico (C:) \\ lunghezza media coda del disco
+    -   Memoria ( \* ) \\ MByte disponibili
+    -   Informazioni processore ( \* ) \\ tempo processore
+    -   Ritardo input utente per sessione ( \* )- \\ ritardo input massimo
 
 Altre informazioni sui contatori delle prestazioni [nelle origini dati delle prestazioni di Windows e Linux in monitoraggio di Azure](/azure/azure-monitor/platform/data-sources-performance-counters).
 
@@ -147,14 +147,14 @@ Per assicurarsi che l'area di lavoro di Log Analytics disponga dei contatori del
 
 1. Nella [portale di Azure](https://portal.azure.com/)passare a **log Analytics aree di lavoro** per esaminare i contatori delle prestazioni di Windows configurati.
 2. In **Impostazioni**selezionare **Impostazioni avanzate**.
-3. Passare quindi ai**contatori delle prestazioni di Windows** **Data** > .
+3. Passare quindi ai **Data**  >  **contatori delle prestazioni di Windows**data.
 4. Verificare che i contatori seguenti siano preconfigurati:
 
-   - Disco logico (\*)\\% di spazio disponibile: Visualizza la quantità di spazio disponibile totale del disco utilizzabile sul disco come percentuale.
-   - Disco logico (C:)\\media coda del disco: lunghezza della richiesta di trasferimento disco per l'unità C. Il valore non deve superare 2 per più di un breve periodo di tempo.
-   - Memoria (\*)\\MByte disponibili: memoria disponibile per il sistema in megabyte.
-   - Informazioni processore (\*)\\tempo processore: la percentuale di tempo impiegato dal processore per eseguire un thread non inattivo.
-   - Ritardo input utente per sessione (\*)\\-ritardo input massimo
+   - Disco logico ( \* ) \\ % di spazio disponibile: Visualizza la quantità di spazio disponibile totale del disco utilizzabile sul disco come percentuale.
+   - Disco logico (C:) \\ media coda del disco: lunghezza della richiesta di trasferimento disco per l'unità C. Il valore non deve superare 2 per più di un breve periodo di tempo.
+   - Memoria ( \* ) \\ MByte disponibili: memoria disponibile per il sistema in megabyte.
+   - Informazioni processore ( \* ) \\ tempo processore: la percentuale di tempo impiegato dal processore per eseguire un thread non inattivo.
+   - Ritardo input utente per sessione ( \* )- \\ ritardo input massimo
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Connettersi alle macchine virtuali nell'area di lavoro Log Analytics
 
@@ -195,11 +195,12 @@ Per impostare l'URI di reindirizzamento:
 6. Selezionare **Web** nel menu a discesa in tipo.
 7. Immettere l'URL dalla pagina di panoramica dell'app e aggiungere **/Security/SignIn-callback** alla fine. Ad esempio: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![Pagina URI di Reindirizzamento](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![Pagina URI di Reindirizzamento](../media/redirect-uri-page.png)
 
-8. Passare ora alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello e passare all'URL associato. Se, ad esempio, il nome dell'app usato nel modello era `contosoapp45`, l'URL associato è. <https://contosoapp45.azurewebsites.net>
+8. Passare ora alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello e passare all'URL associato. Se, ad esempio, il nome dell'app usato nel modello era `contosoapp45` , l'URL associato è <https://contosoapp45.azurewebsites.net> .
 9. Accedere usando l'account utente appropriato di Azure Active Directory.
-10.   Selezionare **Accetta**.
+10.   Selezionare **Accetto**.
 
 ## <a name="distribute-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -226,7 +227,7 @@ Le attività sono ordinate in base al timestamp, con l'attività più recente. S
 
 Le attività di connessione potrebbero avere più di un errore. È possibile espandere il tipo di attività per visualizzare eventuali altri errori che l'utente ha riscontrato. Selezionare il nome del codice di errore per aprire una finestra di dialogo per visualizzare altre informazioni su di essa.
 
-### <a name="investigate-the-session-host"></a>Esaminare l'host sessione 
+### <a name="investigate-the-session-host"></a>Esaminare l'host sessione
 
 Nei risultati della ricerca trovare e selezionare l'host sessione per cui si vogliono ottenere informazioni.
 
@@ -242,26 +243,26 @@ Nei risultati della ricerca trovare e selezionare l'host sessione per cui si vog
 
 ### <a name="windows-performance-counter-thresholds"></a>Soglie del contatore delle prestazioni di Windows
 
-- Disco logico (\*)\\% di spazio disponibile:
+- Disco logico ( \* ) \\ % di spazio disponibile:
 
     - Visualizza la percentuale dello spazio totale utilizzabile nel disco logico che è disponibile.
     - Soglia: minore del 20% è contrassegnato come non integro.
 
-- Disco logico (C:)\\lunghezza media coda del disco:
+- Disco logico (C:) \\ lunghezza media coda del disco:
 
     - Rappresenta le condizioni del sistema di archiviazione.
     - Soglia: maggiore di 5 è contrassegnato come non integro.
 
-- Memoria (\*)\\MByte disponibili:
+- Memoria ( \* ) \\ MByte disponibili:
 
     - Memoria disponibile per il sistema.
     - Soglia: inferiore a 500 megabyte contrassegnati come non integri.
 
-- Informazioni processore (\*)\\tempo processore:
+- Informazioni processore ( \* ) \\ tempo processore:
 
     - Soglia: superiore al 80% è contrassegnato come non integro.
 
-- Ritardo input [utente per sessione (\*)\\: ritardo input massimo](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
+- Ritardo input [utente per sessione ( \* ): \\ ritardo input massimo](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - Soglia: superiore a 2000 ms è contrassegnato come non integro.
 

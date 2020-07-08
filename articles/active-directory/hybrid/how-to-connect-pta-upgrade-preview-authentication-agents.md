@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 494ccc3b90b8c249ee935087dcf0f0b5264b02ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d27018a19db85e8544029db4f1b638ef7cae448a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60386772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358141"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticazione pass-through di Azure Active Directory - Aggiornare gli agenti di autenticazione di anteprima
 
@@ -74,7 +74,7 @@ Prima di aggiornare l'agente di autenticazione nello stesso server, è necessari
 5. **Verificare che sia stata installata la versione più recente**: come illustrato in precedenza, passare a **Pannello di controllo -> Programmi -> Programmi e funzionalità** e verificare che sia presente una voce per "**Agente di autenticazione di Microsoft Azure AD Connect**".
 
 >[!NOTE]
->Se si osserva il pannello Autenticazione pass-through nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) dopo aver completato i passaggi precedenti, si noteranno due voci dell'agente di autenticazione per ogni server, una che indica l'agente di autenticazione come **Attivo** e una che lo indica come **Inattivo**. Questo è il comportamento _previsto_. La voce **Inattivo** viene eliminata automaticamente dopo alcuni giorni.
+>Se si osserva il pannello Autenticazione pass-through nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) dopo aver completato i passaggi precedenti, si noteranno due voci dell'agente di autenticazione per ogni server, una che indica l'agente di autenticazione come **Attivo** e una che lo indica come **Inattivo**. Si tratta di un comportamento _previsto_. La voce **Inattivo** viene eliminata automaticamente dopo alcuni giorni.
 
 ## <a name="upgrading-the-authentication-agent-on-other-servers"></a>Aggiornamento dell'agente di autenticazione su altri server
 
@@ -86,7 +86,7 @@ Eseguire la procedura seguente per aggiornare gli agenti di autenticazione su al
 4. **Verificare che sia stata installata la versione più recente**: come illustrato in precedenza, passare a **Pannello di controllo -&gt; Programmi -&gt; Programmi e funzionalità** e verificare che sia presente una voce denominata **Agente di autenticazione di Microsoft Azure AD Connect**.
 
 >[!NOTE]
->Se si osserva il pannello Autenticazione pass-through nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) dopo aver completato i passaggi precedenti, si noteranno due voci dell'agente di autenticazione per ogni server, una che indica l'agente di autenticazione come **Attivo** e una che lo indica come **Inattivo**. Questo è il comportamento _previsto_. La voce **Inattivo** viene eliminata automaticamente dopo alcuni giorni.
+>Se si osserva il pannello Autenticazione pass-through nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) dopo aver completato i passaggi precedenti, si noteranno due voci dell'agente di autenticazione per ogni server, una che indica l'agente di autenticazione come **Attivo** e una che lo indica come **Inattivo**. Si tratta di un comportamento _previsto_. La voce **Inattivo** viene eliminata automaticamente dopo alcuni giorni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [**Risoluzione dei problemi**](tshoot-connect-pass-through-authentication.md) : informazioni su come risolvere i problemi comuni relativi alla funzionalità.
+- [**Risoluzione dei problemi**](tshoot-connect-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.

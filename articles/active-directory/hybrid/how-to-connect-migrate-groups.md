@@ -5,18 +5,18 @@ services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
-ms.topic: reference
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/02/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da2328674fd601f2e04684e8a9af1ae242ff6106
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ef693a48dc52854e4e1fd8359ef24f65ce236f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229800"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358583"
 ---
 # <a name="migrate-groups-from-one-forest-to-another-for-azure-ad-connect"></a>Eseguire la migrazione di gruppi da una foresta a un'altra per Azure AD Connect
 
@@ -29,13 +29,13 @@ In questo articolo viene descritto come eseguire la migrazione di gruppi da una 
 
 ## <a name="migrate-groups"></a>Migrare gruppi
 
-A partire dalla versione 1.5.18.0, Azure AD Connect supporta l'uso dell' `mS-DS-ConsistencyGuid` attributo per i gruppi. Se si sceglie `mS-DS-ConsistencyGuid` come attributo di ancoraggio di origine e il valore viene popolato in Active Directory, Azure ad Connect usa il `mS-DS-ConsistencyGuid` valore di `immutableId`come. In caso contrario, viene eseguito il `objectGUID`fallback all'uso di. Si noti tuttavia che Azure AD Connect non scrive di nuovo il valore `mS-DS-ConsistencyGuid` nell'attributo Active Directory.
+A partire dalla versione 1.5.18.0, Azure AD Connect supporta l'uso dell' `mS-DS-ConsistencyGuid` attributo per i gruppi. Se si sceglie `mS-DS-ConsistencyGuid` come attributo di ancoraggio di origine e il valore viene popolato in Active Directory, Azure ad Connect usa il valore di `mS-DS-ConsistencyGuid` come `immutableId` . In caso contrario, viene eseguito il fallback all'uso di `objectGUID` . Si noti tuttavia che Azure AD Connect non scrive di nuovo il valore `mS-DS-ConsistencyGuid` nell'attributo Active Directory.
 
-Durante lo spostamento tra foreste, quando un oggetto gruppo si sposta da una foresta, ad indicare F1, a un'altra foresta (ad indicare F2), è necessario copiare il `mS-DS-ConsistencyGuid` valore (se presente) o il `objectGUID` valore dell'oggetto nella foresta F1 all' `mS-DS-ConsistencyGuid` attributo dell'oggetto in F2.
+Durante lo spostamento tra foreste, quando un oggetto gruppo si sposta da una foresta, ad indicare F1, a un'altra foresta (ad indicare F2), è necessario copiare il `mS-DS-ConsistencyGuid` valore (se presente) o il valore dell' `objectGUID` oggetto nella foresta F1 all' `mS-DS-ConsistencyGuid` attributo dell'oggetto in F2.
 
 Usare gli script seguenti come guida per apprendere come eseguire la migrazione di un singolo gruppo da una foresta a un'altra. È anche possibile usare questi script come guida per la migrazione di più gruppi. Gli script utilizzano il nome della foresta F1 per la foresta di origine e F2 per la foresta di destinazione.
 
-In primo luogo, si `objectGUID` ottengono `mS-DS-ConsistencyGuid` e dell'oggetto gruppo nella foresta F1. Questi attributi vengono esportati in un file CSV.
+In primo luogo, si ottengono `objectGUID` e `mS-DS-ConsistencyGuid` dell'oggetto gruppo nella foresta F1. Questi attributi vengono esportati in un file CSV.
 ```
 <#
 DESCRIPTION
@@ -83,7 +83,7 @@ $results | Export-Csv "$outputCsv" -NoTypeInformation
 
 ```
 
-Viene quindi usato il file CSV di output generato per contrassegnare `mS-DS-ConsistencyGuid` l'attributo nell'oggetto di destinazione nella foresta F2:
+Viene quindi usato il file CSV di output generato per contrassegnare l' `mS-DS-ConsistencyGuid` attributo nell'oggetto di destinazione nella foresta F2:
 
 
 ```

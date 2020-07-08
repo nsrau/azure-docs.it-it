@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1e4428fecdbb5d664111adc591812a5122bf2eda
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: df2990e3799d0b16f316c522185ac9b779ca48e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125115"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362357"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
 
@@ -25,7 +25,7 @@ ms.locfileid: "83125115"
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -121,7 +121,8 @@ Quando l'agente desktop virtuale di Windows viene installato per la prima volta 
 
 ### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Errore: lo stato archiviato nel cmdlet Get-AzWvdSessionHost Mostra lo stato non disponibile
 
-![Il cmdlet Get-AzWvdSessionHost Mostra lo stato come non disponibile.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Il cmdlet Get-AzWvdSessionHost Mostra lo stato come non disponibile.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Motivo:** L'agente non è in grado di eseguire l'aggiornamento a una nuova versione.
 
@@ -136,7 +137,7 @@ Quando l'agente desktop virtuale di Windows viene installato per la prima volta 
 
 ## <a name="error-windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Errore: la voce del registro di sistema di Windows Virtual Desktop Agent ha registrato un valore pari a 0
 
-**Motivo:** Il token di registrazione è scaduto o è stato generato con un valore di scadenza pari a 999999.
+**Motivo:** Il token di registrazione è scaduto.
 
 **Correzione:** Per correggere l'errore del registro di sistema di Agent, seguire queste istruzioni.
 
@@ -182,7 +183,7 @@ Quando l'agente desktop virtuale di Windows viene installato per la prima volta 
 
 ## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Risoluzione dei problemi relativi allo stack side-by-side di desktop virtuale di Windows
 
-Lo stack side-by-side di desktop virtuale Windows viene installato automaticamente con Windows Server 2019. Utilizzare Microsoft Installer (MSI) per installare lo stack affiancato in Microsoft Windows Server 2016 o Windows Server 2012 R2. Per Microsoft Windows 10, lo stack side-by-side di desktop virtuale di Windows è abilitato con **enablesxstackrs. ps1**.
+Lo stack side-by-side di desktop virtuale Windows viene installato automaticamente con Windows Server 2019. Utilizzare Microsoft Installer (MSI) per installare lo stack affiancato in Microsoft Windows Server 2016 o Windows Server 2012 R2. Per Microsoft Windows 10, lo stack side-by-side di desktop virtuale di Windows è abilitato con **enablesxstackrs.ps1**.
 
 Esistono tre modi principali per installare o abilitare lo stack affiancato nelle macchine virtuali del pool host della sessione:
 
@@ -194,7 +195,8 @@ Se si verificano problemi con lo stack affiancato di desktop virtuali Windows, d
 
 L'output di **qwinsta** elenca **RDP-SxS** nell'output se lo stack affiancato viene installato e abilitato.
 
-![Stack side-by-side installato o abilitato con qwinsta elencato come RDP-SxS nell'output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Stack side-by-side installato o abilitato con qwinsta elencato come RDP-SxS nell'output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Esaminare le voci del registro di sistema elencate di seguito e verificare che i relativi valori corrispondano. Se mancano le chiavi del registro di sistema o i valori non corrispondono, seguire le istruzioni in [creare un pool di host con PowerShell](create-host-pools-powershell.md) per informazioni su come reinstallare lo stack affiancato.
 
@@ -208,7 +210,8 @@ Esaminare le voci del registro di sistema elencate di seguito e verificare che i
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Errore: O_REVERSE_CONNECT_STACK_FAILURE
 
-![Codice di errore O_REVERSE_CONNECT_STACK_FAILURE.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Codice di errore O_REVERSE_CONNECT_STACK_FAILURE.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Motivo:** Lo stack affiancato non è installato nella macchina virtuale host sessione.
 
@@ -224,8 +227,8 @@ Ci sono circostanze note che possono causare un malfunzionamento dello stack sid
 - Non segue l'ordine corretto dei passaggi per abilitare lo stack affiancato
 - Aggiornamento automatico a Windows 10 Enhanced Versatile Disk (EVD)
 - Manca il ruolo host sessione Desktop remoto (RDSH)
-- Esecuzione di enablesxsstackrc. ps1 più volte
-- Esecuzione di enablesxsstackrc. ps1 in un account che non dispone di privilegi di amministratore locale
+- Esecuzione di enablesxsstackrc.ps1 più volte
+- Esecuzione di enablesxsstackrc.ps1 in un account che non dispone di privilegi di amministratore locale
 
 Le istruzioni riportate in questa sezione consentono di disinstallare lo stack side-by-side di desktop virtuale di Windows. Dopo aver disinstallato lo stack affiancato, passare a "registrare la macchina virtuale con il pool host del desktop virtuale Windows" in [creare un pool host con PowerShell](create-host-pools-powershell.md) per reinstallare lo stack affiancato.
 
@@ -244,19 +247,21 @@ Seguire queste istruzioni per eseguire il monitoraggio e l'aggiornamento dalla s
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname è il nome del computer della macchina virtuale con lo stack side-by-side non funzionante.
 
 7. Per accettare il contratto di licenza PsExec, fare clic su Accetto.
 
-    ![Screenshot del contratto di licenza software.](media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot del contratto di licenza software.](media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >Questa finestra di dialogo verrà visualizzata solo la prima volta che si esegue PsExec.
 
 8. Dopo che la sessione del prompt dei comandi si apre nella macchina virtuale con lo stack side-by-side non funzionante, eseguire qwinsta e verificare che sia disponibile una voce denominata RDP-SxS. In caso contrario, uno stack affiancato non è presente nella macchina virtuale in modo che il problema non sia associato allo stack affiancato.
 
-    ![Prompt dei comandi dell'amministratore](media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![Prompt dei comandi dell'amministratore](media/AdministratorCommandPrompt.png)
 
 9. Eseguire il comando seguente, che elenca i componenti Microsoft installati nella macchina virtuale con lo stack side-by-side non funzionante.
 
@@ -278,7 +283,7 @@ Seguire queste istruzioni per eseguire il monitoraggio e l'aggiornamento dalla s
 
 Se il sistema operativo è Microsoft Windows 10, continuare con le istruzioni seguenti:
 
-14. Dalla macchina virtuale che esegue PsExec, aprire Esplora file e copiare disablesxsstackrc. ps1 nell'unità di sistema della macchina virtuale con lo stack side-by-side non funzionante.
+14. Dalla macchina virtuale che esegue PsExec, aprire Esplora file e copiare disablesxsstackrc.ps1 nell'unità di sistema della macchina virtuale con lo stack side-by-side non funzionante.
 
     ```cmd
         \\<VMname>\c$\
@@ -287,7 +292,7 @@ Se il sistema operativo è Microsoft Windows 10, continuare con le istruzioni se
     >[!NOTE]
     >VMname è il nome del computer della macchina virtuale con lo stack side-by-side non funzionante.
 
-15. Procedura consigliata: dallo strumento PsExec avviare PowerShell e passare alla cartella del passaggio precedente ed eseguire disablesxsstackrc. ps1. In alternativa, è possibile eseguire i cmdlet seguenti:
+15. Procedura consigliata: dallo strumento PsExec avviare PowerShell e passare alla cartella del passaggio precedente ed eseguire disablesxsstackrc.ps1. In alternativa, è possibile eseguire i cmdlet seguenti:
 
     ```PowerShell
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
@@ -324,7 +329,8 @@ Per verificare la versione di Windows 10 Enterprise con più sessioni:
 3. Selezionare **informazioni sul computer**.
 4. Controllare il numero accanto a "Version". Il numero deve essere "1809" o "1903", come illustrato nella figura seguente.
 
-    ![Screenshot della finestra delle specifiche di Windows. Il numero di versione è evidenziato in blu.](media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della finestra delle specifiche di Windows. Il numero di versione è evidenziato in blu.](media/windows-specifications.png)
 
 Ora che si conosce il numero di versione, passare alla sezione pertinente.
 
@@ -344,13 +350,13 @@ Per ulteriori informazioni su questi criteri, vedere [consentire l'accesso trami
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica sulla risoluzione dei problemi relativi a desktop virtuale Windows e alle tracce di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview.md).
+- Per una panoramica sulla risoluzione dei problemi relativi a Desktop virtuale Windows e alle tracce di escalation, consultare [Panoramica della risoluzione dei problemi, feedback e supporto](troubleshoot-set-up-overview.md).
 - Per risolvere i problemi durante la creazione di un pool host in un ambiente desktop virtuale Windows, vedere la pagina relativa alla [creazione di ambienti e pool host](troubleshoot-set-up-issues.md).
-- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
+- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in Desktop virtuale Windows, consultare [Configurazione di macchine virtuali nell'host sessione](troubleshoot-vm-configuration.md).
 - Per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows, vedere [connessioni al servizio desktop virtuale di Windows](troubleshoot-service-connection.md).
 - Per risolvere i problemi relativi ai client di Desktop remoto, vedere [risoluzione dei problemi del client di desktop remoto](troubleshoot-client.md)
-- Per risolvere i problemi relativi all'uso di PowerShell con desktop virtuale di Windows, vedere [PowerShell per desktop virtuale di Windows](troubleshoot-powershell.md).
+- Per risolvere i problemi relativi all'uso di PowerShell con Desktop virtuale di Windows, consultare [PowerShell con Desktop virtuale Windows](troubleshoot-powershell.md).
 - Per ulteriori informazioni sul servizio, vedere [ambiente desktop virtuale di Windows](environment-setup.md).
-- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Per eseguire un'esercitazione di risoluzione dei problemi, vedere [Esercitazione: Risolvere i problemi delle distribuzioni dei modelli di Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../azure-resource-manager/templates/deployment-history.md).

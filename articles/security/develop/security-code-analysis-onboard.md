@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5b7e36c12dab65f4bcc6c05a1ee902301c402d5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7fab9515051180fdb1b894602478768a60177ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147674"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362058"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding e installazione
 
@@ -50,6 +50,7 @@ Se si soddisfano i requisiti indicati in precedenza, contattare un partner nell'
 
 - Zone-dettagli contatto:cloudsupport@zones.com
 - Wortell-dettagli contatto:info@wortell.nl
+- Logicalis-dettagli contatto:Matthew.Curtis@us.logicalis.com 
 
 ### <a name="become-a-partner"></a>Diventa un partner
 
@@ -57,7 +58,7 @@ Il team di analisi del codice di sicurezza Microsoft sta cercando di eseguire l'
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Installazione dell'estensione Microsoft Security Code Analysis
 
-1. Dopo che l'estensione è stata condivisa con l'organizzazione DevOps di Azure, passare alla pagina di Azure DevOps Organization. Un URL di esempio per una pagina di `https://dev.azure.com/contoso`questo tipo è.
+1. Dopo che l'estensione è stata condivisa con l'organizzazione DevOps di Azure, passare alla pagina di Azure DevOps Organization. Un URL di esempio per una pagina di questo tipo è `https://dev.azure.com/contoso` .
 1. Selezionare l'icona del carrello nell'angolo superiore destro accanto al nome e quindi selezionare **Gestisci estensioni**.
 1. Selezionare **condivisa**.
 1. Selezionare Microsoft Security Code Analysis Extension, quindi selezionare **Installa**.
@@ -72,7 +73,7 @@ Dopo aver installato l'estensione, le attività di compilazione di sviluppo sicu
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Aggiunta di attività di compilazione specifiche alla pipeline di Azure DevOps
 
 1. Dall'organizzazione DevOps di Azure aprire il progetto team.
-1. Selezionare le**compilazioni** **pipeline** > .
+1. Selezionare **Pipelines**le  >  **compilazioni**pipeline.
 1. Selezionare la pipeline in cui si desidera aggiungere le attività di compilazione dell'estensione:
    - Nuova pipeline: selezionare **nuovo** e seguire i passaggi descritti in dettaglio per creare una nuova pipeline.
    - Modifica pipeline: selezionare una pipeline esistente e quindi fare clic su **modifica** per iniziare a modificare la pipeline.

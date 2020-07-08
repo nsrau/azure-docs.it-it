@@ -5,15 +5,15 @@ author: billmath
 ms.author: billmath
 manager: davba
 ms.date: 12/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ec12927b40096b7ff04fae6b7cbc69a7bc11e8f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a15a25ce4fbe1a43c2a5065bf88f5c40c5865721
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75549296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360691"
 ---
 # <a name="transformations"></a>Trasformazioni
 
@@ -62,7 +62,7 @@ Per aggiungere un mapping di attributi personalizzato, attenersi alla seguente p
                                 }
                             },
     ```
-1. Modificare il codice in modo che venga eseguito il mapping dell' `ExtensionAttribute3`attributo Company a.
+1. Modificare il codice in modo che venga eseguito il mapping dell'attributo Company a `ExtensionAttribute3` .
 
    ```
                                     {
@@ -98,7 +98,7 @@ Per aggiungere un mapping di attributi personalizzato, attenersi alla seguente p
 
     ![Riavviare il provisioning](media/how-to-transformation/transform3.png)
 
- 1. Dopo un po' di tempo, verificare che gli attributi vengano popolati eseguendo la query seguente in Graph Explorer `https://graph.microsoft.com/beta/users/{Azure AD user UPN}`:.
+ 1. Dopo un po' di tempo, verificare che gli attributi vengano popolati eseguendo la query seguente in Graph Explorer: `https://graph.microsoft.com/beta/users/{Azure AD user UPN}` .
  1. A questo punto verrà visualizzato il valore.
 
     ![Viene visualizzato il valore](media/how-to-transformation/transform4.png)
