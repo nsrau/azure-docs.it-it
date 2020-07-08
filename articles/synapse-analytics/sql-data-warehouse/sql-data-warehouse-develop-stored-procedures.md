@@ -6,16 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ffdf7a66c2562b43fc2ed02bb088ab1095118fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87c7eaa57f9da87bd83f89953afc09632d42b1f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416167"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213398"
 ---
 # <a name="using-stored-procedures-in-synapse-sql-pool"></a>Uso di stored procedure nel pool di SQL sinapsi
 
@@ -72,7 +72,7 @@ GO
 EXEC prc_nesting
 ```
 
-Il pool SQL attualmente non [supporta@NESTLEVEL@](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Di conseguenza, è necessario tenere traccia del livello di annidamento. È improbabile che venga superato il limite di otto livelli di annidamento. Tuttavia, se si esegue questa operazione, è necessario rielaborare il codice per adattarsi ai livelli di nidificazione entro questo limite.
+Il pool SQL attualmente non [supporta @NESTLEVEL @](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Di conseguenza, è necessario tenere traccia del livello di annidamento. È improbabile che venga superato il limite di otto livelli di annidamento. Tuttavia, se si esegue questa operazione, è necessario rielaborare il codice per adattarsi ai livelli di nidificazione entro questo limite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 

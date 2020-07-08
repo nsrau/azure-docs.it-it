@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e1191c01ce3f62f34c351cefd29a5e40aa68bfd3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: e9e809eb805e891fdf70a85d42eebc3e17da8902
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658407"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210185"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Impedire l'overfitting e lo sbilanciamento dei dati con Machine learning automatizzato
 
@@ -79,8 +79,6 @@ La **convalida incrociata** è il processo di acquisizione di molti subset di da
 
 Lo sbilanciamento dei dati è comunemente presente nei dati per gli scenari di classificazione di apprendimento automatico e si riferiscono a dati che contengono un rapporto sproporzionato delle osservazioni in ogni classe. Questo squilibrio può comportare un effetto percepito erroneamente come positivo dell'accuratezza di un modello, perché i dati di input presentano una distorsione verso una classe, che determina che il modello sottoposto a training simuli tale distorsione. 
 
-Poiché gli algoritmi di classificazione vengono in genere valutati in base all'accuratezza, il controllo del punteggio di accuratezza di un modello è un modo efficace per identificare se è stato influenzato dallo sbilanciamento dei dati. Per determinate classi si è realizzata effettivamente un'accuratezza elevata o ridotta?
-
 Le esecuzioni del Machine Learning automatizzato, inoltre, generano automaticamente i grafici seguenti, che consentono di comprendere la correttezza delle classificazioni del modello e di identificare i modelli potenzialmente interessati dallo sbilanciamento dei dati.
 
 Grafico| Descrizione
@@ -91,17 +89,19 @@ Grafico| Descrizione
 
 ## <a name="handle-imbalanced-data"></a>Gestire lo sbilanciamento dei dati 
 
-Nell'ambito dell'obiettivo di semplificare il flusso di lavoro dell'apprendimento automatico, nel Machine Learning automatizzato sono integrate funzionalità che consentono di gestire lo sbilanciamento dei dati, ad esempio le seguenti: 
+Come parte del suo obiettivo di semplificare il flusso di lavoro di Machine Learning, l'apprendimento **automatico è integrato in funzionalità** che consentono di gestire dati sbilanciati, ad esempio 
 
-- Una **colonna ponderata**: il Machine Learning automatizzato supporta una colonna ponderata come input, causando la ponderazione verso l'alto o verso il basso delle righe nei dati, che possono rendere una classe più o meno "importante".
+- Una **colonna di ponderazione**: la ml automatizzata supporta una colonna di pesi come input, causando la ponderazione delle righe nei dati, che possono essere usate per rendere una classe più o meno "importante".
 
 - Gli algoritmi usati dal Machine Learning automatizzato possono gestire in modo corretto uno squilibrio fino a 20:1, ovvero la classe più comune può avere un numero di righe nei dati maggiore più di 20 volte rispetto alla classe meno comune.
 
-Le tecniche seguenti sono opzioni aggiuntive per la gestione dello sbilanciamento dei dati al di fuori del Machine Learning automatizzato. 
+- Uso di una metrica delle prestazioni più adatta allo sbilanciamento dei dati. Ad esempio, il AUC_weighted è una metrica primaria che calcola il contributo di ogni classe in base al numero relativo di campioni che rappresentano tale classe, quindi risulta più affidabile rispetto allo squilibrio.
+
+Le tecniche seguenti sono opzioni aggiuntive per la gestione di dati sbilanciati al **di fuori del**Machine Learning automatico. 
 
 - Ricampionamento per equilibrare lo sbilanciamento delle classi, eseguendo il campionamento verso l'alto delle classi più piccole o quello verso il basso delle classi più grandi. Tali metodi richiedono competenze per eseguire l'elaborazione e l'analisi.
 
-- Uso di una metrica delle prestazioni più adatta allo sbilanciamento dei dati. Il punteggio F1, ad esempio, è una media ponderata delle curve di precisione e richiamo. Le curve di precisione misura l'esattezza di un classificatore e la precisione bassa indica un numero elevato di falsi positivi, mentre le curve di richiamo misura la completezza di un classificatore e un richiamo minimo indica un numero elevato di falsi negativi. 
+- Esaminare le metriche delle prestazioni per i dati sbilanciati. Il punteggio F1, ad esempio, è una media ponderata delle curve di precisione e richiamo. Le curve di precisione misura l'esattezza di un classificatore e la precisione bassa indica un numero elevato di falsi positivi, mentre le curve di richiamo misura la completezza di un classificatore e un richiamo minimo indica un numero elevato di falsi negativi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

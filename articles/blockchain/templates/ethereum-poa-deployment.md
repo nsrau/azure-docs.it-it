@@ -1,15 +1,15 @@
 ---
 title: Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
 description: Usare la soluzione Ethereum di verifica dell'autorità di certificazione per distribuire e configurare una rete Ethereum per il Consorzio multimembro in Azure
-ms.date: 12/18/2019
-ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 7e9af5c501b58f6828360ee280440ea85698bf16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75387500"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210117"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
 
@@ -76,7 +76,7 @@ Le sezioni successive illustrano come configurare il footprint del primo membro 
 
 Nella [portale di Azure](https://portal.azure.com)selezionare **Crea una risorsa** nell'angolo superiore sinistro.
 
-Selezionare **Blockchain** > il**Consorzio di prova blockchain Ethereum (anteprima)**.
+Selezionare **Blockchain**il  >  **Consorzio di prova blockchain Ethereum (anteprima)**.
 
 ### <a name="basics"></a>Nozioni di base
 
@@ -86,7 +86,7 @@ In **nozioni di base**specificare i valori per i parametri standard per qualsias
 
 Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
-Crea una nuova rete o Unisciti alla rete esistente | È possibile creare una nuova rete Consortium o partecipare a una rete Consortium esistente. Per l'aggiunta a una rete esistente sono necessari parametri aggiuntivi. | Creare un nuovo gruppo di risorse
+Crea una nuova rete o Unisciti alla rete esistente | È possibile creare una nuova rete Consortium o partecipare a una rete Consortium esistente. Per l'aggiunta a una rete esistente sono necessari parametri aggiuntivi. | Create new
 Indirizzo di posta elettronica | Si riceverà una notifica di posta elettronica al termine della distribuzione con le informazioni sulla distribuzione. | Un indirizzo di posta elettronica valido
 Nome utente macchina virtuale | Nome utente amministratore di ogni macchina virtuale distribuita | 1-64 caratteri alfanumerici
 Tipo di autenticazione | Metodo per l'autenticazione per la macchina virtuale. | Password
@@ -125,7 +125,7 @@ Validator node virtual machine size (Dimensioni della macchina virtuale dei nodi
 
 La macchina virtuale e il livello di archiviazione influiscono sulle prestazioni della rete.  Usare la tabella seguente per facilitare la scelta dell'efficienza dei costi:
 
-SKU della macchina virtuale|Livello di archiviazione|Price|Velocità effettiva|Latenza
+SKU della macchina virtuale|Livello di archiviazione|Prezzo|Velocità effettiva|Latenza
 ---|---|---|---|---
 F1|SSD Standard|low|low|high
 D2_v3|SSD Standard|media|media|media
@@ -161,10 +161,10 @@ Il monitoraggio consente di configurare una risorsa di log per la rete. L'agente
 Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
 Monitoraggio | Opzione per abilitare il monitoraggio | Abilitare
-Connettersi ai log di monitoraggio di Azure esistenti | Opzione per creare una nuova istanza di log di monitoraggio di Azure o aggiungere un'istanza esistente | Creare un nuovo gruppo di risorse
+Connettersi ai log di monitoraggio di Azure esistenti | Opzione per creare una nuova istanza di log di monitoraggio di Azure o aggiungere un'istanza esistente | Create new
 Location | Area in cui è distribuita la nuova istanza | Stati Uniti orientali
-ID dell'area di lavoro di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|ID area di lavoro dell'istanza dei log di monitoraggio di Azure esistente||N/D
-Chiave primaria di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|Chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente||N/D
+ID dell'area di lavoro di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|ID area di lavoro dell'istanza dei log di monitoraggio di Azure esistente||ND
+Chiave primaria di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|Chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente||ND
 
 Selezionare **OK**.
 
@@ -281,7 +281,7 @@ Selezionando **statistiche di rete** vengono visualizzate le statistiche di rete
 
 ![Statistiche di rete](./media/ethereum-poa-deployment/network-stats.png)
 
-### <a name="sample-kusto-queries"></a>Query kusto di esempio
+### <a name="sample-kusto-queries"></a>Query Kusto di esempio
 
 È possibile eseguire una query sui log di monitoraggio per esaminare gli errori o gli avvisi della soglia di installazione. Le query seguenti sono esempi che è possibile eseguire nello strumento di *Ricerca log* :
 
@@ -335,7 +335,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 Per ottenere nodi di transazione aggiuntivi, incrementare di uno il numero di porta.
 
-Se è stato distribuito in più di un'area, impostare il comando sul nome DNS o sull'indirizzo IP del servizio di bilanciamento del carico in tale area. Per trovare il nome DNS o l'indirizzo IP delle altre aree, trovare la risorsa con la convenzione ** \* \* \* \* \*di denominazione-lbpip-\# reg** e visualizzare il nome DNS e le proprietà dell'indirizzo IP.
+Se è stato distribuito in più di un'area, impostare il comando sul nome DNS o sull'indirizzo IP del servizio di bilanciamento del carico in tale area. Per trovare il nome DNS o l'indirizzo IP delle altre aree, trovare la risorsa con la convenzione di denominazione ** \* \* \* \* \* -lbpip- \# reg** e visualizzare il nome DNS e le proprietà dell'indirizzo IP.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Bilanciamento del carico di Gestione traffico di Azure
 
@@ -558,7 +558,7 @@ Nell'esempio seguente viene creato un semplice contratto Smart. Si usa il tartuf
 #### <a name="prerequisites"></a>Prerequisiti
 
 * Installare [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python è necessario per tartufo e Web3. Selezionare l'opzione Installa per includere Python nel percorso.
-* Installare tartufo v `npm install -g truffle@v5.0.5`5.0.5. Truffle richiede l'installazione di diversi strumenti, tra cui [Node.js](https://nodejs.org) e [Git](https://git-scm.com/). Per altre informazioni, vedere la [documentazione di tartufo](https://github.com/trufflesuite/truffle).
+* Installare tartufo v 5.0.5 `npm install -g truffle@v5.0.5` . Truffle richiede l'installazione di diversi strumenti, tra cui [Node.js](https://nodejs.org) e [Git](https://git-scm.com/). Per altre informazioni, vedere la [documentazione di tartufo](https://github.com/trufflesuite/truffle).
 
 ### <a name="create-truffle-project"></a>Creare il progetto Truffle
 
@@ -567,7 +567,7 @@ Prima di poter compilare e distribuire un contratto intelligente, è necessario 
 1. Aprire una shell o un prompt dei comandi.
 1. Creare una cartella denominata `HelloWorld`.
 1. Passare alla nuova `HelloWorld` cartella.
-1. Inizializzare un nuovo progetto tartufo usando `truffle init`il comando.
+1. Inizializzare un nuovo progetto tartufo usando il comando `truffle init` .
 
     ![Creare un nuovo progetto tartufo](./media/ethereum-poa-deployment/create-truffle-project.png)
 
@@ -623,11 +623,11 @@ I progetti tartufo contengono un file di configurazione per i dettagli della con
     };
     ```
 
-1. Poiché si usa il provider del portafoglio di tartufo HD, installare il modulo nel progetto usando il `npm install truffle-hdwallet-provider --save`comando.
+1. Poiché si usa il provider del portafoglio di tartufo HD, installare il modulo nel progetto usando il comando `npm install truffle-hdwallet-provider --save` .
 
 Il tartufo usa gli script di migrazione per distribuire i contratti intelligenti in una rete blockchain. Per distribuire il nuovo contratto intelligente è necessario uno script di migrazione.
 
-1. Aggiungere una nuova migrazione per distribuire il nuovo contratto. Creare un `2_deploy_contracts.js` file nella sottodirectory **Migrations** del progetto tartufo.
+1. Aggiungere una nuova migrazione per distribuire il nuovo contratto. Creare `2_deploy_contracts.js` un file nella sottodirectory **Migrations** del progetto tartufo.
 
     ``` javascript
     var postBox = artifacts.require("postBox");
@@ -647,8 +647,8 @@ Il tartufo usa gli script di migrazione per distribuire i contratti intelligenti
 
 Ora che il contratto intelligente è stato distribuito, è possibile inviare una transazione per chiamare una funzione.
 
-1. Nella directory del progetto tartufo creare un nuovo file denominato `sendtransaction.js`.
-1. Aggiungere il contenuto seguente a **sendtransaction. js**.
+1. Nella directory del progetto tartufo creare un nuovo file denominato `sendtransaction.js` .
+1. Aggiungere il seguente contenuto a **sendtransaction.js**.
 
     ``` javascript
     var postBox = artifacts.require("postBox");
@@ -718,6 +718,20 @@ La velocità effettiva delle transazioni è strettamente dipendente dai tipi di 
 ### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Come posso eseguire la sottoscrizione a eventi smart contract?
 
 Ethereum Proof-of-Authority supporta ora i socket Web.  Controllare l'output della distribuzione per individuare l'URL e la porta del socket Web.
+
+## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
+
+Per notizie su Azure Blockchain, visitare il [blog di Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/) per rimanere sempre aggiornati sull'offerta di servizi blockchain e per informazioni dal team tecnico di Azure Blockchain.
+
+Per inviare un feedback sul prodotto o richiedere nuove funzionalità, pubblicare o votare un'idea tramite il [forum di feedback su Azure per Blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Supporto della community
+
+È possibile interagire con i tecnici Microsoft e con gli esperti della community di Azure Blockchain.
+
+* [Microsoft Q&una pagina di domande per il servizio Azure blockchain](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Il supporto tecnico per i modelli blockchain è limitato ai problemi di distribuzione.
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

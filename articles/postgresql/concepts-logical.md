@@ -5,41 +5,59 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 1213b38f2b67e8fed179cfda4308943808893e1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80522147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213687"
 ---
 # <a name="logical-decoding"></a>Decodifica logica
  
 La [decodifica logica in PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) consente di trasmettere le modifiche ai dati a utenti esterni. La decodifica logica viene utilizzata comunemente per gli scenari di flusso di eventi e Change Data Capture.
 
-La decodifica logica usa un plug-in di output per convertire il log write-ahead di Postgres (WAL) in un formato leggibile. Database di Azure per PostgreSQL offre due plug-in di output: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) e [wal2json](https://github.com/eulerto/wal2json).
- 
+La decodifica logica usa un plug-in di output per convertire il log write-ahead di Postgres (WAL) in un formato leggibile. Il database di Azure per PostgreSQL include i plug-in di output [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) e pgoutput. pgoutput viene reso disponibile da postgres da Postgres versione 10.
+
+Per una panoramica del funzionamento della decodifica logica Postgres, [visita il nostro Blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421). 
 
 > [!NOTE]
 > La decodifica logica è in anteprima pubblica nel database di Azure per PostgreSQL: singolo server.
 
 
-## <a name="set-up-your-server"></a>Configurare il server
-Per iniziare a usare la decodifica logica, abilitare il server per salvare e trasmettere in streaming il WAL. 
+## <a name="set-up-your-server"></a>Configurare il server 
+La decodifica logica e le [repliche di lettura](concepts-read-replicas.md) dipendono entrambi dal log write-ahead di Postgres (WAL) per informazioni. Queste due funzionalità richiedono diversi livelli di registrazione da postgres. Per la decodifica logica è necessario un livello di registrazione più elevato rispetto alla lettura delle repliche.
 
-1. Impostare Azure. replication_support sull' `logical` uso dell'interfaccia della riga di comando di Azure. 
+Per configurare il livello di registrazione corretto, usare il parametro di supporto della replica di Azure. Il supporto per la replica di Azure offre tre opzioni di impostazione:
+
+* **Off** : inserisce le informazioni minime nell'oggetto Wal. Questa impostazione non è disponibile nella maggior parte dei server di database di Azure per PostgreSQL.  
+* **Replica** : più dettagliata di **off**. Questo è il livello minimo di registrazione necessario per il funzionamento delle [repliche di lettura](concepts-read-replicas.md) . Questa impostazione è quella predefinita nella maggior parte dei server.
+* **Logica** : più dettagliata rispetto alla **replica**. Questo è il livello minimo di registrazione per il funzionamento della decodifica logica. Le repliche di lettura funzionano anche con questa impostazione.
+
+Il server deve essere riavviato dopo una modifica di questo parametro. Internamente, questo parametro imposta i parametri Postgres `wal_level` , `max_replication_slots` e `max_wal_senders` .
+
+### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+
+1. Impostare Azure. replication_support su `logical` .
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
-   ```
+   ``` 
 
-   > [!NOTE]
-   > Se si usano le repliche di lettura, Azure. replication_support `logical` impostato su consente anche l'esecuzione delle repliche. Se si interrompe l'utilizzo della decodifica logica, modificare l'impostazione di `replica`nuovo in. 
-
-
-2. Riavviare il server per rendere effettive le modifiche.
+2. Riavviare il server per applicare la modifica.
    ```
    az postgres server restart --resource-group mygroup --name myserver
    ```
+
+### <a name="using-azure-portal"></a>Uso del portale di Azure
+
+1. Impostare il supporto della replica di Azure su **Logical**. Selezionare **Salva**.
+
+   ![Database di Azure per PostgreSQL-replica-supporto della replica di Azure](./media/concepts-logical/replication-support.png)
+
+2. Riavviare il server per applicare la modifica selezionando **Sì**.
+
+   ![Database di Azure per PostgreSQL-replica-conferma riavvio](./media/concepts-logical/confirm-restart.png)
+
 
 ## <a name="start-logical-decoding"></a>Avvia decodifica logica
 
@@ -135,13 +153,13 @@ SELECT * FROM pg_replication_slots;
 ## <a name="how-to-drop-a-slot"></a>Come eliminare uno slot
 Se non si utilizza attivamente uno slot di replica, è consigliabile eliminarlo.
 
-Per eliminare uno slot di replica `test_slot` denominato con SQL:
+Per eliminare uno slot di replica denominato `test_slot` con SQL:
 ```SQL
 SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Se si interrompe l'uso della decodifica logica, modificare Azure. replication_support di `replica` nuovo `off`in o. I dettagli di WAL conservati `logical` da sono più dettagliati e devono essere disabilitati quando la decodifica logica non è in uso. 
+> Se si interrompe l'uso della decodifica logica, modificare Azure. replication_support di nuovo in `replica` o `off` . I dettagli di WAL conservati da `logical` sono più dettagliati e devono essere disabilitati quando la decodifica logica non è in uso. 
 
  
 ## <a name="next-steps"></a>Passaggi successivi

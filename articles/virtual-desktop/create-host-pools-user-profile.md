@@ -4,22 +4,22 @@ description: Come configurare un contenitore del profilo FSLogix per un pool hos
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 96b593f544aa4bbf126c06747a01902581f5ffb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bac0047c1eb151f38ff09092b45ca7fd86fcc65a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211834"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Creare un contenitore di profili per un pool di host con una condivisione file
 
 Il servizio desktop virtuale di Windows offre i contenitori del profilo FSLogix come soluzione di profilo utente consigliata. Non è consigliabile usare la soluzione disco profilo utente (UPD), che verrà deprecata nelle versioni future del desktop virtuale di Windows.
 
-Questo articolo illustra come configurare una condivisione del contenitore del profilo FSLogix per un pool host usando una condivisione file basata su macchina virtuale. Per ulteriori informazioni sulla documentazione di FSLogix, vedere il [sito di FSLogix](https://docs.fslogix.com/).
+Questo articolo illustra come configurare una condivisione del contenitore del profilo FSLogix per un pool host usando una condivisione file basata su macchina virtuale. È consigliabile usare File di Azure anziché le condivisioni file. Per ulteriori informazioni sulla documentazione di FSLogix, vedere il [sito di FSLogix](https://docs.fslogix.com/).
 
 >[!NOTE]
 >Se si sta cercando materiale di confronto sulle diverse opzioni di archiviazione del contenitore del profilo FSLogix in Azure, vedere [Opzioni di archiviazione per i contenitori di profili FSLogix](store-fslogix-profile.md).
@@ -34,11 +34,11 @@ Quando si crea la macchina virtuale, assicurarsi di inserirla nella stessa rete 
 
 Dopo aver creato la macchina virtuale, aggiungerla al dominio effettuando le operazioni seguenti:
 
-1. [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con le credenziali fornite durante la creazione della macchina virtuale.
-2. Nella macchina virtuale avviare il **Pannello di controllo** e selezionare **sistema**.
-3. Selezionare **nome computer**, fare clic su **Modifica impostazioni**e quindi selezionare **modifica...**
-4. Selezionare **dominio** e quindi immettere il dominio Active Directory nella rete virtuale.
-5. Eseguire l'autenticazione con un account di dominio che disponga dei privilegi per i computer aggiunti al dominio.
+1. [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con le credenziali specificate durante la creazione della macchina virtuale.
+2. Nella macchina virtuale aprire il **Pannello di controllo** e selezionare **Sistema**.
+3. Selezionare **Nome computer**, selezionare **Modifica impostazioni** e quindi selezionare **Modifica**
+4. Selezionare **Dominio** e quindi immettere il dominio di Active Directory nella rete virtuale.
+5. Eseguire l'autenticazione con un account di dominio che dispone dei privilegi per l'aggiunta di computer al dominio.
 
 ## <a name="prepare-the-virtual-machine-to-act-as-a-file-share-for-user-profiles"></a>Preparare la macchina virtuale in modo che funga da condivisione file per i profili utente
 
@@ -58,17 +58,17 @@ Per ulteriori informazioni sulle autorizzazioni, vedere la [documentazione di FS
 
 Per configurare le macchine virtuali con il software FSLogix, eseguire le operazioni seguenti in ogni computer registrato nel pool host:
 
-1. [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con le credenziali fornite durante la creazione della macchina virtuale.
+1. [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con le credenziali specificate durante la creazione della macchina virtuale.
 2. Avviare un browser Internet e passare a [questo collegamento](https://go.microsoft.com/fwlink/?linkid=2084562) per scaricare l'agente FSLogix.
-3. \\ \\Passare a versione Win32\\o \\ \\versione x64\\nel file con estensione zip ed eseguire **FSLogixAppsSetup** per installare l'agente FSLogix.  Per ulteriori informazioni su come installare FSLogix, vedere [scaricare e installare FSLogix](/fslogix/install-ht/).
-4. Passare a **programmi** > **FSLogix** > **app** per verificare che l'agente sia installato.
-5. Dal menu Start eseguire **Regedit** come amministratore. Passare a **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+3. Passare a \\ \\ versione Win32 \\ o \\ \\ versione x64 \\ nel file con estensione zip ed eseguire **FSLogixAppsSetup** per installare l'agente FSLogix.  Per ulteriori informazioni su come installare FSLogix, vedere [scaricare e installare FSLogix](/fslogix/install-ht/).
+4. Passare a **programmi**  >  **FSLogix**  >  **app** per verificare che l'agente sia installato.
+5. Dal menu Start eseguire **Regedit** come amministratore. Passare a **Computer \\ HKEY_LOCAL_MACHINE \\ software \\ FSLogix**.
 6. Creare una chiave denominata **profili**.
 7. Creare i valori seguenti per la chiave dei profili:
 
 | Nome                | Type               | Dati/valore                        |
 |---------------------|--------------------|-----------------------------------|
-| Attivato             | DWORD              | 1                                 |
+| Abilitato             | DWORD              | 1                                 |
 | VHDLocations        | Valore multistringa | "Percorso di rete per la condivisione file"     |
 
 >[!IMPORTANT]

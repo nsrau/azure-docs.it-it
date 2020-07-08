@@ -4,9 +4,7 @@ description: Informazioni su come eseguire il push di notifiche a utenti specifi
 documentationcenter: ios
 author: sethm
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71d55471de6fc8681f19a56cd67bb9ba7390e026
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72387468"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248803"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push a utenti specifici usando hub di notifica di Azure
 
@@ -42,14 +40,14 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-In questa esercitazione si presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). È inoltre propedeutica all'esercitazione [Push sicuro (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
+Questa esercitazione presuppone che sia stato creato e configurato l'hub di notifica come descritto in [inviare notifiche push alle app iOS usando hub di notifica di Azure](ios-sdk-get-started.md). È inoltre propedeutica all'esercitazione [Push sicuro (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
 Se si desidera usare le app per dispositivi mobili come servizio back-end, vedere [Introduzione alle app per dispositivi mobili con notifiche push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="modify-your-ios-app"></a>Modificare l'app per iOS
 
-1. Aprire l'app di visualizzazione Pagina singola creata nell'esercitazione [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
+1. Aprire l'app visualizzazione a pagina singola creata nell'esercitazione [inviare notifiche push a app iOS usando hub di notifica di Azure](ios-sdk-get-started.md) .
 
    > [!NOTE]
    > In questa sezione si presuppone che il progetto sia configurato con un nome di organizzazione vuoto. In caso contrario sarà necessario anteporre il nome dell'organizzazione a tutti i nomi di classi.
@@ -66,7 +64,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
    * **APNS**: etichetta e opzione per consentire l'invio della notifica al servizio di notifica della piattaforma di Apple.
    * **Nome utente del destinatario**: oggetto UITextField con testo segnaposto, *Recipient username tag*, immediatamente sotto l'etichetta GCM e limitato dai margini sinistro e destro.
 
-     Alcuni componenti sono stati aggiunti nell'esercitazione [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) esercitazione.
+     Alcuni componenti sono stati aggiunti nell'esercitazione [inviare notifiche push ad app iOS usando hub di notifica di Azure](ios-sdk-get-started.md) .
 
 3. Premere **CTRL** e trascinarlo dai componenti alla visualizzazione a `ViewController.h` e aggiungere questi nuovi outlet.
 
@@ -343,9 +341,9 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
     }
     ```
 
-    Si noti come impostando il token del dispositivo venga abilitato il pulsante di accesso. Questo dipende dal fatto che, nell'ambito dell'azione di accesso, il controller di visualizzazione esegue la registrazione per le notifiche push con il back-end dell'app. L'azione di accesso deve quindi essere accessibile solo dopo che il token del dispositivo è stato correttamente configurato. È possibile separare l'accesso dalla registrazione push, purché la prima azione avvenga prima della seconda.
+    Si noti come l'impostazione del token del dispositivo Abilita il pulsante **Accedi** . Questo dipende dal fatto che, nell'ambito dell'azione di accesso, il controller di visualizzazione esegue la registrazione per le notifiche push con il back-end dell'app. Non si vuole che l'azione di **accesso** sia accessibile fino a quando il token del dispositivo non è stato configurato correttamente. È possibile separare l'accesso dalla registrazione push, purché la prima azione avvenga prima della seconda.
 
-11. In ViewController.m usare i frammenti di codice seguenti per implementare il metodo di azione per il pulsante **Log In** e un metodo per inviare il messaggio di notifica con il back-end ASP.NET.
+11. In ViewController. m usare i frammenti di codice seguenti per implementare il metodo di azione per il pulsante di **accesso** e un metodo per inviare il messaggio di notifica tramite il back-end ASP.NET.
 
     ```objc
     - (IBAction)LogInAction:(id)sender {
@@ -481,7 +479,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
 ## <a name="test-the-application"></a>Test dell'applicazione
 
 1. In XCode eseguire l'app su un dispositivo iOS fisico (le notifiche push non funzionano nel simulatore).
-2. Nell'interfaccia utente dell'app per iOS immettere lo stesso valore per il nome utente e per la password. Quindi fare clic su **Log In**.
+2. Nell'interfaccia utente dell'app per iOS immettere lo stesso valore per il nome utente e per la password. Fare quindi clic su **Accedi**.
 
     ![Test dell'applicazione iOS][2]
 

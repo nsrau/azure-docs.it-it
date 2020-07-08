@@ -4,15 +4,16 @@ description: Risolvere i problemi di Azure sinapsi Studio
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ede38317762e5aac5562c9bb3494713c3edacc69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20978a6389c790575fa26258c4468f891af733ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431319"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211460"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Risoluzione dei problemi di Azure sinapsi Studio (anteprima)
 
@@ -90,7 +91,7 @@ Quando si segnala il problema, è possibile creare una schermata della scheda "c
 
 ![Developer-Tool-console](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
-Se si allineano schermate, specificare l'ora (o un intervallo di tempo stimato) di quando sono state apportate le schermate. Che ci consentirà di esaminare il problema.
+Se si allineano schermate, specificare l'ora (o un intervallo di tempo stimato) di quando si sono prese le schermate. Che ci consentirà di esaminare il problema.
 
 Alcuni browser supportano la visualizzazione dei timestamp nella scheda "console". Per cromo Edge/Chrome, aprire la finestra di dialogo "Impostazioni" in "Strumenti di sviluppo" e selezionare "Mostra timestamp" nella scheda "Preferenze".
 

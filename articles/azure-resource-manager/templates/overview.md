@@ -2,13 +2,13 @@
 title: Panoramica dei modelli
 description: Vengono descritti i vantaggi dell'utilizzo di modelli di Azure Resource Manager per la distribuzione delle risorse.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: 4cdd0751feea6a3ade7183311831c7ed2b0f1b70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086335"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210219"
 ---
 # <a name="what-are-arm-templates"></a>Che cosa sono i modelli di Azure Resource Manager?
 
@@ -126,6 +126,7 @@ Per informazioni sui modelli annidati, vedere [Uso di modelli collegati con Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere [esercitazione: creare e distribuire il primo modello ARM](template-tutorial-create-first-template.md).
+* Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere [Esercitazione: Creare e distribuire il primo modello di Resource Manager](template-tutorial-create-first-template.md).
 * Per informazioni sulle proprietà nei file di modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
 * Per informazioni sull'esportazione di modelli, vedere [Guida introduttiva: creare e distribuire modelli ARM usando il portale di Azure](quickstart-create-templates-use-the-portal.md).
+* Per le risposte alle domande più comuni, vedere [domande frequenti sui modelli ARM](frequently-asked-questions.md).

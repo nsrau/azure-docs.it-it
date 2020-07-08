@@ -4,23 +4,23 @@ description: Procedura di installazione e configurazione del modulo PowerShell p
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fd854691203361847ae9a6c873121c9b66820a90
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 67276f7dedccc20fb768e717c237d04aa4b4a1cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212752"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurare il modulo PowerShell per Desktop virtuale Windows
 
 >[!IMPORTANT]
 >Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 >
-> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il modulo PowerShell per Desktop virtuale Windows è integrato nel modulo Azure PowerShell. Questo articolo illustra come configurare il modulo PowerShell in modo da poter eseguire i cmdlet per Desktop virtuale Windows.
@@ -66,7 +66,8 @@ Per modificare la sottoscrizione predefinita dopo aver eseguito l'accesso, esegu
 Select-AzSubscription -Subscription <preferredsubscriptionname>
 ```
 
-È anche possibile selezionarla da un elenco usando il cmdlet Out-GridView:
+È anche possibile selezionarne uno da un elenco usando il cmdlet Out-GridView:
+
 ```powershell
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
 ```

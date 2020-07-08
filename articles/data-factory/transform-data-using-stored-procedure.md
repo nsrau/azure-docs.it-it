@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 57bf653aa3f421ae8897c4be661ceef589fcdc06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8543276a338b523a290fb131a8f1b7a55affbd98
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418814"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248973"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività stored procedure di SQL Server in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -28,18 +28,18 @@ ms.locfileid: "81418814"
 Le attività di trasformazione dei dati in una [pipeline](concepts-pipelines-activities.md) di Data factory trasformano ed elaborano i dati non elaborati in stime e approfondimenti. L'attività di stored procedure è una delle attività di trasformazione supportate da Data factory. Questo articolo si basa sull'articolo relativo alla [trasformazione dei dati](transform-data.md), che offre una panoramica generale della trasformazione dei dati e delle attività di trasformazione supportate in Data Factory.
 
 > [!NOTE]
-> Se non si ha familiarità con Azure Data Factory, prima di leggere questo articolo leggere l'[introduzione ad Azure Data Factory](introduction.md) ed eseguire [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) (Esercitazione: Trasformare i dati). 
+> Se non si ha familiarità con Azure Data Factory, prima di leggere questo articolo vedere [Introduzione ad Azure Data Factory](introduction.md) ed eseguire l'esercitazione [Trasformare dati](tutorial-transform-data-spark-powershell.md). 
 
 È possibile usare l'attività stored procedure per richiamare una stored procedure in uno dei seguenti archivi dati presenti in azienda o in una macchina virtuale di Azure: 
 
 - database SQL di Azure
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
 - Database di SQL Server.  Se si usa SQL Server, è necessario installare Runtime di integrazione (self-hosted) nello stesso computer che ospita il database o in un computer separato che ha accesso al database. Runtime di integrazione (self-hosted) è un componente che connette in modo sicuro e gestito origini dati presenti in locale o in macchine virtuali di Azure ai servizi cloud. Per informazioni dettagliate, vedere l'articolo [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md) .
 
 > [!IMPORTANT]
-> Quando si copiano dati in SQL Server o nel Database SQL di Azure, è possibile configurare **SqlSink** nell'attività di copia per richiamare una stored procedure tramite la proprietà **sqlWriterStoredProcedureName**. Per informazioni dettagliate sulla proprietà, vedere gli articoli connettore seguenti: [Database SQL di Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Non è possibile richiamare una stored procedure durante la copia dei dati in un Azure SQL Data Warehouse tramite un'attività di copia. Tuttavia, è possibile usare l'attività di stored procedure per richiamare una stored procedure in un SQL Data Warehouse. 
+> Quando si copiano dati in SQL Server o nel Database SQL di Azure, è possibile configurare **SqlSink** nell'attività di copia per richiamare una stored procedure tramite la proprietà **sqlWriterStoredProcedureName**. Per informazioni dettagliate sulla proprietà, vedere gli articoli connettore seguenti: [Database SQL di Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). La chiamata di un stored procedure durante la copia dei dati in un'analisi di sinapsi di Azure (in precedenza Azure SQL Data Warehouse) con un'attività di copia non è supportata. Tuttavia, è possibile usare l'attività di stored procedure per richiamare una stored procedure in un SQL Data Warehouse. 
 >
-> Quando si copiano dati in SQL Server, nel Database SQL di Azure o in Azure SQL Data Warehouse, è possibile configurare **SqlSink** nell'attività di copia per richiamare una stored procedure che consenta di leggere i dati dal database di origine tramite la proprietà **sqlReaderStoredProcedureName**. Per altre informazioni, vedere gli articoli connettore seguenti: [Database SQL di Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
+> Quando si copiano dati da un database SQL di Azure o SQL Server o da Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse), è possibile configurare **sqlSource** nell'attività di copia per richiamare una stored procedure per leggere i dati dal database di origine usando la proprietà **sqlReaderStoredProcedureName** . Per altre informazioni, vedere gli articoli del connettore seguenti: [database SQL di Azure](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)          
 
  
 
@@ -73,7 +73,7 @@ La tabella seguente illustra queste proprietà JSON:
 | name                      | Nome dell'attività                     | Sì      |
 | description               | Testo descrittivo per lo scopo dell'attività | No       |
 | type                      | Per l'attività di stored procedure, il tipo di attività è **SqlServerStoredProcedure** | Sì      |
-| linkedServiceName         | Riferimento al **database SQL di Azure**, ad **Azure SQL Data Warehouse** o a **SQL Server** registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
+| linkedServiceName         | Riferimento al **database SQL di Azure** o ad **Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse)** o **SQL Server** registrato come servizio collegato in data factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
 | storedProcedureName       | Specificare il nome della stored procedure da richiamare. | Sì      |
 | storedProcedureParameters | Specificare i valori dei parametri della stored procedure. Usare `"param1": { "value": "param1Value","type":"param1Type" }` per passare i valori dei parametri e i tipi nativi corrispondenti supportati dall'origine dati. Se per un parametro è necessario passare Null, usare `"param1": { "value": null }` (tutte lettere minuscole). | No       |
 
@@ -82,7 +82,7 @@ Il tipo di dati specificato per il parametro è il tipo di Azure Data Factory ch
 
 | origine dati          | Mapping dei tipi di dati |
 | ---------------------|-------------------|
-| Azure SQL Data Warehouse | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse) | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
 | database SQL di Azure   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
 | Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
@@ -97,9 +97,9 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 
 * [Attività U-SQL](transform-data-using-data-lake-analytics.md)
 * [Attività hive](transform-data-using-hadoop-hive.md)
-* [Attività di Pig](transform-data-using-hadoop-pig.md)
+* [Attività Pig](transform-data-using-hadoop-pig.md)
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
+* [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)

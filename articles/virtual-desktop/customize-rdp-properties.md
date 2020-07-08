@@ -4,23 +4,23 @@ description: Come personalizzare le proprietà RDP per desktop virtuale Windows 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 66b76fcdd9729b2a92ea2d561c740dbe148e0bbe
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9bc2116120f05db9cad63cc945df0ea4367fc3a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207210"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool host
 
 >[!IMPORTANT]
->Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
+>Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
 >
-> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 La personalizzazione delle proprietà di Remote Desktop Protocol (RDP) di un pool host, ad esempio l'esperienza a più monitor e il reindirizzamento audio, ti permette di offrire un'esperienza ottimale agli utenti in base alle esigenze. È possibile personalizzare le proprietà RDP nel desktop virtuale di Windows usando il portale di Azure o usando il parametro *-CustomRdpProperty* nel cmdlet **Update-AzWvdHostPool** .
@@ -29,7 +29,7 @@ Per un elenco completo delle proprietà supportate e dei relativi valori predefi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, seguire le istruzioni in [configurare il modulo PowerShell per desktop virtuale Windows](powershell-module.md) per configurare il modulo di PowerShell e accedere ad Azure.
+Prima di iniziare, seguire le istruzioni riportate in [Configurare il modulo PowerShell di Desktop virtuale Windows](powershell-module.md) per configurare il modulo PowerShell e accedere ad Azure.
 
 ## <a name="default-rdp-properties"></a>Proprietà RDP predefinite
 
@@ -37,7 +37,7 @@ Per impostazione predefinita, i file RDP pubblicati contengono le proprietà seg
 
 |Proprietà di RDP | Desktop | RemoteApps |
 |---|---| --- |
-| Modalità multimonitor | Attivato | N/D |
+| Modalità multimonitor | Abilitato | N/D |
 | Reindirizzamento unità abilitati | Unità, appunti, stampanti, porte COM, dispositivi USB e smart card| Unità, appunti e stampanti |
 | Modalità audio remoto | Riproduci localmente | Riproduci localmente |
 
@@ -53,10 +53,10 @@ Per configurare le proprietà RDP nel portale di Azure:
 4. Nella pagina desktop virtuale di Windows selezionare **pool host** nel menu sul lato sinistro della schermata.
 5. Selezionare **il nome del pool host** che si desidera aggiornare.
 6. Selezionare **Proprietà** nel menu sul lato sinistro della schermata.
-7. Selezionare **Impostazioni RDP** per iniziare a modificare le proprietà RDP.
+7. Nella scheda **Proprietà** passare a **Impostazioni RDP** per iniziare a modificare le proprietà RDP. Le proprietà devono essere in un formato separato da virgole come gli esempi di PowerShell.
 8. Al termine, selezionare **Salva** per salvare le modifiche.
 
-Se è presente un'impostazione che si vuole modificare che non viene visualizzata nel menu impostazioni RDP, sarà necessario modificarla manualmente eseguendo i cmdlet in PowerShell. Nelle sezioni successive verrà illustrato come modificare manualmente le proprietà RDP personalizzate in PowerShell.
+Nelle sezioni successive verrà illustrato come modificare manualmente le proprietà RDP personalizzate in PowerShell.
 
 ## <a name="add-or-edit-a-single-custom-rdp-property"></a>Aggiungere o modificare una singola proprietà RDP personalizzata
 
@@ -89,14 +89,14 @@ CustomRdpProperty : audiocapturemode:i:1;
 Per aggiungere o modificare più proprietà RDP personalizzate, eseguire i cmdlet di PowerShell seguenti fornendo le proprietà RDP personalizzate come stringa con valori delimitati da punto e virgola:
 
 ```powershell
-$properties="<property1>;<property2>;<property3>" 
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty $properties 
+$properties="<property1>;<property2>;<property3>"
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
 
 È possibile verificare che la proprietà RDP sia stata aggiunta eseguendo il cmdlet seguente:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
 
 Name              : <hostpoolname>
 CustomRdpProperty : <customRDPpropertystring>
@@ -105,9 +105,9 @@ CustomRdpProperty : <customRDPpropertystring>
 In base all'esempio di cmdlet precedente, se si configurano più proprietà RDP nel pool di host 0301HP, il cmdlet avrà un aspetto simile al seguente:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName 0301rg -Name 0301hp | format-list Name, CustomRdpProperty 
+Get-AzWvdHostPool -ResourceGroupName 0301rg -Name 0301hp | format-list Name, CustomRdpProperty
 
-Name              : 0301HP 
+Name              : 0301HP
 CustomRdpProperty : audiocapturemode:i:1;audiomode:i:0;
 ```
 
@@ -122,9 +122,9 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 Per assicurarsi che l'impostazione sia stata rimossa correttamente, immettere il cmdlet seguente:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
 
-Name              : <hostpoolname> 
+Name              : <hostpoolname>
 CustomRdpProperty : <CustomRDPpropertystring>
 ```
 

@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 13b1f33ffe653627bcf45f6c995e82e741de32ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742744"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210695"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Ottimizzare le prestazioni tramite l'aggiornamento del pool SQL di Azure sinapsi Analytics
 
@@ -110,7 +110,7 @@ Aggiornare il pool SQL alla generazione più recente dell'architettura hardware 
 ## <a name="start-the-upgrade"></a>Avviare l'aggiornamento
 
 1. Passare al pool di SQL Gen1 ottimizzato per il calcolo nel portale di Azure. Se il pool SQL di livello Gen1 ottimizzato per il calcolo è sospeso, [riprendere il pool SQL](pause-and-resume-compute-portal.md).
-2. Selezionare **Aggiorna alla scheda Gen2** nella scheda attività: ![Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
+2. Selezionare **Aggiorna alla scheda Gen2** nella scheda attività: ![ Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
    > Se la scheda **Aggiorna alla seconda generazione** non è visualizzata sotto la scheda Attività, il tipo di sottoscrizione è limitato nell'area corrente.
@@ -238,7 +238,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Per configurare il database al termine del ripristino, vedere [Configurare il database dopo il ripristino](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+> Per configurare il database al termine del ripristino, vedere [Configurare il database dopo il ripristino](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 Il database ripristinato sarà abilitato TDE se il database di origine è abilitato per questa tecnologia.
 

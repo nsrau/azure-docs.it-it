@@ -1,15 +1,15 @@
 ---
 title: Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
 description: Come distribuire e configurare la rete dell'infrastruttura iperledger in Azure Kubernetes Service
-ms.date: 01/08/2020
-ms.topic: article
-ms.reviewer: v-umha
-ms.openlocfilehash: da4ec99f1b9d73ab67a2312094feaa1a89aee394
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/04/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: e85d8c196afa5535d4d36ffdc03078e2046e4ca1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980227"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209709"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
 
@@ -368,7 +368,7 @@ Dall'applicazione client peer eseguire il comando seguente per creare un'istanza
 ```bash
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
-Passare il nome della funzione di creazione di istanze e l'elenco `<instantiateFunc>` separato `<instantiateFuncArgs>` da spazi di argomenti rispettivamente in e. Ad esempio, in chaincode_example02. go chaincode, per creare un'istanza di chaincode `<instantiateFunc>` impostato `init`su `<instantiateFuncArgs>` e su "a" "2000" "b" "1000".
+Passare il nome della funzione di creazione di istanze e l'elenco separato da spazi di argomenti `<instantiateFunc>` rispettivamente in e `<instantiateFuncArgs>` . Ad esempio, in chaincode_example02. go chaincode, per creare un'istanza di chaincode impostato `<instantiateFunc>` su `init` e `<instantiateFuncArgs>` su "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Eseguire il comando per una sola volta da una qualsiasi organizzazione peer nel canale. Una volta che la transazione è stata inviata correttamente all'ordinatore, l'ordinatore distribuisce questa transazione a tutte le organizzazioni peer nel canale. Viene quindi creata un'istanza di chaincode in tutti i nodi peer di tutte le organizzazioni peer nel canale.  
@@ -382,7 +382,7 @@ Dal client dell'organizzazione peer eseguire il comando seguente per richiamare 
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-Passare il nome della funzione di richiamo e l'elenco separato `<invokeFunction>` da `<invokeFuncArgs>` spazi di argomenti rispettivamente in e. Continuando con l'esempio chaincode_example02. go chaincode, per eseguire l'operazione `<invokeFunction>` Invoke `invoke` impostare `<invokeFuncArgs>` su e su "a" "b" "10".  
+Passare il nome della funzione di richiamo e l'elenco separato da spazi di argomenti  `<invokeFunction>`   rispettivamente in e  `<invokeFuncArgs>`   . Continuando con l'esempio chaincode_example02. go chaincode, per eseguire l'operazione Invoke impostare  `<invokeFunction>`   su  `invoke`   e  `<invokeFuncArgs>`   su "a" "b" "10".  
 
 >[!NOTE]
 > Eseguire il comando per una sola volta da una qualsiasi organizzazione peer nel canale. Una volta che la transazione è stata inviata correttamente all'ordinatore, l'ordinatore distribuisce questa transazione a tutte le organizzazioni peer nel canale. Di conseguenza, lo stato globale viene aggiornato in tutti i nodi peer di tutte le organizzazioni peer nel canale.  
@@ -395,7 +395,7 @@ Eseguire il comando seguente per eseguire una query su chaincode:
 ```bash
 ./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
 ```
-Passare il nome della funzione di query e l'elenco separato `<queryFunction>` da `<queryFuncArgs>` spazi di argomenti rispettivamente in e. Anche in questo caso, prendendo chaincode_example02. go chaincode come riferimento, per eseguire una query sul valore di "a `<queryFunction>` " `query` nello `<queryArgs>` stato globale impostato su e su "a".  
+Passare il nome della funzione di query e l'elenco separato da spazi di argomenti  `<queryFunction>`   rispettivamente in e  `<queryFuncArgs>`   . Anche in questo caso, prendendo chaincode_example02. go chaincode come riferimento, per eseguire una query sul valore di "a" nello stato globale impostato  `<queryFunction>`   su  `query` e  `<queryArgs>` su "a".  
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
@@ -418,3 +418,17 @@ SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 
 ```
+
+## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
+
+Per notizie su Azure Blockchain, visitare il [blog di Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/) per rimanere sempre aggiornati sull'offerta di servizi blockchain e per informazioni dal team tecnico di Azure Blockchain.
+
+Per inviare un feedback sul prodotto o richiedere nuove funzionalità, pubblicare o votare un'idea tramite il [forum di feedback su Azure per Blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Supporto della community
+
+È possibile interagire con i tecnici Microsoft e con gli esperti della community di Azure Blockchain.
+
+- [Microsoft Q&una pagina di domande per il servizio Azure blockchain](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Il supporto tecnico per i modelli blockchain è limitato ai problemi di distribuzione.
+- [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

@@ -2,14 +2,14 @@
 title: Uso delle API REST di Azure blockchain Workbench
 description: Scenari per l'uso dell'API REST di Azure blockchain Workbench Preview
 ms.date: 03/05/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: brendal
-ms.openlocfilehash: 3084fcf343bc42fe01bf352b6791916d62f63540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c96e45c8bcc9834df7ef2a0b2a59f53fd8315cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672741"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210063"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Uso dell'API REST di Azure blockchain Workbench Preview
 
@@ -28,7 +28,7 @@ L'API REST di Azure blockchain Workbench Preview fornisce a sviluppatori e Infor
 
     ![URL dell'endpoint dell'API del servizio app](media/use-api/app-service-api.png)
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Le richieste all'API REST di blockchain Workbench sono protette con Azure Active Directory (Azure AD).
 

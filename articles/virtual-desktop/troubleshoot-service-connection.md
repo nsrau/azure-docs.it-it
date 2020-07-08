@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 05/20/2020
+ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7bf05fe039de2ab9e25495f9e2652fde8fac34e1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 56a31caeefb3589527fdbbac118fa3a544a0d1a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747705"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208894"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Connessioni del servizio Desktop virtuale Windows
 
@@ -33,15 +33,17 @@ Usare questo articolo per risolvere i problemi relativi alle connessioni client 
 
 Un utente può avviare i client Desktop remoto ed è in grado di eseguire l'autenticazione, tuttavia non visualizza alcuna icona nel feed di individuazione Web.
 
-Verificare che l'utente che segnala i problemi sia stato assegnato ai gruppi di applicazioni utilizzando la riga di comando seguente:
+1. Verificare che l'utente che segnala i problemi sia stato assegnato ai gruppi di applicazioni utilizzando la riga di comando seguente:
 
-```PowerShell
-Get-AzRoleAssignment -SignInName <userupn>
-```
+     ```powershell
+     Get-AzRoleAssignment -SignInName <userupn>
+     ```
 
-Verificare che l'utente abbia effettuato l'accesso con le credenziali corrette.
+2. Verificare che l'utente abbia effettuato l'accesso con le credenziali corrette.
 
-Se viene utilizzato il client Web, verificare che non siano presenti problemi di credenziali memorizzate nella cache.
+3. Se viene utilizzato il client Web, verificare che non siano presenti problemi di credenziali memorizzate nella cache.
+
+4. Se l'utente fa parte di un gruppo di utenti Azure Active Directory (AD), assicurarsi che il gruppo di utenti sia un gruppo di sicurezza anziché un gruppo di distribuzione. Desktop virtuale Windows non supporta i gruppi di distribuzione Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

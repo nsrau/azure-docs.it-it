@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e96fc9af0aa4f362256a5f0fee9465441a1c3928
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210627"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unità di data warehouse (DWU)
 
@@ -72,7 +72,7 @@ Ogni livello di prestazioni usa un'unità di misura leggermente diversa per le u
 
 Sia le unità DWU che le unità cDWU supportano l'aumento o la riduzione delle risorse di calcolo, oltre alla sospensione delle operazioni di calcolo quando non è necessario usare il data warehouse. Queste operazioni sono tutte su richiesta. La seconda generazione usa anche una cache basata su disco locale nei nodi di calcolo per migliorare le prestazioni. Quando si ridimensiona o si sospende il sistema, la cache viene invalidata ed è quindi necessario un periodo di aggiornamento della cache prima di ottenere prestazioni ottimali.  
 
-Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 ## <a name="capacity-limits"></a>Limiti di capacità
 
@@ -107,7 +107,7 @@ I ruoli predefiniti per le risorse di Azure, ad esempio Collaboratore database S
 Per visualizzare l'impostazione corrente per le unità DWU:
 
 1. Aprire Esplora oggetti di SQL Server in Visual Studio.
-2. Connettersi al database master associato al server di database SQL logico.
+2. Connettersi al database master associato al server SQL logico.
 3. Effettuare una selezione nella vista a gestione dinamica sys.database_service_objectives. Esempio:
 
 ```sql
@@ -149,7 +149,7 @@ Con T-SQL è possibile visualizzare le impostazioni correnti per DWU, cambiarle 
 
 Per modificare le DWU:
 
-1. Connettersi al database master associato al server di database SQL logico.
+1. Connettersi al database master associato al server.
 2. Usare l'istruzione T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000c per il database MySQLDW.
 
 ```Sql
@@ -185,7 +185,7 @@ Non è possibile verificare lo stato del database per le operazioni di scalabili
 
 Per controllare lo stato delle modifiche alle DWU:
 
-1. Connettersi al database master associato al server di database SQL logico.
+1. Connettersi al database master associato al server.
 2. Inviare la query seguente per controllare lo stato del database.
 
 ```sql

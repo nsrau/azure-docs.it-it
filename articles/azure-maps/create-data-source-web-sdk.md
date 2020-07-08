@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 1675d63fd3a65beda46042f4a78535bb4e066e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c23e659463364c5e1a497ead138abb4c696627a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190223"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207499"
 ---
 # <a name="create-a-data-source"></a>Creare un'origine dati
 
@@ -22,11 +22,52 @@ Azure Maps Web SDK archivia i dati nelle origini dati. L'utilizzo di origini dat
 
 **Origine dati GeoJSON**
 
-Un'origine dati basata su GeoJSON carica e archivia i dati localmente `DataSource` usando la classe. I dati GeoJSON possono essere creati o creati manualmente usando le classi helper nello spazio dei nomi [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . La `DataSource` classe fornisce funzioni per l'importazione di file GeoJSON locali o remoti. I file GeoJSON remoti devono essere ospitati in un endpoint abilitato per CORs. La `DataSource` classe fornisce funzionalità per i dati dei punti di clustering. E, i dati possono essere facilmente aggiunti, rimossi e aggiornati con la `DataSource` classe.
+Un'origine dati basata su GeoJSON carica e archivia i dati localmente usando la `DataSource` classe. I dati GeoJSON possono essere creati o creati manualmente usando le classi helper nello spazio dei nomi [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . La `DataSource` classe fornisce funzioni per l'importazione di file GeoJSON locali o remoti. I file GeoJSON remoti devono essere ospitati in un endpoint abilitato per CORs. La `DataSource` classe fornisce funzionalità per i dati dei punti di clustering. E, i dati possono essere facilmente aggiunti, rimossi e aggiornati con la `DataSource` classe. Il codice seguente mostra come è possibile creare i dati GeoJSON in mappe di Azure.
 
+```Javascript
+//Create raw GeoJSON object.
+var rawGeoJson = {
+     "type": "Feature",
+     "geometry": {
+         "type": "Point",
+         "coordinates": [-100, 45]
+     },
+     "properties": {
+         "custom-property": "value"
+     }
+};
+
+//Create GeoJSON using helper classes (less error prone).
+var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
+    "custom-property": "value"
+}); 
+```
+
+Una volta create, le origini dati possono essere aggiunte alla mappa tramite la `map.sources` proprietà, che è un [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). Nel codice seguente viene illustrato come creare un oggetto `DataSource` e aggiungerlo alla mappa.
+
+```javascript
+//Create a data source and add it to the map.
+var dataSource = new atlas.source.DataSource();
+map.sources.add(dataSource);
+```
+
+Il codice seguente illustra i diversi modi in cui i dati GeoJSON possono essere aggiunti a un `DataSource` .
+
+```Javascript
+//GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature colleciton, or a single or array of atlas.Shape objects.
+
+//Add geoJSON object to data source. 
+dataSource.add(geoJsonData);
+
+//Load geoJSON data from URL. URL should be on a CORs enabled endpoint.
+dataSource.importDataFromUrl(geoJsonUrl);
+
+//Overwrite all data in data source.
+dataSource.setShapes(geoJsonData);
+```
 
 > [!TIP]
-> Si supponga di voler sovrascrivere tutti i dati in `DataSource`un. Se si effettuano chiamate alle `clear` funzioni `add` then, è possibile che venga nuovamente eseguito il rendering della mappa due volte, il che potrebbe causare un po' di ritardo. Usare invece la `setShapes` funzione, che rimuoverà e sostituirà tutti i dati nell'origine dati e attiverà un solo nuovo rendering della mappa.
+> Si supponga di voler sovrascrivere tutti i dati in un `DataSource` . Se si effettuano chiamate alle `clear` `add` funzioni then, è possibile che venga nuovamente eseguito il rendering della mappa due volte, il che potrebbe causare un po' di ritardo. Usare invece la `setShapes` funzione, che rimuoverà e sostituirà tutti i dati nell'origine dati e attiverà un solo nuovo rendering della mappa.
 
 **Origine riquadro vettoriale**
 
@@ -37,15 +78,7 @@ Un'origine del riquadro vettoriale descrive come accedere a un livello tessera v
  - Per modificare lo stile dei dati nelle mappe vettoriali, non è necessario scaricare di nuovo i dati, perché il nuovo stile può essere applicato nel client. Al contrario, la modifica dello stile di un livello sezione raster richiede in genere il caricamento di riquadri dal server, quindi l'applicazione del nuovo stile.
  - Poiché i dati vengono recapitati in forma vettoriale, per preparare i dati è necessaria una minore elaborazione sul lato server. Di conseguenza, i dati più recenti possono essere resi più veloci.
 
-Tutti i livelli che usano un'origine vettore devono specificare `sourceLayer` un valore.
-
-Una volta create, le origini dati possono essere aggiunte alla mappa tramite `map.sources` la proprietà, che è un [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). Nel codice seguente viene illustrato come creare un `DataSource` oggetto e aggiungerlo alla mappa.
-
-```javascript
-//Create a data source and add it to the map.
-var dataSource = new atlas.source.DataSource();
-map.sources.add(dataSource);
-```
+Tutti i livelli che usano un'origine vettore devono specificare un `sourceLayer` valore.
 
 Mappe di Azure rispetta la [specifica del riquadro vettoriale MapBox](https://github.com/mapbox/vector-tile-spec), uno standard aperto.
 
@@ -144,10 +177,10 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello di simbolo](map-add-pin.md)
+> [Aggiungere un livello per i simboli](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello Bubble](map-add-bubble-layer.md)
+> [Aggiungere un livello per le bolle](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello per le linee](map-add-line-layer.md)

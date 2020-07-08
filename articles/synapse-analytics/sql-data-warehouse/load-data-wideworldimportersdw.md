@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 16263a23c978e3486ff7c5d9281117f850cb885c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80744373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211177"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Esercitazione: caricare dati nel pool SQL di Azure sinapsi Analytics
 
@@ -46,7 +46,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Creare una data warehouse vuota nel pool SQL
 
-Un pool SQL viene creato con un set definito di [risorse di calcolo](memory-concurrency-limits.md). Il pool SQL viene creato all'interno di un [gruppo di risorse di Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e in un [server logico di Azure SQL](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Un pool SQL viene creato con un set definito di [risorse di calcolo](memory-concurrency-limits.md). Il pool SQL viene creato all'interno di un [gruppo di risorse di Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e in un [server SQL logico](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Per creare un pool SQL vuoto, seguire questa procedura.
 
@@ -69,15 +69,15 @@ Per creare un pool SQL vuoto, seguire questa procedura.
     | ------- | --------------- | ----------- |
     |**Nome del pool SQL**|SampleDW| Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-    | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [identificatori del database](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+    | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
     | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
-    | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [aree di Azure](https://azure.microsoft.com/regions/). |
+    | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
 
-    ![creare un server di database](./media/load-data-wideworldimportersdw/create-database-server.png)
+    ![Crea server](./media/load-data-wideworldimportersdw/create-database-server.png)
 
 1. **Selezionare il livello di prestazioni**. Per impostazione predefinita, il dispositivo di scorrimento è impostato su **compreso dw1000c**. Spostare il dispositivo di scorrimento verso l'alto e verso il basso per scegliere la scalabilità delle prestazioni desiderata.
 
-    ![creare un server di database](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
+    ![creazione del server 2](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
 1. Nella pagina **Impostazioni aggiuntive** , impostare **Usa dati esistenti** su nessuno e lasciare le **regole di confronto** predefinite di *SQL_Latin1_General_CP1_CI_AS*.
 
@@ -87,10 +87,10 @@ Per creare un pool SQL vuoto, seguire questa procedura.
 
 ## <a name="create-a-server-level-firewall-rule"></a>Creare una regola del firewall a livello di server
 
-Il servizio Azure sinapsi Analytics crea un firewall a livello di server che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o a qualsiasi database nel server. Per abilitare la connettività, è possibile aggiungere regole del firewall per aprire il firewall a indirizzi IP specifici.  Seguire questa procedura per creare una [regola del firewall a livello di server](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) per l'indirizzo IP del client.
+Il servizio Azure sinapsi Analytics crea un firewall a livello di server che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o a qualsiasi database nel server. Per abilitare la connettività, è possibile aggiungere regole del firewall per aprire il firewall a indirizzi IP specifici.  Seguire questa procedura per creare una [regola del firewall a livello di server](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) per l'indirizzo IP del client.
 
 > [!NOTE]
-> Il pool SQL di Azure sinapsi Analytics comunica sulla porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
+> Il pool SQL di Azure sinapsi Analytics comunica sulla porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server a meno che il reparto IT non apra la porta 1433.
 >
 
 1. Al termine della distribuzione, cercare il nome del pool nella casella di ricerca del menu di navigazione e selezionare la risorsa pool SQL. Selezionare il nome del server.
@@ -100,7 +100,7 @@ Il servizio Azure sinapsi Analytics crea un firewall a livello di server che imp
 1. Selezionare il nome del server.
     ![nome del server](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Selezionare **Mostra impostazioni firewall**. Verrà visualizzata la pagina **Impostazioni firewall** per il server del pool SQL.
+1. Selezionare **Mostra impostazioni firewall**. Verrà visualizzata la pagina **Impostazioni del firewall** per il server.
 
     ![impostazioni del server](./media/load-data-wideworldimportersdw/server-settings.png)
 
@@ -108,9 +108,9 @@ Il servizio Azure sinapsi Analytics crea un firewall a livello di server che imp
 
     ![Regola del firewall del server](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
-1. Selezionare **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
+1. Selezionare **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server.
 
-È ora possibile connettersi a SQL Server usando l'indirizzo IP del client. La connessione funziona da SQL Server Management Studio o un altro strumento di propria scelta. Quando ci si connette, usare l'account serveradmin creato in precedenza.  
+È ora possibile connettersi al server usando l'indirizzo IP del client. La connessione funziona da SQL Server Management Studio o un altro strumento di propria scelta. Quando ci si connette, usare l'account serveradmin creato in precedenza.  
 
 > [!IMPORTANT]
 > Per impostazione predefinita, l'accesso attraverso il firewall del database SQL è abilitato per tutti i servizi di Azure. Fare clic su **DISATTIVATO** in questa pagina e quindi fare clic su **Salva** per disabilitare il firewall per tutti i servizi di Azure.
@@ -123,7 +123,7 @@ Il nome completo del server è quello utilizzato per la connessione al server. P
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Connettersi al server come amministratore del server
 
-In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) per stabilire una connessione al server SQL di Azure.
+In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) per stabilire una connessione al server.
 
 1. Aprire SQL Server Management Studio.
 
@@ -1073,7 +1073,7 @@ Per ottenere prestazioni elevate per le query, è importante creare statistiche 
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Le risorse di calcolo e i dati caricati nel data warehouse prevedono un addebito. Questi costi vengono addebitati separatamente.  
 
@@ -1081,13 +1081,13 @@ Seguire questa procedura per pulire le risorse nel modo desiderato.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic sul data warehouse.
 
-    ![Pulizia delle risorse](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Pulire le risorse](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il data warehouse non è in uso. Sospendendo il calcolo, l'archiviazione dei dati verrà addebitata solo ed è possibile riprendere il calcolo ogni volta che si è pronti per lavorare con i dati. Per sospendere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, fare clic su **Avvia**.
 
 3. Per evitare di ricevere addebiti in futuro, è possibile eliminare il data warehouse. Per rimuovere il data warehouse in modo da non ricevere addebiti per calcoli o archiviazioni, fare clic su **Elimina**.
 
-4. Per rimuovere il server SQL creato, fare clic su **sample-svr.database.windows.net** nell'immagine precedente e quindi fare clic su **Elimina**.  Prestare attenzione con questa operazione perché eliminando il server saranno eliminati tutti i database assegnati al server.
+4. Per rimuovere il server creato, fare clic su **Sample-SVR.database.Windows.NET** nell'immagine precedente e quindi fare clic su **Elimina**.  Prestare attenzione con questa operazione perché eliminando il server saranno eliminati tutti i database assegnati al server.
 
 5. Per rimuovere il gruppo di risorse, fare clic su **SampleRG** e quindi su **Elimina gruppo di risorse**.
 

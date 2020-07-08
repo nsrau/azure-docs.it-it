@@ -6,17 +6,17 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d680283250cc323c833f388f6b20d7fe6fa132d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631955"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211052"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usare funzioni di Azure per gestire le risorse di calcolo nel pool SQL di Azure sinapsi Analytics
 
@@ -29,7 +29,7 @@ Per usare app per le funzioni di Azure con il pool SQL, è necessario creare un 
 Per distribuire il modello sono necessarie le informazioni seguenti:
 
 - Nome del gruppo di risorse in cui si trova l'istanza del pool SQL
-- Nome del server logico in cui si trova l'istanza del pool SQL
+- Nome del server in cui si trova l'istanza del pool SQL
 - Nome dell'istanza del pool SQL
 - ID tenant (ID directory) di Azure Active Directory
 - ID sottoscrizione
@@ -101,7 +101,7 @@ Attualmente, nel modello sono incluse solo due funzioni di ridimensionamento. Co
 
    ![Creare una nuova funzione](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. Selezionare *JavaScript* in Linguaggio e quindi *TimerTrigger*.
+2. In lingua selezionare *JavaScript*, quindi selezionare *TimerTrigger*.
 
    ![Creare una nuova funzione](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -115,7 +115,7 @@ Attualmente, nel modello sono incluse solo due funzioni di ridimensionamento. Co
 
 5. Impostare la variabile operation sul comportamento desiderato come illustrato di seguito:
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"

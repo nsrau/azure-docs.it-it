@@ -5,21 +5,20 @@ description: Come usare i servizi Web di Azure Machine Learning direttamente in 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: e30103589c1baf9a165839cd041ff511a119c5ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8565e3c62ea1b74879f2e127abed772576563886
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211324"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Componente aggiuntivo di Excel per i servizi Web di Azure Machine Learning Studio (classico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Procedura per usare un servizio Web esistente nella cartella di lavoro
@@ -76,7 +75,7 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 5. Fare clic su **Aggiungi servizio Web**.
 6. Incollare l'URL nella casella di testo **URL**del componente aggiuntivo Excel.
 7. Incollare la chiave API/primaria nella casella di testo **Chiave API**.
-8. Fare clic su **Aggiungi**.
+8. Scegliere **Aggiungi**.
    
     ![URL e chiave API per un servizio Web classico.](./media/excel-add-in-for-web-services/image6.png)
 9. Per usare il servizio Web, seguire le indicazioni illustrate in precedenza nella sezione "Procedura per usare un servizio Web esistente".
@@ -84,4 +83,4 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 ## <a name="sharing-your-workbook"></a>Condivisione della cartella di lavoro
 Se si salva la cartella di lavoro, verrà salvata anche la chiave API/primaria per i servizi Web che sono stati aggiunti. Pertanto, è necessario condividere la cartella di lavoro solo con persone attendibili.
 
-In caso di domande, inserirle nella sezione seguente dedicata ai commenti o nel [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+In caso di domande, inserirle nella sezione seguente dedicata ai commenti o nel [forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).

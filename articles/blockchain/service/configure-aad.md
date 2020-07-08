@@ -2,14 +2,14 @@
 title: Configurare l'accesso Azure Active Directory-servizio Azure blockchain
 description: Come configurare il servizio Azure blockchain con accesso Azure Active Directory
 ms.date: 11/22/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74455853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208774"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Come configurare l'accesso Azure Active Directory per il servizio Azure blockchain
 
@@ -63,7 +63,7 @@ La sezione seguire la Guida introduttiva nel **file Leggimi** per compilare il c
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>Connettersi usando un account utente Azure AD
 
-1. Eseguire il comando seguente per eseguire l'autenticazione con un account utente Azure AD. Sostituire \<myAADDirectory\> con un dominio Azure ad. Ad esempio, `yourdomain.onmicrosoft.com`
+1. Eseguire il comando seguente per eseguire l'autenticazione con un account utente Azure AD. Sostituire \<myAADDirectory\> con un dominio Azure ad. Ad esempio: `yourdomain.onmicrosoft.com`.
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 

@@ -4,12 +4,12 @@ description: Informazioni su come creare rapidamente un cluster Kubernetes, dist
 services: container-service
 ms.topic: article
 ms.date: 05/26/2020
-ms.openlocfilehash: c0c4849d76676cf165dbb051fbd904c28a98fa3b
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 735869da1432c241927597789f00a0bd2aea63f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873576"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207949"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Creare un contenitore di Windows Server in un cluster del servizio Azure Kubernetes tramite PowerShell
 
@@ -60,7 +60,7 @@ New-AzResourceGroup -Name myResourceGroup -Location eastus
 
 L'output di esempio seguente mostra il gruppo di risorse creato correttamente:
 
-```Output
+```plaintext
 ResourceGroupName : myResourceGroup
 Location          : eastus
 ProvisioningState : Succeeded
@@ -119,7 +119,7 @@ kubectl get nodes
 
 L'output di esempio seguente mostra tutti i nodi presenti nel cluster. Assicurarsi che lo stato di tutti i nodi sia impostato su **Pronto**:
 
-```Output
+```plaintext
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
 aksnpwin987654                      Ready    agent   108s   v1.16.7
@@ -187,7 +187,7 @@ kubectl apply -f sample.yaml
 
 L'output di esempio seguente mostra la distribuzione e il servizio creati correttamente:
 
-```Output
+```plaintext
 deployment.apps/sample created
 service/sample created
 ```
@@ -205,14 +205,14 @@ kubectl get service sample --watch
 
 **EXTERNAL-IP** per il servizio **di esempio** viene inizialmente visualizzato come **pending**.
 
-```Output
+```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 Quando **EXTERNAL-IP** passa da **pending** a un effettivo indirizzo IP pubblico, usare `CTRL-C` per arrestare il processo di controllo `kubectl`. L'output di esempio seguente mostra un indirizzo IP pubblico valido assegnato al servizio:
 
-```Output
+```plaintext
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

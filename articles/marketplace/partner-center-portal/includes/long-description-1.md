@@ -5,18 +5,18 @@ author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: include
 ms.date: 05/19/2020
-ms.openlocfilehash: 60358c60ed28b63d97f11ce2ba26474103bcdb54
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 5023e7e215fd96357ee7cdc2105b57af0989d1eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698442"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211366"
 ---
-Fornire una descrizione più lunga dell'offerta, fino a 3.000 caratteri. I clienti la vedranno nella panoramica della presentazione nel Marketplace.
+Fornire una descrizione più lunga dell'offerta, fino a 3.000 caratteri. I clienti visualizzeranno questo argomento nella panoramica dell'elenco del Marketplace.
 
-Nella descrizione includere uno o più delle informazioni seguenti:
+Includere uno o più degli elementi seguenti nella descrizione:
 
 - Il valore e i vantaggi principali dell'offerta
 - Categoria e/o associazioni di settore

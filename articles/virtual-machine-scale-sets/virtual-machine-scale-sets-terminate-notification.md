@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 695fd03d7c1856ad39b7672d826f85bc4c68a99c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207516"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notifica di interruzione per le istanze del set di scalabilità di macchine virtuali di Azure
 Le istanze del set di scalabilità possono acconsentire esplicitamente a ricevere notifiche di terminazione dell'istanza e impostare un timeout di ritardo predefinito per l'operazione di interruzione. La notifica di chiusura viene inviata tramite il servizio metadati di Azure- [eventi pianificati](../virtual-machines/windows/scheduled-events.md), che fornisce le notifiche per e ritardare le operazioni di cui si è interessati, ad esempio il riavvio e la ridistribuzione. La soluzione aggiunge un altro evento, ovvero terminate, all'elenco di Eventi pianificati e il ritardo associato dell'evento di terminazione dipenderà dal limite di ritardo specificato dagli utenti nelle configurazioni del modello del set di scalabilità.
@@ -178,7 +178,7 @@ Di seguito è riportato il codice JSON previsto nel corpo della richiesta POST. 
 
 Verificare che ogni macchina virtuale nel set di scalabilità approvi solo gli EventId pertinenti solo per tale macchina virtuale. Una macchina virtuale può ottenere il proprio nome di macchina virtuale [tramite i metadati dell'istanza](virtual-machine-scale-sets-instance-ids.md#instance-metadata-vm-name). Il nome assume il formato "{scale-set-name} _ {ID-istanza}" e verrà visualizzato nella sezione "risorse" della risposta alla query descritta in precedenza.
 
-È anche possibile fare riferimento agli script di esempio per l'esecuzione di query e la risposta agli eventi usando [PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) e [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
+È anche possibile fare riferimento agli script di esempio per l'esecuzione di query e la risposta agli eventi [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
 ## <a name="tips-and-best-practices"></a>Suggerimenti e procedure consigliate
 -   Termina le notifiche solo per le operazioni di eliminazione. tutte le operazioni di eliminazione (eliminazione manuale o scalabilità automatica avviate con scalabilità automatica) generano eventi di terminazione se per il set di scalabilità è abilitato *scheduledEventsProfile* . Altre operazioni, ad esempio il riavvio, la ricreazione dell'immagine, la ridistribuzione e l'arresto/deallocazione, non generano eventi di terminazione. Non è possibile abilitare le notifiche di terminazione per le macchine virtuali con priorità bassa.

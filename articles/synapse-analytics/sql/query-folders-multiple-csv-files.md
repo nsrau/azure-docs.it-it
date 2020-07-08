@@ -1,51 +1,32 @@
 ---
-title: Eseguire query su cartelle e più file CSV con SQL su richiesta (anteprima)
+title: Eseguire query su cartelle e più file usando SQL su richiesta (anteprima)
 description: SQL su richiesta (anteprima) supporta la lettura di più file/cartelle utilizzando caratteri jolly, che sono simili ai caratteri jolly utilizzati nel sistema operativo Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8f8af7fab7113e38b91c3f5f1bcc41b4e4fba2c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207632"
 ---
-# <a name="query-folders-and-multiple-csv-files"></a>Eseguire query su cartelle e più file CSV  
+# <a name="query-folders-and-multiple-files"></a>Eseguire query su cartelle e più file  
 
-Questo articolo illustra come scrivere una query usando SQL su richiesta (anteprima) in Azure sinapsi Analytics.
+In questo articolo si apprenderà come scrivere una query usando SQL su richiesta (anteprima) in Azure Synapse Analytics.
 
 SQL su richiesta supporta la lettura di più file/cartelle utilizzando caratteri jolly, che sono simili ai caratteri jolly utilizzati nel sistema operativo Windows. Tuttavia, è presente una maggiore flessibilità perché sono consentiti più caratteri jolly.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di leggere la parte restante di questo articolo, assicurarsi di esaminare gli articoli elencati di seguito:
+Il primo passaggio consiste nel **creare un database** in cui verranno eseguite le query. Inizializzare quindi gli oggetti eseguendo uno [script di installazione](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) su tale database. Questo script di configurazione creerà le origini dati, le credenziali con ambito database e i formati di file esterni usati in questi esempi.
 
-- [Prima configurazione](query-data-storage.md#first-time-setup)
-- [Prerequisiti](query-data-storage.md#prerequisites)
-
-## <a name="read-multiple-files-in-folder"></a>Leggi più file nella cartella
-
-Per seguire le query di esempio, si userà la cartella *CSV/taxi* . Contiene i dati di NYC Taxi-yellow taxi trip da luglio 2016 a giugno 2018.
-
-I file in *formato CSV/taxi* sono denominati dopo l'anno e il mese:
-
-- yellow_tripdata_2016 -07. csv
-- yellow_tripdata_2016 -08. csv
-- yellow_tripdata_2016 -09. csv
-- ...
-- yellow_tripdata_2018 -04. csv
-- yellow_tripdata_2018 -05. csv
-- yellow_tripdata_2018-06. csv
-
-Ogni file ha la struttura seguente:
-        
-    [First 10 rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
+Per seguire le query di esempio, si userà la cartella *CSV/taxi* . Contiene i dati di NYC Taxi-yellow taxi trip da luglio 2016 a giugno 2018. I file in *formato CSV/taxi* sono denominati dopo l'anno e il mese usando il modello seguente: yellow_tripdata_ <year> - <month> . csv
 
 ## <a name="read-all-files-in-folder"></a>Leggi tutti i file nella cartella
     
@@ -57,28 +38,14 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/*.*',
-        FORMAT = 'CSV', 
+        BULK 'csv/taxi/*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-        pickup_datetime DATETIME2, 
-        dropoff_datetime DATETIME2,
-        passenger_count INT,
-           trip_distance FLOAT,
-        rate_code INT,
-        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_location_id INT,
-        dropoff_location_id INT,
-           payment_type INT,
-        fare_amount FLOAT,
-        extra FLOAT,
-        mta_tax FLOAT,
-        tip_amount FLOAT,
-        tolls_amount FLOAT,
-        improvement_surcharge FLOAT,
-        total_amount FLOAT
+        pickup_datetime DATETIME2 2, 
+        passenger_count INT 4
     ) AS nyc
 GROUP BY
     YEAR(pickup_datetime)
@@ -98,28 +65,14 @@ SELECT
     payment_type,  
     SUM(fare_amount) AS fare_total
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-*.csv',
-        FORMAT = 'CSV', 
+        BULK 'csv/taxi/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-        pickup_datetime DATETIME2, 
-        dropoff_datetime DATETIME2,
-        passenger_count INT,
-        trip_distance FLOAT,
-        rate_code INT,
-        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_location_id INT,
-        dropoff_location_id INT,
-        payment_type INT,
-        fare_amount FLOAT,
-        extra FLOAT,
-        mta_tax FLOAT,
-        tip_amount FLOAT,
-        tolls_amount FLOAT,
-        improvement_surcharge FLOAT,
-        total_amount FLOAT
+        payment_type INT 10,
+        fare_amount FLOAT 11
     ) AS nyc
 GROUP BY payment_type
 ORDER BY payment_type;
@@ -147,8 +100,9 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/',
-        FORMAT = 'CSV', 
+        BULK 'csv/taxi/',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
@@ -184,7 +138,7 @@ ORDER BY
 È possibile leggere i file da più cartelle usando un carattere jolly. Con la query seguente vengono letti tutti i file di tutte le cartelle presenti nella cartella *CSV* i cui nomi iniziano con *t* e terminano con *i*.
 
 > [!NOTE]
-> Si noti l'esistenza di/alla fine del percorso nella query seguente. Indica una cartella. Se l'oggetto/viene omesso, la query verrà destinata ai file denominati *t&ast;i* .
+> Si noti l'esistenza di/alla fine del percorso nella query seguente. Indica una cartella. Se l'oggetto/viene omesso, la query verrà destinata ai file denominati *t &ast; i* .
 
 ```sql
 SELECT
@@ -192,8 +146,9 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/', 
-        FORMAT = 'CSV', 
+        BULK 'csv/t*i/', 
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
@@ -231,7 +186,7 @@ Poiché è presente una sola cartella che soddisfa i criteri, il risultato della
 È possibile usare più caratteri jolly a livelli di percorso diversi. È ad esempio possibile arricchire la query precedente per leggere i file solo con 2017 dati, da tutte le cartelle i cui nomi iniziano con *t* e terminano con *i*.
 
 > [!NOTE]
-> Si noti l'esistenza di/alla fine del percorso nella query seguente. Indica una cartella. Se l'oggetto/viene omesso, la query verrà destinata ai file denominati *t&ast;i* .
+> Si noti l'esistenza di/alla fine del percorso nella query seguente. Indica una cartella. Se l'oggetto/viene omesso, la query verrà destinata ai file denominati *t &ast; i* .
 > È previsto un limite massimo di 10 caratteri jolly per ogni query.
 
 ```sql
@@ -240,8 +195,9 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/yellow_tripdata_2017-*.csv',
-        FORMAT = 'CSV', 
+        BULK 'csv/t*i/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (

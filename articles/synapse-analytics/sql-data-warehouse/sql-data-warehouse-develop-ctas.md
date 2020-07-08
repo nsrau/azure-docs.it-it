@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 8e1b75dfc6a979956ff4a2868027bb769bf7c4ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6550ff9bc3a7cec3d9c50b6c60a02ef1af851f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633543"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213483"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
@@ -59,9 +59,9 @@ FROM    [dbo].[FactInternetSales];
 
 ## <a name="use-ctas-to-copy-a-table"></a>Usare CTAS per copiare una tabella
 
-Probabilmente uno degli usi più comuni di CTAS è la creazione di una copia di una tabella per modificare il DDL. Supponiamo che la tabella sia stata originariamente creata `ROUND_ROBIN`come e che ora si voglia modificarla in una tabella distribuita in una colonna. CTAS è la modalità di modifica della colonna di distribuzione. È anche possibile usare CTAS per modificare il partizionamento, l'indicizzazione o i tipi di colonna.
+Probabilmente uno degli usi più comuni di CTAS è la creazione di una copia di una tabella per modificare il DDL. Supponiamo che la tabella sia stata originariamente creata come `ROUND_ROBIN` e che ora si voglia modificarla in una tabella distribuita in una colonna. CTAS è la modalità di modifica della colonna di distribuzione. È anche possibile usare CTAS per modificare il partizionamento, l'indicizzazione o i tipi di colonna.
 
-Supponiamo che la tabella sia stata creata usando il tipo di `ROUND_ROBIN`distribuzione predefinito, senza specificare una colonna di distribuzione in `CREATE TABLE`.
+Supponiamo che la tabella sia stata creata usando il tipo di distribuzione predefinito `ROUND_ROBIN` , senza specificare una colonna di distribuzione in `CREATE TABLE` .
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -91,7 +91,7 @@ CREATE TABLE FactInternetSales
     CustomerPONumber nvarchar(25));
 ```
 
-A questo punto si vuole creare una nuova copia di questa tabella con un `Clustered Columnstore Index`, in modo da poter sfruttare le prestazioni delle tabelle columnstore cluster. Si vuole anche distribuire la tabella in `ProductKey`, perché si prevede di partecipare a questo articolo e si vuole evitare lo spostamento dei dati durante i join. `ProductKey` Infine, si vuole anche aggiungere il partizionamento in, `OrderDateKey`in modo da poter eliminare rapidamente i dati obsoleti rilasciando le partizioni obsolete. Di seguito è riportata l'istruzione CTAS, che consente di copiare la tabella precedente in una nuova tabella.
+A questo punto si vuole creare una nuova copia di questa tabella con un `Clustered Columnstore Index` , in modo da poter sfruttare le prestazioni delle tabelle columnstore cluster. Si vuole anche distribuire la tabella in `ProductKey` , perché si prevede di partecipare a questo articolo e si vuole evitare lo spostamento dei dati durante i join `ProductKey` . Infine, si vuole anche aggiungere il partizionamento in `OrderDateKey` , in modo da poter eliminare rapidamente i dati obsoleti rilasciando le partizioni obsolete. Di seguito è riportata l'istruzione CTAS, che consente di copiare la tabella precedente in una nuova tabella.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -174,7 +174,7 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-Sinapsi SQL non supporta i `FROM` join ANSI nella clausola di un' `UPDATE` istruzione, pertanto non è possibile usare l'esempio precedente senza modificarlo.
+Sinapsi SQL non supporta i join ANSI nella `FROM` clausola di un' `UPDATE` istruzione, pertanto non è possibile usare l'esempio precedente senza modificarlo.
 
 È possibile usare una combinazione di CTAS e un join implicito per sostituire l'esempio precedente:
 
@@ -208,9 +208,9 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>Sostituzione di join ANSI per le istruzioni delete
 
-In alcuni casi l'approccio migliore per l'eliminazione dei dati consiste nell'usare `DELETE` CTAs, in particolare per le istruzioni che usano la sintassi di join ANSI. Questo perché sinapsi SQL non supporta i `FROM` join ANSI nella clausola di un' `DELETE` istruzione. Anziché eliminare i dati, selezionare i dati che si desidera memorizzare.
+In alcuni casi l'approccio migliore per l'eliminazione dei dati consiste nell'usare CTAS, in particolare per le `DELETE` istruzioni che usano la sintassi di join ANSI. Questo perché sinapsi SQL non supporta i join ANSI nella `FROM` clausola di un' `DELETE` istruzione. Anziché eliminare i dati, selezionare i dati che si desidera memorizzare.
 
-Di seguito è riportato un esempio di istruzione `DELETE` convertita:
+Di seguito è riportato un esempio di istruzione convertita `DELETE` :
 
 ```sql
 CREATE TABLE dbo.DimProduct_upsert
@@ -234,7 +234,7 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 
 È possibile sostituire le istruzioni merge, almeno in parte, usando CTAS. È possibile combinare `INSERT` e `UPDATE` in un'unica istruzione. Tutti i record eliminati devono essere limitati dall' `SELECT` istruzione da omettere dai risultati.
 
-L'esempio seguente è relativo a `UPSERT`:
+L'esempio seguente è relativo a `UPSERT` :
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -387,7 +387,7 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-La query verrebbe eseguita correttamente. Il problema si verifica quando si tenta di eseguire il cambio di partizione. Le definizioni di tabella non corrispondono. Per fare in modo che le definizioni di tabella corrispondano, modificare `ISNULL` CTAs per aggiungere una funzione per mantenere l'attributo di supporto dei valori null della colonna.
+La query verrebbe eseguita correttamente. Il problema si verifica quando si tenta di eseguire il cambio di partizione. Le definizioni di tabella non corrispondono. Per fare in modo che le definizioni di tabella corrispondano, modificare CTAS per aggiungere una `ISNULL` funzione per mantenere l'attributo di supporto dei valori null della colonna.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]

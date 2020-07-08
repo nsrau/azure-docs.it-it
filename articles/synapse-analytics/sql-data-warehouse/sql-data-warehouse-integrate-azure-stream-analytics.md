@@ -6,19 +6,19 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 2/5/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e281f8a1fb3959256d836134b4c59f5399deb9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90e339ba8454dfdfc3f724ea12932a3e8e5912c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633292"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213347"
 ---
-# <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Usare analisi di flusso di Azure con Azure sinapsi Analytics
+# <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Usare Analisi di flusso di Azure con Azure Synapse Analytics
 
 Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per informazioni di base, vedere [Introduzione ad Analisi di flusso di Azure](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). È possibile apprendere come creare una soluzione end-to-end con Analisi di flusso seguendo l’esercitazione [Introduzione all’uso di Analisi di flusso di Azure](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
@@ -36,7 +36,7 @@ In questo articolo si apprenderà come usare il data warehouse come sink di outp
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Specificare l'output del flusso in modo che punti al data warehouse
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="step-1"></a>Step 1
 
 Dal portale di Azure passare al processo di analisi di flusso e fare clic su **output** nel menu **topologia processo** .
 
@@ -102,7 +102,7 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 Nel portale di Azure per il processo di analisi di flusso, fare clic sul nome del processo.  Fare clic sul pulsante ***test*** nel riquadro ***Dettagli output*** .
 
-![Pulsante test sui dettagli](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) dell'outbroncio quando la connessione al database ha esito positivo, nel portale viene visualizzata una notifica.
+![Pulsante test sui dettagli dell'outbroncio ](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) quando la connessione al database ha esito positivo, nel portale viene visualizzata una notifica.
 
 ### <a name="step-6"></a>Passaggio 6
 

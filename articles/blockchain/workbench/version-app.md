@@ -2,14 +2,14 @@
 title: Controllo delle versioni delle app blockchain-Azure blockchain Workbench
 description: Come usare le versioni delle applicazioni in Azure blockchain Workbench Preview.
 ms.date: 11/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: brendal
-ms.openlocfilehash: 45219790cf0cd064e0fcd456e262b2f93aa03ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a70112fd0ab6e2f664ca48265c121936b01e58b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74323902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209879"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versione dell'applicazione Anteprima di Azure blockchain Workbench
 

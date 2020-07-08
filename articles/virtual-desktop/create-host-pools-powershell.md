@@ -4,23 +4,23 @@ description: Come creare un pool di host in Desktop virtuale Windows con i cmdle
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a4d0c22318399370b9ec11046c33a4eb5460eb3
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: HT
+ms.openlocfilehash: 6b064c6e4107da5695e2a9945240e4276ac795b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211851"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
 
 >[!IMPORTANT]
 >Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
 >
-> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può essere associato a più gruppi RemoteApp, a un gruppo di app desktop e a più host di sessione.
@@ -34,10 +34,10 @@ Questo articolo presuppone che siano già state seguite le istruzioni riportate 
 Eseguire il cmdlet seguente per accedere all'ambiente di Desktop virtuale Windows:
 
 ```powershell
-New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> 
+New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname>
 ```
 
-Questo cmdlet creerà il pool di host, l'area di lavoro e il gruppo di app desktop. Registrerà anche il gruppo di app desktop nell'area di lavoro. È possibile creare un'area di lavoro con questo cmdlet o usare un'area di lavoro esistente. 
+Questo cmdlet creerà il pool di host, l'area di lavoro e il gruppo di app desktop. Registrerà anche il gruppo di app desktop nell'area di lavoro. È possibile creare un'area di lavoro con questo cmdlet o usare un'area di lavoro esistente.
 
 Eseguire il cmdlet seguente per creare un token di registrazione che autorizza un host di sessione a unirsi al pool di host e lo salva in un nuovo file nel computer locale. È possibile specificare il periodo di validità del token di registrazione usando il parametro -ExpirationHours.
 
@@ -48,16 +48,16 @@ Eseguire il cmdlet seguente per creare un token di registrazione che autorizza u
 New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
 ```
 
-Se ad esempio si vuole creare un token che scade tra due ore, eseguire questo cmdlet: 
+Se ad esempio si vuole creare un token che scade tra due ore, eseguire questo cmdlet:
 
 ```powershell
-New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddHours(2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ')) 
+New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddHours(2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
 ```
 
 Quindi eseguire questo cmdlet per aggiungere utenti di Azure Active Directory al gruppo di app desktop predefinito per il pool di host.
 
 ```powershell
-New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 Eseguire il cmdlet seguente per aggiungere gruppi di utenti di Azure Active Directory al gruppo di app desktop predefinito per il pool di host:
@@ -69,7 +69,7 @@ New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop 
 Eseguire il cmdlet seguente per esportare il token di registrazione in una variabile, che verrà usata più avanti in [Registrare le macchine virtuali nel pool di host di Desktop virtuale Windows](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 ```powershell
-$token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> 
+$token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname>
 ```
 
 ## <a name="create-virtual-machines-for-the-host-pool"></a>Creare macchine virtuali per il pool di host
@@ -85,7 +85,7 @@ A questo punto è possibile creare una macchina virtuale di Azure che può esser
 >[!NOTE]
 >Se si distribuisce una macchina virtuale usando Windows 7 come sistema operativo host, il processo di creazione e distribuzione sarà leggermente diverso. Per altre informazioni, vedere [Distribuire una macchina virtuale Windows 7 in Desktop virtuale Windows](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
-Dopo aver creato le macchine virtuali dell'host di sessione, [applicare una licenza Windows a una macchina virtuale dell'host di sessione](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) per eseguire le macchine virtuali Windows o Windows Server senza pagare un licenza aggiuntiva. 
+Dopo aver creato le macchine virtuali dell'host di sessione, [applicare una licenza Windows a una macchina virtuale dell'host di sessione](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) per eseguire le macchine virtuali Windows o Windows Server senza pagare un licenza aggiuntiva.
 
 ## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparare le macchine virtuali per le installazioni di agenti Desktop virtuale Windows
 
@@ -114,7 +114,7 @@ Per registrare gli agenti Desktop virtuale Windows, eseguire le operazioni segue
 1. [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con le credenziali specificate durante la creazione della macchina virtuale.
 2. Scaricare e installare l'agente Desktop virtuale Windows.
    - Scaricare l'[agente Desktop virtuale Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Eseguire il programma di installazione. Quando il programma di installazione richiede il token di registrazione, immettere il valore ottenuto dal cmdlet **Export-AzWVDRegistrationInfo**.
+   - Eseguire il programma di installazione. Quando il programma di installazione richiede il token di registrazione, immettere il valore ottenuto dal cmdlet **Get-AzWvdRegistrationInfo** .
 3. Scaricare e installare il bootloader dell'agente Desktop virtuale Windows.
    - Scaricare il [bootloader dell'agente Desktop virtuale Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Eseguire il programma di installazione.

@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 327174974affb3b2511eac60755aa1bf047b3b5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01a22aa5d2ec7ed54be62f0975b0fefbafd84cd8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211562"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitorare il carico di lavoro-portale di Azure
 
@@ -23,7 +23,7 @@ Questo articolo descrive come usare la portale di Azure per monitorare il carico
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Sottoscrizione di Azure: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+- Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Pool SQL: verranno raccolti i log per un pool SQL. Se non è stato eseguito il provisioning di un pool SQL, vedere le istruzioni riportate in [creare un pool SQL](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics

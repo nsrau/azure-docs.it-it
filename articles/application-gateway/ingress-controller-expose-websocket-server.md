@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni su come esporre un server Web
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68d4ff7e4617136e4c58ce672f34de56e46f0229
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79297833"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207788"
 ---
 # <a name="expose-a-websocket-server-to-application-gateway"></a>Esporre un server WebSocket al gateway applicazione
 
@@ -78,7 +78,7 @@ spec:
 Dato che tutti i prerequisiti sono soddisfatti e si dispone di un gateway applicazione controllato da un ingresso Kubernetes nel servizio contenitore di applicazioni, la distribuzione precedente comporterebbe un server WebSocket esposto sulla porta 80 dell'IP pubblico del gateway applicazione e del `ws.contoso.com` dominio.
 
 Il comando cURL seguente testa la distribuzione del server WebSocket:
-```sh
+```shell
 curl -i -N -H "Connection: Upgrade" \
         -H "Upgrade: websocket" \
         -H "Origin: http://localhost" \
@@ -91,7 +91,7 @@ curl -i -N -H "Connection: Upgrade" \
 ## <a name="websocket-health-probes"></a>Probe di integrità WebSocket
 
 Se la distribuzione non definisce in modo esplicito i probe di integrità, il gateway applicazione tenterà un'operazione HTTP GET sull'endpoint del server WebSocket.
-A seconda dell'implementazione del server (in questo caso,[è opportuno che](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)le intestazioni specifiche`Sec-Websocket-Version` di WebSocket siano necessarie, ad esempio).
-Poiché il gateway applicazione non aggiunge intestazioni WebSocket, la risposta del probe di integrità del gateway applicazione dal server WebSocket probabilmente sarà `400 Bad Request`.
+A seconda dell'implementazione del server (in questo caso,[è opportuno che](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)le intestazioni specifiche di WebSocket siano necessarie, `Sec-Websocket-Version` ad esempio).
+Poiché il gateway applicazione non aggiunge intestazioni WebSocket, la risposta del probe di integrità del gateway applicazione dal server WebSocket probabilmente sarà `400 Bad Request` .
 Di conseguenza, il gateway applicazione contrassegna i pod come non integri, il che comporterà infine un `502 Bad Gateway` per gli utenti del server WebSocket.
-Per evitare questo problema, potrebbe essere necessario aggiungere un gestore HTTP GET per un controllo di integrità al server`/health` (ad esempio, che `200 OK`restituisce).
+Per evitare questo problema, potrebbe essere necessario aggiungere un gestore HTTP GET per un controllo di integrità al server ( `/health` ad esempio, che restituisce `200 OK` ).

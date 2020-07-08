@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e8a70955b36f11727019fe430f62e84d4f0c93c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74931323"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248307"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante Azure Data Factory .NET SDK
 > [!NOTE]
@@ -50,7 +50,7 @@ Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'a
     ```powershell
     Get-AzSubscription
     ```
-4. Eseguire il comando seguente per selezionare la sottoscrizione da usare. Sostituire ** &lt;NameOfAzureSubscription** &gt; con il nome della sottoscrizione di Azure.
+4. Eseguire il comando seguente per selezionare la sottoscrizione da usare. Sostituire **&lt;NameOfAzureSubscription**&gt; con il nome della sottoscrizione di Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -109,14 +109,14 @@ Nella procedura dettagliata, si crea una data factory con una pipeline contenent
 L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) .
 
 1. Creare un'applicazione console .NET in C# con Visual Studio 2012, 2013 o 2015.
-   1. Avviare **Visual Studio** 2012/2013/2015.
+   1. Avviare **Visual Studio** 2012, 2013 o 2015.
    2. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**.
-   3. Espandere **modelli**e selezionare **Visual C#**. In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET.
+   3. Espandere **Modelli** e quindi selezionare **Visual C#** . In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET.
    4. Selezionare **Applicazione console** dall'elenco dei tipi di progetto a destra.
-   5. Immettere **DataFactoryAPITestApp** per nome.
+   5. Immettere **DataFactoryAPITestApp** per Nome.
    6. Selezionare **C:\ADFGetStarted** come percorso.
    7. Fare clic su **OK** per creare il progetto.
-2. Fare clic su **strumenti**, scegliere **Gestione pacchetti NuGet**e quindi fare clic su **console di gestione pacchetti**.
+2. Fare clic su **Strumenti**, scegliere **Gestione pacchetti NuGet** e quindi fare clic su **Console di Gestione pacchetti**.
 3. Nella finestra **Console di Gestione pacchetti** seguire questa procedura:
    1. Eseguire questo comando per installare il pacchetto di Data factory: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Eseguire questo comando per installare il pacchetto di Azure Active Directory. Nel codice viene usata l'API di Active Directory: `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -137,7 +137,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
         </appSettings>
     </configuration>
     ```
-5. Nel file app. config aggiornare i valori per l'ID ** &lt;applicazione&gt;**, ** &lt;la&gt;password**, ** &lt;l'&gt;ID sottoscrizione**e ** &lt;l'&gt; ID tenant** con i propri valori.
+5. Nel file di App.Config aggiornare i valori per ** &lt; ID &gt; applicazione**, ** &lt; password &gt; **, ** &lt; ID &gt; sottoscrizione**e ** &lt; ID &gt; tenant** con valori personalizzati.
 6. Aggiungere le seguenti istruzioni **using** al file **Program.cs** nel progetto.
 
     ```csharp
@@ -453,7 +453,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
     John, Doe
     Jane, Doe
     ```
-17. Eseguire l'esempio facendo clic su **debug** -> **Avvia debug** dal menu. Quando viene visualizzato un messaggio simile ad **Acquisizione dettagli dell'esecuzione di una sezione di dati**, attendere qualche minuto e premere **INVIO**.
+17. Eseguire l'esempio scegliendo **Debug** -> **Avvia debug** dal menu. Quando viene visualizzato un messaggio simile ad **Acquisizione dettagli dell'esecuzione di una sezione di dati**, attendere qualche minuto e premere **INVIO**.
 18. Usare il portale di Azure per verificare che la data factory **APITutorialFactory** venga creata con gli elementi seguenti:
     * Servizio collegato: **AzureStorageLinkedService**
     * Set di dati: **DatasetBlobSource** e **DatasetBlobDestination**.
@@ -500,6 +500,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere l'esempio seguente per la creazione di una pipeline mediante .NET SDK che copia i dati da un archivio BLOB di Azure a un database SQL di Azure: 
+Vedere l'esempio seguente per la creazione di una pipeline con .NET SDK che copia i dati da un archivio BLOB di Azure al database SQL di Azure: 
 
 - [Creare una pipeline per copiare i dati dall'archivio BLOB al database SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)

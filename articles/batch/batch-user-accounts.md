@@ -4,56 +4,54 @@ description: Informazioni sui tipi di account utente e su come configurarli.
 ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14ee675b80e0d9dd24993d7e3ecd255b5568e9cc
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: HT
+ms.openlocfilehash: 514a104c879a8d601bb03e2ed1c59b69516bc621
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779502"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209726"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Eseguire attività con account utente in Batch
 
-> [!NOTE] 
-> Per motivi di sicurezza, gli account utente descritti in questo articolo sono diversi da quelli usati per i protocolli RDP (Remote Desktop Protocol) o SSH (Secure Shell). 
+> [!NOTE]
+> Gli account utente descritti in questo articolo sono diversi dagli account utente usati per la Remote Desktop Protocol (RDP) o Secure Shell (SSH), per motivi di sicurezza.
 >
 > Per connettersi a un nodo che esegue la configurazione della macchina virtuale Linux tramite SSH, vedere [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Per connettersi ai nodi che eseguono Windows tramite RDP, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Per connettersi a un nodo che esegue la configurazione del servizio cloud tramite RDP, vedere [Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
-In Azure Batch un'attività viene sempre eseguita con un account utente. Per impostazione predefinita, le attività vengono eseguite con account utente standard, senza le autorizzazioni di amministratore perché le impostazioni predefinite dell'account utente in genere sono sufficienti. Per determinati scenari, tuttavia, è utile essere in grado di configurare l'account utente con cui si intende eseguire un'attività. Questo articolo illustra i tipi di account utente e il modo in cui è possibile configurarli per lo scenario in uso.
+In Azure Batch un'attività viene sempre eseguita con un account utente. Per impostazione predefinita, le attività vengono eseguite con account utente standard, senza le autorizzazioni di amministratore Per determinati scenari, potrebbe essere necessario configurare l'account utente con cui si desidera eseguire un'attività. Questo articolo illustra i tipi di account utente e come configurarli per lo scenario.
 
 ## <a name="types-of-user-accounts"></a>Tipi di account utente
 
 Azure Batch offre due tipi di account utente per l'esecuzione di attività:
 
-- **Account utente automatici.** Gli account utente automatici sono predefiniti e vengono creati automaticamente dal servizio Batch. Per impostazione predefinita, le attività vengono eseguite con un account utente automatico. È possibile configurare la specifica di utente automatico per un'attività per indicare con quale account utente automatico l'attività deve essere eseguita. La specifica di utente automatico consente di specificare il livello di elevazione dei privilegi e l'ambito dell'account utente automatico con cui verrà eseguita l'attività. 
+- **Account utente automatici.** Gli account utente automatici sono predefiniti e vengono creati automaticamente dal servizio Batch. Per impostazione predefinita, le attività vengono eseguite con un account utente automatico. È possibile configurare la specifica di utente automatico per un'attività per indicare con quale account utente automatico l'attività deve essere eseguita. La specifica di utente automatico consente di specificare il livello di elevazione dei privilegi e l'ambito dell'account utente automatico con cui verrà eseguita l'attività.
 
 - **Account utente non anonimi.** È possibile specificare uno o più account utente non anonimi per un pool al momento della creazione del pool stesso. Ogni account utente viene creato in ogni nodo del pool. Oltre al nome, specificare la password dell'account utente, il livello di elevazione dei privilegi e, per i pool Linux, la chiave privata SSH. Quando si aggiunge un'attività, è possibile specificare l'account utente non anonimo con cui eseguirla.
 
-> [!IMPORTANT] 
-> Nella versione 2017-01-01.4.0 del servizio Batch è stata introdotta una modifica significativa che richiede l'aggiornamento del codice per chiamare tale versione. Se si esegue la migrazione di codice da una versione precedente di Batch, si noti che la proprietà **runElevated** non è più supportata nelle librerie client API REST o Batch. Per specificare il livello di elevazione dei privilegi, usare la nuova proprietà **userIdentity** di un'attività. Per linee guida rapide sull'aggiornamento del codice Batch se si usa una delle librerie client, vedere la sezione [Aggiornare il codice alla libreria client Batch più recente](#update-your-code-to-the-latest-batch-client-library).
->
->
+> [!IMPORTANT]
+> Nella versione 2017-01-01.4.0 del servizio Batch è stata introdotta una modifica significativa che richiede l'aggiornamento del codice per chiamare tale versione. Se si esegue la migrazione di codice da una versione precedente di Batch, si noti che la proprietà **runElevated** non è più supportata nelle librerie client API REST o Batch. Per specificare il livello di elevazione dei privilegi, usare la nuova proprietà **userIdentity** di un'attività. Vedere [aggiornare il codice alla libreria client batch più recente](#update-your-code-to-the-latest-batch-client-library) per linee guida rapide per l'aggiornamento del codice batch se si usa una delle librerie client.
 
 ## <a name="user-account-access-to-files-and-directories"></a>Accesso degli account utente a file e directory
 
-Un account utente automatico e un account utente non anonimo hanno entrambi accesso in lettura e scrittura alla directory di lavoro dell'attività, alla directory condivisa e alla directory di attività a istanze multiple. Entrambi i tipi di account hanno anche accesso in lettura alle directory di avvio e a quelle di preparazione dei processi.
+Un account utente automatico e un account utente con nome hanno accesso in lettura/scrittura alla directory di lavoro dell'attività, alla directory condivisa e alla directory delle attività a istanze diverse. Entrambi i tipi di account hanno anche accesso in lettura alle directory di avvio e a quelle di preparazione dei processi.
 
 Se un'attività viene eseguita con lo stesso account usato per l'esecuzione di un'attività di avvio, tale attività ha accesso in lettura e scrittura alla directory dell'attività di avvio. In modo analogo, se un'attività viene eseguita con lo stesso account usato per l'esecuzione di un'attività di preparazione dei processi, tale attività ha accesso in lettura e scrittura anche alla directory dell'attività di preparazione dei processi. Se un'attività viene eseguita con un account diverso rispetto a quello usato per l'attività di avvio o per quella di preparazione dei processi, tale attività ha solo accesso in lettura alla directory corrispondente.
 
 Per altre informazioni sull'accesso a file e directory da un'attività, vedere [File e directory](files-and-directories.md).
 
-## <a name="elevated-access-for-tasks"></a>Accesso con privilegi elevati per le attività 
+## <a name="elevated-access-for-tasks"></a>Accesso con privilegi elevati per le attività
 
 Il livello di elevazione dei privilegi dell'account utente indica se un'attività viene eseguita con privilegi elevati. Un account utente automatico e un account utente non anonimo consentono entrambi l'accesso con privilegi elevati. Le due opzioni per il livello di elevazione dei privilegi sono le seguenti:
 
 - **NonAdmin** (Non amministratore): l'attività viene eseguita come utente standard senza accesso con privilegi elevati. Il livello di elevazione dei privilegi predefinito per un account utente Batch è sempre **NonAdmin**.
-- **Admin** (Amministratore): l'attività viene eseguita come utente con accesso con privilegi elevati e opera con le autorizzazioni di amministratore complete. 
+- **Admin** (Amministratore): l'attività viene eseguita come utente con accesso con privilegi elevati e opera con le autorizzazioni di amministratore complete.
 
 ## <a name="auto-user-accounts"></a>Account utente automatici
 
 Per impostazione predefinita, in Batch le attività vengono eseguite con un account utente automatico, come utente standard senza accesso con privilegi elevati e con un ambito di attività. Quando per l'ambito di attività è configurata la specifica di utente automatico, il servizio Batch crea un account utente di questo tipo solo per l'attività.
 
-L'alternativa all'ambito di attività è l'ambito di pool. Quando per l'ambito di pool è configurata la specifica di utente automatico, l'attività viene eseguita con un account di questo tipo disponibile per qualsiasi attività nel pool. Per altre informazioni sull'ambito di pool, vedere la sezione Eseguire un'attività come utente automatico con ambito di pool.   
+L'alternativa all'ambito di attività è l'ambito di pool. Quando per l'ambito di pool è configurata la specifica di utente automatico, l'attività viene eseguita con un account di questo tipo disponibile per qualsiasi attività nel pool. Per altre informazioni sull'ambito del pool, vedere [eseguire un'attività come utente automatico con ambito del pool](#run-a-task-as-an-auto-user-with-pool-scope).
 
 L'ambito predefinito è diverso in nodi Windows e Linux:
 
@@ -67,19 +65,15 @@ Esistono quattro possibili configurazioni per la specifica di utente automatico,
 - Accesso senza privilegi di amministratore con ambito di pool
 - Accesso con privilegi di amministratore con ambito di pool
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Le attività in esecuzione nell'ambito di attività non dispongono dell'accesso standard ad altre attività in un nodo. Un utente malintenzionato con accesso all'account, tuttavia, potrebbe aggirare questa restrizione inviando un'attività che viene eseguita con privilegi di amministratore e che può accedere alle directory di altre attività. Un utente malintenzionato potrebbe anche usare il protocollo RDP o SSH per connettersi a un nodo. È importante pertanto proteggere l'accesso alle chiavi dell'account Batch per impedire che si verifichi uno scenario di questo tipo. Se si sospetta che l'account sia stato compromesso, assicurarsi di rigenerare le chiavi.
->
->
 
 ### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Eseguire un'attività come utente automatico con accesso con privilegi elevati
 
 Quando è necessario eseguire un'attività con accesso con privilegi elevati, è possibile configurare la specifica di utente automatico per i privilegi di amministratore. A un'attività di avvio, ad esempio, potrebbe essere necessario l'accesso con privilegi elevati per installare il software nel nodo.
 
-> [!NOTE] 
-> In generale, è consigliabile usare l'accesso con privilegi elevati solo quando è necessario e concedere esclusivamente i privilegi minimi necessari per ottenere il risultato desiderato. Se ad esempio un'attività di avvio consente di installare software per l'utente corrente, anziché per tutti gli utenti, è possibile evitare di concedere l'accesso con privilegi elevati alle attività. È possibile configurare la specifica di utente automatico per l'ambito di pool e senza privilegi di amministratore per tutte le attività che devono essere eseguite con lo stesso account, tra cui l'attività di avvio. 
->
->
+> [!NOTE]
+> Usare l'accesso con privilegi elevati solo quando necessario. e concedere esclusivamente i privilegi minimi necessari per ottenere il risultato desiderato. Se ad esempio un'attività di avvio consente di installare software per l'utente corrente, anziché per tutti gli utenti, è possibile evitare di concedere l'accesso con privilegi elevati alle attività. È possibile configurare la specifica di utente automatico per l'ambito di pool e senza privilegi di amministratore per tutte le attività che devono essere eseguite con lo stesso account, tra cui l'attività di avvio.
 
 I frammenti di codice seguente illustrano come configurare la specifica di utente automatico. Gli esempi impostano il livello di elevazione dei privilegi su `Admin` e su `Task`. L'ambito di attività è l'impostazione predefinita, ma in questo caso viene inclusa a scopo di esempio.
 
@@ -115,20 +109,18 @@ batch_client.task.add(job_id=jobid, task=task)
 
 ### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Eseguire un'attività come utente automatico con ambito di pool
 
-Quando viene eseguito il provisioning di un nodo, a livello di pool vengono creati due account utente automatici per ogni nodo del pool, uno con accesso con privilegi elevati e uno senza accesso con privilegi elevati. Se si imposta l'ambito dell'utente automatico sull'ambito di pool per una determinata attività, questa verrà eseguita con uno di tali due account a livello di pool. 
+Quando viene eseguito il provisioning di un nodo, a livello di pool vengono creati due account utente automatici per ogni nodo del pool, uno con accesso con privilegi elevati e uno senza accesso con privilegi elevati. Se si imposta l'ambito dell'utente automatico sull'ambito di pool per una determinata attività, questa verrà eseguita con uno di tali due account a livello di pool.
 
-Quando si specifica l'ambito di pool per l'utente automatico, tutte le attività eseguite con privilegi di amministratore vengono eseguite con lo stesso account utente automatico a livello di pool. In modo analogo, le attività eseguite senza privilegi di amministratore vengono eseguite anche con un unico account utente automatico a livello di pool. 
+Quando si specifica l'ambito di pool per l'utente automatico, tutte le attività eseguite con privilegi di amministratore vengono eseguite con lo stesso account utente automatico a livello di pool. In modo analogo, le attività eseguite senza privilegi di amministratore vengono eseguite anche con un unico account utente automatico a livello di pool.
 
 > [!NOTE] 
-> I due account utente automatici a livello di pool sono account separati. Le attività in esecuzione con l'account amministrativo a livello di pool non possono condividere dati con quelle in esecuzione con l'account standard e viceversa. 
->
->
+> I due account utente automatici a livello di pool sono account separati. Le attività in esecuzione con l'account amministrativo a livello di pool non possono condividere dati con attività in esecuzione con l'account standard e viceversa.
 
 Il vantaggio di eseguire attività con lo stesso account utente automatico consiste nel fatto che le attività sono in grado di condividere dati con altre attività in esecuzione nello stesso nodo.
 
 La condivisione di segreti tra le attività è uno scenario in cui l'esecuzione di attività con uno dei due account utente automatici a livello di pool è particolarmente utile. Si supponga ad esempio che un'attività di avvio richieda il provisioning di un segreto sul nodo che può essere usato da altre attività. È possibile usare l'API di protezione dati di Windows (DPAPI), ma in questo caso sono necessari anche i privilegi di amministratore. In alternativa, è possibile proteggere il segreto a livello di utente. Le attività in esecuzione con lo stesso account utente possono accedere al segreto senza accesso con privilegi elevati.
 
-Un altro scenario in cui può essere opportuno eseguire attività con un account utente automatico con ambito di pool è la condivisione di file di tipo MPI (Message Passing Interface). Una condivisione di file MPI è utile quando i nodi nell'attività MPI devono usare gli stessi dati di file. Il nodo head crea una condivisione di file cui i nodi figlio possono accedere se sono in esecuzione con lo stesso account utente automatico. 
+Un altro scenario in cui può essere opportuno eseguire attività con un account utente automatico con ambito di pool è la condivisione di file di tipo MPI (Message Passing Interface). Una condivisione di file MPI è utile quando i nodi nell'attività MPI devono usare gli stessi dati di file. Il nodo head crea una condivisione di file cui i nodi figlio possono accedere se sono in esecuzione con lo stesso account utente automatico.
 
 Il frammento di codice seguente imposta l'ambito dell'utente automatico sull'ambito di pool per un'attività in Batch .NET. Il livello di elevazione dei privilegi viene omesso, in modo che l'attività venga eseguita con l'account utente automatico standard a livello di pool.
 
@@ -163,7 +155,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 3,
     virtualMachineSize: "standard_d1_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
@@ -209,10 +201,9 @@ Console.WriteLine("Creating pool [{0}]...", poolId);
 // Create the unbound pool.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 3,                                             
-    virtualMachineSize: "Standard_A1",                                      
-    virtualMachineConfiguration: virtualMachineConfiguration);                  
-
+    targetDedicatedComputeNodes: 3,
+    virtualMachineSize: "Standard_A1",
+    virtualMachineConfiguration: virtualMachineConfiguration);
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
 {
@@ -239,7 +230,6 @@ pool.UserAccounts = new List<UserAccount>
 // Commit the pool.
 await pool.CommitAsync();
 ```
-
 
 #### <a name="batch-java-example"></a>Esempio per Batch Java
 
@@ -319,8 +309,7 @@ Nella versione 2017-01-01.4.0 del servizio Batch è stata introdotta una modific
 | `run_elevated=False`                      | `user_identity=user`, dove <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
 | `run_elevated` non specificato | Non sono necessari aggiornamenti                                                                                                                                  |
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
-* Altre informazioni su [File e directory](files-and-directories.md) in Azure Batch.
+- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
+- Altre informazioni su [File e directory](files-and-directories.md) in Azure Batch.

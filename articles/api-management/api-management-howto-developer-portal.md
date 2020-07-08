@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: fefa5ff5d112b479110d484ee0ea4c358b5c88a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207890"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di Gestione API
 
@@ -34,7 +34,7 @@ Questo articolo descrive le differenze tra le versioni Self-Hosted e quelle gest
 
 È possibile creare il portale per sviluppatori in due modi:
 
-- **Versione gestita** : modifica e personalizzazione del portale, integrato nell'istanza di gestione API, accessibile tramite l'URL `<your-api-management-instance-name>.developer.azure-api.net`. Per informazioni su come accedere e personalizzare il portale gestito, vedere [questo articolo della documentazione](api-management-howto-developer-portal-customize.md) .
+- **Versione gestita** : modifica e personalizzazione del portale, integrato nell'istanza di gestione API, accessibile tramite l'URL `<your-api-management-instance-name>.developer.azure-api.net` . Per informazioni su come accedere e personalizzare il portale gestito, vedere [questo articolo della documentazione](api-management-howto-developer-portal-customize.md) .
 - **Versione self-hosted** : tramite la distribuzione e l'hosting automatico del portale all'esterno di un'istanza di gestione API. Questo approccio consente di modificare la codebase del portale ed estendere la funzionalità di base fornita, ad esempio implementare widget personalizzati per l'integrazione con sistemi di terze parti. In questo scenario si è il gestore del portale e si è responsabili dell'aggiornamento del portale alla versione più recente. Per informazioni dettagliate e istruzioni, vedere il [repository GitHub con il codice sorgente del portale][1] e [l'esercitazione sull'implementazione di un widget][3]. L' [esercitazione per la versione gestita](api-management-howto-developer-portal-customize.md) scorre il pannello amministrativo del portale, che è comune per le versioni gestite e indipendenti.
 
 ## <a name="portal-architectural-concepts"></a>Concetti relativi all'architettura del portale
@@ -64,11 +64,11 @@ Il *contenuto di gestione API* include entità quali API, operazioni, prodotti e
 
 Il portale è basato su un fork adattato del [Framework Paperbits](https://paperbits.io/). La funzionalità Paperbits originale è stata estesa per fornire widget specifici di gestione API (ad esempio, un elenco di API, un elenco di prodotti) e un connettore al servizio gestione API per il salvataggio e il recupero del contenuto.
 
-## <a name="frequently-asked-questions"></a><a name="faq"></a>Domande frequenti
+## <a name="frequently-asked-questions"></a><a name="faq"></a> Domande frequenti
 
 In questa sezione vengono riportate le risposte alle domande comuni sul portale per sviluppatori, che sono di natura generale. Per domande specifiche per la versione self-hosted, vedere [la sezione wiki del repository GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/>Come è possibile eseguire la migrazione dalla versione di anteprima del portale?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>Come è possibile eseguire la migrazione dalla versione di anteprima del portale?
 
 Usando la versione di anteprima del portale per sviluppatori, è stato effettuato il provisioning del contenuto di anteprima nel servizio gestione API. Il contenuto predefinito è stato modificato in modo significativo nella versione disponibile a livello generale per migliorare l'esperienza utente. Include anche nuovi widget.
 
@@ -76,7 +76,7 @@ Se si usa la versione gestita, reimpostare il contenuto del portale facendo clic
 
 ![Reimposta contenuto portale](media/api-management-howto-developer-portal/reset-content.png)
 
-Se si usa la versione self-hosted, usare e `scripts/cleanup.bat` `scripts/generate.bat` dal repository GitHub per rimuovere il contenuto esistente ed effettuare il provisioning di nuovo contenuto. Assicurarsi di aggiornare il codice del portale alla versione più recente dal repository GitHub in anticipo.
+Se si usa la versione self-hosted, usare `scripts/cleanup.bat` e `scripts/generate.bat` dal repository GitHub per rimuovere il contenuto esistente ed effettuare il provisioning di nuovo contenuto. Assicurarsi di aggiornare il codice del portale alla versione più recente dal repository GitHub in anticipo.
 
 Se non si vuole reimpostare il contenuto del portale, è possibile prendere in considerazione l'uso di widget appena disponibili in tutte le pagine. I widget esistenti sono stati aggiornati automaticamente alle versioni più recenti.
 
@@ -116,7 +116,7 @@ No.
 
 Nella maggior parte dei casi-no.
 
-Se il servizio gestione API si trova in una VNet interna, il portale per sviluppatori è accessibile solo dall'interno della rete. Il nome host dell'endpoint di gestione deve essere risolto nell'indirizzo VIP interno del servizio dal computer usato per accedere all'interfaccia amministrativa del portale. Assicurarsi che l'endpoint di gestione sia registrato nel DNS. In caso di errata configurazione, verrà visualizzato un errore: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+Se il servizio gestione API si trova in una VNet interna, il portale per sviluppatori è accessibile solo dall'interno della rete. Il nome host dell'endpoint di gestione deve essere risolto nell'indirizzo VIP interno del servizio dal computer usato per accedere all'interfaccia amministrativa del portale. Assicurarsi che l'endpoint di gestione sia registrato nel DNS. In caso di errata configurazione, verrà visualizzato un errore: `Unable to start the portal. See if settings are specified correctly in the configuration (...)` .
 
 Se il servizio gestione API si trova in un VNet interno e si accede tramite il gateway applicazione da Internet, assicurarsi di abilitare la connettività al portale per sviluppatori e agli endpoint di gestione di gestione API.
 
@@ -163,13 +163,13 @@ Applicare automaticamente i criteri di CORS facendo clic sul pulsante **Abilita 
 
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Quali autorizzazioni sono necessarie per modificare il portale per sviluppatori?
 
-Se l' `Oops. Something went wrong. Please try again later.` errore viene visualizzato quando si apre il portale in modalità amministrativa, potrebbero mancare le autorizzazioni necessarie (RBAC).
+Se l'errore viene visualizzato `Oops. Something went wrong. Please try again later.` quando si apre il portale in modalità amministrativa, potrebbero mancare le autorizzazioni necessarie (RBAC).
 
-I portali legacy hanno richiesto l' `Microsoft.ApiManagement/service/getssotoken/action` autorizzazione nell'ambito del servizio`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`() per consentire all'amministratore utente di accedere ai portali. Il nuovo portale richiede l'autorizzazione `Microsoft.ApiManagement/service/users/token/action` per l'ambito `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+I portali legacy hanno richiesto l'autorizzazione nell' `Microsoft.ApiManagement/service/getssotoken/action` ambito del servizio ( `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>` ) per consentire all'amministratore utente di accedere ai portali. Il nuovo portale richiede l'autorizzazione `Microsoft.ApiManagement/service/users/token/action` per l'ambito `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` .
 
-È possibile usare lo script di PowerShell seguente per creare un ruolo con l'autorizzazione necessaria. Ricordarsi di modificare `<subscription-id>` il parametro. 
+È possibile usare lo script di PowerShell seguente per creare un ruolo con l'autorizzazione necessaria. Ricordarsi di modificare il `<subscription-id>` parametro. 
 
-```PowerShell
+```powershell
 #New Portals Admin Role 
 Import-Module Az 
 Connect-AzAccount 
@@ -185,9 +185,9 @@ $customRole.AssignableScopes.Add('/subscriptions/<subscription-id>')
 New-AzRoleDefinition -Role $customRole 
 ```
  
-Una volta creato, il ruolo può essere concesso a qualsiasi utente dalla sezione **controllo di accesso (IAM)** nel portale di Azure. Assegnando questo ruolo a un utente, verrà assegnata l'autorizzazione nell'ambito del servizio. L'utente sarà in grado di generare token SAS per conto di *qualsiasi* utente nel servizio. Come minimo, questo ruolo deve essere assegnato all'amministratore del servizio. Il comando di PowerShell seguente illustra come assegnare il ruolo a un utente `user1` nell'ambito più basso per evitare di concedere autorizzazioni non necessarie all'utente: 
+Una volta creato, il ruolo può essere concesso a qualsiasi utente dalla sezione **controllo di accesso (IAM)** nel portale di Azure. Assegnando questo ruolo a un utente, verrà assegnata l'autorizzazione nell'ambito del servizio. L'utente sarà in grado di generare token SAS per conto di *qualsiasi* utente nel servizio. Come minimo, questo ruolo deve essere assegnato all'amministratore del servizio. Il comando di PowerShell seguente illustra come assegnare il ruolo a un utente nell' `user1` ambito più basso per evitare di concedere autorizzazioni non necessarie all'utente: 
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
 ```
 
@@ -195,7 +195,7 @@ Dopo che le autorizzazioni sono state concesse a un utente, l'utente deve discon
 
 ### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>Viene visualizzato l' `Unable to start the portal. See if settings are specified correctly (...)` errore
 
-Questo errore viene visualizzato quando una `GET` chiamata a `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` ha esito negativo. La chiamata viene eseguita dal browser dall'interfaccia amministrativa del portale.
+Questo errore viene visualizzato quando una `GET` chiamata a ha `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` esito negativo. La chiamata viene eseguita dal browser dall'interfaccia amministrativa del portale.
 
 Se il servizio gestione API si trova in una VNet, vedere la domanda di connettività VNet precedente.
 

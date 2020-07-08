@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0139c581e6660622f1ab6db9f407725816377a6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7fa9336a7a90ab73d3dc60c6c865ebadfb2af1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213500"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Ottimizzazione delle transazioni in sinapsi SQL
 
@@ -69,11 +69,11 @@ CTAS e INSERT...SELECT sono entrambe operazioni di caricamento bulk. Tuttavia, e
 
 | Indice primario | Scenario di caricamento | Modalità di registrazione |
 | --- | --- | --- |
-| Heap |Qualsiasi |**Minime** |
-| Indice cluster |Tabella di destinazione vuota |**Minime** |
-| Indice cluster |Le righe caricate non si sovrappongono alle pagine esistenti nella destinazione |**Minime** |
-| Indice cluster |Le righe caricate si sovrappongono alle pagine esistenti nella destinazione |Full |
-| Indice columnstore cluster |Dimensioni batch >= 102.400 per ogni distribuzione allineata alle partizioni |**Minime** |
+| Heap |Qualsiasi |**Minima** |
+| Indice cluster |Tabella di destinazione vuota |**Minima** |
+| Indice cluster |Le righe caricate non si sovrappongono alle pagine esistenti nella destinazione |**Minima** |
+| Indice cluster |Le righe caricate si sovrappongono alle pagine esistenti nella destinazione |Completo |
+| Indice columnstore cluster |Dimensioni batch >= 102.400 per ogni distribuzione allineata alle partizioni |**Minima** |
 | Indice columnstore cluster |Dimensioni batch < 102.400 per ogni distribuzione allineata alle partizioni |Full |
 
 Si noti che eventuali scritture di aggiornamento di indici secondari o non cluster saranno sempre operazioni con registrazione completa.
@@ -85,7 +85,7 @@ Il caricamento di dati in una tabella non vuota con un indice cluster può spess
 
 ## <a name="optimizing-deletes"></a>Ottimizzazione delle eliminazioni
 
-DELETE è un'operazione con registrazione completa.  Per eliminare una grande quantità di dati da una tabella o una partizione spesso è più pratico usare `SELECT` per indicare i dati da conservare, operazione che può essere eseguita registrazione minima.  Per selezionare i dati, creare una nuova tabella con [CTAS](sql-data-warehouse-develop-ctas.md).  Dopo averla creata, usare [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per sostituire la tabella precedente con la quella nuova.
+DELETE è un'operazione con registrazione completa.  Per eliminare una grande quantità di dati da una tabella o una partizione spesso è più pratico usare `SELECT` per indicare i dati da conservare, operazione che può essere eseguita registrazione minima.  Per selezionare i dati, creare una nuova tabella con [CTAS](sql-data-warehouse-develop-ctas.md).  Dopo averla creata, usare [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per sostituire la tabella precedente con quella nuova.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -117,7 +117,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 ## <a name="optimizing-updates"></a>Ottimizzazione degli aggiornamenti
 
-UPDATE è un'operazione con registrazione completa.  Se è necessario aggiornare un numero elevato di righe in una tabella o in una partizione, spesso può risultare molto più efficiente usare un'operazione con registrazione minima, ad esempio [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+UPDATE è un'operazione con registrazione completa.  Se è necessario aggiornare un numero elevato di righe in una tabella o in una partizione, spesso può risultare molto più efficiente usare un'operazione con registrazione minima, ad esempio [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Nell'esempio seguente l'aggiornamento completo di una tabella è stato convertito in CTAS per consentire la registrazione minima.
 
@@ -407,14 +407,14 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Linee guida per la sospensione e il ridimensionamento
 
-Sinapsi SQL consente di [sospendere, riprendere e ridimensionare](sql-data-warehouse-manage-compute-overview.md) il pool SQL su richiesta. Quando si sospende o si ridimensiona il pool SQL, è importante comprendere che le transazioni in corso vengono interrotte immediatamente. viene eseguito il rollback di tutte le transazioni aperte. Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questa operazione può influisca sul tempo necessario per sospendere o ridimensionare il pool SQL.
+Sinapsi SQL consente di [sospendere, riprendere e ridimensionare](sql-data-warehouse-manage-compute-overview.md) il pool SQL su richiesta. Quando si sospende o si ridimensiona il pool SQL, è importante sapere che le eventuali transazioni in corso vengono interrotte immediatamente, con il conseguente rollback delle transazioni aperte. Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questo può influire sul tempo richiesto per sospendere o ridimensionare il pool SQL.
 
 > [!IMPORTANT]
 > `UPDATE` e `DELETE` sono operazioni con registrazione completa e qualsiasi operazione di annullamento o ripristino può richiedere molto più tempo rispetto alle operazioni con registrazione minima equivalenti.
 
-Lo scenario migliore consiste nel lasciare le transazioni di modifica dei dati in volo prima di sospendere o ridimensionare il pool SQL. Tuttavia, questo potrebbe non essere sempre possibile. Per ridurre il rischio di un rollback troppo lungo, prendere in considerazione una delle opzioni seguenti:
+Lo scenario migliore sarebbe consentire il completamento delle transazioni di modifica dei dati in corso prima di sospendere o ridimensionare il pool SQL. Tuttavia, questo potrebbe non essere sempre possibile. Per ridurre il rischio di un rollback troppo lungo, prendere in considerazione una delle opzioni seguenti:
 
-* Riscrivere le operazioni a esecuzione prolungata con [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* Riscrivere le operazioni a esecuzione prolungata con [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * Suddividere l'operazione in blocchi e lavorare su un subset delle righe
 
 ## <a name="next-steps"></a>Passaggi successivi

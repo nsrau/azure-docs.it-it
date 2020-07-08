@@ -5,22 +5,22 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/02/2020
-ms.openlocfilehash: 7f671e2a77a0a00fd1cc4338e29c14f7b8fca4f2
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 06/16/2020
+ms.openlocfilehash: 9c5d6359ce0e79fce2e80911ff78d19cc88162b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208706"
 ---
-# <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per le risorse di calcolo per database di Azure per PostgreSQL con capacità riservata
+# <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>PrePay per database di Azure per PostgreSQL-risorse di calcolo a server singolo con capacità riservata
 
 Database di Azure per PostgreSQL consente ora di risparmiare denaro prepagando le risorse di calcolo rispetto ai prezzi con pagamento in base al consumo. Con la capacità riservata di database di Azure per PostgreSQL, si crea un impegno iniziale sul server PostgreSQL per un periodo di uno o tre anni per ottenere uno sconto significativo sui costi di calcolo. Per acquistare la capacità riservata di database di Azure per PostgreSQL, è necessario specificare l'area di Azure, il tipo di distribuzione, il livello di prestazioni e il termine. </br>
 
-Non è necessario assegnare la prenotazione a specifici server di database di Azure per PostgreSQL. Un database di Azure già in esecuzione per PostgreSQL o uno appena distribuito, otterrà automaticamente il vantaggio dei prezzi riservati. Tramite l'acquisto di una prenotazione, si pagano in anticipo i costi di calcolo per un periodo di uno o tre anni. Non appena si acquista una prenotazione, i costi di calcolo per database di Azure per PostgreSQL che corrispondono agli attributi di prenotazione non vengono più addebitati in base alle tariffe a consumo. Una prenotazione non copre il software, la rete o gli addebiti di archiviazione associati ai server del database PostgreSQL. Al termine del periodo di prenotazione, il vantaggio di fatturazione scadrà e il database di Azure per PostgreSQL verrà fatturato in base al prezzo con pagamento in base al consumo. Le prenotazioni non vengono rinnovate automaticamente. Per informazioni sui prezzi, vedere l' [offerta di capacità riservata per database di Azure per PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
+Non è necessario assegnare la prenotazione a specifici server di database di Azure per PostgreSQL. Un database di Azure per PostgreSQL già in esecuzione (o uno appena distribuito) otterrà automaticamente il vantaggio dei prezzi riservati. Con l'acquisto di una prenotazione, i costi di calcolo sono prepagati per un periodo di uno o tre anni. Non appena si acquista una prenotazione, i costi di calcolo per database di Azure per PostgreSQL che corrispondono agli attributi di prenotazione non vengono più addebitati in base alle tariffe a consumo. Una prenotazione non copre il software, la rete o gli addebiti di archiviazione associati ai server del database PostgreSQL. Al termine del periodo di prenotazione, il vantaggio di fatturazione scadrà e il database di Azure per PostgreSQL verrà fatturato in base al prezzo con pagamento in base al consumo. Le prenotazioni non vengono rinnovate automaticamente. Per informazioni sui prezzi, vedere l' [offerta di capacità riservata per database di Azure per PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> I prezzi per la capacità riservata sono disponibili solo per la distribuzione a [server singolo](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) di database di Azure per PostgreSQL e non per la distribuzione di [CITUS con iperscalabilità](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) .
+> I prezzi per la capacità riservata sono disponibili per il database di Azure per PostgreSQL nelle opzioni di distribuzione di CITUS a [server singolo](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) e di [iperscalabilità](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) . Per informazioni sui prezzi di RI per l'iperscalabilità (CITUS), vedere [Questa pagina](concepts-hyperscale-reserved-pricing.md).
 
 È possibile acquistare la capacità riservata di database di Azure per PostgreSQL nel [portale di Azure](https://portal.azure.com/). Usare [pagamenti anticipati o mensili](../cost-management-billing/reservations/monthly-payments-reservations.md) per acquistare la prenotazione. Per acquistare la capacità riservata:
 
@@ -35,13 +35,13 @@ Per informazioni dettagliate sul modo in cui i clienti aziendali e i clienti con
 
 Le dimensioni della prenotazione devono essere basate sulla quantità totale di risorse di calcolo usate dai server esistenti o presto distribuiti in un'area specifica e usando lo stesso livello di prestazioni e la stessa generazione di hardware.</br>
 
-Si supponga, ad esempio, di eseguire un database PostgreSQL di uso generico, quinta generazione – 32 vCore e due database PostgreSQL con ottimizzazione per la memoria, quinta generazione-16 vCore. Si supponga, inoltre, di pianificare la distribuzione entro il prossimo mese con un server di database vCore, quinta generazione – 32 e un server di database con ottimizzazione per la memoria, quinta generazione – 16 vCore. Supponiamo che tu sappia che ti serviranno queste risorse per almeno un anno. In questo caso, è necessario acquistare una prenotazione di 64 (2x32) Vcore, 1 anno per utilizzo generico per database singolo-quinta generazione e una prenotazione 48 (2x16 + 16) vCore 1 anno per l'ottimizzazione della memoria per database singolo-quinta generazione
+Si supponga, ad esempio, di eseguire un database PostgreSQL quinta generazione-32 vCore per utilizzo generico e due database PostgreSQL con ottimizzazione per la memoria quinta generazione-16 vCore. Si supponga inoltre di pianificare la distribuzione nel prossimo mese di un server di database quinta generazione-32 vCore aggiuntivo per utilizzo generico e un server di database quinta generazione-16 con ottimizzazione per la memoria. Supponiamo che tu sappia che queste risorse sono necessarie per almeno un anno. In questo caso, è necessario acquistare una prenotazione di 64 (2x32) Vcore, un anno per utilizzo generico per un singolo database-quinta generazione e una prenotazione 48 (2x16 + 16) vCore di un anno per l'ottimizzazione della memoria per database singolo-quinta generazione
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Acquistare la capacità riservata di database di Azure per PostgreSQL
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Selezionare **tutte le prenotazioni dei servizi** > **Reservations**.
+2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3. Selezionare **Aggiungi** e quindi nel riquadro prenotazioni acquisti selezionare database di **Azure per PostgreSQL** per acquistare una nuova prenotazione per i database PostgreSQL.
 4. Compilare i campi obbligatori. I database nuovi o esistenti che corrispondono agli attributi selezionati sono idonei per ottenere lo sconto per la capacità riservata. Il numero effettivo dei server di database di Azure per PostgreSQL che ottengono lo sconto dipende dall'ambito e dalla quantità selezionati.
 
@@ -63,7 +63,7 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 
-È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="vcore-size-flexibility"></a>Flessibilità delle dimensioni vCore
 
@@ -75,8 +75,7 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Lo sconto per la prenotazione di vCore viene applicato automaticamente al numero di server di database di Azure per PostgreSQL che corrispondono agli attributi e all'ambito di prenotazione della capacità riservata del database di Azure per PostgreSQL. È possibile aggiornare l'ambito della prenotazione di capacità riservata del database di Azure per PostgreSQL tramite portale di Azure, PowerShell, l'interfaccia della riga di comando o tramite l'API. </br></br>
-Per informazioni su come gestire la capacità riservata del database di Azure per PostgreSQL, vedere gestire la capacità riservata di database di Azure per PostgreSQL.
+Lo sconto per la prenotazione di vCore viene applicato automaticamente al numero di server di database di Azure per PostgreSQL che corrispondono agli attributi e all'ambito di prenotazione della capacità riservata del database di Azure per PostgreSQL. È possibile aggiornare l'ambito della prenotazione di capacità riservata del database di Azure per PostgreSQL tramite portale di Azure, PowerShell, l'interfaccia della riga di comando o tramite l'API.
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
