@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250517"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042119"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Estensioni della macchina virtuale e funzionalità per Linux
 
@@ -49,11 +49,11 @@ Per informazioni sui sistemi operativi supportati e sulle istruzioni di installa
 
 #### <a name="supported-agent-versions"></a>Versioni supportate dell'agente
 
-Per garantire la migliore esperienza possibile, sono previsti requisiti minimi per le versioni supportate dell'agente. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Per garantire la migliore esperienza possibile, sono previsti requisiti minimi per le versioni supportate dell'agente. Per altre informazioni, vedi [questo articolo](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### <a name="supported-oses"></a>Sistemi operativi supportati
 
-L'agente Linux viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+L'agente Linux viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedi [questo articolo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"*. Vedere la documentazione della singola estensione per informazioni sul supporto.
@@ -85,7 +85,7 @@ Per eseguire un'estensione in una macchina virtuale esistente, è possibile usar
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Le estensioni macchina virtuale di Azure possono essere eseguite in una VM esistente con il comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). Nell'esempio seguente viene eseguita l'estensione script personalizzata in una macchina virtuale denominata *myVM* in un gruppo di risorse denominato *myResourceGroup*. Sostituire il nome del gruppo di risorse di esempio, il nome della macchina virtuale e\/lo script da eseguire (https:/RAW.githubusercontent.com/me/Project/Hello.sh) con le informazioni personali. 
+Le estensioni macchina virtuale di Azure possono essere eseguite in una VM esistente con il comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). Nell'esempio seguente viene eseguita l'estensione script personalizzata in una macchina virtuale denominata *myVM* in un gruppo di risorse denominato *myResourceGroup*. Sostituire il nome del gruppo di risorse di esempio, il nome della macchina virtuale e lo script da eseguire (https: \/ /RAW.githubusercontent.com/me/Project/Hello.sh) con le informazioni personali. 
 
 ```azurecli
 az vm extension set `
@@ -115,7 +115,7 @@ L'immagine seguente illustra l'installazione dell'estensione di script personali
 
 ### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
-Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Ad esempio, il codice JSON seguente proviene da un modello di Resource Manager che consente di distribuire un set di macchine virtuali con bilanciamento del carico e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
+Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Il codice JSON seguente, ad esempio, è tratto da un modello di Gestione risorse che distribuisce un set di macchine virtuali con carico bilanciato e database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
 
 Per ulteriori informazioni, vedere il [modello di gestione risorse](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)completo.
 
@@ -336,7 +336,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 1. Per controllare il log dell'agente Linux, esaminare l'attività di quando il provisioning dell'estensione è stato eseguito in */var/log/waagent.log*
 
-2. Per altri dettagli, vedere i log di estensione effettivi */var/log/azure/\<>*
+2. Per informazioni più dettagliate, controllare i log effettivi dell'estensione in */var/log/azure/\<extensionName>*
 
 3. Controllare le sezioni della documentazione sulla risoluzione dei problemi specifica per l'estensione relative a codici di errore, problemi noti e così via.
 
