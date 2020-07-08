@@ -7,10 +7,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087851"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
@@ -103,7 +102,7 @@ Il comportamento di Upsert è *Insert o Replace*.
 
 **Livelli precedenti:** Non è stata convalidata alcuna restrizione dei prefissi di funzione.
 
-**livello 1,2:** Analisi di flusso di Azure ha una convalida rigorosa dei prefissi di funzione. L'aggiunta di un prefisso a una funzione incorporata causa un errore. Ad esempio,`myprefix.ABS(…)` non è supportato.
+**livello 1,2:** Analisi di flusso di Azure ha una convalida rigorosa dei prefissi di funzione. L'aggiunta di un prefisso a una funzione incorporata causa un errore. Ad esempio, `myprefix.ABS(…)` non è supportato.
 
 L'aggiunta di un prefisso alle aggregazioni predefinite genera anche un errore. Ad esempio, `myprefix.SUM(…)` non è supportato.
 

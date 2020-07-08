@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 75ac5a7fc352f877573d79a004d8da761c6f1cef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79082881"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorare le prestazioni del cluster in Azure HDInsight
@@ -30,7 +29,7 @@ Per esaminare in modo dettagliato i nodi del cluster e il relativo caricamento, 
 | Colore | Descrizione |
 | --- | --- |
 | Rosso | Almeno un componente master dell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
-| Arancione | Almeno un componente secondario nell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
+| Orange | Almeno un componente secondario nell'host è inattivo. Passare il mouse sull'indicatore per visualizzare una descrizione comando in cui sono elencati i componenti interessati. |
 | Giallo | Il server Ambari non ha ricevuto un heartbeat dall'host per più di 3 minuti. |
 | Green | Stato di esecuzione normale. |
 
@@ -95,7 +94,7 @@ In alcuni casi, la lentezza può verificarsi a causa di spazio su disco insuffic
     du -h --max-depth=1 / | sort -h
     ```
 
-1. Esaminare l'output e verificare la presenza di file di grandi dimensioni nella `mnt` cartella o in altre cartelle. In genere, `usercache`le cartelle `appcache` e (mnt/Resource/Hadoop/Yarn/local/usercache/hive/AppCache/) contengono file di grandi dimensioni.
+1. Esaminare l'output e verificare la presenza di file di grandi dimensioni nella `mnt` cartella o in altre cartelle. In genere, le `usercache` `appcache` cartelle e (mnt/Resource/Hadoop/Yarn/local/usercache/hive/AppCache/) contengono file di grandi dimensioni.
 
 1. Se sono presenti file di grandi dimensioni, un processo corrente sta causando la crescita del file o un processo precedente non riuscito potrebbe aver contribuito a questo problema. Per verificare se questo comportamento è causato da un processo corrente, eseguire il comando seguente:
 

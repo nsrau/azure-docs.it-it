@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79249542"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelli di pagina in Gestione API di Azure
@@ -27,7 +26,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 -   [Accedi](#SignIn)  
   
--   [Iscrizione](#SignUp)  
+-   [Registrati](#SignUp)  
   
 -   [Pagina non trovata](#PageNotFound)  
   
@@ -185,7 +184,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 }  
 ```  
   
-##  <a name="page-not-found"></a><a name="PageNotFound"></a> Pagina non trovata  
+##  <a name="page-not-found"></a><a name="PageNotFound"></a>Pagina non trovata  
  Il modello **Pagina non trovata** consente di personalizzare la pagina Pagina non trovata del portale per sviluppatori.  
   
  ![Pagina non trovata](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "GESTIONE API pagina non trovata modelli del portale per sviluppatori")  
@@ -229,11 +228,11 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
-|referenceCode|stringa|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
-|errorCode|stringa|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
-|emailBody|stringa|Corpo del messaggio di posta elettronica generato se questa pagina viene visualizzata in seguito a un errore interno.|  
-|requestedUrl|stringa|URL richiesto quando la pagina non è stata trovata.|  
-|referrerUrl|stringa|URL del referrer all'URL richiesto.|  
+|referenceCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
+|errorCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
+|emailBody|string|Corpo del messaggio di posta elettronica generato se questa pagina viene visualizzata in seguito a un errore interno.|  
+|requestedUrl|string|URL richiesto quando la pagina non è stata trovata.|  
+|referrerUrl|string|URL del referrer all'URL richiesto.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   

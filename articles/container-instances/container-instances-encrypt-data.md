@@ -6,10 +6,9 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79080361"
 ---
 # <a name="encrypt-deployment-data"></a>Crittografare i dati della distribuzione
@@ -55,7 +54,7 @@ L'output dell'esecuzione di questo comando dovrebbe mostrare un'entità servizio
 
 Nel caso in cui non sia possibile creare correttamente l'entità servizio:
 * Verificare di disporre delle autorizzazioni per eseguire questa operazione nel tenant
-* verificare se un'entità servizio esiste già nel tenant per la distribuzione in ACI. A tale scopo, è possibile `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` eseguire e utilizzare tale entità servizio.
+* verificare se un'entità servizio esiste già nel tenant per la distribuzione in ACI. A tale scopo, è possibile eseguire `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` e utilizzare tale entità servizio.
 
 ### <a name="create-a-key-vault-resource"></a>Creare una risorsa Key Vault
 
@@ -83,7 +82,7 @@ Creare nuovi criteri di accesso per consentire al servizio ACI di accedere alla 
 
 * Dopo che la chiave è stata generata, tornare al pannello delle risorse dell'insieme di credenziali delle chiavi, in impostazioni, fare clic su **criteri di accesso**.
 * Nella pagina "criteri di accesso" dell'insieme di credenziali delle chiavi fare clic su **Aggiungi criteri di accesso**.
-* Impostare le *autorizzazioni chiave* per includere le autorizzazioni **Get** e **Unwrap** ![key set Key](./media/container-instances-encrypt-data/set-key-permissions.png)
+* Impostare le *autorizzazioni chiave* per includere le autorizzazioni **Get** e **Unwrap** Key ![ set Key](./media/container-instances-encrypt-data/set-key-permissions.png)
 * Per *Select Principal*selezionare il **servizio istanza di contenitore di Azure**
 * Fare clic su **Aggiungi** nella parte inferiore 
 
@@ -97,12 +96,12 @@ I criteri di accesso dovrebbero ora essere visualizzati nei criteri di accesso d
 > La crittografia dei dati di distribuzione con una chiave gestita dal cliente è disponibile nella versione più recente dell'API (2019-12-01) attualmente in fase di implementazione. Specificare questa versione dell'API nel modello di distribuzione. In caso di problemi, rivolgersi al supporto tecnico di Azure.
 
 Una volta configurati i criteri di accesso e la chiave dell'insieme di credenziali delle chiavi, aggiungere le proprietà seguenti al modello di distribuzione ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello [, vedere l'esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
-* In `resources`, impostare `apiVersion` su `2019-12-01`.
-* Nella sezione Proprietà gruppo di contenitori del modello di distribuzione aggiungere un oggetto `encryptionProperties`che contiene i valori seguenti:
+* In `resources` , impostare `apiVersion` su `2019-12-01` .
+* Nella sezione Proprietà gruppo di contenitori del modello di distribuzione aggiungere un oggetto `encryptionProperties` che contiene i valori seguenti:
   * `vaultBaseUrl`: il nome DNS dell'insieme di credenziali delle chiavi è disponibile nel pannello panoramica della risorsa di Key Vault nel portale
   * `keyName`: nome della chiave generata in precedenza
   * `keyVersion`: versione corrente della chiave. Questo può essere trovato facendo clic sulla chiave stessa (in "chiavi" nella sezione impostazioni della risorsa key Vault)
-* In Proprietà gruppo di contenitori aggiungere una `sku` proprietà con valore. `Standard` La `sku` proprietà è obbligatoria nella versione API 2019-12-01.
+* In Proprietà gruppo di contenitori aggiungere una `sku` proprietà con valore `Standard` . La `sku` proprietà è obbligatoria nella versione API 2019-12-01.
 
 Il frammento di modello seguente mostra queste proprietà aggiuntive per crittografare i dati di distribuzione:
 

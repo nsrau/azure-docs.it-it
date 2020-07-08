@@ -8,10 +8,9 @@ author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
 ms.openlocfilehash: f2b960c2198800e04da77ad6b5be78d7b4762354
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79299803"
 ---
 # <a name="disk-metrics-deprecation-in-the-azure-portal"></a>La metrica del disco è deprecata nel portale di Azure
@@ -24,11 +23,11 @@ Questa tabella esegue il mapping di ogni metrica deprecata alla nuova metrica co
 
 |Metrica deprecata|Metrica nuova (sostituzione)|
 |----|----|
-|Disco dati QD (deprecato)|Profondità coda del disco dati (anteprima)|
-|Byte letti dal disco dati/sec (deprecato)|Byte letti da disco/sec per un disco dati (anteprima)|
-|Operazioni di lettura disco dati/sec (deprecate)|Operazioni di lettura da disco/sec per un disco dati (anteprima)|
-|Byte scritti disco dati/sec (deprecato)|Byte scritti su disco/sec per un disco dati (anteprima)|
-|Operazioni di scrittura su disco dati/sec (deprecate)|Operazioni di scrittura su disco/sec per un disco dati (anteprima)|
+|Profondità coda per un disco dati (deprecato)|Profondità coda per un disco dati (anteprima)|
+|Byte letti da disco/sec per un disco dati (deprecato)|Byte letti da disco/sec per un disco dati (anteprima)|
+|Operazioni di lettura da disco/sec per un disco dati (deprecato)|Operazioni di lettura da disco/sec per un disco dati (anteprima)|
+|Byte scritti su disco/sec per un disco dati (deprecato)|Byte scritti su disco/sec per un disco dati (anteprima)|
+|Operazioni di scrittura su disco/sec per un disco dati (deprecato)|Operazioni di scrittura su disco/sec per un disco dati (anteprima)|
 |Sistema operativo QD (deprecato)|Profondità della coda del sistema operativo (anteprima)|
 |Byte letti dal sistema operativo/sec (deprecato)|Byte letti dal sistema operativo/sec (anteprima)|
 |Operazioni di lettura del sistema operativo/sec (deprecate)|Operazioni di lettura del sistema operativo/sec (anteprima)|

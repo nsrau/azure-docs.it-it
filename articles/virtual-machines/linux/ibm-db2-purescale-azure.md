@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78945047"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale in Azure
@@ -73,13 +72,13 @@ Questa architettura esegue i livelli applicazione, archiviazione e dati sulle ma
 
 -   La funzionalità CF di DB2 usa macchine virtuali ottimizzate per la memoria, ad esempio della serie E o L.
 
--   Un cluster di archiviazione condivisa che usa\_macchine\_virtuali DS4 V2 standard che eseguono Linux.
+-   Un cluster di archiviazione condivisa che usa \_ \_ macchine virtuali DS4 V2 standard che eseguono Linux.
 
--   Il JumpBox di gestione è una\_macchina\_virtuale DS2 V2 standard che esegue Linux.  Un'alternativa è Azure Bastion, un servizio che fornisce un'esperienza RDP/SSH sicura per tutte le macchine virtuali nella rete virtuale.
+-   Il JumpBox di gestione è una \_ \_ macchina virtuale DS2 V2 standard che esegue Linux.  Un'alternativa è Azure Bastion, un servizio che fornisce un'esperienza RDP/SSH sicura per tutte le macchine virtuali nella rete virtuale.
 
 -   Il client è una macchina virtuale Standard\_DS3\_v2 che esegue Windows (usata per il testing).
 
--   *Facoltativo*. Server di controllo del mirroring. Questa operazione è necessaria solo con alcune versioni precedenti di DB2 pureScale. Questo esempio usa una macchina\_virtuale\_standard DS3 V2 che esegue Linux (usata per DB2 pureScale).
+-   *Facoltativo*. Server di controllo del mirroring. Questa operazione è necessaria solo con alcune versioni precedenti di DB2 pureScale. Questo esempio usa una \_ \_ macchina virtuale standard DS3 V2 che esegue Linux (usata per DB2 pureScale).
 
 > [!NOTE]
 > Un cluster DB2 pureScale richiede almeno due istanze di DB2, oltre a un'istanza di cache e a un'istanza di Gestione blocchi.

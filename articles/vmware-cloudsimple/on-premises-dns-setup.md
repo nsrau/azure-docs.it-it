@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79246110"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurare DNS per la risoluzione dei nomi per il cloud privato accesso vCenter da workstation locali
@@ -23,7 +22,7 @@ Per accedere al server vCenter in un cloud privato CloudSimple dalle workstation
 
 1. Accedere al portale di [CloudSimple](access-cloudsimple-portal.md).
 
-2. Passare a **risorse** > Cloud**privati** e selezionare il cloud privato a cui si vuole connettersi.
+2. Passare a **risorse**Cloud  >  **privati** e selezionare il cloud privato a cui si vuole connettersi.
 
 3. Nella pagina **Riepilogo** del cloud privato in informazioni di **base**copiare l'indirizzo IP del server DNS del cloud privato.
 

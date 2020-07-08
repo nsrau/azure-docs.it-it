@@ -8,10 +8,9 @@ ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79365509"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticare e risolvere i problemi quando si usa il trigger di funzioni di Azure per Cosmos DB
@@ -23,7 +22,7 @@ Questo articolo descrive i problemi comuni, le soluzioni alternative e i passagg
 Il trigger e le associazioni di funzioni di Azure per Cosmos DB dipendono dai pacchetti di estensione nel runtime di funzioni di Azure di base. Mantieni sempre aggiornati i pacchetti, in quanto potrebbero includere correzioni e nuove funzionalità che potrebbero risolvere eventuali problemi potenziali che possono verificarsi:
 
 * Per funzioni di Azure V2, vedere [Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
-* Per funzioni di Azure V1, vedere [Microsoft. Azure. webjobs. Extensions. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+* Per funzioni di Azure V1, vedere [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Questo articolo si riferisce sempre a funzioni di Azure V2 ogni volta che viene indicato il runtime, a meno che non venga specificato in modo esplicito.
 
@@ -44,8 +43,8 @@ La funzione di Azure ha esito negativo con il messaggio di errore "la raccolta d
 Ciò significa che uno o entrambi i contenitori di Azure Cosmos necessari per il funzionamento del trigger non esistono o non sono raggiungibili dalla funzione di Azure. **L'errore indica che il database e il contenitore di Azure Cosmos sono il trigger che cerca** in base alla configurazione.
 
 1. Verificare l' `ConnectionStringSetting` attributo e che **faccia riferimento a un'impostazione esistente nel app per le funzioni di Azure**. Il valore di questo attributo non deve essere la stringa di connessione, ma il nome dell'impostazione di configurazione.
-2. Verificare che `databaseName` e `collectionName` esistano nell'account Azure Cosmos. Se si usa la sostituzione automatica dei valori ( `%settingName%` usando i modelli), assicurarsi che il nome dell'impostazione esista nel app per le funzioni di Azure.
-3. Se non si specifica un `LeaseCollectionName/leaseCollectionName`oggetto, il valore predefinito è "leases". Verificare che tale contenitore esista. Facoltativamente, è possibile impostare `CreateLeaseCollectionIfNotExists` l'attributo nel trigger su `true` per crearlo automaticamente.
+2. Verificare che `databaseName` e `collectionName` esistano nell'account Azure Cosmos. Se si usa la sostituzione automatica dei valori (usando i `%settingName%` modelli), assicurarsi che il nome dell'impostazione esista nel app per le funzioni di Azure.
+3. Se non si specifica un oggetto `LeaseCollectionName/leaseCollectionName` , il valore predefinito è "leases". Verificare che tale contenitore esista. Facoltativamente, è possibile impostare l' `CreateLeaseCollectionIfNotExists` attributo nel trigger su `true` per crearlo automaticamente.
 4. Verificare la [configurazione del firewall dell'account Azure Cosmos](how-to-configure-firewall.md) per verificare che non stia bloccando la funzione di Azure.
 
 ### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Non è possibile avviare la funzione di Azure con la "raccolta della velocità effettiva condivisa deve avere una chiave di partizione"
@@ -58,7 +57,7 @@ Questo errore indica che si sta attualmente utilizzando una raccolta di lease pa
 
 ### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>La funzione di Azure non inizia con "la raccolta di lease, se partizionata, deve avere una chiave di partizione uguale a ID".
 
-Questo errore indica che il contenitore dei lease correnti è partizionato, ma il percorso della chiave di partizione `/id`non lo è. Per risolvere questo problema, è necessario ricreare il contenitore leases con `/id` come chiave di partizione.
+Questo errore indica che il contenitore dei lease correnti è partizionato, ma il percorso della chiave di partizione non lo è `/id` . Per risolvere questo problema, è necessario ricreare il contenitore leases con `/id` come chiave di partizione.
 
 ### <a name="you-see-a-value-cannot-be-null-parameter-name-o-in-your-azure-functions-logs-when-you-try-to-run-the-trigger"></a>Viene visualizzato un valore che non può essere null. Nome parametro: o "nei log di funzioni di Azure quando si tenta di eseguire il trigger
 
@@ -77,9 +76,9 @@ Se sono sporadiche, potrebbe esserci un ritardo tra l'archiviazione delle modifi
 ### <a name="some-changes-are-repeated-in-my-trigger"></a>Alcune modifiche vengono ripetute nel trigger
 
 Il concetto di "modifica" è un'operazione su un documento. Gli scenari più comuni in cui vengono ricevuti gli eventi per lo stesso documento sono:
-* L'account usa la coerenza finale. Quando si utilizza il feed delle modifiche in un livello di coerenza finale, è possibile che si verifichino eventi duplicati tra le operazioni di lettura del feed di modifiche successive (l'ultimo evento di un'operazione di lettura viene visualizzato come primo dei prossimi).
-* È in corso l'aggiornamento del documento. Il feed delle modifiche può contenere più operazioni per gli stessi documenti, se il documento riceve aggiornamenti, può selezionare più eventi (uno per ogni aggiornamento). Un modo semplice per distinguere tra le diverse operazioni per lo stesso documento consiste nel tenere `_lsn` traccia della [proprietà per ogni modifica](change-feed.md#change-feed-and-_etag-_lsn-or-_ts). Se non corrispondono, si tratta di modifiche diverse nello stesso documento.
-* Se si identificano i documenti solo `id`da, tenere presente che l'identificatore univoco per un documento `id` è e la relativa chiave di partizione (possono essere presenti due documenti `id` con la stessa chiave di partizione diversa).
+* L'account usa la coerenza finale. Quando si usa il feed di modifiche in un livello di coerenza finale, è possibile che si verifichino eventi duplicati tra le operazioni di lettura di feed di modifiche successivi (l'ultimo evento di un'operazione di lettura viene visualizzato come il primo dell'operazione successiva).
+* È in corso l'aggiornamento del documento. Il feed delle modifiche può contenere più operazioni per gli stessi documenti, se il documento riceve aggiornamenti, può selezionare più eventi (uno per ogni aggiornamento). Un modo semplice per distinguere tra le diverse operazioni per lo stesso documento consiste nel tenere traccia della `_lsn` [proprietà per ogni modifica](change-feed.md#change-feed-and-_etag-_lsn-or-_ts). Se non corrispondono, si tratta di modifiche diverse nello stesso documento.
+* Se si identificano i documenti solo da `id` , tenere presente che l'identificatore univoco per un documento è `id` e la relativa chiave di partizione (possono essere presenti due documenti con la stessa chiave di `id` partizione diversa).
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Alcune modifiche non sono presenti nel trigger
 
@@ -96,7 +95,7 @@ In questo scenario, il modo migliore consiste nell'aggiungere `try/catch` blocch
 
 Se si rileva che alcune modifiche non sono state ricevute dal trigger, lo scenario più comune è che è **in esecuzione un'altra funzione di Azure**. Potrebbe trattarsi di un'altra funzione di Azure distribuita in Azure o di una funzione di Azure in esecuzione in locale nel computer di uno sviluppatore che ha **esattamente la stessa configurazione** (gli stessi contenitori monitorati e di lease) e che questa funzione di Azure sta rubando un subset delle modifiche che si prevede vengano elaborate dalla funzione di Azure.
 
-Inoltre, è possibile convalidare lo scenario, se si conosce il numero di istanze di app per le funzioni di Azure in esecuzione. Se si esamina il contenitore dei lease e si conta il numero di elementi di lease in, i valori distinti `Owner` della proprietà in essi contenuti devono essere uguali al numero di istanze del app per le funzioni. Se sono presenti più proprietari delle istanze note di Azure app per le funzioni, significa che questi proprietari aggiuntivi sono quelli che "rubano" le modifiche.
+Inoltre, è possibile convalidare lo scenario, se si conosce il numero di istanze di app per le funzioni di Azure in esecuzione. Se si esamina il contenitore dei lease e si conta il numero di elementi di lease in, i valori distinti della `Owner` Proprietà in essi contenuti devono essere uguali al numero di istanze del app per le funzioni. Se sono presenti più proprietari delle istanze note di Azure app per le funzioni, significa che questi proprietari aggiuntivi sono quelli che "rubano" le modifiche.
 
 Un modo semplice per aggirare questa situazione consiste nell'applicare un `LeaseCollectionPrefix/leaseCollectionPrefix` alla funzione con un valore nuovo o diverso oppure, in alternativa, eseguire il test con un nuovo contenitore lease.
 
@@ -109,7 +108,7 @@ Per rielaborare tutti gli elementi di un contenitore dall'inizio:
 
 Se si imposta [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) su true, la funzione di Azure inizierà a leggere le modifiche dall'inizio della cronologia della raccolta anziché dall'ora corrente. Questa operazione funziona solo quando non sono presenti lease già creati, ovvero documenti nella raccolta Leases. L'impostazione di questa proprietà su true quando sono già stati creati lease non ha alcun effetto; in questo scenario, quando una funzione viene arrestata e riavviata, inizierà a leggere dall'ultimo checkpoint, come definito nella raccolta Leases. Per rielaborare dall'inizio, seguire i passaggi precedenti 1-4.  
 
-### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>L'associazione può essere eseguita solo con\<il documento IReadOnlyList> o JArray
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>L'associazione può essere eseguita solo con IReadOnlyList \<Document> o JArray
 
 Questo errore si verifica se il progetto di funzioni di Azure o qualsiasi progetto a cui si fa riferimento contiene un riferimento a NuGet manuale a Azure Cosmos DB SDK con una versione diversa da quella fornita dall' [estensione Cosmos DB di funzioni di Azure](./troubleshoot-changefeed-functions.md#dependencies).
 

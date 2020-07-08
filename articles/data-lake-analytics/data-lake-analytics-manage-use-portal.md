@@ -10,10 +10,9 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79265701"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
@@ -30,14 +29,14 @@ Questo articolo descrive come gestire utenti, processi, origini dati e account A
 ### <a name="create-an-account"></a>Creare un account
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Crea una risorsa** > **Intelligence e analisi** > **Data Lake Analytics**.
+2. Fare clic su **Crea una risorsa**  >  **Intelligence e analisi**  >  **Data Lake Analytics**.
 3. Selezionare i valori per gli elementi seguenti: 
    1. **Nome**: nome dell'account di Data Lake Analytics.
    2. **Sottoscrizione**: sottoscrizione di Azure usata per l'account.
    3. **Gruppo di risorse**: gruppo di risorse di Azure in cui creare l'account. 
    4. **Posizione**: data center di Azure per l'account di Data Lake Analytics. 
    5. **Data Lake Store**: archivio predefinito da usare per l'account di Data Lake Analytics. L'account di Azure Data Lake Store e quello di Data Lake Analytics devono trovarsi nella stessa posizione.
-4. Scegliere **Crea**. 
+4. Fare clic su **Crea**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Eliminare un account di Data Lake Analytics
 
@@ -111,7 +110,7 @@ Usare il ruolo Sviluppatore di Data Lake Analytics per consentire agli sviluppat
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Aggiungere utenti o gruppi di sicurezza a un account di Data Lake Analytics
 
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
-2. Fare clic su **controllo di accesso (IAM)** > **Aggiungi assegnazione ruolo**.
+2. Fare clic su **controllo di accesso (IAM)**  >  **Aggiungi assegnazione ruolo**.
 3. Selezionare un ruolo.
 4. Aggiungere un utente.
 5. Fare clic su **OK**.

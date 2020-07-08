@@ -10,10 +10,9 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
 ms.openlocfilehash: f909419810cbd837e57b19a13b2df6ae9ad2ee97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79213591"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics viene eseguito l'aggiornamento al .NET Framework v 4.7.2
@@ -65,13 +64,13 @@ Le incompatibilità con le versioni precedenti più comuni che il controllo è i
   - Azione consigliata: assicurarsi che TaskFactory. FromAsync restituisca true correttamente
 
 - DataObject.GetData ora recupera i dati come UTF-8
-  - Per le app destinate a .NET Framework 4 o che vengono eseguite in .NET Framework 4.5.1 o versioni precedenti, DataObject.GetData recupera dati in formato HTML sotto forma di stringa ASCII. Di conseguenza, i caratteri non ASCII (i caratteri i cui codici ASCII sono maggiori di 0x7F) sono rappresentati da due caratteri casuali. #N # #N # per le app destinate a .NET Framework 4,5 o versioni successive ed eseguite `DataObject.GetData` sul .NET Framework 4.5.2, recupera i dati in formato HTML come UTF-8, che rappresenta i caratteri maggiori di 0x7F correttamente.
+  - Per le app destinate a .NET Framework 4 o che vengono eseguite in .NET Framework 4.5.1 o versioni precedenti, DataObject.GetData recupera dati in formato HTML sotto forma di stringa ASCII. Di conseguenza, i caratteri non ASCII (i caratteri i cui codici ASCII sono maggiori di 0x7F) sono rappresentati da due caratteri casuali. #N # #N # per le app destinate a .NET Framework 4,5 o versioni successive ed eseguite sul .NET Framework 4.5.2, `DataObject.GetData` Recupera i dati in formato HTML come UTF-8, che rappresenta i caratteri maggiori di 0x7F correttamente.
   - Librerie interessate: Glo
   - Azione consigliata: assicurarsi che i dati recuperati siano il formato desiderato
 
 - XmlWriter genera un'eccezione per le coppie di surrogati non valide
   - Per le app destinate a .NET Framework 4.5.2 o a versioni precedenti, se si scrive una coppia di surrogati non valida usando la gestione dei fallback delle eccezioni, non viene sempre generata un'eccezione. Per le applicazioni destinate a .NET Framework 4.6, il tentativo di scrivere una coppia di surrogati non valida genera `ArgumentException`.
-  - Librerie interessate: System. XML, System. XML. ReaderWriter
+  - Librerie interessate: System.Xml, System.Xml. ReaderWriter
   - Azione consigliata: assicurarsi di non scrivere una coppia di surrogati non valida che provocherà l'eccezione dell'argomento
 
 - HtmlTextWriter non esegue correttamente il rendering dell'elemento `<br/>`
@@ -85,7 +84,7 @@ Le incompatibilità con le versioni precedenti più comuni che il controllo è i
   - Azione consigliata: assicurarsi di gestire il nuovo comportamento previsto quando sono presenti criteri di autorizzazione null
   
 - RSACng ora carica correttamente le chiavi RSA di dimensioni non standard
-  - Nelle versioni di .NET Framework precedenti alla 4.6.2, i clienti con chiavi di dimensioni non standard per i certificati RSA non possono accedere a queste chiavi tramite i metodi di estensione `GetRSAPublicKey()` e `GetRSAPrivateKey()`. Viene `CryptographicException` generata un'eccezione con il messaggio "la dimensione della chiave richiesta non è supportata". Con il .NET Framework 4.6.2 questo problema è stato risolto. Analogamente `RSA.ImportParameters()` , `RSACng.ImportParameters()` e ora funzionano con dimensioni della chiave non standard senza `CryptographicException`generare l'eccezione.
+  - Nelle versioni di .NET Framework precedenti alla 4.6.2, i clienti con chiavi di dimensioni non standard per i certificati RSA non possono accedere a queste chiavi tramite i metodi di estensione `GetRSAPublicKey()` e `GetRSAPrivateKey()`. `CryptographicException`Viene generata un'eccezione con il messaggio "la dimensione della chiave richiesta non è supportata". Con il .NET Framework 4.6.2 questo problema è stato risolto. Analogamente, `RSA.ImportParameters()` e `RSACng.ImportParameters()` ora funzionano con dimensioni della chiave non standard senza generare `CryptographicException` l'eccezione.
   - Librerie interessate: mscorlib, System. Core
   - Azione consigliata: verificare che le chiavi RSA funzionino come previsto
 
@@ -95,11 +94,11 @@ Le incompatibilità con le versioni precedenti più comuni che il controllo è i
   - Azione consigliata:
 
 - Chiamate dei costruttori ClaimsIdentity
-  - A partire da .NET Framework 4.6.2 è stata introdotta una modifica al modo in cui i costruttori `T:System.Security.Claims.ClaimsIdentity` con un parametro `T:System.Security.Principal.IIdentity` impostano la proprietà `P:System.Security.Claims.ClaimsIdentify.Actor`. Se l'argomento `T:System.Security.Principal.IIdentity` è un oggetto `T:System.Security.Claims.ClaimsIdentity` e la proprietà `P:System.Security.Claims.ClaimsIdentify.Actor` di tale oggetto `T:System.Security.Claims.ClaimsIdentity` non è `null`, la proprietà `P:System.Security.Claims.ClaimsIdentify.Actor` viene allegata usando il metodo `M:System.Security.Claims.ClaimsIdentity.Clone`. Nel Framework 4.6.1 e nelle versioni precedenti, la `P:System.Security.Claims.ClaimsIdentify.Actor` proprietà viene associata come riferimento esistente. A causa di questa modifica, a partire dalla .NET Framework 4.6.2, `P:System.Security.Claims.ClaimsIdentify.Actor` la proprietà del nuovo `T:System.Security.Claims.ClaimsIdentity` oggetto non è uguale alla `P:System.Security.Claims.ClaimsIdentify.Actor` proprietà dell' `T:System.Security.Principal.IIdentity` argomento del costruttore. In .NET Framework 4.6.1 e versioni precedenti è uguale.
+  - A partire da .NET Framework 4.6.2 è stata introdotta una modifica al modo in cui i costruttori `T:System.Security.Claims.ClaimsIdentity` con un parametro `T:System.Security.Principal.IIdentity` impostano la proprietà `P:System.Security.Claims.ClaimsIdentify.Actor`. Se l'argomento `T:System.Security.Principal.IIdentity` è un oggetto `T:System.Security.Claims.ClaimsIdentity` e la proprietà `P:System.Security.Claims.ClaimsIdentify.Actor` di tale oggetto `T:System.Security.Claims.ClaimsIdentity` non è `null`, la proprietà `P:System.Security.Claims.ClaimsIdentify.Actor` viene allegata usando il metodo `M:System.Security.Claims.ClaimsIdentity.Clone`. Nel Framework 4.6.1 e nelle versioni precedenti, la `P:System.Security.Claims.ClaimsIdentify.Actor` proprietà viene associata come riferimento esistente. A causa di questa modifica, a partire dalla .NET Framework 4.6.2, la `P:System.Security.Claims.ClaimsIdentify.Actor` proprietà del nuovo `T:System.Security.Claims.ClaimsIdentity` oggetto non è uguale alla `P:System.Security.Claims.ClaimsIdentify.Actor` proprietà dell'argomento del costruttore `T:System.Security.Principal.IIdentity` . In .NET Framework 4.6.1 e versioni precedenti è uguale.
   - Librerie interessate: mscorlib
   - Azione consigliata: verificare che ClaimsIdentity funzioni come previsto in un nuovo Runtime
 
 - La serializzazione dei caratteri di controllo con DataContractJsonSerializer è ora compatibile con ECMAScript V6 e V8
   - In .NET Framework 4.6.2 e versioni precedenti, DataContractJsonSerializer non serializza alcuni caratteri di controllo speciali, ad esempio \b, \f e \t, in modo compatibile con gli standard ECMAScript V6 e V8. A partire da .NET Framework 4.7, la serializzazione di questi caratteri di controllo è compatibile con ECMAScript V6 e V8.
-  - Librerie interessate: System. Runtime. Serialization. JSON
+  - Librerie interessate: System.Runtime.Serialization.Json
   - Azione consigliata: garantire lo stesso comportamento con DataContractJsonSerializer

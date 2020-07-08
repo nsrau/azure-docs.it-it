@@ -4,10 +4,9 @@ description: Viene descritto come risolvere gli errori di quota delle risorse du
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79273787"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Risolvere gli errori di quota delle risorse
@@ -93,7 +92,7 @@ Per ottenere un aumento della quota, accedere al portale e inviare una richiesta
 >
 >
 
-1. Selezionare **sottoscrizioni**.
+1. Selezionare **Sottoscrizioni**.
 
    ![Sottoscrizioni](./media/error-resource-quota/subscriptions.png)
 
@@ -101,7 +100,7 @@ Per ottenere un aumento della quota, accedere al portale e inviare una richiesta
 
    ![Seleziona sottoscrizione](./media/error-resource-quota/select-subscription.png)
 
-3. Selezionare **Utilizzo e quote**.
+3. Selezionare **utilizzo e quote**
 
    ![Selezionare Utilizzo e quote](./media/error-resource-quota/select-usage-quotas.png)
 

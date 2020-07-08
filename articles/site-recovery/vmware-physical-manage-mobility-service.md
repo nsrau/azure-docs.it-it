@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79256965"
 ---
 # <a name="manage-the-mobility-agent"></a>Gestire l'agente di mobilità 
@@ -66,7 +65,7 @@ Quando è stato distribuito Site Recovery, per consentire l'installazione push d
 
 Eseguire la disinstallazione dall'interfaccia utente o da un prompt dei comandi.
 
-- **Dall'interfaccia utente**: nel Pannello di controllo della macchina selezionare **Programmi**. Selezionare **Microsoft Azure Site Recovery Disinstalla servizio Mobility/Server** > **Uninstall**di destinazione master.
+- **Dall'interfaccia utente**: nel Pannello di controllo della macchina selezionare **Programmi**. Selezionare **Microsoft Azure Site Recovery Disinstalla servizio Mobility/Server di destinazione master**  >  **Uninstall**.
 - **Da un prompt dei comandi**: aprire una finestra dei comandi con privilegi di amministratore sul computer. Eseguire il comando seguente: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"

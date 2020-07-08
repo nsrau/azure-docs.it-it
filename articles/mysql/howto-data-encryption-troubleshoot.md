@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79297041"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Risolvere i problemi di crittografia dei dati in database di Azure per MySQL
@@ -21,7 +20,7 @@ Questo articolo descrive come identificare e risolvere i problemi comuni che pos
 
 Quando si configura la crittografia dei dati per l'uso di una chiave gestita dal cliente in Azure Key Vault, i server richiedono l'accesso continuo alla chiave. Se il server perde l'accesso alla chiave gestita dal cliente in Azure Key Vault, rifiuterà tutte le connessioni, restituirà il messaggio di errore appropriato e lo stato sarà ***inaccessibile*** nella portale di Azure.
 
-Se non è più necessario un database di Azure inaccessibile per il server MySQL, è possibile eliminarlo per arrestare i costi. Non sono consentite altre azioni nel server finché non viene ripristinato l'accesso all'insieme di credenziali delle chiavi e il server non è disponibile. Non è inoltre possibile modificare l'opzione di crittografia dei dati da `Yes`(gestito dal cliente) a `No` (gestito dal servizio) in un server non accessibile quando viene crittografato con una chiave gestita dal cliente. È necessario riconvalidare manualmente la chiave prima che il server sia nuovamente accessibile. Questa azione è necessaria per proteggere i dati da accessi non autorizzati, mentre le autorizzazioni per la chiave gestita dal cliente vengono revocate.
+Se non è più necessario un database di Azure inaccessibile per il server MySQL, è possibile eliminarlo per arrestare i costi. Non sono consentite altre azioni nel server finché non viene ripristinato l'accesso all'insieme di credenziali delle chiavi e il server non è disponibile. Non è inoltre possibile modificare l'opzione di crittografia dei dati da `Yes` (gestito dal cliente) a `No` (gestito dal servizio) in un server non accessibile quando viene crittografato con una chiave gestita dal cliente. È necessario riconvalidare manualmente la chiave prima che il server sia nuovamente accessibile. Questa azione è necessaria per proteggere i dati da accessi non autorizzati, mentre le autorizzazioni per la chiave gestita dal cliente vengono revocate.
 
 ## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>Errori comuni che fanno sì che il server diventi inaccessibile
 
@@ -51,7 +50,7 @@ Gli errori di configurazione seguenti provocano la maggior parte dei problemi co
 - `AzureKeyVaultMissingPermissionsMessage`
 - **Spiegazione**: il server non dispone delle autorizzazioni Get, wrap e unwrap necessarie per Azure Key Vault. Concedere le autorizzazioni mancanti all'entità servizio con ID.
 
-### <a name="mitigation"></a>Misura di prevenzione
+### <a name="mitigation"></a>Strategia di riduzione del rischio
 
 - Verificare che la chiave gestita dal cliente sia presente nell'insieme di credenziali delle chiavi.
 - Identificare l'insieme di credenziali delle chiavi, quindi passare all'insieme di credenziali delle chiavi nel portale di Azure.

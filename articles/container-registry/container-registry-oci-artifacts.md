@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: stevelas
 ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371053"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Eseguire il push e il pull di un artefatto OCI usando un registro contenitori di Azure
@@ -22,9 +21,9 @@ Per illustrare questa funzionalità, questo articolo illustra come usare lo stru
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Registro contenitori di Azure** : creare un registro contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
-* **Strumento Oras** : scaricare e installare una versione di Oras corrente per il sistema operativo dal [repository GitHub](https://github.com/deislabs/oras/releases). Lo strumento viene rilasciato come archivio compresso (`.tar.gz` file). Estrarre e installare il file utilizzando le procedure standard per il sistema operativo in uso.
+* **Strumento Oras** : scaricare e installare una versione di Oras corrente per il sistema operativo dal [repository GitHub](https://github.com/deislabs/oras/releases). Lo strumento viene rilasciato come archivio compresso ( `.tar.gz` file). Estrarre e installare il file utilizzando le procedure standard per il sistema operativo in uso.
 * **Azure Active Directory entità servizio (facoltativo)** : per eseguire l'autenticazione direttamente con Oras, creare un' [entità servizio](container-registry-auth-service-principal.md) per accedere al registro di sistema. Assicurarsi che all'entità servizio venga assegnato un ruolo, ad esempio AcrPush, in modo che disponga delle autorizzazioni per eseguire il push e il pull degli artefatti.
-* INTERFACCIA della riga di comando di **Azure (facoltativo)** : per usare una singola identità, è necessaria un'installazione locale dell'interfaccia della riga di comando di Azure. È consigliabile usare la versione 2.0.71 o successiva. Eseguire `az --version `per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* INTERFACCIA della riga di comando di **Azure (facoltativo)** : per usare una singola identità, è necessaria un'installazione locale dell'interfaccia della riga di comando di Azure. È consigliabile usare la versione 2.0.71 o successiva. Eseguire `az --version ` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * **Docker (facoltativo)** : per usare una singola identità, è necessario che Docker sia installato localmente, per l'autenticazione con il registro di sistema. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [macOS][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
 
@@ -34,13 +33,13 @@ Questa sezione illustra due flussi di lavoro consigliati per accedere al registr
 
 ### <a name="sign-in-with-oras"></a>Accedi con ORAS
 
-Usando un' [entità servizio](container-registry-auth-service-principal.md) con diritti push, eseguire il `oras login` comando per accedere al registro usando l'ID applicazione e la password dell'entità servizio. Specificare il nome completo del registro di sistema (tutto in lettere minuscole), in questo caso *MyRegistry.azurecr.io*. L'ID applicazione dell'entità servizio viene passato nella variabile `$SP_APP_ID`di ambiente e la password nella variabile. `$SP_PASSWD`
+Usando un' [entità servizio](container-registry-auth-service-principal.md) con diritti push, eseguire il `oras login` comando per accedere al registro usando l'ID applicazione e la password dell'entità servizio. Specificare il nome completo del registro di sistema (tutto in lettere minuscole), in questo caso *MyRegistry.azurecr.io*. L'ID applicazione dell'entità servizio viene passato nella variabile di ambiente `$SP_APP_ID` e la password nella variabile `$SP_PASSWD` .
 
 ```bash
 oras login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
-Per leggere la password da stdin, usare `--password-stdin`.
+Per leggere la password da stdin, usare `--password-stdin` .
 
 ### <a name="sign-in-with-azure-cli"></a>Accedere tramite l'interfaccia della riga di comando di Azure
 
@@ -64,7 +63,7 @@ Creare un file di testo in una directory di lavoro locale con un testo di esempi
 echo "Here is an artifact!" > artifact.txt
 ```
 
-Usare il `oras push` comando per eseguire il push di questo file di testo nel registro. L'esempio seguente inserisce il file di testo di esempio nel `samples/artifact` repository. Il registro di sistema viene identificato con il nome completo del registro di sistema *MyRegistry.azurecr.io* (tutto in lettere minuscole). L'artefatto è `1.0`contrassegnato. Per impostazione predefinita, l'elemento ha un tipo non definito identificato dalla stringa del *tipo di supporto* che segue `artifact.txt`il nome del file. Vedere gli [artefatti OCI](https://github.com/opencontainers/artifacts) per altri tipi. 
+Usare il `oras push` comando per eseguire il push di questo file di testo nel registro. L'esempio seguente inserisce il file di testo di esempio nel `samples/artifact` repository. Il registro di sistema viene identificato con il nome completo del registro di sistema *MyRegistry.azurecr.io* (tutto in lettere minuscole). L'artefatto è contrassegnato `1.0` . Per impostazione predefinita, l'elemento ha un tipo non definito identificato dalla stringa del *tipo di supporto* che segue il nome del file `artifact.txt` . Vedere gli [artefatti OCI](https://github.com/opencontainers/artifacts) per altri tipi. 
 
 **Linux**
 
@@ -90,7 +89,7 @@ Pushed myregistry.azurecr.io/samples/artifact:1.0
 Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
 ```
 
-Per gestire gli artefatti nel registro di sistema, se si usa l'interfaccia della riga di `az acr` comando di Azure, eseguire i comandi standard per gestire le immagini. Ad esempio, ottenere gli attributi dell'artefatto usando il comando [AZ ACR repository Show][az-acr-repository-show] :
+Per gestire gli artefatti nel registro di sistema, se si usa l'interfaccia della riga di comando di Azure, eseguire i `az acr` comandi standard per gestire le immagini. Ad esempio, ottenere gli attributi dell'artefatto usando il comando [AZ ACR repository Show][az-acr-repository-show] :
 
 ```azurecli
 az acr repository show \
@@ -116,7 +115,7 @@ L'output è simile al seguente:
 }
 ```
 
-## <a name="pull-an-artifact"></a>Effettuare il pull di un artefatto
+## <a name="pull-an-artifact"></a>Eseguire il pull di un artefatto
 
 Eseguire il `oras pull` comando per estrarre l'artefatto dal registro di sistema.
 

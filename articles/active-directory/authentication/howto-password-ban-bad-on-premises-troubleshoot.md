@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79263647"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Risoluzione dei problemi: protezione Azure AD password locale
@@ -40,7 +39,7 @@ Il sintomo principale di questo problema è 30018 eventi nel registro eventi di 
 
 1. Il computer host proxy blocca l'accesso all'endpoint RPC (dinamico o statico) in ascolto da parte del servizio proxy
 
-   Il programma di installazione del proxy di protezione Azure AD password crea automaticamente una regola in ingresso Windows Firewall che consente l'accesso a tutte le porte in ingresso ascoltate dal servizio proxy Azure AD password protection. Se questa regola viene successivamente eliminata o disattivata, gli agenti del controller di dominio non saranno in grado di comunicare con il servizio proxy. Se il Windows Firewall incorporato è stato disabilitato al posto di un altro prodotto firewall, è necessario configurarlo per consentire l'accesso a tutte le porte in ingresso ascoltate dal servizio Azure AD proxy di protezione delle password. Questa configurazione può essere resa più specifica se il servizio proxy è stato configurato per l'ascolto su una porta RPC statica specifica (tramite `Set-AzureADPasswordProtectionProxyConfiguration` il cmdlet).
+   Il programma di installazione del proxy di protezione Azure AD password crea automaticamente una regola in ingresso Windows Firewall che consente l'accesso a tutte le porte in ingresso ascoltate dal servizio proxy Azure AD password protection. Se questa regola viene successivamente eliminata o disattivata, gli agenti del controller di dominio non saranno in grado di comunicare con il servizio proxy. Se il Windows Firewall incorporato è stato disabilitato al posto di un altro prodotto firewall, è necessario configurarlo per consentire l'accesso a tutte le porte in ingresso ascoltate dal servizio Azure AD proxy di protezione delle password. Questa configurazione può essere resa più specifica se il servizio proxy è stato configurato per l'ascolto su una porta RPC statica specifica (tramite il `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
 
 1. Il computer host proxy non è configurato per consentire ai controller di dominio di accedere al computer. Questo comportamento viene controllato tramite l'assegnazione dei privilegi utente "accedi al computer dalla rete". È necessario concedere questo privilegio a tutti i controller di dominio in tutti i domini della foresta. Questa impostazione è spesso vincolata come parte di una maggiore attività di protezione avanzata della rete.
 
@@ -50,9 +49,9 @@ Il sintomo principale di questo problema è 30018 eventi nel registro eventi di 
 
 1. Verificare che la foresta e tutti i server proxy siano registrati nello stesso tenant di Azure.
 
-   È possibile verificare questo requisito eseguendo i `Get-AzureADPasswordProtectionProxy` cmdlet e `Get-AzureADPasswordProtectionDCAgent` di PowerShell, quindi confrontare la `AzureTenant` proprietà di ogni elemento restituito. Per il corretto funzionamento, il nome del tenant restituito deve essere lo stesso in tutti gli agenti controller di dominio e i server proxy.
+   È possibile verificare questo requisito eseguendo i `Get-AzureADPasswordProtectionProxy` cmdlet e di `Get-AzureADPasswordProtectionDCAgent` PowerShell, quindi confrontare la `AzureTenant` proprietà di ogni elemento restituito. Per il corretto funzionamento, il nome del tenant restituito deve essere lo stesso in tutti gli agenti controller di dominio e i server proxy.
 
-   Se esiste una condizione di mancata corrispondenza della registrazione del tenant di Azure, questo problema può essere `Register-AzureADPasswordProtectionProxy` risolto eseguendo i `Register-AzureADPasswordProtectionForest` cmdlet di e/o PowerShell in base alle esigenze, assicurandosi di usare le credenziali dello stesso tenant di Azure per tutte le registrazioni.
+   Se esiste una condizione di mancata corrispondenza della registrazione del tenant di Azure, questo problema può essere risolto eseguendo i `Register-AzureADPasswordProtectionProxy` cmdlet di e/o `Register-AzureADPasswordProtectionForest` PowerShell in base alle esigenze, assicurandosi di usare le credenziali dello stesso tenant di Azure per tutte le registrazioni.
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>Impossibile crittografare o decrittografare i file di criteri password
 
@@ -94,7 +93,7 @@ Questo problema può avere diverse cause.
 
 1. È possibile che l'algoritmo di convalida della password funzioni come previsto. Vedere [come vengono valutate le password](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil. exe non è in grado di impostare una password di ripristino servizi directory debole
+## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil.exe non riesce a impostare una password di ripristino servizi directory debole
 
 Active Directory convaliderà sempre una nuova password della modalità di ripristino dei servizi directory per verificare che soddisfi i requisiti di complessità delle password del dominio; Questa convalida chiama anche le dll del filtro password come Azure AD la protezione delle password. Se la nuova password della modalità ripristino servizi directory viene rifiutata, viene restituito il messaggio di errore seguente:
 

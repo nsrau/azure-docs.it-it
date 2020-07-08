@@ -8,10 +8,9 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: f6afd5c4cc5aa0215f943979ae91389b39d449f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79284928"
 ---
 # <a name="iot-hub-dps-ip-addresses"></a>Indirizzi IP DPS dell'hub Internet
@@ -28,9 +27,9 @@ I prefissi degli indirizzi IP per gli endpoint pubblici di un servizio Device pr
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-* Quando si aggiungono le regole Consenti nella configurazione del firewall dei dispositivi, è preferibile fornire [porte specifiche utilizzate dai protocolli applicabili](../iot-hub/iot-hub-devguide-protocols.md#port-numbers).
+* Quando si aggiungono le regole ALLOW nella configurazione del firewall dei dispositivi, è preferibile impostare [porte specifiche usate dai protocolli applicabili](../iot-hub/iot-hub-devguide-protocols.md#port-numbers).
 
-* I prefissi degli indirizzi IP delle istanze di DPS sono soggetti a modifiche. Queste modifiche vengono pubblicate periodicamente tramite i tag di servizio prima di avere effetto. È pertanto importante sviluppare processi per recuperare e usare regolarmente i tag del servizio più recenti. Questo processo può essere automatizzato tramite l' [API di individuazione dei tag di servizio](../virtual-network/service-tags-overview.md#service-tags-on-premises). L'API di individuazione dei tag del servizio è ancora in anteprima e in alcuni casi potrebbe non produrre l'elenco completo dei tag e degli indirizzi IP. Fino a quando l'API di individuazione non è disponibile a livello generale, è consigliabile usare i [tag del servizio in formato JSON scaricabile](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
+* I prefissi degli indirizzi IP delle istanze di DPS sono soggetti a modifiche. Queste modifiche vengono pubblicate periodicamente tramite i tag di servizio prima di diventare effettive. Per questa ragione è importante sviluppare processi per recuperare e usare regolarmente i tag di servizio più recenti. Questo processo può essere automatizzato tramite l'[API di individuazione dei tag di servizio](../virtual-network/service-tags-overview.md#service-tags-on-premises). L'API di individuazione dei tag del servizio è ancora in anteprima e in alcuni casi potrebbe non produrre l'elenco completo dei tag e degli indirizzi IP. Fino a quando l'API di individuazione non è disponibile a livello generale, è consigliabile usare i [tag del servizio in formato JSON scaricabile](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
 
 * Usare *AzureIoTHub. [ nome area]* tag per identificare i prefissi IP usati dagli endpoint DPS in un'area specifica. Per tenere conto del ripristino di emergenza del Data Center o del [failover a livello](../iot-hub/iot-hub-ha-dr.md)di area, assicurarsi che sia abilitata anche la connettività ai prefissi IP dell'area della coppia geografica dell'istanza di DPS.
 
@@ -39,7 +38,7 @@ I prefissi degli indirizzi IP per gli endpoint pubblici di un servizio Device pr
 
 ## <a name="limitations-and-workarounds"></a>Limitazioni e soluzioni alternative
 
-* La funzionalità filtro IP DPS ha un limite di 100 regole. Questo limite e può essere generato tramite richieste tramite il supporto tecnico di Azure. 
+* La funzionalità filtro IP DPS ha un limite di 100 regole. Questo limite può essere aumentato con richieste tramite l'assistenza clienti di Azure. 
 
 * Le [regole di filtro IP](iot-dps-ip-filtering.md) configurate si applicano solo agli endpoint DPS e non agli endpoint dell'hub degli indirizzi IP collegati. Il filtro IP per gli hub di Internet delle cose collegato deve essere configurato separatamente. Per altre informazioni, vedere [regole di filtro IP dell'hub](../iot-hub/iot-hub-ip-filtering.md)Internet.
 

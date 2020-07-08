@@ -4,10 +4,9 @@ description: Informazioni sul failover e sui problemi in Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281808"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Informazioni sul failover/failback del ripristino di emergenza locale
@@ -43,9 +42,9 @@ Il failover è un'attività a due fasi:
 
 Per connettersi alle macchine virtuali di Azure create dopo il failover tramite RDP/SSH, esistono diversi requisiti.
 
-**Failover** | **Posizione** | **Azioni**
+**Failover** | **Posizione** | **Actions**
 --- | --- | ---
-**VM di Azure (Windows (** | Nel computer locale prima del failover | **Accesso tramite Internet**: abilitare RDP. Assicurarsi che vengano aggiunte regole TCP e UDP per **pubblico**e che il protocollo RDP sia consentito per tutti i profili in **Windows Firewall** > **app consentite**.<br/><br/> **Accesso tramite VPN da sito a sito**: abilitare RDP nel computer. Verificare che il protocollo RDP sia consentito nella **Windows Firewall** -> **app e funzionalità consentite**per le reti di **dominio e private** .<br/><br/>  Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135)<br/><br/> Quando si attiva un failover, verificare che nella macchina virtuale non siano in sospeso aggiornamenti di Windows. Windows Update potrebbe iniziare quando si esegue il failover e non sarà possibile accedere alla macchina virtuale fino a quando non vengono eseguiti gli aggiornamenti.
+**VM di Azure (Windows (** | Nel computer locale prima del failover | **Accesso tramite Internet**: abilitare RDP. Assicurarsi che vengano aggiunte regole TCP e UDP per **pubblico**e che il protocollo RDP sia consentito per tutti i profili in **Windows Firewall**  >  **app consentite**.<br/><br/> **Accesso tramite VPN da sito a sito**: abilitare RDP nel computer. Verificare che il protocollo RDP sia consentito nella **Windows Firewall**  ->  **app e funzionalità consentite**per le reti di **dominio e private** .<br/><br/>  Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135)<br/><br/> Quando si attiva un failover, verificare che nella macchina virtuale non siano in sospeso aggiornamenti di Windows. Windows Update potrebbe iniziare quando si esegue il failover e non sarà possibile accedere alla macchina virtuale fino a quando non vengono eseguiti gli aggiornamenti.
 **VM di Azure che esegue Windows** | Nella macchina virtuale di Azure dopo il failover |  [Aggiungere un indirizzo IP pubblico](https://aka.ms/addpublicip) per la macchina virtuale.<br/><br/> Le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e nella subnet di Azure a cui è connessa devono consentire le connessioni in ingresso alla porta RDP.<br/><br/> Selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale. Se non è possibile connettersi, verificare che la macchina virtuale sia in esecuzione ed esaminare i suggerimenti per la [risoluzione dei problemi](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **VM di Azure che esegue Linux** | Nel computer locale prima del failover | Assicurarsi che il servizio Secure Shell nella macchina virtuale sia impostato per l'avvio automatico all'avvio del sistema.<br/><br/> Verificare che le regole firewall accettino la connessione SSH.
 **VM di Azure che esegue Linux** | Nella macchina virtuale di Azure dopo il failover | Le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e nella subnet di Azure a cui è connessa devono consentire le connessioni in ingresso alla porta SSH.<br/><br/> [Aggiungere un indirizzo IP pubblico](https://aka.ms/addpublicip) per la macchina virtuale.<br/><br/> Selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale.<br/><br/>
@@ -78,12 +77,12 @@ Durante il failover, è possibile selezionare diverse opzioni per i punti di rip
 
 **Opzione** | **Dettagli**
 --- | ---
-**Più recente (RPO più basso)** | Questa opzione fornisce l'obiettivo del punto di ripristino (RPO) più basso. Per prima cosa elabora tutti i dati inviati al servizio Site Recovery, per creare un punto di ripristino per ogni macchina virtuale, prima di eseguire il failover. Questo punto di ripristino include tutti i dati replicati per Site Recovery quando è stato attivato il failover.
-**Elaborato più recente**  | Questa opzione esegue il failover delle macchine virtuali nel punto di ripristino più recente elaborato da Site Recovery. Per visualizzare il punto di ripristino più recente per una macchina virtuale specifica, controllare i **punti di ripristino più recenti** nelle impostazioni della macchina virtuale. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
+**Più recente (RPO più basso)** | Questa opzione assicura l'obiettivo del punto di ripristino (RPO) più basso. Per prima cosa elabora tutti i dati inviati al servizio Site Recovery, per creare un punto di ripristino per ogni macchina virtuale, prima di eseguire il failover. Questo punto di ripristino include tutti i dati replicati per Site Recovery quando è stato attivato il failover.
+**Elaborato più recente**  | Questa opzione esegue il failover delle macchine virtuali nel punto di ripristino più recente elaborato da Site Recovery. Per vedere il punto di ripristino più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
 **Coerente con l'app più recente** |  Questa opzione esegue il failover delle macchine virtuali nel punto di ripristino coerente con l'applicazione più recente elaborato da Site Recovery, se sono abilitati punti di ripristino coerenti con l'app. Controllare il punto di ripristino più recente nelle impostazioni della macchina virtuale.
 **Elaborato più recente per più macchine virtuali** | questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali in cui è abilitata l'impostazione eseguono il failover nel punto di ripristino coerente tra più macchine comune più recente. Tutte le altre macchine virtuali nel piano vengono sottoposti a failover al punto di ripristino elaborato più recente.
 **Coerente con l'app più recente per più macchine virtuali** |  questa opzione è disponibile per i piani di ripristino con una o più macchine virtuali in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di ripristino coerente a livello applicazione tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di ripristino più recente coerente con l'applicazione.
-**Impostazione personalizzata** | Usare questa opzione per eseguire il failover di una macchina virtuale specifica in un determinato punto di ripristino nel tempo. Questa opzione non è disponibile per i piani di ripristino.
+**Personalizzato** | Usare questa opzione per eseguire il failover di una macchina virtuale specifica in un determinato punto di ripristino nel tempo. Questa opzione non è disponibile per i piani di ripristino.
 
 > [!NOTE]
 > Non è possibile migrare i punti di ripristino in un altro insieme di credenziali di servizi di ripristino

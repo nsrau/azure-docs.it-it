@@ -9,10 +9,9 @@ ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79139114"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gestire progetti, modelli, flussi di immagini in un cluster Azure Red Hat OpenShift 
@@ -69,7 +68,7 @@ L'accesso all'API viene concesso agli sviluppatori con l'associazione del ruolo 
    oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
-3. Rimuovere il ruolo dal processo di aggiornamento di ARO aggiungendo l'annotazione `openshift.io/reconcile-protect: "true"`seguente:.
+3. Rimuovere il ruolo dal processo di aggiornamento di ARO aggiungendo l'annotazione seguente: `openshift.io/reconcile-protect: "true"` .
 
    ```
    ...
@@ -79,7 +78,7 @@ L'accesso all'API viene concesso agli sviluppatori con l'associazione del ruolo 
    ...
    ```
 
-4. Modificare l'associazione di ruoli del cluster `system:authenticated:oauth` in modo da impedire la creazione di progetti:
+4. Modificare l'associazione di ruoli del cluster in modo da impedire la `system:authenticated:oauth` creazione di progetti:
 
    ```
    apiVersion: rbac.authorization.k8s.io/v1
@@ -101,8 +100,8 @@ L'accesso all'API viene concesso agli sviluppatori con l'associazione del ruolo 
 
 ## <a name="manage-default-templates-and-imagestreams"></a>Gestisci modelli e imageStreams predefiniti
 
-In Azure Red Hat OpenShift è possibile disabilitare gli aggiornamenti per tutti i modelli e i flussi di `openshift` immagini predefiniti all'interno dello spazio dei nomi.
-Per disabilitare gli aggiornamenti per `Templates` tutti `ImageStreams` i `openshift` e nello spazio dei nomi:
+In Azure Red Hat OpenShift è possibile disabilitare gli aggiornamenti per tutti i modelli e i flussi di immagini predefiniti all'interno `openshift` dello spazio dei nomi.
+Per disabilitare gli aggiornamenti per tutti i `Templates` e `ImageStreams` nello `openshift` spazio dei nomi:
 
 1. Accedere come utente con `customer-admin` privilegi.
 
@@ -112,7 +111,7 @@ Per disabilitare gli aggiornamenti per `Templates` tutti `ImageStreams` i `opens
    oc edit namespace openshift
    ```
 
-3. Rimuovere `openshift` lo spazio dei nomi dal processo di aggiornamento di Aro aggiungendo l'annotazione seguente:`openshift.io/reconcile-protect: "true"`
+3. Rimuovere lo `openshift` spazio dei nomi dal processo di aggiornamento di Aro aggiungendo l'annotazione seguente:`openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -122,7 +121,7 @@ Per disabilitare gli aggiornamenti per `Templates` tutti `ImageStreams` i `opens
    ...
    ```
 
-   È possibile rimuovere qualsiasi singolo `openshift` oggetto nello spazio dei nomi dal processo di aggiornamento aggiungendo annotazioni `openshift.io/reconcile-protect: "true"` .
+   È possibile rimuovere qualsiasi singolo oggetto nello `openshift` spazio dei nomi dal processo di aggiornamento aggiungendo annotazioni `openshift.io/reconcile-protect: "true"` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

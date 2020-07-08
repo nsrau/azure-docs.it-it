@@ -8,10 +8,9 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79096787"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Preparare la modifica del formato ai log della piattaforma di monitoraggio di Azure archiviati in un account di archiviazione
@@ -25,7 +24,7 @@ ms.locfileid: "79096787"
 Monitoraggio di Azure offre una funzionalità che consente di inviare log delle risorse e log attività in un account di archiviazione di Azure, in uno spazio dei nomi di hub eventi o in un'area di lavoro Log Analytics in monitoraggio di Azure. Per risolvere un problema di prestazioni del sistema, il **1 ° novembre 2018 alle 12:00 mezzanotte UTC** il formato di invio dei dati di log all'archiviazione BLOB è cambiato. Se si dispone di strumenti che leggono dati dalla archiviazione blob, è necessario aggiornarli per il riconoscimento del nuovo formato dati.
 
 * Il 1 ° novembre 2018 alle 12:00 mezzanotte UTC il formato BLOB è stato modificato in modo da essere [righe JSON](http://jsonlines.org/). Ciò significa che ogni record sarà delimitato da una nuova riga, senza matrice di record esterna e senza virgola tra i record JSON.
-* Il formato BLOB è stato modificato per tutte le impostazioni di diagnostica in tutte le sottoscrizioni contemporaneamente. Il primo file PT1H. JSON emesso per il 1 ° novembre usava questo nuovo formato. I nomi di blob e contenitore rimangono invariati.
+* Il formato BLOB è stato modificato per tutte le impostazioni di diagnostica in tutte le sottoscrizioni contemporaneamente. Il primo PT1H.jsnel file emesso per il 1 ° novembre usava questo nuovo formato. I nomi di blob e contenitore rimangono invariati.
 * L'impostazione di un'impostazione di diagnostica tra prima del 1 ° novembre ha continuato a emettere i dati nel formato corrente fino al 1 ° novembre.
 * Questa modifica si è verificata in una sola volta in tutte le aree del cloud pubblico. La modifica non si verificherà ancora nei Microsoft Azure gestiti da 21Vianet, Azure Germania o cloud di Azure per enti pubblici.
 * Questa modifica interessa i tipi di dati seguenti:

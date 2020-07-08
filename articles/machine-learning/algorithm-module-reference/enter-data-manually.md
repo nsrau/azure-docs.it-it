@@ -10,15 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 35e31e5ace53654e8aad794dd3e25fc04bd9a088
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367517"
 ---
 # <a name="enter-data-manually-module"></a>Immettere manualmente i dati del modulo
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
 
 Usare il modulo **Enter data manually** per creare un set di dati di piccole dimensioni digitando values. Il set di dati può contenere più colonne.
   
@@ -28,7 +27,7 @@ Questo modulo può essere utile in scenari come i seguenti:
 - Creazione di un breve elenco di etichette.  
 - Immissione di un elenco di nomi di colonna da inserire in un set di dati.
 
-## <a name="create-a-dataset"></a>Creare un set di dati 
+## <a name="create-a-dataset"></a>Crea un set di dati 
   
 1. Aggiungere il modulo [immettere manualmente i dati](./enter-data-manually.md) alla pipeline. È possibile trovare questo modulo nella categoria **input e output dei dati** in Azure Machine Learning. 
   
@@ -57,7 +56,7 @@ Questo modulo può essere utile in scenari come i seguenti:
   
    - **ARFF**: incollare un file di formato ARFF esistente. Se i valori vengono digitati direttamente, assicurarsi di aggiungere i campi intestazione facoltativa e attributo obbligatorio all'inizio dei dati. 
 
-     È ad esempio possibile aggiungere le righe di intestazione e di attributo seguenti a un elenco semplice. L'intestazione di colonna è `SampleText`. Si noti che il tipo stringa non è supportato.
+     È ad esempio possibile aggiungere le righe di intestazione e di attributo seguenti a un elenco semplice. L'intestazione di colonna è `SampleText` . Si noti che il tipo stringa non è supportato.
     
      ```text
      % Title: SampleText.ARFF  

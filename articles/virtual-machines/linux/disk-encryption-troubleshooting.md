@@ -9,17 +9,16 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: eeacea9e3305865881747801100dc17770b7df63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78970457"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
 
 Questa guida è destinata ai professionisti IT, agli analisti della sicurezza delle informazioni e agli amministratori cloud le cui organizzazioni usano Crittografia dischi di Azure. Questo articolo contiene indicazioni per la risoluzione dei problemi relativi alla crittografia dei dischi.
 
-Prima di eseguire una delle operazioni seguenti, assicurarsi che le macchine virtuali che si sta tentando di crittografare siano tra le [dimensioni e i sistemi operativi delle VM supportate](disk-encryption-overview.md#supported-vms-and-operating-systems)e che siano stati soddisfatti tutti i prerequisiti:
+Prima di eseguire le operazioni seguenti, assicurarsi che le macchine virtuali che si sta tentando di crittografare siano comprese tra le [macchine virtuali con dimensioni e sistemi operativi supportati](disk-encryption-overview.md#supported-vms-and-operating-systems) e che siano stati soddisfatti tutti i prerequisiti:
 
 - [Requisiti aggiuntivi per le macchine virtuali](disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Requisiti di rete](disk-encryption-overview.md#networking-requirements)
@@ -101,15 +100,15 @@ Vedere [crittografia del disco in una rete isolata](disk-encryption-isolated-net
 
 ## <a name="troubleshooting-encryption-status"></a>Risoluzione dei problemi relativi allo stato della crittografia 
 
-Il portale può visualizzare un disco come crittografato anche dopo che è stato decrittografato all'interno della macchina virtuale.  Questo problema può verificarsi quando si usano comandi di basso livello per decrittografare direttamente il disco dall'interno della VM, anziché usare i comandi di gestione di crittografia dischi di Azure di livello superiore.  I comandi di livello superiore non solo decrittografano il disco dalla macchina virtuale, ma all'esterno della macchina virtuale aggiornano anche le impostazioni di crittografia e le impostazioni di estensione di livello piattaforma associate alla VM.  Se questi non vengono mantenuti nell'allineamento, la piattaforma non sarà in grado di segnalare lo stato della crittografia o di effettuare il provisioning della macchina virtuale correttamente.   
+È possibile che nel portale un disco venga visualizzato come crittografato anche dopo essere stato decrittografato nella macchina virtuale.  Questo problema può verificarsi quando si usano comandi di basso livello per decrittografare il disco direttamente dalla macchina virtuale, anziché usare i comandi di gestione di livello superiore di Crittografia dischi di Azure.  I comandi di livello superiore, infatti, non solo consentono di decrittografare il disco direttamente dalla macchina virtuale ma, all'esterno della macchina virtuale, consentono anche di aggiornare al livello di piattaforma le impostazioni di estensione e di crittografia associate alla macchina virtuale.  Se le impostazioni non sono allineate, la piattaforma non sarà in grado di segnalare correttamente lo stato della crittografia o di effettuare il provisioning della macchina virtuale.   
 
-Per disabilitare crittografia dischi di Azure con PowerShell, usare [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguito da [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). L'esecuzione di Remove-AzVMDiskEncryptionExtension prima della disabilitazione della crittografia avrà esito negativo.
+Per disabilitare Crittografia dischi di Azure con PowerShell, usare il comando [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguito da [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). L'esecuzione del comando Remove-AzVMDiskEncryptionExtension prima di disabilitare la crittografia avrà, infatti, esito negativo.
 
-Per disabilitare crittografia dischi di Azure con l'interfaccia della riga di comando, usare il comando [AZ VM Encryption Disable](/cli/azure/vm/encryption). 
+Per disabilitare Crittografia dischi di Azure con l'interfaccia della riga di comando, usare [az vm encryption disable](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo documento sono stati esaminati alcuni problemi comuni di Crittografia dischi di Azure ed è stato illustrato come risolverli. Per altre informazioni su questo servizio e sulle relative funzionalità, vedere gli articoli seguenti:
 
-- [Applicare la crittografia del disco nel Centro sicurezza Azure](../../security-center/security-center-apply-disk-encryption.md)
+- [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](../../security-center/security-center-apply-disk-encryption.md)
 - [Crittografia dei dati inattivi in Azure](../../security/fundamentals/encryption-atrest.md)

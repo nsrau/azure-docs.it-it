@@ -4,10 +4,9 @@ description: Far eseguire le funzioni dal runtime di Funzioni di Azure tramite i
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.openlocfilehash: d40896d6a4659945dbeda9ca965366f0b2ca4bd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79365272"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Eseguire Funzioni di Azure da un file di pacchetto
@@ -37,11 +36,11 @@ Per abilitare l'esecuzione dell'app per le funzioni da un pacchetto, è sufficie
 
 | valore  | Descrizione  |
 |---------|---------|
-| **`1`**  | Consigliato per le app per le funzioni in esecuzione in Windows. Esecuzione da un file di pacchetto nella cartella `d:\home\data\SitePackages` dell'app per le funzioni. Se non si [distribuisce con zip deploy](#integration-with-zip-deployment), questa opzione richiede che anche la cartella disponga di `packagename.txt`un file denominato. Questo file contiene solo il nome del file di pacchetto nella cartella, senza spazi vuoti. |
+| **`1`**  | Consigliato per le app per le funzioni in esecuzione in Windows. Esecuzione da un file di pacchetto nella cartella `d:\home\data\SitePackages` dell'app per le funzioni. Se non si [distribuisce con zip deploy](#integration-with-zip-deployment), questa opzione richiede che anche la cartella disponga di un file denominato `packagename.txt` . Questo file contiene solo il nome del file di pacchetto nella cartella, senza spazi vuoti. |
 |**`<URL>`**  | Percorso di un file di pacchetto specifico da eseguire. Quando si usa l'archiviazione BLOB, è consigliabile usare un contenitore privato con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) per abilitare il runtime di Funzioni per l'accesso al pacchetto. È possibile usare [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare i file di pacchetto nell'account di archiviazione BLOB. Quando si specifica un URL, è necessario sincronizzare anche i [trigger](functions-deployment-technologies.md#trigger-syncing) dopo la pubblicazione di un pacchetto aggiornato. |
 
 > [!CAUTION]
-> Quando si esegue un'app per le funzioni in Windows, l'opzione URL esterno produce prestazioni di avvio a freddo inferiori. Quando si distribuisce l'app per le funzioni in Windows `WEBSITE_RUN_FROM_PACKAGE` , `1` è necessario impostare su e pubblicare con la distribuzione zip.
+> Quando si esegue un'app per le funzioni in Windows, l'opzione URL esterno produce prestazioni di avvio a freddo inferiori. Quando si distribuisce l'app per le funzioni in Windows, è necessario impostare `WEBSITE_RUN_FROM_PACKAGE` su `1` e pubblicare con la distribuzione zip.
 
 Di seguito viene illustrata un'app per le funzioni configurata per l'esecuzione da un file con estensione zip ospitato in archiviazione BLOB di Azure:
 
@@ -61,11 +60,11 @@ Di seguito viene illustrata un'app per le funzioni configurata per l'esecuzione 
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-- L'esecuzione dal pacchetto `wwwroot` rende di sola lettura, pertanto verrà visualizzato un errore durante la scrittura di file in questa directory.
+- L'esecuzione dal pacchetto rende `wwwroot` di sola lettura, pertanto verrà visualizzato un errore durante la scrittura di file in questa directory.
 - I formati tar e gzip non sono supportati.
 - Questa funzionalità non è composta dalla cache locale.
-- Per migliorare le prestazioni di avvio a freddo, usare l'opzione Zip`WEBSITE_RUN_FROM_PACKAGE`locale (= 1).
-- L'esecuzione dal pacchetto non è compatibile con l'opzione di`SCM_DO_BUILD_DURING_DEPLOYMENT=true`personalizzazione della distribuzione (). l'istruzione di compilazione verrà ignorata durante la distribuzione.
+- Per migliorare le prestazioni di avvio a freddo, usare l'opzione zip locale ( `WEBSITE_RUN_FROM_PACKAGE` = 1).
+- L'esecuzione dal pacchetto non è compatibile con l'opzione di personalizzazione della distribuzione ( `SCM_DO_BUILD_DURING_DEPLOYMENT=true` ). l'istruzione di compilazione verrà ignorata durante la distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
 ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79214714"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installare .NET nei ruoli di Servizi cloud di Azure
@@ -36,7 +35,7 @@ Per scaricare il programma di installazione Web per .NET Framework, scegliere la
 
 Per aggiungere il programma di installazione per un ruolo *Web*:
   1. In **Ruoli** del progetto di servizio cloud in **Esplora soluzioni** fare clic con il pulsante destro del mouse sul ruolo *Web* e scegliere **Aggiungi** > **Nuova cartella**. Creare una cartella denominata **bin**.
-  2. Fare clic con il pulsante destro del mouse sulla cartella bin e scegliere **Aggiungi** > **elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo alla cartella bin.
+  2. Fare clic con il pulsante destro del mouse sulla cartella bin e scegliere **Aggiungi**  >  **elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo alla cartella bin.
   
 Per aggiungere il programma di installazione per un ruolo *di lavoro*:
 * Fare clic con il pulsante destro del mouse sul ruolo *di lavoro* e scegliere **Aggiungi** > **Elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo al ruolo. 
@@ -197,7 +196,7 @@ I file aggiunti in questo modo alla cartella di contenuto del ruolo vengono aggi
    EXIT /B 0
    ```
 
-3. Aggiungere il file Install. cmd a ogni ruolo utilizzando **Aggiungi** > **elemento esistente** in **Esplora soluzioni** come descritto in precedenza in questo argomento. 
+3. Aggiungere il file Install. cmd a ogni ruolo utilizzando **Aggiungi**  >  **elemento esistente** in **Esplora soluzioni** come descritto in precedenza in questo argomento. 
 
     Al termine, tutti i ruoli avranno a disposizione il file del programma di installazione di .NET e il file install.cmd.
 

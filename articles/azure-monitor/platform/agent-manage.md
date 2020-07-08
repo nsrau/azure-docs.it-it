@@ -6,10 +6,9 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79275100"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestione e manutenzione dell'agente di Log Analytics per Windows e Linux
@@ -22,19 +21,19 @@ L'agente di Log Analytics per Windows e Linux può essere aggiornato alla versio
 
 | Ambiente | Metodo di installazione | Metodo di aggiornamento |
 |--------|----------|-------------|
-| Macchina virtuale Azure | Estensione macchina virtuale agente Log Analytics per Windows/Linux | Per impostazione predefinita, Agent viene aggiornato automaticamente a meno che non sia stato configurato il modello di Azure Resource Manager per rifiutare esplicitamente l'impostazione della proprietà *autoUpgradeMinorVersion* su **false**. |
+| Macchina virtuale di Azure | Estensione macchina virtuale agente Log Analytics per Windows/Linux | Per impostazione predefinita, Agent viene aggiornato automaticamente a meno che non sia stato configurato il modello di Azure Resource Manager per rifiutare esplicitamente l'impostazione della proprietà *autoUpgradeMinorVersion* su **false**. |
 | Immagini personalizzate di VM di Azure | Installazione manuale dell'agente di Log Analytics per Windows/Linux | L'aggiornamento delle macchine virtuali alla versione più recente dell'agente deve essere eseguito dalla riga di comando che esegue il pacchetto di Windows Installer o il bundle di script di Shell autoestraente e installabile di Linux.|
 | Macchine virtuali non di Azure | Installazione manuale dell'agente di Log Analytics per Windows/Linux | L'aggiornamento delle macchine virtuali alla versione più recente dell'agente deve essere eseguito dalla riga di comando che esegue il pacchetto di Windows Installer o il bundle di script di Shell autoestraente e installabile di Linux. |
 
 ### <a name="upgrade-windows-agent"></a>Aggiornare l'agente Windows 
 
-Per aggiornare l'agente in una macchina virtuale Windows alla versione più recente non installata con l'estensione Log Analytics VM, è possibile eseguire dal prompt dei comandi, dallo script o da un'altra soluzione di automazione oppure usando\<l'\>installazione guidata MMASetup-Platform. msi.  
+Per aggiornare l'agente in una macchina virtuale Windows alla versione più recente non installata usando l'estensione Log Analytics VM, è possibile eseguire dal prompt dei comandi, dallo script o da un'altra soluzione di automazione oppure tramite l' \<platform\> installazione guidata MMASetup-MSI.  
 
 È possibile scaricare la versione più recente dell'agente Windows dall'area di lavoro di Log Analytics, eseguendo i passaggi seguenti.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nella portale di Azure fare clic su **tutti i servizi**. Nell'elenco di risorse digitare **log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **log Analytics aree di lavoro**.
+2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
 
 3. Nell'elenco delle aree di lavoro Log Analytics selezionare l'area di lavoro.
 
@@ -46,11 +45,11 @@ Per aggiornare l'agente in una macchina virtuale Windows alla versione più rece
 >Durante l'aggiornamento dell'agente di Log Analytics per Windows, non supporta la configurazione o la riconfigurazione di un'area di lavoro per la segnalazione. Per configurare l'agente, è necessario seguire uno dei metodi supportati elencati in [aggiunta o rimozione di un'area di lavoro](#adding-or-removing-a-workspace).
 >
 
-#### <a name="to-upgrade-using-the-setup-wizard"></a>Per eseguire l'aggiornamento utilizzando l'installazione guidata
+#### <a name="to-upgrade-using-the-setup-wizard"></a>Per eseguire l'aggiornamento mediante l'installazione guidata
 
 1. Accedere al computer con un account con diritti amministrativi.
 
-2. Eseguire **MMASetup-\<Platform\>. exe** per avviare l'installazione guidata.
+2. Eseguire **MMASetup- \<platform\> . exe** per avviare l'installazione guidata.
 
 3. Nella prima pagina dell'installazione guidata, fare clic su **Avanti**.
 
@@ -236,7 +235,7 @@ Utilizzare una delle seguenti procedure per disinstallare l'agente Windows o Lin
 3. In **Programmi e funzionalità** fare clic su **Microsoft Monitoring Agent**, quindi su **Disinstalla** e infine su **Sì**.
 
 >[!NOTE]
->È possibile eseguire l'installazione guidata dell'agente anche facendo doppio clic su **MMASetup-\<piattaforma\>.exe**, che è disponibile per il download da un'area di lavoro nel portale di Azure.
+>È possibile anche eseguire l'installazione guidata dell'agente facendo doppio clic su **MMASetup-\<platform\>.exe**, che è disponibile per il download da un'area di lavoro nel portale di Azure.
 
 #### <a name="uninstall-from-the-command-line"></a>Eseguire la disinstallazione dalla riga di comando
 Il file scaricato per l'agente è un pacchetto di installazione autonomo creato con IExpress. Il programma di installazione per l'agente e i file di supporto sono contenuti nel pacchetto e devono essere estratti per eseguire correttamente la disinstallazione tramite la riga di comando mostrata nell'esempio seguente.

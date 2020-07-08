@@ -16,10 +16,9 @@ ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 14ba5f270138db22a76fd697b264046e22577427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79086740"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Esercitazione: usare la crittografia dinamica DRM e il servizio di distribuzione delle licenze
@@ -57,7 +56,7 @@ Per completare l'esercitazione sono necessari gli elementi seguenti:
 * Installare Visual Studio Code o Visual Studio.
 * Creare un nuovo account di Servizi multimediali in Azure, come descritto in [questa guida introduttiva](create-account-cli-quickstart.md).
 * Ottenere le credenziali necessarie per usare le API di Servizi multimediali seguendo [Accedere alle API](access-api-cli-how-to.md)
-* Impostare i valori appropriati nel file di configurazione dell'app (appSettings. Json).
+* Impostare i valori appropriati nel file di configurazione dell'app (appsettings.json).
 
 ## <a name="download-code"></a>Scaricare il codice
 
@@ -135,7 +134,7 @@ Al termine della codifica e dopo l'impostazione dei criteri di chiave simmetrica
 
 Il processo di creazione del **localizzatore di streaming** è denominato pubblicazione. Per impostazione predefinita, il **localizzatore di streaming** è valido immediatamente dopo aver effettuato le chiamate API. Finché non viene eliminata, a meno che non si configuri l'ora di inizio e di fine facoltativa.
 
-Quando si crea un **localizzatore di streaming**, è necessario specificare `StreamingPolicyName`il valore desiderato. In questa esercitazione viene usato uno dei criteri di streaming predefiniti, che indica a servizi multimediali di Azure come pubblicare il contenuto per lo streaming. In questo esempio, StreamingLocator.StreamingPolicyName verrà impostato sul criterio "Predefined_MultiDrmCencStreaming". Vengono applicate le crittografie PlayReady e Widevine e la chiave viene recapitata al client di riproduzione in base alle licenze DRM configurate. Se si vuole anche crittografare il flusso con CBCS (FairPlay), usare "Predefined_MultiDrmStreaming".
+Quando si crea un **localizzatore di streaming**, è necessario specificare il valore desiderato `StreamingPolicyName` . In questa esercitazione viene usato uno dei criteri di streaming predefiniti, che indica a servizi multimediali di Azure come pubblicare il contenuto per lo streaming. In questo esempio, StreamingLocator.StreamingPolicyName verrà impostato sul criterio "Predefined_MultiDrmCencStreaming". Vengono applicate le crittografie PlayReady e Widevine e la chiave viene recapitata al client di riproduzione in base alle licenze DRM configurate. Se si vuole anche crittografare il flusso con CBCS (FairPlay), usare "Predefined_MultiDrmStreaming".
 
 > [!IMPORTANT]
 > Se si usano [criteri di streaming](streaming-policy-concept.md) personalizzati, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming ogni volta che si devono usare gli stessi protocolli e le stesse opzioni di crittografia. L'account di Servizi multimediali prevede una quota per il numero di occorrenze di StreamingPolicy. Non è necessario creare un nuovo StreamingPolicy per ogni StreamingLocator.

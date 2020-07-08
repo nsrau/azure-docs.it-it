@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79266988"
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
@@ -69,7 +68,7 @@ Vengono raccolte informazioni su macchina virtuale Linux, sistema operativo, dis
   - Informazioni sul driver
 
 - Hardware
-  - Dispositivi PCI [`*`]
+  - Dispositivi PCI [ `*` ]
 
 - Processi e memoria
   - Elenco di processi (nome attività, memoria utilizzata, file aperti)
@@ -103,16 +102,16 @@ Vengono raccolte informazioni su macchina virtuale Linux, sistema operativo, dis
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
   - /var/log/waagent.log
-  - /var/log/Azure/[cartella estensioni]/\*log\*
+  - /var/log/Azure/[cartella estensioni]/ \* log\*
   - /var/opt/microsoft/omsconfig/omsconfig.log
   - /var/opt/microsoft/omsagent/log/omsagent.log
-  - /etc/waagent.config
+  - waagent.config/etc/
   - Output di journalctl per gli ultimi cinque giorni
 
 - [Metadati dell'istanza di macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 >[!Note]
->[`*`] Le informazioni PCI non sono ancora state raccolte nelle distribuzioni di Debian e SLES
+>[ `*` ] Le informazioni PCI non sono ancora state raccolte nelle distribuzioni di Debian e SLES
 
 ## <a name="run-the-perfinsights-linux-on-your-vm"></a>Eseguire PerfInsights Linux nella macchina virtuale
 
@@ -127,16 +126,16 @@ Vengono raccolte informazioni su macchina virtuale Linux, sistema operativo, dis
 
     | Distribuzione               | Versione                                         |
     |----------------------------|-------------------------------------------------|
-    | Server Oracle Linux        | 6,10 [`*`], 7,3, 7,6, 7,5 (Oracle-database-EE 13,8 Marketplace image)|
-    | CentOS                     | 6,5 [`*`], 7,6                                    |
-    | RHEL                       | 7,2, 7,5, 8,0 [`*`]                               |
+    | Server Oracle Linux        | 6,10 [ `*` ], 7,3, 7,6, 7,5 (Oracle-database-Ee 13,8 Marketplace image)|
+    | CentOS                     | 6,5 [ `*` ], 7,6                                    |
+    | RHEL                       | 7,2, 7,5, 8,0 [ `*` ]                               |
     | Ubuntu                     | 14.04, 16.04, 18.04                               |
-    | Debian                     | 8, 9, 10 [`*`]                                    |
-    | SLES                       | 12 SP4 [`*`]                                      |
+    | Debian                     | 8, 9, 10 [ `*` ]                                    |
+    | SLES                       | 12 SP4 [ `*` ]                                      |
     |                            |                                                   |
 
 >[!Note]
->[`*`] Consultare la sezione [problemi noti](#known-issues)
+>[ `*` ] Consultare la sezione [problemi noti](#known-issues)
 
 ### <a name="known-issues"></a>Problemi noti
 
@@ -205,11 +204,11 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
     >
     >Se si dispone di un ticket di supporto attivo con Microsoft e si esegue PerfInsights in base alla richiesta del tecnico del supporto che si sta utilizzando, assicurarsi di specificare il numero di ticket di supporto utilizzando l'opzione **-s o--Support-Request** .
 
-Al termine dell'esecuzione, un nuovo file tar viene visualizzato nella stessa cartella di PerfInsights, a meno che non venga specificata alcuna cartella di output. Il nome del file è **PerformanceDiagnostics\_aaaa-mm-gg\_fff. tar. gz.** È possibile inviare questo file all'agente di supporto per l'analisi o aprire il report all'interno del file per esaminare i risultati e le raccomandazioni.
+Al termine dell'esecuzione, un nuovo file tar viene visualizzato nella stessa cartella di PerfInsights, a meno che non venga specificata alcuna cartella di output. Il nome del file è **PerformanceDiagnostics \_ aaaa-mm-gg \_ fff. tar. gz.** È possibile inviare questo file all'agente di supporto per l'analisi o aprire il report all'interno del file per esaminare i risultati e le raccomandazioni.
 
 ## <a name="review-the-diagnostics-report"></a>Esaminare il rapporto di diagnostica
 
-Nel file **PerformanceDiagnostics\_aaaa-mm-gg\_fff. tar. gz** è possibile trovare un report HTML che detaili i risultati di PerfInsights. Per esaminare il report, espandere il **file\_PERFORMANCEDIAGNOSTICS aaaa-mm-\_GG fff. tar. gz** , quindi aprire il file **PerfInsights report. html** .
+Nel file **PerformanceDiagnostics \_ aaaa-mm-gg \_ fff. tar. gz** è possibile trovare un report HTML che detaili i risultati di PerfInsights. Per esaminare il report, espandere il file **PerformanceDiagnostics \_ aaaa-mm-gg \_ fff. tar. gz** , quindi aprire il file **PerfInsights Report.html** .
 
 ### <a name="overview-tab"></a>Scheda Panoramica
 
@@ -254,4 +253,4 @@ Lo screenshot seguente mostra un messaggio simile a quello che l'utente potrebbe
 
 Seguire le istruzioni nel messaggio per accedere all'area di lavoro di trasferimento del file. Per maggiore sicurezza, l'utente dovrà cambiare la password al primo uso.
 
-Dopo aver eseguito l'accesso, si troverà una finestra di dialogo per caricare il file **PerformanceDiagnostics\_aaaa-mm\_-GG fff. tar. gz** raccolto da PerfInsights.
+Dopo aver eseguito l'accesso, si troverà una finestra di dialogo per caricare il file **PerformanceDiagnostics \_ aaaa-mm-gg \_ fff. tar. gz** raccolto da PerfInsights.

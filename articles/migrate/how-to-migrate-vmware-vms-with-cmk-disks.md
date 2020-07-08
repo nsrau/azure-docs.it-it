@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
 ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79269484"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Eseguire la migrazione di macchine virtuali VMware alle macchine virtuali di Azure abilitate con la crittografia lato server e le chiavi gestite dal cliente
@@ -52,7 +51,7 @@ L'esperienza del portale per la migrazione dei server semplifica la preparazione
 
 1. Nella portale di Azure, passare alla pagina gruppi di risorse e selezionare il gruppo di risorse in cui è stato creato il progetto Azure Migrate.
 2. Selezionare **distribuzioni** dal menu a sinistra e cercare un nome di distribuzione che inizia con la stringa *"Microsoft. MigrateV2. VMwareV2EnableMigrate"*. Verrà visualizzato un elenco di modelli di Gestione risorse creati dall'esperienza del portale per configurare la replica per le macchine virtuali in questo progetto. Un modello di questo tipo verrà scaricato e usato come base per preparare il modello per la replica con CMK.
-3. Per scaricare il modello, selezionare una distribuzione corrispondente al modello di stringa nel passaggio precedente > scegliere **modello** dal menu a sinistra > fare clic su **Scarica** nel menu in alto. Salvare il file template. JSON localmente. Il file di modello verrà modificato nell'ultimo passaggio.
+3. Per scaricare il modello, selezionare una distribuzione corrispondente al modello di stringa nel passaggio precedente > scegliere **modello** dal menu a sinistra > fare clic su **Scarica** nel menu in alto. Salvare il template.jsnel file localmente. Il file di modello verrà modificato nell'ultimo passaggio.
 
 ## <a name="create-a-disk-encryption-set"></a>Creare un set di crittografia del disco
 

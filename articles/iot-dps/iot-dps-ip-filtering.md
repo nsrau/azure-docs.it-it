@@ -8,10 +8,9 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 0b13040b39ed491ec4fee4d6922d41f086edeeb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79284915"
 ---
 # <a name="use-ip-filters"></a>Usare i filtri IP
@@ -48,11 +47,11 @@ Dopo aver selezionato **Aggiungi regola di filtro IP**, compilare i campi.
 
 ![Dopo aver selezionato Aggiungi una regola di filtro IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Consente di specificare un **nome** per la regola di filtro IP. Deve essere una stringa alfanumerica univoca senza distinzione tra maiuscole e minuscole, con una lunghezza di 128 caratteri. Sono ammessi solo caratteri alfanumerici ASCII a 7 bit più `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+* Specificare un **nome** per la regola di Filtro IP. Questo deve essere univoco e costituito da una stringa alfanumerica che non fa distinzione tra maiuscole e minuscole e ha una lunghezza massima di 128 caratteri. Sono ammessi solo caratteri alfanumerici ASCII a 7 bit più `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
 * Specificare un singolo indirizzo IPv4 o un blocco di indirizzi IP in notazione CIDR. In notazione CIDR, ad esempio, 192.168.100.0/22 rappresenta gli indirizzi IPv4 1024 da 192.168.100.0 a 192.168.103.255.
 
-* Selezionare **Consenti** o **blocca** come **azione** per la regola di filtro IP.
+* Selezionare **Consenti** o **Blocca** come **azione** per la regola del Filtro IP.
 
 Dopo aver compilato i campi, selezionare **Salva** per salvare la regola. Viene visualizzato un avviso che informa che l'aggiornamento è in corso.
 
@@ -135,8 +134,8 @@ Aggiornare gli attributi della regola di filtro IP del modello in base ai requis
 
 | Attributo                | Descrizione |
 | ------------------------ | ----------- |
-| **NomeFiltro**           | Consente di specificare un nome per la regola di filtro IP. Deve essere una stringa alfanumerica univoca senza distinzione tra maiuscole e minuscole, con una lunghezza di 128 caratteri. Solo i caratteri alfanumerici ASCII a 7 bit più {'-',':','/',\'',' .',' +', '%',' _',' #',' *','?','!',' (',')',',',' =',' @',';','''} sono accettati. |
-| **Azione**               | I valori accettati sono **Accept** o **Reject** come azione per la regola di filtro IP. |
+| **NomeFiltro**           | Consente di specificare un nome per la regola di filtro IP. Questo deve essere univoco e costituito da una stringa alfanumerica che non fa distinzione tra maiuscole e minuscole e ha una lunghezza massima di 128 caratteri. Solo i caratteri alfanumerici ASCII a 7 bit più {'-',':','/',' \' ,' .',' +', '%',' _',' #',' *','?','!',' (',')',',',' =',' @',';','''} sono accettati. |
+| **Azione**               | I valori accettati sono **Accept**   o **Reject**   come azione per la regola di filtro IP. |
 | **ipMask**               | Specificare un singolo indirizzo IPv4 o un blocco di indirizzi IP in notazione CIDR. In notazione CIDR, ad esempio, 192.168.100.0/22 rappresenta gli indirizzi IPv4 1024 da 192.168.100.0 a 192.168.103.255. |
 
 

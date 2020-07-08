@@ -9,10 +9,9 @@ ms.date: 05/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 84cee86dbddff77f6142925eec01889cf793a466
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79127563"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticare problemi di prestazioni grafica in Desktop remoto
@@ -35,7 +34,7 @@ Per diagnosticare problemi di qualità dell'esperienza con le sessioni remote, i
 
 Dopo aver determinato il nome della sessione remota, seguire queste istruzioni per raccogliere i contatori delle prestazioni della grafica RemoteFX per la sessione remota.
 
-1. Selezionare **Avvia** > **strumenti** > di amministrazione**monitoraggio prestazioni**.
+1. Selezionare **Avvia**  >  **strumenti di amministrazione**  >  **monitoraggio prestazioni**.
 2. Nella finestra di dialogo **Performance Monitor** espandere **strumenti di monitoraggio**, selezionare **Performance Monitor**e quindi selezionare **Aggiungi**.
 3. Nella finestra di dialogo **Aggiungi contatori** , nell'elenco **contatori disponibili** , espandere la sezione per RemoteFX graphics.
 4. Selezionare i contatori da monitorare.
@@ -78,7 +77,7 @@ Poiché RDP supporta un tempo di codifica medio di 33 ms, supporta una frequenza
 
 Usare il contatore qualità del frame per diagnosticare i problemi di qualità dei frame. Questo contatore esprime la qualità del frame di output come percentuale della qualità del frame di origine. La perdita di qualità può essere dovuta a RemoteFX o può essere insita nell'origine grafica. Se RemoteFX ha causato la perdita di qualità, il problema potrebbe essere dovuto alla mancanza di risorse di rete o del server per l'invio di contenuti con maggiore fedeltà.
 
-## <a name="mitigation"></a>Misura di prevenzione
+## <a name="mitigation"></a>Strategia di riduzione del rischio
 
 Se le risorse del server causano il collo di bottiglia, provare uno degli approcci seguenti per migliorare le prestazioni:
 

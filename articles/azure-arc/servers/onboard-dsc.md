@@ -9,10 +9,9 @@ ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 1fb64463b0372202adb04c2deb304c389c7773b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79164683"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Come installare l'agente del computer connesso usando Windows PowerShell DSC
@@ -29,7 +28,7 @@ Utilizzando [Windows PowerShell DSC (Desired state Configuration](https://docs.m
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>Installare il modulo ConnectedMachine DSC
 
-1. Per installare manualmente il modulo, scaricare il codice sorgente e decomprimere il contenuto della directory del progetto `$env:ProgramFiles\WindowsPowerShell\Modules folder`in. In alternativa, eseguire il comando seguente per installare da PowerShell Gallery usando PowerShellGet (in PowerShell 5,0):
+1. Per installare manualmente il modulo, scaricare il codice sorgente e decomprimere il contenuto della directory del progetto in `$env:ProgramFiles\WindowsPowerShell\Modules folder` . In alternativa, eseguire il comando seguente per installare da PowerShell Gallery usando PowerShellGet (in PowerShell 5,0):
 
     ```powershell
     Find-Module -Name AzureConnectedMachineDsc -Repository PSGallery | Install-Module
@@ -47,7 +46,7 @@ Utilizzando [Windows PowerShell DSC (Desired state Configuration](https://docs.m
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Installare l'agente e connettersi ad Azure
 
-Le risorse in questo modulo sono progettate per gestire la configurazione dell'agente del computer connesso di Azure. È incluso anche uno script `AzureConnectedMachineAgent.ps1`di PowerShell, disponibile nella `AzureConnectedMachineDsc\examples` cartella. USA risorse della community per automatizzare il download e l'installazione e stabilire una connessione con Azure Arc. Questo script esegue passaggi simili descritti in [connettere macchine ibride ad Azure dall'articolo portale di Azure](onboard-portal.md) .
+Le risorse in questo modulo sono progettate per gestire la configurazione dell'agente del computer connesso di Azure. È incluso anche uno script `AzureConnectedMachineAgent.ps1` di PowerShell, disponibile nella `AzureConnectedMachineDsc\examples` cartella. USA risorse della community per automatizzare il download e l'installazione e stabilire una connessione con Azure Arc. Questo script esegue passaggi simili descritti in [connettere macchine ibride ad Azure dall'articolo portale di Azure](onboard-portal.md) .
 
 Se il computer deve comunicare tramite un server proxy al servizio, dopo l'installazione dell'agente è necessario eseguire un comando descritto [qui](onboard-portal.md#configure-the-agent-proxy-setting). Il comando imposta la variabile di ambiente di sistema del server proxy `https_proxy`. Anziché eseguire il comando manualmente, è possibile eseguire questo passaggio con DSC usando il modulo [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) .
 
@@ -55,7 +54,7 @@ Se il computer deve comunicare tramite un server proxy al servizio, dopo l'insta
 >Per consentire l'esecuzione di DSC, è necessario configurare Windows per la ricezione di comandi remoti di PowerShell anche quando si esegue una configurazione localhost. Per configurare correttamente l'ambiente, è sufficiente eseguire `Set-WsManQuickConfig -Force` in un terminale di PowerShell con privilegi elevati.
 >
 
-È possibile applicare i documenti di configurazione (file MOF) al computer usando `Start-DscConfiguration` il cmdlet.
+È possibile applicare i documenti di configurazione (file MOF) al computer usando il `Start-DscConfiguration` cmdlet.
 
 Di seguito sono riportati i parametri passati allo script di PowerShell da usare.
 
@@ -65,13 +64,13 @@ Di seguito sono riportati i parametri passati allo script di PowerShell da usare
 
 - `ResourceGroup`: Nome del gruppo di risorse a cui si desidera che appartengano i computer connessi.
 
-- `Location`: Vedere le [aree di Azure supportate](overview.md#supported-regions). Questo percorso può essere lo stesso o diverso, come la posizione del gruppo di risorse.
+- `Location`: Vedere le [aree di Azure supportate](overview.md#supported-regions). La località può essere uguale o diversa da quella del gruppo di risorse.
 
 - `Tags`: Matrice di stringhe di tag da applicare alla risorsa del computer connesso.
 
 - `Credential`: Un oggetto credenziale di PowerShell con il **ApplicationID** e la **password** usati per registrare i computer su larga scala usando un' [entità servizio](onboard-service-principal.md). 
 
-1. In una console di PowerShell passare alla cartella in cui è stato salvato `.ps1` il file.
+1. In una console di PowerShell passare alla cartella in cui è stato salvato il `.ps1` file.
 
 2. Eseguire i comandi PowerShell seguenti per compilare il documento MOF. Per informazioni sulla compilazione delle configurazioni DSC, vedere [Configurazioni DSC](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
 
@@ -79,7 +78,7 @@ Di seguito sono riportati i parametri passati allo script di PowerShell da usare
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
     ```
 
-3. Verrà creato un oggetto `localhost.mof file` in una nuova cartella denominata `C:\dsc`.
+3. Verrà creato un oggetto `localhost.mof file` in una nuova cartella denominata `C:\dsc` .
 
 Dopo aver installato l'agente e averlo configurato per la connessione ad Azure Arc per server (anteprima), passare al portale di Azure per verificare che il server sia stato connesso correttamente. Visualizzare le proprie macchine virtuali nel [portale di Azure](https://aka.ms/hybridmachineportal).
 
@@ -91,6 +90,6 @@ Il modulo [CompsiteResource](https://www.powershellgallery.com/packages/composit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come gestire il computer usando [criteri di Azure](../../governance/policy/overview.md), ad esempio la [configurazione Guest](../../governance/policy/concepts/guest-configuration.md)della VM, verificando che il computer stia segnalando l'area di lavoro log Analytics prevista, abilitare il monitoraggio con [monitoraggio di Azure con le macchine virtuali](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)e molto altro ancora.
+- Informazioni su come gestire il computer usando i [criteri di Azure](../../governance/policy/overview.md), ad esempio la configurazione di VM [Guest](../../governance/policy/concepts/guest-configuration.md), verificare che il computer stia segnalando l'area di lavoro Log Analytics prevista, abilitare il monitoraggio con [Monitoraggio di Azure con macchine virtuali](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) e molto altro ancora.
 
-- Altre informazioni sull' [agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).
+- Altre informazioni sull'[agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-intro.md).

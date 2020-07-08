@@ -4,10 +4,9 @@ description: Crittografare i dati dell'applicazione in archiviazione di Azure e 
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 7e5e809fe8b670ae6ec5bfd15e54f9a8019e76d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79408744"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Crittografia dei componenti inattivi con chiavi gestite dal cliente
@@ -31,7 +30,7 @@ Usare quindi il Storage Explorer per [generare una](../vs-azure-tools-storage-ma
 
 ### <a name="configure-running-from-a-package-from-your-storage-account"></a>Configurare l'esecuzione da un pacchetto dall'account di archiviazione
   
-Dopo aver caricato il file nell'archiviazione BLOB e avere un URL di firma di accesso condiviso per il `WEBSITE_RUN_FROM_PACKAGE` file, impostare l'impostazione dell'applicazione sull'URL di firma di accesso condiviso. L'esempio seguente esegue questa operazione usando l'interfaccia della riga di comando di Azure:
+Dopo aver caricato il file nell'archiviazione BLOB e avere un URL di firma di accesso condiviso per il file, impostare l' `WEBSITE_RUN_FROM_PACKAGE` impostazione dell'applicazione sull'URL di firma di accesso condiviso. L'esempio seguente esegue questa operazione usando l'interfaccia della riga di comando di Azure:
 
 ```
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="<your-SAS-URL>"
@@ -41,9 +40,9 @@ L'aggiunta di questa impostazione dell'applicazione comporta il riavvio dell'app
 
 ### <a name="encrypt-the-application-setting-using-key-vault-references"></a>Crittografare l'impostazione dell'applicazione usando Key Vault riferimenti
 
-A questo punto è possibile sostituire il valore `WEBSITE_RUN_FROM_PACKAGE` dell'impostazione dell'applicazione con un riferimento Key Vault all'URL con codifica SAS. In questo modo viene mantenuto l'URL di firma di accesso condiviso crittografato in Key Vault, che fornisce un livello di sicurezza aggiuntivo.
+A questo punto è possibile sostituire il valore dell' `WEBSITE_RUN_FROM_PACKAGE` impostazione dell'applicazione con un riferimento Key Vault all'URL con codifica SAS. In questo modo viene mantenuto l'URL di firma di accesso condiviso crittografato in Key Vault, che fornisce un livello di sicurezza aggiuntivo.
 
-1. Usare il comando [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) seguente per creare un'istanza di Key Vault.       
+1. Usare il [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) comando seguente per creare un'istanza di Key Vault.       
 
     ```azurecli    
     az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
@@ -51,19 +50,19 @@ A questo punto è possibile sostituire il valore `WEBSITE_RUN_FROM_PACKAGE` dell
 
 1. Seguire [queste istruzioni per concedere all'app l'accesso](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) all'insieme di credenziali delle chiavi:
 
-1. Usare il comando [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) seguente per aggiungere l'URL esterno come segreto nell'insieme di credenziali delle chiavi:   
+1. Usare il [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) comando seguente per aggiungere l'URL esterno come segreto nell'insieme di credenziali delle chiavi:   
 
     ```azurecli    
     az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<SAS-URL>"    
     ```    
 
-1.  Usare il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) seguente per creare l' `WEBSITE_RUN_FROM_PACKAGE` impostazione dell'applicazione con il valore come riferimento Key Vault all'URL esterno:
+1.  Usare il [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) comando seguente per creare l' `WEBSITE_RUN_FROM_PACKAGE` impostazione dell'applicazione con il valore come riferimento Key Vault all'URL esterno:
 
     ```azurecli    
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-    L' `<secret-version>` oggetto sarà nell'output del comando precedente `az keyvault secret set` .
+    L'oggetto `<secret-version>` sarà nell'output del `az keyvault secret set` comando precedente.
 
 Se si aggiorna questa impostazione dell'applicazione, l'app Web verrà riavviata. Dopo che l'app è stata riavviata, selezionarla per verificare che sia stata avviata correttamente usando il riferimento Key Vault.
 
@@ -71,7 +70,7 @@ Se si aggiorna questa impostazione dell'applicazione, l'app Web verrà riavviata
 
 È consigliabile ruotare periodicamente la chiave SAS dell'account di archiviazione. Per assicurarsi che l'app Web non si liberi inavvertitamente, è necessario aggiornare anche l'URL di firma di accesso condiviso in Key Vault.
 
-1. Ruotare la chiave SAS passando all'account di archiviazione nell'portale di Azure. In **Impostazioni** > **chiavi di accesso**, fare clic sull'icona per ruotare la chiave SAS.
+1. Ruotare la chiave SAS passando all'account di archiviazione nell'portale di Azure. In **Impostazioni**  >  **chiavi di accesso**, fare clic sull'icona per ruotare la chiave SAS.
 
 1. Copiare il nuovo URL di firma di accesso condiviso e usare il comando seguente per impostare l'URL SAS aggiornato nell'insieme di credenziali delle chiavi:
 
@@ -85,7 +84,7 @@ Se si aggiorna questa impostazione dell'applicazione, l'app Web verrà riavviata
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-    L' `<secret-version>` oggetto sarà nell'output del comando precedente `az keyvault secret set` .
+    L'oggetto `<secret-version>` sarà nell'output del `az keyvault secret set` comando precedente.
 
 ## <a name="how-to-revoke-the-web-apps-data-access"></a>Come revocare l'accesso ai dati dell'app Web
 
@@ -99,7 +98,7 @@ Se la chiave SAS per l'account di archiviazione viene ruotata, l'app Web non avr
 
 È possibile revocare l'accesso dell'app Web ai dati del sito disabilitando l'accesso dell'app Web a Key Vault. A tale scopo, rimuovere i criteri di accesso per l'identità dell'app Web. Si tratta della stessa identità creata in precedenza durante la configurazione dei riferimenti a Key Vault.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 I file dell'applicazione sono ora crittografati a riposo nell'account di archiviazione. Quando l'app Web viene avviata, recupera l'URL di firma di accesso condiviso dall'insieme di credenziali delle chiavi. Infine, l'app Web carica i file dell'applicazione dall'account di archiviazione. 
 
@@ -113,11 +112,11 @@ Solo il costo associato all'account di archiviazione di Azure e gli eventuali ad
 
 ### <a name="how-does-running-from-the-deployment-package-affect-my-web-app"></a>In che modo l'esecuzione dal pacchetto di distribuzione influisce sull'app Web?
 
-- L'esecuzione dell'app dal pacchetto di distribuzione `wwwroot/` rende di sola lettura. L'app riceve un errore durante il tentativo di scrittura in questa directory.
+- L'esecuzione dell'app dal pacchetto di distribuzione rende di sola `wwwroot/` lettura. L'app riceve un errore durante il tentativo di scrittura in questa directory.
 - I formati TAR e GZIP non sono supportati.
 - Questa funzionalità non è compatibile con la cache locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Riferimenti Key Vault per il servizio app](app-service-key-vault-references.md)
-- [Crittografia di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md)
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md)

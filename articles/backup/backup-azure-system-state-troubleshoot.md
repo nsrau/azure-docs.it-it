@@ -5,10 +5,9 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969568"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di backup dello stato del sistema
@@ -19,7 +18,7 @@ Questo articolo descrive le soluzioni per i problemi che potrebbero verificarsi 
 
 Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del sistema, è consigliabile eseguire la convalida seguente:
 
-- [Verificare che l'agente di Servizi di ripristino di Microsoft Azure (MARS) sia aggiornato](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Assicurarsi che l'agente di Servizi di ripristino di Microsoft Azure sia aggiornato](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Verificare la presenza di connettività di rete tra l'agente dei Servizi di ripristino di Microsoft Azure e Azure](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Verificare che i Servizi di ripristino di Microsoft Azure siano in esecuzione (nella console di Servizio). Se necessario, riavviare e ripetere l'operazione
 - [Verificare che sia disponibile il 5-10% di volume libero nel percorso della cartella dei file temporanei](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder)
@@ -121,7 +120,7 @@ Per convalidare Windows Server Backup stato, seguire questa procedura:
       >Sostituire X con la lettera di unità del volume in cui si desidera archiviare l'immagine di backup dello stato del sistema.
 
     - Controllare periodicamente lo stato del processo eseguendo il `Get-WBJob` comando da PowerShell con privilegi elevati
-    - Al termine del processo di backup, verificare lo stato finale del processo eseguendo `Get-WBJob -Previous 1` il comando
+    - Al termine del processo di backup, verificare lo stato finale del processo eseguendo il `Get-WBJob -Previous 1` comando
 
 Se il processo ha esito negativo, indica un problema di WSB che comporterebbe un errore di backup dello stato del sistema dell'agente MARS.
 

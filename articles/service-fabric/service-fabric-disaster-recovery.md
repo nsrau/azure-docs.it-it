@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371648"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Ripristino di emergenza in Azure Service Fabric
@@ -60,7 +59,7 @@ I computer singoli possono essere soggetti a errori per ogni genere di motivo. T
 
 Indipendentemente dal tipo di servizio, l'esecuzione di una sola istanza provoca tempi di inattività del servizio se per qualche motivo l'unica copia del codice genera un errore. 
 
-Per gestire qualsiasi singolo errore, la cosa più semplice da fare è assicurarsi che i servizi vengano eseguiti su più di un nodo per impostazione predefinita. Per i servizi senza stato, verificare `InstanceCount` che sia maggiore di 1. Per i servizi con stato, la raccomandazione minima è `TargetReplicaSetSize` che `MinReplicaSetSize` e sono entrambi impostati su 3. L'esecuzione di più copie del codice del servizio assicura al servizio la capacità di gestire qualsiasi errore automaticamente. 
+Per gestire qualsiasi singolo errore, la cosa più semplice da fare è assicurarsi che i servizi vengano eseguiti su più di un nodo per impostazione predefinita. Per i servizi senza stato, verificare che `InstanceCount` sia maggiore di 1. Per i servizi con stato, la raccomandazione minima è che `TargetReplicaSetSize` e `MinReplicaSetSize` sono entrambi impostati su 3. L'esecuzione di più copie del codice del servizio assicura al servizio la capacità di gestire qualsiasi errore automaticamente. 
 
 ### <a name="handling-coordinated-failures"></a>Gestione di errori coordinati
 Gli errori coordinati in un cluster possono essere causati da errori e modifiche dell'infrastruttura pianificata o non pianificata o da modifiche software pianificate. Service Fabric modella le zone di infrastruttura che sperimentano errori coordinati come *domini di errore*. Le aree in cui si verificheranno modifiche del software coordinate vengono modellate come *domini di aggiornamento*. Per ulteriori informazioni sui domini di errore, i domini di aggiornamento e la topologia del cluster, vedere [descrivere un cluster di Service Fabric tramite Gestione risorse cluster](service-fabric-cluster-resource-manager-cluster-description.md).
@@ -97,7 +96,7 @@ I servizi possono essere interessati anche da più errori casuali simultanei. È
 #### <a name="stateless-services"></a>Servizi senza stato
 Il numero di istanze di un servizio senza stato indica il numero desiderato di istanze che devono essere in esecuzione. Quando una o tutte le istanze di hanno esito negativo, Service Fabric risponde creando automaticamente istanze di sostituzione in altri nodi. Service Fabric continua a creare sostituzioni fino a quando il servizio non torna al numero di istanze desiderato.
 
-Si supponga, ad esempio, che il servizio senza `InstanceCount` stato abbia un valore pari a-1. Questo valore indica che un'istanza deve essere in esecuzione in ogni nodo del cluster. Se alcune di queste istanze hanno esito negativo, Service Fabric rileverà che il servizio non si trova nello stato desiderato e tenterà di creare le istanze nei nodi in cui sono mancanti.
+Si supponga, ad esempio, che il servizio senza stato abbia un `InstanceCount` valore pari a-1. Questo valore indica che un'istanza deve essere in esecuzione in ogni nodo del cluster. Se alcune di queste istanze hanno esito negativo, Service Fabric rileverà che il servizio non si trova nello stato desiderato e tenterà di creare le istanze nei nodi in cui sono mancanti.
 
 #### <a name="stateful-services"></a>Servizi con stato
 Esistono due tipi di servizi con stato:
@@ -171,7 +170,7 @@ Le azioni seguenti potrebbero causare la perdita di dati. Verificare prima di pr
 > Non è _mai_ sicuro usare questi metodi, tranne che in modo mirato, su partizioni specifiche. 
 >
 
-- Usare l' `Repair-ServiceFabricPartition -PartitionId` API `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` o. Questa API consente di specificare l'ID della partizione per spostarsi fuori dalla perdita del quorum e in una potenziale perdita di dati.
+- Usare l' `Repair-ServiceFabricPartition -PartitionId` `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API o. Questa API consente di specificare l'ID della partizione per spostarsi fuori dalla perdita del quorum e in una potenziale perdita di dati.
 - Se nel cluster si verificano errori frequenti che fanno sì che i servizi entrano in uno stato di perdita del quorum e la potenziale _perdita di dati è accettabile, è_possibile specificare un valore [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) appropriato per consentire il ripristino automatico del servizio. Service Fabric attenderà il valore specificato `QuorumLossWaitDuration` (il valore predefinito è infinito) prima di eseguire il ripristino. Questo metodo *non* è consigliato perché può causare perdite di dati impreviste.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Disponibilità del cluster di Service Fabric

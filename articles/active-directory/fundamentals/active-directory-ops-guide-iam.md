@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79298615"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guida di riferimento alle operazioni di gestione delle identità e degli accessi Azure Active Directory
@@ -37,7 +36,7 @@ La gestione di Azure Active Directory richiede l'esecuzione continua delle attiv
 | Decidere chi ottiene Enterprise Mobility + Security licenze | Team operativo IAM |
 | Decidere chi ottiene le licenze di Office 365 | Team di produttività |
 | Decidere chi ottiene altre licenze, ad esempio Dynamics, VSO | Proprietario dell'applicazione |
-| Assegnare le licenze | Team operativo IAM |
+| Assegnare licenze | Team operativo IAM |
 | Risoluzione dei problemi e correzione degli errori di assegnazione delle licenze | Team operativo IAM |
 | Effettuare il provisioning delle identità nelle applicazioni Azure AD | Team operativo IAM |
 

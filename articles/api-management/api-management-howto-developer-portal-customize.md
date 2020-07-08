@@ -13,17 +13,16 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79244095"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accedere e personalizzare il portale per sviluppatori
 
 Il portale per sviluppatori è un sito Web completamente personalizzabile e completamente personalizzabile con la documentazione delle API. Si tratta del punto in cui gli utenti dell'API possono individuare le API, informazioni su come usarle e richiedere l'accesso.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Accedere alla versione gestita del portale per sviluppatori
@@ -38,7 +37,7 @@ Per ulteriori informazioni, vedere il portale per sviluppatori nel [portale per 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Completare la Guida introduttiva seguente: [creare un'istanza di gestione API di Azure](get-started-create-service-instance.md)
+- Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 - Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [importare e pubblicare](import-and-publish.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -68,7 +67,7 @@ Se si accede al portale per la prima volta, verrà eseguito automaticamente il p
 
 I layout definiscono la modalità di visualizzazione delle pagine. Nel contenuto predefinito, ad esempio, sono presenti due layout: uno si applica al home page e l'altro a tutte le pagine rimanenti.
 
-Un layout viene applicato a una pagina abbinando il relativo modello URL all'URL della pagina. Ad esempio, il layout con un modello di `/wiki/*` URL di verrà applicato a ogni pagina con `/wiki/` il segmento nell'URL: `/wiki/getting-started`, `/wiki/styles`e così via.
+Un layout viene applicato a una pagina abbinando il relativo modello URL all'URL della pagina. Ad esempio, il layout con un modello di URL di `/wiki/*` verrà applicato a ogni pagina con il `/wiki/` segmento nell'URL: `/wiki/getting-started` , `/wiki/styles` e così via.
 
 Nell'immagine precedente, il contenuto appartenente al layout è contrassegnato come blu, mentre la pagina è contrassegnata in rosso. Le sezioni di menu sono contrassegnate rispettivamente.
 
@@ -91,7 +90,7 @@ Ogni volta che si apportano modifiche nel portale, è necessario salvarle manual
 Prima di rendere disponibile il portale per i visitatori, è necessario personalizzare il contenuto generato automaticamente. Le modifiche consigliate includono i layout, gli stili e il contenuto del home page.
 
 > [!NOTE]
-> A causa di considerazioni sull'integrazione, le pagine seguenti non possono essere rimosse o spostate `/404`in `/500`un `/captcha`altro `/change-password`URL `/config.json`: `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`,,,,,.
+> A causa di considerazioni sull'integrazione, le pagine seguenti non possono essere rimosse o spostate in un altro URL: `/404` ,, `/500` `/captcha` , `/change-password` , `/config.json` , `/confirm/invitation` , `/confirm-v2/identities/basic/signup` , `/confirm-v2/password` , `/internal-status-0123456789abcdef` , `/publish` , `/signin` ,, `/signin-sso` `/signup` .
 
 ### <a name="home-page"></a>Home page
 
@@ -124,7 +123,7 @@ Per rendere disponibili il portale e le modifiche più recenti ai visitatori, è
 
 ## <a name="visit-the-published-portal"></a>Visita il portale pubblicato
 
-Dopo aver pubblicato il portale, è possibile accedervi con lo stesso URL del pannello amministrativo, ad esempio `https://contoso-api.developer.azure-api.net`. Visualizzarlo in una sessione del browser separata (modalità di esplorazione in incognito/privata) come visitatore esterno.
+Dopo aver pubblicato il portale, è possibile accedervi con lo stesso URL del pannello amministrativo, ad esempio `https://contoso-api.developer.azure-api.net` . Visualizzarlo in una sessione del browser separata (modalità di esplorazione in incognito/privata) come visitatore esterno.
 
 ## <a name="apply-the-cors-policy-on-apis"></a>Applicare il criterio CORS sulle API
 
