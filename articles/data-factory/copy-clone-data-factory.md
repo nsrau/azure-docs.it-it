@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.openlocfilehash: 5e44bda8648fbf26487b04cf36a8fd0ec085c411
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 304c39f4b6f7852068d4e72adfad2d41eeefc26c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552971"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copiare o clonare una data factory in Azure Data Factory
 
@@ -28,25 +28,28 @@ Questo articolo descrive come copiare o clonare una data factory in Azure Data F
 
 Ecco alcune delle circostanze in cui potrebbe essere utile copiare o clonare una data factory:
 
--   **Ridenominazione di risorse**. Azure non supporta la ridenominazione di risorse. Se si vuole rinominare una data factory, è possibile clonarla con un nome diverso, eliminando quella esistente.
+- **Spostare data factory** in una nuova area. Se si vuole spostare il Data Factory in un'area diversa, il modo migliore consiste nel creare una copia nell'area di destinazione ed eliminarne una esistente.
 
--   **Modifiche di debug** quando le funzionalità di debug non sono sufficienti. Per testare le modifiche, in alcuni casi, è consigliabile testarle in una factory diversa prima di applicarle alla principale. Nella maggior parte degli scenari, è possibile usare Debug. Tuttavia, le modifiche relative ai trigger potrebbero non essere testabili facilmente senza eseguirne l'archiviazione; ad esempio il comportamento delle modifiche quando un trigger viene invocato automaticamente o in un certo intervallo d tempo. In questi casi,risulta particolarmente utile clonare la factory applicando lì le modifiche. La seconda factory non comporta costi aggiuntivi, poiché gli addebiti per Azure Data Factory dipendono principalmente dal numero di esecuzioni.
+- **Ridenominazione Data Factory**. Azure non supporta la ridenominazione di risorse. Se si desidera rinominare una data factory, è possibile clonare il data factory con un nome diverso ed eliminare quello esistente.
+
+- **Modifiche di debug** quando le funzionalità di debug non sono sufficienti. Nella maggior parte degli scenari, è possibile usare [debug](iterative-development-debugging.md). In altri casi, è più sensato testare le modifiche apportate in un ambiente sandbox clonato. Ad esempio, il modo in cui le pipeline ETL con parametri si comporteranno quando un trigger viene attivato al momento dell'arrivo dei file rispetto alla finestra temporale a cascata, potrebbe non essere facilmente verificabile tramite debug. In questi casi, potrebbe essere necessario clonare un ambiente sandbox per la sperimentazione. Poiché Azure Data Factory addebitato principalmente il numero di esecuzioni, una seconda Factory non comporta addebiti aggiuntivi.
 
 ## <a name="how-to-clone-a-data-factory"></a>Come clonare una Data factory
 
-1. L'interfaccia utente di Data Factory nel portale di Azure consente di esportare l'intero payload della data factory in un modello di Resource Manager, assieme a un file di parametro che consente di modificare i valori desiderati durante la clonazione della factory.
+1. Come prerequisito, è necessario innanzitutto creare la data factory di destinazione dal portale di Azure.
 
-1. Il prerequisito consiste nel creare la data factory di destinazione dal portale di Azure.
+1. In modalità GIT:
+    1. Ogni volta che si pubblica dal portale, il modello di Gestione risorse della factory viene salvato in GIT nel ramo di pubblicazione di ADF \_
+    1. Connettere la nuova factory allo _stesso_ repository e compilare dal ramo di \_ pubblicazione di ADF. Le risorse, ad esempio pipeline, set di impostazioni e trigger, porteranno attraverso
 
-1. Se si dispone di un IntegrationRuntime SelfHosted nella Factory di origine, è necessario precrearlo con lo stesso nome nella Factory di destinazione. Se si vuole condividere il SelfHosted IRs tra diversi Factory, è possibile usare il modello pubblicato [qui](source-control.md#best-practices-for-git-integration).
+1. Se si è in modalità Live:
+    1. Data Factory interfaccia utente consente di esportare l'intero payload del data factory in un file di modello Gestione risorse e in un file di parametri. È possibile accedervi dal pulsante **modello ARM \ esporta gestione risorse modello** nel portale.
+    1. È possibile apportare le modifiche appropriate al file dei parametri e scambiare i nuovi valori per la nuova factory
+    1. Successivamente, è possibile distribuirlo tramite i metodi di distribuzione standard di Gestione risorse modello.
 
-1. Ogni volta che si pubblica dal portale in modalità GIT, il modello di Resource Manager della factory viene salvato in GIT nel ramo adf_publish del repository.
+1. Se si dispone di un IntegrationRuntime SelfHosted nella Factory di origine, è necessario precrearlo con lo stesso nome nella Factory di destinazione. Se si vuole condividere la Integration Runtime SelfHosted tra diversi Factory, è possibile usare il modello pubblicato [qui](create-shared-self-hosted-integration-runtime-powershell.md) in condivisione di SelfHosted IR.
 
-1. Per altri scenari, può essere scaricato il modello di Resource Manager facendo clic sul pulsante nel portale **Export Resource Manager template (Esporta modello di Resource Manager)**.
-
-1. Dopo aver scaricato il modello di Resource Manager, è possibile distribuirlo tramite i metodi standard di distribuzione in Resource Manager.
-
-1. Per motivi di sicurezza, il modello di Resource Manager generato non contiene informazioni segrete, ad esempio le password per i servizi collegati. Di conseguenza, è necessario fornire queste password come parametri di distribuzione. Se non si vuole fornire questi parametri, sarà necessario ottenere le stringhe di connessione e le password dei servizi collegati di Azure Key Vault.
+1. Per motivi di sicurezza, il modello di Gestione risorse generato non conterrà informazioni segrete, ad esempio le password per i servizi collegati. Pertanto, è necessario fornire le credenziali come parametri di distribuzione. Se le credenziali vengono inserite manualmente, è consigliabile recuperare le stringhe di connessione e le password da Azure Key Vault. [Altre informazioni](store-credentials-in-key-vault.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

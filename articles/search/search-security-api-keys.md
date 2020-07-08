@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 68a17b8b3587077222a9ed2057927c8f16253c1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a4c862cd6b6f9b01c0b56c2a21e228fdfd0f6e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553332"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creare e gestire le chiavi API per un servizio ricerca cognitiva di Azure
 
@@ -32,7 +32,7 @@ Per accedere al servizio di ricerca vengono usati due tipi di chiavi: amministra
 |Chiave|Descrizione|Limiti|  
 |---------|-----------------|------------|  
 |Amministratore|Concede diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati.<br /><br /> Due chiavi amministratore, chiamate chiave *primaria* e *secondaria* nel portale, vengono generate quando il servizio viene creato e possono essere generate di nuovo singolarmente su richiesta. Avere due chiavi consente di eseguire il rollover di una chiave mentre si usa la seconda per l'accesso continuo al servizio.<br /><br /> Le chiavi amministratore vengono specificate solo nelle intestazioni delle richieste HTTP. Non è possibile inserire un elemento api-key amministratore in un URL.|Un massimo di 2 per servizio|  
-|Query|Concede l'accesso in sola lettura agli indici e ai documenti e viene in genere distribuita alle applicazioni client che inviano richieste di ricerca.<br /><br /> Le chiavi di query vengono create su richiesta. È possibile crearle manualmente nel portale o a livello di codice tramite l'[API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Le chiavi di query possono essere specificate nell'intestazione di una richiesta HTTP per un'operazione di ricerca o suggerimento. In alternativa, è possibile passare una chiave di query come parametro in un URL. A seconda di come l'applicazione client formula la richiesta, può risultare più semplice passare la chiave come parametro di query:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06&api-key=[query key]`|50 per servizio|  
+|Query|Concede l'accesso in sola lettura agli indici e ai documenti e viene in genere distribuita alle applicazioni client che inviano richieste di ricerca.<br /><br /> Le chiavi di query vengono create su richiesta. È possibile crearle manualmente nel portale o a livello di codice tramite l'[API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Le chiavi di query possono essere specificate nell'intestazione di una richiesta HTTP per un'operazione di ricerca o suggerimento. In alternativa, è possibile passare una chiave di query come parametro in un URL. A seconda di come l'applicazione client formula la richiesta, può risultare più semplice passare la chiave come parametro di query:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 per servizio|  
 
  Non esiste alcuna distinzione visiva tra una chiave amministratore o una chiave di query. Entrambe le chiavi sono stringhe composte da 32 caratteri alfanumerici generati in modo casuale. Se si è persa traccia del tipo di chiave specificato nell'applicazione, è possibile [controllare i valori delle chiavi nel portale](https://portal.azure.com) o usare l'[API REST](https://docs.microsoft.com/rest/api/searchmanagement/) per restituire il valore e il tipo di chiave.  
 
@@ -45,7 +45,7 @@ Per accedere al servizio di ricerca vengono usati due tipi di chiavi: amministra
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
-3. Selezionare il servizio e nella pagina Panoramica fare clic su **Impostazioni** >**chiavi** per visualizzare le chiavi di query e di amministrazione.
+3. Selezionare il servizio e nella pagina Panoramica fare clic su **Impostazioni**  > **chiavi** per visualizzare le chiavi di query e di amministrazione.
 
    ![Pagina del portale, sezione Impostazioni, Chiavi](media/search-security-overview/settings-keys.png)
 
@@ -57,7 +57,7 @@ La limitazione dell'accesso e delle operazioni nelle app client è essenziale pe
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
-3. Selezionare il servizio e nella pagina Panoramica fare clic su **Impostazioni** >**chiavi**.
+3. Selezionare il servizio e nella pagina Panoramica fare clic su **Impostazioni**  > **chiavi**.
 4. Fare clic su **Gestisci chiavi di query**.
 5. Usare la chiave di query già generata per il servizio oppure creare fino a 50 nuove chiavi di query. La chiave di query predefinita non è denominata, ma le chiavi di query aggiuntive possono essere denominate per gestibilità.
 
@@ -72,7 +72,7 @@ La limitazione dell'accesso e delle operazioni nelle app client è essenziale pe
 
 Vengono create due chiavi amministratore per ogni servizio, in modo che sia possibile ruotare una chiave primaria, usando la chiave secondaria per la continuità aziendale.
 
-1. Nella pagina **Impostazioni** >**chiavi** copiare la chiave secondaria.
+1. Nella pagina **Impostazioni**  > **chiavi** copiare la chiave secondaria.
 2. Per tutte le applicazioni, aggiornare le impostazioni relative alle chiavi API per usare la chiave secondaria.
 3. Riscrivere la chiave primaria.
 4. Aggiornare tutte le applicazioni affinché usino la nuova chiave primaria.

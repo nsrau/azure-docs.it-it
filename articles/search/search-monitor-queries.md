@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552528"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorare le richieste di query in Azure ricerca cognitiva
 
@@ -41,7 +41,7 @@ In genere, le query vengono eseguite in millisecondi, quindi solo le query che m
 | Media | Numero medio di secondi in un minuto durante i quali si è verificata l'esecuzione della query.|
 | Conteggio | Numero di metriche emesse nel log entro l'intervallo di un minuto. |
 | Massimo | Il numero più elevato di query di ricerca al secondo registrate nel corso di un minuto. |
-| Minima | Il numero più basso di query di ricerca al secondo registrate per un minuto.  |
+| Minimo | Il numero più basso di query di ricerca al secondo registrate per un minuto.  |
 | SUM | Somma di tutte le query eseguite entro i minuti.  |
 
 Ad esempio, all'interno di un minuto è possibile che si disponga di un modello simile al seguente: un secondo di carico elevato, che rappresenta il valore massimo per SearchQueriesPerSecond, seguito da 58 secondi di carico medio e infine da un secondo con una sola query, che corrisponde al valore minimo.
@@ -59,7 +59,7 @@ A livello di servizio, le prestazioni delle query vengono misurate come latenza 
 | Media | Durata media delle query in millisecondi. | 
 | Conteggio | Numero di metriche emesse nel log entro l'intervallo di un minuto. |
 | Massimo | Query con esecuzione più lunga nell'esempio. | 
-| Minima | Query con esecuzione più breve nell'esempio.  | 
+| Minimo | Query con esecuzione più breve nell'esempio.  | 
 | Totale | Tempo totale di esecuzione di tutte le query nell'esempio, eseguite entro l'intervallo (un minuto).  |
 
 Si consideri l'esempio seguente di metriche di **latenza di ricerca** : sono state campionate 86 query con una durata media di 23,26 millisecondi. Un valore minimo pari a 0 indica che alcune query sono state eliminate. Per il completamento della query con esecuzione più lunga sono necessari 1000 millisecondi. Il tempo di esecuzione totale è di 2 secondi.
@@ -87,7 +87,7 @@ Per confermare le query limitate, usare metrica **query di ricerca limitate** . 
 | Media | Percentuale di query eliminate nell'intervallo. |
 | Conteggio | Numero di metriche emesse nel log entro l'intervallo di un minuto. |
 | Massimo | Percentuale di query eliminate nell'intervallo.|
-| Minima | Percentuale di query eliminate nell'intervallo. |
+| Minimo | Percentuale di query eliminate nell'intervallo. |
 | Totale | Percentuale di query eliminate nell'intervallo. |
 
 Per le **query di ricerca limitate, percentuale**, minimo, massimo, medio e totale, hanno lo stesso valore: la percentuale di query di ricerca che sono state limitate, dal numero totale di query di ricerca in un minuto.
@@ -128,11 +128,11 @@ Quando si Abilita la registrazione delle risorse, il sistema acquisisce le richi
    AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
-   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where Query_s != "?api-version=2020-06-30&search=*"
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Facoltativamente, impostare un filtro colonne in *Query_s* per eseguire la ricerca su una sintassi o una stringa specifica. Ad esempio, è possibile filtrare *è uguale a* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+1. Facoltativamente, impostare un filtro colonne in *Query_s* per eseguire la ricerca su una sintassi o una stringa specifica. Ad esempio, è possibile filtrare *è uguale a* `?api-version=2020-06-30&search=*&%24filter=HotelName` ).
 
    ![Stringhe di query registrate](./media/search-monitor-usage/log-query-strings.png "Stringhe di query registrate")
 
@@ -181,7 +181,7 @@ Quando si esegue il push dei limiti di una particolare configurazione della part
 
    ![Dettagli dell'avviso](./media/search-monitor-usage/alert-details.png "Dettagli dell'avviso")
 
-Se è stata specificata una notifica di posta elettronica, si riceverà un messaggio di posta elettronica da "Microsoft Azure" con una riga dell'oggetto " `<your rule name>`Azure: Activated Severity: 3".
+Se è stata specificata una notifica di posta elettronica, si riceverà un messaggio di posta elettronica da "Microsoft Azure" con una riga dell'oggetto "Azure: Activated Severity: 3 `<your rule name>` ".
 
 <!-- ## Report query data
 

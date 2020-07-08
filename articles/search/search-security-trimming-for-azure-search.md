@@ -1,19 +1,19 @@
 ---
 title: Filtri di sicurezza per tagliare i risultati
 titleSuffix: Azure Cognitive Search
-description: Controllo di accesso in Azure ricerca cognitiva contenuto usando i filtri di sicurezza e le identità utente.
+description: Privilegi di sicurezza a livello di documento per i risultati di ricerca di Azure ricerca cognitiva, usando i filtri di sicurezza e le identità utente.
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553144"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtri di sicurezza per tagliare i risultati in Azure ricerca cognitiva
 
@@ -27,7 +27,7 @@ Questo articolo descrive come applicare un filtro di sicurezza usando la procedu
 > [!div class="checklist"]
 > * Creare un campo che contenga gli identificatori dell'entità di sicurezza 
 > * Eseguire il push o aggiornare i documenti esistenti con gli identificatori di entità di sicurezza rilevanti
-> * Invia una richiesta di ricerca `search.in` con`filter`
+> * Invia una richiesta di ricerca con `search.in``filter`
 
 >[!NOTE]
 > Il processo di recupero degli identificatori dell'entità di sicurezza non viene trattato in questo documento. È possibile richiederlo dal provider di servizi di identità.
@@ -60,7 +60,7 @@ Si supponga di avere un indice dei file protetti e che ogni file sia accessibile
 Eseguire una richiesta HTTP POST all'endpoint dell'URL dell'indice. Il corpo della richiesta HTTP è un oggetto JSON che contiene i documenti da aggiungere:
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2020-06-30  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -118,7 +118,7 @@ Si noti che questo esempio mostra come eseguire la ricerca di documenti con una 
 Inviare la richiesta HTTP POST:
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2020-06-30
 Content-Type: application/json  
 api-key: [admin or query key]
 ```
@@ -151,7 +151,7 @@ Specificare il filtro nel corpo della richiesta:
 ```
 ## <a name="conclusion"></a>Conclusioni
 
-In questo modo è possibile filtrare i risultati in base all'identità dell'utente `search.in()` e alla funzione di ricerca cognitiva di Azure. È possibile usare questa funzione per passare gli identificatori di principio che l'utente richiedente deve confrontare con gli identificatori di entità associati a ogni documento di destinazione. Quando viene gestita una richiesta di ricerca, la funzione `search.in` filtra i risultati della ricerca per cui l'accesso in lettura non è consentito ad alcuna entità di sicurezza dell'utente. Gli identificatori dell'entità di sicurezza possono rappresentare oggetti quali i gruppi di sicurezza, i ruoli o persino l'identità dell'utente.
+In questo modo è possibile filtrare i risultati in base all'identità dell'utente e alla funzione di ricerca cognitiva di Azure `search.in()` . È possibile usare questa funzione per passare gli identificatori di principio che l'utente richiedente deve confrontare con gli identificatori di entità associati a ogni documento di destinazione. Quando viene gestita una richiesta di ricerca, la funzione `search.in` filtra i risultati della ricerca per cui l'accesso in lettura non è consentito ad alcuna entità di sicurezza dell'utente. Gli identificatori dell'entità di sicurezza possono rappresentare oggetti quali i gruppi di sicurezza, i ruoli o persino l'identità dell'utente.
  
 ## <a name="see-also"></a>Vedere anche
 

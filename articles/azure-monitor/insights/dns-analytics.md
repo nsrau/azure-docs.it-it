@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552806"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
 
@@ -33,7 +33,7 @@ La soluzione raccoglie, analizza e mette in relazione i log di controllo e anali
 
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione:
 
-| **Origine connessa** | **Supporto tecnico** | **Descrizione** |
+| **Origine connessa** | **Supporto** | **Descrizione** |
 | --- | --- | --- |
 | [Agenti di Windows](../platform/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
 | [Agenti Linux](../learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
@@ -179,7 +179,7 @@ Passaggi comuni per la risoluzione dei problemi:
 
 1. Dati delle ricerche DNS mancanti: per risolvere il problema, provare a reimpostare la configurazione o a caricare la pagina di configurazione una sola volta nel portale. Per la reimpostazione, è sufficiente modificare un'impostazione in un altro valore, quindi riportarla nel valore originale e salvare la configurazione.
 
-## <a name="feedback"></a>Commenti e suggerimenti
+## <a name="suggestions"></a>Suggerimenti
 
 Per fornire commenti e suggerimenti, visitare la [pagina log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) per pubblicare idee per il funzionamento di analisi DNS funzionalità. 
 

@@ -8,25 +8,25 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6bda61960efd9a5e176f8792601e315ba96bcca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76899937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553293"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia dei dati inattivi in Azure ricerca cognitiva usando chiavi gestite dal cliente in Azure Key Vault
 
 Per impostazione predefinita, Azure ricerca cognitiva crittografa il contenuto indicizzato inattivo con le [chiavi gestite dal servizio](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). È possibile integrare la crittografia predefinita con un livello di crittografia aggiuntivo usando le chiavi create e gestite in Azure Key Vault. Questo articolo illustra i passaggi necessari.
 
-La crittografia lato server è supportata tramite l'integrazione con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare chiavi di crittografia. Con Azure Key Vault è anche possibile controllare l'utilizzo della chiave. 
+La crittografia lato server è supportata tramite l'integrazione con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare chiavi di crittografia. Con Azure Key Vault è anche possibile controllare l'utilizzo delle chiavi. 
 
 La crittografia con chiavi gestite dal cliente viene configurata a livello di indice o sinonimo quando tali oggetti vengono creati e non nel livello di servizio di ricerca. Non è possibile crittografare il contenuto già esistente. 
 
 Non è necessario che tutte le chiavi si trovino nella stessa Key Vault. Un singolo servizio di ricerca può ospitare più indici crittografati o mappe di sinonimi ciascuno crittografato con le proprie chiavi di crittografia gestite dal cliente archiviate in insiemi di credenziali delle chiavi diversi.  È anche possibile avere indici e mappe sinonimi nello stesso servizio che non sono crittografati con chiavi gestite dal cliente. 
 
 > [!IMPORTANT] 
-> Questa funzionalità è disponibile nell' [API REST versione 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) e [.net SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md). Attualmente non è disponibile alcun supporto per la configurazione delle chiavi di crittografia gestite dal cliente nel portale di Azure. Il servizio di ricerca deve essere creato dopo il 2019 gennaio e non può essere un servizio gratuito (condiviso).
+> Questa funzionalità è disponibile nell' [API REST](https://docs.microsoft.com/rest/api/searchservice/) e in [.net SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md). Attualmente non è disponibile alcun supporto per la configurazione delle chiavi di crittografia gestite dal cliente nel portale di Azure. Il servizio di ricerca deve essere creato dopo il 2019 gennaio e non può essere un servizio gratuito (condiviso).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +38,7 @@ In questo esempio vengono usati i servizi seguenti.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) viene usata per attività di configurazione.
 
-+ [Postazione](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) e [Azure ricerca cognitiva SDK](https://aka.ms/search-sdk-preview) possono essere usati per chiamare l'API REST. Al momento non è disponibile il supporto del portale per la crittografia gestita dal cliente.
++ Per chiamare l'API REST, è possibile usare l'anteprima di [postazione](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) e [.NET SDK](https://aka.ms/search-sdk-preview) . Al momento non è disponibile il supporto del portale per la crittografia gestita dal cliente.
 
 >[!Note]
 > A causa della natura della crittografia con la funzionalità chiavi gestite dal cliente, Azure ricerca cognitiva non sarà in grado di recuperare i dati se la chiave dell'insieme di credenziali delle chiavi di Azure viene eliminata. Per evitare la perdita di dati causata da eliminazioni accidentali di chiavi di Key Vault, è **necessario** abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault prima di poterla utilizzare. Per ulteriori informazioni, vedere [Azure Key Vault soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
