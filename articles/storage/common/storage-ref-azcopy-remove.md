@@ -8,12 +8,11 @@ ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: f76489f384f233f65eb8fcca3a8359cd5b67c20a
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: MT
+ms.openlocfilehash: ab085b9a41120a9f56c1c2e39a89def8c3893747
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780726"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84221079"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -55,13 +54,13 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/virtual/
 Rimuovere un subset di BLOB in una directory virtuale (ad esempio: solo file jpg e PDF o se il nome del BLOB è "exactname"):
 
 ```azcopy
-azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include="*.jpg;*.pdf;exactName"
+azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include-pattern="*.jpg;*.pdf;exactName"
 ```
 
 Rimuovere un'intera directory virtuale, ma escludere determinati BLOB dall'ambito, ad esempio: ogni BLOB che inizia con foo o termina con la barra:
 
 ```azcopy
-azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
+azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude-pattern="foo*;*bar"
 ```
 
 Rimuovere i BLOB e le directory virtuali specifici inserendo i percorsi relativi (non codificati in URL) in un file:
@@ -91,7 +90,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--Delete-Snapshots** stringa per impostazione predefinita, l'operazione di eliminazione ha esito negativo se un BLOB contiene snapshot. Specificare ' Includi ' per rimuovere il BLOB radice e tutti i relativi snapshot; in alternativa, specificare "solo" per rimuovere solo gli snapshot, mantenendo però il BLOB radice.
 
-**--Exclude-Path** stringa escludere questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. Ad esempio: fileFolder; MyFile/subDirName/file. pdf.
+**--Exclude-Path** stringa escludere questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. Ad esempio: fileFolder, cartella/subDirName/file.pdf.
 
 **--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;*. PDF; exactname
 
@@ -99,7 +98,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **-h,--** guida per la rimozione
 
-**--include-percorso** stringa include solo questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. Ad esempio: cartella fileFolder, cartella/subDirName/file. pdf
+**--include-percorso** stringa include solo questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. Ad esempio: cartella cartella, cartella/subDirName/file.pdf
 
 **--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;*. PDF; exactname
 
@@ -115,7 +114,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |---|---|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
-|--trusted-Microsoft-suffissi stringa   | Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
+|--trusted-Microsoft-suffissi stringa   |Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
 
 ## <a name="see-also"></a>Vedere anche
 

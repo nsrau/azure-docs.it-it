@@ -4,12 +4,11 @@ description: Questo articolo illustra come gestire le operazioni di ripristino d
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 87e3d75d925968b6521324f5b776cf8df1f6af11
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74173375"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247800"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
@@ -117,7 +116,7 @@ Il punto di ripristino viene identificato con il campo `{name}` nella risposta p
 
 ## <a name="restore-disks"></a>Ripristinare i dischi
 
-Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare semplicemente i dischi in un account di archiviazione a scelta e creare una macchina virtuale da questi dischi in base alle specifiche esigenze. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("VMConfig. JSON") verranno archiviati nell'account di archiviazione specificato.
+Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare solo i dischi in un account di archiviazione scelto e creare una VM da tali dischi in base ai requisiti. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("vmconfig.json") verranno archiviati nell'account di archiviazione specificato.
 
 L'attivazione dei dischi di ripristino è una richiesta *POST*. Per altre informazioni sull'operazione di ripristino dei dischi, fare riferimento all'[API REST per attivare il ripristino](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
@@ -167,7 +166,7 @@ L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'al
 
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
-|202 - Accettato     |         |     Accepted    |
+|202 - Accettato     |         |     Accettato    |
 
 #### <a name="example-responses"></a>Risposte di esempio
 

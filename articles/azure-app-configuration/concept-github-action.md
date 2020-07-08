@@ -6,12 +6,11 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 9cb1149073247b7f5fc3e74a1aef6f96388c7135
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197056"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizzare il repository GitHub con Configurazione app
 
@@ -92,7 +91,7 @@ jobs:
 ```
 ## <a name="sync-multiple-files-in-one-action"></a>Sincronizzare più file in un'unica azione 
 
-Se la configurazione si trova in più file, è possibile usare il criterio seguente per attivare una sincronizzazione quando uno dei file viene modificato. Questo criterio usa la libreria GLOB https://www.npmjs.com/package/glob 
+Se la configurazione si trova in più file, è possibile usare il criterio seguente per attivare una sincronizzazione quando uno dei file viene modificato. Questo modello usa la libreria glob https://www.npmjs.com/package/glob . Si noti che se il nome del file di configurazione contiene una virgola, è possibile usare una barra rovesciata per eseguire l'escape della virgola. 
 
 ```json
 on:
@@ -252,7 +251,7 @@ jobs:
 ## <a name="use-max-depth-to-limit-github-action"></a>Usare la profondità massima per limitare l'azione di GitHub
 Il comportamento predefinito per gli attributi JSON annidati consiste nel rendere flat l'intero oggetto.  Il codice JSON seguente definisce questa coppia chiave-valore:
 
-| Chiave | valore |
+| Chiave | Valore |
 | --- | --- |
 | Object:Inner:InnerKey | InnerValue |
 
@@ -295,7 +294,7 @@ jobs:
 
 Data una profondità di 2, l'esempio precedente restituisce ora la coppia chiave-valore seguente:
 
-| Chiave | valore |
+| Chiave | Valore |
 | --- | --- |
 | Object:Inner | {"InnerKey":"InnerValue"} |
 

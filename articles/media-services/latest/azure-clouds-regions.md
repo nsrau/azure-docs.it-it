@@ -3,20 +3,20 @@ title: Cloud e aree in cui è disponibile servizi multimediali di Azure V3
 description: Questo articolo illustra i cloud e le aree di Azure in cui i Servizi multimediali v3 di Azure sono attualmente disponibili.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
-ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 5/28/2020
+ms.author: inhenkel
+ms.custom: references_regions
+ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80382971"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196248"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Cloud e aree in cui sono presenti i Aervizi multimediali v3 di Azure
 
@@ -32,6 +32,19 @@ I Servizi multimediali v3 di Azure sono disponibili tramite il manifesto di Azur
 | [StandardEncoderPreset](encoding-concept.md) | Disponibile | Disponibile | Disponibile | Disponibile |
 | [LiveEvents](live-streaming-overview.md) | Disponibile | Disponibile | Disponibile | Disponibile |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Disponibile | Disponibile | Disponibile | Disponibile |
+
+## <a name="feature-availability-in-preview"></a>Disponibilità delle funzionalità in anteprima
+
+[LiveTranscription](live-transcription.md) è disponibile nelle aree geografiche seguenti:
+
+- Asia sud-orientale
+- Europa occidentale
+- Europa settentrionale
+- Stati Uniti orientali
+- Stati Uniti centrali
+- Stati Uniti centro-meridionali
+- Stati Uniti occidentali 2
+- Brasile meridionale
 
 ## <a name="regionsgeographieslocations"></a>Aree/aree geografiche/località
 
@@ -69,7 +82,7 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 |Endpoint||
 | --- | --- |
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Autenticazione | `https://login.microsoftonline.com/` |
+| Authentication | `https://login.microsoftonline.com/` |
 | Destinatari dei token | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
@@ -77,7 +90,7 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 |Endpoint||
 | --- | --- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Autenticazione | `https://login.microsoftonline.us/` |
+| Authentication | `https://login.microsoftonline.us/` |
 | Destinatari dei token | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Germania
@@ -85,7 +98,7 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 | Endpoint ||
 | --- | --- |  
 | Azure Resource Manager | `https://management.cloudapi.de/` |
-| Autenticazione | `https://login.microsoftonline.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
 | Destinatari dei token | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>21Vianet per Azure Cina
@@ -93,7 +106,7 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 |Endpoint||
 | --- | --- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
-| Autenticazione | `https://login.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
 | Destinatari dei token |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="see-also"></a>Vedere anche

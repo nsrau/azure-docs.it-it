@@ -13,12 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9ea63192732184ff7a13ff1465a5b393a282f9d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204770"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -60,7 +59,7 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 > In caso di uso di ruoli Web e di lavoro basati su servizi cloud, è possibile accedere anche gli indirizzi IP interni delle istanze del ruolo con l'API REST di gestione del servizio Azure. Per altre informazioni, vedere [Riferimento all'API REST di gestione dei servizi](https://msdn.microsoft.com/library/azure/ee460799.aspx). L'indirizzo si basa sul nome del ruolo e sul numero di istanza. 
 >
 
-### <a name="features"></a>Caratteristiche
+### <a name="features"></a>Funzionalità
 
 La risoluzione dei nomi fornita da Azure presenta le caratteristiche seguenti:
 * Semplicità d'uso. Non è richiesta alcuna configurazione.
@@ -84,9 +83,9 @@ Ecco gli aspetti da prendere in considerazione quando si usa la risoluzione dei 
 
 ### <a name="reverse-dns-considerations"></a>Considerazioni sul DNS inverso
 Il DNS inverso è supportato in tutte le reti virtuali basate su ARM. È possibile eseguire query DNS inverse (query PTR) per eseguire il mapping degli indirizzi IP delle macchine virtuali a FQDN di macchine virtuali.
-* Tutte le query PTR per gli indirizzi IP delle macchine virtuali restituiranno FQDN del \[modulo\]VMName. Internal.cloudapp.NET
-* La ricerca diretta su FQDN del modulo \[vmname\]. Internal.cloudapp.NET risolverà l'indirizzo IP assegnato alla macchina virtuale.
-* Se la rete virtuale è collegata a una [zona privata di DNS di Azure](../dns/private-dns-overview.md) come rete virtuale di registrazione, le query DNS inverse restituiranno due record. Un record corrisponderà al formato \[VMName.\] [priatednszonename] e other sono nel formato \[vmname\]. Internal.cloudapp.NET
+* Tutte le query PTR per gli indirizzi IP delle macchine virtuali restituiranno FQDN del modulo \[ VMName \] . Internal.cloudapp.NET
+* La ricerca diretta su FQDN del modulo \[ VMName \] . Internal.cloudapp.NET risolverà l'indirizzo IP assegnato alla macchina virtuale.
+* Se la rete virtuale è collegata a una [zona privata di DNS di Azure](../dns/private-dns-overview.md) come rete virtuale di registrazione, le query DNS inverse restituiranno due record. Un record corrisponderà al formato \[ VMName \] . [ privatednszonename] e other sono nel formato \[ VMName \] . Internal.cloudapp.NET
 * La ricerca DNS inversa ha come ambito una determinata rete virtuale, anche se ne è stato assegnato il peering ad altre reti virtuali. Le query DNS inverse (query PTR) per gli indirizzi IP delle macchine virtuali che si trovano in reti virtuali con peering restituiranno NXDOMAIN.
 * Se si vuole disattivare la funzione DNS inverso in una rete virtuale, è possibile creare una zona di ricerca inversa usando [zone private di DNS di Azure](../dns/private-dns-overview.md) e collegare questa zona alla rete virtuale. Ad esempio, se lo spazio di indirizzi IP della rete virtuale è 10.20.0.0/16, è possibile creare una zona DNS privata vuota 20.10.in-addr. arpa e collegarla alla rete virtuale. Quando si collega la zona alla rete virtuale, è necessario disabilitare la registrazione automatica sul collegamento. Questa zona sostituisce le zone di ricerca inversa predefinite per la rete virtuale e poiché quest'area è vuota, si otterrà NXDOMAIN per le query DNS inverse. Per informazioni dettagliate su come creare una zona DNS privata e collegarla a una rete virtuale, vedere la [Guida introduttiva](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) .
 
@@ -218,7 +217,7 @@ Quando si usa il modello di distribuzione Azure Resource Manager, è possibile s
 Quando si usa il modello di distribuzione classica, è possibile specificare i server DNS per la rete virtuale nel portale di Azure o nel [file di configurazione della rete](https://msdn.microsoft.com/library/azure/jj157100). Per i servizi cloud, è possibile specificare i server DNS nel [file di configurazione del servizio](https://msdn.microsoft.com/library/azure/ee758710) o tramite PowerShell con [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> Se si modificano le impostazioni DNS per una rete virtuale o una macchina virtuale già distribuita, per rendere effettive le nuove impostazioni DNS è necessario eseguire un rinnovo del lease DHCP in tutte le VM interessate nella rete virtuale. Per le macchine virtuali che eseguono il sistema operativo Windows, è possibile `ipconfig /renew` eseguire questa operazione digitando direttamente nella macchina virtuale. La procedura varia a seconda del sistema operativo. Vedere la documentazione pertinente per il tipo di sistema operativo.
+> Se si modificano le impostazioni DNS per una rete virtuale o una macchina virtuale già distribuita, per rendere effettive le nuove impostazioni DNS è necessario eseguire un rinnovo del lease DHCP in tutte le VM interessate nella rete virtuale. Per le macchine virtuali che eseguono il sistema operativo Windows, è possibile eseguire questa operazione digitando `ipconfig /renew` direttamente nella macchina virtuale. La procedura varia a seconda del sistema operativo. Vedere la documentazione pertinente per il tipo di sistema operativo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,11 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d07d1a706635a7f269a9a51769ae6f8bbf57df3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d2adca661882ea11d04ebe55afe25f7f9c2ef4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84219956"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -101,7 +100,7 @@ Assicurarsi di considerare/Path/to/My/CERT come percorso di un file PEM o PKCS12
 
 |Opzione|Descrizione|
 |--|--|
-|--AAD-endpoint|Endpoint Azure Active Directory da utilizzare. Il valore predefinito`https://login.microsoftonline.com`() è corretto per il cloud di Azure pubblico. Impostare questo parametro quando si esegue l'autenticazione in un cloud nazionale. Vedere [Azure ad endpoint di autenticazione](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+|--AAD-endpoint|Endpoint Azure Active Directory da utilizzare. Il valore predefinito ( `https://login.microsoftonline.com` ) è corretto per il cloud di Azure pubblico. Impostare questo parametro quando si esegue l'autenticazione in un cloud nazionale. Vedere [Azure ad endpoint di autenticazione](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 Questo flag non è necessario per identità del servizio gestita.|
 |--Application-ID stringa|ID applicazione dell'identità assegnata dall'utente. Obbligatorio per l'autenticazione dell'entità servizio.|
 |--certificate-percorso stringa|Percorso del certificato per l'autenticazione del nome SPN. Obbligatorio per l'autenticazione dell'entità servizio basata su certificato.|
@@ -119,6 +118,7 @@ Questo flag non è necessario per identità del servizio gestita.|
 |---|---|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
+|--trusted-Microsoft-suffissi stringa   |Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
 
 ## <a name="see-also"></a>Vedere anche
 

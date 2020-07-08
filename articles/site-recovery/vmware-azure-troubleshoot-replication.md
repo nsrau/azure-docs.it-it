@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 3a3d8ee1d0c1625c9e7d3d83b590f38dcd8847fe
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197049"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Risolvere i problemi di replica per macchine virtuali VMware e server fisici
 
@@ -77,7 +76,7 @@ Per risolvere il problema:
     - Passare al pannello Dischi del computer replicato interessato e copiare il nome del disco di replica
     - Passare a questo disco gestito di replica
     - Nel pannello Panoramica è visibile un banner che informa che è stato generato un URL di firma di accesso condiviso. Fare clic su questo banner e annullare l'esportazione. Ignorare questo passaggio se il banner non viene visualizzato.
-    - Non appena l'URL di firma di accesso condiviso viene revocato, passare al pannello Configurazione del disco gestito e aumentare le dimensioni in modo che ASR supporti la frequenza di varianza osservata sul disco di origine
+    - Non appena viene revocato l'URL di firma di accesso condiviso, passare al pannello configurazione del disco gestito e aumentare le dimensioni in modo che Azure Site Recovery supporti la varianza osservata sul disco di origine
 - Se la varianza osservata è temporanea, attendere alcune ore prima che il caricamento dei dati in sospeso si aggiorni e crei punti di ripristino.
 - Se il disco contiene dati non critici come log temporanei, dati di test e così via, provare a trasferire questi dati altrove o a escludere completamente il disco dalla replica
 - Se il problema persiste, usare il [piano di distribuzione](site-recovery-deployment-planner.md#overview) di Site Recovery per pianificare la replica.
@@ -146,6 +145,8 @@ Di seguito sono elencati alcuni dei problemi più comuni
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Causa 3: Problema noto in SQL Server 2016 e 2017
 **Come correggere**: Fare riferimento a questo [articolo della Knowledge Base](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Motivo 4: coerenza delle app non abilitata nei server Linux
+**Come risolvere il** problema: Azure Site Recovery per il sistema operativo Linux supporta gli script personalizzati dell'applicazione per la coerenza delle app. Lo script personalizzato con le opzioni pre e post verrà usato dall'agente di Azure Site Recovery Mobility per la coerenza delle app. [Ecco](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) i passaggi per abilitarla.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Altre cause derivanti da problemi correlati al servizio Copia Shadow del volume:
 
@@ -162,12 +163,12 @@ Nell'esempio precedente, **2147754994** è il codice di errore che indica l'erro
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS writer non è installato - Errore 2147221164
 
-*Come correggere*: Per generare un tag di coerenza dell'applicazione, Azure Site Recovery usa il servizio Copia Shadow del volume Microsoft (servizio Copia Shadow del volume), che installa un provider del servizio Copia Shadow del volume per la relativa operazione per eseguire snapshot di coerenza dell'app. Questo provider del servizio Copia Shadow del volume viene installato as-a-service. Se il service provider del servizio Copia Shadow del volume non è installato, la creazione di snapshot di coerenza dell'app ha esito negativo con ID errore 0x80040154 "Classe non registrata". </br>
+*Come correggere*: Per generare un tag di coerenza dell'applicazione, Azure Site Recovery usa il servizio Copia Shadow del volume Microsoft (servizio Copia Shadow del volume), che installa un provider del servizio Copia Shadow del volume per la relativa operazione per eseguire snapshot di coerenza dell'app. Questo provider del servizio Copia Shadow del volume viene installato as-a-service. Se il servizio provider VSS non è installato, la creazione dello snapshot di coerenza dell'applicazione ha esito negativo con ID errore 0x80040154 "classe non registrata". </br>
 Vedere l'articolo relativo alla [risoluzione dei problemi di installazione di VSS writer](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS writer è disabilitato - Errore 2147943458
 
-**Come correggere**: Per generare un tag di coerenza dell'applicazione, Azure Site Recovery usa il servizio Copia Shadow del volume Microsoft (servizio Copia Shadow del volume), che installa un provider del servizio Copia Shadow del volume per la relativa operazione per eseguire snapshot di coerenza dell'app. Questo provider del servizio Copia Shadow del volume viene installato as-a-service. Se il servizio del provider del servizio Copia Shadow del volume è disabilitato, la creazione di snapshot di coerenza dell'app ha esito negativo con ID errore "Il servizio specificato è disabilitato e non può essere avviato (0x80070422)". </br>
+**Come correggere**: Per generare un tag di coerenza dell'applicazione, Azure Site Recovery usa il servizio Copia Shadow del volume Microsoft (servizio Copia Shadow del volume), che installa un provider del servizio Copia Shadow del volume per la relativa operazione per eseguire snapshot di coerenza dell'app. Questo provider del servizio Copia Shadow del volume viene installato as-a-service. Se il servizio del provider VSS è disabilitato, la creazione dello snapshot di coerenza dell'applicazione ha esito negativo con ID errore "il servizio specificato è disabilitato e non può essere avviato (0x80070422)". </br>
 
 - Se il servizio Copia Shadow del volume è disabilitato,
     - Verificare che il tipo di avvio del servizio provider del servizio Copia Shadow del volume sia impostato su **Automatico**.

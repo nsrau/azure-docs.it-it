@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97bc3c8571793ec8c8b67fe0e7c5cb3b6a56fde4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: HT
+ms.openlocfilehash: 4ca22c39fcd7b488f527326e4fdeaa56b0485cb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220303"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorare le distribuzioni IoT Edge
 
@@ -101,4 +100,4 @@ Per apportare modifiche alla distribuzione, vedere [Modificare una distribuzione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Leggere le informazioni su come [comunicare con EdgeAgent usando i metodi diretti predefiniti](how-to-edgeagent-direct-method.md).
+Informazioni su come [monitorare i moduli gemelli](how-to-monitor-module-twins.md), principalmente i moduli IOT Edge Agent e runtime Hub IOT Edge, per la connettività e l'integrità delle distribuzioni di IOT Edge.

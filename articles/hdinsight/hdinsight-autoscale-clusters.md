@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 8354be28203f1d466df6a22159fef87c9ae6f803
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: ccd729510341a9232764b1c211aa18c197ad5a37
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199729"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248635"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
@@ -41,38 +40,38 @@ La funzionalità di scalabilità automatica monitora continuamente il cluster e 
 
 |Metrica|Descrizione|
 |---|---|
-|CPU totale in sospeso|numero totale di core necessari per avviare l'esecuzione di tutti i contenitori in sospeso.|
-|Memoria totale in sospeso|memoria totale (in MB) necessaria per avviare l'esecuzione di tutti i contenitori in sospeso.|
-|Totale CPU disponibile|somma di tutti i core inutilizzati nei nodi del ruolo di lavoro attivi.|
-|Memoria totale libera|somma della memoria inutilizzata (in MB) nei nodi del ruolo di lavoro attivi.|
-|Memoria usata per nodo|carico su un nodo del ruolo di lavoro. Un nodo del ruolo di lavoro in cui sono utilizzati 10 GB di memoria è considerato come sottoposto a un carico superiore rispetto a un nodo del ruolo di lavoro con 2 GB di memoria utilizzata.|
+|Total Pending CPU (Totale CPU in sospeso)|numero totale di core necessari per avviare l'esecuzione di tutti i contenitori in sospeso.|
+|Total Pending Memory (Totale memoria in sospeso)|memoria totale (in MB) necessaria per avviare l'esecuzione di tutti i contenitori in sospeso.|
+|Total Free CPU (Totale CPU disponibile)|somma di tutti i core inutilizzati nei nodi del ruolo di lavoro attivi.|
+|Total Free Memory (Totale memoria disponibile)|somma della memoria inutilizzata (in MB) nei nodi del ruolo di lavoro attivi.|
+|Used Memory per Node (Memoria utilizzata per nodo)|carico su un nodo del ruolo di lavoro. Un nodo del ruolo di lavoro in cui sono utilizzati 10 GB di memoria è considerato come sottoposto a un carico superiore rispetto a un nodo del ruolo di lavoro con 2 GB di memoria utilizzata.|
 |Numero di Master applicazioni per nodo|numero di contenitori di master applicazioni in esecuzione su un nodo del ruolo di lavoro. Un nodo del ruolo di lavoro che ospita due contenitori AM è considerato più importante di un nodo del ruolo di lavoro che ospita zero contenitori.|
 
 Le metriche riportate sopra vengono controllate ogni 60 secondi. È possibile configurare le operazioni di ridimensionamento per il cluster usando una di queste metriche.
 
-### <a name="load-based-scale-conditions"></a>Condizioni di scalabilità basata sul carico
+### <a name="load-based-scale-conditions"></a>Condizioni di scalabilità in base al carico
 
-Quando vengono rilevate le condizioni seguenti, la scalabilità automatica emette una richiesta di scalabilità:
+Quando vengono rilevate le condizioni seguenti, la funzionalità di scalabilità automatica invia una richiesta di aumento o riduzione delle dimensioni:
 
-|Aumentare|Ridimensionamento|
+|Aumentare|Riduzione|
 |---|---|
 |Il totale della CPU in sospeso è maggiore del totale della CPU disponibile per più di 3 minuti.|Il totale CPU in sospeso è minore del totale CPU disponibile per più di 10 minuti.|
 |Il totale della memoria in sospeso è maggiore della memoria totale libera per più di 3 minuti.|Il totale memoria in sospeso è minore del totale memoria disponibile per più di 10 minuti.|
 
 Per la scalabilità verticale, la scalabilità automatica rilascia una richiesta di scalabilità verticale per aggiungere il numero di nodi necessario. La scalabilità verticale è basata sul numero di nuovi nodi del ruolo di lavoro necessari per soddisfare i requisiti di CPU e memoria correnti.
 
-Per il ridimensionamento automatico, la scalabilità automatica invia una richiesta di rimozione di un determinato numero di nodi. La scalabilità verticale è basata sul numero di contenitori AM per nodo. E i requisiti di CPU e memoria correnti. Il servizio rileva anche quali nodi sono candidati per la rimozione in base all'esecuzione del processo corrente. L'operazione di riduzione delle prestazioni consente innanzitutto di rimuovere le autorizzazioni dei nodi e quindi di rimuoverli dal cluster.
+Per il ridimensionamento automatico, la scalabilità automatica invia una richiesta di rimozione di un determinato numero di nodi. La scalabilità verticale è basata sul numero di contenitori AM per nodo. E i requisiti di CPU e memoria correnti. Il servizio rileva anche i nodi candidati per la rimozione in base all'esecuzione del processo corrente. L'operazione di riduzione prevede prima la disattivazione e quindi il ritiro dei nodi dal cluster.
 
 ### <a name="cluster-compatibility"></a>Compatibilità del cluster
 
 > [!Important]
-> La funzionalità di scalabilità automatica di Azure HDInsight è stata rilasciata per la disponibilità generale il 7 novembre 2019 per i cluster Spark e Hadoop e i miglioramenti inclusi non sono disponibili nella versione di anteprima della funzionalità. Se è stato creato un cluster Spark prima del 7 novembre 2019 e si vuole usare la funzionalità di scalabilità automatica nel cluster, il percorso consigliato consiste nel creare un nuovo cluster e abilitare la scalabilità automatica nel nuovo cluster.
+> La funzionalità di scalabilità automatica di Azure HDInsight, rilasciata per la disponibilità generale il 7 novembre 2019 per i cluster Spark e Hadoop, include miglioramenti non disponibili nella versione di anteprima della funzionalità. Se è stato creato un cluster Spark prima del 7 novembre 2019 e si vuole usare la funzionalità di scalabilità automatica nel cluster, è consigliabile creare un nuovo cluster e abilitare la scalabilità automatica nel nuovo cluster.
 >
-> La scalabilità automatica per i cluster Interactive query (LLAP) e HBase è ancora in anteprima. La scalabilità automatica è disponibile solo nei cluster Spark, Hadoop, Interactive query e HBase.
+> La funzionalità di scalabilità automatica per i cluster Interactive Query (LLAP) e HBase è ancora in anteprima. La funzionalità di scalabilità automatica è disponibile solo nei cluster Spark, Hadoop, Interactive Query e HBase.
 
 La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
-| Version | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
+| Versione | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
 | HDInsight 4,0 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
@@ -182,12 +181,12 @@ Per altre informazioni sulla creazione del cluster HDInsight tramite il portale 
             "minInstanceCount": 10,
             "maxInstanceCount": 10
           }
-        },
+        }
       ]
     }
   },
   "name": "workernode",
-  "targetInstanceCount": 4,
+  "targetInstanceCount": 4
 }
 ```
 
@@ -210,7 +209,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 Usare i parametri appropriati nel payload della richiesta. Il payload JSON seguente può essere usato per abilitare la scalabilità automatica. Usare il payload `{autoscale: null}` per disabilitare la scalabilità automatica.
 
 ```json
-{ autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }
+{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 5 } } }
 ```
 
 Vedere la sezione precedente sull' [Abilitazione della scalabilità automatica basata sul carico](#load-based-autoscaling) per una descrizione completa di tutti i parametri del payload.
@@ -245,11 +244,11 @@ Selezionare le **metriche** in **monitoraggio**. Selezionare quindi **Aggiungi m
 
 ## <a name="other-considerations"></a>Altre considerazioni
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Prendere in considerazione la latenza delle operazioni di scalabilità verticale o verticale
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considerare la latenza delle operazioni di aumento o riduzione
 
 Il completamento di un'operazione di ridimensionamento può richiedere da 10 a 20 minuti. Quando si configura una pianificazione personalizzata, pianificare questo ritardo. Se, ad esempio, è necessario che le dimensioni del cluster siano pari a 20 alle 9:00, impostare il trigger di pianificazione su un orario precedente, ad esempio 8:30 AM, in modo che l'operazione di ridimensionamento sia stata completata da 9:00 AM.
 
-### <a name="preparation-for-scaling-down"></a>Preparazione per la scalabilità verticale
+### <a name="preparation-for-scaling-down"></a>Preparazione per la riduzione
 
 Durante il processo di ridimensionamento del cluster, la scalabilità automatica eliminerà le autorizzazioni dei nodi per soddisfare le dimensioni di destinazione. Se le attività sono in esecuzione in tali nodi, la scalabilità automatica resterà in attesa fino al completamento delle attività. Poiché ogni nodo di lavoro svolge anche un ruolo in HDFS, i dati temporanei vengono spostati nei nodi rimanenti. Quindi, è necessario assicurarsi che vi sia spazio sufficiente nei nodi rimanenti per ospitare tutti i dati temporanei.
 

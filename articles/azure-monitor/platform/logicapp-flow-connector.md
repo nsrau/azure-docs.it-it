@@ -7,17 +7,25 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6961b7bd94c9b3fe70365055851c488efa2cbeca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248737"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Connettore dei log di monitoraggio di Azure per app per la logica e Microsoft Flow
 [App](/azure/logic-apps/) per la logica di Azure e [Power automatizzate](https://ms.flow.microsoft.com) consentono di creare flussi di lavoro automatizzati usando centinaia di azioni per un'ampia gamma di servizi. Il connettore log di monitoraggio di Azure consente di creare flussi di lavoro che recuperano dati da un'area di lavoro Log Analytics o da un'applicazione Application Insights in monitoraggio di Azure. Questo articolo descrive le azioni incluse nel connettore e fornisce una procedura dettagliata per creare un flusso di lavoro usando questi dati.
 
 Ad esempio, è possibile creare un'app per la logica per usare i dati di log di monitoraggio di Azure in una notifica di posta elettronica da Office 365, creare un bug in Azure DevOps o pubblicare un messaggio Slack.  È possibile attivare un flusso di lavoro da una semplice pianificazione o con un'azione in un servizio connesso, ad esempio quando viene ricevuto un messaggio di posta elettronica o un tweet. 
+
+## <a name="connector-limits"></a>Limiti del connettore
+Il connettore log di monitoraggio di Azure presenta questi limiti:
+* Dimensioni massime dati: 16 MB
+* Dimensioni massime risposta query 100 MB
+* Numero massimo di record: 500.000
+* Timeout max query 110 secondo.
+
+A seconda delle dimensioni dei dati e della query usata, il connettore potrebbe raggiungere i limiti e non riuscire. È possibile ovviare a questi casi quando si modifica la ricorrenza del trigger in modo che venga eseguita più di frequente ed eseguire query su un minor numero È possibile utilizzare query che aggregano i dati per restituire meno record e colonne.
 
 ## <a name="actions"></a>Azioni
 La tabella seguente descrive le azioni incluse nel connettore dei log di monitoraggio di Azure. Entrambi consentono di eseguire una query di log su un'area di lavoro Log Analytics o Application Insights applicazione. La differenza consiste nel modo in cui vengono restituiti i dati.

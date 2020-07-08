@@ -1,7 +1,7 @@
 ---
 title: Eseguire la migrazione di pacchetti SSIS in un'istanza gestita di SQL
 titleSuffix: Azure Database Migration Service
-description: Informazioni su come eseguire la migrazione di progetti e pacchetti di SQL Server Integration Services (SSIS) a un'istanza gestita di database SQL di Azure usando il servizio migrazione del database di Azure o l'Data Migration Assistant.
+description: Informazioni su come eseguire la migrazione di progetti e pacchetti di SQL Server Integration Services (SSIS) a una Istanza gestita SQL di Azure usando il servizio migrazione del database di Azure o il Data Migration Assistant.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 97a466ab033a42016c0d82465d1f98e2dcae8080
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d27905acc60e953ec5ed92e77d7a352c1c3fec8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196558"
 ---
-# <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Eseguire la migrazione di pacchetti di SQL Server Integration Services a un'istanza gestita di database SQL di Azure
-Se si usa SQL Server Integration Services (SSIS) e si vuole eseguire la migrazione di progetti/pacchetti SSIS dal database di origine SSISDB ospitato da SQL Server al database SSISDB di destinazione ospitato da un'istanza gestita di database SQL di Azure, è possibile usare il servizio migrazione del database di Azure.
+# <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Eseguire la migrazione di pacchetti di SQL Server Integration Services a un Istanza gestita SQL di Azure
+Se si usa SQL Server Integration Services (SSIS) e si vuole eseguire la migrazione di progetti/pacchetti SSIS dal database di origine SSISDB ospitato da SQL Server nel database SSISDB di destinazione ospitato da un Istanza gestita di Azure SQL, è possibile usare il servizio migrazione del database di Azure.
 
 Se la versione di SSIS usata è precedente alla 2012 o si usano tipi di archivio pacchetti non SSISDB, prima di eseguire la migrazione di progetti/pacchetti SSIS, è necessario convertirli usando la conversione guidata progetto Integration Services, che può essere avviata anche da SSMS. Per altre informazioni, vedere l'articolo [Converting projects to the project deployment model](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert) (Conversione di progetti nel modello di distribuzione del progetto).
 
@@ -37,19 +36,19 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Per completare questi passaggi è necessario disporre di:
 
-* Per creare un Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per altre informazioni, vedere le [topologie di rete per le migrazioni di istanze gestite del database SQL di Azure con il servizio migrazione del database di Azure]( https://aka.ms/dmsnetworkformi). Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
+* Per creare un Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per altre informazioni, vedere l'articolo [topologie di rete per le migrazioni di SQL istanza gestita con il servizio migrazione del database di Azure]( https://aka.ms/dmsnetworkformi). Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
 * Per assicurarsi che le regole del gruppo di sicurezza di rete della rete virtuale non blocchino le porte di comunicazione in ingresso seguenti al servizio migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni più dettagliate sul filtro del traffico NSG per la rete virtuale, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Per configurare la [Windows Firewall per l'accesso al motore di database di origine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017).
 * Per aprire il Windows Firewall per consentire al servizio migrazione del database di Azure di accedere al SQL Server di origine, che per impostazione predefinita è la porta TCP 1433.
 * Se si eseguono più istanze di SQL Server denominate usando le porte dinamiche, è consigliabile abilitare il Servizio browser SQL e consentire l'accesso alla porta UDP 1434 attraverso i firewall, in modo che il Servizio Migrazione del database di Azure possa connettersi a un'istanza denominata nel server di origine.
 * Se si usa un'appliance firewall all'ingresso dei database di origine, può essere necessario aggiungere regole del firewall per consentire al servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione e ai file attraverso la porta SMB 445.
-* Istanza gestita di database SQL di Azure per l'hosting di SSISDB. Se è necessario crearne uno, seguire i dettagli nell'articolo [creare un istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+* Istanza gestita SQL per l'hosting di SSISDB. Se è necessario crearne uno, seguire i dettagli nell'articolo [creare un istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
 * Per assicurarsi che gli account di accesso utilizzati per connettere la SQL Server di origine e l'istanza gestita di destinazione siano membri del ruolo del server sysadmin.
-* Per verificare che sia stato effettuato il provisioning di SSIS in Azure Data Factory (ADF) contenente Azure-SSIS Integration Runtime (IR) con il database SSISDB di destinazione ospitato da un'istanza gestita di database SQL di Azure, come descritto nell'articolo [creare il runtime di integrazione Azure-SSIS in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+* Per verificare che sia stato effettuato il provisioning di SSIS in Azure Data Factory (ADF) contenente Azure-SSIS Integration Runtime (IR) con il database SSISDB di destinazione ospitato da un Istanza gestita SQL, come descritto nell'articolo [creare il runtime di integrazione Azure-SSIS in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
 ## <a name="assess-source-ssis-projectspackages"></a>Consente di valutare i progetti/pacchetti SSIS di origine
 
-Mentre la valutazione del database di origine SSISDB non è ancora integrata nel database Migration Assistant (DMA), i progetti/pacchetti SSIS verranno valutati/convalidati durante la ridistribuzione nel database SSISDB di destinazione ospitato in un'istanza gestita di database SQL di Azure.
+Mentre la valutazione del database di origine SSISDB non è ancora integrata nel database Migration Assistant (DMA), i progetti/pacchetti SSIS verranno valutati/convalidati durante la ridistribuzione nel database SSISDB di destinazione ospitato in un Istanza gestita SQL di Azure.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrare il provider di risorse Microsoft.DataMigration
 
@@ -61,7 +60,7 @@ Mentre la valutazione del database di origine SSISDB non è ancora integrata nel
 
     ![Visualizzare i provider di risorse](media/how-to-migrate-ssis-packages-mi/portal-select-resource-provider.png)
 
-3. Cercare la migrazione e quindi a destra di **Microsoft. DataMigration**selezionare Register ( **registra**).
+3. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
 
     ![Registrare il provider di risorse](media/how-to-migrate-ssis-packages-mi/portal-register-resource-provider.png)
 
@@ -81,7 +80,7 @@ Mentre la valutazione del database di origine SSISDB non è ancora integrata nel
 
 5. Selezionare una rete virtuale esistente o crearne una.
 
-    La rete virtuale fornisce al servizio migrazione del database di Azure l'accesso alla SQL Server di origine e all'istanza gestita di database SQL di Azure di destinazione.
+    La rete virtuale fornisce al servizio migrazione del database di Azure l'accesso alla SQL Server di origine e Istanza gestita SQL di Azure di destinazione.
 
     Per altre informazioni su come creare una rete virtuale in portale di Azure, vedere l'articolo [creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
 
@@ -107,7 +106,7 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 
 3. Selezionare + **nuovo progetto di migrazione**.
 
-4. Nella schermata **nuovo progetto di migrazione** specificare un nome per il progetto, nella casella di testo **tipo server di origine** Selezionare **SQL Server**, nella casella di testo tipo di **server di destinazione** selezionare **istanza gestita di database SQL di Azure**, quindi selezionare **migrazione pacchetto SSIS**per **scegliere il tipo di attività**.
+4. Nella schermata **nuovo progetto di migrazione** specificare un nome per il progetto, nella casella di **testo tipo server di origine** Selezionare **SQL Server**, nella casella di testo tipo di **server di destinazione** , selezionare **istanza gestita SQL di Azure**e quindi per scegliere il **tipo di attività**selezionare **migrazione pacchetto SSIS**.
 
    ![Creare il progetto del Servizio Migrazione del database di Azure](media/how-to-migrate-ssis-packages-mi/dms-create-project2.png)
 

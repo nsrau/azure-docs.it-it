@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 80b8adfc26cd87e0788852e98fddb0fd3f2e8cd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204736"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 Questo articolo fornisce un set di procedure consigliate operative per la protezione di dati, applicazioni e altre risorse in Azure.
@@ -215,8 +214,8 @@ Per altre informazioni, vedere [creare e gestire i criteri per applicare la conf
 **Procedura consigliata**: identificare i ruoli responsabili del monitoraggio delle violazioni dei criteri e verificare che l'azione correttiva venga eseguita rapidamente.   
 **Dettagli**: il monitoraggio del ruolo assegnato è conforme tramite il [portale di Azure](../../governance/policy/how-to/get-compliance-data.md#portal) o tramite la [riga di comando](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Procedura consigliata**: criteri di Azure è una rappresentazione tecnica dei criteri scritti di un'organizzazione. Eseguire il mapping di tutti i criteri di Azure ai criteri dell'organizzazione per ridurre la confusione e aumentare la coerenza.   
-**Dettagli**: mapping dei documenti nella documentazione dell'organizzazione o nella definizione di criteri di Azure con l'aggiunta di un riferimento ai criteri dell'organizzazione nella [definizione di criteri di Azure](../../governance/policy/concepts/definition-structure.md#display-name-and-description) o nella descrizione di [Azure Policy Initiative](../../governance/policy/concepts/definition-structure.md#initiatives) .
+**Procedura consigliata**: criteri di Azure è una rappresentazione tecnica dei criteri scritti di un'organizzazione. Eseguire il mapping di tutte le definizioni di criteri di Azure ai criteri aziendali per ridurre la confusione e aumentare la coerenza.   
+**Dettagli**: mapping dei documenti nella documentazione dell'organizzazione o nella definizione di criteri di Azure con l'aggiunta di un riferimento ai criteri dell'organizzazione nella [definizione dei criteri](../../governance/policy/concepts/definition-structure.md#display-name-and-description) o nella descrizione della definizione dell' [iniziativa](../../governance/policy/concepts/initiative-definition-structure.md#metadata) .
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitorare Azure AD report di rischio
 La maggior parte delle violazioni della sicurezza si verifica quando utenti malintenzionati ottengono l'accesso a un ambiente impadronendosi dell'identità di un utente. Trovare le identità compromesse non è un compito facile. Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record denominato [rilevamento del rischio](../../active-directory/reports-monitoring/concept-risk-events.md). I rilevamenti dei rischi vengono registrati nei report di sicurezza Azure AD. Per altre informazioni, vedere il report sulla sicurezza per [gli utenti a rischio](../../active-directory/reports-monitoring/concept-user-at-risk.md) e il [report sulla sicurezza degli accessi a rischio](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).

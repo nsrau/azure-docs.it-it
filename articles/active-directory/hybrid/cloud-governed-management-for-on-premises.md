@@ -9,16 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 510a5562740260eb2946ded074a5c37804c55375
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ec74b9391c780cf673fe47bd82cc6d92534eb56d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67109515"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234052"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Come Azure AD offre la gestione gestita dal cloud per i carichi di lavoro locali
 
@@ -93,7 +92,7 @@ Per un'organizzazione che usa già un provider di identità locale, lo strumento
 
 ![Azure AD Evolution](media/cloud-governed-management-for-on-premises/image5.png)
 
-Per avviare la migrazione di applicazioni federate a Azure AD come provider di identità, https://aka.ms/migrateapps fare riferimento a che include collegamenti a:
+Per avviare la migrazione di applicazioni federate a Azure AD come provider di identità, fare riferimento a https://aka.ms/migrateapps che include collegamenti a:
 
 * Il white paper la [migrazione delle applicazioni a Azure Active Directory](https://aka.ms/migrateapps/whitepaper), che presenta i vantaggi della migrazione e descrive come pianificare la migrazione in quattro fasi chiaramente delineate: individuazione, classificazione, migrazione e gestione continua. Verrà illustrato come considerare il processo e suddividere il progetto in parti facili da utilizzare. Nel documento vengono forniti collegamenti a importanti risorse di supporto per l'utente durante il processo.
 
@@ -117,4 +116,4 @@ Negli ambienti ibridi, la strategia di Microsoft consiste nell'abilitare le dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni su come iniziare a usare questo percorso, vedere la Azure AD piani di distribuzione, disponibile all' <https://aka.ms/deploymentplans> indirizzo. Forniscono indicazioni end-to-end su come distribuire le funzionalità di Azure Active Directory (Azure AD). Ogni piano illustra il valore aziendale, le considerazioni sulla pianificazione, la progettazione e le procedure operative necessarie per implementare correttamente le funzionalità di Azure AD comuni. Microsoft aggiorna continuamente i piani di distribuzione con le procedure consigliate apprese dalle distribuzioni dei clienti e da altri commenti quando si aggiungono nuove funzionalità per la gestione dal cloud con Azure AD.
+Per ulteriori informazioni su come iniziare a usare questo percorso, vedere la Azure AD piani di distribuzione, disponibile all'indirizzo <https://aka.ms/deploymentplans> . Forniscono indicazioni end-to-end su come distribuire le funzionalità di Azure Active Directory (Azure AD). Ogni piano illustra il valore aziendale, le considerazioni sulla pianificazione, la progettazione e le procedure operative necessarie per implementare correttamente le funzionalità di Azure AD comuni. Microsoft aggiorna continuamente i piani di distribuzione con le procedure consigliate apprese dalle distribuzioni dei clienti e da altri commenti quando si aggiungono nuove funzionalità per la gestione dal cloud con Azure AD.

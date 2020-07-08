@@ -8,12 +8,11 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7f55b22938bd6f18bae1576a0c64e673996d38bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220125"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -41,7 +40,7 @@ Per ulteriori informazioni, fare riferimento agli esempi.
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="advanced"></a>Avanzate
+## <a name="advanced"></a>Avanzato
 
 AzCopy rileva automaticamente il tipo di contenuto dei file durante il caricamento dal disco locale, in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
@@ -63,7 +62,7 @@ azcopy copy [source] [destination] [flags]
 
 Caricare un singolo file usando l'autenticazione OAuth. Se non è ancora stato effettuato l'accesso a AzCopy, eseguire il comando AzCopy login prima di eseguire il comando seguente.
 
-- azcopy CP "/Path/to/file.txt" "https:///[account]. blob. Core. Windows. NET/[contenitore]/[path/to/BLOB]"
+- azcopy CP "/Path/to/file.txt" "https:///[account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]"
 
 Come sopra, ma questa volta calcola anche l'hash MD5 del contenuto del file e lo salva come proprietà Content-MD5 del BLOB:
 
@@ -147,27 +146,27 @@ Copiare tutti i contenitori BLOB, le directory e i BLOB dall'account di archivia
 
 Copiare un singolo oggetto nell'archivio BLOB da Amazon Web Services (AWS) S3 usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
   
-- azcopy CP "https://s3.amazonaws.com/[bucket]/[oggetto]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/BLOB]? [SAS] "
+- azcopy CP " https://s3.amazonaws.com/ [bucket]/[oggetto]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/BLOB]? [ SAS] "
 
 Copiare un'intera directory nell'archivio BLOB da AWS S3 usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3.amazonaws.com/[bucket]/[cartella]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/directory]? [SAS] "--ricorsivo = true
+- azcopy CP " https://s3.amazonaws.com/ [bucket]/[cartella]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/directory]? [ SAS] "--ricorsivo = true
 
-Per comprendere meglio https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html il segnaposto [cartella], fare riferimento a.
+Per https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html comprendere meglio il segnaposto [cartella], fare riferimento a.
 
 Copiare tutti i bucket nell'archiviazione BLOB da Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3.amazonaws.com/" "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
+- azcopy CP " https://s3.amazonaws.com/ " "https:///[destaccount]. blob. Core. Windows. NET? [ SAS] "--ricorsivo = true
 
 Copiare tutti i bucket nell'archiviazione BLOB da un'area Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3-[Region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
+- azcopy CP " https://s3- [Region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. NET? [ SAS] "--ricorsivo = true
 
 Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. Come gli esempi precedenti, sono necessari una chiave di accesso e un token di firma di accesso condiviso. Assicurarsi di impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3.amazonaws.com/[bucket * Name]/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
+- azcopy CP " https://s3.amazonaws.com/ [bucket * Name]/" "https://[destaccount]. blob. Core. Windows. NET? [ SAS] "--ricorsivo = true
 
-## <a name="options"></a>Options
+## <a name="options"></a>Opzioni
 
 **--backup**                               Attiva SeBackupPrivilege di Windows per i caricamenti o SeRestorePrivilege per i download, in modo da consentire a AzCopy di vedere leggere tutti i file, indipendentemente dalle autorizzazioni file system e di ripristinare tutte le autorizzazioni. Richiede che l'account che esegue AzCopy disponga già di queste autorizzazioni (ad esempio, dispone di diritti di amministratore o è un membro del gruppo "Backup Operators"). Questo flag consente di attivare i privilegi già presenti nell'account.
 
@@ -197,7 +196,7 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 
 **--Exclude-BLOB-type** stringa consente di specificare il tipo di BLOB (BlockBlob/PageBlob/AppendBlob) da escludere durante la copia dei BLOB dal contenitore o dall'account. L'uso di questo flag non è applicabile per la copia dei dati dal servizio non Azure al servizio. Più di un BLOB deve essere separato da';'.
 
-**--Exclude-Path** String escludere questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Verifica il prefisso del percorso relativo (ad esempio: cartella, cartella/subDirName/file. pdf). Se usato in combinazione con l'attraversamento dell'account, i percorsi non includono il nome del contenitore.
+**--Exclude-Path** String escludere questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo (ad esempio: cartella, cartella/subDirName/file.pdf). Se usato in combinazione con l'attraversamento dell'account, i percorsi non includono il nome del contenitore.
 
 **--Exclude-pattern** String escludere questi file durante la copia. Questa opzione supporta i caratteri jolly (*)
 
@@ -209,7 +208,7 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 
 **--include-Attributes** String (solo Windows) include i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S R
 
-**--include-percorso** stringa include solo questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Verifica il prefisso del percorso relativo (ad esempio: cartella, cartella/subDirName/file. pdf).
+**--include-percorso** stringa include solo questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo (ad esempio: cartella, cartella/subDirName/file.pdf).
 
 **--include-pattern** String include solo questi file durante la copia. Questa opzione supporta i caratteri jolly (*). Separare i file usando ';'.
 
@@ -225,11 +224,11 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 
 **--Preserve-Ultima modifica-ora**          Disponibile solo quando la destinazione è file system.
 
-**--Preserve-SMB-Permissions** stringa false per impostazione predefinita. Conserva gli ACL SMB tra le risorse compatibili (Windows e File di Azure). Per i download, sarà anche necessario usare il `--backup` flag per ripristinare le autorizzazioni in cui il nuovo proprietario non sarà l'utente che esegue AzCopy. Questo flag si applica a file e cartelle, a meno che non sia specificato un filtro di solo file ( `include-pattern`ad esempio).
+**--Preserve-SMB-Permissions** stringa false per impostazione predefinita. Conserva gli ACL SMB tra le risorse compatibili (Windows e File di Azure). Per i download, sarà anche necessario usare il `--backup` flag per ripristinare le autorizzazioni in cui il nuovo proprietario non sarà l'utente che esegue AzCopy. Questo flag si applica a file e cartelle, a meno che non sia specificato un filtro di solo file (ad esempio `include-pattern` ).
 
 **--Preserve-SMB-info** stringa false per impostazione predefinita. Conserva le informazioni sulle proprietà SMB (ora dell'ultima scrittura, ora di creazione, bit degli attributi) tra le risorse in grado di riconoscere SMB (Windows e File di Azure). Verranno trasferiti solo i bit di attributo supportati da File di Azure; tutti gli altri verranno ignorati. Questo flag si applica sia a file che a cartelle, a meno che non sia specificato un filtro di solo file (ad esempio, include-pattern). Le informazioni trasferite per le cartelle sono identiche a quelle dei file, ad eccezione dell'ora dell'ultima scrittura che non viene mai mantenuta per le cartelle.
 
-**--Preserve-Owner**                       Ha effetto solo quando `--preserve-smb-permissions` si scaricano i dati e solo quando si usa. Se true (impostazione predefinita), il proprietario e il gruppo del file vengono conservati nei download. Se questo flag è impostato su false, `--preserve-smb-permissions` conserverà gli ACL, ma Owner e Group saranno basati sull'utente che esegue AzCopy.
+**--Preserve-Owner**                       Ha effetto solo quando si scaricano i dati e solo quando `--preserve-smb-permissions` si usa. Se true (impostazione predefinita), il proprietario e il gruppo del file vengono conservati nei download. Se questo flag è impostato su false, `--preserve-smb-permissions` conserverà gli ACL, ma Owner e Group saranno basati sull'utente che esegue AzCopy.
 
 **--put-MD5**                             Creare un hash MD5 di ogni file e salvare l'hash come proprietà Content-MD5 del BLOB o del file di destinazione. Per impostazione predefinita, l'hash non viene creato. Disponibile solo durante il caricamento.
 
@@ -248,6 +247,8 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 **--Cap-Mbps UInt32**      Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
 
 **--output-** formato stringa di tipo dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo")
+
+**--trusted-Microsoft-suffissi** stringa specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
 
 ## <a name="see-also"></a>Vedere anche
 

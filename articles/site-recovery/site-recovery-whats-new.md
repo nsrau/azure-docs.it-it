@@ -2,13 +2,12 @@
 title: Novità di Azure Site Recovery
 description: Fornisce un riepilogo delle nuove funzionalità e degli aggiornamenti più recenti nel servizio Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 03/03/2020
-ms.openlocfilehash: abb1592bcacf025e9a052d7a9222f6fb3d2b72d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: e0015aa9de51e3cb43473a079d09698fcbeef9a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259219"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -20,18 +19,29 @@ Il servizio [Azure Site Recovery](site-recovery-overview.md) viene aggiornato e 
 
 Per Site Recovery componenti, sono supportate le versioni N-4, dove N è la versione rilasciata più recente. Questi report sono riepilogati nella tabella seguente.
 
-**Aggiornamento** |  **Installazione unificata** | **OVA del server di configurazione** | **Agente del servizio Mobility** | **Site Recovery** | **Agente di Servizi di ripristino**
+**Update** |  **Installazione unificata** | **OVA del server di configurazione** | **Agente del servizio Mobility** | **Site Recovery** | **Agente di Servizi di ripristino**
 --- | --- | --- | --- | --- | ---
+[Rollup 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Rollup 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Rollup 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [Rollup 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [Rollup 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
-[Rollup 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 
 [Altre](service-updates-how-to.md) informazioni sull'installazione e il supporto degli aggiornamenti.
 
 > [!NOTE]
 > L'aggiornamento cumulativo 44 non viene visualizzato nella tabella perché non include gli aggiornamenti per i provider di Site Recovery e gli agenti.
+
+## <a name="updates-june-2020"></a>Aggiornamenti (2020 giugno)
+
+### <a name="update-rollup-46"></a>Aggiornamento cumulativo 46
+
+L' [aggiornamento cumulativo 46](https://support.microsoft.com/help/4564347/update-rollup-46-for-azure-site-recovery) fornisce gli aggiornamenti seguenti:
+
+**Update** | **Dettagli**
+--- | ---
+**Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider, come descritto in dettaglio nell'aggiornamento cumulativo.
+**Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti, come descritto in dettaglio nell'aggiornamento cumulativo.
 
 ## <a name="updates-march-2020"></a>Aggiornamenti (2020 marzo)
 
@@ -39,7 +49,7 @@ Per Site Recovery componenti, sono supportate le versioni N-4, dove N è la vers
 
 L' [aggiornamento cumulativo 45](https://support.microsoft.com/help/4550047/update-rollup-45-for-azure-site-recovery) fornisce gli aggiornamenti seguenti:
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider, come descritto in dettaglio nell'aggiornamento cumulativo.
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti, come descritto in dettaglio nell'aggiornamento cumulativo.
@@ -50,7 +60,7 @@ L' [aggiornamento cumulativo 45](https://support.microsoft.com/help/4550047/upda
 
 L' [aggiornamento cumulativo 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Nessun aggiornamento per i provider di Site Recovery e gli agenti.
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti, come descritto in dettaglio nell'aggiornamento cumulativo.
@@ -64,7 +74,7 @@ Le macchine virtuali di Azure supportano ora le VM abilitate per la crittografia
 
 L' [aggiornamento cumulativo 43](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
@@ -76,7 +86,7 @@ L' [aggiornamento cumulativo 43](https://support.microsoft.com/help/4537047/upda
 
 L' [aggiornamento cumulativo 42](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
@@ -90,8 +100,8 @@ Le nuove funzionalità per il ripristino di emergenza delle macchine virtuali di
 --- | ---
 **UEFI** | Site Recovery supporta ora il ripristino di emergenza per macchine virtuali di Azure con architettura di avvio basata su UEFI.
 **Linux** | Site Recovery supporta ora le VM di Azure che eseguono Linux con crittografia dischi di Azure (ADE).
-**Generazione 2** | Tutte le macchine virtuali di Azure di seconda generazione sono ora supportate per il ripristino di emergenza.
-**Regioni** | È ora possibile abilitare il ripristino di emergenza per le macchine virtuali di Azure in Norvegia geografica.
+**Seconda generazione** | Tutte le macchine virtuali di Azure di seconda generazione sono ora supportate per il ripristino di emergenza.
+**Aree** | È ora possibile abilitare il ripristino di emergenza per le macchine virtuali di Azure in Norvegia geografica.
 
 ### <a name="vmware-to-azure-disaster-recovery"></a>Ripristino di emergenza da VMware ad Azure
 
@@ -106,10 +116,10 @@ Le nuove funzionalità per il ripristino di emergenza da VMware ad Azure sono ri
 Per il ripristino di emergenza di macchine virtuali di Azure in un'area secondaria o macchine virtuali VMware locali o server fisici in Azure, tenere presente quanto segue:
 
 - Dalla versione 9.30.5407.1 dell'estensione del servizio Mobility (per le VM di Azure) e dell'agente del servizio Mobility (per i computer VMware/fisici), alcuni sistemi operativi dei computer devono eseguire l'aggiornamento dello stack di manutenzione e SHA-2. I dettagli sono riportati nella tabella seguente.
-- Installare l'aggiornamento e SHA-2 in base alla KB collegata. SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto.
-- Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
+- Installare l'aggiornamento e SHA-2 in base alla KB collegata. SHA-1 non è supportato da settembre 2019 e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto.
+- Altre informazioni sull'[aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
 
-**Sistema operativo** | **Macchina virtuale Azure** | **VM VMware/computer fisico**
+**Sistema operativo** | **Macchina virtuale di Azure** | **VM VMware/computer fisico**
 --- | --- | ---
 **Windows 2008 R2 SP1** | [Aggiornamento dello stack di manutenzione](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Aggiornamento dello stack di manutenzione](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
 **Windows 2008 SP2** | [Aggiornamento dello stack di manutenzione](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Aggiornamento dello stack di manutenzione](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
@@ -123,7 +133,7 @@ Per il ripristino di emergenza di macchine virtuali di Azure in un'area secondar
 
 L' [aggiornamento cumulativo 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
@@ -154,7 +164,7 @@ Le nuove funzionalità per il ripristino di emergenza da VMware ad Azure sono ri
 
 L' [aggiornamento cumulativo 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
@@ -194,7 +204,7 @@ Account di archiviazione | Site Recovery supporta ora l'uso di account di archiv
 
 L' [aggiornamento cumulativo 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
@@ -215,7 +225,7 @@ Le nuove funzionalità per il ripristino di emergenza delle macchine virtuali di
 
 L' [aggiornamento cumulativo 38](https://support.microsoft.com/help/4513507/) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
@@ -236,7 +246,7 @@ Site Recovery supporta ora l'uso di account di archiviazione per utilizzo generi
 
 L' [aggiornamento cumulativo 37](https://support.microsoft.com/help/4508614/) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamenti per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
@@ -258,7 +268,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 L' [aggiornamento cumulativo 36](https://support.microsoft.com/help/4503156) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
@@ -291,7 +301,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 L' [aggiornamento cumulativo 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup)
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
@@ -312,7 +322,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 L' [aggiornamento cumulativo 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
@@ -322,7 +332,7 @@ L' [aggiornamento cumulativo 34](https://support.microsoft.com/help/4490016/upda
 
 L' [aggiornamento cumulativo 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
@@ -362,7 +372,7 @@ La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV)
 
 L' [aggiornamento cumulativo 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
@@ -389,7 +399,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 L' [aggiornamento cumulativo 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
@@ -403,7 +413,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 **Supporto di Linux** |  È stato aggiunto il supporto per Oracle Linux 6,8, Oracle Linux 6,9 e Oracle Linux 7,0 con il kernel compatibile con Red Hat e per il kernel Enterprise Unbreakable (UEK) versione 5.
 **LVM** | Aggiunto il supporto per i volumi LVM e LVM2.<br/><br/> La directory/boot in una partizione disco e nei volumi LVM è ora supportata.
 **Directory** | È stato aggiunto il supporto per queste directory configurate come partizioni separate o file System che non si trovano sullo stesso disco di sistema:<br/><br/> /(root),/boot,/usr,/usr/local,/var, ecc
-**Windows Server 2008** | Aggiunto il supporto per i dischi dinamici.
+**Windows Server 2008** | Aggiunto il supporto per i dischi dinamici.
 **Failover** | Miglioramento del tempo di failover per le macchine virtuali VMware in cui storvsc e vsbus non sono driver di avvio.
 **Supporto UEFI** | Le macchine virtuali di Azure non supportano il tipo di avvio UEFI. È ora possibile eseguire la migrazione di server fisici locali con UEFI ad Azure con Site Recovery. Site Recovery esegue la migrazione del server convertendo il tipo di avvio in BIOS prima della migrazione. Site Recovery supportata in precedenza questa conversione solo per le macchine virtuali. Il supporto è disponibile per i server fisici che eseguono Windows Server 2012 o versioni successive.
 
@@ -444,7 +454,7 @@ Il ripristino di emergenza di macchine virtuali di Azure comporta costi di licen
 
 L' [aggiornamento cumulativo 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
@@ -464,7 +474,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 L' [aggiornamento cumulativo 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
@@ -476,7 +486,7 @@ L' [aggiornamento cumulativo 29](https://support.microsoft.com/help/4466466/upda
 
 L' [aggiornamento cumulativo 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
@@ -497,7 +507,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 --- | ---
 **Supporto di Linux** | È stato aggiunto il supporto per RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Sono ora supportate le macchine virtuali basate su Linux che usano lo stile di partizione GPT (tabella di partizione GUID) in modalità di compatibilità BIOS legacy. Per ulteriori informazioni, vedere le [domande frequenti sulle VM di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) .
 **Ripristino di emergenza per le VM dopo la migrazione** | Supporto per l'abilitazione del ripristino di emergenza in un'area secondaria per una VM VMware locale migrata in Azure, senza la necessità di disinstallare il servizio Mobility nella macchina virtuale prima di abilitare la replica.
-**Windows Server 2008** | Supporto per la migrazione di computer che eseguono Windows Server 2008 R2/2008 a 64 bit e 32 bit.<br/><br/> Solo migrazione (replica e failover). Il failback non è supportato.
+**Windows Server 2008** | Supporto per la migrazione di computer che eseguono Windows Server 2008 R2/2008 a 64 bit e 32 bit.<br/><br/> Solo migrazione (replica e failover). Il failback non è supportato.
 
 ## <a name="updates-july-2018"></a>Aggiornamenti (2018 luglio)
 
@@ -505,7 +515,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 L' [aggiornamento cumulativo 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
-**Aggiornamento** | **Dettagli**
+**Update** | **Dettagli**
 --- | ---
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).

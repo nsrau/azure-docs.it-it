@@ -3,12 +3,11 @@ title: Matrice di supporto di backup di Azure per SQL Server backup in macchine 
 description: Fornisce un riepilogo delle impostazioni e delle limitazioni di supporto durante l'esecuzione del backup SQL Server in macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 79a7e30ab9240c489a66b547ff85bea7887131b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234256"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matrice di supporto per il backup SQL Server in macchine virtuali di Azure
 
@@ -16,10 +15,10 @@ ms.locfileid: "79409999"
 
 ## <a name="scenario-support"></a>Supporto degli scenari
 
-**Supporto tecnico** | **Dettagli**
+**Supporto** | **Dettagli**
 --- | ---
 **Distribuzioni supportate** | Sono supportate VM di Azure del Marketplace SQL e non del Marketplace (SQL Server installato manualmente).
-**Aree geografiche supportate** | Australia sud-orientale (ASE), Australia orientale (AE), Australia centrale (AC), Australia centrale 2 (AC) <br> Brasile meridionale (BRS)<br> Canada centrale (CNC), Canada orientale (CE)<br> Asia sud-orientale (SEA), Asia orientale (EA) <br> Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Stati Uniti centro-occidentali (WCUS), Stati Uniti occidentali (WUS), Stati Uniti occidentali 2 (WUS 2), Stati Uniti centro-settentrionali (NCUS), Stati Uniti centrali (CUS), Stati Uniti centro-meridionali (SCUS) <br> India centrale (INC), India meridionale (INS), India occidentale <br> Giappone orientale (JPE), Giappone occidentale (JPW) <br> Corea centrale (KRC), Corea meridionale (KRS) <br> Europa settentrionale (NE), Europa occidentale <br> Regno Unito meridionale (UKS), Regno Unito occidentale (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (area centrale), US DoD (area orientale) <br> Germania settentrionale, Germania centro-occidentale <br> Svizzera settentrionale, Svizzera occidentale <br> Francia centrale <br> Cina orientale, Cina orientale 2, Cina settentrionale, Cina settentrionale 2
+**Aree supportate** | Australia sud-orientale (ASE), Australia orientale (AE), Australia centrale (AC), Australia centrale 2 (AC) <br> Brasile meridionale (BRS)<br> Canada centrale (CNC), Canada orientale (CE)<br> Asia sud-orientale (SEA), Asia orientale (EA) <br> Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Stati Uniti centro-occidentali (WCUS), Stati Uniti occidentali (WUS), Stati Uniti occidentali 2 (WUS 2), Stati Uniti centro-settentrionali (NCUS), Stati Uniti centrali (CUS), Stati Uniti centro-meridionali (SCUS) <br> India centrale (INC), India meridionale (INS), India occidentale <br> Giappone orientale (JPE), Giappone occidentale (JPW) <br> Corea centrale (KRC), Corea meridionale (KRS) <br> Europa settentrionale (NE), Europa occidentale <br> Regno Unito meridionale (UKS), Regno Unito occidentale (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD (area centrale), US DoD (area orientale) <br> Germania settentrionale, Germania centro-occidentale <br> Svizzera settentrionale, Svizzera occidentale <br> Francia centrale <br> Cina orientale, Cina orientale 2, Cina settentrionale, Cina settentrionale 2
 **Sistemi operativi supportati** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux non è attualmente supportato.
 **Versioni di SQL Server supportate** | SQL Server 2019, SQL Server 2017 come indicato nella [pagina Ricerca nel ciclo di vita del supporto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SP come indicato nella [pagina Ricerca nel ciclo di vita del supporto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versioni di .NET supportate** | .NET Framework 4.5.2 o versioni successive installato nella macchina virtuale
@@ -41,7 +40,7 @@ ms.locfileid: "79409999"
 * Per avere un'idea di come il numero di database che è possibile proteggere per ogni server, prendere in considerazione fattori quali larghezza di banda, dimensioni della macchina virtuale, frequenza di backup, dimensioni del database e così via. [Scaricare](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) Resource Planner per calcolare il numero approssimativo di database che è possibile avere per ogni server in base alle risorse della macchina virtuale e ai criteri di backup.
 * Quando i gruppi di disponibilità sono configurati, i backup vengono eseguiti dai diversi nodi in base a alcuni fattori. Il comportamento di backup per un gruppo di disponibilità è riepilogato di seguito.
 
-### <a name="back-up-behavior-with-always-on-availability-groups"></a>Eseguire il backup del comportamento con i gruppi di disponibilità always on
+### <a name="back-up-behavior-with-always-on-availability-groups"></a>Comportamento di backup con i gruppi di disponibilità AlwaysOn
 
 Si consiglia di configurare il backup solo in un nodo di un gruppo di disponibilità (AG). Configurare sempre il backup nella stessa area del nodo primario. In altre parole, è sempre necessario che il nodo primario sia presente nell'area in cui si sta configurando il backup. Se tutti i nodi del gruppo di disponibilità si trovano nella stessa area in cui è configurato il backup, non vi sono problemi.
 
@@ -56,17 +55,17 @@ In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo
 
 **Tipo di backup** | **Nodo**
 --- | ---
-Full | Primaria
-Differenziale | Primaria
-File di log |  Primaria
-Completo solo copia |  Primaria
+Completo | Principale
+Differenziale | Principale
+File di log |  Principale
+Completo solo copia |  Principale
 
 #### <a name="backup-preference-secondary-only"></a>Preferenza di backup: solo secondario
 
 **Tipo di backup** | **Nodo**
 --- | ---
-Full | Primaria
-Differenziale | Primaria
+Completo | Principale
+Differenziale | Principale
 File di log |  Secondari
 Completo solo copia |  Secondari
 
@@ -74,8 +73,8 @@ Completo solo copia |  Secondari
 
 **Tipo di backup** | **Nodo**
 --- | ---
-Full | Primaria
-Differenziale | Primaria
+Completo | Principale
+Differenziale | Principale
 File di log |  Secondari
 Completo solo copia |  Secondari
 
@@ -83,8 +82,8 @@ Completo solo copia |  Secondari
 
 **Tipo di backup** | **Nodo**
 --- | ---
-Full | Primaria
-Differenziale | Primaria
+Completo | Principale
+Differenziale | Principale
 File di log |  Secondari
 Completo solo copia |  Secondari
 

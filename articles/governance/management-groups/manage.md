@@ -3,12 +3,11 @@ title: Come lavorare con i gruppi di gestione - Governance di Azure
 description: Informazioni su come visualizzare, gestire, aggiornare ed eliminare la gerarchia dei gruppi di gestione.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d92e0785e54c0999b8cc0f055b7de355a4c4f5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259406"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -205,7 +204,7 @@ Quando si sposta un gruppo di gestione o una sottoscrizione in modo da essere un
 Per eseguire l'azione di spostamento, è necessario avere: 
 
 - Autorizzazioni di scrittura per il gruppo di gestione e l'assegnazione di ruolo nel gruppo di gestione o nella sottoscrizione figlio.
-  - Esempio di ruolo predefinito: **Proprietario**
+  - **Proprietario** dell'esempio di ruolo predefinito
 - Accesso in scrittura del gruppo di gestione nel gruppo di gestione padre di destinazione.
   - Esempio di ruolo predefinito: **Proprietario**, **Collaboratore**, **Collaboratore gruppo di gestione**
 - Accesso in scrittura del gruppo di gestione nel gruppo di gestione padre esistente.

@@ -1,14 +1,13 @@
 ---
 title: Gestione risorse delegate di Azure
 description: Le offerte di servizi gestiti consentono ai provider di servizi di vendere offerte di gestione delle risorse ai clienti in Azure Marketplace.
-ms.date: 04/01/2020
+ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84219080"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestione risorse delegate di Azure
 
@@ -40,7 +39,7 @@ Di seguito viene illustrato il funzionamento generale della gestione risorse del
 3. Dopo l'onboarding del cliente, gli utenti autorizzati possono accedere al tenant del provider di servizi ed eseguire attività di gestione nell'ambito del cliente specificato, in base all'accesso definito.
 
 > [!NOTE]
-> La delega di una sottoscrizione tra due tenant in cloud separati non è supportata.
+> È possibile gestire le risorse delegate che si trovano in [aree](../../availability-zones/az-overview.md#regions)diverse. Tuttavia, la delega delle sottoscrizioni in un [cloud nazionale](../../active-directory/develop/authentication-national-cloud.md) e nel cloud pubblico di Azure o in due cloud nazionali distinti non è supportata.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Supporto per la gestione risorse delegate di Azure
 

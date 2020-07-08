@@ -5,12 +5,11 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 6da9517f822c9c157d26a1bda8dab2c694b08b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 54382e74899d2cbb56ccf424b0f39bd874e31630
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75609979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259372"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
@@ -141,6 +140,10 @@ Load Balancer Standard e l'IP pubblico standard introducono nuove funzionalità 
 >[!NOTE]
 > Il modello standard fa riferimento a un NSG che consente tutto il traffico in uscita per impostazione predefinita. Il traffico in ingresso è limitato alle porte richieste per Service Fabric operazioni di gestione. Le regole NSG possono essere modificate per soddisfare i requisiti.
 
+>[!NOTE]
+> Qualsiasi Service Fabric cluster che usa uno SKU standard SLB deve garantire che ogni tipo di nodo abbia una regola che consenta il traffico in uscita sulla porta 443. Questa operazione è necessaria per completare la configurazione del cluster e tutte le distribuzioni senza tale regola avranno esito negativo.
+
+
 ### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Abilitazione di zone in un set di scalabilità di macchine virtuali
 Per abilitare una zona, in un set di scalabilità di macchine virtuali è necessario includere i tre valori seguenti nella risorsa del set di scalabilità di macchine virtuali.
 
@@ -250,7 +253,7 @@ Per eseguire la migrazione di un cluster che stava usando un Load Balancer e un 
 
 È necessario fare riferimento ai nuovi LB e IP nei nuovi tipi di nodo della zona di disponibilità incrociata che si vuole usare. Nell'esempio precedente sono state aggiunte tre nuove risorse del set di scalabilità di macchine virtuali nelle zone 1, 2 e 3. Questi set di scalabilità di macchine virtuali fanno riferimento a LB e IP appena creati e sono contrassegnati come tipi di nodo primari nella risorsa del cluster Service Fabric.
 
-Per iniziare, sarà necessario aggiungere le nuove risorse al modello di Gestione risorse esistente. Queste risorse includono:
+Per iniziare, sarà necessario aggiungere le nuove risorse al modello di Gestione risorse esistente. Tali risorse includono:
 * Una risorsa IP pubblico con SKU standard.
 * Una risorsa Load Balancer usando lo SKU standard.
 * Un NSG a cui fa riferimento la subnet in cui vengono distribuiti i set di scalabilità di macchine virtuali.

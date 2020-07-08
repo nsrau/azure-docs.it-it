@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: fb5c42ad490ed04f14ff150093a44b552434ed9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: 19e4ea37aa10c90d15a2b7dcdf962c131c8e473d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193221"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Centro sicurezza di Azure per i prerequisiti per l'it
 

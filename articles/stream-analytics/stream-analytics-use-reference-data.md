@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196431"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
 
@@ -96,13 +95,13 @@ Con l'opzione della query delta, Analisi di flusso esegue la query snapshot all'
 
 Per configurare i dati di riferimento del database SQL, è prima di tutto necessario creare un input **Dati di riferimento**. La tabella seguente illustra ogni proprietà che è necessario fornire durante la creazione di input di dati di riferimento con la relativa descrizione. Per altre informazioni, vedere [Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure](sql-reference-data.md).
 
-È possibile usare [istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) come input di dati di riferimento. È necessario [configurare l'endpoint pubblico in istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e quindi configurare manualmente le impostazioni seguenti in analisi di flusso di Azure. La macchina virtuale di Azure che esegue SQL Server con un database collegato è supportata anche dalla configurazione manuale delle impostazioni riportate di seguito.
+È possibile usare [istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) come input di dati di riferimento. È necessario [configurare l'endpoint pubblico in SQL istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e quindi configurare manualmente le impostazioni seguenti in analisi di flusso di Azure. La macchina virtuale di Azure che esegue SQL Server con un database collegato è supportata anche dalla configurazione manuale delle impostazioni riportate di seguito.
 
 |**Nome proprietà**|**Descrizione**  |
 |---------|---------|
 |Alias di input|Nome descrittivo che verrà usato nella query di processo per fare riferimento a questo input.|
 |Subscription|Scegliere la sottoscrizione|
-|Database|Database SQL di Azure che contiene i dati di riferimento. Per Istanza gestita di database SQL di Azure, è necessario specificare la porta 3342. Ad esempio, *sampleserver. public. database. Windows. NET, 3342*|
+|Database|Database SQL di Azure che contiene i dati di riferimento. Per Istanza gestita SQL, è necessario specificare la porta 3342. Ad esempio, *sampleserver.public.database.windows.net,3342*|
 |Username|Nome utente associato al database SQL di Azure.|
 |Password|Password associata al database SQL di Azure.|
 |Aggiorna periodicamente|Questa opzione consente di scegliere una frequenza di aggiornamento. Scegliendo "Attivato" è possibile specificare la frequenza di aggiornamento in GG:HH:MM.|
@@ -140,7 +139,7 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Avvio rapido: creare un processo di Analisi di flusso di Azure tramite il portale di Azure](stream-analytics-quick-create-portal.md)
+> [Avvio rapido: Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

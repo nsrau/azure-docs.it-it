@@ -12,12 +12,11 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 3eef7476a729c7b83290b9d8d86ba06524bed72b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4421ad4260ff8eada87cdebc031d09922860324f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297094"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196326"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Risolvere gli errori del Servizio Migrazione del database di Azure durante la connessione a database di origine
 
@@ -30,9 +29,9 @@ Nella tabella seguente sono riportati i potenziali problemi associati alla conne
 | Errore         | Dettagli su cause e risoluzione dei problemi |
 | ------------- | ------------- |
 | Connessione SQL non riuscita. Si è verificato un errore di rete o specifico dell'istanza mentre veniva stabilita la connessione a SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server sia configurato per consentire le connessioni remote.<br> | Questo errore si verifica se il servizio non è in grado di individuare il server di origine. Per risolvere il problema, vedere l'articolo [errore durante la connessione all'origine SQL Server quando si usa una porta dinamica o un'istanza denominata](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance). |
-| **Errore 53** -connessione SQL non riuscita. (Anche per i codici di errore 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Questo errore si verifica se il servizio non è in grado di connettersi al server di origine. Per risolvere il problema, fare riferimento alle risorse seguenti, quindi riprovare. <br><br>  [Guida dell'utente interattivo per la risoluzione del problema di connettività](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Prerequisiti per la migrazione di un database SQL Server a un database SQL di Azure](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Prerequisiti per la migrazione di SQL Server a un'istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
+| **Errore 53** -connessione SQL non riuscita. (Anche per i codici di errore 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Questo errore si verifica se il servizio non è in grado di connettersi al server di origine. Per risolvere il problema, fare riferimento alle risorse seguenti, quindi riprovare. <br><br>  [Guida dell'utente interattivo per la risoluzione del problema di connettività](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Prerequisiti per la migrazione di un database SQL Server a un database SQL di Azure](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Prerequisiti per la migrazione di SQL Server a un Istanza gestita SQL di Azure](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
 | **Errore 18456** -accesso non riuscito.<br> | Questo errore si verifica se il servizio non è in grado di connettersi al database di origine utilizzando le credenziali T-SQL fornite. Per risolvere il problema, verificare le credenziali immesse. È anche possibile fare riferimento a [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) o ai documenti di risoluzione dei problemi elencati nella nota sotto questa tabella, quindi riprovare. |
-| Il valore di AccountName '{0}' specificato non è valido. Il formato previsto per AccountName è NomeDominio\NomeUtente<br> | Questo errore si verifica se l'utente seleziona l'autenticazione di Windows ma fornisce il nome utente in un formato non valido. Per risolvere il problema, specificare il nome utente nel formato corretto per l'autenticazione di Windows o selezionare **autenticazione SQL**. |
+| Il valore di AccountName ' {0} ' specificato non è valido. Il formato previsto per AccountName è NomeDominio\NomeUtente<br> | Questo errore si verifica se l'utente seleziona l'autenticazione di Windows ma fornisce il nome utente in un formato non valido. Per risolvere il problema, specificare il nome utente nel formato corretto per l'autenticazione di Windows o selezionare **autenticazione SQL**. |
 
 ## <a name="aws-rds-mysql"></a>MySQL RDS di AWS
 

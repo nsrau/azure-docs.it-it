@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4ca328aa0ddc61d86a435b93fe775f294287b98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196113"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 
@@ -66,7 +65,7 @@ Come riferimento, la tabella sotto mostra la velocità effettiva di copia in MBp
         <td>Intel Xeon E5-2660 v2 da 32 core a 2,20 GHz</td>
     </tr>
     <tr>
-        <td>Memoria</td>
+        <td>Memory</td>
         <td>128 GB</td>
     </tr>
     <tr>
@@ -205,7 +204,7 @@ Attualmente non è possibile copiare dati tra due archivi dati locali usando un 
 ### <a name="configuration"></a>Configurazione
 Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se i dati devono essere inseriti in un archivio BLOB di Azure di staging prima del caricamento in un archivio dati di destinazione. Se si imposta **enableStaging** su TRUE, specificare le proprietà aggiuntive elencate nella tabella seguente. Se non è già disponibile, è necessario creare un servizio collegato alla firma di accesso condiviso di archiviazione o di Archiviazione di Azure per lo staging.
 
-| Proprietà | Descrizione | Valore predefinito | Obbligatoria |
+| Proprietà | Descrizione | Valore predefinito | Necessario |
 | --- | --- | --- | --- |
 | **enableStaging** |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
 | **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/>  L'archiviazione non può essere usata con una firma di accesso condiviso per caricare dati in SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
@@ -262,8 +261,8 @@ Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copi
      * [Unità di spostamento dati cloud](#cloud-data-movement-units)
      * [copia di staging](#staged-copy)
      * [Scalabilità di Gateway di gestione dati](data-factory-data-management-gateway-high-availability-scalability.md)
-   * [Gateway di gestione dati](#considerations-for-data-management-gateway)
-   * [origine](#considerations-for-the-source)
+   * [Gateway Gestione dati](#considerations-for-data-management-gateway)
+   * [Origine](#considerations-for-the-source)
    * [Sink](#considerations-for-the-sink)
    * [Serializzazione e deserializzazione](#considerations-for-serialization-and-deserialization)
    * [Compressione](#considerations-for-compression)
@@ -366,8 +365,8 @@ Se i dati da copiare sono di grandi dimensioni, è possibile modificare la logic
 
 Prestare attenzione al numero di set di dati e di attività di copia che richiedono la connessione di Data Factory allo stesso archivio dati nello stesso momento. Molti processi di copia simultanei possono limitare un archivio dati e causare un peggioramento delle prestazioni, nuovi tentativi interni dei processi di copia e, in alcuni casi, errori di esecuzione.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Scenario di esempio: copiare da un'istanza locale di SQL Server in un archivio BLOB
-**Scenario**: viene compilata una pipeline per copiare dati da un'istanza locale di SQL Server in un archivio BLOB in formato CSV. Per velocizzare il processo di copia, i file CSV devono essere compressi in formato bzip2.
+## <a name="sample-scenario-copy-from-a-sql-server-database-to-blob-storage"></a>Scenario di esempio: copia da un database di SQL Server all'archivio BLOB
+**Scenario**: viene creata una pipeline per copiare i dati da un database di SQL Server all'archiviazione BLOB in formato CSV. Per velocizzare il processo di copia, i file CSV devono essere compressi in formato bzip2.
 
 **Test e analisi**: la velocità effettiva dell'attività di copia è inferiore a 2 Mbps ed è molto inferiore al benchmark delle prestazioni.
 
@@ -385,7 +384,7 @@ Uno o più dei fattori seguenti possono provocare un collo di bottiglia nelle pr
 
 * **Origine**: SQL Server ha di per sé una velocità effettiva bassa a causa dei carichi elevati.
 * **Gateway gestione dati**:
-  * **LAN**: il gateway è distante da SQL Server con una connessione a larghezza di banda bassa.
+  * **LAN**: il gateway si trova lontano dal computer SQL Server e ha una connessione a larghezza di banda ridotta.
   * **Gateway**: il gateway ha raggiunto i relativi limiti di carico per eseguire queste operazioni:
     * **Serializzazione**: la serializzazione del flusso di dati in formato CSV ha una velocità effettiva bassa.
     * **Compressione**: si è scelto un codec di compressione lenta, ad esempio bzip2 a 2,8 Mbps con core i7.

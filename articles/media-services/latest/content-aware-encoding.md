@@ -9,15 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 3ea6c4226a59ba020a477cc5811033ff3dc3c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76772132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234886"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Usare il set di impostazioni di codifica compatibile con il contenuto per trovare il valore di velocità in bit ottimale per una determinata risoluzione
 
@@ -55,9 +54,10 @@ Di seguito sono riportati i risultati per un'altra categoria di contenuto di ori
 
 È possibile creare trasformazioni che usano questo set di impostazioni come indicato di seguito. 
 
-> [!TIP]
-> Vedere la sezione [passaggi successivi](#next-steps) per le esercitazioni che usano output trasformare. L'asset di output può essere recapitato dagli endpoint di streaming di servizi multimediali nei protocolli, ad esempio MPEG-DASH e HLS, come illustrato nelle esercitazioni.
+Vedere la sezione [passaggi successivi](#next-steps) per le esercitazioni che usano output trasformare. L'asset di output può essere recapitato dagli endpoint di streaming di servizi multimediali nei protocolli, ad esempio MPEG-DASH e HLS, come illustrato nelle esercitazioni.
 
+> [!NOTE]
+> Assicurarsi di usare il set di impostazioni **ContentAwareEncoding** non ContentAwareEncodingExperimental.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -76,12 +76,12 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> I processi di codifica `ContentAwareEncoding` con il set di impostazioni vengono fatturati in base ai minuti di output. 
-
+> I processi di codifica con il `ContentAwareEncoding` set di impostazioni vengono fatturati in base ai minuti di output. 
+  
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: Caricare, codificare ed eseguire lo streaming di video con Servizi multimediali v3](stream-files-tutorial-with-api.md)
+* [Esercitazione: caricare, codificare e trasmettere in streaming video con servizi multimediali V3](stream-files-tutorial-with-api.md)
 * [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video REST](stream-files-tutorial-with-rest.md)
 * [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video-CLI](stream-files-cli-quickstart.md)
 * [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video-.NET](stream-files-dotnet-quickstart.md)
-* [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video node. js](stream-files-nodejs-quickstart.md)
+* [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video Node.js](stream-files-nodejs-quickstart.md)

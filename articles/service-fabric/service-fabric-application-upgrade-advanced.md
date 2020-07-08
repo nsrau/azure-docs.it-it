@@ -3,12 +3,11 @@ title: Argomenti avanzati sull'aggiornamento delle applicazioni
 description: Questo articolo illustra alcuni degli argomenti avanzati relativi all'aggiornamento di un'applicazione di Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263092"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento dell'applicazione Service Fabric: argomenti avanzati
 
@@ -20,18 +19,18 @@ Analogamente, i tipi di servizio possono essere rimossi da un'applicazione duran
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Evitare le perdite di connessione durante i tempi di inattività pianificati
 
-Per i tempi di inattività pianificati per le istanze senza stato, ad esempio l'aggiornamento dell'applicazione o del cluster o la disattivazione del nodo, le connessioni possono essere eliminate a causa di un endpoint esposto quando l'istanza diventa inattiva e ciò comporta chiusure forzate della connessione.
+Per i tempi di inattività pianificati per le istanze senza stato, ad esempio l'aggiornamento dell'applicazione/cluster o la disattivazione del nodo, le connessioni possono essere eliminate quando l'endpoint esposto viene rimosso dopo che l'istanza diventa inattiva e ciò comporta chiusure della connessione valide.
 
-Per evitare questo problema, configurare la funzionalità *RequestDrain* (anteprima) aggiungendo una *durata del ritardo di chiusura dell'istanza* nella configurazione del servizio per consentire lo svuotamento durante la ricezione di richieste da altri servizi all'interno del cluster e l'utilizzo del proxy inverso o l'utilizzo dell'API Resolve con il modello di notifica per l'aggiornamento degli endpoint. In questo modo si garantisce che l'endpoint annunciato dall'istanza senza stato venga rimosso *prima* dell'avvio del ritardo prima della chiusura dell'istanza. Questo ritardo consente lo svuotamento normale delle richieste esistenti prima che l'istanza diventi effettivamente inattiva. Ai client viene notificata la modifica dell'endpoint da parte di una funzione di callback al momento dell'avvio del ritardo, in modo che possano risolvere nuovamente l'endpoint ed evitare di inviare nuove richieste all'istanza che sta per essere interrotta.
+Per evitare questo problema, configurare la funzionalità *RequestDrain* aggiungendo una *durata del ritardo di chiusura dell'istanza* nella configurazione del servizio per consentire lo svuotamento delle richieste esistenti all'interno del cluster negli endpoint esposti. Questa operazione viene eseguita perché l'endpoint annunciato dall'istanza senza stato viene rimosso *prima* dell'avvio del ritardo prima della chiusura dell'istanza. Questo ritardo consente lo svuotamento normale delle richieste esistenti prima che l'istanza diventi effettivamente inattiva. Ai client viene notificata la modifica dell'endpoint da parte di una funzione di callback al momento dell'avvio del ritardo, in modo che possano risolvere nuovamente l'endpoint ed evitare di inviare nuove richieste all'istanza che sta per essere interrotta. Queste richieste possono essere originate da client che usano il [proxy inverso](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) o usando le API di risoluzione degli endpoint di servizio con il modello di notifica ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) per l'aggiornamento degli endpoint.
 
 ### <a name="service-configuration"></a>Configurazione del servizio
 
 Esistono diversi modi per configurare il ritardo sul lato del servizio.
 
- * **Quando si crea un nuovo servizio**, specificare `-InstanceCloseDelayDuration`:
+ * **Quando si crea un nuovo servizio**, specificare `-InstanceCloseDelayDuration` :
 
     ```powershell
-    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>
     ```
 
  * **Quando si definisce il servizio nella sezione impostazioni predefinite del manifesto dell'applicazione**, assegnare la `InstanceCloseDelayDurationSeconds` proprietà:
@@ -42,10 +41,37 @@ Esistono diversi modi per configurare il ritardo sul lato del servizio.
           </StatelessService>
     ```
 
- * **Quando si aggiorna un servizio esistente**, specificare `-InstanceCloseDelayDuration`:
+ * **Quando si aggiorna un servizio esistente**, specificare `-InstanceCloseDelayDuration` :
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+ * **Quando si crea o si aggiorna un servizio esistente tramite il modello ARM**, specificare il `InstanceCloseDelayDuration` valore (versione API minima supportata: 2019-11-01-Preview):
+
+    ```ARM template to define InstanceCloseDelayDuration of 30seconds
+    {
+      "apiVersion": "2019-11-01-preview",
+      "type": "Microsoft.ServiceFabric/clusters/applications/services",
+      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
+      "location": "[variables('clusterLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applications/', parameters('applicationName'))]"
+      ],
+      "properties": {
+        "provisioningState": "Default",
+        "serviceKind": "Stateless",
+        "serviceTypeName": "[parameters('serviceTypeName')]",
+        "instanceCount": "-1",
+        "partitionDescription": {
+          "partitionScheme": "Singleton"
+        },
+        "serviceLoadMetrics": [],
+        "servicePlacementPolicies": [],
+        "defaultMoveCost": "",
+        "instanceCloseDelayDuration": "00:00:30.0"
+      }
+    }
     ```
 
 ### <a name="client-configuration"></a>Configurazione del client
@@ -55,7 +81,7 @@ La notifica delle modifiche indica che gli endpoint sono stati modificati, che i
 
 ### <a name="optional-upgrade-overrides"></a>Sostituzioni di aggiornamento facoltative
 
-Oltre a impostare le durate di ritardo predefinite per ogni servizio, è anche possibile eseguire l'override del ritardo durante l'aggiornamento dell'applicazione`InstanceCloseDelayDurationSec`o del cluster usando la stessa opzione ():
+Oltre a impostare le durate di ritardo predefinite per ogni servizio, è anche possibile eseguire l'override del ritardo durante l'aggiornamento dell'applicazione o del cluster usando la stessa `InstanceCloseDelayDurationSec` opzione ():
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
@@ -63,15 +89,17 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-La durata del ritardo si applica solo all'istanza di aggiornamento richiamata e in caso contrario non modifica le singole configurazioni dei ritardi del servizio. Ad esempio, è possibile usare questo valore per specificare un ritardo `0` di per ignorare eventuali ritardi di aggiornamento preconfigurati.
+La durata del ritardo sottoposta a override si applica solo all'istanza di aggiornamento richiamata e in caso contrario non modifica le singole configurazioni di ritardo del servizio. Ad esempio, è possibile usare questo valore per specificare un ritardo di per `0` ignorare eventuali ritardi di aggiornamento preconfigurati.
 
 > [!NOTE]
-> L'impostazione per svuotare le richieste non viene rispettata per le richieste provenienti dal servizio di bilanciamento del carico di Azure. L'impostazione non viene rispettata se il servizio chiamante utilizza la risoluzione basata sul reclamo.
+> * Le impostazioni per lo svuotamento delle richieste non saranno in grado di impedire al servizio di bilanciamento del carico di Azure di inviare nuove richieste agli endpoint che sono in fase di svuotamento.
+> * Un meccanismo di risoluzione basato su reclamo non comporterà lo svuotamento normale delle richieste, perché attiva una risoluzione del servizio dopo un errore. Come descritto in precedenza, questo dovrebbe essere migliorato per sottoscrivere le notifiche di modifica dell'endpoint usando [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * Le impostazioni non vengono rispettate quando l'aggiornamento è insufficiente, ad esempio Quando le repliche non verranno ridotte durante l'aggiornamento.
 >
 >
 
 > [!NOTE]
-> Questa funzionalità può essere configurata nei servizi esistenti usando il cmdlet Update-ServiceFabricService, come indicato in precedenza, quando la versione del codice del cluster è 7.1.XXX o successiva.
+> Questa funzionalità può essere configurata nei servizi esistenti usando il cmdlet Update-ServiceFabricService o il modello ARM come indicato in precedenza, quando la versione del codice del cluster è 7.1.XXX o successiva.
 >
 >
 

@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
-ms.openlocfilehash: 945ef895304a151ea7e0ef5b94ed0b42757743ad
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.openlocfilehash: ac351e688eba274c989b4b475c6d61607b9ea5c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84219300"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -27,13 +26,13 @@ ms.locfileid: "82890623"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un database SAP HANA. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 >[!TIP]
->Per informazioni sul supporto generale di ADF sullo scenario di integrazione dei dati SAP, vedere l'articolo relativo all' [integrazione dei dati SAP con Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con informazioni dettagliate introduttive, comparsing e linee guida.
+>Per informazioni sul supporto generale di Azure Data Factory sullo scenario di integrazione dei dati SAP, vedere il [white paper sull'integrazione dei dati SAP con Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con sezioni di introduzione, confronto e istruzioni dettagliate.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
 Questo connettore SAP HANA è supportato per le attività seguenti:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Attività Copy](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da un database SAP HANA in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -70,7 +69,7 @@ Per il servizio collegato di SAP HANA sono supportate le proprietà seguenti:
 | type | La proprietà type deve essere impostata su: **SapHana** | Sì |
 | connectionString | Specificare le informazioni necessarie per connettersi al SAP HANA usando l' **autenticazione di base** o **l'autenticazione di Windows**. Vedere gli esempi seguenti.<br>In stringa di connessione, il server/porta è obbligatorio (la porta predefinita è 30015) e il nome utente e la password sono obbligatori quando si usa l'autenticazione di base. Per altre impostazioni avanzate, vedere [SAP Hana proprietà di connessione ODBC](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>È anche possibile inserire la password in Azure Key Vault ed estrarre la configurazione della password dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) articolo. | Sì |
 | userName | Specificare il nome utente quando si utilizza l'autenticazione di Windows. Esempio: `user@domain.com` | No |
-| password | Specifica la password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Specifica la password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
 **Esempio: uso dell'autenticazione di base**
@@ -172,7 +171,7 @@ Per copiare dati da SAP HANA, sono supportate le proprietà seguenti:
 }
 ```
 
-Se si usa `RelationalTable` un set di dati tipizzato, è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+Il set di dati tipizzato `RelationalTable` è ancora supportato senza modifiche, ma è consigliato l'uso del nuovo per il futuro.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
@@ -189,9 +188,9 @@ Per copiare dati da SAP HANA, nella sezione **origine** dell'attività di copia 
 |:--- |:--- |:--- |
 | type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **SapHanaSource** | Sì |
 | query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Sì |
-| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per inserire dati da SAP HANA. Per ulteriori informazioni, vedere la sezione [copia parallela dalla SAP Hana](#parallel-copy-from-sap-hana) .<br>Consenti valori: **None** (impostazione predefinita), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Per ulteriori informazioni, vedere la sezione [copia parallela dalla SAP Hana](#parallel-copy-from-sap-hana) . `PhysicalPartitionsOfTable`può essere utilizzato solo per la copia di dati da una tabella, ma non da query. <br>Quando è abilitata un'opzione di partizione (ovvero non `None`), il grado di parallelismo per caricare simultaneamente i dati da SAP Hana è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | False |
-| partitionSettings | Consente di specificare il gruppo di impostazioni per il partizionamento dei dati.<br>Applica quando l'opzione di `SapHanaDynamicRange`partizione è. | False |
-| partitionColumnName | Consente di specificare il nome della colonna di origine che verrà utilizzata dalla partizione per la copia parallela. Se non è specificato, l'indice o la chiave primaria della tabella vengono rilevati automaticamente e utilizzati come colonna della partizione.<br>Applicare quando l'opzione di partizione `SapHanaDynamicRange`è. Se si utilizza una query per recuperare i dati di origine, `?AdfHanaDynamicRangePartitionCondition` associare la clausola WHERE. Vedere l'esempio in [copia parallela dalla sezione SAP Hana](#parallel-copy-from-sap-hana) . | Sì quando si `SapHanaDynamicRange` usa la partizione. |
+| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per inserire dati da SAP HANA. Per ulteriori informazioni, vedere la sezione [copia parallela dalla SAP Hana](#parallel-copy-from-sap-hana) .<br>Consenti valori: **None**   (impostazione predefinita), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Per ulteriori informazioni, vedere la sezione [copia parallela dalla SAP Hana](#parallel-copy-from-sap-hana) . `PhysicalPartitionsOfTable`può essere utilizzato solo per la copia di dati da una tabella, ma non da query. <br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da SAP Hana è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | False |
+| partitionSettings | Specifica il gruppo di impostazioni per il partizionamento dei dati.<br>Si applica quando l'opzione di partizione è `SapHanaDynamicRange`. | False |
+| partitionColumnName | Consente di specificare il nome della colonna di origine che verrà utilizzata dalla partizione per la copia parallela. Se non è specificato, l'indice o la chiave primaria della tabella vengono rilevati automaticamente e utilizzati come colonna della partizione.<br>Applicare quando l'opzione di partizione è  `SapHanaDynamicRange` . Se si utilizza una query per recuperare i dati di origine, associare la  `?AdfHanaDynamicRangePartitionCondition` clausola WHERE. Vedere l'esempio in [copia parallela dalla sezione SAP Hana](#parallel-copy-from-sap-hana) . | Sì quando si usa la `SapHanaDynamicRange` partizione. |
 | packetSize | Specifica le dimensioni del pacchetto di rete (in kilobyte) per suddividere i dati in più blocchi. Se è presente una grande quantità di dati da copiare, l'aumento delle dimensioni del pacchetto può aumentare la velocità di lettura da SAP HANA nella maggior parte dei casi. Il test delle prestazioni è consigliato per la regolazione delle dimensioni del pacchetto. | No.<br>Il valore predefinito è 2048 (2MB). |
 
 **Esempio:**
@@ -230,18 +229,18 @@ Se si usa `RelationalSource` l'origine di copia tipizzata, questo è ancora supp
 
 ## <a name="parallel-copy-from-sap-hana"></a>Copia parallela da SAP HANA
 
-Il connettore Data Factory SAP HANA fornisce il partizionamento dei dati predefinito per copiare i dati da SAP HANA in parallelo. È possibile trovare le opzioni di partizionamento dei dati nella tabella di **origine** dell'attività di copia.
+Il connettore Data Factory SAP HANA fornisce il partizionamento dei dati predefinito per copiare i dati da SAP HANA in parallelo. È possibile trovare le opzioni di partizionamento dei dati nella tabella **Origine** dell'attività di copia.
 
 ![Screenshot delle opzioni di partizione](./media/connector-sap-hana/connector-sap-hana-partition-options.png)
 
-Quando si Abilita la copia partizionata, Data Factory esegue query parallele sull'origine SAP HANA per recuperare i dati in base alle partizioni. Il grado parallelo è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. Se, ad esempio, si `parallelCopies` imposta su quattro, data factory genera ed esegue contemporaneamente quattro query in base all'opzione di partizione specificata e alle impostazioni e ogni query recupera una porzione di dati dal SAP Hana.
+Quando si Abilita la copia partizionata, Data Factory esegue query parallele sull'origine SAP HANA per recuperare i dati in base alle partizioni. Il grado di parallelismo è controllato dall'impostazione [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sull'attività di copia. Se, ad esempio, si imposta `parallelCopies` su quattro, data factory genera ed esegue contemporaneamente quattro query in base all'opzione di partizione specificata e alle impostazioni e ogni query recupera una porzione di dati dal SAP Hana.
 
-Si consiglia di abilitare la copia parallela con il partizionamento dei dati, specialmente quando si inseriscono grandi quantità di dati dal SAP HANA. Di seguito sono elencate le configurazioni consigliate per diversi scenari. Quando si copiano dati in un archivio dati basato su file, è consigliabile scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
+Si consiglia di abilitare la copia parallela con il partizionamento dei dati, specialmente quando si inseriscono grandi quantità di dati dal SAP HANA. Di seguito sono riportate le configurazioni consigliate per i diversi scenari: Quando si copiano dati in un archivio dati basato su file, è consigliabile scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
 
 | Scenario                                           | Impostazioni consigliate                                           |
 | -------------------------------------------------- | ------------------------------------------------------------ |
 | Caricamento completo da una tabella di grandi dimensioni.                        | **Opzione partition**: partizioni fisiche della tabella. <br><br/>Durante l'esecuzione, Data Factory rileva automaticamente il tipo di partizione fisica della tabella SAP HANA specificata e sceglie la strategia di partizione corrispondente:<br>- **Partizionamento dell'intervallo**: ottenere la colonna di partizione e gli intervalli di partizioni definiti per la tabella, quindi copiare i dati in base all'intervallo. <br>- **Partizionamento hash**: usare la chiave di partizione hash come colonna di partizione, quindi partizionare e copiare i dati in base agli intervalli calcolati di ADF. <br>- **Partizionamento Round Robin** o **Nessuna partizione**: usare la chiave primaria come colonna di partizione, quindi partizionare e copiare i dati in base agli intervalli calcolati di ADF. |
-| Caricare grandi quantità di dati tramite una query personalizzata. | **Opzione partition**: partizione a intervalli dinamici.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Colonna partizione**: specificare la colonna utilizzata per applicare la partizione a intervalli dinamici. <br><br>Durante l'esecuzione Data Factory calcola innanzitutto gli intervalli di valori della colonna di partizione specificata, distribuendo equamente le righe in un numero di bucket in base al numero di valori di colonna di partizione distinti e all'impostazione di copia parallela ADF, quindi `?AdfHanaDynamicRangePartitionCondition` sostituisce con il filtro dell'intervallo di valori della colonna di partizione per ogni partizione e invia al SAP Hana.<br><br>Se si desidera utilizzare più colonne come colonna di partizione, è possibile concatenare i valori di ogni colonna come una colonna della query e specificarla come colonna di partizione in ADF, `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition`ad esempio. |
+| Caricare grandi quantità di dati tramite una query personalizzata. | **Opzione partition**: partizione a intervalli dinamici.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Colonna partizione**: specificare la colonna utilizzata per applicare la partizione a intervalli dinamici. <br><br>Durante l'esecuzione Data Factory calcola innanzitutto gli intervalli di valori della colonna di partizione specificata, distribuendo equamente le righe in un numero di bucket in base al numero di valori di colonna di partizione distinti e all'impostazione di copia parallela ADF, quindi sostituisce `?AdfHanaDynamicRangePartitionCondition` con il filtro dell'intervallo di valori della colonna di partizione per ogni partizione e invia al SAP Hana.<br><br>Se si desidera utilizzare più colonne come colonna di partizione, è possibile concatenare i valori di ogni colonna come una colonna della query e specificarla come colonna di partizione in ADF, ad esempio `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition` . |
 
 **Esempio: query con partizioni fisiche di una tabella**
 
@@ -285,7 +284,7 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 | INTEGER            | Int32                          |
 | NCLOB              | string                         |
 | NVARCHAR           | string                         |
-| real               | Single                         |
+| REAL               | Single                         |
 | SECONDDATE         | Datetime                       |
 | SHORTTEXT          | string                         |
 | SMALLDECIMAL       | Decimal                        |
@@ -299,7 +298,7 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 | timestamp          | Datetime                       |
 | VARBINARY          | Byte[]                         |
 
-### <a name="sap-hana-sink"></a>Sink SAP HANA
+## <a name="sap-hana-sink"></a>Sink SAP HANA
 
 Attualmente, il connettore SAP HANA non è supportato come sink, mentre è possibile usare il connettore ODBC generico con SAP HANA driver per scrivere i dati in SAP HANA. 
 
@@ -327,9 +326,9 @@ Attenersi ai [prerequisiti](#prerequisites) per configurare Integration Runtime 
 }
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per altre informazioni sulle proprietà, vedere [Attività Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

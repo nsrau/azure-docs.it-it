@@ -4,12 +4,11 @@ description: Questo articolo illustra come configurare, avviare e gestire le ope
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d037339d9ff9a891fcc595a3eff75097204a77ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248686"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -29,7 +28,7 @@ In primo luogo l'insieme di credenziali deve essere in grado di identificare la 
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-Per l'URI di POST sono presenti i parametri `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}`. Il valore di `{fabricName}` è "Azure". Come indicato nell'esempio, il valore di `{vaultName}` è "testVault" e il valore di `{vaultresourceGroupName}` è "testVaultRG". Tutti i parametri obbligatori vengono specificati nell'URI e di conseguenza il corpo di una richiesta separata non è necessario.
+Per l'URI di POST sono presenti i parametri `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}`. Il valore di `{fabricName}` è "Azure". In base all'esempio, `{vaultName}` è "testVault" e `{vaultresourceGroupName}` è "testVaultRG". Tutti i parametri obbligatori vengono specificati nell'URI e di conseguenza il corpo di una richiesta separata non è necessario.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
@@ -44,7 +43,7 @@ L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'al
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |204 No Content (Nessun contenuto)     |         |  OK senza alcun contenuto restituito      |
-|202 - Accettato     |         |     Accepted    |
+|202 - Accettato     |         |     Accettato    |
 
 ##### <a name="example-responses"></a>Risposte di esempio
 
@@ -211,7 +210,7 @@ L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'al
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
-|202 - Accettato     |         |     Accepted    |
+|202 - Accettato     |         |     Accettato    |
 
 ##### <a name="example-responses"></a>Risposte di esempio
 
@@ -272,11 +271,11 @@ Dopo che è stata completata, l'operazione restituisce 200 (OK) con il contenuto
 }
 ```
 
-In questo modo si conferma che la protezione viene abilitata per la macchina virtuale e che il primo backup viene attivato in base alla pianificazione dei criteri.
+In questo modo viene confermata l'abilitazione della protezione per la macchina virtuale e il primo backup viene attivato in base alla pianificazione dei criteri.
 
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Attivare un backup su richiesta per una macchina virtuale di Azure protetta
 
-Dopo che una macchina virtuale di Azure viene configurata per il backup, i backup vengono eseguiti in base alla pianificazione dei criteri. È possibile attendere il primo backup pianificato o attivare un backup su richiesta in qualsiasi momento. La conservazione dei backup su richiesta è separata da quella dei criteri di backup e può essere specificata per una determinata data e ora. Se non specificato, si presuppone che la durata della conservazione sia di 30 giorni a partire dal giorno del trigger di backup su richiesta.
+Una volta configurata una macchina virtuale di Azure per il backup, i backup vengono eseguiti in base alla pianificazione dei criteri. È possibile attendere il primo backup pianificato o attivare un backup su richiesta in qualsiasi momento. La conservazione dei backup su richiesta è separata da quella dei criteri di backup e può essere specificata per una determinata data e ora. Se non specificato, si presuppone che la durata della conservazione sia di 30 giorni a partire dal giorno del trigger di backup su richiesta.
 
 L'attivazione di un backup su richiesta è un'operazione *POST*.
 
@@ -321,7 +320,7 @@ L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'al
 
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
-|202 - Accettato     |         |     Accepted    |
+|202 - Accettato     |         |     Accettato    |
 
 #### <a name="example-responses"></a><a name="example-responses-3"></a>Risposte di esempio
 
@@ -442,7 +441,7 @@ L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |204 NoContent (Nessun contenuto)     |         |  Nessun contenuto restituito       |
-|202 - Accettato     |         |     Accepted    |
+|202 - Accettato     |         |     Accettato    |
 
 > [!IMPORTANT]
 > Per garantire la protezione da scenari di eliminazione accidentale, è [disponibile una funzionalità di eliminazione](use-restapi-update-vault-properties.md#soft-delete-state) temporanea per l'insieme di credenziali di servizi di ripristino. Se lo stato di eliminazione temporanea dell'insieme di credenziali è impostato su abilitato, l'operazione di eliminazione non eliminerà immediatamente i dati. Verranno conservati per 14 giorni e quindi eliminati definitivamente. Il cliente non viene addebitato per l'archiviazione per il periodo di 14 giorni. Per annullare l'operazione di eliminazione, fare riferimento alla [sezione Undo-Delete](#undo-the-stop-protection-and-delete-data).

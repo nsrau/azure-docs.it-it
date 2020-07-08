@@ -7,12 +7,11 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75614673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234683"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. I cluster possono essere ridimensionati fino a migliaia di nodi. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancia le repliche e le istanze di partizione del servizio nel numero incrementato di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo.
@@ -48,9 +47,9 @@ I set di scalabilità possono essere usati per distribuire e gestire una raccolt
 Per altre informazioni, vedere [Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Le istanze di macchine virtuali vengono aggiunte dietro un servizio [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), che è associato a un [indirizzo IP pubblico](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e a un'etichetta DNS.  Quando si esegue il provisioning di un cluster con * &lt;clustername&gt;*, il nome DNS, * &lt;clustername&gt;.&lt; location&gt;. cloudapp.Azure.com* è l'etichetta DNS associata al servizio di bilanciamento del carico davanti al set di scalabilità.
+Le istanze di macchine virtuali vengono aggiunte dietro un servizio [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), che è associato a un [indirizzo IP pubblico](../virtual-network/public-ip-addresses.md) e a un'etichetta DNS.  Quando si esegue il provisioning di un cluster con * &lt; clustername &gt; *, il nome DNS, * &lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com* è l'etichetta DNS associata al servizio di bilanciamento del carico davanti al set di scalabilità.
 
-Le macchine virtuali in un cluster hanno solo [indirizzi IP privati](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Il traffico di gestione e il traffico dei servizi vengono instradati attraverso il servizio di bilanciamento del carico pubblico.  Il traffico di rete viene instradato a queste macchine tramite regole NAT (i client si connettono a specifici nodi/istanze) o regole di bilanciamento del carico (il traffico viene indirizzato alle macchine virtuali tramite round robin).  Un servizio di bilanciamento del carico ha un indirizzo IP pubblico associato con un nome DNS nel formato: * &lt;clustername&gt;.&lt; location&gt;. cloudapp.Azure.com*.  Un IP pubblico è un'altra risorsa di Azure nel gruppo di risorse.  Se si definiscono più tipi di nodo in un cluster, viene creato un servizio di bilanciamento del carico per ogni tipo di nodo/set di scalabilità. In alternativa è possibile configurare un singolo servizio di bilanciamento del carico per più tipi di nodo.  Il tipo di nodo primario ha l'etichetta * &lt;DNS&gt;clustername&lt; . location&gt;. cloudapp.Azure.com*, altri tipi di nodo hanno l'etichetta * &lt;DNS&gt;-&lt;clustername&gt;NodeType&lt; . location&gt;. cloudapp.Azure.com*.
+Le macchine virtuali in un cluster hanno solo [indirizzi IP privati](../virtual-network/private-ip-addresses.md).  Il traffico di gestione e il traffico dei servizi vengono instradati attraverso il servizio di bilanciamento del carico pubblico.  Il traffico di rete viene instradato a queste macchine tramite regole NAT (i client si connettono a specifici nodi/istanze) o regole di bilanciamento del carico (il traffico viene indirizzato alle macchine virtuali tramite round robin).  Un servizio di bilanciamento del carico ha un indirizzo IP pubblico associato con un nome DNS nel formato: * &lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com*.  Un IP pubblico è un'altra risorsa di Azure nel gruppo di risorse.  Se si definiscono più tipi di nodo in un cluster, viene creato un servizio di bilanciamento del carico per ogni tipo di nodo/set di scalabilità. In alternativa è possibile configurare un singolo servizio di bilanciamento del carico per più tipi di nodo.  Il tipo di nodo primario ha l'etichetta DNS * &lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com*, altri tipi di nodo hanno l'etichetta DNS * &lt; clustername &gt; - &lt; NodeType &gt; . &lt; location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Account di archiviazione
 Ogni tipo di nodo del cluster è supportato da un [account di archiviazione di Azure](/azure/storage/common/storage-introduction) e da dischi gestiti.
@@ -98,7 +97,7 @@ Per altre informazioni, vedere [Aggiornamento di un cluster di Azure Service Fab
 
 | Sistema operativo | Versione Service Fabric supportata più recente |
 | --- | --- |
-| Windows Server 2012 R2 | Tutte le versioni |
+| R2 per Windows Server 2012 | Tutte le versioni |
 | Windows Server 2016 | Tutte le versioni |
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |

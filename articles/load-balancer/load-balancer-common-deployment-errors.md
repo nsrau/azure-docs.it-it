@@ -10,12 +10,11 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: b596e349d789584de07943332ede6f6897a1fd22
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84221004"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Risolvere errori comuni durante la distribuzione di Azure con Azure Load Balancer
 
@@ -28,6 +27,7 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 |DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| Lo SKU dell'indirizzo IP pubblico e lo SKU di Load Balancer devono corrispondere. Verificare che lo SKU di Load Balancer e quello dell'indirizzo IP pubblico corrispondano. Il tipo di SKU Standard è l'impostazione consigliata per i carichi di lavoro di produzione. Altre informazioni sulle [differenze negli SKU](./skus.md)  |
 |DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | Per impostazione predefinita, i set di scalabilità di macchine virtuali vengono impostati sui servizi di bilanciamento del carico Basic quando lo SKU non è specificato o viene distribuito senza IP pubblici standard. Ridistribuire il set di scalabilità di macchine virtuali con indirizzi IP pubblici standard nelle singole istanze per assicurarsi che venga selezionato Load Balancer Standard o selezionare semplicemente Load Balancer Standard quando si distribuisce un set di scalabilità di macchine virtuali dal portale di Azure. |
 |MaxAvailabilitySetsInLoadBalancerReached | Il pool back-end di un servizio di bilanciamento del carico può contenere un massimo di 150 set di disponibilità. Se nel pool back-end non sono definiti set di disponibilità in modo esplicito per le VM, ogni singola VM viene inserita nel proprio set di disponibilità. La distribuzione di 150 macchine virtuali autonome comporterebbe quindi 150 set di disponibilità, raggiungendo così il limite. Come soluzione alternativa, è possibile distribuire un set di disponibilità e aggiungervi altre macchine virtuali. |
+|NetworkInterfaceAndLoadBalancerAreInDifferentAvailabilitySets | Per il servizio di bilanciamento del carico SKU Basic, l'interfaccia di rete e il servizio di bilanciamento del carico devono trovarsi nello stesso set di disponibilità. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| Non può esistere più di una regola per un determinato tipo di bilanciamento del carico (interno, pubblico) con la stessa porta back-end e lo stesso protocollo a cui fa riferimento lo stesso set di scalabilità di macchine virtuali. Aggiornare la regola per modificare la creazione della regola duplicata. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig| Non può esistere più di una regola per un determinato tipo di bilanciamento del carico (interno, pubblico) con la stessa porta back-end e lo stesso protocollo a cui fa riferimento lo stesso set di scalabilità di macchine virtuali. Aggiornare i parametri della regola per modificare la creazione della regola duplicata. |
 |AnotherInternalLoadBalancerExists| Può esistere un solo servizio di bilanciamento del carico di tipo interno che fa riferimento allo stesso set di VM/interfacce di rete nel back-end del servizio di bilanciamento del carico. Aggiornare la distribuzione per assicurarsi di creare un solo bilanciamento del carico dello stesso tipo. |

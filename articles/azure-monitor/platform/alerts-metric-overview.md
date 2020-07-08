@@ -4,12 +4,11 @@ description: È disponibile una panoramica delle operazioni eseguibili con gli a
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855048"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248822"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -34,7 +33,7 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 
 Dal momento in cui viene creata la regola di avviso, il monitoraggio viene eseguito ogni minuto, analizza i valori delle metriche per gli ultimi 5 minuti e controlla se la media di questi valori supera 70. Se la condizione viene soddisfatta, ovvero il valore medio di CPU percentuale per gli ultimi 5 minuti supera 70, la regola di avviso genera una notifica attivata. Se è stata configurata un'azione di webhook o posta elettronica nel gruppo di azioni associato alla regola di avviso, si riceverà una notifica attivata su entrambe.
 
-Quando si usano più condizioni in una regola, la regola "con" le condizioni insieme.  Ovvero, l'avviso viene attivato quando tutte le condizioni nell'avviso restituiscono true e si risolvono quando una delle condizioni non è più vera. Un esempio di questo tipo di avviso è un avviso quando "CPU superiore al 90%" e "lunghezza della coda superiore a 300 elementi". 
+Quando si usano più condizioni in una regola, la regola "con" le condizioni insieme. Ovvero, un avviso viene generato quando tutte le condizioni nella regola di avviso restituiscono true e si risolvono quando una delle condizioni non è più vera. Un esempio di questo tipo di regola di avviso è il monitoraggio di una macchina virtuale di Azure e l'avviso quando la percentuale di CPU è superiore al 90% e la lunghezza della coda supera 300 elementi.
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Regola di avviso con tipo di condizione dinamica
 
@@ -126,7 +125,7 @@ Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usat
 
 Questa funzionalità è attualmente supportata per le metriche della piattaforma (non per le metriche personalizzate) per i servizi seguenti nei cloud di Azure seguenti:
 
-| Service | Public Azure (Azure pubblico) | Government | Cina |
+| Servizio | Public Azure (Azure pubblico) | Government | Cina |
 |:--------|:--------|:--------|:--------|
 | Macchine virtuali  | **Sì** | No | No |
 | Database di SQL Server | **Sì** | **Sì** | No |
@@ -143,7 +142,7 @@ La creazione di regole di avviso per le metriche che monitorano più risorse equ
 
 > [!NOTE]
 >
-> In una regola di avviso metrica che monitora più risorse è consentita una sola condizione.
+> In una regola di avviso delle metriche che monitora più risorse è supportata una sola condizione.
 
 ## <a name="typical-latency"></a>Latenza tipica
 

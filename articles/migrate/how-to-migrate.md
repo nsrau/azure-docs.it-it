@@ -3,12 +3,11 @@ title: Aggiungere strumenti di migrazione in Azure Migrate
 description: Informazioni su come aggiungere strumenti di migrazione in Azure Migrate.
 ms.topic: article
 ms.date: 04/26/2020
-ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.openlocfilehash: 670341adca7ab2958d43132aab164d7bba0f87d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901458"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195813"
 ---
 # <a name="add-migration-tools"></a>Aggiungere strumenti di migrazione
 
@@ -23,7 +22,7 @@ Questo articolo descrive come aggiungere strumenti di migrazione in [Azure migra
 2. Selezionare lo scenario di migrazione che si vuole usare:
 
     - Per eseguire la migrazione di computer e carichi di lavoro in Azure, selezionare **valuta ed Esegui la migrazione dei server**.
-    - Per eseguire la migrazione di computer SQL locali, selezionare **valuta ed Esegui la migrazione dei database**.
+    - Per eseguire la migrazione dei database di SQL Server locali, selezionare **valuta ed Esegui la migrazione dei database**.
     - Per eseguire la migrazione di app Web locali, selezionare **valuta ed Esegui la migrazione delle app Web**.
     - Per eseguire la migrazione di grandi quantità di dati locali ad Azure in modalità offline, selezionare **Order a data box**.
 

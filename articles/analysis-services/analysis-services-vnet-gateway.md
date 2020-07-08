@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7622b6b5855850a0150f43863fa117828e23d4bd
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: HT
+ms.openlocfilehash: 912dab16cd854ae940b7bbdfe88a8da7adf1c5e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197203"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Usare il gateway per le origini dati in un'istanza di Rete virtuale di Azure (VNet)
 
@@ -22,7 +21,7 @@ Questo articolo descrive la proprietà del server **AlwaysUseGateway** di Azure 
 
 Se l'accesso alle origini dati avviene tramite una rete virtuale, il server Azure Analysis Services deve connettersi a tali origini dati come se fossero nell'ambiente locale. È possibile configurare la proprietà del server **AlwaysUseGateway** per specificare che il server deve accedere a tutte le origini dati tramite un [gateway locale](analysis-services-gateway.md). 
 
-Le origini dati dell'istanza gestita di database SQL di Azure vengono eseguite all'interno della rete virtuale di Azure con un indirizzo IP privato. Se nell'istanza è abilitato l'endpoint pubblico, non è necessario un gateway. Se l'endpoint pubblico non è abilitato, è necessario un gateway dati locale e la proprietà AlwaysUseGateway deve essere impostata su true.
+Le origini dati di Azure SQL Istanza gestita vengono eseguite all'interno di Azure VNet con un indirizzo IP privato. Se nell'istanza è abilitato l'endpoint pubblico, non è necessario un gateway. Se l'endpoint pubblico non è abilitato, è necessario un gateway dati locale e la proprietà AlwaysUseGateway deve essere impostata su true.
 
 > [!NOTE]
 > Questa proprietà è valida solo quando è installato e configurato un [gateway dati locale](analysis-services-gateway.md). Il gateway può trovarsi nella rete virtuale.

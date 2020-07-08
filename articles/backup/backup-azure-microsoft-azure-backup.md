@@ -3,12 +3,11 @@ title: Usare il server di Backup di Azure per eseguire il backup dei carichi di 
 description: Questo articolo contiene informazioni su come preparare l'ambiente per proteggere ed eseguire il backup dei carichi di lavoro usando il server di Backup di Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: bbe3e21840f094fbd3f34d94e7af64ca98d884df
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247275"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -174,7 +173,7 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
 
     ![Server di backup di Azure - Controllo SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Se si verifica un errore con l'indicazione di riavviare il computer, eseguire questa operazione e fare clic su **Controlla di nuovo**. Se si verificano problemi di configurazione di SQL, riconfigurare SQL in base alle linee guida di SQL e riprovare a installare/aggiornare il server di Backup di Microsoft Azure usando l'istanza esistente di SQL.
+    Se si verifica un errore con l'indicazione di riavviare il computer, eseguire questa operazione e fare clic su **Controlla di nuovo**. Se si verificano problemi di configurazione di SQL, riconfigurare SQL in base alle linee guida di SQL e riprovare a installare o aggiornare MAB usando l'istanza esistente di SQL.
 
    **Configurazione manuale**
 
@@ -186,9 +185,9 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
 
     Per la configurazione di SSRS, usare i valori seguenti:
     * Account del servizio: per "Usa account predefinito" usare Servizio di rete
-    * URL servizio Web: per "Directory virtuale" usare ReportServer_\<SQLInstanceName>
-    * Database: per "NomeDatabase" usare ReportServer$\<SQLInstanceName>
-    * URL del portale Web: per "Directory virtuale" usare Reports_\<SQLInstanceName>
+    * URL servizio Web:' directory virtuale ' deve essere ReportServer_\<SQLInstanceName>
+    * Database: DatabaseName deve essere ReportServer $\<SQLInstanceName>
+    * URL del portale Web:' directory virtuale ' deve essere Reports_\<SQLInstanceName>
 
     [Altre informazioni](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sulla configurazione di SSRS.
 
@@ -311,8 +310,8 @@ Se è presente un firewall o un proxy che impedisce l'accesso ad Azure, è neces
 Se si usa il peering Microsoft ExpressRoute, selezionare i servizi/le aree seguenti:
 
 * Azure Active Directory (12076:5060)
-* Area di Microsoft Azure (in base alla posizione dell'insieme di credenziali di Servizi di ripristino)
-* Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di Servizi di ripristino)
+* Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
+* Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 
 Per informazioni dettagliate, vedere [Requisiti per il routing di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
@@ -343,7 +342,7 @@ Per aggiornare MABS, usare i passaggi seguenti:
 
    > [!NOTE]
    >
-   > Non uscire mentre si sta aggiornando l'istanza di SQL, l'uscita disinstallerà l'istanza di report SQL e di conseguenza un tentativo di eseguire nuovamente l'aggiornamento di MABS avrà esito negativo.
+   > Non uscire durante l'aggiornamento dell'istanza di SQL. Se si esce, l'istanza del servizio di report SQL verrà disinstallata e quindi il tentativo di eseguire nuovamente l'aggiornamento di MAB avrà esito negativo.
 
    > [!IMPORTANT]
    >

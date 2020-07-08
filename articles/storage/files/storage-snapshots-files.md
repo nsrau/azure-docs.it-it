@@ -7,28 +7,32 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b50407b3ea7389388577d229f67a4e4baca4296d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: d415ef165da18312a458d7d14fba18acd1bf44cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84235613"
 ---
-# <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure
+
 File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione acquisiscono lo stato di condivisione in un momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.
 
 ## <a name="when-to-use-share-snapshots"></a>Quando usare gli snapshot di condivisione
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>Protezione dagli errori dell'applicazione e dal danneggiamento dei dati
+
 Le applicazioni che usano le condivisioni di file eseguono diverse operazioni, tra cui scrittura, lettura, archiviazione, trasmissione ed elaborazione. Se un'applicazione non è configurata correttamente o viene introdotto inavvertitamente un bug può verificarsi la sovrascrittura o il danneggiamento di alcuni blocchi. Per contribuire a evitare questi scenari è possibile creare uno snapshot della condivisione prima di distribuire il nuovo codice dell'applicazione. Se con la nuova distribuzione viene introdotto un bug o un errore dell'applicazione è possibile tornare a una versione precedente dei dati nella condivisione. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Protezione da eliminazioni accidentali o modifiche indesiderate
+
 Si supponga di lavorare su un file di testo in una condivisione di file. Quando il file di testo viene chiuso non è più possibile annullare le modifiche. In questi casi è necessario ripristinare una versione precedente del file. Gli snapshot di condivisione consentono di ripristinare versioni precedenti del file se questo viene accidentalmente rinominato o eliminato.
 
 ### <a name="general-backup-purposes"></a>Scopi generali di backup
-Dopo la creazione di una condivisione file, è possibile creare periodicamente uno snapshot della condivisione file e usarlo per il backup dei dati. Se acquisito periodicamente, lo snapshot di condivisione aiuta a gestire versioni precedenti dei dati che possono essere usate per requisiti di controllo futuri o per il ripristino di emergenza.
+
+Dopo la creazione di una condivisione file, è possibile creare periodicamente uno snapshot della condivisione file e usarlo per il backup dei dati. Se acquisito periodicamente, lo snapshot di condivisione aiuta a gestire versioni precedenti dei dati che possono essere usate per requisiti di controllo futuri o per il ripristino di emergenza. È consigliabile usare il [backup della condivisione file di Azure](../../backup/azure-file-share-backup-overview.md) come soluzione di backup per l'esecuzione e la gestione di snapshot. È anche possibile eseguire e gestire gli snapshot manualmente, usando l'interfaccia della riga di comando o PowerShell.
 
 ## <a name="capabilities"></a>Capabilities
+
 Uno snapshot di condivisione è una copia di sola lettura temporizzata dei dati. È possibile creare, eliminare e gestire gli snapshot usando l'API REST. Le stesse funzionalità sono anche disponibili nella libreria client, nell'interfaccia della riga di comando di Azure e nel portale di Azure. 
 
 È possibile visualizzare gli snapshot di una condivisione sia con l'API REST sia con SMB. È possibile recuperare l'elenco delle versioni della directory o del file e montare direttamente una versione specifica come unità (disponibile solo per Windows, vedere [Limiti](#limits)). 
@@ -48,7 +52,8 @@ Quando si crea uno snapshot di una condivisione di file, i file che si trovano n
 
 Non è possibile eliminare una condivisione per la quale sono disponibili snapshot di condivisione senza eliminare prima tutti gli snapshot.
 
-## <a name="space-usage"></a>Uso dello spazio 
+## <a name="space-usage"></a>Uso dello spazio
+
 Gli snapshot di condivisione sono di natura incrementale. Vengono salvati solo i dati modificati dopo il salvataggio più recente dello snapshot di condivisione. Questo approccio riduce al minimo il tempo necessario per creare lo snapshot di condivisione e permette di risparmiare sui costi di archiviazione. Qualsiasi operazione di scrittura nell'oggetto o nella proprietà o qualsiasi operazione di aggiornamento dei metadati viene conteggiata come "contenuto modificato" e archiviata nello snapshot di condivisione. 
 
 Per risparmiare spazio è possibile eliminare lo snapshot di condivisione corrispondente al periodo con il massimo volume di variazioni.
@@ -58,6 +63,7 @@ Anche se gli snapshot di condivisione vengono salvati in modo incrementale, è s
 Gli snapshot non vengono inclusi nel conteggio per il limite di condivisione di 5 TB. Non è previsto alcun limite per la quantità di spazio totale occupata dagli snapshot di condivisione. Si applicano i limiti dell'account di archiviazione.
 
 ## <a name="limits"></a>Limiti
+
 Il numero massimo di snapshot di condivisione attualmente supportato da File di Azure è 200. Dopo 200 snapshot di condivisione, per poter creare nuovi snapshot è necessario eliminare quelli meno recenti. 
 
 Il numero di chiamate simultanee per la creazione di snapshot di condivisione è illimitato. La quantità di spazio che può essere usata dagli snapshot di condivisione di una condivisione file specifica è illimitata. 
@@ -65,6 +71,7 @@ Il numero di chiamate simultanee per la creazione di snapshot di condivisione è
 Non è attualmente possibile montare snapshot di condivisione in Linux. Questo avviene perché il client SMB di Linux non supporta gli snapshot di montaggio come Windows.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Copiare nuovamente i dati in una condivisione da uno snapshot di condivisione
+
 Le operazioni di copia che interessano file e snapshot di condivisione osservano le regole seguenti:
 
 È possibile copiare singoli file in uno snapshot di condivisione file nella condivisione di base o in qualsiasi altra posizione. È possibile ripristinare una versione precedente di un file o la condivisione file completa copiando i file uno alla volta dallo snapshot di condivisione. Lo snapshot di condivisione non viene alzato di livello a condivisione di base. 
@@ -75,8 +82,9 @@ Lo snapshot di condivisione resta intatto dopo la copia, ma la condivisione file
 
 Quando un file di destinazione viene sovrascritto con una copia, qualsiasi snapshot di condivisione associato al file di destinazione originale resta intatto.
 
-## <a name="general-best-practices"></a>Procedure consigliate generali 
-Quando si esegue l'infrastruttura in Azure, automatizzare i backup per il ripristino dei dati ogni volta che è possibile. Le azioni automatizzate sono più affidabili rispetto ai processi manuali e contribuiscono a migliorare la protezione e la recuperabilità dei dati. Per l'automazione è possibile usare l'API REST, l'SDK client o uno script.
+## <a name="general-best-practices"></a>Procedure consigliate generali
+
+Si consiglia di usare il [backup della condivisione file di Azure](../../backup/azure-file-share-backup-overview.md) come soluzione di backup per automatizzare l'acquisizione di snapshot, nonché la gestione di snapshot. Quando si esegue l'infrastruttura in Azure, automatizzare i backup per il ripristino dei dati ogni volta che è possibile. Le azioni automatizzate sono più affidabili rispetto ai processi manuali e contribuiscono a migliorare la protezione e la recuperabilità dei dati. È possibile usare il backup della condivisione file di Azure, l'API REST, l'SDK client o lo script per l'automazione.
 
 Prima di distribuire l'utilità di pianificazione dello snapshot di condivisione valutare con cura le impostazioni di frequenza e conservazione dello snapshot di condivisione per evitare costi superflui.
 
@@ -84,6 +92,7 @@ Gli snapshot di condivisione offrono solo la protezione a livello di file. Gli s
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Usare gli snapshot di condivisione in:
+    - [Backup della condivisione file di Azure](../../backup/azure-file-share-backup-overview.md)
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)

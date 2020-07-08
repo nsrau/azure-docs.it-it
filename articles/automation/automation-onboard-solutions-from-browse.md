@@ -1,18 +1,17 @@
 ---
-title: Abilitare Gestione aggiornamenti di Automazione di Azure dal portale di Azure
+title: Abilitare Gestione aggiornamenti di automazione di Azure dalla portale di Azure
 description: Questo articolo illustra come abilitare Gestione aggiornamenti dal portale di Azure.
 services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: cb3bbf1a7c2e55d152d26c475369f9ccb6fb7d1e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743975"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84204923"
 ---
-# <a name="enable-update-management-from-azure-portal"></a>Abilitare Gestione aggiornamenti dal portale di Azure
+# <a name="enable-update-management-from-the-azure-portal"></a>Abilitare Gestione aggiornamenti dal portale di Azure
 
 Questo articolo descrive come abilitare la funzionalità [Gestione aggiornamenti](automation-update-management.md) per le macchine virtuali esplorando il portale di Azure. Per abilitare le macchine virtuali di Azure su larga scala, è necessario abilitare una macchina virtuale esistente usando Gestione aggiornamenti. 
 
@@ -63,9 +62,6 @@ Accedere ad Azure all'indirizzo https://portal.azure.com.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per usare Gestione aggiornamenti per le macchine virtuali, vedere [Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](automation-tutorial-update-management.md).
-* Per le configurazioni dell'ambito, vedere [Usare configurazioni dell'ambito per Gestione aggiornamenti](automation-scope-configurations-update-management.md).
-* Se l'area di lavoro Log Analytics non è più necessaria, vedere le istruzioni riportate in [Scollegare l'area di lavoro dall'account di Automazione per Gestione aggiornamenti](automation-unlink-workspace-update-management.md).
-* Per eliminare macchine virtuali da Gestione aggiornamenti, vedere [Rimuovere macchine virtuali da Gestione aggiornamenti](automation-remove-vms-from-update-management.md).
 * Per risolvere gli errori generali di Gestione aggiornamenti, vedere [Risolvere i problemi relativi a Gestione aggiornamenti](troubleshoot/update-management.md).
 * Per risolvere i problemi relativi all'agente di Windows Update, vedere [Risolvere i problemi relativi all'agente di Windows Update](troubleshoot/update-agent-issues.md).
-* Per risolvere i problemi relativi all'agente di aggiornamento di Linux, vedere[Risolvere i problemi relativi all'agente di aggiornamento Linux](troubleshoot/update-agent-issues-linux.md).
+* Per risolvere problemi relativi all'agente di aggiornamento Linux, vedere [Risolvere i problemi dell'agente di aggiornamento Linux](troubleshoot/update-agent-issues-linux.md).

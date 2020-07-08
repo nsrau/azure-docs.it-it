@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: aedc7ea3d778d52f6f348837430987568af188ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196270"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Problemi noti/limitazioni della migrazione con l'uso della modalità ibrida
 
@@ -24,7 +23,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associate all'us
 
 ## <a name="installer-fails-to-authenticate"></a>Non è possibile eseguire l'autenticazione del programma di installazione
 
-Dopo aver caricato il certificato in decompressa, si verifica un ritardo di un paio di minuti prima di poter eseguire l'autenticazione con Azure. Il programma di installazione tenterà di riprovare con un certo ritardo, ma è possibile che il ritardo di propagazione sia più lungo del nuovo tentativo. verrà visualizzato un messaggio **FailedToGetAccessTokenException** . Se il certificato è stato caricato nel decompressa corretto e è stato fornito l'AppId corretto in dmsSettings. JSON, provare a eseguire di nuovo il comando di installazione.
+Dopo aver caricato il certificato in decompressa, si verifica un ritardo di un paio di minuti prima di poter eseguire l'autenticazione con Azure. Il programma di installazione tenterà di riprovare con un certo ritardo, ma è possibile che il ritardo di propagazione sia più lungo del nuovo tentativo. verrà visualizzato un messaggio **FailedToGetAccessTokenException** . Se il certificato è stato caricato nel decompressa corretto e l'AppId corretto è stato fornito in dmsSettings.js, provare a eseguire di nuovo il comando di installazione.
 
 ## <a name="service-offline-after-successful-installation"></a>Servizio "offline" dopo l'installazione riuscita
 
@@ -55,7 +54,7 @@ Se il servizio viene visualizzato come offline al termine del processo di instal
 
 ## <a name="using-your-own-signed-certificate"></a>Uso del proprio certificato firmato
 
-Il certificato generato dall'azione GenerateCert è un certificato autofirmato che potrebbe non essere accettabile in base ai criteri di sicurezza interni. Invece di usare questo certificato, è possibile fornire il proprio certificato e fornire l'identificazione personale in dmsSettings. JSON. Il certificato deve essere caricato nella decompressa e installato nel computer in cui si sta installando il ruolo di lavoro ibrido del servizio migrazione del database di Azure. Installare quindi questo certificato con la chiave privata nell'archivio certificati del computer locale.
+Il certificato generato dall'azione GenerateCert è un certificato autofirmato che potrebbe non essere accettabile in base ai criteri di sicurezza interni. Anziché utilizzare questo certificato, è possibile fornire il proprio certificato e fornire l'identificazione personale in dmsSettings.js. Il certificato deve essere caricato nella decompressa e installato nel computer in cui si sta installando il ruolo di lavoro ibrido del servizio migrazione del database di Azure. Installare quindi questo certificato con la chiave privata nell'archivio certificati del computer locale.
 
 ## <a name="running-the-worker-service-as-a-low-privilege-account"></a>Esecuzione del servizio Worker come account con privilegi limitati
 
@@ -93,10 +92,10 @@ Se non si ha più accesso al computer di lavoro, è possibile annullare la regis
 
 Le sezioni seguenti descrivono i problemi specifici dello scenario correlati all'uso della modalità ibrida del servizio migrazione del database di Azure per eseguire una migrazione in linea.
 
-### <a name="online-migrations-to-azure-sql-database-managed-instance"></a>Migrazioni online per istanza gestita di database SQL di Azure
+### <a name="online-migrations-to-azure-sql-managed-instance"></a>Migrazioni online in Azure SQL Istanza gestita
 
 **Utilizzo elevato della CPU**
 
-**Problema**: per le migrazioni online all'istanza gestita di database SQL, il computer che esegue il ruolo di lavoro ibrido rileverà un utilizzo elevato della CPU se sono presenti troppi backup o se i backup sono troppo grandi.
+**Problema**: per le migrazioni online a SQL istanza gestita, il computer che esegue il ruolo di lavoro ibrido incontrerà un utilizzo elevato della CPU se sono presenti troppi backup o se i backup sono troppo grandi.
 
 **Mitigazione**: per attenuare questo problema, usare i backup compressi, suddividere la migrazione in modo che usi più condivisioni o aumentare il numero di risorse del computer che esegue il ruolo di lavoro ibrido.

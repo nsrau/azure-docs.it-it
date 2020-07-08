@@ -4,12 +4,11 @@ description: Questo articolo illustra come aggiornare la configurazione dell'ins
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744573"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248227"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aggiornare le configurazioni dell'insieme di credenziali di servizi di ripristino di Azure usando l'API
 
@@ -21,7 +20,7 @@ L'eliminazione dei backup di un elemento protetto è un'operazione significativa
 
 Tuttavia, esistono scenari in cui questa funzionalità non è necessaria. Un insieme di credenziali di servizi di ripristino di Azure non può essere eliminato se sono presenti elementi di backup, anche quelli eliminati temporaneamente. Questo potrebbe rappresentare un problema se l'insieme di credenziali deve essere eliminato immediatamente. Per, ad esempio, le operazioni di distribuzione ripuliscono spesso le risorse create nello stesso flusso di lavoro. Una distribuzione può creare un insieme di credenziali, configurare i backup per un elemento, eseguire un ripristino di test e quindi procedere con l'eliminazione degli elementi di backup e dell'insieme di credenziali. Se l'eliminazione dell'insieme di credenziali non riesce, l'intera distribuzione potrebbe non riuscire. La disabilitazione dell'eliminazione temporanea è l'unico modo per garantire l'eliminazione immediata.
 
-Di conseguenza, il cliente deve scegliere con attenzione se disabilitare l'eliminazione temporanea per un determinato insieme di credenziali a seconda dello scenario. Per ulteriori informazioni, vedere l' [articolo](backup-azure-security-feature-cloud.md)relativo all'eliminazione temporanea.
+Quindi, è necessario scegliere con attenzione se disabilitare l'eliminazione temporanea per un determinato insieme di credenziali a seconda dello scenario. Per ulteriori informazioni, vedere l' [articolo](backup-azure-security-feature-cloud.md)relativo all'eliminazione temporanea.
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Recuperare lo stato di eliminazione temporanea con l'API REST
 
@@ -33,7 +32,7 @@ Per recuperare lo stato corrente dell'eliminazione temporanea per un insieme di 
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-L'URI get ha `{subscriptionId}`parametri `{vaultName}`, `{vaultresourceGroupName}` ,. In questo esempio `{vaultName}` è "testVault" e `{vaultresourceGroupName}` è "testVaultRG". Tutti i parametri obbligatori vengono specificati nell'URI e di conseguenza il corpo di una richiesta separata non è necessario.
+L'URI get ha `{subscriptionId}` `{vaultName}` parametri,, `{vaultresourceGroupName}` . In questo esempio `{vaultName}` è "testVault" e `{vaultresourceGroupName}` è "testVaultRG". Tutti i parametri obbligatori vengono specificati nell'URI e di conseguenza il corpo di una richiesta separata non è necessario.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -71,7 +70,7 @@ Per aggiornare lo stato di eliminazione temporanea dell'insieme di credenziali d
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-L'URI della patch `{subscriptionId}`presenta `{vaultName}`parametri `{vaultresourceGroupName}` ,,. In questo esempio `{vaultName}` è "testVault" e `{vaultresourceGroupName}` è "testVaultRG". Se si sostituisce l'URI con i valori precedenti, l'URI sarà simile al seguente.
+L'URI della patch `{subscriptionId}` presenta `{vaultName}` parametri,, `{vaultresourceGroupName}` . In questo esempio `{vaultName}` è "testVault" e `{vaultresourceGroupName}` è "testVaultRG". Se si sostituisce l'URI con i valori precedenti, l'URI sarà simile al seguente.
 
 ```http
 PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -83,7 +82,7 @@ Per creare un corpo della richiesta vengono usate le seguenti definizioni comuni
 
 Per altri dettagli, vedere [la documentazione dell'API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body) .
 
-|Nome  |Obbligatoria  |Type  |Descrizione  |
+|Nome  |Obbligatoria  |Tipo  |Descrizione  |
 |---------|---------|---------|---------|
 |eTag     |         |   string      |  eTag facoltativo       |
 |posizione     |  true       |string         |   Posizione risorsa      |

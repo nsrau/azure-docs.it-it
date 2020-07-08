@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84235557"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificare e diagnosticare i problemi
 
@@ -161,7 +160,7 @@ La tabella seguente elenca gli errori comuni che possono essere riscontrati dagl
 
 |Codice numerico|Codice di errore|Soluzione suggerita|
 |---|---|---|
-|-2147467259|ConnectionFailedAdErrorNoSuchMember|L'utente non è membro di Azure Active Directory. Per aggiungerlo, seguire le istruzioni riportate in [Centro di amministrazione di Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center).|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|L'utente non è membro di Active Directory. Per aggiungerlo, seguire le istruzioni riportate in [Centro di amministrazione di Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center).|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|L'host di sessione non è stato aggiunto correttamente ad Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Le connessioni non sono riuscite perché l'host di sessione non è disponibile. Controllare l'integrità dell'host di sessione.|
 |-2146233088|ConnectionFailedClientDisconnect|Se questo errore viene visualizzato di frequente, verificare che il computer dell'utente sia connesso alla rete.|
@@ -172,6 +171,7 @@ La tabella seguente elenca gli errori comuni che possono essere riscontrati dagl
 |8|ConnectionBroken|La connessione tra il client e il gateway o il server si è interrotta. Non è necessaria alcuna azione a meno che l'interruzione sia avvenuta in modo imprevisto.|
 |14|UnexpectedNetworkDisconnect|La connessione alla rete si è interrotta. Chiedere all'utente di connettersi di nuovo.|
 |24|ReverseConnectFailed|La macchina virtuale host non comunica direttamente con Gateway Desktop remoto. Verificare che l'indirizzo IP del gateway possa essere risolto.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|L'utente non è membro di Active Directory. Per aggiungerlo, seguire le istruzioni riportate in [Centro di amministrazione di Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center).|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

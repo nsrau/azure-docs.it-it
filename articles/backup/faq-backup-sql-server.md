@@ -4,12 +4,11 @@ description: Risposte alle domande frequenti sul backup di SQL Server database i
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248261"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sui database SQL Server in esecuzione in un backup di macchine virtuali di Azure
 
@@ -32,8 +31,8 @@ In alcune circostanze, il servizio backup di Azure attiva i backup corretti. La 
 
 Per impostazione predefinita, la funzionalità di correzione automatica è abilitata per tutti gli utenti. Tuttavia, nel caso in cui si scelga di rifiutare esplicitamente, eseguire le operazioni seguenti:
 
-- Nell'istanza di SQL Server, nella cartella *C:\Program Files\Azure workload Backup\bin* creare o modificare il file **ExtensionSettingsOverrides. JSON** .
-- In **ExtensionSettingsOverrides. JSON**impostare *{"EnableAutoHealer": false}*.
+- Nell'istanza di SQL Server, nella cartella *C:\Program Files\Azure workload Backup\bin* creare o modificare il **ExtensionSettingsOverrides.jssu** file.
+- In **ExtensionSettingsOverrides.json**impostare *{"EnableAutoHealer": false}*.
 - Salvare le modifiche e chiudere il file.
 - Nell'istanza SQL Server aprire **attività Gestisci** e riavviare il servizio **AzureWLBackupCoordinatorSvc** .
 
@@ -41,8 +40,8 @@ Per impostazione predefinita, la funzionalità di correzione automatica è abili
 
 Sì. È possibile imitare la velocità di esecuzione del criterio di backup per ridurre al minimo l'impatto su un'istanza di SQL Server. Per modificare l'impostazione:
 
-1. Nell'istanza di SQL Server, nella cartella *C:\Program Files\Azure workload Backup\bin* creare il file *ExtensionSettingsOverrides. JSON* .
-2. Nel file *ExtensionSettingsOverrides. JSON* , modificare l'impostazione **DefaultBackupTasksThreshold** impostando un valore inferiore (ad esempio, 5). <br>
+1. Nell'istanza di SQL Server, nella cartella *C:\Program Files\Azure workload Backup\bin* creare il *ExtensionSettingsOverrides.jssu* file.
+2. Nel *ExtensionSettingsOverrides.jssu* file, modificare l'impostazione **DefaultBackupTasksThreshold** impostandolo su un valore inferiore (ad esempio, 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
 <br>
 Il valore predefinito di DefaultBackupTasksThreshold è **20**.
@@ -52,7 +51,7 @@ Il valore predefinito di DefaultBackupTasksThreshold è **20**.
  Sebbene questo metodo consenta di usare una quantità elevata di risorse per l'applicazione di backup, SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) è un modo più generico per specificare i limiti sulla quantità di CPU, i/o fisico e memoria che le richieste dell'applicazione in ingresso possono usare.
 
 > [!NOTE]
-> Nell'esperienza utente è comunque possibile pianificare tutti i backup in qualsiasi momento, ma verranno elaborati in una finestra temporale scorrevole, ad esempio 5, in base all'esempio precedente.
+> Nell'esperienza utente è ancora possibile pianificare il numero di backup in un determinato momento, ma verranno elaborati in una finestra temporale scorrevole di Say, 5, in base all'esempio precedente.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>È possibile eseguire un backup completo da una replica secondaria?
 
@@ -68,9 +67,9 @@ L'insieme di credenziali di servizi di ripristino di backup di Azure può rileva
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>I processi di backup con esito positivo determinano la creazione di avvisi?
 
-No. I processi di backup con esito positivo non generano avvisi. Gli avvisi vengono inviati solo per i processi di backup con esito negativo. Il comportamento dettagliato per gli avvisi del portale è illustrato [qui](backup-azure-monitoring-built-in-monitor.md). Tuttavia, nel caso in cui si sia interessati ad avere avvisi anche per i processi riusciti, è possibile usare [monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).
+No. I processi di backup con esito positivo non generano avvisi. Gli avvisi vengono inviati solo per i processi di backup con esito negativo. Il comportamento dettagliato degli avvisi del portale è documentato [qui](backup-azure-monitoring-built-in-monitor.md). Tuttavia, nel caso in cui si sia interessati ad avere avvisi anche per i processi riusciti, è possibile usare [monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).
 
-## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>È possibile visualizzare i processi di backup pianificati nel menu processi di backup?
+## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>È possibile vedere i processi di backup pianificati nel menu Processi di backup?
 
 Il menu **processo di backup** mostrerà solo i processi di backup su richiesta. Per il processo pianificato, usare [monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).
 
@@ -80,7 +79,7 @@ Sì, è possibile ottenere questa funzionalità con la [protezione automatica](b
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se si elimina un database da un'istanza protetta in modo automatico, cosa accade ai backup?
 
-Se un database viene eliminato da un'istanza protetta in modo automatico, i backup del database vengono comunque tentati. Ciò implica che il database eliminato inizia a essere visualizzato come non integro in **elementi di backup** ed è ancora protetto.
+Se un database viene eliminato da un'istanza protetta in modo automatico, i backup del database vengono comunque tentati. Ciò implica che il database eliminato inizia a essere visualizzato come non integro in **Elementi di backup** e viene ancora protetto.
 
 Il modo corretto per arrestare la protezione di questo database consiste nell' **arrestare il backup** con **Elimina dati** in questo database.  
 
@@ -92,7 +91,7 @@ Se si **interrompe il backup con Elimina dati**, non verrà eseguita alcuna copi
 
 ## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Se si modifica il nome del database dopo che è stato protetto, quale sarà il comportamento?
 
-Un database rinominato viene considerato come un nuovo database. Il servizio considererà pertanto questa situazione come se il database non venisse trovato e con i backup non superati.
+Un database rinominato viene considerato come nuovo database. Pertanto, il servizio considererà questa situazione come se il database non venisse trovato e con i backup con esito negativo.
 
 È possibile selezionare il database, che ora è stato rinominato e configurare la protezione su di esso. Se per l'istanza è abilitata la protezione automatica, il database rinominato verrà automaticamente rilevato e protetto.
 

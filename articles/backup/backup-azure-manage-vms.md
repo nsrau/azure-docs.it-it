@@ -4,12 +4,11 @@ description: Informazioni su come gestire e monitorare i backup delle macchine v
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248151"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248584"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
@@ -31,7 +30,7 @@ Nel portale di Azure il dashboard dell'insieme di credenziali dei servizi di rip
 Per visualizzare le macchine virtuali nel dashboard dell'insieme di credenziali:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Scegliere **Sfoglia**dal menu hub. Nell'elenco di risorse digitare **servizi di ripristino**. Durante la digitazione, l'elenco viene filtrato in base all'input. Selezionare **Insiemi di credenziali dei servizi di ripristino**.
+2. Scegliere **Sfoglia**dal menu hub. Nell'elenco di risorse digitare **servizi di ripristino**. Durante la digitazione, l'elenco viene filtrato in base all'input. Selezionare insiemi di credenziali **dei servizi di ripristino**.
 
     ![Creare un insieme di credenziali di Servizi di ripristino](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 

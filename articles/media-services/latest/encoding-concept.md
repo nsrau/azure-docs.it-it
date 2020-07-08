@@ -10,15 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6e1c9aa5c2e049d5fc1ebd8bf745417f56d232ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220170"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codifica di video e audio con servizi multimediali
 
@@ -60,7 +59,7 @@ Quando si inviano processi per elaborare i video, è necessario indicare a servi
 * [Codificare da un URL HTTPS con .NET](stream-files-dotnet-quickstart.md)
 * [Codificare da un URL HTTPS con REST](stream-files-tutorial-with-rest.md)
 * [Codifica da un URL HTTPS con l'interfaccia della riga di comando](stream-files-cli-quickstart.md)
-* [Codificare da un URL HTTPS con node. js](stream-files-nodejs-quickstart.md)
+* [Codificare da un URL HTTPS con Node.js](stream-files-nodejs-quickstart.md)
 
 ### <a name="creating-job-input-from-a-local-file"></a>Creazione dell'input di un processo da un file locale
 
@@ -81,10 +80,10 @@ Quando si codifica un video, è possibile specificare di tagliare o ritagliare a
 
 #### <a name="examples"></a>Esempi
 
-Vedere gli esempi:
+Ecco alcuni esempi:
 
-* [Sottoclip di un video con .NET](subclip-video-dotnet-howto.md)
-* [Sottoclip di un video con REST](subclip-video-rest-howto.md)
+* [Creare una clip video secondaria con .NET](subclip-video-dotnet-howto.md)
+* [Creare una clip video secondaria con REST](subclip-video-rest-howto.md)
 
 ## <a name="built-in-presets"></a>Set di impostazioni predefiniti
 
@@ -98,7 +97,10 @@ Attualmente sono supportati i set di impostazioni seguenti:
 
 - **EncoderNamedPreset. AACGoodQualityAudio**: produce un singolo file MP4 contenente solo audio stereo codificato a 192 kbps.
 - **EncoderNamedPreset. AdaptiveStreaming** (scelta consigliata): per altre informazioni, vedere [generazione automatica di una scala a bitrate](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset. ContentAwareEncodingExperimental**: espone un set di impostazioni sperimentale per la codifica compatibile con il contenuto. Dato qualsiasi contenuto di input, il servizio tenta di determinare automaticamente il numero ottimale di livelli e le impostazioni di velocità in bit e risoluzione appropriate per il recapito tramite flusso adattivo. Gli algoritmi sottostanti continueranno a evolversi nel tempo. L'output conterrà file MP4 con interfoliazione video e audio. Per ulteriori informazioni, vedere [set di impostazioni sperimentale per la codifica compatibile con il contenuto](content-aware-encoding.md).
+- **EncoderNamedPreset. ContentAwareEncoding**: espone un set di impostazioni per la codifica compatibile con il contenuto. Dato qualsiasi contenuto di input, il servizio tenta di determinare automaticamente il numero ottimale di livelli e le impostazioni di velocità in bit e risoluzione appropriate per il recapito tramite flusso adattivo. Gli algoritmi sottostanti continueranno a evolversi nel tempo. L'output conterrà file MP4 con interfoliazione video e audio. Per altre informazioni, vedere [codifica compatibile](content-aware-encoding.md)con i contenuti.
+
+  > [!NOTE]
+  > Assicurarsi di usare **ContentAwareEncoding** non ContentAwareEncodingExperimental.
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: genera un set di otto file MP4 allineati al GOP, con velocità compresa tra 6000 e 400 kbps e audio AAC stereo. La risoluzione parte da 1080p e può scendere fino a 360p.
 - **EncoderNamedPreset. H264MultipleBitrate720p**: genera un set di sei file MP4 allineati al GOP, con velocità compresa tra 3400 e 400 kbps e audio AAC stereo. La risoluzione parte da 720p e può scendere fino a 360p.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: genera un set di cinque file MP4 allineati al GOP, con velocità compresa tra 1600 e 400 kbps e audio AAC stereo. La risoluzione parte da 480p e può scendere fino a 360p.

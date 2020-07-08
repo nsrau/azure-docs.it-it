@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 73498b3537f4cf9313fc9e2464785f63c2af0d5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e94445a6cb16eacb496daedbec21379928a4dafd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194451"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usare modelli per creare entità di Azure Data Factory
 > [!NOTE]
@@ -25,7 +24,7 @@ ms.locfileid: "81460733"
 ## <a name="overview"></a>Panoramica
 Durante l'uso di Azure Data Factory per le esigenze di integrazione dei dati, può essere necessario riusare lo stesso modello in ambienti diversi o implementare ripetutamente la stessa attività all'interno di una soluzione. I modelli consentono di implementare e gestire questi scenari in modo semplificato. I modelli di Azure Data Factory rappresentano la soluzione ideale per gli scenari che implicano riusabilità e ripetizione.
 
-Si consideri la situazione in cui un'organizzazione ha 10 impianti di produzione a livello globale. I log provenienti da ogni impianto vengono archiviati in un database SQL Server locale separato. La società vuole creare una singola data warehouse nel cloud per l'analisi ad hoc. Vuole inoltre sfruttare la stessa logica, ma configurazioni diverse per gli ambienti di sviluppo, test e produzione.
+Si consideri la situazione in cui un'organizzazione ha 10 impianti di produzione a livello globale. I log di ogni impianto vengono archiviati in un database di SQL Server separato. La società vuole creare una singola data warehouse nel cloud per l'analisi ad hoc. Vuole inoltre sfruttare la stessa logica, ma configurazioni diverse per gli ambienti di sviluppo, test e produzione.
 
 In questo caso, è necessario ripetere un'attività all'interno dello stesso ambiente, ma con valori diversi nelle 10 data factory per ogni impianto di produzione. In effetti, l'elemento della **ripetizione** è presente. La creazione di modelli consente l'astrazione di questo flusso generico (ovvero di pipeline con le stesse attività in ogni data factory), ma usa un file dei parametri separato per ogni impianto di produzione.
 
@@ -41,14 +40,14 @@ Per istruzioni dettagliate sulla creazione di entità di Data Factory tramite i 
 * [Tutorial: Create a pipeline to process data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md) (Esercitazione: Creare una pipeline per elaborare dati usando il modello di Azure Resource Manager)
 
 ## <a name="data-factory-templates-on-github"></a>Modelli di data factory in GitHub
-Vedere i modelli di avvio rapido di Azure in GitHub elencati di seguito:
+Vedere i modelli di avvio rapido di Azure seguenti in GitHub:
 
 * [Create a Data factory to copy data from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) (Creare una data factory per copiare dati dall'archivio BLOB di Azure al database SQL di Azure)
 * [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) (Creare una data factory con un'attività Hive in un cluster Azure HDInsight)
 * [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) (Creare una data factory per copiare dati da Salesforce a BLOB di Azure)
 * [Creare una Data factory che collega le attività: copia i dati da un server FTP ai BLOB di Azure, richiama uno script hive in un cluster HDInsight su richiesta per trasformare i dati e copia i risultati nel database SQL di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
 
-È possibile condividere i modelli di Azure Data Factory in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/). Durante lo sviluppo di modelli che possono essere condivisi tramite questo repository, consultare la [guida alla collaborazione](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
+È possibile condividere i modelli di Azure Data Factory alla [Guida introduttiva di Azure](https://azure.microsoft.com/documentation/templates/). Durante lo sviluppo di modelli che possono essere condivisi tramite questo repository, consultare la [guida alla collaborazione](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
 
 Le sezioni seguenti includono informazioni dettagliate sulla definizione delle risorse di Data Factory in un modello di Resource Manager.
 

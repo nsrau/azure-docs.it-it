@@ -1,17 +1,16 @@
 ---
-title: Installare console in Azure Kubernetes Service (AKS)
+title: Installare Consul nel servizio Azure Kubernetes
 description: Informazioni su come installare e usare Consul per creare una mesh di servizi in un cluster Azure Kubernetes Service (AKS)
 author: dstrebel
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 1601ab6d81b888fd2247e95f22c58e1fc91df698
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ef77037526beba1be2e4e8a834dbd09c8a73310c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197222"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installare e usare Consul in Azure Kubernetes Service (AKS)
 
@@ -20,9 +19,9 @@ ms.locfileid: "78273732"
 Questo articolo illustra come installare Console. I componenti Consul sono installati in un cluster Kubernetes in AKS.
 
 > [!NOTE]
-> Queste istruzioni fanno riferimento alla `1.6.0`versione di console e usano almeno la `2.14.2`versione Helm.
+> Queste istruzioni fanno riferimento alla versione di console `1.6.0` e usano almeno la versione Helm `2.14.2` .
 >
-> Le versioni `1.6.x` di Consul possono essere eseguite con le `1.13+`versioni Kubernetes. Altre versioni di Consul sono disponibili nelle versioni di [GitHub-console][consul-github-releases] e informazioni su ognuna delle versioni in [console-note sulla versione][consul-release-notes].
+> Le versioni di Consul `1.6.x` possono essere eseguite con le versioni Kubernetes `1.13+` . Altre versioni di Consul sono disponibili nelle versioni di [GitHub-console][consul-github-releases] e informazioni su ognuna delle versioni in [console-note sulla versione][consul-release-notes].
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -33,7 +32,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster AKS `1.13` (Kubernetes e versioni successive, con RBAC abilitato) e `kubectl` che sia stata stabilita una connessione con il cluster. Se occorre assistenza con uno di questi elementi, vedere la [Guida introduttiva al servizio Azure Kubernetes][aks-quickstart]. Verificare che il cluster disponga di almeno 3 nodi nel pool di nodi Linux.
+I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster AKS (Kubernetes `1.13` e versioni successive, con RBAC abilitato) e che sia stata stabilita una `kubectl` connessione con il cluster. Se occorre assistenza con uno di questi elementi, vedere la [Guida introduttiva al servizio Azure Kubernetes][aks-quickstart]. Verificare che il cluster disponga di almeno 3 nodi nel pool di nodi Linux.
 
 È necessario [Helm][helm] per seguire queste istruzioni e installare Console. È consigliabile che nel cluster sia installata e configurata correttamente la versione stabile più recente. Per assistenza sull'installazione di Helm, vedere la Guida all' [installazione di AKS Helm][helm-install]. Anche tutti i pod console devono essere pianificati per l'esecuzione nei nodi Linux.
 
@@ -41,7 +40,7 @@ Questo articolo separa le linee guida per l'installazione di Consul in diversi p
 
 ### <a name="install-the-consul-components-on-aks"></a>Installare i componenti di console su AKS
 
-Si inizierà scaricando la `v0.10.0` versione del grafico Helm del console. Questa versione del grafico include la versione `1.6.0`di console.
+Si inizierà scaricando `v0.10.0` la versione del grafico Helm del console. Questa versione del grafico include la versione di console `1.6.0` .
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -61,7 +60,7 @@ Si inizierà scaricando la `v0.10.0` versione del grafico Helm del console. Ques
 
 ::: zone-end
 
-Usare Helm e il grafico `consul-helm` scaricato per installare i componenti Consul nello `consul` spazio dei nomi nel cluster AKS. 
+Usare Helm e il `consul-helm` grafico scaricato per installare i componenti Consul nello `consul` spazio dei nomi nel cluster AKS. 
 
 > [!NOTE]
 > **Opzione di installazione**
@@ -100,7 +99,7 @@ A questo punto, è stato distribuito console per il cluster AKS. Per assicurarsi
 
 ## <a name="validate-the-consul-installation"></a>Convalidare l'installazione di Consul
 
-Verificare che le risorse siano state create correttamente. Usare i comandi [kubectl Get SVC][kubectl-get] e [kubectl Get Pod][kubectl-get] per eseguire una `consul` query sullo spazio dei nomi, in cui sono stati `helm install` installati i componenti di console tramite il comando:
+Verificare che le risorse siano state create correttamente. Usare i comandi [kubectl Get SVC][kubectl-get] e [kubectl Get Pod][kubectl-get] per eseguire una query sullo `consul` spazio dei nomi, in cui sono stati installati i componenti di console tramite il `helm install` comando:
 
 ```console
 kubectl get svc --namespace consul --output wide
@@ -128,7 +127,7 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-Tutti i pod dovrebbero mostrare lo stato `Running`. Se i pod non presentano questo stato, attendere uno o due minuti fino a quando non viene visualizzato. Se per uno dei pod viene segnalato un problema, usare il comando [kubectl describe pod][kubectl-describe] per esaminare l'output e lo stato.
+Tutti i pod dovrebbero mostrare lo stato `Running` . Se i pod non presentano questo stato, attendere uno o due minuti fino a quando non viene visualizzato. Se per uno dei pod viene segnalato un problema, usare il comando [kubectl describe pod][kubectl-describe] per esaminare l'output e lo stato.
 
 ## <a name="accessing-the-consul-ui"></a>Accesso all'interfaccia utente di console
 
@@ -138,7 +137,7 @@ L'interfaccia utente di console è stata installata nella configurazione precede
 kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 ```
 
-È ora possibile aprire un browser e fare in modo `http://localhost:8080/ui` che punti a per aprire l'interfaccia utente di console. Quando si apre l'interfaccia utente, verrà visualizzato quanto segue:
+È ora possibile aprire un browser e fare in modo che punti a `http://localhost:8080/ui` per aprire l'interfaccia utente di console. Quando si apre l'interfaccia utente, verrà visualizzato quanto segue:
 
 ![Interfaccia utente console](./media/servicemesh/consul/consul-ui.png)
 
@@ -149,7 +148,7 @@ kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 
 ### <a name="remove-consul-components-and-namespace"></a>Rimuovere i componenti e lo spazio dei nomi del console
 
-Per rimuovere Consul dal cluster AKS, usare i comandi seguenti. `helm delete` Il `consul` grafico viene rimosso e il `kubectl delete namespace` comando rimuoverà lo `consul` spazio dei nomi.
+Per rimuovere Consul dal cluster AKS, usare i comandi seguenti. Il `helm delete` grafico viene rimosso `consul` e il `kubectl delete namespace` comando rimuoverà lo `consul` spazio dei nomi.
 
 ```console
 helm delete --purge consul
@@ -166,6 +165,8 @@ Per esplorare altre opzioni di installazione e configurazione per Consul, vedere
 È anche possibile seguire altri scenari usando:
 
 - [Applicazione di esempio console][consul-app-example]
+- [Architettura di riferimento di console Kubernetes][consul-reference]
+- [Gateway mesh console][consul-mesh-gateways]
 
 <!-- LINKS - external -->
 [Hashicorp]: https://hashicorp.com
@@ -177,9 +178,11 @@ Per esplorare altre opzioni di installazione e configurazione per Consul, vedere
 [consul-github-releases]: https://github.com/hashicorp/consul/releases
 [consul-release-notes]: https://github.com/hashicorp/consul/blob/master/CHANGELOG.md
 [consul-install-download]: https://www.consul.io/downloads.html
-[consul-install-k8]: https://www.consul.io/docs/platform/k8s/run.html
+[consul-install-k8]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-deployment-guide
 [consul-install-helm-options]: https://www.consul.io/docs/platform/k8s/helm.html#configuration-values-
-[consul-app-example]: https://github.com/hashicorp/demo-consul-101/tree/master/k8s
+[consul-mesh-gateways]: https://learn.hashicorp.com/consul/kubernetes/mesh-gateways
+[consul-reference]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-reference
+[consul-app-example]: https://learn.hashicorp.com/consul?track=gs-consul-service-mesh#gs-consul-service-mesh
 [install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
 
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

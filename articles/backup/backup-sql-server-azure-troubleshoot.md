@@ -3,12 +3,11 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: cec3f8530d8a48a870c672d418d42d12a62aa2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183331"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247955"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -50,13 +49,13 @@ In alcuni casi, è possibile che si verifichino errori casuali nelle operazioni 
 
 1. Escludere i seguenti tre processi in esecuzione all'interno di una macchina virtuale dall'analisi antivirus:
 
-    - IaasWLPluginSvc. exe
-    - IaasWorkloadCoordinaorService. exe
-    - TriggerExtensionJob. exe
+    - IaasWLPluginSvc.exe
+    - IaasWorkloadCoordinaorService.exe
+    - TriggerExtensionJob.exe
 
 1. In SQL sono inoltre disponibili alcune linee guida per l'utilizzo dei programmi antivirus. Per informazioni dettagliate, vedere [questo articolo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) .
 
-## <a name="error-messages"></a>messaggi di errore
+## <a name="error-messages"></a>Messaggi di errore
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
@@ -123,7 +122,7 @@ In alcuni casi, è possibile che si verifichino errori casuali nelle operazioni 
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per l'arresto in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15)
+| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non può essere usato per arrestare in un punto nel tempo arbitrario in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15)
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -169,10 +168,10 @@ La macchina virtuale non è in grado di contattare il servizio backup di Azure a
 
 ## <a name="re-registration-failures"></a>Errori di ripetizione della registrazione
 
-Prima di attivare l'operazione di ripetizione della registrazione, verificare la presenza di uno o più dei seguenti sintomi:
+Prima di attivare l'operazione di ripetizione della registrazione, verificare la presenza di uno o più dei sintomi seguenti:
 
 - Tutte le operazioni, ad esempio backup, ripristino e configurazione del backup, non riescono nella macchina virtuale con uno dei codici di errore seguenti: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
-- Se l'area **stato backup** per l'elemento di backup **non è raggiungibile**, escludere tutte le altre cause che possono generare lo stesso stato:
+- Se nell'area **Stato backup** relativa all'elemento di backup è visualizzato il messaggio **Non raggiungibile**, escludere tutte le altre cause che potrebbero comportare lo stesso stato:
 
   - Mancanza di autorizzazioni per eseguire operazioni relative al backup nella macchina virtuale.
   - Arresto della macchina virtuale, pertanto non è possibile eseguire i backup.
@@ -182,13 +181,13 @@ Prima di attivare l'operazione di ripetizione della registrazione, verificare la
 
 - Nel caso di un gruppo di disponibilità di Always On, i backup hanno avuto esito negativo dopo aver modificato la preferenza di backup o dopo un failover.
 
-Questi sintomi possono verificarsi per uno o più dei seguenti motivi:
+Questi sintomi possono comparire per uno o più dei motivi seguenti:
 
 - Un'estensione è stata eliminata o disinstallata dal portale.
 - Un'estensione è stata disinstallata dal **Pannello di controllo** nella macchina virtuale in **Disinstalla o modifica programma**.
-- La macchina virtuale è stata ripristinata di nuovo nel tempo tramite il ripristino del disco sul posto.
-- La macchina virtuale è stata arrestata per un periodo prolungato, quindi la configurazione dell'estensione è scaduta.
-- La macchina virtuale è stata eliminata e un'altra VM è stata creata con lo stesso nome e nello stesso gruppo di risorse della macchina virtuale eliminata.
+- La macchina virtuale è stata ripristinata a un punto precedente tramite il ripristino del disco sul posto.
+- La macchina virtuale si trova in uno stato di arresto da molto tempo e quindi la configurazione dell'estensione è scaduta.
+- La macchina virtuale è stata eliminata e ne è stata creata un'altra con lo stesso nome e nello stesso gruppo di risorse di quella eliminata.
 - Uno dei nodi del gruppo di disponibilità non ha ricevuto la configurazione del backup completo. Questo problema può verificarsi quando il gruppo di disponibilità viene registrato nell'insieme di credenziali o quando viene aggiunto un nuovo nodo.
 
 Negli scenari precedenti è consigliabile attivare un'operazione di ripetizione della registrazione nella macchina virtuale. Per istruzioni su come eseguire questa attività in PowerShell, vedere [qui](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) .
@@ -219,7 +218,7 @@ Se le dimensioni della stringa del contenuto superano 20.000 byte, i file di dat
 
 ### <a name="override-the-default-target-restore-file-path"></a>Esegui override del percorso predefinito del file di ripristino di destinazione
 
-È possibile eseguire l'override del percorso del file di ripristino di destinazione durante l'operazione di ripristino inserendo un file JSON che contiene il mapping del file di database al percorso di ripristino di destinazione. Creare un `database_name.json` file e inserirlo nella posizione `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`.
+È possibile eseguire l'override del percorso del file di ripristino di destinazione durante l'operazione di ripristino inserendo un file JSON che contiene il mapping del file di database al percorso di ripristino di destinazione. Creare un `database_name.json` file e inserirlo nella posizione `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*` .
 
 Il contenuto del file deve essere nel formato seguente:
 
@@ -267,4 +266,4 @@ Questo file deve essere inserito prima di attivare l'operazione di ripristino.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su backup di Azure per le macchine virtuali SQL Server (anteprima pubblica), vedere [backup di Azure per macchine virtuali SQL](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+Per altre informazioni su backup di Azure per le macchine virtuali SQL Server (anteprima pubblica), vedere [backup di Azure per macchine virtuali SQL](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).

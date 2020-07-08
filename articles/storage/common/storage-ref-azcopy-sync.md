@@ -8,12 +8,11 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d855019be7f357a35a26d14e68ba3d427d984e17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4b43b590b147335a70877a7c3c0b07f8b818e3c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086029"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84221052"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -42,7 +41,7 @@ Il comando di sincronizzazione differisce dal comando copy in diversi modi:
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-### <a name="advanced"></a>Avanzate
+### <a name="advanced"></a>Avanzato
 
 Se non si specifica un'estensione di file, AzCopy rileva automaticamente il tipo di contenuto dei file durante il caricamento dal disco locale, in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
@@ -67,7 +66,7 @@ azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[contai
 ```
 
 > [!NOTE]
-> Il BLOB di destinazione *deve* esistere. Usare `azcopy copy` per copiare un singolo file che non esiste ancora nella destinazione. In caso contrario, si verifica l' `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`errore seguente:.
+> Il BLOB di destinazione *deve* esistere. Usare `azcopy copy` per copiare un singolo file che non esiste ancora nella destinazione. In caso contrario, si verifica l'errore seguente: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container` .
 
 Come sopra, ma questa volta, calcola anche l'hash MD5 del contenuto del file e lo salva come proprietà Content-MD5 del BLOB:
 
@@ -132,7 +131,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 > [!NOTE]
 > Se i flag di inclusione/esclusione vengono utilizzati insieme, verranno esaminati solo i file che corrispondono ai modelli di inclusione, ma quelli corrispondenti ai modelli di esclusione verrebbero sempre ignorati.
 
-## <a name="options"></a>Options
+## <a name="options"></a>Opzioni
 
 **--block-size-MB** float usa questa dimensione del blocco (specificata in MIB) durante il caricamento in archiviazione di Azure o il download da archiviazione di Azure. Il valore predefinito viene calcolato automaticamente in base alle dimensioni del file. Sono consentite frazioni decimali, ad esempio: 0,25.
 
@@ -142,15 +141,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--Exclude-Attributes** String (solo Windows) escludere i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S R
 
-**--Exclude-Path** String escludere questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Verifica il prefisso del percorso relativo (ad esempio: cartella, cartella/subDirName/file. pdf). Se usato in combinazione con l'attraversamento dell'account, i percorsi non includono il nome del contenitore.
+**--Exclude-Path** String escludere questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo (ad esempio: cartella, cartella/subDirName/file.pdf). Se usato in combinazione con l'attraversamento dell'account, i percorsi non includono il nome del contenitore.
 
-**--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: \*. jpg; \*. pdf; exactname
+**--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: \* . jpg; \* . PDF; exactname
 
 **-h,--** Guida alla sincronizzazione
 
 **--include-gli attributi** stringa (solo Windows) includono solo i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S R
 
-**--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: \*. jpg; \*. pdf; exactname
+**--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: \* . jpg; \* . PDF; exactname
 
 **--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: info (tutte le richieste e risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (informazioni predefinite). (impostazione predefinita "INFO")
 
@@ -164,6 +163,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |---|---|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
+|--trusted-Microsoft-suffissi stringa   |Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
 
 ## <a name="see-also"></a>Vedere anche
 

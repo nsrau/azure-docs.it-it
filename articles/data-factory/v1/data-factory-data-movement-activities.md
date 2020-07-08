@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195973"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Spostare dati con l'attività di copia
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -81,7 +80,7 @@ L'attività di copia esegue anche operazioni di lettura e scrittura in formati s
 
 È possibile ad esempio eseguire queste attività di copia:
 
-* Copiare i dati nell'istanza locale di SQL Server e scrivere in Azure Data Lake Store nel formato ORC.
+* Copiare i dati in un database di SQL Server e scrivere in Azure Data Lake Store nel formato ORC.
 * Copiare i file in formato testo (CSV) dal file system locale e scrivere nel BLOB di Azure nel formato Avro.
 * Copiare i file compressi dal file system locale e decomprimerli in Azure Data Lake Store.
 * Copiare i dati in formato testo (CSV) con compressione GZip dal BLOB di Azure e scrivere nel database SQL di Azure.
@@ -196,7 +195,7 @@ Vedere l'articolo [Guida alle prestazioni delle attività di copia e all'ottimiz
 ## <a name="fault-tolerance"></a>Tolleranza di errore
 Per impostazione predefinita, l'attività di copia interromperà la copia dei dati e restituirà un errore quando rileva dati incompatibili tra l'origine e il sink; è possibile chiedere in modo esplicito di ignorare e registrare le righe incompatibili, quindi copiare solo i dati compatibili perché la copia abbia esito positivo. Per altri dettagli, vedere la [Tolleranza di errore dell'attività di copia: ignorare le righe incompatibili](data-factory-copy-activity-fault-tolerance.md).
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 Vedere [Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati](data-factory-data-movement-security-considerations.md) che descrive l'infrastruttura di sicurezza usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati.
 
 ## <a name="scheduling-and-sequential-copy"></a>Pianificazione e copia sequenziale

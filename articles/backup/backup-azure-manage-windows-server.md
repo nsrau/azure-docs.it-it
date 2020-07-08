@@ -3,16 +3,15 @@ title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
 description: Questo articolo illustra come usare il dashboard di panoramica dell'insieme di credenziali di servizi di ripristino per monitorare e gestire gli insiemi di credenziali dei servizi di ripristino.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234601"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
-Questo articolo illustra come usare il dashboard **Panoramica** dell'insieme di credenziali di Servizi di ripristino per monitorare e gestire gli insiemi di credenziali di Servizi di ripristino. Quando si apre un insieme di credenziali di Servizi di ripristino dall'elenco, viene aperto il dashboard **Panoramica** dell'insieme di credenziali selezionato. Il dashboard fornisce diversi dettagli sull'insieme di credenziali. Sono presenti *riquadri* che mostrano: lo stato degli avvisi critici e delle avvertenze, i processi di backup in corso e non riusciti e la quantità di archiviazione con ridondanza locale e di archiviazione con ridondanza geografica usata. Se si esegue un backup delle VM di Azure nell'insieme di credenziali, il riquadro [**Stato del controllo preliminare di backup** visualizza eventuali avvisi critici o avvertenze](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). L'immagine seguente illustra il dashboard **Panoramica** per **Contoso-vault**. Il riquadro **Elementi di backup** mostra che sono presenti nove elementi registrati nell'insieme di credenziali.
+Questo articolo illustra come usare il dashboard **Panoramica** dell'insieme di credenziali di Servizi di ripristino per monitorare e gestire gli insiemi di credenziali di Servizi di ripristino. Quando si apre un insieme di credenziali di Servizi di ripristino dall'elenco, viene aperto il dashboard **Panoramica** dell'insieme di credenziali selezionato. Il dashboard fornisce diversi dettagli sull'insieme di credenziali. Sono disponibili *riquadri* che mostrano lo stato di avvisi critici e di avviso, i processi di backup in corso e non riusciti e la quantità di archiviazione con ridondanza locale (con ridondanza locale) e l'archiviazione con ridondanza geografica (GRS) usata. Se si esegue un backup delle VM di Azure nell'insieme di credenziali, il riquadro [**Stato del controllo preliminare di backup** visualizza eventuali avvisi critici o avvertenze](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). L'immagine seguente illustra il dashboard **Panoramica** per **Contoso-vault**. Il riquadro **Elementi di backup** mostra che sono presenti nove elementi registrati nell'insieme di credenziali.
 
 ![Dashboard dell'insieme di credenziali dei servizi di ripristino](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -231,7 +230,7 @@ Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne e
 È possibile visualizzare tutte le operazioni o un'operazione. Non è possibile selezionare due o tre operazioni. Le operazioni disponibili sono:
 
 * Tutte le operazioni
-* Register
+* Registrazione
 * Configurare il backup
 * Backup
 * Restore

@@ -3,12 +3,11 @@ title: Protezione di Funzioni di Azure
 description: Informazioni su come proteggere l'esecuzione del codice funzione in Azure dagli attacchi comuni.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07d099ae3ce8a544994208436770674e6674e6f0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744059"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259423"
 ---
 # <a name="securing-azure-functions"></a>Protezione di Funzioni di Azure
 
@@ -83,7 +82,7 @@ Come per qualsiasi applicazione o servizio, l'obiettivo è eseguire l'app per le
 
 #### <a name="user-management-permissions"></a>Autorizzazioni di gestione dell'utente
 
-Funzioni supporta il [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md) predefinito. I ruoli di controllo degli accessi in base al ruolo supportati da Funzioni sono [Collaboratore](../role-based-access-control/built-in-roles.md#contributor), [Proprietario](../role-based-access-control/built-in-roles.md#owner) e [Lettore](../role-based-access-control/built-in-roles.md#owner). 
+Funzioni supporta il controllo degli [accessi in base al ruolo di Azure](../role-based-access-control/overview.md)predefinito. I ruoli di controllo degli accessi in base al ruolo supportati da Funzioni sono [Collaboratore](../role-based-access-control/built-in-roles.md#contributor), [Proprietario](../role-based-access-control/built-in-roles.md#owner) e [Lettore](../role-based-access-control/built-in-roles.md#owner). 
 
 Le autorizzazioni sono effettive a livello di app per le funzioni. Il ruolo di Collaboratore è necessario per eseguire la maggior parte delle attività a livello di app per le funzioni. Solo il ruolo di Proprietario può eliminare un'app per le funzioni. 
 
