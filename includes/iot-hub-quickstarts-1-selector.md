@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: iot-hub
 author: dominicbetts
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 654b905088d8623ad49a066cec572ee35fd64131
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e555f3c74c10d108a1a95b4f780bf85b9975ddac
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73846644"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807817"
 ---
 > [!div class="op_single_selector"]
 > * [CLI](../articles/iot-hub/quickstart-send-telemetry-cli.md)
@@ -24,3 +24,4 @@ ms.locfileid: "73846644"
 > * [Python](../articles/iot-hub/quickstart-send-telemetry-python.md)
 > * [Android](../articles/iot-hub/quickstart-send-telemetry-android.md)
 > * [iOS](../articles/iot-hub/quickstart-send-telemetry-ios.md)
+> * [Xamarin.Forms](../articles/iot-hub/quickstart-send-telemetry-xamarinforms.md)

@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: HT
+ms.openlocfilehash: e00ab059c68d7a3f2288d94894199773cab63ac5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021688"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039297"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure
 
@@ -69,7 +69,7 @@ Seguire questa procedura per aggiungere il database SQL di Azure come origine di
 
 ### <a name="create-a-sql-database-table"></a>Creare una tabella del database SQL
 
-Usare SQL Server Management Studio per creare una tabella in cui archiviare i dati di riferimento. Per informazioni dettagliate, vedere [Progettare il primo database SQL di Azure con SSMS](../azure-sql/database/design-first-database-tutorial.md).
+Usare SQL Server Management Studio per creare una tabella in cui archiviare i dati di riferimento. Per informazioni dettagliate, vedere [progettare il primo database SQL di Azure con SSMS](../azure-sql/database/design-first-database-tutorial.md) .
 
 La tabella di esempio usata nell'esempio seguente è stata creata dall'istruzione seguente:
 
@@ -115,7 +115,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Aprire il file SQL nell'editor e scrivere la query SQL.
 
-5. Se si usa Visual Studio 2019 ed è installato SQL Server Data Tools, è possibile testare la query facendo clic su **Esegui**. Verrà visualizzata una finestra della procedura guidata per eseguire la connessione al database SQL e il risultato della query comparirà nella parte inferiore della finestra.
+5. Se si usa Visual Studio 2019 ed è installato SQL Server Data Tools, è possibile testare la query facendo clic su **Esegui**. Verrà visualizzata una finestra della procedura guidata che consente di connettersi al database SQL e i risultati della query verranno visualizzati nella finestra in basso.
 
 ### <a name="specify-storage-account"></a>Specificare l'account di archiviazione
 
@@ -147,7 +147,7 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
    ```
 2. Creare la query snapshot. 
 
-   Usare il parametro **\@snapshotTime** per indicare al runtime di Analisi di flusso di ottenere il set di dati di riferimento dalla tabella temporale del database SQL valida nell'ora di sistema. Se non si specifica questo parametro si rischia di ottenere un set di dati di riferimento di base non accurato, a causa degli sfasamenti di orario. Di seguito è riportata una query snapshot completa di esempio:
+   Usare il parametro ** \@ snapshotTime** per indicare al runtime di analisi di flusso di ottenere il set di dati di riferimento dalla tabella temporale del database SQL valida all'ora di sistema. Se non si specifica questo parametro si rischia di ottenere un set di dati di riferimento di base non accurato, a causa degli sfasamenti di orario. Di seguito è riportata una query snapshot completa di esempio:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,7 +156,7 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
  
 2. Creare la query delta. 
    
-   Questa query recupera tutte le righe nel database SQL che sono state inserite tra un'ora di inizio **\@deltaStartTime** e un'ora di fine **\@deltaEndTime**. La query delta deve restituire le stesse colonne della query snapshot, nonché la colonna **_operation_**. Questa colonna definisce se la riga è stata inserita o eliminata tra **\@deltaStartTime** e **\@deltaEndTime**. Le righe risultanti vengono contrassegnate con **1** se i record sono stati inseriti, con **2** se sono stati eliminati. La query deve anche aggiungere **filigrana** dal lato SQL Server per assicurarsi che tutti gli aggiornamenti nel periodo delta vengano acquisiti in modo appropriato. L'uso di una query delta senza **filigrana** può causare un set di dati di riferimento non corretto.  
+   Questa query consente di recuperare tutte le righe nel database SQL inserite o eliminate entro un'ora di inizio, ** \@ deltaStartTime**e un'ora di fine ** \@ deltaEndTime**. La query delta deve restituire le stesse colonne della query snapshot, nonché la colonna **_operation_**. Questa colonna definisce se la riga è stata inserita o eliminata tra **\@deltaStartTime** e **\@deltaEndTime**. Le righe risultanti vengono contrassegnate con **1** se i record sono stati inseriti, con **2** se sono stati eliminati. La query deve anche aggiungere **filigrana** dal lato SQL Server per assicurarsi che tutti gli aggiornamenti nel periodo delta vengano acquisiti in modo appropriato. L'uso di una query delta senza **filigrana** può causare un set di dati di riferimento non corretto.  
 
    Per i record aggiornati, la tabella temporale registra un'operazione di inserimento ed eliminazione. Il runtime di Analisi di flusso applicherà quindi i risultati della query delta allo snapshot precedente per mantenere aggiornati i dati di riferimento. Un esempio di query delta è illustrato di seguito:
 
@@ -183,12 +183,12 @@ Non sono previsti [costi per unità di streaming](https://azure.microsoft.com/pr
 
 **Come si capisce se lo snapshot dei dati di riferimento viene interrogato dal database SQL e usato nel processo di Analisi di flusso di Azure?**
 
-Nel portale di Azure sono presenti due metriche, filtrate in base al nome logico, che è possibile usare per monitorare l'integrità dell'input dei dati di riferimento del database SQL.
+Esistono due metriche filtrate in base al nome logico (in metriche portale di Azure), che è possibile usare per monitorare l'integrità dell'input dei dati di riferimento del database SQL.
 
-   * InputEvents: questa metrica misura il numero di record caricati dal set di dati di riferimento del database SQL.
+   * InputEvents: questa metrica misura il numero di record caricati in dal set di dati di riferimento del database SQL.
    * InputEventBytes: questa metrica misura le dimensioni dello snapshot dei dati di riferimento caricato nella memoria del processo di Analisi di flusso. 
 
-La combinazione delle due metriche può essere usata per dedurre se il processo sta eseguendo query sul database SQL per recuperare il set di dati di riferimento e quindi caricarlo in memoria.
+La combinazione di entrambe le metriche può essere usata per dedurre se il processo esegue una query sul database SQL per recuperare il set di dati di riferimento e quindi caricarlo in memoria.
 
 **È necessario un tipo particolare di database SQL di Azure?**
 

@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6f697cf205af9bdfaadfe20e123bcf0b4935c90f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: HT
+ms.openlocfilehash: 44755ab13b95db1ffec8183d00a4054e291c5a50
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829988"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039025"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Risoluzione dei problemi relativi a Synapse SQL in Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Questo articolo illustra la risoluzione dei problemi comuni in Synapse SQL.
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Accesso non riuscito per l'utente 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Errore: 18456) | Questo errore si verifica quando un utente di Azure AD prova a connettersi al database master, ma non ha un utente in tale database.  Per risolvere questo problema specificare il pool SQL a cui connettersi al momento della connessione o aggiungere l'utente al database master.  Per ulteriori dettagli, vedere l'articolo [Panoramica della sicurezza](sql-data-warehouse-overview-manage-security.md) . |
 | L'entità server "MyUserName" non può accedere al database "master" nel contesto di sicurezza corrente. Impossibile aprire il database utente predefinito. Accesso non riuscito. Accesso non riuscito per l'utente 'MyUserName'. (Microsoft SQL Server, Errore: 916) | Questo errore si verifica quando un utente di Azure AD prova a connettersi al database master, ma non ha un utente in tale database.  Per risolvere questo problema specificare il pool SQL a cui connettersi al momento della connessione o aggiungere l'utente al database master.  Per ulteriori dettagli, vedere l'articolo [Panoramica della sicurezza](sql-data-warehouse-overview-manage-security.md) . |
-| Errore CTAIP                                                  | Questo errore può verificarsi quando è stato creato un account di accesso nel database master di SQL Server, ma non nel database SQL.  Se si verifica questo errore, vedere l'articolo [Panoramica della sicurezza](sql-data-warehouse-overview-manage-security.md) .  Questo articolo illustra come creare un account di accesso e un utente in un database master e come creare un utente nel database SQL. |
+| Errore CTAIP                                                  | Questo errore può verificarsi quando è stato creato un account di accesso nel database master del database SQL, ma non nel database SQL specifico.  Se si verifica questo errore, vedere l'articolo [Panoramica della sicurezza](sql-data-warehouse-overview-manage-security.md) .  In questo articolo viene illustrato come creare un account di accesso e un utente nel database master e come creare un utente in un database SQL. |
 | Blocco da parte del firewall                                          | I pool SQL sono protetti da firewall per garantire che solo gli indirizzi IP noti abbiano accesso a un database. I firewall sono protetti per impostazione predefinita, il che significa che è necessario abilitare in modo esplicito un indirizzo IP o un intervallo di indirizzi prima di potersi connettere.  Per configurare il firewall per l'accesso, seguire la procedura descritta in [Configurare l'accesso al firewall del server per l'indirizzo IP del client](create-data-warehouse-portal.md) nella [Procedura di configurazione del provisioning](create-data-warehouse-portal.md). |
 | Impossibile connettersi con lo strumento o il driver                           | Per eseguire query sui dati nel pool SQL Synapse è consigliabile usare [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SSDT per Visual Studio](sql-data-warehouse-install-visual-studio.md) o [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md). Per altre informazioni sui driver e sulla connessione ad Azure Synapse, vedere gli articoli [Driver per Azure Synapse](sql-data-warehouse-connection-strings.md) e [connettersi ad Azure Synapse](sql-data-warehouse-connect-overview.md). |
 
@@ -59,7 +59,7 @@ Questo articolo illustra la risoluzione dei problemi comuni in Synapse SQL.
 | Messaggio 40847: Non è stato possibile eseguire l'operazione perché il server avrebbe superato la quota di DTU consentita di 45000. | Ridurre il [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) del database che si sta tentando di creare oppure [richiedere un aumento della quota](sql-data-warehouse-get-started-create-support-ticket.md). |
 | Analisi dell'uso dello spazio                              | Per comprendere l'uso dello spazio nel sistema, vedere la [tabella sulle dimensioni](sql-data-warehouse-tables-overview.md#table-size-queries) . |
 | Aiuto nella gestione delle tabelle                                    | Per informazioni su come gestire le tabelle, vedere la [Panoramica sulle tabelle](sql-data-warehouse-tables-overview.md).  Questo articolo contiene anche collegamenti ad articoli più dettagliati, ad esempio relativi a [tipi di dati delle tabelle](sql-data-warehouse-tables-data-types.md), [distribuzione di una tabella](sql-data-warehouse-tables-distribute.md), [indicizzazione di una tabella](sql-data-warehouse-tables-index.md), [partizionamento di una tabella](sql-data-warehouse-tables-partition.md), [gestione delle statistiche delle tabelle](sql-data-warehouse-tables-statistics.md) e [tabelle temporanee](sql-data-warehouse-tables-temporary.md). |
-| L'indicatore di stato TDE (Transparent Data Encryption) non viene aggiornato nel portale di Azure | È possibile visualizzare lo stato di TDE tramite [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
+| L'indicatore di stato TDE (Transparent Data Encryption) non viene aggiornato nel portale di Azure | È possibile visualizzare lo stato di Transparent Data Encryption tramite [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
 ## <a name="differences-from-sql-database"></a>Differenze rispetto al database SQL
 

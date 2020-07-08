@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c419c2127b1c5fe3aaa60c6e828ff0c5a6676c07
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77598545"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340824"
 ---
-# <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Guida introduttiva: Creare e gestire una condivisione file di Azure con Azure PowerShell 
+# <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Avvio rapido: Creare e gestire una condivisione file di Azure con Azure PowerShell 
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con PowerShell. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 Un account di archiviazione è un pool condiviso di risorse di archiviazione in cui è possibile distribuire condivisioni file di Azure. Un account di archiviazione può contenere un numero illimitato di condivisioni e una condivisione può archiviare un numero illimitato di file, fino ai limiti di capacità dell'account di archiviazione. Questo esempio crea un account di archiviazione per utilizzo generico versione 2 (GPv2), che consente di archiviare condivisioni file di Azure standard o altre risorse di archiviazione, ad esempio BLOB o code, su supporti rotanti di tipo unità disco rigido. File di Azure supporta anche unità SSD (Solid-State Disk) Premium; è possibile creare condivisioni file di Azure Premium negli account di archiviazione FileStorage.
 
-Questo esempio crea un account di archiviazione con il cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). L'account di archiviazione viene denominato *mystorageaccount\<numero casuale>* e nella variabile **$storageAcct** viene inserito un riferimento a tale account di archiviazione. I nomi degli account di archiviazione devono essere univoci, quindi usare `Get-Random` per aggiungere un numero al nome e renderlo univoco. 
+Questo esempio crea un account di archiviazione con il cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). L'account di archiviazione viene denominato *mystorageaccount\<random number>* e nella variabile **$storageAcct** viene inserito un riferimento a tale account di archiviazione. I nomi degli account di archiviazione devono essere univoci, quindi usare `Get-Random` per aggiungere un numero al nome e renderlo univoco. 
 
 ```azurepowershell-interactive 
 $storageAccountName = "mystorageacct$(Get-Random)"
@@ -199,7 +199,7 @@ Un'altra utile attività da eseguire con una condivisione file di Azure è la cr
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name $shareName
-$snapshot = $share.Snapshot()
+$snapshot = $share.CloudFileShare.Snapshot()
 ```
 
 ### <a name="browse-share-snapshots"></a>Esplorare gli snapshot di condivisione

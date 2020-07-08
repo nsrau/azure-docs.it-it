@@ -8,24 +8,24 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/06/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 7d2e22804c06f589c7990bf8f19319b897363a93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a5ae321a4a97df5b5fa91bb239589c76c6601fc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743459"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039756"
 ---
-# <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Risolvere i problemi di blocco degli account con un Azure AD Domain Services dominio gestito
+# <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Risolvere i problemi di blocco degli account con un Azure Active Directory Domain Services dominio gestito
 
-Per evitare tentativi di accesso dannosi ripetuti, Azure AD DS blocca gli account dopo una soglia definita. Questo blocco degli account può verificarsi anche in caso di incidente senza una richiesta di attacco di accesso. Se, ad esempio, un utente immette ripetutamente la password errata o un servizio tenta di usare una vecchia password, l'account viene bloccato.
+Per evitare tentativi di accesso dannosi ripetuti, un dominio gestito Azure Active Directory Domain Services (Azure AD DS) blocca gli account dopo una soglia definita. Questo blocco degli account può verificarsi anche in caso di incidente senza una richiesta di attacco di accesso. Se, ad esempio, un utente immette ripetutamente la password errata o un servizio tenta di usare una vecchia password, l'account viene bloccato.
 
 Questo articolo sulla risoluzione dei problemi illustra i motivi per cui si verificano i blocchi degli account e il modo in cui è possibile configurare il comportamento e come esaminare i controlli di sicurezza per risolvere i problemi relativi agli eventi di blocco.
 
 ## <a name="what-is-an-account-lockout"></a>Che cos'è il blocco di un account?
 
-Un account utente in Azure AD DS viene bloccato quando viene soddisfatta una soglia definita per i tentativi di accesso non riusciti. Questo comportamento di blocco degli account è progettato per proteggere i tentativi di accesso con forza bruta ripetuta che potrebbero indicare un attacco digitale automatizzato.
+Un account utente in un dominio gestito Azure AD DS viene bloccato quando viene soddisfatta una soglia definita per i tentativi di accesso non riusciti. Questo comportamento di blocco degli account è progettato per proteggere i tentativi di accesso con forza bruta ripetuta che potrebbero indicare un attacco digitale automatizzato.
 
 **Per impostazione predefinita, se sono presenti 5 tentativi di accesso con password errata in 2 minuti, l'account viene bloccato per 30 minuti.**
 
@@ -33,9 +33,9 @@ Le soglie di blocco degli account predefinite vengono configurate utilizzando cr
 
 ### <a name="fine-grained-password-policy"></a>Criteri granulari per le password
 
-I criteri granulari per le password (vengono mostrate) consentono di applicare restrizioni specifiche per i criteri di blocco di password e account a utenti diversi in un dominio. FGPP influiscono solo sugli utenti all'interno di un dominio gestito Azure AD DS. Gli utenti del cloud e gli utenti del dominio sincronizzati nel dominio gestito Azure AD DS da Azure AD sono interessati solo dai criteri password all'interno di Azure AD DS. Gli account in Azure AD o in una directory locale non hanno alcun effetto.
+I criteri granulari per le password (vengono mostrate) consentono di applicare restrizioni specifiche per i criteri di blocco di password e account a utenti diversi in un dominio. FGPP influiscono solo sugli utenti all'interno di un dominio gestito. Gli utenti del cloud e gli utenti del dominio sincronizzati nel dominio gestito da Azure AD sono interessati solo dai criteri password all'interno del dominio gestito. Gli account in Azure AD o in una directory locale non hanno alcun effetto.
 
-I criteri vengono distribuiti tramite l'associazione di gruppo nel dominio gestito di Azure AD DS e tutte le modifiche apportate vengono applicate al successivo accesso dell'utente. La modifica dei criteri non comporta lo sblocco di un account utente già bloccato.
+I criteri vengono distribuiti tramite l'associazione di gruppo nel dominio gestito e tutte le modifiche apportate vengono applicate al successivo accesso dell'utente. La modifica dei criteri non comporta lo sblocco di un account utente già bloccato.
 
 Per altre informazioni sui criteri granulari per le password e sulle differenze tra gli utenti creati direttamente in Azure AD DS e sincronizzati in da Azure AD, vedere [configurare i criteri di blocco degli account][configure-fgpp]e delle password.
 
@@ -44,13 +44,13 @@ Per altre informazioni sui criteri granulari per le password e sulle differenze 
 I motivi più comuni per il blocco di un account, senza finalità o fattori dannosi, includono gli scenari seguenti:
 
 * **L'utente si è bloccato.**
-    * Dopo una modifica recente della password, l'utente ha continuato a usare una password precedente? Il criterio di blocco account predefinito di 5 tentativi non riusciti in 2 minuti può essere causato dall'utente che ha inavvertitamente ritentato una vecchia password.
+    * Dopo una modifica recente della password, l'utente ha continuato a usare una password precedente? Il criterio di blocco account predefinito di cinque tentativi non riusciti in 2 minuti può essere causato dall'utente che ha inavvertitamente ritentato una vecchia password.
 * **Esiste un'applicazione o un servizio con una vecchia password.**
     * Se un account viene usato da applicazioni o servizi, è possibile che le risorse provino ripetutamente ad accedere con una vecchia password. Questo comportamento causa la blocco dell'account.
     * Provare a ridurre al minimo l'utilizzo dell'account tra più applicazioni o servizi diversi e registrare le credenziali utilizzate. Se viene modificata la password di un account, aggiornare di conseguenza le applicazioni o i servizi associati.
 * **La password è stata modificata in un ambiente diverso e la nuova password non è ancora stata sincronizzata.**
-    * Se la password di un account viene modificata al di fuori di Azure AD DS, ad esempio in un ambiente di servizi di dominio Active Directory locale, potrebbero essere necessari alcuni minuti prima che la modifica della password venga sincronizzata tramite Azure AD e in Azure AD DS.
-    * Un utente che tenta di accedere a una risorsa tramite Azure AD DS prima del completamento del processo di sincronizzazione delle password causa il blocco dell'account.
+    * Se una password dell'account viene modificata all'esterno del dominio gestito, ad esempio in un ambiente di servizi di dominio Active Directory locale, potrebbero essere necessari alcuni minuti prima che la modifica della password venga sincronizzata tramite Azure AD e nel dominio gestito.
+    * Un utente che tenta di accedere a una risorsa nel dominio gestito prima del completamento del processo di sincronizzazione delle password causa il blocco dell'account.
 
 ## <a name="troubleshoot-account-lockouts-with-security-audits"></a>Risolvere i problemi di blocco degli account con i controlli di sicurezza
 
@@ -75,11 +75,11 @@ AADDomainServicesAccountLogon
 | where "driley" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
 ```
 
-Visualizza tutti gli eventi di blocco degli account tra il 26 giugno 2019 alle 9.00 e il 1 ° luglio 2019 mezzanotte, ordinati in ordine crescente in base alla data e all'ora:
+Visualizza tutti gli eventi di blocco degli account tra il 26 giugno 2020 alle 9.00 e il 1 ° luglio 2020 mezzanotte, ordinati in ordine crescente in base alla data e all'ora:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01)
+| where TimeGenerated >= datetime(2020-06-26 09:00) and TimeGenerated <= datetime(2020-07-01)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
@@ -88,7 +88,7 @@ AADDomainServicesAccountManagement
 
 Per altre informazioni sui criteri granulari per le password per modificare le soglie di blocco degli account, vedere [configurare i criteri di blocco][configure-fgpp]degli account e delle password.
 
-Se si verificano ancora problemi di aggiunta della macchina virtuale al dominio gestito di Azure AD DS, [consultare la guida e aprire un ticket di supporto per Azure Active Directory][azure-ad-support].
+Se si verificano ancora problemi di aggiunta della macchina virtuale al dominio gestito, [vedere la guida e aprire un ticket di supporto per Azure Active Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [configure-fgpp]: password-policy.md

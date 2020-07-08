@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2df36d80aea34da1693cecde524d239abd2bb04a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8c5e384e85861cdced3ed6dbe60733128b499407
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100244"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039008"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
 
@@ -32,11 +32,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per eseguire il contenitore LUIS, tenere presente i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
-|Risorsa `Cognitive Services` di Azure e file di [app in pacchetto](luis-how-to-start-new-app.md) Luis |Per usare il contenitore, è necessario disporre di:<br><br>* Una risorsa di Azure _Servizi cognitivi_ e la chiave di fatturazione associata l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore. <br>* Un'app pubblicata o sottoposta a training inserita in un pacchetto come input montato per il contenitore con il relativo ID app associato. È possibile ottenere il file in pacchetto dal portale LUIS o dalle API di creazione. Se si sta ricevendo un'app in pacchetto LUIS dalle [API di creazione](#authoring-apis-for-package-file), sarà necessaria anche la _chiave di creazione_.<br><br>Questi requisiti vengono usati per passare gli argomenti della riga di comando per le variabili seguenti:<br><br>**{AUTHORING_KEY}**: questa chiave viene usata per ottenere l'app in pacchetto dal servizio Luis nel cloud e caricare nuovamente i log di query nel cloud. Il formato è `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}**: questo ID viene usato per selezionare l'app. Il formato è `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}**: questa chiave viene usata per avviare il contenitore. È possibile trovare la chiave dell'endpoint in due posizioni. Il primo è la portale di Azure all'interno dell'elenco chiavi della risorsa _Servizi cognitivi_ . La chiave dell'endpoint è anche disponibile nel portale di LUIS nella pagina relativa a impostazioni dell'endpoint e chiavi. Non usare la chiave di avvio.<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina panoramica.<br><br>La [chiave di creazione e la chiave dell'endpoint](luis-limits.md#key-limits) hanno scopi diversi. Non usarle in modo intercambiabile. |
+|`Cognitive Services`Risorsa di Azure e file di [app in pacchetto](luis-how-to-start-new-app.md) Luis |Per usare il contenitore, è necessario disporre di:<br><br>* Una risorsa di Azure _Servizi cognitivi_ e la chiave di fatturazione associata l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore. <br>* Un'app pubblicata o sottoposta a training inserita in un pacchetto come input montato per il contenitore con il relativo ID app associato. È possibile ottenere il file in pacchetto dal portale LUIS o dalle API di creazione. Se si sta ricevendo un'app in pacchetto LUIS dalle [API di creazione](#authoring-apis-for-package-file), sarà necessaria anche la _chiave di creazione_.<br><br>Questi requisiti vengono usati per passare gli argomenti della riga di comando per le variabili seguenti:<br><br>**{AUTHORING_KEY}**: questa chiave viene usata per ottenere l'app in pacchetto dal servizio Luis nel cloud e caricare nuovamente i log di query nel cloud. Il formato è `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}**: questo ID viene usato per selezionare l'app. Il formato è `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}**: questa chiave viene usata per avviare il contenitore. È possibile trovare la chiave dell'endpoint in due posizioni. Il primo è la portale di Azure all'interno dell'elenco chiavi della risorsa _Servizi cognitivi_ . La chiave dell'endpoint è anche disponibile nel portale di LUIS nella pagina relativa a impostazioni dell'endpoint e chiavi. Non usare la chiave di avvio.<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina panoramica.<br><br>La [chiave di creazione e la chiave dell'endpoint](luis-limits.md#key-limits) hanno scopi diversi. Non usarle in modo intercambiabile. |
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -55,7 +55,7 @@ API di creazione per le app in pacchetto:
 
 Il contenitore supporta i valori minimi e consigliati seguenti per le impostazioni:
 
-|Contenitore| Minima | Consigliato | PROGRAMMI<br>(Minimo, massimo)|
+|Contenitore| Minima | Implementazione consigliata | PROGRAMMI<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
 |LUIS|1 core, 2 GB di memoria|1 core, 4 GB di memoria|20, 40|
 
@@ -89,7 +89,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 1. Dopo aver completato le operazioni con il contenitore, [importare i log dell'endpoint](#import-the-endpoint-logs-for-active-learning) dal punto di montaggio di output nel portale di LUIS e [arrestare](#stop-the-container) il contenitore.
 1. Usare la funzionalità di [apprendimento attivo](luis-how-to-review-endpoint-utterances.md) nella pagina **Review endpoint utterances** (Esamina espressioni endpoint) del portale di LUIS per migliorare l'app.
 
-Non è possibile modificare l'app in esecuzione nel contenitore. Per modificare l'app nel contenitore, è necessario modificarla nel servizio LUIS usando il portale di [LUIS](https://www.luis.ai) oppure usando le [API di creazione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) LUIS. Eseguire quindi il training e/o la pubblicazione, scaricare un nuovo pacchetto ed eseguire nuovamente il contenitore.
+Non è possibile modificare l'app in esecuzione nel contenitore. Per modificare l'app nel contenitore, è necessario modificare l'app nel servizio LUIS usando il portale [Luis](https://www.luis.ai) o usare le [API di creazione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)Luis. Eseguire quindi il training e/o la pubblicazione, scaricare un nuovo pacchetto ed eseguire nuovamente il contenitore.
 
 L'app LUIS all'interno del contenitore non può essere esportata di nuovo nel servizio LUIS. È possibile caricare solo i log di query.
 
@@ -108,7 +108,7 @@ La directory di montaggio dell'input può contenere contemporaneamente i modelli
 |Tipo di pacchetto|API endpoint di query|Disponibilità query|Formato nome file pacchetto|
 |--|--|--|--|
 |Versione|GET, POST|Solo contenitore|`{APP_ID}_v{APP_VERSION}.gz`|
-|Gestione temporanea|GET, POST|Azure e contenitore|`{APP_ID}_STAGING.gz`|
+|Staging|GET, POST|Azure e contenitore|`{APP_ID}_STAGING.gz`|
 |Produzione|GET, POST|Azure e contenitore|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -146,7 +146,7 @@ Il pacchetto dell'app pubblicata è disponibile nella pagina di elenco **My Apps
 Il pacchetto dell'app con versione è disponibile nella pagina dell'elenco delle **versioni** .
 
 1. Accedere al portale di [LUIS](https://www.luis.ai).
-1. Selezionare l'app nell'elenco.
+1. Selezionare un'app nell'elenco.
 1. Selezionare **Manage** (Gestisci) sulla barra di spostamento dell'app.
 1. Selezionare **Versions** (Versioni) sulla barra di spostamento a sinistra.
 1. Selezionare la casella di controllo a sinistra del nome della versione nell'elenco.
@@ -196,9 +196,9 @@ Per scaricare il pacchetto con versione, fare riferimento alla [documentazione d
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
-Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i `{ENDPOINT_URI}` valori e `{API_KEY}` , vedere raccolta dei [parametri obbligatori](#gathering-required-parameters) .
+Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori e, vedere [raccolta dei parametri obbligatori](#gathering-required-parameters) `{ENDPOINT_URI}` `{API_KEY}` .
 
-[Examples](luis-container-configuration.md#example-docker-run-commands) Sono disponibili esempi `docker run` di comando.
+[Examples](luis-container-configuration.md#example-docker-run-commands) `docker run` Sono disponibili esempi di comando.
 
 ```console
 docker run --rm -it -p 5000:5000 ^
@@ -214,7 +214,7 @@ ApiKey={API_KEY}
 
 * Questo esempio usa la directory dall' `C:` unità per evitare eventuali conflitti di autorizzazione in Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker.
 * Non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori docker.
-* Se si utilizza un sistema operativo diverso, utilizzare la console/terminale, la sintassi di cartella per i montaggi e il carattere di continuazione di riga corretti per il sistema. In questi esempi si presuppone una console di Windows con un `^`carattere di continuazione di riga. Poiché il contenitore è un sistema operativo Linux, il montaggio di destinazione usa una sintassi di cartella di tipo Linux.
+* Se si utilizza un sistema operativo diverso, utilizzare la console/terminale, la sintassi di cartella per i montaggi e il carattere di continuazione di riga corretti per il sistema. In questi esempi si presuppone una console di Windows con un carattere di continuazione di riga `^` . Poiché il contenitore è un sistema operativo Linux, il montaggio di destinazione usa una sintassi di cartella di tipo Linux.
 
 Questo comando:
 
@@ -229,7 +229,7 @@ Sono disponibili altri [esempi](luis-container-configuration.md#example-docker-r
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
-> Il valore ApiKey è la **chiave** della pagina **delle risorse di Azure** nel portale Luis ed è disponibile anche nella pagina chiavi `Cognitive Services` di risorsa di Azure.
+> Il valore ApiKey è la **chiave** della pagina **delle risorse di Azure** nel portale Luis ed è disponibile anche nella `Cognitive Services` pagina chiavi di risorsa di Azure.
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -254,7 +254,7 @@ I parametri di query specificano la modalità e i contenuti restituiti nella ris
 
 |Query parameter (Parametro di query)|Type|Scopo|
 |--|--|--|
-|`query`|stringa|Espressione dell'utente.|
+|`query`|string|Espressione dell'utente.|
 |`verbose`|boolean|Valore booleano che indica se restituire tutti i metadati per i modelli stimati. L'impostazione predefinita è false.|
 |`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). L'impostazione predefinita è false.|
 |`show-all-intents`|boolean|Valore booleano che indica se restituire tutti gli Intent o solo il primo scopo del punteggio. L'impostazione predefinita è false.|
@@ -270,7 +270,7 @@ I parametri di query specificano la modalità e i contenuti restituiti nella ris
 
 |Query parameter (Parametro di query)|Type|Scopo|
 |--|--|--|
-|`q`|stringa|Espressione dell'utente.|
+|`q`|string|Espressione dell'utente.|
 |`timezoneOffset`|d'acquisto|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
 |`verbose`|boolean|Se l'impostazione è true, restituisce tutte le finalità e i relativi punteggi. Il valore predefinito è false, che restituisce solo la finalità principale.|
 |`staging`|boolean|Se l'impostazione è true, restituisce i risultati della query dall'ambiente di gestione temporanea. |
@@ -294,7 +294,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Per eseguire query nell'ambiente di **gestione temporanea** , `production` sostituire nella route con `staging`:
+Per eseguire query nell'ambiente di **gestione temporanea** , sostituire `production` nella route con `staging` :
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -334,7 +334,7 @@ Il nome della versione può essere composto da un massimo di 10 caratteri e deve
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importare i log dell'endpoint per l'apprendimento attivo
 
-Se viene specificato un montaggio di output per il contenitore LUIS, i file di log delle query dell'app vengono salvati nella `{INSTANCE_ID}` directory di output, dove è l'ID del contenitore. Il log di query dell'app contiene la query, la risposta e i timestamp per ogni query di stima inviata al contenitore LUIS.
+Se viene specificato un montaggio di output per il contenitore LUIS, i file di log delle query dell'app vengono salvati nella directory di output, dove `{INSTANCE_ID}` è l'ID del contenitore. Il log di query dell'app contiene la query, la risposta e i timestamp per ogni query di stima inviata al contenitore LUIS.
 
 Il percorso seguente indica la struttura di directory nidificata per i file di log del contenitore.
 ```
@@ -372,7 +372,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](lui
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire contenitori Language Understanding (LUIS). In sintesi:
 
