@@ -4,15 +4,16 @@ description: Informazioni su come configurare Azure Active Directory (Azure AD) 
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/22/2019
-ms.openlocfilehash: db7bfbef7435c47aa011c5f19e8c52d013c88dc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff5d2e5546c8b29ed486c587a555f47fa2c7e31b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636683"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101427"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Usare Azure Active Directory per l'autenticazione con MySQL
+# <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Usare Azure Active Directory per l'autenticazione con MySQL
 
 Questo articolo illustra in modo dettagliato i passaggi per configurare l'accesso di Azure Active Directory con Database di Azure per MySQL e per connettersi tramite un token di Azure AD.
 

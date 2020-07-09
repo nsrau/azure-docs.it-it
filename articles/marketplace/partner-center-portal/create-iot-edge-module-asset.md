@@ -1,17 +1,18 @@
 ---
 title: Preparare le risorse tecniche del modulo IoT Edge-Azure Marketplace
 description: Per informazioni sui requisiti tecnici e di configurazione, è necessario che gli asset tecnici del modulo perimetrale di Internet delle cose siano soddisfatti prima di poterli pubblicare in Azure Marketplace.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/03/2020
-ms.openlocfilehash: 36b56cdf5a2aaa57cc452db9054380528fa8c68b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 685ac2a383bcc0b85121112b9b5df4aa7650ab59
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958583"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101172"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparare gli asset tecnici del modulo IoT Edge
 
