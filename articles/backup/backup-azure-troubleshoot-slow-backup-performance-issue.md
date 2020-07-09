@@ -1,15 +1,14 @@
 ---
 title: Risolvere i problemi relativi al rallentamento delle prestazioni di backup di file e cartelle
 description: Fornisce indicazioni sulla risoluzione dei problemi per diagnosticare la causa del rallentamento delle prestazioni di backup per file e cartelle di Backup di Azure
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: d65eca685748499f52a990c7ac588bf44cbbba31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194026"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135035"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Risolvere i problemi di rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
 
@@ -50,13 +49,13 @@ Ecco alcuni contatori delle prestazioni e intervalli che possono essere utili pe
 
 | Contatore | Stato |
 | --- | --- |
-| Disco logico (disco fisico) - % inattività |* Da 100% inattivo a 50% inattivo = integro</br>* Da 49% inattivo a 20% inattivo = avviso o monitoraggio</br>* Da 19% inattivo a 0% inattivo = critico o fuori specifica |
-| Disco logico (disco fisico) - % Media letture o scritture disco/sec |* Da 0,001 ms a 0,015 ms = integro</br>* Da 0,015 ms a 0,025 ms = avviso o monitoraggio</br>* Da ms 0,026 e oltre = critico o fuori specifica |
+| Disco logico (disco fisico) - % inattività |<li> 100% di inattività a 50% inattivo = integro</br><li> 49% inattivo a 20% inattivo = avviso o monitoraggio</br><li> 19% inattivo a 0% inattivo = critico o fuori specifica |
+| Disco logico (disco fisico) - % Media letture o scritture disco/sec |<li> da 0,001 MS a 0,015 MS = integro</br><li> da 0,015 MS a 0,025 MS = avviso o monitoraggio</br><li> 0,026 MS o più = critico o fuori specifica |
 | Disco logico (disco fisico) - Lunghezza corrente coda del disco (per tutte le istanze) |80 richieste per più di 6 minuti |
-| Memoria - Byte del pool non di paging |* Meno del 60% del pool usato = integro<br>* Dal 61% all'80% del pool usato = avviso o monitoraggio</br>* Più dell'80% del pool usato = critico o fuori specifica |
-| Memoria - Byte del pool di paging |* Meno del 60% del pool usato = integro</br>* Dal 61% all'80% del pool usato = avviso o monitoraggio</br>* Più dell'80% del pool usato = critico o fuori specifica |
-| Memoria - MByte disponibili |* 50% o più di memoria libera disponibile = integro</br>* 25% di memoria libera disponibile = monitoraggio</br>* 10% di memoria libera disponibile = avviso</br>* Meno di 100 MB o 5% di memoria libera disponibile = critico o fuori specifica |
-| Processore - \%Tempo processore (tutte le istanze) |* Meno del 60% usato = integro</br>* Dal 61% al 90% usato = monitoraggio o attenzione</br>* Dal 91% al 100% usato = critico |
+| Memoria - Byte del pool non di paging |<li> Inferiore al 60% del pool utilizzato = integro<br><li> 61% al 80% del pool utilizzato = avviso o monitoraggio</br><li> Superiore al 80% del pool utilizzato = critico o fuori specifica |
+| Memoria - Byte del pool di paging |<li> Inferiore al 60% del pool utilizzato = integro</br><li> 61% al 80% del pool utilizzato = avviso o monitoraggio</br><li> Superiore al 80% del pool utilizzato = critico o fuori specifica |
+| Memoria - MByte disponibili |<li> 50% di memoria disponibile o superiore = integro</br><li> 25% della memoria disponibile = monitoraggio</br><li>10% di memoria libera disponibile = avviso</br><li> Inferiore a 100 MB o 5% di memoria libera disponibile = critico o fuori specifica |
+| Processore - \%Tempo processore (tutte le istanze) |<li> Inferiore al 60% utilizzato = integro</br><li> da 61% a 90% utilizzato = monitoraggio o attenzione</br><li> 91% a 100% utilizzato = critico |
 
 > [!NOTE]
 > Se si determina che l'infrastruttura è la causa del problema, è consigliabile deframmentare i dischi a intervalli regolari per ottenere prestazioni migliori.

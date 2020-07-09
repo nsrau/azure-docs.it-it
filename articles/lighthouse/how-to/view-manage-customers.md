@@ -3,22 +3,22 @@ title: Visualizzare e gestire clienti e risorse delegate
 description: Come provider di servizi che usa Azure Lighthouse, è possibile visualizzare tutte le risorse e le sottoscrizioni dei clienti delegate visitando i clienti nella portale di Azure.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a850dc8cfe7667a75ced64ef0bd0afc352b20daa
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: f509a91d71caa3ab1ec8282f4151556f7c10d52c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026271"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133272"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visualizzare e gestire clienti e risorse delegate
 
-I provider di servizi che usano Azure Lighthouse possono usare la pagina **clienti** nella [portale di Azure](https://portal.azure.com) per visualizzare le risorse e le sottoscrizioni delegate del cliente. Nonostante qui si faccia riferimento ai provider di servizi e ai clienti, le aziende che gestiscono più tenant possono usare lo stesso processo per consolidare l'esperienza di gestione.
+I provider di servizi che usano [Azure Lighthouse](../overview.md) possono usare la pagina **clienti** nella [portale di Azure](https://portal.azure.com) per visualizzare le risorse e le sottoscrizioni delegate del cliente. Nonostante qui si faccia riferimento ai provider di servizi e ai clienti, le aziende che gestiscono più tenant possono usare lo stesso processo per consolidare l'esperienza di gestione.
 
 Per accedere alla pagina **Clienti personali** nel portale di Azure, selezionare **Tutti i servizi**, quindi cercare **Clienti personali** e selezionarla. È possibile trovarla anche immettendo "Clienti personali" nella casella di ricerca nella parte superiore del portale di Azure.
 
-Tenere presente che la sezione **clienti** principali della pagina **clienti personali** Mostra solo le informazioni sui clienti che hanno sottoscrizioni delegate o gruppi di risorse. Se si lavora con altri clienti (ad esempio tramite il [programma Cloud Solution Provider](/partner-center/csp-overview)), non verranno visualizzate informazioni sui clienti nella sezione **Customers** , a meno che non siano state caricate le risorse per la [gestione delle risorse delegate di Azure](../concepts/azure-delegated-resource-management.md).
+Tenere presente che la sezione **clienti** principali della pagina **clienti personali** Mostra solo le informazioni sui clienti che hanno sottoscrizioni delegate o gruppi di risorse. Se si lavora con altri clienti (ad esempio tramite il [programma Cloud Solution Provider](/partner-center/csp-overview)), non verranno visualizzate informazioni sui clienti nella sezione **Customers** , a meno che non siano state caricate le [risorse in Azure Lighthouse](onboard-customer.md).
 
-Nella parte inferiore della pagina, una sezione separata denominata **Cloud Solution Provider (anteprima)** Mostra le informazioni e le risorse di fatturazione per i clienti CSP che hanno [firmato il contratto](/partner-center/confirm-customer-agreement) per i clienti Microsoft e si trovano nel [piano Azure](/partner-center/azure-plan-get-started). Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](../../billing/mpa-overview.md). Si noti che questi clienti CSP vengono visualizzati in questa sezione indipendentemente dal fatto che siano stati caricati o meno anche per la gestione delle risorse delegate di Azure. Analogamente, non è necessario che un cliente CSP venga visualizzato nella sezione del **provider di soluzioni cloud (anteprima)** dei **clienti** per poterli caricare per la gestione delle risorse delegate di Azure.
+Nella parte inferiore della pagina, una sezione separata denominata **Cloud Solution Provider (anteprima)** Mostra le informazioni e le risorse di fatturazione per i clienti CSP che hanno [firmato il contratto](/partner-center/confirm-customer-agreement) per i clienti Microsoft e si trovano nel [piano Azure](/partner-center/azure-plan-get-started). Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](../../cost-management-billing/understand/mpa-overview.md). Si noti che questi clienti CSP vengono visualizzati in questa sezione indipendentemente dal fatto che siano stati caricati anche in Azure Lighthouse. Analogamente, non è necessario che un cliente CSP venga visualizzato nella sezione del **provider di soluzioni cloud (anteprima)** dei **clienti** per caricarli nel Faro di Azure.
 
 > [!NOTE]
 > I clienti possono visualizzare le informazioni sui provider di servizi passando a **Provider di servizi** nel portale di Azure. Per altre informazioni, vedere [Visualizzare e gestire i provider di servizi](view-manage-service-providers.md).
@@ -52,7 +52,7 @@ Gli utenti e le autorizzazioni associati a ogni delega vengono visualizzati nell
 
 ### <a name="remove-delegations"></a>Rimuovi delega
 
-Se sono stati inclusi utenti con il [ruolo di eliminazione della registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) durante l'onboarding di un cliente per la gestione delle risorse delegate di Azure, gli utenti possono rimuovere una delega selezionando l'icona del Cestino visualizzata nella riga relativa alla delega. In tal caso, nessun utente nel tenant del provider di servizi sarà in grado di accedere alle risorse precedentemente Delegate.
+Se sono stati inclusi utenti con il [ruolo di eliminazione della registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) durante l'onboarding di un cliente in Azure Lighthouse, gli utenti possono rimuovere una delega selezionando l'icona del cestino che viene visualizzata nella riga relativa alla delega. In tal caso, nessun utente nel tenant del provider di servizi sarà in grado di accedere alle risorse precedentemente Delegate.
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Lavorare nel contesto di una sottoscrizione delegata
 

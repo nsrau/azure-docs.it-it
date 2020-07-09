@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb112e0b2d1c64e65ecaf6749a25707d8632c0cb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60947809"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134966"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Gestione traffico di Azure con Azure Site Recovery
 
@@ -30,7 +30,7 @@ Per il primo scenario, si supponga che la **società A** esegua l'intera infrast
 La **società A** esegue le applicazioni con endpoint pubblici e vuole poter reindirizzare senza problemi il traffico ad Azure nel caso di un'emergenza. Il metodo di routing del traffico [Priorità](../traffic-manager/traffic-manager-configure-priority-routing-method.md) in Gestione traffico di Azure permette alla società A di implementare facilmente questo modello di failover.
 
 La configurazione è la seguente:
-- La **società A** crea un [profilo di Gestione traffico](../traffic-manager/traffic-manager-create-profile.md).
+- La **società A** crea un [profilo di Gestione traffico](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Usando il metodo di routing **Priorità**, la **società A** crea due endpoint, uno definito **Primario** per l'ambiente locale e uno definito **Failover** per Azure. All'endpoint **Primario** viene assegnata la priorità 1, mentre all'endpoint **Failover** viene assegnata la priorità 2.
 - Poiché l'endpoint **Primario** è ospitato esternamente ad Azure, viene creato come endpoint [Esterno](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints).
 - Con Azure Site Recovery, il sito di Azure non ha macchine virtuali o applicazioni in esecuzione prima del failover. Di conseguenza, anche l'endpoint **Failover** viene creato come endpoint **Esterno**.
@@ -65,7 +65,7 @@ Per questo esempio, si supponga che la **società C** esegua l'intera infrastrut
 La **società C** esegue le applicazioni con endpoint pubblici e vuole poter reindirizzare in modo uniforme il traffico a un'area di Azure diversa nel caso di un'emergenza. Il metodo di routing del traffico [Priorità](../traffic-manager/traffic-manager-configure-priority-routing-method.md) permette alla **società C** di implementare facilmente questo modello di failover.
 
 La configurazione è la seguente:
-- La **società C** crea un [profilo di Gestione traffico](../traffic-manager/traffic-manager-create-profile.md).
+- La **società C** crea un [profilo di Gestione traffico](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Usando il metodo di routing **Priorità**, la **società C** crea due endpoint, uno definito **Primario** per l'area di origine (area Asia orientale di Azure) e uno definito **Failover** per l'area di ripristino (area Asia sud-orientale di Azure). All'endpoint **Primario** viene assegnata la priorità 1, mentre all'endpoint **Failover** viene assegnata la priorità 2.
 - Poiché l'endpoint **Primario** è ospitato in Azure, l'endpoint può essere un endpoint di [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints).
 - Con Azure Site Recovery, il sito di ripristino di Azure non ha macchine virtuali o applicazioni in esecuzione prima del failover. Di conseguenza, l'endpoint **Failover** può essere creato come endpoint [Esterno](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints).

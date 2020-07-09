@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: f68221666f370f87af7539d9302aaa3ed472d5e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf3e3aaa95734c79e513c16e5d41aeb0bf894dc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82883142"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135263"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori fstab
 
@@ -97,7 +98,7 @@ Give root password for maintenance
 
 Questo problema può verificarsi se la sintassi fstab (file System Table) non è corretta o se un disco dati richiesto di cui è stato eseguito il mapping a una voce nel file "/etc/fstab" non è collegato alla macchina virtuale.
 
-## <a name="resolution"></a>Soluzione
+## <a name="resolution"></a>Risoluzione
 
 Per risolvere questo problema, avviare la macchina virtuale in modalità di emergenza usando la console seriale per le macchine virtuali di Azure. Usare quindi lo strumento per ripristinare la file system. Se la console seriale non è abilitata nella macchina virtuale, passare alla sezione [ripristinare la macchina virtuale offline](#repair-the-vm-offline) .
 
@@ -191,16 +192,16 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
 
 2. Dopo aver montato il disco di sistema come disco dati nella macchina virtuale di ripristino, eseguire il backup del file fstab prima di apportare modifiche, quindi seguire i passaggi successivi per correggere il file fstab.
 
-3.    Cercare l'errore che indica che il disco non è stato montato. Nell'esempio seguente il sistema sta tentando di aggiungere un disco che non era più presente:
+3. Cercare l'errore che indica che il disco non è stato montato. Nell'esempio seguente il sistema sta tentando di aggiungere un disco che non era più presente:
 
-    ```
-    [DEPEND] Dependency failed for /datadisk1.
-    [DEPEND] Dependency failed for Local File Systems.
-    [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
-    [DEPEND] Dependency failed for Migrate local... structure to the new structure.
-    Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
-    Give root password for maintenance (or type Control-D to continue):
-    ```
+   ```output
+   [DEPEND] Dependency failed for /datadisk1.
+   [DEPEND] Dependency failed for Local File Systems.
+   [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
+   [DEPEND] Dependency failed for Migrate local... structure to the new structure.
+   Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
+   Give root password for maintenance (or type Control-D to continue):
+   ```
 
 4. Connettersi alla macchina virtuale usando la password radice (VM basate su Red Hat).
 

@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: d941f3e13e99accadc59c5836d88a824182329b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629721"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135856"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -166,11 +167,11 @@ Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono al c
 
 #### <a name="control-access-with-nsg-rules"></a>Controllare l'accesso con le regole NSG
 
-Se si controlla la connettività delle macchine virtuali filtrando il traffico da e verso reti/subnet di Azure mediante [regole NSG](https://docs.microsoft.com/azure/virtual-network/security-overview), tenere presenti i requisiti seguenti:
+Se si controlla la connettività delle macchine virtuali filtrando il traffico da e verso reti/subnet di Azure mediante [regole NSG](../virtual-network/security-overview.md), tenere presenti i requisiti seguenti:
 
 - Le regole NSG per l'area di Azure di origine devono consentire l'accesso in uscita per il traffico di replica.
 - È consigliabile creare le regole in un ambiente di test prima di usarle in un ambiente di produzione.
-- Usare [tag di servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) invece di consentire singoli indirizzi IP.
+- Usare [tag di servizio](../virtual-network/security-overview.md#service-tags) invece di consentire singoli indirizzi IP.
     - I tag di servizio rappresentano un gruppo di prefissi di indirizzi IP raggruppati per ridurre al minimo la complessità della creazione delle regole di sicurezza.
     - Microsoft aggiorna automaticamente i tag di servizio nel corso del tempo. 
  

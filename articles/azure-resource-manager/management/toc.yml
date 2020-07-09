@@ -80,7 +80,7 @@
             - name: Archiviazione di Azure
               href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: SQL di Azure
-              href: ../../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: App per la logica
               href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Configurazione del controllo di manutenzione

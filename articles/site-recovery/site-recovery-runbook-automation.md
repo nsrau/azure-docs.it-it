@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 123ef7de338bfe872948db60c68c0c5743f5cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345139"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134798"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
 
@@ -128,7 +129,7 @@ Il Blog di Aman Sharma sulla [raccolta di cloud](http://harvestingclouds.com) è
 
 È possibile usare un singolo script Runbook in più piani di ripristino, usando variabili esterne. 
 
-- Usare le [variabili di automazione di Azure](../automation/automation-variables.md) per archiviare i parametri per l'esecuzione di un piano di ripristino.
+- Usare le [variabili di automazione di Azure](../automation/shared-resources/variables.md) per archiviare i parametri per l'esecuzione di un piano di ripristino.
 - Aggiungendo il nome del piano di ripristino come prefisso per la variabile, è possibile creare singole variabili per ogni piano di ripristino. Usare quindi le variabili come parametri.
 - È possibile modificare un parametro senza modificare lo script, cambiando comunque il funzionamento dello script.
 
@@ -198,7 +199,7 @@ In alcuni scenari potrebbe non essere possibile creare variabili separate per og
 - Ad esempio, un ripristino di SharePoint ha due front-end. Un'applicazione line-of-business (LOB) semplice ha un solo front-end.
 - In questo scenario non è possibile creare variabili separate per ogni piano di ripristino.
 
-Nell'esempio seguente viene creata una [variabile complessa](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) nell'account di automazione di Azure.
+Nell'esempio seguente viene creata una [variabile complessa](/powershell/module/servicemanagement/azure/set-azureautomationvariable) nell'account di automazione di Azure.
 
 Questa operazione viene eseguita specificando più valori, usando Azure PowerShell.
 
@@ -263,9 +264,6 @@ Questo video fornisce un altro esempio. che mostra come ripristinare un'applicaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su un [account RunAs di automazione di Azure](../automation/automation-create-runas-account.md)
+- Informazioni su un [account RunAs di automazione di Azure](../automation/manage-runas-account.md)
 - Esaminare gli [script di esempio di automazione di Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
 - [Altre](site-recovery-failover.md) informazioni sull'esecuzione di failover.
-
-
-

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 9295c6e1daaad6346581b959a9b94a7ab74da44c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f92117dc07fc241ca714851956e386cd10d617
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708859"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135019"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -119,35 +119,104 @@ Se il carico di lavoro è costituito da numerose transazioni di piccole dimensio
 
 Le dimensioni di archiviazione per SQL Istanza gestita variano a seconda del livello di servizio selezionato (per utilizzo generico o business critical). Per le limitazioni di archiviazione di questi livelli di servizio, vedere [caratteristiche del livello di servizio](../database/service-tiers-general-purpose-business-critical.md).
 
-## <a name="backup-storage-cost"></a>Costo dell'archiviazione dei backup 
-
-**L'archivio di backup è stato sottratto dalla risorsa di archiviazione di SQL Istanza gestita?**
-
-No, l'archiviazione di backup non viene dedotta dallo spazio di archiviazione di SQL Istanza gestita. L'archivio di backup è indipendente dallo spazio di archiviazione dell'istanza e non ha dimensioni limitate. L'archiviazione di backup è limitata al periodo di tempo per cui conservare il backup dei database dell'istanza, configurabile da 7 a 35 giorni. Per informazioni dettagliate, vedere [backup automatici](../database/automated-backups-overview.md).
-
-## <a name="track-billing"></a>Tenere traccia della fatturazione
-
-**Esiste un modo per tenere traccia dei costi di fatturazione per SQL Istanza gestita?**
-
-Questa operazione può essere eseguita usando la [soluzione Gestione costi di Azure](/azure/cost-management/). Passare a **sottoscrizioni** nella [portale di Azure](https://portal.azure.com) e selezionare **analisi dei costi**. 
-
-Usare l'opzione **costi accumulati** , quindi filtrare in base al **tipo di risorsa** `microsoft.sql/managedinstances` . 
   
-## <a name="inbound-nsg-rules"></a>Regole NSG in ingresso
+## <a name="networking-requirements"></a>Requisiti di rete 
+
+**Quali sono i vincoli Current NSG in ingresso/in uscita sulla subnet Istanza gestita?**
+
+Le regole NSG e UDR obbligatorie sono documentate [qui](connectivity-architecture-overview.md#mandatory-inbound-security-rules-with-service-aided-subnet-configuration)e impostate automaticamente dal servizio.
+Si tenga presente che queste regole sono solo quelle necessarie per gestire il servizio. Per connettersi all'istanza gestita e utilizzare funzionalità diverse, è necessario impostare regole aggiuntive specifiche per le funzionalità, che è necessario gestire.
 
 **Come è possibile impostare le regole di NSG in ingresso sulle porte di gestione?**
 
-Il piano di controllo di SQL Istanza gestita gestisce le regole NSG che proteggono le porte di gestione.
+SQL Istanza gestita è responsabile dell'impostazione delle regole sulle porte di gestione. Questa operazione viene eseguita tramite la funzionalità denominata [configurazione della subnet assistita dal servizio](connectivity-architecture-overview.md#service-aided-subnet-configuration).
+Ciò consente di garantire un flusso ininterrotto del traffico di gestione per soddisfare un contratto di contratto.
 
-Di seguito sono riportate le porte di gestione utilizzate per:
+**È possibile ottenere gli intervalli IP di origine usati per il traffico di gestione in ingresso?**
 
-Le porte 9000 e 9003 vengono usate dall'infrastruttura di Azure Service Fabric. Il Service Fabric ruolo primario consiste nel lasciare integro il cluster virtuale mantenendo lo stato obiettivo in termini di numero di repliche di componenti.
+Sì. È possibile analizzare il traffico proveniente dal gruppo di sicurezza di rete [configurando Network Watcher log dei flussi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
 
-Le porte 1438, 1440 e 1452 vengono utilizzate dall'agente del nodo. Node Agent è un'applicazione che viene eseguita all'interno del cluster e viene utilizzata dal piano di controllo per eseguire i comandi di gestione.
+**È possibile impostare NSG per controllare l'accesso all'endpoint dati (porta 1433)?**
 
-Oltre alle regole NSG, il firewall incorporato protegge l'istanza a livello di rete. A livello di applicazione, la comunicazione è protetta con i certificati.
+Sì. Dopo il provisioning di un Istanza gestita è possibile impostare NSG che controlla l'accesso in ingresso alla porta 1433. È consigliabile limitare il più possibile l'intervallo di indirizzi IP.
 
-Per ulteriori informazioni e per informazioni su come verificare il firewall incorporato, vedere [Azure SQL istanza gestita firewall incorporato](management-endpoint-verify-built-in-firewall.md).
+**È possibile impostare l'appliance virtuale di dispositivo o il firewall locale per filtrare il traffico di gestione in uscita in base ai nomi di dominio completi?**
+
+No. Questa operazione non è supportata per diversi motivi:
+-   Il routing del traffico che rappresenta la risposta alla richiesta di gestione in ingresso è asimmetrico e non può funzionare.
+-   Il routing del traffico che passa all'archiviazione potrebbe essere influenzato da vincoli di velocità effettiva e latenza, in modo che non sia possibile fornire la qualità e la disponibilità dei servizi previsti.
+-   In base all'esperienza, queste configurazioni sono soggette a errori e non sono supportate.
+
+**È possibile impostare l'appliance virtuale di sistema o il firewall per il traffico non di gestione in uscita?**
+
+Sì. Il modo più semplice per ottenere questo risultato consiste nell'aggiungere la regola 0/0 a un UDR associato alla subnet dell'istanza gestita per instradare il traffico attraverso l'appliance virtuale di dispositivo.
+ 
+**Quanti indirizzi IP sono necessari per una Istanza gestita?**
+
+La subnet deve avere un numero sufficiente di [indirizzi IP](connectivity-architecture-overview.md#network-requirements)disponibili. Per determinare le dimensioni della subnet VNet per SQL Istanza gestita, vedere [determinare le dimensioni e l'intervallo di subnet richiesti per istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet). 
+
+**Cosa accade se non sono disponibili indirizzi IP sufficienti per eseguire l'operazione di aggiornamento dell'istanza?**
+
+Se nella subnet non è disponibile un numero sufficiente di [indirizzi IP](connectivity-architecture-overview.md#network-requirements) in cui viene effettuato il provisioning dell'istanza gestita, sarà necessario creare una nuova subnet e una nuova istanza gestita al suo interno. Si consiglia inoltre di creare la nuova subnet con più indirizzi IP allocati, in modo che le operazioni di aggiornamento future eviteranno situazioni simili. Al termine del provisioning della nuova istanza, è possibile eseguire manualmente il backup e il ripristino dei dati tra le istanze precedenti e nuove o eseguire il [ripristino temporizzato](point-in-time-restore.md?tabs=azure-powershell)tra istanze.
+
+**È necessaria una subnet vuota per creare un Istanza gestita?**
+
+No. È possibile usare una subnet vuota o una subnet che contiene già Istanza gestita. 
+
+**È possibile modificare l'intervallo di indirizzi della subnet?**
+
+Non se sono presenti istanze gestite all'interno di. Si tratta di una limitazione dell'infrastruttura di rete di Azure. È possibile [aggiungere ulteriore spazio degli indirizzi a una subnet vuota](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings). 
+
+**È possibile spostare l'istanza gestita in un'altra subnet?**
+
+No. Si tratta di una limitazione di progettazione Istanza gestita corrente. Tuttavia, è possibile effettuare il provisioning di una nuova istanza di in un'altra subnet e eseguire manualmente il backup e il ripristino dei dati tra la vecchia e la nuova istanza o eseguire il [ripristino temporizzato](point-in-time-restore.md?tabs=azure-powershell)tra istanze.
+
+**È necessaria una rete virtuale vuota per creare un Istanza gestita?**
+
+Questa operazione non è obbligatoria. È possibile [creare una rete virtuale per istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) o [configurare una rete virtuale esistente per istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet).
+
+**È possibile inserire un Istanza gestita con altri servizi in una subnet?**
+
+No. Attualmente non è supportata l'immissione di Istanza gestita in una subnet che contiene già altri tipi di risorse.
+
+## <a name="connectivity"></a>Connettività 
+
+**È possibile connettersi all'istanza gestita usando l'indirizzo IP?**
+
+No, questa operazione non è supportata. Il nome host di un Istanza gestita viene mappato al servizio di bilanciamento del carico davanti al cluster virtuale del Istanza gestita. Poiché un cluster virtuale può ospitare più istanze gestite, non è possibile indirizzare una connessione al Istanza gestita appropriato senza specificarne il nome.
+Per ulteriori informazioni sull'architettura di cluster virtuali SQL Istanza gestita, vedere [architettura della connettività del cluster virtuale](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
+
+**Un'istanza gestita può avere un indirizzo IP statico?**
+
+Non supportato attualmente.
+
+In casi rari ma necessari, potrebbe essere necessario eseguire una migrazione in linea di un'istanza gestita a un nuovo cluster virtuale. Se necessario, questa migrazione è dovuta a modifiche nello stack di tecnologie mirate a migliorare la sicurezza e l'affidabilità del servizio. La migrazione a un nuovo cluster virtuale comporta la modifica dell'indirizzo IP di cui è stato eseguito il mapping al nome host dell'istanza gestita. Il servizio istanza gestita non richiede il supporto di indirizzi IP statici e si riserva il diritto di modificarlo senza preavviso nell'ambito dei normali cicli di manutenzione.
+
+Per questo motivo, è fortemente sconsigliabile basarsi sull'immutabilità dell'indirizzo IP perché potrebbe causare tempi di inattività superflui.
+
+**Istanza gestita dispone di un endpoint pubblico?**
+
+Sì. Istanza gestita dispone di un endpoint pubblico che viene usato per impostazione predefinita solo per la gestione dei servizi, ma un cliente può abilitarlo anche per l'accesso ai dati. Per informazioni dettagliate, vedere [usare istanza gestita SQL con endpoint pubblici](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Per configurare l'endpoint pubblico, passare a [Configura endpoint pubblico in SQL istanza gestita](public-endpoint-configure.md).
+
+**In che modo Istanza gestita controlla l'accesso all'endpoint pubblico?**
+
+Istanza gestita controlla l'accesso all'endpoint pubblico a livello di rete e di applicazione.
+
+I servizi di gestione e distribuzione si connettono a un'istanza gestita usando un [endpoint di gestione](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) mappato a un servizio di bilanciamento del carico esterno. Il traffico viene indirizzato ai nodi solo se viene ricevuto su un set di porte predefinite usate esclusivamente dai componenti di gestione dell'istanza gestita. Per consentire il traffico solo da intervalli IP specifici di Microsoft, viene inoltre configurato un firewall incorporato nei nodi. Tutte le comunicazioni tra i componenti di gestione e il piano di gestione vengono autenticate reciprocamente tramite i certificati. Per ulteriori informazioni, vedere [architettura di connettività per SQL istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+
+**È possibile usare l'endpoint pubblico per accedere ai dati in Istanza gestita database?**
+
+Sì. Il cliente dovrà abilitare l'accesso ai dati dell'endpoint pubblico dal [portale di Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurare NSG per bloccare l'accesso alla porta dati (numero di porta 3342). Per altre informazioni, vedere [configurare un endpoint pubblico in Azure sql istanza gestita](public-endpoint-configure.md) e [usare Azure SQL istanza gestita in modo sicuro con l'endpoint pubblico](public-endpoint-overview.md). 
+
+**È possibile specificare una porta personalizzata per gli endpoint dati SQL?**
+
+No, questa opzione non è disponibile.  Per l'endpoint di dati privati, Istanza gestita usa il numero di porta predefinito 1433 e per l'endpoint di dati pubblici Istanza gestita usa il numero di porta predefinito 3342.
+
+**Qual è il modo consigliato per connettere le istanze gestite posizionate in aree diverse?**
+
+Il peering del circuito Express route è il modo migliore per eseguire questa operazione. Questo non deve essere combinato con il peering di rete virtuale tra aree non supportato a causa di [vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)interni correlati al servizio di bilanciamento del carico.
+
+Se il peering del circuito Express route non è possibile, l'unica altra opzione consiste nel creare una connessione VPN da sito a sito ([portale di Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Attenuazione dei rischi exfiltration  
@@ -179,7 +248,11 @@ Case Study di SQL Istanza gestita:
 Per comprendere meglio i vantaggi, i costi e i rischi associati alla distribuzione di Istanza gestita SQL di Azure, è disponibile anche uno studio Forrester: [l'effetto economico totale di database SQL di Microsoft Azure istanza gestita](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
-## <a name="dns-refresh"></a>Aggiornamento DNS 
+## <a name="dns"></a>DNS
+
+**È possibile configurare un DNS personalizzato per SQL Istanza gestita?**
+
+Sì. Vedere [come configurare un DNS personalizzato per istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 **È possibile eseguire l'aggiornamento DNS?**
 
@@ -192,20 +265,6 @@ Alla fine, la configurazione DNS verrà aggiornata:
 
 Per risolvere il problema, eseguire il downgrade di SQL Istanza gestita a 4 Vcore e aggiornarlo di nuovo in seguito. Questa operazione ha effetto collaterale sull'aggiornamento della configurazione DNS.
 
-
-## <a name="ip-address"></a>Indirizzo IP
-
-**È possibile connettersi a SQL Istanza gestita usando un indirizzo IP?**
-
-La connessione a SQL Istanza gestita tramite un indirizzo IP non è supportata. Il nome host di SQL Istanza gestita viene mappato a un servizio di bilanciamento del carico davanti al cluster virtuale di SQL Istanza gestita. Poiché un cluster virtuale può ospitare più istanze gestite, le connessioni non possono essere indirizzate all'istanza gestita corretta senza specificare il nome in modo esplicito.
-
-Per ulteriori informazioni sull'architettura di cluster virtuali SQL Istanza gestita, vedere [architettura della connettività del cluster virtuale](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
-
-**È possibile che SQL Istanza gestita disponga di un indirizzo IP statico?**
-
-In casi rari ma necessari, potrebbe essere necessario eseguire una migrazione in linea di SQL Istanza gestita a un nuovo cluster virtuale. Se necessario, questa migrazione è dovuta a modifiche nello stack di tecnologie mirate a migliorare la sicurezza e l'affidabilità del servizio. La migrazione a un nuovo cluster virtuale comporta la modifica dell'indirizzo IP di cui è stato eseguito il mapping al nome host di SQL Istanza gestita. Il servizio SQL Istanza gestita non richiede il supporto di indirizzi IP statici e si riserva il diritto di modificarlo senza preavviso nell'ambito dei normali cicli di manutenzione.
-
-Per questo motivo, è fortemente sconsigliabile basarsi sull'immutabilità dell'indirizzo IP perché potrebbe causare tempi di inattività superflui.
 
 ## <a name="change-time-zone"></a>Modificare il fuso orario
 
@@ -236,11 +295,50 @@ Sì, non è necessario decrittografare il database per ripristinarlo in SQL Ista
 
 Dopo aver reso disponibile la protezione della crittografia per SQL Istanza gestita, è possibile procedere con la procedura di ripristino del database standard.
 
-## <a name="migrate-from-sql-database"></a>Eseguire la migrazione dal database SQL 
+## <a name="purchasing-models-and-benefits"></a>Acquisto di modelli e vantaggi
 
-**Come è possibile eseguire la migrazione dal database SQL di Azure a SQL Istanza gestita?**
+**Quali modelli di acquisto sono disponibili per Istanza gestita SQL?**
 
-SQL Istanza gestita offre gli stessi livelli di prestazioni per calcolo e dimensioni di archiviazione del database SQL di Azure. Se si desidera consolidare i dati in una singola istanza oppure è sufficiente una funzionalità supportata esclusivamente in SQL Istanza gestita, è possibile eseguire la migrazione dei dati tramite la funzionalità di esportazione/importazione (BACPAC).
+SQL Istanza gestita offre un [modello di acquisto basato su vCore](sql-managed-instance-paas-overview.md#vcore-based-purchasing-model).
+
+**Quali vantaggi in termini di costi sono disponibili per Istanza gestita SQL?**
+
+È possibile risparmiare sui costi con i vantaggi SQL di Azure nei modi seguenti:
+-   Ottimizza gli investimenti esistenti in licenze locali e Risparmia fino al 55% con [vantaggio Azure Hybrid](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell). 
+-   Esegui il commit di una prenotazione per le risorse di calcolo e Risparmia fino al 33% con il [vantaggio dell'istanza riservata](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). Combina questo vantaggio con il vantaggio Azure Hybrid per risparmiare fino al 82%. 
+-   Risparmia fino al 55% rispetto ai prezzi di listino con il [vantaggio prezzi di sviluppo/test di Azure](https://azure.microsoft.com/pricing/dev-test/) che offre tariffe scontate per i tuoi carichi di lavoro di sviluppo e test in corso.
+
+**Chi è idoneo per il vantaggio dell'istanza riservata?**
+
+Per essere idoneo per il vantaggio dell'istanza riservata, il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Per altre informazioni sulle prenotazioni, vedere [vantaggio dell'istanza riservata](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). 
+
+**È possibile annullare, scambiare o rimborsare le prenotazioni?**
+
+È possibile annullare, scambiare o rimborsare prenotazioni con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+
+## <a name="billing-for-managed-instance-and-backup-storage"></a>Fatturazione per la Istanza gestita e l'archiviazione di backup
+
+**Quali sono le opzioni di prezzo di SQL Istanza gestita?**
+
+Per esplorare Istanza gestita opzioni di prezzo, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+**Come è possibile tenere traccia dei costi di fatturazione per l'istanza gestita?**
+
+Questa operazione può essere eseguita usando la [soluzione Gestione costi di Azure](https://docs.microsoft.com/azure/cost-management-billing/). Passare a **sottoscrizioni** nella [portale di Azure](https://portal.azure.com) e selezionare **analisi dei costi**. 
+
+Usare l'opzione **costi accumulati** , quindi filtrare in base al **tipo di risorsa** `microsoft.sql/managedinstances` .
+
+**Qual è il costo dei backup automatici?**
+
+Si ottiene la stessa quantità di spazio di archiviazione di backup libero come lo spazio di archiviazione dei dati riservato acquistato, indipendentemente dal periodo di conservazione dei backup impostato. Se il consumo di archiviazione di backup rientra nello spazio di archiviazione di backup libero allocato, i backup automatici sull'istanza gestita non avranno alcun costo aggiuntivo, pertanto saranno gratuiti. Il superamento dell'utilizzo dell'archiviazione di backup al di sopra dello spazio disponibile comporta costi pari a circa $0,20-$0,24 per GB/mese nelle aree degli Stati Uniti o per informazioni dettagliate sull'area, vedere la pagina relativa ai prezzi. Per informazioni dettagliate, vedere [utilizzo dell'archiviazione di backup illustrato](https://techcommunity.microsoft.com/t5/azure-sql-database/backup-storage-consumption-on-managed-instance-explained/ba-p/1390923).
+
+**Come è possibile monitorare I costi di fatturazione per il consumo di risorse di archiviazione di backup?**
+
+È possibile monitorare i costi per l'archiviazione di backup tramite il portale di Azure. Per istruzioni, vedere [monitorare i costi per i backup automatici](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+
+**Come è possibile ottimizzare i costi di archiviazione di backup nell'istanza gestita?**
+
+Per ottimizzare i costi di archiviazione di backup, vedere [ottimizzazione del backup in SQL istanza gestita](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).
 
 ## <a name="password-policy"></a>Criteri password 
 
@@ -279,3 +377,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (sostituire ' test ' con il nome di accesso desiderato e modificare i criteri e i valori di scadenza)
+
+## <a name="azure-feedback-and-support"></a>Feedback e supporto di Azure
+
+**Dove è possibile lasciare le idee per i miglioramenti apportati a SQL Istanza gestita?**
+
+Puoi votare per una nuova funzionalità di Istanza gestita o inserire una nuova idea di miglioramento per il voto sul [Forum dei commenti e suggerimenti su SQL istanza gestita](https://feedback.azure.com/forums/915676-sql-managed-instance). In questo modo è possibile contribuire allo sviluppo del prodotto e contribuire a classificare in ordine di priorità i potenziali miglioramenti.
+
+**Come è possibile creare una richiesta di supporto di Azure?**
+
+Per informazioni su come creare una richiesta di supporto di Azure, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+

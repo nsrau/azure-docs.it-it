@@ -6,11 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672758"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134828"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware/server fisici
 
@@ -21,7 +22,7 @@ Un server di configurazione locale viene impostato quando si usa [Azure Site Rec
 
 ## <a name="update-windows-license"></a>Aggiornare la licenza di Windows
 
-La licenza fornita con il modello OVF è una licenza di valutazione valida per 180 giorni. Per un utilizzo senza interruzioni, è necessario attivare Windows con una licenza acquistata. L'aggiornamento delle licenze può essere eseguito tramite una chiave autonoma o una chiave standard del servizio di gestione delle chiavi. Informazioni aggiuntive sono disponibili nella [riga di comando di Windows DISM per l'esecuzione del sistema operativo](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Per ottenere le chiavi, fare riferimento alla [configurazione del client KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+La licenza fornita con il modello OVF è una licenza di valutazione valida per 180 giorni. Per un utilizzo senza interruzioni, è necessario attivare Windows con una licenza acquistata. L'aggiornamento delle licenze può essere eseguito tramite una chiave autonoma o una chiave standard del servizio di gestione delle chiavi. Informazioni aggiuntive sono disponibili nella [riga di comando di Windows DISM per l'esecuzione del sistema operativo](/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Per ottenere le chiavi, fare riferimento alla [configurazione del client KMS](/windows-server/get-started/kmsclientkeys).
 
 ## <a name="access-configuration-server"></a>Accedere al server di configurazione
 
@@ -211,21 +212,21 @@ Eseguire il file di installazione come segue:
 
 ### <a name="parameters"></a>Parametri
 
-|Nome parametro| Type | Descrizione| Valori|
+|Nome parametro| Type | Description| Valori|
 |-|-|-|-|
-| /Modalità server|Necessario|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
-|/InstallLocation|Necessario|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
-|/MySQLCredsFilePath|Necessario|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
-|/VaultCredsFilePath|Necessario|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|Necessario|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
-|/PSIP|Necessario|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
-|/CSIP|Necessario|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
-|/PassphraseFilePath|Necessario|Percorso completo del file della passphrase|Percorso del file valido|
+| /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
+|/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
+|/MySQLCredsFilePath|Obbligatoria|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
+|/VaultCredsFilePath|Obbligatoria|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
+|/EnvType|Obbligatoria|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
+|/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
+|/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
+|/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
 |/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
 |/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
 |DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
 |/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
-|/AcceptThirdpartyEULA|Necessario|Il flag implica l'accettazione dell'EULA di terze parti| |
+|/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
 |/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 
@@ -265,7 +266,7 @@ ProxyPassword="Password"
 
 Facoltativamente, è possibile eliminare il server di configurazione usando PowerShell.
 
-1. [Installare](https://docs.microsoft.com/powershell/azure/install-Az-ps) il modulo Azure PowerShell.
+1. [Installare](/powershell/azure/install-Az-ps) il modulo Azure PowerShell.
 2. Accedere al proprio account di Azure con il seguente comando:
 
     `Connect-AzAccount`

@@ -131,7 +131,7 @@
     - name: Creare una valutazione per le soluzioni Azure VMware
       href: how-to-create-azure-vmware-solution-assessment.md
     - name: Valutare un database di SQL Server
-      href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb'
+      href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
     - name: Personalizzare una valutazione
       href: how-to-modify-assessment.md
     - name: Aggiungere strumenti di migrazione
@@ -171,9 +171,9 @@
 - name: Risorse
   items:
     - name: Migrazione a Cloud Adoption Framework
-      href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
+      href: /azure/cloud-adoption-framework/migrate/
     - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/migrate/'
+      href: /rest/api/migrate/
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.migrate/allversions
     - name: Prezzi
@@ -181,7 +181,7 @@
     - name: UserVoice
       href: 'https://aka.ms/AzureMigrateUservoice'
     - name: Pagina delle domande di Domande e risposte Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-migrate.html'
+      href: /answers/topics/azure-migrate.html
     - name: Blog
       href: 'https://azure.microsoft.com/blog/tag/azure-migrate/'
     - name: Azure Migrate

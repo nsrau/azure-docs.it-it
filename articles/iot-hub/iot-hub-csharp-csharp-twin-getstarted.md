@@ -10,19 +10,18 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt
-ms.openlocfilehash: 620e0213733d278a28ec1bcad4b031f5764ccda9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91cebee1196dc38af8ece4086b6e6ab66fdc14da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733124"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135557"
 ---
 # <a name="get-started-with-device-twins-net"></a>Introduzione ai dispositivi gemelli (.NET)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 In questa esercitazione vengono create le seguenti app console .NET:
-
-* **CreateDeviceIdentity**. Questa app crea un'identità del dispositivo e la chiave di sicurezza associata per connettere l'app per dispositivo simulato.
 
 * **AddTagsAndQuery**. Questa app back-end aggiunge tag ed esegue query sui dispositivi gemelli.
 

@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75973657"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135752"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicare le macchine virtuali di Azure che eseguono Spazi di archiviazione diretta in un'altra area
 
@@ -19,7 +20,7 @@ Questo articolo descrive come abilitare il ripristino di emergenza di macchine v
 >Per i cluster di Spazi di archiviazione diretta sono supportati solo i punti di ripristino coerenti con l'arresto anomalo del sistema.
 >
 
-[Spazi di archiviazione diretta (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) è un sistema di archiviazione definito dal software, che consente di creare [cluster guest](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) in Azure.  Un cluster guest in Microsoft Azure è un cluster di failover costituito da macchine virtuali IaaS. Consente di eseguire il failover dei carichi di lavoro delle VM ospitate tra cluster guest, ottenendo un contratto di servizio con disponibilità più elevata per le applicazioni, rispetto a una singola macchina virtuale di Azure. È utile negli scenari in cui una macchina virtuale ospita un'applicazione critica come SQL o con scalabilità orizzontale file server.
+[Spazi di archiviazione diretta (S2D)](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) è un sistema di archiviazione definito dal software, che consente di creare [cluster guest](https://techcommunity.microsoft.com/t5/failover-clustering/bg-p/FailoverClustering) in Azure.  Un cluster guest in Microsoft Azure è un cluster di failover costituito da macchine virtuali IaaS. Consente di eseguire il failover dei carichi di lavoro delle VM ospitate tra cluster guest, ottenendo un contratto di servizio con disponibilità più elevata per le applicazioni, rispetto a una singola macchina virtuale di Azure. È utile negli scenari in cui una macchina virtuale ospita un'applicazione critica come SQL o con scalabilità orizzontale file server.
 
 ## <a name="disaster-recovery-with-storage-spaces-direct"></a>Ripristino di emergenza con spazi di archiviazione diretta
 
@@ -37,14 +38,14 @@ Il diagramma seguente mostra un cluster di failover di macchine virtuali di Azur
 
 **Considerazioni sul ripristino di emergenza**
 
-1. Quando si configura il [cloud di controllo](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) per il cluster, mantenere il cloud di controllo nell'area di ripristino di emergenza.
-2. Se si intende eseguire il failover delle macchine virtuali in una subnet situata in un'area di ripristino di emergenza diversa dall'area di origine, dopo il failover occorre modificare l'indirizzo IP del cluster.  Per modificare l'indirizzo IP del cluster è necessario usare lo [script del piano di ripristino Site Recovery.](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)</br>
+1. Quando si configura il [cloud di controllo](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) per il cluster, mantenere il cloud di controllo nell'area di ripristino di emergenza.
+2. Se si intende eseguire il failover delle macchine virtuali in una subnet situata in un'area di ripristino di emergenza diversa dall'area di origine, dopo il failover occorre modificare l'indirizzo IP del cluster.  Per modificare l'indirizzo IP del cluster è necessario usare lo [script del piano di ripristino Site Recovery.](./site-recovery-runbook-automation.md)</br>
 [Script di esempio](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) per eseguire il comando all'interno della macchina virtuale usando l'estensione script personalizzata 
 
 ### <a name="enabling-site-recovery-for-s2d-cluster"></a>Abilitazione di Site Recovery per il cluster S2D:
 
 1. All'interno dell'insieme di credenziali dei servizi di ripristino fare clic su "+ replica"
-1. Selezionare tutti i nodi nel cluster e renderli parte di un [gruppo di coerenza tra più macchine virtuali](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-common-questions#multi-vm-consistency)
+1. Selezionare tutti i nodi nel cluster e renderli parte di un [gruppo di coerenza tra più macchine virtuali](./azure-to-azure-common-questions.md#multi-vm-consistency)
 1. Selezionare i criteri di replica con la coerenza dell'applicazione disattivata* (è disponibile solo il supporto della coerenza per arresto anomalo del sistema)
 1. Abilitare la replica
 
@@ -69,7 +70,7 @@ Per far sì che le applicazioni funzionino correttamente, potrebbe essere necess
 
 
 ### <a name="failover-of-the-virtual-machines"></a>Failover delle macchine virtuali 
-È necessario eseguire il failover di entrambi i nodi delle VM usando il [piano di ripristino](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) Site Recovery 
+È necessario eseguire il failover di entrambi i nodi delle VM usando il [piano di ripristino](./site-recovery-create-recovery-plans.md) Site Recovery 
 
 ![Protezione di Spazi di archiviazione diretta](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 
@@ -93,4 +94,4 @@ Per altre informazioni, vedere [Failover di test in Azure in Site Recovery](site
 Per altre informazioni, vedere [Failover in Site Recovery](site-recovery-failover.md).
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) sull'esecuzione dei failback.
+[Altre informazioni](./azure-to-azure-tutorial-failover-failback.md) sull'esecuzione dei failback.

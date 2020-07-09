@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90d54a8ded99dd8ab43aed688036add6aede20ab
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74084546"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134840"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configurare il ripristino di emergenza di una distribuzione Citrix XenApp e XenDesktop multilivello
 
@@ -29,8 +30,8 @@ Questo documento fornisce indicazioni dettagliate per la creazione di una soluzi
 
 Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
-1. [Replica di una macchina virtuale in Azure](site-recovery-vmware-to-azure.md)
-1. Come [progettare una rete di ripristino](site-recovery-network-design.md)
+1. [Replica di una macchina virtuale in Azure](./vmware-azure-tutorial.md)
+1. Come [progettare una rete di ripristino](./concepts-on-premises-to-azure-networking.md)
 1. [Esecuzione di un failover di test in Azure](site-recovery-test-failover-to-azure.md)
 1. [Esecuzione di un failover in Azure](site-recovery-failover.md)
 1. Come [replicare un controller di dominio](site-recovery-active-directory.md)
@@ -95,7 +96,7 @@ Per indicazioni sulla replica e sulla configurazione di un controller di dominio
 
 Per informazioni tecniche dettagliate sulle opzioni consigliate per la protezione dei server SQL, vedere [Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery](site-recovery-sql.md).
 
-Per avviare la replica delle macchine virtuali degli altri componenti in Azure, vedere [queste indicazioni](site-recovery-vmware-to-azure.md).
+Per avviare la replica delle macchine virtuali degli altri componenti in Azure, vedere [queste indicazioni](./vmware-azure-tutorial.md).
 
 ![Protezione dei componenti di XenApp](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-enablereplication.png)
 

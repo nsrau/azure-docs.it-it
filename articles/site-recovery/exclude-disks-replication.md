@@ -3,11 +3,12 @@ title: Escludere dischi dalla replica con Azure Site Recovery
 description: Come escludere dischi dalla replica in Azure con Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5a8d52bd0cc40b45f92039c537a1b3b63f0bec61
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740519"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135681"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Escludere dischi dal ripristino di emergenza
 
@@ -259,7 +260,6 @@ Le impostazioni del file di paging nella macchina virtuale di Azure sono le segu
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sulle linee guida per il disco di archiviazione temporanea:
-    - [Informazioni su come](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) usare SSD in macchine virtuali di Azure per archiviare estensioni del pool di buffer e del tempdb di SQL Server
-    - [Esaminare ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) procedure consigliate per le prestazioni per SQL Server in macchine virtuali di Azure.
+    - [Informazioni su come](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) usare SSD in macchine virtuali di Azure per archiviare estensioni del pool di buffer e del tempdb di SQL Server
+    - [Esaminare ](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) procedure consigliate per le prestazioni per SQL Server in macchine virtuali di Azure.
 - Dopo aver configurato correttamente la distribuzione, vedere [altre informazioni](failover-failback-overview.md) sui diversi tipi di failover.
-

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 607f622bc484883ecbeae0552eecc9561cf4c3ef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969603"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134618"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -461,26 +461,27 @@ Per la rotazione della chiave gestita dal cliente è necessario eseguire l'aggio
 
 Tutti i dati rimarranno accessibili dopo l'operazione di rotazione della chiave perché i dati vengono sempre crittografati con la chiave di crittografia dell'account (AEK), mentre la chiave AEK viene ora crittografata con la nuova versione della chiave di crittografia della chiave (KEK) in Key Vault.
 
-## <a name="saving-queries-protected-with-cmk"></a>Salvataggio di query protette con CMK
+## <a name="cmk-for-queries"></a>CMK per le query
 
-Il linguaggio di query utilizzato nel Log Analytics è espressivo e può contenere informazioni riservate nei commenti aggiunti alle query o nella sintassi della query. Alcune organizzazioni richiedono che tali informazioni vengano mantenute protette nell'ambito dei criteri CMK ed è necessario salvare le query crittografate con la chiave. Monitoraggio di Azure consente di archiviare le query *salvate* e gli *avvisi di log* nell'account di archiviazione che si connette all'area di lavoro. 
+Il linguaggio di query utilizzato nel Log Analytics è espressivo e può contenere informazioni riservate nei commenti aggiunti alle query o nella sintassi della query. Alcune organizzazioni richiedono che tali informazioni vengano mantenute protette nell'ambito dei criteri CMK ed è necessario salvare le query crittografate con la chiave. Monitoraggio di Azure consente di archiviare le query salvate e per le *ricerche* con *avvisi di log* crittografate con la chiave nel proprio account di archiviazione quando si è connessi all'area di lavoro. 
 
-> Nota CMK per le query utilizzate nelle cartelle di lavoro di e i dashboard di Azure non sono ancora supportati. Queste query rimangono crittografate con la chiave Microsoft.  
+> [!NOTE]
+> CMK per le query utilizzate nelle cartelle di lavoro e nei dashboard di Azure non è ancora supportato. Queste query rimangono crittografate con la chiave Microsoft.  
 
-Con Bring your own Storage (BYOS), il servizio carica le query nell'account di archiviazione che si controlla. Ciò significa che è possibile controllare i [criteri di crittografia](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) dei dati inattivi usando la stessa chiave usata per crittografare i dati in log Analytics cluster o una chiave diversa. Si sarà tuttavia responsabili dei costi associati all'account di archiviazione. 
+Quando si [porta la propria](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) risorsa di archiviazione (BYOS) e la si associa all'area di lavoro, il servizio carica le query *salvate* e gli *avvisi di log* nell'account di archiviazione. Ciò significa che è possibile controllare l'account di archiviazione e i [criteri di crittografia](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) dei dati inattivi usando la stessa chiave usata per crittografare i dati in log Analytics cluster o una chiave diversa. Si sarà tuttavia responsabili dei costi associati all'account di archiviazione. 
 
 **Considerazioni prima di impostare CMK per le query**
 * È necessario disporre delle autorizzazioni di scrittura per l'area di lavoro e l'account di archiviazione
 * Assicurarsi di creare l'account di archiviazione nella stessa area in cui si trova l'area di lavoro Log Analytics
 * Il *salvataggio delle ricerche* nell'archiviazione viene considerato come artefatti del servizio e il relativo formato potrebbe cambiare
-* Le *ricerche di salvataggio* esistenti vengono rimosse dall'area di lavoro. Copiare ed eventuali *ricerche di salvataggio* necessarie prima della configurazione. È possibile visualizzare le *ricerche salvate* usando questo [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch?view=azps-4.2.0)
+* Le *ricerche di salvataggio* esistenti vengono rimosse dall'area di lavoro. Copiare ed eventuali *ricerche di salvataggio* necessarie prima della configurazione. È possibile visualizzare le *ricerche salvate* usando [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch)
 * La cronologia delle query non è supportata e non sarà possibile visualizzare le query eseguite
-* È possibile associare un singolo account di archiviazione all'area di lavoro allo scopo di salvare le query, ma è possibile usarlo per le query *salvate* e per gli *avvisi di log*
+* È possibile associare un singolo account di archiviazione all'area di lavoro allo scopo di salvare le query, ma è possibile usarlo per le query di *ricerca salvate* e di *log-alerts*
 * Il PIN al dashboard non è supportato
 
-**Configurazione di BYOS per le query**
+**Configurare BYOS per le query di ricerca salvate**
 
-Associare un account di archiviazione a *query* dataSourceType all'area di lavoro. 
+Associare l'account di archiviazione per la *query* all'area di lavoro: le query *salvate* vengono salvate nell'account di archiviazione. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
@@ -505,9 +506,9 @@ Content-type: application/json
 
 Dopo la configurazione, qualsiasi nuova query di *ricerca salvata* verrà salvata nella risorsa di archiviazione.
 
-**Configurazione di BYOS per log-alerts**
+**Configurare BYOS per le query log-alerts**
 
-Associare un account di archiviazione agli *avvisi* dataSourceType all'area di lavoro. 
+Associare l'account di archiviazione per gli *avvisi* all'area di lavoro: le query *log-alerts* vengono salvate nell'account di archiviazione. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"

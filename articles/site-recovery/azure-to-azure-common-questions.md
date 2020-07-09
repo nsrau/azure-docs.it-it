@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299783"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134046"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande frequenti: Ripristino di emergenza da Azure ad Azure
 
@@ -88,7 +89,7 @@ Site Recovery non supporta la "rimozione a caldo" di un disco da una macchina vi
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Con quale frequenza è possibile eseguire la replica in Azure?
 
-La replica di macchine virtuali di Azure in un'altra area di Azure è continua. Per altre informazioni, vedere [Architettura di replica da Azure ad Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
+La replica di macchine virtuali di Azure in un'altra area di Azure è continua. Per altre informazioni, vedere [Architettura di replica da Azure ad Azure](./azure-to-azure-architecture.md#replication-process).
 
 ### <a name="can-i-replicate-virtual-machines-within-a-region-i-need-this-functionality-to-migrate-vms"></a>È possibile eseguire la replica delle macchine virtuali all'interno di un'area? Questa funzionalità è necessaria per eseguire la migrazione delle macchine virtuali.
 
@@ -96,17 +97,17 @@ Non è possibile usare una soluzione di ripristino di emergenza da Azure ad Azur
 
 ### <a name="can-i-replicate-vm-instances-to-any-azure-region"></a>È possibile replicare istanze di macchine virtuali in qualunque area di Azure?
 
-Con Site Recovery è possibile eseguire la replica e il ripristino di macchine virtuali tra due aree qualsiasi all'interno dello stesso cluster geografico. I cluster geografici vengono definiti con la latenza e la sovranità dei dati. Per altre informazioni, vedere la [matrice di supporto dell'area](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) di Site Recovery.
+Con Site Recovery è possibile eseguire la replica e il ripristino di macchine virtuali tra due aree qualsiasi all'interno dello stesso cluster geografico. I cluster geografici vengono definiti con la latenza e la sovranità dei dati. Per altre informazioni, vedere la [matrice di supporto dell'area](./azure-to-azure-support-matrix.md#region-support) di Site Recovery.
 
 ### <a name="does-site-recovery-require-internet-connectivity"></a>Site Recovery richiede la connettività Internet?
 
-No, Site Recovery non richiede la connettività Internet. È tuttavia necessario l'accesso agli intervalli IP e agli URL di Site Recovery, come indicato in [Gestione delle reti nel ripristino di emergenza delle VM di Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls).
+No, Site Recovery non richiede la connettività Internet. È tuttavia necessario l'accesso agli intervalli IP e agli URL di Site Recovery, come indicato in [Gestione delle reti nel ripristino di emergenza delle VM di Azure](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls).
 
 ### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>È possibile eseguire la replica di un'applicazione con un gruppo di risorse separato per livelli diversi?
 
 Sì, è possibile eseguire la replica dell'applicazione e mantenere la configurazione di ripristino di emergenza in un gruppo di risorse separato.
 
-Se ad esempio si ha un'applicazione con app, database e Web di ogni livello in un gruppo di risorse separato, è necessario fare clic tre volte sulla [procedura guidata di replica](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) per proteggere tutti i livelli. Site Recovery eseguirà la replica dei tre livelli in tre gruppi di risorse distinti.
+Se ad esempio si ha un'applicazione con app, database e Web di ogni livello in un gruppo di risorse separato, è necessario fare clic tre volte sulla [procedura guidata di replica](./azure-to-azure-how-to-enable-replication.md#enable-replication) per proteggere tutti i livelli. Site Recovery eseguirà la replica dei tre livelli in tre gruppi di risorse distinti.
 
 ### <a name="can-i-move-storage-accounts-across-resource-groups"></a>È possibile spostare gli account di archiviazione tra gruppi di risorse?
 
@@ -121,7 +122,7 @@ I criteri di replica definiscono le impostazioni per la cronologia di conservazi
 - 24 ore per la cronologia della conservazione dei punti di recupero.
 - 60 minuti per la frequenza degli snapshot coerenti con l'app.
 
-[Altre informazioni sulle impostazioni di replica](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
+[Altre informazioni sulle impostazioni di replica](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Che cos'è il punto di recupero coerente con l'arresto anomalo del sistema?
 
@@ -182,7 +183,7 @@ Sì, se si aumenta il periodo di conservazione da 24 a 72 ore, Site Recovery sal
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>È possibile abilitare la replica con la coerenza delle app nei server Linux?
 
-Sì. Azure Site Recovery per il sistema operativo Linux supporta gli script personalizzati dell'applicazione per la coerenza delle app. Lo script personalizzato con pre e post-Options verrà usato dall'agente di Azure Site Recovery Mobility durante la coerenza dell'app. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Sì. Azure Site Recovery per il sistema operativo Linux supporta gli script personalizzati dell'applicazione per la coerenza delle app. Lo script personalizzato con pre e post-Options verrà usato dall'agente di Azure Site Recovery Mobility durante la coerenza dell'app. [Scopri di più](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>Coerenza tra più macchine virtuali
 
@@ -194,7 +195,7 @@ Site Recovery offre un'opzione di **coerenza tra più macchine virtuali**, che c
 
 Quando saranno sottoposte a failover, le macchine virtuali condivideranno punti di recupero coerenti con l'arresto anomalo del sistema e con l'applicazione.
 
-Per [abilitare la coerenza tra più macchine virtuali](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm), seguire i passaggi nell'esercitazione.
+Per [abilitare la coerenza tra più macchine virtuali](./azure-to-azure-tutorial-enable-replication.md#enable-replication-for-a-vm), seguire i passaggi nell'esercitazione.
 
 ### <a name="can-i-fail-over-a-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>È possibile eseguire il failover di una singola macchina virtuale all'interno di un gruppo di replica per la coerenza tra più macchine virtuali?
 
@@ -290,11 +291,11 @@ Sì, è possibile integrare i runbook di Automazione di Azure nel piano di ripri
 
 ### <a name="i-failed-over-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>È stato eseguito il failover dall'area primaria a un'area di ripristino di emergenza. Le macchine virtuali in un'area di ripristino di emergenza sono protette automaticamente?
 
-No. Quando si [esegue il failover](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) di macchine virtuali di Azure da un'area a un'altra, le macchine virtuali si avviano nell'area di ripristino di emergenza in uno stato non protetto. Per eseguire il failback delle macchine virtuali nell'area primaria, è necessario [riproteggere](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) le macchine virtuali nell'area secondaria.
+No. Quando si [esegue il failover](./azure-to-azure-tutorial-failover-failback.md) di macchine virtuali di Azure da un'area a un'altra, le macchine virtuali si avviano nell'area di ripristino di emergenza in uno stato non protetto. Per eseguire il failback delle macchine virtuali nell'area primaria, è necessario [riproteggere](./azure-to-azure-how-to-reprotect.md) le macchine virtuali nell'area secondaria.
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>Al momento della riprotezione, Site Recovery esegue una replica completa dei dati dall'area secondaria all'area primaria?
 
-Dipende dalla situazione. Se la macchina virtuale dell'area di origine esiste, verranno sincronizzate solo le modifiche tra il disco di origine e il disco di destinazione. Site Recovery calcola i backup differenziali, confrontando i dischi e quindi trasferisce i dati. Questo processo richiede in genere alcune ore. Per altre informazioni su cosa accade durante la riprotezione, vedere [Riproteggere istanze di macchine virtuali di Azure sottoposte a failover nell'area primaria](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
+Dipende dalla situazione. Se la macchina virtuale dell'area di origine esiste, verranno sincronizzate solo le modifiche tra il disco di origine e il disco di destinazione. Site Recovery calcola i backup differenziali, confrontando i dischi e quindi trasferisce i dati. Questo processo richiede in genere alcune ore. Per altre informazioni su cosa accade durante la riprotezione, vedere [Riproteggere istanze di macchine virtuali di Azure sottoposte a failover nell'area primaria](./azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo richiede l'esecuzione di un failback?
 
@@ -320,10 +321,10 @@ Site Recovery è certificato ISO 27001:2013, 27018, HIPAA e DPA. Il servizio è 
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery consente di crittografare la replica?
 
-Sì, sono supportate sia la crittografia dei dati in transito che la [crittografia dei dati inattivi in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption).
+Sì, sono supportate sia la crittografia dei dati in transito che la [crittografia dei dati inattivi in Azure](../storage/common/storage-service-encryption.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esaminare i requisiti di supporto da Azure ad Azure](azure-to-azure-support-matrix.md).
 - [Configurare la replica da Azure ad Azure](azure-to-azure-tutorial-enable-replication.md).
-- Eventuali domande successive alla lettura di questo articolo possono essere pubblicate nella [pagina delle domande di Domande e risposte Microsoft relativa a Servizi di ripristino di Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+- Eventuali domande successive alla lettura di questo articolo possono essere pubblicate nella [pagina delle domande di Domande e risposte Microsoft relativa a Servizi di ripristino di Azure](/answers/topics/azure-site-recovery.html).

@@ -138,7 +138,7 @@
       items:
         - name: Integrare Key Vault con Criteri di Azure
           displayName: 'key vault, certificate, key'
-          href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../key-vault/general/azure-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
     - name: Integrazione di Azure Lighthouse
       items:
         - name: Distribuire un criterio su larga scala

@@ -3,15 +3,16 @@ title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ef2fe2ecd72234312a750e206b8920f4ea7eaa02
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5e8a678530d9cf334d89091e7f23191ae8613737
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920591"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135487"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
-Un provider di servizi può usare la [gestione risorse delegate di Azure](../concepts/azure-delegated-resource-management.md) per gestire le risorse di Azure per più clienti dal tenant nel [portale di Azure](https://portal.azure.com). La maggior parte delle attività e dei servizi può essere eseguita nelle risorse di Azure delegate tra i tenant gestiti. Questo articolo descrive alcuni degli scenari avanzati in cui la gestione risorse delegate di Azure può essere efficace.
+Come provider di servizi, è possibile usare [Azure Lighthouse](../overview.md) per gestire le risorse per più clienti dall'interno del proprio tenant nel [portale di Azure](https://portal.azure.com). Molte attività e servizi possono essere eseguiti su risorse di Azure delegate tra tenant gestiti usando la [gestione delle risorse delegata di Azure](../concepts/azure-delegated-resource-management.md).
 
 > [!NOTE]
 > La gestione risorse delegate di Azure può essere usata anche [all'interno di un'azienda con più tenant Azure AD propri](enterprise.md) per semplificare l'amministrazione tra tenant.
@@ -22,9 +23,9 @@ Un tenant di Azure Active Directory (Azure AD) è una rappresentazione di un'org
 
 In genere, per gestire le risorse di Azure per un cliente, i provider di servizi devono accedere al portale di Azure usando un account associato al tenant del cliente, richiedendo a un amministratore del tenant del cliente di creare e gestire gli account utente per il provider di servizi.
 
-Con la gestione risorse delegate di Azure, il processo di onboarding specifica gli utenti all'interno del tenant del provider di servizi che potranno accedere a sottoscrizioni, gruppi di risorse e risorse nel tenant del cliente e gestirli. Questi utenti possono quindi accedere al portale di Azure usando le proprie credenziali. All'interno del portale di Azure possono gestire le risorse appartenenti a tutti i clienti a cui hanno accesso. Per eseguire questa operazione, visitare la pagina [Clienti personali](../how-to/view-manage-customers.md) nel portale di Azure o accedere direttamente al contesto della sottoscrizione di tale cliente nel portale di Azure o tramite API.
+Con Azure Lighthouse, il processo di onboarding specifica gli utenti all'interno del tenant del provider di servizi che saranno in grado di accedere e gestire le sottoscrizioni, i gruppi di risorse e le risorse nel tenant del cliente. Questi utenti possono quindi accedere al portale di Azure usando le proprie credenziali. All'interno del portale di Azure possono gestire le risorse appartenenti a tutti i clienti a cui hanno accesso. Per eseguire questa operazione, visitare la pagina [Clienti personali](../how-to/view-manage-customers.md) nel portale di Azure o accedere direttamente al contesto della sottoscrizione di tale cliente nel portale di Azure o tramite API.
 
-La gestione risorse delegate di Azure consente una maggiore flessibilità nella gestione delle risorse per più clienti senza dover accedere ad account diversi in tenant diversi. Un provider di servizi, ad esempio, può avere due clienti, con responsabilità e livelli di accesso diversi. Usando la gestione risorse delegate di Azure, gli utenti autorizzati possono accedere al tenant del provider di servizi per accedere a queste risorse.
+Azure Lighthouse consente una maggiore flessibilità nella gestione delle risorse per più clienti senza dover accedere a diversi account in tenant diversi. Un provider di servizi, ad esempio, può avere due clienti, con responsabilità e livelli di accesso diversi. Usando Azure Lighthouse, gli utenti autorizzati possono accedere al tenant del provider di servizi per accedere a tali risorse.
 
 ![Risorse dei clienti gestite tramite un tenant del provider di servizi](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -39,15 +40,15 @@ Analogamente, i comandi dell'interfaccia della riga di comando di Azure, ad esem
 > [!TIP]
 > Se, quando si usa l'interfaccia della riga di comando di Azure, questi valori non vengono visualizzati, provare a cancellare la cache eseguendo `az account clear` seguito da `az login --identity`.
 
-Sono anche fornite API specifiche per l'esecuzione di attività di gestione risorse delegate di Azure. Per altre informazioni, vedere la sezione **Riferimento**.
+Sono inoltre disponibili API specifiche per l'esecuzione delle attività del Faro di Azure. Per altre informazioni, vedere la sezione **Riferimento**.
 
 ## <a name="enhanced-services-and-scenarios"></a>Scenari e servizi avanzati
 
-La maggior parte delle attività e dei servizi può essere eseguita nelle risorse delegate tra i tenant gestiti. Di seguito sono riportati alcuni scenari principali in cui la gestione tra tenant può essere efficace.
+La maggior parte delle attività e dei servizi può essere eseguita nelle risorse delegate tra i tenant gestiti. Di seguito sono riportati alcuni scenari principali in cui la gestione tra tenant può essere particolarmente efficace.
 
 [Azure Arc per server (anteprima)](../../azure-arc/servers/overview.md):
 
-- [Connettere computer Windows Server o Linux esterni ad Azure](../../azure-arc/servers/quickstart-onboard-portal.md) a sottoscrizioni e/o gruppi di risorse delegate in Azure
+- [Connettere computer Windows Server o Linux esterni ad Azure](../../azure-arc/servers/onboard-portal.md) a sottoscrizioni e/o gruppi di risorse delegate in Azure
 - Gestire computer connessi usando costrutti di Azure, ad esempio Criteri di Azure e assegnazione di tag
 
 [Automazione di Azure](../../automation/index.yml):

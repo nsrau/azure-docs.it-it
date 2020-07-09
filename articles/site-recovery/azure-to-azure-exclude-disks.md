@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
-ms.openlocfilehash: 7355233bb7241571e3f3820aafac6952af245654
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a21460279420c46b11c43615ae5ecc7bfa81de4d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75973683"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135812"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Escludere dischi dalla replica di PowerShell di macchine virtuali di Azure
 
@@ -24,14 +25,14 @@ Prima di iniziare:
 
 - Assicurarsi di aver compreso i [componenti e l'architettura di ripristino di emergenza](azure-to-azure-architecture.md).
 - Esaminare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
-- Assicurarsi di avere il modulo AzureRm di PowerShell "AZ". Per installare o aggiornare PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Assicurarsi di avere il modulo AzureRm di PowerShell "AZ". Per installare o aggiornare PowerShell, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 - Assicurarsi di aver creato almeno una volta un insieme di credenziali di servizi di ripristino e le macchine virtuali protette. Se non sono state eseguite queste operazioni, seguire la procedura in [configurare il ripristino di emergenza per macchine virtuali di Azure con Azure PowerShell](azure-to-azure-powershell.md).
 - Per informazioni sull'aggiunta di dischi a una macchina virtuale di Azure abilitata per la replica, [vedere questo articolo](azure-to-azure-enable-replication-added-disk.md).
 
 ## <a name="why-exclude-disks-from-replication"></a>Perché escludere i dischi dalla replica
 Potrebbe essere necessario escludere i dischi dalla replica perché:
 
-- La macchina virtuale ha raggiunto [Azure Site Recovery limiti per replicare la frequenza di modifica dei dati](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+- La macchina virtuale ha raggiunto [Azure Site Recovery limiti per replicare la frequenza di modifica dei dati](./azure-to-azure-support-matrix.md).
 
 - I dati che vengono rilevati nel disco escluso non sono importanti o non devono essere replicati.
 

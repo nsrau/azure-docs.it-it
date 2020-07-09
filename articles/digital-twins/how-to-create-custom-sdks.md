@@ -7,22 +7,27 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 261b288154dddacf91f3cb3ba6dec99e3a3534cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725801"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135869"
 ---
-# <a name="create-custom-sdks-for-azure-digital-twins-with-autorest"></a>Creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest
+# <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest
 
 Attualmente, l'unico SDK del piano dati pubblicato per interagire con le API dei dispositivi gemelli digitali di Azure è per .NET (C#). Per informazioni generali su .NET SDK e sulle API, vedere [procedura: usare gli SDK e le API per i dispositivi digitali gemelli di Azure](how-to-use-apis-sdks.md). Se si lavora in un'altra lingua, in questo articolo viene illustrato come generare un proprio SDK nel linguaggio preferito, usando autorest.
 
-## <a name="set-up-the-sdk"></a>Configurare l'SDK
+## <a name="set-up-your-machine"></a>Configurare il computer
 
 Per generare un SDK, sarà necessario:
 * [Autorest](https://github.com/Azure/autorest), versione 2.0.4413 (la versione 3 non è attualmente supportata)
 * [Node.js](https://nodejs.org) come prerequisito di autorest
-* [File openapi (spavalderia) di Azure Digital Twins](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json)
+* Il [file spavalderia (openapi) di Azure Digital gemelli](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) ha diritto *digitaltwins.js*e la relativa cartella di esempi. Scaricare il file spavalderia e la relativa cartella degli esempi nel computer locale.
+
+Quando il computer è dotato di tutti gli elementi dall'elenco precedente, è possibile usare autorest per creare l'SDK.
+
+## <a name="create-the-sdk-with-autorest"></a>Creare l'SDK con autorest 
 
 Se Node.js è stato installato, è possibile eseguire questo comando per verificare che sia installata la versione corretta di autorest:
 ```cmd/sh
@@ -30,31 +35,33 @@ npm install -g autorest@2.0.4413
 ```
 
 Per eseguire autorest nel file con estensione per i gemelli digitali di Azure, seguire questa procedura:
-1. Copiare il file spavalderia Digital gemelli di Azure in una directory di lavoro.
-2. Al prompt dei comandi passare alla directory di lavoro.
-3. Eseguire autorest con il comando seguente.
+1. Copiare il file spavalderia di Digital gemelli di Azure e la cartella di esempi associata in una directory di lavoro.
+2. Utilizzare una finestra del prompt dei comandi per passare alla directory di lavoro.
+3. Eseguire autorest con il comando seguente. Sostituire il `<language>` segnaposto con la lingua scelta: `--python` , `--java` , `--go` e così via (è possibile trovare l'elenco completo delle opzioni nel [file Leggimi di autorest](https://github.com/Azure/autorest)).
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --csharp --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Viene quindi visualizzata una nuova cartella denominata *ADTApi* nella directory di lavoro. I file SDK generati avranno lo spazio dei nomi *ADTApi*, che continuerà a essere usato nei restanti esempi.
+Viene quindi visualizzata una nuova cartella denominata *ADTApi* nella directory di lavoro. I file SDK generati avranno lo spazio dei nomi *ADTApi*, che continuerà a essere usato nel resto degli esempi di utilizzo in questo articolo.
 
 Autorest supporta un'ampia gamma di generatori di codice della lingua.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Aggiungere l'SDK a un progetto di Visual Studio
 
-È possibile includere i file generati da autorest direttamente in una soluzione .NET. Tuttavia, poiché sarà probabilmente necessario Azure Digital Gemells SDK in diversi progetti distinti (app client, app per funzioni di Azure e così via), è consigliabile compilare un progetto separato, ovvero una libreria di classi .NET, dai file generati. È quindi possibile includere questo progetto di libreria di classi nelle altre soluzioni come riferimento al progetto.
+È possibile includere i file generati da autorest direttamente in una soluzione .NET. Tuttavia, poiché sarà probabilmente necessario Azure Digital Twins SDK in diversi progetti distinti (le app client, le app di funzioni di Azure e così via), può essere utile creare un progetto separato, ovvero una libreria di classi .NET, dai file generati. È quindi possibile includere questo progetto di libreria di classi in diverse soluzioni come riferimento al progetto.
 
-In questa sezione vengono fornite istruzioni su come compilare l'SDK come libreria di classi, che è il proprio progetto e che può essere incluso in altri progetti. Ecco i passaggi necessari:
+In questa sezione vengono fornite istruzioni su come compilare l'SDK come libreria di classi, che è il proprio progetto e che può essere incluso in altri progetti. Questa procedura si basa su **Visual Studio** (è possibile installare la versione più recente da [qui](https://visualstudio.microsoft.com/downloads/)).
+
+Ecco i passaggi necessari:
 
 1. Creare una nuova soluzione di Visual Studio per una libreria di classi
-2. Usare il nome "ADTApi" come nome del progetto
+2. Usare *ADTApi* come nome del progetto
 3. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto *ADTApi* della soluzione generata e scegliere *Aggiungi > elemento esistente...*
 4. Individuare la cartella in cui è stato generato l'SDK e selezionare i file a livello di radice
 5. Premere "OK"
 6. Aggiungere una cartella al progetto (fare clic con il pulsante destro del mouse sul progetto Esplora soluzioni e scegliere *aggiungi > nuova cartella*).
-7. Denominare la cartella "Models"
+7. Assegnare un nome ai *modelli* di cartella
 8. Fare clic con il pulsante destro del mouse sulla cartella *Models* in Esplora soluzioni e scegliere *Aggiungi > elemento esistente...*
 9. Selezionare i file nella cartella *modelli* dell'SDK generato e fare clic su "OK".
 

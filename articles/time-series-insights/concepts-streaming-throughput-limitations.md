@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: d5a82aa3aca55622308cae5816c95df9766048da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: baa132589f5242ab480c9caa55ca793e0652ad6e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049925"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135015"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limiti della velocità effettiva di inserimento dei flussi
 
 Di seguito sono descritte le limitazioni di ingresso dei dati di flusso Azure Time Series Insights.
 
 > [!TIP]
-> Leggere [Pianificare l'ambiente di anteprima](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) per un elenco completo di tutti i limiti dell'anteprima. **Todo** rimuovere la parola "Preview" qui dopo che il titolo dell'articolo è stato aggiornato.
+> Leggere [Pianificare l'ambiente di anteprima](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) per un elenco completo di tutti i limiti dell'anteprima.
 
 ## <a name="per-environment-limitations"></a>Limitazioni per ambiente
 

@@ -1,18 +1,18 @@
 ---
 title: 'Servizi go-to-Market: vantaggi del Marketplace commerciale, Azure Marketplace'
 description: "Servizi per l'immissione sul mercato: in questa sezione vengono descritte le risorse Microsoft che gli autori possono usare."
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 7de2e36edbcd0b55facae89be477ac0d334dae49
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+author: keferna
+ms.author: keferna
+ms.openlocfilehash: c954e3c685a795942f78bdb19b59ca817252d26b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085685"
+ms.locfileid: "86135514"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del marketplace commerciale
 
@@ -34,15 +34,15 @@ I partner delle offerte Transazione, aumentando le vendite fatturate nella piatt
 
 Il requisito minimo per la pubblicazione nelle vetrine è un MPNID, quindi questi vantaggi sono disponibili per tutti i partner indipendentemente dallo stato delle competenze MPN o dal tipo di partner. Ogni partner può sfruttare il marketplace come piattaforma per far crescere il proprio business.
 
-Sarà possibile ricevere supporto per conoscere le risorse disponibili e implementare le procedura consigliate, che è anche possibile [consultare personalmente](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+Si otterrà supporto per la comprensione delle risorse disponibili e per l'implementazione delle procedure consigliate, che è anche possibile [esaminare autonomamente](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Le descrizioni dettagliate di tutti i vantaggi del programma sono disponibili nella [presentazione del programma Marketplace Rewards](https://aka.ms/marketplacerewards).
+Descrizioni dettagliate di tutti i vantaggi del programma sono disponibili in questa [presentazione del programma Rewards Program](https://aka.ms/marketplacerewards).
 
-La procedura per iniziare è semplice:
+Iniziare è facile:
 
 1. Pubblicare un'offerta in Microsoft AppSource o in Azure Marketplace.
-2. Accedere al [Dashboard](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)del centro per i partner, aprire **Marketplace commerciale** nel menu di spostamento a sinistra, selezionare premi per il **Marketplace**, quindi selezionare la scheda **vantaggi vendite e marketing** per visualizzare l'elenco dei vantaggi.
-3. Per attivare il vantaggio di marketing e vendite, è necessario prima di tutto assegnare un contatto di marketing aziendale. Questo contatto riceverà le comunicazioni di follow-up relative ai premi del Marketplace.
+2. Passare a [Marketplace Rewards](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) in Partner Center e selezionare **registra in Marketplace Rewards Program**.
+3. Per attivare i vantaggi di vendite e marketing, assegnare un contatto di marketing aziendale. Questo contatto riceverà le comunicazioni di follow-up relative ai premi del Marketplace.
 4. Per aggiungere o aggiornare le informazioni di contatto marketing, passare alla parte superiore della scheda Vantaggi di marketing e vendite nella pagina Marketplace Rewards, quindi selezionare **Aggiungi, aggiorna o modifica**.  Eseguire quindi queste operazioni:
 
     1. Selezionare un utente dall'elenco. Se l'utente da assegnare non è presente nell'elenco, è possibile aggiungere nuovi utenti in **Impostazioni account**.
@@ -56,7 +56,7 @@ La procedura per iniziare è semplice:
 2. Quando i vantaggi di Azure Sponsorship vengono sbloccati, si riceve un messaggio di posta elettronica che illustra come usarli.
 
 >[!NOTE]
->Se l'offerta è rimasta live per più di quattro settimane e non si è ricevuto alcun messaggio, eseguire una ricerca nel Centro per i partner per verificare chi è il proprietario dell'offerta all'interno dell'organizzazione, che dovrebbe aver ricevuto la comunicazione ed essere a conoscenza dei passaggi successivi. <br> <br> Se non è possibile determinare il proprietario o se il proprietario ha lasciato l'azienda, è possibile generare un ticket di supporto in [Guida e supporto tecnico](https://aka.ms/marketplacepublishersupport).
+>Se l'offerta è rimasta live per più di quattro settimane e non si è ricevuto alcun messaggio, eseguire una ricerca nel Centro per i partner per verificare chi è il proprietario dell'offerta all'interno dell'organizzazione, che dovrebbe aver ricevuto la comunicazione ed essere a conoscenza dei passaggi successivi.<br><br>Se non è possibile determinare il proprietario o se il proprietario ha lasciato l'azienda, è possibile generare un ticket di supporto in [Guida e supporto tecnico](https://aka.ms/marketplacepublishersupport).
 
 L'ambito delle attività disponibili si espande in base alla crescita delle offerte nel marketplace. Per tutte le inserzioni viene inviato un messaggio di posta elettronica self-service relativo alle risorse e alle procedure consigliate con un livello di base di promozione e raccomandazioni per l'ottimizzazione.
 
@@ -75,7 +75,7 @@ Le descrizioni dettagliate di tutti questi vantaggi sono disponibili nella [pres
 Quando si pubblica l'offerta transazionale in Azure Marketplace o in Microsoft AppSource, è possibile accedere a ulteriori vantaggi man mano che aumentano le transazioni di vendita fatturate o le postazioni vendute attraverso il marketplace commerciale. 
 
 >[!NOTE]
->La soglia delle postazioni vendute si applica solo alle app Microsoft 365 (applicazioni SaaS con integrazioni con Microsoft Teams, Office, Outlook o SharePoint) e i vantaggi devono essere raggiunti entro il 30 giugno 2020.
+>La soglia venduta per le postazioni si applica solo alle app Microsoft 365 (le applicazioni SaaS con integrazioni con Microsoft teams, Office, Outlook o SharePoint) e i vantaggi devono essere completate entro il 30 giugno 2020.
 
 Questi vantaggi sono pensati per offrire supporto per il marketing, le vendite e le attività tecniche, consentendo così di accrescere il numero dei visitatori, ricevere altri lead e sviluppare ulteriormente il business.
 

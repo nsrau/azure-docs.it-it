@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74706371"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135404"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello con Azure Site Recovery
 
@@ -37,8 +38,8 @@ Questo articolo descrive in dettaglio come proteggere un'applicazione di SharePo
 
 Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
-1. [Replica di una macchina virtuale in Azure](site-recovery-vmware-to-azure.md)
-2. Come [progettare una rete di ripristino](site-recovery-network-design.md)
+1. [Replica di una macchina virtuale in Azure](./vmware-azure-tutorial.md)
+2. Come [progettare una rete di ripristino](./concepts-on-premises-to-azure-networking.md)
 3. [Esecuzione di un failover di test in Azure](site-recovery-test-failover-to-azure.md)
 4. [Esecuzione di un failover in Azure](site-recovery-failover.md)
 5. Come [replicare un controller di dominio](site-recovery-active-directory.md)
@@ -46,7 +47,7 @@ Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
 ## <a name="sharepoint-architecture"></a>Architettura di SharePoint
 
-SharePoint può essere distribuito in uno o più server usando topologie a livelli e ruoli del server per implementare una progettazione di farm in grado di soddisfare finalità e obiettivi specifici. Una tipica server farm di SharePoint con esigenze e dimensioni elevate che supporta molti utenti simultanei ed elementi di contenuto usa il raggruppamento dei servizi come parte della strategia di scalabilità. Questo approccio comporta l'esecuzione di servizi su server dedicati, il raggruppamento dei servizi e quindi la scalabilità orizzontale dei server come gruppi. La topologia seguente mostra il raggruppamento di servizi e server per una server farm di SharePoint a tre livelli. Per indicazioni dettagliate sulle diverse topologie di SharePoint, fare riferimento alla documentazione e alle architetture delle linee di prodotti di SharePoint. Altre informazioni sulla distribuzione di SharePoint 2013 sono disponibili in [questo documento](https://technet.microsoft.com/library/cc303422.aspx).
+SharePoint può essere distribuito in uno o più server usando topologie a livelli e ruoli del server per implementare una progettazione di farm in grado di soddisfare finalità e obiettivi specifici. Una tipica server farm di SharePoint con esigenze e dimensioni elevate che supporta molti utenti simultanei ed elementi di contenuto usa il raggruppamento dei servizi come parte della strategia di scalabilità. Questo approccio comporta l'esecuzione di servizi su server dedicati, il raggruppamento dei servizi e quindi la scalabilità orizzontale dei server come gruppi. La topologia seguente mostra il raggruppamento di servizi e server per una server farm di SharePoint a tre livelli. Per indicazioni dettagliate sulle diverse topologie di SharePoint, fare riferimento alla documentazione e alle architetture delle linee di prodotti di SharePoint. Altre informazioni sulla distribuzione di SharePoint 2013 sono disponibili in [questo documento](/SharePoint/sharepoint-server).
 
 
 
@@ -73,7 +74,7 @@ Se si usa un cluster basato su dischi condivisi come qualsiasi livello nell'appl
 
 ## <a name="replicating-virtual-machines"></a>Replica di macchine virtuali
 
-Seguire [queste linee guida](site-recovery-vmware-to-azure.md) per avviare la replica delle macchine virtuali in Azure.
+Seguire [queste linee guida](./vmware-azure-tutorial.md) per avviare la replica delle macchine virtuali in Azure.
 
 * Al termine della replica, in ogni macchina virtuale di ogni livello assicurarsi di selezionare lo stesso set di disponibilità in "Elementi replicati > Impostazioni > Proprietà > Calcolo e rete". Ad esempio, se il livello Web include tre VM, assicurarsi che le tre VM siano tutte configurate per fare parte dello stesso set di disponibilità in Azure.
 
@@ -98,7 +99,7 @@ Seguire [queste linee guida](site-recovery-vmware-to-azure.md) per avviare la re
 
 ### <a name="dns-and-traffic-routing"></a>DNS e routing del traffico
 
-Per i siti con connessione Internet, [creare un profilo di Gestione traffico di tipo "Priorità"](../traffic-manager/traffic-manager-create-profile.md) nella sottoscrizione di Azure. Configurare quindi il DNS e il profilo di Gestione traffico nel modo seguente.
+Per i siti con connessione Internet, [creare un profilo di Gestione traffico di tipo "Priorità"](../traffic-manager/quickstart-create-traffic-manager-profile.md) nella sottoscrizione di Azure. Configurare quindi il DNS e il profilo di Gestione traffico nel modo seguente.
 
 
 | **In cui** | **Origine** | **Destinazione**|
@@ -162,7 +163,7 @@ Un piano di ripristino consente di definire la sequenza di failover di vari live
     * Questo metodo presuppone che sia stato eseguito un backup dell'applicazione del servizio di ricerca prima dell'evento di emergenza e che il backup sia disponibile nel sito di ripristino di emergenza.
     * A questo scopo, è possibile pianificare in tutta semplicità il backup (ad esempio, una volta al giorno) e usare una procedura di copia per spostare il backup nel sito di ripristino di emergenza. Le procedure di copia possono includere programmi basati su script come AzCopy (Azure Copy) o la configurazione di DFSR (Distributed File Services Replication).
     * Quando la farm di SharePoint è in esecuzione, passare ad Amministrazione centrale, quindi a "Backup e ripristino" e selezionare Ripristina. Il ripristino interroga il percorso di backup specificato. Potrebbe essere necessario aggiornare il valore. Selezionare il backup dell'applicazione del servizio di ricerca che si vuole ripristinare.
-    * La ricerca viene ripristinata. Tenere presente che l'operazione di ripristino si aspetta di trovare la stessa topologia, ovvero lo stesso numero di server, e le stesse lettere di unità assegnate ai server. Per altre informazioni, vedere il documento [Ripristinare le applicazioni del servizio di ricerca in SharePoint 2013](https://technet.microsoft.com/library/ee748654.aspx).
+    * La ricerca viene ripristinata. Tenere presente che l'operazione di ripristino si aspetta di trovare la stessa topologia, ovvero lo stesso numero di server, e le stesse lettere di unità assegnate ai server. Per altre informazioni, vedere il documento [Ripristinare le applicazioni del servizio di ricerca in SharePoint 2013](/SharePoint/administration/restore-a-search-service-application).
 
 
 6. Per avviare il sistema con una nuova applicazione del servizio di ricerca, seguire i passaggi seguenti.

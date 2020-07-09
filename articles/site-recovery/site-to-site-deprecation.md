@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 501cf161a22aaa1ec37abda2b750106b6eaf3dc4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77661671"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135205"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Deprecazione del ripristino di emergenza tra siti gestiti dal cliente (con VMM) con Azure Site Recovery
 
@@ -38,7 +39,7 @@ Di seguito sono riportate le alternative tra cui il cliente può scegliere per a
 - Opzione 1 (scelta consigliata): scegliere di [iniziare a usare Azure come destinazione del ripristino](hyper-v-vmm-azure-tutorial.md)di emergenza.
 
 
-- Opzione 2: scegliere di continuare con la replica da sito a sito usando la [soluzione di replica Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)sottostante, ma non sarà possibile gestire le configurazioni di ripristino di emergenza usando Azure Site Recovery nel portale di Azure. 
+- Opzione 2: scegliere di continuare con la replica da sito a sito usando la [soluzione di replica Hyper-V](/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)sottostante, ma non sarà possibile gestire le configurazioni di ripristino di emergenza usando Azure Site Recovery nel portale di Azure. 
 
 
 ## <a name="remediation-steps"></a>Procedura di correzione

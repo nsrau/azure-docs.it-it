@@ -4,12 +4,12 @@ description: Informazioni su come l'agente MARS supporta gli scenari di backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611484"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134980"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Informazioni sull'agente di Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -42,7 +42,7 @@ L'agente MARS supporta gli scenari di ripristino seguenti:
 1. Dalla portale di Azure creare un insieme di credenziali [dei servizi di ripristino](install-mars-agent.md#create-a-recovery-services-vault)e scegliere file, cartelle e lo stato del sistema dagli **obiettivi di backup**.
 2. [Scaricare le credenziali dell'insieme di credenziali dei servizi di ripristino e il programma di installazione dell'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) in un computer locale.
 
-3. [installare l'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) e usare le credenziali dell'insieme di credenziali scaricate per registrare il computer nell'insieme di credenziali di servizi di ripristino.
+3. [Installare l'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) e usare le credenziali dell'insieme di credenziali scaricate per registrare il computer nell'insieme di credenziali di servizi di ripristino.
 4. Dalla console agente sul client, [configurare il backup](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) per specificare gli elementi di cui eseguire il backup, quando eseguire il backup (pianificazione), per quanto tempo i backup devono essere conservati in Azure (criteri di conservazione) e avviare la protezione.
 
 ![Diagramma dell'agente di backup di Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
@@ -53,7 +53,7 @@ L'agente MARS supporta gli scenari di ripristino seguenti:
 
 - I **backup incrementali** (backup successivi) vengono eseguiti in base alla pianificazione specificata. Durante i backup incrementali, vengono identificati i file modificati e viene creato un nuovo VHD. Il disco rigido virtuale viene compresso e crittografato, quindi viene inviato all'insieme di credenziali. Al termine del backup incrementale, il nuovo disco rigido virtuale viene unito al VHD creato dopo la replica iniziale. Questo VHD Unito fornisce lo stato più recente da usare per il confronto per il backup in corso.
 
-- L'agente MARS può eseguire il processo di backup in **modalità ottimizzata** usando il Journal delle modifiche USN (numero di sequenza di aggiornamento) o in **modalità non ottimizzata** controllando la presenza di modifiche in directory o file tramite l'analisi dell'intero volume. La modalità non ottimizzata è più lenta perché l'agente deve analizzare ogni file nel volume e confrontarlo con i metadati per determinare i file modificati.  Il **backup iniziale** viene sempre eseguito in modalità non ottimizzata. Se il backup precedente non è riuscito, il successivo processo di backup pianificato verrà eseguito in modalità non ottimizzata.
+- L'agente MARS può eseguire il processo di backup in **modalità ottimizzata** usando il Journal delle modifiche USN (numero di sequenza di aggiornamento) o in **modalità non ottimizzata** controllando la presenza di modifiche in directory o file tramite l'analisi dell'intero volume. La modalità non ottimizzata è più lenta perché l'agente deve analizzare ogni file nel volume e confrontarlo con i metadati per determinare i file modificati.  Il **backup iniziale** viene sempre eseguito in modalità non ottimizzata. Se il backup precedente non è riuscito, il successivo processo di backup pianificato verrà eseguito in modalità non ottimizzata. Per altre informazioni su queste modalità e su come verificarle, vedere [questo articolo](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
 
 ### <a name="additional-scenarios"></a>Scenari aggiuntivi
 

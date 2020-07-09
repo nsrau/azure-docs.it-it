@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 085647c392bb6cec51fba8b6e42cb8f03707223c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920162"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134591"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>L'attivazione di Windows ha esito negativo in uno scenario di tunneling forzato
 
@@ -42,7 +43,7 @@ L'indirizzo IP 23.102.135.246 è l'indirizzo del server di gestione delle chiavi
 |Azure Global|kms.core.windows.net|23.102.135.246|
 |Azure Germania|kms.core.cloudapi.de|51.4.143.248|
 |Azure US Government|kms.core.usgovcloudapi.net|23.97.0.13|
-|21Vianet per Azure Cina|kms.core.chinacloudapi.cn|42.159.7.249|
+|Azure Cina 21Vianet|kms.core.chinacloudapi.cn|42.159.7.249|
 
 
 Per aggiungere la route personalizzata, seguire questa procedura:
@@ -78,7 +79,9 @@ Per aggiungere la route personalizzata, seguire questa procedura:
     ```
 3. Passare alla macchina virtuale che presenta problemi di attivazione. Usare [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) per verificare se sia possibile raggiungere il server KMS:
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Provare ad attivare Windows e verificare se il problema è stato risolto.
 
@@ -106,7 +109,9 @@ Per aggiungere la route personalizzata, seguire questa procedura:
 
 3. Passare alla macchina virtuale che presenta problemi di attivazione. Usare [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) per verificare se sia possibile raggiungere il server KMS:
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Provare ad attivare Windows e verificare se il problema è stato risolto.
 

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 296254db83a065623b692d7947c130dfd71cd413
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: eebaa70cee99380ac67b8f6516a5b08ff2832c86
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835054"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134729"
 ---
 # <a name="monitor-the-process-server"></a>Monitorare il server di elaborazione
 
@@ -95,7 +96,7 @@ Il server di elaborazione genera un dato numero di avvisi di integrità, riepilo
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Se si verificano problemi con i server di elaborazione, consultare il [materiale sussidiario per la risoluzione dei problemi](vmware-physical-azure-troubleshoot-process-server.md)
-- Per richiedere maggiore assistenza, pubblicare una domanda sulla [pagina delle domande di Domande e risposte per Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
+- Per richiedere maggiore assistenza, pubblicare una domanda sulla [pagina delle domande di Domande e risposte per Azure Site Recovery](/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

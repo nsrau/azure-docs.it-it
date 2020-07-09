@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: ce3bfd85656972cb93b74a85a1bd6d469837ce22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 848234417099c0a31bd0c9e84722b6221aec3aa9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84236308"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135818"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizzare le configurazioni di rete della VM di Azure di destinazione
 
@@ -26,9 +27,9 @@ Informazioni sul ripristino di emergenza fornito da Site Recovery per [questo sc
 
 È possibile fornire le configurazioni di risorse chiave seguenti per la macchina virtuale di failover durante la replica di macchine virtuali di Azure:
 
-- [Servizio di bilanciamento del carico interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+- [Servizio di bilanciamento del carico interno](../load-balancer/load-balancer-overview.md)
 - [IP pubblico](../virtual-network/public-ip-addresses.md)
-- [Gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) per la subnet e per la scheda di interfaccia di rete
+- [Gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md) per la subnet e per la scheda di interfaccia di rete
 
 ## <a name="prerequisites"></a>Prerequisiti
 

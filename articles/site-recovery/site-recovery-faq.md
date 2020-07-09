@@ -4,12 +4,12 @@ description: Questo articolo illustra le domande generali più frequenti su Azur
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 9eceb9643a5e8f8eab6b68bb04b322a099b715f3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b02d001d6fad905badaf17422bdd0554e3fc8493
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057433"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133662"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 
@@ -56,7 +56,7 @@ No, i dati vengono replicati nelle risorse di archiviazione di Azure nella sotto
 Sì.
 
 ### <a name="what-platforms-do-you-currently-support"></a>Quali piattaforme sono attualmente supportate?
-Sono supportate distribuzioni basate su Azure Pack, Cloud Platform System e System Center (2012 e versioni successive). [Alter informazioni](https://technet.microsoft.com/library/dn850370.aspx) sull'integrazione di Azure Pack e Site Recovery.
+Sono supportate distribuzioni basate su Azure Pack, Cloud Platform System e System Center (2012 e versioni successive). [Alter informazioni](/previous-versions/azure/windows-server-azure-pack/dn850370(v=technet.10)) sull'integrazione di Azure Pack e Site Recovery.
 
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Sono supportate singole distribuzioni di Azure Pack e del server VMM?
 Sì, è possibile eseguire la replica da macchine virtuali Hyper-V ad Azure o tra siti del provider di servizi.  Si noti che se si esegue la replica tra i siti del provider di servizi, l'integrazione del runbook di Azure non è disponibile.
@@ -105,7 +105,7 @@ Site Recovery è certificato ISO 27001:2013, 27018, HIPAA e DPA e le valutazioni
 Sì. Quando si crea un insieme di credenziali di Site Recovery in un'area, tutti i metadati necessari per abilitare e gestire la replica e il failover restano all'interno dei confini di tale area geografica.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery consente di crittografare la replica?
-Per la replica di macchine virtuali e server fisici tra siti locali, è supportata la crittografia in transito. Per la replica di macchine virtuali e server fisici in Azure, sono supportate sia la crittografia in transito che la [crittografia inattiva (in Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption).
+Per la replica di macchine virtuali e server fisici tra siti locali, è supportata la crittografia in transito. Per la replica di macchine virtuali e server fisici in Azure, sono supportate sia la crittografia in transito che la [crittografia inattiva (in Azure)](../storage/common/storage-service-encryption.md).
 
 ### <a name="does-azure-to-azure-site-recovery-use-tls-12-for-all-communications-across-microservices-of-azure"></a>Site Recovery da Azure ad Azure usa il protocollo TLS 1.2 per tutte le comunicazioni tra microservizi di Azure?
 Sì, il protocollo TLS 1.2 viene applicato per impostazione predefinita per lo scenario Site Recovery da Azure ad Azure. 
@@ -198,7 +198,7 @@ I dischi dinamici sono supportati per la replica di macchine virtuali Hyper-V e 
 Sì. Altre informazioni sulla limitazione della larghezza di banda sono disponibili negli articoli seguenti:
 
 * [Pianificazione della capacità per la replica da VM VMware e server fisici](site-recovery-plan-capacity-vmware.md)
-* [Pianificazione della capacità per la replica da VM Hyper-V in Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [Pianificazione della capacità per la replica da VM Hyper-V in Azure](./hyper-v-deployment-planner-overview.md)
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>È possibile abilitare la replica con la coerenza delle app nei server Linux? 
 Sì. Azure Site Recovery per il sistema operativo Linux supporta gli script personalizzati dell'applicazione per la coerenza delle app. Lo script personalizzato con pre e post-Options verrà usato dall'agente di Azure Site Recovery Mobility durante la coerenza dell'app. Di seguito sono riportati i passaggi per abilitarlo.
@@ -254,7 +254,7 @@ Per avviarlo in automatico, è possibile usare Orchestrator o Operations Manager
 
 * [Ulteriori informazioni](site-recovery-create-recovery-plans.md) sui piani di ripristino.
 * [Altre informazioni](site-recovery-failover.md) sul failover.
-* [Altre informazioni](site-recovery-failback-azure-to-vmware.md) sul failback di VM VMware e server fisici
+* [Altre informazioni](./vmware-azure-failback.md) sul failback di VM VMware e server fisici
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-fail-back-to-a-different-host"></a>Se l'host locale non risponde o sperimenta un arresto anomalo del sistema, è possibile eseguire il failback a un host diverso?
 Sì, è possibile usare il ripristino nel percorso alternativo per eseguire il failback in un host diverso da Azure.
@@ -279,4 +279,3 @@ Sì. È possibile automatizzare i flussi di lavoro di Site Recovery usando l'API
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere la [panoramica di Site Recovery](site-recovery-overview.md)
-

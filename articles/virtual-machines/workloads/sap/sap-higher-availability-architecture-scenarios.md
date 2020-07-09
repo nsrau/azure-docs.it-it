@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86094fd7ff9550946e1b1c13e0773f025a0e977c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77623809"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134541"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Uso del riavvio delle macchine virtuali dell'infrastruttura di Azure per ottenere una "maggiore disponibilità" di un sistema SAP
 
@@ -266,7 +267,7 @@ SAP offre un'impostazione che consente di avviare le istanze di SAP immediatamen
 
 Presupponendo uno scenario tipico di Azure di un'istanza del server applicazioni SAP in una VM e di una singola VM che viene alla fine riavviata, l'avvio automatico non è critico, ma è possibile abilitarlo aggiungendo il parametro seguente nel profilo di avvio dell'istanza Advanced Business Application Programming (ASCS) di SAP o Java:
 
-      Autostart = 1
+`Autostart = 1`
 
 
   > [!NOTE]

@@ -3,11 +3,12 @@ title: Domande comuni sul ripristino di emergenza di VMware con Azure Site Recov
 description: Per ottenere risposte alle domande comuni sul ripristino di emergenza di macchine virtuali VMware locali in Azure, usare Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259511"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135165"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti sulla replica da VMware ad Azure
 
@@ -121,7 +122,7 @@ La replica di nuove macchine virtuali in un account di archiviazione è disponib
 
 ### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>È possibile modificare il tipo di disco gestito dopo che un computer è stato protetto?
 
-Sì, è possibile [modificare facilmente il tipo di disco gestito per le](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) repliche in corso. Prima di modificare il tipo, verificare che nel disco gestito non venga generato alcun URL di firma di accesso condiviso:
+Sì, è possibile [modificare facilmente il tipo di disco gestito per le](../virtual-machines/windows/convert-disk-storage.md) repliche in corso. Prima di modificare il tipo, verificare che nel disco gestito non venga generato alcun URL di firma di accesso condiviso:
 
 1. Passare alla risorsa **disco gestito** nella portale di Azure e verificare se è presente un banner URL di firma di accesso condiviso nel pannello **Panoramica** .
 1. Se il banner è presente, selezionarlo per annullare l'esportazione in corso.

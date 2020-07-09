@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbd11c279708cd828693baab3f9f6df91515bc48
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74133003"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133912"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Architettura per la replica di Hyper-V in un sito secondario
 
@@ -35,7 +36,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 ## <a name="replication-process"></a>Processo di replica
 
-1. Quando viene attivata la replica iniziale, viene eseguita una snapshot di [snapshot della macchina virtuale Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) .
+1. Quando viene attivata la replica iniziale, viene eseguita una snapshot di [snapshot della macchina virtuale Hyper-V](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) .
 2. I dischi rigidi virtuali nella macchina virtuale vengono replicati uno per volta nel sito secondario.
 3. Se vengono apportate modifiche ai dischi mentre è in corso la replica iniziale, Hyper-V Replica Replication Tracker tiene traccia delle modifiche sotto forma di log di replica di Hyper-V (HRL). Questi file di log si trovano nella stessa cartella dei dischi. A ogni disco è associato un file HRL, che viene inviato al sito secondario. Si noti che lo snapshot e i file di log usano risorse del disco durante l'esecuzione della replica iniziale.
 4. Al termine della replica iniziale, lo snapshot della macchina virtuale viene eliminato e viene avviata la replica differenziale.

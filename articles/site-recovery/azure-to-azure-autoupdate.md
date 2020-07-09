@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: rajanaki
-ms.openlocfilehash: b2f5faea3df695500ea245d1dc71cb96a84c3643
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b57ce89979225015dc87bbfb17f9603897ef6d6b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985602"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135837"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica da Azure ad Azure
 
@@ -90,7 +90,7 @@ Se non è possibile abilitare gli aggiornamenti automatici, vedere gli errori co
 
 - **Errore**: non si hanno le autorizzazioni per creare un account RunAs di Azure (entità servizio) e concedere il ruolo di collaboratore all'entità servizio.
 
-  **Azione consigliata**: assicurarsi che l'account connesso sia assegnato come collaboratore e riprovare. Per altre informazioni sull'assegnazione di autorizzazioni, vedere la sezione autorizzazioni necessarie di [procedura: usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
+  **Azione consigliata**: assicurarsi che l'account connesso sia assegnato come collaboratore e riprovare. Per altre informazioni sull'assegnazione di autorizzazioni, vedere la sezione autorizzazioni necessarie di [procedura: usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
   Per risolvere la maggior parte dei problemi dopo aver abilitato gli aggiornamenti automatici, selezionare **Ripristina**. Se il pulsante Ripristina non è disponibile, vedere il messaggio di errore visualizzato nel riquadro Impostazioni aggiornamento estensioni.
 
@@ -98,11 +98,11 @@ Se non è possibile abilitare gli aggiornamenti automatici, vedere gli errori co
 
 - **Errore**: l'account RunAs non ha l'autorizzazione per accedere alla risorsa dei servizi di ripristino.
 
-  **Azione consigliata**: eliminare e quindi [ricreare l'account RunAs](/azure/automation/automation-create-runas-account). In alternativa, assicurarsi che l'applicazione Azure Active Directory dell'account RunAs di automazione possa accedere alla risorsa dei servizi di ripristino.
+  **Azione consigliata**: eliminare e quindi [ricreare l'account RunAs](../automation/manage-runas-account.md). In alternativa, assicurarsi che l'applicazione Azure Active Directory dell'account RunAs di automazione possa accedere alla risorsa dei servizi di ripristino.
 
 - **Errore**: impossibile trovare l'account RunAs. È possibile che uno degli elementi seguenti (applicazione di Azure Active Directory, entità servizio, ruolo, asset di certificato di Automazione, asset di connessione di Automazione) o l'identificazione personale non siano identici tra certificato e connessione.
 
-  **Azione consigliata**: eliminare e quindi [ricreare l'account RunAs](/azure/automation/automation-create-runas-account).
+  **Azione consigliata**: eliminare e quindi [ricreare l'account RunAs](../automation/manage-runas-account.md).
 
 - **Errore**: il certificato RunAs di Azure usato dall'account di automazione sta per scadere.
 

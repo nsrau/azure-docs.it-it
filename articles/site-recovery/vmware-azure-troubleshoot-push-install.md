@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 1afd931249d4dbeda2b4b25f822837e2a564f959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b4feb1219f6a51a1f0a7ac0d19fc3fd70029c6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656313"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133526"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Risolvere i problemi di installazione push del servizio Mobility
 
@@ -169,7 +170,7 @@ Per abilitare WMI:
 
 Di seguito sono elencati altri articoli sulla risoluzione dei problemi di WMI.
 
-* [Test WMI di base](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
+* [Test WMI di base](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf)
 * [Risoluzione dei problemi WMI](/windows/win32/wmisdk/wmi-troubleshooting)
 * [Risoluzione dei problemi con gli script WMI e i servizi WMI](/previous-versions/tn-archive/ff406382(v=msdn.10))
 

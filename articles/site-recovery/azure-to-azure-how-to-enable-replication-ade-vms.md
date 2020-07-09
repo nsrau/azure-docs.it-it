@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408629"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135797"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicare le macchine virtuali abilitate per crittografia dischi di Azure in un'altra area di Azure
 
@@ -93,7 +93,7 @@ Per questo esempio, l'area di Azure primaria è Asia orientale e l'area secondar
     - **Percorso di destinazione**: il percorso in cui verranno replicati i dati delle macchine virtuali di origine. Site Recovery fornisce un elenco di aree di destinazione appropriate in base alla posizione del computer selezionato. Si consiglia di usare la stessa località del percorso dell'insieme di credenziali di servizi di ripristino.
     - **Sottoscrizione di destinazione**: sottoscrizione di destinazione usata per il ripristino di emergenza. Per impostazione predefinita, la sottoscrizione di destinazione è uguale a quella di origine.
     - **Gruppo di risorse di destinazione:** gruppo di risorse a cui tutte le macchine virtuali replicate appartengono. Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione. Il nome ottiene il suffisso "ASR". Se esiste già un gruppo di risorse creato da Azure Site Recovery, viene riutilizzato. È anche possibile scegliere di personalizzarlo, come illustrato nella sezione seguente. Il percorso del gruppo di risorse di destinazione può essere qualsiasi area di Azure, ad eccezione dell'area in cui sono ospitate le macchine virtuali di origine.
-    - **Rete virtuale di destinazione**: per impostazione predefinita, Site Recovery crea una nuova rete virtuale nell'area di destinazione. Il nome ottiene il suffisso "ASR". Viene mappato alla rete di origine e usato per la protezione futura. [Altre informazioni](site-recovery-network-mapping-azure-to-azure.md) sul mapping di rete.
+    - **Rete virtuale di destinazione**: per impostazione predefinita, Site Recovery crea una nuova rete virtuale nell'area di destinazione. Il nome ottiene il suffisso "ASR". Viene mappato alla rete di origine e usato per la protezione futura. [Altre informazioni](./azure-to-azure-network-mapping.md) sul mapping di rete.
     - **Account di archiviazione di destinazione (se la VM di origine non usa dischi gestiti)**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione di destinazione simulando la configurazione dell'archiviazione della VM di origine. Se un account di archiviazione esiste già, viene riusato.
     - **Dischi gestiti di replica (se la VM di origine usa dischi gestiti)**: Site Recovery crea nuovi dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della VM di origine dello stesso tipo di archiviazione (standard o Premium) dei dischi gestiti della VM di origine.
     - **Account di archiviazione della cache**: Site Recovery necessita di un account di archiviazione aggiuntivo denominato *archiviazione della cache* nell'area di origine. Tutte le modifiche apportate alle VM di origine vengono registrate e inviate all'account di archiviazione della cache. Vengono quindi replicati nel percorso di destinazione.

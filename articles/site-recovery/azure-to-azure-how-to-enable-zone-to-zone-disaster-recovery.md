@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488937"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135731"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Abilitare il ripristino di emergenza da zona a zona per le macchine virtuali di Azure
 
@@ -97,7 +98,7 @@ Accedere al portale di Azure.
 
 5. Se si desidera apportare modifiche alle impostazioni di replica, fare clic su "Avanti: impostazioni avanzate".
 
-6. Modificare le impostazioni a partire da quella predefinita, laddove appropriato. Per gli utenti del ripristino di emergenza da Azure ad Azure, questa pagina potrebbe sembrare familiare. Altre informazioni sulle opzioni presentate in questo pannello sono disponibili [qui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
+6. Modificare le impostazioni a partire da quella predefinita, laddove appropriato. Per gli utenti del ripristino di emergenza da Azure ad Azure, questa pagina potrebbe sembrare familiare. Altre informazioni sulle opzioni presentate in questo pannello sono disponibili [qui](./azure-to-azure-tutorial-enable-replication.md)
 
     ![Pagina Impostazioni avanzate](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 
@@ -115,7 +116,7 @@ Il contratto di RTO è identico a quello per Site Recovery complessiva. Si prome
 Il team di Site Recovery e il team di gestione della capacità di Azure pianificano una capacità dell'infrastruttura sufficiente. Quando si avvia un failover, i team contribuiscono anche a garantire che le istanze di VM protette da Site Recovery verranno distribuite nell'area di destinazione.
 
 **4. quali sistemi operativi sono supportati?**
-Il ripristino di emergenza da zona a zona supporta gli stessi sistemi operativi di Azure per il ripristino di emergenza di Azure. Vedere la matrice di supporto [qui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+Il ripristino di emergenza da zona a zona supporta gli stessi sistemi operativi di Azure per il ripristino di emergenza di Azure. Vedere la matrice di supporto [qui](./azure-to-azure-support-matrix.md).
 
 **5. i gruppi di risorse di origine e di destinazione possono essere uguali?**
 No, è necessario eseguire il failover in un gruppo di risorse diverso.
@@ -124,8 +125,8 @@ No, è necessario eseguire il failover in un gruppo di risorse diverso.
 
 I passaggi da seguire per eseguire un'esercitazione sul ripristino di emergenza, il failover, la riprotezione e il failback sono gli stessi dei passaggi in uno scenario di ripristino di emergenza da Azure ad Azure.
 
-Per eseguire un'esercitazione sul ripristino di emergenza, seguire i passaggi descritti [qui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
+Per eseguire un'esercitazione sul ripristino di emergenza, seguire i passaggi descritti [qui](./azure-to-azure-tutorial-dr-drill.md).
 
-Per eseguire un failover e riproteggere le macchine virtuali nella zona secondaria, seguire i passaggi descritti [qui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
+Per eseguire un failover e riproteggere le macchine virtuali nella zona secondaria, seguire i passaggi descritti [qui](./azure-to-azure-tutorial-failover-failback.md).
 
-Per eseguire il failback nella zona primaria, seguire i passaggi descritti [qui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failback).
+Per eseguire il failback nella zona primaria, seguire i passaggi descritti [qui](./azure-to-azure-tutorial-failback.md).

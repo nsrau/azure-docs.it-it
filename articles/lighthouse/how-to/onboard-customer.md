@@ -1,27 +1,30 @@
 ---
-title: Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
-description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
+title: Onboarding di un cliente in Azure Lighthouse
+description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 149398a822d5aa21335be4122e92c96800d94255
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920917"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133476"
 ---
-# <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
+# <a name="onboard-a-customer-to-azure-lighthouse"></a>Onboarding di un cliente in Azure Lighthouse
 
-Questo articolo illustra come un provider di servizi può eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse delegate (sottoscrizioni e/o gruppi di risorse) tramite il proprio tenant di Azure Active Directory ( Azure AD). Nonostante qui si faccia riferimento ai provider di servizi e ai clienti, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono usare lo stesso processo per configurare Azure Lighthouse e consolidare l'esperienza di gestione.
+Questo articolo illustra come un provider di servizi può caricare un cliente nel Faro di Azure. Quando si esegue questa operazione, è possibile accedere e gestire le risorse delegate del cliente (sottoscrizioni e/o gruppi di risorse) tramite il tenant di Azure Active Directory (Azure AD) usando la [gestione delle risorse delegata di Azure](../concepts/azure-delegated-resource-management.md).
 
-È possibile ripetere questo processo se si gestiscono risorse per più clienti. Quando un utente autorizzato accede al tenant, tale utente può quindi essere autorizzato negli ambiti di tenancy dei clienti a eseguire operazioni di gestione senza dover accedere al tenant di ogni singolo cliente.
+È possibile ripetere questo processo se si gestiscono risorse per più clienti. Quindi, quando un utente autorizzato accede al tenant, tale utente può essere autorizzato negli ambiti di locazione dei clienti per eseguire operazioni di gestione, senza dover accedere a ogni singolo tenant del cliente.
 
-Per tenere traccia dell'impatto sull'engagement dei clienti e ricevere il riconoscimento, associare l'ID MPN (Microsoft Partner Network) ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi. Per semplicità, è consigliabile creare un account di entità servizio nel tenant associato all'ID MPN e concedergli l'accesso in lettura a tutti i clienti di cui è stato eseguito l'onboarding. Per altre informazioni, vedere [Collegare un ID partner agli account Azure](../../billing/billing-partner-admin-link-started.md). 
+Per tenere traccia dell'impatto sull'engagement dei clienti e ricevere il riconoscimento, associare l'ID MPN (Microsoft Partner Network) ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi. Per semplicità, è consigliabile creare un account di entità servizio nel tenant associato all'ID MPN e concedergli l'accesso in lettura a tutti i clienti di cui è stato eseguito l'onboarding. Per altre informazioni, vedere [Collegare un ID partner agli account Azure](../../cost-management-billing/manage/link-partner-id.md). 
 
 > [!NOTE]
-> È possibile eseguire l'onboarding dei clienti anche quando acquistano un'offerta di servizi gestiti (pubblica o privata) pubblicata in Azure Marketplace. Per altre informazioni, vedere [Pubblicare offerte di servizi gestiti in Azure Marketplace](publish-managed-services-offers.md). È anche possibile usare il processo di onboarding descritto qui insieme a un'offerta pubblicata in Azure Marketplace.
+> I clienti possono anche essere caricati in Azure Lighthouse quando acquistano un'offerta di servizi gestiti (pubblica o privata) pubblicata in Azure Marketplace. Per altre informazioni, vedere [Pubblicare offerte di servizi gestiti in Azure Marketplace](publish-managed-services-offers.md). È anche possibile usare il processo di onboarding descritto qui insieme a un'offerta pubblicata in Azure Marketplace.
 
 Il processo di onboarding richiede l'esecuzione di azioni sia dal tenant del provider di servizi che dal tenant del cliente. Tutti questi passaggi sono descritti in questo articolo.
+
+> [!TIP]
+> Anche se si fa riferimento a provider di servizi e clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono usare lo stesso processo per configurare il faro di Azure e consolidare la loro esperienza di gestione.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Raccogliere i dettagli del tenant e della sottoscrizione
 
@@ -193,7 +196,7 @@ L'ultima autorizzazione nell'esempio precedente aggiunge un **principalId** con 
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuire i modelli di Azure Resource Manager
 
-Dopo aver aggiornato il file dei parametri, un utente del tenant del cliente deve distribuire il modello di Azure Resource Manager nel proprio tenant come distribuzione a livello di sottoscrizione. Per ogni sottoscrizione di cui si vuole eseguire l'onboarding nella gestione risorse delegate di Azure (o per ogni sottoscrizione che contiene i gruppi di risorse di cui si vuole eseguire l'onboarding) è necessaria una distribuzione separata.
+Dopo aver aggiornato il file dei parametri, un utente del tenant del cliente deve distribuire il modello di Azure Resource Manager nel proprio tenant come distribuzione a livello di sottoscrizione. È necessaria una distribuzione separata per ogni sottoscrizione di cui si vuole eseguire l'onboarding (o per ogni sottoscrizione che contiene i gruppi di risorse che si vuole caricare).
 
 Trattandosi di una distribuzione a livello di sottoscrizione, non è possibile avviarla nel portale di Azure. È possibile eseguire la distribuzione tramite PowerShell o l'interfaccia della riga di comando di Azure, come illustrato di seguito.
 
@@ -244,7 +247,7 @@ az deployment create --name <deploymentName> \
 
 ## <a name="confirm-successful-onboarding"></a>Verificare che l'onboarding sia riuscito
 
-Quando l'onboarding della sottoscrizione di un cliente è stato eseguito correttamente nella gestione risorse delegate di Azure, gli utenti nel tenant del provider di servizi potranno visualizzare la sottoscrizione e le relative risorse (se è stato concesso l'accesso tramite il processo precedente, singolarmente o come membro di un gruppo Azure AD con le autorizzazioni appropriate). Per esserne certi, verificare che la sottoscrizione venga visualizzata in uno dei modi seguenti.  
+Quando la sottoscrizione di un cliente è stata caricata in Azure Lighthouse, gli utenti nel tenant del provider di servizi saranno in grado di visualizzare la sottoscrizione e le relative risorse (se ne è stato concesso l'accesso tramite il processo precedente, singolarmente o come membro di un gruppo di Azure AD con le autorizzazioni appropriate). Per esserne certi, verificare che la sottoscrizione venga visualizzata in uno dei modi seguenti.  
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -255,7 +258,7 @@ Nel tenant del provider di servizi:
 3. Verificare che sia possibile visualizzare le sottoscrizioni con il nome dell'offerta specificato nel modello di Resource Manager.
 
 > [!IMPORTANT]
-> Per visualizzare la sottoscrizione delegata in [Clienti personali](view-manage-customers.md), è necessario che agli utenti nel tenant del provider di servizi sia stato concesso il ruolo [Lettore](../../role-based-access-control/built-in-roles.md#reader) (o un altro ruolo predefinito che preveda l'accesso in lettura) durante l'onboarding della sottoscrizione per la gestione delle risorse delegate di Azure.
+> Per visualizzare la sottoscrizione delegata nei [miei clienti](view-manage-customers.md), è necessario che agli utenti nel tenant del provider di servizi sia stato concesso il ruolo [lettore](../../role-based-access-control/built-in-roles.md#reader) (o un altro ruolo predefinito che include l'accesso in lettura) al momento dell'onboarding della sottoscrizione.
 
 Nel tenant del cliente:
 
