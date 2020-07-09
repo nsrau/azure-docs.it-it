@@ -41,7 +41,7 @@
       href: ./concepts/managed-applications.md
 - name: Guide pratiche
   items:
-    - name: Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
+    - name: Eseguire l'onboarding dei clienti in Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Pubblicare offerte di servizi gestiti in Azure Marketplace

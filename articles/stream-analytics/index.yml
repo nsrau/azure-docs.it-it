@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentazione di Analisi di flusso di Azure
-summary: Analisi di flusso di Azure è un servizio di analisi in tempo reale completamente gestito che consente di analizzare ed elaborare flussi di dati veloci utilizzabili per attivare avvisi e azioni. Leggere informazioni su come usare Analisi di flusso di Azure con guide di avvio rapido, esercitazioni ed esempi.
+summary: Analisi di flusso di Azure è un servizio di analisi in tempo reale completamente gestito che consente di analizzare ed elaborare flussi di dati veloci utilizzabili per acquisire informazioni dettagliate, creare report o attivare avvisi e azioni. Leggere informazioni su come usare Analisi di flusso di Azure con guide di avvio rapido, esercitazioni ed esempi.
 metadata:
   title: Documentazione di Analisi di flusso di Azure
-  description: Analisi di flusso di Azure è un servizio di analisi in tempo reale completamente gestito che consente di analizzare ed elaborare flussi di dati veloci utilizzabili per attivare avvisi e azioni. Leggere informazioni su come usare Analisi di flusso di Azure con guide di avvio rapido, esercitazioni ed esempi.
+  description: Analisi di flusso di Azure è un servizio di analisi in tempo reale completamente gestito che consente di analizzare ed elaborare flussi di dati veloci utilizzabili per acquisire informazioni dettagliate, creare report o attivare avvisi e azioni. Leggere informazioni su come usare Analisi di flusso di Azure con guide di avvio rapido, esercitazioni ed esempi.
   services: service
   ms.service: stream-analytics
   ms.topic: landing-page
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: 757c60487e4c4c7fedca4824cd40e86cbd9ca465
-  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+  ms.openlocfilehash: 2ef6663ce3ebf21227635fff763d45391281c955
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/24/2020
-  ms.locfileid: "82130946"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86119651"
 landingContent:
 - title: Informazioni su Analisi di flusso di Azure
   linkLists:

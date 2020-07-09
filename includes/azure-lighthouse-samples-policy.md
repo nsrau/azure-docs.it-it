@@ -1,21 +1,21 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/19/2019
+ms.date: 07/07/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 1c0be8ed8c176fe32b8fe7fd420d65727c5288d2
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 837e82131b17fa02fca87da067eac6d77903b31d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986789"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111661"
 ---
-Questi esempi mostrano come usare Criteri di Azure con le sottoscrizioni di cui è stato eseguito l'onboarding per la gestione risorse delegate.
+Questi esempi illustrano come usare Criteri di Azure con le sottoscrizioni di cui è stato eseguito l'onboarding in Azure Lighthouse.
 
 | **Modello** | **Descrizione** |
 |---------|---------|

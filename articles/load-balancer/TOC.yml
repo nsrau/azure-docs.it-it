@@ -8,22 +8,25 @@
       href: load-balancer-faqs.md
 - name: Guida introduttiva
   items:
-    - name: Creare il bilanciamento del carico - Portale
+    - name: Creare una risorsa Load Balancer - Portale
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: Creare il bilanciamento del carico - Interfaccia della riga di comando di Azure
+    - name: Creare una risorsa Load Balancer - Interfaccia della riga di comando di Azure
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Creare il bilanciamento del carico - PowerShell
+    - name: Creare una risorsa Load Balancer - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Creare il bilanciamento del carico - Modello di Azure Resource Manager
-      displayName: Resource Manager
+    - name: Creare una risorsa Load Balancer - Modello di Azure Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Creare una risorsa Load Balancer interna - Portale
+      href: tutorial-load-balancer-standard-internal-portal.md
+    - name: Creare una risorsa Load Balancer interna - Interfaccia della riga di comando di Azure
+      href: load-balancer-get-started-ilb-arm-cli.md
+    - name: Creare una risorsa Load Balancer interna - Azure PowerShell
+      href: load-balancer-get-started-ilb-arm-ps.md
+    - name: Creare una risorsa Load Balancer interna - Modello di Resource Manager
+      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Esercitazioni
   items:
-    - name: Bilanciare il carico del traffico Internet verso le macchine virtuali
-      href: tutorial-load-balancer-standard-manage-portal.md
-    - name: Bilanciare il carico del traffico interno verso le VM
-      href: tutorial-load-balancer-standard-internal-portal.md
     - name: Bilanciare il carico delle VM tra zone di disponibilità
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Bilanciare il carico delle VM in una zona di disponibilità specifica
@@ -78,17 +81,17 @@
           href: configure-vm-scale-set-powershell.md
         - name: Uso con un'istanza esistente di Azure Load Balancer - Interfaccia della riga di comando
           href: configure-vm-scale-set-cli.md
-    - name: Aggiornare Load Balancer Basic a Load Balancer Standard
+    - name: Eseguire l'aggiornamento da Load Balancer Basic a Standard
       items:
         - name: Aggiornare Load Balancer pubblico Basic
           href: upgrade-basic-standard.md
-        - name: Aggiornare Load Balancer interno Basic - Nessuna connessione in uscita necessaria
+        - name: Eseguire l'aggiornamento di una risorsa Load Balancer interna - Connessione in uscita non necessaria
           href: upgrade-basicInternal-standard.md
-        - name: Aggiornare Load Balancer interno Basic - Connessione in uscita necessaria
+        - name: Eseguire l'aggiornamento di una risorsa Load Balancer interna - Connessione in uscita necessaria
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Configurare le regole in uscita
       items:
-        - name: Portale di Azure
+        - name: Portale
           href: configure-load-balancer-outbound-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: configure-load-balancer-outbound-cli.md
@@ -103,35 +106,25 @@
         - name: Modello di Azure Resource Manager
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Configurare un servizio di bilanciamento del carico interno
-      items:
-        - name: Portale di Azure
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: Interfaccia della riga di comando di Azure
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Modello di Azure Resource Manager
-          href: load-balancer-get-started-ilb-arm-template.md
-          displayName: ARM
     - name: Configurare il timeout di inattività TCP per il servizio di bilanciamento del carico
       href: load-balancer-tcp-idle-timeout.md
     - name: Configurare la modalità di distribuzione per Load Balancer
       href: load-balancer-distribution-mode.md
     - name: Uso di più configurazioni IP
-      href: load-balancer-multiple-ip.md
       items:
+        - name: Portale
+          href: load-balancer-multiple-ip.md
         - name: Interfaccia della riga di comando di Azure
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
     - name: Spostarsi tra aree
       items:
-        - name: Servizio di bilanciamento del carico esterno - Portale
+        - name: Load Balancer pubblico - Portale
           href: move-across-regions-external-load-balancer-portal.md
-        - name: Servizio di bilanciamento del carico esterno - PowerShell
+        - name: Load Balancer pubblico - PowerShell
           href: move-across-regions-external-load-balancer-powershell.md
-        - name: Servizio di bilanciamento del carico interno - Portale
+        - name: Load Balancer pubblico - Portale
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Servizio di bilanciamento del carico interno - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
