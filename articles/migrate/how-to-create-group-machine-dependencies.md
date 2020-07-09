@@ -3,11 +3,12 @@ title: Configurare l'analisi delle dipendenze basate su agente in Azure Migrate 
 description: Questo articolo descrive come configurare l'analisi delle dipendenze basate su agente in Azure Migrate server assessment.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 1271a45843a3775d4e1444321faad194edad2f23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a656ec734ff098dd5835f653010c7f298c13b38
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770578"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109995"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurare la visualizzazione delle dipendenze
 
@@ -56,7 +57,7 @@ Questo articolo descrive come configurare l'analisi delle dipendenze senza agent
 Installare gli agenti in ogni computer che si desidera analizzare.
 
 > [!NOTE]
-> Per i computer monitorati da System Center Operations Manager 2012 R2 o versione successiva, non è necessario installare l'agente MMA. Mapping dei servizi si integra con Operations Manager. [Seguire](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) le linee guida per l'integrazione.
+> Per i computer monitorati da System Center Operations Manager 2012 R2 o versione successiva, non è necessario installare l'agente MMA. Mapping dei servizi si integra con Operations Manager. [Seguire](../azure-monitor/insights/service-map-scom.md#prerequisites) le linee guida per l'integrazione.
 
 1. In **Azure migrate: server Assessment**fare clic su **server individuati**.
 2. Per ogni computer che si vuole analizzare con la visualizzazione delle dipendenze, nella colonna **dipendenze** fare clic su **richiede l'installazione dell'agente**.
@@ -83,7 +84,7 @@ Per installare l'agente in un computer Windows:
 È possibile installare l'agente dalla riga di comando o usando un metodo automatizzato, ad esempio Configuration Manager o [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Altre informazioni](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sull'uso di questi metodi per installare l'agente MMA.
 - L'agente MMA può essere installato anche usando questo [script](https://go.microsoft.com/fwlink/?linkid=2104394).
-- [Altre](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) informazioni sui sistemi operativi Windows supportati da MMA.
+- [Altre](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) informazioni sui sistemi operativi Windows supportati da MMA.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Installare MMA in un computer Linux
 
@@ -94,7 +95,7 @@ Per installare MMA in un computer Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems) sull'elenco dei sistemi operativi Linux supportati da MMA. 
+[Altre informazioni](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) sull'elenco dei sistemi operativi Linux supportati da MMA. 
 
 ## <a name="install-the-dependency-agent"></a>Installare Dependency Agent
 
@@ -103,8 +104,8 @@ Per installare MMA in un computer Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#installation-script-examples) sul modo in cui è possibile usare gli script per installare l'agente di dipendenza.
-- [Altre](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#supported-operating-systems) informazioni sui sistemi operativi supportati da Dependency Agent.
+- [Altre informazioni](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sul modo in cui è possibile usare gli script per installare l'agente di dipendenza.
+- [Altre](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) informazioni sui sistemi operativi supportati da Dependency Agent.
 
 
 ## <a name="create-a-group-using-dependency-visualization"></a>Creare un gruppo usando la visualizzazione delle dipendenze
@@ -161,8 +162,8 @@ Eseguire una query per i dati di dipendenza come segue:
 Ecco alcune query di esempio che è possibile usare per estrarre i dati delle dipendenze.
 
 - È possibile modificare le query per estrarre i punti dati preferiti.
-- [Esaminare](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) un elenco completo dei record dei dati delle dipendenze.
-- [Esaminare](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) le query di esempio aggiuntive.
+- [Esaminare](../azure-monitor/insights/service-map.md#log-analytics-records) un elenco completo dei record dei dati delle dipendenze.
+- [Esaminare](../azure-monitor/insights/service-map.md#sample-log-searches) le query di esempio aggiuntive.
 
 #### <a name="sample-review-inbound-connections"></a>Esempio: esaminare le connessioni in ingresso
 
@@ -170,7 +171,7 @@ Verificare le connessioni in ingresso per un set di macchine virtuali.
 
 - I record della tabella per le metriche di connessione (VMConnection) non rappresentano le singole connessioni di rete fisica.
 - Più connessioni di rete fisiche vengono raggruppate in una connessione logica.
-- [Altre](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) informazioni sul modo in cui i dati della connessione di rete fisica sono aggregati in VMConnection.
+- [Altre](../azure-monitor/insights/service-map.md#connections) informazioni sul modo in cui i dati della connessione di rete fisica sono aggregati in VMConnection.
 
 ```
 // the machines of interest

@@ -4,12 +4,12 @@ ms.author: dapine
 ms.date: 08/22/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 081155c8984f39cc9cc8e905eb108c07dee98d2e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b3d856d255968b4a6736db908ce3999cbd56193
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70034436"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108935"
 ---
 ## <a name="validate-that-a-container-is-running"></a>Verificare che il contenitore sia in esecuzione 
 
@@ -18,7 +18,8 @@ Per verificare se il contenitore è in esecuzione, sono disponibili diverse opzi
 | URL richiesta | Scopo |
 |--|--|
 | `http://localhost:5000/` | Il contenitore fornisce una home page. |
-| `http://localhost:5000/status` | Richiesta con HTTP GET, per verificare che il contenitore sia in esecuzione senza causare una query dell'endpoint. Questa richiesta può essere usata per i [probe di attività e di idoneità](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) di Kubernetes. |
+| `http://localhost:5000/ready` | Richiesto con GET, in questo modo viene verificata la disponibilità del contenitore per l'accettazione di una query sul modello.  Questa richiesta può essere usata per i [probe di attività e di idoneità](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) di Kubernetes. |
+| `http://localhost:5000/status` | Richiesto anche con GET, verifica se la chiave API usata per avviare il contenitore è valida senza causare una query dell'endpoint. Questa richiesta può essere usata per i [probe di attività e di idoneità](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) di Kubernetes. |
 | `http://localhost:5000/swagger` | Il contenitore fornisce un set completo di documentazione per gli endpoint e una funzionalità di **prova** . Con questa funzionalità, è possibile immettere le impostazioni in un modulo HTML basato sul Web ed eseguire la query senza scrivere codice. Dopo che la query restituisce il risultato, viene fornito un comando CURL di esempio per illustrare il formato richiesto per il corpo e le intestazioni HTTP. |
 
 ![Home page del contenitore](./media/cognitive-services-containers-api-documentation/container-webpage.png)

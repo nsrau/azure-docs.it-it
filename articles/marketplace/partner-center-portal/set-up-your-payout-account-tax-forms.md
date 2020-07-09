@@ -3,14 +3,13 @@ title: Configurare l'account proventi e i moduli fiscali - Marketplace commercia
 Description: Per ricevere denaro dalle offerte di vendita nel marketplace commerciale, di seguito sono riportate informazioni su come configurare l'account proventi e compilare i moduli fiscali necessari.
 ms.date: 12/10/2019
 ms.topic: conceptual
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 0256e5c60a417cec47f90cd6ec30fe9208f47f7f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 493043c43cf8dbac94bd33a907c91291fc51bf6c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738286"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109128"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configurare l'account proventi e i moduli fiscali
 

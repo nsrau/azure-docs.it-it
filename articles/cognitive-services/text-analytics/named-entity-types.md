@@ -8,28 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 9800eb9ec8ae9aa800e5281131148b600e42725f
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: e36a69be19844a75562f87d3c195494e3ef148a9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140930"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108498"
 ---
-# <a name="supported-entity-categories-in-named-entity-recognition-v3"></a>Categorie di entità supportate in Named Entity Recognition V3
+# <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>Categorie di entità supportate nella API Analisi del testo V3
 
-Usare questo articolo per trovare le categorie di entità che possono essere restituite dal [riconoscimento delle entità denominate](how-tos/text-analytics-how-to-entity-linking.md) (ner). È disponibile anche un'anteprima di NER v 3.1, che include la possibilità di rilevare informazioni personali ( `PII` ) e di integrità ( `PHI` ).
+Usare questo articolo per trovare le categorie di entità che possono essere restituite dal [riconoscimento delle entità denominate](how-tos/text-analytics-how-to-entity-linking.md) (ner). È disponibile anche un'anteprima di NER v 3.1, che include la possibilità di rilevare informazioni personali ( `PII` ) e di integrità ( `PHI` ). Inoltre, fare clic sulla scheda **integrità** per visualizzare un elenco di categorie supportate in analisi del testo per l'integrità.
 
 ## <a name="entity-categories"></a>Categorie di entità
 
-#### <a name="general"></a>[Generalee](#tab/general)
+#### <a name="general"></a>[Generale](#tab/general)
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### <a name="personal-and-health"></a>[Personale e integrità](#tab/personal)
+#### <a name="personal"></a>[Personale](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
+
+#### <a name="health"></a>[Salute](#tab/health)
+
+[!INCLUDE [biomedical entity types](./includes/entity-types/health-entities.md)]
 
 ***
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: 9dd6dba9b517c26277cc7f7e3c87df81b1c95648
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c06365531a4977b6b792e136e515b5b56c2c930
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567456"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110029"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Creare una valutazione della soluzione VMware di Azure (AVS)
 
@@ -34,7 +34,7 @@ Questo articolo descrive come creare una valutazione della soluzione VMware di A
 **Tipo di valutazione** | **Dettagli**
 --- | --- 
 **Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md)locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md)e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione. [Altre informazioni](concepts-assessment-calculation.md)
-**Soluzione Azure VMware (AVS)** | Valutazioni per la migrazione dei server locali alla [soluzione VMware di Azure (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad Azure VMware Solution (AVS) con questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+**Soluzione Azure VMware (AVS)** | Valutazioni per la migrazione dei server locali alla [soluzione VMware di Azure (AVS)](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad Azure VMware Solution (AVS) con questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
 > La valutazione della soluzione VMware di Azure (AVS) è attualmente in anteprima e può essere creata solo per le macchine virtuali VMware.
@@ -110,7 +110,7 @@ Una valutazione della soluzione VMware di Azure (AVS) descrive:
     - **Conformità sconosciuta**: Azure migrate non è stato in grado di determinare la conformità del computer a causa di metadati insufficienti raccolti dall'ambiente locale.
 
 3. Esaminare lo strumento consigliato:
-    - **VMware HCX o Enterprise**: per i computer VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+    - **VMware HCX o Enterprise**: per i computer VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](../azure-vmware/hybrid-cloud-extension-installation.md).
     - **Sconosciuto**: per i computer importati tramite un file CSV, lo strumento di migrazione predefinito è sconosciuto. Per i computer VMware, tuttavia, è consigliabile usare la soluzione VMWare Hybrid Cloud Extension (HCX). 
 
 4. Fare clic su uno stato di idoneità **AVS** . È possibile visualizzare i dettagli sull'idoneità delle VM ed eseguire il drill-down per visualizzare i dettagli delle VM, incluse le impostazioni di calcolo, archiviazione e rete.

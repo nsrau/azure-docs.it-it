@@ -1,18 +1,18 @@
 ---
 title: Certificazione di macchine virtuali di Azure - Azure Marketplace
 description: Informazioni su come testare e inviare un'offerta di macchina virtuale nel marketplace commerciale.
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: emuench
+ms.author: mingshen
 ms.date: 04/09/2020
-ms.openlocfilehash: 63f18556847a717322b00092b973f59877102a1d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d3b89945c077b9c26bab1709bd6d1def20959e33
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110046"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Certificazione delle immagini di macchina virtuale di Azure
 

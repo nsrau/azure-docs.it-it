@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: e4b61c6fe2f62745d0f5268221cbb5c84803eb10
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1dde59456126ce1221bdb71f09957c0fd3609427
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876431"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108711"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Distribuire un contenitore Analisi del testo in istanze di contenitore di Azure
 
@@ -40,6 +40,10 @@ Informazioni su come distribuire il contenitore [analisi del testo][install-and-
 #### <a name="sentiment-analysis"></a>[Analisi del sentiment](#tab/sentiment)
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
+
+#### <a name="text-analytics-for-health"></a>[Analisi del testo per l'integrità](#tab/health)
+
+[!INCLUDE [Verify the health container instance](../includes/verify-health-container.md)]
 
 ***
 

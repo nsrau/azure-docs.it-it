@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: 775992d090b951c8de6fce36377dc91d6e017399
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558082"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106986"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto del servizio Azure Kubernetes
 
@@ -52,7 +52,7 @@ Poiché i nodi di lavoro sono riservati, Microsoft presta molta attenzione a lim
 Microsoft fornisce supporto tecnico per gli elementi seguenti:
 
 > [!NOTE]
-> Tutte le azioni del cluster eseguite dal supporto tecnico Microsoft vengono apportate con il consenso dell'utente in un ruolo predefinito di ["modifica"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) di Kubernetes del nome `aks-support-rolebinding` . Con questo ruolo, il supporto AKS è abilitato per modificare la configurazione del cluster e le risorse per la risoluzione dei problemi e diagnosticare i problemi del cluster, ma il ruolo non può modificare le autorizzazioni né creare associazioni di ruolo o ruoli. L'accesso ai ruoli viene abilitato solo in ticket di supporto attivi con accesso just-in-time (JIT).
+> Qualsiasi azione del cluster eseguita da Microsoft/AKS viene effettuata con il consenso dell'utente con un ruolo predefinito di Kubernetes `aks-service` e un'associazione di ruolo incorporata `aks-service-rolebinding` . Questo ruolo consente ad AKS di risolvere e diagnosticare i problemi del cluster, ma non di modificare le autorizzazioni né di creare ruoli o associazioni di ruolo o altre azioni con privilegi elevati. L'accesso ai ruoli viene abilitato solo in ticket di supporto attivi con accesso just-in-time (JIT).
 
 * Connettività a tutti i componenti di Kubernetes forniti e supportati dal servizio Kubernetes, tra cui il server API.
 * Gestione, tempo di attività, Qualità del Servizio e operazioni dei servizi del piano di controllo Kubernetes (ad esempio, nodi master Kubernetes, server API, etcd e kube-dns).

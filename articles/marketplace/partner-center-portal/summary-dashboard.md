@@ -1,17 +1,16 @@
 ---
 title: Dashboard di riepilogo per l'analisi del Centro per i partner nel marketplace commerciale
 description: Informazioni su come accedere a grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace dal dashboard di riepilogo nel Centro per i partner.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: c7f1700cb386a197b33427e2ea615de019284d96
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 39b963fe40d26d498e69b8fc9bbb62ce514bef39
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738320"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109145"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di riepilogo nell'analisi per il marketplace commerciale
 

@@ -6,14 +6,14 @@ ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: 481b17651afbd2c0e0cf7a683ae0838a7f3fd88f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58521b16e0f4ff133fd032abd4451f785256bbee
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555585"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110471"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
 
@@ -25,7 +25,7 @@ Per capire come eseguire in locale manualmente ed eseguire il debug di uno scrip
 
 È possibile ottenere il Azure Data Lake U-SQL SDK [qui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) in NuGet.org. Prima di usarlo, è necessario assicurarsi di avere dipendenze come indicato di seguito.
 
-### <a name="dependencies"></a>Dependencies
+### <a name="dependencies"></a>Dipendenze
 
 L'SDK U-SQL di Data Lake richiede le dipendenze seguenti:
 
@@ -65,7 +65,7 @@ Negli script U-SQL è possibile usare sia un percorso relativo sia un percorso a
 
 Quando si esegue lo script U-SQL localmente, durante la compilazione viene creata una directory di lavoro nella directory di lavoro corrente. Oltre agli output di compilazione, nella directory di lavoro verrà creata una copia shadow dei file di runtime necessari per l'esecuzione locale. La cartella radice della directory di lavoro è denominata "ScopeWorkDir" e i file nella directory di lavoro sono i seguenti:
 
-|Directory/File|Directory/File|Directory/File|Definizione|Descrizione|
+|Directory/File|Directory/File|Directory/File|Definizione|Description|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Stringa di hash della versione di runtime|Copia shadow dei file di runtime necessari per l'esecuzione locale|
 | |Script_66AE4909AA0ED06C| |Nome di script + stringa hash del percorso dello script|Output di compilazione e registrazione del passaggio di esecuzione|
@@ -332,13 +332,13 @@ LocalRunHelper.exe fornisce le interfacce di programmazione per la compilazione 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parametro|Type|Descrizione|
+|Parametro|Type|Description|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|per i messaggi di output, impostato su null per usare Console|
 
 ### <a name="properties"></a>Proprietà
 
-|Proprietà|Type|Descrizione|
+|Proprietà|Type|Description|
 |--------|----|-----------|
 |AlgebraPath|string|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
 |CodeBehindReferences|string|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|

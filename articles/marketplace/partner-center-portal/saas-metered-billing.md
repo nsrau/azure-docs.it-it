@@ -1,18 +1,16 @@
 ---
 title: Fatturazione a consumo con il servizio di misurazione del Marketplace | Azure Marketplace
 description: Questa documentazione è una guida per gli ISV che pubblicano offerte SaaS con modelli di fatturazione flessibili.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 19854f0c91ea7c7548a01e930748757ce041f0c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09d9ed5e008acd5354cc673e39365f59ab7f64e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887939"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109179"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Fatturazione a consumo con il servizio di misurazione del Marketplace
 

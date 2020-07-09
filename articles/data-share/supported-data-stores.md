@@ -6,11 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: e0daa2b02c16d8d5a65b5e7e0f983a4f47181d40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8263e2b2d3d8d029cd28f6c8ea6c556fb9fe23be
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84635969"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108295"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Archivi dati supportati nella condivisione dati di Azure
 
@@ -37,7 +38,7 @@ La condivisione di dati di Azure offre la flessibilità dei consumer di dati per
 
 Nella tabella seguente vengono illustrate le diverse combinazioni e scelte che i consumer di dati hanno per l'accettazione e la configurazione della condivisione di dati. Per ulteriori informazioni su come configurare i mapping dei set di dati, vedere [come configurare i mapping dei set di dati](how-to-configure-mapping.md).
 
-|  | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | database SQL di Azure | Azure Synapse Analytics | Esplora dati di Azure
+| Archivio dati | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | database SQL di Azure | Azure Synapse Analytics | Esplora dati di Azure
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Archiviazione BLOB di Azure | ✓ || ✓ ||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ ||

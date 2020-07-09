@@ -1,17 +1,16 @@
 ---
 title: Classificazioni & esamina il dashboard di analisi nel centro per i partner
 description: Informazioni su come accedere a una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Microsoft AppSource e Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: a7ed477ea095defa27878e8f4a84162043829273
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 142e03ab8ae66e210bf572a7c640e19d17c38901
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792922"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109230"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Classificazioni & esamina il dashboard di analisi nel centro per i partner
 

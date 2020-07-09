@@ -3,15 +3,16 @@ title: Configurare un'appliance Azure Migrate in Azure per enti pubblici
 description: Informazioni su come configurare un appliance Azure Migrate in Azure per enti pubblici
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ebc882646b5ff3f62ddddf91cffc85cb5e0da6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052483"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109978"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurare un'appliance in Azure per enti pubblici 
 
-Seguire questo articolo per distribuire un [appliance Azure migrate](deploy-appliance.md) per le macchine virtuali VMware, le VM Hyper-V e i server fisici in un cloud di Azure per enti pubblici. Eseguire uno script per creare l'appliance e verificare che sia in grado di connettersi ad Azure. Se si vuole configurare un'appliance nel cloud pubblico, seguire [questo articolo](deploy-appliance-script.md).
+Seguire questo articolo per distribuire un [appliance Azure migrate](./migrate-appliance-architecture.md) per le macchine virtuali VMware, le VM Hyper-V e i server fisici in un cloud di Azure per enti pubblici. Eseguire uno script per creare l'appliance e verificare che sia in grado di connettersi ad Azure. Se si vuole configurare un'appliance nel cloud pubblico, seguire [questo articolo](deploy-appliance-script.md).
 
 
 > [!NOTE]

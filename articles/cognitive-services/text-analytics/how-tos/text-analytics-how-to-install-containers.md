@@ -9,20 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8d08a0ab8f817d70343686f907ac444af392ea06
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702142"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108991"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
 > [!NOTE]
 > * Il contenitore per Analisi del sentiment V3 è ora disponibile a livello generale. I contenitori di estrazione di frasi chiave e rilevamento della lingua sono disponibili come anteprima pubblica non gestita.
 > * Il collegamento di entità e NER non sono attualmente disponibili come contenitore.
+> * Attualmente, non verranno addebitati Analisi del testo per l'utilizzo del contenitore di integrità.
 
 I contenitori consentono di eseguire le API analitiche del testo nel proprio ambiente e sono perfette per i requisiti specifici di sicurezza e governance dei dati. I contenitori di Analisi del testo forniscono l'elaborazione avanzata in linguaggio naturale su testo non elaborato e includono tre funzioni principali: analisi dei sentimenti, estrazione di frasi chiave e rilevamento della lingua. 
 
@@ -39,7 +40,7 @@ Per eseguire uno dei contenitori di Analisi del testo, è necessario disporre de
 
 Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequisiti seguenti:
 
-|Necessario|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -59,6 +60,8 @@ Nella tabella seguente vengono descritte le specifiche minime e consigliate per 
 |---|---------|-------------|--|--|
 | **Rilevamento della lingua, estrazione di frasi chiave**   | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |15 | 30|
 | **Analisi del sentiment v3**   | 1 core, 2 GB di memoria | 4 core, 8 GB di memoria |15 | 30|
+| **Analisi del testo per l'integrità-1 documento/richiesta**   |  4 core, 10 GB di memoria | 6 core, memoria 12 GB |15 | 30|
+| **Analisi del testo per l'integrità-10 documenti/richiesta**   |  6 core, 16GB di memoria | 8 core, memoria 20 GB |15 | 30|
 
 Core CPU e memoria corrispondono alle `--cpus` Impostazioni e `--memory` , che vengono usate come parte del `docker run` comando.
 
@@ -80,6 +83,10 @@ Le immagini del contenitore per Analisi del testo sono disponibili in Microsoft 
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
+# <a name="text-analytics-for-health-preview"></a>[Analisi del testo per l'integrità (anteprima)](#tab/healthcare)
+
+[!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
+
 ***
 
 ## <a name="how-to-use-the-container"></a>Come usare il contenitore
@@ -92,13 +99,6 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
 Usare il comando [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire i contenitori. Il contenitore continuerà a essere eseguito fino a quando non lo si arresta.
-
-Sostituire i segnaposto seguenti con valori personalizzati:
-
-| Segnaposto | valore | Formato o esempio |
-|-------------|-------|---|
-| **{API_KEY}** | Chiave per la risorsa Analisi del testo. È possibile trovarlo nella pagina **chiave ed endpoint** della risorsa, nella portale di Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | Endpoint per l'accesso alla API Analisi del testo. È possibile trovarlo nella pagina **chiave ed endpoint** della risorsa, nella portale di Azure. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 > [!IMPORTANT]
 > * I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
@@ -116,6 +116,10 @@ Sostituire i segnaposto seguenti con valori personalizzati:
 # <a name="language-detection-preview"></a>[Rilevamento lingua (anteprima)](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+# <a name="text-analytics-for-health-preview"></a>[Analisi del testo per l'integrità (anteprima)](#tab/healthcare)
+
+[!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
 ***
 
@@ -153,7 +157,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](../
 
 [!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Analisi del testo. In sintesi:
 
@@ -161,8 +165,8 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
    * *Analisi del sentiment*
    * *Estrazione frasi chiave (anteprima)* 
    * *Rilevamento lingua (anteprima)*
-   
-* Le immagini dei contenitori vengono scaricate da Registro Container Microsoft in Azure.
+   * *Analisi del testo per l'integrità (anteprima)*
+* Le immagini del contenitore vengono scaricate dal repository del contenitore Microsoft Container Registry (o di anteprima).
 * Le immagini dei contenitori vengono eseguite in Docker.
 * È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori di Analisi del testo specificando l'URI host del contenitore.
 * Quando si crea un'istanza di un contenitore, è necessario specificare le informazioni di fatturazione.

@@ -1,17 +1,14 @@
 ---
 title: Azure SignalR come origine griglia di eventi
 description: Descrive le proprietà fornite per gli eventi di Azure SignalR con griglia di eventi di Azure
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.author: femila
-ms.openlocfilehash: 8fbae3fad4aeb85022c804e1ac648060360c6531
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 2ac391f366c4b9a82741a1b6b3135f5d7b5fe331
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560626"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106652"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Schema di eventi di griglia di eventi di Azure per il servizio SignalR
 
@@ -75,7 +72,7 @@ Lo schema per un evento di connessione client disconnessa è simile:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
@@ -97,7 +94,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | errorMessage | string | Errore che causa la disconnessione della connessione. |
 
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
-|Titolo | Descrizione |
+|Titolo | Description |
 |---------|---------|
 | [Reagire agli eventi del servizio Azure SignalR usando griglia di eventi](../azure-signalr/signalr-concept-event-grid-integration.md) | Panoramica dell'integrazione del servizio SignalR di Azure con griglia di eventi. |
 | [Come inviare eventi del servizio Azure SignalR a griglia di eventi](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra come inviare eventi del servizio Azure SignalR a un'applicazione tramite griglia di eventi. |

@@ -3,11 +3,12 @@ title: Configurare un'appliance Azure Migrate per Hyper-V
 description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56b034709309a3afe9d18df7af9ababc74a24cee
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81538291"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109706"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurare un'appliance per le VM Hyper-V
 
@@ -49,7 +50,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  Per la versione appliance 2.19.11.12, l'hash generato deve corrispondere a queste [Impostazioni](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security).
+3.  Per la versione appliance 2.19.11.12, l'hash generato deve corrispondere a queste [Impostazioni](./tutorial-assess-hyper-v.md#verify-security).
 
 
 

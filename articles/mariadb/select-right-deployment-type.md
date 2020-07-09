@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4c7eb5e4f22cb432a9d17e6eafa653e62e1f9129
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3b65558a12fb6b20f449f5386c0ce7e598433b6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529901"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110301"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Scegliere l'opzione del server MariaDB corretta in Azure
 
@@ -31,7 +31,7 @@ Quando si decide di prendere in considerazione le due opzioni seguenti:
 
 Le differenze principali tra queste opzioni sono elencate nella tabella seguente:
 
-|            | Database di Azure per MariaDB | MariaDB in macchine virtuali di Azure    |
+| Attributo          | Database di Azure per MariaDB | MariaDB in macchine virtuali di Azure    |
 |:-------------------|:-----------------------------|:--------------------|
 | Contratto di servizio (SLA)                | Offre SLA con disponibilità del 99,99%| Disponibilità fino al 99,95% con due o più istanze nello stesso set di disponibilità.<br/><br/>disponibilità del 99,9% con una macchina virtuale a istanza singola che usa archiviazione Premium.<br/><br/>99,99% con zone di disponibilità con più istanze in più set di disponibilità.<br/><br/>Vedere il [contratto di contratto per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Applicazione di patch al sistema operativo        | Automatico  | Gestito dai clienti |
@@ -49,7 +49,7 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 
 Esistono diversi fattori che possono influenzare la decisione di scegliere PaaS o IaaS per ospitare i database MariaDB.
 
-### <a name="cost"></a>Costi
+### <a name="cost"></a>Costo
 
 Un finanziamento limitato è spesso la considerazione principale che determina la migliore soluzione per l'hosting dei database. Si tratta di un avvio con pochi soldi o un team in una società stabilita che opera con vincoli di budget limitati. Questa sezione descrive le nozioni di base relative a fatturazione e licenze in Azure che si applicano al database di Azure per MariaDB e MariaDB nelle macchine virtuali di Azure.
 

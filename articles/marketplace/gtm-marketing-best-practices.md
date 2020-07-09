@@ -1,17 +1,18 @@
 ---
 title: Procedure consigliate per il marketing - Marketplace commerciale Microsoft
 description: Ottenere risorse sulle procedure di marketing consigliate per i partner che pubblicano offerte in Microsoft AppSource e Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: 1955dd9dda75906e52007958fe7b4385e657444c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: dbe43bac3155290ea809b47f7c280cabc51fc73d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658032"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106886"
 ---
 # <a name="marketing-best-practices"></a>Procedure consigliate di marketing
 

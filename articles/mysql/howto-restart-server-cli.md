@@ -4,14 +4,14 @@ description: Questo articolo descrive come riavviare un database di Azure per il
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: c1fd688fbfd892e3d0dfc3ebb1712dd931e0ed39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab2ef4315ea035d051065e1e148577fd73dfae26
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80063506"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107955"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Riavviare database di Azure per il server MySQL usando l'interfaccia della riga di comando di Azure
 In questo argomento viene descritta la procedura per riavviare un server di Database di Azure per MySQL. Potrebbe essere necessario riavviare il server per motivi di manutenzione, causando così una breve interruzione del servizio mentre il server esegue l'operazione.

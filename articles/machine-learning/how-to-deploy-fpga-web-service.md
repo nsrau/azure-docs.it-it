@@ -11,11 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
 ms.custom: seodec18, contperfq4, tracking-python
-ms.openlocfilehash: fabdbfbb90a14aa0f66e3d8a4eb5f6a428c6a0a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 636d16c4fbbd662d6fccb811fb4a88b2d862b533
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557370"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107326"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Informazioni su FPGA (Field-Programmable Gate Array) e su come eseguire la distribuzione
 
@@ -25,7 +26,7 @@ Questo articolo fornisce un'introduzione a FPGA (Field-Programmable Gate Array) 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure.  Se non se ne ha una, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+- Una sottoscrizione di Azure. Se non si ha un account, è necessario creare un account [con pagamento in base](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) al consumo (gli account Azure gratuiti non sono idonei per la quota FPGA).
 - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Quota FPGA. Usare l'interfaccia della riga di comando di Azure per verificare se è presente una quota:
 
@@ -64,7 +65,7 @@ Il diagramma e la tabella seguenti evidenziano un confronto tra i circuiti FPGA 
 
 ![Diagramma del confronto Azure Machine Learning FPGA](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Processore||Descrizione|
+|Processore||Description|
 |---|:-------:|------|
 |Application-specific integrated circuit|ASIC|I circuiti personalizzati, ad esempio Google TensorFlow Processor Unit (TPU), offrono la massima efficienza. Non possono essere riconfigurati in base alle esigenze.|
 |Field-programmable Gate Arrays|FPGA|I circuiti FPGA, ad esempio quelli disponibili in Azure, assicurano prestazioni simili a quelle dei circuiti ASIC. Sono flessibili e possono essere riconfigurati nel corso del tempo per implementare la nuova logica.|

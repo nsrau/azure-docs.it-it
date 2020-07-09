@@ -3,11 +3,12 @@ title: Esportare da Azure Application Insights usando l'analisi di flusso | Docu
 description: L'analisi di flusso può trasformare, filtrare e instradare continuativamente i dati esportati da Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 400c727b44d3794dc9a17c59959dc5c75cea71fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536880"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110488"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
@@ -92,7 +93,7 @@ A questo punto è necessaria la chiave di accesso primaria dell'account di archi
 
 Lo schema prefisso percorso specifica dove l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
 
-    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+`webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}`
 
 Esempio:
 
@@ -124,16 +125,15 @@ Utilizzare la funzione Test per verificare di ottenere l'output corretto. Assegn
 Incollare questa query:
 
 ```SQL
-
-    SELECT
-      flat.ArrayValue.name,
-      count(*)
-    INTO
-      [pbi-output]
-    FROM
-      [export-input] A
-    OUTER APPLY GetElements(A.[event]) as flat
-    GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
+SELECT
+  flat.ArrayValue.name,
+  count(*)
+INTO
+  [pbi-output]
+FROM
+  [export-input] A
+OUTER APPLY GetElements(A.[event]) as flat
+GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 ```
 
 * export-input è l'alias assegnato all'input del flusso
@@ -141,40 +141,38 @@ Incollare questa query:
 * Viene usato [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola [GROUP BY](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) raggruppa gli elementi in periodi di tempo di un minuto.
 
 ### <a name="query-to-display-metric-values"></a>Query per visualizzare i valori delle metriche
+
 ```SQL
-
-    SELECT
-      A.context.data.eventtime,
-      avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
-    INTO
-      [pbi-output]
-    FROM
-      [export-input] A
-    OUTER APPLY GetElements(A.context.custom.metrics) as flat
-    GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
-
-``` 
+SELECT
+  A.context.data.eventtime,
+  avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
+INTO
+  [pbi-output]
+FROM
+  [export-input] A
+OUTER APPLY GetElements(A.context.custom.metrics) as flat
+GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
+```
 
 * Questa query entra nella telemetria delle metriche per ottenere l'ora dell'evento e il valore della metrica. I valori delle metriche sono all'interno di una matrice, pertanto si utilizza il modello OUTER APPLY GetElements per estrarre le righe. "myMetric" è il nome della metrica in questo caso. 
 
 ### <a name="query-to-include-values-of-dimension-properties"></a>Query per includere i valori delle proprietà delle dimensioni
+
 ```SQL
-
-    WITH flat AS (
-    SELECT
-      MySource.context.data.eventTime as eventTime,
-      InstanceId = MyDimension.ArrayValue.InstanceId.value,
-      BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
-    FROM MySource
-    OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
-    )
-    SELECT
-     eventTime,
-     InstanceId,
-     BusinessUnitId
-    INTO AIOutput
-    FROM flat
-
+WITH flat AS (
+SELECT
+  MySource.context.data.eventTime as eventTime,
+  InstanceId = MyDimension.ArrayValue.InstanceId.value,
+  BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
+FROM MySource
+OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
+)
+SELECT
+  eventTime,
+  InstanceId,
+  BusinessUnitId
+INTO AIOutput
+FROM flat
 ```
 
 * Questa query include i valori delle proprietà delle dimensioni senza dipendere da una dimensione specifica in un indice fissato nella matrice di dimensioni.

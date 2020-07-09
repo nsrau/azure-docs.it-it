@@ -3,11 +3,12 @@ title: 'Come progettare la distribuzione di Application Insights: una o più ris
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 53fe54d1e674a9d15cab5a3fac0c85f415e40260
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773703"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107428"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quante risorse Application Insights è necessario distribuire
 
@@ -44,33 +45,34 @@ Per rendere più semplice la modifica del valore ikey man mano che il codice att
 
 Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
 
-*C#*
-
-    protected void Application_Start()
-    {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey = 
-          // - for example -
-          WebConfigurationManager.AppSettings["ikey"];
-      ...
+```csharp
+protected void Application_Start()
+{
+  Microsoft.ApplicationInsights.Extensibility.
+    TelemetryConfiguration.Active.InstrumentationKey = 
+      // - for example -
+      WebConfigurationManager.AppSettings["ikey"];
+  ...
+```
 
 In questo esempio i valori ikey per le diverse risorse vengono inseriti in versioni diverse del file di configurazione Web. Lo scambio del file di configurazione Web, che è possibile eseguire nell'ambito dello script di rilascio, consente di scambiare la risorsa di destinazione.
 
 ### <a name="web-pages"></a>Pagina Web
 Il valore iKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal riquadro Avvio rapido](../../azure-monitor/app/javascript.md). Invece di codificarlo letteralmente nello script, generarlo dallo stato del server. Ad esempio, in un'app ASP.NET:
 
-*JavaScript in Razor*
-
-    <script type="text/javascript">
-    // Standard Application Insights web page script:
-    var appInsights = window.appInsights || function(config){ ...
-    // Modify this part:
-    }({instrumentationKey:  
-      // Generate from server property:
-      "@Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
-    }) // ...
-
+```javascript
+<script type="text/javascript">
+// Standard Application Insights web page script:
+var appInsights = window.appInsights || function(config){ ...
+// Modify this part:
+}({instrumentationKey:  
+  // Generate from server property:
+  "@Microsoft.ApplicationInsights.Extensibility.
+     TelemetryConfiguration.Active.InstrumentationKey"
+  }
+ )
+//...
+```
 
 ## <a name="create-additional-application-insights-resources"></a>Creare risorse di Application Insights aggiuntive
 
@@ -95,7 +97,6 @@ Esistono diversi metodi di impostazione della proprietà della versione dell'app
 * [ASP.NET] Impostare la versione `BuildInfo.config`. Il modulo Web selezionerà la versione dal nodo BuildLabel. Includere questo file nel progetto e ricordarsi di impostare la proprietà Copia sempre in Esplora soluzioni.
 
     ```XML
-
     <?xml version="1.0" encoding="utf-8"?>
     <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
@@ -110,7 +111,6 @@ Esistono diversi metodi di impostazione della proprietà della versione dell'app
 * [ASP.NET] Generare automaticamente BuildInfo.config in MSBuild. A tale scopo, aggiungere alcune righe al file `.csproj`:
 
     ```XML
-
     <PropertyGroup>
       <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
     </PropertyGroup>
@@ -126,10 +126,10 @@ Esistono diversi metodi di impostazione della proprietà della versione dell'app
 Per tenere traccia della versione dell'applicazione, assicurarsi che il processo di Microsoft Build Engine generi `buildinfo.config`. Nel file `.csproj` aggiungere:  
 
 ```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
+<PropertyGroup>
+  <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>
+  <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+</PropertyGroup>
 ```
 
 Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di applicare filtri in base alla versione quando si eseguono [ricerche diagnostiche](../../azure-monitor/app/diagnostic-search.md) o quando si [esaminano le metriche](../../azure-monitor/platform/metrics-charts.md).

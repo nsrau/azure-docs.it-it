@@ -3,12 +3,12 @@ title: Monitorare un'app Web ASP.NET live con Azure Application Insights | Micro
 description: Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. È possibile usare questa funzionalità con app Web ASP.NET ospitate in locale o con macchine virtuali.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 2892cb40f0b00b468ef0b8a4ffe60c1158ad068a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807265"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107479"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
 
@@ -98,7 +98,8 @@ Questi sono alcuni passaggi che è possibile eseguire per verificare che l'insta
   ```
 
 - Se è necessario verificare che Application Insights sia collegato correttamente, è possibile eseguire l' [handle di Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) in una finestra di comando per verificare che applicationinsights.dll sia stato caricato da IIS.
-  ```cmd
+
+  ```console
   handle.exe /p w3wp.exe
   ```
 
@@ -109,7 +110,7 @@ Questi sono alcuni passaggi che è possibile eseguire per verificare che l'insta
 
 ### <a name="unable-to-login"></a>Non è possibile effettuare l'accesso
 
-* Se Status Monitor non è in grado di effettuare l'accesso, eseguire l'installazione dalla riga di comando. Status Monitor tenta di effettuare l'accesso per raccogliere la ikey, tuttavia è possibile fornirla manualmente usando il comando:
+Se Status Monitor non è in grado di effettuare l'accesso, eseguire l'installazione dalla riga di comando. Status Monitor tenta di effettuare l'accesso per raccogliere la ikey, tuttavia è possibile fornirla manualmente usando il comando:
 
 ```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
@@ -192,7 +193,9 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
 Importare prima di tutto il modulo di Application Insights:
 
-`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+```powershell
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
+```
 
 Individuare le applicazioni sottoposte a monitoraggio:
 
@@ -221,12 +224,14 @@ Individuare le applicazioni sottoposte a monitoraggio:
     Per scaricare l'ultima versione, usare Update-ApplicationInsightsVersion.
 * Se l'esito è positivo, restituisce `ApplicationInsightsApplication` . Se l'esito è negativo, registra una traccia in stderr.
 
-          Name                      : Default Web Site/WebApp1
-          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
-          ProfilerState             : ApplicationInsights
-          SdkState                  : EnabledAfterDeployment
-          SdkVersion                : 1.2.1
-          LatestAvailableSdkVersion : 1.2.3
+   ```output
+   Name                      : Default Web Site/WebApp1
+   InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+   ProfilerState             : ApplicationInsights
+   SdkState                  : EnabledAfterDeployment
+   SdkVersion                : 1.2.1
+   LatestAvailableSdkVersion : 1.2.3
+   ```
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
@@ -298,7 +303,7 @@ Per le applicazioni già instrumentate in fase di compilazione:
  * Chiamate alle dipendenze (.NET 4.5) e valori restituiti nelle chiamate alle dipendenze (.NET 4.6)
  * Valori di analisi dello stack delle eccezioni
 
-[Altre informazioni](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
+[Scopri di più](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 

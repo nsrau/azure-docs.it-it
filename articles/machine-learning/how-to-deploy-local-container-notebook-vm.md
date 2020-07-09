@@ -1,5 +1,5 @@
 ---
-title: Modelli HDeploy per le istanze di calcolo
+title: Distribuire modelli in istanze di calcolo
 titleSuffix: Azure Machine Learning
 description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando le istanze di calcolo.
 services: machine-learning
@@ -10,11 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 07afeba8ab481da6a23862dee187c8c72df19f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f2872becd5fb23c71fabb63fb4eafe27c00a637
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429577"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106969"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuire un modello per Azure Machine Learning istanze di calcolo
 

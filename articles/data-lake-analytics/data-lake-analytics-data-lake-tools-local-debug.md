@@ -7,15 +7,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 4e4115518c71c3695797ac051910890d24723bae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 580f23fa2b4fc9c5afee4eb8435e74a8bfa1fbe9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085396"
+ms.locfileid: "86106952"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Eseguire il debug locale del codice di Azure Data Lake Analytics
 
@@ -45,7 +45,7 @@ Informazioni su come [eseguire lo script U-SQL nel computer locale](data-lake-an
    ```sql
    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
    ```
-        
+   
 3. Impostare i punti di interruzione nel codice C#.
 4. Premere **F5** per eseguire il debug dello script facendo riferimento al file **DLL** C# in locale.
 

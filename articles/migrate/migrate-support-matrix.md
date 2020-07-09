@@ -4,15 +4,16 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 51f797ad80886669a8734af6898164737d16971a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770187"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108754"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto di Azure Migrate
 
-È possibile usare il [servizio Azure Migrate](migrate-overview.md) per valutare ed eseguire la migrazione di un computer nel cloud Microsoft Azure. Questo articolo riepiloga le impostazioni e i limiti generali del supporto per gli scenari e le distribuzioni di Azure Migrate.
+È possibile usare il [servizio Azure Migrate](./migrate-services-overview.md) per valutare ed eseguire la migrazione di un computer nel cloud Microsoft Azure. Questo articolo riepiloga le impostazioni e i limiti generali del supporto per gli scenari e le distribuzioni di Azure Migrate.
 
 ## <a name="supported-assessmentmigration-scenarios"></a>Scenari di valutazione/migrazione supportati
 
@@ -39,8 +40,8 @@ Migrazione server di Azure Migrate | ND | Eseguire la migrazione di [macchine vi
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Valutare macchine virtuali VMware, macchine virtuali Hyper-V, server fisici, carichi di lavoro su cloud pubblico. | ND
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Valutare ed eseguire la migrazione di macchine virtuali VMware, macchine virtuali Hyper-V, server fisici e carichi di lavoro su cloud pubblico. |  Eseguire la migrazione di macchine virtuali VMware, macchine virtuali Hyper-V, server fisici e carichi di lavoro su cloud pubblico.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Valutare macchine virtuali VMware, macchine virtuali Hyper-V, server fisici, carichi di lavoro su cloud pubblico.| ND
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Valutare SQL Server database. | ND
-[Servizio Migrazione del database](https://docs.microsoft.com/azure/dms/dms-overview) | ND | Eseguire la migrazione di SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
+[DMA](/sql/dma/dma-overview?view=sql-server-2017) | Valutare SQL Server database. | ND
+[Servizio Migrazione del database](../dms/dms-overview.md) | ND | Eseguire la migrazione di SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Valutare Virtual Desktop Infrastructure (VDI) | ND
 [Movere](https://www.movere.io/) | Valutare macchine virtuali VMWare, macchine virtuali Hyper-V, macchine virtuali Xen, computer fisici, workstation (inclusa VDI), carichi di lavoro su cloud pubblico | ND
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | Eseguire la migrazione di macchine virtuali VMWare, macchine virtuali Hyper-V, macchine virtuali Xen, macchine virtuali KVM, computer fisici, carichi di lavoro su cloud pubblico 
@@ -119,4 +120,3 @@ Sono disponibili due versioni del servizio Azure Migrate:
 
 - [Valutare le macchine virtuali VMware](tutorial-assess-vmware.md) per la migrazione.
 - [Valutare le macchine virtuali Hyper-V](tutorial-assess-hyper-v.md) per la migrazione.
-
