@@ -1,17 +1,16 @@
 ---
 title: Servizi di consulenza nel marketplace commerciale Microsoft
 description: Questo articolo illustra i criteri di idoneità e i requisiti di pubblicazione per le nuove offerte di servizi di consulenza in Microsoft AppSource e Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 1267225f6b8557efc7ce36a973daef0a46aaba2d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4a45239836779fc83aa2e3927c6e3ff752c87182
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957988"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103756"
 ---
 # <a name="consulting-service-offers"></a>Offerte di servizi di consulenza
 

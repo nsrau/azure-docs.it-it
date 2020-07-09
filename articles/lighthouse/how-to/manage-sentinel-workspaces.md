@@ -3,16 +3,16 @@ title: Gestisci aree di lavoro di Sentinel di Azure su larga scala
 description: Informazioni su come gestire efficacemente Azure Sentinel sulle risorse dei clienti Delegate.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: bca5b6fdc84fa5a7a5553fe64c0218c5f0b44aa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268781"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105269"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gestisci aree di lavoro di Sentinel di Azure su larga scala
 
-I provider di servizi potrebbero aver integrato più tenant di clienti per la gestione risorse delegate di Azure. Azure Lighthouse consente ai provider di servizi di eseguire operazioni su larga scala tra più tenant Azure Active Directory (Azure AD) contemporaneamente, rendendo più efficienti le attività di gestione.
+Come provider di servizi, è possibile che siano stati caricati più tenant del cliente nel [Faro di Azure](../overview.md). Azure Lighthouse consente ai provider di servizi di eseguire operazioni su larga scala tra più tenant Azure Active Directory (Azure AD) contemporaneamente, rendendo più efficienti le attività di gestione.
 
 Azure Sentinel fornisce analisi della sicurezza e Intelligence per le minacce, offrendo un'unica soluzione per il rilevamento degli avvisi, la visibilità delle minacce, la ricerca proattiva e la risposta alle minacce. Con Azure Lighthouse è possibile gestire più aree di lavoro di Azure Sentinel tra i tenant su larga scala. Questo consente scenari come l'esecuzione di query su più aree di lavoro o la creazione di cartelle di lavoro per visualizzare e monitorare i dati dalle origini dati connesse per ottenere informazioni dettagliate. Gli IP, ad esempio query e PlayBook, rimangono nel tenant di gestione, ma possono essere usati per eseguire la gestione della sicurezza nei tenant dei clienti.
 
@@ -35,7 +35,7 @@ Questo modello di distribuzione centralizzato presenta i vantaggi seguenti:
 
 ## <a name="granular-role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo granulare
 
-Ogni sottoscrizione cliente che verrà gestita da un MSSP deve essere [caricata per la gestione delle risorse delegate di Azure](onboard-customer.md). In questo modo gli utenti designati nel tenant di gestione possono accedere ed eseguire operazioni di gestione nelle aree di lavoro di Azure Sentinel distribuite in tenant del cliente.
+Ogni sottoscrizione cliente che verrà gestita da un MSSP deve essere caricata [in Azure Lighthouse](onboard-customer.md). In questo modo gli utenti designati nel tenant di gestione possono accedere ed eseguire operazioni di gestione nelle aree di lavoro di Azure Sentinel distribuite in tenant del cliente.
 
 Quando si creano le autorizzazioni, è possibile assegnare i ruoli predefiniti di Sentinel di Azure a utenti, gruppi o entità servizio nel tenant di gestione:
 

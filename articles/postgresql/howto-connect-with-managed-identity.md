@@ -4,13 +4,14 @@ description: Informazioni su come connettersi ed eseguire l'autenticazione usand
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 01a27a9c98c1c429cdc381ba0c1e9ef4186c9e7a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ec9e53ecaa95f6407a00c149abb6ed7e4a671d74
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663349"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102294"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Connettersi con l'identità gestita a Database di Azure per PostgreSQL
 
@@ -18,7 +19,7 @@ Questo articolo illustra come usare un'identità assegnata dall'utente per una m
 
 > [!div class="checklist"]
 > * Concedere l'accesso della macchina virtuale a un server di Database di Azure per PostgreSQL
-> * Creare un utente nel database che rappresenta l'identità assegnata dall'utente della VM
+> * Creare un utente nel database che rappresenta l'identità assegnata dall'utente della macchina virtuale
 > * Ottenere un token di accesso tramite l'identità della VM e usarlo per eseguire query su un server di Database di Azure per PostgreSQL
 > * Implementare il recupero dei token in un'applicazione C# di esempio
 
@@ -30,7 +31,7 @@ Questo articolo illustra come usare un'identità assegnata dall'utente per una m
 - È necessario un server di Database di Azure per PostgreSQL con l'[autenticazione di Azure AD](howto-configure-sign-in-aad-authentication.md) configurata
 - Per seguire l'esempio in C#, completare prima di tutto la procedura per [connettersi con C#](connect-csharp.md)
 
-## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>Creazione di un'identità gestita assegnata dall'utente per la VM
+## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>Creazione di un'identità gestita assegnata dall'utente per la macchina virtuale
 
 Creare un'identità nella sottoscrizione usando il comando [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create). È possibile usare lo stesso gruppo di risorse in cui viene eseguita la macchina virtuale o un altro.
 
@@ -99,7 +100,7 @@ A questo punto si è connessi al database configurato in precedenza.
 
 Questa sezione illustra come ottenere un token di accesso usando l'identità gestita assegnata dall'utente della VM e usarlo per chiamare Database di Azure per PostgreSQL. Database di Azure per PostgreSQL supporta in modalità nativa l'autenticazione di Azure AD, per cui può accettare direttamente i token di accesso ottenuti tramite identità gestite per le risorse di Azure. Quando si crea una connessione a PostgreSQL, si passa il token di accesso nel campo della password.
 
-Ecco un esempio di codice .NET per l'apertura di una connessione a PostgreSQL tramite token di accesso. Questo codice deve essere eseguito nella macchina virtuale per poter accedere all'endpoint dell'identità gestita assegnata dall'utente della VM. Per usare il metodo del token di accesso, è necessario .NET Framework 4.6 o versione successiva oppure .NET Core 2.2 o versione successiva. Sostituire i valori di HOST, USER, DATABASE e CLIENT_ID.
+Ecco un esempio di codice .NET per l'apertura di una connessione a PostgreSQL tramite token di accesso. Questo codice deve essere eseguito nella macchina virtuale per poter accedere all'endpoint dell'identità gestita assegnata dall'utente della macchina virtuale. Per usare il metodo del token di accesso, è necessario .NET Framework 4.6 o versione successiva oppure .NET Core 2.2 o versione successiva. Sostituire i valori di HOST, USER, DATABASE e CLIENT_ID.
 
 ```csharp
 using System;

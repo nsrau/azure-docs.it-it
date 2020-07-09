@@ -4,16 +4,16 @@ description: Informazioni su come configurare Azure Active Directory (AAD) per l
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
-ms.openlocfilehash: 7df9c40980d7a35c1eab0f892c3aca0a30938f57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e813459ddf516b170e7f429646dad38452188335
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194111"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102379"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Usare Azure Active Directory per l'autenticazione con PostgreSQL
+# <a name="use-azure-active-directory-for-authentication-with-postgresql"></a>Usare Azure Active Directory per l'autenticazione con PostgreSQL
 
 Questo articolo consente di eseguire in modo semplificato i passaggi necessari per configurare l'accesso di Azure Active Directory con Database di Azure per PostgreSQL e connettersi tramite un token di Azure AD.
 

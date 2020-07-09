@@ -1,18 +1,14 @@
 ---
 title: Gruppo di risorse di Azure come origine di griglia di eventi
 description: Descrive le proprietà disponibili per gli eventi del gruppo di risorse con Griglia di eventi di Azure
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ed01bfdb67d9b8a3dd5875ec3fd8c6edf8922520
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393260"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105915"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Gruppo di risorse di Azure come origine di griglia di eventi
 
@@ -235,7 +231,7 @@ L'esempio seguente illustra lo schema di un evento **ResourceActionSuccess**. Lo
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |

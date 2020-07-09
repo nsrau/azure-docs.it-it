@@ -3,11 +3,12 @@ title: Preparare i server Windows Server 2003 per la migrazione con Azure Migrat
 description: Informazioni su come preparare i server Windows Server 2003 per la migrazione con Azure Migrate.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 33519764b138c7711e6c03a85aa33ec6f936a748
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e33742d59972d491c1efb8d0f1453c1226d4625
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84172126"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103943"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Preparare i computer Windows Server 2003 per la migrazione
 
@@ -24,7 +25,7 @@ Questo articolo descrive come preparare i computer che eseguono Windows Server 2
 
 Prima della migrazione, controllare se Hyper-V Integration Services è installato, quindi installare se necessario.
 
-1. Seguire [queste istruzioni](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) per verificare se è installato.
+1. Seguire [queste istruzioni](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) per verificare se è installato.
 2. Se non è installato, accedere a un computer che esegue Windows Server 2012 R2/Windows Server 2012 con il ruolo Hyper-V.
 3. Passare al file di installazione in **C:\Windows\System32\vmguest.ISO**e montare il file.
 2. Copiare la cartella di installazione nel computer Windows Server 2003 e installare Integration Services.

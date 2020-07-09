@@ -1,18 +1,16 @@
 ---
 title: Tipi di unità di test, Marketplace commerciale Microsoft
 description: Tipi di unità di test nel Marketplace commerciale
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: dsindona
-ms.openlocfilehash: a2d12a372f773a4a389ea7e7f2b3d2811ba889d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 401ffaaa0fa8c8e298a3a1891d93f2c9039d7820
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801224"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102940"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
@@ -70,7 +68,7 @@ Tuttavia, test drive funziona automaticamente, senza interazione umana, pertanto
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipi di metadati di parametro accettati
 
-| Tipo di metadati   | Tipo di parametro  | Descrizione     | Valore di esempio    |
+| Tipo di metadati   | Tipo di parametro  | Description     | Valore di esempio    |
 |---|---|---|---|
 | **baseUri**     | string          | URI di base del pacchetto di distribuzione| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
 | **nome utente**    | string          | Nuovo nome utente casuale.| admin68876      |

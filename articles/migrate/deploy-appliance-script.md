@@ -3,15 +3,16 @@ title: Configurare un'appliance Azure Migrate con uno script
 description: Informazioni su come configurare un'appliance Azure Migrate con uno script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: d5603aaef0a1c3e784f455777302c23e6724fbe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47b6b35e62d484b4d7a33f6a53796c59e01817fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052471"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102447"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurare un'appliance con uno script
 
-Seguire questo articolo per creare un' [appliance Azure migrate](deploy-appliance.md) per la valutazione/migrazione di macchine virtuali VMware e macchine virtuali Hyper-V. Eseguire uno script per creare un'appliance e verificare che sia in grado di connettersi ad Azure. 
+Seguire questo articolo per creare un' [appliance Azure migrate](./migrate-appliance-architecture.md) per la valutazione/migrazione di macchine virtuali VMware e macchine virtuali Hyper-V. Eseguire uno script per creare un'appliance e verificare che sia in grado di connettersi ad Azure. 
 
 È possibile distribuire l'appliance per macchine virtuali VMware e Hyper-V usando uno script o un modello scaricato dal portale di Azure. L'uso di uno script è utile se non si è in grado di creare una macchina virtuale usando il modello scaricato.
 

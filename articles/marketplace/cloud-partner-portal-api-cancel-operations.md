@@ -1,18 +1,18 @@
 ---
 title: Annulla operazione API-Microsoft Commercial Marketplace
 description: API per annullare un'operazione attualmente in corso sull'offerta
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/16/2020
+author: anbene
 ms.author: mingshen
-ms.openlocfilehash: 99a6cebd22c88388c68ceff3873ea8f8782b1c87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/16/2020
+ms.openlocfilehash: e65f0a8ee0a5dfafab681010006fe190cb5bad70
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515995"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102753"
 ---
 # <a name="cancel-operation"></a>Annulla operazione
 

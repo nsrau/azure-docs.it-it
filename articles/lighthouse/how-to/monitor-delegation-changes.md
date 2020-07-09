@@ -1,18 +1,18 @@
 ---
 title: Monitorare le modifiche della delega nel tenant di gestione
 description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b30cbc025f97ab76be55f0f83e15603b40092ce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919129"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105167"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
-Come provider di servizi, è opportuno tenere presente quando le sottoscrizioni dei clienti o i gruppi di risorse vengono delegati al tenant tramite la [gestione delle risorse](../concepts/azure-delegated-resource-management.md)delegate di Azure o quando le risorse delegate in precedenza vengono rimosse.
+Come provider di servizi, è opportuno tenere presente quando le sottoscrizioni dei clienti o i gruppi di risorse vengono delegati al tenant tramite [Azure Lighthouse](../overview.md)o quando le risorse delegate in precedenza vengono rimosse.
 
 Nel tenant di gestione, il [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) tiene traccia dell'attività di delega a livello di tenant. Questa attività registrata include tutte le deleghe aggiunte o rimosse da tutti i tenant del cliente.
 
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come caricare i clienti nella [gestione delle risorse delegate di Azure](../concepts/azure-delegated-resource-management.md).
+- Informazioni su come caricare i clienti nel [Faro di Azure](../concepts/azure-delegated-resource-management.md).
 - Informazioni su [monitoraggio di Azure](../../azure-monitor/index.yml) e [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md).

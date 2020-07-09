@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f5de8da90ac3356480fd809af68ab2c8b30540aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e4030583ac902093c30374c24b877e3f089eb02
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465950"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106221"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Ottimizzare le prestazioni: MapReduce, HDInsight & Azure Data Lake Storage Gen2
 
@@ -56,7 +57,7 @@ Le dimensioni della memoria per le attività di mapping e riduzione dipenderanno
 
 Per ottimizzare mapreduce.job.maps/mapreduce.job.reduces è necessario tenere presente la quantità di memoria totale di YARN disponibile all'uso.  Le informazioni sono disponibili in Ambari.  Passare a YARN e visualizzare la scheda configs (configurazioni).  La memoria YARN viene visualizzata in questa finestra.  Per ottenere la memoria totale di YARN, moltiplicare la memoria di YARN per il numero di nodi nel cluster.
 
-    Total YARN memory = nodes * YARN memory per node
+Memoria totale YARN = nodi * memoria YARN per nodo
 
 Se si usa un cluster vuoto, la memoria può corrispondere alla memoria totale di YARN per il cluster.  Se altre applicazioni stanno usando memoria, è possibile scegliere di usare solo parte della memoria del cluster, riducendo e portando il numero dei mapper o riduttori al numero di contenitori da usare.  
 
@@ -64,7 +65,7 @@ Se si usa un cluster vuoto, la memoria può corrispondere alla memoria totale di
 
 I contenitori YARN indicano la quantità di concorrenza disponibile per il processo.  Prendere il valore della memoria totale di YARN e dividerlo per mapreduce.map.memory.  
 
-    # of YARN containers = total YARN memory / mapreduce.map.memory
+\#dei contenitori YARN = Total YARN Memory/MapReduce. map. memory
 
 **Passaggio 5: configurare mapreduce.job.maps/mapreduce.job.reduces**
 
@@ -84,18 +85,19 @@ In questo esempio, si supponga che il processo sia l'unico processo in esecuzion
 
 In questo esempio, viene eseguito un processo con uso intensivo di I/O e viene deciso che saranno sufficienti 3GB di memoria per le attività di mapping.
 
-    mapreduce.map.memory = 3GB
+MapReduce. map. memory = 3GB
 
 **Passaggio 3: determinare la memoria totale di YARN**
 
-    Total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
+La memoria totale del cluster è di 8 nodi * 96 GB di memoria YARN per D14 = 768GB
+
 **Passaggio 4: calcolare il numero dei contenitori YARN**
 
-    # of YARN containers = 768GB of available memory / 3 GB of memory =   256
+\#dei contenitori YARN = 768GB della memoria disponibile/3 GB di memoria = 256
 
 **Passaggio 5: configurare mapreduce.job.maps/mapreduce.job.reduces**
 
-    mapreduce.map.jobs = 256
+mapreduce.map.jobs = 256
 
 ## <a name="examples-to-run"></a>Esempi di esecuzione
 
@@ -108,12 +110,18 @@ Per iniziare, ecco alcuni comandi di esempio per eseguire MapReduce Teragen, Ter
 
 **Teragen**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 abfs://example/data/1TB-sort-input
+```cmd
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 abfs://example/data/1TB-sort-input
+```
 
 **Terasort**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 abfs://example/data/1TB-sort-input abfs://example/data/1TB-sort-output
+```cmd
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 abfs://example/data/1TB-sort-input abfs://example/data/1TB-sort-output
+```
 
 **Teravalidate**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 abfs://example/data/1TB-sort-output abfs://example/data/1TB-sort-validate
+```cmd
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 abfs://example/data/1TB-sort-output abfs://example/data/1TB-sort-validate
+```

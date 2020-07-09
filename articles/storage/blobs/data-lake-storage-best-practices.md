@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857875"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104878"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen2
 
 Questo articolo illustra le procedure consigliate e alcune considerazioni sul funzionamento di Azure Data Lake Storage Gen2. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Storage Gen2. Prima di Data Lake Storage Gen2, l'uso di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Storage Gen2 supporta le dimensioni dei singoli file, ad esempio 5 TB, e la maggior parte dei limiti rigidi per le prestazioni sono stati rimossi. Tuttavia, in questo articolo sono comunque illustrate alcune considerazioni che aiutano a ottenere prestazioni ottimali con Data Lake Storage Gen2.
 
-## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
+## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
 Azure Data Lake Storage Gen2 offre controlli di accesso POSIX per utenti, gruppi ed entità servizio di Azure Active Directory (Azure AD). Questi controlli di accesso possono essere impostati su file e directory esistenti. I controlli di accesso possono essere usati anche per creare autorizzazioni predefinite che possono essere applicate automaticamente a nuovi file o directory. Altri dettagli sugli elenchi di controllo di accesso di Data Lake Storage Gen2 sono disponibili in [Controllo di accesso di Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
 
@@ -76,11 +77,11 @@ Quando si trasmettono i dati in un Data Lake, è importante pianificare in antic
 
 Nei carichi di lavoro IoT può esserci una notevole quantità di dati trasmessa in un archivio dati che si estende tra numerosi prodotti, dispositivi, organizzazioni e clienti. È importante pianificare in anticipo il layout di directory per l'organizzazione, la sicurezza e l'elaborazione efficiente dei dati per i consumer downstream. Un modello generale da prendere in considerazione può essere il layout seguente:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter}/{yyyy}/{mm}/{dd}/{HH}/*
 
 I dati di telemetria per gli atterraggi relativi a un motore di un aereo nel Regno Unito potrebbero ad esempio essere simili alla struttura seguente:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+*UK/Planes/BA1293/engine1/2017/08/11/12/*
 
 C'è un motivo importante per inserire la data alla fine della struttura di directory. Se si vuole bloccare alcuni domini o aree per utenti o gruppi specifici, è possibile farlo facilmente con le autorizzazioni POSIX. In caso contrario, se fosse necessario limitare, per un determinato gruppo di sicurezza, la visualizzazione solo ai dati per il Regno Unito o per alcuni aerei, con la struttura di data all'inizio sarebbe necessaria un'autorizzazione separata per le numerose directory nella directory relativa a ogni ora. La struttura di data all'inizio comporta inoltre un aumento esponenziale del numero di directory con il passare del tempo.
 
@@ -90,13 +91,13 @@ Da un punto di vista generale, un approccio comune nell'elaborazione batch consi
 
 Talvolta l'elaborazione di file ha esito negativo a causa del danneggiamento dei dati o di formati imprevisti. In questi casi, può essere utile la presenza di una cartella **/bad** nella struttura di directory, dove spostare i file per un'ulteriore analisi. Il processo batch può anche gestire la creazione di report o le notifiche per i file nella cartella *bad*, per gli interventi manuali. Si consideri la struttura di modelli seguente:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter}/in/{yyyy}/{mm}/{dd}/{HH}/*\
+*{Region}/{SubjectMatter}/out/{yyyy}/{mm}/{dd}/{HH}/*\
+*{Region}/{SubjectMatter}/Bad/{yyyy}/{mm}/{dd}/{HH}/*
 
 Una società di marketing riceve ad esempio estratti giornalieri di dati degli aggiornamenti dei clienti dai committenti in America del Nord, che prima e dopo l'elaborazione possono essere come il frammento seguente:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+*NA/estrazioni/ACMEPaperCo/in/2017/08/14/updates_08142017.csv*\
+*NA/estrazioni/ACMEPaperCo/out/2017/08/14/processed_updates_08142017.csv*
 
 Nel caso comune di dati batch elaborati direttamente in database, come Hive o i database SQL tradizionali, non è necessaria una cartella **/in** o **/out** perché l'output viene già inserito in una cartella separata per la tabella Hive o un database esterno. Gli estratti giornalieri dei clienti vengono ad esempio inviati nelle rispettive cartelle e l'orchestrazione tramite una soluzione come Azure Data Factory, Apache Oozie o Apache Airflow attiva un processo Hive o Spark giornaliero per elaborare e scrivere i dati in una tabella Hive.

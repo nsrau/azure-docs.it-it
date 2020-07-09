@@ -1,18 +1,18 @@
 ---
 title: Procedure di sicurezza consigliate
-description: Quando si usa la gestione delle risorse delegata di Azure, è importante considerare sicurezza e controllo di accesso.
-ms.date: 03/24/2020
+description: Quando si usa Azure Lighthouse, è importante prendere in considerazione la sicurezza e il controllo degli accessi.
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c620feabf5bcedc35a36104c3ba305ac9337ff0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246909"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105422"
 ---
 # <a name="recommended-security-practices"></a>Procedure di sicurezza consigliate
 
-Quando si usa la [gestione delle risorse delegata di Azure](azure-delegated-resource-management.md), è importante considerare sicurezza e controllo di accesso. Gli utenti del tenant avranno accesso diretto alle sottoscrizioni dei clienti e ai gruppi di risorse, quindi è opportuno eseguire le operazioni necessarie per gestire la sicurezza del tenant. Sarà inoltre necessario assicurarsi di consentire solo l'accesso necessario per gestire efficacemente le risorse dei clienti. Questo argomento fornisce indicazioni utili a tale scopo.
+Quando si usa [Azure Lighthouse](../overview.md), è importante prendere in considerazione la sicurezza e il controllo degli accessi. Gli utenti del tenant avranno accesso diretto alle sottoscrizioni dei clienti e ai gruppi di risorse, quindi è opportuno eseguire le operazioni necessarie per gestire la sicurezza del tenant. Sarà inoltre necessario assicurarsi di consentire solo l'accesso necessario per gestire efficacemente le risorse dei clienti. Questo argomento fornisce indicazioni utili a tale scopo.
 
 ## <a name="require-azure-multi-factor-authentication"></a>Richiedere Azure Multi-Factor Authentication
 

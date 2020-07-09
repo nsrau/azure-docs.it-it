@@ -1,17 +1,18 @@
 ---
 title: Concetti tecnici per le offerte di contenitori di Azure - Marketplace commerciale di Microsoft
 description: Risorse tecniche e linee guida per la configurazione di un'offerta di contenitori in Azure Marketplace.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/09/2020
-ms.openlocfilehash: 8f32313529da965573a6c9884daee678e3bc64cc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: da0fa53567e5c58db8e8394ef5562255d8a7142d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958600"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104267"
 ---
 # <a name="create-an-azure-container-offer"></a>Creare un'offerta per il contenitore di Azure
 

@@ -8,18 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 7ab886b65e665bdd38e2461e49fa051213602f0e
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462796"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103399"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
 Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sempre aggiornati sui recenti sviluppi, in questo articolo vengono fornite informazioni sulle nuove versioni e funzionalità.
+
+## <a name="july-2020"></a>Luglio 2020
+
+### <a name="text-analytics-for-health-container-public-gated-preview"></a>Analisi del testo per l'anteprima gestita pubblica del contenitore di integrità
+
+Il Analisi del testo per il contenitore di integrità è ora disponibile in anteprima pubblicamente gestita, che consente di estrarre informazioni da testo in lingua inglese non strutturato in documenti clinici come moduli di assunzione di pazienti, note mediche, documenti di ricerca e riepiloghi di scaricamento. Attualmente, non verranno addebitati Analisi del testo per l'utilizzo del contenitore di integrità. 
+
+Il contenitore offre le funzionalità seguenti:
+
+* Riconoscimento di entità denominate
+* Estrazione di relazioni
+* Collegamento di entità
+* Negazione
+
+
+> [!div class="nextstepaction"]
+> [Altre informazioni su Analisi del testo per il contenitore di integrità](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Maggio 2020
 
@@ -48,7 +65,7 @@ Sono state aggiunte le proprietà seguenti nella risposta JSON:
 
 I nomi delle seguenti proprietà nella risposta JSON sono stati modificati, se applicabile:
 
-* `score` è stata rinominata `confidenceScore`
+* `score` è stata rinominato in `confidenceScore`
     * `confidenceScore`ha due punti decimali di precisione. 
 * `type` è stata rinominata `category`
 * `subtype` è stata rinominata `subcategory`
@@ -61,9 +78,6 @@ I nomi delle seguenti proprietà nella risposta JSON sono stati modificati, se a
 ### <a name="text-analytics-api-v31-public-preview"></a>Anteprima pubblica di API Analisi del testo v 3.1
    * Nuova funzionalità Analisi del sentiment- [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
    * Nuovo [filtro di `PII` dominio Personal ()](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) per informazioni protette sull'integrità ( `PHI` ).
-   * Nuove categorie personali ( `PII` ):
-      * Classificazione internazionale delle malattie (ICD-9-CM)
-      * Classificazione internazionale delle malattie (ICD-10-CM)
 
 > [!div class="nextstepaction"]
 > [Scopri di più su API Analisi del testo versione 3.1 Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -75,7 +89,7 @@ I nomi delle seguenti proprietà nella risposta JSON sono stati modificati, se a
 Nell'ambito della [versione unificata di Azure SDK](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290), il API analisi del testo V3 SDK è ora disponibile come anteprima pubblica per i linguaggi di programmazione seguenti:
    * [C#](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-csharp)
    * [Python](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
-   * [JavaScript (node. js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
+   * [JavaScript (Node.js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
    * [Java](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-java)
    
    > [!div class="nextstepaction"]
@@ -94,7 +108,7 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 
 * Riconoscimento dei seguenti tipi di entità di informazioni personali (solo in inglese):
     * Persona
-    * Organizzazione
+    * Organization
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
     * E-mail 
@@ -137,7 +151,7 @@ Supporta inglese (), `en` giapponese () `ja` , cinese semplificato ( `zh-Hans` )
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Qual è la API Analisi del testo?](overview.md)  
+* [Informazioni sull'API Analisi del testo](overview.md)  
 * [Esempi di scenari utente](text-analytics-user-scenarios.md)
 * [Analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rilevamento della lingua](how-tos/text-analytics-how-to-language-detection.md)

@@ -1,18 +1,16 @@
 ---
 title: Considerazioni sulle API-Azure Marketplace
 description: Controllo delle versioni, gestione degli errori e problemi di autorizzazione quando si usano le API del marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 11ec6f9a38c5fe957eba922f3136f4fa0b2c4995
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bde55c48e8a3730727af7f3930b2a507c03e3ff3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516058"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102719"
 ---
 # <a name="api-considerations"></a>Considerazioni sulle API
 

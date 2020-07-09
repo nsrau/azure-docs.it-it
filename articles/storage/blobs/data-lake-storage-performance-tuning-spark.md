@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b28765c9ac4fa664b84c456c31ee10e0e9e19003
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06fe2670e5ee0d95df8985c9777d3ad9741336b3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465931"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106119"
 ---
 # <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Ottimizzare le prestazioni: Spark, HDInsight & Azure Data Lake Storage Gen2
 
@@ -57,25 +58,30 @@ Esistono alcuni modi generali per aumentare la concorrenza per i processi con I/
 
 **Passaggio 3: Impostare executor-cores**. Per carichi di lavoro I/O intensivi che non prevedono operazioni complesse, è consigliabile iniziare con un numero elevato di core per ogni executor al fine di aumentare il numero di attività parallele per ognuno di essi.  Per iniziare, è consigliabile impostare executor-cores su 4.   
 
-    executor-cores = 4
+Executor-Core = 4
+
 L'aumento del numero di core dell'executor offrirà maggior parallelismo in modo che sia possibile sperimentare diversi core dell'executor.  Per i processi che includono operazioni più complesse, è necessario ridurre il numero di core per ogni executor.  Se executor-cores viene impostato su un valore superiore a 4, la Garbage Collection può diventare inefficiente e incidere negativamente sulle prestazioni.
 
 **Passaggio 4: Determinare la quantità di memoria YARN nel cluster**. Queste informazioni sono disponibili in Ambari.  Passare a YARN e visualizzare la scheda configs (configurazioni).  La memoria YARN viene visualizzata in questa finestra.  
 Si noti che nella finestra è possibile visualizzare anche le dimensioni predefinite del contenitore YARN.  Le dimensioni del contenitore YARN sono uguali alle dimensioni della memoria per ogni parametro executor.
 
-    Total YARN memory = nodes * YARN memory per node
+Memoria totale YARN = nodi * memoria YARN per nodo
+
 **Passaggio 5: Calcolare num-executors**
 
 **Calcolare il vincolo della memoria**. Il parametro num-executors è vincolato dalla memoria o dalla CPU.  Il vincolo di memoria è determinato dalla quantità di memoria YARN disponibile per l'applicazione.  Prendere il valore della memoria totale di YARN e dividerlo per il valore executor-memory.  Il vincolo deve essere diviso per il numero di applicazioni.
 
-    Memory constraint = (total YARN memory / executor memory) / # of apps   
+Vincolo di memoria = (memoria totale YARN/memoria Executor)/numero di app
+
 **Calcolare il vincolo della CPU**. Il vincolo della CPU viene calcolato come il numero totale dei core virtuali diviso per il numero di core per ogni executor.  Per ogni core fisico sono presenti 2 core virtuali.  Come per il vincolo di memoria, questo valore viene diviso per il numero di app.
 
-    virtual cores = (nodes in cluster * # of physical cores in node * 2)
-    CPU constraint = (total virtual cores / # of cores per executor) / # of apps
+- core virtuali = (nodi nel cluster * # di core fisici nel nodo * 2)
+- Vincolo CPU = (Totale core virtuali/numero di core per Executor)/numero di app
+
 **Impostare num-executors**. Il parametro num-executors viene determinato dal valore minimo del vincolo della memoria e del vincolo della CPU. 
 
-    num-executors = Min (total virtual Cores / # of cores per executor, available YARN memory / executor-memory)   
+Num-eXecutors = min (Totale core virtuali/numero di core per Executor, memoria YARN disponibile/Executor-Memory)
+
 Impostare un numero maggiore di num-executors non si traduce necessariamente in un miglioramento delle prestazioni.  Si noti che l'aggiunta di esecutori può comportare un carico extra per ciascuno di questi ultimi, con una potenziale diminuzione delle prestazioni.  I num-executors sono limitati dalle risorse del cluster.    
 
 ## <a name="example-calculation"></a>Calcolo di esempio
@@ -86,31 +92,36 @@ Si supponga di disporre di un cluster costituito da 8 nodi D4v2 che eseguono 2 a
 
 **Passaggio 2: Impostare executor-memory**. Per questo esempio, si stabilisce che 6 GB di memoria per executor saranno sufficienti per il processo I/O intensivo.  
 
-    executor-memory = 6GB
+Executor-memoria = 6GB
+
 **Passaggio 3: Impostare executor-cores**. Poiché si tratta di un processo I/O intensivo, è possibile impostare su 4 il numero di core per ogni executor.  L'impostazione di un numero di core per executor superiore a 4 può causare problemi alla Garbage Collection.  
 
-    executor-cores = 4
+Executor-Core = 4
+
 **Passaggio 4: Determinare la quantità di memoria YARN nel cluster**. Aprendo Ambari, si scopre che ogni D4v2 dispone di 25 GB di memoria YARN.  Poiché sono presenti 8 nodi, la memoria di YARN disponibile viene moltiplicata per 8.
 
-    Total YARN memory = nodes * YARN memory* per node
-    Total YARN memory = 8 nodes * 25GB = 200GB
+- Memoria totale YARN = nodi * memoria YARN * per nodo
+- Memoria totale YARN = 8 nodi * 25GB = 200 GB
+
 **Passaggio 5: Impostare num-executors**. Il parametro num-executors viene determinato dal valore minimo del vincolo della memoria e del vincolo della CPU, divisi per il numero di app in esecuzione su Spark.    
 
 **Calcolare il vincolo della memoria**. Il vincolo della memoria viene calcolato come la memoria totale di YARN divisa per la memoria di ogni executor.
 
-    Memory constraint = (total YARN memory / executor memory) / # of apps   
-    Memory constraint = (200GB / 6GB) / 2   
-    Memory constraint = 16 (rounded)
+- Vincolo di memoria = (memoria totale YARN/memoria Executor)/numero di app
+- Vincolo di memoria = (200 GB/6GB)/2
+- Vincolo di memoria = 16 (arrotondato)
+
 **Calcolare il vincolo della CPU**. Il vincolo della CPU viene calcolato come il numero totale dei core di YARN diviso per il numero di core per ogni executor.
-    
-    YARN cores = nodes in cluster * # of cores per node * 2   
-    YARN cores = 8 nodes * 8 cores per D14 * 2 = 128
-    CPU constraint = (total YARN cores / # of cores per executor) / # of apps
-    CPU constraint = (128 / 4) / 2
-    CPU constraint = 16
+
+- YARN Cores = nodi nel cluster * n. di core per nodo * 2
+- Core YARN = 8 nodi * 8 core per D14 * 2 = 128
+- Vincolo CPU = (numero totale di core YARN/numero di core per Executor)/numero di app
+- Vincolo CPU = (128/4)/2
+- Vincolo CPU = 16
+
 **Impostare num-executors**
 
-    num-executors = Min (memory constraint, CPU constraint)
-    num-executors = Min (16, 16)
-    num-executors = 16    
+- Num-eXecutors = min (vincolo di memoria, vincolo della CPU)
+- Num-eXecutors = min (16, 16)
+- Num-eXecutors = 16
 

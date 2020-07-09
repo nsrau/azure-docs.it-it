@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Distribuire i carichi di lavoro di Azure IoT Edge
 keywords: Kubernetes, Arc, Azure, K8s, contenitori
-ms.openlocfilehash: 2a688a221b2f4865d51bca2ebf4aaa0b1f714290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfaa43a03ddd98616b22fc3fc7b4dccb4c38f44c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193788"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103977"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Distribuire i carichi di lavoro di Azure IoT Edge (Anteprima)
 
@@ -25,7 +25,7 @@ Azure Arc e Azure IoT Edge integrano correttamente le reciproche funzionalità. 
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
-* [Registrare un dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) e [distribuire il modulo del sensore di temperatura simulato](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#deploy-a-module). Assicurarsi di prendere nota della stringa di connessione del dispositivo.
+* [Registrare un dispositivo IoT Edge](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) e [distribuire il modulo del sensore di temperatura simulato](../../iot-edge/quickstart-linux.md#deploy-a-module). Assicurarsi di prendere nota della stringa di connessione del dispositivo.
 
 * Usare il [supporto di IoT Edge per Kubernetes](https://aka.ms/edgek8sdoc) per distribuirlo tramite l'operatore Flux di Azure Arc.
 

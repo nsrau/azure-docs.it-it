@@ -7,19 +7,25 @@ author: mlearned
 ms.topic: article
 ms.date: 06/25/2020
 ms.author: mlearned
-ms.openlocfilehash: bf635d37559d09e887a67be27c412bff7899127b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: f22b79cb8a730fb9c28dd1a208ab672473218b79
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023398"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105949"
 ---
-# <a name="integrate-aks-managed-azure-ad-preview"></a>Integrare Azure AD gestiti da AKS (anteprima)
+# <a name="aks-managed-azure-active-directory-integration-preview"></a>Integrazione Azure Active Directory gestita da AKS (anteprima)
 
-> [!Note]
+> [!NOTE]
 > I cluster del servizio contenitore di Azure (Kubernetes) esistenti con l'integrazione di Azure Active Directory (Azure AD) non sono interessati dalla nuova esperienza Azure AD gestita da AKS.
 
-Azure AD integrazione con Azure AD gestiti da AKS è progettata per semplificare l'esperienza di integrazione Azure AD, in cui gli utenti erano in precedenza necessari per creare un'app client, un'app Server e il tenant di Azure AD per concedere le autorizzazioni di lettura della directory. Nella nuova versione, il provider di risorse AKS gestisce automaticamente le app client e server.
+L'integrazione di Azure AD gestita da AKS è progettata per semplificare l'esperienza di integrazione Azure AD, in cui gli utenti erano in precedenza necessari per creare un'app client, un'app Server e hanno richiesto il tenant Azure AD per concedere le autorizzazioni di lettura directory. Nella nuova versione, il provider di risorse AKS gestisce automaticamente le app client e server.
+
+## <a name="azure-ad-authentication-overview"></a>Panoramica dell'autenticazione Azure AD
+
+Gli amministratori del cluster possono configurare il controllo degli accessi in base al ruolo Kubernetes (RBAC) in base all'identità dell'utente o al gruppo di directory. L'autenticazione di Azure AD è disponibile per i cluster di servizio Azure Kubernetes con OpenID Connect. OpenID Connect è un livello di gestione delle identità basato sul protocollo OAuth 2.0. Per ulteriori informazioni su OpenID Connect, vedere la [documentazione relativa a Open ID Connect][open-id-connect].
+
+Per altre informazioni sul flusso di integrazione di AAD, vedere la [documentazione sui concetti relativi all'integrazione di Azure Active Directory](concepts-identity.md#azure-active-directory-integration).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -80,30 +86,6 @@ Quando lo stato diventa Registrato, aggiornare la registrazione del provider di 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
-## <a name="azure-ad-authentication-overview"></a>Panoramica dell'autenticazione Azure AD
-
-Gli amministratori del cluster possono configurare il controllo degli accessi in base al ruolo Kubernetes (RBAC) in base all'identità dell'utente o al gruppo di directory. L'autenticazione di Azure AD è disponibile per i cluster di servizio Azure Kubernetes con OpenID Connect. OpenID Connect è un livello di gestione delle identità basato sul protocollo OAuth 2.0. Per ulteriori informazioni su OpenID Connect, vedere la [documentazione relativa a Open ID Connect][open-id-connect].
-
-Dall'interno del cluster Kubernetes viene usata l'autenticazione del token del webhook per verificare i token di autenticazione. L'autenticazione del token del webhook viene configurata e gestita come parte del cluster servizio Azure Kubernetes.
-
-## <a name="webhook-and-api-server"></a>Webhook e Server API
-
-:::image type="content" source="media/aad-integration/auth-flow.png" alt-text="Flusso di autenticazione del webhook e del server API":::
-
-Come illustrato nell'immagine precedente, il server API chiama il server del webhook AKS ed esegue i passaggi seguenti:
-
-1. L'applicazione client Azure AD viene usata da kubectl per l'accesso degli utenti con il [flusso di concessione dell'autorizzazione del dispositivo OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
-2. Azure AD fornisce un access_token, id_token e un refresh_token.
-3. L'utente effettua una richiesta a kubectl con un access_token di kubeconfig.
-4. Kubectl invia il access_token a APIServer.
-5. Il server API viene configurato con il server webhook di autenticazione per eseguire la convalida.
-6. Il server del webhook di autenticazione conferma che la firma del token Web JSON è valida controllando la chiave di firma pubblica Azure AD.
-7. L'applicazione server utilizza le credenziali fornite dall'utente per eseguire query sulle appartenenze ai gruppi dell'utente che ha eseguito l'accesso da MS API Graph.
-8. Viene inviata una risposta a APIServer con le informazioni sull'utente, ad esempio l'attestazione del nome dell'entità utente (UPN) del token di accesso e l'appartenenza al gruppo dell'utente in base all'ID oggetto.
-9. L'API esegue una decisione di autorizzazione basata sul ruolo/ruolo di Kubernetes.
-10. Una volta autorizzato, il server API restituisce una risposta a kubectl.
-11. Kubectl fornisce commenti e suggerimenti all'utente.
-
 
 ## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Creare un cluster AKS con Azure AD abilitato
 
@@ -123,7 +105,7 @@ az group create --name myResourceGroup --location centralus
 az ad group list
 ```
 
-Per rea un nuovo gruppo di Azure AD per gli amministratori del cluster, usare il comando seguente:
+Per creare un nuovo gruppo di Azure AD per gli amministratori del cluster, usare il comando seguente:
 
 ```azurecli-interactive
 # Create an Azure AD group
@@ -139,7 +121,7 @@ az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-g
 
 Una corretta creazione di un cluster Azure AD gestito da AKS ha la sezione seguente nel corpo della risposta
 ```
-"Azure ADProfile": {
+"AADProfile": {
     "adminGroupObjectIds": null,
     "clientAppId": null,
     "managed": true,
@@ -153,7 +135,7 @@ Il cluster viene creato entro pochi minuti.
 
 ## <a name="access-an-azure-ad-enabled-cluster"></a>Accedere a un cluster Azure AD abilitato
 
-Per eseguire la procedura seguente, è necessario il ruolo predefinito [utente del cluster di servizi Kubernetes di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) .
+Per eseguire la procedura seguente, è necessario il ruolo predefinito [utente del cluster di servizi di Azure Kubernetes](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) .
 
 Ottenere le credenziali utente per accedere al cluster:
  
@@ -187,14 +169,16 @@ Per eseguire questa procedura, è necessario avere accesso al ruolo predefinito 
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
 ```
 
-## <a name="non-interactive-login-with-kubelogin"></a>Accesso non interattivo con kubelogin
+## <a name="non-interactive-sign-in-with-kubelogin"></a>Accesso non interattivo con kubelogin
 
-Esistono alcuni scenari non interattivi, ad esempio le pipeline di integrazione continua, che non sono attualmente disponibili con kubectl. È possibile usare [kubelogin](https://github.com/Azure/kubelogin) per accedere al cluster con l'account di accesso dell'entità servizio non interattivo.
+Esistono alcuni scenari non interattivi, ad esempio le pipeline di integrazione continua, che non sono attualmente disponibili con kubectl. È possibile usare [`kubelogin`](https://github.com/Azure/kubelogin) per accedere al cluster con l'accesso all'entità servizio non interattivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sul [controllo degli accessi in base al ruolo Azure ad][azure-ad-rbac].
-* Usare [kubelogin](https://github.com/Azure/kubelogin) per accedere alle funzionalità di autenticazione di Azure che non sono disponibili in kubectl.
+* Informazioni sull' [integrazione RBAC di Azure per l'autorizzazione Kubernetes][azure-rbac-integration]
+* Informazioni sull' [integrazione di Azure ad con KUBERNETES RBAC][azure-ad-rbac].
+* Usare [kubelogin](https://github.com/Azure/kubelogin) per accedere alle funzionalità di autenticazione di Azure non disponibili in kubectl.
+* Altre informazioni sui [concetti relativi all'identità AKS e Kubernetes][aks-concepts-identity].
 * Usare i [modelli di Azure Resource Manager (ARM)][aks-arm-template] per creare cluster gestiti da AKS Azure ad abilitati.
 
 <!-- LINKS - external -->
@@ -203,6 +187,8 @@ Esistono alcuni scenari non interattivi, ad esempio le pipeline di integrazione 
 [aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
+[azure-rbac-integration]: manage-azure-rbac.md
+[aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
