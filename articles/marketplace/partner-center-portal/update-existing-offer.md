@@ -1,17 +1,18 @@
 ---
 title: Aggiornare un'offerta di Marketplace commerciale esistente
 description: Come apportare aggiornamenti a un'offerta del Marketplace commerciale esistente, inclusa la modifica, l'eliminazione di una bozza, l'annullamento di una richiesta di pubblicazione, la vendita di un'offerta o un piano e la sincronizzazione di destinatari privati.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: eca054d2db5eca1948d1085e105e91af19fc132e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 62170df567f552699304710902a1f83b84728af2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057960"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120705"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aggiornare un'offerta esistente nel Marketplace commerciale
 

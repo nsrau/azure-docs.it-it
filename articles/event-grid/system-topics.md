@@ -1,18 +1,14 @@
 ---
 title: Argomenti di sistema in griglia di eventi di Azure
 description: Descrive gli argomenti di sistema in griglia di eventi di Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.author: spelluru
-ms.openlocfilehash: 190c6ccb13a0853913c96ac5d2d3f5faf4594433
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887920"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119923"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Argomenti di sistema in griglia di eventi di Azure
 Un argomento di sistema in griglia di eventi rappresenta uno o più eventi pubblicati da servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. Un argomento di sistema, ad esempio, può rappresentare **tutti gli eventi BLOB** o solo gli eventi BLOB **creati** e BLOB **eliminati** per un **account di archiviazione specifico**. In questo esempio, quando un BLOB viene caricato nell'account di archiviazione, il servizio di archiviazione di Azure pubblica un evento **BLOB creato** nell'argomento sistema in griglia di eventi, che quindi trasmette l'evento ai [sottoscrittori](event-handlers.md) dell'argomento che ricevono ed elaborano l'evento. 

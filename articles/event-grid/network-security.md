@@ -1,18 +1,16 @@
 ---
 title: Sicurezza di rete per le risorse di griglia di eventi di Azure
 description: Questo articolo descrive come configurare l'accesso da endpoint privati
-services: event-grid
 author: VidyaKukke
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: f3b3877ae3278e12eec43843dbed6ac686227860
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414250"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119243"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sicurezza di rete per le risorse di griglia di eventi di Azure
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con griglia di eventi di Azure: 
@@ -59,7 +57,7 @@ Quando si crea un endpoint privato, il record CNAME DNS per la risorsa viene agg
 
 Quando si risolve l'argomento o l'URL dell'endpoint del dominio dall'esterno del VNet con l'endpoint privato, viene risolto nell'endpoint pubblico del servizio. I record di risorse DNS per ' topica ', quando risolti dall' **esterno del VNet** che ospita l'endpoint privato, saranno:
 
-| Nome                                          | Type      | valore                                         |
+| Nome                                          | Type      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
@@ -68,7 +66,7 @@ Quando si risolve l'argomento o l'URL dell'endpoint del dominio dall'esterno del
 
 Quando viene risolto da VNet che ospita l'endpoint privato, l'argomento o l'URL dell'endpoint di dominio viene risolto nell'indirizzo IP dell'endpoint privato. I record di risorse DNS per l'argomento ' topica ', quando risolti dall' **interno di VNet** che ospita l'endpoint privato, saranno:
 
-| Nome                                          | Type      | valore                                         |
+| Nome                                          | Type      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | Una         | 10.0.0.5

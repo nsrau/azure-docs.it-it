@@ -1,18 +1,14 @@
 ---
 title: Griglia di eventi di Azure-Guida alla risoluzione dei problemi
 description: Questo articolo fornisce un elenco di codici di errore, messaggi di errore, descrizioni e azioni consigliate.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: 2358cf57348b82975250d489ac95d6e0b35eed0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254821"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119039"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Risolvere gli errori di griglia di eventi di Azure
 Questa guida alla risoluzione dei problemi fornisce un elenco di codici di errore di griglia di eventi di Azure, i messaggi di errore, le descrizioni e le azioni consigliate da eseguire quando si ricevono questi errori. 
@@ -25,7 +21,7 @@ Questa guida alla risoluzione dei problemi fornisce un elenco di codici di error
 | HttpStatusCode. richiesta non valida<br/>400 | Data di scadenza non valida. | L'ora di scadenza per la sottoscrizione di eventi determina quando la sottoscrizione dell'evento viene ritirata. Questo valore deve essere un valore DateTime valido in futuro.| Assicurarsi che l'ora di scadenza della sottoscrizione di eventi in un formato DateTime valido e che sia impostata su in futuro. |
 
 ## <a name="error-code-409"></a>Codice di errore: 409
-| Codice di errore | Messaggio di errore | Descrizione | Azione consigliata |
+| Codice di errore | Messaggio di errore | Description | Azione consigliata |
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. Conflict <br/>409 | Un argomento con il nome specificato esiste già. Scegliere un nome di argomento diverso.   | Il nome dell'argomento personalizzato deve essere univoco in una singola area di Azure per garantire una corretta operazione di pubblicazione. Lo stesso nome può essere usato in diverse aree di Azure. | Scegliere un nome diverso per l'argomento. |
 | HttpStatusCode. Conflict <br/> 409 | Il dominio con l'oggetto specificato esiste già. Scegliere un nome di dominio diverso. | Il nome di dominio deve essere univoco in una singola area di Azure per garantire una corretta operazione di pubblicazione. Lo stesso nome può essere usato in diverse aree di Azure. | Scegliere un nome diverso per il dominio. |
@@ -33,7 +29,7 @@ Questa guida alla risoluzione dei problemi fornisce un elenco di codici di error
 
 ## <a name="error-code-403"></a>Codice errore: 403
 
-| Codice di errore | Messaggio di errore | Descrizione | Azione consigliata |
+| Codice di errore | Messaggio di errore | Description | Azione consigliata |
 | ---------- | ------------- | ----------- | ------------------ |
 | HttpStatusCode. Forbidden <br/>403 | La pubblicazione in {topic/Domain} da client {IpAddress} è stata rifiutata a causa delle regole di filtro IpAddress. | L'argomento o il dominio ha regole del firewall IP configurate e l'accesso è limitato solo agli indirizzi IP configurati. | Aggiungere l'indirizzo IP alle regole del firewall IP, vedere [configurare il firewall IP](configure-firewall.md) |
 | HttpStatusCode. Forbidden <br/> 403 | La pubblicazione in {topic/Domain} da parte del client viene rifiutata perché la richiesta proviene dall'endpoint privato e non è stata trovata alcuna connessione all'endpoint privato corrispondente per la risorsa. | Per l'argomento o il dominio sono stati configurati endpoint privati e la richiesta di pubblicazione proviene da un endpoint privato non configurato/approvato. | Configurare un endpoint privato per l'argomento/dominio. [Configurare gli endpoint privati](configure-private-endpoints.md) |

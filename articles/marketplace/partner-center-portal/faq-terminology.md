@@ -1,17 +1,16 @@
 ---
 title: Domande frequenti sull'analisi per il marketplace commerciale e terminologia - Centro per i partner
 description: Risposte alle domande frequenti sull'analisi per il marketplace commerciale nel Centro per i partner. Questo articolo include un dizionario di dati per la terminologia di analisi.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: eb91e498fa757c5cec7bd466c60aaf7e8758304c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ece7fa64c64d4c2f771be61984485cf9b1c4abaf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744573"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121742"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia di analisi per il marketplace commerciale e domande comuni
 

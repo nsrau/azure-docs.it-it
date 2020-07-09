@@ -7,15 +7,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 782933550dbde51dcf6fd9fa42d7a4ac086f643f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd696539cda5b24d801da692822b13de143249dd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564930"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121521"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Come configurare una pipeline di CI/CD per Azure Data Lake Analytics  
 
@@ -453,7 +453,7 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="common-parameters"></a>Parametri comuni
 
-| Parametro | Descrizione | Default Value | Necessario |
+| Parametro | Descrizione | Default Value | Obbligatoria |
 |---------|-----------|-------------|--------|
 |Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|Null|true|
 |Database|Nome del database da distribuire o creare.|master|false|
@@ -462,13 +462,13 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="parameter-for-local-deployment"></a>Parametro per la distribuzione locale
 
-|Parametro|Descrizione|Default Value|Necessario|
+|Parametro|Descrizione|Default Value|Obbligatoria|
 |---------|-----------|-------------|--------|
 |DataRoot|Percorso della cartella radice dei dati locale.|Null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametri per la distribuzione di Azure Data Lake Analytics
 
-|Parametro|Descrizione|Default Value|Necessario|
+|Parametro|Descrizione|Default Value|Obbligatoria|
 |---------|-----------|-------------|--------|
 |Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|Null|true|
 |ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|Null|true|

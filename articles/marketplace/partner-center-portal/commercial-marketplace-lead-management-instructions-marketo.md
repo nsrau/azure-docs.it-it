@@ -1,17 +1,18 @@
 ---
 title: Gestione dei lead in Marketo - Marketplace commerciale Microsoft
 description: Informazioni su come usare un sistema CRM Marketo per gestire lead da Microsoft AppSource e Azure Marketplace.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: be1f21f927b01d66e19dc5e97b38e5c35e6664cb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849179"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120263"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Usare Marketo per gestire i lead del marketplace commerciale
 

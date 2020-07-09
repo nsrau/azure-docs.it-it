@@ -3,11 +3,12 @@ title: Errori di modello non valido
 description: Viene illustrato come risolvere gli errori di modello non valido durante la distribuzione di modelli di Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: 2902a6d82c32192bb241697825a31d759d5c7b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324063"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118886"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Risolvere errori dovuti a modelli non validi
 
@@ -47,7 +48,7 @@ Non è insolito commettere questo errore, perché le espressioni del modello pos
 
 Se non si specifica la sintassi corrispondente, il modello genera un valore diverso dal previsto.
 
-Quando viene visualizzato questo tipo di errore, esaminare attentamente la sintassi dell'espressione. È consigliabile usare un editor JSON come [Visual Studio](create-visual-studio-deployment-project.md) o [Visual Studio Code](use-vs-code-to-create-template.md) che può segnalare gli errori di sintassi.
+Quando viene visualizzato questo tipo di errore, esaminare attentamente la sintassi dell'espressione. È consigliabile usare un editor JSON come [Visual Studio](create-visual-studio-deployment-project.md) o [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) che può segnalare gli errori di sintassi.
 
 <a id="incorrect-segment-lengths"></a>
 

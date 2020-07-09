@@ -1,18 +1,14 @@
 ---
 title: Sicurezza e autenticazione di Griglia di eventi di Azure
 description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: femila
-ms.openlocfilehash: 87d436024dae21b0122bf6b861b8a3ae4299db73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 09317b310a5934d27b82d265ec7f9b276135f882
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559019"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119090"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizzazione dell'accesso alle risorse di griglia di eventi
 Griglia di eventi di Azure consente di controllare il livello di accesso assegnato ai diversi utenti per eseguire svariate operazioni di gestione, ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. Griglia di eventi usa a questo scopo il controllo degli accessi in base al ruolo di Azure.

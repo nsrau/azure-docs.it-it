@@ -1,17 +1,14 @@
 ---
 title: Bus di servizio di Azure come origine di griglia di eventi
 description: Descrive le proprietà disponibili per gli eventi del bus di servizio con Griglia di eventi di Azure
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: femila
-ms.openlocfilehash: 5152c1579d46bfbff6c85b2cd19425aee0dd3290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 81293321b3a8fb989023a231c905996b4059bd81
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559486"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121135"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Bus di servizio di Azure come origine di griglia di eventi
 
@@ -78,7 +75,7 @@ Lo schema per un evento con coda di messaggi non recapitabili è simile:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
@@ -101,7 +98,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | subscriptionName | string | Sottoscrizione del bus di servizio con messaggi attivi. Valore null se si usa una coda. |
 
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
-|Titolo  |Descrizione  |
+|Titolo  |Description  |
 |---------|---------|
 | [Esercitazione: Esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Griglia di eventi invia i messaggi dall'argomento del bus di servizio all'app per le funzioni e all'app per la logica. |
 | [Integrazione tra il bus di servizio di Azure e griglia di eventi](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Panoramica dell'integrazione del bus di servizio con Griglia di eventi. |

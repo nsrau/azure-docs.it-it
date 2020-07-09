@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: 200a6ba333d283b6a82f1eb228a0fc586b5b1fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567480"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118818"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Valutazioni AVS in Azure Migrate: server Assessment
 
@@ -29,7 +29,7 @@ Le valutazioni create con server assessment sono uno snapshot temporizzato dei d
 **Tipo di valutazione** | **Dettagli**
 --- | --- 
 **Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md)locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md)e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione. [Altre informazioni](concepts-assessment-calculation.md)
-**Soluzione Azure VMware (AVS)** | Valutazioni per la migrazione dei server locali alla [soluzione VMware di Azure (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad Azure VMware Solution (AVS) con questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+**Soluzione Azure VMware (AVS)** | Valutazioni per la migrazione dei server locali alla [soluzione VMware di Azure (AVS)](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad Azure VMware Solution (AVS) con questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
 La valutazione della soluzione VMware di Azure (AVS) in server Assessment offre due opzioni per i criteri di ridimensionamento:
 
@@ -121,7 +121,7 @@ Ecco cosa è incluso in una valutazione AVS in server assessment:
 | **Posizione di destinazione** | Specifica la posizione del cloud privato AVS in cui si vuole eseguire la migrazione.<br/><br/> AVS assessment in server Assessment supporta attualmente le aree di destinazione seguenti: Stati Uniti orientali, Europa occidentale, Stati Uniti occidentali. 
 | **Tipo di archiviazione** | Specifica il motore di archiviazione da usare in AVS.<br/><br/> Le valutazioni AVS supportano solo rete VSAN come tipo di archiviazione predefinito. 
 **Istanze riservate (RIs)** | Questa proprietà consente di specificare istanze riservate in AVS. I servizi di installazione remota non sono attualmente supportati per i nodi AVS. 
-**Tipo di nodo** | Specifica il [tipo di nodo AVS](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) usato per eseguire il mapping delle macchine virtuali locali. Il tipo di nodo predefinito è AV36. <br/><br/> Azure Migrate consiglierà un numero di nodi necessario per la migrazione delle macchine virtuali in AVS. 
+**Tipo di nodo** | Specifica il [tipo di nodo AVS](../azure-vmware/concepts-private-clouds-clusters.md) usato per eseguire il mapping delle macchine virtuali locali. Il tipo di nodo predefinito è AV36. <br/><br/> Azure Migrate consiglierà un numero di nodi necessario per la migrazione delle macchine virtuali in AVS. 
 **Impostazione di ITF, livello RAID** | Specifica l'errore applicabile da tollerare e le combinazioni RAID. L'opzione di ITF selezionata combinata con il requisito del disco della macchina virtuale locale determina lo spazio di archiviazione rete VSAN totale richiesto in AVS. 
 **Criterio di dimensionamento** | Imposta i criteri da usare per *dimensionare correttamente* le VM per AVS. È possibile optare per il dimensionamento in *base alle prestazioni* o *come locale* senza considerare la cronologia delle prestazioni. 
 **Cronologia delle prestazioni** | Imposta la durata da considerare per la valutazione dei dati sulle prestazioni dei computer. Questa proprietà è applicabile solo quando i criteri di ridimensionamento sono *basati sulle prestazioni*. 
@@ -249,14 +249,14 @@ Una volta completate le indicazioni sul dimensionamento, Azure Migrate calcola i
 - Aggrega il costo in tutti i nodi per calcolare il costo mensile totale.
 - I costi vengono visualizzati nella valuta specificata nelle impostazioni di valutazione.
 
-Dato che i prezzi per la soluzione VMware di Azure (AVS) sono per nodo, il costo totale non prevede costi di calcolo e distribuzione dei costi di archiviazione. [Altre informazioni](https://docs.microsoft.com/azure/azure-vmware/introduction)
+Dato che i prezzi per la soluzione VMware di Azure (AVS) sono per nodo, il costo totale non prevede costi di calcolo e distribuzione dei costi di archiviazione. [Altre informazioni](../azure-vmware/introduction.md)
 
 Si noti che, poiché la soluzione VMware di Azure (AVS) è in anteprima, i prezzi dei nodi nella valutazione sono i prezzi di anteprima. Per informazioni aggiuntive, contattare il team locale di MSFT AVS GBB.
 
 ## <a name="migration-tool-guidance"></a>Linee guida per lo strumento di migrazione
 
 Nel report di conformità di Azure per la valutazione della soluzione VMware di Azure (AVS) è possibile visualizzare gli strumenti consigliati seguenti: 
-- **VMware HCX o Enterprise**: per i computer VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **VMware HCX o Enterprise**: per i computer VMware, la soluzione VMware Hybrid Cloud Extension (HCx) è lo strumento di migrazione suggerito per eseguire la migrazione del carico di lavoro locale al cloud privato della soluzione VMware di Azure (AVS). [Altre informazioni](../azure-vmware/hybrid-cloud-extension-installation.md).
 - **Sconosciuto**: per i computer importati tramite un file CSV, lo strumento di migrazione predefinito è sconosciuto. Tuttavia, per i computer VMware è consigliabile usare la soluzione VMWare Hybrid Cloud Extension (HCX).
 
 ## <a name="next-steps"></a>Passaggi successivi

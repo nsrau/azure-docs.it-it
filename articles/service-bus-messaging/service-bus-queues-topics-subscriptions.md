@@ -3,15 +3,16 @@ title: 'Messaggistica del bus di servizio di Azure: code, argomenti e sottoscriz
 description: Questo articolo fornisce una panoramica delle entità di messaggistica del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7d6dbbd0a8cf5699c2cdca34ebeca6773c1fbf6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: deeebf56d6e2f4ccfac37c70170a0d1cb4d272a9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337203"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119174"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Code, argomenti e sottoscrizioni del bus di servizio
 
-Il bus di servizio di Microsoft Azure supporta un set di tecnologie middleware orientate ai messaggi e basate sul cloud, incluso l'accodamento dei messaggi affidabile e la messaggistica di pubblicazione e sottoscrizione permanente. Queste funzionalità di messaggistica "negoziata" possono essere considerate come funzionalità di messaggistica asincrone o disaccoppiate che supportano scenari di pubblicazione e sottoscrizione, disaccoppiamento temporale e bilanciamento del carico tramite il carico di lavoro di messaggistica del bus di servizio. La comunicazione disaccoppiata presenta molti vantaggi, ad esempio client e server possono connettersi quando necessario ed eseguire le relative operazioni in modo asincrono.
+Il bus di servizio di Microsoft Azure supporta un set di tecnologie middleware orientate ai messaggi e basate sul cloud, incluso l'accodamento dei messaggi affidabile e la messaggistica di pubblicazione e sottoscrizione permanente. Queste funzionalità di messaggistica "negoziata" possono essere considerate come funzionalità di messaggistica disaccoppiate che supportano scenari di pubblicazione-sottoscrizione, disaccoppiamento temporale e bilanciamento del carico tramite il carico di lavoro della messaggistica del bus di servizio. La comunicazione disaccoppiata presenta molti vantaggi, ad esempio client e server possono connettersi quando necessario ed eseguire le relative operazioni in modo asincrono.
 
 Le entità di messaggistica che costituiscono le funzionalità di messaggistica di base nel bus di servizio sono code, argomenti e sottoscrizioni e regole/azioni.
 
@@ -60,6 +61,148 @@ In molti scenari, i messaggi con caratteristiche specifiche devono essere elabor
 Per un esempio funzionante completo, vedere [TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) su GitHub.
 
 Per altre informazioni sui valori di filtro possibili, vedere la documentazione relativa alle classi [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
+
+## <a name="java-message-service-jms-20-entities-preview"></a>Entità Java Message Service (JMS) 2,0 (anteprima)
+
+Le applicazioni client che si connettono al bus di servizio di Azure Premium e usano la [libreria JMS del bus di servizio di Azure](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) possono sfruttare le entità seguenti.
+
+### <a name="queues"></a>Code
+
+Le code in JMS sono semanticamente confrontabili con le code del bus di servizio tradizionali descritte in precedenza.
+
+Per creare una coda, usare i metodi seguenti nella `JMSContext` classe-
+
+```java
+Queue createQueue(String queueName)
+```
+
+### <a name="topics"></a>Argomenti
+
+Gli argomenti di JMS sono semanticamente confrontabili con gli argomenti tradizionali del bus di servizio descritti in precedenza.
+
+Per creare un argomento, usare i metodi seguenti nella `JMSContext` classe-
+
+```java
+Topic createTopic(String topicName)
+```
+
+### <a name="temporary-queues"></a>Code temporanee
+
+Quando un'applicazione client richiede un'entità temporanea esistente per la durata dell'applicazione, può utilizzare le code temporanee. Questi vengono usati nel modello [Request/Reply](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) .
+
+Per creare una coda temporanea, utilizzare i metodi seguenti nella `JMSContext` classe-
+
+```java
+TemporaryQueue createTemporaryQueue()
+```
+
+### <a name="temporary-topics"></a>Argomenti temporanei
+
+Analogamente alle code temporanee, sono disponibili argomenti temporanei per abilitare la pubblicazione/sottoscrizione tramite un'entità temporanea esistente per la durata dell'applicazione.
+
+Per creare un argomento temporaneo, usare i metodi seguenti nella `JMSContext` classe-
+
+```java
+TemporaryTopic createTemporaryTopic()
+```
+
+### <a name="java-message-service-jms-subscriptions"></a>Sottoscrizioni di Java Message Service (JMS)
+
+Sebbene siano semanticamente simili alle sottoscrizioni descritte sopra (ad esempio, esistono in un argomento e abilitano la semantica di pubblicazione/sottoscrizione), la specifica di Java Message Service introduce i concetti relativi agli attributi **condivisi**, non **condivisi**, **durevoli** e **non durevoli** per una determinata sottoscrizione.
+
+> [!NOTE]
+> Le sottoscrizioni seguenti sono disponibili nel livello Premium del bus di servizio di Azure per l'anteprima per le applicazioni client che si connettono al bus di servizio di Azure tramite la [libreria JMS del bus di servizio](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms)
+>
+> Per l'anteprima pubblica, queste sottoscrizioni non possono essere create usando il portale di Azure.
+>
+
+#### <a name="shared-durable-subscriptions"></a>Sottoscrizioni durevoli condivise
+
+Una sottoscrizione durevole condivisa viene utilizzata quando tutti i messaggi pubblicati in un argomento devono essere ricevuti ed elaborati da un'applicazione, indipendentemente dal fatto che l'applicazione utilizzi attivamente dalla sottoscrizione.
+
+Poiché si tratta di una sottoscrizione condivisa, qualsiasi applicazione autenticata per la ricezione dal bus di servizio può ricevere dalla sottoscrizione.
+
+Per creare una sottoscrizione durevole condivisa, usare i metodi seguenti nella `JMSContext` classe-
+
+```java
+JMSConsumer createSharedDurableConsumer(Topic topic, String name)
+
+JMSConsumer createSharedDurableConsumer(Topic topic, String name, String messageSelector)
+```
+
+La sottoscrizione durevole condivisa continua a esistere a meno che non venga eliminata usando il `unsubscribe` metodo nella `JMSContext` classe.
+
+```java
+void unsubscribe(String name)
+```
+
+#### <a name="unshared-durable-subscriptions"></a>Sottoscrizioni durevoli non condivise
+
+Analogamente a una sottoscrizione durevole condivisa, viene usata una sottoscrizione durevole non condivisa quando tutti i messaggi pubblicati in un argomento devono essere ricevuti ed elaborati da un'applicazione, indipendentemente dal fatto che l'applicazione stia sempre utilizzando attivamente la sottoscrizione.
+
+Tuttavia, poiché si tratta di una sottoscrizione non condivisa, solo l'applicazione che ha creato la sottoscrizione può ricevere da tale sottoscrizione.
+
+Per creare una sottoscrizione durevole non condivisa, usare i metodi seguenti della `JMSContext` classe: 
+
+```java
+JMSConsumer createDurableConsumer(Topic topic, String name)
+
+JMSConsumer createDurableConsumer(Topic topic, String name, String messageSelector, boolean noLocal)
+```
+
+> [!NOTE]
+> La `noLocal` funzionalità non è attualmente supportata e viene ignorata.
+>
+
+La sottoscrizione durevole non condivisa continua a esistere a meno che non venga eliminata utilizzando il `unsubscribe` metodo nella `JMSContext` classe.
+
+```java
+void unsubscribe(String name)
+```
+
+#### <a name="shared-non-durable-subscriptions"></a>Sottoscrizioni non durevoli condivise
+
+Una sottoscrizione non durevole condivisa viene usata quando più applicazioni client devono ricevere ed elaborare messaggi da una singola sottoscrizione, solo fino a quando non utilizzano attivamente/riceventi.
+
+Poiché la sottoscrizione non è durevole, non è persistente. I messaggi non vengono ricevuti da questa sottoscrizione quando non vi sono utenti attivi.
+
+Per creare una sottoscrizione non durevole condivisa, creare un `JmsConsumer` come illustrato nei metodi seguenti della `JMSContext` classe:
+
+```java
+JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName)
+
+JMSConsumer createSharedConsumer(Topic topic, String sharedSubscriptionName, String messageSelector)
+```
+
+La sottoscrizione non durevole condivisa continua a esistere fino a quando non vi sono utenti attivi che ricevono.
+
+#### <a name="unshared-non-durable-subscriptions"></a>Sottoscrizioni non durevoli non condivise
+
+Una sottoscrizione non durevole non condivisa viene usata quando l'applicazione client deve ricevere ed elaborare un messaggio da una sottoscrizione, solo finché non lo utilizza attivamente. In questa sottoscrizione possono esistere solo un consumer, ovvero il client che ha creato la sottoscrizione.
+
+Poiché la sottoscrizione non è durevole, non è persistente. I messaggi non vengono ricevuti da questa sottoscrizione quando non è presente alcun consumer attivo.
+
+Per creare una sottoscrizione non durevole non condivisa, creare un `JMSConsumer` come illustrato nei metodi seguenti della classe "JMSContext- 
+
+```java
+JMSConsumer createConsumer(Destination destination)
+
+JMSConsumer createConsumer(Destination destination, String messageSelector)
+
+JMSConsumer createConsumer(Destination destination, String messageSelector, boolean noLocal)
+```
+
+> [!NOTE]
+> La `noLocal` funzionalità non è attualmente supportata e viene ignorata.
+>
+
+La sottoscrizione non durevole non condivisa continua a esistere fino a quando non viene ricevuta da un utente attivo.
+
+#### <a name="message-selectors"></a>Selettori di messaggi
+
+Analogamente ai **filtri e alle azioni** esistenti per le normali sottoscrizioni del bus di servizio, esistono **selettori di messaggi** per le sottoscrizioni JMS.
+
+I selettori di messaggi possono essere configurati in ognuna delle sottoscrizioni JMS ed esistere come condizione di filtro nelle proprietà dell'intestazione del messaggio. Vengono recapitati solo i messaggi con proprietà di intestazione corrispondenti all'espressione del selettore dei messaggi. Un valore null o una stringa vuota indica che non è presente alcun selettore di messaggi per la sottoscrizione o il consumer JMS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

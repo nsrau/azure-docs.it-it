@@ -3,21 +3,22 @@ title: Offerte di servizi gestiti in Azure Marketplace
 description: Le offerte del servizio gestito consentono ai provider di servizi di vendere offerte di gestione delle risorse ai clienti di Azure Marketplace.
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 975c9ab98229626a513404b2092b266a9e284279
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 119ecc8d15ef93a265cb5419404840496aaa1572
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792293"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121589"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Offerte di servizi gestiti in Azure Marketplace
 
-Questo articolo descrive il tipo di offerta del **servizio gestito** in [Azure Marketplace](https://azuremarketplace.microsoft.com). Le offerte del servizio gestito consentono di offrire servizi di gestione delle risorse ai clienti tramite la [gestione delle risorse delegate di Azure](azure-delegated-resource-management.md). È possibile rendere disponibili queste offerte a tutti i potenziali clienti o solo a uno o più clienti specifici. Poiché i costi relativi a questi servizi gestiti vengono fatturati direttamente ai clienti, non vengono addebitate spese da Microsoft.
+Questo articolo descrive il tipo di offerta del **servizio gestito** in [Azure Marketplace](https://azuremarketplace.microsoft.com). Le offerte del servizio gestito consentono di offrire servizi di gestione delle risorse ai clienti tramite [Azure Lighthouse](../overview.md). È possibile rendere disponibili queste offerte a tutti i potenziali clienti o solo a uno o più clienti specifici. Poiché i costi relativi a questi servizi gestiti vengono fatturati direttamente ai clienti, non vengono addebitate spese da Microsoft.
 
 ## <a name="understand-managed-service-offers"></a>Informazioni sulle offerte del servizio gestito
 
-Il servizio gestito offre una semplificazione del processo di onboarding dei clienti per la gestione delle risorse delegate di Azure. Quando un cliente acquista un'offerta in Azure Marketplace, può specificare le sottoscrizioni e/o i gruppi di risorse di cui deve essere eseguito l'onboarding.
+Il servizio gestito offre una semplificazione del processo di onboarding dei clienti nel Faro di Azure. Quando un cliente acquista un'offerta in Azure Marketplace, può specificare le sottoscrizioni e/o i gruppi di risorse di cui deve essere eseguito l'onboarding.
 
-Successivamente, gli utenti dell'organizzazione potranno lavorare su tali risorse dall'interno del tenant dell'organizzazione, in base all'accesso definito durante la creazione dell'offerta. Questa operazione viene eseguita tramite un manifesto che specifica gli utenti, i gruppi e le entità servizio Azure Active Directory (Azure AD) che avranno accesso alle risorse dei clienti, insieme ai ruoli che definiscono il livello di accesso. Assegnando le autorizzazioni a un gruppo di Azure AD invece che a una serie di singoli account utente o applicazione, è possibile aggiungere o rimuovere singoli utenti quando cambiano i requisiti di accesso.
+Successivamente, gli utenti dell'organizzazione potranno lavorare su tali risorse dall'interno del tenant dell'organizzazione tramite la [gestione delle risorse delegate di Azure](azure-delegated-resource-management.md), in base all'accesso definito durante la creazione dell'offerta. Questa operazione viene eseguita tramite un manifesto che specifica gli utenti, i gruppi e le entità servizio Azure Active Directory (Azure AD) che avranno accesso alle risorse dei clienti, insieme ai ruoli che definiscono il livello di accesso. Assegnando le autorizzazioni a un gruppo di Azure AD invece che a una serie di singoli account utente o applicazione, è possibile aggiungere o rimuovere singoli utenti quando cambiano i requisiti di accesso.
 
 ## <a name="public-and-private-offers"></a>Offerte pubbliche e private
 

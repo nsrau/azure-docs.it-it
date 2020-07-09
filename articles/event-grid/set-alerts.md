@@ -1,17 +1,14 @@
 ---
 title: Impostare gli avvisi per le metriche di griglia di eventi di Azure e le operazioni del log attività
 description: Questo articolo descrive come creare avvisi per le metriche di griglia di eventi di Azure e le operazioni del log attività.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
-ms.openlocfilehash: 1a2eacb5fa03ea2a5a8ba2d38d9b3e7dea315890
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 615ebef749be49822a09470eb0d47d8eb31b9a5a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412839"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119141"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Impostare gli avvisi per le metriche e i log attività di griglia di eventi di Azure
 Questo articolo descrive come creare avvisi per le metriche di griglia di eventi di Azure e le operazioni del log attività. È possibile creare avvisi per le metriche di pubblicazione e recapito per le risorse di griglia di eventi di Azure (argomenti e domini). Per gli argomenti di sistema, [creare avvisi usando la pagina **metrica** ](#create-alerts-using-the-metrics-page).

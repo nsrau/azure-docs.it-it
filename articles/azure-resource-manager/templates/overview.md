@@ -3,12 +3,12 @@ title: Panoramica dei modelli
 description: Vengono descritti i vantaggi dell'utilizzo di modelli di Azure Resource Manager per la distribuzione delle risorse.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 4cdd0751feea6a3ade7183311831c7ed2b0f1b70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210219"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119362"
 ---
 # <a name="what-are-arm-templates"></a>Che cosa sono i modelli di Azure Resource Manager?
 
@@ -54,7 +54,7 @@ Se si sta provando a decidere se usare i modelli ARM e una delle altre infrastru
 
 * **Codice esportabile**: è possibile ottenere un modello per un gruppo di risorse esistente esportando lo stato corrente del gruppo di risorse o visualizzando il modello usato per una distribuzione specifica. La visualizzazione del [modello esportato](export-template-portal.md) è un modo utile per apprendere la sintassi del modello.
 
-* **Strumenti di creazione**: è possibile creare modelli con [Visual Studio Code](use-vs-code-to-create-template.md) e l'estensione dello strumento del modello. Si ottengono IntelliSense, l'evidenziazione della sintassi, la guida inline e molte altre funzioni del linguaggio. Oltre a Visual Studio Code, è anche possibile usare [Visual Studio](create-visual-studio-deployment-project.md).
+* **Strumenti di creazione**: è possibile creare modelli con [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) e l'estensione dello strumento del modello. Si ottengono IntelliSense, l'evidenziazione della sintassi, la guida inline e molte altre funzioni del linguaggio. Oltre a Visual Studio Code, è anche possibile usare [Visual Studio](create-visual-studio-deployment-project.md).
 
 ## <a name="template-file"></a>File modello
 

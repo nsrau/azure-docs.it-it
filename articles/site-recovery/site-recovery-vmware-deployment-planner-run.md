@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 308958f00a3658196f124ac911d4d0195ebeb228
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73953291"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119838"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Eseguire il Deployment Planner per il ripristino di emergenza di VMware
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -39,18 +40,24 @@ Prima di tutto è necessario un elenco delle VM da profilare. È possibile otten
 2. Aprire la console di VMware vSphere PowerCLI.
 3. Verificare che i criteri di esecuzione siano abilitati per lo script. Se sono disabilitati, avviare la console di VMware vSphere PowerCLI in modalità amministratore e quindi abilitarli eseguendo questo comando:
 
-            Set-ExecutionPolicy –ExecutionPolicy AllSigned
+    ```powershell
+    Set-ExecutionPolicy –ExecutionPolicy AllSigned
+    ```
 
 4. Se Connect-VIServer non viene riconosciuto come nome di cmdlet, può essere necessario eseguire questo comando.
 
-            Add-PSSnapin VMware.VimAutomation.Core
+    ```powershell
+    Add-PSSnapin VMware.VimAutomation.Core
+    ```
 
 5. Per ottenere tutti i nomi delle VM in un server vCenter/host vSphere ESXi e archiviare l'elenco in un file TXT, eseguire i due comandi elencati qui.
 Sostituire &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo; e &lsaquo;outputfile.txt&rsaquo; con i propri input.
 
-            Connect-VIServer -Server <server name> -User <user name> -Password <password>
+    ```powershell
+    Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
-            Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+    Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
+    ```
 
 6. Aprire il file di output nel Blocco note e quindi copiare i nomi di tutte le VM che si vuole profilare in un altro file (ad esempio, ProfileVMList.txt) inserendo un nome di VM per riga. Questo file viene usato come input per il parametro *-VMListFile* dello strumento da riga di comando.
 

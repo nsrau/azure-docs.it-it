@@ -1,18 +1,18 @@
 ---
 title: Creare un'offerta di servizio gestito nel marketplace commerciale Microsoft
 description: Come creare una nuova offerta di servizio gestito per l'inserimento in Azure Marketplace usando il portale del marketplace commerciale nel Centro per i partner.
-author: JnHs
-ms.author: jenhayes
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 3099c73849a63ebf490d026db95cedfd1278d735
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+author: JnHs
+ms.author: jenhayes
+ms.date: 07/07/2020
+ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957580"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121793"
 ---
 # <a name="create-a-managed-service-offer"></a>Creare un'offerta di servizi gestiti
 
@@ -230,7 +230,7 @@ Per ogni valore di **Autorizzazione**, è necessario specificare gli elementi se
 
 - **ID oggetto Azure AD**: identificatore Azure AD di un utente, un gruppo utenti o un'applicazione a cui vengono concesse determinate autorizzazioni (come indicato dalla definizione del ruolo) per le risorse dei clienti.
 - **Azure AD Object Display Name** (Nome visualizzato dell'oggetto Azure AD): nome descrittivo per aiutare il cliente a comprendere lo scopo di questa autorizzazione. Questo nome verrà visualizzato dal cliente durante la delega delle risorse.
-- **Role Definition** (Definizione ruolo): selezionare uno dei ruoli predefiniti di Azure AD disponibili nell'elenco. Questo ruolo determinerà le autorizzazioni che l'utente indicato nel campo **ID oggetto Azure AD** avrà per le risorse dei clienti. Per le descrizioni di questi ruoli, vedere [Ruoli predefiniti](../../role-based-access-control/built-in-roles.md) e [Supporto dei ruoli per la gestione delle risorse delegata di Azure](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
+- **Role Definition** (Definizione ruolo): selezionare uno dei ruoli predefiniti di Azure AD disponibili nell'elenco. Questo ruolo determinerà le autorizzazioni che l'utente indicato nel campo **ID oggetto Azure AD** avrà per le risorse dei clienti. Per le descrizioni di questi ruoli, vedere [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) e supporto dei ruoli [per il faro di Azure](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
   > [!NOTE]
   > Poiché i nuovi ruoli predefiniti applicabili vengono aggiunti ad Azure, diventeranno disponibili qui, anche se potrebbe verificarsi un ritardo prima che vengano visualizzati.
 - **Assignable Roles** (Ruoli assegnabili): questa opzione viene visualizzata solo se per questa autorizzazione è stato selezionato Amministratore Accesso utenti in **Definizione ruolo**. In tal caso, è necessario aggiungere qui uno o più ruoli assegnabili. L'utente nel campo **ID oggetto Azure AD** sarà in grado di assegnare i ruoli a [entità gestite](../../active-directory/managed-identities-azure-resources/overview.md). Questa operazione è necessaria per [distribuire criteri che possono essere corretti](../../lighthouse/how-to/deploy-policy-remediation.md). Si noti che nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente.

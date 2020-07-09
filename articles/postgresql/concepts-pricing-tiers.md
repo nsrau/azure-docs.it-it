@@ -6,17 +6,18 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 3a813a9b8c2a81a85d1c4a96d5a4da2256832d3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa5c0178cda563650928be40d02716868255fb1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84487985"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121623"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari nel Database di Azure per PostgreSQL: server singolo
 
 È possibile creare un server di Database di Azure per PostgreSQL in uno dei tre piani tariffari disponibili: Basic, Utilizzo generico e Con ottimizzazione per la memoria. I piani tariffari si differenziano per le risorse di calcolo in vCore di cui è possibile effettuare il provisioning, per la memoria in ogni vCore e per la tecnologia usata per l'archiviazione dei dati. Il provisioning di tutte le risorse viene effettuato a livello di server PostgreSQL. Un server può avere uno o più database.
 
-|    | **Base** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
+| Risorsa/livello | **Base** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Generazione 5 |
 | vCore | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -42,7 +43,7 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 
 Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il server Database di Azure per PostgreSQL. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server PostgreSQL. Lo spazio di archiviazione totale di cui si effettua il provisioning definisce anche la capacità di I/O disponibile per il server.
 
-|    | **Base** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
+| Attributi di archiviazione | **Base** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo di archiviazione | Archiviazione di base | Archiviazione per utilizzo generico | Archiviazione per utilizzo generico |
 | Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | da 5 GB a 16 TB | da 5 GB a 16 TB |
@@ -55,7 +56,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 > Tutte le altre aree supportano fino a 4 TB di archiviazione e 6000 IOPS.
 >
 
-È possibile aggiungere ulteriore capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumentare automaticamente le dimensioni di archiviazione in base al consumo di spazio di archiviazione del carico di lavoro. 
+È possibile aggiungere ulteriore capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumentare automaticamente le dimensioni di archiviazione in base al consumo di spazio di archiviazione del carico di lavoro.
 
 >[!NOTE]
 > Lo spazio di archiviazione può essere scalato solo, non inattivo.
@@ -92,7 +93,7 @@ Il servizio esegue automaticamente il backup del server. È possibile selezionar
 
 Dopo aver creato il server, è possibile modificare in modo indipendente il numero di vCore, la generazione dell'hardware, il piano tariffario (ad eccezione del passaggio da/a Basic), lo spazio di archiviazione e il periodo di conservazione dei backup. Non è possibile modificare il tipo di archiviazione dei backup dopo aver creato il server. Il numero di vCore può essere aumentato o ridotto. Il periodo di conservazione dei backup può essere aumentato o ridotto da 7 a 35 giorni. Le dimensioni dello spazio di archiviazione possono essere solo aumentate. Il ridimensionamento delle risorse può essere eseguito tramite il portale o l'interfaccia della riga di comando di Azure. Per un esempio di ridimensionamento tramite l'interfaccia della riga di comando di Azure, vedere [Monitorare e scalare un server di Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure](scripts/sample-scale-server-up-or-down.md).
 
-> [!NOTE] 
+> [!NOTE]
 > Le dimensioni dello spazio di archiviazione possono essere solo aumentate. Non è possibile tornare a una dimensione di archiviazione inferiore dopo l'incremento.
 
 Quando si modifica il numero di vCore, la generazione dell'hardware o il piano tariffario, viene creata una copia del server di origine con la nuova allocazione del calcolo. Quando il nuovo server è in esecuzione, le connessioni vengono trasferite al nuovo server. Durante l'intervallo nel quale il sistema passa al nuovo server, non è possibile stabilire nuove connessioni e viene effettuato il rollback di tutte le transazioni di cui non è stato eseguito il commit. Questo intervallo è variabile, ma nella maggior parte dei casi è inferiore al minuto.
@@ -106,5 +107,5 @@ Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](ht
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su come [creare un server PostgreSQL nel portale](tutorial-design-database-using-azure-portal.md).
-- Informazioni sui [limiti dei servizi](concepts-limits.md). 
+- Informazioni sui [limiti dei servizi](concepts-limits.md).
 - Altre informazioni su come [ampliare un livello di servizio con repliche in lettura](howto-read-replicas-portal.md).

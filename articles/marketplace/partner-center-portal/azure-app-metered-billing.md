@@ -1,18 +1,16 @@
 ---
 title: Fatturazione a consumo per le applicazioni gestite tramite il servizio di misurazione del Marketplace | Azure Marketplace
 description: Questa documentazione è una guida per gli ISV che pubblicano applicazioni Azure con modelli di fatturazione flessibili.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 5a867243e57790bf72cef6991d6d8ac06639be49
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963921"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118937"
 ---
 # <a name="managed-application-metered-billing"></a>Fatturazione a consumo delle applicazioni gestite 
 

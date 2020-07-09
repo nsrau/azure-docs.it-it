@@ -1,18 +1,18 @@
 ---
 title: Account di lavoro aziendali e centro per i partner
 description: Come verificare se la società ha un account di lavoro configurato con Microsoft, creare un nuovo account aziendale o configurare più account di lavoro da usare con il centro per i partner.
-author: dsindona
-ms.author: parthp
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 27a51a1203b0c25474bdb292c467a40b67309757
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6fca3429ab96a63b01eaa7e9d1f0ae83dc46e9c7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964431"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119753"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Account di lavoro aziendali e centro per i partner
 

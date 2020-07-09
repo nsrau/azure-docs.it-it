@@ -1,18 +1,18 @@
 ---
 title: Che cos'è un test drive? Marketplace commerciale Microsoft
 description: Spiegazione della funzionalità test drive del Marketplace
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: keferna
+ms.author: keferna
 ms.date: 06/19/2020
-ms.author: dsindona
-ms.openlocfilehash: ea04556c13d6e56178519dbcbe805447d0dbfc0f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 95ca527d8f7912e2c455f94036fe61828b220257
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964907"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121470"
 ---
 # <a name="what-is-a-test-drive"></a>Che cos'è un test drive?
 
@@ -24,7 +24,7 @@ Come server di pubblicazione, è possibile gestire e configurare le impostazioni
 
 I clienti potenziali possono individuare i test drive nel Marketplace commerciale. Forniscono le informazioni di contatto e accettano le condizioni dell'offerta e l'informativa sulla privacy, quindi ottengono l'accesso all'ambiente preconfigurato per provarlo per un periodo di tempo fisso. I clienti ricevono una versione di valutazione pratica e autonoma delle funzionalità e dei vantaggi principali del prodotto e si riceve un vantaggio prezioso.
 
-## <a name="how-does-it-work"></a>Come funziona?
+## <a name="how-does-it-work"></a>Funzionamento
 
 Come server di pubblicazione, è possibile gestire e configurare le impostazioni di test drive all'interno del centro per i partner. Al termine dell'installazione, diventerà un'istanza gestita che verrà distribuita su richiesta per il cliente che la richiede. Una volta assegnata un'istanza di test drive, è possibile utilizzarla per un periodo di tempo stabilito, quindi eliminata per creare spazio per un altro cliente.
 

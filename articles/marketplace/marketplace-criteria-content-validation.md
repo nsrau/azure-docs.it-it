@@ -1,18 +1,18 @@
 ---
 title: Requisiti per la presentazione di offerte e servizi in Azure Marketplace
 description: Questo articolo illustra i requisiti e le linee guida per la presentazione di nuovi servizi e offerte in Azure Marketplace.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 06/22/2020
-ms.author: dsindona
-ms.openlocfilehash: 6c95f510ce83f924a58b0844285f4142131db3eb
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2b0954941ba6b6b7ce3697889305dc5bbd299590
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027138"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119379"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Linee guida per la presentazione in Azure Marketplace
 
@@ -28,7 +28,7 @@ Sono disponibili requisiti aggiuntivi ed elenchi di controllo per tipi di presen
 
 ## <a name="listing-requirements-for-all-offers"></a>Requisiti di presentazione per tutte le offerte
 
-|  | Elemento presentazione | Requisito base | Requisito ottimale |
+| Number | Elemento presentazione | Requisito base | Requisito ottimale |
 |:--- |:--- |:--- |:--- |
 | 1 | Clienti potenziali destinatari | Clienti potenziali destinatari configurati.| Il catalogo One Commercial Partner (OCP) contiene le informazioni CRM relative ai clienti potenziali destinatari presenti anche nella scheda della soluzione partner. | 
 | 2 | Titolo dell'offerta | Descrive in modo sintetico la soluzione offerta. Corrisponde alla promozione online della soluzione nel sito Web del partner. | Contiene parole chiave di ricerca. |
@@ -47,15 +47,15 @@ Sono disponibili requisiti aggiuntivi ed elenchi di controllo per tipi di presen
 
 ## <a name="trial-offer-requirements"></a>Requisiti delle offerte di prova
 
-|  | Elemento presentazione | Requisito base | Requisito ottimale | 
+| Number | Elemento presentazione | Requisito base | Requisito ottimale | 
 |:--- |:--- |:--- |:--- |
-|  | Stato (invito all'azione) | Il collegamento deve consentire l'accesso a un'esperienza di *prova* gestita dal cliente. | Sono disponibili anche altri inviti all'azione, ad esempio *Acquista ora*. | 
+| 1 | Stato (invito all'azione) | Il collegamento deve consentire l'accesso a un'esperienza di *prova* gestita dal cliente. | Sono disponibili anche altri inviti all'azione, ad esempio *Acquista ora*. | 
 
 ---
 
 ## <a name="saas-application-requirements"></a>Requisiti delle applicazioni SaaS
 
-|  | Elemento presentazione | Requisito base | Requisito ottimale | 
+| Number | Elemento presentazione | Requisito base | Requisito ottimale | 
 |:--- |:--- |:--- |:--- |
 | 1 | Titolo dell'offerta |<ul><li>Deve contenere solo lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura. Il titolo non può essere modificato dopo la pubblicazione.</li><li>Descrive la soluzione offerta.</li><li>Corrisponde alla promozione online della soluzione nel sito Web del partner. | Contiene parole chiave di ricerca. |
 | 2 | Informazioni tecniche: Configurazione |<ul><li>Per le app SaaS (Software as a Service), scegliere se si vuole solo presentare l'app o consentire ai clienti di acquistarla tramite Azure.</li><li>• Selezionare il testo che si vuole visualizzare sul pulsante di acquisizione dell'offerta: *Gratuito*, *Versione di prova gratuita* o *Desidero essere contattato*.</li><li>Nella finestra popup selezionare un solo prodotto applicabile se l'app utilizza la tecnologia: Cortana Intelligence, Modelli di soluzioni di Power BI o Power Apps. |  |
@@ -73,7 +73,7 @@ Sono disponibili requisiti aggiuntivi ed elenchi di controllo per tipi di presen
 
 ## <a name="container-offer-requirements"></a>Requisiti delle offerte Contenitore
 
-|  | Elemento presentazione | Requisito base | Requisito ottimale | 
+| Number | Elemento presentazione | Requisito base | Requisito ottimale | 
 |:--- |:--- |:--- |:--- |
 |1 |Impostazioni dell'offerta | <ul><li>ID offerta: Max. 50 caratteri.</li><li>ID autore: selezionare l'ID nell'elenco a discesa.</li><li>Nome: Max. 50 caratteri. | Rispecchia lo stile del titolo già disponibile nella descrizione. Evitare l'uso di titoli lunghi. | 
 | 2 | SKU | Il partner seleziona nuovi SKU.| Il titolo rispecchia lo stile del titolo già disponibile nella descrizione. Evitare l'uso di titoli lunghi.  |
@@ -84,7 +84,7 @@ Sono disponibili requisiti aggiuntivi ed elenchi di controllo per tipi di presen
 
 ## <a name="consulting-offer-requirements"></a>Requisiti delle offerte di consulenza
 
-|  | Elemento presentazione | Requisito base | Requisito ottimale |
+| Number | Elemento presentazione | Requisito base | Requisito ottimale |
 |:--- |:--- |:--- |:--- |
 | 1 | Titolo dell'offerta  |  Deve indicare in modo chiaro il tipo e la durata del servizio nel formato *Nome: Tipo di durata* (ad esempio, "Engagement offerta: modello di verifica 1 settimana").  | <ul><li>Non viene ripetuto il nome dell'autore.</li><li>Il titolo rispecchia lo stile del titolo già disponibile nella descrizione. Evitare l'uso di titoli lunghi. | 
 | 2 | Descrizione dell'offerta  |<ul><li>Verificare l'utilizzo appropriato dei [ nomi dei prodotti Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Offerte contrassegnate con *Prezzo: Stimato* devono essere accompagnate da una nota, all'inizio o alla fine, con la spiegazione degli elementi di variabilità (tragitto fino al client, numero di server di cui eseguire la migrazione e così via).</li><li>La descrizione di ogni tipo di offerta presenta i requisiti seguenti: <ul><li>Per i briefing sono necessari almeno quattro o cinque elenchi puntati, con informazioni sugli argomenti da trattare.</li><li>Per tutti i workshop è necessario un programma.</li><li>Tutti i programmi devono essere suddivisi per giorno o per settimana, a seconda della durata del workshop.</li><li>Per le valutazioni, i modelli di verifica, i workshop non di training e le offerte di implementazione sono necessari risultati finali.</li><li>Per i workshop di training non sono necessari risultati finali, ma è necessario un programma più dettagliato con gli argomenti che verranno trattati.</li></ul></ul> | <ul><li>Per tutte le offerte sono disponibili programma e risultati finali.</li><li>L'offerta include nella sezione superiore un paragrafo contenente il contesto dell'azienda che offre il servizio.</li><li>Tra le sezioni superiori, l'offerta include un paragrafo sul valore del servizio stesso. |

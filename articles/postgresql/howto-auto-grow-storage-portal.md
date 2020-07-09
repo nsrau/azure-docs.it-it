@@ -4,13 +4,14 @@ description: Questo articolo descrive come configurare l'aumento automatico dell
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/29/2019
-ms.openlocfilehash: 5e4f9d68d02edf456394d4ce10b7b6af5f8643d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24ca9d84e8e05b2ffe093dc54963c1ac39464105
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74769235"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119617"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Aumento automatico delle dimensioni di archiviazione usando il portale di Azure nel database di Azure per PostgreSQL-server singolo
 Questo articolo descrive come configurare un database di Azure per l'archiviazione del server PostgreSQL in modo che cresca senza alcun effetto sul carico di lavoro.

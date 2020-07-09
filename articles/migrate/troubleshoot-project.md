@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535401"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121640"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Risolvere i problemi relativi ai progetti di Azure Migrate
 
@@ -52,7 +52,7 @@ Se si tenta di creare un progetto e si verifica un errore di distribuzione:
 - Se viene visualizzato l'errore "le richieste devono contenere intestazioni di identità utente", questo potrebbe indicare che non si ha accesso al tenant Azure Active Directory (Azure AD) dell'organizzazione. In questo caso:
     - Quando si viene aggiunti a un tenant di Azure AD per la prima volta, si riceve un messaggio di posta elettronica di invito per l'aggiunta al tenant.
     - Accettare l'invito da aggiungere al tenant.
-    - Se il messaggio di posta elettronica non è visibile, contattare un utente con accesso al tenant e chiedere di [inviare di nuovo l'invito](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users) .
+    - Se il messaggio di posta elettronica non è visibile, contattare un utente con accesso al tenant e chiedere di [inviare di nuovo l'invito](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) .
     - Dopo la ricezione del messaggio di posta elettronica di invito, aprirlo e selezionare il collegamento per accettare l'invito. Quindi, disconnettersi dalla portale di Azure ed eseguire di nuovo l'accesso. (l'aggiornamento del browser non funziona). È quindi possibile iniziare a creare il progetto di migrazione.
 
 ## <a name="how-do-i-delete-a-project"></a>Ricerca per categorie eliminare un progetto

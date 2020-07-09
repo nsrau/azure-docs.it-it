@@ -1,18 +1,14 @@
 ---
 title: Sottoscrizioni di Griglia di eventi di Azure tramite il portale
 description: Questo articolo descrive come creare sottoscrizioni di griglia di eventi per le origini supportate, ad esempio archiviazione BLOB di Azure, usando il portale di Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 2890f57e50e508f85579a2b1198de536fa9a9013
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393169"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119991"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Sottoscrivere eventi tramite il portale
 
@@ -28,7 +24,7 @@ Per creare una sottoscrizione di Griglia di eventi per tutte le [origini eventi]
 
 1. Cercare e selezionare **Sottoscrizioni di Griglia di eventi** tra le opzioni disponibili.
 
-   ![Ricerca](./media/subscribe-through-portal/search.png)
+   ![Cerca](./media/subscribe-through-portal/search.png)
 
 1. Selezionare **+ Sottoscrizione di eventi**.
 

@@ -1,18 +1,18 @@
 ---
 title: Termini e condizioni per il Marketplace commerciale | Azure
 description: I termini e le condizioni di Microsoft Commercial Marketplace si applicano a tutti gli editori e le offerte del Microsoft Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 06/26/2020
-ms.author: dsindona
-ms.openlocfilehash: 093348d8eeb5d83831ec0bedd8c542f1a2d5a064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffa6762d03b0ef189edf9887cfdf0fdd8788ef2d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482599"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121045"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Informative e condizioni del marketplace commerciale
 

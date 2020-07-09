@@ -1,18 +1,16 @@
 ---
 title: Dashboard dei clienti nell'analisi per il marketplace commerciale Microsoft nel Centro per i partner
 description: Informazioni su come accedere ai dettagli relativi ai clienti, incluse le tendenze di crescita, usando il dashboard dei clienti nell'analisi per il marketplace commerciale.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: 77541cc9f8a90335aedae0806981cbd8cca1f84d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f71a668b3473521e9d8d7c9318ab2e557380845
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807772"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121759"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Dashboard dei clienti nell'analisi per il marketplace commerciale
 

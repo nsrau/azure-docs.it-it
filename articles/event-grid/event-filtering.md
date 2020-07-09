@@ -1,17 +1,14 @@
 ---
 title: Filtri eventi per Griglia di eventi di Azure
 description: Questo articolo illustra come filtrare gli eventi quando si crea una sottoscrizione di Griglia di eventi di Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.author: spelluru
-ms.openlocfilehash: afe97fd1736fbaa6858adb2fc658b4ab34546f84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84456847"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120093"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
@@ -126,7 +123,7 @@ Per gli eventi nello schema di Griglia di eventi, usare i valori seguenti per l'
 
 * ID
 * Argomento
-* Oggetto
+* Subject
 * EventType
 * DataVersion
 * Dati dell'evento (ad esempio, Data.key1)

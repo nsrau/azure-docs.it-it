@@ -1,17 +1,16 @@
 ---
 title: Rivedere il feedback per offerte di app di Azure - Marketplace commerciale Microsoft
 description: Procedura di gestione del feedback per l'offerta di app di Azure dal team di revisione Microsoft Azure Marketplace. È possibile accedere ai feedback in Azure DevOps con le credenziali del Centro per i partner.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: c9e441512177d731c5ad47b66b454e5722483507
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e8d90f5238ea312602d2142d25b9ae226aa34c84
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659839"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119022"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Gestione dei feedback di revisione per offerte app di Azure
 
