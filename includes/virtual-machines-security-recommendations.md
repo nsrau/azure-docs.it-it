@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: includere file
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: df577ab2b5e9658fd55324c8fd6fd008621b4d46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30f852f1bf4994f525ccb65c3827af8f8ae02f96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545882"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838833"
 ---
 Questo articolo contiene raccomandazioni sulla sicurezza per le macchine virtuali di Azure. Seguire queste indicazioni per soddisfare gli obblighi di sicurezza descritti nel modello per la responsabilità condivisa. I consigli consentono inoltre di migliorare la sicurezza complessiva per le soluzioni di app Web. Per ulteriori informazioni sulle attività svolte da Microsoft per soddisfare le responsabilità del provider di servizi, vedere [responsabilità condivise per cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
-Alcune raccomandazioni di questo articolo possono essere automaticamente risolte dal centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per le risorse in Azure. Analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Viene quindi consigliata la modalità di risoluzione delle vulnerabilità. Per altre informazioni, vedere [raccomandazioni per la sicurezza nel centro sicurezza di Azure](../articles/security-center/security-center-recommendations.md).
+Alcune raccomandazioni di questo articolo possono essere automaticamente risolte dal centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per le risorse in Azure. analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare potenziali vulnerabilità di sicurezza Viene quindi consigliata la modalità di risoluzione delle vulnerabilità. Per altre informazioni, vedere [raccomandazioni per la sicurezza nel centro sicurezza di Azure](../articles/security-center/security-center-recommendations.md).
 
 Per informazioni generali sul centro sicurezza di Azure, vedere informazioni sul [Centro sicurezza di Azure](../articles/security-center/security-center-intro.md).
 
@@ -38,7 +38,7 @@ Per informazioni generali sul centro sicurezza di Azure, vedere informazioni sul
 | Crittografare i dischi del sistema operativo. | [Crittografia dischi di Azure](../articles/security/azure-security-disk-encryption-overview.md) consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Senza le chiavi necessarie, il contenuto dei dischi crittografati non è leggibile. La crittografia del disco protegge i dati archiviati da accessi non autorizzati che altrimenti sarebbero possibili se il disco è stato copiato.| [Sì](../articles/security-center/security-center-apply-disk-encryption.md) |
 | Crittografare i dischi dati. | [Crittografia dischi di Azure](../articles/security/azure-security-disk-encryption-overview.md) consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Senza le chiavi necessarie, il contenuto dei dischi crittografati non è leggibile. La crittografia del disco protegge i dati archiviati da accessi non autorizzati che altrimenti sarebbero possibili se il disco è stato copiato.| -  |
 | Limitare il software installato. | Limitare il software installato ai requisiti necessari per applicare correttamente la soluzione. Questa guida consente di ridurre la superficie di attacco della soluzione. | - |
-| Usare antivirus o antimalware. | In Azure è possibile usare software antimalware di fornitori di servizi di sicurezza come Microsoft, Symantec, Trend Micro e Kaspersky. Questo software consente di proteggere le macchine virtuali da file dannosi, adware e altre minacce. È possibile distribuire Microsoft antimalware in base ai carichi di lavoro dell'applicazione. Utilizzare la configurazione di base protetta per impostazione predefinita o avanzata. Per ulteriori informazioni, vedere [Microsoft antimalware per servizi cloud e macchine virtuali di Azure](../articles/security/azure-security-antimalware.md). | - |
+| Usare antivirus o antimalware. | In Azure è possibile usare software antimalware di fornitori di servizi di sicurezza come Microsoft, Symantec, Trend Micro e Kaspersky. Questo software consente di proteggere le macchine virtuali da file dannosi, adware e altre minacce. È possibile distribuire Microsoft antimalware in base ai carichi di lavoro dell'applicazione. Microsoft antimalware è disponibile solo per computer Windows. Utilizzare la configurazione di base protetta per impostazione predefinita o avanzata. Per ulteriori informazioni, vedere [Microsoft antimalware per servizi cloud e macchine virtuali di Azure](../articles/security/azure-security-antimalware.md). | - |
 | Archiviare in modo sicuro le chiavi e i segreti. | Semplifica la gestione dei segreti e delle chiavi offrendo ai proprietari dell'applicazione un'opzione sicura e gestita centralmente. Questa gestione riduce il rischio di compromissione accidentale o perdita. Azure Key Vault possibile archiviare in modo sicuro le chiavi in moduli di protezione hardware (HSM) certificati per FIPS 140-2 livello 2. Se è necessario usare FIPs 140,2 livello 3 per archiviare le chiavi e i segreti, è possibile usare il modulo di protezione [hardware dedicato di Azure](../articles/dedicated-hsm/overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso 
