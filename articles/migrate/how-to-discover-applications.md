@@ -3,11 +3,12 @@ title: Individuare app, ruoli e funzionalità nei server locali con Azure Migrat
 description: Informazioni su come individuare app, ruoli e funzionalità nei server locali con Azure Migrate Assessment server.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: ae00e390bb49f3a54f7f7ce7d6491cf7ee882491
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770510"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118648"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Individuare app, ruoli e funzionalità del computer
 
@@ -79,4 +80,4 @@ L'inventario delle app viene esportato e scaricato in formato Excel. Il foglio d
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare una valutazione](how-to-create-assessment.md) per i server individuati.
-- Valutare SQL Server database usando [Azure migrate: valutazione del database](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
+- Valutare SQL Server database usando [Azure migrate: valutazione del database](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).

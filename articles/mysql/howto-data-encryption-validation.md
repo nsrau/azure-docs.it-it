@@ -4,14 +4,14 @@ description: Informazioni su come convalidare la crittografia del database di Az
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: ee80f50e925bf4545f885d701e70bc21208f1d1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cd1db0365cdc4f834516fd4efb0d80dacc75eca
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515404"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118529"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Convalida della crittografia dei dati per database di Azure per MySQL
 

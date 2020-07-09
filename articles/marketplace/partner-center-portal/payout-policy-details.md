@@ -1,18 +1,18 @@
 ---
 title: Dettagli dei criteri di pagamento-Azure Marketplace
 description: Dettagli relativi ai criteri di pagamento, incluse le pianificazioni e il recupero.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: cb939d223d0aa91b6da62d3045ccad919f1bd277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f26e006998b0818ba84fa23ee1941a1033ef205b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887933"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118291"
 ---
 # <a name="payout-policy-details"></a>Dettagli dei criteri dei proventi
 
@@ -40,7 +40,7 @@ A partire dal 1 ° maggio 2020, verranno aggiornati i criteri per i pagamenti re
 > [!NOTE]
 > Per le azioni da eseguire se il cliente non è in grado di pagare ma è già stato emesso un pagamento, vedere il [processo per i clienti che non](#process-for-customer-non-payment) pagano.
 
-| Event  | Data  | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\* |
+| Evento  | Data  | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\* |
 | --- | --- | --- | --- |
 | Transazione o mese di utilizzo | 8/1/2020 – 8/31/2020 | N/D | **Report sull'utilizzo**: nuovo consumo visualizzato (aggiornato ogni quattro ore)<br>**Report ordini**: N/A |
 | Fine termine (mese) | 8/31/2020 | N/D | **Report sull'utilizzo**: consumo finale mensile visualizzato<br>**Report ordini**: N/A |
@@ -57,7 +57,7 @@ A partire dal 1 ° maggio 2020, verranno aggiornati i criteri per i pagamenti re
 
 Tutti gli acquisti con una carta di credito o una fattura mensile hanno un periodo di attesa di 30 giorni per garantire che i fondi vengano cancellati e che non siano presenti chargeback o sospetti illeciti.
 
-| Event  | Data  | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\*  |
+| Evento  | Data  | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\*  |
 | --- | --- | --- | --- |
 | Transazione o mese di utilizzo | 8/1/2019 - 8/31/2019 | N/D | **Report sull'utilizzo**: nuovo consumo visualizzato (aggiornato ogni quattro ore)<br>**Report ordini**: N/A |
 | Fine termine (mese) | 8/31/2019 | N/D | **Report sull'utilizzo**: consumo finale mensile visualizzato<br>**Report ordini**: N/A |
@@ -74,7 +74,7 @@ Tutti gli acquisti con una carta di credito o una fattura mensile hanno un perio
 
 Tutti gli acquisti che si verificano prima della data verranno elaborati e pagati in base alla pianificazione riportata di seguito dopo che Microsoft ha raccolto i pagamenti dai clienti ed elaborato la tariffa per il Marketplace.
 
-| Event  | Data  | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\*  |
+| Evento  | Data  | Visibilità del partner: report del centro per i partner  |  Visibilità del partner: analisi del centro per i partner\*  |
 | --- | --- | --- | --- |
 | Transazione o mese di utilizzo | 8/1/2019 – 8/31/2019 | N/D | **Report sull'utilizzo**: nuovo consumo visualizzato (aggiornato ogni quattro ore)<br>**Report ordini**: N/A |
 | Fine termine (mese) | 8/31/2019 | N/D | **Report sull'utilizzo**: consumo finale mensile visualizzato<br>**Report ordini**: N/A |
@@ -97,7 +97,7 @@ Microsoft effettuerà il recupero di tutti i pagamenti già effettuati utilizzan
 
 Di seguito è riportato un esempio di pianificazione:
 
-| Event | Data approssimativa | Visibilità del partner |
+| Evento | Data approssimativa | Visibilità del partner |
 | --- | --- | --- |
 | Data di pagamento di esempio | 10/15/2020 | Contrassegnato come **inviato** nella cronologia delle transazioni e nella sezione pagamenti nel dashboard dei pagamenti |
 | <font color="red">Se il cliente non paga Microsoft</font> | 12/2/2020 – 12/5/2020 | Nessuna modifica, come sopra |

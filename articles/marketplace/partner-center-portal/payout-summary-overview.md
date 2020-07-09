@@ -1,17 +1,18 @@
 ---
 title: Panoramica del riepilogo proventi - Azure Marketplace
 description: Il riepilogo proventi presenta informazioni dettagliate sulle entrate realizzate con l'offerta. Consente anche di determinare quando si riceveranno i pagamenti e gli importi che verranno corrisposti.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: a872331238946de0d57e6d42164f1ce7fb1c7357
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 29a8eb72814d865cb02bd632e084cec0cc06a1ff
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746195"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118478"
 ---
 # <a name="payout-summary-overview"></a>Panoramica del riepilogo proventi
 

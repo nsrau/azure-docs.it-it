@@ -4,12 +4,12 @@ description: Come creare un pool di Batch in una rete virtuale di Azure in modo 
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ff8995217521199436e0924acc691dab7c4baef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22344b5466b0388921a481b1adf41495d66dbfe0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506605"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115412"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creare un pool di Azure Batch in una rete virtuale
 
@@ -62,7 +62,7 @@ Quando si aggiunge una UDR, definire la route per ogni prefisso dell'indirizzo I
 ![Route definita dall'utente](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Gli indirizzi IP del servizio Batch possono cambiare nel tempo. Per evitare interruzioni a causa di una modifica dell'indirizzo IP, creare un processo per aggiornare automaticamente gli indirizzi IP del servizio batch e mantenerli aggiornati nella tabella di route. In alternativa, è possibile [creare un pool con gli indirizzi IP specificati che si controllano](create-pool-public-ip.md).
+> Gli indirizzi IP del servizio Batch possono cambiare nel tempo. Per evitare interruzioni a causa di una modifica dell'indirizzo IP, creare un processo per aggiornare automaticamente gli indirizzi IP del servizio batch e mantenerli aggiornati nella tabella di route.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

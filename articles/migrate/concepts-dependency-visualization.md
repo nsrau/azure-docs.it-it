@@ -3,11 +3,12 @@ title: Analisi delle dipendenze in Azure Migrate server Assessment
 description: Viene descritto come utilizzare l'analisi delle dipendenze per la valutazione utilizzando Azure Migrate server assessment.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: ff563668666207f35fa2ea796d6c909a59df245f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 386a8cefce722c4bff09e2a7fe6d25957630ff61
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771343"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118801"
 ---
 # <a name="dependency-analysis"></a>Analisi delle dipendenze
 
@@ -74,7 +75,7 @@ Le differenze tra la visualizzazione senza agente e la visualizzazione basata su
 --- | --- | ---
 **Supporto** | In anteprima solo per le macchine virtuali VMware. [Esaminare](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) i sistemi operativi supportati. | In disponibilità generale (GA).
 **Agent** | Non sono necessari agenti nei computer che si vuole analizzare. | Agenti necessari in ogni computer locale che si vuole analizzare.
-**Log Analytics** | Non obbligatorio. | Azure Migrate usa la soluzione [mapping dei servizi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) nei [log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per l'analisi delle dipendenze. 
+**Log Analytics** | Non obbligatorio. | Azure Migrate usa la soluzione [mapping dei servizi](../azure-monitor/insights/service-map.md) nei [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) per l'analisi delle dipendenze. 
 **Processo** | Acquisisce i dati di connessione TCP. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.
 **Dati** | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
 **Visualizzazione** | La mappa delle dipendenze di un singolo server può essere visualizzata per una durata di un'ora a 30 giorni. | Mappa delle dipendenze di un singolo server.<br/><br/> Mappa delle dipendenze di un gruppo di server.<br/><br/>  La mappa può essere visualizzata solo in un'ora.<br/><br/> Aggiungere e rimuovere i server in un gruppo dalla vista mappa.
@@ -87,5 +88,3 @@ Esportazione dati | Ultimi 30 giorni è possibile scaricare i dati in formato CS
 - [Configurare la](how-to-create-group-machine-dependencies.md) visualizzazione delle dipendenze basate su agenti.
 - [Provare](how-to-create-group-machine-dependencies-agentless.md) a visualizzare le dipendenze senza agenti per le macchine virtuali VMware.
 - Esaminare le [domande comuni](common-questions-discovery-assessment.md#what-is-dependency-visualization) sulla visualizzazione delle dipendenze.
-
-

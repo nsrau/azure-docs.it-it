@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 07/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: f69301bdbc0af9334858940fbfd3d7d0a0a63153
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3069ee020d5f127eb0bdb8cbaf251cd3f3cef8d9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807636"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118418"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurare Advanced Threat Protection per archiviazione di Azure
 
@@ -23,28 +23,19 @@ Advanced Threat Protection per archiviazione di Azure offre un ulteriore livello
 
 Gli avvisi di sicurezza vengono attivati quando si verifica un'anomalia nell'attività. Questi avvisi di sicurezza sono integrati con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/)e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con informazioni dettagliate sulle attività sospette e consigli su come analizzare e correggere le minacce.
 
-Il servizio inserisce i log delle risorse di richieste di lettura, scrittura ed eliminazione nell'archivio BLOB per il rilevamento delle minacce. Per esaminare gli avvisi da Advanced Threat Protection, è possibile visualizzare le attività di archiviazione correlate usando Analisi archiviazione registrazione. Per altre informazioni, vedere **configurare la registrazione** in [monitorare un account di archiviazione nell'portale di Azure](storage-monitor-storage-account.md#configure-logging).
+Il servizio inserisce i log delle risorse di richieste di lettura, scrittura ed eliminazione nell'archivio BLOB e in File di Azure (anteprima) per il rilevamento delle minacce. Per esaminare gli avvisi da Advanced Threat Protection, è possibile visualizzare le attività di archiviazione correlate usando Analisi archiviazione registrazione. Per altre informazioni, vedere **configurare la registrazione** in [monitorare un account di archiviazione nell'portale di Azure](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Disponibilità
 
-Advanced Threat Protection per Archiviazione di Microsoft Azure è attualmente disponibile solo per l'[archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/). I tipi di account che supportano Advanced Threat Protection includono gli account per utilizzo generico V2, BLOB in blocchi e archiviazione BLOB. Advanced Threat Protection è disponibile in tutti i cloud pubblici e negli Stati Uniti del governo degli Stati Uniti, ma non in altre aree del cloud di Azure per enti pubblici o sovrani.
+Advanced Threat Protection per archiviazione di Azure è attualmente disponibile per l'archiviazione BLOB, File di Azure (anteprima) ed Azure Data Lake Storage Gen2 (anteprima). I tipi di account che supportano Advanced Threat Protection includono gli account per utilizzo generico V2, BLOB in blocchi e archiviazione BLOB. Advanced Threat Protection è disponibile in tutti i cloud pubblici e negli Stati Uniti del governo degli Stati Uniti, ma non in altre aree del cloud di Azure per enti pubblici o sovrani.
+
+Gli account con spazi dei nomi gerarchici abilitati per Data Lake Storage supportano le transazioni usando le API di archiviazione BLOB di Azure e le API di Data Lake Storage. Le condivisioni file di Azure supportano le transazioni tramite SMB.
 
 Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la [pagina dei prezzi del Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/).
-
 
 ## <a name="set-up-advanced-threat-protection"></a>Configurare Advanced Threat Protection
 
 È possibile configurare Advanced Threat Protection in vari modi, descritti nelle sezioni seguenti.
-
-### <a name="portal"></a>[Portale](#tab/azure-portal)
-
-1. Avviare il [portale di Azure](https://portal.azure.com/).
-1. Passare all'account di archiviazione di Azure. In **Impostazioni**selezionare **sicurezza avanzata**.
-1. Selezionare il collegamento **Impostazioni** nella pagina Configurazione avanzata sicurezza.
-1. Impostare **sicurezza avanzata** **su on**.
-1. Fare clic su **Salva** per salvare i criteri nuovi o aggiornati.
-
-    ![Attivare la protezione avanzata dalle minacce di Archiviazione di Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="azure-security-center"></a>[Centro sicurezza di Azure](#tab/azure-security-center)
 
@@ -61,6 +52,16 @@ Quando si sottoscrive il livello standard nel centro sicurezza di Azure, Advance
 
     ![Abilita ATP nel centro sicurezza](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. Fare clic su **Salva**.
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
+1. Avviare il [portale di Azure](https://portal.azure.com/).
+1. Passare all'account di archiviazione di Azure. In **Impostazioni**selezionare **sicurezza avanzata**.
+1. Selezionare il collegamento **Impostazioni** nella pagina Configurazione avanzata sicurezza.
+1. Impostare **sicurezza avanzata** **su on**.
+1. Fare clic su **Salva** per salvare i criteri nuovi o aggiornati.
+
+    ![Attivare la protezione avanzata dalle minacce di Archiviazione di Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="template"></a>[Modello](#tab/template)
 

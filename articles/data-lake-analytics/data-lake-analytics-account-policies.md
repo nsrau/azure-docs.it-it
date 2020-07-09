@@ -7,14 +7,14 @@ author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2018
-ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c36b298593bf8834824f81672d754f9864a253f2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72966437"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117594"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Gestire Azure Data Lake Analytics usando criteri di account
 
@@ -32,7 +32,7 @@ Per modificare il numero di AU per l'account di Data Lake Analytics:
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **limiti e criteri**.
 3. In **Numero massimo di AU** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo. 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 > [!NOTE]
 > Se è necessario impostare un numero di AU superiore al valore predefinito (250), nel portale fare clic su **Guida e supporto** per inviare una richiesta di supporto. Il numero di AU disponibili nell'account di Data Lake Analytics può essere incrementato.
@@ -46,7 +46,7 @@ Per modificare il numero di processi che possono essere eseguiti contemporaneame
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **limiti e criteri**.
 3. In **Numero massimo di processi in esecuzione** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo. 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 > [!NOTE]
 > Se è necessario eseguire un numero di processi superiore al valore predefinito (20), nel portale fare clic su **Guida e supporto** per inviare una richiesta di supporto. Il numero di processi che possono essere eseguiti contemporaneamente nell'account di Data Lake Analytics può essere incrementato.
@@ -60,7 +60,7 @@ Per modificare il tempo di archiviazione delle risorse e dei metadati dei proces
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **limiti e criteri**.
 3. In **Giorni di conservazione delle query del processo** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo.  
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 ## <a name="job-level-policies"></a>Criteri a livello di processo
 

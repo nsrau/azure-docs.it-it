@@ -1,18 +1,18 @@
 ---
 title: Procedure consigliate per la presentazione di offerte - Marketplace commerciale Microsoft
 description: Informazioni sulle procedure consigliate per la presentazione go-to market delle offerte di Microsoft AppSource e Azure Marketplace.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 60f9630b58250bdae4c382e61697f7abd53e036d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027070"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118393"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -31,7 +31,7 @@ Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegn
 
 Le categorie e i settori per un'altra storefront saranno applicabili ai diversi tipi di offerta.
 
-|  | **Categorie <br> per Storefront** |  | **Settori <br> per AppSource** |
+| Vetrina | Categorie <br>di storefront | Categorie <br>di storefront | Settori <br> per AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Tipo di offerta**   |  **Azure Marketplace**  | **AppSource**  |
 | App Azure | X | |
@@ -144,7 +144,7 @@ Selezionare le categorie e le sottocategorie che meglio si allineano con l'offer
 
 Per informazioni dettagliate sul modo in cui le funzionalità di transazione possono influire sulla modalità di visualizzazione e acquisto da parte dei clienti del Marketplace, vedere la [Guida in base al tipo di offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . Per le offerte SaaS, la funzionalità di transazione dell'offerta e la selezione della categoria determineranno la vetrina in cui verrà pubblicata l'offerta:
 
-| Offerta SaaS    |     |          |           |    |    |     | Vetrina applicabile |              |
+| Offerta SaaS    | Offerta SaaS   | Offerta SaaS  | Offerta SaaS   | Offerta SaaS   | Offerta SaaS   | Offerta SaaS    | Vetrina applicabile | Vetrina applicabile |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Fatturazione a consumo | Microsoft 365 componenti aggiuntivi | Contact me (Contattami) | Transact (almeno 1 piano) | Piano solo privato | Piano solo pubblico | Piani privati & pubblici | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |
@@ -175,7 +175,7 @@ La selezione del settore si applica solo alle offerte pubblicate in AppSource e 
 | **Distribuzione** | Vendita all'ingrosso <br> Spedizione pacchetti & pacco |  
 | **Education** | Istruzione superiore <br> Primario & secondario edu/K-12 <br> Librerie & musei |
 | **Servizi finanziari** | Settore bancario & mercati finanziari <br> Assicurazioni | 
-| **Government** |  Difesa & Intelligence <br> Governo civile <br> Sicurezza pubblica & giustizia |
+| **Enti governativi** |  Difesa & Intelligence <br> Governo civile <br> Sicurezza pubblica & giustizia |
 | **Servizi sanitari** | Pagante di integrità <br> Provider di integrità <br> Prodotti farmaceutici | 
 | **Ospitalità & viaggio** | Travel & Transportation <br> Alberghi & Leisure <br> Ristoranti & servizi alimentari | 
 | **Produzione di risorse &** | & chimico agrochimica <br> Produzione discreta <br> Energia | 
