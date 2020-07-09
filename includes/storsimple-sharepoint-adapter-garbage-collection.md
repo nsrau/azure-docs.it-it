@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 00d292b3ba2d1b6c7c425d4c9f89188e660ac80d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c734ff03b1cf277c7e0967d8b76b1941434f414
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73182235"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050430"
 ---
 In questa procedura, si apprenderà come:
 
@@ -31,20 +31,21 @@ In questa procedura, si apprenderà come:
 
 #### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>Per preparare il database del contenuto e il Cestino per l'eliminazione immediata dei BLOB orfani.
 1. In SQL Server in SQL Management Studio, eseguire le query di aggiornamento seguenti per il database del contenuto di destinazione: 
-   
-       `use WSS_Content`
-   
-       `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
-   
-       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
-2. Sul server Web front-end, in **Amministrazione centrale** modificare **Impostazioni generali applicazione Web** per il database del contenuto per disabilitare temporaneamente il Cestino. Questa azione svuoterà inoltre il Cestino per le relative raccolte siti. A tale scopo, fare clic su **Amministrazione** -> centrale**gestione** -> **applicazioni Web (Gestisci applicazioni Web)** -> **SharePoint-80** -> **Impostazioni generali applicazione**. Impostare **Stato Cestino** su **NO**.
+
+    `use WSS_Content`
+
+    `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
+
+    `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
+
+2. Sul server Web front-end, in **Amministrazione centrale** modificare **Impostazioni generali applicazione Web** per il database del contenuto per disabilitare temporaneamente il Cestino. Questa azione svuoterà inoltre il Cestino per le relative raccolte siti. A tale scopo, fare clic su **Amministrazione centrale**  ->  **gestione**applicazioni  ->  **applicazioni Web (Gestisci applicazioni Web)**  ->  **SharePoint-80**  ->  **Impostazioni generali applicazione**. Impostare **Stato Cestino** su **NO**.
    
     ![Impostazioni generali applicazione Web](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
 #### <a name="to-run-the-maintainer"></a>Per eseguire Maintainer
 * Sul server web front-end, nella Shell di gestione di SharePoint 2013, eseguire Maintainer come segue:
   
-      `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
+    `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
   
   > [!NOTE]
   > Solo l’operazione`GarbageCollection`è supportata per StorSimple in questo momento. Si noti inoltre che i parametri per Microsoft.Data.SqlRemoteBlobs.Maintainer.exe distinguono tra maiuscole e minuscole. 
@@ -61,5 +62,5 @@ In questa procedura, si apprenderà come:
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. Sul server Web front-end, in **Amministrazione centrale** modificare **Impostazioni generali applicazione Web** per il database del contenuto per riabilitare il Cestino. A tale scopo, fare clic su **Amministrazione** -> centrale**gestione** -> **applicazioni Web (Gestisci applicazioni Web)** -> **SharePoint-80** -> **Impostazioni generali applicazione**. Impostare lo stato del Cestino su **ON**.
+2. Sul server Web front-end, in **Amministrazione centrale** modificare **Impostazioni generali applicazione Web** per il database del contenuto per riabilitare il Cestino. A tale scopo, fare clic su **Amministrazione centrale**  ->  **gestione**applicazioni  ->  **applicazioni Web (Gestisci applicazioni Web)**  ->  **SharePoint-80**  ->  **Impostazioni generali applicazione**. Impostare lo stato del Cestino su **ON**.
 

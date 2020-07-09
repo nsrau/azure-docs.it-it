@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 73e6e117428808aae39e361a3b119e9b2af1ac27
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60d5fb524d07590ed28641a6c91b87dbeb7dfc9f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399620"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035862"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -17,11 +17,11 @@ Questo articolo presuppone che si abbia un account Azure e una sottoscrizione de
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
-Prima di poter eseguire qualsiasi operazione, è necessario installare Speech SDK. A seconda della piattaforma, seguire le istruzioni <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">riportate nella sezione ottenere l' <span class="docon docon-navigate-external x-hidden-focus"></span> SDK di riconoscimento vocale</a> nell'articolo relativo all'SDK di riconoscimento vocale.
+Prima di poter eseguire qualsiasi operazione, è necessario installare Speech SDK. A seconda della piattaforma, seguire le istruzioni <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">riportate nella sezione Get the <span class="docon docon-navigate-external x-hidden-focus"></span> Speech SDK</a> dell'articolo _About The Speech SDK_ .
 
 ## <a name="import-dependencies"></a>Importare le dipendenze
 
-Per eseguire gli esempi in questo articolo, includere le istruzioni `import` seguenti all'inizio di **. *File di codice Java.
+Per eseguire gli esempi in questo articolo, includere le `import` istruzioni seguenti all'inizio di **. *File di codice Java.
 
 ```java
 package speech;
@@ -36,7 +36,7 @@ import com.microsoft.cognitiveservices.speech.translation.*;
 
 ## <a name="sensitive-data-and-environment-variables"></a>Variabili di ambiente e dati sensibili
 
-Il codice sorgente di esempio in questo articolo dipende dalle variabili di ambiente per l'archiviazione di dati sensibili, ad esempio la chiave di sottoscrizione della risorsa vocale e l'area. Il file di codice Java contiene `static final String` due valori assegnati dalle variabili di ambiente dei computer host, ovvero `SPEECH__SUBSCRIPTION__KEY` e. `SPEECH__SERVICE__REGION` Entrambi questi campi si trovano nell'ambito della classe, rendendoli accessibili nei corpi dei metodi della classe. Per altre informazioni sulle variabili di ambiente, vedere [variabili di ambiente e configurazione dell'applicazione](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+Il codice sorgente di esempio in questo articolo dipende dalle variabili di ambiente per l'archiviazione di dati sensibili, ad esempio la chiave di sottoscrizione della risorsa vocale e l'area. Il file di codice Java contiene due `static final String` valori assegnati dalle variabili di ambiente dei computer host, ovvero `SPEECH__SUBSCRIPTION__KEY` e `SPEECH__SERVICE__REGION` . Entrambi questi campi si trovano nell'ambito della classe, rendendoli accessibili nei corpi dei metodi della classe. Per altre informazioni sulle variabili di ambiente, vedere [variabili di ambiente e configurazione dell'applicazione](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
 
 ```java
 public class App {
@@ -105,7 +105,7 @@ La [`setSpeechRecognitionLanguage`][recognitionlang] funzione prevede una string
 
 ## <a name="add-translation-language"></a>Aggiungi lingua di traduzione
 
-Un'altra attività comune di traduzione vocale è quella di specificare i linguaggi di traduzione di destinazione, almeno uno è obbligatorio ma sono supportati più multipli. Nel frammento di codice seguente, sia francese che tedesco come destinazione del linguaggio di traduzione.
+Un'altra attività comune di traduzione vocale è quella di specificare i linguaggi di traduzione di destinazione, almeno uno è obbligatorio ma sono supportati più multipli. Il frammento di codice seguente imposta sia il francese che il tedesco come destinazioni del linguaggio di traduzione.
 
 ```java
 static void translateSpeech() {
@@ -120,7 +120,7 @@ static void translateSpeech() {
 }
 ```
 
-Con ogni chiamata a [`addTargetLanguage`][addlang], viene specificato un nuovo linguaggio di conversione di destinazione. In altre parole, quando la voce vocale viene riconosciuta dalla lingua di origine, ogni conversione di destinazione è disponibile come parte dell'operazione di conversione risultante.
+Con ogni chiamata a [`addTargetLanguage`][addlang] , viene specificato un nuovo linguaggio di conversione di destinazione. In altre parole, quando la voce vocale viene riconosciuta dalla lingua di origine, ogni conversione di destinazione è disponibile come parte dell'operazione di conversione risultante.
 
 ## <a name="initialize-a-translation-recognizer"></a>Inizializzare un riconoscimento di traduzione
 
@@ -150,7 +150,7 @@ Se si vuole specificare il dispositivo di input audio, è necessario creare [`Au
 > [!TIP]
 > [Informazioni su come ottenere l'ID del dispositivo di input audio](../../../how-to-select-audio-input-devices.md).
 
-In primo luogo, si farà `AudioConfig` riferimento all'oggetto come segue:
+In primo luogo, si farà riferimento all' `AudioConfig` oggetto come segue:
 
 ```java
 static void translateSpeech() {
@@ -230,10 +230,10 @@ Dopo un riconoscimento vocale e una traduzione con esito positivo, il risultato 
 
 ### <a name="event-based-synthesis"></a>Sintesi basata su eventi
 
-L' `TranslationRecognizer` oggetto espone un `synthesizing` evento. L'evento viene generato più volte e fornisce un meccanismo per recuperare l'audio sintetizzato dal risultato del riconoscimento della traduzione. Se si esegue la conversione in più lingue, vedere [sintesi manuale](#manual-synthesis). Specificare la voce di sintesi assegnando un [`setVoiceName`][voicename] oggetto e fornire un gestore eventi per `synthesizing` l'evento, ottenere l'audio. Nell'esempio seguente viene salvato l'audio tradotto come file *WAV* .
+L' `TranslationRecognizer` oggetto espone un `synthesizing` evento. L'evento viene generato più volte e fornisce un meccanismo per recuperare l'audio sintetizzato dal risultato del riconoscimento della traduzione. Se si esegue la conversione in più lingue, vedere [sintesi manuale](#manual-synthesis). Specificare la voce di sintesi assegnando un oggetto [`setVoiceName`][voicename] e fornire un gestore eventi per l' `synthesizing` evento, ottenere l'audio. Nell'esempio seguente viene salvato l'audio tradotto come file *WAV* .
 
 > [!IMPORTANT]
-> La sintesi basata su eventi funziona solo con una singola traduzione. **non** aggiungere più lingue di traduzione di destinazione. Inoltre, [`setVoiceName`][voicename] deve essere la stessa lingua del linguaggio di traduzione di destinazione, ad esempio. `"de"` è possibile eseguire `"de-DE-Hedda"`il mapping a.
+> La sintesi basata su eventi funziona solo con una singola traduzione. **non** aggiungere più lingue di traduzione di destinazione. Inoltre, [`setVoiceName`][voicename] deve essere la stessa lingua del linguaggio di traduzione di destinazione, ad esempio `"de"` . può eseguire il mapping a `"de-DE-Hedda"` .
 
 ```java
 static void translateSpeech() throws ExecutionException, FileNotFoundException, InterruptedException, IOException {
@@ -280,7 +280,7 @@ static void translateSpeech() throws ExecutionException, FileNotFoundException, 
 
 ### <a name="manual-synthesis"></a>Sintesi manuale
 
-La [`getTranslations`][translations] funzione restituisce un dizionario che può essere usato per sintetizzare l'audio dal testo di traduzione. Scorrere ogni traduzione e sintetizzare la traduzione. Quando si crea `SpeechSynthesizer` un'istanza, `SpeechConfig` l'oggetto deve avere la [`setSpeechSynthesisVoiceName`][speechsynthesisvoicename] proprietà impostata sulla voce desiderata. Nell'esempio seguente viene convertito in cinque lingue e ogni conversione viene quindi sintetizzata in un file audio nel linguaggio neurale corrispondente.
+La [`getTranslations`][translations] funzione restituisce un dizionario che può essere usato per sintetizzare l'audio dal testo di traduzione. Scorrere ogni traduzione e sintetizzare la traduzione. Quando si crea un' `SpeechSynthesizer` istanza, l' `SpeechConfig` oggetto deve avere la [`setSpeechSynthesisVoiceName`][speechsynthesisvoicename] proprietà impostata sulla voce desiderata. Nell'esempio seguente viene convertito in cinque lingue e ogni conversione viene quindi sintetizzata in un file audio nel linguaggio neurale corrispondente.
 
 ```java
 static void translateSpeech() throws ExecutionException, InterruptedException {
