@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81409777"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131774"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su larga scala per macchine virtuali VMware/server fisici
 
@@ -85,7 +85,7 @@ Usando le stime e le raccomandazioni raccolte, è possibile pianificare le risor
 
 **Attività** | **Dettagli** | **Azione**
 --- | --- | ---
-**Controlla Core** | Se i core nella quota disponibile non equivalgono o superano il numero di destinazioni totali al momento del failover, i failover avranno esito negativo. | Per le macchine virtuali VMware, verificare di avere un numero sufficiente di core nella sottoscrizione di destinazione per soddisfare la raccomandazione Deployment Planner core.<br/><br/> Per i server fisici, verificare che i core di Azure soddisfino le stime manuali.<br/><br/> Per controllare le quote, nella **sottoscrizione**portale di Azure > fare clic su **utilizzo e quote**.<br/><br/> [Altre](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) informazioni su come aumentare le quote.
+**Controlla Core** | Se i core nella quota disponibile non equivalgono o superano il numero di destinazioni totali al momento del failover, i failover avranno esito negativo. | Per le macchine virtuali VMware, verificare di avere un numero sufficiente di core nella sottoscrizione di destinazione per soddisfare la raccomandazione Deployment Planner core.<br/><br/> Per i server fisici, verificare che i core di Azure soddisfino le stime manuali.<br/><br/> Per controllare le quote, nella **sottoscrizione**portale di Azure > fare clic su **utilizzo e quote**.<br/><br/> [Altre](../azure-portal/supportability/resource-manager-core-quotas-request.md) informazioni su come aumentare le quote.
 **Verifica limiti failover** | Il numero di failover non deve superare Site Recovery limiti di failover. |  Se i failover superano i limiti, è possibile aggiungere sottoscrizioni ed eseguire il failover a più sottoscrizioni o aumentare la quota per una sottoscrizione. 
 
 
@@ -188,7 +188,7 @@ Dopo aver avviato la replica per il primo batch di macchine virtuali, avviare il
 1. Assegnare un amministratore del ripristino di emergenza per monitorare lo stato di integrità dei computer replicati.
 2. [Monitorare gli eventi](site-recovery-monitor-and-troubleshoot.md) per gli elementi replicati e l'infrastruttura.
 3. [Monitorare l'integrità](vmware-physical-azure-monitor-process-server.md) dei server di elaborazione con scalabilità orizzontale.
-4. Iscriversi per ricevere [notifiche tramite posta elettronica](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) per gli eventi, per semplificare il monitoraggio.
+4. Iscriversi per ricevere [notifiche tramite posta elettronica](./site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) per gli eventi, per semplificare il monitoraggio.
 5. Eseguire [esercitazioni](site-recovery-test-failover-to-azure.md)regolari per il ripristino di emergenza, per assicurarsi che tutto funzioni come previsto.
 
 
@@ -214,7 +214,7 @@ Per eseguire un failover su larga scala, si consiglia quanto segue:
     - [Ulteriori informazioni](recovery-plan-overview.md) sui piani di ripristino.
 2. Aggiungere gli script Runbook di automazione di Azure ai piani di ripristino per automatizzare le attività manuali in Azure. Le attività tipiche includono la configurazione di bilanciamento del carico, l'aggiornamento di DNS e così via. [Scopri di più](site-recovery-runbook-automation.md)
 2. Prima del failover, preparare i computer Windows in modo che siano conformi all'ambiente Azure. I [limiti di failover](#plan-azure-subscriptions-and-quotas) sono maggiori per i computer conformi. [Altre](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) informazioni su manuali operativi.
-4.  Attivare il failover con il cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) di PowerShell, insieme a un piano di ripristino.
+4.  Attivare il failover con il cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) di PowerShell, insieme a un piano di ripristino.
 
 
 

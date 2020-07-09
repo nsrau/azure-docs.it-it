@@ -1,7 +1,5 @@
 - name: Documentazione su Servizi multimediali
   href: ./index.yml
-- name: Documentazione sul passaggio all'analisi di video live in IoT Edge
-  href: ../live-video-analytics-edge/overview.md
 - name: Panoramica
   items:
     - name: Informazioni su Servizi multimediali

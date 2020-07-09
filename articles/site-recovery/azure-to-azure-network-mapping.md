@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11cc71a05fb95453553223dcb34839e8a5fc6a3a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691204"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130431"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurare il mapping di rete e gli indirizzi IP per reti virtuali
 
@@ -93,5 +94,5 @@ La rete di destinazione è la rete virtuale di failover | -L'indirizzo IP di des
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Consultare il [materiale sussidiario sulla rete](site-recovery-azure-to-azure-networking-guidance.md) per il ripristino di emergenza di macchine virtuali di Azure.
+- Consultare il [materiale sussidiario sulla rete](./azure-to-azure-about-networking.md) per il ripristino di emergenza di macchine virtuali di Azure.
 - [Ulteriori informazioni](site-recovery-retain-ip-azure-vm-failover.md) sulla conservazione degli indirizzi IP dopo il failover.

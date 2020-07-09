@@ -7,11 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77048607"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130220"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario con PowerShell (Resource Manager)
 
@@ -22,9 +23,9 @@ Questo articolo illustra come automatizzare la procedura per la replica di macch
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Esaminare [l'architettura e i componenti dello scenario](hyper-v-vmm-architecture.md).
-- Esaminare i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md) per tutti i componenti.
-- Assicurarsi che i server Virtual Machine Manager e gli host Hyper-V rispettino i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md).
-- Assicurarsi che le macchine virtuali da replicare siano conformi al [supporto del computer replicato](site-recovery-support-matrix-to-sec-site.md).
+- Esaminare i [requisiti di supporto](./vmware-physical-secondary-support-matrix.md) per tutti i componenti.
+- Assicurarsi che i server Virtual Machine Manager e gli host Hyper-V rispettino i [requisiti di supporto](./vmware-physical-secondary-support-matrix.md).
+- Assicurarsi che le macchine virtuali da replicare siano conformi al [supporto del computer replicato](./vmware-physical-secondary-support-matrix.md).
 
 ## <a name="prepare-for-network-mapping"></a>Preparare il mapping di rete
 
@@ -36,10 +37,10 @@ Questo articolo illustra come automatizzare la procedura per la replica di macch
 
 Preparare Virtual Machine Manager come segue:
 
-- Assicurarsi di avere [reti logiche di Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/network-logical) nei server di Virtual Machine Manager di origine e di destinazione:
+- Assicurarsi di avere [reti logiche di Virtual Machine Manager](/system-center/vmm/network-logical) nei server di Virtual Machine Manager di origine e di destinazione:
   - La rete logica nel server di origine deve essere associata al cloud di origine in cui si trovano gli host Hyper-V.
   - La rete logica nel server di destinazione deve essere associata al cloud di destinazione.
-- Assicurarsi di avere [reti delle macchine virtuali](https://docs.microsoft.com/system-center/vmm/network-virtual) nei server di Virtual Machine Manager di origine e di destinazione. Le reti VM devono essere collegate alla rete logica in ogni posizione.
+- Assicurarsi di avere [reti delle macchine virtuali](/system-center/vmm/network-virtual) nei server di Virtual Machine Manager di origine e di destinazione. Le reti VM devono essere collegate alla rete logica in ogni posizione.
 - Connettere le macchine virtuali negli host Hyper-V di origine alla rete VM di origine.
 
 ## <a name="prepare-for-powershell"></a>Eseguire le operazioni preliminari per PowerShell

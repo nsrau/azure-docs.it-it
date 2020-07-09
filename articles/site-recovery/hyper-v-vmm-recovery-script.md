@@ -7,17 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: fb690dfb90c0f7b8216368cb6b26a9af7d895d18
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826282"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130123"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Aggiungere uno script VMM a un piano di ripristino
 
 In questo articolo viene descritto come creare uno script di System Center Virtual Machine Manager (VMM) e aggiungerlo a un piano di ripristino in [Azure Site Recovery](site-recovery-overview.md).
 
-Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure la [pagina delle domande di Domande e risposte Microsoft su Servizi di ripristino di Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure la [pagina delle domande di Domande e risposte Microsoft su Servizi di ripristino di Azure](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +38,7 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 
     `Import-Module -Name virtualmachinemanager`
 
-    Per altre informazioni, vedere [Introduzione a Windows PowerShell e VMM](https://technet.microsoft.com/library/hh875013.aspx).
+    Per altre informazioni, vedere [Introduzione a Windows PowerShell e VMM](/previous-versions/system-center/system-center-2012-R2/hh875013(v=sc.12)).
 * Assicurarsi di disporre di almeno un server di libreria nella distribuzione di VMM. Per impostazione predefinita il percorso di condivisione della libreria per un server VMM si trova in locale nel server VMM con il nome di cartella MSCVMMLibrary.
 
   Se il percorso della condivisione della libreria è remoto (o locale ma non condiviso con MSCVMMLibrary), configurare la condivisione come segue, usando \\libserver2.contoso.com\share\ come esempio:
@@ -50,7 +51,7 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 
      a. Aprire la console di **Windows PowerShell a 64 bit** come amministratore.
      
-     b. Digitare **Set-executionpolicy bypass**. Per altre informazioni, vedere [Uso del cmdlet Set-ExecutionPolicy](https://technet.microsoft.com/library/ee176961.aspx).
+     b. Digitare **Set-executionpolicy bypass**. Per altre informazioni, vedere [Uso del cmdlet Set-ExecutionPolicy](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
 
      > [!IMPORTANT]
      > Impostare **Set-executionpolicy bypass** solo nella console di PowerShell a 64 bit. Se si esegue l'impostazione per la console di PowerShell a 32 bit, gli script non vengono eseguiti.
@@ -59,9 +60,9 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 
 Se si dispone di un sito di origine VMM, è possibile creare uno script nel server VMM e includerlo nel piano di ripristino.
 
-1. Nella condivisione di libreria creare una nuova cartella. Ad esempio, \<Nome server VMM>\MSSCVMMLibrary\RPScripts. Posizionare la cartella nei server VMM di origine e destinazione.
+1. Nella condivisione di libreria creare una nuova cartella. Ad esempio, \<VMM server name> \MSSCVMMLibrary\RPScripts. Posizionare la cartella nei server VMM di origine e destinazione.
 1. Creare lo script. Assegnare un nome, ad esempio RPScript. Verificare che lo script funzioni come previsto.
-1. Inserire lo script nella cartella \<Nome server VMM>\MSSCVMMLibrary nei server VMM di origine e destinazione.
+1. Inserire lo script nella \<VMM server name> cartella \MSSCVMMLibrary nei server VMM di origine e di destinazione.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Aggiungere lo script a un piano di ripristino
 

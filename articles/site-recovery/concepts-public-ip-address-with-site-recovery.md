@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712174"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130289"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurare gli indirizzi IP pubblici dopo il failover
 
@@ -47,7 +48,7 @@ Altre informazioni sugli scenari di failover con Gestione traffico:
 2. [Failover da Azure ad Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) con Gestione traffico 
 
 La configurazione è la seguente:
-- Creare un [profilo di gestione traffico](../traffic-manager/traffic-manager-create-profile.md).
+- Creare un [profilo di gestione traffico](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Usando il metodo di routing **Priorità**, creare due endpoint: **Primario** per l'origine e **Failover** per Azure. All'endpoint **Primario** viene assegnata la priorità 1, mentre all'endpoint **Failover** viene assegnata la priorità 2.
 - L'endpoint **Primario** può essere [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) oppure [Esterno](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) a seconda che l'ambiente di origine sia all'interno o all'esterno di Azure.
 - L'endpoint **Failover** viene creato come un endpoint di **Azure**. Usare un **indirizzo IP pubblico statico** poiché si tratta di un endpoint esterno per Gestione traffico nell'evento di emergenza.

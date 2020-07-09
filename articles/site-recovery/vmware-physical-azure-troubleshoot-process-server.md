@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7657d614645bb00235db2701773bc15fa260b70d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835802"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131978"
 ---
 # <a name="troubleshoot-the-process-server"></a>Risolvere i problemi del server di elaborazione
 
@@ -95,7 +96,7 @@ In assenza di heartbeat dal server di elaborazione (codice errore 806), eseguire
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Passaggio 4: Verificare la sincronizzazione dell'ora nella macchina virtuale di origine
 
-Assicurarsi che la data e l'ora di sistema della macchina virtuale replicata siano sincronizzate. [Altre informazioni](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+Assicurarsi che la data e l'ora di sistema della macchina virtuale replicata siano sincronizzate. [Altre informazioni](/windows-server/networking/windows-time-service/accurate-time)
 
 ## <a name="step-5-check-anti-virus-software-on-source-machine"></a>Passaggio 5: Verificare il software antivirus nella macchina virtuale di origine
 
@@ -104,7 +105,7 @@ Verificare che nessun software antivirus nella macchina virtuale replicata blocc
 ## <a name="step-6-check-connectivity-from-source-machine"></a>Passaggio 6: Verificare la connettività dalla macchina virtuale di origine
 
 
-1. Se necessario, installare il [client Telnet](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) nella macchina virtuale di origine. Non usare Ping.
+1. Se necessario, installare il [client Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771275(v=ws.10)) nella macchina virtuale di origine. Non usare Ping.
 2. Dalla macchina virtuale di origine effettuare il ping del server di elaborazione sulla porta HTTPS con Telnet. Per impostazione predefinita, la porta 9443 è la porta HTTPS per il traffico di replica.
 
     `telnet <process server IP address> <port>`
@@ -245,7 +246,7 @@ Aumentare la larghezza di banda tra il server di elaborazione e Azure e controll
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per richiedere maggiore assistenza, pubblicare una domanda sulla [pagina delle domande di Domande e risposte per Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
+Per richiedere maggiore assistenza, pubblicare una domanda sulla [pagina delle domande di Domande e risposte per Azure Site Recovery](/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png

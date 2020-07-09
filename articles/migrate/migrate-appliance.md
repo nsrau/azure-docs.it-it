@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Offre una panoramica dell'appliance di Azure Migrate usata per la valutazione e la migrazione del server.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99b29839028432a6b760265b641d35cdf33ee57f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106577"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122133"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -48,7 +48,7 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance può individuare fino a 10.000 macchine virtuali VMware in un server vCenter.<br/> Un'appliance può connettersi a un solo server vCenter.
 **Modello OVA** | Scaricare dal portale o da https://aka.ms/migrate/appliance/vmware.<br/><br/> Le dimensioni del download sono di 10,9 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
-**Script di PowerShell** | Vedere questo [articolo](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-vmware).<br/><br/> 
+**Script di PowerShell** | Vedere questo [articolo](./deploy-appliance-script.md#set-up-the-appliance-for-vmware).<br/><br/> 
 **Software/hardware** |  L'appliance deve essere eseguita in un computer con Windows Server 2016, con una RAM di 32 GB, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un commutatore virtuale esterno.<br/> L'appliance richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in una macchina virtuale VMware, è necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale che soddisfa i requisiti.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.
 **Requisiti di VMware** | Se si distribuisce l'appliance come macchina virtuale VMware, questa deve essere distribuita in un host ESXi che esegue la versione 5.5 o successiva.<br/><br/> Server vCenter che esegue la versione 5.5, 6.0, 6.5 o 6.7.
 **VDDK (migrazione senza agente)** | Se si distribuisce l'appliance come macchina virtuale VMware e si esegue una migrazione senza agente, è necessario installare VMware vSphere VDDK nella macchina virtuale dell'appliance.
@@ -68,7 +68,7 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance consente di individuare fino a 5000 macchine virtuali Hyper-V.<br/> Un'appliance può connettersi al massimo con 300 host Hyper-V.
 **Modello di disco rigido virtuale** | Cartella compressa con include il disco rigido virtuale. Scaricare dal portale o da https://aka.ms/migrate/appliance/hyperv.<br/><br/> Le dimensioni del download sono 10 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
-**Script di PowerShell** | Vedere questo [articolo](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-hyper-v).<br/><br/> 
+**Script di PowerShell** | Vedere questo [articolo](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
 **Software/hardware***   |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance come macchina virtuale Hyper-V, è necessario disporre di risorse sufficienti nell'host Hyper-V per allocare una RAM da 16 GB, 8 vCPU, circa 80 GB di spazio di archiviazione e un commutatore esterno per la macchina virtuale dell'appliance.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware. 
 **Requisiti di Hyper-V** | Se si distribuisce l'appliance con il modello di disco rigido virtuale, la macchina virtuale dell'appliance messa a disposizione da Azure Migrate è la macchina virtuale Hyper-V versione 5.0.<br/><br/> L'host Hyper-V deve eseguire Windows Server 2012 R2 o una versione successiva. 
 **Valore hash - Disco rigido virtuale** | [Verificare](tutorial-assess-hyper-v.md#verify-security) i valori hash del modello di disco rigido virtuale.

@@ -1,13 +1,14 @@
 ---
 title: Considerazioni sul programma Cloud Solution Provider
 description: Per i partner CSP, la gestione risorse delegate di Azure consente di migliorare la sicurezza e il controllo abilitando autorizzazioni granulari.
-ms.date: 12/18/2019
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 15b66568ae468d772c0fb7141a10e336cd94afc3
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 8dd40c5c4f7131554dcc3249777de9f0d92c35bb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921615"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131500"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse e programma Cloud Solution Provider
 
@@ -26,19 +27,19 @@ Con la funzionalità Amministra per conto terzi, gli utenti con il ruolo [Agente
 
 ## <a name="azure-delegated-resource-management"></a>Gestione risorse delegate di Azure
 
-Usando la gestione delle risorse delegate di Azure, è possibile assegnare gruppi diversi a clienti o ruoli diversi, come illustrato nel diagramma seguente. Poiché gli utenti avranno il livello di accesso appropriato tramite la gestione delle risorse delegata di Azure, è possibile ridurre il numero di utenti che hanno il ruolo di agente amministratore e quindi dispongono dell'accesso completo come amministratore per conto terzi. Questo garantisce una maggiore sicurezza limitando l'accesso non necessario alle risorse dei clienti. e inoltre offre maggiore flessibilità per la gestione di più clienti su larga scala.
+Con Azure Lighthouse è possibile assegnare gruppi diversi a clienti o ruoli diversi, come illustrato nella figura seguente. Poiché gli utenti avranno il livello di accesso appropriato tramite la gestione delle risorse delegata di Azure, è possibile ridurre il numero di utenti che hanno il ruolo di agente amministratore e quindi dispongono dell'accesso completo come amministratore per conto terzi. Questo garantisce una maggiore sicurezza limitando l'accesso non necessario alle risorse dei clienti. e inoltre offre maggiore flessibilità per la gestione di più clienti su larga scala.
 
-Per eseguire l'onboarding di una sottoscrizione creata tramite il programma CSP, seguire la procedura descritta in [Eseguire l'onboarding di una sottoscrizione nella gestione risorse delegate di Azure](../how-to/onboard-customer.md). Tutti gli utenti che hanno il ruolo Agente amministratore nel tenant possono eseguire questa operazione di onboarding.
+L'onboarding di una sottoscrizione creata tramite il programma CSP segue i passaggi descritti in caricare [una sottoscrizione al Faro di Azure](../how-to/onboard-customer.md). Tutti gli utenti che hanno il ruolo Agente amministratore nel tenant possono eseguire questa operazione di onboarding.
 
 ![Gestione dei tenant tramite la funzionalità Amministra per conto terzi e la gestione risorse delegate di Azure](../media/csp-2.jpg)
 
 > [!NOTE]
-> La [pagina **clienti** nella portale di Azure](../how-to/view-manage-customers.md) include ora una sezione **Cloud Solution Provider (anteprima)** , che visualizza le informazioni di fatturazione e le risorse per i clienti CSP che hanno [firmato il contratto di servizio Microsoft (MCA)](/partner-center/confirm-customer-agreement) e si trovano nel [piano Azure](/partner-center/azure-plan-get-started). Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](../../billing/mpa-overview.md).
+> La [pagina **clienti** nella portale di Azure](../how-to/view-manage-customers.md) include ora una sezione **Cloud Solution Provider (anteprima)** , che visualizza le informazioni di fatturazione e le risorse per i clienti CSP che hanno [firmato il contratto di servizio Microsoft (MCA)](/partner-center/confirm-customer-agreement) e si trovano nel [piano Azure](/partner-center/azure-plan-get-started). Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](../../cost-management-billing/understand/mpa-overview.md).
 >
 > I clienti CSP possono essere visualizzati in questa sezione indipendentemente dal fatto che siano stati caricati anche per la gestione delle risorse delegate di Azure. In caso affermativo, verranno visualizzati anche nella sezione **Customers** , come descritto in [View and manage customers and Delegated Resources](../how-to/view-manage-customers.md). Analogamente, non è necessario che un cliente CSP venga visualizzato nella sezione del **provider di soluzioni cloud (anteprima)** dei **clienti** per poterli caricare per la gestione delle risorse delegate di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sulle [esperienze di gestione tra tenant](cross-tenant-management-experience.md).
-- Informazioni su come [eseguire l'onboarding di una sottoscrizione di un cliente nella gestione risorse delegate di Azure](../how-to/onboard-customer.md).
+- Informazioni su come eseguire [l'onboarding di una sottoscrizione al Faro di Azure](../how-to/onboard-customer.md).
 - Informazioni sul [programma Cloud Solution Provider](/partner-center/csp-overview).

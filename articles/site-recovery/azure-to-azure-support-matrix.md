@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: raynew
-ms.openlocfilehash: 5f9774dd65587c364c90d346f17ed508a263c954
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c729645eadc192dba4d7bb4f2c346d7b9d36434a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961272"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132673"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -70,7 +70,7 @@ Questa tabella riepiloga il supporto per l'account di archiviazione della cache 
 --- | --- | ---
 Account di archiviazione V2 di utilizzo generico (livelli di accesso frequente e sporadico) | Supportato | L'uso di GPv2 non è consigliato poiché i costi di transazione per V2 sono molto più elevati rispetto agli account di archiviazione V1.
 Archiviazione Premium | Non supportate | Gli account di archiviazione standard vengono usati per l'archiviazione della cache per ottimizzare i costi.
-Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si usano account di archiviazione cache o di archiviazione di destinazione abilitati per il firewall, assicurarsi di selezionare ["Consenti ai servizi Microsoft attendibili"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).<br></br>Assicurarsi anche di consentire l'accesso ad almeno una subnet della rete virtuale di origine.
+Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si usano account di archiviazione cache o di archiviazione di destinazione abilitati per il firewall, assicurarsi di selezionare ["Consenti ai servizi Microsoft attendibili"](../storage/common/storage-network-security.md#exceptions).<br></br>Assicurarsi anche di consentire l'accesso ad almeno una subnet della rete virtuale di origine.
 
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemi operativi di computer replicati
@@ -229,7 +229,7 @@ Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |
 ZRS | Non supportato |
 Archiviazione ad accesso frequente e sporadico | Non supportato | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
-Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, abilitare [Consenti servizi Microsoft attendibili](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, abilitare [Consenti servizi Microsoft attendibili](../storage/common/storage-network-security.md#exceptions).
 Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Supportato | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 Generazione 2 (avvio UEFI) | Supportato
 Dischi NVMe | Non supportate
@@ -270,10 +270,10 @@ Più indirizzi IP | Non supportato | Quando si esegue il failover di una macchin
 Gestione traffico     | Supportato | È possibile preconfigurare Gestione traffico in modo che il traffico venga regolarmente indirizzato all'endpoint nell'area di origine e all'endpoint nell'area di destinazione in caso di failover.
 DNS di Azure | Supportato |
 DNS personalizzato    | Supportato |
-Proxy non autenticato | Supportato | [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)
+Proxy non autenticato | Supportato | [Scopri di più](./azure-to-azure-about-networking.md)
 Proxy autenticato | Non supportato | Se la macchina virtuale utilizza un proxy autenticato per la connettività in uscita, non può essere replicata tramite Azure Site Recovery.
-Connessione da sito a sito VPN a locale<br/><br/>(con o senza ExpressRoute)| Supportato | Verificare che le route definite dall'utente e i gruppi di sicurezza di rete siano configurati in modo che il traffico di Site Recovery non venga instradato in locale. [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)
-Connessione da rete virtuale a rete virtuale    | Supportato | [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)
+Connessione da sito a sito VPN a locale<br/><br/>(con o senza ExpressRoute)| Supportato | Verificare che le route definite dall'utente e i gruppi di sicurezza di rete siano configurati in modo che il traffico di Site Recovery non venga instradato in locale. [Altre informazioni](./azure-to-azure-about-networking.md)
+Connessione da rete virtuale a rete virtuale    | Supportato | [Altre informazioni](./azure-to-azure-about-networking.md)
 Endpoint servizio di rete virtuale | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, assicurarsi che ai servizi Microsoft attendibili sia consentito l'accesso all'account di archiviazione.
 Rete accelerata | Supportato | La rete accelerata deve essere abilitata su una macchina virtuale di origine. [Altre informazioni](azure-vm-disaster-recovery-with-accelerated-networking.md)
 Palo Alto Network Appliance | Non supportato | Con appliance di terze parti, vengono spesso imposte restrizioni dal provider all'interno della macchina virtuale. Azure Site Recovery richiede che agente, estensioni e connettività in uscita siano disponibili. Tuttavia, l'appliance non consente la configurazione di alcuna attività in uscita all'interno della macchina virtuale.
@@ -282,5 +282,5 @@ IPv6  | Non supportate | Anche le configurazioni miste che includono IPv4 e IPv6
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Leggere il [materiale sussidiario per la rete](site-recovery-azure-to-azure-networking-guidance.md) per la replica delle macchine virtuali di Azure.
-- Distribuire il ripristino di emergenza [replicando le macchine virtuali di Azure](site-recovery-azure-to-azure.md).
+- Leggere il [materiale sussidiario per la rete](./azure-to-azure-about-networking.md) per la replica delle macchine virtuali di Azure.
+- Distribuire il ripristino di emergenza [replicando le macchine virtuali di Azure](./azure-to-azure-quickstart.md).

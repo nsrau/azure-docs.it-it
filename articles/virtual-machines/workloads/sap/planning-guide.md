@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a3b07dadba17f72f6f4c5765787c7122eebaa89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7947b6c04ade1fd6a5d9032f05cb6ec56e7a1f5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361405"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132093"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -544,7 +544,7 @@ In un account di archiviazione è presente un tipo di cartella denominato "conta
 
 In Azure un nome disco/VHD segue la connessione di denominazione seguente che deve fornire un nome univoco per il disco rigido virtuale in Azure:
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 La stringa precedente deve identificare in modo univoco il disco/disco rigido virtuale archiviato in archiviazione di Azure.
 
@@ -999,7 +999,7 @@ Durante il download, i dischi rigidi virtuali o i Managed Disks non possono esse
 
 I dischi dati possono essere archiviati come file del disco rigido virtuale nell'account di archiviazione di Azure e possono essere collegati direttamente a una macchina virtuale o essere usati come immagine. In questo caso, il disco rigido virtuale viene copiato in un'altra posizione prima di essere collegato alla macchina virtuale. Il nome completo del file VHD deve essere univoco in Azure. Come già indicato in precedenza, il nome è un tipo di nome in tre parti simile a:
 
-    http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
+`http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>`
 
 I dischi dati possono essere anche Managed Disks. In questo caso, il disco gestito utilizzato per creare un nuovo disco gestito prima che venga collegato alla macchina virtuale. Il nome del disco gestito deve essere univoco all'interno di un gruppo di risorse.
 
@@ -1926,7 +1926,7 @@ L'architettura per la disponibilità elevata SAP in Linux su Azure è essenzialm
 
 SAP ha reso disponibile la funzionalità che consente di avviare le istanze di SAP immediatamente dopo l'avvio del sistema operativo nella VM. I passaggi esatti sono documentati nell'articolo della Knowledge Base SAP [1909114]. Tuttavia, SAP sconsiglia di continuare a usare questa impostazione perché non offre alcun controllo sull'ordine dei riavvii delle istanze, supponendo che siano interessate più di una VM o vengano eseguite più istanze per ogni VM. Presupponendo uno scenario tipico di Azure di un'istanza del server applicazioni SAP in una macchina virtuale e il caso di una singola macchina virtuale che viene alla fine riavviata, l'avvio automatico non è critico e può essere abilitato aggiungendo il parametro seguente:
 
-    Autostart = 1
+`Autostart = 1`
 
 Nel profilo di avvio dell'istanza di SAP ABAP e/o di Java.
 

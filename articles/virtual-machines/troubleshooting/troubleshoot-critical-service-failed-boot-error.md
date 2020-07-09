@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921454"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129865"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Visualizzazione dell'errore "CRITICAL SERVICE FAILED" su schermata blu all'avvio di una macchina virtuale di Azure
 Questo articolo descrive l'errore "CRITICAL SERVICE FAILED", dovuto alla mancata esecuzione di un servizio critico, che può verificarsi all'avvio di una macchina virtuale Windows in Microsoft Azure. Illustra inoltre i passaggi da seguire per risolvere i problemi. 
@@ -83,11 +84,15 @@ Per abilitare i log di dump e la console seriale, eseguire lo script seguente.
 
 1. Nella macchina virtuale di ripristino eseguire il comando seguente da un prompt dei comandi con privilegi elevati. Questo comando imposta il disco del sistema operativo interessato in modo da essere avviato in modalità provvisoria al prossimo avvio:
 
-        bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```
 
     Se ad esempio il disco del sistema operativo collegato corrisponde all'unità F, eseguire il comando seguente:
 
-        bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```
 
 2. [Scollegare il disco del sistema operativo e quindi collegare nuovamente il disco del sistema operativo alla VM interessata](troubleshoot-recovery-disks-portal-windows.md). La macchina virtuale verrà avviata in modalità provvisoria. Se l'errore persiste, eseguire il passaggio facoltativo.
 3. Aprire la casella **Esegui** ed eseguire **verifier** per avviare Driver Verifier Manager.
@@ -97,7 +102,10 @@ Per abilitare i log di dump e la console seriale, eseguire lo script seguente.
 
 7. Rimuovere le impostazioni di avvio in modalità provvisoria:
 
-        bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```console
+    bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```
+
 8.  Riavviare la VM. 
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facoltativo: Analizzare i log di dump in modalità di dump di arresto anomalo

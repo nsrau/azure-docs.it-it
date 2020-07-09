@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829784"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130143"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -26,7 +27,7 @@ Se quella protetta è una macchina virtuale Windows, è necessario un server di 
 ## <a name="overview"></a>Panoramica
 Questo articolo contiene istruzioni per l'installazione di un server di destinazione master Linux.
 
-Commenti o domande possono essere inseriti in fondo a questo articolo o nella [pagina delle domande di Domande e risposte Microsoft su Servizi di ripristino di Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Commenti o domande possono essere inseriti in fondo a questo articolo o nella [pagina delle domande di Domande e risposte Microsoft su Servizi di ripristino di Azure](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,6 +37,9 @@ Commenti o domande possono essere inseriti in fondo a questo articolo o nella [p
 * Il server deve trovarsi in una rete in grado di comunicare con il server di elaborazione e il server di configurazione.
 * La versione del server di destinazione master deve essere uguale o precedente a quella del server di elaborazione e del server di configurazione. Ad esempio, se la versione del server di configurazione è 9.4, la versione del server di destinazione master può essere 9.4 o 9.3 ma non 9.5.
 * Il server di destinazione master può essere solo una macchina virtuale VMware e non un server fisico.
+
+> [!NOTE]
+> Verificare che Storage vMotion non sia abilitato in alcun componente di gestione, ad esempio il server di destinazione master. Se il server di destinazione master viene spostato dopo una riprotezione con esito positivo, non è possibile scollegare i dischi della macchina virtuale (VMDK). In questo caso, il failback avrà esito negativo.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Linee guida di ridimensionamento per la creazione del server di destinazione master
 
@@ -243,7 +247,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
     ![ID percorsi multipli](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs.ext4 /dev/mapper/\<Retention disk's multipath id>** .
+3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id> **.
     
     ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -273,16 +277,22 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 > [!NOTE]
 > Prima di installare il server master di destinazione, assicurarsi che il file **/etc/hosts** nella macchina virtuale contenga le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete.
 
-1. Copiare la passphrase CS da **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** nel server di configurazione. Quindi salvarla come **passphrase.txt** nella stessa directory locale eseguendo il comando seguente:
+1. Eseguire il comando seguente per installare il server di destinazione master.
+
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
+
+2. Copiare la passphrase CS da **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** nel server di configurazione. Quindi salvarla come **passphrase.txt** nella stessa directory locale eseguendo il comando seguente:
 
     `echo <passphrase> >passphrase.txt`
 
     Esempio: 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. Prendere nota dell'indirizzo IP del server di configurazione. Eseguire il comando seguente per installare il server di destinazione master e registrarlo con il server di configurazione.
+3. Prendere nota dell'indirizzo IP del server di configurazione. Eseguire il comando seguente per registrare il server con il server di configurazione.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -313,16 +323,10 @@ Dopo aver completato l'installazione, registrare il server di configurazione tra
 
 1. Annotare l'indirizzo IP del server di configurazione. perché sarà necessario nel passaggio successivo.
 
-2. Eseguire il comando seguente per installare il server di destinazione master e registrarlo con il server di configurazione.
+2. Eseguire il comando seguente per registrare il server con il server di configurazione.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
-    Esempio: 
-
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      Attendere il termine dello script. Se registrato correttamente, il server di destinazione master viene elencato nella pagina **Infrastruttura di Site Recovery** del portale.
@@ -347,9 +351,13 @@ Eseguire il programma di installazione. Tale programma rileva automaticamente ch
 
 * Il server di destinazione master non deve includere snapshot nella macchina virtuale. Se sono presenti snapshot, il failback avrà esito negativo.
 
-* A causa di alcune configurazioni personalizzate della scheda di interfaccia di rete, l'interfaccia di rete viene disabilitata durante l'avvio e non è possibile inizializzare l'agente del server di destinazione master. Verificare che le proprietà seguenti siano impostate correttamente. Verificare le proprietà nei file della scheda Ethernet /etc/sysconfig/network-scripts/ifcfg-eth*.
-    * BOOTPROTO=dhcp
-    * ONBOOT=yes
+* A causa di alcune configurazioni personalizzate della scheda di interfaccia di rete, l'interfaccia di rete viene disabilitata durante l'avvio e non è possibile inizializzare l'agente del server di destinazione master. Verificare che le proprietà seguenti siano impostate correttamente. Controllare queste proprietà nel/etc/network/interfaces. del file della scheda Ethernet
+    * auto eth0
+    * iface eth0 inet dhcp <br>
+
+    Riavviare il servizio di rete usando il comando seguente: <br>
+
+`sudo systemctl restart networking`
 
 
 ## <a name="next-steps"></a>Passaggi successivi

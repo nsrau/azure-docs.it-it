@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80884869"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132716"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 
@@ -32,7 +33,7 @@ Per il funzionamento della replica di Site Recovery, è necessaria la connettivi
 
 Non è possibile stabilire una connessione per Site Recovery endpoint a causa di un errore di risoluzione Domain Name System (DNS). Questo problema è più comune durante la riprotezione quando è stato eseguito il failover della macchina virtuale, ma il server DNS non è raggiungibile dall'area di ripristino di emergenza.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Se si usa il DNS personalizzato, assicurarsi che il server DNS sia accessibile dall'area di ripristino di emergenza.
 
@@ -50,16 +51,16 @@ Provare ad accedere al server DNS dalla macchina virtuale. Se il server DNS non 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: La configurazione di Site Recovery non è riuscita (151196)
 
 > [!NOTE]
-> Se le macchine virtuali si trovano dietro un servizio di bilanciamento del carico interno **standard** , per impostazione predefinita non avrà accesso agli indirizzi IP di Office 365, ad esempio `login.microsoftonline.com` . Impostarlo sul tipo di servizio di bilanciamento del carico interno di **base** o creare un accesso in uscita come indicato nell'articolo [configurare le regole di bilanciamento del carico e in uscita in Load Balancer standard usando l'interfaccia della](/azure/load-balancer/configure-load-balancer-outbound-cli)riga di comando di Azure.
+> Se le macchine virtuali si trovano dietro un servizio di bilanciamento del carico interno **standard** , per impostazione predefinita non avrà accesso agli indirizzi IP di Office 365, ad esempio `login.microsoftonline.com` . Impostarlo sul tipo di servizio di bilanciamento del carico interno di **base** o creare un accesso in uscita come indicato nell'articolo [configurare le regole di bilanciamento del carico e in uscita in Load Balancer standard usando l'interfaccia della](../load-balancer/configure-load-balancer-outbound-cli.md)riga di comando di Azure.
 
 #### <a name="possible-cause"></a>Possibile causa
 
 Non è possibile stabilire una connessione agli endpoint IP4 di autenticazione e identità di Office 365.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 - Azure Site Recovery richiede l'accesso agli intervalli IP di Office 365 per l'autenticazione.
-- Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di consentire la comunicazione con gli intervalli IP di Office 365. Creare Azure Active Directory una regola NSG [(Azure ad)](/azure/virtual-network/security-overview#service-tags) basata su tag di servizio che consenta l'accesso a tutti gli indirizzi IP corrispondenti a Azure ad.
+- Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di consentire la comunicazione con gli intervalli IP di Office 365. Creare Azure Active Directory una regola NSG [(Azure ad)](../virtual-network/security-overview.md#service-tags) basata su tag di servizio che consenta l'accesso a tutti gli indirizzi IP corrispondenti a Azure ad.
 - Se vengono aggiunti nuovi indirizzi a Azure AD in futuro, è necessario creare nuove regole NSG.
 
 ### <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete
@@ -111,7 +112,7 @@ Per questo esempio, queste regole NSG sono necessarie in modo che la replica pos
 
 Non è possibile stabilire una connessione per Azure Site Recovery endpoint di servizio.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Azure Site Recovery deve accedere agli [intervalli IP di Site Recovery](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) a seconda dell'area. Assicurarsi che gli intervalli di indirizzi IP richiesti siano accessibili dalla macchina virtuale.
 
@@ -121,7 +122,7 @@ Azure Site Recovery deve accedere agli [intervalli IP di Site Recovery](azure-to
 
 Le impostazioni proxy personalizzate non sono valide e l'agente del servizio di Azure Site Recovery Mobility non rileva automaticamente le impostazioni proxy da Internet Explorer (IE).
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 1. L'agente del servizio Mobility rileva le impostazioni proxy da Internet Explorer in Windows e `/etc/environment` in Linux.
 1. Se si preferisce impostare il proxy solo per Azure Site Recovery servizio Mobility, è possibile specificare i dettagli del proxy in _ProxyInfo. conf_ disponibile all'indirizzo:
@@ -142,7 +143,7 @@ Le impostazioni proxy personalizzate non sono valide e l'agente del servizio di 
 
 ### <a name="fix-the-problem"></a>Risolvere il problema
 
-Per consentire [gli URL richiesti](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o gli [intervalli IP richiesti](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), attenersi alla procedura descritta nel [documento sulle linee guida](site-recovery-azure-to-azure-networking-guidance.md)per la rete.
+Per consentire [gli URL richiesti](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o gli [intervalli IP richiesti](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), attenersi alla procedura descritta nel [documento sulle linee guida](./azure-to-azure-about-networking.md)per la rete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

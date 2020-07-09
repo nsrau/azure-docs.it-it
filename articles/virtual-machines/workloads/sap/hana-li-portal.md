@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c14ff9c4f6d2bc2b1a62d1874d01950d09491c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8512675381f6163e66b6b838e8262dd7d2b12374
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70099807"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130871"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controllo di istanze Large di HANA in Azure tramite il portale di Azure
 Questo documento illustra il modo in cui vengono presentate le [istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) in [portale di Azure](https://portal.azure.com) e quali attività possono essere eseguite tramite portale di Azure con le unità di istanze large di Hana distribuite per l'utente. La visibilità delle istanze large di HANA in portale di Azure viene fornita tramite un provider di risorse di Azure per istanze large di HANA, attualmente disponibile in anteprima pubblica
@@ -31,7 +31,9 @@ In genere la sottoscrizione di Azure usata per le distribuzioni di istanze large
 ### <a name="register-through-cli-interface"></a>Eseguire la registrazione tramite l'interfaccia CLI
 È necessario accedere alla sottoscrizione di Azure, usata per la distribuzione di istanze large di HANA tramite l'interfaccia della riga di comando di Azure. È possibile (ri-) registrare il provider di istanze large di HANA con questo comando:
     
-    az provider register --namespace Microsoft.HanaOnAzure
+```azurecli
+az provider register --namespace Microsoft.HanaOnAzure
+```
 
 Per altre informazioni, vedere l'articolo relativo ai [provider e ai tipi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
 

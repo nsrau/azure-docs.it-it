@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73936038"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129953"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Pianificare la capacità per il ripristino di emergenza di macchine virtuali Hyper-V 
 
@@ -38,7 +39,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 ## <a name="before-you-start"></a>Prima di iniziare
 
 * Raccogliere informazioni sull'ambiente, incluse le macchine virtuali, i dischi per ogni macchina virtuale e l'archiviazione per ogni disco.
-* Identificare la frequenza di modifica giornaliera (varianza) per i dati replicati. Scaricare lo [strumento di pianificazione della capacità di Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) per ottenere la frequenza di modifica. [Altre informazioni](site-recovery-capacity-planning-for-hyper-v-replication.md) su questo strumento. È consigliabile eseguire lo strumento per una settimana per acquisire i valori medi.
+* Identificare la frequenza di modifica giornaliera (varianza) per i dati replicati. Scaricare lo [strumento di pianificazione della capacità di Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) per ottenere la frequenza di modifica. [Altre informazioni](./hyper-v-deployment-planner-overview.md) su questo strumento. È consigliabile eseguire lo strumento per una settimana per acquisire i valori medi.
 
 
 ## <a name="run-the-quick-planner"></a>Eseguire lo strumento di pianificazione rapida
@@ -52,7 +53,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
    a. In **Select your scenario** (Selezionare uno scenario) scegliere **Hyper-V to Azure** (Da Hyper-V ad Azure) o **VMware/Physical to Azure** (Da fisico/VMware ad Azure).
 
-   b. In **Average daily data change rate (%)** (Frequenza di modifica dei dati giornaliera media in %) immettere le informazioni raccolte con lo [strumento di pianificazione della capacità per Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o con [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
+   b. In **Average daily data change rate (%)** (Frequenza di modifica dei dati giornaliera media in %) immettere le informazioni raccolte con lo [strumento di pianificazione della capacità per Hyper-V](./hyper-v-deployment-planner-overview.md) o con [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
    c. L'impostazione **Compression** (Compressione) non viene usata in caso di replica di macchine virtuali Hyper-V in Azure. Per la compressione usare un'appliance di terze parti, ad esempio Riverbed.
 
@@ -146,4 +147,4 @@ Dopo aver immesso tutte le informazioni, fare clic su **Submit data to the plann
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni su come eseguire](site-recovery-capacity-planning-for-hyper-v-replication.md) lo strumento di pianificazione della capacità.
+[Informazioni su come eseguire](./hyper-v-deployment-planner-overview.md) lo strumento di pianificazione della capacità.

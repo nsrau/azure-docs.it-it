@@ -1,18 +1,18 @@
 ---
 title: Creare un'offerta Dynamics 365 Business Central - Marketplace commerciale Microsoft
 description: Procedure e considerazioni per la creazione di una nuova offerta Dynamics 365 Business Central nel portale del marketplace commerciale nel Centro per i partner. È possibile presentare o vendere un'offerta in Azure Marketplace o tramite il programma Cloud Solution Provider (CSP).
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: navits09
+ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 498b5935d1170fdce7da76ca475c816f1fb8d136
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 456764ae2b08b9852e56b2ab3f7cd9238b540b58
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984243"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121946"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creare un'offerta Dynamics 365 Business Central
 
@@ -131,7 +131,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 6. Informativa sulla privacy
 7. Nome offerta
 8. Summary
-9. Descrizione
+9. Description
 10. Screenshot/video
 
 ### <a name="name"></a>Nome

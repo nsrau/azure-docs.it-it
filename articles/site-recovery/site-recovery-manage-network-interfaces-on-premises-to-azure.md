@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de55e2d316b6ed7ee51460ce96896ed2ccfe0992
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954597"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129894"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gestire le interfacce di rete VM per il ripristino di emergenza locale in Azure
 
@@ -25,7 +26,7 @@ Per impostazione predefinita, Azure Site Recovery crea un numero di interfacce d
 
 ## <a name="select-the-target-network"></a>Selezionare la rete di destinazione
 
-Per VMware e i computer fisici e per le macchine virtuali Hyper-V (senza System Center Virtual Machine Manager), è possibile specificare la rete virtuale di destinazione per le singole macchine virtuali. Per le macchine virtuali Hyper-V gestite con Virtual Machine Manager, usare il [mapping di rete](site-recovery-network-mapping.md) per associare le reti delle macchine virtuali in un server Virtual Machine Manager di origine e nelle reti Azure di destinazione.
+Per VMware e i computer fisici e per le macchine virtuali Hyper-V (senza System Center Virtual Machine Manager), è possibile specificare la rete virtuale di destinazione per le singole macchine virtuali. Per le macchine virtuali Hyper-V gestite con Virtual Machine Manager, usare il [mapping di rete](./hyper-v-vmm-network-mapping.md) per associare le reti delle macchine virtuali in un server Virtual Machine Manager di origine e nelle reti Azure di destinazione.
 
 1. In **Elementi replicati** in un insieme di credenziali di Servizi di ripristino selezionare un elemento replicato per accedere alle impostazioni per tale elemento replicato.
 

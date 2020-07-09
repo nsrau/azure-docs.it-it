@@ -6,11 +6,12 @@ manager: rochakm
 ms.date: 12/10/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: cd54da5ee01206e576157435135065189bfb8035
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4842172ff181b5cdbe7f6fecf69da8755ae43fa
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75495361"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129879"
 ---
 # <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Escludere dischi dalla replica di macchine virtuali VMware in Azure
 
@@ -41,7 +42,7 @@ Prima di escludere i dischi dalla replica:
 
 ## <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
 
-1. Quando si [Abilita la replica](site-recovery-hyper-v-site-to-azure.md) per una macchina virtuale VMware, dopo aver selezionato le macchine virtuali che si desidera replicare, nella pagina Abilita proprietà di **replica**  >  **Properties**  >  **Configura proprietà** verificare la colonna **dischi da replicare** . Per impostazione predefinita, tutti i dischi sono selezionati per la replica.
+1. Quando si [Abilita la replica](./hyper-v-azure-tutorial.md) per una macchina virtuale VMware, dopo aver selezionato le macchine virtuali che si desidera replicare, nella pagina Abilita proprietà di **replica**  >  **Properties**  >  **Configura proprietà** verificare la colonna **dischi da replicare** . Per impostazione predefinita, tutti i dischi sono selezionati per la replica.
 2. Se non si vuole replicare un disco specifico, in **dischi per replicare** deselezionare la selezione per tutti i dischi che si desidera escludere. 
 
     ![Escludere dischi dalla replica](./media/vmware-azure-exclude-disk/enable-replication-exclude-disk1.png)

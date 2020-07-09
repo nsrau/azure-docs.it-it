@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/22/2020
 ms.author: sedusch
-ms.openlocfilehash: 758e79109d6cf0d41e5e5981168b0eed9f9928d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6a284d13d0d737eca65b2593813b3d1b999cfdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361388"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133152"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
 
@@ -211,6 +211,7 @@ ms.locfileid: "85361388"
 [planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Copia di dischi tra account di archiviazione di Azure)
 [planning-guide-5.5.1]:planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Struttura di macchine virtuali/dischi rigidi virtuali per le distribuzioni SAP)
 [planning-guide-5.5.3]:planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Impostazione del montaggio automatico per dischi collegati)
+[planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Soluzione di monitoraggio di Azure per SAP)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
 [planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
@@ -913,7 +914,7 @@ Per altre informazioni sulle route definite dall'utente, vedere [Route definite 
 > Dichiarazione del supporto generale: aprire sempre un evento imprevisto con SAP sul componente BC-OP-NT-AZR per Windows o BC-OP-LNX-AZR se è necessario il supporto per l'estensione di Azure per SAP.
 > Sono disponibili tecnici del supporto tecnico Microsoft dedicati che lavorano al sistema di supporto SAP per aiutare i nostri clienti Uniti.
 
-Dopo avere preparato la VM come descritto in [Scenari di distribuzione di VM per SAP in Azure][deployment-guide-3], l'agente di macchine virtuali di Azure è installato nella macchina virtuale. Il passaggio successivo consiste nel distribuire l'estensione Azure per SAP, disponibile nel repository di estensioni Azure nei data center di Azure globali. Per ulteriori informazioni, vedere [pianificazione e implementazione di macchine virtuali di Azure per SAP NetWeaver] [Planning-Guide-9,1].
+Dopo avere preparato la VM come descritto in [Scenari di distribuzione di VM per SAP in Azure][deployment-guide-3], l'agente di macchine virtuali di Azure è installato nella macchina virtuale. Il passaggio successivo consiste nel distribuire l'estensione Azure per SAP, disponibile nel repository di estensioni Azure nei data center di Azure globali. Per altre informazioni, vedere [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide-9.1].
 
 È in corso il rilascio di una nuova versione dell'estensione di Azure per SAP. La nuova estensione usa l'identità assegnata dal sistema della macchina virtuale per ottenere informazioni sui dischi collegati, le interfacce di rete e la macchina virtuale stessa. Per poter accedere a queste risorse, l'identità di sistema della macchina virtuale richiede l'autorizzazione di lettura per la macchina virtuale, il disco del sistema operativo, i dischi dati e le interfacce di rete. È attualmente consigliabile installare solo la nuova estensione negli scenari seguenti:
 

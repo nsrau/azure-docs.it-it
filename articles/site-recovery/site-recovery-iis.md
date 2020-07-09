@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478282"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131338"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
 
@@ -31,7 +31,7 @@ Questo articolo descrive come proteggere un'applicazione Web basata su Internet 
 Prima di iniziare, assicurarsi di conoscere le procedure per eseguire le attività seguenti:
 
 * [Replicare una macchina virtuale in Azure](vmware-azure-tutorial.md)
-* [Progettare una rete di ripristino](site-recovery-network-design.md)
+* [Progettare una rete di ripristino](./concepts-on-premises-to-azure-networking.md)
 * [Eseguire un failover di test in Azure](site-recovery-test-failover-to-azure.md)
 * [Eseguire un failover in Azure](site-recovery-failover.md)
 * [Replicare un controller di dominio](site-recovery-active-directory.md)
@@ -92,7 +92,7 @@ Per altre informazioni, vedere [Personalizzare il piano di ripristino](site-reco
 
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>Aggiungere uno script al piano di ripristino
-Per far sì che la Web farm IIS funzioni correttamente, potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o il failover di test. È possibile automatizzare alcune operazioni successive al failover. È, ad esempio, possibile aggiornare la voce DNS, modificare un'associazione del sito o modificare una stringa di connessione aggiungendo gli script corrispondenti al piano di ripristino. L'articolo [Add a VMM script to a recovery plan](site-recovery-how-to-add-vmmscript.md) (Aggiungere uno script VMM a un piano di ripristino) illustra come impostare le attività automatizzate tramite uno script.
+Per far sì che la Web farm IIS funzioni correttamente, potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o il failover di test. È possibile automatizzare alcune operazioni successive al failover. È, ad esempio, possibile aggiornare la voce DNS, modificare un'associazione del sito o modificare una stringa di connessione aggiungendo gli script corrispondenti al piano di ripristino. L'articolo [Add a VMM script to a recovery plan](./hyper-v-vmm-recovery-script.md) (Aggiungere uno script VMM a un piano di ripristino) illustra come impostare le attività automatizzate tramite uno script.
 
 #### <a name="dns-update"></a>Aggiornamento del DNS
 Se il DNS è configurato per l'aggiornamento DNS dinamico, le macchine virtuali aggiornano in genere il DNS con il nuovo indirizzo IP all'avvio. Se si vuole aggiungere un passaggio esplicito per l'aggiornamento del DNS con i nuovi indirizzi IP delle macchine virtuali, aggiungere uno [script per l'aggiornamento degli indirizzi IP nel DNS](https://aka.ms/asr-dns-update) come azione dopo il failover nei gruppi del piano di ripristino.  

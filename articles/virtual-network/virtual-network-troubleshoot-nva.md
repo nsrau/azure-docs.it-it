@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: b998043bc7d896989590ac21db5f309a81cc02bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 353ab1f15a6df8700a9abda22233dc052aa10095
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71056825"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130712"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemi delle appliance virtuali di rete in Azure
 
@@ -103,11 +103,15 @@ Usare PowerShell
 
     Per Windows:
 
-        netstat -an
+    ```console
+   netstat -an
+    ```
 
     Per Linux:
 
-        netstat -an | grep -i listen
+    ```console
+   netstat -an | grep -i listen
+    ```
 2. Se non viene visualizzata la porta TCP usata dal software dell'appliance virtuale di rete elencata nei risultati, è necessario configurare l'applicazione sull'appliance virtuale di rete e sulla macchina virtuale in modo che sia in ascolto e risponda al traffico che raggiunge tali porte. [Contattare il fornitore dell'appliance virtuale di rete per ottenere assistenza in base alla necessità](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 ## <a name="check-nva-performance"></a>Controllare le prestazioni dell'appliance virtuale di rete

@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 8e1fd7e839c50458ddcfc9f83d152d7b45cd6672
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ff99fd1dd1710cd96f6257096b97ae1912a61dc6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956254"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131878"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -50,8 +50,8 @@ Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 con esperienza
 Impostazioni locali del sistema operativo | Inglese (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Non necessario per il server di configurazione [9,14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) o versione successiva.
 Ruoli di Windows Server | Non abilitare Active Directory Domain Services; Internet Information Services (IIS) o Hyper-V.
-Criteri di gruppo| - Impedisci accesso al prompt dei comandi <br/> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br/> - Logica di attendibilità per file allegati <br/> - Attiva l'esecuzione di script <br/> - [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Assicurarsi di:<br/><br/> -Non avere un sito Web predefinito preesistente <br/> - Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - Non avere un sito Web o un'app preesistente in ascolto sulla porta 443<br/>
+Criteri di gruppo| - Impedisci accesso al prompt dei comandi <br/> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br/> - Logica di attendibilità per file allegati <br/> - Attiva l'esecuzione di script <br/> - [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+IIS | Assicurarsi di:<br/><br/> -Non avere un sito Web predefinito preesistente <br/> - Abilitare l'[autenticazione anonima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Abilitare l'impostazione di [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br/> - Non avere un sito Web o un'app preesistente in ascolto sulla porta 443<br/>
 Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware)
 Tipo di indirizzo IP | Statico
 Porte | 443 usato per l'orchestrazione del canale di controllo<br/>9443 per il trasporto dati
@@ -67,7 +67,7 @@ Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in
 --- | ---
 Impostazioni del computer | I computer che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#azure-vm-requirements).
 Carico di lavoro del computer | Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer supportato. [Altre informazioni](https://aka.ms/asr_workload)
-Nome computer | Verificare che il nome visualizzato del computer non rientri nei [nomi delle risorse riservate di Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> I nomi di volumi logici non fanno distinzione tra maiuscole e minuscole. Assicurarsi che non siano presenti due volumi in un dispositivo con lo stesso nome. Esempio: i volumi con nomi "voLUME1", "voLUME1" non possono essere protetti tramite Azure Site Recovery.
+Nome computer | Verificare che il nome visualizzato del computer non rientri nei [nomi delle risorse riservate di Azure](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> I nomi di volumi logici non fanno distinzione tra maiuscole e minuscole. Assicurarsi che non siano presenti due volumi in un dispositivo con lo stesso nome. Esempio: i volumi con nomi "voLUME1", "voLUME1" non possono essere protetti tramite Azure Site Recovery.
 
 ### <a name="for-windows"></a>Per Windows
 
@@ -224,7 +224,7 @@ Guest/server - esclusione disco | Sì
 Percorsi multipli (MPIO) guest/server | No
 Partizioni GPT Guest/server | Sono supportate cinque partizioni dall' [aggiornamento cumulativo 37](https://support.microsoft.com/help/4508614/) (versione 9,25 del servizio Mobility). Sono state supportate quattro versioni precedenti.
 ReFS | Resilient file System è supportato con il servizio Mobility versione 9,23 o successiva
-Avvio EFI/UEFI Guest/server | -Supportato per Windows Server 2012 o versioni successive, SLES 12 SP4 e RHEL 8,0 con l'agente di mobilità versione 9,30 in poi<br/> -Il tipo di avvio UEFI sicuro non è supportato. [Altre informazioni.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+Avvio EFI/UEFI Guest/server | -Supportato per Windows Server 2012 o versioni successive, SLES 12 SP4 e RHEL 8,0 con l'agente di mobilità versione 9,30 in poi<br/> -Il tipo di avvio UEFI sicuro non è supportato. [Altre informazioni.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canali di replica
 
@@ -280,7 +280,7 @@ Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e tra
 
 ## <a name="resource-group-limits"></a>Limiti del gruppo di risorse
 
-Per comprendere il numero di macchine virtuali che possono essere protette in un singolo gruppo di risorse, vedere l'articolo relativo ai [limiti e alle quote della sottoscrizione](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits).
+Per comprendere il numero di macchine virtuali che possono essere protette in un singolo gruppo di risorse, vedere l'articolo relativo ai [limiti e alle quote della sottoscrizione](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
 
 ## <a name="churn-limits"></a>Limiti di varianza
 

@@ -1,18 +1,16 @@
 ---
 title: Creare un'offerta per un'applicazione Azure - Marketplace commerciale Microsoft
 description: Informazioni sui passaggi e sulle considerazioni per la creazione di una nuova offerta per un'applicazione Azure nel portale del marketplace commerciale nel Centro per i partner. È possibile presentare o vendere l'offerta per un'applicazione Azure in Azure Marketplace o tramite il programma Cloud Solution Provider (CSP).
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: cf44e50f7d8cc0dbf94c5313373bbd8080baa176
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984374"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121972"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -188,7 +186,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
 7. Summary
-8. Descrizione
+8. Description
 9. Screenshot/video
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
@@ -198,7 +196,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
 1. Titolo
-2. Descrizione
+2. Description
 3. Collegamenti utili
 4. Screenshots (Schermate)
 

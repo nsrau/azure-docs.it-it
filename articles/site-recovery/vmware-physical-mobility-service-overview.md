@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: ec4d1cfbe0c76c8245c4beeaa7c044d76d917a7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259799"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131802"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
 
@@ -185,8 +186,8 @@ Sintassi | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<
 
 ## <a name="azure-virtual-machine-agent"></a>Agente di macchina virtuale di Azure
 
-- **Macchine virtuali Windows**: dalla versione 9.7.0.0 del servizio Mobility, l'[agente di macchina virtuale di Azure](/azure/virtual-machines/extensions/features-windows#azure-vm-agent) viene installata dal programma di installazione del servizio Mobility. In questo modo, quando viene eseguito il failover della macchina in Azure, la VM di Azure soddisfa il prerequisito di installazione dell'agente per l'uso di qualsiasi estensione della macchina virtuale.
-- **Macchine virtuale Linux**: l'istanza di [WALinuxAgent](/azure/virtual-machines/extensions/update-linux-agent) deve essere installata manualmente nella macchina virtuale di Azure dopo il failover.
+- **Macchine virtuali Windows**: dalla versione 9.7.0.0 del servizio Mobility, l'[agente di macchina virtuale di Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) viene installata dal programma di installazione del servizio Mobility. In questo modo, quando viene eseguito il failover della macchina in Azure, la VM di Azure soddisfa il prerequisito di installazione dell'agente per l'uso di qualsiasi estensione della macchina virtuale.
+- **Macchine virtuale Linux**: l'istanza di [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) deve essere installata manualmente nella macchina virtuale di Azure dopo il failover.
 
 ## <a name="locate-installer-files"></a>Individuare i file del programma di installazione
 

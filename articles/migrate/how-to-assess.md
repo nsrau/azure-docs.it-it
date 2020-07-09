@@ -3,15 +3,16 @@ title: Aggiungere strumenti di valutazione in Azure Migrate
 description: Informazioni su come aggiungere strumenti di valutazione in Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 10e8b66575893bc8e63aa94392c872acc04407c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195626"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122116"
 ---
 # <a name="add-assessment-tools"></a>Aggiungere strumenti di valutazione
 
-Questo articolo descrive come aggiungere strumenti di valutazione in [Azure migrate](migrate-overview.md). 
+Questo articolo descrive come aggiungere strumenti di valutazione in [Azure migrate](./migrate-services-overview.md). 
 
 - Se si vuole aggiungere uno strumento di valutazione e non si dispone ancora di un progetto di Azure Migrate, seguire questo [articolo](how-to-add-tool-first-time.md).
 - Se è stato aggiunto uno strumento ISV, o Mover, per la valutazione, [seguire la procedura](prepare-isv-movere.md)per prepararsi a usare lo strumento.

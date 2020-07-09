@@ -222,12 +222,6 @@
         - name: Usare il controllo integrità in Deployment Manager
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-- name: Esempi
-  items:
-    - name: Modelli di Guida introduttiva di Azure
-      href: 'https://azure.microsoft.com/resources/templates/'
-    - name: Esempi di modelli
-      href: template-samples.md
 - name: Concetti
   items:
     - name: Procedure consigliate per i modelli
@@ -299,16 +293,6 @@
             - name: Output
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: Usare gli strumenti di creazione
-      items:
-        - name: Visual Studio Code
-          href: use-vs-code-to-create-template.md
-        - name: Visual Studio
-          href: create-visual-studio-deployment-project.md
-        - name: Aggiornare lo script di distribuzione VS al modulo Az
-          href: update-visual-studio-deployment-script.md
-        - name: IntelliJ IDEA
-          href: create-templates-use-intellij.md
     - name: Individuare le proprietà del modello
       items:
         - name: Esportare il modello
@@ -344,6 +328,8 @@
           href: rollback-on-error.md
         - name: Proteggere il modello tramite token di firma di accesso condiviso
           href: secure-template-with-sas-token.md
+        - name: Visualizzare la cronologia delle distribuzioni
+          href: deployment-history.md
     - name: Distribuzioni con ambito
       items:
         - name: Subscription
@@ -367,8 +353,14 @@
           href: add-template-to-azure-pipelines.md
         - name: Distribuzione - GitHub Actions
           href: deploy-github-actions.md
-    - name: Visualizzare la cronologia delle distribuzioni
-      href: deployment-history.md
+    - name: Usare gli strumenti di creazione
+      items:
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: Aggiornare lo script di distribuzione VS al modulo Az
+          href: update-visual-studio-deployment-script.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Risolvere i problemi delle distribuzioni
       items:
         - name: Risolvere gli errori relativi alla distribuzione
@@ -441,6 +433,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Risorse
   items:
+    - name: Modelli di Guida introduttiva di Azure
+      href: 'https://azure.microsoft.com/resources/templates/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Calcolatore prezzi

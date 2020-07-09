@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738117"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130457"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Risolvere gli errori di replica delle macchine virtuali da Azure ad Azure
 
@@ -36,7 +36,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### <a name="fix-the-problem"></a>Risolvere il problema
 
-Contattare il supporto per la [fatturazione di Azure](/azure/azure-portal/supportability/resource-manager-core-quotas-request) per abilitare la sottoscrizione per la creazione di macchine virtuali con le dimensioni richieste nel percorso di destinazione. Quindi, ripetere l'operazione non riuscita.
+Contattare il supporto per la [fatturazione di Azure](../azure-portal/supportability/resource-manager-core-quotas-request.md) per abilitare la sottoscrizione per la creazione di macchine virtuali con le dimensioni richieste nel percorso di destinazione. Quindi, ripetere l'operazione non riuscita.
 
 Se il percorso di destinazione ha un vincolo di capacità, disabilitare la replica in tale percorso. Quindi, abilitare la replica in un percorso diverso in cui la sottoscrizione ha una quota sufficiente per creare VM con le dimensioni necessarie.
 
@@ -202,7 +202,7 @@ Non è possibile stabilire una connessione agli endpoint IP4 di autenticazione e
 #### <a name="fix-the-problem"></a>Risolvere il problema
 
 Azure Site Recovery l'accesso necessario agli intervalli IP di Office 365 per l'autenticazione.
-Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di usare la regola NSG basata su [tag di servizio Azure Active Directory (AAD)](/azure/virtual-network/security-overview#service-tags) per consentire l'accesso ad AAD. Le regole NSG basate sull'indirizzo IP non sono più supportate.
+Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di usare la regola NSG basata su [tag di servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso ad AAD. Le regole NSG basate sull'indirizzo IP non sono più supportate.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: La configurazione di Site Recovery non è riuscita (151197)
 
@@ -239,7 +239,7 @@ Le impostazioni proxy personalizzate non sono valide e l'agente del servizio Mob
 > [!NOTE]
 > L'agente del servizio Mobility supporta solo **proxy non autenticati**.
 
-### <a name="more-information"></a>Altre informazioni
+### <a name="more-information"></a>Ulteriori informazioni
 
 Per specificare gli [URL richiesti](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o gli [intervalli IP richiesti](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), seguire le istruzioni riportate in [informazioni sulla rete in Azure per la replica di Azure](azure-to-azure-about-networking.md).
 
@@ -260,8 +260,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Verificare che i dischi dati siano inizializzati, quindi ripetere l'operazione.
 
-- **Windows**: [aggiungere e inizializzare un nuovo disco](/azure/virtual-machines/windows/attach-managed-disk-portal).
-- **Linux**: [inizializzare un nuovo disco dati in Linux](/azure/virtual-machines/linux/add-disk).
+- **Windows**: [aggiungere e inizializzare un nuovo disco](../virtual-machines/windows/attach-managed-disk-portal.md).
+- **Linux**: [inizializzare un nuovo disco dati in Linux](../virtual-machines/linux/add-disk.md).
 
 Se il problema persiste, contattare il supporto tecnico.
 

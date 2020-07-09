@@ -3,12 +3,12 @@ title: Replicare le macchine virtuali di Azure Stack in Azure tramite Azure Site
 description: Informazioni su come configurare il ripristino di emergenza in Azure per macchine virtuali di Azure Stack con il servizio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478507"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131617"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
 
@@ -34,9 +34,9 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Quando la procedura è completata, è quindi possibile eseguire un failover completo in Azure nel modo e nel momento necessari.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
-![Architettura](./media/azure-stack-site-recovery/architecture.png)
+![Architecture](./media/azure-stack-site-recovery/architecture.png)
 
 **Posizione** | **Componente** |**Dettagli**
 --- | --- | ---
@@ -262,7 +262,7 @@ Prima di eseguire un failover di test, verificare le proprietà del computer e a
 2. Nel riquadro **Elemento replicato** è possibile vedere un riepilogo relativo a informazioni sulla macchina virtuale, stato integrità e ultimi punti di ripristino disponibili. Fare clic su **Proprietà** per visualizzare altri dettagli.
 3. In **Calcolo e rete** modificare le impostazioni in base alle esigenze.
 
-    - È possibile modificare il nome della macchina virtuale di Azure, il gruppo di risorse, le dimensioni di destinazione, i [set di disponibilità](/azure/virtual-machines/windows/tutorial-availability-sets) e le impostazioni del disco gestito.
+    - È possibile modificare il nome della macchina virtuale di Azure, il gruppo di risorse, le dimensioni di destinazione, i [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) e le impostazioni del disco gestito.
     - È anche possibile visualizzare e modificare le impostazioni di rete. Tali impostazioni includono la rete/subnet a cui è stata aggiunta la macchina virtuale di Azure dopo il failover e l'indirizzo IP che verrà assegnato alla macchina virtuale.
 1. In **Dischi** visualizzare le informazioni sul sistema operativo e sui dischi dati della macchina virtuale.
 

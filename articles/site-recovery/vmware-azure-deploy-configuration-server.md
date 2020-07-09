@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704438"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132159"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -39,7 +39,7 @@ Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un serve
 1. Per creare un'applicazione, l'utente deve disporre di un ruolo di sviluppatore di applicazioni.
     - Per verificare, accedere al portale di Azure.</br>
     - Passare a **Azure Active Directory**  >  **ruoli e agli amministratori**.</br>
-    - Verificare che il ruolo Sviluppatore applicazioni sia assegnato all'utente. In caso contrario, utilizzare un utente con questa autorizzazione oppure contattare un [amministratore per abilitare l'autorizzazione](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - Verificare che il ruolo Sviluppatore applicazioni sia assegnato all'utente. In caso contrario, utilizzare un utente con questa autorizzazione oppure contattare un [amministratore per abilitare l'autorizzazione](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Se non è possibile assegnare il ruolo sviluppatore di applicazioni, verificare che il flag **utenti possa registrare le applicazioni** sia impostato su **true** per consentire all'utente di creare un'identità. Per abilitare le autorizzazioni seguenti:
     - Accedere al portale di Azure.
@@ -49,7 +49,7 @@ Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un serve
       ![AD_application_permission di Azure](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Active Directory Federation Services *non è supportato*. Usare un account gestito tramite [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> Active Directory Federation Services *non è supportato*. Usare un account gestito tramite [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="download-the-template"></a>Scaricare il modello
 

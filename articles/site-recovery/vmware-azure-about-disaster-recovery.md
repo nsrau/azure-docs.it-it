@@ -6,11 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954399"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132112"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Informazioni sul ripristino di emergenza di macchine virtuali VMware in Azure
 
@@ -20,7 +21,7 @@ Questo articolo offre una panoramica del ripristino di emergenza di macchine vir
 
 Una strategia di continuità aziendale e ripristino di emergenza (BCDR, Business Continuity and Disaster Recovery) consente di mantenere operativa l'azienda. Durante il periodo di inattività pianificato e le interruzioni impreviste, la strategia BCDR mantiene i dati sicuri e disponibili e garantisce che l'esecuzione delle app continui. Oltre alle funzionalità della piattaforma BCDR, ad esempio coppie di aree e archiviazione a disponibilità elevata, Azure offre servizi di ripristino come parte integrante della soluzione BCDR. I servizi di ripristino includono gli elementi seguenti: 
 
-- [Backup di Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup), che esegue il backup di un'istanza locale e dei dati della macchina virtuale di Azure. È possibile eseguire il backup di un file e di cartelle,di carichi di lavoro specifici o di un'intera macchina virtuale. 
+- [Backup di Azure](../backup/backup-overview.md), che esegue il backup di un'istanza locale e dei dati della macchina virtuale di Azure. È possibile eseguire il backup di un file e di cartelle,di carichi di lavoro specifici o di un'intera macchina virtuale. 
 - [Azure Site Recovery](site-recovery-overview.md), che offre resilienza e ripristino di emergenza per le app e carichi di lavoro in esecuzione in computer locali oppure in macchine virtuali IaaS di Azure. Site Recovery orchestra la replica, gestisce i failover in Azure quando si verificano interruzioni e gestisce anche il ripristino da Azure nel sito primario. 
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>In che modo Site Recovery esegue il ripristino di emergenza?

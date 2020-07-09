@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ab3ae45081ecc481cb90af8961174e23c86e84b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83841349ec7563231653cd063791e19ae2af4857
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71056809"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130680"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Risoluzione dei problemi di connettività tra macchine virtuali di Azure
 
@@ -81,11 +81,15 @@ Per verificare se un'applicazione o un servizio della macchina virtuale sono in 
 
 **Macchina virtuale Windows**
 
-    netstat –ano
+```console
+netstat –ano
+```
 
 **VM Linux**
 
-    netstat -l
+```console
+netstat -l
+```
 
 - Per testare la porta, eseguire il comando **telnet** nella macchina virtuale. Se il test non riesce, l'applicazione o il servizio non sono configurati per restare in ascolto su quella porta.
 

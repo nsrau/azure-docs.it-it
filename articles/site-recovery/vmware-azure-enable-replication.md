@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 6547bcf2061213cd01550367171d432900693ea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80584137"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129926"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
@@ -106,9 +106,9 @@ Verificare quindi le proprietà della macchina virtuale di origine. Tenere prese
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Finestra delle proprietà calcolo e rete":::
 
    - **Nome della macchina virtuale di Azure**: modificare il nome in modo da soddisfare i requisiti di Azure, se necessario.
-   - **Dimensioni macchina virtuale di destinazione o tipo di macchina virtuale**: le dimensioni predefinite della macchina virtuale vengono scelte in base ai parametri che includono il numero di dischi, il numero di nic, il numero di core CPU, la memoria e le dimensioni del ruolo VM disponibili nell'area di Azure di destinazione Azure Site Recovery seleziona la prima dimensione di macchina virtuale disponibile che soddisfa tutti i criteri. È possibile selezionare una diversa dimensione della macchina virtuale in base alle esigenze in qualsiasi momento prima del failover. Anche le dimensioni del disco della macchina virtuale sono basate sulle dimensioni del disco di origine e possono essere modificate solo dopo il failover. Per altre informazioni sulle dimensioni dei dischi e sulle tariffe di IOPS, vedere [obiettivi di scalabilità e prestazioni per i dischi delle VM in Windows](/azure/virtual-machines/windows/disk-scalability-targets).
-   - **Gruppo di risorse**: è possibile selezionare un [gruppo di risorse](/azure/azure-resource-manager/management/overview#resource-groups)da cui una macchina virtuale diventa parte di un post-failover. È possibile modificare questa impostazione in qualsiasi momento prima del failover. Dopo il failover, se si esegue la migrazione della macchina virtuale in un gruppo di risorse diverso, le impostazioni di protezione per tale macchina virtuale vengono interrotta.
-   - **Set di disponibilità**: è possibile selezionare un [set di disponibilità](/azure/virtual-machines/windows/tutorial-availability-sets) se la macchina virtuale deve far parte di un post-failover. Quando si seleziona un set di disponibilità, tenere presenti le seguenti informazioni:
+   - **Dimensioni macchina virtuale di destinazione o tipo di macchina virtuale**: le dimensioni predefinite della macchina virtuale vengono scelte in base ai parametri che includono il numero di dischi, il numero di nic, il numero di core CPU, la memoria e le dimensioni del ruolo VM disponibili nell'area di Azure di destinazione Azure Site Recovery seleziona la prima dimensione di macchina virtuale disponibile che soddisfa tutti i criteri. È possibile selezionare una diversa dimensione della macchina virtuale in base alle esigenze in qualsiasi momento prima del failover. Anche le dimensioni del disco della macchina virtuale sono basate sulle dimensioni del disco di origine e possono essere modificate solo dopo il failover. Per altre informazioni sulle dimensioni dei dischi e sulle tariffe di IOPS, vedere [obiettivi di scalabilità e prestazioni per i dischi delle VM in Windows](../virtual-machines/windows/disk-scalability-targets.md).
+   - **Gruppo di risorse**: è possibile selezionare un [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups)da cui una macchina virtuale diventa parte di un post-failover. È possibile modificare questa impostazione in qualsiasi momento prima del failover. Dopo il failover, se si esegue la migrazione della macchina virtuale in un gruppo di risorse diverso, le impostazioni di protezione per tale macchina virtuale vengono interrotta.
+   - **Set di disponibilità**: è possibile selezionare un [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) se la macchina virtuale deve far parte di un post-failover. Quando si seleziona un set di disponibilità, tenere presenti le seguenti informazioni:
      - Sono elencati solo i set di disponibilità che appartengono al gruppo di risorse specificato.
      - Le macchine virtuali che si trovano in reti virtuali diverse non possono far parte dello stesso set di disponibilità.
      - In un set di disponibilità possono essere incluse solo macchine virtuali delle stesse dimensioni.

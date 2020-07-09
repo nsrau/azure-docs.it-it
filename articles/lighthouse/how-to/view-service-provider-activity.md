@@ -1,31 +1,32 @@
 ---
 title: Visualizzare l'attività dei provider di servizi
 description: I clienti possono visualizzare le attività registrate per visualizzare le azioni eseguite dai provider di servizi tramite la gestione delle risorse delegate di Azure.
-ms.date: 01/15/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 42af2aa7fca5031eb50bd421a5207320858b70cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636445"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131470"
 ---
 # <a name="view-service-provider-activity"></a>Visualizzare l'attività dei provider di servizi
 
-I clienti che hanno sottoscrizioni delegate per la gestione delle risorse delegate di Azure possono visualizzare i dati del [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) per visualizzare tutte le azioni eseguite. In questo modo i clienti possono visualizzare in modo completo le operazioni eseguite dai provider di servizi tramite la gestione delle risorse delegate di Azure, oltre alle operazioni eseguite dagli utenti all'interno del tenant Azure Active Directory (Azure AD) del cliente.
+I clienti che hanno sottoscrizioni delegate per [Azure Lighthouse](../overview.md) possono visualizzare i dati del [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) per visualizzare tutte le azioni eseguite. In questo modo i clienti possono visualizzare in modo completo le operazioni eseguite dai provider di servizi tramite la [gestione delle risorse delegate di Azure](../concepts/azure-delegated-resource-management.md), oltre alle operazioni eseguite dagli utenti all'interno del tenant Azure Active Directory (Azure ad) del cliente.
 
 > [!TIP]
 > Viene anche fornita una definizione dei criteri incorporata in criteri di Azure per controllare la delega degli ambiti a un tenant di gestione. Per ulteriori informazioni, vedere la pagina relativa alle [deleghe di controllo nell'ambiente in uso](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
 ## <a name="view-activity-log-data"></a>Visualizzare i dati del log attività
 
-È possibile [visualizzare il log attività](../../azure-monitor/platform/activity-log-view.md) dal menu **monitoraggio** nel portale di Azure. Per limitare i risultati a una sottoscrizione specifica, usare i filtri per selezionare una sottoscrizione specifica. È anche possibile [visualizzare e recuperare gli eventi del log attività](../../azure-monitor/platform/activity-log-view.md) a livello di codice.
+È possibile [visualizzare il log attività](../../azure-monitor/platform/activity-log.md#view-the-activity-log) dal menu **monitoraggio** nel portale di Azure. Per limitare i risultati a una sottoscrizione specifica, usare i filtri per selezionare una sottoscrizione specifica. È anche possibile [visualizzare e recuperare gli eventi del log attività](../../azure-monitor/platform/activity-log.md#view-the-activity-log) a livello di codice.
 
 > [!NOTE]
-> Gli utenti del tenant di un provider di servizi possono visualizzare i risultati del log attività per una sottoscrizione delegata in un tenant del cliente se sono stati concessi il ruolo [lettore](../../role-based-access-control/built-in-roles.md#reader) (o un altro ruolo predefinito che include l'accesso in lettura) quando tale sottoscrizione è stata caricata per la gestione delle risorse delegate di Azure.
+> Gli utenti del tenant di un provider di servizi possono visualizzare i risultati del log attività per una sottoscrizione delegata in un tenant del cliente se sono stati concessi il ruolo [lettore](../../role-based-access-control/built-in-roles.md#reader) (o un altro ruolo predefinito che include l'accesso in lettura) quando tale sottoscrizione è stata caricata in Azure Lighthouse.
 
-Nel log attività verranno visualizzati il nome dell'operazione e il relativo stato, insieme alla data e all'ora in cui è stato eseguito. L' **evento avviato da** colonna indica l'utente che ha eseguito l'operazione, indipendentemente dal fatto che sia un utente del tenant di un provider di servizi che agisce attraverso la gestione delle risorse delegata di Azure o un utente nel tenant del cliente. Si noti che viene visualizzato il nome dell'utente, anziché il tenant o il ruolo assegnato dall'utente per la sottoscrizione.
+Nel log attività verranno visualizzati il nome dell'operazione e il relativo stato, insieme alla data e all'ora in cui è stato eseguito. L' **evento avviato da** colonna indica l'utente che ha eseguito l'operazione, se era un utente nel tenant di un provider di servizi che agisce tramite il faro di Azure o un utente nel tenant del cliente. Si noti che viene visualizzato il nome dell'utente, anziché il tenant o il ruolo assegnato dall'utente per la sottoscrizione.
 
-L'attività registrata è disponibile nel portale di Azure per gli ultimi 90 giorni. Per informazioni su come archiviare i dati per più di 90 giorni, vedere [raccogliere e analizzare i log attività di Azure nell'area di lavoro log Analytics](../../azure-monitor/platform/activity-log-collect.md).
+L'attività registrata è disponibile nel portale di Azure per gli ultimi 90 giorni. Per informazioni su come archiviare i dati per più di 90 giorni, vedere [raccogliere e analizzare i log attività di Azure nell'area di lavoro log Analytics](../../azure-monitor/platform/activity-log.md).
 
 > [!NOTE]
 > Gli utenti del provider di servizi vengono visualizzati nel log attività, ma questi utenti e le relative assegnazioni di ruolo non vengono visualizzati nel **controllo di accesso (IAM)** o durante il recupero delle informazioni sull'assegnazione di ruolo tramite le API.
