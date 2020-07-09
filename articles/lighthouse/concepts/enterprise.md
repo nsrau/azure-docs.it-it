@@ -1,13 +1,14 @@
 ---
 title: Azure Lighthouse in scenari aziendali
 description: Le funzionalità di Azure Lighthouse possono essere usate per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
-ms.date: 09/25/2019
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f9a7aa81772a1edda5fd1915918b547a3066455
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749219"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114143"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse in scenari aziendali
 
@@ -17,7 +18,7 @@ Lo scenario più comune per [Azure Lighthouse](../overview.md) è un provider di
 
 Per la maggior parte delle organizzazioni, la gestione è più semplice con un singolo tenant di Azure AD. L'inclusione di tutte le risorse in un tenant consente la centralizzazione delle attività di gestione da parte di entità servizio, gruppi di utenti o utenti designati all'interno di tale tenant. Quando possibile, è consigliabile usare un unico tenant per l'organizzazione.
 
-Al tempo stesso, in determinate situazioni potrebbe essere necessario per un'organizzazione gestire più tenant di Azure AD. In alcuni casi può trattarsi di una situazione temporanea, ad esempio per il tempo necessario a definire una strategia di consolidamento dei tenant a lungo termine in seguito ad acquisizioni. È anche possibile che un'organizzazione debba gestire più tenant in modo continuativo, a causa di affiliate completamente indipendenti, di requisiti geografici o legali e così via. Nei casi in cui è necessaria un'architettura multi-tenant, si può usare la gestione risorse delegate di Azure per centralizzare e semplificare le operazioni di gestione. È possibile eseguire l'onboarding delle sottoscrizioni di più tenant per la [gestione risorse delegate di Azure](azure-delegated-resource-management.md) per consentire agli utenti designati in un tenant di gestione di eseguire [funzioni di gestione tra tenant](cross-tenant-management-experience.md) in modo centralizzato e scalabile.
+Al tempo stesso, in determinate situazioni potrebbe essere necessario per un'organizzazione gestire più tenant di Azure AD. In alcuni casi può trattarsi di una situazione temporanea, ad esempio per il tempo necessario a definire una strategia di consolidamento dei tenant a lungo termine in seguito ad acquisizioni. È anche possibile che un'organizzazione debba gestire più tenant in modo continuativo, a causa di affiliate completamente indipendenti, di requisiti geografici o legali e così via. Nei casi in cui è necessaria un'architettura multi-tenant, Azure Lighthouse può essere usato per centralizzare e semplificare le operazioni di gestione. È possibile eseguire l'onboarding delle sottoscrizioni di più tenant per la [gestione risorse delegate di Azure](azure-delegated-resource-management.md) per consentire agli utenti designati in un tenant di gestione di eseguire [funzioni di gestione tra tenant](cross-tenant-management-experience.md) in modo centralizzato e scalabile.
 
 ## <a name="tenant-management-architecture"></a>Architettura di gestione dei tenant
 
@@ -31,17 +32,17 @@ L'organizzazione vuole usare le stesse definizioni di criteri e procedure di bac
 
 ## <a name="security-and-access-considerations"></a>Considerazioni sulla sicurezza e sull'accesso
 
-Anche se è possibile delegare solo gruppi di risorse specifici all'interno di una sottoscrizione, nella maggior parte degli scenari aziendali è opportuno delegare un'intera sottoscrizione per la gestione risorse delegate di Azure.
+Nella maggior parte degli scenari aziendali, è opportuno delegare una sottoscrizione completa di Azure Lighthouse, sebbene sia anche possibile delegare solo gruppi di risorse specifici all'interno di una sottoscrizione.
 
 In entrambi i casi, quando si definiscono gli utenti che avranno accesso alle risorse assicurarsi di [seguire il principio dei privilegi minimi](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Questo garantisce che gli utenti abbiano solo le autorizzazioni necessarie per eseguire le attività richieste e riduce la probabilità di errori accidentali.
 
-Azure Lighthouse e la gestione risorse delegate di Azure si limitano a fornire collegamenti logici tra un tenant di gestione e i tenant gestiti, anziché spostare fisicamente dati o risorse. L'accesso, inoltre, viene sempre eseguito in una sola direzione, dal tenant di gestione a quelli gestiti.  Gli utenti e i gruppi del tenant di gestione dovranno continuare a usare l'autenticazione a più fattori per eseguire le operazioni di gestione sulle risorse dei tenant gestiti.
+Azure Lighthouse fornisce solo collegamenti logici tra un tenant di gestione e i tenant gestiti, invece di trasferire fisicamente dati o risorse. L'accesso, inoltre, viene sempre eseguito in una sola direzione, dal tenant di gestione a quelli gestiti.  Gli utenti e i gruppi del tenant di gestione dovranno continuare a usare l'autenticazione a più fattori per eseguire le operazioni di gestione sulle risorse dei tenant gestiti.
 
 Le aziende con tutele interne o esterne per la governance e la conformità possono usare i [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) per soddisfarne i requisiti di trasparenza. Quando nei tenant aziendali sono state stabilite le relazioni tra tenant di gestione e gestiti, gli utenti di ogni tenant possono ottenere la visibilità delle azioni eseguite dagli utenti dell'altro tenant e monitorarle visualizzando l'attività registrata.
 
 ## <a name="onboarding-process-considerations"></a>Considerazioni sul processo di onboarding
 
-È possibile eseguire l'onboarding delle sottoscrizioni (o dei gruppi di risorse all'interno di una sottoscrizione) nella gestione risorse delegate di Azure distribuendo modelli di Azure Resource Manager oppure tramite le offerte di servizi gestiti pubblicate, privatamente o pubblicamente, in Azure Marketplace.
+Le sottoscrizioni o i gruppi di risorse all'interno di una sottoscrizione possono essere caricate in Azure Lighthouse distribuendo Azure Resource Manager modelli o tramite le offerte di servizi gestiti pubblicate in Azure Marketplace, in modo privato o pubblico.
 
 Dato che gli utenti aziendali potranno normalmente ottenere l'accesso diretto ai tenant dell'azienda e non è necessario commercializzare o promuovere un'offerta di gestione, è in genere più veloce e semplice eseguire direttamente la distribuzione con modelli di Azure Resource Manager. Nelle [indicazioni per l'onboarding](../how-to/onboard-customer.md) viene fatto riferimento a provider di servizi e clienti, ma gli stessi processi possono essere usati dalle aziende.
 

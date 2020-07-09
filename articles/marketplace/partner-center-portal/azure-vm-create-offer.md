@@ -1,18 +1,18 @@
 ---
 title: Creare un'offerta di macchina virtuale di Azure in Azure Marketplace
 description: Informazioni su come creare un'offerta di macchina virtuale in Azure Marketplace con lo SKU richiesto.
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: emuench
+ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: 499c7e9e4ca4ab5db02c566830738f0ceb07e40d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: fe53de2c81f9e9df5fd9270951f943b0b3505f1e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984651"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110981"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creare un'offerta di macchina virtuale di Azure in Azure Marketplace
 
@@ -535,7 +535,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 4. Termini e condizioni
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
-7. Descrizione
+7. Description
 8. Collegamenti utili
 9. Screenshot/video
 
@@ -567,7 +567,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
 1. Nome
-2. Descrizione
+2. Description
 3. Collegamenti utili
 4. Screenshot/video
 

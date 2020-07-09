@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 07/06/2020
-ms.openlocfilehash: 1c63568418f21da0556ced0d004e04e7909118fb
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042629"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114381"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -35,7 +35,7 @@ Quando si progettano flussi di dati per mapping, è possibile eseguire l'unit te
 
 ![Monitoraggio dei flussi di dati](media/data-flow/mon003.png "Monitoraggio del flusso di dati 3")
 
- Per le esecuzioni di debug della pipeline, un cluster attivo richiede circa un minuto di tempo di configurazione nei calcoli delle prestazioni complessive. Se si sta inizializzando Azure Integration Runtime con le impostazioni predefinite, il tempo di attivazione potrebbe richiedere circa 5 minuti.
+ Per le esecuzioni di debug della pipeline, un cluster attivo richiede circa un minuto di tempo di configurazione nei calcoli delle prestazioni complessive. Se si sta inizializzando la Azure Integration Runtime predefinita, il tempo di rotazione potrebbe richiedere circa 4 minuti.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumento delle dimensioni di calcolo in Azure Integration Runtime
 
@@ -55,7 +55,7 @@ Per impostazione predefinita, l'attivazione del debug userà il runtime di integ
 
 ### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Ridurre il tempo di avvio del calcolo del cluster con l'impostazione di durata (TTL)
 
-Una delle proprietà del flusso di dati di Azure IR consente di creare un pool di risorse di calcolo del cluster per la factory. Con questo pool è possibile inviare in sequenza le attività del flusso di dati per l'esecuzione. Dopo aver stabilito il pool, il cluster Spark su richiesta impiegherà 1 o 2 minuti a eseguire ogni processo successivo. La configurazione iniziale del pool di risorse può richiedere circa 6 minuti. Specificare la quantità di tempo per cui si vuole mantenere il pool di risorse nell'impostazione di durata (TTL).
+Una delle proprietà del flusso di dati di Azure IR consente di creare un pool di risorse di calcolo del cluster per la factory. Con questo pool è possibile inviare in sequenza le attività del flusso di dati per l'esecuzione. Dopo aver stabilito il pool, il cluster Spark su richiesta impiegherà 1 o 2 minuti a eseguire ogni processo successivo. La configurazione iniziale del pool di risorse può richiedere circa 4 minuti. Specificare la quantità di tempo per cui si vuole mantenere il pool di risorse nell'impostazione di durata (TTL).
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Ottimizzazione del database SQL di Azure e Azure SQL Data Warehouse Synapse
 
@@ -145,7 +145,7 @@ Usando i caratteri jolly, la pipeline conterrà solo un'attività flusso di dati
 
 L'elemento ForEach della pipeline in modalità parallela genererà più cluster attivando cluster di processi per ogni attività flusso di dati eseguita. Questo può causare una limitazione nel servizio Azure, con numeri elevati di esecuzioni simultanee. Tuttavia, l'uso di un'attività di esecuzione del flusso di dati all'interno di un elemento ForEach con un set sequenziale nella pipeline eviterà limitazioni ed esaurimento delle risorse. In questo si forzerà la data factory a eseguire in modo sequenziale ogni file in un flusso di dati.
 
-Se si usa ForEach con un flusso di dati in sequenza, si consiglia di usare l'impostazione di durata (TTL) in Azure Integration Runtime. Questo perché ogni file comporterà un tempo di avvio completo del cluster di 5 minuti all'interno dell'iteratore.
+Se si usa ForEach con un flusso di dati in sequenza, si consiglia di usare l'impostazione di durata (TTL) in Azure Integration Runtime. Questo perché ogni file comporterà un tempo di avvio completo del cluster di 4 minuti all'interno dell'iteratore.
 
 ### <a name="optimizing-for-cosmosdb"></a>Ottimizzazione per CosmosDB
 

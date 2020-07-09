@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 49eb3fa22bc9afffb9e93f3152cdc00323b76d41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 407257dbe9fbfa560153d5044263fc4c947cb05c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662162"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111933"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Raccolta di origini dati JSON personalizzate con l'agente di Log Analytics per Linux in Monitoraggio di Azure
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -29,7 +30,7 @@ Per raccogliere dati JSON in Monitoraggio di Azure, aggiungere `oms.api.` all'in
 
 Di seguito, ad esempio, è riportato un file di configurazione separato `exec-json.conf` in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Viene usato il plug-in FluentD `exec` per eseguire un comando curl ogni 30 secondi.  L'output di questo comando viene raccolto dal plug-in di output JSON.
 
-```
+```xml
 <source>
   type exec
   command 'curl localhost/json.output'
@@ -51,6 +52,7 @@ Di seguito, ad esempio, è riportato un file di configurazione separato `exec-js
   retry_wait 30s
 </match>
 ```
+
 Per il file di configurazione aggiunto in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` sarà necessario modificare la proprietà con il comando seguente.
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
@@ -58,7 +60,7 @@ Per il file di configurazione aggiunto in `/etc/opt/microsoft/omsagent/<workspac
 ### <a name="configure-output-plugin"></a>Configurare il plug-in di output 
 Aggiungere la configurazione del plug-in di output seguente alla configurazione principale presente in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` o come un file di configurazione separato inserito in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
-```
+```xml
 <match oms.api.**>
   type out_oms_api
   log_level info
@@ -76,18 +78,22 @@ Aggiungere la configurazione del plug-in di output seguente alla configurazione 
 ### <a name="restart-log-analytics-agent-for-linux"></a>Riavviare l'agente di Log Analytics per Linux
 Riavviare il servizio dell'agente di Log Analytics per Linux con il comando seguente.
 
-    sudo /opt/microsoft/omsagent/bin/service_control restart 
+```console
+sudo /opt/microsoft/omsagent/bin/service_control restart 
+```
 
 ## <a name="output"></a>Output
 I dati verranno raccolti in Monitoraggio di Azure con un record di tipo `<FLUENTD_TAG>_CL`.
 
 Ad esempio, il tag personalizzato `tag oms.api.tomcat` in Monitoraggio di Azure verrà raccolto con un record di tipo `tomcat_CL`.  È possibile recuperare tutti i record di questo tipo con la query di log seguente.
 
-    Type=tomcat_CL
+```console
+Type=tomcat_CL
+```
 
 Sono supportate anche origini dati JSON annidate, che tuttavia vengono indicizzate in base al campo padre. I dati JSON seguenti, ad esempio, vengono restituiti da una query di log come `tag_s : "[{ "a":"1", "b":"2" }]`.
 
-```
+```json
 {
     "tag": [{
         "a":"1",

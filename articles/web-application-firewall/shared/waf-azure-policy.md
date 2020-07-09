@@ -5,14 +5,14 @@ author: tremansdoerfer
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 4c1fd53eb6ebf1f1aebdfba99b736e26bd6cff2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12ad18edbb434bdfaec2ae817ea079a843661ef6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85306764"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111346"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall applicazione Web di Azure e criteri di Azure
 
@@ -22,9 +22,13 @@ Il Web Application Firewall (WAF) di Azure combinato con i criteri di Azure può
 
 Sono disponibili diversi criteri predefiniti di Azure per gestire le risorse di WAF. Di seguito è riportata una suddivisione dei criteri e delle relative funzionalità:
 
-1. Il **Web Application Firewall deve essere abilitato per il servizio front-end di Azure o il gateway applicazione**: i servizi front-end di Azure e i gateway applicazione vengono valutati in presenza di una WAF presente nella creazione delle risorse. Il criterio ha tre effetti: audit, Deny e Disable. Audit Tracks quando un servizio front-end o un gateway applicazione di Azure non dispone di un WAF e consente agli utenti di visualizzare il servizio front-end di Azure o il gateway applicazione attualmente non conforme. Deny impedisce la creazione di un servizio front-end o di un gateway applicazione di Azure se WAF non è collegato. Disabled Disattiva questo criterio.
+1. Il **Web Application Firewall (WAF) deve essere abilitato per il servizio front-end di Azure**: i servizi front-end di Azure vengono valutati in presenza di un WAF presente durante la creazione delle risorse. Il criterio ha tre effetti: audit, Deny e Disable. Audit Tracks quando un servizio di Azure front door non dispone di un WAF e consente agli utenti di visualizzare il servizio di Azure front door non conforme. Deny impedisce la creazione di qualsiasi servizio front door di Azure se non è collegato un WAF. Disabled Disattiva questo criterio.
 
-2. Il **Web Application Firewall deve essere una modalità set per il gateway applicazione e il servizio front-end di Azure**: Web Application Firewall viene valutato sulla modalità in cui si trova, ovvero la prevenzione o il rilevamento. Il criterio garantisce la coerenza della modalità tra i firewall applicazione Web. Il criterio ha tre effetti: audit, Deny e Disable. Controlla le tracce quando un WAF non rientra nella modalità specificata. Deny impedisce la creazione di WAF se non è in modalità corretta. Disabled Disattiva questo criterio.
+2. Il **Web Application Firewall (WAF) deve essere abilitato per il gateway applicazione**: i gateway applicazione vengono valutati in presenza di un WAF presente durante la creazione delle risorse. Il criterio ha tre effetti: audit, Deny e Disable. Controlla le tracce quando un gateway applicazione non dispone di un WAF e consente agli utenti di visualizzare il gateway applicazione non conforme. Deny impedisce la creazione di un gateway applicazione se WAF non è collegato. Disabled Disattiva questo criterio.
+
+3. **Il Web Application Firewall (WAF) deve usare la modalità specificata per il servizio front**-end di Azure: impone l'uso della modalità' rilevamento ' o ' prevenzione ' per l'attivazione in tutti i criteri del Web Application Firewall per il servizio front door di Azure. Il criterio ha tre effetti: audit, Deny e Disable. Controlla le tracce quando un WAF non rientra nella modalità specificata. Deny impedisce la creazione di WAF se non è in modalità corretta. Disabled Disattiva questo criterio.
+
+4. **Il Web Application Firewall (WAF) deve usare la modalità specificata per il gateway applicazione**: impone l'uso della modalità' rilevamento ' o ' prevenzione ' in tutti i criteri del firewall applicazione Web per il gateway applicazione. Il criterio ha tre effetti: audit, Deny e Disable. Controlla le tracce quando un WAF non rientra nella modalità specificata. Deny impedisce la creazione di WAF se non è in modalità corretta. Disabled Disattiva questo criterio.
 
 
 ## <a name="launch-an-azure-policy"></a>Avviare un criterio di Azure
@@ -45,7 +49,7 @@ Sono disponibili diversi criteri predefiniti di Azure per gestire le risorse di 
     2.  **Esclusioni**: selezionare le risorse dall'ambito da escludere dai criteri 
     3.  **Definizione dei criteri**: selezionare i criteri di Azure da applicare all'ambito con esclusioni. Digitare "Web Application Firewall" nella barra di ricerca per scegliere il criterio di Azure per il Web Application Firewall pertinente.
 
-![Web Application Firewall di Azure](../media/waf-azure-policy/policy-listings.png)
+![Web Application Firewall di Azure](../media/waf-azure-policy/policy-listing.png)
 
 
 5.  Selezionare la scheda **parametri** e aggiornare i parametri dei criteri. Per chiarire ulteriormente il comportamento del parametro, passare il puntatore del mouse sull'icona delle informazioni accanto al nome del parametro per ulteriori chiarimenti.

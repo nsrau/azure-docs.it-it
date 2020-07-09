@@ -1,19 +1,14 @@
 ---
 title: Visualizzare le metriche di griglia di eventi di Azure e impostare gli avvisi
 description: Questo articolo descrive come usare la portale di Azure per visualizzare le metriche per gli argomenti e le sottoscrizioni di griglia di eventi di Azure e creare avvisi su di essi.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 75311675ae24f4836ed8f1adb8a7d9802b4d7f0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390602"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114884"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorare il recapito dei messaggio di Griglia di eventi 
 Questo articolo descrive come usare il portale per visualizzare le metriche per gli argomenti e le sottoscrizioni di griglia di eventi e per creare avvisi su di essi. 

@@ -1,18 +1,14 @@
 ---
 title: Argomenti personalizzati in griglia di eventi di Azure
 description: Vengono descritti gli argomenti personalizzati in griglia di eventi di Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 166a48d74d32c8b0a3a59310e693ea96ada29116
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 8f48824989c8ec51b766385188ad99e9e59cf621
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394358"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113786"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Argomenti personalizzati in griglia di eventi di Azure
 Un argomento di griglia di eventi fornisce un endpoint in cui l'origine invia eventi. L'editore crea l'argomento di Griglia di eventi e decide se un'origine evento necessita di uno o più argomenti. L'argomento viene usato per una raccolta di eventi correlati. Per rispondere a determinati tipi di eventi, i sottoscrittori scelgono gli argomenti da sottoscrivere.

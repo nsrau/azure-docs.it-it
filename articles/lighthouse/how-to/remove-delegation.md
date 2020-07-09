@@ -1,17 +1,18 @@
 ---
 title: Rimuovere l'accesso a una delega
-description: Informazioni su come rimuovere l'accesso alle risorse delegate a un provider di servizi per la gestione delle risorse delegate di Azure.
-ms.date: 04/24/2020
+description: Informazioni su come rimuovere l'accesso alle risorse delegate a un provider di servizi per Azure Lighthouse.
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 2a8024a47b3f7ea461e4ea7648db7003889552cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be1547056bc3ec387ba4cba52f6b6d6fbcaad23c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636496"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111729"
 ---
 # <a name="remove-access-to-a-delegation"></a>Rimuovere l'accesso a una delega
 
-Quando la sottoscrizione o il gruppo di risorse di un cliente è stato delegato a un provider di servizi per la [gestione delle risorse delegate di Azure](../concepts/azure-delegated-resource-management.md), la delega può essere rimossa se necessario. Una volta rimossa la delega, l'accesso precedentemente concesso agli utenti nel tenant del provider di servizi non verrà più applicato.
+Quando la sottoscrizione o il gruppo di risorse di un cliente è stato delegato a un provider di servizi per [Azure Lighthouse](../overview.md), la delega può essere rimossa se necessario. Una volta rimossa la delega, l'accesso alla [gestione delle risorse delegata di Azure](../concepts/azure-delegated-resource-management.md) precedentemente concesso agli utenti nel tenant del provider di servizi non verrà più applicato.
 
 La rimozione di una delega può essere eseguita da un utente nel tenant del cliente o del provider di servizi, purché l'utente disponga delle autorizzazioni appropriate.
 

@@ -8,11 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74ac991eb40864aeb4ac42d4774d9ab61fb14c36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3d3521cfb3d3b0c6659013922ab11fe765af882
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807673"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111253"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Panoramica dell'agente di Azure Arc per server
 
@@ -59,7 +60,7 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
 
 * Durante l'installazione, vengono create le cartelle di installazione seguenti.
 
-    |Cartella |Descrizione |
+    |Cartella |Description |
     |-------|------------|
     |C:\Programmi\AzureConnectedMachineAgent |Percorso di installazione predefinito che contiene i file di supporto dell'agente.|
     |%ProgramData%\AzureConnectedMachineAgent |Contiene i file di configurazione dell'agente.|
@@ -78,14 +79,14 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
 
 * Durante l'installazione dell'agente, vengono create le variabili di ambiente seguenti.
 
-    |Nome |Valore predefinito |Descrizione |
+    |Nome |Valore predefinito |Description |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * Sono disponibili diversi file di log per la risoluzione dei problemi. descritti nella tabella seguente.
 
-    |File di log |Descrizione |
+    |File di log |Description |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Registra informazioni dettagliate sul servizio agenti (HIMDS) e sull'interazione con Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contiene l'output dei comandi dello strumento azcmagent, quando viene usato l'argomento verbose (-v).|
@@ -140,7 +141,7 @@ Dopo l'installazione dell'agente Connected Machine per Linux, vengono applicate 
 
 * Durante l'installazione dell'agente, vengono create le variabili di ambiente seguenti. Queste variabili vengono impostate in `/lib/systemd/system.conf.d/azcmagent.conf`.
 
-    |Nome |Valore predefinito |Descrizione |
+    |Nome |Valore predefinito |Description |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -184,7 +185,7 @@ Per garantire la sicurezza dei dati in transito verso Azure, è consigliabile co
 |Piattaforma/linguaggio | Supporto | Altre informazioni |
 | --- | --- | --- |
 |Linux | Le distribuzioni Linux si basano generalmente su [OpenSSL](https://www.openssl.org) per supportare TLS 1.2. | Controllare nel [log delle modifiche di OpenSSL](https://www.openssl.org/news/changelog.html) per assicurarsi che la versione di OpenSSL sia supportata.|
-| Windows Server 2012 R2 e versioni successive | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora in uso.|
+| Windows Server 2012 R2 e versioni successive | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](/windows-server/security/tls/tls-registry-settings) siano ancora in uso.|
 
 ### <a name="networking-configuration"></a>Configurazione delle impostazioni di rete
 
@@ -199,7 +200,7 @@ Tag del servizio:
 
 URL:
 
-| Risorsa dell'agente | Descrizione |
+| Risorsa dell'agente | Description |
 |---------|---------|
 |management.azure.com|Azure Resource Manager|
 |login.windows.net|Azure Active Directory|
@@ -208,7 +209,7 @@ URL:
 |*-agentservice-prod-1.azure-automation.net|Configurazione guest|
 |*.his.arc.azure.com|Servizio ibrido di gestione delle identità|
 
-Per un elenco degli indirizzi IP per ogni tag del servizio/area, vedere il file JSON [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) (Indirizzi IP di Azure e tag del servizio - Cloud pubblico). Microsoft pubblica aggiornamenti settimanali contenenti ogni servizio di Azure e gli intervalli IP usati dal servizio. Per altre informazioni, vedere [Tag di servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Per un elenco degli indirizzi IP per ogni tag del servizio/area, vedere il file JSON [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) (Indirizzi IP di Azure e tag del servizio - Cloud pubblico). Microsoft pubblica aggiornamenti settimanali contenenti ogni servizio di Azure e gli intervalli IP usati dal servizio. Per altre informazioni, vedere [Tag di servizio](../../virtual-network/security-overview.md#service-tags).
 
 Gli URL nella tabella precedente sono necessari in aggiunta alle informazioni relative agli intervalli di indirizzi IP dei tag del servizio, perché la maggior parte dei servizi non dispone attualmente di una registrazione dei tag del servizio e, di conseguenza, gli indirizzi IP sono soggetti a modifiche. Se gli intervalli di indirizzi IP sono necessari per la configurazione del firewall, occorre usare il tag del servizio **AzureCloud** per consentire l'accesso a tutti i servizi di Azure. Non disabilitare il monitoraggio della sicurezza o l'ispezione di questi URL, ma consentire tali URL come si farebbe con il resto del traffico Internet.
 

@@ -1,17 +1,14 @@
 ---
 title: Usare modelli di Azure Resource Manager per creare argomenti di sistema in griglia di eventi di Azure
 description: Questo articolo illustra come usare i modelli di Azure Resource Manager per creare argomenti di sistema in griglia di eventi di Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
-ms.openlocfilehash: a2fe0ffd5f8ac801d15dc08d027c9442c57ef2b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 1c8881a2d9dfca43084cc537b106e84b050a18d5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457414"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115163"
 ---
 # <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>Creare argomenti di sistema in griglia di eventi di Azure usando modelli di Gestione risorse
 Questo articolo illustra come creare e gestire gli argomenti di sistema usando i modelli di Gestione risorse. Per una panoramica degli argomenti di sistema, vedere [argomenti di sistema](system-topics.md).

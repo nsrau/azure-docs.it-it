@@ -1,17 +1,14 @@
 ---
 title: Creare, visualizzare e gestire gli argomenti di sistema in griglia di eventi di Azure (portale)
 description: Questo articolo illustra come visualizzare l'argomento di sistema esistente, creare argomenti del sistema di griglia di eventi di Azure usando il portale di Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
-ms.openlocfilehash: 23b87812492485fc2336b8d2d35bf0426ede4772
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457236"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115112"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Creare, visualizzare e gestire gli argomenti del sistema di griglia di eventi nel portale di Azure
 Questo articolo illustra come creare e gestire gli argomenti di sistema usando il portale di Azure. Per una panoramica degli argomenti di sistema, vedere [argomenti di sistema](system-topics.md).

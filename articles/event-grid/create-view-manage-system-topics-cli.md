@@ -1,18 +1,14 @@
 ---
 title: Creare, visualizzare e gestire gli argomenti del sistema di griglia di eventi di Azure usando l'interfaccia della riga
 description: Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare, visualizzare ed eliminare gli argomenti di sistema.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.author: spelluru
-ms.openlocfilehash: d9ba83d12e73b3ebceaee3167cdcf7f27922b686
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885248"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115044"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Creare, visualizzare e gestire argomenti di sistema di griglia di eventi usando l'interfaccia della riga di comando di Azure
 Questo articolo illustra come creare e gestire gli argomenti di sistema usando l'interfaccia della riga di comando di Azure. Per una panoramica degli argomenti di sistema, vedere [argomenti di sistema](system-topics.md).

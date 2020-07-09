@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689011"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112113"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query log di monitoraggio di Azure
 I gruppi di computer in monitoraggio di Azure consentono di definire l'ambito delle [query di log](../log-query/log-query-overview.md) a un determinato set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
@@ -33,7 +34,9 @@ I gruppi di computer creati da una query di log contengono tutti i computer rest
 
 Per un gruppo di computer è possibile usare qualsiasi query, ma questa deve restituire un set distinto di computer tramite `distinct Computer`.  Ecco un esempio tipico di query che è possibile usare per un gruppo di computer.
 
-    Heartbeat | where Computer contains "srv" | distinct Computer
+```kusto
+Heartbeat | where Computer contains "srv" | distinct Computer
+```
 
 Eseguire questa procedura per creare un gruppo di computer da una ricerca log nel portale di Azure.
 
@@ -45,7 +48,7 @@ Eseguire questa procedura per creare un gruppo di computer da una ricerca log ne
 
 La tabella seguente descrive le proprietà che definiscono un gruppo di computer.
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:---|:---|
 | Nome   | Nome della query da visualizzare nel portale. |
 | Alias di funzione | Alias univoco usato per identificare il gruppo di computer in una query. |
@@ -93,31 +96,33 @@ Fare clic sulla **x** nella colonna **Rimuovi** per eliminare il gruppo di compu
 ## <a name="using-a-computer-group-in-a-log-query"></a>Uso di un gruppo di computer in una query di log
 È possibile usare gruppo di computer creato da una query di log in una query trattando il relativo alias come una funzione, in genere con la sintassi seguente:
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 È ad esempio possibile usare quanto segue per restituire record UpdateSummary solo dei computer in un gruppo di computer denominato mycomputergroup.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 I gruppi di computer importati e i computer in essi inclusi vengono archiviati nella tabella **ComputerGroup**.  Ad esempio, la query seguente restituirà un elenco di computer nel gruppo Computer del dominio da Active Directory. 
 
-  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+```kusto
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
+```
 
 La query seguente restituisce i record UpdateSummary solo per i computer in Computer del dominio.
 
-  ```
-  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+```kusto
+let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
-  ```
-
-
-
+```
 
 ## <a name="computer-group-records"></a>Record dei gruppi di computer
 Per ogni appartenenza a gruppi di computer creata da Active Directory o WSUS viene creato un record nell'area di lavoro Log Analytics.  Il tipo di questi record è **ComputerGroup** e le proprietà sono elencate nella tabella seguente.  Per i gruppi di computer basati su query di log non vengono creati record.
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

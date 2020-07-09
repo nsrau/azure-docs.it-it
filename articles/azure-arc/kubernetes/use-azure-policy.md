@@ -8,11 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usare Criteri di Azure per applicare le configurazioni del cluster su larga scala
 keywords: Kubernetes, Arc, Azure, K8s, contenitori
-ms.openlocfilehash: 4c013fe562d89bff4d1ce9c9f3e832e1b51c70f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341370"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111270"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Usare Criteri di Azure per applicare le configurazioni del cluster su larga scala (anteprima)
 
@@ -34,7 +35,7 @@ Se si usano più repository Git come origini di verità per ogni cluster (ad ese
 8. Impostare i valori dei parametri che verranno usati durante la creazione di `sourceControlConfiguration`.
 9. Selezionare **Avanti**.
 10. Abilitare **Crea un'attività di correzione**.
-11. Assicurarsi che sia selezionata l'opzione **Crea un'identità gestita** e che l'identità disponga di autorizzazioni di **Collaboratore**. Per altre informazioni sulle autorizzazioni necessarie, vedere [questo documento](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) e [il commento in questo documento](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources).
+11. Assicurarsi che sia selezionata l'opzione **Crea un'identità gestita** e che l'identità disponga di autorizzazioni di **Collaboratore**. Per altre informazioni sulle autorizzazioni necessarie, vedere [questo documento](../../governance/policy/assign-policy-portal.md) e [il commento in questo documento](../../governance/policy/how-to/remediate-resources.md).
 12. Selezionare **Rivedi e crea**.
 
 Dopo aver creato l'assegnazione dei criteri, per qualsiasi nuova risorsa `connectedCluster` (o `managedCluster` con gli agenti GitOps installati) che si trova nell'ambito dell'assegnazione, viene applicato `sourceControlConfiguration`. Per i cluster esistenti, sarà necessario eseguire manualmente un'attività di correzione. Per rendere effettive le assegnazioni di criteri sono necessari in genere 10-20 minuti.
@@ -50,4 +51,4 @@ Dopo aver creato l'assegnazione dei criteri, per qualsiasi nuova risorsa `connec
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare Monitoraggio di Azure per i contenitori con cluster Kubernetes abilitati per Arc](./deploy-azure-monitor-for-containers.md)
+* [Configurare Monitoraggio di Azure per i contenitori con cluster Kubernetes abilitati per Arc](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)

@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 85b680aafd822b80edf543ca39787848129f1930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322061"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110998"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Ruoli e requisiti per Condivisione dati di Azure 
 
@@ -30,21 +30,19 @@ Per condividere o ricevere dati da un archivio dati di Azure, l'utente deve disp
 
 Di seguito è riportato un riepilogo dei ruoli assegnati all'identità gestita della risorsa di condivisione dati:
 
-| |  |  |
-|---|---|---|
 |**Tipo di archivio dati**|**Archivio dati di origine provider di dati**|**Archivio dati di destinazione del consumer di dati**|
+|---|---|---|
 |Archiviazione BLOB di Azure| Lettore dei dati del BLOB di archiviazione | Collaboratore ai dati del BLOB di archiviazione
 |Azure Data Lake Gen1 | Proprietario | Non supportato
 |Azure Data Lake Gen2 | Lettore dei dati del BLOB di archiviazione | Collaboratore ai dati del BLOB di archiviazione
 |Azure SQL Server | Collaboratore database SQL | Collaboratore database SQL
-|Cluster di Esplora dati di Azure | Collaboratore | Collaboratore
+|Cluster di Esplora dati di Azure | Autore di contributi | Autore di contributi
 |
 
 Per la condivisione basata su SQL, è necessario creare un utente SQL da un provider esterno nel database SQL di Azure con lo stesso nome della risorsa di condivisione dati di Azure. Di seguito è riportato un riepilogo dell'autorizzazione richiesta dall'utente SQL.
 
-| |  |  |
-|---|---|---|
 |**Tipo di database SQL**|**provider di dati autorizzazione utente SQL**|**Autorizzazione utente SQL per consumer di dati**|
+|---|---|---|
 |database SQL di Azure | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (in precedenza SQL Data Warehouse) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
@@ -103,4 +101,3 @@ Per visualizzare l'invito di condivisione dati di Azure per la prima volta nel t
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sui ruoli in Azure - [Comprendere le definizioni dei ruoli](../role-based-access-control/role-definitions.md)
-
