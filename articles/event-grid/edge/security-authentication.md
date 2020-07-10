@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 5dfa17fd702b76e2cfaa7a91066dbc6749c1069e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42f6107ff79d6262cdc0a35cf972cf65d3a9a802
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844514"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171381"
 ---
 # <a name="security-and-authentication"></a>Sicurezza e autenticazione
 
@@ -42,7 +41,7 @@ Per impostazione predefinita, sono consentite solo le comunicazioni HTTPS. È po
 | ---------------- | ------------ |
 | Strict | Valore predefinito. Abilita solo HTTPS
 | Abilitato | Abilita sia HTTP che HTTPS
-| Disabilitata | Abilita solo HTTP
+| Disattiva | Abilita solo HTTP
 
 ## <a name="inbound-client-authentication"></a>Autenticazione client in ingresso
 
@@ -146,7 +145,7 @@ Se il certificato del Sottoscrittore è autofirmato, per impostazione predefinit
 > [!NOTE]
 >IoT Edge ambiente genera certificati autofirmati. Si consiglia di generare i certificati emessi dalle autorità di certificazione autorizzate per i carichi di lavoro di produzione e impostare la proprietà **allowUnknownCA** sia in ingresso che in uscita su **false**.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Un modulo di griglia di eventi è **sicuro per impostazione predefinita**. È consigliabile mantenere queste impostazioni predefinite per le distribuzioni di produzione.
 

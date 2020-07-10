@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836091"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171942"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Come implementare l'esplorazione in base a facet in Ricerca cognitiva di Azure
 
@@ -283,10 +284,12 @@ In un drill-down dell'esplorazione in base a facet, è possibile includere solo 
 
 I risultati facet sono documenti trovati nei risultati della ricerca che corrispondono a un termine di facet. Nell'esempio seguente, nei risultati della ricerca per il *cloud computing*, i 254 elementi dispongono inoltre di una *specifica interna* come tipo di contenuto. Gli elementi non si escludono necessariamente a vicenda. Se un elemento soddisfa i criteri di entrambi i filtri, viene conteggiato in ognuno di essi. Questa duplicazione è possibile quando si esegue l'esplorazione in base a facet su campi `Collection(Edm.String)` che vengono spesso usati per implementare l'aggiunta di tag nel documento.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+```output
+Search term: "cloud computing"
+Content type
+   Internal specification (254)
+   Video (10)
+```
 
 In generale, se si ritiene che i risultati dei facet siano costantemente troppo elevati, è consigliabile che aggiungere altri filtri per offrire agli utenti più opzioni per restringere la ricerca.
 
@@ -320,7 +323,7 @@ In determinate circostanze, si può notare che i numeri di facet non corrispondo
 
 I conteggi di facet possono essere inesatti grazie all'architettura di partizionamento orizzontale. Ogni indice di ricerca include più partizioni e ciascuno di essi segnala i principali N facet per numero di documenti, combinando poi i dati in un singolo risultato. Se alcune partizioni dispongono di numerosi valori corrispondenti a differenza di altre, è probabile che alcuni valori di facet siano mancanti o non calcolati nei risultati.
 
-Sebbene questo comportamento possa cambiare in qualsiasi momento, se si verifica subito, è possibile risolverlo "gonfiando" artificialmente count:\<number> a un numero elevato per applicare la creazione di report completi da ciascuna partizione. Se il valore del conteggio è maggiore o uguale al numero di valori univoci nel campo, vengono garantiti risultati accurati. Tuttavia, quando i conteggi di documenti sono elevati, si verifica una riduzione delle prestazioni ed è quindi consigliabile usare questa opzione con cautela.
+Sebbene questo comportamento potrebbe cambiare in qualsiasi momento, se si verifica subito, è possibile risolverlo "gonfiando" artificialmente il conteggio:\<number> per un numero elevato di documenti e applicare il report completo di ogni partizione. Se il valore del conteggio è maggiore o uguale al numero di valori univoci nel campo, vengono garantiti risultati accurati. Tuttavia, quando i conteggi di documenti sono elevati, si verifica una riduzione delle prestazioni ed è quindi consigliabile usare questa opzione con cautela.
 
 ### <a name="user-interface-tips"></a>Suggerimenti per l'interfaccia utente
 **Aggiungere etichette per ogni campo nella navigazione facet**
@@ -344,7 +347,7 @@ Per dati numerici, è possibile usare un elenco di valori.  Prendere in consider
 
 Per specificare un intervallo di facet come quello nello screenshot precedente, usare un elenco di valori:
 
-    facet=listPrice,values:10|25|100|500|1000|2500
+> `facet=listPrice,values:10|25|100|500|1000|2500`
 
 Ogni intervallo viene compilato usando 0 come punto di partenza e un valore dall'elenco come endpoint e quindi privato dell'intervallo precedente per creare intervalli discreti. Ricerca cognitiva di Azure esegue questa operazione nell'ambito dell'esplorazione in base a facet. Non è necessario scrivere codice per la struttura di ogni intervallo.
 

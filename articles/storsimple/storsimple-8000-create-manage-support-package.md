@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514054"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182016"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Creare e gestire un pacchetto di supporto StorSimple serie 8000
 
@@ -67,7 +67,7 @@ Con il cmdlet Export-HcsSupportPackage è possibile usare i parametri seguenti.
 | Parametro | Obbligatorio/facoltativo | Descrizione |
 | --- | --- | --- |
 | `-Path` |Obbligatoria |Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
-| `-EncryptionPassphrase` |Necessario |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
+| `-EncryptionPassphrase` |Obbligatorio |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
 | `-Credential` |Facoltativo |Consente di specificare le credenziali di accesso per la cartella di rete condivisa. |
 | `-Force` |Facoltativo |Consente di ignorare il passaggio di conferma della passphrase di crittografia. |
 | `-PackageTag` |Facoltativo |Consente di specificare una directory in cui inserire il pacchetto per il supporto in *Percorso* . Il valore predefinito è [nome dispositivo]-[data e ora correnti:aaaa-MM-gg-HH-mm-ss]. |
@@ -98,9 +98,11 @@ Per modificare un pacchetto per il supporto prima di caricarlo nel sito del supp
     ![Modificare il pacchetto per il supporto](./media/storsimple-8000-create-manage-support-package/IC750706.png)
 5. Quando viene chiesta la passphrase di crittografia, immettere quella usata quando è stato creato il pacchetto per il supporto.
    
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
-   
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Open-HcsSupportPackage at command pipeline position 1
+
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 6. Passare alla cartella che contiene i file di log. Poiché i file di log sono ora decompressi e decrittografati, avranno le estensioni di file originali. Modificare questi file per rimuovere eventuali informazioni specifiche del cliente, ad esempio i nomi dei volumi e gli indirizzi IP dei dispositivi, e salvare i file.
 7. Chiudere i file per comprimerli con GZIP e crittografarli con AES-256. Queste procedure assicurano velocità e sicurezza durante il trasferimento in rete del pacchetto per il supporto. Per comprimere e crittografare i file, immettere le informazioni seguenti:
    
@@ -109,33 +111,37 @@ Per modificare un pacchetto per il supporto prima di caricarlo nel sito del supp
     ![Modificare il pacchetto per il supporto](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. Quando richiesto, specificare una passphrase di crittografia del pacchetto per il supporto modificato.
    
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Close-HcsSupportPackage at command pipeline position 1
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 9. Annotare la nuova passphrase in modo che sia possibile condividerla con il supporto tecnico Microsoft quando richiesto.
 
 ### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Esempio: modifica dei file in un pacchetto per il supporto in una condivisione protetta da password
 
 L'esempio seguente mostra come decrittografare, modificare e crittografare di nuovo un pacchetto per il supporto.
 
-        PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
+```powershell
+PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
-        PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
+cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
+cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32>
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

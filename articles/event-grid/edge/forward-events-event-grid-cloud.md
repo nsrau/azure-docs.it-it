@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844718"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171602"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Esercitazione: eseguire la trasmissione di eventi al cloud di griglia di eventi
 
@@ -104,7 +103,7 @@ Ad esempio, se è stato creato un argomento denominato `testegcloudtopic` negli 
    >[!NOTE]
    > **EndpointUrl** specifica che l'URL dell'argomento della griglia di eventi nel cloud. **SasKey** fa riferimento alla chiave dell'argomento cloud di griglia di eventi. Il valore in **topicName** verrà usato per contrassegnare tutti gli eventi in uscita in griglia di eventi. Questa operazione può essere utile quando si esegue la pubblicazione in un argomento di dominio di griglia di eventi. Per ulteriori informazioni sull'argomento relativo al dominio di griglia di eventi, vedere [domini eventi](../event-domains.md)
 
-    Ad esempio,
+    ad esempio:
   
     ```json
         {

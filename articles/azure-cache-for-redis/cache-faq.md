@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 9a6ee4f5b18c6747796f33bc433d1d40982205a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856975"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185008"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Domande frequenti su Cache Redis di Azure
 Risposte alle domande più comuni, modelli e procedure consigliate per Cache Redis di Azure.
@@ -41,6 +41,7 @@ Le domande frequenti riportate di seguito riguardano i concetti e le domande di 
 * [Quali offerte e dimensioni di Cache Redis di Azure è consigliabile usare?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
 * [Prestazioni di Cache Redis di Azure](#azure-cache-for-redis-performance)
 * [In quale area è consigliabile posizionare la cache?](#in-what-region-should-i-locate-my-cache)
+* [Dove si trovano i dati memorizzati nella cache?](#where-do-my-cached-data-reside)
 * [Quali sono i costi addebitati per Cache Redis di Azure?](#how-am-i-billed-for-azure-cache-for-redis)
 * [È possibile usare Cache Redis di Azure con il cloud Azure per enti pubblici, il cloud di Azure Cina o Microsoft Azure Germania?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
@@ -149,6 +150,13 @@ Per istruzioni sulla configurazione di stunnel o sul download degli strumenti Re
 ### <a name="in-what-region-should-i-locate-my-cache"></a>In quale area è consigliabile posizionare la cache?
 Per ottenere le prestazioni migliori e la latenza più bassa, Cache Redis di Azure deve trovarsi nella stessa area in cui si trova l'applicazione client della cache.
 
+### <a name="where-do-my-cached-data-reside"></a>Dove si trovano i dati memorizzati nella cache?
+Cache di Azure per Redis archivia i dati dell'applicazione nella RAM della VM o delle VM, a seconda del livello, che ospita la cache. I dati risiedono esclusivamente nell'area di Azure selezionata per impostazione predefinita. Esistono due casi in cui i dati possono lasciare un'area:
+  1. Quando si Abilita la persistenza nella cache, cache di Azure per Redis eseguirà il backup dei dati in un account di archiviazione di Azure di cui si è proprietari. Se l'account di archiviazione fornito si trova in un'altra area, verrà eseguita una copia dei dati.
+  1. Se si configura la replica geografica e la cache secondaria si trova in un'area diversa, come avviene normalmente, i dati verranno replicati in tale area.
+
+Per usare queste funzionalità, è necessario configurare in modo esplicito cache di Azure per Redis. Si ha anche il controllo completo sull'area in cui si trova l'account di archiviazione o la cache secondaria.
+
 <a name="cache-billing"></a>
 
 ### <a name="how-am-i-billed-for-azure-cache-for-redis"></a>Quali sono i costi addebitati per Cache Redis di Azure?
@@ -215,20 +223,20 @@ Non esiste alcun emulatore locale per Cache Redis di Azure, ma è possibile eseg
 
 ```csharp
 private static Lazy<ConnectionMultiplexer>
-      lazyConnection = new Lazy<ConnectionMultiplexer>
-    (() =>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
     {
-        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        // Connect to a locally running instance of Redis to simulate
+        // a local cache emulator experience.
         return ConnectionMultiplexer.Connect("127.0.0.1:6379");
     });
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
 ```
 
 Facoltativamente, è possibile configurare un file [redis.conf](https://redis.io/topics/config) in modo che le impostazioni siano più simili alle [impostazioni della cache predefinite](cache-configure.md#default-redis-server-configuration) per Cache Redis di Azure online.
@@ -367,11 +375,11 @@ In sostanza, ciò significa che quando il numero dei thread occupati è maggiore
 
 Se si osserva un messaggio di errore di esempio da StackExchange.Redis, build 1.0.450 o versione successiva, si noterà che ora le statistiche dell'oggetto ThreadPool vengono stampate. Di seguito sono riportati i dettagli relativi a IOCP e WORKER.
 
-```output
-    System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
-    queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
-    IOCP: (Busy=6,Free=994,Min=4,Max=1000),
-    WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
+System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
+queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+IOCP: (Busy=6,Free=994,Min=4,Max=1000),
+WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 ```
 
 Nell'esempio precedente sono presenti sei thread IOCP occupati e il sistema è configurato per consentire un minimo di quattro thread. In questo caso si verificheranno probabilmente due ritardi di 500 ms, perché 6 > 4.
@@ -386,20 +394,20 @@ Come configurare questa impostazione:
 
 * Si consiglia di modificare questa impostazione a livello di codice usando il metodo [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) in `global.asax.cs`. Ad esempio:
 
-```cs
-private readonly int minThreads = 200;
-void Application_Start(object sender, EventArgs e)
-{
-    // Code that runs on application startup
-    AreaRegistration.RegisterAllAreas();
-    RouteConfig.RegisterRoutes(RouteTable.Routes);
-    BundleConfig.RegisterBundles(BundleTable.Bundles);
-    ThreadPool.SetMinThreads(minThreads, minThreads);
-}
-```
+    ```csharp
+    private readonly int minThreads = 200;
+    void Application_Start(object sender, EventArgs e)
+    {
+        // Code that runs on application startup
+        AreaRegistration.RegisterAllAreas();
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+        ThreadPool.SetMinThreads(minThreads, minThreads);
+    }
+    ```
 
-  > [!NOTE]
-  > Il valore specificato da questo metodo è un'impostazione globale, che interessa l'intero dominio dell'applicazione. Ad esempio, se si ha un computer con 4 core e si vuole impostare *minWorkerThreads* e *minIoThreads* su 50 per ogni CPU durante la fase di esecuzione, si dovrà usare **ThreadPool.SetMinThreads(200, 200)** .
+    > [!NOTE]
+    > Il valore specificato da questo metodo è un'impostazione globale, che interessa l'intero dominio dell'applicazione. Ad esempio, se si ha un computer con 4 core e si vuole impostare *minWorkerThreads* e *minIoThreads* su 50 per ogni CPU durante la fase di esecuzione, si dovrà usare **ThreadPool.SetMinThreads(200, 200)** .
 
 * È anche possibile specificare l'impostazione relativa al numero minimo di thread usando l'impostazione di configurazione [*minIoThreads* o  *minWorkerThreads*](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) nell'elemento di configurazione `<processModel>` in `Machine.config`, in genere situato in `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Impostare il numero minimo di thread in questo modo non è in genere consigliato, perché si tratta di un'impostazione a livello di sistema.**
 
@@ -455,7 +463,7 @@ Di seguito sono riportati alcuni motivi comuni per la disconnessione di una cach
   * Sono stati raggiunti i limiti della soglia relativa alla larghezza di banda.
   * Il completamento di operazioni associate alla CPU ha richiesto troppo tempo.
 * Cause lato server
-  * Nell'offerta Standard per la cache il servizio Cache Redis di Azure ha avviato un failover dal nodo primario al nodo secondario.
+  * Nell'offerta di cache standard, il servizio cache di Azure per il servizio Redis ha avviato un failover dal nodo primario al nodo di replica.
   * Azure stava applicando patch all'istanza in cui è stata distribuita la cache.
     * Ciò può riguardare aggiornamenti del server Redis o manutenzione generale delle VM.
 

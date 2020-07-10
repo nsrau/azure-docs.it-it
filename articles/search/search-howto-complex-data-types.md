@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fe61cf2a53b8e128a6cb58465cbb4785faa89d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6e66dc05ac2b6e54a1be94576b8686390949145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562036"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171840"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Come modellare tipi di dati complessi in Azure ricerca cognitiva
 
@@ -111,7 +111,7 @@ Le espressioni di ricerca in formato libero funzionano come previsto con i tipi 
 
 Le query sono più sfumate quando si hanno più termini e operatori e alcuni termini hanno nomi di campo specificati, come possibile con la [sintassi Lucene](query-lucene-syntax.md). Questa query, ad esempio, tenta di trovare la corrispondenza con due termini, "Portland" e "OR", rispetto a due campi secondari del campo Address:
 
-    search=Address/City:Portland AND Address/State:OR
+> `search=Address/City:Portland AND Address/State:OR`
 
 Query come questa non sono *correlate* per la ricerca full-text, a differenza dei filtri. Nei filtri, le query sui sottocampi di una raccolta complessa sono correlate usando variabili di intervallo in [ `any` o `all` ](search-query-odata-collection-operators.md). La query Lucene riportata sopra restituisce documenti che contengono sia "Portland, Maine" che "Portland, Oregon", insieme ad altre città in Oregon. Questa situazione si verifica perché ogni clausola si applica a tutti i valori del relativo campo nell'intero documento, quindi non esiste alcun concetto di "documento secondario corrente". Per altre informazioni, vedere informazioni sui [filtri di raccolta OData in Azure ricerca cognitiva](search-query-understand-collection-filters.md).
 
@@ -119,7 +119,7 @@ Query come questa non sono *correlate* per la ricerca full-text, a differenza de
 
 Il `$select` parametro viene usato per scegliere i campi che vengono restituiti nei risultati della ricerca. Per usare questo parametro per selezionare sottocampi specifici di un campo complesso, includere il campo padre e il campo secondario separati da una barra ( `/` ).
 
-    $select=HotelName, Address/City, Rooms/BaseRate
+> `$select=HotelName, Address/City, Rooms/BaseRate`
 
 I campi devono essere contrassegnati come recuperabili nell'indice se desiderati nei risultati della ricerca. In un'istruzione è possibile utilizzare solo i campi contrassegnati come recuperabili `$select` .
 
@@ -143,11 +143,11 @@ Le operazioni di ordinamento funzionano quando i campi hanno un solo valore per 
 
 È possibile fare riferimento ai campi secondari di un campo complesso in un'espressione di filtro. È sufficiente usare la stessa [sintassi del percorso OData](query-odata-filter-orderby-syntax.md) usata per il facet, l'ordinamento e la selezione dei campi. Ad esempio, il filtro seguente restituirà tutti gli hotel in Canada:
 
-    $filter=Address/Country eq 'Canada'
+> `$filter=Address/Country eq 'Canada'`
 
 Per filtrare in un campo di raccolta complesso, è possibile usare un' **espressione lambda** con gli [ `any` `all` operatori e](search-query-odata-collection-operators.md). In tal caso, la **variabile di intervallo** dell'espressione lambda è un oggetto con campi secondari. È possibile fare riferimento a questi campi secondari con la sintassi del percorso OData standard. Ad esempio, il filtro seguente restituirà tutti gli alberghi con almeno una stanza Deluxe e tutte le camere non fumanti:
 
-    $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
+> `$filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)`
 
 Come per i campi semplici di primo livello, i campi secondari semplici dei campi complessi possono essere inclusi solo nei filtri se l'attributo **filtrabile** è impostato su `true` nella definizione dell'indice. Per altre informazioni, vedere le informazioni di [riferimento sull'API create index](/rest/api/searchservice/create-index).
 

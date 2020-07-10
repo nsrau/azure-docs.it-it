@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36dc7d098892fb2be7c2ba3d75de7c7adef1a4f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844701"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171551"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Esercitazione: inviare eventi a IoTHub
 
@@ -146,7 +145,7 @@ Aggiornare la route dell'hub perimetrale per inoltrare gli eventi della sottoscr
   "fromEventGridToIoTHub":"FROM /messages/modules/eventgridmodule/outputs/sampleSub4 INTO $upstream"
   ```
 
-  Ad esempio,
+  ad esempio:
 
   ```json
   {

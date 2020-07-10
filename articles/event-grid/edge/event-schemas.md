@@ -5,16 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73242459"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171568"
 ---
 # <a name="event-schemas"></a>Schemi degli eventi
 
@@ -54,16 +52,16 @@ Lo schema EventGrid è costituito da un set di proprietà obbligatorie a cui dev
 
 Tutti gli eventi hanno i dati di primo livello seguenti:
 
-| Proprietà | Type | Obbligatoria | Descrizione |
+| Proprietà | Type | Obbligatorio | Descrizione |
 | -------- | ---- | ----------- |-----------
 | argomento | stringa | No | Deve corrispondere all'argomento su cui è pubblicato. Griglia di eventi lo popola con il nome dell'argomento in cui viene pubblicato se non specificato. |
-| subject | string | Sì | Percorso dell'oggetto dell'evento definito dall'autore. |
+| subject | string | Sì | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
 | eventType | string | Sì | Tipo di evento per questa origine evento, ad esempio BlobCreated. |
 | eventTime | string | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | ID | stringa | No | Identificatore univoco dell'evento. |
 | data | object | No | Utilizzato per acquisire i dati degli eventi specifici dell'entità di pubblicazione. |
-| dataVersion | string | Sì | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | No | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | Sì | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| metadataVersion | string | No | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 ### <a name="example--eventgrid-schema-event"></a>Esempio: evento dello schema EventGrid
 

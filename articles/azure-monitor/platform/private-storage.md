@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610067"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184498"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Account di archiviazione di proprietà del cliente per l'inserimento dei log in Monitoraggio di Azure
 
@@ -39,7 +40,7 @@ L'account di archiviazione deve soddisfare i requisiti indicati di seguito.
 
 - Accessibile alle risorse nella VNet che scrivono i log nell'archiviazione.
 - Deve trovarsi nella stessa area geografica dell'area di lavoro a cui è collegato.
-- Consente in modo esplicito a Log Analytics di leggere i log dall'account di archiviazione selezionando *Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione*.
+- Consenti accesso a monitoraggio di Azure: se si sceglie di limitare l'accesso dell'account di archiviazione per selezionare le reti, assicurarsi di consentire questa eccezione: *Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione*.
 
 ## <a name="process-to-configure-customer-owned-storage"></a>Processo di configurazione dell'archiviazione di proprietà del cliente
 Il processo di base dell'uso dell'account di archiviazione per l'inserimento è il seguente:
@@ -50,7 +51,12 @@ Il processo di base dell'uso dell'account di archiviazione per l'inserimento è 
 
 L'unico metodo disponibile per la creazione e la rimozione dei collegamenti è tramite l'API REST. Le sezioni seguenti forniscono informazioni dettagliate sulla richiesta API specifica necessaria per ogni processo.
 
-## <a name="api-request-values"></a>Valori delle richieste API
+## <a name="command-line-and-rest-api"></a>Riga di comando e API REST
+
+### <a name="command-line"></a>Riga di comando
+Per creare e gestire gli account di archiviazione collegati, usare [AZ monitor log-Analytics Workspace Linked-storage](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Questo comando può collegare e scollegare gli account di archiviazione da un'area di lavoro ed elencare gli account di archiviazione collegati.
+
+### <a name="request-and-cli-values"></a>Valori di richiesta e CLI
 
 #### <a name="datasourcetype"></a>dataSourceType 
 
@@ -72,37 +78,7 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
-
-## <a name="get-current-links"></a>Ottenere collegamenti correnti
-
-### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Ottenere gli account di archiviazione collegati per un tipo di origine dati specifico
-
-#### <a name="api-request"></a>Richiesta API
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>Risposta 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-### <a name="get-all-linked-storage-accounts"></a>Ottenere tutti gli account di archiviazione collegati
+### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Ottenere gli account di archiviazione collegati per tutti i tipi di origine dati
 
 #### <a name="api-request"></a>Richiesta API
 
@@ -144,6 +120,34 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
         }
     ]
+}
+```
+
+
+### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Ottenere gli account di archiviazione collegati per un tipo di origine dati specifico
+
+#### <a name="api-request"></a>Richiesta API
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
+```
+
+#### <a name="response"></a>Risposta 
+
+```json
+{
+    "properties":
+    {
+        "dataSourceType": "CustomLogs",
+        "storageAccountIds  ": 
+        [  
+            "<storage_account_resource_id_1>",
+            "<storage_account_resource_id_2>"
+        ],
+    },
+    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
+    "name": "CustomLogs",
+    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
 }
 ```
 

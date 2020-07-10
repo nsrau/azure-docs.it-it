@@ -5,11 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 95e3fc12a77124c32e220d700a112f52cbad08fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74250a54d7b835ceb37614450de07e9e3baefd83
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801887"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183155"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -52,13 +53,13 @@ Le cause di questo errore sono le seguenti:
 
 ### <a name="issue"></a>Problema
 
-Gli aggiornamenti precedenti vengono visualizzati come mancanti per un account di Automazione anche se sono stati sostituiti. Non è necessario installare un aggiornamento sostituito perché è disponibile un aggiornamento successivo che corregge la stessa vulnerabilità. Gestione aggiornamenti ignora l'aggiornamento sostituito e lo rende non disponibile a favore di quello sostitutivo. Per informazioni su un problema correlato, vedere [L'aggiornamento viene sostituito](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+Gli aggiornamenti precedenti vengono visualizzati come mancanti per un account di Automazione anche se sono stati sostituiti. Non è necessario installare un aggiornamento sostituito perché è disponibile un aggiornamento successivo che corregge la stessa vulnerabilità. Gestione aggiornamenti ignora l'aggiornamento sostituito e lo rende non disponibile a favore di quello sostitutivo. Per informazioni su un problema correlato, vedere [L'aggiornamento viene sostituito](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
 
 ### <a name="cause"></a>Causa
 
 Gli aggiornamenti sostituiti non vengono indicati correttamente come rifiutati, in modo da essere considerati non disponibili.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Quando un aggiornamento sostituito diventa non disponibile al 100%, è necessario modificare lo stato di approvazione di tale aggiornamento in `Declined`. Per modificare lo stato di approvazione di tutti gli aggiornamenti:
 
@@ -98,7 +99,7 @@ Questo problema può essere causato da anomalie relative alla configurazione loc
 
 * È possibile che sia stata definita una quota nell'area di lavoro che è stata raggiunta e che impedisce l'archiviazione di altri dati.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 1. Eseguire lo strumento di risoluzione dei problemi per [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), a seconda del sistema operativo.
 
@@ -143,7 +144,7 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 Il provider di risorse di Automazione non è registrato nella sottoscrizione.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Per registrare il provider di risorse di Automazione, seguire questi passaggi nel portale di Azure.
 
@@ -155,7 +156,7 @@ Per registrare il provider di risorse di Automazione, seguire questi passaggi ne
 
 4. Dall'elenco dei provider di risorse, verificare che il provider di risorse Microsoft.Automation sia registrato.
 
-5. Se non è elencato, registrare il provider Microsoft.Automation seguendo i passaggi descritti in [Risolvere gli errori per la registrazione del provider di risorse](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. Se non è elencato, registrare il provider Microsoft.Automation seguendo i passaggi descritti in [Risolvere gli errori per la registrazione del provider di risorse](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>Scenario: l'aggiornamento con pianificazione dinamica ha escluso alcuni computer
 
@@ -177,7 +178,7 @@ Le cause di questo problema possono essere le seguenti:
 
 Se la sottoscrizione non è configurata per il provider di risorse di Automazione, non è possibile eseguire query o recuperare informazioni sui computer nella sottoscrizione. Usare i passaggi seguenti per verificare la registrazione per la sottoscrizione.
 
-1. Nel [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal), accedere all'elenco dei servizi di Azure.
+1. Nel [portale di Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), accedere all'elenco dei servizi di Azure.
 
 2. Selezionare **Tutti i servizi** e quindi **Sottoscrizioni** nel gruppo di servizi Generale. 
 
@@ -187,7 +188,7 @@ Se la sottoscrizione non è configurata per il provider di risorse di Automazion
 
 5. Verificare che il provider di risorse Microsoft.Automation sia registrato.
 
-6. Se non è elencato, registrare il provider Microsoft.Automation seguendo i passaggi descritti in [Risolvere gli errori per la registrazione del provider di risorse](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+6. Se non è elencato, registrare il provider Microsoft.Automation seguendo i passaggi descritti in [Risolvere gli errori per la registrazione del provider di risorse](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 #### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>Computer non disponibili o non contrassegnati correttamente quando viene eseguita la pianificazione
 
@@ -195,9 +196,9 @@ Usare la procedura seguente se la sottoscrizione è configurata per il provider 
 
 1. Nel portale di Azure aprire l'account di Automazione e selezionare **Gestione aggiornamenti**.
 
-2. Controllare [Cronologia Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/manage-update-multi#view-results-of-an-update-deployment) per determinare l'orario esatto in cui è stata eseguita la distribuzione degli aggiornamenti. 
+2. Controllare [Cronologia Gestione aggiornamenti](../manage-update-multi.md#view-results-of-an-update-deployment) per determinare l'orario esatto in cui è stata eseguita la distribuzione degli aggiornamenti. 
 
-3. Per i computer che si sospetta siano stati esclusi da Gestione aggiornamenti, usare Azure Resource Graph (ARG) per [individuare le modifiche del computer](https://docs.microsoft.com/azure/governance/resource-graph/how-to/get-resource-changes#find-detected-change-events-and-view-change-details). 
+3. Per i computer che si sospetta siano stati esclusi da Gestione aggiornamenti, usare Azure Resource Graph (ARG) per [individuare le modifiche del computer](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details). 
 
 4. Cercare le modifiche apportate in un periodo di tempo considerevole, ad esempio un giorno, prima dell'esecuzione della distribuzione degli aggiornamenti.
 
@@ -221,17 +222,17 @@ Possibili cause di questo problema:
 * La query ARG non recupera i computer previsti.
 * Il ruolo di lavoro ibrido per runbook non è installato nei computer.
 
-### <a name="resolution"></a>Soluzione 
+### <a name="resolution"></a>Risoluzione 
 
 #### <a name="incorrect-access-on-selected-scopes"></a>Accesso errato agli ambiti selezionati
 
-Nel portale di Azure vengono visualizzati solo i computer per i quali si dispone dell'accesso in scrittura in un ambito specifico. Se non si dispone dell'accesso corretto per un ambito, vedere [Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Nel portale di Azure vengono visualizzati solo i computer per i quali si dispone dell'accesso in scrittura in un ambito specifico. Se non si dispone dell'accesso corretto per un ambito, vedere [Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>La query ARG non restituisce i computer previsti
 
 Attenersi ai passaggi seguenti per determinare se le query funzionano correttamente.
 
-1. Eseguire una query ARG formattata come illustrato qui sotto nel pannello Resource Graph explorer nel portale di Azure. Questa query simula i filtri selezionati al momento della creazione del gruppo dinamico in Gestione aggiornamenti. Vedere [Usare i gruppi dinamici con Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management-groups). 
+1. Eseguire una query ARG formattata come illustrato qui sotto nel pannello Resource Graph explorer nel portale di Azure. Questa query simula i filtri selezionati al momento della creazione del gruppo dinamico in Gestione aggiornamenti. Vedere [Usare i gruppi dinamici con Gestione aggiornamenti](../automation-update-management-groups.md). 
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -266,7 +267,7 @@ I computer appaiono nei risultati delle query ARG ma non vengono ancora visualiz
 
 4. Verificare che il ruolo di lavoro ibrido sia presente per tale computer.
 
-5. Se il computer non è configurato come ruolo di lavoro ibrido, apportare rettifiche usando le istruzioni in [Automatizzare le risorse nel data center o nel cloud usando il ruolo di lavoro ibrido per runbook](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker).
+5. Se il computer non è configurato come ruolo di lavoro ibrido, apportare rettifiche usando le istruzioni in [Automatizzare le risorse nel data center o nel cloud usando il ruolo di lavoro ibrido per runbook](../automation-hybrid-runbook-worker.md).
 
 6. Aggiungere il computer al gruppo ruolo di lavoro ibrido per runbook.
 
@@ -292,7 +293,7 @@ Le cause di questo errore sono le seguenti:
 
 * L'immagine della macchina virtuale da distribuire potrebbe provenire da un computer clonato senza preparazione sistema (sysprep) con l'agente di Log Analytics per Windows installato.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Per individuare il problema esatto della macchina virtuale, eseguire la query seguente nell'area di lavoro Log Analytics collegata all'account di Automazione.
 
@@ -340,9 +341,9 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 Questo errore si verifica quando si crea una distribuzione degli aggiornamenti con macchine virtuali di Azure in un altro tenant incluso in una distribuzione degli aggiornamenti.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
-Usare la soluzione alternativa seguente per la pianificazione degli elementi. È possibile usare il cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) con il parametro `ForUpdateConfiguration` per creare una pianificazione. Usare quindi il cmdlet [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passare i computer nell'altro tenant al parametro `NonAzureComputer`. L'esempio seguente illustra come farlo:
+Usare la soluzione alternativa seguente per la pianificazione degli elementi. È possibile usare il cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) con il parametro `ForUpdateConfiguration` per creare una pianificazione. Usare quindi il cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passare i computer nell'altro tenant al parametro `NonAzureComputer`. L'esempio seguente illustra come farlo:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -364,7 +365,7 @@ Anche se è impostata l'opzione **Controllo riavvio** per **Non riavviare mai**,
 
 È possibile modificare Windows Update con diverse chiavi del Registro di sistema, che possono cambiare il comportamento del riavvio.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Esaminare le chiavi del registro di sistema elencate in [Configurazione degli Aggiornamenti automatici modificando il Registro di sistema](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) e [Chiavi del registro di sistema usate per gestire il riavvio](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) per assicurarsi che i computer siano configurati correttamente.
 
@@ -414,13 +415,13 @@ Quando si registra un computer Windows in Gestione aggiornamenti, vengono visual
 
 In Windows gli aggiornamenti vengono installati automaticamente non appena sono disponibili. Questo comportamento può causare confusione se non è stato pianificato un aggiornamento da distribuire nel computer.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Per impostazione predefinita, la chiave del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` è impostata su 4: `auto download and install`.
 
 Per i client Gestione aggiornamenti, è consigliabile impostare questa chiave su 3: `auto download but do not auto install`.
 
-Per altre informazioni, vedere [Configurazione degli Aggiornamenti automatici](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
+Per altre informazioni, vedere [Configurazione degli Aggiornamenti automatici](/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
 ## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Scenario: il computer è già registrato per un altro account
 
@@ -436,7 +437,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Il computer è già stato distribuito in un'altra area di lavoro per Gestione aggiornamenti.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 1. Seguire i passaggi descritti in [I computer non vengono visualizzati nel portale in Gestione aggiornamenti](#nologs) per assicurarsi che il computer stia inviando report all'area di lavoro corretta.
 2. Eseguire la pulizia degli artefatti nel computer [eliminando il gruppo di runbook ibrido](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group) e riprovare.
@@ -467,7 +468,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 La comunicazione di rete potrebbe essere bloccata da un proxy, un gateway o un firewall. 
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Esaminare le funzionalità di rete e assicurarsi che le porte e gli indirizzi appropriati siano consentiti. Vedere i [requisiti di rete](../automation-hybrid-runbook-worker.md#network-planning) per un elenco di porte e indirizzi richiesti da Gestione aggiornamenti e i ruoli di lavoro ibridi per runbook.
 
@@ -485,7 +486,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Il ruolo di lavoro ibrido per runbook non è riuscito a generare un certificato autofirmato.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Verificare che l'account di sistema abbia accesso in lettura alla cartella **C:\ProgramData\Microsoft\Crypto\RSA** e riprovare.
 
@@ -495,7 +496,7 @@ Verificare che l'account di sistema abbia accesso in lettura alla cartella **C:\
 
 La finestra di manutenzione predefinita per gli aggiornamenti è di 120 minuti. È possibile aumentare la finestra di manutenzione fino a un massimo di 6 ore o 360 minuti.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Modificare le distribuzioni degli aggiornamenti pianificati con errori e aumentare la finestra di manutenzione.
 
@@ -512,7 +513,7 @@ Per altre informazioni sulle finestre di manutenzione, vedere [Installa aggiorna
 
 L'Agente di aggiornamento (Agente di Windows Update in Windows; la gestione pacchetti per una distribuzione Linux) non è configurato correttamente. Gestione aggiornamenti si basa sul'Agente di aggiornamento del computer per offrire gli aggiornamenti necessari, lo stato della patch e i risultati delle patch distribuite. Senza queste informazioni Gestione aggiornamenti non può segnalare correttamente le patch necessarie o installate.
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 Provare a eseguire gli aggiornamenti localmente nel computer. Se l'operazione ha esito negativo, in genere significa che si è verificato un errore nella configurazione dell'agente di aggiornamento.
 
@@ -574,9 +575,9 @@ Se non è possibile risolvere un problema di patch, effettuare una copia del fil
 
 ### <a name="machines-dont-install-updates"></a>I computer non installano gli aggiornamenti
 
-Provare a eseguire gli aggiornamenti direttamente nel computer. Se non è possibile eseguire gli aggiornamenti nel computer, vedere l'[elenco degli errori potenziali nella guida alla risoluzione dei problemi](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+Provare a eseguire gli aggiornamenti direttamente nel computer. Se non è possibile eseguire gli aggiornamenti nel computer, vedere l'[elenco degli errori potenziali nella guida alla risoluzione dei problemi](#hresult).
 
-Se gli aggiornamenti sono eseguiti in locale, provare a rimuovere e reinstallare l'agente nel computer seguendo il materiale sussidiario in [Rimuovere una macchina virtuale da Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources).
+Se gli aggiornamenti sono eseguiti in locale, provare a rimuovere e reinstallare l'agente nel computer seguendo il materiale sussidiario in [Rimuovere una macchina virtuale da Gestione aggiornamenti](../automation-remove-vms-from-update-management.md).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Sono disponibili aggiornamenti che tuttavia non vengono visualizzati come disponibili nei computer
 
@@ -592,11 +593,11 @@ Se gli aggiornamenti non sono approvati in WSUS, non sono installati. È possibi
 
 ### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>Gli aggiornamenti vengono visualizzati come installati, ma non è possibile trovarli sul computer
 
-Spesso gli aggiornamenti vengono sostituiti da altri aggiornamenti. Per altre informazioni, vedere [Aggiornamento sostituito](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer) nella Guida alla risoluzione dei problemi di Windows Update.
+Spesso gli aggiornamenti vengono sostituiti da altri aggiornamenti. Per altre informazioni, vedere [Aggiornamento sostituito](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer) nella Guida alla risoluzione dei problemi di Windows Update.
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Installazione degli aggiornamenti in base alla classificazione in Linux
 
-La distribuzione degli aggiornamenti in Linux in base alla classificazione ("Aggiornamenti critici e della sicurezza") presenta avvertimenti importanti, in particolare per CentOS. Queste limitazioni sono documentate nella [pagina di panoramica di Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2).
+La distribuzione degli aggiornamenti in Linux in base alla classificazione ("Aggiornamenti critici e della sicurezza") presenta avvertimenti importanti, in particolare per CentOS. Queste limitazioni sono documentate nella [pagina di panoramica di Gestione aggiornamenti](../automation-update-management.md#linux).
 
 ### <a name="kb2267602-is-consistently-missing"></a>KB2267602 manca in modo coerente
 

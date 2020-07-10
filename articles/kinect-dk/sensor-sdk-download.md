@@ -7,11 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, SDK, download dell'aggiornamento, più recente, disponibile, installazione
-ms.openlocfilehash: 2c23977c7e01a9137b72b44d1bdc0e1373bafa0a
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 48cdd35a80d68a7ec0d900639c0fca3a2c66787e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "84334269"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171789"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Download di Azure Kinect Sensor SDK
 
@@ -27,7 +28,7 @@ Questa pagina include i collegamenti di download per ogni versione di Azure Kine
 
 ## <a name="windows-download-link"></a>Collegamento di download per Windows
 
-[Programma di installazione Microsoft](https://download.microsoft.com/download/4/5/a/45aa3917-45bf-4f24-b934-5cff74df73e1/Azure%20Kinect%20SDK%201.4.0.exe) | [Codice sorgente GitHub](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1093)
+[Programma di installazione Microsoft](https://download.microsoft.com/download/3/d/6/3d6d9e99-a251-4cf3-8c6a-8e108e960b4b/Azure%20Kinect%20SDK%201.4.1.exe) | [Codice sorgente GitHub](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1093)
 
 > [!NOTE]
 > Quando si installa l'SDK, ricordare il percorso in cui si esegue l'installazione, ad esempio"C:\Programmi\Azure Kinect SDK 1.2". In questo percorso sono disponibili gli strumenti a cui si fa riferimento negli articoli.

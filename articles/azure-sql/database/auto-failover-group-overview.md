@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 2/10/2020
-ms.openlocfilehash: 39329eb9ea2c396f8b5f04287f3e933bb6242f85
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/09/2020
+ms.openlocfilehash: a4624d16f29834e8948a7bbc7ef882041727a823
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982980"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171874"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ I gruppi di failover automatico forniscono anche endpoint di listener di sola le
 
 Quando si usano i gruppi di failover automatico con i criteri di failover automatico, eventuali interruzioni che influiscano sui database in un server o in un'istanza gestita generano failover automatico. È possibile gestire il gruppo di failover automatico mediante:
 
-- [Azure portal](geo-distributed-application-configure-tutorial.md)
+- [Portale di Azure](geo-distributed-application-configure-tutorial.md)
 - [INTERFACCIA della riga di comando di Azure: gruppo di failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: gruppo di failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: gruppo di failover](/rest/api/sql/failovergroups).
@@ -239,7 +239,7 @@ Poiché ogni istanza è isolata nella propria rete virtuale, è necessario conse
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Creazione di un gruppo di failover tra istanze gestite in sottoscrizioni diverse
 
-È possibile creare un gruppo di failover tra istanze gestite da SQL in due sottoscrizioni diverse. Quando si usa l'API di PowerShell, è possibile eseguire questa operazione specificando il `PartnerSubscriptionId` parametro per il istanza gestita SQL secondario. Quando si usa l'API REST, ogni ID istanza incluso nel `properties.managedInstancePairs` parametro può avere un proprio subscriptionID.
+È possibile creare un gruppo di failover tra istanze gestite da SQL in due sottoscrizioni diverse, purché le sottoscrizioni siano associate allo stesso [tenant di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Quando si usa l'API di PowerShell, è possibile eseguire questa operazione specificando il `PartnerSubscriptionId` parametro per il istanza gestita SQL secondario. Quando si usa l'API REST, ogni ID istanza incluso nel `properties.managedInstancePairs` parametro può avere un proprio subscriptionID.
   
 > [!IMPORTANT]
 > Portale di Azure non supporta la creazione di gruppi di failover tra sottoscrizioni diverse. Inoltre, per i gruppi di failover esistenti in sottoscrizioni e/o gruppi di risorse diversi, il failover non può essere avviato manualmente tramite il portale dal Istanza gestita SQL primario. In alternativa, avviarlo dall'istanza geografica secondaria.

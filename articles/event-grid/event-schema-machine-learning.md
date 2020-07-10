@@ -3,12 +3,12 @@ title: Azure Machine Learning come origine griglia di eventi
 description: Descrive le proprietà fornite per area di lavoro di Machine Learning eventi con griglia di eventi di Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 11d8c38ee041ac9278e08166c4c060cdad87655f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b5a39539a6f39c78251a3cc7788b8e5ee4babbf9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102498"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181523"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning come origine griglia di eventi
 
@@ -26,7 +26,7 @@ Azure Machine Learning emette i tipi di evento seguenti:
 | Microsoft. MachineLearningServices. ModelDeployed | Generato quando i modelli sono stati distribuiti correttamente in un endpoint. |
 | Microsoft. MachineLearningServices. RunCompleted | Generato quando un'esecuzione è stata completata correttamente. |
 | Microsoft. MachineLearningServices. DatasetDriftDetected | Generato quando il monitoraggio della deriva del set di dati rileva la deriva. |
-| Microsoft. MachineLearningServices. RunStatusChanged | Generato quando lo stato di un'esecuzione diventa ' failed '. |
+| Microsoft. MachineLearningServices. RunStatusChanged | Generato quando viene modificato lo stato dell'esecuzione. |
 
 ### <a name="the-contents-of-an-event-response"></a>Contenuto della risposta di un evento
 
@@ -186,16 +186,16 @@ Questa sezione contiene un esempio che illustra l'aspetto dei dati per ogni even
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
 | data | object | Dati relativi all'evento di archiviazione BLOB. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 

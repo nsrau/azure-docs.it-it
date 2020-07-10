@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710168"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183206"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurare un'esperienza API Ricerca personalizzata Bing
 
@@ -27,8 +27,8 @@ Quando si definiscono le sezioni Web, usare il comando seguente:
 
 | Nome della sezione | Descrizione                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio: `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si specifica `microsoft.com` , Bing restituisce anche i risultati da `support.microsoft.com` o `technet.microsoft.com` . |
-| Pagina secondaria    | La sezione di una pagina secondaria include tutto il contenuto disponibile nella pagina secondaria e i relativi percorsi. È possibile specificare un massimo di due pagine secondarie nel percorso. Ad esempio, usare `www.microsoft.com/en-us/windows/`                                                                                                                       |
+| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio, `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si specifica `microsoft.com` , Bing restituisce anche i risultati da `support.microsoft.com` o `technet.microsoft.com` . |
+| Pagina secondaria    | La sezione di una pagina secondaria include tutto il contenuto disponibile nella pagina secondaria e i relativi percorsi. È possibile specificare un massimo di due pagine secondarie nel percorso. Ad esempio: `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Pagina Web    | La sezione di una pagina Web può includere solo la pagina Web in una ricerca personalizzata. Facoltativamente, è possibile specificare se includere pagine secondarie.                                                                                                                                                                                  |
 
 > [!IMPORTANT]
@@ -92,8 +92,8 @@ Queste API sono simili alle API non-personalizzate [Ricerca immagini Bing](../Bi
 
 Il portale consente di modificare la classificazione di ricerca di contenuto da domini specifici, pagine secondarie e pagine Web. Dopo l'invio di una query di ricerca nel riquadro di anteprima, ogni risultato di ricerca conterrà un elenco di modifiche che è possibile apportare per:  
 
-|            |                                                                                                                                                                      |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Regolazione | Descrizione |
+|------------|-------------|
 | Blocca      | Sposta il dominio, la pagina secondaria o la pagina Web nell'elenco Blocked (Elementi bloccati). Bing esclude il contenuto dal sito selezionato dalla visualizzazione nei risultati di ricerca.                    |
 | Aumento priorità      | Aumenta la priorità del contenuto del dominio o della pagina secondaria nei risultati della ricerca.                                                                                        |
 | Abbassamento di livello     | Abbassa di livello il contenuto del dominio o della pagina secondaria nei risultati della ricerca. Selezionare se si vuole abbassare di livello il contenuto dal dominio o dalla pagina secondaria a cui appartiene la pagina Web. |

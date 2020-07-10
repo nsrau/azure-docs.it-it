@@ -2,14 +2,16 @@
 title: Integrare Azure Active Directory con il servizio Azure Kubernetes
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un cluster Azure Kubernetes Service (AKS) abilitato per Azure Active Directory
 services: container-service
+author: TomGeske
 ms.topic: article
-ms.date: 04/16/2019
-ms.openlocfilehash: 85441b53b22b4d33ee2ff967d777cc3267e171da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 0465c54df2095cff7647e974765e61fa9b9ff3e1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106102"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169460"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure
 
@@ -19,9 +21,9 @@ Questo articolo illustra come creare i componenti Azure AD necessari, quindi dis
 
 Per lo script di esempio completo usato in questo articolo, vedere esempi dell'interfaccia della riga di comando di [Azure-integrazione di AKS con Azure ad][complete-script].
 
-Si applicano le limitazioni seguenti:
+## <a name="the-following-limitations-apply"></a>Si applicano le limitazioni seguenti:
 
-- Azure AD può essere abilitato solo quando si crea un nuovo cluster abilitato per il controllo degli accessi in base al ruolo. Non è possibile abilitare Azure AD in un cluster del servizio Azure Kubernetes.
+- Azure AD può essere abilitata solo in un cluster abilitato per RBAC.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

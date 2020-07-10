@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4c4884b643c436eae377b294b2981aa61aa4689d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3a8b271a030de2ddd3aa40b5bb0af871319c0e1f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86137587"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171806"
 ---
 # <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Baseline della sicurezza di Azure Resource Graph per il benchmark di sicurezza di Azure
 
@@ -22,7 +22,7 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 ## <a name="identity-and-access-control"></a>Identità e controllo di accesso
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](/azure/security/benchmarks/security-control-identity-access-control).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](../../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare regolarmente l'accesso utente
 
@@ -39,7 +39,7 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 ## <a name="data-protection"></a>Protezione dei dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](/azure/security/benchmarks/security-control-data-protection).*
+*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](../../../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
 
@@ -56,7 +56,7 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 ## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](../../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
 
@@ -99,5 +99,5 @@ Questa linea di base di sicurezza applica le linee guida del [benchmark di sicur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../../../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../../../security/benchmarks/security-baselines-overview.md)

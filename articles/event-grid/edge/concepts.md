@@ -5,16 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/03/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 73309e10e88c11e639e6ac6fd3bb061e1b5c685b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3babfe93012fae15e79362ba34f3f48856bc833
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72992548"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171738"
 ---
 # <a name="event-grid-concepts"></a>Concetti relativi a Griglia di eventi
 
@@ -32,13 +30,13 @@ Un editore è un utente o un'organizzazione che decide di inviare eventi a Grigl
 
 ## <a name="event-sources"></a>Origini eventi
 
-Un'origine evento è la posizione in cui si verifica l'evento. Ogni origine evento è correlata a uno o più tipi di evento. Archiviazione di Azure è ad esempio l'origine degli eventi di creazione di BLOB. L'applicazione è l'origine evento per gli eventi personalizzati definiti dall'utente. Le origini evento sono responsabili dell'invio degli eventi in Griglia di eventi.
+Un'origine evento è la posizione in cui si verifica l'evento. Ogni origine evento è correlata a uno o più tipi di evento. Archiviazione di Azure è, ad esempio, l'origine degli eventi creati dai BLOB. L'applicazione è l'origine degli eventi personalizzati definiti dall'utente. Le origini eventi sono responsabili dell'invio degli eventi a Griglia di eventi.
 
 ## <a name="topics"></a>Argomenti
 
 L'argomento di Griglia di eventi include un endpoint a cui l'origine invia gli eventi. L'editore crea l'argomento di Griglia di eventi e decide se un'origine evento necessita di uno o più argomenti. L'argomento viene usato per una raccolta di eventi correlati. Per rispondere a determinati tipi di eventi, i sottoscrittori scelgono gli argomenti da sottoscrivere.
 
-Quando si progetta l'applicazione, è possibile scegliere il numero di argomenti da creare. Per soluzioni di grandi dimensioni, creare un argomento personalizzato per ogni categoria di eventi correlati. Ad esempio, si consideri un'applicazione che invia gli eventi correlati alla modifica di account utente e all'elaborazione degli ordini. È improbabile che un gestore eventi richieda entrambe le categorie di eventi. Creare due argomenti personalizzati e consentire ai gestori di eventi di sottoscrivere all'argomento di interesse. Per le soluzioni di dimensioni ridotte, è preferibile inviare tutti gli eventi a un singolo argomento. I sottoscrittori di eventi possono filtrare in base ai tipi di eventi desiderati.
+Quando si progetta l'applicazione, è possibile scegliere il numero di argomenti da creare. Per soluzioni di grandi dimensioni, creare un argomento personalizzato per ogni categoria di eventi correlati. Ad esempio, si consideri un'applicazione che invia gli eventi correlati alla modifica degli account utente e all'elaborazione degli ordini. È improbabile che un gestore eventi richieda entrambe le categorie di eventi. Creare due argomenti personalizzati e consentire ai gestori eventi di sottoscrivere l'argomento di interesse. Per le soluzioni di dimensioni ridotte, è preferibile inviare tutti gli eventi a un singolo argomento. I sottoscrittori di eventi possono filtrare in base ai tipi di eventi desiderati.
 
 Vedere la [documentazione sull'API REST](api.md) per informazioni su come gestire gli argomenti in griglia di eventi.
 

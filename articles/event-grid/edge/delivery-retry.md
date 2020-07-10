@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76841713"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171619"
 ---
 # <a name="delivery-and-retry"></a>Recapito e nuovo tentativo
 
@@ -26,9 +25,9 @@ Griglia di eventi fornisce il recapito durevole. Tenta di recapitare ogni messag
 
 Griglia di eventi attende fino a 60 secondi per una risposta dopo il recapito di un messaggio. Se l'endpoint del Sottoscrittore non ACK la risposta, il messaggio verrà accodato in una delle code di back-off per i tentativi successivi.
 
-Sono presenti due code di backup preconfigurate che determinano la pianificazione in base alla quale verrà effettuato un nuovo tentativo. ovvero:
+Sono presenti due code di backup preconfigurate che determinano la pianificazione in base alla quale verrà effettuato un nuovo tentativo. I peering sono i seguenti:
 
-| Pianificazione | Descrizione |
+| Pianifica | Descrizione |
 | ---------| ------------ |
 | 1 minuto | I messaggi che terminano qui vengono tentati ogni minuto.
 | 10 minuti | I messaggi che terminano qui vengono tentati ogni 10 minuti.
@@ -42,7 +41,7 @@ Sono presenti due code di backup preconfigurate che determinano la pianificazion
 
 ## <a name="retry-policy-limits"></a>Limiti dei criteri di ripetizione
 
-Sono disponibili due configurazioni che determinano i criteri di ripetizione dei tentativi. ovvero:
+Sono disponibili due configurazioni che determinano i criteri di ripetizione dei tentativi. I peering sono i seguenti:
 
 * Numero massimo di tentativi
 * Time-to-Live (TTL) evento

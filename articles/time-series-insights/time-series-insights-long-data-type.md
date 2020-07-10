@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: dpalled
-ms.openlocfilehash: ebb62b67b56134902f2752b43dd25fb0a7c6ccd4
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0b53749a32e79d690cf4412fdac82b18dfe2f2e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045774"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183631"
 ---
 # <a name="adding-support-for-long-data-type"></a>Aggiunta del supporto per il tipo di dati Long
 
@@ -63,39 +63,43 @@ Se si desidera eseguire una query sui dati in queste due colonne per la propriet
 
 *Definizione di variabile precedente:*
 
-    "PropertyValueVariable": {
+```tsx
+"PropertyValueVariable": {
 
-        "kind": "numeric",
+    "kind": "numeric",
 
-        "value": {
+    "value": {
 
-            "tsx": "$event.propertyValue.Double"
+        "tsx": "$event.propertyValue.Double"
 
-        },
+    },
 
-        "filter": null,
+    "filter": null,
 
-        "aggregation": {
+    "aggregation": {
 
-            "tsx": "avg($value)"
+        "tsx": "avg($value)"
+```
 
 *Nuova definizione di variabile:*
 
-    "PropertyValueVariable ": {
+```tsx
+"PropertyValueVariable ": {
 
-        "kind": "numeric",
+    "kind": "numeric",
 
-        "value": {
+    "value": {
 
-            "tsx": "coalesce($event.propertyValue.Long, toLong($event.propertyValue.Double))"
+        "tsx": "coalesce($event.propertyValue.Long, toLong($event.propertyValue.Double))"
 
-        },
+    },
 
-        "filter": null,
+    "filter": null,
 
-        "aggregation": {
+    "aggregation": {
 
-            "tsx": "avg($value)"
+        "tsx": "avg($value)"
+```
 
 È anche possibile usare *"COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))"* come [espressione della serie temporale personalizzata.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
@@ -124,77 +128,81 @@ Le variabili categoriche richiedono ancora un valore di tipo Integer. Il tipo di
 
 *Definizione di variabile precedente:*
 
-    "PropertyValueVariable_Long": {
+```tsx
+"PropertyValueVariable_Long": {
 
-        "kind": "categorical",
+    "kind": "categorical",
 
-        "value": {
+    "value": {
 
-            "tsx": "tolong($event.propertyValue.Double)"
+        "tsx": "tolong($event.propertyValue.Double)"
 
-        },
+    },
 
-        "categories": [
+    "categories": [
 
-        {
-            "label": "Good",
+    {
+        "label": "Good",
 
-            "values": [0, 1, 2 ]
+        "values": [0, 1, 2 ]
 
-        },
+    },
 
-        {
+    {
 
-            "label": "Bad",
+        "label": "Bad",
 
-            "values": [ 3, 4 ]
+        "values": [ 3, 4 ]
 
-        } ],
+    } ],
 
-        "defaultCategory": {
+    "defaultCategory": {
 
-            "label": "Unknown"
-
-        }
+        "label": "Unknown"
 
     }
+
+}
+```
 
 *Nuova definizione di variabile:*
 
-    "PropertyValueVariable_Long": {
+```tsx
+"PropertyValueVariable_Long": {
 
-        "kind": "categorical",
+    "kind": "categorical",
 
-        "value": {
+    "value": {
 
-            "tsx": "coalesce($event.propertyValue.Long, tolong($event.propertyValue.Double))"
+        "tsx": "coalesce($event.propertyValue.Long, tolong($event.propertyValue.Double))"
 
-        },
+    },
 
-        "categories": [
+    "categories": [
 
-        {
-            "label": "Good",
+    {
+        "label": "Good",
 
-            "values": [0, 1, 2 ]
+        "values": [0, 1, 2 ]
 
-        },
+    },
 
-        {
+    {
 
-            "label": "Bad",
+        "label": "Bad",
 
-            "values": [ 3, 4 ]
+        "values": [ 3, 4 ]
 
-        } ],
+    } ],
 
-        "defaultCategory": {
+    "defaultCategory": {
 
-            "label": "Unknown"
-
-        }
+        "label": "Unknown"
 
     }
+
+}
+```
 
 Le variabili categoriche richiedono ancora un valore di tipo Integer. Il tipo di dati di tutti gli argomenti in COALESCE () deve essere di tipo Long nell' [espressione della serie temporale personalizzata.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 

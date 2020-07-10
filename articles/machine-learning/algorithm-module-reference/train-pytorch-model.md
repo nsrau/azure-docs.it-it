@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450005"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170259"
 ---
 # <a name="train-pytorch-model"></a>Train Pytorch Model
 
@@ -26,7 +27,7 @@ Questo articolo descrive come usare il modulo **Train Pytorch Model** in Azure M
 2. Aggiungere il modulo **Train Pytorch Model** alla pipeline. È possibile trovare questo modulo nella categoria **training del modello** . Espandere **Train**, quindi trascinare il modulo **Train Pytorch Model** nella pipeline.
 
    > [!NOTE]
-   > Il modulo **Train Pytorch Model** può essere eseguito solo in un computer di tipo **GPU** . in caso contrario, la pipeline avrà esito negativo. È possibile selezionare calcolo per un modulo specifico nel riquadro destro del modulo impostando **usa altra destinazione di calcolo**.
+   > Il modulo **Train Pytorch Model** è migliore per l'esecuzione in una **GPU** di tipo calcolo per set di dati di grandi dimensioni. in caso contrario, la pipeline non riesce È possibile selezionare calcolo per un modulo specifico nel riquadro destro del modulo impostando **usa altra destinazione di calcolo**.
 
 3.  Nell'input di sinistra alleghi un modello non sottoposto a training. Alleghi il set di dati di training e il set di dati di convalida all'input centrale e destro del **modello Train Pytorch**.
 
@@ -65,7 +66,7 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 ###  <a name="module-parameters"></a>Parametri del modulo  
 
-| Nome          | Range            | Type    | Predefinito | Descrizione                              |
+| Nome          | Intervallo            | Type    | Predefinito | Descrizione                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Periodi        | >0               | Integer | 5       | Seleziona la colonna contenente l'etichetta o la colonna del risultato |
 | Dimensioni dei batch    | >0               | Integer | 16      | Numero di istanze di cui eseguire il training in un batch   |

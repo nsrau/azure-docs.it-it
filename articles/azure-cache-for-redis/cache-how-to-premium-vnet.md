@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: dae829336c5328bec4b620217c34c69fa5931b3a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f07e18498138d29497fa6ba85c5930a5a5f7ec4e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856849"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184770"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
@@ -60,10 +60,11 @@ Dopo aver creato la cache, è possibile visualizzare la configurazione della ret
 Per connettersi all'istanza di Cache Redis di Azure quando si usa una rete virtuale, specificare il nome host della cache nella stringa di connessione, come mostrato nell'esempio seguente:
 
 ```csharp
-private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-{
-    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
-});
+private static Lazy<ConnectionMultiplexer>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
+    {
+        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+    });
 
 public static ConnectionMultiplexer Connection
 {
@@ -98,7 +99,7 @@ Quando Cache Redis di Azure è ospitata in una rete virtuale, vengono usate le p
 
 #### <a name="outbound-port-requirements"></a>Requisiti delle porte in uscita
 
-Sono previsti nove requisiti per le porte in uscita. Le richieste in uscita in questi intervalli sono in uscita con altri servizi necessari per il funzionamento della cache o interni alla subnet Redis per la comunicazione tra nodi. Per la replica geografica sono disponibili altri requisiti in uscita per la comunicazione tra subnet della cache primaria e secondaria.
+Sono previsti nove requisiti per le porte in uscita. Le richieste in uscita in questi intervalli sono in uscita con altri servizi necessari per il funzionamento della cache o interni alla subnet Redis per la comunicazione tra nodi. Per la replica geografica sono disponibili altri requisiti in uscita per la comunicazione tra subnet della cache primaria e di replica.
 
 | Porte | Direzione | Protocollo di trasporto | Scopo | IP locale | IP remoto |
 | --- | --- | --- | --- | --- | --- |
