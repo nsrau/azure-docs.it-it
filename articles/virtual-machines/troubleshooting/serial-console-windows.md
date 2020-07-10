@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135255"
+ms.locfileid: "86146638"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console seriale di Azure per Windows
 
@@ -100,11 +100,10 @@ Se è necessario abilitare i prompt del caricatore di avvio di Windows da visual
 
 1. Connettersi alla console seriale. Se ci si connette correttamente, la richiesta è **SAC >** :
 
-    ![Connettersi a SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
-
+   ![Connettersi a SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 1. Digitare `cmd` per creare un canale con un'istanza di CMD.
 
-1. Immettere `ch -si 1` o premere la combinazione di tasti `<esc>+<tab>` per passare al canale che esegue l'istanza di CMD.
+1. Immettere `ch -si 1` o premere i `<esc>+<tab>` tasti di scelta rapida per passare al canale che esegue l'istanza di cmd.
 
 1. Premere **Invio**, quindi immettere le credenziali di accesso con autorizzazioni amministrative.
 
@@ -112,7 +111,7 @@ Se è necessario abilitare i prompt del caricatore di avvio di Windows da visual
 
 1. Per avviare un'istanza di PowerShell, inserire `PowerShell` nell'istanza di CMD e quindi premere **Invio**.
 
-    ![Aprire l'istanza di PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+   ![Aprire l'istanza di PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Usare la console seriale per le chiamate NMI
 Un interrupt non mascherabile (NMI) è progettato per creare un segnale che il software in una macchina virtuale non ignora. In passato, gli NMI sono stati usati per verificare la presenza di problemi hardware in sistemi che necessitavano di tempi di risposta specifici. Gli amministratori di sistema e i programmatori oggi usano spesso gli NMI come un meccanismo per eseguire il debug o risolvere i problemi di sistemi che non rispondono.

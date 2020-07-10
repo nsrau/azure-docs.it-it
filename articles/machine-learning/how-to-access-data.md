@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 03/24/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: cb52935b731a507d2408d174a5aa571fb2bfc973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b1d5c66c1dd15fa12638dd451d1ce2fa8fa79f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609266"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146734"
 ---
 # <a name="connect-to-azure-storage-services"></a>Connettersi ai servizi di archiviazione di Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,16 +52,16 @@ Sono necessari gli elementi seguenti:
 
 Gli archivi dati attualmente supportano l'archiviazione delle informazioni di connessione nei servizi di archiviazione elencati nella matrice seguente.
 
-| Tipo di&nbsp;archiviazione | Tipo di&nbsp;autenticazione | [Azure&nbsp;Machine&nbsp;Learning Studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Interfaccia della riga di comando di Azure&nbsp;Machine&nbsp;Learning](reference-azure-machine-learning-cli.md) | [API REST di&nbsp;Azure&nbsp;Machine&nbsp;Learning](https://docs.microsoft.com/rest/api/azureml/)
----|---|---|---|---|---
-[Archiviazione&nbsp;BLOB&nbsp;di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓
-[Condivisione&nbsp;file di&nbsp;Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓
-[Azure&nbsp;Data Lake&nbsp;Storage&nbsp;Gen1](https://docs.microsoft.com/azure/data-lake-store/)| Entità servizio| ✓ | ✓ | ✓ |✓
-[Azure&nbsp;Data Lake&nbsp;Storage&nbsp;Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Entità servizio| ✓ | ✓ | ✓ |✓
-[Database&nbsp;SQL&nbsp;di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)| Autenticazione SQL <br>Entità servizio| ✓ | ✓ | ✓ |✓
-[Azure&nbsp;PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) | Autenticazione SQL| ✓ | ✓ | ✓ |✓
-[Database di&nbsp;Azure&nbsp;per&nbsp;MySQL](https://docs.microsoft.com/azure/mysql/overview) | Autenticazione SQL|  | ✓* | ✓* |✓*
-[File&nbsp;system di&nbsp;Databricks](https://docs.microsoft.com/azure/databricks/data/databricks-file-system)| Nessuna autenticazione | | ✓** | ✓ ** |✓** 
+| Tipo di&nbsp;archiviazione | Tipo di&nbsp;autenticazione | [Azure&nbsp;Machine&nbsp;Learning Studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Interfaccia della riga di comando di Azure&nbsp;Machine&nbsp;Learning](reference-azure-machine-learning-cli.md) | [API REST di&nbsp;Azure&nbsp;Machine&nbsp;Learning](https://docs.microsoft.com/rest/api/azureml/) | Visual Studio Code
+---|---|---|---|---|---|---
+[Archiviazione&nbsp;BLOB&nbsp;di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓ |✓
+[Condivisione&nbsp;file di&nbsp;Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓|✓
+[Azure&nbsp;Data Lake&nbsp;Storage&nbsp;Gen1](https://docs.microsoft.com/azure/data-lake-store/)| Entità servizio| ✓ | ✓ | ✓ |✓|
+[Azure&nbsp;Data Lake&nbsp;Storage&nbsp;Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Entità servizio| ✓ | ✓ | ✓ |✓|
+[Database&nbsp;SQL&nbsp;di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)| Autenticazione SQL <br>Entità servizio| ✓ | ✓ | ✓ |✓|
+[Azure&nbsp;PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) | Autenticazione SQL| ✓ | ✓ | ✓ |✓|
+[Database di&nbsp;Azure&nbsp;per&nbsp;MySQL](https://docs.microsoft.com/azure/mysql/overview) | Autenticazione SQL|  | ✓* | ✓* |✓*|
+[File&nbsp;system di&nbsp;Databricks](https://docs.microsoft.com/azure/databricks/data/databricks-file-system)| Nessuna autenticazione | | ✓** | ✓ ** |✓** |
 
 \* MySQL è supportato solo per l'oggetto [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) della pipeline <br>
 ** Databricks è supportato solo per l'oggetto [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) della pipeline
@@ -205,6 +205,9 @@ Nell'esempio seguente viene illustrato l'aspetto del form quando si crea un **ar
     
 ![Modulo per un nuovo archivio dati](media/how-to-access-data/new-datastore-form.png)
 
+### <a name="vs-code"></a>Visual Studio Code
+
+È possibile creare e gestire archivi dati utilizzando l'estensione Azure Machine Learning VS Code. Per altre informazioni, vedere la Guida alle procedure per la [gestione delle risorse vs code](how-to-manage-resources-vscode.md#datastores) .
 
 <a name="get"></a>
 

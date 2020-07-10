@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 7c2484892f3de3c8eca3f766793be83bc7a29dc8
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: a56e815e3a4ac04d20b29163139ab40332c4bec4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445543"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146959"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticare le richieste a Servizi cognitivi di Azure
 
@@ -28,7 +28,7 @@ Ogni richiesta a un servizio di Servizi cognitivi di Azure deve includere un'int
 
 Per poter effettuare una richiesta, è necessario disporre di un account Azure e di una sottoscrizione di Servizi cognitivi di Azure. Se si dispone già di un account, passare direttamente alla sezione successiva. Se non si dispone di un account, è presente una guida che consente di configurare in pochi minuti: [creare un account di servizi cognitivi per Azure](cognitive-services-apis-create-account.md).
 
-È possibile ottenere la chiave di sottoscrizione dalla [portale di Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dopo la creazione dell'account o l'attivazione di una [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
+È possibile ottenere la chiave di sottoscrizione dalla [portale di Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dopo aver [creato l'account](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="authentication-headers"></a>Intestazioni di autenticazione
 
@@ -160,7 +160,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Che cosa sono i servizi cognitivi?](welcome.md)
 * [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/)

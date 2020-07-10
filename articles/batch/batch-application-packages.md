@@ -4,12 +4,12 @@ description: Usare la funzionalità dei pacchetti dell’applicazione di Azure B
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cebb7bf001d16e1024ed466268758f0b1bc92c6c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 328b08acbc6d13dd03956bb501b4d4a51310c9c0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955031"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147218"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
 
@@ -57,7 +57,7 @@ Un pacchetto dell'applicazione è un file zip contenente i file binari e i file 
 ### <a name="benefits-of-application-packages"></a>Vantaggi dei pacchetti dell'applicazione
 Con i pacchetti dell'applicazione è possibile semplificare il codice nella soluzione Batch e ridurre il sovraccarico richiesto in termini di gestione delle applicazioni eseguite delle attività.
 
-Con i pacchetti dell'applicazione non è necessario che l'attività di avvio del pool specifichi un lungo elenco di singoli file di risorse da installare nei nodi. Non è necessario gestire manualmente più versioni dei file dell'applicazione in Archiviazione di Azure o nei nodi. Per accedere ai file nell'account di archiviazione non è necessario generare un [URL di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) . Batch interagisce in background con Archiviazione di Azure per archiviare e distribuire i pacchetti dell'applicazione nei nodi di calcolo.
+Con i pacchetti dell'applicazione non è necessario che l'attività di avvio del pool specifichi un lungo elenco di singoli file di risorse da installare nei nodi. Non è necessario gestire manualmente più versioni dei file dell'applicazione in Archiviazione di Azure o nei nodi. Per accedere ai file nell'account di archiviazione non è necessario generare un [URL di firma di accesso condiviso](../storage/common/storage-sas-overview.md) . Batch interagisce in background con Archiviazione di Azure per archiviare e distribuire i pacchetti dell'applicazione nei nodi di calcolo.
 
 > [!NOTE] 
 > La dimensione totale di un'attività di avvio deve essere inferiore o uguale a 32768 caratteri, inclusi i file di risorse e le variabili di ambiente. Se l'attività di avvio supera questo limite, l'uso di pacchetti dell'applicazione è un'altra opzione. Si può inoltre creare un archivio compresso contenente i file di risorse, caricarlo come un BLOB in Archiviazione di Azure e quindi decomprimerlo dalla riga di comando dell'attività di avvio. 

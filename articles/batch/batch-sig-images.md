@@ -4,12 +4,12 @@ description: I pool di immagini personalizzati sono un modo efficiente per confi
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 38233bc5d279c1c0ae7789dd06acff78ea26fb89
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851710"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147286"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usare la raccolta di immagini condivise per creare un pool di immagini personalizzato
 
@@ -30,7 +30,7 @@ L'uso di un'Immagine condivisa configurata per uno scenario specifico può esser
 - **Pre-installare applicazioni**. La pre-installazione delle applicazioni sul disco del sistema operativo risulta essere più efficiente e meno soggetta a errori rispetto all'installazione di applicazioni dopo il provisioning dei nodi di calcolo con un'attività di avvio.
 - **Copiare grandi quantità di dati una volta sola.** Incorporare i dati statici nell'Immagine condivisa gestita copiandoli nei dischi dati di un'immagine gestita. Questa operazione deve essere eseguita solo una volta e consente di rendere i dati disponibili per ogni nodo del pool.
 - **Aumentare le dimensioni dei pool.** Con la Raccolta immagini condivise è possibile creare pool di dimensioni maggiori con le immagini personalizzate, insieme a un maggior numero di repliche di Immagini condivise.
-- **Prestazioni migliori rispetto all'utilizzo di una sola immagine gestita come immagine personalizzata.** Per un pool di immagini personalizzate per immagini condivise, il tempo per raggiungere lo stato stabile è fino al 25% più veloce e la latenza di inattività della macchina virtuale è fino al 30% più breve.
+- **Prestazioni migliori rispetto all'utilizzo di una sola immagine gestita come immagine personalizzata.** Per un pool di immagini personalizzate per immagini condivise, il tempo per raggiungere lo stato stabile è più veloce del 25% e la latenza di inattività della macchina virtuale è fino al 30% più breve.
 - **Controllo delle versioni delle immagini e raggruppamento per la semplificazione della gestione.** La definizione di raggruppamento delle immagini contiene informazioni sui motivi per cui è stata creata l'immagine, sul sistema operativo per cui è stata creata e le informazioni sull'uso. Il raggruppamento delle immagini consente una gestione più semplice delle stesse. Per altre informazioni, vedere [Definizioni delle immagini](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -83,7 +83,7 @@ Per creare un'immagine gestita da uno snapshot, usare gli strumenti da riga di c
 
 ### <a name="create-a-shared-image-gallery"></a>Creare una Raccolta immagini condivise
 
-Dopo aver creato l'immagine gestita è necessario creare una Raccolta immagini condivise per rendere disponibile l'immagine personalizzata. Per informazioni su come creare una Raccolta immagini condivise per le immagini, vedere [Creare una raccolta di immagini condivise con l'interfaccia della riga di comando di Azure](../virtual-machines/linux/shared-images.md) oppure [Creare una raccolta di immagini condivise con il portale di Azure](../virtual-machines/linux/shared-images-portal.md).
+Dopo aver creato l'immagine gestita è necessario creare una Raccolta immagini condivise per rendere disponibile l'immagine personalizzata. Per informazioni su come creare una Raccolta immagini condivise per le immagini, vedere [Creare una raccolta di immagini condivise con l'interfaccia della riga di comando di Azure](../virtual-machines/shared-images-cli.md) oppure [Creare una raccolta di immagini condivise con il portale di Azure](../virtual-machines/linux/shared-images-portal.md).
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Creare un pool da Immagini condivise con l'interfaccia della riga di comando di Azure
 

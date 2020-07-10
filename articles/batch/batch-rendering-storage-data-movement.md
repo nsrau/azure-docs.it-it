@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6fff0e224aaa6bb247543282ac16fbb33fe7e904
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 55ec04df2a107dabfc72298bc8849c13f3a926e0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965264"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147297"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opzioni di archiviazione e spostamento dati per i file di asset e output del rendering
 
@@ -87,7 +87,7 @@ Poiché i file sono semplicemente BLOB in Archiviazione di Azure, per copiare i 
 
 [File di Azure](../storage/files/storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB.  File di Azure si basa su Archiviazione BLOB di Azure, è [conveniente](https://azure.microsoft.com/pricing/details/storage/files/), può essere configurato con la replica dei dati in un'altra area ed è quindi ridondante a livello globale.  È necessario consultare gli [obiettivi di scalabilità](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) per determinare se è opportuno usare File di Azure in base alla dimensione del pool di previsione e al numero di file di asset.
 
-Sono disponibili un [post di blog](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) e articoli della [documentazione](../storage/files/storage-how-to-use-files-windows.md) relativi al montaggio di una condivisione di File di Azure.
+È disponibile la [documentazione](../storage/files/storage-how-to-use-files-windows.md) che illustra come montare una condivisione file di Azure.
 
 ### <a name="mounting-an-azure-files-share"></a>Montaggio di una condivisione di File di Azure
 

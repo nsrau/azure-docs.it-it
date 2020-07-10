@@ -3,12 +3,12 @@ title: Usare macchine virtuali di Azure a elevato utilizzo di calcolo con Batch
 description: Come sfruttare le dimensioni di una macchina virtuale HPC e GPU nei pool di Azure Batch. Informazioni sulle dipendenze del sistema operativo e diversi scenari di esempio.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: acc56679d8be157541b0d7c056e57659584645be
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962510"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147342"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usare istanze GPU o RDMA nei pool di Batch
 
@@ -20,9 +20,9 @@ Per eseguire determinati processi Batch, è possibile sfruttare le dimensioni de
 
 Questo articolo fornisce istruzioni ed esempi per usare alcune delle dimensioni specializzate di Azure nei pool di Batch. Per le specifiche e le informazioni di base, vedere:
 
-* Dimensioni delle VM High Performance Computing ([Linux](../virtual-machines/linux/sizes-hpc.md), [Windows](../virtual-machines/windows/sizes-hpc.md)) 
+* Dimensioni delle VM High Performance Computing ([Linux](../virtual-machines/sizes-hpc.md), [Windows](../virtual-machines/sizes-hpc.md)) 
 
-* Dimensioni delle VM con supporto per GPU ([Linux](../virtual-machines/linux/sizes-gpu.md), [Windows](../virtual-machines/windows/sizes-gpu.md)) 
+* Dimensioni delle VM con supporto per GPU ([Linux](../virtual-machines/sizes-gpu.md), [Windows](../virtual-machines/sizes-gpu.md)) 
 
 > [!NOTE]
 > Determinate dimensioni di macchine virtuali potrebbero non essere disponibili nelle aree in cui si crea l'account Batch. Per verificare la disponibilità di una dimensione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/) e [Scegliere una dimensione di macchina virtuale per un pool di Batch](batch-pool-vm-sizes.md).
@@ -35,7 +35,7 @@ Le funzionalità RDMA o GPU delle dimensioni a elevato utilizzo di calcolo in Ba
 
 | Dimensione | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3 e ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS o<br/>HPC basato su CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Driver Linux RDMA | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3 e ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS o<br/>HPC basato su CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Driver Linux RDMA | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
 | [Serie NC, NCv2, NCv3 e NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia in base alla serie) | Ubuntu 16.04 LTS o<br/>CentOS 7.3 o 7.4<br/>(Azure Marketplace) | Driver NVIDIA CUDA o CUDA Toolkit | N/D | 
 | [Serie NV e NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS o<br/>CentOS 7.3<br/>(Azure Marketplace) | Driver NVIDIA GRID | N/D |
 

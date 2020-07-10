@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f196c21869f4a2f12e28bc4d6c42b8c945ddde71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c6be98eeca4433798ad8ed2bacb9338331b112
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603673"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170446"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -259,10 +259,9 @@ Per l'API accesso v 1.0 è stata introdotta una nuova proprietà riskEventsTypes
 **Funzionalità del prodotto:** Protezione e sicurezza delle identità
  
 
-Sono state apportate le modifiche seguenti alle notifiche di posta elettronica dell'autenticazione a più fattori per il server multi-factor authentication e il server
+Sono state apportate le modifiche seguenti alle notifiche di posta elettronica per l'autenticazione a più fattori:
 
-Le notifiche tramite posta elettronica verranno inviate dal seguente indirizzo: azure-noreply@microsoft.com .
-Si sta aggiornando il contenuto dei messaggi di posta elettronica di avviso di illecito per indicare meglio i passaggi necessari per sbloccare gli usi.
+Le notifiche tramite posta elettronica verranno inviate dall'indirizzo seguente: azure-noreply@microsoft.com e msonlineservicesteam@microsoftonline.com . Stiamo aggiornando il contenuto dei messaggi di posta elettronica di avviso di illecito per indicare meglio i passaggi necessari per sbloccare gli usi.
 
 ---
 

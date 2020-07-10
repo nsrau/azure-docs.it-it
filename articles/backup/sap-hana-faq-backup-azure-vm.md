@@ -3,12 +3,12 @@ title: Domande frequenti - Backup di database SAP HANA in VM di Azure
 description: In questo articolo è possibile trovare le risposte ad alcune domande comuni sul backup di database SAP HANA tramite il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: ddc4af9a164de3a822e8aebd6c0a4db769ec62a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262583"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170327"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Domande frequenti - Backup di database SAP HANA in VM di Azure
 
@@ -59,15 +59,19 @@ Attualmente non è possibile configurare la soluzione in base a un indirizzo IP 
 
 ### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Come si può spostare un backup su richiesta nel file system locale anziché nell'insieme di credenziali di Azure?
 
-1. Attendere il completamento del backup attualmente in esecuzione per il database desiderato (controllare in Studio l'avvenuto completamento)
+1. Attendere il completamento del backup attualmente in esecuzione nel database desiderato (verificare da studio per il completamento).
 1. Disabilitare i backup del log e impostare il backup del catalogo su **File system** per il database desiderato attenendosi alla procedura seguente:
 1. Fare doppio clic su **SYSTEMDB** -> **Configurazione** -> **Seleziona database** -> **Filter (log)** (Filtro (log))
     1. Impostare enable_auto_log_backup su **No**
-    1. Impostare log_backup_using_backint su **false**
-1. Eseguire un backup su richiesta per il database desiderato e attendere il completamento del backup e del backup del catalogo.
+    1. Imposta catalog_backup_using_backint su **false**
+1. Eseguire un backup su richiesta (completo/differenziale/incrementale) nel database desiderato e attendere il completamento del backup del catalogo e del backup.
+1. Se si desidera spostare anche i backup del log nel file System, impostare enable_auto_log_backup su **Sì**
 1. Ripristinare le impostazioni precedenti per consentire il flusso dei backup all'insieme di credenziali di Azure:
     1. Impostare enable_auto_log_backup su **sì**
-    1. Impostare log_backup_using_backint su **true**
+    1. Imposta catalog_backup_using_backint su **true**
+
+>[!NOTE]
+>Lo spostamento dei backup nel file system locale e il nuovo ritorno nell'insieme di credenziali di Azure possono causare un'interruzione della catena di log dei backup del log nell'insieme di credenziali. Verrà avviato un backup completo che, una volta completato correttamente, avvierà il backup dei log.
 
 ### <a name="how-can-i-use-sap-hana-backup-with-my-hana-replication-set-up"></a>Come è possibile usare SAP HANA backup con la configurazione della replica HANA?
 

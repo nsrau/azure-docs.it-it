@@ -4,12 +4,12 @@ description: Informazioni su come usare la libreria Azure Batch File Conventions
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba1b35bd8f2a4cc58558607581d10b598d23058c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2e06bc90c95f9951895e0434ec8a8a7defaa6156
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965196"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147163"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET
 
@@ -55,7 +55,7 @@ Per rendere persistenti i dati di output in Archiviazione di Azure usando la lib
 
 Per rendere persistenti i dati di output di processi e attività con la libreria File Conventions, creare un contenitore in Archiviazione di Azure e quindi salvare l'output nel contenitore. Usare la [libreria client di Archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage) nel codice dell'attività per caricare l'output dell'attività nel contenitore.
 
-Per altre informazioni sull'uso di contenitori e BLOB in Archiviazione di Azure, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Per altre informazioni sull'uso di contenitori e BLOB in Archiviazione di Azure, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 > [!WARNING]
 > Tutti gli output di processi e attività resi persistenti con la libreria File Conventions vengono archiviati nello stesso contenitore. Se un numero elevato di attività tenta di rendere persistenti i file nello stesso momento, potrebbero essere applicate limitazioni dell'Archiviazione di Azure. Per altre informazioni sulle limitazioni, vedere [Elenco di controllo di prestazioni e scalabilità di Archiviazione BLOB](../storage/blobs/storage-performance-checklist.md).

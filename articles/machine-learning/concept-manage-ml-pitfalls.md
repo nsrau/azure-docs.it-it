@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e9e809eb805e891fdf70a85d42eebc3e17da8902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210185"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147104"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Impedire l'overfitting e lo sbilanciamento dei dati con Machine learning automatizzato
 
@@ -71,7 +71,7 @@ Il Machine Learning automatizzato implementa anche **limitazioni di complessità
 La **convalida incrociata** è il processo di acquisizione di molti subset di dati di training completi e di esecuzione del training di un modello su ogni subset. Il concetto è che un modello potrebbe essere "fortunato" ed essere estremamente preciso per un subset, ma se usa molti subset il modello non riuscirà a ottenere ogni volta questa elevata accuratezza. Quando si esegue la convalida incrociata, si fornisce un set di dati di controllo della convalida, si specifica il numero di subset della convalida e il Machine Learning automatizzato consente di eseguire il training del modello e di ottimizzare gli iperparametri per ridurre gli errori nel set di convalida. Un numero di subset della convalida incrociata può presentare overfitting, ma usandone un numero elevato si riduce la probabilità che il modello finale sia caratterizzato da overfitting. Lo svantaggio è che la convalida incrociata comporta tempi di training più lunghi e un costo maggiore, perché invece di eseguire il training di un modello una volta, viene eseguito il training una volta per ogni *n* subset di convalida incrociata. 
 
 > [!NOTE]
-> La convalida incrociata non è abilitata per impostazione predefinita e deve essere configurata nelle impostazioni di Machine Learning automatizzato. Dopo la configurazione della convalida incrociata e dopo che stato specificato un set di dati di convalida, tuttavia, il processo viene automatizzato. Vedere 
+> La convalida incrociata non è abilitata per impostazione predefinita e deve essere configurata nelle impostazioni di Machine Learning automatizzato. Dopo la configurazione della convalida incrociata e dopo che stato specificato un set di dati di convalida, tuttavia, il processo viene automatizzato. Altre informazioni sulla [configurazione della convalida incrociata in auto ml](how-to-configure-cross-validation-data-splits.md)
 
 <a name="imbalance"></a>
 
@@ -93,7 +93,7 @@ Come parte del suo obiettivo di semplificare il flusso di lavoro di Machine Lear
 
 - Una **colonna di ponderazione**: la ml automatizzata supporta una colonna di pesi come input, causando la ponderazione delle righe nei dati, che possono essere usate per rendere una classe più o meno "importante".
 
-- Gli algoritmi usati dal Machine Learning automatizzato possono gestire in modo corretto uno squilibrio fino a 20:1, ovvero la classe più comune può avere un numero di righe nei dati maggiore più di 20 volte rispetto alla classe meno comune.
+- Gli algoritmi usati da Machine Learning automatiche rilevano uno squilibrio quando il numero di campioni della classe minoritaria è uguale o inferiore al 20% del numero di campioni nella classe di maggioranza, in cui la classe minoritaria fa riferimento a quella con minor numero di campioni e la classe di maggioranza fa riferimento a quella con la maggior parte degli esempi. Successivamente, AutoML eseguirà un esperimento con dati sottocampionati per verificare se l'uso di pesi di classe risolverebbe questo problema e migliora le prestazioni. Se si verifica un miglioramento delle prestazioni tramite questo esperimento, viene applicato questo rimedio.
 
 - Uso di una metrica delle prestazioni più adatta allo sbilanciamento dei dati. Ad esempio, il AUC_weighted è una metrica primaria che calcola il contributo di ogni classe in base al numero relativo di campioni che rappresentano tale classe, quindi risulta più affidabile rispetto allo squilibrio.
 
@@ -110,7 +110,7 @@ Vedere esempi e informazioni su come creare modelli tramite il Machine Learning 
 + Seguire l'[Esercitazione: Eseguire il training di un modello di regressione con Machine Learning automatizzato](tutorial-auto-train-models.md)
 
 + Configurare le impostazioni per un esperimento di training automatico:
-  + In Azure Machine Learning Studio, [seguire questi passaggi](how-to-use-automated-ml-for-ml-models.md).
+  + In Azure Machine Learning Studio, [usare questi passaggi](how-to-use-automated-ml-for-ml-models.md).
   + Con Python SDK, [seguire questi passaggi](how-to-configure-auto-train.md).
 
 
