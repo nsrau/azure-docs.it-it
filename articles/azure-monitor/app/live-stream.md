@@ -4,12 +4,12 @@ description: Monitorare l'app Web in tempo reale, con metriche personalizzate e 
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 10818a531a43b50b86a6d413c7a504e2c19c3986
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507347"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166485"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
 
@@ -49,12 +49,12 @@ Controllare che [le porte in uscita di Live Metrics Stream](../../azure-monitor/
 
 | |Live Stream | Esplora metriche e Analisi |
 |---|---|---|
-|Latenza|Dati visualizzati in un secondo|Aggregati in minuti|
-|Nessuna conservazione|I dati vengono mantenuti finché si trovano nel grafico, poi vengono eliminati|[Dati mantenuti per 90 giorni](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
-|On demand|I dati vengono trasmessi solo quando il riquadro metriche attive è aperto |I dati vengono inviati ogni volta che l'SDK viene installato e attivato|
-|Gratuito|Non sono previste spese per i dati di Live Stream|Soggetto al [piano tariffario](../../azure-monitor/app/pricing.md)
-|campionamento|Tutte le metriche selezionate e i contatori vengono trasmessi. Gli errori e le analisi dello stack vengono usati come esempi. TelemetryProcessors non viene applicato.|Eventi potrebbero essere usati come [esempi](../../azure-monitor/app/api-filtering-sampling.md)|
-|Canale di controllo|I segnali di controllo del filtro vengono inviati all'SDK. È consigliabile proteggere questo canale.|La comunicazione è unidirezionale, al portale|
+|**Latency**|Dati visualizzati in un secondo|Aggregati in minuti|
+|**Nessuna conservazione**|I dati vengono mantenuti finché si trovano nel grafico, poi vengono eliminati|[Dati mantenuti per 90 giorni](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**Su richiesta**|I dati vengono trasmessi solo quando il riquadro metriche attive è aperto |I dati vengono inviati ogni volta che l'SDK viene installato e attivato|
+|**Gratuito**|Non sono previste spese per i dati di Live Stream|Soggetto al [piano tariffario](../../azure-monitor/app/pricing.md)
+|**Campionamento**|Tutte le metriche selezionate e i contatori vengono trasmessi. Gli errori e le analisi dello stack vengono usati come esempi. TelemetryProcessors non viene applicato.|Eventi potrebbero essere usati come [esempi](../../azure-monitor/app/api-filtering-sampling.md)|
+|**Canale di controllo**|I segnali di controllo del filtro vengono inviati all'SDK. È consigliabile proteggere questo canale.|La comunicazione è unidirezionale, al portale|
 
 ## <a name="select-and-filter-your-metrics"></a>Selezionare e filtrare le metriche
 

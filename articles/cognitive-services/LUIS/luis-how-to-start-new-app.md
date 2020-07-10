@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: 3d6b2b5896242ff85c6fb96071b747083893b03a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343167"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144398"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creare una nuova app LUIS nel portale LUIS
 Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel portale LUIS o tramite le [API](developer-reference-resource.md) di creazione di LUIS.
@@ -45,7 +45,7 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
 
 ## <a name="create-new-app-in-luis"></a>Creare la nuova appa in LUIS
 
-1. Nella pagina **app personali** selezionare la **sottoscrizione**e la **creazione di risorse** e quindi **Crea**. Se si usa una chiave di valutazione gratuita, vedere come [creare una risorsa di creazione](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. Nella pagina **app personali** selezionare la **sottoscrizione**e la **creazione di risorse** e quindi **Crea**. 
 
 > [!div class="mx-imgBorder"]
 > ![Elenco di app di Language Understanding](./media/create-app-in-portal.png)

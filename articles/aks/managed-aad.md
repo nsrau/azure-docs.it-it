@@ -3,16 +3,16 @@ title: Usare Azure AD nel servizio Azure Kubernetes
 description: Informazioni su come usare Azure AD in Azure Kubernetes Service (AKS)
 services: container-service
 manager: gwallace
-author: mlearned
+author: TomGeske
 ms.topic: article
-ms.date: 06/25/2020
-ms.author: mlearned
-ms.openlocfilehash: f22b79cb8a730fb9c28dd1a208ab672473218b79
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 9cacd2454dc987f7d507bb4b677e742f0be0d391
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105949"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166502"
 ---
 # <a name="aks-managed-azure-active-directory-integration-preview"></a>Integrazione Azure Active Directory gestita da AKS (anteprima)
 
@@ -26,10 +26,6 @@ L'integrazione di Azure AD gestita da AKS è progettata per semplificare l'esper
 Gli amministratori del cluster possono configurare il controllo degli accessi in base al ruolo Kubernetes (RBAC) in base all'identità dell'utente o al gruppo di directory. L'autenticazione di Azure AD è disponibile per i cluster di servizio Azure Kubernetes con OpenID Connect. OpenID Connect è un livello di gestione delle identità basato sul protocollo OAuth 2.0. Per ulteriori informazioni su OpenID Connect, vedere la [documentazione relativa a Open ID Connect][open-id-connect].
 
 Per altre informazioni sul flusso di integrazione di AAD, vedere la [documentazione sui concetti relativi all'integrazione di Azure Active Directory](concepts-identity.md#azure-active-directory-integration).
-
-## <a name="limitations"></a>Limitazioni
-
-* Attualmente non è possibile aggiornare un cluster integrato con Azure AD AKS esistente alla nuova esperienza Azure AD gestita da AKS.
 
 > [!IMPORTANT]
 > Le funzionalità di anteprima del servizio contenitore di servizi sono disponibili in base al consenso esplicito. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico del cliente in base al massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per altre informazioni, vedere gli articoli di supporto seguenti:

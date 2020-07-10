@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: d459222327ef3535202e82f640f5b513f0426d54
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ad2ac118908f1c1f77ea204ae2400913ac0807cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85609470"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147413"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Aggiungere analisi al API di ricerca Bing
 
@@ -53,7 +53,7 @@ Per impostazione predefinita, i grafici e i grafici visualizzano tutte le metric
 - **Intervallo di tempo**: il periodo di reporting. È possibile specificare:
   - **All**: include i dati di un massimo di 13 mesi  
   - **Ultime 24 ore**: include le analisi delle ultime 24 ore  
-  - **Ultima settimana**: include l'analisi dei sette giorni precedenti  
+  - **Ultima settimana**: include l'analisi dei 7 giorni precedenti  
   - **Ultimo mese**: include l'analisi dei 30 giorni precedenti  
   - **Un intervallo di date personalizzato**: include l'analisi dall'intervallo di date specificato, se disponibile  
 

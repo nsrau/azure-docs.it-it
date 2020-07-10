@@ -15,14 +15,14 @@ ms.locfileid: "69014696"
 
 Scopri la versione più recente di servizi multimediali di Azure. 
 
-* [Panoramica](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [Overview](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
 * [Concetti](https://docs.microsoft.com/azure/media-services/latest/concepts-overview)
 * [Inizia a sviluppare](https://docs.microsoft.com/azure/media-services/latest/developers-guide)
 * [Indicazioni sulla migrazione dalla versione 2 alla versione 3](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3)
 
 ### <a name="media-services-v2-legacy"></a>Servizi multimediali v2 (legacy)
 
-* [Panoramica](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
+* [Overview](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
 * [Crea account](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-create-account)
 * [Distribuisci su richiesta](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
 * [Distribuisci in tempo reale](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)

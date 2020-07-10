@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f22e69cbc625d21c398151e413574387a2587790
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72792206"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145286"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Come gestire la concorrenza in Azure ricerca cognitiva
 
@@ -46,7 +46,7 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
 
 ### <a name="sample-code-from-dotnetetagsexplainer-program"></a>Codice di esempio dal [programma DotNetETagsExplainer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)
 
-```
+```csharp
     class Program
     {
         // This sample shows how ETags work by performing conditional updates and deletes
@@ -173,6 +173,7 @@ Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già es
 
 Il frammento ottiene l'indice "hotels", controlla la versione dell'oggetto in un'operazione di aggiornamento, genera un'eccezione se la condizione ha esito negativo e quindi esegue un nuovo tentativo di operazione (fino a tre volte), iniziando con il recupero dell'indice dal server per ottenere la versione più recente.
 
+```csharp
         private static void EnableSynonymsInHotelsIndexSafely(SearchServiceClient serviceClient)
         {
             int MaxNumTries = 3;
@@ -203,7 +204,7 @@ Il frammento ottiene l'indice "hotels", controlla la versione dell'oggetto in un
             index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
             return index;
         }
-
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

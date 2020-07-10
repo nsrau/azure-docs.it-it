@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
-ms.date: 03/18/2020
-ms.openlocfilehash: 50ddbffd00e0cbbd0641089613aaa40d03658c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 437db3e1ad367a75d6c8d3a77b138bce79b5f61e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80064200"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147142"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Che cosa sono gli ambienti Azure Machine Learning?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,6 +48,7 @@ Per creare gli ambienti, è possibile:
 * Utilizzo `Environment` di oggetti esistenti dall'area di lavoro. Questo approccio consente la coerenza e la riproducibilità con le dipendenze.
 * Importazione da una definizione di ambiente Anaconda esistente.
 * Uso dell'interfaccia della riga di comando Azure Machine Learning
+* [Utilizzo dell'estensione VS Code](how-to-manage-resources-vscode.md#create-environment)
 
 Per esempi di codice specifici, vedere la sezione "creare un ambiente" di [riutilizzo degli ambienti per il training e la distribuzione](how-to-use-environments.md#create-an-environment). Gli ambienti sono anche facilmente gestibili tramite l'area di lavoro. Sono incluse le funzionalità seguenti:
 

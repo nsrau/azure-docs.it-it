@@ -12,13 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/08/2020
 ms.author: b-juche
-ms.openlocfilehash: 8b417559a17dc05a07467a28d37fec9b9a7c12cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0d672f782cb9f476fa81d28ee369072caf8509b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84553480"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147205"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
 
@@ -60,7 +61,7 @@ Il servizio regola dinamicamente il limite di maxfiles per un volume in base all
 |    >= 3 TiB ma < 4 TiB    |    80 milioni     |
 |    >= 4 TiB                |    100 milioni    |
 
-Per qualsiasi dimensione del volume, è possibile avviare una [richiesta di supporto](#limit_increase) per aumentare il limite di maxfiles oltre 100 milioni.
+Se è già stato allocato almeno 4 TiB di quota per un volume, è possibile avviare una [richiesta di supporto](#limit_increase) per aumentare il limite di maxfiles oltre 100 milioni.
 
 ## <a name="request-limit-increase"></a>Incremento limite richieste<a name="limit_increase"></a> 
 
@@ -78,7 +79,7 @@ Dal piano di navigazione portale di Azure:
 4. Nella scheda Dettagli:
     1. Nella casella Descrizione specificare le informazioni seguenti per il tipo di risorsa corrispondente:
 
-        |  Risorsa  |    Risorse padre      |    Nuovi limiti richiesti     |    Motivo dell'aumento della quota       |
+        |  Resource  |    Risorse padre      |    Nuovi limiti richiesti     |    Motivo dell'aumento della quota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Account |  *ID sottoscrizione*   |  *Nuovo numero di **conto** massimo richiesto*    |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |
         |  Pool    |  *ID sottoscrizione, URI account*  |  *Numero massimo di **pool** richiesti*   |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |

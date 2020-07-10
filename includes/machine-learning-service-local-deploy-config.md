@@ -13,7 +13,7 @@ ms.locfileid: "79477273"
 ---
 Le voci nel `deploymentconfig.json` documento vengono mappate ai parametri per [LocalWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
 
-| Entità JSON | Parametro del metodo | Description |
+| Entità JSON | Parametro del metodo | Descrizione |
 | ----- | ----- | ----- |
 | `computeType` | ND | La destinazione di calcolo. Per le destinazioni locali, il valore deve essere `local` . |
 | `port` | `port` | Porta locale su cui esporre l'endpoint HTTP del servizio. |

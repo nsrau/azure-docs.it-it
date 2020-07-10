@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f6794559c2296b02ef61d0e280d29456904ae607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e2a3e6c7fd5ecd305d00278668ad0bfb9a66001
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609300"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142437"
 ---
 # <a name="understand-event-data"></a>Informazioni sui dati degli eventi
 
@@ -99,11 +99,11 @@ Le notifiche del ciclo di vita vengono attivate nei casi seguenti:
 * Viene creato un dispositivo gemello digitale
 * Un dispositivo gemello digitale è stato eliminato
 
-#### <a name="properties"></a>Proprietà
+#### <a name="properties"></a>Properties
 
 Di seguito sono riportati i campi nel corpo di una notifica del ciclo di vita.
 
-| Nome | valore |
+| Nome | Valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id`è univoco per ogni evento distinto. |
 | `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET* |
@@ -125,6 +125,7 @@ Di seguito è riportato un esempio di corpo per un dispositivo [plug and Play (P
 ```json
 {
   "$dtId": "device-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "thermostat": {
     "temperature": 80,
     "humidity": 45,
@@ -157,6 +158,7 @@ Ecco un altro esempio di un dispositivo gemello digitale. Questo si basa su un [
 ```json
 {
   "$dtId": "logical-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "avgTemperature": 70,
   "comfortIndex": 85,
   "$metadata": {
@@ -183,11 +185,11 @@ Ecco un altro esempio di un dispositivo gemello digitale. Questo si basa su un [
 
 Le **notifiche di modifica delle relazioni** vengono attivate quando viene creata, aggiornata o eliminata una relazione di un dispositivo gemello digitale. 
 
-#### <a name="properties"></a>Proprietà
+#### <a name="properties"></a>Properties
 
 Ecco i campi nel corpo di una notifica di modifica del bordo.
 
-| Nome    | valore |
+| Nome    | Valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id`univoco per ogni evento distinto |
 | `source` | Nome dell'istanza di Azure Digital Twins, ad esempio *mydigitaltwins.westus2.azuredigitaltwins.NET* |
@@ -239,11 +241,11 @@ Quando si aggiorna un dispositivo gemello digitale, vengono attivate le notifich
 * Quando vengono modificati i valori o i metadati della proprietà.
 * Quando vengono modificati i metadati del componente o del dispositivo digitale. Un esempio di questo scenario è la modifica del modello di un dispositivo gemello digitale.
 
-#### <a name="properties"></a>Proprietà
+#### <a name="properties"></a>Properties
 
 Ecco i campi nel corpo di una notifica di modifica del dispositivo gemello digitale.
 
-| Nome    | valore |
+| Nome    | Valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id`univoco per ogni evento distinto |
 | `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET*

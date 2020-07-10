@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 98f35d0b3f37a7bb181f83b83a48ef113e02f1e2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ee0c659cf510eb0a438ae0c78a554c98dccffa89
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344136"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144277"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Ortografia corretta con il Controllo ortografico Bing
 
@@ -24,17 +24,9 @@ ms.locfileid: "84344136"
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
-
-## <a name="create-first-key-for-bing-spell-check-v7"></a>Creare la prima chiave per Controllo ortografico Bing V7
-
-La [prima chiave API Controllo ortografico Bing v7](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) è gratuita.
-
-![Creare una chiave gratuita](./media/luis-tutorial-bing-spellcheck/free-key.png)
-
-<a name="create-subscription-key"></a>
-
 ## <a name="create-endpoint-key"></a>Creare una chiave endpoint
-Se la chiave gratuita è scaduta, creare una chiave endpoint.
+
+Per creare una risorsa Controllo ortografico Bing nel portale di Azure, seguire queste istruzioni:
 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 

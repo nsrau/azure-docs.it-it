@@ -16,11 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7494f8e65f0b92540fec3ddc1f07e59004227625
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338180"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145782"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Risolvere i problemi di Azure AD gestione dei diritti
 
@@ -94,7 +95,9 @@ Questo articolo descrive alcuni elementi da controllare per semplificare la riso
 
 Se si verifica un errore dopo l'attivazione di una richiesta di rielaborazione del pacchetto di Access, è necessario attendere il completamento della rielaborazione della richiesta da parte del sistema. Il sistema tenta più volte di rielaborare per diverse ore, quindi non è possibile forzare la rielaborazione durante questo periodo di tempo. 
 
-È possibile rielaborare solo una richiesta con uno stato di **recapito non riuscito** o **parzialmente recapitato** e una data completata inferiore a una settimana.
+È possibile rielaborare solo una richiesta con uno stato di **recapito non riuscito** o **parzialmente recapitato** e una data completata inferiore a una settimana. In caso contrario, il pulsante **rielaborazione** verrebbe disattivato.
+
+![Pulsante rielaborazione disattivato](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
 
 - Se l'errore viene risolto durante la finestra di valutazione, lo stato della richiesta cambierà in recapito **.** La richiesta viene rielaborata senza ulteriori azioni da parte dell'utente.
 
@@ -116,7 +119,7 @@ Se si verifica un errore dopo l'attivazione di una richiesta di rielaborazione d
 
 ### <a name="cancel-a-pending-request"></a>Annullare una richiesta in sospeso
 
-È possibile annullare una richiesta in sospeso che non è ancora stata recapitata o il cui recapito non è riuscito.
+È possibile annullare una richiesta in sospeso che non è ancora stata recapitata o il cui recapito non è riuscito. Altrimenti il pulsante **Annulla** verrà disattivato.
 
 **Ruolo prerequisito:** amministratore globale, amministratore utenti, proprietario del catalogo o responsabile dei pacchetti di accesso
 
@@ -138,7 +141,7 @@ Se si verifica un errore dopo l'attivazione di una richiesta di rielaborazione d
 
 * Quando si applicano più criteri, i criteri selezionati automaticamente o i criteri visualizzati per il richiedente sono basati sulla logica di priorità seguente:
 
-    | Priorità dei criteri | Scope |
+    | Priorità dei criteri | Ambito |
     | --- | --- |
     | P1 | Utenti e gruppi specifici nella directory o in organizzazioni connesse specifiche |
     | P2 | Tutti i membri della directory (esclusi i guest) |

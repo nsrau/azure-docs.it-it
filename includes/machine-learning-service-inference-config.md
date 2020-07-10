@@ -13,11 +13,11 @@ ms.locfileid: "80159413"
 ---
 Le voci nel `inferenceconfig.json` documento vengono mappate ai parametri per la classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
 
-| Entità JSON | Parametro del metodo | Description |
+| Entità JSON | Parametro del metodo | Descrizione |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Percorso di un file locale che contiene il codice da eseguire per l'immagine. |
-| `sourceDirectory` | `source_directory` | Facoltativa. Percorso delle cartelle che contengono tutti i file per creare l'immagine, semplificando l'accesso a tutti i file all'interno della cartella o della sottocartella. È possibile caricare un'intera cartella dal computer locale come dipendenze per il servizio Web. Nota: i percorsi di entry_script, conda_file e extra_docker_file_steps sono percorsi relativi del percorso source_directory. |
-| `environment` | `environment` | Facoltativa.  [Ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)Azure Machine Learning.|
+| `sourceDirectory` | `source_directory` | facoltativo. Percorso delle cartelle che contengono tutti i file per creare l'immagine, semplificando l'accesso a tutti i file all'interno della cartella o della sottocartella. È possibile caricare un'intera cartella dal computer locale come dipendenze per il servizio Web. Nota: i percorsi di entry_script, conda_file e extra_docker_file_steps sono percorsi relativi del percorso source_directory. |
+| `environment` | `environment` | facoltativo.  [Ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)Azure Machine Learning.|
 
 È possibile includere le specifiche complete di un [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure machine learning nel file di configurazione dell'inferenza. Se l'ambiente non esiste nell'area di lavoro, Azure Machine Learning lo creerà. In caso contrario, Azure Machine Learning aggiornerà l'ambiente, se necessario. Il codice JSON seguente è un esempio:
 

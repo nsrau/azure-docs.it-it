@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 39a27ce3b3e7946504298451233b6054302c45f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e7a1de24e5032b2dade2f325560fd6964c892d5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555043"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145697"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Debug dei problemi con il connettore Application Proxy 
 
@@ -44,7 +44,7 @@ Questo diagramma di flusso illustra i passaggi per eseguire il debug di alcuni d
 |---------|---------|---------|
 |1 | Trovare il gruppo di connettori assegnato all'app | È probabile che sia installato un connettore su più server, nel qual caso i connettori devono essere [assegnati ai gruppi di connettori](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Per altre informazioni sui gruppi di connettori, vedere [Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori](application-proxy-connector-groups.md). |
 |2 | Installare il connettore e assegnare un gruppo | Se non è installato un connettore, vedere [installare e registrare un connettore](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Se si verificano problemi durante l'installazione del connettore, vedere [problemi di installazione del](application-proxy-connector-installation-problem.md)connettore.<br></br> Se il connettore non è assegnato a un gruppo, vedere [assegnare il connettore a un gruppo](application-proxy-connector-groups.md#create-connector-groups).<br></br>Se l'applicazione non è assegnata a un gruppo di connettori, vedere [assegnare l'applicazione a un gruppo di connettori](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
-|3 | Eseguire un test di porta sul server del connettore | Sul server del connettore, eseguire un test di porta usando [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) o un altro strumento di test della porta per verificare se sono aperte le porte 443 e 80.|
+|3 | Eseguire un test di porta sul server del connettore | Sul server del connettore, eseguire un test di porta usando [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) o un altro strumento di test della porta per verificare se [sono aperte le porte 443 e 80](application-proxy-add-on-premises-application.md#open-ports).|
 |4 | Configurare i domini e le porte | Verificare [che i domini e le porte siano configurati correttamente](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) Per il corretto funzionamento del connettore, è necessario aprire alcune porte e gli URL a cui il server deve essere in grado di accedere. |
 |5 | Verificare se è in uso un proxy back-end | Verificare se i connettori utilizzano server proxy back-end o ignorarli. Per informazioni dettagliate, vedere [risolvere i problemi del proxy del connettore e problemi di connettività del servizio](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
 |6 | Aggiornare il connettore e l'aggiornamento per usare il proxy back-end | Se è in uso un proxy back-end, è necessario assicurarsi che il connettore usi lo stesso proxy. Per informazioni dettagliate sulla risoluzione dei problemi e sulla configurazione dei connettori per l'uso con i server proxy, vedere [usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md). |

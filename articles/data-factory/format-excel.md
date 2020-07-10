@@ -7,13 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 8b4876377501209e19ac496d605d228208d2323d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46108ed06659d234907c6eaa6841dc18022c73bf
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84670844"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144146"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -94,6 +95,54 @@ Nella sezione *** \* origine \* *** dell'attività di copia sono supportate le p
         ...
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>Proprietà del flusso di dati per mapping
+
+In mapping dei flussi di dati è possibile leggere il formato Excel negli archivi dati seguenti: [archiviazione BLOB di Azure](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). È possibile puntare a file di Excel usando il set di dati di Excel o un [set di dati inline](data-flow-source.md#inline-datasets).
+
+### <a name="source-properties"></a>Proprietà origine
+
+La tabella seguente elenca le proprietà supportate da un'origine Excel. È possibile modificare queste proprietà nella scheda **Opzioni di origine** . Quando si usa il set di dati inline, verranno visualizzate altre impostazioni di file che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) .
+
+| Nome                      | Descrizione                                                  | Obbligatoria | Valori consentiti                                            | Proprietà script flusso di dati         |
+| ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
+| Percorsi Wild Card           | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | No       | String[]                                                  | wildcardPaths                     |
+| Partition Root Path (Percorso radice partizione)       | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | No       | Stringa                                                    | partitionRootPath                 |
+| Elenco di file             | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | No       | `true` o `false`                                         | fileList                          |
+| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine       | No       | Stringa                                                    | rowUrlColumn                      |
+| Al termine          | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | No       | Elimina: `true` o`false` <br> Spostare`['<from>', '<to>']` | purgeFiles <br> moveFiles         |
+| Filtra per Ultima modifica   | Scegliere di filtrare i file in base alla data dell'Ultima modifica | No       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+
+### <a name="source-example"></a>Esempio di origine
+
+L'immagine seguente è un esempio di una configurazione di origine Excel nel mapping dei flussi di dati tramite la modalità DataSet.
+
+![Origine Excel](media/data-flow/excel-source.png)
+
+Lo script del flusso di dati associato è:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    wildcardPaths:['*.xls']) ~> ExcelSource
+```
+
+Se si utilizza il set di dati inline, nel flusso di dati di mapping vengono visualizzate le opzioni di origine seguenti.
+
+![Set di dati di origine Excel in linea](media/data-flow/excel-source-inline-dataset.png)
+
+Lo script del flusso di dati associato è:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'excel',
+    fileSystem: 'container',
+    folderPath: 'path',
+    fileName: 'sample.xls',
+    sheetName: 'worksheet',
+    firstRowAsHeader: true) ~> ExcelSourceInlineDataset
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

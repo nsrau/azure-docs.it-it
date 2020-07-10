@@ -6,11 +6,12 @@ author: cynthn
 ms.topic: article
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 092dafff6622d3402322eb96d0fe4215e52e16b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e014dbe440f1b7baf39c290b8b7ab8fcaea0bada
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76964924"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165856"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>Modificare il set di disponibilità per una macchina virtuale
 I passaggi seguenti descrivono come modificare il set di disponibilità di una VM tramite Azure PowerShell. Una VM può essere aggiunta a un set di disponibilità solo in fase di creazione. Per modificare il set di disponibilità, è necessario eliminare e quindi ricreare la macchina virtuale. 
@@ -18,6 +19,8 @@ I passaggi seguenti descrivono come modificare il set di disponibilità di una V
 Questo articolo si applica alle macchine virtuali Linux e Windows.
 
 Questo articolo è stato testato l'ultima volta il 12/02/2019 tramite [Azure Cloud Shell](https://shell.azure.com/powershell) e il [modulo PowerShell di Azure](https://docs.microsoft.com/powershell/azure/install-az-ps) versione 1.2.0.
+
+Questo esempio non verifica se la macchina virtuale è collegata a un servizio di bilanciamento del carico. Se la macchina virtuale è collegata a un servizio di bilanciamento del carico, sarà necessario aggiornare lo script per gestire tale caso. 
 
 
 ## <a name="change-the-availability-set"></a>Modificare il set di disponibilità 

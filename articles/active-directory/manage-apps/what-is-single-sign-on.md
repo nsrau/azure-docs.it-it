@@ -1,5 +1,5 @@
 ---
-title: Accesso Single Sign-On alle applicazioni - Azure Active Directory | Microsoft Docs
+title: Che cos'è Azure Single Sign-On (SSO)?
 description: Informazioni su come scegliere un metodo di accesso Single Sign-On quando si configurano le applicazioni in Azure Active Directory (Azure AD). Usare il metodo di accesso Single Sign-On in modo che gli utenti non debbano ricordare le password per ogni applicazione e per semplificare l'amministrazione della gestione degli account.
 services: active-directory
 author: kenwith
@@ -12,14 +12,14 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8b20d7d285f30eb0aa9ba5ac22739b57856d6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479709"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144602"
 ---
-# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Accesso Single Sign-On alle applicazioni in Azure Active Directory
+# <a name="what-is-single-sign-on-sso"></a>Informazioni sull'accesso Single Sign-On (SSO)
 
 L'accesso Single Sign-On (SSO) offre sicurezza e praticità quando gli utenti accedono alle applicazioni in Azure Active Directory (Azure AD). Questo articolo descrive i metodi di accesso Single Sign-On e consente di scegliere il metodo SSO più appropriato quando si configurano le applicazioni.
 
@@ -99,8 +99,8 @@ L'accesso Single Sign-On basato su password è supportato per qualunque applicaz
 - Microsoft Edge su Windows 10 Anniversary Edition o versioni successive
 - Microsoft Edge per iOS e Android
 - Intune Managed Browser
-- Chrome in Windows 7 o versione successiva e in MacOS X o versione successiva
-- Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
+- Chrome in Windows 7 o versione successiva e in macOS X o versione successiva
+- Firefox 26,0 o versione successiva in Windows XP SP2 o versione successiva e in macOS X 10,6 o versione successiva
 
 Per configurare un'applicazione cloud per la Single Sign-On basata su password, vedere [Configure password Single Sign-on](configure-password-single-sign-on-non-gallery-applications.md).
 

@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6c7e1fcaebd415fcacfffcef62ca25cccde3e476
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e3a35d95e7d2a339bf33620c9d1a140fb6a0a1d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563165"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143753"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Come indicizzare i documenti nell'archivio BLOB di Azure con Azure ricerca cognitiva
 
@@ -31,7 +31,7 @@ L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 ## <a name="setting-up-blob-indexing"></a>Configurazione dell'indicizzazione BLOB
 È possibile impostare un indicizzatore dell'Archiviazione BLOB di Azure usando:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Portale di Azure](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) di Azure ricerca cognitiva
 * Azure ricerca cognitiva [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 
@@ -53,6 +53,7 @@ Per l'indicizzazione BLOB, l'origine dati deve avere le proprietà obbligatorie 
 
 Per creare un'origine dati:
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -63,6 +64,7 @@ Per creare un'origine dati:
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
+```
 
 Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare un'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
@@ -85,6 +87,7 @@ L'indice consente di specificare i campi in un documento, gli attributi e altri 
 
 Di seguito viene illustrato come creare un indice con un campo `content` ricercabile per archiviare il testo estratto dagli oggetti BLOB:   
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -96,6 +99,7 @@ Di seguito viene illustrato come creare un indice con un campo `content` ricerca
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 Per altre informazioni sulla creazione di indici, vedere [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
@@ -104,6 +108,7 @@ Un indicizzatore si connette a un'origine dati con un indice di ricerca di desti
 
 Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -114,6 +119,7 @@ Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Questo indicizzatore verrà eseguito ogni due ore (l'intervallo di pianificazione è impostato su "PT2H"). Per eseguire un indicizzatore ogni 30 minuti, impostare l'intervallo su "PT30M". L'intervallo minimo supportato è di 5 minuti. La pianificazione è facoltativa: se omessa, l'indicizzatore viene eseguito una sola volta al momento della creazione. Tuttavia, è possibile eseguire un indicizzatore su richiesta in qualsiasi momento.   
 
@@ -142,7 +148,7 @@ A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore 
 
   * **metadata\_storage\_name** (Edm.String): nome file del BLOB. Se, ad esempio, è presente un BLOB /my-container/my-folder/subfolder/resume.pdf, il valore di questo campo è `resume.pdf`.
   * **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio: `application/octet-stream`.
+  * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio, `application/octet-stream`
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): ultimo timestamp modificato per il BLOB. Azure ricerca cognitiva usa questo timestamp per identificare i BLOB modificati, in modo da evitare di reindicizzare tutto dopo l'indicizzazione iniziale.
   * **metadata\_storage\_size** (Edm.Int64): dimensioni del BLOB in byte.
   * **metadata\_storage\_content\_md5** (Edm.String): hash MD5 dei contenuti del BLOB, se disponibile.
@@ -174,13 +180,16 @@ In Azure ricerca cognitiva la chiave del documento identifica un documento in mo
 
 Per questo esempio, si seleziona il campo `metadata_storage_name` come chiave del documento. Si supponga anche che l'indice includa un campo chiave denominato `key` e un campo `fileSize` in cui archiviare le dimensioni del documento. Per collegare gli elementi come si vuole, specificare i mapping di campo seguenti quando si crea o si aggiorna l'indicizzatore:
 
+```http
     "fieldMappings" : [
       { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
       { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
     ]
+```
 
 Per unire il tutto, ecco come è possibile aggiungere i mapping di campo e abilitare la codifica in base 64 delle chiavi per un indicizzatore esistente:
 
+```http
     PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -194,6 +203,7 @@ Per unire il tutto, ecco come è possibile aggiungere i mapping di campo e abili
         { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
       ]
     }
+```
 
 > [!NOTE]
 > Per altre informazioni sui mapping dei campi, leggere [questo articolo](search-indexer-field-mappings.md).
@@ -207,6 +217,7 @@ Per unire il tutto, ecco come è possibile aggiungere i mapping di campo e abili
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indicizzare solo i BLOB con estensioni di file specifiche
 È possibile indicizzare solo i BLOB con le estensioni di file specificate tramite il parametro di configurazione dell'indicizzatore `indexedFileNameExtensions`. Il valore è una stringa contenente un elenco delimitato da virgole di estensioni di file (precedute da un punto). Ad esempio, per indicizzare solo i BLOB .PDF e .DOCX eseguire questa operazione:
 
+```http
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -215,10 +226,12 @@ Per unire il tutto, ecco come è possibile aggiungere i mapping di campo e abili
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
     }
+```
 
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Escludere BLOB con estensioni di file specifiche
 È possibile escludere dall'indicizzazione i BLOB con estensioni di file specifiche usando il parametro di configurazione `excludedFileNameExtensions`. Il valore è una stringa contenente un elenco delimitato da virgole di estensioni di file (precedute da un punto). Ad esempio, per indicizzare tutti i BLOB ad eccezione di quelli con le estensioni .PNG e .JPEG eseguire questa operazione:
 
+```http
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -227,6 +240,7 @@ Per unire il tutto, ecco come è possibile aggiungere i mapping di campo e abili
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
+```
 
 Se `indexedFileNameExtensions` `excludedFileNameExtensions` sono presenti entrambi i parametri e, Azure ricerca cognitiva esamina prima di tutto `indexedFileNameExtensions` , quindi all'indirizzo `excludedFileNameExtensions` . Ciò significa che se la stessa estensione di file è presente in entrambi gli elenchi, verrà esclusa dall'indicizzazione.
 
@@ -241,6 +255,7 @@ Il parametro di configurazione `dataToExtract` permette di controllare quali par
 
 Ad esempio, per indicizzare solo i metadati di archiviazione, usare:
 
+```http
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -249,6 +264,7 @@ Ad esempio, per indicizzare solo i metadati di archiviazione, usare:
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
     }
+```
 
 ### <a name="using-blob-metadata-to-control-how-blobs-are-indexed"></a>Usare i metadati dei BLOB per controllare il modo in cui vengono indicizzati i BLOB
 
@@ -264,6 +280,7 @@ I parametri di configurazione descritti in precedenza si applicano a tutti i BLO
 
 Per impostazione predefinita, l'indicizzatore BLOB viene arrestato non appena viene rilevato un BLOB con un tipo di contenuto non supportato, ad esempio un'immagine. Naturalmente, è possibile usare il parametro `excludedFileNameExtensions` per ignorare determinati tipi di contenuto. Potrebbe tuttavia essere necessario indicizzare BLOB senza conoscere in anticipo tutti i tipi di contenuto possibili. Per continuare l'indicizzazione quando viene rilevato un tipo di contenuto non supportato, impostare il parametro di configurazione `failOnUnsupportedContentType` su `false`:
 
+```http
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -272,21 +289,28 @@ Per impostazione predefinita, l'indicizzatore BLOB viene arrestato non appena vi
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
+```
 
 Per alcuni BLOB, Azure ricerca cognitiva non è in grado di determinare il tipo di contenuto o non è in grado di elaborare un documento di tipo di contenuto altrimenti supportato. Per ignorare la modalità di errore, impostare il parametro di configurazione `failOnUnprocessableDocument` su False:
 
+```http
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+```
 
 Azure ricerca cognitiva limita le dimensioni dei BLOB indicizzati. Questi limiti sono documentati in [limiti di servizio in Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). I BLOB sovradimensionati vengono gestiti come errori per impostazione predefinita. È comunque possibile indicizzare i metadati di archiviazione dei BLOB sovradimensionati se si imposta il parametro di configurazione `indexStorageMetadataOnlyForOversizedDocuments` su true: 
 
+```http
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
+```
 
 È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. Ad esempio:
 
+```http
     {
       ... other parts of indexer definition
       "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
     }
+```
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indicizzazione incrementale e rilevamento delle eliminazioni
 
@@ -345,6 +369,7 @@ Eseguire i passaggi seguenti:
 
 Il criterio illustrato sotto, ad esempio, considera l'eliminazione di un BLOB se ha una proprietà di metadati `IsDeleted` con il valore `true`:
 
+```http
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -360,6 +385,7 @@ Il criterio illustrato sotto, ad esempio, considera l'eliminazione di un BLOB se
             "softDeleteMarkerValue" : "true"
         }
     }
+```
 
 #### <a name="reindexing-undeleted-blobs"></a>Reindicizzazione di BLOB non eliminati
 
@@ -396,6 +422,7 @@ Per funzionare, tutti gli indicizzatori e altri componenti devono concordare sul
 
 Se tutti gli oggetti binari di grandi dimensioni contengono testo normale nella stessa codifica, è possibile migliorare in modo significativo le prestazioni di indicizzazione utilizzando la **modalità di analisi del testo**. Per utilizzare la modalità di analisi del testo, impostare la `parsingMode` proprietà di configurazione su `text`:
 
+```http
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -404,14 +431,16 @@ Se tutti gli oggetti binari di grandi dimensioni contengono testo normale nella 
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "parsingMode" : "text" } }
     }
+```
 
 Per impostazione predefinita, verrà utilizzata la codifica `UTF-8`. Per specificare una codifica diversa, utilizzare la proprietà di configurazione `encoding`: 
 
+```http
     {
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
     }
-
+```
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Proprietà di metadati specifiche del tipo di contenuto

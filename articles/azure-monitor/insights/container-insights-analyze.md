@@ -3,11 +3,12 @@ title: Monitoraggio di Kubernetes con monitoraggio di Azure per contenitori | Mi
 description: Questo articolo descrive come è possibile visualizzare e analizzare le prestazioni di un cluster Kubernetes con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 17efb89e36429f9658759a0ed90d4e7b785fe4b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340896"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166638"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
@@ -65,7 +66,7 @@ Lo stato di integrità calcola lo stato complessivo del cluster come il *peggior
 
 Nella tabella seguente viene fornita una suddivisione del calcolo che controlla gli Stati di integrità per un cluster monitorato nella visualizzazione multicluster.
 
-| |Stato |Disponibilità |
+| Cluster monitorato |Stato |Disponibilità |
 |-------|-------|-----------------|
 |**Pod utente**| | |
 | |Healthy |100% |
@@ -74,7 +75,7 @@ Nella tabella seguente viene fornita una suddivisione del calcolo che controlla 
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 |**Pod di sistema**| | |
 | |Healthy |100% |
-| |Avviso |N/D |
+| |Avviso |N/A |
 | |Critico |<100% |
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 |**Nodo** | | |

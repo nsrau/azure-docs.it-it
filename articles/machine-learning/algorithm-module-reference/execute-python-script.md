@@ -10,18 +10,18 @@ ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
 ms.date: 06/16/2020
-ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2115a0bae8b26113fc10648db2584210809441de
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907551"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147255"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
 Questo articolo descrive il modulo Execute Python script in Azure Machine Learning Designer (Preview).
 
-Usare questo modulo per eseguire il codice Python. Per altre informazioni sui principi di architettura e progettazione di Python, vedere [questo articolo](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
+Usare questo modulo per eseguire il codice Python. Per altre informazioni sull'architettura e i principi di progettazione di Python, vedere [come eseguire il codice Python in Azure machine learning designer](../how-to-designer-python.md).
 
 Con Python è possibile eseguire attività che i moduli esistenti non supportano, ad esempio:
 

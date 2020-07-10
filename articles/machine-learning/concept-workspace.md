@@ -8,12 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
-ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77505569"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147034"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -52,6 +53,7 @@ Il diagramma mostra i componenti seguenti di un'area di lavoro:
 + In qualsiasi ambiente Python con [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In qualsiasi ambiente R con l' [SDK Azure Machine Learning per r](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Dalla riga di comando usando l' [estensione CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) Azure Machine Learning
++ [Estensione Azure Machine Learning VS Code](how-to-manage-resources-vscode.md#workspaces)
 
 ## <a name="machine-learning-with-a-workspace"></a>Machine Learning con un'area di lavoro
 
@@ -69,13 +71,13 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 
 È inoltre possibile eseguire le attività di gestione dell'area di lavoro seguenti:
 
-| Attività di gestione dell'area di lavoro   | Portale              | Studio | SDK Python/R SDK       | CLI        |
-|---------------------------|---------|---------|------------|------------|
-| Creare un'area di lavoro        | **&check;**     | | **&check;** | **&check;** |
-| Gestisci l'accesso all'area di lavoro    | **&check;**   || |  **&check;**    |
-| Eseguire l'aggiornamento a Enterprise Edition    | **&check;** | **&check;**  | |     |
-| Creare e gestire risorse di calcolo    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| Creare una VM notebook |   | **&check;** | |     |
+| Attività di gestione dell'area di lavoro   | Portale              | Studio | SDK Python/R SDK       | CLI        | Visual Studio Code
+|---------------------------|---------|---------|------------|------------|------------|
+| Creare un'area di lavoro        | **&check;**     | | **&check;** | **&check;** | **&check;** |
+| Gestisci l'accesso all'area di lavoro    | **&check;**   || |  **&check;**    ||
+| Eseguire l'aggiornamento a Enterprise Edition    | **&check;** | **&check;**  | |     ||
+| Creare e gestire risorse di calcolo    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
+| Creare una VM notebook |   | **&check;** | |     ||
 
 > [!WARNING]
 > Lo spostamento dell’area di lavoro di Azure Machine Learning in una diversa sottoscrizione o della sottoscrizione proprietaria su un nuovo tenant non è supportato in quanto ciò può provocare errori.
@@ -89,7 +91,7 @@ Esistono diversi modi per creare un'area di lavoro:
 * Usare il [portale di Azure](how-to-manage-workspace.md) per un'interfaccia di punto e clic per esaminare ogni passaggio.
 * Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) per creare un'area di lavoro in tempo reale da script Python o notebook di Jupiter
 * Usare un [modello di Azure Resource Manager](how-to-create-workspace-template.md) o l'interfaccia della riga di comando di [Azure Machine Learning](reference-azure-machine-learning-cli.md) quando è necessario automatizzare o personalizzare la creazione con gli standard di sicurezza aziendali.
-* Se si lavora in Visual Studio Code, utilizzare l' [estensione vs code](tutorial-setup-vscode-extension.md).
+* Se si lavora in Visual Studio Code, utilizzare l' [estensione vs code](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
 > Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.

@@ -8,16 +8,22 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0716ca8f0457ca801098c97dd7a5e68751822d4d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: ed64b9d281cfbbf8202a99335ea2759b27a6fc42
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848092"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142972"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: indirizzare il traffico attraverso un'appliance virtuale di dispositivo
 
 Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari disponibili. In questo scenario di appliance virtuale di rete, l'obiettivo è instradare il traffico attraverso un'appliance virtuale di rete (appliance virtuale di rete) per il ramo a VNet e VNet al ramo. Per informazioni sul routing degli hub virtuali, vedere [About Virtual Hub routing](about-virtual-hub-routing.md).
+
+> [!NOTE]
+> Alcune delle funzionalità di routing potrebbero ancora essere implementate. Se l'implementazione non è ancora stata eseguita nella propria area, attenersi alla procedura descritta in queste versioni degli articoli nel frattempo:
+>* [Articolo portale di Azure](virtual-wan-route-table-nva-portal.md)
+>* [Articolo di PowerShell](virtual-wan-route-table-nva.md)
+>
 
 ## <a name="scenario-architecture"></a><a name="architecture"></a>Architettura dello scenario
 
@@ -59,7 +65,7 @@ Per configurare il routing tramite appliance virtuale di sistema, ecco i passagg
 
 Questo comporterà la modifica della configurazione di routing, come illustrato nella figura seguente.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Risultato":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Result":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

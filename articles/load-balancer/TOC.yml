@@ -4,17 +4,19 @@
   items:
     - name: Informazioni su Azure Load Balancer
       href: load-balancer-overview.md
+    - name: Novità
+      href: whats-new.md
     - name: Domande frequenti
       href: load-balancer-faqs.md
 - name: Guida introduttiva
   items:
-    - name: Creare una risorsa Load Balancer - Portale
+    - name: Creare il bilanciamento del carico - Portale
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: Creare una risorsa Load Balancer - Interfaccia della riga di comando di Azure
+    - name: Creare il bilanciamento del carico - Interfaccia della riga di comando di Azure
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Creare una risorsa Load Balancer - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Creare una risorsa Load Balancer - Modello di Azure Resource Manager
+    - name: Creare il bilanciamento del carico - Modello di Azure Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
     - name: Creare una risorsa Load Balancer interna - Portale
       href: tutorial-load-balancer-standard-internal-portal.md

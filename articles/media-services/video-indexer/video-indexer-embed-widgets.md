@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d76f3afa3a831f402f93322ecec350bfdb0c788d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594849"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166026"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporare Widget Video Indexer nelle app
 
@@ -29,7 +29,7 @@ A partire dalla versione 2, l'URL di base del widget include l'area dell'account
 
 Un widget Cognitive Insights include tutte le informazioni dettagliate visive estratte dal processo di indicizzazione del video. Il widget cognitive Insights supporta i parametri URL facoltativi seguenti:
 
-|Nome|Definizione|Descrizione|
+|Name (Nome)|Definizione|Descrizione|
 |---|---|---|
 |`widgets` | Stringhe separate da virgola | Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering.<br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` esegue il rendering solo di utenti e parole chiave interfaccia utente Insights.<br/>Opzioni disponibili: People, animatedCharacters, keywords, labels, sentimentals, Emotions, topics, KeyFrames, transcript, OCR, Speakers, Scenes e namedEntities.|
 |`controls`|Stringhe separate da virgola|Consente di controllare i controlli di cui si desidera eseguire il rendering.<br/>Esempio: Visualizza `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` solo l'opzione di ricerca e il pulsante di download.<br/>Opzioni disponibili: ricerca, download, set di impostazioni, lingua.|
@@ -42,7 +42,7 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 
 È possibile usare il widget Player per eseguire lo streaming di video usando la velocità in bit adattiva. Il widget Player supporta i parametri URL facoltativi seguenti.
 
-|Nome|Definizione|Descrizione|
+|Name (Nome)|Definizione|Descrizione|
 |---|---|---|
 |`t` | Secondi dall'inizio | Consente di avviare la riproduzione del lettore dal punto di tempo specificato.<br/> Esempio: `t=60`. |
 |`captions` | Codice lingua | Recupera la didascalia nella lingua specificata durante il caricamento del widget affinché sia disponibile nel menu **didascalie** .<br/> Esempio: `captions=en-US`. |
@@ -56,12 +56,12 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 
 È possibile usare il widget editor per creare nuovi progetti e gestire le informazioni dettagliate di un video. Il widget editor supporta i parametri URL facoltativi seguenti.
 
-|Nome|Definizione|Descrizione|
+|Name (Nome)|Definizione|Descrizione|
 |---|---|---|
 |`accessToken`<sup>*</sup> | string | Consente di accedere ai video che si trovano solo nell'account usato per incorporare il widget.<br> Il widget dell'Editor richiede il `accessToken` parametro. |
 |`language` | Codice lingua | Controlla la lingua del lettore. Il valore predefinito è `en-US`.<br/>Esempio: `language=de-DE`. |
 |`locale` | Un codice di lingua breve | Controlla il linguaggio Insights. Il valore predefinito è `en`.<br/>Esempio: `language=de`. |
-|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per `location` Paramete.| 
+|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per il `location` parametro.| 
 
 <sup>*</sup>Il proprietario deve prestare `accessToken` attenzione.
 
@@ -69,7 +69,7 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 
 Questa sezione illustra come incorporare il contenuto pubblico e privato nelle app.
 
-Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per `location` Paramete. Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per il `location` parametro. Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > La condivisione di un collegamento per il widget **Player** o **Insights** includerà il token di accesso e consentirà di concedere le autorizzazioni di sola lettura all'account.
@@ -131,47 +131,48 @@ Questa sezione illustra come ottenere l'interazione tra un widget cognitive Insi
 1. Aggiungere un plug-in Video Indexer per il lettore AMP:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Creare un'istanza di Azure Media Player con il plug-in Video Indexer.
 
-        // Init the source.
-        function initSource() {
-            var tracks = [{
-            kind: 'captions',
-            // To load vtt from VI, replace it with your vtt URL.
-            src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
-            srclang: 'en',
-            label: 'English'
-            }];
-
-            myPlayer.src([
-            {
-                "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
-                "type": "application/vnd.ms-sstr+xml"
-            }
-            ], tracks);
+    ```javascript
+    // Init the source.
+    function initSource() {
+        var tracks = [{
+        kind: 'captions',
+        // To load vtt from VI, replace it with your vtt URL.
+        src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
+        srclang: 'en',
+        label: 'English'
+        }];
+        myPlayer.src([
+        {
+            "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
+            "type": "application/vnd.ms-sstr+xml"
         }
+        ], tracks);
+    }
 
-        // Init your AMP instance.
-        var myPlayer = amp('vid1', { /* Options */
-            "nativeControlsForTouch": false,
-            autoplay: true,
-            controls: true,
-            width: "640",
-            height: "400",
-            poster: "",
-            plugins: {
-            videobreakedown: {}
-            }
-        }, function () {
-            // Activate the plug-in.
-            this.videobreakdown({
-            videoId: "c4c1ad4c9a",
-            syncTranscript: true,
-            syncLanguage: true,
-            location: "trial" /* location option for paid accounts (default is trial) */
-            });
-
-            // Set the source dynamically.
-            initSource.call(this);
+    // Init your AMP instance.
+    var myPlayer = amp('vid1', { /* Options */
+        "nativeControlsForTouch": false,
+        autoplay: true,
+        controls: true,
+        width: "640",
+        height: "400",
+        poster: "",
+        plugins: {
+        videobreakedown: {}
+        }
+    }, function () {
+        // Activate the plug-in.
+        this.videobreakdown({
+        videoId: "c4c1ad4c9a",
+        syncTranscript: true,
+        syncLanguage: true,
+        location: "trial" /* location option for paid accounts (default is trial) */
         });
+
+        // Set the source dynamically.
+        initSource.call(this);
+    });
+    ```
 
 3. Copiare il codice di incorporamento di Cognitive Insights.
 
@@ -187,42 +188,46 @@ Se si usa un lettore video diverso da Azure Media Player, è necessario modifica
 
     Ad esempio, un lettore HTML5 standard:
 
-        <video id="vid1" width="640" height="360" controls autoplay preload>
-           <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
-           Your browser does not support the video tag.
-        </video>    
+    ```html
+    <video id="vid1" width="640" height="360" controls autoplay preload>
+       <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
+       Your browser does not support the video tag.
+    </video>
+    ```
 
 2. Incorporare il widget Cognitive Insights.
 3. Implementare la comunicazione per il lettore facendo in modo che resti in ascolto dell'evento "message". Ad esempio:
 
-        <script>
+    ```javascript
+    <script>
     
-            (function(){
-            // Reference your player instance.
-            var playerInstance = document.getElementById('vid1');
+        (function(){
+        // Reference your player instance.
+        var playerInstance = document.getElementById('vid1');
         
-            function jumpTo(evt) {
-              var origin = evt.origin || evt.originalEvent.origin;
+        function jumpTo(evt) {
+          var origin = evt.origin || evt.originalEvent.origin;
         
-              // Validate that the event comes from the videobreakdown domain.
-              if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
+          // Validate that the event comes from the videobreakdown domain.
+          if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
                 
-                // Call your player's "jumpTo" implementation.
-                playerInstance.currentTime = evt.data.time;
+            // Call your player's "jumpTo" implementation.
+            playerInstance.currentTime = evt.data.time;
                
-                // Confirm the arrival to us.
-                if ('postMessage' in window) {
-                  evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
-                }
-              }
+            // Confirm the arrival to us.
+            if ('postMessage' in window) {
+              evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
             }
+          }
+        }
         
-            // Listen to the message event.
-            window.addEventListener("message", jumpTo, false);
+        // Listen to the message event.
+        window.addEventListener("message", jumpTo, false);
           
-            }())    
+        }())    
         
-        </script>
+    </script>
+    ```
 
 Per altre informazioni, vedere la [demo Azure Media Player + vi Insights](https://codepen.io/videoindexer/pen/YEyPLd).
 

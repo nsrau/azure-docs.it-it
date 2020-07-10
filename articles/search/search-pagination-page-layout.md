@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561578"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146175"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
 
@@ -55,20 +55,26 @@ I risultati delle query impaginate non sono necessariamente stabili se l'indice 
  
 Di seguito è riportato un esempio di come si potrebbero ottenere i duplicati. Si supponga che un indice con quattro documenti:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
-    { "id": "4", "rating": 1 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+{ "id": "4", "rating": 1 }
+```
  
 Si supponga ora di voler restituire i risultati due alla volta, ordinati in base alla classificazione. Eseguire questa query per ottenere la prima pagina di risultati: `$top=2&$skip=0&$orderby=rating desc` , producendo i risultati seguenti:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+```
  
 Nel servizio, si supponga che un quinto documento venga aggiunto all'indice in tra le chiamate di query: `{ "id": "5", "rating": 4 }` .  Successivamente, si esegue una query per recuperare la seconda pagina: `$top=2&$skip=2&$orderby=rating desc` e ottenere i risultati seguenti:
 
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
+```text
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+```
  
 Si noti che il documento 2 viene recuperato due volte. Questo perché il nuovo documento 5 ha un valore maggiore per la classificazione, quindi Ordina prima del documento 2 e atterra nella prima pagina. Sebbene questo comportamento possa essere imprevisto, è tipico del comportamento di un motore di ricerca.
 

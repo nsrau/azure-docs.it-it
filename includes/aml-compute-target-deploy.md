@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85378531"
 ---
-| Destinazione del calcolo | Utilizzato per | Supporto GPU | Supporto per FPGA | Descrizione |
+| Destinazione del calcolo | Usato per | Supporto GPU | Supporto per FPGA | Descrizione |
 | ----- | ----- | ----- | ----- | ----- |
 | [&nbsp;Servizio Web &nbsp; locale](../articles/machine-learning/how-to-deploy-and-where.md#local) | Test/debug | &nbsp; | &nbsp; | Usare per i test e la risoluzione dei problemi limitati. L'accelerazione hardware dipende dall'uso di librerie nel sistema locale.
 | [Servizio Web dell'istanza di calcolo Azure Machine Learning &nbsp; &nbsp;](../articles/machine-learning/how-to-deploy-and-where.md#notebookvm) | Test/debug | &nbsp; | &nbsp; | Usare per i test e la risoluzione dei problemi limitati.

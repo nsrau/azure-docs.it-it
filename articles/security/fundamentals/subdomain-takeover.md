@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 2baf2b209cae11f734494c377aebd731f69f514d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b395931d11c7bc7119be0122531908ed680fc3b9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610864"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145970"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini
 
@@ -45,7 +45,7 @@ Uno scenario comune per l'acquisizione di sottodomini:
 
 1. Quasi immediatamente dopo l'eliminazione del sito, un attore di minacce individua il sito mancante e crea il proprio sito Web in `app-contogreat-dev-001.azurewebsites.net` .
 
-    A questo punto, il traffico destinato `greatapp.contoso.com` a passa al sito di Azure di Threat Actor e l'attore minaccia è in grado di controllare il contenuto visualizzato. 
+    A questo punto, il traffico destinato `greatapp.contoso.com` a passa al sito di Azure di Threat Actor e l'attore minaccia il controllo del contenuto visualizzato. 
 
     Il DNS penzolante è stato sfruttato e il sottodominio di Contoso "GreatApp" è stato vittima dell'acquisizione del sottodominio. 
 
@@ -61,7 +61,7 @@ Le voci DNS in sospeso consentono agli attori minaccia di assumere il controllo 
 
 - **Perdita di controllo sul contenuto del sottodominio** : la pressione negativa sull'impossibilità di proteggere il contenuto dell'organizzazione, nonché il danneggiamento del marchio e la perdita di attendibilità.
 
-- **Cookie harvesting da visitatori non sospetti** : è comune per le app Web esporre i cookie di sessione ai sottodomini (*. contoso.com), di conseguenza qualsiasi sottodominio può accedervi. Gli attori di minaccia possono utilizzare l'acquisizione di sottodomini per creare una pagina di ricerca autenticata, ingannare gli utenti ignari e raccogliere i cookie (anche cookie sicuri). Un malinteso comune è che l'uso di certificati SSL protegge il sito e i cookie degli utenti, da un'acquisizione. Tuttavia, un attore minaccia può utilizzare il sottodominio dirottato per richiedere e ricevere un certificato SSL valido. In questo modo si concede loro l'accesso ai cookie protetti e si può aumentare ulteriormente la legittimità percepita del sito dannoso.
+- **Cookie harvesting da visitatori non sospetti** : è comune per le app Web esporre i cookie di sessione ai sottodomini (*. contoso.com), di conseguenza qualsiasi sottodominio può accedervi. Gli attori di minaccia possono utilizzare l'acquisizione di sottodomini per creare una pagina di ricerca autenticata, ingannare gli utenti ignari e raccogliere i cookie (anche cookie sicuri). Un malinteso comune è che l'uso di certificati SSL protegge il sito e i cookie degli utenti, da un'acquisizione. Tuttavia, un attore minaccia può utilizzare il sottodominio dirottato per richiedere e ricevere un certificato SSL valido. I certificati SSL validi garantiscono l'accesso ai cookie protetti e possono aumentare ulteriormente la legittimità percepita del sito dannoso.
 
 - **Campagne di phishing** : i sottodomini con aspetto autentico possono essere usati nelle campagne di phishing. Questo vale per i siti dannosi e anche per i record MX che consentono all'attore minaccia di ricevere messaggi di posta elettronica destinati a un sottodominio legittimo di un marchio noto come affidabile.
 
@@ -78,14 +78,14 @@ Le misure preventive attualmente disponibili sono elencate di seguito.
 
 ### <a name="use-azure-dns-alias-records"></a>Usare i record di alias DNS di Azure
 
-Combinando strettamente il ciclo di vita di un record DNS con una risorsa di Azure, i [record alias](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) di DNS di Azure possono impedire i riferimenti in sospeso. Si consideri, ad esempio, un record DNS che è qualificato come record alias per puntare a un indirizzo IP pubblico o a un profilo di Gestione traffico. Se si eliminano le risorse sottostanti, il record dell'alias DNS diventa un set di record vuoto. Non fa più riferimento alla risorsa eliminata. È importante notare che ci sono limiti per gli elementi che è possibile proteggere con i record degli alias. Attualmente, l'elenco è limitato a:
+I [record alias](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) di DNS di Azure possono impedire i riferimenti a penzoloni associando il ciclo di vita di un record DNS a una risorsa di Azure. Si consideri, ad esempio, un record DNS che è qualificato come record alias per puntare a un indirizzo IP pubblico o a un profilo di Gestione traffico. Se si eliminano le risorse sottostanti, il record dell'alias DNS diventa un set di record vuoto. Non fa più riferimento alla risorsa eliminata. È importante notare che ci sono limiti per gli elementi che è possibile proteggere con i record degli alias. Attualmente, l'elenco è limitato a:
 
 - Frontdoor di Azure
 - Profili di Gestione traffico
 - Endpoint della rete per la distribuzione di contenuti (CDN) di Azure
 - Indirizzi IP pubblici
 
-Se si dispone di risorse che possono essere protette dall'acquisizione di sottodomini con record di alias, è consigliabile eseguire questa operazione nonostante le offerte di servizio limitate attualmente disponibili.
+Nonostante le offerte di servizio limitate attualmente, è consigliabile usare i record alias per difendersi da un'acquisizione di sottodominio laddove possibile.
 
 [Altre](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) informazioni sulle funzionalità dei record alias di DNS di Azure.
 
@@ -120,7 +120,7 @@ Spesso gli sviluppatori e i team operativi eseguono processi di pulizia per evit
         - **Exist** : esegue una query sulle zone DNS per le risorse che puntano a sottodomini di Azure, ad esempio *. azurewebsites.NET o *. cloudapp.Azure.com (vedere [questo elenco di riferimenti](azure-domains.md)).
         - **Si è proprietari** : confermare che si è proprietari di tutte le risorse a cui sono destinati i sottodomini DNS.
 
-    - Mantenere un catalogo di servizi per gli endpoint del nome di dominio completo (FQDN) di Azure e i proprietari dell'applicazione. Per compilare il catalogo di servizi, eseguire la seguente query di Azure Resource Graph con i parametri della tabella seguente:
+    - Mantenere un catalogo di servizi per gli endpoint del nome di dominio completo (FQDN) di Azure e i proprietari dell'applicazione. Per compilare il catalogo di servizi, eseguire la query di Azure Resource Graph (ARG) seguente con i parametri della tabella seguente:
     
         >[!IMPORTANT]
         > **Autorizzazioni** : eseguire la query come utente con accesso a tutte le sottoscrizioni di Azure. 
@@ -139,9 +139,12 @@ Spesso gli sviluppatori e i team operativi eseguono processi di pulizia per evit
         
         È anche possibile combinare più tipi di risorse. Questa query di esempio restituisce le risorse da app Azure Service **e** app Azure slot di servizio:
 
-        ```
+        ```azurepowershell
         Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
         ```
+
+
+        Per i parametri del servizio per la query ARG:
 
         |Nome risorsa  |[ResourceType]  | [FQDNproperty]  |
         |---------|---------|---------|

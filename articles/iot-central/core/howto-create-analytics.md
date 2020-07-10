@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 40460b58ede0ca0da8fe25475906bdbe41bfffe0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29605fc2a9094f70c26487691e74a4dd72a85813
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158283"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147268"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Come usare Analytics per analizzare i dati del dispositivo
 
@@ -86,10 +86,12 @@ Dopo aver eseguito una query sui dati, è possibile iniziare a visualizzarli sul
 
   ![Ingrandire i dati](media/howto-create-analytics/zoom.png)
 
-Sotto i puntini di sospensione sono presenti più controlli Chart per interagire con i dati.
+Sotto i puntini di sospensione sono presenti più controlli Chart per interagire con i dati:
 
 - **Griglia di visualizzazione:** I risultati sono disponibili in formato tabella, consentendo di visualizzare il valore specifico per ogni punto dati.
 
-- **Rilasciare un marcatore:** Il controllo ' drop marker ' consente di ancorare determinati punti dati nel grafico. È utile quando si tenta di confrontare i dati di più righe tra periodi di tempo diversi.
+- **Scarica come CSV:** I risultati sono disponibili per l'esportazione come file con valori delimitati da virgole (CSV). Il file CSV contiene i dati per ogni dispositivo. I risultati vengono esportati utilizzando l'intervallo e l'intervallo di tempo specificati. 
+
+- **Rilasciare un marcatore:** Il controllo "drop marker" fornisce un modo per ancorare determinati punti dati nel grafico. È utile quando si tenta di confrontare i dati di più righe tra periodi di tempo diversi.
 
   ![Passare alla visualizzazione griglia per l'analitica](media/howto-create-analytics/additionalchartcontrols.png)

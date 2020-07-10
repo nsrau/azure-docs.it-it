@@ -4,12 +4,12 @@ description: Quando si usa per la prima volta Language Understanding (LUIS), non
 services: cognitive-services
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055767"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144635"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
 
@@ -147,16 +147,16 @@ Un'app pubblica viene pubblicata in tutte le regioni in modo che un utente con u
 
 ### <a name="securing-the-query-prediction-endpoint"></a>Protezione dell'endpoint di stima della query
 
-È possibile controllare chi può visualizzare la chiave dell'endpoint di runtime di previsione LUIS chiamandola in un ambiente da server a server. Se si utilizza LUIS da un bot, la connessione tra il bot e LUIS è già protetta. Se si chiama direttamente l'endpoint LUIS, è necessario creare un'API lato server, ad esempio una [funzione](https://azure.microsoft.com/services/functions/) di Azure, con accesso controllato, ad esempio [AAD](https://azure.microsoft.com/services/active-directory/). Quando viene chiamata l'API lato server e vengono verificate l'autenticazione e l'autorizzazione, passare la chiamata a LUIS. Se da un lato questa strategia non impedisce gli attacchi man-in-the-middle, dall'altro offusca l'endpoint dagli utenti, consente di seguire l'accesso e di aggiungere la registrazione delle risposte endpoint, ad esempio [Application Insights](https://azure.microsoft.com/services/application-insights/).
+È possibile controllare chi può visualizzare la chiave dell'endpoint di runtime di previsione LUIS chiamandola in un ambiente da server a server. Se si utilizza LUIS da un bot, la connessione tra il bot e LUIS è già protetta. Se si chiama direttamente l'endpoint LUIS, è necessario creare un'API lato server, ad esempio una [funzione](https://azure.microsoft.com/services/functions/) di Azure, con accesso controllato, ad esempio [AAD](https://azure.microsoft.com/services/active-directory/). Quando viene chiamata l'API lato server e vengono verificate l'autenticazione e l'autorizzazione, passare la chiamata a LUIS. Anche se questa strategia non impedisce gli attacchi man-in-the-Middle, offusca l'endpoint dagli utenti, consente di tenere traccia dell'accesso e consente di aggiungere la registrazione delle risposte degli endpoint, ad esempio [Application Insights](https://azure.microsoft.com/services/application-insights/).
 
 <a name="starter-key"></a>
 
 ## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Accedere al portale di LUIS e iniziare la creazione
 
 1. Accedere a [Luis Portal](https://www.luis.ai) e accettare le condizioni per l'utilizzo.
-1. Avviare l'app LUIS scegliendo il tipo di chiave di authoring LUIS da usare: chiave di valutazione gratuita o nuova chiave di creazione di Azure LUIS.
+1. Avviare l'app LUIS scegliendo la chiave di creazione di Azure LUIS.
 
-    ![Scegliere un tipo di risorsa di creazione Language Understanding](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+   ![Scegliere un tipo di risorsa di creazione Language Understanding](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
 1. Al termine del processo di selezione delle risorse, [creare una nuova app](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
@@ -245,9 +245,9 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     |Type|Impostazione|Valore|
     |--|--|--|
-    |Header|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
-    |Header|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
-    |Header|`Content-type`|`application/json`|
+    |Intestazione|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
+    |Intestazione|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
+    |Intestazione|`Content-type`|`application/json`|
     |QueryString|`appid`|L'ID dell'app LUIS.
     |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 

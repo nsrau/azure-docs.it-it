@@ -7,15 +7,16 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536625"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143859"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Eseguire la migrazione dei criteri del Web Application Firewall usando Azure PowerShell
 
-Questo script semplifica la transizione da una configurazione di WAF o un criterio personalizzato WAF solo a un criterio WAF completo. È possibile che venga visualizzato un avviso nel portale in cui viene indicato *di eseguire la migrazione ai criteri di WAF*o se si vuole che le nuove funzionalità di WAF di anteprima pubblica, ad esempio le regole personalizzate di geocorrispondenza, i criteri per sito e l'URI per ogni URI o il set di regole di mitigazione bot. Per usare una di queste funzionalità, è necessario un criterio WAF completo associato al gateway applicazione. 
+Questo script semplifica la transizione da una configurazione di WAF o un criterio personalizzato WAF solo a un criterio WAF completo. È possibile che venga visualizzato un avviso nel portale in cui viene indicato *di eseguire la migrazione ai criteri di WAF*oppure è possibile che si desiderino le nuove funzionalità di WAF, ad esempio le regole personalizzate di geocorrispondenza (anteprima), i criteri WAF per sito e i criteri di WAF per URI (anteprima) o il set di regole di mitigazione bot (anteprima). Per usare una di queste funzionalità, è necessario un criterio WAF completo associato al gateway applicazione. 
 
 Per altre informazioni sulla creazione di un nuovo criterio WAF, vedere [creare criteri di Web Application Firewall per il gateway applicazione](create-waf-policy-ag.md). Per informazioni sulla migrazione, vedere la pagina relativa [alla migrazione a criteri WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
 

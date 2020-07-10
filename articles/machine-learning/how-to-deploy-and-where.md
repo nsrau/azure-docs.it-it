@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/12/2020
+ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: aa961cb94816b50aa515532e69454fce9b370c54
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083081"
+ms.locfileid: "86146554"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ Il codice seguente illustra come connettersi a un'area di lavoro di Azure Machin
 
 + **Uso di Visual Studio Code**
 
-   Quando si utilizza Visual Studio Code, è possibile selezionare l'area di lavoro utilizzando un'interfaccia grafica. Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione e gestione dei modelli](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) nella documentazione sull'estensione Visual Studio Code.
+   Quando si utilizza Visual Studio Code, è possibile selezionare l'area di lavoro utilizzando un'interfaccia grafica. Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione e gestione dei modelli](how-to-manage-resources-vscode.md#endpoints) nella documentazione sull'estensione Visual Studio Code.
 
 ## <a name="register-your-model"></a><a id="registermodel"></a>Registrare il modello
 
@@ -216,7 +216,7 @@ myenv.register(workspace=ws)
 
 ### <a name="2-define-scoring-code"></a><a id="script"></a>2. definire il codice di assegnazione dei punteggi
 
-Lo script di avvio riceve i dati inviati a un servizio Web distribuito e li passa al modello. Riceve quindi la risposta restituita dal modello e la restituisce al client. *Lo script è specifico del modello*. Deve comprendere i dati previsti e restituiti dal modello.
+Lo script di avvio riceve i dati inviati a un servizio Web distribuito e li passa al modello. Riceve quindi la risposta restituita dal modello e la invia al client. *Lo script è specifico del modello*. Deve comprendere i dati previsti e restituiti dal modello.
 
 Lo script contiene due funzioni per il caricamento e l'esecuzione del modello:
 
@@ -613,7 +613,7 @@ Nella tabella seguente vengono descritti i diversi Stati del servizio:
 | Transizione | Il servizio è in fase di distribuzione. | No |
 | Non integro | Il servizio è stato distribuito ma non è attualmente raggiungibile.  | No |
 | Non pianificabile | Non è possibile distribuire il servizio in questo momento a causa di risorse insufficienti. | No |
-| Operazione non riuscita | La distribuzione del servizio non è riuscita a causa di un errore o di un arresto anomalo. | Sì |
+| Non riuscito | La distribuzione del servizio non è riuscita a causa di un errore o di un arresto anomalo. | Sì |
 | Healthy | Il servizio è integro e l'endpoint è disponibile. | Sì |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Servizio Web dell'istanza di calcolo (sviluppo/test)
@@ -1104,7 +1104,7 @@ Per arrestare il contenitore, usare il comando seguente da una shell o riga di c
 docker kill mycontainer
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per eliminare un servizio Web distribuito, usare `service.delete()`.
 Per eliminare un modello registrato, usare `model.delete()`.

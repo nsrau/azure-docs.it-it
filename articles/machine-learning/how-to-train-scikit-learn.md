@@ -10,11 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 03/09/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: a967bb1ac2c29b130ccd5e33b4aad768dd8daa6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 525dd90f37175dc5b2b50bc577a5a4f04649555b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557000"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146392"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Creazione di modelli Scikit-learn su larga scala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -145,6 +146,8 @@ estimator = SKLearn(source_directory=project_folder,
                    )
 ```
 
+> [!WARNING]
+> Azure Machine Learning esegue gli script di training copiando l'intera directory di origine. Se si dispone di dati sensibili che non si desidera caricare, utilizzare un [file con estensione ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o non includerlo nella directory di origine. È invece possibile accedere ai dati usando un [Archivio](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)dati.
 
 Per altre informazioni sulla personalizzazione dell'ambiente Python, vedere [Creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md). 
 

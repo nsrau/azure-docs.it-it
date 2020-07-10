@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 572b653a49833ae06ee57b1718000e8555239de7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113215"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146034"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operatori di confronto OData in Azure ricerca cognitiva- `eq` ,, `ne` `gt` , `lt` , `ge` e`le`
 
@@ -135,23 +136,33 @@ Le stringhe possono essere confrontate nei filtri per le corrispondenze esatte u
 
 Trova la corrispondenza dei documenti in cui il `Rating` campo è compreso tra 3 e 5 inclusi:
 
-    Rating ge 3 and Rating le 5
+```text
+Rating ge 3 and Rating le 5
+```
 
 Trovare la corrispondenza con i documenti in cui il `Location` campo è inferiore a 2 chilometri dalla latitudine e dalla longitudine specificate:
 
-    geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```text
+geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```
 
 Trova la corrispondenza dei documenti in cui il `LastRenovationDate` campo è maggiore o uguale al 1 ° gennaio 2015, mezzanotte UTC:
 
-    LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```text
+LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```
 
 Trova la corrispondenza dei documenti in cui il `Details/Sku` campo non è `null` :
 
-    Details/Sku ne null
+```text
+Details/Sku ne null
+```
 
 Trova la corrispondenza dei documenti per gli hotel in cui almeno una stanza è di tipo "Deluxe Room", dove la stringa del `Rooms/Type` campo corrisponde esattamente al filtro:
 
-    Rooms/any(room: room/Type eq 'Deluxe Room')
+```text
+Rooms/any(room: room/Type eq 'Deluxe Room')
+```
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

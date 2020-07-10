@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055461"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145613"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Eseguire la migrazione a una chiave di creazione delle risorse di Azure
 
@@ -226,7 +226,7 @@ Se si sta collaborando alle applicazioni ed è stata assegnata una chiave di sti
 ## <a name="troubleshooting-the-migration-process"></a>Risoluzione dei problemi relativi al processo di migrazione
 
 Quando si tenta di eseguire la migrazione, ma non è possibile trovare la sottoscrizione di Azure nell'elenco a discesa:
-* Assicurarsi di disporre di una sottoscrizione di Azure valida autorizzata a creare risorse di servizi cognitivi. Passare alla [portale di Azure](https://ms.portal.azure.com) e verificare lo stato della sottoscrizione. Se non si dispone di un, [creare una versione di valutazione gratuita](https://azure.microsoft.com/free/).
+* Assicurarsi di disporre di una sottoscrizione di Azure valida autorizzata a creare risorse di servizi cognitivi. Passare alla [portale di Azure](https://ms.portal.azure.com) e verificare lo stato della sottoscrizione. Se non è disponibile, [creare un account Azure gratuito](https://azure.microsoft.com/free/cognitive-services/).
 * Assicurarsi di trovarsi nel tenant appropriato associato alla sottoscrizione valida. È possibile passare i tenant dall'avatar a sinistra delle iniziali sulla barra degli strumenti: ![ barra degli strumenti in cui è possibile cambiare tenant](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 Se si dispone di una risorsa di creazione esistente ma non è possibile trovarla quando si seleziona l'opzione **USA risorsa di creazione esistente** :

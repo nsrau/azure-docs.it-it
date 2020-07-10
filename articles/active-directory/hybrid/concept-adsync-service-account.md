@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9614def5310bdc6fa8c6f37d7cdcc0a5f081a96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360300"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144713"
 ---
 # <a name="adsync-service-account"></a>Account del servizio ADSync
 Azure AD Connect installa un servizio locale che orchestra la sincronizzazione tra Active Directory e Azure Active Directory.  Il servizio di sincronizzazione Microsoft Azure AD sincronizzazione (ADSync) viene eseguito in un server nell'ambiente locale.  Le credenziali per il servizio sono impostate per impostazione predefinita nelle installazioni Express, ma possono essere personalizzate per soddisfare i requisiti di sicurezza dell'organizzazione.  Queste credenziali non vengono usate per la connessione alle foreste locali o Azure Active Directory.
@@ -46,9 +46,9 @@ Microsoft consiglia di eseguire il servizio ADSync nel contesto di un account de
 - account del servizio gestito: usare un MSA autonomo o di gruppo di cui l'amministratore ha eseguito il provisioning
 - account di dominio: usare un account del servizio del dominio di cui l'amministratore ha eseguito il provisioning
 
-![](media/concept-adsync-service-account/adsync1.png)
+![Screenshot della pagina delle impostazioni di Azure AD Connect Express con i pulsanti di opzione "Personalizza" o "Usa impostazioni rapide".](media/concept-adsync-service-account/adsync1.png)
 
-![](media/concept-adsync-service-account/adsync2.png)
+![Screenshot della pagina Azure AD Connect "installazione dei componenti richiesti" con l'opzione per l'uso di un account del servizio gestito esistente selezionato.](media/concept-adsync-service-account/adsync2.png)
 
 ## <a name="diagnosing-adsync-service-account-changes"></a>Diagnosi delle modifiche all'account del servizio ADSync
 Se si modificano le credenziali per il servizio ADSync dopo l'installazione, il servizio non viene avviato, perde l'accesso al database di sincronizzazione e non riesce a eseguire l'autenticazione con le directory connesse (Azure e AD DS).  La concessione dell'accesso al database al nuovo account del servizio ADSync non è sufficiente per risolvere il problema. Non verrà eseguita alcuna sincronizzazione fino al ripristino delle credenziali originali.

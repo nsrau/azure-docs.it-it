@@ -1,5 +1,5 @@
 ---
-title: Estrarre le informazioni in Excel usando Analisi del testo e l'automazione del risparmio energia
+title: Estrarre informazioni in Excel usando Analisi del testo e Power Automate
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come estrarre il testo di Excel senza dover scrivere codice, usando Analisi del testo e l'automazione dell'alimentazione.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: fd70fe14d3765fb7c21b92f62b4d73564176baa2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201188"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145702"
 ---
-# <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Estrarre le informazioni in Excel usando Analisi del testo e l'automazione del risparmio energia 
+# <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Estrarre informazioni in Excel usando Analisi del testo e Power Automate 
 
 In questa esercitazione verrà creato un flusso di Power automatici per estrarre il testo in un foglio di calcolo di Excel senza dover scrivere codice. 
 
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un account Microsoft Azure. [Avviare una versione di valutazione gratuita](https://azure.microsoft.com/free/) o [eseguire l'accesso](https://portal.azure.com/).
+- Un account Microsoft Azure. [Crea un account gratuito](https://azure.microsoft.com/free/cognitive-services/) o [Accedi](https://portal.azure.com/).
 - Una risorsa Analisi del testo. Se non si dispone di un, è possibile [crearne uno nella portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e usare il livello gratuito per completare questa esercitazione.
 - [Chiave e endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) generati automaticamente durante l'iscrizione.
 - Un foglio di calcolo contenente problemi del tenant. I dati di esempio sono disponibili in GitHub
@@ -76,7 +76,7 @@ Creare variabili che rappresentano le informazioni che verranno aggiunte al file
 
 Aggiungere le informazioni seguenti alle variabili create. Rappresentano le colonne del file di Excel. Se sono presenti variabili compresse, è possibile fare clic su di esse per espanderle.
 
-| Action |Nome   | Type | valore |
+| Operazione |Nome   | Type | valore |
 |---------|---------|---|---|
 | Inizializzare una variabile | var_person | Stringa | Persona |
 | Inizializza variabile 2 | var_phone | Stringa | Phone_Number |
@@ -123,8 +123,8 @@ Nel flusso immettere le informazioni seguenti per creare una nuova connessione A
 
 | Campo           | Valore                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| Connection Name (Nome connessione) | Nome della connessione alla risorsa Analisi del testo. Ad esempio: `TAforPowerAutomate`. |
-| Chiave account     | Chiave per la risorsa Analisi del testo.                                                                                   |
+| Connection Name (Nome connessione) | Nome della connessione alla risorsa Analisi del testo. Ad esempio, `TAforPowerAutomate` |
+| Chiave dell'account     | Chiave per la risorsa Analisi del testo.                                                                                   |
 | Site URL        | Endpoint per la risorsa Analisi del testo.                                                       |
 
 > [!div class="mx-imgBorder"] 
@@ -182,7 +182,7 @@ Ridurre a icona l'azione **applica a ogni 2** facendo clic sul nome. Aggiungere 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Aggiungere Analisi del testo credenziali al flusso.":::
 
-In **applica a ogni 3**aggiungere un controllo **condizione** . Verrà denominato **condizione 2**. Nella prima casella di testo cercare e aggiungere il tipo di **entità** dalla finestra del contenuto dinamico. Assicurarsi che la casella centrale sia impostata su **è uguale a**. Quindi, nella casella di testo a destra, `var_phone`immettere. 
+In **applica a ogni 3**aggiungere un controllo **condizione** . Verrà denominato **condizione 2**. Nella prima casella di testo cercare e aggiungere il tipo di **entità** dalla finestra del contenuto dinamico. Assicurarsi che la casella centrale sia impostata su **è uguale a**. Quindi, nella casella di testo a destra, immettere `var_phone` . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Aggiungere Analisi del testo credenziali al flusso.":::
@@ -203,15 +203,15 @@ Ridurre **a icona applica a ogni 3** facendo clic sul nome. Quindi creare un'alt
 
 Successivamente, il flusso controllerà se la descrizione del problema dalla riga della tabella di Excel contiene la parola "plumbing". In caso affermativo, verrà aggiunto il "plumbing" nella colonna IssueType. In caso contrario, si immetterà "other".
 
-All'interno dell'azione **applica a ogni 4** aggiungere un controllo **condizione** . Verrà denominata **Condition 3**. Nella prima casella di testo cercare e aggiungere la **Descrizione** dal file di Excel usando la finestra contenuto dinamico. Assicurarsi che nella casella centrale sia **presente**. Quindi, nella casella di testo a destra trovare e selezionare `var_plumbing`. 
+All'interno dell'azione **applica a ogni 4** aggiungere un controllo **condizione** . Verrà denominata **Condition 3**. Nella prima casella di testo cercare e aggiungere la **Descrizione** dal file di Excel usando la finestra contenuto dinamico. Assicurarsi che nella casella centrale sia **presente**. Quindi, nella casella di testo a destra trovare e selezionare `var_plumbing` . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Aggiungere Analisi del testo credenziali al flusso.":::
 
 
-Nella condizione **se sì** , fare clic su **Aggiungi un'azione**e selezionare **Aggiorna una riga**. Immettere quindi le informazioni come prima. Nella colonna IssueType selezionare `var_plumbing`. Verrà applicata un'etichetta "plumbing" alla riga.
+Nella condizione **se sì** , fare clic su **Aggiungi un'azione**e selezionare **Aggiorna una riga**. Immettere quindi le informazioni come prima. Nella colonna IssueType selezionare `var_plumbing` . Verrà applicata un'etichetta "plumbing" alla riga.
 
-Nella condizione **se no** fare clic su **Aggiungi un'azione**e selezionare **Aggiorna una riga**. Immettere quindi le informazioni come prima. Nella colonna IssueType selezionare `var_other`. Verrà applicata un'etichetta "other" alla riga.
+Nella condizione **se no** fare clic su **Aggiungi un'azione**e selezionare **Aggiorna una riga**. Immettere quindi le informazioni come prima. Nella colonna IssueType selezionare `var_other` . Verrà applicata un'etichetta "other" alla riga.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Aggiungere Analisi del testo credenziali al flusso.":::

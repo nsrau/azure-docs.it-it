@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 35e6690726750e6c9e6dfb0cb62a6732603c3610
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: eb8ec09646fa3f3c226edbe957e19d079fd2607c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083662"
+ms.locfileid: "86147416"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Eseguire la migrazione di SQL Server a SQL Istanza gestita con PowerShell & servizio migrazione del database di Azure
 
@@ -27,7 +27,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > [!div class="checklist"]
 >
 > * Creare un gruppo di risorse.
-> * Creare un'istanza del Servizio Migrazione del database di Azure.
+> * Creare un'istanza del servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione in un'istanza del servizio migrazione del database di Azure.
 > * Eseguire la migrazione.
 
@@ -121,13 +121,11 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-Nell'esempio seguente viene illustrata la creazione di informazioni di connessione per una Istanza gestita SQL di Azure denominata ' targetmanagedinstance.database.windows.net ' tramite l'autenticazione SQL:
+Nell'esempio seguente viene illustrata la creazione di informazioni di connessione per una Istanza gestita SQL di Azure denominata ' targetmanagedinstance ':
 
 ```powershell
-$targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
-  -DataSource "targetmanagedinstance.database.windows.net" `
-  -AuthType SqlAuthentication `
-  -TrustServerCertificate:$false
+$targetResourceId = (Get-AzSqlInstance -Name "targetmanagedinstance").Id
+$targetConnInfo = New-AzDmsConnInfo -ServerType SQLMI -MiResourceId $targetResourceId
 ```
 
 ### <a name="provide-databases-for-the-migration-project"></a>Fornire i database per il progetto di migrazione

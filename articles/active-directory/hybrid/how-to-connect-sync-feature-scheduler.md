@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103552"
+ms.locfileid: "86146994"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione
 In questo argomento viene descritta l'utilità di pianificazione predefinita in Azure AD Connect Sync (motore di sincronizzazione).
@@ -41,8 +41,12 @@ L'utilità di pianificazione è responsabile di due attività:
 L'utilità di pianificazione stessa è sempre in esecuzione, ma può essere configurata per eseguire solo una o nessuna di queste attività. Ad esempio, se è necessario avere un processo di ciclo di sincronizzazione personalizzato, è possibile disabilitare questa attività nell'utilità di pianificazione, ma eseguire comunque l'attività di manutenzione.
 
 >[!IMPORTANT]
->Sarà necessario assicurarsi che un ciclo di sincronizzazione venga eseguito almeno una volta ogni 7 giorni. In caso contrario, è possibile che si verifichino problemi di sincronizzazione che richiedono l'esecuzione di una sincronizzazione completa per la risoluzione.
-
+>Per impostazione predefinita, ogni 30 minuti viene eseguito un ciclo di sincronizzazione. Se è stato modificato il ciclo di sincronizzazione, sarà necessario assicurarsi che un ciclo di sincronizzazione venga eseguito almeno una volta ogni 7 giorni. 
+>
+>* Una sincronizzazione Delta deve essere eseguita entro 7 giorni dall'ultima sincronizzazione Delta.
+>* Una sincronizzazione Delta (dopo una sincronizzazione completa) deve essere eseguita entro 7 giorni dal momento in cui è stata completata l'ultima sincronizzazione completa.
+>
+>In caso contrario, è possibile che si verifichino problemi di sincronizzazione che richiedono l'esecuzione di una sincronizzazione completa per la risoluzione. Questo vale anche per i server in modalità di staging.
 
 ## <a name="scheduler-configuration"></a>Configurazione dell'utilità di pianificazione
 Per visualizzare le impostazioni attuali della configurazione, passare a PowerShell ed eseguire il comando `Get-ADSyncScheduler`. Il risultato visualizzato è simile al seguente:

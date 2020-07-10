@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: tracking-python
-ms.openlocfilehash: f5ff33d021f27f2c5dfb86ca87f2579602f0d1cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07708de1326e0aba6485b2cf1fb0610d9710cdf7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559143"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142472"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2
 
@@ -93,11 +94,11 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 > [!NOTE]
 > Per altri esempi, vedere la documentazione della [libreria client Azure Identity per Python](https://pypi.org/project/azure-identity/) .
 
-## <a name="create-a-file-system"></a>Creare un file system
+## <a name="create-a-container"></a>Creare un contenitore
 
-Un file system agisce in qualità di contenitore per i file. È possibile crearne una chiamando il metodo **FileSystemDataLakeServiceClient. create_file_system** .
+Un contenitore funge da file system per i file. È possibile crearne una chiamando il metodo **FileSystemDataLakeServiceClient. create_file_system** .
 
-Questo esempio illustra come creare un file system denominato `my-file-system`.
+Questo esempio crea un contenitore denominato `my-file-system` .
 
 ```python
 def create_file_system():
@@ -115,7 +116,7 @@ def create_file_system():
 
 Creare un riferimento alla directory chiamando il metodo **FileSystemClient. create_directory** .
 
-In questo esempio viene aggiunta una directory denominata `my-directory` a una file System. 
+In questo esempio viene aggiunta una directory denominata `my-directory` a un contenitore. 
 
 ```python
 def create_directory():
@@ -337,4 +338,4 @@ def list_directory_contents():
 * [Esempi](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 * [Mapping da Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [Problemi noti](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Invia feedback](https://github.com/Azure/azure-sdk-for-python/issues)
+* [Invia commenti e suggerimenti](https://github.com/Azure/azure-sdk-for-python/issues)

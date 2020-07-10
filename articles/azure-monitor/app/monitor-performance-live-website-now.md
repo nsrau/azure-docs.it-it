@@ -3,12 +3,12 @@ title: Monitorare un'app Web ASP.NET live con Azure Application Insights | Micro
 description: Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. È possibile usare questa funzionalità con app Web ASP.NET ospitate in locale o con macchine virtuali.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107479"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166383"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
 
@@ -39,14 +39,14 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 
 |  | Fase di compilazione | Fase di esecuzione |
 | --- | --- | --- |
-| Richieste ed eccezioni |Sì |Sì |
-| [Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md) | |Sì |
-| [Diagnostica delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
-| [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |Sì |Sì |
-| [API per telemetria personalizzata][api] |Sì |No |
-| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Sì |No |
-| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Sì |No |
-| Ricompilazione del codice necessaria |Sì | No |
+| **Richieste & eccezioni** |Sì |Sì |
+| **[Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md)** | |Sì |
+| **[Diagnostica delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md)** |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
+| **[Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md)** |Sì |Sì |
+| **[API per la telemetria personalizzata][api]** |Sì |No |
+| **[Integrazione del log di traccia](../../azure-monitor/app/asp-net-trace-logs.md)** |Sì |No |
+| **[Visualizzazione pagina & dati utente](../../azure-monitor/app/javascript.md)** |Sì |No |
+| **Ricompilazione del codice necessaria** |Sì | No |
 
 
 

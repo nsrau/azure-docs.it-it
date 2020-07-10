@@ -6,14 +6,15 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 07/08/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: f9e6c8dc7438e05f960504b2cacee7fc987adf70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a872121ca6560b8ede86abc35294ab8c9b0c1b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022377"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142017"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Panoramica di Azure Data Factory Connector
 
@@ -27,7 +28,16 @@ Azure Data Factory supportano gli archivi dati e i formati seguenti tramite copi
 
 ## <a name="supported-file-formats"></a>Formati di file supportati
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)]
+Azure Data Factory supporta i formati di file seguenti. Vedere ogni articolo per le impostazioni basate sul formato.
+
+- [Formato Avro](format-avro.md)
+- [Formato binario](format-binary.md)
+- [Formato Common Data Model](format-common-data-model.md)
+- [Formato di testo delimitato](format-delimited-text.md)
+- [Formato Excel](format-excel.md)
+- [Formato JSON](format-json.md)
+- [Formato ORC](format-orc.md)
+- [Formato Parquet](format-parquet.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81262435"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146135"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Ricerca fuzzy per correggere errori di ortografia e digitazioni
 
@@ -85,37 +86,49 @@ Si supponga che la stringa seguente sia presente in un `"Description"` campo di 
 
 Iniziare con una ricerca fuzzy su "Special" e aggiungere l'evidenziazione dei risultati al campo Description:
 
-    search=special~&highlight=Description
+```console
+search=special~&highlight=Description
+```
 
 Nella risposta, poiché è stata aggiunta l'evidenziazione dei riscontri, la formattazione viene applicata a "speciale" come termine corrispondente.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Riprovare la richiesta, eseguendo un errore di ortografia "speciale" prendendo in mano diverse lettere ("PE"):
 
-    search=scial~&highlight=Description
+```console
+search=scial~&highlight=Description
+```
 
 Fino a questo punto, non è stata apportata alcuna modifica alla risposta. Se si usa il valore predefinito di 2 gradi di distanza, la rimozione di due caratteri "PE" da "speciale" consente ancora una corrispondenza corretta per quel periodo.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Se si tenta di eseguire un'altra richiesta, modificare ulteriormente il termine di ricerca prendendo un ultimo carattere per un totale di tre eliminazioni (da "speciale" a "SCA"):
 
-    search=scal~&highlight=Description
+```console
+search=scal~&highlight=Description
+```
 
 Si noti che viene restituita la stessa risposta, ma ora invece della corrispondenza con "Special", la corrispondenza fuzzy si trova in "SQL".
 
-            "@search.score": 0.4232868,
-            "@search.highlights": {
-                "Description": [
-                    "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-                ]
+```output
+        "@search.score": 0.4232868,
+        "@search.highlights": {
+            "Description": [
+                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+            ]
+```
 
 Il punto di questo esempio espanso è illustrare la chiarezza che l'evidenziazione dei riscontri può portare a risultati ambigui. In tutti i casi, viene restituito lo stesso documento. Se si è fatto affidamento sugli ID documento per verificare una corrispondenza, è possibile che si sia perso il passaggio da "speciale" a "SQL".
 

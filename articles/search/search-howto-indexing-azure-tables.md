@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0a711b9239e1a76774d8e75f035e6c862218c82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6670966b4cf74510df5dd26c994e0c53b219ba9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563125"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145242"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Come indicizzare le tabelle dall'archiviazione tabelle di Azure con Azure ricerca cognitiva
 
@@ -24,7 +24,7 @@ Questo articolo illustra come usare ricerca cognitiva di Azure per indicizzare i
 
 È possibile configurare un indicizzatore dell'Archiviazione tabelle di Azure mediante queste risorse:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Portale di Azure](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) di Azure ricerca cognitiva
 * Azure ricerca cognitiva [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 
@@ -49,6 +49,7 @@ Per l'indicizzazione delle tabelle, l'origine dati deve possedere le proprietà 
 
 Per creare un'origine dati:
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -59,6 +60,7 @@ Per creare un'origine dati:
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
+```
 
 Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare un'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
@@ -81,6 +83,7 @@ L'indice consente di specificare i campi in un documento, gli attributi e altri 
 
 Per creare un indice:
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -92,6 +95,7 @@ Per creare un indice:
             { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
           ]
     }
+```
 
 Per altre informazioni sulla creazione di indici, vedere [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
@@ -100,6 +104,7 @@ Un indicizzatore si connette a un'origine dati con un indice di ricerca di desti
 
 Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -110,6 +115,7 @@ Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 L'indicizzatore verrà eseguito ogni due ore. (L'intervallo di pianificazione è impostato su "PT2H"). Per eseguire un indicizzatore ogni 30 minuti, impostare l'intervallo su "PT30M". L'intervallo minimo supportato è di cinque minuti. La pianificazione è facoltativa; se omessa, l'indicizzatore viene eseguito una sola volta al momento della creazione. Tuttavia, è possibile eseguire un indicizzatore su richiesta in qualsiasi momento.   
 
@@ -135,6 +141,7 @@ Quando un indicizzatore di tabelle viene configurato per l'esecuzione in base a 
 
 Per indicare che alcuni documenti specifici devono essere rimossi dall'indice, è possibile usare una strategia di eliminazione temporanea. Invece di eliminare una riga, aggiungere una proprietà che ne indica l'eliminazione e impostare norme di rilevamento dell'eliminazione temporanea nell'origine dati. Il tipo di norme seguente, ad esempio, indica che una riga viene eliminata se la proprietà `IsDeleted` della riga è impostata sul valore `"true"`:
 
+```http
     PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -146,6 +153,7 @@ Per indicare che alcuni documenti specifici devono essere rimossi dall'indice, �
         "container" : { "name" : "table name", "query" : "<query>" },
         "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
     }   
+```
 
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni

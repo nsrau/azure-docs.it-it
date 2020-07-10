@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5a9b5b5dd8eb6b6bec8440287918d1f8610064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357920"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144700"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Accesso Single Sign-On facile di Azure Active Directory: approfondimento tecnico
 
@@ -45,6 +45,9 @@ L'accesso SSO facile viene abilitato con Azure AD Connect, come illustrato [qui]
 
 >[!IMPORTANT]
 > `AZUREADSSOACC`Per motivi di sicurezza, l'account computer deve essere fortemente protetto. Solo gli amministratori di dominio devono essere in grado di gestire l'account computer. Verificare che la delega Kerberos nell'account computer sia disabilitata e che nessun altro account in Active Directory disponga delle autorizzazioni di delega per l' `AZUREADSSOACC` account computer. Archiviare l'account computer in un'unità organizzativa in cui sono protetti da eliminazioni accidentali e in cui solo gli amministratori di dominio hanno accesso. La chiave di decrittografia Kerberos nell'account computer deve anche essere considerata sensibile. È consigliabile [rinnovare la chiave di decrittografia di Kerberos](how-to-connect-sso-faq.md) dell'account computer `AZUREADSSOACC` almeno ogni 30 giorni.
+
+>[!IMPORTANT]
+> Seamless SSO supporta i tipi di crittografia AES256_HMAC_SHA1, AES128_HMAC_SHA1 e RC4_HMAC_MD5 per Kerberos. Si consiglia di impostare il tipo di crittografia per l'account AzureADSSOAcc $ su AES256_HMAC_SHA1 o uno dei tipi AES rispetto a RC4 per una maggiore sicurezza. Il tipo di crittografia viene archiviato nell'attributo msDS-SupportedEncryptionTypes dell'account nel Active Directory.  Se il tipo di crittografia dell'account AzureADSSOAcc $ è impostato su RC4_HMAC_MD5 e si desidera modificarlo in uno dei tipi di crittografia AES, assicurarsi di eseguire prima il rollover della chiave di decrittografia Kerberos dell'account AzureADSSOAcc $ come illustrato nel [documento di domande frequenti](how-to-connect-sso-faq.md) , in caso contrario, l'accesso SSO facile non verrà eseguito.
 
 Una volta completata l'installazione, l'accesso SSO facile funziona esattamente come qualsiasi altro accesso che usa l'autenticazione integrata di Windows (NTLM).
 

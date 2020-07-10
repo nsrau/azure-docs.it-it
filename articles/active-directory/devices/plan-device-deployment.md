@@ -11,11 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444251"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165771"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Pianificare la distribuzione del dispositivo Azure Active Directory
 
@@ -101,7 +102,7 @@ Utilizzare questo albero per determinare le opzioni per i dispositivi di proprie
 
 i dispositivi iOS e Android possono essere registrati solo Azure AD. La tabella seguente presenta considerazioni di alto livello per i dispositivi client Windows. Utilizzarlo come panoramica, quindi esplorare in dettaglio i diversi metodi di integrazione.
 
-| | Registrato con AAD| Aggiunta ad Azure AD| Aggiunta ad Azure AD ibrido |
+| Considerazioni | Registrato con AAD| Aggiunta ad Azure AD| Aggiunta ad Azure AD ibrido |
 | - | - | - | - |
 | **Sistemi operativi client**| | |  |
 | Dispositivi Windows 10| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |

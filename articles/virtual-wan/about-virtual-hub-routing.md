@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6809429b26eea30ca0569044634308d2e4dff9f7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025982"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147385"
 ---
 # <a name="about-virtual-hub-routing"></a>Informazioni sul routing dell'hub virtuale
 
@@ -24,6 +24,10 @@ Per configurare il routing, vedere [How to Configure Virtual Hub routing](how-to
 ## <a name="routing-concepts"></a><a name="concepts"></a>Concetti di routing
 
 Le sezioni seguenti descrivono i concetti chiave del routing dell'hub virtuale.
+
+> [!NOTE]
+> Alcuni di questi nuovi concetti per la tabella di route Hub, l'associazione, la propagazione e le route statiche in una connessione di rete virtuale potrebbero ancora essere implementati e previsti per il completamento nella settimana del 3 agosto.
+>
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabella di route Hub
 
@@ -40,13 +44,13 @@ Le connessioni sono Gestione risorse risorse che dispongono di una configurazion
 
 È possibile configurare la configurazione di routing per una connessione di rete virtuale durante l'installazione. Per impostazione predefinita, tutte le connessioni vengono associate e propagate alla tabella di route predefinita.
 
-### <a name="association"></a><a name="association"></a>Association Rules
+### <a name="association"></a><a name="association"></a>Associazione
 
 Ogni connessione è associata a una tabella di route. L'associazione di una connessione a una tabella di route consente l'invio del traffico alla destinazione indicata come route nella tabella di route. La configurazione di routing della connessione visualizzerà la tabella di route associata.  È possibile associare più connessioni alla stessa tabella di route. Tutte le connessioni VPN, ExpressRoute e VPN utente sono associate alla stessa tabella di route (predefinita).
 
 Per impostazione predefinita, tutte le connessioni sono associate a una **tabella di route predefinita** in un hub virtuale. Ogni hub virtuale ha una propria tabella di route predefinita, che può essere modificata per aggiungere una o più route statiche. Le route aggiunte staticamente hanno la precedenza su route apprese dinamicamente per gli stessi prefissi.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Association Rules":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Associazione":::
 
 ### <a name="propagation"></a><a name="propagation"></a>Propagazione
 
@@ -59,10 +63,6 @@ Per ogni hub virtuale è disponibile anche una **tabella di route None** . La pr
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configurazione delle route statiche in una connessione di rete virtuale
 
 La configurazione delle route statiche fornisce un meccanismo per gestire il traffico attraverso un indirizzo IP hop successivo, che può essere un appliance virtuale di rete sottoposta a provisioning in una VNet spoke collegata a un hub virtuale. La route statica è costituita da un nome di route, da un elenco di prefissi di destinazione e da un indirizzo IP hop successivo.
-
-> [!NOTE]
-> Alcuni di questi nuovi concetti per l'associazione, la propagazione e le route statiche in una connessione di rete virtuale potrebbero ancora essere implementati e previsti per il completamento nella settimana del 3 agosto.
->
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Eseguire il routing delle tabelle nelle WAN virtuali Basic e standard prima del set di funzionalità di associazione e propagazione
 

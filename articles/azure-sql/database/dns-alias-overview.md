@@ -11,11 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: aa8fa9ff6973e908d6af700f7c2965a844e87b04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170988"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145662"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -111,6 +112,8 @@ Attualmente l'alias DNS ha le limitazioni seguenti:
 ## <a name="related-resources"></a>Risorse correlate
 
 - [Panoramica della continuità aziendale del database SQL di Azure](business-continuity-high-availability-disaster-recover-hadr-overview.md), incluso il ripristino di emergenza.
+- [Informazioni di riferimento sulle API REST di Azure](https://docs.microsoft.com/rest/api/azure/)
+- [API per gli alias DNS del server](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
