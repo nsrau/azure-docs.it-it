@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/24/2020
-ms.openlocfilehash: 0b7ca2654fb8b7bdcca6dcb5f2fd354a138f2fcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564359"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171117"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
@@ -35,10 +35,10 @@ Usare questo modulo per misurare l'accuratezza di un modello sottoposto a traini
 
 ## <a name="how-to-use-evaluate-model"></a>Come usare Evaluate Model
 1. Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo [Assign Data to Clusters](./assign-data-to-clusters.md) alla porta di input sinistra di **Evaluate Model**. 
-  > [!NOTE] 
-  > Se si usano moduli come "Select Columns in Dataset" per selezionare parte del set di dati di input, assicurarsi che la colonna Actual label (usata nel training), la colonna 'Scored Probabilities' e la colonna 'Scored labels' esistano per calcolare metriche come l'area sotto la curva e l'accuratezza per la classificazione binaria e il rilevamento anomalie.
-  > La colonna Actual label e la colonna 'Scored Labels' consentono di calcolare le metriche per la classificazione/regressione multiclasse.
-  > La colonna 'Assignments' e le colonne 'DistancesToClusterCenter no.X' (X è l'indice del centroide, che varia da 0 a numero di centroidi-1) consentono di calcolare le metriche per il clustering.
+    > [!NOTE] 
+    > Se si usano moduli come "Select Columns in Dataset" per selezionare parte del set di dati di input, assicurarsi che la colonna Actual label (usata nel training), la colonna 'Scored Probabilities' e la colonna 'Scored labels' esistano per calcolare metriche come l'area sotto la curva e l'accuratezza per la classificazione binaria e il rilevamento anomalie.
+    > La colonna Actual label e la colonna 'Scored Labels' consentono di calcolare le metriche per la classificazione/regressione multiclasse.
+    > La colonna 'Assignments' e le colonne 'DistancesToClusterCenter no.X' (X è l'indice del centroide, che varia da 0 a numero di centroidi-1) consentono di calcolare le metriche per il clustering.
 
 2. [Facoltativo] Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo Assign Data to Clusters per il secondo modello alla porta di input **destra** di **Evaluate Model**. È possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. I due algoritmi di input devono essere dello stesso tipo. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
 
@@ -49,7 +49,12 @@ Usare questo modulo per misurare l'accuratezza di un modello sottoposto a traini
 
 ## <a name="results"></a>Risultati
 
-Dopo aver eseguito il modulo **Evaluate Model** selezionarlo per aprire il riquadro di spostamento **Evaluate Model** a destra.  Quindi, scegliere la scheda **Outputs + logs**, in cui la sezione **Data Outputs** contiene diverse icone.   L'icona **Visualize** presenta un'icona a forma di grafico a barre, che rappresenta il primo modo per vedere i risultati.
+Dopo aver eseguito il modulo **Evaluate Model** selezionarlo per aprire il riquadro di spostamento **Evaluate Model** a destra.  Quindi, scegliere la scheda **Outputs + logs**, in cui la sezione **Data Outputs** contiene diverse icone. L'icona **Visualize** presenta un'icona a forma di grafico a barre, che rappresenta il primo modo per vedere i risultati.
+
+Per la classificazione binaria, dopo aver fatto clic sull'icona **Visualizza** è possibile visualizzare la matrice di confusione binaria.
+Per la classificazione a più livelli, è possibile trovare il file del tracciato della matrice di confusione nella scheda **output + log** , come indicato di seguito:
+> [!div class="mx-imgBorder"]
+> ![Anteprima dell'immagine caricata](media/module/multi-class-confusion-matrix.png)
 
 Se si connettono i set di dati a entrambi gli input di **Evaluate Model**, i risultati conterranno le metriche per entrambi i set di dati o per entrambi i modelli.
 Il modello o i dati collegati alla porta sinistra vengono presentati prima nel report, poi nelle metriche per il set di dati o il modello collegato alla porta destra.  
@@ -70,7 +75,8 @@ Questa sezione descrive le metriche restituite per i tipi specifici di modelli s
 
 ### <a name="metrics-for-classification-models"></a>Metriche per i modelli di classificazione
 
-Per la valutazione dei modelli di classificazione, vengono segnalate le metriche seguenti.
+
+Quando si valutano i modelli di classificazione binaria, vengono restituite le metriche seguenti.
   
 -   **Accuratezza**: misura la validità di un modello di classificazione come percentuale dei risultati effettivi rispetto al numero totale di casi.  
   
@@ -78,13 +84,10 @@ Per la valutazione dei modelli di classificazione, vengono segnalate le metriche
   
 -   **Richiamo**: corrisponde alla percentuale di tutti i risultati corretti restituiti dal modello.  
   
--   **Punteggio F**: viene calcolato come media ponderata di precisione e richiamo con un numero compreso tra 0 e 1, dove il valore ideale è 1.  
+-   Il **Punteggio F1** viene calcolato come media ponderata della precisione e richiama tra 0 e 1, dove il valore del Punteggio F1 ideale è 1.  
   
 -   **Area sotto la curva**: misura l'area sotto la curva tracciata con i veri positivi sull'asse Y e i falsi positivi sull'asse X. Questa metrica è utile perché fornisce un singolo numero che consente di confrontare modelli di tipi diversi.  
-  
-- **Perdita logaritmica media**: è un singolo punteggio usato per esprimere la penalità per i risultati errati. Viene calcolata come differenza tra due distribuzioni di probabilità: quella vera e quella nel modello.  
-  
-- **Perdita logaritmica del training**: è un singolo punteggio che rappresenta il vantaggio del classificatore rispetto a una previsione casuale. La perdita logaritmica misura l'incertezza del modello confrontando le probabilità che restituisce con i valori noti (verità) nelle etichette. L'obiettivo è ridurre al minimo la perdita logaritmica per il modello nel suo complesso.
+
 
 ### <a name="metrics-for-regression-models"></a>Metriche per i modelli di regressione
  
