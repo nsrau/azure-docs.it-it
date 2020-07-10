@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d6bebd1e38149096b865ad3654a9604d685f5d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488750"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141952"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrare Analisi di flusso di Azure con Azure Machine Learning (anteprima)
 
@@ -27,7 +28,7 @@ Completare i passaggi seguenti prima di aggiungere un modello di Machine Learnin
 
 3. Assicurarsi che il servizio Web accetti e restituisca i dati serializzati JSON.
 
-4. Distribuire il modello nel [servizio Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) per distribuzioni di produzione su larga scala. Se il servizio Web non è in grado di gestire il numero di richieste provenienti dal processo, le prestazioni del processo di Analisi di flusso di Azure risulteranno compromesse, con conseguenze per la latenza. I modelli distribuiti nelle istanze di Azure Container sono supportati solo se si usa il portale di Azure.
+4. Distribuire il modello nel [servizio Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) per distribuzioni di produzione su larga scala. Se il servizio Web non è in grado di gestire il numero di richieste provenienti dal processo, le prestazioni del processo di Analisi di flusso di Azure risulteranno compromesse, con conseguenze per la latenza. I modelli distribuiti nelle istanze di Azure Container sono supportati solo se si usa il portale di Azure. I modelli creati con [Azure machine learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) non sono ancora supportati in analisi di flusso.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Aggiungere un modello di apprendimento automatico al processo
 
