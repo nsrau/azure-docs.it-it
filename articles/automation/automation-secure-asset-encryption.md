@@ -9,11 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 1cb70109657343f41a1b3a19f3426377d97e261e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7d59ca60c7f90c227885927086511bd1f8ac7ca1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830124"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185841"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Crittografia di asset protetti in Automazione di Azure
 
@@ -51,12 +52,12 @@ Prima di abilitare le chiavi gestite dal cliente per un account di Automazione, 
 
  - La chiave gestita dal cliente è archiviata in un'istanza di Azure Key Vault. 
  - Abilitare le proprietà **Eliminazione temporanea** e **Protezione dall'eliminazione** nell'insieme di credenziali delle chiavi. Queste funzionalità sono necessarie per consentire il ripristino delle chiavi in caso di eliminazione accidentale.
- - Con la crittografia di Automazione di Azure sono supportate solo le chiavi RSA. Per altre informazioni sulle chiavi, vedere [Informazioni su chiavi, segreti e certificati di Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+ - Con la crittografia di Automazione di Azure sono supportate solo le chiavi RSA. Per altre informazioni sulle chiavi, vedere [Informazioni su chiavi, segreti e certificati di Azure Key Vault](../key-vault/general/about-keys-secrets-certificates.md).
 - L'account di Automazione e l'insieme di credenziali delle chiavi possono trovarsi in sottoscrizioni diverse, ma devono essere nello stesso tenant Azure Active Directory.
 
 ### <a name="assignment-of-an-identity-to-the-automation-account"></a>Assegnazione di un'identità all'account di Automazione
 
-Per usare chiavi gestite dal cliente con un account di Automazione, l'account di Automazione deve eseguire l'autenticazione nell'insieme di credenziali delle chiavi che archivia le chiavi gestite dal cliente. Automazione di Azure usa identità gestite assegnate dal sistema per autenticare l'account con Azure Key Vault. Per altre informazioni sulle identità gestite, vedere [Informazioni sulle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Per usare chiavi gestite dal cliente con un account di Automazione, l'account di Automazione deve eseguire l'autenticazione nell'insieme di credenziali delle chiavi che archivia le chiavi gestite dal cliente. Automazione di Azure usa identità gestite assegnate dal sistema per autenticare l'account con Azure Key Vault. Per altre informazioni sulle identità gestite, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Configurare un'identità gestita assegnata dal sistema per l'account di Automazione usando la chiamata API REST seguente:
 
@@ -184,7 +185,7 @@ La rotazione della chiave non attiva la nuova crittografia degli asset sicuri ne
 
 ## <a name="revocation-of-access-to-a-customer-managed-key"></a>Revoca dell'accesso a una chiave gestita dal cliente
 
-Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [PowerShell per Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/) o [Interfaccia della riga di comando per Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca di fatto l'accesso a tutti gli asset sicuri dell'account di Automazione perché la chiave di crittografia non può accedere ad Automazione di Azure.
+Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [PowerShell per Azure Key Vault](/powershell/module/az.keyvault/) o [Interfaccia della riga di comando per Azure Key Vault](/cli/azure/keyvault). La revoca dell'accesso blocca di fatto l'accesso a tutti gli asset sicuri dell'account di Automazione perché la chiave di crittografia non può accedere ad Automazione di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

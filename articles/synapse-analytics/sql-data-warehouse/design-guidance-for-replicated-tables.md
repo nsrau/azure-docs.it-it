@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201702"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181336"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Linee guida di progettazione per l'uso di tabelle replicate nel pool Synapse SQL
 
@@ -149,9 +149,9 @@ Quando si caricano dati in tabelle replicate, provare a ridurre al minimo le ric
 
 Ad esempio, questo modello di carico carica dati da quattro origini e richiama quattro ricompilazioni.
 
-        Load from source 1.
+- Caricamento dall'origine 1.
 - L'istruzione di selezione attiva la ricompilazione 1.
-        Caricamento dall'origine 2.
+- Caricamento dall'origine 2.
 - L'istruzione di selezione attiva la ricompilazione 2.
 - Caricamento dall'origine 3.
 - L'istruzione di selezione attiva la ricompilazione 3.

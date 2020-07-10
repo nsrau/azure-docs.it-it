@@ -4,15 +4,15 @@ ms.author: joshuapa
 ms.service: azure-notebooks
 ms.topic: include
 ms.date: 07/01/2020
-ms.openlocfilehash: c866ebac9701f31dbdafab87cdda6fc26edcf88c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5011a5d265c61cf26520f6c012037a67a8afacae
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830307"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181497"
 ---
 > [!IMPORTANT]
-> Il 29 settembre il Azure Notebooks sito di anteprima pubblica verrà ritirato e sostituito con servizi integrati da Visual Studio, Azure e GitHub.
+> A partire dal 9 ottobre 2020 il Azure Notebooks sito di anteprima pubblica verrà ritirato e sostituito con servizi integrati da Visual Studio, Azure e GitHub.
 > [Scopri di più](https://aka.ms/aznb-notebooks-at-msft/) sulle opzioni e sulle altre esperienze dei notebook da Microsoft.
 >
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.

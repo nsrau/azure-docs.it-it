@@ -2,12 +2,13 @@
 title: Abilitare TLS con il contenitore sidecar
 description: Creare un endpoint SSL o TLS per un gruppo di contenitori in esecuzione in istanze di contenitore di Azure eseguendo nginx in un contenitore sidecar
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: f7f5d8e8136f4357067888f5a39fa0c3635122d1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80984607"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169851"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Abilitare un endpoint TLS in un contenitore sidecar
 
@@ -146,7 +147,7 @@ code deploy-aci.yaml
 Immettere il contenuto dei file con codifica Base64, dove indicato in `secret` . Ad esempio, `cat` ognuno dei file con codifica Base64 per visualizzarne il contenuto. Durante la distribuzione, questi file vengono aggiunti a un [volume segreto](container-instances-volume-secret.md) nel gruppo di contenitori. In questo esempio il volume Secret viene montato nel contenitore nginx.
 
 ```YAML
-api-version: 2018-10-01
+api-version: 2019-12-01
 location: westus
 name: app-with-ssl
 properties:

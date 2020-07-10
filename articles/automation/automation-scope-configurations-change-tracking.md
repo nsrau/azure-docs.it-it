@@ -5,15 +5,16 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 49655d11858086b16099a1864fd4d2dc5988f02a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 353f29d9b4c6599226619d40e4378e21618bcad4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117436"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185909"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Limitare Rilevamento modifiche e l'ambito di distribuzione dell'inventario
 
-Questo articolo descrive come usare le configurazioni dell'ambito quando si usa il [rilevamento modifiche e](change-tracking.md) la funzionalità di inventario per distribuire le modifiche alle macchine virtuali. Per altre informazioni, vedere [targeting Solutions Monitoring in monitoraggio di Azure (anteprima)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
+Questo articolo descrive come usare le configurazioni dell'ambito quando si usa il [rilevamento modifiche e](change-tracking.md) la funzionalità di inventario per distribuire le modifiche alle macchine virtuali. Per altre informazioni, vedere [targeting Solutions Monitoring in monitoraggio di Azure (anteprima)](../azure-monitor/insights/solution-targeting.md). 
 
 ## <a name="about-scope-configurations"></a>Informazioni sulle configurazioni dell'ambito
 

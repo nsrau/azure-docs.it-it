@@ -3,12 +3,12 @@ title: Risorse di Azure-QnA Maker
 description: QnA Maker usa diverse origini di Azure, ognuna con uno scopo diverso. Per comprendere il modo in cui vengono usati singolarmente, è possibile pianificare e selezionare il piano tariffario corretto o sapere quando modificare il piano tariffario. La comprensione del modo in cui vengono usate in combinazione consente di individuare e risolvere i problemi quando si verificano.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 7d6598510ae75a76e0a4fcaff59297b4c724ba78
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236082"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171075"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Risorse di Azure per QnA Maker
 
@@ -44,11 +44,11 @@ Ci sono generalmente tre parametri da considerare:
 
 La tabella seguente indica alcune linee guida generali.
 
-|                        | Gestione di QnA Maker | Servizio app | Ricerca cognitiva di Azure | Limitazioni                      |
-| ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
-| Sperimentazione        | SKU gratuito             | Livello gratuito   | Livello gratuito    | Pubblicazione di massimo 2 Knowledge Base, dimensioni 50 MB  |
-| Ambiente di sviluppo/test   | SKU Standard         | Shared      | Basic        | Pubblicazione di massimo 14 Knowledge Base, dimensioni 2 GB    |
-| Ambiente di produzione | SKU Standard         | Basic       | Standard     | Pubblicazione di massimo 49 Knowledge Base, dimensioni 25 GB |
+|                            | Gestione di QnA Maker | Servizio app | Ricerca cognitiva di Azure | Limitazioni                      |
+| -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
+| **Sperimentazione**        | SKU gratuito             | Livello gratuito   | Livello gratuito    | Pubblicazione di massimo 2 Knowledge Base, dimensioni 50 MB  |
+| **Ambiente di sviluppo/test**   | SKU Standard         | Condiviso      | Basic        | Pubblicazione di massimo 14 Knowledge Base, dimensioni 2 GB    |
+| **Ambiente di produzione** | SKU Standard         | Basic       | Standard     | Pubblicazione di massimo 49 Knowledge Base, dimensioni 25 GB |
 
 ## <a name="recommended-settings"></a>Impostazioni consigliate
 
@@ -172,9 +172,9 @@ Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 
 ![Gestione delle chiavi](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Nome|Location|Scopo|
+|Nome|Località|Scopo|
 |--|--|--|
-|Chiave di creazione|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
+|Chiave di creazione|[Portale di Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
 |Chiave endpoint query|[Portale di QnA Maker](https://www.qnamaker.ai)|Queste chiavi vengono utilizzate per eseguire una query sull'endpoint della Knowledge base pubblicata per ottenere una risposta per una domanda utente. Questo endpoint di query viene in genere usato in chat bot o nel codice dell'applicazione client che si connette al servizio QnA Maker. Queste chiavi vengono create quando si pubblica la QnA Maker Knowledge base.<br><br>Trovare queste chiavi nella pagina **Impostazioni servizio** . Trovare questa pagina dal menu dell'utente nella parte superiore destra della pagina nel menu a discesa.|
 
 ### <a name="subscription-keys"></a>Chiavi di sottoscrizione

@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207008"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170412"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -537,7 +537,7 @@ Non impostare `telemetryClient.Context.Operation.Id`. Si tratta di un'impostazio
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Registrare dati di telemetria personalizzati nelle funzioni JavaScript
 
-Di seguito sono riportati alcuni frammenti di codice di esempio che inviano dati di telemetria personalizzati con [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
+Ecco alcuni frammenti di codice di esempio che inviano dati di telemetria personalizzati con la [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
 
 ### <a name="version-2x-and-later"></a>Versione 2.x e successive
 
@@ -626,7 +626,7 @@ Per segnalare un problema con l'integrazione di Application Insights in Funzioni
 
 ## <a name="streaming-logs"></a>Log in streaming
 
-Durante lo sviluppo di un'applicazione, è spesso necessario visualizzare il contenuto dei log quasi in tempo reale mentre è in esecuzione Azure.
+Durante lo sviluppo di un'applicazione, è spesso necessario vedere cosa viene scritto nei log quasi in tempo reale durante l'esecuzione in Azure.
 
 Esistono due modi per visualizzare il flusso dei file di log generati dalle esecuzioni delle funzioni.
 
@@ -688,27 +688,41 @@ Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscripti
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
-## <a name="scale-controller-logs"></a>Ridimensiona log del controller
+## <a name="scale-controller-logs-preview"></a>Ridimensiona log del controller (anteprima)
 
-Il [controller di scalabilità di funzioni di Azure](./functions-scale.md#runtime-scaling) monitora le istanze dell'host di funzioni che eseguono l'app e decide quando aggiungere o rimuovere le istanze dell'host di funzione. Se è necessario comprendere le decisioni che il controller di ridimensionamento sta effettuando nell'applicazione, è possibile configurarlo in modo da creare log per Application Insights o nell'archivio BLOB.
+Questa funzionalità è in anteprima. 
 
-> [!WARNING]
-> Questa funzionalità è in anteprima. Non è consigliabile lasciare abilitata questa funzionalità per un periodo illimitato ed è invece necessario abilitarla quando sono necessarie le informazioni raccolte e quindi disabilitarla.
+Il [controller di scalabilità di funzioni di Azure](./functions-scale.md#runtime-scaling) monitora le istanze dell'host di funzioni di Azure in cui viene eseguita l'app. Questo controller prende le decisioni relative al momento in cui aggiungere o rimuovere le istanze in base alle prestazioni correnti. È possibile fare in modo che il controller di ridimensionamento crei log in Application Insights o nell'archiviazione BLOB per comprendere meglio le decisioni che il controller di scala sta effettuando per l'app per le funzioni.
 
-Per abilitare questa funzionalità, aggiungere una nuova impostazione dell'applicazione denominata `SCALE_CONTROLLER_LOGGING_ENABLED` . Il valore di questa impostazione deve avere il formato `{Destination}:{Verbosity}` , dove:
-* `{Destination}`Specifica la destinazione per i log da inviare a e deve essere `AppInsights` o `Blob` .
-* `{Verbosity}`Specifica il livello di registrazione desiderato e deve essere uno tra `None` , `Warning` o `Verbose` .
+Per abilitare questa funzionalità, aggiungere una nuova impostazione dell'applicazione denominata `SCALE_CONTROLLER_LOGGING_ENABLED` . Il valore di questa impostazione deve essere nel formato `<DESTINATION>:<VERBOSITY>` , in base agli elementi seguenti:
 
-Ad esempio, per registrare le informazioni dettagliate dal controller di scalabilità a Application Insights, usare il valore `AppInsights:Verbose` .
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
-> [!NOTE]
-> Se si Abilita il `AppInsights` tipo di destinazione, è necessario assicurarsi [di configurare Application Insights per l'app per le funzioni](#enable-application-insights-integration).
+Ad esempio, il comando dell'interfaccia della riga di comando di Azure seguente attiva la registrazione dettagliata dal controller di scalabilità a Application Insights:
 
-Se si imposta la destinazione su `Blob` , i log verranno creati in un contenitore BLOB denominato nell' `azure-functions-scale-controller` account di archiviazione impostato nell' `AzureWebJobsStorage` impostazione dell'applicazione.
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
+```
 
-Se si imposta il livello di dettaglio su `Verbose` , il controller di ridimensionamento registrerà un motivo per ogni modifica nel conteggio dei thread di lavoro, nonché informazioni sui trigger che fanno parte delle decisioni del controller di scala. Ad esempio, i log includeranno gli avvisi dei trigger e gli hash usati dai trigger prima e dopo l'esecuzione del controller di scalabilità.
+In questo esempio sostituire `<FUNCTION_APP_NAME>` e `<RESOURCE_GROUP_NAME>` con il nome dell'app per le funzioni e il nome del gruppo di risorse, rispettivamente. 
 
-Per disabilitare la registrazione del controller di scalabilità, impostare il valore di `{Verbosity}` su `None` o rimuovere l' `SCALE_CONTROLLER_LOGGING_ENABLED` impostazione dell'applicazione.
+Il seguente comando dell'interfaccia della riga di comando di Azure Disabilita la registrazione impostando il livello di dettaglio su `None` :
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
+```
+
+È anche possibile disabilitare la registrazione rimuovendo l' `SCALE_CONTROLLER_LOGGING_ENABLED` impostazione usando il comando dell'interfaccia della riga di comando di Azure seguente:
+
+```azurecli-interactive
+az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--setting-names SCALE_CONTROLLER_LOGGING_ENABLED
+```
 
 ## <a name="disable-built-in-logging"></a>Disabilitare la registrazione predefinita
 

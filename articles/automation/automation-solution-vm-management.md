@@ -5,17 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424075"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185875"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
 Il Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionalità avvia o arresta le VM di Azure abilitate. Consente di avviare o arrestare computer in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite i log di Monitoraggio di Azure e invia messaggi di posta elettronica facoltativi usando i [gruppi di azioni](../azure-monitor/platform/action-groups.md). Questa funzionalità può essere abilitata sia in Azure Resource Manager che nelle macchine virtuali classiche per la maggior parte degli scenari. 
 
-Questa funzionalità Usa il cmdlet [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) per avviare le macchine virtuali. USA [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) per arrestare le macchine virtuali.
+Questa funzionalità Usa il cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) per avviare le macchine virtuali. USA [Stop-AzVM](/powershell/module/az.compute/stop-azvm) per arrestare le macchine virtuali.
 
 > [!NOTE]
 > Mentre i manuali operativi sono stati aggiornati per l'uso dei nuovi cmdlet di Azure AZ Module, usano l'alias del prefisso AzureRM.
@@ -36,7 +37,7 @@ La funzionalità corrente presenta le limitazioni seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-I runbook per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionano con un [account RunAs di Azure](automation-create-runas-account.md). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
+I runbook per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionano con un [account RunAs di Azure](./manage-runas-account.md). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
 
 È consigliabile usare un account di Automazione separato per lavorare con macchine virtuali abilitate per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività. Le versioni dei moduli di Azure vengono aggiornate di frequente ed è possibile che i rispettivi parametri subiscano modifiche. La funzionalità non viene aggiornata in base alla stessa frequenza ed è possibile che non funzioni con le versioni più recenti dei cmdlet usati. È consigliabile testare gli aggiornamenti dei moduli in un account di Automazione di prova prima di importarli in account di Automazione di produzione.
 
@@ -81,10 +82,10 @@ Per abilitare una macchina virtuale per la funzionalità Avvio/Arresto di macchi
 
 | Autorizzazione |Scope|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | Subscription|
-| Microsoft.Authorization/permissions/read |Subscription|
-| Microsoft.Authorization/roleAssignments/read | Subscription |
-| Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Authorization/Operations/read | Sottoscrizione|
+| Microsoft.Authorization/permissions/read |Sottoscrizione|
+| Microsoft.Authorization/roleAssignments/read | Sottoscrizione |
+| Microsoft.Authorization/roleAssignments/write | Sottoscrizione |
 | Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/certificates/read | Gruppo di risorse |
 | Microsoft.Automation/automationAccounts/write | Gruppo di risorse |
@@ -121,7 +122,7 @@ Tutti i runbook padre includono il parametro `WhatIf`. Se impostato su True, il 
 La tabella seguente elenca le variabili create nell'account di Automazione. Modificare solo le variabili con il prefisso `External`. La modifica delle variabili con il prefisso `Internal` provoca effetti indesiderati.
 
 > [!NOTE]
-> Le limitazioni relative al nome della VM e al gruppo di risorse sono in gran parte il risultato delle dimensioni delle variabili. Vedere [Asset di tipo variabile in Automazione di Azure](https://docs.microsoft.com/azure/automation/shared-resources/variables).
+> Le limitazioni relative al nome della VM e al gruppo di risorse sono in gran parte il risultato delle dimensioni delle variabili. Vedere [Asset di tipo variabile in Automazione di Azure](./shared-resources/variables.md).
 
 |Variabile | Descrizione|
 |---------|------------|
@@ -176,7 +177,7 @@ Se sono presenti più di 20 macchine virtuali per ogni servizio cloud, di seguit
 
 In caso contrario, se il processo di Automazione per questa funzionalità viene eseguito per più di tre ore, verrà scaricato temporaneamente o arrestato in base al limite di [condivisione equa](automation-runbook-execution.md#fair-share).
 
-Le sottoscrizioni di Azure CSP supportano solo il modello di Azure Resource Manager. I servizi diversi da Azure Resource Manager non sono disponibili nel programma. Quando la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività viene eseguita, è possibile che vengano visualizzati errori perché include cmdlet per la gestione di risorse classiche. Per altre informazioni su CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Se si usa una sottoscrizione di CSP, è necessario impostare la variabile [External_EnableClassicVMs](#variables) su False dopo la distribuzione.
+Le sottoscrizioni di Azure CSP supportano solo il modello di Azure Resource Manager. I servizi diversi da Azure Resource Manager non sono disponibili nel programma. Quando la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività viene eseguita, è possibile che vengano visualizzati errori perché include cmdlet per la gestione di risorse classiche. Per altre informazioni su CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services). Se si usa una sottoscrizione di CSP, è necessario impostare la variabile [External_EnableClassicVMs](#variables) su False dopo la distribuzione.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134618"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170344"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -23,7 +23,7 @@ Questo articolo fornisce informazioni generali e procedure per la configurazione
 
 [La crittografia di dati inattivi](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) è un requisito comune per la privacy e la sicurezza nelle organizzazioni. È possibile lasciare che Azure gestisca completamente la crittografia di dati inattivi, mentre sono disponibili diverse opzioni per gestire con precisione la crittografia o le chiavi di crittografia.
 
-Monitoraggio di Azure garantisce che tutti i dati siano crittografati quando sono inattivi usando chiavi gestite da Azure. Monitoraggio di Azure offre inoltre un'opzione per la crittografia dei dati tramite la propria chiave archiviata in  [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) e a cui è possibile accedere tramite l'archivio usando l' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)  assegnata dal sistema. Questa chiave può essere [software o protetta dal modulo di protezione hardware](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Monitoraggio di Azure garantisce che tutti i dati e le query salvate siano crittografati a riposo usando chiavi gestite da Microsoft (MMK). Monitoraggio di Azure offre anche un'opzione per la crittografia usando la propria chiave archiviata nel [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) e a cui si accede tramite l'archiviazione tramite l'autenticazione dell' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) assegnata dal sistema. Questa chiave (CMK) può essere [software o hardware-HSM protetto](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 L'uso della crittografia da parte di Monitoraggio di Azure è identico a quello della [crittografia di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) .
 
@@ -235,7 +235,7 @@ Content-type: application/json
 
 L'identità viene assegnata alla risorsa *Cluster* al momento della creazione.
 
-**Risposta**
+**Response**.
 
 200 OK e intestazione.
 
@@ -249,7 +249,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 Authorization: Bearer <token>
 ```
 
-**Risposta**
+**Response**.
 
 ```json
 {
@@ -334,7 +334,7 @@ Content-type: application/json
 
 "KeyVaultProperties" contiene i dettagli dell'identificatore di chiave di Key Vault.
 
-**Risposta**
+**Response**.
 
 200 OK e intestazione.
 Per completare la propagazione dell'identificatore di chiave sono necessari alcuni minuti. È possibile controllare lo stato di aggiornamento in due modi:
@@ -401,7 +401,7 @@ Content-type: application/json
 }
 ```
 
-**Risposta**
+**Response**.
 
 200 OK e intestazione.
 
@@ -546,7 +546,7 @@ Dopo la configurazione, qualsiasi nuova query di avviso verrà salvata nella ris
   Authorization: Bearer <token>
   ```
 
-  **Risposta**
+  **Response**.
   
   ```json
   {
@@ -592,7 +592,7 @@ Dopo la configurazione, qualsiasi nuova query di avviso verrà salvata nella ris
   Authorization: Bearer <token>
   ```
     
-  **Risposta**
+  **Response**.
     
   La stessa risposta di 'risorse *Cluster* per un gruppo di risorse', ma nell'ambito della sottoscrizione.
 
@@ -652,7 +652,7 @@ Dopo la configurazione, qualsiasi nuova query di avviso verrà salvata nella ris
   Authorization: Bearer <token>
   ```
 
-  **Risposta**
+  **Response**.
 
   200 OK e intestazione.
 

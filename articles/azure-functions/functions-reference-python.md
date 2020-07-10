@@ -4,11 +4,12 @@ description: Informazioni sullo sviluppo di funzioni con Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d3e313d464a8da8b62d5c22b5983c6458f42b5d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730748"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170378"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -427,17 +428,15 @@ Quando si è pronti per la pubblicazione, assicurarsi che tutte le dipendenze di
 
 I file e le cartelle di progetto esclusi dalla pubblicazione, inclusa la cartella dell'ambiente virtuale, sono elencati nel file con estensione funcignore.
 
-Sono supportate tre azioni di compilazione per la pubblicazione del progetto Python in Azure:
+Sono supportate tre azioni di compilazione per la pubblicazione del progetto Python in Azure: compilazione remota, compilazione locale e compilazioni usando dipendenze personalizzate.
 
-+ Compilazione remota: le dipendenze si ottengono in remoto in base al contenuto del file requirements.txt. La [compilazione remota](functions-deployment-technologies.md#remote-build) è il metodo di compilazione consigliato. È anche l'opzione di compilazione predefinita degli strumenti di Azure.
-+ Compilazione locale: le dipendenze si ottengono in locale in base al contenuto del file requirements.txt.
-+ Dipendenze personalizzate: il progetto usa pacchetti non disponibili pubblicamente per gli strumenti di Azure (richiede Docker).
-
-Per la compilazione di dipendenze e la pubblicazione con un sistema di distribuzione continua (CD), [usare Azure Pipelines](functions-how-to-azure-devops.md).
+È anche possibile usare Azure Pipelines per compilare le dipendenze e pubblicare usando il recapito continuo (CD). Per altre informazioni, vedere [recapito continuo con Azure DevOps](functions-how-to-azure-devops.md).
 
 ### <a name="remote-build"></a>Compilazione remota
 
-Per impostazione predefinita, Azure Functions Core Tools richiede una compilazione remota quando si usa il comando [func azure functionapp publish](functions-run-local.md#publish) per pubblicare il progetto Python in Azure.
+Quando si usa la compilazione remota, le dipendenze ripristinate nel server e le dipendenze native corrispondono all'ambiente di produzione. In questo modo si ottiene un pacchetto di distribuzione più piccolo da caricare. Usare la compilazione remota quando si sviluppano app Python in Windows. Se il progetto ha dipendenze personalizzate, è possibile [usare la compilazione remota con l'URL dell'indice aggiuntivo](#remote-build-with-extra-index-url). 
+ 
+Le dipendenze vengono ottenute in modalità remota in base al contenuto del file di requirements.txt. La [compilazione remota](functions-deployment-technologies.md#remote-build) è il metodo di compilazione consigliato. Per impostazione predefinita, Azure Functions Core Tools richiede una compilazione remota quando si usa il comando [func azure functionapp publish](functions-run-local.md#publish) per pubblicare il progetto Python in Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -449,7 +448,7 @@ Anche l'[estensione Funzioni di Azure per Visual Studio Code](functions-create-f
 
 ### <a name="local-build"></a>Compilazione locale
 
-È possibile evitare l'esecuzione di una compilazione remota usando il comando [func azure functionapp publish](functions-run-local.md#publish) per pubblicare con una compilazione locale.
+Le dipendenze vengono ottenute localmente in base al contenuto del file di requirements.txt. È possibile evitare l'esecuzione di una compilazione remota usando il comando [func azure functionapp publish](functions-run-local.md#publish) per pubblicare con una compilazione locale.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -457,9 +456,21 @@ func azure functionapp publish <APP_NAME> --build local
 
 Ricordare di sostituire `<APP_NAME>` con il nome dell'app per le funzioni in Azure.
 
-Usando l'opzione `--build local`, le dipendenze del progetto vengono lette dal file requirements.txt e i pacchetti dipendenti vengono scaricati e installati localmente. I file e le dipendenze del progetto vengono distribuiti dal computer locale in Azure. Questo comporta il caricamento di un pacchetto di distribuzione di dimensioni maggiori in Azure. Se per qualche motivo le dipendenze nel file requirements.txt non possono essere acquisite da Core Tools, è necessario usare l'opzione delle dipendenze personalizzate per la pubblicazione.
+Usando l'opzione `--build local`, le dipendenze del progetto vengono lette dal file requirements.txt e i pacchetti dipendenti vengono scaricati e installati localmente. I file e le dipendenze del progetto vengono distribuiti dal computer locale in Azure. Questo comporta il caricamento di un pacchetto di distribuzione di dimensioni maggiori in Azure. Se per qualche motivo le dipendenze nel file requirements.txt non possono essere acquisite da Core Tools, è necessario usare l'opzione delle dipendenze personalizzate per la pubblicazione. 
+
+Non è consigliabile usare le compilazioni locali per lo sviluppo in locale in Windows.
 
 ### <a name="custom-dependencies"></a>Dipendenze personalizzate
+
+Quando il progetto ha dipendenze non trovate nell' [indice del pacchetto python](https://pypi.org/), esistono due modi per compilare il progetto. Il metodo di compilazione dipende dalla modalità di compilazione del progetto.
+
+#### <a name="remote-build-with-extra-index-url"></a>Compilazione remota con URL dell'indice aggiuntivo
+
+Quando i pacchetti sono disponibili da un indice di pacchetto personalizzato accessibile, utilizzare una compilazione remota. Prima della pubblicazione, assicurarsi di [creare un'impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) denominata `PIP_EXTRA_INDEX_URL` . Il valore di questa impostazione è l'URL dell'indice del pacchetto personalizzato. L'utilizzo di questa impostazione indica che la compilazione remota viene eseguita `pip install` utilizzando l' `--extra-index-url` opzione. Per altre informazioni, vedere la [documentazione sull'installazione PIP di Python](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format). 
+
+È anche possibile usare le credenziali di autenticazione di base con gli URL degli indici dei pacchetti aggiuntivi. Per altre informazioni, vedere [credenziali di autenticazione di base](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) nella documentazione di Python.
+
+#### <a name="install-local-packages"></a>Installare i pacchetti locali
 
 Se il progetto usa pacchetti non disponibili pubblicamente per gli strumenti di Azure, è possibile renderli disponibili nell'app inserendoli nella directory \_\_app\_\_/.python_packages. Prima della pubblicazione, eseguire il comando seguente per installare le dipendenze in locale:
 
@@ -467,7 +478,7 @@ Se il progetto usa pacchetti non disponibili pubblicamente per gli strumenti di 
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-Quando si usano dipendenze personalizzate, è necessario usare l'opzione di pubblicazione `--no-build`, perché le dipendenze sono già state installate.
+Quando si utilizzano dipendenze personalizzate, è necessario utilizzare l' `--no-build` opzione di pubblicazione, dal momento che le dipendenze sono già state installate nella cartella del progetto.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
