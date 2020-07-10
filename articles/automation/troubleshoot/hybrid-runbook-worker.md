@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28b6b09c679e37ca4ecd901371e65bffb27ecba4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680997"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187201"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Risolvere i problemi di un ruolo di lavoro ibrido per runbook
 
@@ -57,7 +58,7 @@ Verificare se nel registro eventi **Microsoft-SMA** è presente un evento corris
 
 #### <a name="issue"></a>Problema
 
-Il ruolo di lavoro ibrido per runbook riceve l'evento 15011 a indicare che il risultato di una query non è valido. L'errore seguente viene visualizzato quando il ruolo di lavoro tenta di aprire una connessione con il [server SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+Il ruolo di lavoro ibrido per runbook riceve l'evento 15011 a indicare che il risultato di una query non è valido. L'errore seguente viene visualizzato quando il ruolo di lavoro tenta di aprire una connessione con il [server SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -237,7 +238,7 @@ I ruoli di lavoro ibridi inviano [output e messaggi del runbook](../automation-r
 
 #### <a name="issue"></a>Problema
 
-Uno script in esecuzione in un ruolo di lavoro ibrido per runbook di Windows non si connette come previsto a Office 365 su una sandbox di Orchestrator. Lo script usa [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) per la connessione. 
+Uno script in esecuzione in un ruolo di lavoro ibrido per runbook di Windows non si connette come previsto a Office 365 su una sandbox di Orchestrator. Lo script usa [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) per la connessione. 
 
 Se si modifica **Orchestrator.Sandbox.exe.config** per configurare il proxy e l'elenco di esclusione, la sandbox continua a non connettersi correttamente. Un file **Powershell_ise.exe.config** con le stesse impostazioni del proxy e dell'elenco di esclusione. I registri di Service Management Automation (SMA) e PowerShell non forniscono alcuna informazione relativa al proxy.
 
@@ -247,9 +248,9 @@ La connessione ad Active Directory Federation Services (AD FS) nel server non pu
 
 #### <a name="resolution"></a>Risoluzione
 
-È possibile risolvere il problema della sandbox di Orchestrator eseguendo la migrazione dello script per usare i moduli di Azure Active Directory invece del modulo MSOnline per i cmdlet di PowerShell. Per altre informazioni, vedere [Migrazione da Orchestrator ad Automazione di Azure (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+È possibile risolvere il problema della sandbox di Orchestrator eseguendo la migrazione dello script per usare i moduli di Azure Active Directory invece del modulo MSOnline per i cmdlet di PowerShell. Per altre informazioni, vedere [Migrazione da Orchestrator ad Automazione di Azure (Beta)](../automation-orchestrator-migration.md).
 
-Se si vuole continuare a usare i cmdlet del modulo MSOnline, modificare lo script in modo da usare [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specificare i valori per i parametri `ComputerName` e `Credential`. 
+Se si vuole continuare a usare i cmdlet del modulo MSOnline, modificare lo script in modo da usare [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specificare i valori per i parametri `ComputerName` e `Credential`. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential

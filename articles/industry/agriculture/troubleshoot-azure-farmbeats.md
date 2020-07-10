@@ -5,11 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6527ee8be64d57b42d7753c266a5c416ceeef589
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656828"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187711"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -109,7 +110,7 @@ Per informazioni su come scaricare i log, vedere la sezione ["Raccogliere i log 
 > [!NOTE]
 > ID partner del partner per i sensori a cui si è interessati.
 
-3. Tornare all'API Partner e selezionare **Get/\<ID>** .
+3. Tornare all'API partner e selezionare **get/ \<ID> **.
 4. Specificare l'ID partner del passaggio 3, quindi selezionare **Esegui**.
 
    La risposta dell'API includerà la stringa di connessione di Hub eventi.
@@ -249,7 +250,7 @@ questo problema può verificarsi quando vengono eseguite attività di manutenzio
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: numero massimo di connessioni raggiunto
 
-**Messaggio di errore processo**: "Maximum number of two concurrent flows achieved by the user '\<username>'." (Numero massimo di due flussi simultanei raggiunto dall'utente '<nomeutente>').
+**Messaggio di errore del processo**: "numero massimo di due flussi simultanei ottenibili dall'utente" " \<username> .
 
 **Significato**: Se un processo ha esito negativo perché è stato raggiunto il numero massimo di connessioni, lo stesso account Sentinel viene usato in più processi.
 
@@ -313,3 +314,39 @@ questo problema può verificarsi quando vengono eseguite attività di manutenzio
 1. Passare al gruppo di risorse Datahub FarmBeats.
 2. Selezionare il **servizio app**.  
 3. Scorrere la [pagina dei prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/windows/) e selezionare un piano tariffario appropriato.
+
+## <a name="weather-data-job-failures"></a>Errori dei processi di dati meteorologici
+
+**Errore**: si eseguono i processi per ottenere i dati meteorologici ma il processo non riesce
+
+### <a name="collect-logs-to-troubleshoot-weather-data-job-failures"></a>Raccogliere i log per risolvere gli errori relativi ai processi di dati meteorologici
+
+1. Passare al gruppo di risorse FarmBeats nel portale di Azure.
+2. Fare clic sul servizio Data Factory che fa parte del gruppo di risorse. Il servizio avrà un tag "SKU: datahub"
+
+> [!NOTE]
+> Per visualizzare i tag dei servizi nel gruppo di risorse, fare clic su "modifica colonne" e aggiungere "tag" alla visualizzazione del gruppo di risorse.
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Progetto FarmBeats":::
+
+3. Nella pagina Panoramica della data factory fare clic su **autore e monitoraggio**. Verrà aperta una nuova scheda nel browser. Fare clic su **monitoraggio**
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Progetto FarmBeats":::
+
+4. Verrà visualizzato un elenco di esecuzioni di pipeline che fanno parte dell'esecuzione del processo Meteo. Fare clic sul processo per cui si vogliono raccogliere i log
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Progetto FarmBeats":::
+
+5. Nella pagina Panoramica pipeline verrà visualizzato l'elenco delle esecuzioni di attività. Prendere nota degli ID di esecuzione delle attività per cui si vogliono raccogliere i log
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Progetto FarmBeats":::
+
+6. Tornare al gruppo di risorse FarmBeats in portale di Azure e fare clic sull'account di archiviazione con il nome **datahublogs-xxxx**
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Progetto FarmBeats":::
+
+7. Fare clic su **contenitori**  ->  **adfjobs**. Nella casella di ricerca immettere l'ID di esecuzione del processo annotato nel passaggio 5 riportato sopra.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Progetto FarmBeats":::
+
+8. Il risultato della ricerca conterrà la cartella che contiene i log relativi al processo. Scaricare i log e inviarli a farmbeatssupport@microsoft.com per assistenza nel debug del problema.

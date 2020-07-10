@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134046"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201207"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande frequenti: Ripristino di emergenza da Azure ad Azure
 
@@ -120,7 +120,7 @@ No, questo scenario non è supportato. Tuttavia, se si spostano accidentalmente 
 I criteri di replica definiscono le impostazioni per la cronologia di conservazione dei punti di recupero. Definiscono inoltre la frequenza degli snapshot coerenti con l'app. Per impostazione predefinita, Azure Site Recovery crea nuovi criteri di replica con le impostazioni predefinite seguenti:
 
 - 24 ore per la cronologia della conservazione dei punti di recupero.
-- 60 minuti per la frequenza degli snapshot coerenti con l'app.
+- 4 ore per la frequenza degli snapshot coerenti con l'app.
 
 [Altre informazioni sulle impostazioni di replica](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 75db20bdb746e7d15bef56ce7ac0a064993d3f3a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045825"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187762"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Distribuire un processo di analisi di flusso di Azure tramite CI/CD NPM Package 
 
@@ -41,15 +41,11 @@ Quando un progetto di analisi di flusso Visual Studio Code viene compilato corre
 
 * File del modello di Resource Manager
 
-   ```
-   [ProjectName].JobTemplate.json 
-   ```
+   `[ProjectName].JobTemplate.json`
 
 * File dei parametri di Resource Manager
 
-   ```
-   [ProjectName].JobTemplate.parameters.json
-   ```   
+   `[ProjectName].JobTemplate.parameters.json`   
 
 I parametri predefiniti presenti nel parameters.jsfile sono inclusi nelle impostazioni del progetto Visual Studio Code. Se si vuole distribuire in un altro ambiente, sostituire i parametri di conseguenza.
 
@@ -151,35 +147,35 @@ Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual
 
 2. Selezionare il **+** accanto a **processo di Agent** e cercare *distribuzione gruppo di risorse di Azure*. Immettere i parametri seguenti:
 
-   |Impostazione|valore|
+   |Impostazione|Valore|
    |-|-|
    |Nome visualizzato| *Distribuire myASAJob*|
    |Sottoscrizione di Azure| Scegliere la propria sottoscrizione.|
-   |Action| *Creare o aggiornare un gruppo di risorse*|
-   |Resource group| Scegliere un nome per il gruppo di risorse di test che conterrà il processo di analisi di flusso.|
-   |Location|Scegliere il percorso del gruppo di risorse di test.|
+   |Azione| *Creare o aggiornare un gruppo di risorse*|
+   |Gruppo di risorse| Scegliere un nome per il gruppo di risorse di test che conterrà il processo di analisi di flusso.|
+   |Località|Scegliere il percorso del gruppo di risorse di test.|
    |Percorso del modello| *Artefatto collegato*|
    |Modello| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.js |
    |Parametri di modelli|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.js|
    |Eseguire l'override dei parametri del modello|-Input_IoTHub1_iotHubNamespace $ (test_eventhubname)|
-   |Modalità di distribuzione|Incremental|
+   |Modalità di distribuzione|Incrementale|
 
 3. Dall'elenco a discesa attività selezionare **Distribuisci processo in ambiente di produzione**.
 
 4. Selezionare il **+** accanto a **processo di Agent** e cercare *distribuzione gruppo di risorse di Azure*. Immettere i parametri seguenti:
 
-   |Impostazione|valore|
+   |Impostazione|Valore|
    |-|-|
    |Nome visualizzato| *Distribuire myASAJob*|
    |Sottoscrizione di Azure| Scegliere la propria sottoscrizione.|
-   |Action| *Creare o aggiornare un gruppo di risorse*|
-   |Resource group| Scegliere un nome per il gruppo di risorse di produzione che conterrà il processo di analisi di flusso.|
-   |Location|Scegliere il percorso del gruppo di risorse di produzione.|
+   |Azione| *Creare o aggiornare un gruppo di risorse*|
+   |Gruppo di risorse| Scegliere un nome per il gruppo di risorse di produzione che conterrà il processo di analisi di flusso.|
+   |Località|Scegliere il percorso del gruppo di risorse di produzione.|
    |Percorso del modello| *Artefatto collegato*|
    |Modello| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.js |
    |Parametri di modelli|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.js|
    |Eseguire l'override dei parametri del modello|-Input_IoTHub1_iotHubNamespace $ (eventhubname)|
-   |Modalità di distribuzione|Incremental|
+   |Modalità di distribuzione|Incrementale|
 
 ### <a name="create-release"></a>Crea versione
 

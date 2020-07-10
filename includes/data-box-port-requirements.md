@@ -5,15 +5,15 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 4a3925752d1af5e43d5984b06c0a68aa9faa214b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 948f5399ceb931d701341c2cf378482ede94979d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67839754"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200318"
 ---
-| N. porta| In ingresso/In uscita | Ambito porta| Necessario| Note |   |
-|--------|-----|-----|-----------|----------|-----------|
+| N. porta| In ingresso/In uscita | Ambito porta| Obbligatorio| Note |
+|--------|-----|-----|-----------|----------|
 | TCP 80 (HTTP)|In|LAN|Sì|Questa porta viene usata per connettersi a Data Box le API REST di archiviazione Blog su HTTP. Se non ci si connette alle API REST, viene automaticamente reindirizzato all'interfaccia utente Web locale su 8443. |
 | TCP 443 (HTTPS)|In|LAN|Sì|Questa porta viene usata per connettersi a Data Box le API REST di archiviazione Blog su HTTPS. Se non ci si connette alle API REST, viene automaticamente reindirizzato all'interfaccia utente Web locale su 8443. |
 | TCP 8443 (HTTPS-ALT)|In|LAN|Sì|Si tratta di una porta alternativa per HTTPS e viene usata quando ci si connette all'interfaccia utente Web locale per la gestione dei dispositivi. |

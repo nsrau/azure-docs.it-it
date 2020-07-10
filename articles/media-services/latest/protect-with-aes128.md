@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 126700e6290650221a9cb9711b22472301409fca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e5f1e38461b7f229f9eb7559aeb6203563fceb6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974173"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200196"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Esercitazione: crittografare i video con AES-128 e usare il servizio di distribuzione delle chiavi
 
@@ -148,7 +149,7 @@ Ora che il [localizzatore di streaming](https://docs.microsoft.com/rest/api/medi
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Pulire le risorse nell'account di Servizi multimediali
 
-In genere, è consigliabile eliminare tutti gli oggetti tranne gli oggetti che si prevede di riutilizzare (in genere si riutilizzeranno le trasformazioni, i localizzatori di streaming e così via). Se dopo l'attività di sperimentazione si vuole pulire l'account, eliminare le risorse che non si prevede di riutilizzare. Il codice seguente, ad esempio, elimina gli oggetti Job:
+In genere, è consigliabile eliminare tutti gli oggetti tranne gli oggetti che si prevede di riutilizzare (in genere si riutilizzeranno le trasformazioni, i localizzatori di streaming e così via). Se dopo l'attività di sperimentazione si vuole pulire l'account, eliminare le risorse che non si prevede di riutilizzare. Ad esempio, il codice seguente elimina il processo, gli asset creati e i criteri della chiave simmetrica:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 

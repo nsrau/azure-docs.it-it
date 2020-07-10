@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113157"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203115"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Sintassi di $orderby OData in Azure ricerca cognitiva
 
@@ -63,19 +64,27 @@ La sintassi per `search.score` in **$orderby** è `search.score()`. La funzione 
 
 Ordinare gli alberghi per tariffa di base crescente:
 
+```odata-filter-expr
     $orderby=BaseRate asc
+```
 
 Ordinare gli alberghi per classificazione decrescente, quindi per tariffa di base crescente. Tenere presente che l'ordinamento predefinito è crescente:
 
+```odata-filter-expr
     $orderby=Rating desc,BaseRate
+```
 
 Ordinare gli hotel in ordine decrescente in base alla classificazione, quindi ascendere per distanza dalle coordinate specificate:
 
+```odata-filter-expr
     $orderby=Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 Ordinare gli hotel in ordine decrescente in base alla ricerca. Punteggio e classificazione, quindi in ordine crescente per distanza dalle coordinate specificate. Tra due alberghi con punteggi e punteggi di pertinenza identici, quello più vicino è elencato per primo:
 
+```odata-filter-expr
     $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

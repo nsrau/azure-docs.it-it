@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 06/26/2020
-ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95177282ad5b07a600f11f72789e0fc08f4b52c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483279"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199821"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -48,7 +48,7 @@ Informazioni su [dove e come distribuire il modello in una destinazione di calco
 
 Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning. Questo calcolo è ottimizzato per i carichi di lavoro di machine learning. Azure Machine Learning i cluster di calcolo e le [istanze di calcolo](concept-compute-instance.md) sono gli unici calcoli gestiti. In futuro potrebbero essere aggiunte risorse di calcolo gestite aggiuntive.
 
-È possibile creare Azure Machine Learning istanze di calcolo (anteprima) o cluster di calcolo da:
+È possibile creare Azure Machine Learning istanze di calcolo o cluster di calcolo da:
 * Azure Machine Learning Studio
 * Portale di Azure
 * Classi [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AMLCOMPUTE](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) per Python SDK
@@ -82,17 +82,17 @@ Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle seri
 
 | **Serie di macchine virtuali supportate**  | **Restrizioni** |
 |------------|------------|
-| D | nessuno |
-| Dv2 | nessuno |  
-| DSv2 | nessuno |  
-| FSv2 | nessuno |  
+| D | Nessuno |
+| Dv2 | Nessuno |  
+| DSv2 | Nessuno |  
+| FSv2 | Nessuno |  
 | M | Richiede approvazione |
-| NC | nessuno |    
+| NC | Nessuno |    
 | NCsv2 | Richiede approvazione |
 | NCsv3 | Richiede approvazione |  
 | NDs | Richiede approvazione |
 | NDv2 | Richiede approvazione |
-| NV | nessuno |
+| NV | Nessuno |
 | NVv3 | Richiede approvazione | 
 
 

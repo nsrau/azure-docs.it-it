@@ -8,11 +8,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bebc89514da7f28015da5cb145ae50bf3fccdb6a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: edd57d3d77432f3bb37872ee26f414b56398cae0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680092"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187286"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Risolvere i problemi relativi all'account di Automazione di Azure
 
@@ -44,7 +45,7 @@ Per registrare il provider di risorse di Automazione, seguire questa procedura n
 
 4. Dall'elenco dei provider di risorse, verificare che il provider di risorse **Microsoft.Automation** sia registrato.
 
-5. Se il provider non è elencato, registrarlo come descritto in [Risolvere gli errori di registrazione del provider di risorse](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. Se il provider non è elencato, registrarlo come descritto in [Risolvere gli errori di registrazione del provider di risorse](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

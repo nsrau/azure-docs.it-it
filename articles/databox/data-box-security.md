@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817724"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200415"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Sicurezza e protezione dei dati di Azure Data Box
 
@@ -30,11 +30,14 @@ La soluzione Microsoft Azure Data Box è costituita da quattro componenti princi
 - **Client/host connessi al dispositivo**: i client nell'infrastruttura che si connettono al dispositivo Data Box tramite USB e che contengono i dati da proteggere.
 - **Archiviazione cloud** Posizione nel cloud Azure in cui vengono archiviati i dati. In genere si tratta dell'account di archiviazione collegato alla risorsa di Azure Data Box creata.
 
-Il diagramma seguente indica il flusso dei dati attraverso la soluzione Azure Data Box, dall'ambiente locale ad Azure.
+Il diagramma seguente indica il flusso dei dati attraverso la soluzione Azure Data Box, dall'ambiente locale ad Azure. Questo flusso è per un ordine di importazione per il Data Box.
 
 ![Sicurezza di Data Box](media/data-box-security/data-box-security-2.png)
 
-Con il passaggio dei dati attraverso questa soluzione, vengono registrati eventi e vengono generati log. Per altre informazioni, vedere [Rilevamento e registrazione degli eventi per Azure Data Box](data-box-logs.md).
+Con il passaggio dei dati attraverso questa soluzione, vengono registrati eventi e vengono generati log. Per altre informazioni, vedere:
+
+- [Rilevamento e registrazione degli eventi per gli ordini di importazione Azure Data Box](data-box-logs.md).
+- [Rilevamento e registrazione degli eventi per gli ordini di esportazione Azure Data Box](data-box-export-logs.md)
 
 ## <a name="security-features"></a>Funzionalità di sicurezza
 
@@ -81,9 +84,9 @@ Azure Data Box raccoglie e visualizza informazioni personali nei principali casi
   - Numero di telefono
   - Posta elettronica
   - Indirizzo
-  - city
+  - City
   - CAP
-  - State
+  - Stato
   - Paese/provincia/area geografica
   - Numero di account del vettore
   - Numero di tracciabilità della spedizione

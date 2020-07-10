@@ -9,11 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 23e4d104697b5b688330c6ab3a93beebf62f3c6a
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 839347ce0a04cc1ca1bf16c68e0ccc36fcf0f7fc
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799960"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200804"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metriche in Monitoraggio di Azure
 
@@ -28,15 +29,15 @@ Le metriche sono valori numerici che descrivono alcuni aspetti di un sistema in 
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Che cosa è possibile fare con le metriche di Monitoraggio di Azure?
 La tabella seguente elenca le diverse modalità per l'uso dei dati delle metriche in Monitoraggio di Azure.
 
-|  |  |
+|  | Descrizione |
 |:---|:---|
-| Analisi | Usare [Esplora metriche](metrics-charts.md) per analizzare le metriche raccolte in un grafico e confrontare le metriche di diverse risorse. |
-| Visualizzazione | Aggiungere un grafico di Esplora metriche in un [dashboard di Azure](../learn/tutorial-app-dashboards.md).<br>Creare una[ cartella di lavoro](../platform/workbooks-overview.md) per combinare più set di dati in un report interattivo. Esportare i risultati di una query in [Grafana](grafana-plugin.md) per sfruttarne le capacità di creazione dashboard e combinare i risultati con altre origini dati. |
-| Avviso | Configurazione di una [regola di avviso per la metrica](alerts-metric.md) che invia una notifica o esegue un'[operazione automatica](action-groups.md) quando il valore della metrica supera una soglia. |
-| Automatizzare |  Uso della [scalabilità automatica](autoscale-overview.md) per aumentare o ridurre le risorse in base a un valore della metrica che supera una soglia. |
-| Esportazione | [Instradare le metriche ai log](resource-logs-collect-storage.md) per analizzare i dati delle metriche di Monitoraggio di Azure insieme ai dati dei log di Monitoraggio di Azure e archiviare i valori delle metriche per più di 93 giorni.<br>Trasmettere le metriche a un [hub eventi](stream-monitoring-data-event-hubs.md) per instradarle a sistemi esterni. |
-| Recupero | Accedere ai valori della metrica da una riga di comando mediante i [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Accedere ai valori della metrica da un'applicazione personalizzata mediante [API REST](rest-api-walkthrough.md).<br>Accedere ai valori della metrica da una riga di comando mediante l'[interfaccia della riga di comando](/cli/azure/monitor/metrics). |
-| Archiviazione | [Archiviare](..//learn/tutorial-archive-data.md) la cronologia relativa alle prestazioni o all'integrità della risorsa a scopi di conformità, verifica o creazione di report offline. |
+| **Analisi** | Usare [Esplora metriche](metrics-charts.md) per analizzare le metriche raccolte in un grafico e confrontare le metriche di diverse risorse. |
+| **Visualizzazione** | Aggiungere un grafico di Esplora metriche in un [dashboard di Azure](../learn/tutorial-app-dashboards.md).<br>Creare una[ cartella di lavoro](../platform/workbooks-overview.md) per combinare più set di dati in un report interattivo. Esportare i risultati di una query in [Grafana](grafana-plugin.md) per sfruttarne le capacità di creazione dashboard e combinare i risultati con altre origini dati. |
+| **Avviso** | Configurazione di una [regola di avviso per la metrica](alerts-metric.md) che invia una notifica o esegue un'[operazione automatica](action-groups.md) quando il valore della metrica supera una soglia. |
+| **Automatizzare** |  Uso della [scalabilità automatica](autoscale-overview.md) per aumentare o ridurre le risorse in base a un valore della metrica che supera una soglia. |
+| **Export** | [Instradare le metriche ai log](resource-logs-collect-storage.md) per analizzare i dati delle metriche di Monitoraggio di Azure insieme ai dati dei log di Monitoraggio di Azure e archiviare i valori delle metriche per più di 93 giorni.<br>Trasmettere le metriche a un [hub eventi](stream-monitoring-data-event-hubs.md) per instradarle a sistemi esterni. |
+| **Recupero** | Accedere ai valori della metrica da una riga di comando mediante i [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Accedere ai valori della metrica da un'applicazione personalizzata mediante [API REST](rest-api-walkthrough.md).<br>Accedere ai valori della metrica da una riga di comando mediante l'[interfaccia della riga di comando](/cli/azure/monitor/metrics). |
+| **Archiviazione** | [Archiviare](..//learn/tutorial-archive-data.md) la cronologia relativa alle prestazioni o all'integrità della risorsa a scopi di conformità, verifica o creazione di report offline. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Come sono strutturati i dati nelle metriche di Monitoraggio di Azure?
 I dati raccolti dalle metriche di Monitoraggio di Azure vengono archiviati in un database di serie temporali ottimizzato per l'analisi dei dati con timestamp. Ogni set di valori della metrica è una serie temporale con le proprietà seguenti:

@@ -5,14 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
-ms.date: 06/03/2019
+ms.topic: article
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608248"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202537"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usare l'interfaccia utente Web locale per amministrare il Data Box e Data Box Heavy
 
@@ -27,6 +28,8 @@ L'articolo include le esercitazioni seguenti:
 - Scaricare la distinta base o i file manifesto
 - Visualizzare la capacità disponibile del dispositivo
 - Ignorare la convalida di checksum
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Creare un pacchetto per il supporto
 
@@ -79,9 +82,9 @@ Per riavviare Data Box seguire questa procedura.
 
 ## <a name="download-bom-or-manifest-files"></a>Scaricare la distinta base o i file manifesto
 
-La fattura del materiale (BOM) o i file manifesto contengono l'elenco dei file copiati nella Data Box o Data Box Heavy. Questi file vengono generati quando si prepara il dispositivo per la spedizione.
+La fattura del materiale (BOM) o i file manifesto contengono l'elenco dei file copiati nella Data Box o Data Box Heavy. Questi file vengono generati per un ordine di importazione quando si prepara il dispositivo per la spedizione.
 
-Prima di iniziare, verificare che il dispositivo abbia completato **prepara per la spedizione** passaggio. Seguire questa procedura per scaricare la distinta base o i file manifesto:
+Prima di iniziare, verificare che il dispositivo abbia completato **prepara per la spedizione** passaggio. Seguire questa procedura per scaricare i file BOM o manifest per l'ordine di importazione:
 
 1. Passare all'interfaccia utente Web locale per il dispositivo. Si noterà che il dispositivo ha completato la preparazione per la spedizione. Al termine della preparazione, lo stato visualizzato per il dispositivo è **Pronto per la spedizione**.
 
@@ -167,6 +170,8 @@ Questo file contiene l'elenco di tutti i file copiati nella Data Box o Data Box 
 
 I checksum vengono generati per i dati per impostazione predefinita quando si prepara la spedizione. In alcuni casi rari, a seconda del tipo di dati (file di piccole dimensioni), le prestazioni potrebbero essere lente. In questi casi, è possibile ignorare i checksum.
 
+Il calcolo del checksum durante la preparazione alla spedizione viene eseguito solo per gli ordini di importazione e non per gli ordini di esportazione. 
+
 È consigliabile non disabilitare i checksum, a meno che le prestazioni non subiscano un notevole peggioramento.
 
 1. Nell'angolo in alto a destra dell'interfaccia utente Web locale del dispositivo passare a **Impostazioni**.
@@ -176,7 +181,8 @@ I checksum vengono generati per i dati per impostazione predefinita quando si pr
 2. **Disabilitare** la convalida dei checksum
 3. Fare clic su **Applica**.
 
-## <a name="next-steps"></a>Passaggi successivi
+> [!NOTE]
+> L'opzione di calcolo ignora checksum è disponibile solo quando il Azure Data Box è sbloccato. Questa opzione non viene visualizzata quando il dispositivo è bloccato.
 
 - Informazioni su come [gestire il data box e data box Heavy tramite il portale di Azure](data-box-portal-admin.md).
 

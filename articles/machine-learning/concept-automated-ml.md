@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041728"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199873"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Informazioni su Machine Learning automatizzato
 
@@ -105,7 +105,7 @@ Informazioni su come usare una [destinazione di calcolo remota](how-to-auto-trai
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 
-## <a name="feature-engineering"></a>Progettazione delle funzioni
+## <a name="feature-engineering"></a>Progettazione di caratteristiche
 
 La progettazione di funzioni è il processo di utilizzo della conoscenza del dominio dei dati per creare funzionalità che consentono agli algoritmi di Machine Learning di ottenere risultati migliori. In Azure Machine Learning vengono applicate le tecniche di ridimensionamento e normalizzazione per semplificare la progettazione delle funzionalità. Insieme, queste tecniche e progettazione di funzionalità sono denominate conteggi.
 
@@ -220,21 +220,21 @@ Le impostazioni seguenti consentono di configurare l'esperimento di Machine Lear
 
 | |Python SDK|Esperienza Web di Studio|
 ----|:----:|:----:
-Suddivide i dati in set di training/convalida| ✓|✓
-Supporta le attività di Machine Learning: classificazione, regressione e previsione| ✓| ✓
-Ottimizza in base alla metrica primaria| ✓| ✓
-Supporta l'ambiente di calcolo di Azure Machine Learning come destinazione di calcolo | ✓|✓
-Configura l'orizzonte di previsione, i ritardi di destinazione e la finestra mobile|✓|✓
-Imposta criteri uscita |✓|✓ 
-Imposta il numero massimo di iterazioni simultanee| ✓|✓
-Elimina colonne| ✓|✓
-Algoritmi di blocco|✓|✓
-Convalida incrociata |✓|✓
-Supporta il training su cluster di Azure Databricks| ✓|
-Visualizza i nomi delle funzionalità progettate|✓|
-Riepilogo delle funzionalità| ✓|
-Definizione delle funzionalità per le festività|✓|
-Livelli di dettaglio file di log| ✓|
+|**Suddivide i dati in set di training/convalida**| ✓|✓
+|**Supporta le attività di Machine Learning: classificazione, regressione e previsione**| ✓| ✓
+|**Ottimizza in base alla metrica primaria**| ✓| ✓
+|**Supporta l'ambiente di calcolo di Azure Machine Learning come destinazione di calcolo** | ✓|✓
+|**Configurare l'orizzonte di previsione, i ritardi di destinazione & finestra in sequenza**|✓|✓
+|**Imposta criteri uscita** |✓|✓ 
+|**Imposta il numero massimo di iterazioni simultanee**| ✓|✓
+|**Elimina colonne**| ✓|✓
+|**Algoritmi di blocco**|✓|✓
+|**Convalida incrociata** |✓|✓
+|**Supporta il training su cluster di Azure Databricks**| ✓|
+|**Visualizza i nomi delle funzionalità progettate**|✓|
+|**Riepilogo delle funzionalità**| ✓|
+|**Definizione delle funzionalità per le festività**|✓|
+|**Livelli di dettaglio file di log**| ✓|
 
 ### <a name="model-settings"></a>Impostazioni del modello
 
@@ -242,11 +242,11 @@ Queste impostazioni possono essere applicate al modello migliore in seguito all'
 
 | |Python SDK|Esperienza Web di Studio|
 |----|:----:|:----:|
-|Registrazione, distribuzione e spiegazione migliore del modello| ✓|✓|
-|Abilita i modelli Ensemble di voto e sovrapposizione| ✓|✓|
-|Mostra il modello migliore in base a una metrica non primaria|✓||
-|Abilita/Disabilita la compatibilità del modello ONNX|✓||
-|Testare un modello | ✓| |
+|**Registrazione, distribuzione e spiegazione migliore del modello**| ✓|✓|
+|**Abilitare i modelli di ensemble di voto & stack Ensemble**| ✓|✓|
+|**Mostra il modello migliore in base a una metrica non primaria**|✓||
+|**Abilita/Disabilita la compatibilità del modello ONNX**|✓||
+|**Testare un modello** | ✓| |
 
 ### <a name="run-control-settings"></a>Impostazioni di controllo dell'esecuzione
 
@@ -254,10 +254,10 @@ Queste impostazioni consentono di esaminare e controllare le esecuzioni dell'esp
 
 | |Python SDK|Esperienza Web di Studio|
 |----|:----:|:----:|
-|Esegue la tabella di riepilogo| ✓|✓|
-|Annulla esecuzioni ed esecuzioni figlio| ✓|✓|
-|Ottiene protezioni| ✓|✓|
-|Sospende e riprende le esecuzioni| ✓| |
+|**Esegue la tabella di riepilogo**| ✓|✓|
+|**Annulla esecuzioni & esecuzioni figlio**| ✓|✓|
+|**Ottiene protezioni**| ✓|✓|
+|**Sospendere & riprendere le esecuzioni**| ✓| |
 
 <a name="use-with-onnx"></a>
 

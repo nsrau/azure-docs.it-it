@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 741bf9e2aba6f893f670e86fb8bf5cd6c8b9d803
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113178"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201994"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatori logici OData in Azure ricerca cognitiva- `and` , `or` ,`not`
 
@@ -71,7 +72,7 @@ Esistono due forme di espressioni logiche: Binary ( `and` / `or` ), in cui sono 
 
 La maggior parte delle espressioni booleane quali funzioni e confronti non può produrre `null` valori e gli operatori logici non possono essere applicati `null` direttamente al valore letterale (ad esempio, `x and null` non è consentito). Tuttavia, i campi booleani possono essere `null` , pertanto è necessario conoscere il `and` comportamento degli operatori, `or` e `not` in presenza di valori null. Questa operazione viene riepilogata nella tabella seguente, dove `b` è un campo di tipo `Edm.Boolean` :
 
-| Expression | Risultato quando `b` è`null` |
+| Espressione | Risultato quando `b` è`null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -92,19 +93,27 @@ Quando un campo booleano `b` viene visualizzato da solo in un'espressione di fil
 
 Trova la corrispondenza dei documenti in cui il `rating` campo è compreso tra 3 e 5 inclusi:
 
+```odata-filter-expr
     rating ge 3 and rating le 5
+```
 
 Trova la corrispondenza dei documenti in cui tutti gli elementi del `ratings` campo sono minori di 3 o maggiori di 5:
 
+```odata-filter-expr
     ratings/all(r: r lt 3 or r gt 5)
+```
 
 Trova la corrispondenza dei documenti in cui il `location` campo si trova all'interno del poligono specificato e il documento non contiene il termine "public".
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))') and not search.ismatch('public')
+```
 
 Trova la corrispondenza con i documenti per gli alberghi a Vancouver, Canada in cui è disponibile una stanza Deluxe con una tariffa di base inferiore a 160:
 
+```odata-filter-expr
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
+```
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

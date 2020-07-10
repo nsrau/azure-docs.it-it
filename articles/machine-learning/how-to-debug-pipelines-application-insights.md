@@ -3,19 +3,19 @@ title: Monitorare &raccogliere i file di log della pipeline
 titleSuffix: Azure Machine Learning
 description: Aggiungere la registrazione alle pipeline di assegnazione dei punteggi di training e batch e visualizzare i risultati registrati in Application Insights.
 services: machine-learning
-author: sanpil
-ms.author: sanpil
+author: NilsPohlmann
+ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 01/16/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: a87ceb5a216b05f3fae6d570bbfed1c4a622c911
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6a4a32db18b881b702aacf7bb669ffa14f9d103e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055716"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201234"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Raccolta dei file di log della pipeline di Machine Learning in Application Insights per gli avvisi e il debug
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ La presenza dei log in una sola posizione fornirà una cronologia delle eccezion
   ```
 * Creare un' [istanza di Application Insights](../azure-monitor/app/opencensus-python.md) (questo documento contiene anche informazioni su come ottenere la stringa di connessione per la risorsa)
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Per iniziare
 
 Questa sezione è un'introduzione specifica dell'uso di OpenCensus da una pipeline Azure Machine Learning. Per un'esercitazione dettagliata, vedere [OpenCensus Azure monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 

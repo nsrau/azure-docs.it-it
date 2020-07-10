@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680836"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187133"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Risolvere i problemi relativi all'agente di aggiornamento Windows
 
@@ -109,7 +110,7 @@ Il controllo dell'accesso alla cartella Crypto determina se l'account di sistema
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Risolvere i problemi offline
 
-È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Ottenere lo script seguente da PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Per eseguire lo script, deve essere installato WMF 4.0 o versione successiva. Per scaricare la versione più recente di PowerShell vedere [Installazione delle diverse versioni di PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Ottenere lo script seguente da PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Per eseguire lo script, deve essere installato WMF 4.0 o versione successiva. Per scaricare la versione più recente di PowerShell vedere [Installazione delle diverse versioni di PowerShell](/powershell/scripting/install/installing-powershell).
 
 L'output di questo script è simile al seguente:
 

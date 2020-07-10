@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccad51d18a5e76f68633103af64e9ba6cc3f19c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833347"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203369"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 
@@ -76,13 +76,15 @@ Se si configura la [ridondanza in un'area secondaria](../common/storage-redundan
 
 La screenshot seguente mostra l'impostazione del livello di accesso pubblico nel portale di Azure:
 
-![Screenshot che illustra come impostare il livello di accesso pubblico nel portale](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Screenshot che illustra come impostare il livello di accesso pubblico nel portale](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
 Sebbene l'endpoint del sito Web statico primario non sia interessato, una modifica al livello di accesso pubblico influisce sull'endpoint del servizio BLOB primario.
 
 Ad esempio, se si modifica il livello di accesso pubblico del contenitore **$web** contenitore da **Privato (nessun accesso anonimo)** a **BLOB (accesso in lettura anonimo solo per i BLOB)** , il livello di accesso pubblico all'endpoint del sito Web statico primario `https://contosoblobaccount.z22.web.core.windows.net/index.html` non cambia.
 
 Tuttavia, l'accesso pubblico all'endpoint del servizio BLOB primario `https://contosoblobaccount.blob.core.windows.net/$web/index.html` passa da privato a pubblico. Ora gli utenti possono aprire il file usando uno di questi due endpoint.
+
+La disabilitazione dell'accesso pubblico in un account di archiviazione non influisce sui siti web statici ospitati in tale account di archiviazione. Per altre informazioni, vedere [configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB](anonymous-read-access-configure.md).
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapping di un dominio personalizzato a un URL di un sito Web statico
 

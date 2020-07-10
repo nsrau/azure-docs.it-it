@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
-ms.openlocfilehash: 33d13d2d4fa9003ef041c4c96be83a69ac595a78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 957931407987e116924677341df4effe5347590e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80298785"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187643"
 ---
 # <a name="az-spring-cloud"></a>AZ Spring-cloud
 
@@ -20,7 +20,7 @@ ms.locfileid: "80298785"
 >[!Note]
 > Azure Spring Cloud è attualmente disponibile in anteprima.  Questi comandi possono essere modificati o rimossi in una versione futura.
 
-| AZ Spring-cloud |  |
+| AZ Spring-cloud | Comandi |
 |------|------:|
 | [AZ Spring-cloud create](#az-spring-cloud-create) | Creare un'istanza di Azure Spring cloud. |
 | [AZ Spring-cloud Delete](#az-spring-cloud-delete) | Eliminare un'istanza di Azure Spring cloud. |
@@ -89,13 +89,13 @@ az spring-cloud create  --name -n
                         --no-wait
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome per questa istanza di Azure Spring cloud. |
 | --resource-group -g | Specifica il gruppo di risorse per l'app.  Configurare il gruppo predefinito usando`az configure --defaults group=<name>` |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --location -l | Specifica il percorso del server per l'app.  Trovare percorsi validi usando`az account list-locations` |
 | --no-wait | Non per il completamento delle operazioni a esecuzione prolungata.
 
@@ -117,13 +117,13 @@ az spring cloud --name -n
                 --no-wait
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'istanza del cloud Spring di Azure da eliminare. |
 | --resource-group -g | Nome del gruppo di risorse a cui appartiene il cloud Spring di Azure. |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | -No-Wait | Non attendere il completamento delle operazioni a esecuzione prolungata. |
 
 ### <a name="example"></a>Esempio
@@ -142,8 +142,8 @@ Elenca tutte le istanze di Azure Spring cloud associate al gruppo di risorse spe
 az spring-cloud list --resource-group -g
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --resource-group -g | Nome del gruppo di risorse. |
 
 ## <a name="az-spring-cloud-show"></a>AZ Spring-cloud Show
@@ -155,8 +155,8 @@ az spring-cloud show --name -n
                      -- resource-group -g
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'istanza di Azure Spring cloud. |
 | --resource-group -g | Nome del gruppo di risorse a cui appartiene l'istanza di Azure Spring cloud.
 
@@ -175,14 +175,14 @@ az spring-cloud app create --name -n
                             --memory
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --CPU | Numero di core virtuali per istanza.  Impostazione predefinita: 1. |
 | --Enable-persistent-storage | .  Se true, monta un disco da 50 GB con il percorso predefinito. |
 | --instance-count | Numero di istanze.  Impostazione predefinita: 1. |
@@ -213,8 +213,8 @@ az spring cloud app delete  --name -n
                             --service -s
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
@@ -240,14 +240,14 @@ az spring cloud app deploy  --name -n
                             --version
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --CPU | Numero di Core CPI virtuali per istanza. |
 | --Deployment-d | Nome di una distribuzione di app esistente.  Se non è specificato, il valore predefinito è la distribuzione di produzione. |
 | --ENV | Variabili di ambiente separate da spazi nel formato ' chiave [= valore]'. |
@@ -289,8 +289,8 @@ az spring-cloud app list --resource-group -g
                          --service -s
 ```
 
-|Parametri necessari | |
-| --- | ---: |
+|Parametri necessari | Descrizione |
+| --- | :--- |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
@@ -306,14 +306,14 @@ az spring-cloud app restart --name -n
                             --no-wait
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --Deployment-d | Nome della distribuzione esistente dell'app.  Se non è specificato, il valore predefinito è la distribuzione di produzione. |
 | --no-wait | Non attendere il completamento delle operazioni a esecuzione prolungata. |
 
@@ -332,14 +332,14 @@ az spring-cloud app scale --name -n
                           --no-wait
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --CPU | Numero di core della CPU virtuale per ogni istanza dell'app. |
 | --Deployment-d | Nome della distribuzione esistente dell'app.  Se non è specificato, il valore predefinito è la distribuzione di produzione. |
 | --instance-count | Numero di istanze dell'app. |
@@ -372,15 +372,15 @@ az spring-cloud app set-deployment --deployment -d
                                    --no-wait
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Deployment-d | Nome di una distribuzione esistente dell'app. |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --no-wait | Non attendere il completamento delle operazioni a esecuzione prolungata. |
 
 ### <a name="examples"></a>Esempi
@@ -401,8 +401,8 @@ az spring-cloud app show --name -n
                          --service -s
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
@@ -418,14 +418,14 @@ az spring-cloud app show-deploy-log --name -n
                                     --deployment -d
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --Deployment-d | Nome di una distribuzione esistente dell'app.  Il valore predefinito è l'ambiente di produzione. |
 
 ## <a name="az-spring-cloud-app-start"></a>AZ Spring-cloud app Start
@@ -440,14 +440,14 @@ az spring-cloud app start --name -n
                           --no-wait
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --Deployment-d | Nome di una distribuzione esistente dell'app.  Il valore predefinito è l'ambiente di produzione. |
 | --no-wait | Non attendere il completamento delle operazioni a esecuzione prolungata. |
 
@@ -463,14 +463,14 @@ az spring-cloud app stop --name -n
                          --no-wait
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --Deployment-d | Nome di una distribuzione esistente dell'app.  Il valore predefinito è l'ambiente di produzione. |
 | --no-wait | Non attendere il completamento delle operazioni a esecuzione prolungata. |
 
@@ -491,14 +491,14 @@ az spring-cloud app update --name -n
                            --runtime-version
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --Name-n | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --Deployment-d | Nome di una distribuzione esistente dell'app.  Il valore predefinito è l'ambiente di produzione. |
 | --Enable-persistent-storage | Proprietà di tipo Boolean.  Se true, montare un disco da 50 GB con il percorso predefinito. |
 | --ENV | Variabili di ambiente separate da spazi nel formato ' chiave [= valore]'. |
@@ -525,8 +525,8 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
@@ -542,8 +542,8 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --name | Nome dell'associazione al servizio da rimuovere. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
@@ -560,8 +560,8 @@ az spring-cloud app binding show --app
                                  --service -s
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --name | Nome dell'associazione al servizio. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
@@ -590,16 +590,16 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --API-Type | Specificare il tipo di API usando uno dei valori seguenti: Cassandra, Gremlin, Mongo, SQL, tabella. |
 | --app | Nome dell'applicazione. |
 | --name | Nome dell'associazione al servizio. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-|Parametri facoltativi | |
-| --- | ---: |
+|Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --Collection-Name | Nome della raccolta.  Obbligatorio quando si usa Gremlin. |
 | --database-name | Nome del database.  Obbligatorio quando si usa Mongo, SQL e Gremlin. |
 | --chiave-spazio | Spazio delle chiavi di Cassandra.  Obbligatorio quando si usa Cassandra. |
@@ -616,15 +616,15 @@ az spring-cloud app binding cosmos update --app
                                           --key-space
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --name | Nome dell'associazione al servizio. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-|Parametri facoltativi | |
-| --- | ---: |
+|Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --Collection-Name | Nome della raccolta.  Obbligatorio quando si usa Gremlin. |
 | --database-name | Nome del database.  Obbligatorio quando si usa Mongo, SQL e Gremlin. |
 | --chiave-spazio | Spazio delle chiavi di Cassandra.  Obbligatorio quando si usa Cassandra. |
@@ -641,8 +641,8 @@ az spring-cloud app binding mysql add --app
                                       --username
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --database-name | Nome del database. |
 | --key | Chiave API del servizio. |
@@ -666,15 +666,15 @@ az spring-cloud app binding mysql update --add
                                          --username
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --name | Nome dell'associazione al servizio. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --database-name | Nome del database. |
 | --key | Chiave API del servizio. |
 | --username | Nome utente per l'accesso al database. |
@@ -692,31 +692,31 @@ az spring-cloud app binding redis add --app
                                       --disable-ssl
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --name | Nome dell'associazione al servizio. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Resource-ID | ID risorsa di Azure del servizio con cui si vuole eseguire l'associazione. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --Disable-SSL | Disabilitare TLS. |
 
 ## <a name="az-spring-cloud-app-binding-redis-update"></a>AZ Spring-cloud app binding Redis Update
 
 Aggiornare un'associazione al servizio per cache di Azure per Redis.
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --name | Nome dell'associazione al servizio. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --Disable-SSL | Disabilitare TLS. |
 
 ## <a name="az-spring-cloud-app-deployment-create"></a>AZ Spring-cloud App Deployment crea
@@ -725,15 +725,15 @@ Creare una distribuzione di staging per l'app.
 
 Per distribuire il codice o per aggiornare le impostazioni a una distribuzione esistente, usare `az spring-cloud app deploy --deployment <staging-deployment>` o ' AZ Spring-cloud app Update--Deployment <staging deployment> .
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --name | Nome dell'associazione al servizio. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --CPU | Numero di core CPU virtuali per istanza.  Predefinito: 1 |
 | --ENV | Variabili di ambiente separate da spazi nel formato ' chiave [= valore]'. |
 | --instance-count | Numero di istanze. Impostazione predefinita: 1. |
@@ -771,8 +771,8 @@ az spring-cloud app deployment delete --app
                                       --service -s
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --name | Nome della distribuzione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
@@ -788,8 +788,8 @@ az spring-cloud app deployment list --app
                                     --service -s
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --Service-s | Nome del cloud Spring di Azure.  È possibile configurare il servizio predefinito usando `az configure --defaults spring-cloud=<name>` . |
@@ -805,8 +805,8 @@ az spring-cloud app deployment show --app
                                     --service -s
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --name | Nome della distribuzione. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
@@ -821,8 +821,8 @@ az spring-cloud config-server clear --name
                                         --resource-group -g
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --name | Nome del cloud Spring di Azure. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 
@@ -837,14 +837,14 @@ az spring-cloud config-server set --config-file
                                   --no-wait
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --config-file | Percorso del file di un manifesto YAML per la configurazione del server di configurazione. |
 | --name | Nome del cloud Spring di Azure. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --no-wait | Non per il completamento delle operazioni a esecuzione prolungata.
 
 ## <a name="az-spring-cloud-config-server-show"></a>AZ Spring-cloud config-server show
@@ -856,8 +856,8 @@ az spring-cloud config-server show --name -n
                                    --resource-group -g
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --name | Nome del cloud Spring di Azure. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 
@@ -880,14 +880,14 @@ az spring-cloud config-server git set --name -n
                                       --username
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --name | Nome del cloud Spring di Azure. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --URI | URI della configurazione aggiunta. |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --rinvia | Archiviare temporaneamente l'oggetto nella cache locale anziché inviarlo ad Azure.  Utilizzare `az cache` per visualizzare/deselezionare. |
 | --Host-Key | Chiave host per la configurazione aggiunta. |
 | --host-key-algorithm | Algoritmo di chiave host per la configurazione aggiunta. |
@@ -917,15 +917,15 @@ az spring-cloud config-server git repo add --name -n
                                            --username
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --name | Nome del cloud Spring di Azure. |
 | --repository-Name | URI del repository. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --URI | URI della configurazione aggiunta. |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --rinvia | Archiviare temporaneamente l'oggetto nella cache locale anziché inviarlo ad Azure.  Utilizzare `az cache` per visualizzare/deselezionare. |
 | --Host-Key | Chiave host per la configurazione aggiunta. |
 | --host-key-algorithm | Algoritmo di chiave host per la configurazione aggiunta. |
@@ -947,13 +947,13 @@ az spring-cloud config-server git repo list --name -n
                                        --defer
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --name | Nome del cloud Spring di Azure. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --rinvia | Archiviare temporaneamente l'oggetto nella cache locale anziché inviarlo ad Azure.  Utilizzare `az cache` per visualizzare/deselezionare. |
 
 ## <a name="az-spring-cloud-config-server-git-repo-remove"></a>AZ Spring-cloud config-server Git repository Remove
@@ -967,14 +967,14 @@ az spring-cloud config-server git repo remove --name -n
                                          --defer
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --name | Nome del cloud Spring di Azure. |
 | --repository-Name | URI del repository. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --rinvia | Archiviare temporaneamente l'oggetto nella cache locale anziché inviarlo ad Azure.  Utilizzare `az cache` per visualizzare/deselezionare. |
 
 ## <a name="az-spring-cloud-test-endpoint-disable"></a>AZ Spring-cloud test-endpoint Disable
@@ -986,8 +986,8 @@ az spring-cloud test-endpoint disable --name -n
                                       --resource-group -g
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --name | Nome del cloud Spring di Azure. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 
@@ -1000,8 +1000,8 @@ az spring-cloud test-endpoint enable --name -n
                                      --resource-group -g
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --name | Nome del cloud Spring di Azure. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 
@@ -1016,13 +1016,13 @@ az spring-cloud test-endpoint list --name -n
                                    --deployment -d
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --name | Nome del cloud Spring di Azure. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 
-| Parametri facoltativi | |
-| --- | ---: |
+| Parametri facoltativi | Descrizione |
+| --- | :--- |
 | --app | Nome dell'applicazione. |
 | --Deployment-d | Nome di una distribuzione esistente dell'app.  Se non è specificato, il valore predefinito è Production. |
 
@@ -1036,8 +1036,8 @@ az spring-cloud test-endpoint renew-key --name -n
                                         --type
 ```
 
-| Parametri necessari | |
-| --- | ---: |
+| Parametri necessari | Descrizione |
+| --- | :--- |
 | --name | Nome del cloud Spring di Azure. |
 | --resource-group -g | Nome del gruppo di risorse.  È possibile configurare il gruppo predefinito con `az configure --defaults group=<name>`. |
 | --tipo | Tipo di chiave dell'endpoint di test.  Valori consentiti: primario, secondario. |

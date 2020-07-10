@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193363"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187439"
 ---
 # <a name="what-is-routing-preference-preview"></a>Che cos'è la preferenza di routing (anteprima)?
 
@@ -88,7 +88,7 @@ Per informazioni su volumi mensili superiori a 500 TB, [contattare Microsoft](ht
 
 Il supporto per la preferenza di routing è disponibile nelle aree seguenti per servizi come macchine virtuali e servizio di bilanciamento del carico con connessione Internet che usano un indirizzo IP pubblico per l'uscita da Internet, ovvero Europa settentrionale, Europa occidentale, Francia meridionale, Regno Unito meridionale, Stati Uniti orientali, Sta, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti centro-occidentali, Asia sud-orientale, Germania centro-occidentale, Svizzera occidentale, Giappone orientale e Giappone occidentale.
 
-Il supporto delle preferenze di routing per l'account di archiviazione è disponibile nelle aree di Azure seguenti: Francia meridionale, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Giappone orientale, Giappone occidentale, Germania centro-occidentale e Svizzera occidentale.
+Il supporto delle preferenze di routing per l'account di archiviazione è disponibile nelle aree di Azure seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti occidentali, Europa settentrionale, Francia meridionale, Germania centro-occidentale, Svizzera occidentale, Asia orientale sud, Giappone orientale e Giappone occidentale.
 ## <a name="limitations"></a>Limitazioni
 
 * La preferenza di routing è compatibile solo con lo SKU Standard dell'indirizzo IP pubblico. Lo SKU Basic dell'indirizzo IP pubblico non è supportato.

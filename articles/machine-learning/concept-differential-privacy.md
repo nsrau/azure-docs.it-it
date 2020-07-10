@@ -1,21 +1,22 @@
 ---
-title: Implementare la privacy differenziale con il pacchetto WhiteNoise
+title: Implementare la privacy differenziale con il pacchetto WhiteNoise (anteprima)
 titleSuffix: Azure Machine Learning
 description: Informazioni sulla privacy differenziale e sul modo in cui il pacchetto WhiteNoise può essere utile per implementare sistemi di privacy differenziale in grado di proteggere la privacy dei dati.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/03/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982663"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199794"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>Mantenere la privacy dei dati tramite la privacy differenziale e il pacchetto WhiteNoise
+# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>Mantenere la privacy dei dati tramite la privacy differenziale e il pacchetto WhiteNoise (anteprima)
 
 Informazioni sulla privacy differenziale e sul modo in cui il pacchetto WhiteNoise può essere utile per implementare sistemi di privacy differenziale.
 
@@ -56,7 +57,7 @@ Anche se la tutela della privacy deve essere l'obiettivo prioritario, esiste un 
 L'implementazione di sistemi di privacy differenziale presenta alcune difficoltà. WhiteNoise è un progetto open source che contiene componenti diversi per la creazione di sistemi globali di privacy differenziale. WhiteNoise è costituito dai componenti di primo livello seguenti:
 
 - Core
-- System
+- Sistema
 
 ### <a name="core"></a>Core
 

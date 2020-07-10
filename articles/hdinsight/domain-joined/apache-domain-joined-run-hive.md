@@ -8,11 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78196927"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202585"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
 
@@ -51,11 +52,11 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 2. Selezionare **CLUSTERNAME_Hive**, in **hive**. Verranno visualizzati due criteri preconfigurati.
 3. Selezionare **Aggiungi nuovo criterio**, quindi immettere i valori seguenti:
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
     |Nome criterio|Read-hivesampletable-all|
     |Database hive|default|
-    |tabella|hivesampletable|
+    |table|hivesampletable|
     |Colonna hive|*|
     |Seleziona utente|hiveuser1|
     |Autorizzazioni|Proprietà|
@@ -69,11 +70,11 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 
 5. Ripetere gli ultimi due passaggi per creare un altro criterio con le proprietà seguenti:
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
     |Nome criterio|Read-hivesampletable-devicemake|
     |Database hive|default|
-    |tabella|hivesampletable|
+    |table|hivesampletable|
     |Colonna hive|ClientID, devicemake|
     |Seleziona utente|hiveuser2|
     |Autorizzazioni|Proprietà|
@@ -120,7 +121,9 @@ Nell'ultima sezione sono stati configurati due criteri.  hiveuser1 dispone dell'
 
 1. Selezionare la scheda **definizione** . Il testo del comando è:
 
-       SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"`
+    ```
 
    In base ai criteri di Ranger che sono stati definiti, hiveuser1 dispone dell'autorizzazione di selezione su tutte le colonne.  Quindi, questa query funziona con le credenziali di hiveuser1, ma questa query non funziona con le credenziali di quelle.
 
@@ -135,15 +138,21 @@ Per il test del secondo criterio (read-hivesampletable-devicemake) creato nell'u
 1. Aggiungere un nuovo foglio in Excel.
 2. Seguire l'ultima procedura per importare i dati.  L'unica differenza è che vengono usate le credenziali di hiveuser2 anziché quelle di hiveuser1. L'esito è negativo perché hiveuser2 ha solo l'autorizzazione per visualizzare due colonne. Verrà visualizzato l'errore seguente:
 
-        [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
-        
+    ```output
+    [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
+    ```
+
 3. Seguire la stessa procedura per importare i dati. Questa volta usare le credenziali di hiveuser2 e modificare l'istruzione di selezione da:
 
-        SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```
 
     in:
 
-        SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```
 
     Al termine, verranno visualizzate due colonne di dati importati.
 

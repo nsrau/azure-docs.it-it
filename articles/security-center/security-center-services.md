@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: memildin
-ms.openlocfilehash: 4d048bb348b8093db7d3bf92ef0fc93aead35055
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762293"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187014"
 ---
 # <a name="feature-coverage-for-machines"></a>Copertura delle funzionalità per i computer
 
@@ -38,10 +38,9 @@ Le tabelle seguenti illustrano le funzionalità del Centro sicurezza di Azure di
 |[Accesso just-in-time alle macchine virtuali](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Valutazione della vulnerabilità nativa](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitoraggio dell'integrità dei file](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Controlli delle applicazioni adattivi](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Controlli applicazioni adattivi](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mappa di rete](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Protezione adattiva della rete](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Controlli adattivi della rete|✔|✔|-|Standard|
 |[Dashboard di conformità normativa & report](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Raccomandazioni e protezione dalle minacce nei contenitori IaaS ospitati da Docker|-|-|-|Standard|
 |Valutazione patch del sistema operativo mancanti|✔|✔|✔|Gratuito|
@@ -64,7 +63,7 @@ Le tabelle seguenti illustrano le funzionalità del Centro sicurezza di Azure di
 |[Accesso just-in-time alle macchine virtuali](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Valutazione della vulnerabilità nativa](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitoraggio dell'integrità dei file](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Controlli delle applicazioni adattivi](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Controlli applicazioni adattivi](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mappa di rete](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Protezione adattiva della rete](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Controlli adattivi della rete|✔|✔|-|Standard|

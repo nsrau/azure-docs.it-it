@@ -12,11 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196381"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200543"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloccare l'autenticazione legacy
  
@@ -31,9 +32,9 @@ Oggi la maggior parte dei tentativi di accesso che compromettono la sicurezza de
 
 Prima di poter bloccare l'autenticazione legacy nella directory, è necessario anzitutto capire se gli utenti usano app che sfruttano l'autenticazione legacy e il modo in cui questa influisce sulla directory complessiva. Per capire se viene usata l'autenticazione legacy è possibile usare i log di accesso di Azure AD.
 
-1. Passare a  **Portale di Azure** > **Azure Active Directory** > **Accessi**.
+1. Passare al **portale di Azure** > **Azure Active Directory** > **Accessi**.
 1. Se non viene visualizzata, aggiungere la colonna **App client** facendo clic su  **Colonne** > **App client**.
-1. Filtrare per  **App client**  > selezionare tutte le opzioni **Client con autenticazione legacy** presenti.
+1. Filtrare in base all' **app Client** > controllare tutte le opzioni dei **client di autenticazione legacy** presentate.
 1. Filtrare per **Stato** > **Riuscito**. 
 1. Se necessario, espandere l'intervallo di date con il filtro **Data**.
 

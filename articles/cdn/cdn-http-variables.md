@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84340675"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203569"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variabili HTTP per il motore regole della rete CDN di Azure
 Le variabili HTTP forniscono gli strumenti per recuperare i metadati di richiesta e di risposta HTTP. Questi metadati possono essere quindi usati per modificare in modo dinamico una richiesta o una risposta. L'uso di variabili HTTP è limitato alle funzionalità del motore regole seguenti:
@@ -186,7 +187,7 @@ In questo scenario di esempio la variabile *request_uri* è impostata su:
 
 La tabella seguente illustra il funzionamento di questa sintassi.
 
-| Sintassi di esempio | Risultati | |
+| Sintassi di esempio | Risultati | Descrizione |
 | ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Dal momento che la variabile inizia con il criterio, è stato sostituito. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Dal momento che la variabile non termina con il criterio, non è stata apportata alcuna modifica.|

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 519d9f25276ea54fbfd49970ba3c288245ce9653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 528696daf4bddd1f448266243b511e600351606a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833690"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202600"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -129,7 +129,7 @@ Usare `validation_size` per specificare la percentuale dei dati di training da u
 
 ### <a name="custom-validation-dataset"></a>Set di dati di convalida personalizzato
 
-Usare set di dati di convalida personalizzati se la suddivisione casuale non è accettabile (in genere dati di serie temporale o dati sbilanciati). È possibile specificare il proprio set di dati di convalida. Il modello verrà valutato rispetto al set di dati di convalida specificato anziché set di dati casuali.
+Usare set di dati di convalida personalizzati se la suddivisione casuale non è accettabile (in genere dati di serie temporale o dati sbilanciati). È possibile specificare il proprio set di dati di convalida. Il modello verrà valutato rispetto al set di dati di convalida specificato anziché set di dati casuali. Altre informazioni su [come configurare un set di convalida personalizzato con l'SDK](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 ## <a name="compute-to-run-experiment"></a>Calcolo per eseguire l'esperimento
 
@@ -183,7 +183,7 @@ Per evitare errori di timeout degli esperimenti, il servizio di convalida del Ma
 ### <a name="primary-metric"></a>Metrica primaria
 La metrica primaria determina la metrica da usare durante il training del modello per l'ottimizzazione. Le metriche disponibili che è possibile selezionare sono determinate dal tipo di attività selezionato. La tabella seguente mostra le metriche primarie valide per ogni tipo di attività.
 
-|Classificazione | Regressione | Previsione di serie temporali
+|Classificazione | Regressione | Previsione serie temporale
 |-- |-- |--
 |precisione| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
@@ -433,7 +433,7 @@ Usare le due API seguenti nel primo passaggio del modello adattato per ottenere 
    |Trasformazioni|Elenco delle trasformazioni applicate alle funzionalità di input per generare le funzionalità definite.|
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Ridimensionamento o normalizzazione e algoritmo con valori di iperparametri:
 
-Per comprendere il ridimensionamento o la normalizzazione e l'algoritmo o i valori di iperparametri di una pipeline, usare fitted_model.steps. [Altre informazioni sul ridimensionamento o la normalizzazione](). Di seguito è riportato un output di esempio:
+Per comprendere il ridimensionamento o la normalizzazione e l'algoritmo o i valori di iperparametri di una pipeline, usare fitted_model.steps. [Altre informazioni sul ridimensionamento o la normalizzazione](how-to-configure-auto-features.md). Di seguito è riportato un output di esempio:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))

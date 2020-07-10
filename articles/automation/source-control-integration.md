@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 37df5ae8e88bf7832fbbeae37555d60943fca446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828883"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187303"
 ---
 # <a name="use-source-control-integration"></a>Usare l'integrazione del controllo del codice sorgente
 
@@ -72,8 +73,7 @@ Usare questa procedura per configurare il controllo del codice sorgente usando i
 
 ### <a name="configure-source-control-in-powershell"></a>Configurare il controllo del codice sorgente in PowerShell
 
-È anche possibile usare PowerShell per configurare il controllo del codice sorgente in Automazione di Azure. Per usare i cmdlet di PowerShell per questa operazione, è necessario un token di accesso personale. Usare il cmdlet [New-AzAutomationSourceControl](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0
-) per creare la connessione al controllo del codice sorgente. Questo cmdlet richiede una stringa sicura per il token di accesso personale. Per informazioni su come creare una stringa sicura, vedere [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+È anche possibile usare PowerShell per configurare il controllo del codice sorgente in Automazione di Azure. Per usare i cmdlet di PowerShell per questa operazione, è necessario un token di accesso personale. Usare il cmdlet [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) per creare la connessione al controllo del codice sorgente. Questo cmdlet richiede una stringa sicura per il token di accesso personale. Per informazioni su come creare una stringa sicura, vedere [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 Le sottosezioni seguenti illustrano la creazione della connessione al controllo del codice sorgente con PowerShell per GitHub, Azure Repos (Git) e Azure Repos (controllo della versione di Team Foundation). 
 
@@ -122,7 +122,7 @@ La tabella seguente definisce le autorizzazioni minime per il token di accesso p
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Autorizzazioni minime per il token di accesso personale per Azure Repos
 
-L'elenco seguente definisce le autorizzazioni minime per il token di accesso personale necessarie per Azure Repos. Per altre informazioni sulla creazione di un token di accesso personale in Azure Repos, vedere [Autenticare l'accesso con i token di accesso personali](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
+L'elenco seguente definisce le autorizzazioni minime per il token di accesso personale necessarie per Azure Repos. Per altre informazioni sulla creazione di un token di accesso personale in Azure Repos, vedere [Autenticare l'accesso con i token di accesso personali](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
 
 | Scope  |  Tipo di accesso  |
 |---------| ----------|
@@ -195,14 +195,14 @@ Per disconnettersi da un repository del controllo del codice sorgente:
 
 ## <a name="handle-encoding-issues"></a>Gestire i problemi di codifica
 
-Se più persone modificano i runbook nel repository del controllo del codice sorgente usando editor diversi, possono verificarsi problemi di codifica. Per altre informazioni su questa situazione, vedere [Cause più comuni dei problemi di codifica](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
+Se più persone modificano i runbook nel repository del controllo del codice sorgente usando editor diversi, possono verificarsi problemi di codifica. Per altre informazioni su questa situazione, vedere [Cause più comuni dei problemi di codifica](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Aggiornare il token di accesso personale
 
 Non è al momento possibile usare il portale di Azure per aggiornare il token di accesso personale nel controllo del codice sorgente. Quando il token di accesso personale è scaduto o revocato, è possibile aggiornare il controllo del codice sorgente con un nuovo token di accesso in uno dei modi seguenti:
 
-* Usare l'[API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
-* Usare il cmdlet [Update-AzAutomationSourceControl](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol).
+* Usare l'[API REST](/rest/api/automation/sourcecontrol/update).
+* Usare il cmdlet [Update-AzAutomationSourceControl](//powershell/module/az.automation/update-azautomationsourcecontrol).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

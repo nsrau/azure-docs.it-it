@@ -8,11 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680876"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187167"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Risolvere i problemi relativi alle risorse condivise
 
@@ -32,7 +33,7 @@ Poiché l'importazione dei moduli di PowerShell è un processo complesso e in pi
 
 #### <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema è necessario rimuovere il modulo bloccato tramite il cmdlet [Remove-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0). È quindi possibile ritentare l'importazione del modulo.
+Per risolvere questo problema è necessario rimuovere il modulo bloccato tramite il cmdlet [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0). È quindi possibile ritentare l'importazione del modulo.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -69,7 +70,7 @@ Di seguito sono elencati alcuni motivi comuni che possono causare un'importazion
 * La struttura non corrisponde a quella necessaria per Automazione.
 * Il modulo dipende da un altro modulo che non è stato distribuito nel proprio account di automazione.
 * Le dipendenze del modulo non si trovano nella cartella.
-* Il cmdlet [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.
+* Il cmdlet [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.
 
 #### <a name="resolution"></a>Risoluzione
 
