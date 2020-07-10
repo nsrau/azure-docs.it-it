@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bdb387739be65b761c773ca13b7a407d7aebf738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a1c6bb39e743a96ad110a60e41cc59306e7a2ae
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206887"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186385"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Panoramica di State Configuration di Automazione di Azure
 
@@ -77,7 +77,7 @@ Per i nodi che eseguono Linux, l'estensione DSC per Linux supporta tutte le dist
 
 ### <a name="dsc-requirements"></a>Requisiti di DSC
 
-Per tutti i nodi Windows in esecuzione in Azure, viene installato [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) quando le macchine vengono abilitate. Per i nodi che eseguono Windows Server 2012 e Windows 7, viene abilitato [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Per tutti i nodi Windows in esecuzione in Azure, viene installato [WMF 5.1](/powershell/scripting/wmf/setup/install-configure) quando le macchine vengono abilitate. Per i nodi che eseguono Windows Server 2012 e Windows 7, viene abilitato [WinRM](/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 Per tutti i nodi Linux in esecuzione in Azure, viene installato [PowerShell DSC per Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) quando le macchine vengono abilitate.
 
@@ -90,7 +90,7 @@ Se i nodi si trovano in una rete privata, sono necessari la porta e gli URL segu
 * URL globale di US Gov Virginia: * **.azure-automation.us**
 * Servizio Agent: **https:// \<workspaceId\> . agentsvc.Azure-Automation.NET**
 
-Se si usano risorse DSC che comunicano tra i nodi, ad esempio le [risorse WaitFor*](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), è anche necessario consentire il traffico tra i nodi. Per informazioni su questi requisiti di rete, vedere la documentazione relativa a ogni risorsa DSC.
+Se si usano risorse DSC che comunicano tra i nodi, ad esempio le [risorse WaitFor*](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), è anche necessario consentire il traffico tra i nodi. Per informazioni su questi requisiti di rete, vedere la documentazione relativa a ogni risorsa DSC.
 
 Per informazioni sui requisiti dei client per TLS 1,2, vedere [tls 1,2 Enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -114,5 +114,4 @@ Quando si definiscono le eccezioni, è consigliabile usare gli indirizzi elencat
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilare configurazioni DSC in State Configuration di Automazione di Azure](automation-dsc-compile.md).
 - Per un esempio dell'uso di State Configuration di Automazione di Azure in una pipeline di distribuzione continua, vedere [Configurare la distribuzione continua con Chocolatey](automation-dsc-cd-chocolatey.md).
 - Per informazioni sui prezzi, vedere [Prezzi di State Configuration di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/).
-- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

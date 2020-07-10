@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
-ms.openlocfilehash: 1cd20e28d1b36167154059adf728a9cfdf8102bc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 76c8d09ef2ef0130ddac856a1f37f8b68d977494
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836618"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186232"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Domande frequenti su Automazione di Azure
 
@@ -37,7 +38,7 @@ La distribuzione degli aggiornamenti in base alla relativa classificazione non f
 
 ### <a name="can-i-deploy-updates-across-azure-tenants"></a>È possibile distribuire gli aggiornamenti tra tenant di Azure?
 
-Se si hanno computer in un altro tenant di Azure che segnalano a Gestione aggiornamenti che necessitano di una patch, occorrerà usare la seguente soluzione alternativa per pianificarli. È possibile usare il cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) con il parametro `ForUpdateConfiguration` per creare una pianificazione. Usare quindi il cmdlet [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passare i computer dell'altro tenant al parametro `NonAzureComputer`. L'esempio seguente illustra come farlo.
+Se si hanno computer in un altro tenant di Azure che segnalano a Gestione aggiornamenti che necessitano di una patch, occorrerà usare la seguente soluzione alternativa per pianificarli. È possibile usare il cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) con il parametro `ForUpdateConfiguration` per creare una pianificazione. Usare quindi il cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passare i computer dell'altro tenant al parametro `NonAzureComputer`. L'esempio seguente illustra come farlo.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -53,5 +54,5 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 Se la risposta a una domanda non è disponibile in questo articolo, è possibile fare riferimento alle fonti seguenti per ulteriori domande e risposte.
 
-- [Automazione di Azure](https://docs.microsoft.com/answers/topics/azure-automation.html)
+- [Automazione di Azure](/answers/topics/azure-automation.html)
 - [Forum di commenti e suggerimenti](https://feedback.azure.com/forums/905242-update-management)

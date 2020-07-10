@@ -3,11 +3,12 @@ title: Esempi di modelli di Azure Resource Manager
 description: Trovare Azure Resource Manager esempi di modelli per distribuire istanze di contenitore di Azure in configurazioni diverse
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c487087b39244178643fd81364150ceb3ac4a63
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299758"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169647"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelli di Azure Resource Manager per Istanze di Azure Container
 
@@ -17,7 +18,7 @@ Per le opzioni di distribuzione, vedere la sezione [Distribuzione](#deployment).
 
 ## <a name="sample-templates"></a>Modelli di esempio
 
-| | |
+| Modello | Descrizione |
 |-|-|
 | **Applicazioni** ||
 | [WordPress][app-wp] | Consente di creare un sito web WordPress e il relativo database MySQL in un gruppo di contenitori. Il contenuto del sito WordPress e il database MySQL sono persistenti in una condivisione di File di Azure. Crea anche un gateway applicazione per esporre l'accesso alla rete pubblica a WordPress. |

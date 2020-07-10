@@ -5,15 +5,16 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 35d408c636e20aef9495e72bc8535e0d7a99431e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8a68c793d9aaf94ad28f2e478254e42ede4800de
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955269"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170361"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
-Strumenti di base di Funzioni di Azure consente di sviluppare e testare le funzioni nel computer locale dal prompt dei comandi o terminale. Le funzioni locali possono connettersi ai servizi di Azure attivi ed è possibile eseguire il debug delle funzioni nel computer locale usando il runtime completo di Funzioni di Azure. È anche possibile distribuire un'app per le funzioni all'abbonamento di Azure.
+Azure Functions Core Tools consente di sviluppare e testare le funzioni nel computer locale dal prompt dei comandi o dal terminale. Le funzioni locali possono connettersi ai servizi di Azure attivi ed è possibile eseguire il debug delle funzioni nel computer locale usando il runtime completo di Funzioni di Azure. È anche possibile distribuire un'app per le funzioni all'abbonamento di Azure.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
@@ -115,15 +116,15 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-1. Configurare l'elenco origine sviluppo .NET prima di eseguire un aggiornamento APT.
+1. Configurare l'elenco di origine APT prima di eseguire un aggiornamento APT.
 
-   Per configurare l'elenco di origine APT per Ubuntu, eseguire questo comando:
+    ##### <a name="ubuntu"></a>Ubuntu
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-   Per configurare l'elenco di origine APT per Debian, eseguire questo comando:
+    ##### <a name="debian"></a>Debian
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -135,6 +136,7 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
     | --------------- | ----------- |
     | Debian 10 | `buster`  |
     | Debian 9  | `stretch` |
+    | Ubuntu 20.04    | `focal`     |
     | Ubuntu 19.04    | `disco`     |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
@@ -205,22 +207,17 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 | Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
-| **`--csharp`**<br/> **`--dotnet`** | Inizializza un [progetto di libreria di classi C# (. cs)](functions-dotnet-class-library.md). |
-| **`--csx`** | Inizializza un [progetto di script C# (. CSX)](functions-reference-csharp.md). È necessario specificare `--csx` nei comandi successivi. |
-| **`--docker`** | Creare un Dockerfile per un contenitore usando un'immagine di base che è basata sulla classe `--worker-runtime` selezionata. Usare questa opzione quando si prevede di pubblicare in un contenitore Linux personalizzato. |
+| **`--csx`** | Crea funzioni .NET come script C#, che è il comportamento della versione 1. x. È valido esclusivamente con `--worker-runtime dotnet`. |
+| **`--docker`** | Crea un Dockerfile per un contenitore usando un'immagine di base basata sull'oggetto selezionato `--worker-runtime` . Usare questa opzione quando si prevede di pubblicare in un contenitore Linux personalizzato. |
 | **`--docker-only`** |  Aggiunge un Dockerfile a un progetto esistente. Richiede il runtime del ruolo di lavoro se non è specificato o impostato in local.settings.js. Usare questa opzione quando si prevede di pubblicare un progetto esistente in un contenitore Linux personalizzato. |
 | **`--force`** | Inizializzare il progetto anche se contiene file esistenti. Questa impostazione sovrascrive i file esistenti con lo stesso nome. Gli altri file nella cartella del progetto non sono interessati. |
-| **`--java`**  | Inizializza un [progetto Java](functions-reference-java.md). |
-| **`--javascript`**<br/>**`--node`**  | Inizializza un [progetto JavaScript](functions-reference-node.md). |
-| **`--no-source-control`**<br/>**`-n`** | Impedisce la creazione predefinita di un repository GIT nella versione 1.x. Nella versione 3. x/2. x, il repository Git non viene creato per impostazione predefinita. |
-| **`--powershell`**  | Inizializza un [progetto PowerShell](functions-reference-powershell.md). |
-| **`--python`**  | Inizializza un [progetto Python](functions-reference-python.md). |
+| **`--language`** | Inizializza un progetto specifico del linguaggio. Attualmente supportato quando è `--worker-runtime` impostato su `node` . Le opzioni sono `typescript` e `javascript` . È inoltre possibile utilizzare `--worker-runtime javascript` o `--worker-runtime typescript` .  |
+| **`--managed-dependencies`**  | Installa le dipendenze gestite. Attualmente, solo il runtime del ruolo di lavoro PowerShell supporta questa funzionalità. |
 | **`--source-control`** | Controlla se viene creato un repository GIT. Per impostazione predefinita, non viene creato un repository. Quando è `true` viene creato un repository. |
-| **`--typescript`**  | Inizializza un [progetto typescript](functions-reference-node.md#typescript). |
-| **`--worker-runtime`** | Imposta il runtime del linguaggio per il progetto. I valori supportati sono: `csharp` ,, `dotnet` `java` , `javascript` , `node` (JavaScript),, `powershell` `python` e `typescript` . Quando non è impostato, viene richiesto di scegliere il runtime durante l'inizializzazione. |
-
+| **`--worker-runtime`** | Imposta il runtime del linguaggio per il progetto. I valori supportati sono: `csharp` ,, `dotnet` `javascript` , `node` (JavaScript),, `powershell` `python` e `typescript` . Per Java, usare [Maven](functions-reference-java.md#create-java-functions). Quando non è impostato, viene richiesto di scegliere il runtime durante l'inizializzazione. |
+|
 > [!IMPORTANT]
-> Per impostazione predefinita, la versione 3. x/2. x degli strumenti di base crea progetti di app per le funzioni per il Runtime .NET come [progetti di classe C#](functions-dotnet-class-library.md) (csproj). Tali progetti C#, che possono essere usati con Visual Studio o Visual Studio Code, vengono compilati durante la fase di test e alla pubblicazione in Azure. Se invece si prevede di creare e usare gli stessi file di script C# (con estensione csx) creati nella versione 1.x e nel portale, è necessario includere il parametro `--csx` quando si creano e si distribuiscono funzioni.
+> Per impostazione predefinita, la versione 2. x e le versioni successive degli strumenti di base creano progetti di app per le funzioni per il Runtime .NET come [progetti di classe C#](functions-dotnet-class-library.md) (csproj). Tali progetti C#, che possono essere usati con Visual Studio o Visual Studio Code, vengono compilati durante la fase di test e alla pubblicazione in Azure. Se invece si prevede di creare e usare gli stessi file di script C# (con estensione csx) creati nella versione 1.x e nel portale, è necessario includere il parametro `--csx` quando si creano e si distribuiscono funzioni.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
@@ -234,6 +231,8 @@ I valori delle impostazioni dell'app di funzione possono anche essere letti nel 
 * [Script C# (file con estensione csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
+* [PowerShell](functions-reference-powershell.md#environment-variables)
+* [Python](functions-reference-python.md#environment-variables)
 
 Quando non è impostata alcuna stringa di connessione di archiviazione valida per [`AzureWebJobsStorage`] e l'emulatore non viene usato, viene visualizzato il messaggio di errore seguente:
 
@@ -306,10 +305,11 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 | Argomento     | Descrizione                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--csx`** | (Versione 3. x/2. x) Genera gli stessi modelli di script C# (. CSX) usati nella versione 1. x e nel portale. |
-| **`--language`**, **`-l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 3. x/2. x, non usare questa opzione o scegliere una lingua corrispondente al runtime del ruolo di lavoro. |
+| **`--csx`** | (Versione 2. x e versioni successive). Genera gli stessi modelli di script C# (. CSX) usati nella versione 1. x e nel portale. |
+| **`--language`**, **`-l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 2. x e versioni successive, non usare questa opzione o scegliere una lingua corrispondente al runtime del ruolo di lavoro. |
 | **`--name`**, **`-n`** | Nome della funzione. |
 | **`--template`**, **`-t`** | Usare il comando `func templates list` per visualizzare l'elenco completo dei modelli disponibili per ogni linguaggio supportato.   |
+
 
 Ad esempio, per creare un trigger HTTP JavaScript in un singolo comando, eseguire:
 
@@ -366,11 +366,10 @@ npm start
 | Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Per il progetto corrente non viene creata una build prima dell'esecuzione. Solo per progetti dotnet. Il valore predefinito è false. Non supportato per la versione 1. x. |
-| **`--cert`** | Il percorso in un file con estensione pfx che contiene una chiave privata. Usati solo con `--useHttps`. Non supportato per la versione 1. x. |
 | **`--cors-credentials`** | Consenti le richieste autenticate tra le origini, ad esempio i cookie e l'intestazione di autenticazione, non sono supportate per la versione 1. x. |
 | **`--cors`** | Un elenco delimitato dalla virgola di origini CORS, senza spazi. |
 | **`--language-worker`** | Argomenti per configurare il ruolo di lavoro del linguaggio. Ad esempio, è possibile abilitare il debug per Language Worker fornendo la [porta di debug e altri argomenti obbligatori](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Non supportato per la versione 1. x. |
-| **`--nodeDebugPort`**, **`-n`** | Porta per il debugger Node.js da usare. Predefinito: un valore di launch.json o 5858. Solo versione 1.x. |
+| **`--cert`** | Il percorso in un file con estensione pfx che contiene una chiave privata. Usati solo con `--useHttps`. Non supportato per la versione 1. x. |
 | **`--password`** | La password o un file che contiene la password per un file con estensione pfx. Usati solo con `--cert`. Non supportato per la versione 1. x. |
 | **`--port`**, **`-p`** | La porta locale su cui ascoltare. Valore predefinito: 7071. |
 | **`--pause-on-error`** | Sospendere per l'input aggiuntivo prima dell'uscita dal processo. Viene usato quando si avvia Core Tools da un ambiente di sviluppo integrato (IDE).|
@@ -404,7 +403,7 @@ Per informazioni più generali sui test delle funzioni, vedere [Strategie per il
 
 È possibile chiamare l'endpoint seguente per eseguire localmente funzioni attivate tramite HTTP e webhook:
 
-```http
+```
 http://localhost:{port}/api/{function_name}
 ```
 
@@ -440,7 +439,7 @@ Per testare localmente le funzioni attivate da griglia di eventi, vedere [local 
 
 Chiamare l'endpoint di amministrazione seguente per attivare funzioni non HTTP:
 
-```http
+```
 http://localhost:{port}/admin/functions/{function_name}
 ```
 
@@ -487,7 +486,7 @@ Ad esempio, per chiamare una funzione attivata da HTTP e passare il corpo del co
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-## <a name="publish-to-azure"></a><a name="publish"></a>Pubblicazione in Azure
+## <a name="publish-to-azure"></a><a name="publish"></a>Pubblicare in Azure
 
 Il Azure Functions Core Tools supporta due tipi di distribuzione: la distribuzione di file di progetto di funzione direttamente nell'app per le funzioni tramite la distribuzione [zip](functions-deployment-technologies.md#zip-deploy) e [la distribuzione di un contenitore Docker personalizzato](functions-deployment-technologies.md#docker-container). È necessario avere già [creato un'app per le funzioni nella sottoscrizione di Azure](functions-cli-samples.md#create)in cui verrà distribuito il codice. I progetti che richiedono la compilazione devono essere compilati in modo che i file binari possano essere distribuiti.
 
@@ -510,14 +509,14 @@ Questo comando consente di pubblicare un'app per le funzioni esistente in Azure.
 > Quando si crea un'app per le funzioni nella portale di Azure, per impostazione predefinita viene usata la versione 3. x del runtime di funzione. Per far eseguire la versione 1.x del runtime all'app per le funzioni, osservare le istruzioni riportate in [Run on version 1.x](functions-versions.md#creating-1x-apps) (Esecuzione sulla versione 1.x).
 > Non è possibile modificare la versione di runtime per un'app per le funzioni che ha funzioni esistenti.
 
-Le seguenti opzioni di pubblicazione si applicano alle versioni 3. x, 2. x e 1. x:
+Le seguenti opzioni di pubblicazione si applicano a tutte le versioni:
 
 | Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Pubblicare le impostazioni di local.settings.json in Azure, suggerendo di sovrascrivere eventuali impostazioni esistenti. Se si usa il Emulatore di archiviazione di Microsoft Azure, modificare prima l'impostazione dell'app in una [connessione di archiviazione effettiva](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Eliminare il prompt per sovrascrivere le impostazioni dell'app quando si usa `--publish-local-settings -i`.|
 
-Le opzioni di pubblicazione seguenti sono supportate solo nella versione 3. x e 2. x:
+Le opzioni di pubblicazione seguenti sono supportate solo per la versione 2. x e le versioni successive:
 
 | Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
@@ -530,7 +529,7 @@ Le opzioni di pubblicazione seguenti sono supportate solo nella versione 3. x e 
 | **`--additional-packages`** | Elenco di pacchetti da installare durante la creazione di dipendenze native. Ad esempio: `python3-dev libevent-dev`. |
 | **`--force`** | Ignora la verifica preliminare alla pubblicazione in determinati scenari. |
 | **`--csx`** | Pubblica un progetto di script C# (file con estensione csx). |
-| **`--no-build`** | Non compilare funzioni della libreria di classi .NET. |
+| **`--no-build`** | Il progetto non viene compilato durante la pubblicazione. Per Python `pip install` non viene eseguito. |
 | **`--dotnet-cli-params`** | Quando si pubblicano funzioni C# compilate (con estensione csproj), Core Tools chiama "dotnet build --output bin/publish". Tutti i parametri passati a questa opzione verranno aggiunti alla riga di comando. |
 
 ### <a name="deploy-custom-container"></a>Distribuire un contenitore personalizzato
@@ -581,7 +580,7 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure portal]: https://portal.azure.com 
+[Portale di Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

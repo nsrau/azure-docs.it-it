@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382531"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170395"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -26,12 +26,12 @@ Per i modelli di esempio, vedere:
 
 Una distribuzione di funzioni di Azure è in genere costituita da queste risorse:
 
-| Risorsa                                                                           | Requisito | Guida di riferimento a sintassi e proprietà                                                         |   |
-|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| Un'app per le funzioni                                                                     | Necessario    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| Un account di [archiviazione di Azure](../storage/index.yml)                                   | Necessario    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Componente [Application Insights](../azure-monitor/app/app-insights-overview.md) | Facoltativo    | [Microsoft. Insights/Components](/azure/templates/microsoft.insights/components)         |   |
-| [Piano di hosting](./functions-scale.md)                                             | Facoltativo<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Resource                                                                           | Requisito | Guida di riferimento a sintassi e proprietà                                                         |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
+| Un'app per le funzioni                                                                     | Obbligatorio    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Un account di [archiviazione di Azure](../storage/index.yml)                                   | Obbligatorio    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| Componente [Application Insights](../azure-monitor/app/app-insights-overview.md) | Facoltativo    | [Microsoft. Insights/Components](/azure/templates/microsoft.insights/components)         |
+| [Piano di hosting](./functions-scale.md)                                             | Facoltativo<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup> Un piano di hosting è necessario solo quando si sceglie di eseguire l'app per le funzioni in un [piano Premium](./functions-premium-plan.md) o in un [piano di servizio app](../app-service/overview-hosting-plans.md).
 
@@ -649,7 +649,7 @@ Il modello può essere distribuito in uno dei modi seguenti:
 
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [Portale di Azure](../azure-resource-manager/templates/deploy-portal.md)
 * [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Pulsante Deploy to Azure per la distribuzione in Azure

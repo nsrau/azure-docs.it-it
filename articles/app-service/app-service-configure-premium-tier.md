@@ -6,11 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
-ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fa64562f8d26297d2b2c8a13cd8b6a513c2c630
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74672217"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170021"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurare il livello PremiumV2 per il servizio app di Azure
 
@@ -42,7 +43,7 @@ Durante la configurazione del piano di servizio app nel <a href="https://portal.
 
 Selezionare **Produzione**, quindi selezionare **P1V2**, **P2V2** o **P3V2** e fare clic su **Applica**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Screenshot che mostra i piani tariffari consigliati per l'app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > Se le opzioni **P1V2**, **P2V2** e **P3V2** non sono visualizzate oppure sono in grigio, il livello **PremiumV2** probabilmente non è disponibile nella distribuzione del servizio app sottostante che contiene il piano di servizio app. Per altri dettagli, vedere [Passare a un piano superiore da una combinazione di gruppo di risorse e area non supportata](#unsupported).
@@ -57,15 +58,15 @@ Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> apri
 
 Nel riquadro di spostamento sinistro della pagina dell'app del servizio app selezionare **Aumenta prestazioni (piano di servizio app)**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
+![Screenshot che illustra come aumentare il piano di servizio app.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
 Selezionare **Produzione**, quindi selezionare **P1V2**, **P2V2** o **P3V2** e fare clic su **Applica**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Screenshot che mostra i piani tariffari consigliati per l'app.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 Se l'operazione viene completata correttamente, nella pagina di panoramica dell'app appare l'indicazione che l'app è passata al livello **PremiumV2**.
 
-![](media/app-service-configure-premium-tier/finished.png)
+![Screenshot che mostra il piano tariffario PremiumV2 nella pagina Panoramica dell'app.](media/app-service-configure-premium-tier/finished.png)
 
 ### <a name="if-you-get-an-error"></a>Se si riceve un errore
 
@@ -80,7 +81,7 @@ Se l'app viene eseguita in una distribuzione del servizio app in cui **PremiumV2
 - Creare un **nuovo** gruppo di risorse e quindi una **nuova** app e un nuovo piano di Servizio app nel **nuovo** gruppo di risorse, scegliendo l'area di Azure desiderata durante il processo di creazione.  È **necessario** selezionare il piano **PremiumV2** al momento della creazione del nuovo piano di servizio app.  In questo modo ci si assicura che la combinazione di gruppo di risorse, piano di servizio app e area di Azure consentirà di creare il piano di servizio app in una distribuzione del servizio app che supporta **PremiumV2**.  Ridistribuire quindi il codice dell'applicazione nell'app e nel piano di servizio app appena creati. Se lo si desidera, è possibile passare in seguito a un piano di servizio app inferiore rispetto a **PremiumV2** per risparmiare sui costi e sarà comunque possibile passare di nuovo a un piano superiore in futuro con **PremiumV2**.
 - Se l'app è già in esecuzione in un livello **Premium** esistente, è possibile clonare l'app con tutte le impostazioni dell'app, le stringhe di connessione e la configurazione di distribuzione in un nuovo piano di servizio app che usa **PremiumV2**.
 
-    ![](media/app-service-configure-premium-tier/clone-app.png)
+    ![Screenshot che illustra come clonare l'app.](media/app-service-configure-premium-tier/clone-app.png)
 
     Nella pagina **Clona app** è possibile creare un piano di servizio app con **PremiumV2** nell'area voluta e specificare le impostazioni dell'app e la configurazione da clonare.
 

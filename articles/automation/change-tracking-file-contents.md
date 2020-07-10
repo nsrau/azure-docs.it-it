@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781192"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185603"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gestire il rilevamento modifiche e l'inventario
 
@@ -78,10 +79,10 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Lin
 
 ## <a name="track-file-contents"></a>Rilevare il contenuto del file
 
-Il rilevamento del contenuto del file consente di visualizzare il contenuto di un file prima e dopo una modifica rilevata. La funzionalità Salva il contenuto del file in un [account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-account-overview) dopo ogni modifica. Ecco alcune regole da seguire per rilevare il contenuto dei file:
+Il rilevamento del contenuto del file consente di visualizzare il contenuto di un file prima e dopo una modifica rilevata. La funzionalità Salva il contenuto del file in un [account di archiviazione](../storage/common/storage-account-overview.md) dopo ogni modifica. Ecco alcune regole da seguire per rilevare il contenuto dei file:
 
 * Un account di archiviazione standard con il modello di distribuzione di Gestione risorse è necessario per la memorizzazione del contenuto del file. 
-* Non usare account di archiviazione con modello di distribuzione classica e Premium. Vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
+* Non usare account di archiviazione con modello di distribuzione classica e Premium. Vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-account-create.md).
 * È possibile connettere l'account di archiviazione a un solo account di automazione.
 * [Rilevamento modifiche e l'inventario](change-tracking.md) devono essere abilitati nell'account di automazione.
 
@@ -169,7 +170,7 @@ Si userà questo esempio per illustrare i passaggi per la creazione di avvisi in
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulle configurazioni dell'ambito, vedere [limitare rilevamento modifiche e l'ambito di distribuzione dell'inventario](automation-scope-configurations-change-tracking.md).
-* Se è necessario eseguire ricerche nei log archiviati nell'area di lavoro Log Analytics, vedere [Ricerche nei log di Monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md).
+* Se è necessario eseguire ricerche nei log archiviati nell'area di lavoro Log Analytics, vedere [Ricerche nei log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
 * Se terminato con le distribuzioni, vedere [scollegare l'area di lavoro dall'account di automazione per rilevamento modifiche e l'inventario](automation-unlink-workspace-change-tracking.md).
 * Per eliminare le macchine virtuali da Rilevamento modifiche e dall'inventario, vedere [rimuovere VM da rilevamento modifiche e inventario](automation-remove-vms-from-change-tracking.md).
 * Per risolvere i problemi relativi alla funzionalità, vedere [Risolvere i problemi relativi a Rilevamento modifiche e inventario](troubleshoot/change-tracking.md).

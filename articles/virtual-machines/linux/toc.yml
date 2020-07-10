@@ -511,6 +511,8 @@
                       href: ../vm-specialized-image-version-powershell.md
                 - name: Aggiornare le risorse immagini
                   href: ../update-image-resources-powershell.md
+                - name: Registrazione delle app per la condivisione
+                  href: ../windows/share-images-across-tenants.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Portale
               items:
                 - name: 'Creare una raccolta, un''immagine e una VM'
@@ -947,8 +949,6 @@
           items:
             - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
               href: migrate-to-premium-storage-using-azure-site-recovery.md
-            - name: Eseguire la conversione alla crittografia lato server
-              href: disks-ade-sse-conversion-cli.md
             - name: Eseguire la conversione in Managed Disks
               href: convert-unmanaged-to-managed-disks.md
             - name: Convertire il disco tra archiviazione Standard e Premium

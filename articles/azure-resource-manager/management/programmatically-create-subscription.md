@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/26/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 18c6e9aac220d7e76a82a2abded6840db931f2d1
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b53c81a52c06780378e45b2141cbef452b4d363a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057722"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170633"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Creare sottoscrizioni di Azure a livello di codice (anteprima)
 
@@ -150,13 +150,13 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| Nome dell'elemento  | Obbligatoria | Type   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | No      | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio "Microsoft Azure Enterprise".                                 |
-| `offerType`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `offerType`   | Sì      | Stringa | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | No       | string | ID oggetto di un utente che si desidera aggiungere come proprietario con Controllo degli accessi in base al ruolo nella sottoscrizione al momento della creazione.  |
 
-Nella risposta verrà restituito un oggetto `subscriptionOperation` per il monitoraggio. Al termine dell'operazione di creazione della sottoscrizione, l'oggetto `subscriptionOperation` restituirà un oggetto `subscriptionLink` che contiene l'ID della sottoscrizione.
+Nella risposta viene restituito un `Location` URL per il monitoraggio. Al termine della creazione della sottoscrizione, l'URL GET on `Location` restituirà un `subscriptionLink` oggetto con ID sottoscrizione. Per altri dettagli, vedere la [documentazione dell'API di sottoscrizione](https://docs.microsoft.com/rest/api/subscription/)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -168,11 +168,11 @@ Eseguire il comando [New-AzSubscription](/powershell/module/az.subscription) di 
 New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
-| Nome dell'elemento  | Obbligatoria | Type   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | No      | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio "Microsoft Azure Enterprise".                                 |
-| `OfferType`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Sì       | string | ID oggetto dell'account di registrazione con cui la sottoscrizione viene creata e a cui viene addebitata. Il valore è un GUID che si ottiene da `Get-AzEnrollmentAccount`. |
+| `OfferType`   | Sì      | Stringa | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Sì       | Stringa | ID oggetto dell'account di registrazione con cui la sottoscrizione viene creata e a cui viene addebitata. Il valore è un GUID che si ottiene da `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | No       | string | ID oggetto di un utente che si desidera aggiungere come proprietario con Controllo degli accessi in base al ruolo nella sottoscrizione al momento della creazione.  |
 | `OwnerSignInName`    | No       | string | Indirizzo di posta elettronica di un utente che si desidera aggiungere come proprietario con Controllo degli accessi in base al ruolo nella sottoscrizione al momento della creazione. È possibile usare questo parametro anziché `OwnerObjectId`.|
 | `OwnerApplicationId` | No       | string | ID applicazione di un'entità servizio che si desidera aggiungere come proprietario con Controllo degli accessi in base al ruolo nella sottoscrizione al momento della creazione. È possibile usare questo parametro anziché `OwnerObjectId`. Quando si usa questo parametro, l'entità servizio deve avere [accesso in lettura alla directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
@@ -189,11 +189,11 @@ Eseguire il comando [AZ account create](/cli/azure/ext/subscription/account?view
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| Nome dell'elemento  | Obbligatoria | Type   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | No      | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio "Microsoft Azure Enterprise".                                 |
-| `offer-type`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `enrollment-account-object-id`      | Sì       | string | ID oggetto dell'account di registrazione con cui la sottoscrizione viene creata e a cui viene addebitata. Il valore è un GUID che si ottiene da `az billing enrollment-account list`. |
+| `offer-type`   | Sì      | Stringa | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Sì       | Stringa | ID oggetto dell'account di registrazione con cui la sottoscrizione viene creata e a cui viene addebitata. Il valore è un GUID che si ottiene da `az billing enrollment-account list`. |
 | `owner-object-id`      | No       | string | ID oggetto di un utente che si desidera aggiungere come proprietario con Controllo degli accessi in base al ruolo nella sottoscrizione al momento della creazione.  |
 | `owner-upn`    | No       | string | Indirizzo di posta elettronica di un utente che si desidera aggiungere come proprietario con Controllo degli accessi in base al ruolo nella sottoscrizione al momento della creazione. È possibile usare questo parametro anziché `owner-object-id`.|
 | `owner-spn` | No       | string | ID applicazione di un'entità servizio che si desidera aggiungere come proprietario con Controllo degli accessi in base al ruolo nella sottoscrizione al momento della creazione. È possibile usare questo parametro anziché `owner-object-id`. Quando si usa questo parametro, l'entità servizio deve avere [accesso in lettura alla directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
@@ -340,11 +340,11 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 ```
 
-| Nome dell'elemento  | Obbligatoria | Type   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Sì      | string | Nome visualizzato della sottoscrizione|
-| `billingProfileId`   | Sì      | string | ID del profilo di fatturazione che verrà fatturato per gli addebiti per la sottoscrizione.  |
-| `skuId` | Sì      | string | ID SKU che determina il tipo di piano di Azure. |
+| `displayName` | Sì      | Stringa | Nome visualizzato della sottoscrizione|
+| `billingProfileId`   | Sì      | Stringa | ID del profilo di fatturazione che verrà fatturato per gli addebiti per la sottoscrizione.  |
+| `skuId` | Sì      | Stringa | ID SKU che determina il tipo di piano di Azure. |
 | `owners`      | No       | string | ID oggetto di qualsiasi utente o entità servizio che si desidera aggiungere come proprietario RBAC nella sottoscrizione al momento della creazione.  |
 | `costCenter` | No      | string | Centro di costo associato alla sottoscrizione. Viene visualizzato nel file CSV Usage. |
 | `managementGroupId` | No      | string | ID del gruppo di gestione a cui verrà aggiunta la sottoscrizione. Per ottenere l'elenco dei gruppi di gestione, vedere [API gruppi di gestione-List](/rest/api/resources/managementgroups/list). Usare l'ID di un gruppo di gestione dall'API. |
@@ -505,10 +505,10 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 }'
 ```
 
-| Nome dell'elemento  | Obbligatoria | Type   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Sì      | string | Nome visualizzato della sottoscrizione|
-| `skuId` | Sì      | string | ID SKU del piano di Azure. Usare *0001* per sottoscrizioni di tipo Microsoft Azure piano |
+| `displayName` | Sì      | Stringa | Nome visualizzato della sottoscrizione|
+| `skuId` | Sì      | Stringa | ID SKU del piano di Azure. Usare *0001* per sottoscrizioni di tipo Microsoft Azure piano |
 | `resellerId`      | No       | string | ID MPN del rivenditore che verrà associato alla sottoscrizione.  |
 
 Nella risposta verrà restituito un oggetto `subscriptionCreationResult` per il monitoraggio. Al termine dell'operazione di creazione della sottoscrizione, l'oggetto `subscriptionCreationResult` restituirà un oggetto `subscriptionLink` che contiene l'ID della sottoscrizione.

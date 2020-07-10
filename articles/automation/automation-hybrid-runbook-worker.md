@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: d921ecc390ae9361c9b36b4738e73a499aa2e8a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0960dfe067e5092f3d64f66cad1d49c2bea28ae6
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361813"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186249"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Panoramica del ruolo di lavoro ibrido per runbook
 
@@ -63,7 +63,7 @@ Se si usa un server proxy per la comunicazione tra automazione di Azure e i comp
 
 ### <a name="firewall-use"></a>Uso del firewall
 
-Se si usa un firewall per limitare l'accesso a Internet, è necessario configurarlo per consentire l'accesso. Se si usa il gateway di Analisi dei log come proxy, assicurarsi che sia configurato per i ruoli di lavoro ibridi per runbook. Vedere [Configurare il gateway di Analisi dei log per i ruoli di lavoro ibridi per runbook di Automazione](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Se si usa un firewall per limitare l'accesso a Internet, è necessario configurarlo per consentire l'accesso. Se si usa il gateway di Analisi dei log come proxy, assicurarsi che sia configurato per i ruoli di lavoro ibridi per runbook. Vedere [Configurare il gateway di Analisi dei log per i ruoli di lavoro ibridi per runbook di Automazione](../azure-monitor/platform/gateway.md).
 
 ### <a name="service-tags"></a>Tag di servizio
 

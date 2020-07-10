@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830583"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185654"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Rilevare i file aggiornati con un'attività watcher
 
@@ -19,7 +20,7 @@ Automazione di Azure usa le attività watcher per rilevare gli eventi e le azion
 > Le attività watcher non sono supportate in Azure China (21Vianet).
 
 > [!IMPORTANT]
-> A partire da maggio 2020, l'uso di app per la logica di Azure è il modo supportato per monitorare gli eventi, pianificare le attività ricorrenti e attivare azioni. Vedere [Pianificare ed eseguire attività, processi e flussi di lavoro automatizzati ricorrenti con le app per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
+> A partire da maggio 2020, l'uso di app per la logica di Azure è il modo supportato per monitorare gli eventi, pianificare le attività ricorrenti e attivare azioni. Vedere [Pianificare ed eseguire attività, processi e flussi di lavoro automatizzati ricorrenti con le app per la logica di Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 In questa esercitazione viene descritto come creare un'attività watcher per monitorare quando viene aggiunto un nuovo file in una directory. Si apprenderà come:
 
@@ -36,7 +37,7 @@ In questa esercitazione viene descritto come creare un'attività watcher per mon
 Per completare l'esercitazione, è necessario quanto segue:
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Account di automazione](automation-offering-get-started.md) per contenere i runbook watcher e azione e l'attività watcher.
+* [Account di automazione](./index.yml) per contenere i runbook watcher e azione e l'attività watcher.
 * Un [ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md) dove viene eseguita l'attività watcher.
 * Runbook PowerShell. I runbook del flusso di lavoro PowerShell non sono supportati dalle attività watcher.
 
@@ -60,7 +61,7 @@ Questo processo di importazione può essere eseguito tramite [PowerShell Gallery
 
 ## <a name="create-an-automation-variable"></a>Creare una variabile di automazione
 
-Una [variabile di automazione](automation-variables.md) viene usata per archiviare i timestamp che il runbook precedente legge e archivia da ogni file.
+Una [variabile di automazione](./shared-resources/variables.md) viene usata per archiviare i timestamp che il runbook precedente legge e archivia da ogni file.
 
 1. Selezionare **Variabili** in **Risorse condivise** e fare clic su **+ Aggiungi variabile**.
 1. Immettere "Watch-NewFileTimestamp" nel campo Nome.

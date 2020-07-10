@@ -5,11 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: f84a609ea2821546c4001b98ad11495305ac101a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0d657dc38cd5b4149bcf7d1dbf1ad73afa75a5e6
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171073"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186300"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Abilitare Rilevamento modifiche e inventario dal portale di Azure
 
@@ -23,7 +24,7 @@ Il numero di gruppi di risorse che è possibile usare per la gestione delle macc
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Account di Automazione](automation-offering-get-started.md) per gestire i computer.
+* [Account di Automazione](./index.yml) per gestire i computer.
 * Una [macchina virtuale](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure

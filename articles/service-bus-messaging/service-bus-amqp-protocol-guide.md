@@ -3,12 +3,12 @@ title: Guida al protocollo AMQP 1.0 in Hub eventi e nel bus di servizio di Azure
 description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337885"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186912"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -264,8 +264,8 @@ Ogni connessione deve avviare il proprio collegamento di controllo per poter ini
 
 Per avviare attività transazionali. il controller deve ricevere un `txn-id` dal coordinatore. Ciò avviene mediante l'invio di un messaggio di tipo `declare`. Se la dichiarazione ha esito positivo, il coordinatore risponde con un risultato di disposizione che esegue l'oggetto assegnato `txn-id`.
 
-| Client (controller) | | Bus di servizio (coordinatore) |
-| --- | --- | --- |
+| Client (controller) | Direzione | Bus di servizio (coordinatore) |
+| :--- | :---: | :--- |
 | attach(<br/>name={nome collegamento},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={nome collegamento},<br/>... ,<br/>target=Coordinator()<br/>) |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (**Dichiara()**)}| ------> |  |
@@ -277,8 +277,8 @@ Il controller conclude l'attività transazionale inviando un `discharge` messagg
 
 > Nota: esito negativo=vero intende l’esecuzione di rollback di una transazione ed esito negativo=falso fa riferimento all’esecuzione del commit.
 
-| Client (controller) | | Bus di servizio (coordinatore) |
-| --- | --- | --- |
+| Client (controller) | Direzione | Bus di servizio (coordinatore) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
 | | . . . <br/>Attività transazionali<br/>in altri collegamenti<br/> . . . |
@@ -289,8 +289,8 @@ Il controller conclude l'attività transazionale inviando un `discharge` messagg
 
 Tutte le operazioni transazionali vengono eseguite con lo stato di recapito transazionale `transactional-state` che contiene transazione-ID. Nel caso di invio di messaggi, lo stato transazionale viene portato dal frame di trasferimento del messaggio. 
 
-| Client (controller) | | Bus di servizio (coordinatore) |
-| --- | --- | --- |
+| Client (controller) | Direzione | Bus di servizio (coordinatore) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
 | transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
@@ -300,8 +300,8 @@ Tutte le operazioni transazionali vengono eseguite con lo stato di recapito tran
 
 L’eliminazione del messaggio include operazioni come `Complete` / `Abandon` / `DeadLetter` / `Defer`. Per eseguire queste operazioni all'interno di una transazione, trasmettere `transactional-state` con la disposizione.
 
-| Client (controller) | | Bus di servizio (coordinatore) |
-| --- | --- | --- |
+| Client (controller) | Direzione | Bus di servizio (coordinatore) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
@@ -378,7 +378,7 @@ Il messaggio di risposta ha i valori *application-properties* seguenti:
 
 | Chiave | Facoltativo | Tipo valore | Contenuti del valore |
 | --- | --- | --- | --- |
-| status-code |No |INT |Codice di risposta HTTP **[RFC2616]**. |
+| status-code |No |int |Codice di risposta HTTP **[RFC2616]**. |
 | status-description |Sì |string |Descrizione dello stato. |
 
 Il client può chiamare *put-token* ripetutamente e per qualsiasi entità nell'infrastruttura di messaggistica. I token hanno come ambito il client corrente e sono ancorati alla connessione corrente, quindi il server elimina eventuali token conservati al termine della connessione.
@@ -399,8 +399,8 @@ Con questa funzionalità, si crea un mittente e si stabilisce il collegamento a 
 
 > Nota: l'autenticazione server deve essere eseguita sia per *Entità tramite* e *Entità di destinazione* prima di stabilire il collegamento.
 
-| Client | | Bus di servizio |
-| --- | --- | --- |
+| Client | Direzione | Bus di servizio |
+| :--- | :---: | :--- |
 | attach(<br/>name={nome collegamento},<br/>role=sender,<br/>source={ID collegamento client},<br/>target =**{via-entità}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )]** ) | ------> | |
 | | <------ | attach(<br/>name={nome collegamento},<br/>role=receiver,<br/>source={ID collegamento client},<br/>target={tramite entità},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )] ) |
 

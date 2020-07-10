@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/10/2020
-ms.openlocfilehash: feb1cc132bf5463550a2e7921f347c8f2f48260e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad9029b44ffb0c98bad58bbf012eb19d084d5446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667999"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185756"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Abilitare Gestione aggiornamenti con il modello di Azure Resource Manager
 
@@ -38,9 +39,9 @@ La tabella seguente elenca le versioni dell'API per le risorse usate in questo m
 
 ## <a name="before-using-the-template"></a>Prima di usare il modello
 
-Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Az di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) per creare una connessione con Azure. Con Azure PowerShell, la distribuzione usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Az di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) per creare una connessione con Azure. Con Azure PowerShell, la distribuzione usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.1.0 o versioni successive dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Con l'interfaccia della riga di comando di Azure, questa distribuzione usa [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.1.0 o versioni successive dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Con l'interfaccia della riga di comando di Azure, questa distribuzione usa [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 Il modello JSON è configurato in modo da richiedere:
 

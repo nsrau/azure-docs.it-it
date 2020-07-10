@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 26a4a3dbd54256fbc193fba299d0f7504f407254
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 8af64f2189625bcff5271855d6c0102551d1a535
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832266"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185960"
 ---
 # <a name="handle-errors-in-graphical-runbooks"></a>Gestire gli errori nei runbook grafici
 
@@ -46,7 +47,7 @@ La procedura consigliata comporta la creazione di un runbook dedicato per la ges
 1. invia una notifica relativa al problema;
 2. avvia un altro runbook che effettua automaticamente il provisioning di una nuova macchina virtuale.
 
-Una soluzione consiste nell'avere un collegamento di errore nel runbook che fa riferimento a un'attività che gestisce il primo passaggio. Ad esempio, il runbook può connettere il cmdlet `Write-Warning` a un'attività per il passaggio due, ad esempio il cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0).
+Una soluzione consiste nell'avere un collegamento di errore nel runbook che fa riferimento a un'attività che gestisce il primo passaggio. Ad esempio, il runbook può connettere il cmdlet `Write-Warning` a un'attività per il passaggio due, ad esempio il cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0).
 
 Si può anche generalizzare questo comportamento per usarlo in diversi runbook, inserendo le due attività in un runbook di gestione degli errori separato. Prima che il runbook originale chiami tale runbook di gestione degli errori, potrebbe creare un messaggio personalizzato dai suoi dati e quindi passarlo come parametro al runbook di gestione degli errori.
 
@@ -58,7 +59,7 @@ Dopo aver abilitato l'impostazione di configurazione, fare in modo che il runboo
 
 Nell'esempio seguente un runbook recupera una variabile che include il nome del computer di una macchina virtuale, quindi prova ad avviare la macchina virtuale con l'attività successiva.<br><br> ![Esempio di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-L'attività `Get-AutomationVariable` e il cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) sono configurati in modo da convertire le eccezioni in errori. Se si verificano problemi nel recupero della variabile o nell'avvio della macchina virtuale, il codice genera errori.<br><br> ![Impostazioni delle attività di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
+L'attività `Get-AutomationVariable` e il cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) sono configurati in modo da convertire le eccezioni in errori. Se si verificano problemi nel recupero della variabile o nell'avvio della macchina virtuale, il codice genera errori.<br><br> ![Impostazioni delle attività di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
 
 I collegamenti di errore passano da queste attività a una singola attività di codice `error management`. Questa attività viene configurata con una semplice espressione di PowerShell che usa la parola chiave `throw` per arrestare l'elaborazione, insieme a `$Error.Exception.Message` per ottenere il messaggio che illustra l'eccezione corrente.<br><br> ![Esempio di codice di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: tracking-python
-ms.openlocfilehash: 3b5c48053f7015e2bd46045d376cde27ca07d4a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a5fa4f07a0df64e5271ec1255112e97cf8846a6
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907041"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170718"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Come usare Twilio per le funzionalità voce ed SMS in Python
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo di Voice and SMS nelle applicazioni, vedere la sezione [passaggi successivi](#NextSteps) .
@@ -119,60 +119,64 @@ Per altre informazioni, vedere [twilio_github_readme](https://github.com/twilio/
 ## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Procedura: Effettuare una chiamata in uscita
 Di seguito è illustrato come effettuare una chiamata in uscita. Questo codice utilizza inoltre un sito fornito da Twilio per restituire la risposta TwiML (Twilio Markup Language). Sostituire i valori di **from_number** e **to_number** relativi ai numeri di telefono e, prima di eseguire il codice, verificare il numero di telefono specificato in **from_number** per l'account Twilio.
 
-    from urllib.parse import urlencode
+```python
+from urllib.parse import urlencode
 
-    # Import the Twilio Python Client.
-    from twilio.rest import TwilioRestClient
+# Import the Twilio Python Client.
+from twilio.rest import TwilioRestClient
 
-    # Set your account ID and authentication token.
-    account_sid = "your_twilio_account_sid"
-    auth_token = "your_twilio_authentication_token"
+# Set your account ID and authentication token.
+account_sid = "your_twilio_account_sid"
+auth_token = "your_twilio_authentication_token"
 
-    # The number of the phone initiating the call.
-    # This should either be a Twilio number or a number that you've verified
-    from_number = "NNNNNNNNNNN"
+# The number of the phone initiating the call.
+# This should either be a Twilio number or a number that you've verified
+from_number = "NNNNNNNNNNN"
 
-    # The number of the phone receiving call.
-    to_number = "NNNNNNNNNNN"
+# The number of the phone receiving call.
+to_number = "NNNNNNNNNNN"
 
-    # Use the Twilio-provided site for the TwiML response.
-    url = "https://twimlets.com/message?"
+# Use the Twilio-provided site for the TwiML response.
+url = "https://twimlets.com/message?"
 
-    # The phone message text.
-    message = "Hello world."
+# The phone message text.
+message = "Hello world."
 
-    # Initialize the Twilio client.
-    client = TwilioRestClient(account_sid, auth_token)
+# Initialize the Twilio client.
+client = TwilioRestClient(account_sid, auth_token)
 
-    # Make the call.
-    call = client.calls.create(to=to_number,
-                               from_=from_number,
-                               url=url + urlencode({'Message': message}))
-    print(call.sid)
+# Make the call.
+call = client.calls.create(to=to_number,
+                           from_=from_number,
+                           url=url + urlencode({'Message': message}))
+print(call.sid)
+```
 
 Come indicato in precedenza, questo codice utilizza un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML è inoltre possibile usare il proprio sito. Per altre informazioni, vedere [Come fornire risposte TwiML dal proprio sito Web](#howto_provide_twiml_responses).
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Procedura: Inviare un messaggio SMS
 La schermata seguente mostra come inviare un messaggio SMS tramite la classe `TwilioRestClient`. Il numero riportato in **from_number** per l'invio di messaggi SMS con gli account di valutazione è fornito da Twilio. Il numero riportato in **to_number** deve essere verificato per l'account Twilio prima di eseguire il codice.
 
-    # Import the Twilio Python Client.
-    from twilio.rest import TwilioRestClient
+```python
+# Import the Twilio Python Client.
+from twilio.rest import TwilioRestClient
 
-    # Set your account ID and authentication token.
-    account_sid = "your_twilio_account_sid"
-    auth_token = "your_twilio_authentication_token"
+# Set your account ID and authentication token.
+account_sid = "your_twilio_account_sid"
+auth_token = "your_twilio_authentication_token"
 
-    from_number = "NNNNNNNNNNN"  # With trial account, texts can only be sent from your Twilio number.
-    to_number = "NNNNNNNNNNN"
-    message = "Hello world."
+from_number = "NNNNNNNNNNN"  # With trial account, texts can only be sent from your Twilio number.
+to_number = "NNNNNNNNNNN"
+message = "Hello world."
 
-    # Initialize the Twilio client.
-    client = TwilioRestClient(account_sid, auth_token)
+# Initialize the Twilio client.
+client = TwilioRestClient(account_sid, auth_token)
 
-    # Send the SMS message.
-    message = client.messages.create(to=to_number,
-                                     from_=from_number,
-                                     body=message)
+# Send the SMS message.
+message = client.messages.create(to=to_number,
+                                    from_=from_number,
+                                    body=message)
+```
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Procedura: Fornire risposte TwiML dal proprio sito Web
 Quando l'applicazione avvia una chiamata all'API Twilio, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene usato l'URL fornito da Twilio [https://twimlets.com/message][twimlet_message_url] . Poiché TwiML è stato progettato per essere usato da Twilio, è possibile visualizzarlo nel browser. Ad esempio, fare clic per [https://twimlets.com/message][twimlet_message_url] visualizzare un `<Response>` elemento vuoto; come altro esempio, fare clic [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] per visualizzare un `<Response>` elemento che contiene un `<Say>` elemento.
@@ -183,47 +187,55 @@ Negli esempi seguenti viene generata una risposta TwiML **Hello World** nella ch
 
 Con Flask:
 
-    from flask import Response
-    @app.route("/")
-    def hello():
-        xml = '<Response><Say>Hello world.</Say></Response>'
-        return Response(xml, mimetype='text/xml')
+```python
+from flask import Response
+@app.route("/")
+def hello():
+    xml = '<Response><Say>Hello world.</Say></Response>'
+    return Response(xml, mimetype='text/xml')
+```
 
 Con Django:
 
-    from django.http import HttpResponse
-    def hello(request):
-        xml = '<Response><Say>Hello world.</Say></Response>'
-        return HttpResponse(xml, content_type='text/xml')
+```python
+from django.http import HttpResponse
+def hello(request):
+    xml = '<Response><Say>Hello world.</Say></Response>'
+    return HttpResponse(xml, content_type='text/xml')
+```
 
 Come si evince dal codice riportato sopra, la risposta TwiML è semplicemente un documento XML. La libreria Twilio per Python contiene le classi che consentono di generare automaticamente le istruzioni TwiML. Nell'esempio seguente viene generata la stessa risposta descritta sopra, ma usando il modulo `twiml` nella libreria Twilio per Python:
 
-    from twilio import twiml
+```python
+from twilio import twiml
 
-    response = twiml.Response()
-    response.say("Hello world.")
-    print(str(response))
+response = twiml.Response()
+response.say("Hello world.")
+print(str(response))
+```
 
 Per ulteriori informazioni su TwiML, vedere [https://www.twilio.com/docs/api/twiml][twiml_reference] .
 
 Dopo aver configurato l'applicazione Python in modo da fornire risposte TwiML, usare l'URL di tale applicazione come URL trasmesso nel metodo `client.calls.create`. Se, ad esempio, si dispone di un'applicazione Web denominata **MyTwiML** distribuita in un servizio ospitato in Azure, è possibile usare il relativo URL come webhook, come mostrato nell'esempio seguente:
 
-    from twilio.rest import TwilioRestClient
+```python
+from twilio.rest import TwilioRestClient
 
-    account_sid = "your_twilio_account_sid"
-    auth_token = "your_twilio_authentication_token"
-    from_number = "NNNNNNNNNNN"
-    to_number = "NNNNNNNNNNN"
-    url = "http://your-domain-label.centralus.cloudapp.azure.com/MyTwiML/"
+account_sid = "your_twilio_account_sid"
+auth_token = "your_twilio_authentication_token"
+from_number = "NNNNNNNNNNN"
+to_number = "NNNNNNNNNNN"
+url = "http://your-domain-label.centralus.cloudapp.azure.com/MyTwiML/"
 
-    # Initialize the Twilio client.
-    client = TwilioRestClient(account_sid, auth_token)
+# Initialize the Twilio client.
+client = TwilioRestClient(account_sid, auth_token)
 
-    # Make the call.
-    call = client.calls.create(to=to_number,
-                               from_=from_number,
-                               url=url)
-    print(call.sid)
+# Make the call.
+call = client.calls.create(to=to_number,
+                           from_=from_number,
+                           url=url)
+print(call.sid)
+```
 
 ## <a name="how-to-use-additional-twilio-services"></a><a id="AdditionalServices"></a>Procedura: Utilizzare servizi Twilio aggiuntivi
 Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile utilizzare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio][twilio_api].

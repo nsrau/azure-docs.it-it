@@ -16,11 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8928e7293f184e8eb366df6a29e50cbea6a7c93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078194"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170497"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
@@ -53,7 +54,7 @@ Per una dimostrazione di come aggiungere un'organizzazione connessa, guardare il
 
 Per aggiungere una directory o un dominio di Azure AD esterno come organizzazione connessa, seguire le istruzioni riportate in questa sezione.
 
-**Ruolo prerequisito**: *amministratore globale*, *amministratore utente*o *invitatore Guest*
+**Ruolo prerequisiti**: *amministratore globale* o *Amministratore utenti*
 
 1. Nella portale di Azure selezionare **Azure Active Directory**e quindi selezionare **governance identità**.
 

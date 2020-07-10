@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 06/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 86116e4aa76b376331e25719d128fc733c3257ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 127a83bbe29a5e102a82cf169919a44f52532228
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316399"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185688"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -57,11 +57,11 @@ Per un computer Linux, l'analisi della conformità viene eseguita ogni ora per i
 Gestione aggiornamenti genera report sullo stato di aggiornamento del computer in base all'origine configurata per la sincronizzazione. Se il computer Windows è configurato per l'invio di report a WSUS, in base a quando WSUS ha eseguito l'ultima sincronizzazione con Microsoft Update i risultati possono differire da quanto visualizzato da Microsoft Update. Questo comportamento è lo stesso per i computer Linux configurati per l'invio di report a un repository locale anziché a un repository pubblico.
 
 > [!NOTE]
-> Per inviare correttamente un report al servizio, Gestione aggiornamenti richiede l'abilitazione di determinati URL e porte. Per altre informazioni su questi requisiti, vedere [Configurazione della rete](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#network-planning).
+> Per inviare correttamente un report al servizio, Gestione aggiornamenti richiede l'abilitazione di determinati URL e porte. Per altre informazioni su questi requisiti, vedere [Configurazione della rete](./automation-hybrid-runbook-worker.md#network-planning).
 
 È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata. Gli aggiornamenti classificati come facoltativi non sono inclusi nell'ambito della distribuzione per i computer Windows. Nell'ambito della distribuzione vengono inclusi solo gli aggiornamenti obbligatori.
 
-La distribuzione pianificata definisce i computer di destinazione che ricevono gli aggiornamenti applicabili, specificando in modo esplicito determinati computer o selezionando un [gruppo di computer](https://docs.microsoft.com/azure/azure-monitor/platform/computer-groups) basato sulle ricerche log di un set specifico di computer oppure su una [query di Azure](automation-update-management-query-logs.md) che seleziona dinamicamente le VM di Azure in base ai criteri specificati. Questi gruppi sono diversi dalla [configurazione dell'ambito](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting), che viene usata per controllare la selezione dei computer di destinazione che ricevono la configurazione per abilitare Gestione aggiornamenti. Questo approccio impedisce ai computer di eseguire e segnalare la conformità degli aggiornamenti e di installare gli aggiornamenti obbligatori.
+La distribuzione pianificata definisce i computer di destinazione che ricevono gli aggiornamenti applicabili, specificando in modo esplicito determinati computer o selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) basato sulle ricerche log di un set specifico di computer oppure su una [query di Azure](automation-update-management-query-logs.md) che seleziona dinamicamente le VM di Azure in base ai criteri specificati. Questi gruppi sono diversi dalla [configurazione dell'ambito](../azure-monitor/insights/solution-targeting.md), che viene usata per controllare la selezione dei computer di destinazione che ricevono la configurazione per abilitare Gestione aggiornamenti. Questo approccio impedisce ai computer di eseguire e segnalare la conformità degli aggiornamenti e di installare gli aggiornamenti obbligatori.
 
 Durante la definizione di una distribuzione, si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti. Questo periodo viene definito finestra di manutenzione. Un intervallo di 20 minuti della finestra di manutenzione viene riservato per i riavvii, presupponendo che sia necessario un riavvio e che sia stata selezionata l'opzione di riavvio appropriata. Se l'applicazione di patch richiede più tempo del previsto e sono disponibili meno di 20 minuti nella finestra di manutenzione, non verrà eseguito il riavvio.
 
@@ -78,7 +78,7 @@ Non è consentito avere un computer registrato per Gestione aggiornamenti in pi�
 Nella tabella seguente sono elencati i sistemi operativi supportati per la valutazione degli aggiornamenti e l'applicazione di patch. L'applicazione di patch richiede un ruolo di lavoro ibrido per runbook. Per informazioni sui requisiti del ruolo di lavoro ibrido per runbook, vedere [Distribuire un ruolo di lavoro ibrido per runbook di Windows](automation-windows-hrw-install.md) e [Distribuire un ruolo di lavoro ibrido per runbook di Linux](automation-linux-hrw-install.md).
 
 > [!NOTE]
-> La valutazione degli aggiornamenti dei computer Linux è supportata solo in determinate aree, come elencato nella [tabella di mapping](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings) dell'account di Automazione e dell'area di lavoro Log Analytics. 
+> La valutazione degli aggiornamenti dei computer Linux è supportata solo in determinate aree, come elencato nella [tabella di mapping](./how-to/region-mappings.md#supported-mappings) dell'account di Automazione e dell'area di lavoro Log Analytics. 
 
 |Sistema operativo  |Note  |
 |---------|---------|
@@ -98,7 +98,7 @@ La tabella seguente elenca i sistemi operativi non supportati:
 
 |Sistema operativo  |Note  |
 |---------|---------|
-|Client Windows     | I sistemi operativi client, ad esempio Windows 7 e Windows 10, non sono supportati.<br> Per Desktop virtuale Windows di Azure il metodo consigliato<br> per la gestione degli aggiornamenti è [Windows Update per le aziende](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) per la gestione delle patch del computer client Windows 10. |
+|Client Windows     | I sistemi operativi client, ad esempio Windows 7 e Windows 10, non sono supportati.<br> Per Desktop virtuale Windows di Azure il metodo consigliato<br> per la gestione degli aggiornamenti è [Windows Update per le aziende](/windows/deployment/update/waas-manage-updates-wufb) per la gestione delle patch del computer client Windows 10. |
 |Windows Server 2016 Nano Server     | Non supportato.       |
 |Nodi del Servizio Azure Kubernetes | Non supportato. Usare il processo di applicazione di patch illustrato in [Applicare gli aggiornamenti di sicurezza e kernel ai nodi Linux nel servizio Azure Kubernetes](../aks/node-updates-kured.md)|
 
@@ -108,21 +108,21 @@ Le informazioni seguenti illustrano i requisiti per il client specifici per un s
 
 #### <a name="windows"></a>Windows
 
-Gli agenti Windows devono essere configurati per comunicare con un server WSUS o devono avere accesso a Microsoft Update. Per informazioni su come installare l'agente di Log Analytics per Windows, vedere [Connettere computer Windows a Monitoraggio di Azure](../log-analytics/log-analytics-windows-agent.md).
+Gli agenti Windows devono essere configurati per comunicare con un server WSUS o devono avere accesso a Microsoft Update. Per informazioni su come installare l'agente di Log Analytics per Windows, vedere [Connettere computer Windows a Monitoraggio di Azure](../azure-monitor/platform/agent-windows.md).
 
 Gestione aggiornamenti può essere usato con Microsoft Endpoint Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare Gestione aggiornamenti con Windows Endpoint Configuration Manager](updatemgmt-mecmintegration.md). L'[agente di Log Analytics per Windows](../azure-monitor/platform/agent-windows.md) è necessario per i server Windows gestiti dai siti nell'ambiente di Configuration Manager. 
 
 Per impostazione predefinita, le VM di Windows distribuite da Azure Marketplace ricevono aggiornamenti automatici dal servizio Windows Update. Questo comportamento non cambia quando si aggiungono VM Windows all'area di lavoro. Se gli aggiornamenti non vengono gestiti attivamente con Gestione aggiornamenti, è applicabile il comportamento predefinito, ovvero gli aggiornamenti vengono applicati automaticamente.
 
 > [!NOTE]
-> È possibile modificare Criteri di gruppo in modo che i riavvii del computer possano essere eseguiti solo dall'utente, non dal sistema. I computer gestiti possono rimanere bloccati se Gestione aggiornamenti non ha i diritti necessari per riavviare il computer senza l'interazione manuale da parte dell'utente. Per altre informazioni, vedere [Configurare le impostazioni di Criteri di gruppo per gli aggiornamenti automatici](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
+> È possibile modificare Criteri di gruppo in modo che i riavvii del computer possano essere eseguiti solo dall'utente, non dal sistema. I computer gestiti possono rimanere bloccati se Gestione aggiornamenti non ha i diritti necessari per riavviare il computer senza l'interazione manuale da parte dell'utente. Per altre informazioni, vedere [Configurare le impostazioni di Criteri di gruppo per gli aggiornamenti automatici](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
 
 #### <a name="linux"></a>Linux
 
 Per Linux, il computer deve avere accesso a un repository degli aggiornamenti, pubblico o privato. Per interagire con Gestione aggiornamenti è necessario TLS 1.1 o TLS 1.2. Gestione aggiornamenti non supporta l'agente di Log Analytics per Linux configurato per l'invio di report a più di un'area di lavoro di Log Analytics. È inoltre necessario che nel computer sia installato Python 2.x.
 
 > [!NOTE]
-> La valutazione degli aggiornamenti dei computer Linux è supportata solo in alcune aree. Vedere la [tabella di mapping](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings) dell'account di Automazione e dell'area di lavoro Log Analytics. 
+> La valutazione degli aggiornamenti dei computer Linux è supportata solo in alcune aree. Vedere la [tabella di mapping](./how-to/region-mappings.md#supported-mappings) dell'account di Automazione e dell'area di lavoro Log Analytics. 
 
 Per ottenere informazioni su come installare l'agente di Log Analytics per Linux e scaricare la versione più recente, vedere l'[agente di Log Analytics per Linux](../azure-monitor/platform/agent-linux.md). 
 
@@ -158,7 +158,7 @@ Se il gruppo di gestione di Operations Manager è [connesso all'area di lavoro L
 Per altre informazioni sugli aggiornamenti ai Management Pack, vedere [Connettere Operations Manager ai log di Monitoraggio di Azure](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> Per consentire a Gestione aggiornamenti di gestire completamente i computer con l'agente di Log Analytics, è necessario aggiornare l'agente di Log Analytics per Windows o l'agente di Log Analytics per Linux. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents) (Come aggiornare un agente di Operations Manager). Negli ambienti che usano Operations Manager è necessario eseguire System Center Operations Manager 2012 R2 UR 14 o versioni successive.
+> Per consentire a Gestione aggiornamenti di gestire completamente i computer con l'agente di Log Analytics, è necessario aggiornare l'agente di Log Analytics per Windows o l'agente di Log Analytics per Linux. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](/system-center/scom/deploy-upgrade-agents) (Come aggiornare un agente di Operations Manager). Negli ambienti che usano Operations Manager è necessario eseguire System Center Operations Manager 2012 R2 UR 14 o versioni successive.
 
 ## <a name="data-collection"></a>Raccolta dati
 
@@ -248,7 +248,7 @@ I clienti che hanno investito in Microsoft Endpoint Configuration Manager per ge
 
 ## <a name="third-party-updates-on-windows"></a>Aggiornamenti di terze parti in Windows
 
-Gestione aggiornamenti si basa sul repository di aggiornamento configurato in locale per aggiornare i sistemi di Windows supportati, ovvero WSUS o Windows Update. Strumenti come [System Center Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/updates-publisher) consentono di importare e pubblicare aggiornamenti personalizzati con WSUS. Questo scenario consente a Gestione aggiornamenti di aggiornare i computer che usano Configuration Manager come repository degli aggiornamenti del software di terze parti. Per informazioni su come configurare Updates Publisher, vedere [Installare Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/install-updates-publisher).
+Gestione aggiornamenti si basa sul repository di aggiornamento configurato in locale per aggiornare i sistemi di Windows supportati, ovvero WSUS o Windows Update. Strumenti come [System Center Updates Publisher](/configmgr/sum/tools/updates-publisher) consentono di importare e pubblicare aggiornamenti personalizzati con WSUS. Questo scenario consente a Gestione aggiornamenti di aggiornare i computer che usano Configuration Manager come repository degli aggiornamenti del software di terze parti. Per informazioni su come configurare Updates Publisher, vedere [Installare Updates Publisher](/configmgr/sum/tools/install-updates-publisher).
 
 ## <a name="enable-update-management"></a>Abilitare la gestione degli aggiornamenti
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e1262aedda95f3feb7cf5604644d938bf4d00a53
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6913ae8cbd8c73bd2763bd89172280feee9df973
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854906"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185620"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -206,9 +206,9 @@ Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
 
 I runbook possono usare tutte le attività e i cmdlet definiti nei moduli installati nell'ambiente di Automazione di Azure. Poiché questi moduli non vengono distribuiti automaticamente nei computer locali, è necessario installarli manualmente. Il modulo di Azure è l'eccezione. Tale modulo viene installato per impostazione predefinita e fornisce l'accesso ai cmdlet per tutti i servizi e le attività di Azure per Automazione di Azure.
 
-Poiché lo scopo principale del ruolo di lavoro ibrido per runbook è quello di gestire le risorse locali, probabilmente sarà necessario installare i moduli che supportano queste risorse, particolarmente il modulo `PowerShellGet`. Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Poiché lo scopo principale del ruolo di lavoro ibrido per runbook è quello di gestire le risorse locali, probabilmente sarà necessario installare i moduli che supportano queste risorse, particolarmente il modulo `PowerShellGet`. Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere [Windows PowerShell](/powershell/scripting/developer/windows-powershell).
 
-I moduli installati devono trovarsi in un percorso a cui fa riferimento la variabile di ambiente `PSModulePath`, in modo che il ruolo di lavoro ibrido possa importarli automaticamente. Per altre informazioni, vedere [Installare moduli in PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+I moduli installati devono trovarsi in un percorso a cui fa riferimento la variabile di ambiente `PSModulePath`, in modo che il ruolo di lavoro ibrido possa importarli automaticamente. Per altre informazioni, vedere [Installare moduli in PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
 
 ## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-machine"></a><a name="remove-windows-hybrid-runbook-worker"></a>Rimuovere il ruolo di lavoro ibrido per Runbook da un computer Windows locale
 

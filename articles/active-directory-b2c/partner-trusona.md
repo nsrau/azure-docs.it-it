@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78de242cb6fd1d670dc9564a2725070b7424b5b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385553"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170106"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrazione di Trusona con Azure Active Directory B2C
 
@@ -40,8 +40,7 @@ In questo scenario, Trusona funge da provider di identità per Azure AD B2C per 
 
 ![Diagramma dell'architettura di Trusona](media/partner-trusona/trusona-architecture-diagram.png)
 
-
-|  |  |
+| Passaggio | Descrizione |
 |------|------|
 |1     | Un utente tenta di accedere o di iscriversi con l'applicazione. L'utente viene autenticato tramite i criteri di iscrizione e accesso Azure AD B2C. Durante l'iscrizione, viene usato l'indirizzo di posta elettronica verificato in precedenza dall'utente dall'app Trusona.     |
 |2     | Azure B2C reindirizza l'utente al provider di identità Trusona OpenID Connect (OIDC) usando il flusso implicito.     |
@@ -100,11 +99,11 @@ In questo scenario, Trusona funge da provider di identità per Azure AD B2C per 
 
 2. Compilare il modulo per configurare il provider di identità:  
 
-   | Proprietà | valore  |
+   | Proprietà | Valore  |
    | :--- | :--- |
    | URL dei metadati | `https://gateway.trusona.net/oidc/.well-known/openid-configuration`|
    | ID client | Verrà inviato tramite posta elettronica all'utente da Trusona |
-   | Scope | Posta elettronica profilo OpenID |
+   | Ambito | Posta elettronica profilo OpenID |
    | Tipo di risposta | Id_token |
    | Modalità di risposta  | Form_post |
 
@@ -114,7 +113,7 @@ In questo scenario, Trusona funge da provider di identità per Azure AD B2C per 
 
 5. Compilare il modulo per eseguire il mapping del provider di identità:
 
-   | Proprietà | valore  |
+   | Proprietà | Valore  |
    | :--- | :--- |
    | UserID | Sub  |
    | Nome visualizzato | nickname |

@@ -6,11 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: ef8145f0b447f24265ff4576884b0977190b063e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c5524d2847f59dda1f2c24f67e1e18f18d49b1f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020354"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185569"
 ---
 # <a name="compose-dsc-configurations"></a>Comporre configurazioni DSC
 
@@ -45,5 +46,4 @@ Se la compilazione è stata completata, la nuova configurazione viene visualizza
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilare configurazioni DSC in State Configuration di Automazione di Azure](automation-dsc-compile.md).
 - Per un esempio dell'uso di State Configuration di Automazione di Azure in una pipeline di distribuzione continua, vedere [Configurare la distribuzione continua con Chocolatey](automation-dsc-cd-chocolatey.md).
 - Per informazioni sui prezzi, vedere i [prezzi di State Configuration di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/).
-- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

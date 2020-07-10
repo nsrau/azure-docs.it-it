@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: cffd2eab3a616b4d16d847d0f2e1a26655f40459
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 874e6f9b1c0bebedb5f50ca38d0703420be69de5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919924"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186963"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows
 
@@ -61,10 +62,12 @@ Per installare l'agente in una VM esistente, è necessario quanto segue:
 
 Verificare innanzitutto che l'agente di macchine virtuali sia già installato. Specificare il nome del servizio cloud e il nome della macchina virtuale, quindi eseguire i comandi seguenti a un prompt dei comandi di Azure PowerShell di livello amministratore. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >.
 
-    $CSName = "<cloud service name>"
-    $VMName = "<virtual machine name>"
-    $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
-    write-host $vm.VM.ProvisionGuestAgent
+```azurepowershell
+$CSName = "<cloud service name>"
+$VMName = "<virtual machine name>"
+$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+write-host $vm.VM.ProvisionGuestAgent
+```
 
 Se non si conosce il nome del servizio cloud e della macchina virtuale, eseguire **Get-AzureVM** per visualizzare tali informazioni per tutte le macchine virtuali nella sottoscrizione corrente.
 
@@ -72,9 +75,11 @@ Se il comando **write-host** restituisce **True**, l'agente di macchine virtuali
 
 Se l'agente di macchine virtuali è installato, eseguire questi comandi.
 
-    $Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
+```azurepowershell
+$Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
 
-    Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
+Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per l'avvio dell'agente sono necessari alcuni minuti dopo l'installazione. In seguito è necessario attivare Deep Security sulla macchina virtuale in modo che venga gestita da un Deep Security Manager. Per altre istruzioni, vedere gli articoli seguenti:

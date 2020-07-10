@@ -4,11 +4,12 @@ description: Trasferire raccolte di immagini o altri artefatti da un registro co
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: fd551671422931a51f5aa6468de87e28e3a81b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83006326"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186929"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Trasferire gli artefatti in un altro registro
 
@@ -57,7 +58,7 @@ L'autenticazione di archiviazione usa i token SAS, gestiti come segreti in Key V
 * **[PipelineRun](#create-pipelinerun-for-export-with-resource-manager)** -Resource usato per richiamare una risorsa ExportPipeline o ImportPipeline.  
   * Eseguire manualmente il ExportPipeline creando una risorsa PipelineRun e specificando gli artefatti da esportare.  
   * Se è abilitato un trigger di importazione, il ImportPipeline viene eseguito automaticamente. Può anche essere eseguito manualmente usando un PipelineRun. 
-  * Attualmente è possibile trasferire un massimo di **10 artefatti** con ogni PipelineRun.
+  * Attualmente è possibile trasferire un massimo di **50 elementi** con ogni PipelineRun.
 
 ### <a name="things-to-know"></a>Informazioni importanti
 * ExportPipeline e ImportPipeline in genere si troveranno in tenant diversi Active Directory associati ai cloud di origine e di destinazione. Questo scenario richiede identità gestite separate e insiemi di credenziali delle chiavi per le risorse di esportazione e importazione. A scopo di test, queste risorse possono essere inserite nello stesso cloud, condividendo le identità.
@@ -133,7 +134,7 @@ Copiare ExportPipeline Gestione risorse [i file modello](https://github.com/Azur
 
 Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json` :
 
-|Parametro  |valore  |
+|Parametro  |Valore  |
 |---------|---------|
 |registryName     | Nome del registro contenitori di origine      |
 |exportPipelineName     |  Nome scelto per la pipeline di esportazione       |
@@ -145,7 +146,7 @@ Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json`
 
 La `options` proprietà per le pipeline di esportazione supporta valori booleani facoltativi. Sono consigliati i valori seguenti:
 
-|Parametro  |valore  |
+|Parametro  |Valore  |
 |---------|---------|
 |opzioni | OverwriteBlobs-sovrascrive i BLOB di destinazione esistenti<br/>ContinueOnErrors: continua l'esportazione degli artefatti rimanenti nel registro di sistema di origine se l'esportazione di un artefatto non riesce.
 
@@ -179,7 +180,7 @@ Copiare ImportPipeline Gestione risorse [i file modello](https://github.com/Azur
 
 Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json` :
 
-Parametro  |valore  |
+Parametro  |Valore  |
 |---------|---------|
 |registryName     | Nome del registro contenitori di destinazione      |
 |importPipelineName     |  Nome scelto per la pipeline di importazione       |
@@ -191,7 +192,7 @@ Parametro  |valore  |
 
 La `options` proprietà della pipeline di importazione supporta valori booleani facoltativi. Sono consigliati i valori seguenti:
 
-|Parametro  |valore  |
+|Parametro  |Valore  |
 |---------|---------|
 |opzioni | OverwriteTags-sovrascrive i tag di destinazione esistenti<br/>DeleteSourceBlobOnSuccess-Elimina il BLOB di archiviazione di origine dopo l'importazione corretta nel registro di sistema di destinazione<br/>ContinueOnErrors-continua l'importazione di elementi rimanenti nel registro di sistema di destinazione se l'importazione di un artefatto non riesce.
 
@@ -225,7 +226,7 @@ Copiare PipelineRun Gestione risorse [i file modello](https://github.com/Azure/a
 
 Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json` :
 
-|Parametro  |valore  |
+|Parametro  |Valore  |
 |---------|---------|
 |registryName     | Nome del registro contenitori di origine      |
 |pipelineRunName     |  Nome scelto per l'esecuzione       |
@@ -283,7 +284,7 @@ Copiare PipelineRun Gestione risorse [i file modello](https://github.com/Azure/a
 
 Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json` :
 
-|Parametro  |valore  |
+|Parametro  |Valore  |
 |---------|---------|
 |registryName     | Nome del registro contenitori di destinazione      |
 |pipelineRunName     |  Nome scelto per l'esecuzione       |
@@ -336,7 +337,7 @@ az deployment group delete \
 * **Problemi di AzCopy**
   * Vedere [risolvere i problemi relativi a AzCopy](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
 * **Problemi di trasferimento degli artefatti**
-  * Non tutti gli artefatti o nessuno vengono trasferiti. Confermare l'ortografia degli elementi nell'esecuzione dell'esportazione e il nome del BLOB nelle esecuzioni di esportazione ed importazione. Confermare che si sta trasferendo un massimo di 10 artefatti.
+  * Non tutti gli artefatti o nessuno vengono trasferiti. Confermare l'ortografia degli elementi nell'esecuzione dell'esportazione e il nome del BLOB nelle esecuzioni di esportazione ed importazione. Confermare che si sta trasferendo un massimo di 50 artefatti.
   * L'esecuzione della pipeline potrebbe non essere stata completata. Un'operazione di esportazione o importazione può richiedere del tempo. 
   * Per altri problemi della pipeline, fornire l' [ID di correlazione](../azure-resource-manager/templates/deployment-history.md) della distribuzione dell'esecuzione dell'esportazione o dell'importazione al team di container Registry di Azure.
 

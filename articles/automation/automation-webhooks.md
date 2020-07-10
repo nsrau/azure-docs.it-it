@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d73b87248fff2e99f05d2d6d6263f2bb3abba57
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361677"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185637"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Avviare un runbook da un webhook
 
-Un webhook consente a un servizio esterno di avviare un runbook specifico in Automazione di Azure tramite una singola richiesta HTTP. I servizi esterni includono Azure DevOps Services, GitHub, log di Monitoraggio di Azure e applicazioni personalizzate. Un servizio di questo tipo può usare un webhook per avviare un runbook senza implementare l'API di Automazione di Azure completa. È possibile confrontare i webhook con altri metodi di avvio di un runbook in [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md).
+Un webhook consente a un servizio esterno di avviare un runbook specifico in Automazione di Azure tramite una singola richiesta HTTP. I servizi esterni includono Azure DevOps Services, GitHub, log di Monitoraggio di Azure e applicazioni personalizzate. Un servizio di questo tipo può usare un webhook per avviare un runbook senza implementare l'API di Automazione di Azure completa. È possibile confrontare i webhook con altri metodi di avvio di un runbook in [Avvio di un runbook in Automazione di Azure](./start-runbooks.md).
 
 > [!NOTE]
 > L'uso di un webhook per avviare un runbook Python non è supportato.
@@ -133,7 +133,7 @@ Se la richiesta ha esito positivo, la risposta del webhook conterrà l'ID del pr
 {"JobIds":["<JobId>"]}
 ```
 
-Il client non è in grado di determinare quando viene completato il processo del runbook o lo stato di avanzamento dal webhook. Può recuperare queste informazioni usando l'ID processo con un altro metodo, ad esempio [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) o l'[API di Automazione di Azure](/rest/api/automation/job).
+Il client non è in grado di determinare quando viene completato il processo del runbook o lo stato di avanzamento dal webhook. Può recuperare queste informazioni usando l'ID processo con un altro metodo, ad esempio [Windows PowerShell](/powershell/module/servicemanagement/azure/get-azureautomationjob) o l'[API di Automazione di Azure](/rest/api/automation/job).
 
 ## <a name="renew-a-webhook"></a>Rinnovare un webhook
 
@@ -151,7 +151,7 @@ Quando viene creato, un webhook ha un periodo di validità di dieci anni, dopo i
 Il runbook di esempio seguente accetta i dati del webhook e avvia le macchine virtuali specificate nel corpo della richiesta. Per testare il runbook, nell'account di Automazione, in **Runbook**, fare clic su **Crea un runbook**. Se non si conosce la procedura di creazione di un runbook, vedere [Creare un runbook di Automazione di Azure](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> Per runbook PowerShell non grafici, `Add-AzAccount` e `Add-AzureRMAccount` sono alias per [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). È possibile usare questi cmdlet oppure è possibile [aggiornare i moduli](automation-update-azure-modules.md) nell'account di Automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli, anche se è stato appena creato un nuovo account di Automazione.
+> Per runbook PowerShell non grafici, `Add-AzAccount` e `Add-AzureRMAccount` sono alias per [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). È possibile usare questi cmdlet oppure è possibile [aggiornare i moduli](automation-update-azure-modules.md) nell'account di Automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli, anche se è stato appena creato un nuovo account di Automazione.
 
 ```powershell
 param

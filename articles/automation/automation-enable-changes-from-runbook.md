@@ -5,11 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 92149289c6c422179ddb3562274020acf779f10b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171090"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186283"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Abilitare Rilevamento modifiche e inventario da un runbook
 
@@ -21,7 +22,7 @@ Questo articolo descrive come usare un runbook per abilitare la funzionalità [R
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Account di Automazione](automation-offering-get-started.md) per gestire i computer.
+* [Account di Automazione](./index.yml) per gestire i computer.
 * Una [macchina virtuale](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Abilitare il rilevamento delle modifiche e l'inventario 
@@ -50,7 +51,7 @@ Se Rilevamento modifiche e inventario è abilitata, è possibile aggiungere una 
 
 ## <a name="install-and-update-modules"></a>Installare e aggiornare i moduli
 
-Per abilitare correttamente Rilevamento modifiche e inventario per la macchina virtuale, è necessario eseguire l'aggiornamento ai moduli di Azure più recenti e importare il modulo [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0).
+Per abilitare correttamente Rilevamento modifiche e inventario per la macchina virtuale, è necessario eseguire l'aggiornamento ai moduli di Azure più recenti e importare il modulo [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0).
 
 1. Nell'account di Automazione selezionare **Moduli** in **Risorse condivise**. 
 2. Selezionare **Aggiorna moduli di Azure** per aggiornare i moduli di Azure alla versione più recente. 

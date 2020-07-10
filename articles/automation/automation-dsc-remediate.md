@@ -9,11 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: ff785bf3ace7c65f83fe8e505f0544edd24776d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4430b8cdfe9414ddbfd7aad3c3fe7827adbc8705
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836856"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186368"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Correggere i server di State Configuration di Automazione di Azure non conformi
 
@@ -24,7 +25,7 @@ Questo documento fornisce script di esempio per questa funzionalità quando si c
 
 ## <a name="correct-drift-of-windows-virtual-machines-using-powershell"></a>Correggere la deviazione delle macchine virtuali Windows con PowerShell
 
-È possibile correggere la deviazione delle macchine virtuali Windows utilizzando la funzionalità del comando `Run`. Vedere [Eseguire gli script di PowerShell nella macchina virtuale Windows con Esegui comando](/azure/virtual-machines/windows/run-command).
+È possibile correggere la deviazione delle macchine virtuali Windows utilizzando la funzionalità del comando `Run`. Vedere [Eseguire gli script di PowerShell nella macchina virtuale Windows con Esegui comando](../virtual-machines/windows/run-command.md).
 
 Per forzare il download e l'applicazione della configurazione più recente da parte di un nodo State Configuration di Automazione di Azure, usare il cmdlet [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration).
 
@@ -42,5 +43,5 @@ Per i nodi ibridi è possibile correggere la deviazione mediante gli script Pyth
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Per un esempio dell'uso di State Configuration di Automazione di Azure in una pipeline di distribuzione continua, vedere [Configurare la distribuzione continua con Chocolatey](automation-dsc-cd-chocolatey.md).

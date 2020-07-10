@@ -5,15 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea05e75c0d1db1ef27ae2e8e9364327528a7c8ed
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e30d1606a3928f421d2155e2d1abac0c8a6872aa
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837162"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186640"
 ---
 # <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Configurare le impostazioni di Windows Update per Gestione aggiornamenti di Automazione di Azure
 
-Gestione aggiornamenti di Automazione di Azure si basa sul [client di Windows Update](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) per scaricare e installare gli aggiornamenti di Windows. Sono disponibili impostazioni specifiche utilizzate dal client di Windows Update durante la connessione a Windows Server Update Services (WSUS) o Windows Update. Molte di queste impostazioni possono essere gestite con:
+Gestione aggiornamenti di Automazione di Azure si basa sul [client di Windows Update](/windows/deployment/update/windows-update-overview) per scaricare e installare gli aggiornamenti di Windows. Sono disponibili impostazioni specifiche utilizzate dal client di Windows Update durante la connessione a Windows Server Update Services (WSUS) o Windows Update. Molte di queste impostazioni possono essere gestite con:
 
 - Editor Criteri di gruppo locali
 - Criteri di gruppo
@@ -22,7 +23,7 @@ Gestione aggiornamenti di Automazione di Azure si basa sul [client di Windows Up
 
 Gestione aggiornamenti rispetta molte delle impostazioni specificate per controllare il client di Windows Update. Se si usano le impostazioni per abilitare gli aggiornamenti non Windows, Gestione aggiornamenti gestisce anche questi. Se si abilita il download degli aggiornamenti prima che venga eseguita una distribuzione degli aggiornamenti, le distribuzioni degli aggiornamenti saranno più veloci, più efficienti e avranno meno probabilità di superare la finestra di manutenzione.
 
-Per raccomandazioni aggiuntive sulla configurazione di WSUS nella sottoscrizione di Azure e la conservazione sicura delle macchine virtuali di Windows, vedere [Pianificare la distribuzione per l'aggiornamento delle macchine virtuali di Windows in Azure usando WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
+Per raccomandazioni aggiuntive sulla configurazione di WSUS nella sottoscrizione di Azure e la conservazione sicura delle macchine virtuali di Windows, vedere [Pianificare la distribuzione per l'aggiornamento delle macchine virtuali di Windows in Azure usando WSUS](/azure/architecture/example-scenario/wsus/).
 
 ## <a name="pre-download-updates"></a>Download anticipato degli aggiornamenti
 
@@ -57,7 +58,7 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 Gestione aggiornamenti supporta le impostazioni WSUS. È possibile specificare le origini per l'analisi e il download degli aggiornamenti utilizzando le istruzioni disponibili in [Specifica il percorso del servizio di aggiornamento Microsoft nella rete Intranet](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). Per impostazione predefinita, il client di Windows Update è configurato per scaricare aggiornamenti da Windows Update. Quando si specifica un server WSUS come origine per i computer, se gli aggiornamenti non sono approvati in WSUS, la distribuzione degli aggiornamenti ha esito negativo. 
 
-Per limitare i computer al servizio di aggiornamento interno, impostare [Non connettersi a nessun percorso Internet di Windows Update](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
+Per limitare i computer al servizio di aggiornamento interno, impostare [Non connettersi a nessun percorso Internet di Windows Update](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

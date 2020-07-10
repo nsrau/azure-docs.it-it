@@ -6,24 +6,25 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powershell, runbook, json, automazione di azure
-ms.openlocfilehash: 921d878c585b811700b1c112524e314f0af53c24
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 10eadd7b8ee6c2e954f40469a02d42dc77c2bf41
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837077"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186555"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Distribuire un modello di Azure Resource Manager in un runbook PowerShell
 
-È possibile scrivere un [runbook PowerShell di Automazione di Azure](automation-first-runbook-textual-powershell.md) che distribuisce una risorsa di Azure usando un [modello di Azure Resource Management](../azure-resource-manager/resource-manager-create-first-template.md). L'uso del modello consente di usare Automazione di Azure e Archiviazione di Azure per automatizzare la distribuzione delle risorse di Azure. È possibile anche gestire i modelli di Resource Manager in una posizione centrale protetta come Archiviazione di Azure.
+È possibile scrivere un [runbook PowerShell di Automazione di Azure](./learn/automation-tutorial-runbook-textual-powershell.md) che distribuisce una risorsa di Azure usando un [modello di Azure Resource Management](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). L'uso del modello consente di usare Automazione di Azure e Archiviazione di Azure per automatizzare la distribuzione delle risorse di Azure. È possibile anche gestire i modelli di Resource Manager in una posizione centrale protetta come Archiviazione di Azure.
 
 In questo articolo si creerà un runbook PowerShell che usa un modello di Resource Manager archiviato in [Archiviazione di Azure](../storage/common/storage-introduction.md) per distribuire un nuovo account di Archiviazione di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per ottenere un account gratuito](https://azure.microsoft.com/free/).
-* [Account di Automazione](automation-sec-configure-azure-runas-account.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure.  Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
-* [Account di Archiviazione di Azure](../storage/common/storage-create-storage-account.md) in cui archiviare il modello di Resource Manager
-* Azure PowerShell installato in un computer locale. Per informazioni su come ottenere PowerShell, vedere [Come installare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0).
+* [Account di Automazione](./manage-runas-account.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure.  Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
+* [Account di Archiviazione di Azure](../storage/common/storage-account-create.md) in cui archiviare il modello di Resource Manager
+* Azure PowerShell installato in un computer locale. Per informazioni su come ottenere PowerShell, vedere [Come installare Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.5.0).
 
 ## <a name="create-the-resource-manager-template"></a>Creare il modello di Azure Resource Manager
 
@@ -191,8 +192,7 @@ Publish-AzAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Avviare il runbook
 
-Si avvierà ora il runbook chiamando il cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0
-). Per informazioni su come avviare un runbook nel portale di Azure, vedere [Avvio di un Runbook in Automazione di Azure](automation-starting-a-runbook.md).
+Si avvierà ora il runbook chiamando il cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Per informazioni su come avviare un runbook nel portale di Azure, vedere [Avvio di un Runbook in Automazione di Azure](./start-runbooks.md).
 
 Eseguire i comandi seguenti nella console di PowerShell:
 
@@ -232,4 +232,4 @@ Get-AzStorageAccount
 * Per informazioni introduttive su Archiviazione di Azure, vedere [Introduzione ad Archiviazione di Azure](../storage/common/storage-introduction.md).
 * Per trovare altri runbook utili di Automazione di Azure, vedere [Usare runbook e moduli in Automazione di Azure](automation-runbook-gallery.md).
 * Per trovare altri modelli utili di Resource Manager, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

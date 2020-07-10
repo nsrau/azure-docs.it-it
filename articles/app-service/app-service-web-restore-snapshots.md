@@ -6,11 +6,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7edb632559dc8da2de32c58d994a7c51b1b09e8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255140"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169972"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Ripristinare un'app in Azure da uno snapshot
 Questo articolo illustra come ripristinare un'app in [Servizio app di Azure](../app-service/overview.md) da uno snapshot. È possibile ripristinare uno stato precedente dell'app, in base a uno degli snapshot dell'app. Non è necessario abilitare il backup degli snapshot. La piattaforma salva automaticamente uno snapshot di tutte le app per scopi di ripristino dei dati.
@@ -36,15 +37,15 @@ Il ripristino da snapshot è disponibile per le app in esecuzione a livello **Pr
 
 1. Nella [portale di Azure](https://portal.azure.com)della pagina **Impostazioni** dell'app fare clic su **backup** per visualizzare la pagina **backup** . Fare quindi clic su **Ripristina** nella sezione **Snapshot (anteprima)**.
    
-    ![](./media/app-service-web-restore-snapshots/1.png)
+    ![Screenshot che illustra come ripristinare un'app da un backup di snapshot.](./media/app-service-web-restore-snapshots/1.png)
 
 2. Nella pagina di **ripristino** selezionare lo snapshot da ripristinare.
    
-    ![](./media/app-service-web-restore-snapshots/2.png)
+    ![Screenshot che illustra come selezionare lo snapshot da ripristinare. ](./media/app-service-web-restore-snapshots/2.png)
    
 3. Specificare la destinazione per il ripristino dell'app in **Destinazione di ripristino**.
    
-    ![](./media/app-service-web-restore-snapshots/3.png)
+    ![Screenshot che illustra come specificare la destinazione di ripristino.](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
    > Se si sceglie **Sovrascrivi**, tutti i dati esistenti nel file system corrente dell'app verranno cancellati e sovrascritti. Prima di scegliere **OK**, assicurarsi che sia ciò che si vuole eseguire.
@@ -60,6 +61,6 @@ Il ripristino da snapshot è disponibile per le app in esecuzione a livello **Pr
 
 4. È possibile scegliere di ripristinare la configurazione del sito.
    
-    ![](./media/app-service-web-restore-snapshots/4.png)
+    ![Screenshot che illustra come ripristinare la configurazione del sito.](./media/app-service-web-restore-snapshots/4.png)
 
 5. Fare clic su **OK**.

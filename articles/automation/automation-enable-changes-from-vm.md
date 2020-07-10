@@ -5,11 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 332ff4f6e63a831c1523c3f959708f9dc48a72a9
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 5ff6e0ffd4040393a040dc67a511aab47887f6e1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171056"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186266"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Abilitare Rilevamento modifiche e inventario da una macchina virtuale di Azure
 
@@ -21,7 +22,7 @@ Questo articolo descrive come usare una macchina virtuale di Azure per abilitare
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Account di Automazione](automation-offering-get-started.md) per gestire i computer.
+* [Account di Automazione](./index.yml) per gestire i computer.
 * Una [macchina virtuale](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure

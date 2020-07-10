@@ -5,15 +5,16 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 72065b388f348da1d268f875a10d5b13d2f8cf3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8770762fa2d2ae6bc0584d75397829298a62e8c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117392"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185892"
 ---
 # <a name="limit-update-management-deployment-scope"></a>Limitare Gestione aggiornamenti ambito di distribuzione
 
-Questo articolo descrive come usare le configurazioni dell'ambito quando si usa la funzionalità [Gestione aggiornamenti](automation-update-management.md) per distribuire aggiornamenti e patch nelle VM. Per altre informazioni, vedere [targeting Solutions Monitoring in monitoraggio di Azure (anteprima)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
+Questo articolo descrive come usare le configurazioni dell'ambito quando si usa la funzionalità [Gestione aggiornamenti](automation-update-management.md) per distribuire aggiornamenti e patch nelle VM. Per altre informazioni, vedere [targeting Solutions Monitoring in monitoraggio di Azure (anteprima)](../azure-monitor/insights/solution-targeting.md). 
 
 ## <a name="about-scope-configurations"></a>Informazioni sulle configurazioni dell'ambito
 

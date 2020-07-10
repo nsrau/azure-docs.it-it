@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: acf31af6d3ba3d78a6435210fa17562aaddac0a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837111"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186606"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usare un avviso per attivare un runbook di Automazione di Azure
 
@@ -44,7 +45,7 @@ Come descritto nella sezione precedente, ogni tipo di avviso ha uno schema diver
 
 Questo esempio usa un avviso generato da una macchina virtuale. Recupera i dati della macchina virtuale dal payload e usa le informazioni per arrestare la macchina virtuale. La connessione deve essere configurata nell'account di Automazione in cui è eseguito il runbook. Quando si usano gli avvisi per attivare i runbook, è importante controllare lo stato dell'avviso nel runbook che viene attivato. Il runbook viene attivato ogni volta che lo stato dell'avviso cambia. Gli avvisi hanno più stati; i due più comuni sono Attivato e Risolto. Cercare lo stato nella logica del runbook per assicurarsi che il runbook non venga eseguito più volte. L'esempio in questo articolo illustra come cercare solo gli avvisi con stato Attivato.
 
-Il runbook usa l'[account RunAs](automation-create-runas-account.md) `AzureRunAsConnection` dell'asset di connessione per l'autenticazione in Azure per eseguire l'azione di gestione sulla macchina virtuale.
+Il runbook usa l'[account RunAs](./manage-runas-account.md) `AzureRunAsConnection` dell'asset di connessione per l'autenticazione in Azure per eseguire l'azione di gestione sulla macchina virtuale.
 
 Usare questo esempio per creare un runbook denominato **Stop AzureVmInResponsetoVMAlert**. È possibile modificare lo script di PowerShell e usarlo con molte risorse diverse.
 
@@ -191,7 +192,7 @@ Gli avvisi usano i gruppi di azioni, ovvero raccolte di azioni attivate dall'avv
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per avviare un runbook usando un webhook, vedere [Avviare un runbook da un webhook](automation-webhooks.md).
-* Per le diverse modalità di avvio di un runbook, vedere [Avviare un runbook](automation-starting-a-runbook.md).
+* Per le diverse modalità di avvio di un runbook, vedere [Avviare un runbook](./start-runbooks.md).
 * Per creare un avviso del log attività, vedere [Creare avvisi del log attività](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Per informazioni su come creare un avviso quasi in tempo reale, vedere [Creare una regola di avviso con il portale di Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

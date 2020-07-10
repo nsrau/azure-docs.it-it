@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 66fb5741a5ed1af9e7edf002485c959f9f2fc82f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84f2ef1fc318e53914b1510870d0399cfbfa87e9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507263"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185280"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gestire un account RunAs di Automazione di Azure
 
@@ -24,7 +24,7 @@ Automazione di Azure usa due tipi di account RunAs:
 * Account RunAs classico di Azure
 
 >[!NOTE]
->Le sottoscrizioni Azure Cloud Solution Provider (CSP) supportano solo il modello di Azure Resource Manager. I servi diversi da Azure Resource Manager non sono disponibili nel programma. Quando si usa una sottoscrizione CSP, non viene creato l'account RunAs classico di Azure, ma l'account RunAs di Azure. Per altre informazioni sulle sottoscrizioni CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
+>Le sottoscrizioni Azure Cloud Solution Provider (CSP) supportano solo il modello di Azure Resource Manager. I servi diversi da Azure Resource Manager non sono disponibili nel programma. Quando si usa una sottoscrizione CSP, non viene creato l'account RunAs classico di Azure, ma l'account RunAs di Azure. Per altre informazioni sulle sottoscrizioni CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
 Per impostazione predefinita l'entità servizio per un account RunAs non dispone delle autorizzazioni per leggere Azure AD. Se si desidera aggiungere autorizzazioni per la lettura o la gestione di Azure AD, è necessario concedere le autorizzazioni all'entità servizio in **Autorizzazioni API**. Per altre informazioni, vedere [Aggiungere autorizzazioni per accedere ad API Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
@@ -63,12 +63,12 @@ Per creare o aggiornare un account RunAs, è necessario avere autorizzazioni e p
 
 |Attività|Cmdlet  |Autorizzazioni minime  |Dove impostare le autorizzazioni|
 |---|---------|---------|---|
-|Creare un'applicazione Azure AD|[New-AzADApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication)     | Ruolo di Sviluppatore di applicazioni<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registrazioni app |
-|Aggiungere una credenziale all'applicazione.|[New-AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential)     | Amministratore di applicazioni o Amministratore globale<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registrazioni app|
-|Creare e ottenere un'entità servizio di Azure AD|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal)     | Amministratore di applicazioni o Amministratore globale<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registrazioni app|
-|Assegnare o ottenere il ruolo Controllo degli accessi in base al ruolo per l'entità specificata|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Proprietario o Amministratore Accesso utenti oppure disporre delle autorizzazioni seguenti:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Sottoscrizione](../role-based-access-control/role-assignments-portal.md)</br>Home > sottoscrizioni > \<subscription name\> -controllo di accesso (IAM)|
-|Creare o rimuovere un certificato di Automazione|[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationcertificate)     | Collaboratore nel gruppo di risorse         |Gruppo di risorse dell'account di Automazione|
-|Creare o rimuovere una connessione di Automazione|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection)</br>[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationconnection)|Collaboratore nel gruppo di risorse |Gruppo di risorse dell'account di Automazione|
+|Creare un'applicazione Azure AD|[New-AzADApplication](/powershell/module/az.resources/new-azadapplication)     | Ruolo di Sviluppatore di applicazioni<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registrazioni app |
+|Aggiungere una credenziale all'applicazione.|[New-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential)     | Amministratore di applicazioni o Amministratore globale<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registrazioni app|
+|Creare e ottenere un'entità servizio di Azure AD|[New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)     | Amministratore di applicazioni o Amministratore globale<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registrazioni app|
+|Assegnare o ottenere il ruolo Controllo degli accessi in base al ruolo per l'entità specificata|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Proprietario o Amministratore Accesso utenti oppure disporre delle autorizzazioni seguenti:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Sottoscrizione](../role-based-access-control/role-assignments-portal.md)</br>Home > sottoscrizioni > \<subscription name\> -controllo di accesso (IAM)|
+|Creare o rimuovere un certificato di Automazione|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remove-AzAutomationCertificate](/powershell/module/az.automation/remove-azautomationcertificate)     | Collaboratore nel gruppo di risorse         |Gruppo di risorse dell'account di Automazione|
+|Creare o rimuovere una connessione di Automazione|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection)</br>[Remove-AzAutomationConnection](/powershell/module/az.automation/remove-azautomationconnection)|Collaboratore nel gruppo di risorse |Gruppo di risorse dell'account di Automazione|
 
 <sup>1</sup> Gli utenti non amministratori nel tenant di Azure AD possono [registrare le applicazioni di AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) se l'opzione **Gli utenti possono registrare applicazioni** del tenant di Azure AD nella pagina Impostazioni utente è impostata su **Sì**. Se l'impostazione di registrazione dell'applicazione è impostata su **No**, l'utente che esegue questa azione deve essere quello definito in questa tabella.
 
@@ -155,7 +155,7 @@ Usare la procedura seguente per rinnovare il certificato autofirmato.
 
 ## <a name="limit-run-as-account-permissions"></a>Limitare le autorizzazioni dell'account RunAs
 
-Per controllare la destinazione di Automazione rispetto alle risorse in Azure, è possibile eseguire lo script [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8). Questo script modifica l'entità servizio dell'account RunAs esistente per creare e usare una definizione del ruolo personalizzata. Il ruolo dispone delle autorizzazioni per tutte le risorse eccetto [Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Per controllare la destinazione di Automazione rispetto alle risorse in Azure, è possibile eseguire lo script [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8). Questo script modifica l'entità servizio dell'account RunAs esistente per creare e usare una definizione del ruolo personalizzata. Il ruolo dispone delle autorizzazioni per tutte le risorse eccetto [Key Vault](../key-vault/index.yml).
 
 >[!IMPORTANT]
 >Dopo aver eseguito lo script **Update-AutomationRunAsAccountRoleAssignments.ps1**, i runbook che accedono a Key Vault con gli account RunAs non funzionano più. Prima di eseguire lo script, è necessario rivedere i runbook nell'account per le chiamate ad Azure Key Vault. Per consentire l'accesso a Key Vault dai runbook di Automazione di Azure, è necessario [aggiungere l'account RunAs alle autorizzazioni di Key Vault](#add-permissions-to-key-vault).

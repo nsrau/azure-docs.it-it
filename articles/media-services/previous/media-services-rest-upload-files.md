@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73888595"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170786"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Caricare file in un account di Servizi multimediali mediante REST  
 > [!div class="op_single_selector"]
@@ -149,7 +150,7 @@ Per ricevere l'URL di caricamento effettivo, creare un localizzatore di firma di
 
 Un URL di firma di accesso condiviso ha il seguente formato:
 
-    {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
+`{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}`
 
 ### <a name="considerations"></a>Considerazioni
 
@@ -212,15 +213,17 @@ Per convalidare il corretto caricamento del file, è possibile eseguire una quer
 
 Ad esempio, l'operazione **GET** consente di ottenere i dati relativi al file di asset, in questo caso il file BigBuckBunny.mp4. Per la query vengono usate le [variabili di ambiente](postman-environment.md) impostate in precedenza.
 
-    {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
+`{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files`
 
 La risposta conterrà dimensioni, nome e altre informazioni.
 
-    "Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
-    "Name": "BigBuckBunny.mp4",
-    "ContentFileSize": "3186542",
-    "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
-            
+```console
+"Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
+"Name": "BigBuckBunny.mp4",
+"ContentFileSize": "3186542",
+"ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
+```
+  
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora è possibile codificare gli asset caricati. Per altre informazioni, vedere [Encode assets](media-services-portal-encode.md)(Codificare gli asset).

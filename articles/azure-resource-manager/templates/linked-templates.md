@@ -3,12 +3,12 @@ title: Collegare i modelli per la distribuzione
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 1b63ebc62a944b43aef3b777dd7d285369356c29
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056685"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170650"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -160,7 +160,7 @@ Il modello seguente illustra come vengono risolte le espressioni di modello in b
 
 Il valore di `exampleVar` cambia a seconda del valore della `scope` Proprietà in `expressionEvaluationOptions` . Nella tabella seguente vengono illustrati i risultati di entrambi gli ambiti.
 
-| `expressionEvaluationOptions` `scope` | Output |
+| `expressionEvaluationOptions`ambito | Output |
 | ----- | ------ |
 | interno | da modello annidato |
 | Outer (o predefinito) | dal modello padre |

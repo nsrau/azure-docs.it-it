@@ -6,19 +6,19 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: bc599eef349c2d65483de18b0cc8c04c5c2e53ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808225"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186792"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creare un probe personalizzato per un gateway applicazione con il portale
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-probe-portal.md)
+> * [Portale di Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
 
@@ -48,17 +48,19 @@ I probe vengono configurati con un processo in due passaggi nel portale. Il prim
    |---|---|---|
    |**Nome**|customProbe|Questo valore è un nome descrittivo assegnato al Probe accessibile nel portale.|
    |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità. |
-   |**Host**|vale a dire contoso.com|Questo valore è il nome dell'host virtuale, diverso dal nome host della macchina virtuale, in esecuzione nel server applicazioni. Il probe viene inviato a (protocollo)://(nome host):(porta da impostazioni)/urlPath.  Questa operazione è applicabile quando si configura multisito nel gateway applicazione. Se il gateway applicazione è configurato per un singolo sito, immettere "127.0.0.1".|
-   |**Selezionare il nome host da impostazioni HTTP back-end**|Sì o No|Imposta l'intestazione *host* nel Probe sul nome host della risorsa back-end nel pool back-end associato all'impostazione http a cui è associato il probe. Requisito speciale in caso di backend multi-tenant, ad esempio servizio app di Azure. [Altre informazioni](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**Percorso**|/ o un altro percorso|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito http: \/ /contoso.com è sufficiente usare '/' |
+   |**Host**|vale a dire contoso.com|Questo valore è il nome dell'host virtuale, diverso dal nome host della macchina virtuale, in esecuzione nel server applicazioni. Il probe viene inviato a \<protocol\> :// \<host name\> :\<port\>/\<urlPath\>|
+   |**Selezionare il nome host da impostazioni HTTP back-end**|Sì o No|Imposta l'intestazione *host* nel Probe sul nome host dalle impostazioni http a cui è associato il probe. Requisito speciale in caso di backend multi-tenant, ad esempio servizio app di Azure. [Scopri di più](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Selezionare la porta dalle impostazioni HTTP back-end**| Sì o No|Imposta la *porta* del probe di integrità sulla porta dalle impostazioni http a cui è associato il probe. Se si sceglie No, è possibile immettere una porta di destinazione personalizzata da usare |
+   |**Porta**| 1-65535 | Porta personalizzata da usare per i probe di integrità | 
+   |**Percorso**|/o qualsiasi percorso valido|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito http: \/ /contoso.com è sufficiente usare '/' |
    |**Intervallo (sec)**|30|Frequenza con cui viene eseguito il probe per controllare l'integrità. Non è consigliabile impostare un valore inferiore a 30 secondi.|
    |**Timeout (secondi)**|30|Quantità di tempo di attesa del probe prima del timeout. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito. L'intervallo di timeout deve essere abbastanza elevato da poter effettuare una chiamata http per assicurarsi che la pagina relativa all'integrità del back-end sia disponibile. Si noti che il valore di timeout non deve essere superiore al valore ' intervallo ' usato in questa impostazione di probe o al valore ' timeout richiesta ' nell'impostazione HTTP che verrà associato a questo Probe.|
-|**Soglia non integra**|3|Numero di tentativi consecutivi non riusciti da considerare non integri. La soglia può essere impostata su 1 o più.|
-   |**USA condizioni di corrispondenza Probe**|Sì o No|Per impostazione predefinita, una risposta HTTP(S) con codice di stato compreso tra 200 e 399 viene considerata integra. È possibile modificare l'intervallo accettabile del codice di risposta back-end o del corpo della risposta back-end. [Altre informazioni](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Soglia non integra**|3|Numero di tentativi consecutivi non riusciti da considerare non integri. La soglia può essere impostata su 1 o più.|
+   |**USA condizioni di corrispondenza Probe**|Sì o No|Per impostazione predefinita, una risposta HTTP(S) con codice di stato compreso tra 200 e 399 viene considerata integra. È possibile modificare l'intervallo accettabile del codice di risposta back-end o del corpo della risposta back-end. [Scopri di più](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
    |**Impostazioni HTTP**|selezione dall'elenco a discesa|Il probe verrà associato alle impostazioni HTTP selezionate qui e, di conseguenza, eseguirà il monitoraggio dello stato del pool back-end associato all'impostazione HTTP selezionata. Utilizzerà la stessa porta per la richiesta di probe come quella usata nell'impostazione HTTP selezionata. È possibile scegliere solo le impostazioni HTTP che non sono associate ad altri Probe personalizzati. <br>Si noti che per l'associazione sono disponibili solo le impostazioni HTTP che hanno lo stesso protocollo scelto in questa configurazione di probe e hanno lo stesso stato per il *nome host pick dall'opzione di impostazione http back-end* .|
    
    > [!IMPORTANT]
-   > Il probe eseguirà il monitoraggio dello stato del back-end solo quando è associato a una o più impostazioni HTTP. Verranno monitorate le risorse back-end dei pool back-end associati alle impostazioni HTTP a cui è associato il probe. La richiesta di probe verrà inviata a http://(nome host):(porta da impostazioni)/urlPath.
+   > Il probe eseguirà il monitoraggio dello stato del back-end solo quando è associato a una o più impostazioni HTTP. Verranno monitorate le risorse back-end dei pool back-end associati alle impostazioni HTTP a cui è associato il probe. La richiesta di probe verrà inviata come \<protocol\> :// \<hostName\> : \<port\> / \<urlPath\> .
 
 ### <a name="test-backend-health-with-the-probe"></a>Testare l'integrità back-end con il probe
 
@@ -71,7 +73,7 @@ Dopo aver immesso le proprietà del probe, è possibile testare l'integrità del
 2. Se sono presenti risorse di back-end non integre, controllare la colonna **Dettagli** per comprendere il motivo dello stato non integro della risorsa. Se la risorsa è stata contrassegnata come non integra a causa di una configurazione di probe non corretta, selezionare il collegamento **tornare a probe** e modificare la configurazione del probe. In caso contrario, se la risorsa è stata contrassegnata come non integra a causa di un problema con il back-end, risolvere i problemi con la risorsa back-end e quindi testare di nuovo il back-end selezionando il collegamento Torna **a probe** e selezionare **test**.
 
    > [!NOTE]
-   > È possibile scegliere di salvare il probe anche con risorse di back-end non integro, ma non è consigliabile. Questo perché il gateway applicazione rimuove le risorse back-end dal pool back-end che sono determinate come non integre dal probe. Se non sono presenti risorse integre in un pool back-end, non sarà possibile accedere all'applicazione e verrà ricevuto un errore 502.
+   > È possibile scegliere di salvare il probe anche con risorse di back-end non integro, ma non è consigliabile. Questo perché il gateway applicazione non inoltrerà le richieste ai server back-end dal pool back-end, che risultano non integre dal probe. Se non sono presenti risorse integre in un pool back-end, non sarà possibile accedere all'applicazione e verrà ricevuto un errore HTTP 502.
 
    ![Visualizza risultati Probe][6]
 
@@ -98,15 +100,15 @@ I probe vengono configurati con un processo in due passaggi nel portale. Il prim
    |**Nome**|customProbe|Questo valore è un nome descrittivo assegnato al Probe accessibile nel portale.|
    |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità. |
    |**Host**|vale a dire contoso.com|Questo valore è il nome dell'host virtuale, diverso dal nome host della macchina virtuale, in esecuzione nel server applicazioni. Il probe viene inviato a (protocollo)://(nome host):(porta da impostazioni)/urlPath.  Questa operazione è applicabile quando si configura multisito nel gateway applicazione. Se il gateway applicazione è configurato per un singolo sito, immettere "127.0.0.1".|
-   |**Selezionare il nome host da impostazioni HTTP back-end**|Sì o No|Imposta l'intestazione *host* nel Probe sul nome host della risorsa back-end nel pool back-end associato all'impostazione http a cui è associato il probe. Requisito speciale in caso di backend multi-tenant, ad esempio servizio app di Azure. [Altre informazioni](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**Percorso**|/ o un altro percorso|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito http: \/ /contoso.com è sufficiente usare '/' |
+   |**Selezionare il nome host da impostazioni HTTP back-end**|Sì o No|Imposta l'intestazione *host* nel Probe sul nome host della risorsa back-end nel pool back-end associato all'impostazione http a cui è associato il probe. Requisito speciale in caso di backend multi-tenant, ad esempio servizio app di Azure. [Scopri di più](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Percorso**|/o qualsiasi percorso valido|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito http: \/ /contoso.com è sufficiente usare '/' |
    |**Intervallo (sec)**|30|Frequenza con cui viene eseguito il probe per controllare l'integrità. Non è consigliabile impostare un valore inferiore a 30 secondi.|
    |**Timeout (secondi)**|30|Quantità di tempo di attesa del probe prima del timeout. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito. L'intervallo di timeout deve essere abbastanza elevato da poter effettuare una chiamata http per assicurarsi che la pagina relativa all'integrità del back-end sia disponibile. Si noti che il valore di timeout non deve essere superiore al valore ' intervallo ' usato in questa impostazione di probe o al valore ' timeout richiesta ' nell'impostazione HTTP che verrà associato a questo Probe.|
-|**Soglia non integra**|3|Numero di tentativi consecutivi non riusciti da considerare non integri. La soglia può essere impostata su 1 o più.|
-   |**USA condizioni di corrispondenza Probe**|Sì o No|Per impostazione predefinita, una risposta HTTP(S) con codice di stato compreso tra 200 e 399 viene considerata integra. È possibile modificare l'intervallo accettabile del codice di risposta back-end o del corpo della risposta back-end. [Altre informazioni](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Soglia non integra**|3|Numero di tentativi consecutivi non riusciti da considerare non integri. La soglia può essere impostata su 1 o più.|
+   |**USA condizioni di corrispondenza Probe**|Sì o No|Per impostazione predefinita, una risposta HTTP(S) con codice di stato compreso tra 200 e 399 viene considerata integra. È possibile modificare l'intervallo accettabile del codice di risposta back-end o del corpo della risposta back-end. [Scopri di più](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
 
    > [!IMPORTANT]
-   > Il nome host non è uguale al nome del server. Questo valore è il nome dell'host virtuale in esecuzione nel server applicazioni. Il probe viene inviato a http://(name host):(porta da impostazioni HTTP)/percorsoURL
+   > Il nome host non è uguale al nome del server. Questo valore è il nome dell'host virtuale in esecuzione nel server applicazioni. Il probe viene inviato a \<protocol\> :// \<hostName\> :\<port from http settings\>/\<urlPath\>
 
 ### <a name="add-probe-to-the-gateway"></a>Aggiungere il probe al gateway
 

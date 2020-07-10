@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3cfc63b29b51b70cb41c476c49bc17f5e9cbd308
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746625"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185552"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Spostare l'account di Automazione di Azure in un'altra sottoscrizione
 
@@ -40,7 +41,7 @@ Per scollegare l'area di lavoro dall'account di Automazione, è necessario rimuo
 
     ![Screenshot dell'eliminazione delle risorse delle funzionalità dal portale di Azure](../media/move-account/delete-solutions.png)
 
-Se si preferisce, è possibile eliminare le risorse usando il cmdlet [Remove-AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0):
+Se si preferisce, è possibile eliminare le risorse usando il cmdlet [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0):
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -79,7 +80,7 @@ Per Avvio/Arresto di macchine virtuali durante gli orari di minore attività, è
 
     ![Screenshot della pagina Gruppo di azioni](../media/move-account/delete-action-group.png)
 
-Se si preferisce, è possibile eliminare il gruppo di azioni usando il cmdlet [Remove-AzActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0):
+Se si preferisce, è possibile eliminare il gruppo di azioni usando il cmdlet [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0):
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification

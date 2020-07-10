@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: inventario, automazione, modifica, gestione
 ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603112"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185722"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Gestire la raccolta dell'inventario dalle VM
 
@@ -131,5 +131,5 @@ Per rimuovere la macchina virtuale da Rilevamento modifiche e inventario:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni dettagliate sull'uso della funzionalità, vedere [Gestire Rilevamento modifiche e inventario](change-tracking-file-contents.md).
-* Per altre informazioni sul rilevamento delle modifiche software, vedere [Rilevare le modifiche software nell'ambiente in uso con Rilevamento modifiche](../log-analytics/log-analytics-change-tracking.md).
+* Per altre informazioni sul rilevamento delle modifiche software, vedere [Rilevare le modifiche software nell'ambiente in uso con Rilevamento modifiche](./change-tracking.md).
 * Per risolvere i problemi generali relativi alla funzionalità, vedere [Risolvere i problemi relativi a Rilevamento modifiche e inventario](troubleshoot/change-tracking.md).

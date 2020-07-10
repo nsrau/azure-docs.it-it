@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: a701a5a9fd77bd801bb535fe1f26bfa17c97757b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204889"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185790"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
@@ -206,7 +206,7 @@ Al termine della distribuzione degli aggiornamenti, viene visualizzato l'avviso 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulle configurazioni dell'ambito, vedere [Limitare l'ambito di distribuzione di Gestione aggiornamenti](automation-scope-configurations-update-management.md).
-* Se è necessario eseguire ricerche nei log archiviati nell'area di lavoro Log Analytics, vedere [Ricerche nei log di Monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md).
+* Se è necessario eseguire ricerche nei log archiviati nell'area di lavoro Log Analytics, vedere [Ricerche nei log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
 * Al termine delle distribuzioni, vedere [Scollegare l'area di lavoro dall'account di Automazione per Gestione aggiornamenti](automation-unlink-workspace-update-management.md).
 * Per eliminare macchine virtuali da Gestione aggiornamenti, vedere [Rimuovere macchine virtuali da Gestione aggiornamenti](automation-remove-vms-from-update-management.md).
 * Per risolvere gli errori generali di Gestione aggiornamenti, vedere [Risolvere i problemi di Gestione aggiornamenti](troubleshoot/update-management.md).

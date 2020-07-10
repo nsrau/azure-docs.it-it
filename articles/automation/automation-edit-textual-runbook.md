@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d388162738930030ba311a04a0dce1db15590c79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836839"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186351"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Modificare runbook testuali in Automazione di Azure
 
@@ -56,7 +57,7 @@ In questo articolo vengono fornite procedure dettagliate per l'esecuzione delle 
 1. Nell'area di disegno dell'editor di testo posizionare il cursore nel punto in cui si vuole inserire il codice per il runbook figlio.
 2. Espandere il nodo **Asset** nel controllo della libreria.
 3. Espandere il nodo per il tipo di asset desiderato.
-4. Fare clic con il pulsante destro del mouse sul nome dell'asset da inserire e scegliere **Aggiungi ad area di disegno**. Per gli [asset di tipo variabile](automation-variables.md), selezionare l'opzione **Aggiungi "Ottieni variabile" all'area di disegno** o **Aggiungi "Imposta variabile" all'area di disegno** a seconda che si voglia ottenere o impostare la variabile.
+4. Fare clic con il pulsante destro del mouse sul nome dell'asset da inserire e scegliere **Aggiungi ad area di disegno**. Per gli [asset di tipo variabile](./shared-resources/variables.md), selezionare l'opzione **Aggiungi "Ottieni variabile" all'area di disegno** o **Aggiungi "Imposta variabile" all'area di disegno** a seconda che si voglia ottenere o impostare la variabile.
 5. Si noti che il codice per l'asset viene inserito nel runbook.
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Modificare un runbook di Automazione di Azure tramite Windows PowerShell
@@ -95,9 +96,9 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Gestire runbook in Automazione di Azure](manage-runbooks.md).
 * [Informazioni sul flusso di lavoro PowerShell](automation-powershell-workflow.md).
 * [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
-* [Certificati](automation-certificates.md).
+* [Certificati](./shared-resources/certificates.md).
 * [Connessioni](automation-connections.md).
-* [Credenziali](automation-credentials.md).
-* [Pianificazioni](automation-schedules.md).
-* [Variabili](automation-variables.md).
-* [Informazioni di riferimento sui cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [Credenziali](./shared-resources/credentials.md).
+* [Pianificazioni](./shared-resources/schedules.md).
+* [Variabili](./shared-resources/variables.md).
+* [Informazioni di riferimento sui cmdlet di PowerShell](/powershell/module/az.automation/?view=azps-3.7.0#automation).

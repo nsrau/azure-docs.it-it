@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76773670"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170820"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali 
 
@@ -38,26 +39,28 @@ Quando si usa REST, si applicano le considerazioni seguenti:
 
 * Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e in [questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 * Se si usa JSON e si specifica di usare la parola chiave **__metadata** nella richiesta, ad esempio, per fare riferimento a un oggetto collegato, SI DEVE impostare l'intestazione **Accept** sul [formato JSON Verbose](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/). Vedere l'esempio seguente. OData non riconosce la proprietà **__metadata** nella richiesta, a meno che non venga impostata su verbose.  
-  
-        POST https://media.windows.net/API/Jobs HTTP/1.1
-        Content-Type: application/json;odata=verbose
-        Accept: application/json;odata=verbose
-        DataServiceVersion: 3.0
-        MaxDataServiceVersion: 3.0
-        x-ms-version: 2.19
-        Authorization: Bearer <ENCODED JWT TOKEN> 
-        Host: media.windows.net
-  
-        {
-            "Name" : "NewTestJob", 
-            "InputMediaAssets" : 
-                [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
-        . . . 
+
+    ```console
+    POST https://media.windows.net/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.19
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    Host: media.windows.net
+
+    {
+        "Name" : "NewTestJob", 
+        "InputMediaAssets" : 
+            [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+    . . . 
+   ```
 
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Intestazioni delle richieste HTTP standard supportate da Servizi multimediali
 Per ogni chiamata effettuata in Servizi multimediali, è necessario includere nella richiesta un set di intestazioni obbligatorie ed eventualmente un set di intestazioni facoltative. Nella seguente tabella sono elencate le intestazioni obbligatorie:
 
-| Header | Type | valore |
+| Intestazione | Type | valore |
 | --- | --- | --- |
 | Autorizzazione |Bearer |Bearer è l'unico meccanismo di autorizzazione accettato. Il valore deve includere anche il token di accesso fornito da Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (o versione più recente)|
@@ -71,7 +74,7 @@ Per ogni chiamata effettuata in Servizi multimediali, è necessario includere ne
 
 Nella seguente tabella è riportato un set di intestazioni facoltative:
 
-| Header | Type | valore |
+| Intestazione | Type | valore |
 | --- | --- | --- |
 | Data |Data RFC 1123 |Timestamp della richiesta. |
 | Accetta |Tipo di contenuto |Tipo di contenuto richiesto per la risposta, ad esempio:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Nelle risposte può essere presente un tipo di contenuto diverso, ad esempio di recupero BLOB. In questo caso, una risposta corretta deve contenere il flusso BLOB come payload. |
@@ -80,15 +83,15 @@ Nella seguente tabella è riportato un set di intestazioni facoltative:
 | Accept-Charset |Tipo di set di caratteri, ad esempio "UTF-8" |L'impostazione predefinita è UTF-8. |
 | X-HTTP-Method |Metodo HTTP |Consente ai client o ai firewall che non supportano metodi HTTP come PUT o DELETE di usarli, con tunneling tramite una chiamata GET. |
 | Content-Type |Tipo di contenuto |Tipo di contenuto del corpo delle richieste PUT o POST. |
-| client-request-id |string |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p> Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
+| client-request-id |Stringa |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p> Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Intestazioni delle risposte HTTP standard supportate da Servizi multimediali
 Nella seguente tabella è riportato un set di intestazioni che possono essere restituite a seconda della risorsa richiesta e dell'azione che si intende eseguire.
 
-| Header | Type | valore |
+| Intestazione | Type | valore |
 | --- | --- | --- |
-| request-id |string |Identificatore univoco per l'operazione corrente, generato dal servizio. |
-| client-request-id |string |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
+| request-id |Stringa |Identificatore univoco per l'operazione corrente, generato dal servizio. |
+| client-request-id |Stringa |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
 | Data |Data RFC 1123 |Data/ora di elaborazione della richiesta. |
 | Content-Type |Varia |Tipo di contenuto del corpo della risposta. |
 | Content-Encoding |Varia |Gzip o deflate, a seconda delle esigenze. |

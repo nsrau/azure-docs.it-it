@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4be7934002730253b77b1c129165ad9f19f23b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557881"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185977"
 ---
 # <a name="monitor-runbook-output"></a>Monitorare l'output dei runbook
 
 La maggior parte dei runbook di Automazione Azure ha una forma di output. L'output può essere un messaggio di errore destinato all'utente o un oggetto complesso il cui uso era destinato a un altro runbook. Windows PowerShell fornisce [più flussi](/powershell/module/microsoft.powershell.core/about/about_redirection) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ogni flusso in modo diverso. Seguire le procedure consigliate per usare i flussi quando si crea un runbook.
 
-La tabella seguente descrive brevemente ogni flusso con il relativo comportamento nel portale di Azure per i runbook pubblicati e durante il [test di un runbook](automation-testing-runbook.md). Il flusso di output è il principale flusso usato per la comunicazione tra i runbook. Gli altri flussi sono classificati come flussi di messaggi, destinati a comunicare informazioni all'utente. 
+La tabella seguente descrive brevemente ogni flusso con il relativo comportamento nel portale di Azure per i runbook pubblicati e durante il [test di un runbook](./manage-runbooks.md). Il flusso di output è il principale flusso usato per la comunicazione tra i runbook. Gli altri flussi sono classificati come flussi di messaggi, destinati a comunicare informazioni all'utente. 
 
 | STREAM | Descrizione | Pubblicato | Test |
 |:--- |:--- |:--- |:--- |
@@ -33,7 +33,7 @@ Il flusso di output viene usato per l'output degli oggetti creati da uno script 
 
 Il runbook usa il flusso di output per comunicare informazioni generali al client solo se non viene mai chiamato da un altro runbook. Come procedura consigliata, tuttavia, i runbook devono usare in generale il [flusso dettagliato](#monitor-verbose-stream) per comunicare informazioni generali all'utente.
 
-Fare in modo che il runbook scriva i dati nel flusso di output usando [Write-Output](https://technet.microsoft.com/library/hh849921.aspx). In alternativa, è possibile inserire l'oggetto nella relativa riga dello script.
+Fare in modo che il runbook scriva i dati nel flusso di output usando [Write-Output](/powershell/module/microsoft.powershell.utility/write-output). In alternativa, è possibile inserire l'oggetto nella relativa riga dello script.
 
 ```powershell
 #The following lines both write an object to the output stream.
@@ -133,7 +133,7 @@ I flussi di errore e di avviso registrano i problemi che si verificano in un run
 
 Per impostazione predefinita, il runbook continua a essere eseguito dopo un avviso o un errore. È possibile specificare che il runbook deve essere sospeso in caso di avviso o errore impostando una [variabile di preferenza](#work-with-preference-variables) del runbook prima di creare il messaggio. Ad esempio, per far sì che un runbook venga sospeso in caso di errore come succede per un'eccezione, impostare la variabile `ErrorActionPreference` su Arresta.
 
-Creare un avviso o un messaggio di errore usando il cmdlet [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) o [Write-Error](https://technet.microsoft.com/library/hh849962.aspx). Le attività possono scrivere anche nei flussi di errore e di avviso.
+Creare un avviso o un messaggio di errore usando il cmdlet [Write-Warning](/powershell/module/microsoft.powershell.utility/write-warning) o [Write-Error](/powershell/module/microsoft.powershell.utility/write-error). Le attività possono scrivere anche nei flussi di errore e di avviso.
 
 ```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
@@ -153,9 +153,9 @@ Il flusso del messaggio dettagliato supporta informazioni generali sul funzionam
 
 Per impostazione predefinita, la cronologia processo non archivia i messaggi dettagliati dei runbook pubblicati, per motivi di prestazioni. Per archiviare i messaggi dettagliati, usare la scheda **Configura** nel portale di Azure con l'impostazione **Registra record dettagliati** per configurare i runbook pubblicati affinché registrino i messaggi dettagliati. Attivare questa opzione solo per risolvere i problemi o eseguire il debug di un runbook. Nella maggior parte dei casi, è consigliabile mantenere l'impostazione predefinita che non registra i record dettagliati.
 
-Quando si esegue il [test di un runbook](automation-testing-runbook.md) i messaggi dettagliati non vengono visualizzati, anche se il runbook è configurato per registrare i record dettagliati. Per visualizzare i messaggi dettagliati durante il [test di un runbook](automation-testing-runbook.md), è necessario impostare la variabile `VerbosePreference` su Continua. Con tale set di variabili, i messaggi dettagliati vengono visualizzati nel riquadro di output del test del portale di Azure.
+Quando si esegue il [test di un runbook](./manage-runbooks.md) i messaggi dettagliati non vengono visualizzati, anche se il runbook è configurato per registrare i record dettagliati. Per visualizzare i messaggi dettagliati durante il [test di un runbook](./manage-runbooks.md), è necessario impostare la variabile `VerbosePreference` su Continua. Con tale set di variabili, i messaggi dettagliati vengono visualizzati nel riquadro di output del test del portale di Azure.
 
-Il codice seguente crea un messaggio dettagliato con il cmdlet [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx).
+Il codice seguente crea un messaggio dettagliato con il cmdlet [Write-Verbose](/powershell/module/microsoft.powershell.utility/write-verbose).
 
 ```powershell
 #The following line creates a verbose message.
@@ -170,11 +170,11 @@ Write-Verbose –Message "This is a verbose message."
 Se si abilita la registrazione dei record di stato, il runbook scrive il record nella cronologia processo prima e dopo l'esecuzione di ogni attività. Il test di un runbook non mostra i messaggi di stato dettagliati anche se il runbook è configurato per registrare i record di stato.
 
 >[!NOTE]
->Il cmdlet [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) non è valido in un runbook, poiché questo cmdlet è destinato all'uso con un utente interattivo.
+>Il cmdlet [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) non è valido in un runbook, poiché questo cmdlet è destinato all'uso con un utente interattivo.
 
 ## <a name="work-with-preference-variables"></a>Usare le variabili di preferenza
 
-È possibile impostare alcune [variabili di preferenza](https://technet.microsoft.com/library/hh847796.aspx) di Windows PowerShell nei runbook per controllare la risposta ai dati inviati a flussi di output diversi. La tabella seguente elenca le variabili di preferenza che possono essere usate nei runbook con i relativi valori validi e predefiniti. Gli altri valori sono disponibili per le variabili di preferenza se usate in Windows PowerShell al di fuori di Automazione di Azure.
+È possibile impostare alcune [variabili di preferenza](/powershell/module/microsoft.powershell.core/about/about_preference_variables) di Windows PowerShell nei runbook per controllare la risposta ai dati inviati a flussi di output diversi. La tabella seguente elenca le variabili di preferenza che possono essere usate nei runbook con i relativi valori validi e predefiniti. Gli altri valori sono disponibili per le variabili di preferenza se usate in Windows PowerShell al di fuori di Automazione di Azure.
 
 | Variabile | Default Value | Valori validi |
 |:--- |:--- |:--- |
@@ -198,7 +198,7 @@ La tabella seguente elenca il comportamento dei valori delle variabili di prefer
 
 ### <a name="retrieve-runbook-output-and-messages-in-windows-powershell"></a>Recuperare i messaggi e l'output del runbook in Windows PowerShell
 
-In Windows PowerShell, è possibile recuperare i messaggi e l'output di un runbook tramite il cmdlet [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0). Questo cmdlet richiede l'ID del processo e dispone di un parametro denominato `Stream` in cui è possibile specificare il flusso da recuperare. È possibile specificare il valore Qualsiasi per questo parametro per recuperare tutti i flussi del processo.
+In Windows PowerShell, è possibile recuperare i messaggi e l'output di un runbook tramite il cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0). Questo cmdlet richiede l'ID del processo e dispone di un parametro denominato `Stream` in cui è possibile specificare il flusso da recuperare. È possibile specificare il valore Qualsiasi per questo parametro per recuperare tutti i flussi del processo.
 
 Nell'esempio seguente viene avviato un runbook figlio e si attende il suo completamento. Al termine dell'esecuzione del runbook, lo script raccoglie il flusso di output del runbook dal processo.
 
@@ -260,6 +260,5 @@ Per altre informazioni sulla configurazione dell'integrazione con i log di Monit
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per usare i runbook, vedere [Gestire runbook in Automazione di Azure](manage-runbooks.md).
-* Per informazioni dettagliate su PowerShell, vedere [Documentazione di PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* * Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Per informazioni dettagliate su PowerShell, vedere [Documentazione di PowerShell](/powershell/scripting/overview).
+* * Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

@@ -6,11 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3c5901dbd45cc0ce82c7fcd8117705eaeed7b4ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 39085aa7967ffeac3416b61f32146ac023b46dfe
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837128"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186657"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gestire le connessioni in Automazione di Azure
 
@@ -42,10 +43,10 @@ I cmdlet nella tabella seguente vengono usati per creare e gestire le connession
 
 |Cmdlet|Descrizione|
 |---|---|
-|[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Recupera informazioni su una connessione.|
-|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Crea una nuova connessione.|
-|[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Rimuove una connessione esistente.|
-|[Set-AzAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Imposta il valore di un campo specifico per una connessione esistente.|
+|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Recupera informazioni su una connessione.|
+|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Crea una nuova connessione.|
+|[Remove-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Rimuove una connessione esistente.|
+|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Imposta il valore di un campo specifico per una connessione esistente.|
 
 ## <a name="internal-cmdlets-to-access-connections"></a>Cmdlet interni per accedere alle connessioni
 

@@ -3,11 +3,12 @@ title: Sostituisci EntryPoint nell'istanza del contenitore
 description: Impostare una riga di comando per eseguire l'override del EntryPoint in un'immagine del contenitore quando si distribuisce un'istanza di contenitore di Azure
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84693057"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169630"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Impostare la riga di comando in un'istanza di contenitore per sostituire l'operazione della riga di comando predefinita
 
@@ -53,8 +54,8 @@ La sintassi della riga di comando varia a seconda dell'API o dello strumento di 
 
 |    |  Interfaccia della riga di comando di Azure   | Portale | Modello | 
 | ---- | ---- | --- | --- |
-| Singolo comando | `--command-line "python myscript.py arg1 arg2"` | **Override del comando**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Più comandi | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Override del comando**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| **Singolo comando** | `--command-line "python myscript.py arg1 arg2"` | **Override del comando**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| **Più comandi** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Override del comando**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Esempio di interfaccia della riga di comando di Azure
 

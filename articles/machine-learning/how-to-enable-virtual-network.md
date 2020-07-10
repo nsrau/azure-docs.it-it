@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 06/30/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 94a2f77326487aa4bb180dd62ec05f4e23ca6218
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 35938ca3b9d8f3aedd0892740a3dbfa0fb5b036a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057806"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186861"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento rete durante il training & inferenza con reti virtuali private
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,6 +67,9 @@ Una __rete virtuale__ funge da limite di sicurezza, isolando le risorse di Azure
 
 Se i dati vengono archiviati in una rete virtuale, è necessario usare un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) dell'area di lavoro per concedere a Studio l'accesso ai dati.
 
+> [!IMPORTANT]
+> Sebbene la maggior parte di studio funzioni con i dati archiviati in una rete virtuale, i notebook integrati __non lo__supportano. I notebook integrati non supportano l'uso di archiviazione che si trova in una rete virtuale. È invece possibile usare i notebook di Jupyter da un'istanza di calcolo. Per altre informazioni, vedere la sezione [accedere ai dati in un notebook dell'istanza di calcolo](#access-data-in-a-compute-instance-notebook) .
+
 Se non è possibile concedere l'accesso a Studio, verrà visualizzato questo errore `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` e verranno disabilitate le operazioni seguenti:
 
 * Visualizzare in anteprima i dati in studio.
@@ -79,13 +82,13 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* database SQL di Azure
+* Database SQL di Azure
 
 ### <a name="add-resources-to-the-virtual-network"></a>Aggiungere risorse alla rete virtuale 
 
 Aggiungere l'area di lavoro e l'account di archiviazione alla stessa rete virtuale in modo che possano accedervi.
 
-1. Per connettere l'area di lavoro alla rete virtuale, [abilitare il collegamento privato di Azure](how-to-configure-private-link.md).
+1. Per connettere l'area di lavoro alla rete virtuale, [abilitare il collegamento privato di Azure](how-to-configure-private-link.md). Questa funzionalità è attualmente in anteprima ed è disponibile nelle aree Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali.
 
 1. Per connettere l'account di archiviazione alla rete virtuale, [configurare le impostazioni di firewall e reti virtuali](#use-a-storage-account-for-your-workspace).
 
@@ -182,10 +185,10 @@ Per impostazione predefinita, Azure Machine Learning esegue la validità dei dat
 
  Azure Data Lake Store Gen1 e Azure Data Lake Store Gen2 ignorano la convalida per impostazione predefinita, pertanto non è necessaria alcuna azione aggiuntiva. Per i servizi seguenti, tuttavia, è possibile usare una sintassi simile per ignorare la convalida dell'archivio dati:
 
-- Archiviazione BLOB di Azure
+- Archivio BLOB di Azure
 - Condivisione file di Azure
 - PostgreSQL
-- database SQL di Azure
+- Database SQL di Azure
 
 L'esempio di codice seguente crea un nuovo archivio dati BLOB di Azure e imposta `skip_validation=True` .
 

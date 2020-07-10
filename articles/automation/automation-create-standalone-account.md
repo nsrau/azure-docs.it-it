@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3739f8691a144f183e72af19233f776a24066cbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea0970a672ac8fb15c2e7c6bbb65edf33bd25f04
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118785"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186589"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 
@@ -104,5 +105,4 @@ Gli account RunAs classici non vengono più creati per impostazione predefinita 
 * Per iniziare a usare i runbook PowerShell, vedere [Esercitazione: Creare un runbook di PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere [Esercitazione: Creare un runbook del flusso di lavoro di PowerShell](learn/automation-tutorial-runbook-textual.md).
 * Per iniziare a usare i runbook di Python 2, vedere [Esercitazione: Creare un runbook di Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

@@ -2,12 +2,13 @@
 title: Configurare il probe di conformità sull'istanza del contenitore
 description: Informazioni su come configurare un probe per garantire che i contenitori nelle istanze di contenitore di Azure ricevano richieste solo quando sono pronte
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 3e89086d66f284df35e36dc8f1d68bb09264843f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76935688"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169664"
 ---
 # <a name="configure-readiness-probes"></a>Configurare probe di idoneità
 
@@ -25,7 +26,7 @@ Istanze di contenitore di Azure supporta anche i [Probe di liveity](container-in
 Ad esempio, creare un `readiness-probe.yaml` file con il frammento di codice seguente che include un probe di conformità. Questo file definisce un gruppo di contenitori costituito da un contenitore che esegue un'app Web di piccole dimensioni. L'app viene distribuita dall' `mcr.microsoft.com/azuredocs/aci-helloworld` immagine pubblica. Questa app in contenitori è illustrata anche in [distribuire un'istanza di contenitore in Azure usando l'interfaccia della riga di](container-instances-quickstart.md) comando di Azure e altre guide introduttive.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: readinesstest
 properties:
