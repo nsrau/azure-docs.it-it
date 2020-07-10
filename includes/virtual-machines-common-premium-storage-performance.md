@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017606"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218265"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -119,10 +119,10 @@ Questa tabella riepiloga i fattori relativi alle prestazioni e i passaggi necess
 
 Per altre informazioni sulle dimensioni delle macchine virtuali e le operazioni di I/O al secondo, la velocità effettiva e la latenza disponibili per ogni tipo di VM, vedere [Dimensioni delle macchine virtuali Linux](../articles/virtual-machines/linux/sizes.md) o [Dimensioni delle macchine virtuali Windows](../articles/virtual-machines/windows/sizes.md).
 
-| &nbsp; | **IOPS** | **Velocità effettiva** | **Latency** |
+| | **IOPS** | **Velocità effettiva** | **Latency** |
 | --- | --- | --- | --- |
 | **Scenario di esempio** |Applicazione OLTP aziendale che richiede una frequenza molto elevata di transazioni al secondo. |Applicazione aziendale di tipo data warehouse che elabora quantità elevate di dati. |Applicazioni quasi in tempo reale che necessitano di risposte immediate alle richieste degli utenti, ad esempio i giochi online. |
-| Fattori relativi alle prestazioni | &nbsp; | &nbsp; | &nbsp; |
+| **Fattori relativi alle prestazioni** | &nbsp; | &nbsp; | &nbsp; |
 | **Dimensioni I/O** |Dimensioni I/O ridotte producono valori superiori per IOPS. |Dimensioni I/O maggiori producono una velocità effettiva superiore. | &nbsp;|
 | **Dimensioni macchina virtuale** |Usare una dimensione di VM che offre IOPS superiori ai requisiti dell'applicazione. |Usare una dimensione di VM con un limite di velocità effettiva superiore ai requisiti dell'applicazione. |Usare una dimensione di VM che offre limiti di ridimensionamento superiori ai requisiti dell'applicazione. |
 | **Dimensioni disco** |Usare una dimensione di disco che offre IOPS superiori ai requisiti dell'applicazione. |Usare una dimensione di disco con un limite di velocità effettiva superiore ai requisiti dell'applicazione. |Usare una dimensione di disco che offre limiti di ridimensionamento superiori ai requisiti dell'applicazione. |

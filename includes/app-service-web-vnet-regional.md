@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488792"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218256"
 ---
 L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
@@ -41,7 +41,7 @@ Se si instrada tutto il traffico in uscita nel VNet, è soggetto a gruppi e UdR 
 Esistono alcune limitazioni all'uso dell'integrazione di VNet con reti virtuali nella stessa area:
 
 * Non è possibile raggiungere risorse tra connessioni di peering globali.
-* La funzionalità è disponibile solo dalle più recenti app Azure unità di scala del servizio che supportano i piani di servizio app PremiumV2.
+* La funzionalità è disponibile solo dalle più recenti app Azure unità di scala del servizio che supportano i piani di servizio app PremiumV2. Si noti che *questo non significa che l'app deve essere eseguita in un piano tariffario PremiumV2*, ma solo che deve essere eseguita in un piano di servizio app in cui è disponibile l'opzione PremiumV2 (che indica che si tratta di un'unità di scala più recente in cui è disponibile anche questa funzionalità di integrazione VNet).
 * La subnet di integrazione può essere usata da un solo piano di servizio app.
 * La funzionalità non può essere usata da app del piano isolato che si trovano in un ambiente del servizio app.
 * La funzionalità richiede una subnet inutilizzata a/27 con indirizzi 32 o più grandi in un Azure Resource Manager VNet.

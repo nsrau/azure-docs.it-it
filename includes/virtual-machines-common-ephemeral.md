@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8d712e4eecb930b52a519a1aaddf97c744a24ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112040"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218061"
 ---
 I dischi del sistema operativo temporaneo vengono creati nell'archivio della macchina virtuale (VM) locale e non vengono salvati nell'archiviazione di Azure remota. I dischi del sistema operativo temporaneo funzionano bene per i carichi di lavoro senza stato, in cui le applicazioni sono a tolleranza di singoli errori delle macchine virtuali, ma sono più interessate dal tempo di distribuzione delle VM o dalla ricreazione dell'immagine delle singole istanze Con il disco del sistema operativo temporaneo si ottiene una latenza di lettura/scrittura più bassa per il disco del sistema operativo e una ricreazione più veloce della macchina virtuale 
  
@@ -30,17 +30,17 @@ Le funzionalità principali dei dischi temporanei sono:
  
 Differenze principali tra dischi del sistema operativo permanenti e temporanei:
 
-|                             | Disco del sistema operativo permanente                          | Disco del sistema operativo temporaneo                              |    |
+|                             | Disco del sistema operativo permanente                          | Disco del sistema operativo temporaneo                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Limite di dimensioni per il disco del sistema operativo      | 2 TiB                                                                                        | Dimensioni della cache per le dimensioni della macchina virtuale o 2TiB, a seconda del numero minore. Per le **dimensioni della cache in Gib**, vedere [DS](../articles/virtual-machines/linux/sizes-general.md), [es](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
-| Dimensioni delle macchine virtuali supportate          | Tutti                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
-| Supporto del tipo di disco           | Disco del sistema operativo gestito e non gestito                                                                | Solo disco del sistema operativo gestito                                                               |
-| Supporto di area              | Tutte le aree                                                                                  | Tutte le aree                              |
-| Salvataggio permanente dei dati            | I dati del disco del sistema operativo scritti nel disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti nel disco del sistema operativo vengono archiviati nella risorsa di archiviazione locale della macchina virtuale e non vengono salvati in modo permanente in archiviazione di Azure. |
-| Arresta-stato deallocato      | Le macchine virtuali e le istanze del set di scalabilità possono essere arrestate e riavviate dallo stato stop-deallocato | Non è possibile arrestare la deallocazione delle VM e delle istanze del set di scalabilità                                  |
-| Supporto del disco del sistema operativo specializzato | Sì                                                                                          | No                                                                                 |
-| Ridimensionamento del disco del sistema operativo              | Supportato durante la creazione della macchina virtuale e dopo la deallocazione della macchina virtuale                                | Supportato solo durante la creazione della macchina virtuale                                                  |
-| Ridimensionamento in una nuova dimensione della macchina virtuale   | I dati del disco del sistema operativo vengono conservati                                                                    | I dati nel disco del sistema operativo vengono eliminati, viene effettuato di nuovo il provisioning del sistema operativo                                      |
+| **Limite di dimensioni per il disco del sistema operativo**      | 2 TiB                                                                                        | Dimensioni della cache per le dimensioni della macchina virtuale o 2TiB, a seconda del numero minore. Per le **dimensioni della cache in Gib**, vedere [DS](../articles/virtual-machines/linux/sizes-general.md), [es](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
+| **Dimensioni delle macchine virtuali supportate**          | Tutti                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
+| **Supporto del tipo di disco**           | Disco del sistema operativo gestito e non gestito                                                                | Solo disco del sistema operativo gestito                                                               |
+| **Supporto di area**              | Tutte le aree                                                                                  | Tutte le aree                              |
+| **Salvataggio permanente dei dati**            | I dati del disco del sistema operativo scritti nel disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti nel disco del sistema operativo vengono archiviati nella risorsa di archiviazione locale della macchina virtuale e non vengono salvati in modo permanente in archiviazione di Azure. |
+| **Arresta-stato deallocato**      | Le macchine virtuali e le istanze del set di scalabilità possono essere arrestate e riavviate dallo stato stop-deallocato | Non è possibile arrestare la deallocazione delle VM e delle istanze del set di scalabilità                                  |
+| **Supporto del disco del sistema operativo specializzato** | Sì                                                                                          | No                                                                                 |
+| **Ridimensionamento del disco del sistema operativo**              | Supportato durante la creazione della macchina virtuale e dopo la deallocazione della macchina virtuale                                | Supportato solo durante la creazione della macchina virtuale                                                  |
+| **Ridimensionamento in una nuova dimensione della macchina virtuale**   | I dati del disco del sistema operativo vengono conservati                                                                    | I dati nel disco del sistema operativo vengono eliminati, viene effettuato di nuovo il provisioning del sistema operativo                                      |
 
 ## <a name="size-requirements"></a>Requisiti di dimensione
 
@@ -237,7 +237,7 @@ R: Sì, è possibile creare macchine virtuali con disco del sistema operativo te
 R: i dischi temporanei non supportano:
 - Acquisizione di immagini di VM
 - Snapshot dei dischi 
-- Azure Disk Encryption 
+- Crittografia dischi di Azure 
 - Backup di Azure
 - Azure Site Recovery  
 - Scambio del disco del sistema operativo 

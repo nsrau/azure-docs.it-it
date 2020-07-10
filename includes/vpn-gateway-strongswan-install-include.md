@@ -8,19 +8,17 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ddab6927044ce638e50ff3ad79aa3c35d046c820
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d0e171807985deaebe8faa625d6b767c2a3efd7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69520851"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218112"
 ---
 Per la procedura seguente è stata usata la configurazione seguente:
 
-  | | |
-  |---|---|
-  |Computer| Ubuntu Server 18.04|
-  |Dependencies| strongSwan |
+- Computer: Ubuntu server 18,04
+- Dipendenze: strongSwan
 
 
 Per installare la configurazione strongSwan richiesta, eseguire i comandi seguenti:

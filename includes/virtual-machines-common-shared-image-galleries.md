@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 1ca9d41134bf33a9e007da4b5a56652ccdbd4e22
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317632"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218114"
 ---
 Raccolta immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini gestite. Raccolte di immagini condivise fornisce:
 
@@ -84,20 +84,7 @@ Le macchine virtuali specializzate non sono state sottoposte a un processo per r
 
 Le aree di origine sono descritte nella tabella seguente. Tutte le aree pubbliche possono essere aree di destinazione, tuttavia per la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia inserita nell'elenco elementi consentiti. Per richiedere l'inserimento nella whitelist, passare a: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-
-| Aree di origine        |                   |                    |                    |
-| --------------------- | ----------------- | ------------------ | ------------------ |
-| Australia centrale     | Cina orientale        | India meridionale        | Europa occidentale        |
-| Australia centrale 2   | Cina orientale 2      | Asia sud-orientale     | Regno Unito meridionale           |
-| Australia orientale        | Cina settentrionale       | Giappone orientale         | Regno Unito occidentale            |
-| Australia sud-orientale   | Cina settentrionale 2     | Giappone occidentale         | US DoD (area centrale)     |
-| Brasile meridionale          | Asia orientale         | Corea centrale      | US DoD (area orientale)        |
-| Canada centrale        | Stati Uniti orientali           | Corea meridionale        | US Gov Arizona     |
-| Canada orientale           | Stati Uniti orientali 2         | Stati Uniti centro-settentrionali   | US Gov Texas       |
-| India centrale         | Stati Uniti orientali 2 EUAP    | Europa settentrionale       | US Gov Virginia    |
-| Stati Uniti centrali            | Francia centrale    | Stati Uniti centro-meridionali   | India occidentale         |
-| Stati Uniti centrali EUAP       | Francia meridionale      | Stati Uniti centro-occidentali    | Stati Uniti occidentali            |
-|                       |                   |                    | Stati Uniti occidentali 2          |
+> Australia centrale, Cina orientale, India meridionale, Europa occidentale, Australia centrale 2, Cina orientale 2, Asia sudorientale, Regno Unito meridionale, Australia orientale, Cina settentrionale, Giappone orientale, Regno Unito occidentale, Australia sudorientale, Cina settentrionale 2, Giappone occidentale, US DoD (area centrale), Brasile meridionale, Asia orientale, Corea centrale, US DoD (area orientale), Canada centrale, Stati Uniti orientali, Corea meridionale, US gov Arizona, Canada orientale, Stati Uniti orientali 2 , US Gov Texas, India centrale, Stati Uniti orientali 2 EUAP, Europa settentrionale, US Gov Virginia, Stati Uniti centrali, Francia centrale, Stati Uniti centro-meridionali, India occidentale, Stati Uniti centrali EUAP, Francia meridionale, Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2 |
 
 
 

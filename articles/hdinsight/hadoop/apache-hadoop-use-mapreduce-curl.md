@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: a1d411662fd7afe57c714b97ab67b9d490acd40d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076369"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207724"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight usando REST
 
@@ -61,7 +61,7 @@ Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire proces
 
     Si riceverà una risposta simile al testo JSON seguente:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -83,9 +83,7 @@ Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire proces
      * **class**: la classe che contiene la logica MapReduce.
      * **arg**: gli argomenti da passare al processo MapReduce. In questo caso, il file di testo di input e la directory usata per l'output
 
-    Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo:
-
-       job_1415651640909_0026
+    Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo: `job_1415651640909_0026` .
 
 1. Per verificare lo stato del processo, usare il seguente comando. Sostituire il valore di `JOBID` con il valore **effettivo** restituito nel passaggio precedente. Rivedere il percorso di **JQ** in base alle esigenze.
 
@@ -105,7 +103,7 @@ Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire proces
     $creds = Get-Credential -UserName admin -Message "Enter the cluster login password"
     ```
 
-1. usare il comando seguente per verificare che sia possibile connettersi al cluster HDInsight:
+1. Usare il comando seguente per verificare che sia possibile connettersi al cluster HDInsight:
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
@@ -116,7 +114,7 @@ Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire proces
 
     Si riceverà una risposta simile al testo JSON seguente:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -146,9 +144,7 @@ Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire proces
     * **class**: la classe che contiene la logica MapReduce.
     * **arg**: gli argomenti da passare al processo MapReduce. In questo caso, il file di testo di input e la directory usata per l'output
 
-   Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo:
-
-       job_1415651640909_0026
+   Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo: `job_1415651640909_0026` .
 
 1. Per verificare lo stato del processo, usare il seguente comando:
 

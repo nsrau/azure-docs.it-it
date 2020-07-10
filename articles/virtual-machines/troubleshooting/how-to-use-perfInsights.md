@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847443"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207698"
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
 
@@ -73,7 +73,7 @@ Questo scenario esegue una speciale acquisizione dei contatori delle prestazioni
 
 | **Tipo**     | **Contatore Condivisioni client SMB** |
 |--------------|-------------------------------|
-| IOPS         | Richieste dati/sec             |
+| Operazioni di I/O al secondo         | Richieste dati/sec             |
 |              | Richieste di lettura/sec             |
 |              | Richieste di scrittura/sec            |
 | Latenza      | Media secondi/richiesta dati         |
@@ -101,9 +101,8 @@ Quando si esegue un'analisi avanzata delle prestazioni, l'utente deve selezionar
 
 Vengono raccolte informazioni sulla macchina virtuale Windows, sulla configurazione dei dischi o dei pool di archiviazione, sui contatori delle prestazioni, sui log e su diverse tracce, a seconda dello scenario delle prestazioni usato. La tabella seguente contiene informazioni dettagliate:
 
-|Dati raccolti                              |  |  | Scenari delle prestazioni |  |  | |
-|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Analisi rapida delle prestazioni | Benchmarking | Analisi delle prestazioni | Analisi di File di Azure | Analisi avanzata delle prestazioni |
+| Dati raccolti | Analisi rapida delle prestazioni | Benchmarking | Analisi delle prestazioni | Analisi di File di Azure | Analisi avanzata delle prestazioni |
+|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
 | Informazioni dei log eventi       | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Informazioni di sistema                | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Mapping del volume                        | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
