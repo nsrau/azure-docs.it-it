@@ -4,12 +4,12 @@ description: Informazioni sull'uso di Azure Active Directory per eseguire l'aute
 ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref
-ms.openlocfilehash: b82d6b5f166f67752ea809353e074c01ac953a48
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 829a742c144f2bba39f1ca392e80db25640d4dee
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848981"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141971"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticare le soluzioni di gestione Batch con Active Directory
 
@@ -23,9 +23,9 @@ Per altre informazioni sull'uso della libreria .NET per la gestione di Batch e d
 
 ## <a name="register-your-application-with-azure-ad"></a>Registrare l'applicazione in Azure AD
 
-[Azure Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (adal) fornisce un'interfaccia a livello di codice per Azure ad per l'uso all'interno delle applicazioni. Per chiamare ADAL da un'applicazione, è necessario registrare l'applicazione in un tenant di Azure AD. Quando si registra l'applicazione, si specificano in Azure AD le informazioni relative all'applicazione, incluso un nome per l'applicazione nel tenant di Azure AD. Azure AD fornisce quindi un ID applicazione che viene usato per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID applicazione, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+[Azure Active Directory Authentication Library](../active-directory/azuread-dev/active-directory-authentication-libraries.md) (adal) fornisce un'interfaccia a livello di codice per Azure ad per l'uso all'interno delle applicazioni. Per chiamare ADAL da un'applicazione, è necessario registrare l'applicazione in un tenant di Azure AD. Quando si registra l'applicazione, si specificano in Azure AD le informazioni relative all'applicazione, incluso un nome per l'applicazione nel tenant di Azure AD. Azure AD fornisce quindi un ID applicazione che viene usato per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID applicazione, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Per registrare l'applicazione di esempio AccountManagement, seguire la procedura descritta nella sezione [Aggiunta di un'applicazione](../active-directory/develop/quickstart-register-app.md) dell'articolo [Integrazione di applicazioni con Azure Active Directory](../active-directory/active-directory-integrating-applications.md). Specificare **Nativa** come tipo di applicazione. L'URI OAuth 2.0 standard per l'**URI di reindirizzamento** è `urn:ietf:wg:oauth:2.0:oob`. Tuttavia, è possibile specificare qualsiasi URI valido, ad esempio `http://myaccountmanagementsample` , per l' **URI di reindirizzamento**, in quanto non è necessario che sia un endpoint reale.
+Per registrare l'applicazione di esempio AccountManagement, seguire la procedura descritta nella sezione [Aggiunta di un'applicazione](../active-directory/develop/quickstart-register-app.md) dell'articolo [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/quickstart-register-app.md). Specificare **Nativa** come tipo di applicazione. L'URI OAuth 2.0 standard per l'**URI di reindirizzamento** è `urn:ietf:wg:oauth:2.0:oob`. Tuttavia, è possibile specificare qualsiasi URI valido, ad esempio `http://myaccountmanagementsample` , per l' **URI di reindirizzamento**, in quanto non è necessario che sia un endpoint reale.
 
 ![Aggiunta di un'applicazione](./media/batch-aad-auth-management/app-registration-management-plane.png)
 

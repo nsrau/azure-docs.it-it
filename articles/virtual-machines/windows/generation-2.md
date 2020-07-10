@@ -8,11 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 9c16cd4143bc07bf5f3b1d00b890dc54bd5ea318
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fef582048d1e1093a4a4d69229185e8a3d8dc229
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659888"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144860"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -191,6 +192,9 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 * **Le macchine virtuali di seconda generazione supportano la rete accelerata?**  
     Sì. Per altre informazioni, vedere [Creare una VM con rete accelerata](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
+* **Le macchine virtuali di seconda generazione supportano l'avvio protetto o vTPM in Azure?**
+    Le macchine virtuali di prima e seconda generazione in Azure non supportano l'avvio protetto o vTPM. 
+    
 * **VHDX è supportato nelle macchine virtuali di seconda generazione?**  
     No, le macchine virtuali di seconda generazione supportano solo VHD.
 

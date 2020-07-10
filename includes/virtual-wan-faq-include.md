@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 98b82047c1744fbd63ecd3665e804e9d8f6c5221
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28ea1e68441a57d67fef1e78153e00eb1bd09211
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565982"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143921"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Per usare la rete WAN virtuale di Azure, è necessario avere un'architettura hub-spoke con dispositivi SD-WAN/VPN?
 
@@ -25,7 +25,7 @@ La rete WAN virtuale è in due tipi: Basic e standard. Nella rete WAN virtuale d
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>Come vengono gestiti zone di disponibilità e resilienza nella rete WAN virtuale?
 
-La rete WAN virtuale è una raccolta di hub e servizi resi disponibili all'interno dell'hub. L'utente può disporre di un numero qualsiasi di WAN virtuale in base alle proprie esigenze. In un hub WAN virtuale sono disponibili più servizi, ad esempio VPN, ExpressRoute e così via. Ognuno di questi servizi viene distribuito in un'area zone di disponibilità, se l'area supporta zone di disponibilità. Se un'area diventa una zona di disponibilità dopo la distribuzione iniziale nell'hub, l'utente può ricreare i gateway, che attiverà una distribuzione della zona di disponibilità. Il provisioning di tutti i gateway viene eseguito in un hub come attivo-attivo, implicando la resilienza incorporata all'interno di un hub. Gli utenti possono connettersi a più hub se desiderano la resilienza tra le aree. Anche se il concetto di WAN virtuale è globale, la risorsa WAN virtuale effettiva è basata su Gestione risorse e distribuita a livello di area. Se per l'area WAN virtuale si verifica un problema, tutti gli hub nella rete WAN virtuale continueranno a funzionare così come sono, ma l'utente non sarà in grado di creare nuovi hub fino a quando non sarà disponibile l'area WAN virtuale.
+La rete WAN virtuale è una raccolta di hub e servizi resi disponibili all'interno dell'hub. L'utente può disporre di un numero qualsiasi di WAN virtuale in base alle esigenze. In un hub WAN virtuale sono disponibili più servizi, ad esempio VPN, ExpressRoute e così via. Ognuno di questi servizi, ad eccezione del firewall di Azure, viene distribuito in un'area zone di disponibilità, ovvero se l'area supporta zone di disponibilità. Se un'area diventa una zona di disponibilità dopo la distribuzione iniziale nell'hub, l'utente può ricreare i gateway, che attiverà una distribuzione della zona di disponibilità. Il provisioning di tutti i gateway viene eseguito in un hub come attivo-attivo, implicando la resilienza incorporata all'interno di un hub. Gli utenti possono connettersi a più hub se desiderano la resilienza tra le aree. Anche se il concetto di WAN virtuale è globale, la risorsa WAN virtuale effettiva è basata su Gestione risorse e distribuita a livello di area. Se per l'area WAN virtuale si verifica un problema, tutti gli hub nella rete WAN virtuale continueranno a funzionare così come sono, ma l'utente non sarà in grado di creare nuovi hub fino a quando non sarà disponibile l'area WAN virtuale.
 
 ### <a name="what-client-does-the-azure-virtual-wan-user-vpn-point-to-site-support"></a>Quali client sono supportati dalla VPN utente (da punto a sito) della rete WAN virtuale di Azure?
 

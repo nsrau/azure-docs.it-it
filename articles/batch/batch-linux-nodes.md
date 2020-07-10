@@ -4,11 +4,12 @@ description: Informazioni su come elaborare i carichi di lavoro di calcolo paral
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, tracking-python
-ms.openlocfilehash: 1a87b72b16c1d41e5569c4ce9e5e1a6e2c51a2e0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 05e23093a00eab70db683c10eae59ef27152d2f7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960079"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145041"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Eseguire il provisioning di nodi di calcolo Linux nei pool di Batch
 
@@ -28,7 +29,7 @@ Quando si crea un pool di nodi di calcolo in Batch, sono disponibili due opzioni
 
 ### <a name="virtual-machine-image-reference"></a>Riferimento all'immagine della macchina virtuale
 
-Il servizio Batch usa [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per fornire nodi di calcolo nella configurazione macchina virtuale. È possibile specificare un'immagine di [Azure Marketplace][vm_marketplace] o un'immagine personalizzata precedentemente preparata. Per altri dettagli sulle immagini personalizzate, vedere [Creare un pool con Raccolta immagini condivise](batch-sig-images.md).
+Il servizio Batch usa [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md) per fornire nodi di calcolo nella configurazione macchina virtuale. È possibile specificare un'immagine di [Azure Marketplace][vm_marketplace] o un'immagine personalizzata precedentemente preparata. Per altri dettagli sulle immagini personalizzate, vedere [Creare un pool con Raccolta immagini condivise](batch-sig-images.md).
 
 Quando si configura un riferimento all'immagine di macchina virtuale, si specificano le proprietà di un'immagine di macchina virtuale. Le proprietà seguenti sono necessarie quando si crea un riferimento all'immagine di macchina virtuale:
 

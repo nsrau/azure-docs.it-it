@@ -1,18 +1,18 @@
 ---
 title: Panoramica dell'archiviazione su disco
-description: Panoramica di Azure Managed Disks, che gestisce automaticamente gli account di archiviazione quando si usano macchine virtuali.
+description: Panoramica di Azure Managed disks, che gestisce gli account di archiviazione quando si usano le macchine virtuali.
 author: roygara
 ms.service: virtual-machines
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c66324841989580712d893ada9121ae40f5161a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: d3932047422571399ad0562b2f9f2d19c3e6799b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147785"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145301"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduzione ad Azure Managed Disks
 

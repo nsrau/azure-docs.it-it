@@ -5,11 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: d147c87e8fb0fa9e01ba2dbaf732adaae082bcd7
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 94a5fd3ae1de0708f0e5550547f7ab2fc9f881cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167792"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146231"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Ripristinare un'app del Servizio app eliminata con PowerShell
 
@@ -17,6 +18,10 @@ Se l'app è stata eliminata per errore nel Servizio app di Azure, è possibile r
 
 > [!NOTE]
 > Le app eliminate vengono rimosse definitivamente dal sistema 30 giorni dopo l'eliminazione iniziale. Una volta che un'app è stata rimossa definitivamente, non è possibile recuperarla.
+>
+
+> [!NOTE]
+> La funzionalità di annullamento dell'eliminazione non è supportata per il piano a consumo.
 >
 
 ## <a name="re-register-app-service-resource-provider"></a>Ripetere la registrazione del provider di risorse del Servizio app

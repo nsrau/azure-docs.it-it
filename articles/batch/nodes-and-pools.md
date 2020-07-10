@@ -3,12 +3,12 @@ title: Nodi e pool in Azure Batch
 description: Informazioni sui nodi di calcolo, sui pool e sul modo in cui vengono usati in un flusso di lavoro di Azure Batch dal punto di vista dello sviluppo.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964043"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144916"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodi e pool in Azure Batch
 
@@ -111,7 +111,7 @@ Per informazioni sui prezzi per i nodi dedicati e con priorità bassa, vedere [P
 
 ## <a name="node-size"></a>Dimensioni nodo
 
-Quando si crea un pool di Azure Batch, è possibile scegliere tra quasi tutte le famiglie e le dimensioni di VM disponibili in Azure. Azure offre una serie di dimensioni delle macchine virtuali per diversi carichi di lavoro, incluse le dimensioni specializzate [HPC](../virtual-machines/linux/sizes-hpc.md) o [con supporto per GPU](../virtual-machines/linux/sizes-gpu.md). 
+Quando si crea un pool di Azure Batch, è possibile scegliere tra quasi tutte le famiglie e le dimensioni di VM disponibili in Azure. Azure offre una serie di dimensioni delle macchine virtuali per diversi carichi di lavoro, incluse le dimensioni specializzate [HPC](../virtual-machines/sizes-hpc.md) o [con supporto per GPU](../virtual-machines/sizes-gpu.md). 
 
 Per altre informazioni, vedere [Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch](batch-pool-vm-sizes.md).
 

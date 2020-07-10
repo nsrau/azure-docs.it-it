@@ -4,11 +4,12 @@ description: Come scegliere tra le dimensioni delle macchine virtuali disponibil
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: c1621bbbe6676144176636346f3f5c34db169b7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e56632ce66cb25bf023813f2b98be6141f651465
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84693159"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143523"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -59,7 +60,7 @@ I pool di Azure Batch in configurazione macchina virtuale supportano quasi tutte
 | NDv2<sup>1</sup> | Nessuna - non ancora disponibile |
 | NV | Tutte le dimensioni |
 | NVv3<sup>1</sup> | Tutte le dimensioni |
-| NVv4 | nessuno |
+| NVv4 | Nessuno |
 | SAP HANA | nessuno |
 
 <sup>1</sup> queste dimensioni delle macchine virtuali possono essere allocate nei pool di Azure Batch nella configurazione della macchina virtuale, ma è necessario creare un nuovo account Batch e richiedere un [aumento della quota](batch-quota-limit.md#increase-a-quota) specifico. Questa limitazione verrà rimossa quando la quota di vCPU per ogni serie di macchine virtuali sarà completamente supportata per gli account Batch.
@@ -75,7 +76,7 @@ I pool di Azure Batch in configurazione servizio cloud supportano tutte le [dime
 
 ## <a name="size-considerations"></a>Considerazioni sulle dimensioni
 
-* **Requisiti dell'applicazione**: tenere in considerazione le caratteristiche e i requisiti delle applicazioni che si eseguiranno nei nodi. Per determinare la dimensioni del nodo più appropriate e convenienti, considerare vari aspetti, ad esempio se si tratta di un'applicazione multithreading e la quantità di memoria che utilizza. Per [carichi di lavoro MPI](batch-mpi.md) a istanze multiple o applicazioni CUDA, prendere in considerazione rispettivamente le dimensioni specializzate [HPC](../virtual-machines/linux/sizes-hpc.md) o [abilitate per GPU](../virtual-machines/linux/sizes-gpu.md). Vedere [Usare istanze con supporto per RDMA o abilitate per GPU in pool di Batch](batch-pool-compute-intensive-sizes.md).
+* **Requisiti dell'applicazione**: tenere in considerazione le caratteristiche e i requisiti delle applicazioni che si eseguiranno nei nodi. Per determinare la dimensioni del nodo più appropriate e convenienti, considerare vari aspetti, ad esempio se si tratta di un'applicazione multithreading e la quantità di memoria che utilizza. Per [carichi di lavoro MPI](batch-mpi.md) a istanze multiple o applicazioni CUDA, prendere in considerazione rispettivamente le dimensioni specializzate [HPC](../virtual-machines/sizes-hpc.md) o [abilitate per GPU](../virtual-machines/sizes-gpu.md). Vedere [Usare istanze con supporto per RDMA o abilitate per GPU in pool di Batch](batch-pool-compute-intensive-sizes.md).
 
 * **Attività per nodo**: le dimensioni del nodo vengono in genere selezionate presupponendo che in un nodo venga eseguita un'attività alla volta. Tuttavia, può risultare utile che più attività (e quindi più istanze dell'applicazione) vengano [eseguite in parallelo](batch-parallel-node-tasks.md) nei nodi di calcolo durante l'esecuzione del processo. In questo caso, è normale scegliere una dimensione multicore per il nodo per soddisfare la richiesta più elevata di esecuzione di attività parallele.
 

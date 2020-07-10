@@ -3,25 +3,26 @@ title: Monitoraggio di Azure Batch
 description: Informazioni su servizi di monitoraggio Azure, metriche, log di diagnostica e altre funzionalità di monitoraggio per Azure Batch.
 ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: 09ac9c676dc1e95cbece6fa500b4f2cf554f8526
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 9387d4894dbf06445fd43722353ca7ae98607359
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723528"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144940"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorare le soluzioni Batch
 
 Azure e il servizio Batch offrono un'ampia gamma di servizi, strumenti e API per monitorare le soluzioni Batch. Questo articolo di panoramica consente di scegliere un approccio di monitoraggio adatto alle proprie esigenze.
 
-Per una panoramica dei componenti e dei servizi di Azure disponibili per il monitoraggio delle risorse di Azure, vedere [Monitoraggio di applicazioni e risorse di Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Per una panoramica dei componenti e dei servizi di Azure disponibili per il monitoraggio delle risorse di Azure, vedere [Monitoraggio di applicazioni e risorse di Azure](../azure-monitor/overview.md).
 
 ## <a name="subscription-level-monitoring"></a>Monitoraggio a livello di sottoscrizione
 
-Al livello della sottoscrizione, che include gli account Batch, il [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md) raccoglie i dati di eventi operativi in [diverse categorie](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log).
+Al livello della sottoscrizione, che include gli account Batch, il [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md) raccoglie i dati di eventi operativi in [diverse categorie](../azure-monitor/platform/activity-log.md#view-the-activity-log).
 
 Per gli account Batch in particolare, il log attività raccoglie gli eventi correlati alla creazione ed eliminazione degli account e alla gestione delle chiavi.
 
-Un modo per recuperare gli eventi dal log attività consiste nell'usare il portale di Azure. Fare clic su **Tutti i servizi** > **Log attività**. In alternativa, eseguire query per recuperare gli eventi tramite l'interfaccia della riga di comando di Azure, cmdlet di PowerShell o l'API REST di Monitoraggio di Azure. È anche possibile esportare il log attività oppure configurare gli [avvisi del log attività](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+Un modo per recuperare gli eventi dal log attività consiste nell'usare il portale di Azure. Fare clic su **Tutti i servizi** > **Log attività**. In alternativa, eseguire query per recuperare gli eventi tramite l'interfaccia della riga di comando di Azure, cmdlet di PowerShell o l'API REST di Monitoraggio di Azure. È anche possibile esportare il log attività oppure configurare gli [avvisi del log attività](../azure-monitor/platform/alerts-activity-log.md).
 
 ## <a name="batch-account-level-monitoring"></a>Monitoraggio a livello di account Batch
 

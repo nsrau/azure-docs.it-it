@@ -7,19 +7,19 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: fff4fb5707c07098fd7fac261a36909224365cdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060277"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143829"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Panoramica dei criteri di Web Application Firewall (WAF) di Azure
 
 I criteri del Web Application Firewall contengono tutte le configurazioni e le impostazioni di WAF. Sono incluse le esclusioni, le regole personalizzate, le regole gestite e così via. Questi criteri vengono quindi associati a un gateway applicazione (globale), a un listener (per sito) o a una regola basata sul percorso (per URI) per rendere effettive.
 
 > [!NOTE]
-> I criteri per sito e per URI del Web Application Firewall (WAF) di Azure sono disponibili in anteprima pubblica.
+> I criteri per URI del Web Application Firewall (WAF) di Azure sono disponibili in anteprima pubblica.
 > 
 > L'anteprima pubblica viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

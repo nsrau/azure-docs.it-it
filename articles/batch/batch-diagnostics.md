@@ -4,11 +4,12 @@ description: Registrare e analizzare gli eventi di registrazione diagnostica per
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960725"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145087"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
  
@@ -86,8 +87,8 @@ Uno scenario comune consiste nel selezionare un account di archiviazione di Azur
 
 In alternativa, è possibile:
 
-- Trasmettere gli eventi dei log di diagnostica di Batch a un [hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale. 
-- Inviare i log di diagnostica ai [log di Monitoraggio di Azure](../log-analytics/log-analytics-overview.md) dove è possibile analizzarli o esportarli per l'analisi in Power BI o Excel.
+- Trasmettere gli eventi dei log di diagnostica di Batch a un [hub eventi di Azure](../event-hubs/event-hubs-about.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale. 
+- Inviare i log di diagnostica ai [log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) dove è possibile analizzarli o esportarli per l'analisi in Power BI o Excel.
 
 > [!NOTE]
 > Potrebbero essere previsti costi aggiuntivi per archiviare o elaborare dati dei log di diagnostica con servizi di Azure. 
@@ -134,7 +135,7 @@ Di seguito è riportato un esempio di voce `PoolResizeCompleteEvent` in un file 
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Per altre informazioni sullo schema dei log di diagnostica nell'account di archiviazione, vedere [archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Per accedere ai log nell'account di archiviazione a livello di codice, usare le API di Archiviazione.
+Per altre informazioni sullo schema dei log di diagnostica nell'account di archiviazione, vedere [archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Per accedere ai log nell'account di archiviazione a livello di codice, usare le API di Archiviazione.
 
 ### <a name="service-log-events"></a>Eventi del log del servizio
 
@@ -177,4 +178,3 @@ Gli eventi del log del servizio generati dal servizio batch includono quanto seg
 
 - Informazioni sulle [API e gli strumenti di Batch](batch-apis-tools.md) disponibili per la compilazione di soluzioni Batch.
 - Leggere altre informazioni sul [monitoraggio di soluzioni Batch](monitoring-overview.md).
-

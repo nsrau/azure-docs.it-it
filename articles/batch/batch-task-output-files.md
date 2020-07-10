@@ -4,12 +4,12 @@ description: Informazioni su come usare l'API del servizio Batch per rendere per
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965128"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143510"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Rendere persistenti i dati delle attività in Archiviazione di Azure con l'API del servizio Batch
 
@@ -43,7 +43,7 @@ await container.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Ottenere una firma di accesso condiviso per il contenitore
 
-Dopo aver creato il contenitore, è possibile ottenere una firma di accesso condiviso (SAS) con accesso in scrittura al contenitore. Una firma di accesso condiviso consente l'accesso delegato al contenitore. La firma di accesso condiviso concede l'accesso con un set specificato di autorizzazioni e per un intervallo di tempo specificato. Il servizio Batch deve disporre di una firma di accesso condiviso con autorizzazioni di scrittura per scrivere l'output delle attività del contenitore. Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di \(accesso condiviso\) in Archiviazione di Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Dopo aver creato il contenitore, è possibile ottenere una firma di accesso condiviso (SAS) con accesso in scrittura al contenitore. Una firma di accesso condiviso consente l'accesso delegato al contenitore. La firma di accesso condiviso concede l'accesso con un set specificato di autorizzazioni e per un intervallo di tempo specificato. Il servizio Batch deve disporre di una firma di accesso condiviso con autorizzazioni di scrittura per scrivere l'output delle attività del contenitore. Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di \(accesso condiviso\) in Archiviazione di Azure](../storage/common/storage-sas-overview.md).
 
 Quando si ottiene una firma di accesso condiviso tramite le API di Archiviazione di Azure, l'API restituisce una stringa di token di firma di accesso condiviso. Questa stringa di token include tutti i parametri della firma di accesso condiviso, incluse le autorizzazioni e l'intervallo di validità della firma di accesso condiviso. Per usare la firma di accesso condiviso per accedere a un contenitore in Archiviazione di Azure, è necessario aggiungere la stringa di token di firma di accesso all'URI della risorsa. L'URI della risorsa, insieme al token della firma di accesso condiviso aggiunto, consente l'accesso autenticato ad Archiviazione di Azure.
 
