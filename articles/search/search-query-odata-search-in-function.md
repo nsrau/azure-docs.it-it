@@ -19,21 +19,26 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1748a334c024401d845145947ecd55519f61e5e3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113113"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206930"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Funzione OData in Azure ricerca cognitiva
 
 Uno scenario comune nelle [espressioni di filtro OData](query-odata-filter-orderby-syntax.md) consiste nel controllare se un singolo campo in ogni documento è uguale a uno dei molti valori possibili. Ad esempio, questo è il modo in cui alcune applicazioni implementano il [taglio di sicurezza](search-security-trimming-for-azure-search.md) , verificando un campo contenente uno o più ID entità rispetto a un elenco di ID entità che rappresentano l'utente che ha emesso la query. Un modo per scrivere una query come questa consiste nell'usare gli [`eq`](search-query-odata-comparison-operators.md) [`or`](search-query-odata-logical-operators.md) operatori e:
 
+```odata-filter-expr
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
+```
 
 Tuttavia, esiste un modo più breve per scriverlo, usando la `search.in` funzione:
 
+```odata-filter-expr
     group_ids/any(g: search.in(g, '123, 456, 789'))
+```
 
 > [!IMPORTANT]
 > Oltre a essere più brevi e facili da leggere, `search.in` l'utilizzo di offre anche vantaggi in merito alle [prestazioni](#bkmk_performance) ed evita determinate [limitazioni di dimensioni dei filtri](search-query-odata-filter.md#bkmk_limits) quando sono presenti centinaia o addirittura migliaia di valori da includere nel filtro. Per questo motivo, è consigliabile usare `search.in` anziché una disgiunzione più complessa di espressioni di uguaglianza.
@@ -85,23 +90,33 @@ Se si usa `search.in`, è previsto un tempo di risposta inferiore al secondo qua
 
 Trovare tutti gli alberghi con nome uguale a' Sea View Motel ' o ' Budget Hotel '. Le frasi contengono spazi, ovvero un delimitatore predefinito. È possibile specificare un delimitatore alternativo tra virgolette singole come terzo parametro di stringa:  
 
+```odata-filter-expr
     search.in(HotelName, 'Sea View motel,Budget hotel', ',')
+```
 
 Trovare tutti gli alberghi con nome uguale a' Sea View Motel ' o ' Budget Hotel ' separati da' |'):
 
+```odata-filter-expr
     search.in(HotelName, 'Sea View motel|Budget hotel', '|')
+```
 
 Trovare tutti gli hotel con le chat room con tag "WiFi" o "tub":
 
+```odata-filter-expr
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
+```
 
 Trovare una corrispondenza sulle frasi all'interno di una raccolta, ad esempio "rack di asciugamani riscaldati" o "asciugacapelli incluso" nei tag.
 
+```odata-filter-expr
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
+```
 
 Trovare tutti gli alberghi senza il tag ' Motel ' o ' Cabin ':
 
+```odata-filter-expr
     Tags/all(tag: not search.in(tag, 'motel, cabin'))
+```
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

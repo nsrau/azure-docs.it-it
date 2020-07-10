@@ -1,5 +1,5 @@
 ---
-title: Interpretare & illustrare i modelli ML in Python
+title: Interpretare & illustrare i modelli di ML in Python (anteprima)
 titleSuffix: Azure Machine Learning
 description: Informazioni su come ottenere spiegazioni sul modo in cui il modello di Machine Learning determina l'importanza della funzionalità ed esegue stime quando si usa il Azure Machine Learning SDK.
 services: machine-learning
@@ -9,15 +9,16 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/12/2020
+ms.date: 07/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3830f65a3435c1db0291811c6306ea579bf1d896
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560198"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207145"
 ---
-# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Usare il pacchetto di interpretazione per spiegare i modelli ML & le stime in Python
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usare il pacchetto di interpretazione per spiegare i modelli ML & le stime in Python (anteprima)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -243,7 +244,7 @@ Nell'esempio seguente viene illustrato come è possibile utilizzare la `Explanat
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
-1. Creare uno script di training in un'istanza di Jupyter Notebook locale. Ad esempio: `train_explain.py`.
+1. Creare uno script di training in un'istanza di Jupyter Notebook locale. Ad esempio, `train_explain.py`
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -334,7 +335,7 @@ I tracciati seguenti forniscono una visualizzazione complessiva del modello sott
 > [!NOTE]
 > Prima di avviare il kernel Jupyter, assicurarsi di abilitare le estensioni widget per il dashboard di visualizzazione.
 
-* Jupyter Notebook
+* Notebook di Jupyter
 
     ```shell
     jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize

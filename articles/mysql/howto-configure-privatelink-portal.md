@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 5547c78007d38788d71e84f8fbf3ca8b60dc1576
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cdefca11131a16630e600385bf350465fccc228f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101750"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206664"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per MySQL con il portale
 
@@ -35,13 +35,13 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
 2. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
-    | Nome | Immettere *MyVirtualNetwork*. |
+    | Name (Nome) | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Location | Selezionare **Europa occidentale**.|
+    | Località | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
@@ -53,7 +53,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 2. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -80,7 +80,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
@@ -103,7 +103,7 @@ In questa sezione verrà creato un database di Azure per il server MySQL in Azur
 
 1. In **database di Azure per MySQL** fornire queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -138,7 +138,7 @@ In questa sezione si creerà un server MySQL e si aggiungerà un endpoint privat
 
 1. In **Crea un endpoint privato-nozioni di base**immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -151,7 +151,7 @@ In questa sezione si creerà un server MySQL e si aggiungerà un endpoint privat
 5. Selezionare **Avanti: Risorsa**.
 6. In **Crea un endpoint privato - Risorsa** immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     |Metodo di connessione  | Selezionare Connettersi a una risorsa di Azure nella directory.|
     | Subscription| Selezionare la propria sottoscrizione. |
@@ -166,7 +166,7 @@ In questa sezione si creerà un server MySQL e si aggiungerà un endpoint privat
     | ------- | ----- |
     |**RETE**| |
     | Rete virtuale| Selezionare *MyVirtualNetwork*. |
-    | Subnet | Selezionare  *mySubnet*. |
+    | Subnet | Selezionare *mySubnet*. |
     |**INTEGRAZIONE DNS PRIVATO**||
     |Integra con la zona DNS privato |Selezionare **Sì**. |
     |Zona DNS privato |Selezionare *(nuovo) privatelink. MySQL. database. Azure. com* |
@@ -211,7 +211,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 
 ## <a name="access-the-mysql-server-privately-from-the-vm"></a>Accedere al server MySQL privatamente dalla macchina virtuale
 
-1. Nel desktop remoto di  *myVM* aprire PowerShell.
+1. Nel Desktop remoto di *myVm1* aprire PowerShell.
 
 2. Immettere  `nslookup  myServer.privatelink.mysql.database.azure.com`. 
 
@@ -248,7 +248,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in esso contenute usando l'endpoint privato, il server MySQL e la macchina virtuale:
 
-1. Immettere *myResourceGroup*   nella casella di **ricerca** nella parte superiore del portale e selezionare *myResourceGroup*nei   Risultati della ricerca.
+1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca.
 2. Selezionare **Elimina gruppo di risorse**.
 3. Immettere myResourceGroup per **digitare il nome del gruppo di risorse** e selezionare **Elimina**.
 

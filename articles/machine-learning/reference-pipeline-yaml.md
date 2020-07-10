@@ -7,15 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.reviewer: larryfr
-ms.author: sanpil
-author: sanpil
+ms.author: nilsp
+author: NilsPohlmann
 ms.date: 11/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: a519519d5728307847b5d92f9ae5ce3e739e3ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c53f6ff7fdcc861bc11fb54838f1e634fc944c6c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560957"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205279"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definire le pipeline di Machine Learning in YAML
 
@@ -490,7 +491,7 @@ Quando si definisce la pianificazione per una pipeline, può essere attivata da 
 | `polling_interval` | Quanto tempo, in minuti, tra il polling per i BLOB modificati/aggiunti. Valore predefinito: 5 minuti. Supportato solo per le pianificazioni dell'archivio dati. |
 | `data_path_parameter_name` | Nome del parametro della pipeline del percorso dati da impostare con il percorso BLOB modificato. Supportato solo per le pianificazioni dell'archivio dati. |
 | `continue_on_step_failure` | Indica se continuare l'esecuzione di altri passaggi nel PipelineRun inviato in caso di esito negativo di un passaggio. Se specificato, eseguirà l'override dell' `continue_on_step_failure` impostazione della pipeline.
-| `path_on_datastore` | Facoltativa. Percorso nell'archivio dati da monitorare per i BLOB modificati/aggiunti. Il percorso è sotto il contenitore per l'archivio dati, quindi il percorso effettivo di monitoraggio della pianificazione è contenitore/ `path_on_datastore` . Se è None, viene monitorato il contenitore dell'archivio dati. Le aggiunte o le modifiche apportate in una sottocartella del `path_on_datastore` non vengono monitorate. Supportato solo per le pianificazioni dell'archivio dati. |
+| `path_on_datastore` | facoltativo. Percorso nell'archivio dati da monitorare per i BLOB modificati/aggiunti. Il percorso è sotto il contenitore per l'archivio dati, quindi il percorso effettivo di monitoraggio della pianificazione è contenitore/ `path_on_datastore` . Se è None, viene monitorato il contenitore dell'archivio dati. Le aggiunte o le modifiche apportate in una sottocartella del `path_on_datastore` non vengono monitorate. Supportato solo per le pianificazioni dell'archivio dati. |
 
 L'esempio seguente contiene la definizione per una pianificazione attivata da un archivio dati:
 

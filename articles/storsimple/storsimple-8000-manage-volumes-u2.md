@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508249"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204462"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Per gestire il volume è possibile usare il servizio Gestione dispositivi StorSimple (aggiornamento 3 o successivo)
 
@@ -51,14 +51,14 @@ Se si usa il volume a livelli per i dati di archiviazione, selezionando la casel
 
 Fare riferimento alla tabella seguente per conoscere la capacità massima di cui viene effettuato il provisioning per ogni tipo di dispositivo e di volume. Si noti che i volumi aggiunti in locale non sono disponibili in un dispositivo virtuale.
 
-|  | Dimensione massima volume a livelli | Dimensione massima volume aggiunto in locale |
+| Type | Dimensione massima volume a livelli | Dimensione massima volume aggiunto in locale |
 | --- | --- | --- |
 | **Dispositivi fisici** | | |
 | 8100 |64 TB |8 TB |
 | 8600 |64 TB |20 TB |
 | **Dispositivi virtuali** | | |
-| 8010 |30 TB |N/D |
-| 8020 |64 TB |N/D |
+| 8010 |30 TB |N/A |
+| 8020 |64 TB |N/A |
 
 ## <a name="the-volumes-blade"></a>Il pannello Volumi
 
@@ -229,7 +229,7 @@ Se si desidera convertire più volumi che supportano diversi carichi di lavoro, 
    
      ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
-7. È consigliabile fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì** per avviare la procedura di conversione. 
+7. Fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì** per avviare la procedura di conversione. 
 
     ![Salvare e confermare](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 

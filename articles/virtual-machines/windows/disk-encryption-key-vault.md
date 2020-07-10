@@ -8,20 +8,24 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0348461e2a58bd8e71b8dff10667c512125d7b03
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9160ab530037da1f24a2f07903b949b42ecbb34b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656698"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207077"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Creazione e configurazione di un insieme di credenziali delle chiavi per Crittografia dischi di Azure
 
 Crittografia dischi di Azure usa Azure Key Vault per controllare e gestire segreti e chiavi di crittografia dei dischi.  Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-get-started.md) e [Proteggere l'insieme di credenziali delle chiavi](../../key-vault/general/secure-your-key-vault.md). 
 
 > [!WARNING]
-> - Se in precedenza è stata usata la Crittografia dischi di Azure con Azure AD per crittografare una macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la macchina virtuale. Per informazioni dettagliate, vedere [Creazione e configurazione di un insieme di credenziali delle chiavi per Crittografia dischi di Azure con Azure AD (versione precedente)](disk-encryption-key-vault-aad.md).
+> - Se in precedenza è stato usato il servizio Crittografia dischi di Azure con Azure AD per crittografare una macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la VM. Per informazioni dettagliate, vedere [Creazione e configurazione di un insieme di credenziali delle chiavi per Crittografia dischi di Azure con Azure AD (versione precedente)](disk-encryption-key-vault-aad.md).
 
 La creazione e la configurazione di un insieme di credenziali delle chiavi per l'uso con Crittografia dischi di Azure prevede tre passaggi:
+
+> [!Note]
+> È necessario selezionare l'opzione nelle impostazioni dei criteri di accesso Azure Key Vault per abilitare l'accesso a crittografia dischi di Azure per la crittografia del volume.
 
 1. Creazione di un gruppo di risorse, se necessario.
 2. Creazione di un insieme di credenziali delle chiavi. 
@@ -63,4 +67,4 @@ Connect-AzAccount
 - [Script di PowerShell per i prerequisiti di Crittografia dischi di Azure](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - Informazioni sugli [scenari di Crittografia dischi di Azure per macchine virtuali Windows](disk-encryption-windows.md)
 - Informazioni su come [risolvere i problemi di Crittografia dischi di Azure](disk-encryption-troubleshooting.md)
-- Leggere la pagina [Script di esempio per la Crittografia dischi di Azure](disk-encryption-sample-scripts.md)
+- [Script di esempio per la Crittografia dischi di Azure](disk-encryption-sample-scripts.md)

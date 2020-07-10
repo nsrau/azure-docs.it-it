@@ -1,0 +1,95 @@
+### YamlMime:Landing
+title: Risparmiare con le prenotazioni di Azure
+summary: Informazioni su come usare le prenotazioni di Azure per risparmiare aderendo a un piano di due o tre anni per macchine virtuali, Archiviazione BLOB di Azure o Azure Data Lake Storage Gen2, capacità di calcolo di database SQL, unità elaborate di Azure Cosmos DB o altre risorse di Azure.
+metadata:
+  title: Risparmiare con le prenotazioni di Azure
+  description: Informazioni su come usare le prenotazioni di Azure per risparmiare aderendo a un piano di due o tre anni per macchine virtuali, Archiviazione BLOB di Azure o Azure Data Lake Storage Gen2, capacità di calcolo di database SQL, unità elaborate di Azure Cosmos DB o altre risorse di Azure.
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 04/30/2020
+  ms.openlocfilehash: 4706c13d6c9e354c6c7ca382f724a7b1094bdda3
+  ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 07/09/2020
+  ms.locfileid: "86207129"
+landingContent:
+- title: Acquistare prenotazioni
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Cosa sono le prenotazioni di Azure?
+      url: save-compute-costs-reservations.md
+    - text: Cambi e rimborsi per le prenotazioni
+      url: exchange-and-refund-azure-reservations.md
+    - text: Acquistare una prenotazione con pagamenti mensili
+      url: monthly-payments-reservations.md
+  - linkListType: how-to-guide
+    links:
+    - text: Esaminare le prenotazioni
+      url: reservation-renew.md
+    - text: Azure Synapse Analytics
+      url: prepay-sql-data-warehouse-charges.md
+    - text: Macchina virtuale
+      url: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - text: Archiviazione di Azure
+      url: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - text: Cosmos DB
+      url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+    - text: Database SQL
+      url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+    - text: Esplora dati di Azure
+      url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
+    - text: Azure Databricks
+      url: prepay-databricks-reserved-capacity.md
+    - text: Servizio app
+      url: prepay-app-service-isolated-stamp.md
+    - text: Piani software di Azure
+      url: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
+- title: Informazioni su si applicano gli sconti
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Istanze di VM riservate
+      url: ../manage/understand-vm-reservation-charges.md
+    - text: Capacità riservata di Archiviazione di Azure
+      url: understand-storage-charges.md
+    - text: Capacità riservata di Cosmos DB
+      url: understand-cosmosdb-reservation-charges.md
+    - text: Capacità riservata del database SQL
+      url: understand-reservation-charges.md
+    - text: Azure Synapse Analytics
+      url: reservation-discount-azure-sql-dw.md
+    - text: Esplora dati di Azure
+      url: understand-azure-data-explorer-reservation-charges.md
+    - text: Azure Databricks
+      url: reservation-discount-databricks.md
+    - text: Servizio app
+      url: reservation-discount-app-service-isolated-stamp.md
+    - text: Piani software di Azure
+      url: understand-suse-reservation-charges.md
+- title: Come si applicano gli sconti al database di Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Database di Azure per MySQL
+      url: understand-reservation-charges-mysql.md
+    - text: Database di Azure per PostgreSQL
+      url: understand-reservation-charges-postgresql.md
+    - text: Database di Azure per MariaDB
+      url: understand-reservation-charges-mariadb.md
+- title: Gestire le prenotazioni
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire le prenotazioni
+      url: manage-reserved-vm-instance.md
+    - text: Visualizzare le prenotazioni
+      url: view-reservations.md
+  - linkListType: reference
+    links:
+    - text: API di prenotazione
+      url: reservation-apis.md

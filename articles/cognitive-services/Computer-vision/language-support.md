@@ -1,7 +1,7 @@
 ---
 title: Supporto per la lingua-Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Questo articolo fornisce un elenco dei linguaggi naturali supportati dalle funzionalità di Visione artificiale; OCR, riconoscimento del testo e Read.
+description: Questo articolo fornisce un elenco dei linguaggi naturali supportati dalle funzionalità di Visione artificiale; OCR, analisi delle immagini.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 680e3647e7a5847e132a53986e2cf17150bceac3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 81d0183b6dde1a5fe6bd9cd36910fd3dfc1cc5b1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560172"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205282"
 ---
 # <a name="language-support-for-computer-vision"></a>Supporto delle lingue per Visione artificiale
 
 Alcune funzionalità di Visione artificiale supportano più lingue; le funzionalità non indicate in questo documento supportano solo l'inglese.
 
-## <a name="text-detection-ocr"></a>Rilevamento del testo (OCR)
+## <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 
-Visione artificiale possibile rilevare il testo in molte lingue. Per le API Read e OCR non è necessario specificare un codice di lingua. Per altre informazioni su questa funzionalità e sui vantaggi di ogni API, vedere [leggere testo da immagini e documenti](concept-recognizing-text.md) .
+Le API OCR di Visione artificiale supportano diverse lingue. Non è necessario specificare un codice di lingua. Per ulteriori informazioni, vedere [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md) .
 
 |Linguaggio| Codice lingua | API OCR | API di lettura |
 |:-----|:----:|:-----:|:---:|
@@ -58,7 +58,7 @@ Visione artificiale possibile rilevare il testo in molte lingue. Per le API Read
 
 Alcune azioni dell'API [Analyze-image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) possono restituire i risultati in altri linguaggi, specificati con il `language` parametro di query. Altre azioni restituiscono i risultati in inglese indipendentemente dalla lingua specificata e altre generano un'eccezione per le lingue non supportate. Le azioni vengono specificate con `visualFeatures` i `details` parametri di query e. per un elenco di tutte le azioni che è possibile eseguire con l'analisi delle immagini, vedere la [Panoramica](home.md) .
 
-|Linguaggio | Codice lingua | Categorie | Tag | Descrizione | Adult (Adulti) | Marchi | Colore | Smile | ImageType | Oggetti | Celebrità | Punti di riferimento |
+|Linguaggio | Codice lingua | Categorie | Tag | Descrizione | Adult (Adulti) | Marchi | Color | Smile | ImageType | Oggetti | Celebrità | Punti di riferimento |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Cinese | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglese | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

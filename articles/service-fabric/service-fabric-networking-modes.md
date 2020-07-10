@@ -5,11 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feeef1773ffe68f3ff88175b413cd40ba618b8d9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639803"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207234"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -190,15 +191,14 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
  
 3. Solo per i cluster Windows, configurare una regola del gruppo di sicurezza di rete che consenta di aprire la porta UDP/53 per la rete virtuale con i valori seguenti:
 
-   |Impostazione |valore | |
-   | --- | --- | --- |
-   |Priorità |2000 | |
-   |Nome |Custom_Dns  | |
-   |Source (Sorgente) |VirtualNetwork | |
-   |Destination | VirtualNetwork | |
-   |Servizio | DNS (UDP/53) | |
-   |Azione | Allow  | |
-   | | |
+   |Impostazione |Valore |
+   | --- | --- |
+   |Priorità |2000 |
+   |Name (Nome) |Custom_Dns  |
+   |Origine |VirtualNetwork |
+   |Destinazione | VirtualNetwork |
+   |Servizio | DNS (UDP/53) |
+   |Azione | Allow  |
 
 4. Specificare la modalità di rete nel manifesto dell'applicazione per ogni servizio: `<NetworkConfig NetworkType="Open">`. La modalità di rete **Open** consente al servizio di ottenere un indirizzo IP dedicato. Se non è specificata alcuna modalità, viene impostata la modalità predefinita **nat**. Nell'esempio di manifesto seguente, i servizi `NodeContainerServicePackage1` e `NodeContainerServicePackage2` possono essere in ascolto sulla stessa porta (entrambi i servizi sono in ascolto su `Endpoint1`). Se è specificata la modalità di rete Open, non è possibile specificare configurazioni `PortBinding`.
 

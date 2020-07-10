@@ -8,11 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27fb165c36c17cee83cd9f90eba3bdcb9e32d517
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466171"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206903"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creare un endpoint privato per una connessione sicura ad Azure ricerca cognitiva
 
@@ -41,12 +42,12 @@ In questa sezione si creeranno una rete virtuale e una subnet per ospitare la ma
 
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
-    | Subscription | Selezionare la propria sottoscrizione|
-    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup*, quindi fare clic su **OK** . |
-    | Nome | Immettere *MyVirtualNetwork* |
-    | Region | Selezionare l'area geografica desiderata |
+    | Sottoscrizione | Selezionare la propria sottoscrizione|
+    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup*, quindi fare clic su **OK** . |
+    | Name (Nome) | Immettere *MyVirtualNetwork* |
+    | Area | Selezionare l'area geografica desiderata |
     |||
 
 1. Lasciare le impostazioni predefinite per le altre impostazioni. Fare clic su **Verifica + crea** e quindi su **Crea**
@@ -59,14 +60,14 @@ In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un
 
 1. In **New servizio di ricerca-nozioni di base**immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **DETTAGLI DELL'ISTANZA** |  |
     | URL | Immettere un nome univoco. |
-    | Location | Selezionare l'area geografica desiderata. |
+    | Località | Selezionare l'area geografica desiderata. |
     | Piano tariffario | Selezionare **Cambia piano tariffario** e scegliere il livello di servizio desiderato. (Non supporta il livello **gratuito** . Deve essere di **base** o superiore. |
     |||
   
@@ -80,16 +81,16 @@ In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un
 
 1. In **Crea endpoint privato**immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
-    | Location | selezionare **Stati Uniti occidentali**.|
-    | Nome | Immettere *myPrivateEndpoint*.  |
+    | Località | selezionare **Stati Uniti occidentali**.|
+    | Nome | Immettere *myPrivateEndpoint*.  |
     | Sottorisorsa di destinazione | Lasciare il valore predefinito **SearchService**. |
     | **RETE** |  |
-    | Rete virtuale  | Selezionare *MyVirtualNetwork* dal gruppo di risorse *myResourceGroup*. |
-    | Subnet | Selezionare  *mySubnet*. |
+    | Rete virtuale  | Selezionare *MyVirtualNetwork* dal gruppo di risorse *myResourceGroup*. |
+    | Subnet | Selezionare *mySubnet*. |
     | **INTEGRAZIONE DNS PRIVATO** |  |
     | Integra con la zona DNS privato  | Lasciare l'impostazione predefinita **Sì**. |
     | Zona DNS privato  | Lasciare il valore predefinito * * (nuovo) privatelink.search.windows.net * *. |
@@ -113,7 +114,7 @@ In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -188,7 +189,7 @@ In questa sezione si verificherà l'accesso alla rete privata al servizio di ric
 
 Quando l'endpoint del servizio di ricerca è privato, alcune funzionalità del portale sono disabilitate. Sarà possibile visualizzare e gestire le impostazioni del livello di servizio, ma l'accesso al portale per i dati di indicizzazione e vari altri componenti nel servizio, ad esempio le definizioni di indice, indicizzatore e competenze, è limitato per motivi di sicurezza.
 
-1. Nel desktop remoto di  *myVM* aprire PowerShell.
+1. Nel Desktop remoto di *myVm1* aprire PowerShell.
 
 1. Immettere ' nslookup [nome servizio di ricerca]. search. Windows. NET '
 
@@ -206,7 +207,7 @@ Quando l'endpoint del servizio di ricerca è privato, alcune funzionalità del p
 
 1. Per completare la Guida introduttiva dalla macchina virtuale, è consigliabile confermare che il servizio è completamente operativo.
 
-1. Chiudere la connessione Desktop remoto a *myVM*. 
+1. Chiudere la connessione Desktop remoto a *myVM*. 
 
 1. Per verificare che il servizio non sia accessibile in un endpoint pubblico, aprire il post nella workstation locale e provare le prime attività nella Guida introduttiva. Se viene visualizzato un errore che segnala che il server remoto non esiste, è stato configurato correttamente un endpoint privato per il servizio di ricerca.
 

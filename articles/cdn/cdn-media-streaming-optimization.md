@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 1f8dc5ef89c70cebce1d59fc389300b30dc828f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edc2198cff360b6f0d2f6ace3b76d35bf77fab97
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887614"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206696"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Ottimizzazione dello streaming multimediale con la rete CDN di Azure 
  
@@ -82,12 +82,11 @@ Dopo avere creato l'endpoint, questo applicherà l'ottimizzazione per tutti i fi
 Se la **rete CDN Standard di Azure di Akamai** rileva che la risorsa è un manifesto o un frammento di streaming, usa tempi di scadenza per la memorizzazione nella cache diversi rispetto alla distribuzione Web generale. Vedere l'elenco completo nella tabella seguente. Come sempre, vengono rispettate le intestazioni Cache-Control o Expires inviate dall'origine. Se la risorsa non è una risorsa multimediale, viene memorizza nella cache con i tempi di scadenza per la distribuzione Web generale.
 
 I tempi negativi e brevi di memorizzazione nella cache sono utili per l'offload di origine quando molti utenti richiedono un frammento che non esiste ancora. Ne è un esempio uno streaming live in cui i pacchetti non sono disponibili dall'origine in quel momento. Un intervallo di memorizzazione nella cache più lungo consente anche l'offload delle richieste dall'origine poiché il contenuto video in genere non viene modificato.
- 
 
-|   | Distribuzione Web generale | Streaming multimediale generale | Streaming multimediale di video on demand  
---- | --- | --- | ---
-Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |365 giorni | 365 giorni   
-Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | nessuno | 1 secondo | 1 secondo
+| Memorizzazione nella cache  | Distribuzione Web generale | Streaming multimediale generale | Streaming multimediale di video on demand  
+|--- | --- | --- | ---
+| Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |365 giorni | 365 giorni   
+| Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | Nessuno | 1 secondo | 1 secondo
  
 ### <a name="deal-with-origin-failure"></a>Gestire gli errori di origine  
 

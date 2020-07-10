@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2439d4f03184f8dbb85b229b3908dff95013b4bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c31304228d9629b0df7f7511ecca2616b4891ee7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113130"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206948"
 ---
 # <a name="odata-searchscore-function-in-azure-cognitive-search"></a>`search.score`Funzione OData in Azure ricerca cognitiva
 
@@ -37,7 +38,9 @@ La sintassi per `search.score` in **$orderby** è `search.score()`. La funzione 
 
 Ordinare gli hotel in ordine decrescente in base a `search.score` e `rating` , quindi in ordine crescente in base alla distanza tra le coordinate specificate, in modo che tra due alberghi con valutazioni identiche, il più vicino venga elencato per primo:
 
+```odata-filter-expr
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

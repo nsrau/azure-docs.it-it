@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6edb639cacc48e8b59c458bcf0ac9c9c5e07b030
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203566"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205764"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API di Azure  
 
@@ -67,14 +67,14 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 2. Scegliere **percorsi** dal menu.
 3. Fare clic sulla riga con la posizione in cui si vuole ridimensionare.
 4. Specificare il nuovo numero di **unità** : utilizzare il dispositivo di scorrimento o digitare il numero.
-5. Fare clic su **Apply**.
+5. Fare clic su **Applica**.
 
 ## <a name="change-your-api-management-service-tier"></a>Modificare il livello di servizio gestione API
 
 1. Passare al servizio gestione API nella [portale di Azure](https://portal.azure.com/).
 2. Fare clic sul piano **tariffario** nel menu.
 3. Selezionare il livello di servizio desiderato nell'elenco a discesa. Usare il dispositivo di scorrimento per specificare la scala del servizio gestione API dopo la modifica.
-4. Fare clic su **Salva**.
+4. Fare clic su **Save** (Salva).
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Tempo di inattività durante il ridimensionamento
 Se si esegue il ridimensionamento da o verso il livello Developer, si verifica un tempo di inattività. In caso contrario, non sono previsti tempi di inattività. 
@@ -84,3 +84,4 @@ Se si esegue il ridimensionamento da o verso il livello Developer, si verifica u
 
 - [Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure](api-management-howto-deploy-multi-region.md)
 - [Come ridimensionare automaticamente un'istanza del servizio di Gestione API di Azure](api-management-howto-autoscale.md)
+- [Ottimizza e Risparmia sulla spesa per il cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

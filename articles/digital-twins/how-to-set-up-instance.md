@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4cac7a3f663d9ede966b8d6e5753c48629049dcd
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fecacbd2c7c6549a1321367157bb179321779ca9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057484"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206510"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Configurare un'istanza di Gemelli digitali di Azure
 
 Questo articolo illustra i passaggi di base per configurare una nuova istanza di Azure Digital gemelli. Ciò include la creazione dell'istanza e l'assegnazione delle autorizzazioni [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) all'istanza per se stessi.
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
@@ -57,15 +57,15 @@ Per usare i dispositivi gemelli digitali di Azure con un'applicazione client, è
 
 Creare un'assegnazione di ruolo per se stessi nell'istanza di Azure Digital Twins, usando la posta elettronica associata al tenant di AAD nella sottoscrizione di Azure. 
 
-Per poter eseguire questa operazione, è necessario essere classificati come un proprietario nella sottoscrizione di Azure. Per verificarlo, è possibile eseguire il `az role assignment list --assignee <your-Azure-email>` comando e verificare che l'output del valore *RoleDefinitionName* sia *owner*. Se si rileva che il valore è *collaboratore* o è diverso da *proprietario*, contattare l'amministratore della sottoscrizione per concedere le autorizzazioni nella sottoscrizione per elevare il ruolo.
+Per poter eseguire questa operazione, è necessario essere classificati come un proprietario nella sottoscrizione di Azure. Per verificarlo, è possibile eseguire il `az role assignment list --assignee <your-Azure-email>` comando e verificare che l'output del valore *RoleDefinitionName* sia *owner*. Se si rileva che il valore è *collaboratore* o è diverso da *proprietario*, contattare l'amministratore della sottoscrizione per concedere le autorizzazioni nella sottoscrizione. Possono elevare il proprio ruolo nell'intera sottoscrizione, in modo che sia possibile eseguire il comando seguente oppure un proprietario può eseguire il comando seguente per conto dell'utente per configurare le autorizzazioni di Azure Digital gemelli.
 
-In qualità di proprietario della sottoscrizione, è possibile usare il comando seguente per assegnare l'utente a un ruolo proprietario per l'istanza di dispositivi gemelli digitali di Azure:
+Per assegnare le autorizzazioni utente "proprietario" nell'istanza di Azure Digital Twins, usare il comando seguente (deve essere eseguito da un proprietario della sottoscrizione di Azure):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Il risultato di questo comando è costituito dalle informazioni sull'assegnazione di ruolo creata.
+Il risultato di questo comando è l'output delle informazioni sull'assegnazione di ruolo creata.
 
 > [!TIP]
 > Se invece si ottiene un errore *400: richiesta non valida* , eseguire il comando seguente per ottenere il valore *ObjectID* per l'utente:
@@ -74,7 +74,7 @@ Il risultato di questo comando è costituito dalle informazioni sull'assegnazion
 > ```
 > Quindi, ripetere il comando di assegnazione di ruolo usando l' *ID oggetto* dell'utente al posto del messaggio di posta elettronica.
 
-A questo punto si ha un'istanza di Azure Digital Twins pronta per l'uso.
+A questo punto si ha un'istanza di Azure Digital Twins pronta per l'uso e le autorizzazioni per gestirla.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

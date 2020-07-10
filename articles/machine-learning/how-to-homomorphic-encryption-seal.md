@@ -1,22 +1,23 @@
 ---
-title: Distribuire un servizio di inferenza crittografato
+title: Distribuire un servizio di inferenza crittografato (anteprima)
 titleSuffix: Azure Machine Learning
 description: Informazioni su come usare Microsoft SEAL per distribuire un servizio di stima crittografato per la classificazione delle immagini
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/18/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: tracking-python
-ms.openlocfilehash: b92293973ac9b5027a9f1a10c2d19fd164c41e3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c67ddf2d82a1cebaaa43a90111f4a42edb20058e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560189"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206784"
 ---
-# <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>Come distribuire un servizio Web di inferenza crittografato
+# <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Come distribuire un servizio Web di inferenza crittografato (anteprima)
 
 Questa guida illustra come distribuire un modello di classificazione delle immagini come servizio Web di inferenza crittografato in [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/). Il servizio Web è un'immagine del contenitore Docker che contiene il modello e la logica di assegnazione del punteggio.
 

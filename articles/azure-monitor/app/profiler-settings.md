@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188927"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205710"
 ---
 # <a name="configure-application-insights-profiler"></a>Configura Application Insights Profiler
 
@@ -32,7 +32,7 @@ Verrà visualizzata una pagina simile alla seguente:
 
 La pagina **configura Application Insights Profiler** presenta le seguenti funzionalità:
 
-| | |
+| Funzionalità | Description |
 |-|-|
 Profilo ora | avvia sessioni di profilatura sessioni per tutte le app collegate a questa istanza di Application Insights.
 Trigger | Consente di configurare i trigger che provocano l'esecuzione del profiler. 
@@ -48,17 +48,17 @@ Per attivare manualmente una sessione del profiler, un utente richiede almeno l'
 
 Facendo clic sul pulsante trigger sulla barra dei menu si apre la casella impostazioni trigger. È possibile configurare il trigger per avviare la profilatura quando la percentuale di utilizzo della CPU o della memoria raggiunge il livello impostato.
 
-| | |
+| Impostazione | Descrizione |
 |-|-|
 Pulsante attiva/disattiva | On: Profiler può essere avviato da questo trigger. Disattivato: il profiler non verrà avviato da questo trigger.
 Soglia memoria | Quando questa percentuale di memoria è in uso, il Profiler verrà avviato.
-Duration | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
+Durata | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
 Cooldown | Imposta il tempo di attesa del profiler prima di verificare l'utilizzo della memoria o della CPU dopo che è stato attivato.
 
 ## <a name="recent-profiling-sessions"></a>Sessioni di profilatura recenti
 Questa sezione della pagina Mostra informazioni sulle sessioni di profilatura recenti. Una sessione di profilatura rappresenta il periodo di tempo durante il quale l'agente del profiler sta prendendo un profilo in uno dei computer che ospitano l'applicazione. È possibile aprire i profili da una sessione facendo clic su una delle righe. Per ogni sessione, viene illustrato quanto segue:
 
-| | |
+| Impostazione | Descrizione |
 |-|-|
 Attivato da | Come è stata avviata la sessione, da un trigger, da un profilo ora o da un campionamento predefinito. 
 Nome dell'app | Nome dell'applicazione profilata.

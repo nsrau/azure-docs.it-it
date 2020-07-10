@@ -81,6 +81,10 @@
               href: samples/resource-manager-alerts-metric.md
             - name: Gruppi di azioni
               href: samples/resource-manager-action-groups.md
+        - name: Application Insights
+          items:
+            - name: Creare una risorsa
+              href: samples/resource-manager-app-resource.md
         - name: Impostazioni di diagnostica
           href: samples/resource-manager-diagnostic-settings.md
         - name: Aree di lavoro di Log Analytics

@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 23c7913fbe9b3943559d36f5cbf2a21d7ed63dbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a53122b324c0a6dc43619eb2e9c704873f87b69
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563461"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207316"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinonimi in Azure ricerca cognitiva
 
@@ -51,6 +51,7 @@ Le mappe sinonimiche devono essere nel formato Apache Solr descritto di seguito.
 
 È possibile creare una nuova mappa sinonimica usando HTTP POST, come nell'esempio seguente:
 
+```synonym-map
     POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
 
@@ -61,9 +62,11 @@ Le mappe sinonimiche devono essere nel formato Apache Solr descritto di seguito.
           USA, United States, United States of America\n
           Washington, Wash., WA => WA\n"
     }
+```
 
 In alternativa è possibile usare PUT e specificare il nome della mappa sinonimica nell'URI. Se la mappa sinonimica non esiste, verrà creata.
 
+```synonym-map
     PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
@@ -73,10 +76,12 @@ In alternativa è possibile usare PUT e specificare il nome della mappa sinonimi
           USA, United States, United States of America\n
           Washington, Wash., WA => WA\n"
     }
+```
 
 ##### <a name="apache-solr-synonym-format"></a>Formato dei sinonimi Apache Solr
 
 Il formato Solr supporta il mapping sinonimico equivalente ed esplicito. Le regole di mapping sono conformi alla specifica del filtro di sinonimi open source di Apache Solr, descritta in questo documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Di seguito è riportata una regola di esempio per sinonimi equivalenti.
+
 ```
 USA, United States, United States of America
 ```
@@ -84,29 +89,37 @@ USA, United States, United States of America
 Con la regola precedente, la query di ricerca "USA" si espanderà in "USA" OR "Stati Uniti" OR "Stati Uniti d'America".
 
 Il mapping esplicito è indicato da una freccia "=>". Quando specificato, una sequenza di termini di una query di ricerca che corrisponde al lato sinistro di "=>" verrà sostituita con le alternative sul lato destro. Data la regola seguente, le query di ricerca "Washington", "Wash." o "WA" saranno riscritte tutte come "WA". Il mapping esplicito si applica solo nella direzione specificata e, in questo caso, non riscrivere la query "WA" come "Washington".
+
 ```
 Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Elencare le mappe sinonimiche del proprio servizio.
 
+```synonym-map
     GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
+```
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Aggiungere una mappa sinonimica al proprio servizio.
 
+```synonym-map
     GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
+```
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Eliminare una mappa sinonimica dal proprio servizio.
 
+```synonym-map
     DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
+```
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configurare un campo ricercabile per l'uso della mappa sinonimica nella definizione dell'indice.
 
 La nuova proprietà di campo **synonymMaps** consente di specificare una mappa sinonimica da usare per un campo ricercabile. Le mappe sinonimiche sono risorse a livello di servizio e possono essere referenziate da qualsiasi campo di un indice del servizio.
 
+```synonym-map
     POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
     api-key: [admin key]
 
@@ -138,6 +151,7 @@ La nuova proprietà di campo **synonymMaps** consente di specificare una mappa s
           }
        ]
     }
+```
 
 È possibile specificare **synonymMaps** per i campi ricercabili di tipo "Edm. String" o "Collection".
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a06f0838f25e771a90fb6dc6f4fcd3bd9bdeda87
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984271"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203801"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creare un'offerta di un servizio di consulenza
 
@@ -98,12 +98,22 @@ Questa pagina consente di impostare il prodotto primario offerto dal servizio di
 
 3. Se è stato selezionato **Azure** come prodotto primario, selezionare fino a tre **aree della soluzione**. Le aree semplificano la ricerca dell'offerta da parte dei clienti in Azure Marketplace. Se non è stato scelto Azure, ignorare questo passaggio.
 
-    | Area soluzione | | | |
-    | --- | --- | --- | --- |
-    | Analytics | Backup | DevOps | Migrazione |
-    | Modernizzazione delle app | Big Data | Ripristino di emergenza | Rete |
-    | Archiviazione | Piattaforma dati | Identità | Sicurezza |
-    | Intelligenza artificiale e Machine Learning | Gestione dei Data Center | Internet delle cose | Archiviazione |
+    - Analytics
+    - Modernizzazione delle app
+    - Archivio
+    - Intelligenza artificiale e Machine Learning
+    - Backup
+    - Big Data
+    - Piattaforma dati
+    - Gestione dei Data Center
+    - DevOps
+    - Ripristino di emergenza
+    - Identità
+    - Internet delle cose
+    - Migrazione
+    - Rete
+    - Sicurezza
+    - Archiviazione
 
 1. Se è stato selezionato **Azure** come prodotto principale, è possibile selezionare fino a sei **settori**. Le aree semplificano la ricerca dell'offerta da parte dei clienti in Azure Marketplace. Vedere l'elenco completo dei settori delle [procedure consigliate](../gtm-offer-listing-best-practices.md)per l'elenco delle offerte. Se non è stato scelto Azure, ignorare questo passaggio.
 1. Se è stato selezionato un prodotto primario *non* Azure, selezionare fino a tre **Prodotti applicabili:** . I prodotti applicabili semplificano la ricerca dell'offerta da parte dei clienti in AppSource. Per altre informazioni, vedere il file PDF delle [linee guida alla presentazione dei servizi di consulenza in Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409).
@@ -130,7 +140,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 3. Aree della soluzione
 4. Settori
 5. Nome offerta
-6. Summary
+6. Riepilogo
 7. Descrizione
 8. Screenshot/video
 
@@ -145,7 +155,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 3. Prodotti
 4. Settori
 5. Nome offerta
-6. Summary
+6. Riepilogo
 7. Descrizione
 8. Screenshot/video
 9. Documenti

@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/01/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d3521cfb3d3b0c6659013922ab11fe765af882
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 38c487928f15e953a1c660c5007398bc5c2b3f7d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111253"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206608"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Panoramica dell'agente di Azure Arc per server
 
@@ -60,7 +60,7 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
 
 * Durante l'installazione, vengono create le cartelle di installazione seguenti.
 
-    |Cartella |Description |
+    |Cartella |Descrizione |
     |-------|------------|
     |C:\Programmi\AzureConnectedMachineAgent |Percorso di installazione predefinito che contiene i file di supporto dell'agente.|
     |%ProgramData%\AzureConnectedMachineAgent |Contiene i file di configurazione dell'agente.|
@@ -79,14 +79,14 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
 
 * Durante l'installazione dell'agente, vengono create le variabili di ambiente seguenti.
 
-    |Nome |Valore predefinito |Description |
+    |Nome |Valore predefinito |Descrizione |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * Sono disponibili diversi file di log per la risoluzione dei problemi. descritti nella tabella seguente.
 
-    |File di log |Description |
+    |File di log |Descrizione |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Registra informazioni dettagliate sul servizio agenti (HIMDS) e sull'interazione con Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contiene l'output dei comandi dello strumento azcmagent, quando viene usato l'argomento verbose (-v).|
@@ -141,7 +141,7 @@ Dopo l'installazione dell'agente Connected Machine per Linux, vengono applicate 
 
 * Durante l'installazione dell'agente, vengono create le variabili di ambiente seguenti. Queste variabili vengono impostate in `/lib/systemd/system.conf.d/azcmagent.conf`.
 
-    |Nome |Valore predefinito |Description |
+    |Nome |Valore predefinito |Descrizione |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -200,14 +200,15 @@ Tag del servizio:
 
 URL:
 
-| Risorsa dell'agente | Description |
+| Risorsa dell'agente | Descrizione |
 |---------|---------|
-|management.azure.com|Azure Resource Manager|
-|login.windows.net|Azure Active Directory|
-|dc.services.visualstudio.com|Application Insights|
-|agentserviceapi.azure-automation.net|Configurazione guest|
-|*-agentservice-prod-1.azure-automation.net|Configurazione guest|
-|*.his.arc.azure.com|Servizio ibrido di gestione delle identità|
+|`management.azure.com`|Azure Resource Manager|
+|`login.windows.net`|Azure Active Directory|
+|`dc.services.visualstudio.com`|Application Insights|
+|`agentserviceapi.azure-automation.net`|Configurazione guest|
+|`*-agentservice-prod-1.azure-automation.net`|Configurazione guest|
+|`*.guestconfiguration.azure.com` |Configurazione guest|
+|`*.his.arc.azure.com`|Servizio ibrido di gestione delle identità|
 
 Per un elenco degli indirizzi IP per ogni tag del servizio/area, vedere il file JSON [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) (Indirizzi IP di Azure e tag del servizio - Cloud pubblico). Microsoft pubblica aggiornamenti settimanali contenenti ogni servizio di Azure e gli intervalli IP usati dal servizio. Per altre informazioni, vedere [Tag di servizio](../../virtual-network/security-overview.md#service-tags).
 

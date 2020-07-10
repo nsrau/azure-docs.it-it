@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 3294a7b2112e9527041ef343f4452aedb7a2a272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39803ab88e5b252ef119d22a697e135c83f87780
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70073472"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205647"
 ---
 # <a name="how-to-migrate-azure-api-management-across-regions"></a>Come eseguire la migrazione di gestione API di Azure tra aree
 Per eseguire la migrazione delle istanze di gestione API da un'area di Azure a un'altra, è possibile usare la funzionalità di [backup e ripristino](api-management-howto-disaster-recovery-backup-restore.md) . È necessario scegliere lo stesso piano tariffario di gestione API nelle aree di origine e di destinazione. 
@@ -47,3 +47,4 @@ Per eseguire la migrazione delle istanze di gestione API da un'area di Azure a u
 ## <a name="next-steps"></a><a name="next-steps"> </a>Passaggi successivi
 * Per ulteriori informazioni sulla funzionalità di backup e ripristino, vedere [come implementare il ripristino di emergenza](api-management-howto-disaster-recovery-backup-restore.md).
 * Per informazioni sulla migrazione delle risorse di Azure, vedere [indicazioni sulla migrazione tra aree di Azure](https://github.com/Azure/Azure-Migration-Guidance).
+* [Ottimizza e Risparmia con la spesa per il cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4c7f82b729355e59ff05d5513e22fa143d53a5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362092"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206859"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurare e personalizzare le attività di compilazione
 
@@ -64,9 +64,11 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere la sch
     - Le specifiche di directory devono sempre terminare con \\ *.
     - Esempi:
 
+```binskim-targets
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
+```
 
 - Se si seleziona **riga di comando** nell'elenco **tipo** , è necessario eseguire binskim.exe:
      - Assicurarsi che i primi argomenti per binskim.exe siano il verbo **analizza** seguito da una o più specifiche del percorso. Ogni percorso può essere un percorso completo o un percorso relativo alla directory di origine.
@@ -74,11 +76,13 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere la sch
      - È possibile omettere l'opzione **/o** o **/output** . Il valore di output viene aggiunto o sostituito.
      - Di seguito sono elencate le configurazioni da riga di comando standard.
 
+```binskim-line-args
            analyze $(Build.StagingDirectory)\* --recurse --verbose
            analyze *.dll *.exe --recurse --verbose
+```
 
-          > [!NOTE]
-          > La * finale \\ è importante se si specificano le directory per la destinazione.
+> [!NOTE]
+> La * finale \\ è importante se si specificano le directory per la destinazione.
 
 Per ulteriori informazioni sugli argomenti della riga di comando di BinSkim, le regole in base all'ID o i codici di uscita, vedere il [manuale dell'utente di BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 

@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/25/2019
+ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 14ba5f270138db22a76fd697b264046e22577427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bc7fe4e464b07c77d5a857fb793faa4262f97e4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79086740"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206842"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Esercitazione: usare la crittografia dinamica DRM e il servizio di distribuzione delle licenze
 
@@ -163,7 +164,7 @@ Quando si esegue l'app, viene visualizzata la schermata seguente:
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Pulire le risorse nell'account di Servizi multimediali
 
-In genere, è consigliabile eliminare tutti gli oggetti tranne gli oggetti che si prevede di riutilizzare, in genere si riutilizzeranno le trasformazioni, StreamingLocators e così via. Se dopo l'attività di sperimentazione si vuole pulire l'account, eliminare le risorse che non si prevede di riutilizzare. Il codice seguente, ad esempio, elimina gli oggetti Job:
+In genere, è consigliabile eliminare tutti gli oggetti tranne gli oggetti che si prevede di riutilizzare, in genere si riutilizzeranno le trasformazioni, StreamingLocators e così via. Se dopo l'attività di sperimentazione si vuole pulire l'account, eliminare le risorse che non si prevede di riutilizzare. Ad esempio, il codice seguente elimina il processo, gli asset creati e i criteri della chiave simmetrica:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 

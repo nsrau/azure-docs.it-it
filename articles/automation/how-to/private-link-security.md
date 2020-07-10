@@ -4,24 +4,27 @@ description: Usare il collegamento privato di Azure per connettere in modo sicur
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: fa473591355ef9e1ee582dd9c9b820dfa2f93f36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268725"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207286"
 ---
-# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti ad automazione di Azure
+# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti ad automazione di Azure (anteprima)
 
 L'endpoint privato di Azure è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della VNet, in modo da portare il servizio di automazione nella VNet. Il traffico di rete tra i computer nella VNet e l'account di automazione attraversa la VNet e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica.
 
-Ad esempio, si dispone di un VNet in cui è stato disabilitato l'accesso a Internet in uscita. Tuttavia, si vuole accedere al proprio account di automazione privatamente e usare le funzionalità di automazione come webhook, configurazione dello stato e processi Runbook nei ruoli di lavoro ibridi per Runbook. Inoltre, si vuole che gli utenti abbiano accesso all'account di automazione solo tramite il VNET. Questa operazione può essere eseguita distribuendo endpoint privati.
+Ad esempio, si dispone di un VNet in cui è stato disabilitato l'accesso a Internet in uscita. Tuttavia, si vuole accedere al proprio account di automazione privatamente e usare le funzionalità di automazione come webhook, configurazione dello stato e processi Runbook nei ruoli di lavoro ibridi per Runbook. Inoltre, si vuole che gli utenti abbiano accesso all'account di automazione solo tramite il VNET.  La distribuzione dell'endpoint privato consente di ottenere questi obiettivi.
 
-Questo articolo illustra quando usare e come configurare un endpoint privato con l'account di automazione.
+Questo articolo illustra quando usare e come configurare un endpoint privato con l'account di automazione (anteprima).
 
 ![Panoramica concettuale del collegamento privato per automazione di Azure](./media/private-link-security/private-endpoints-automation.png)
+
+>[!NOTE]
+> Il supporto del collegamento privato con automazione di Azure (anteprima) è disponibile solo nei cloud di Azure per enti pubblici statunitensi e Azure.
 
 ## <a name="advantages"></a>Vantaggi
 
@@ -46,9 +49,11 @@ Il collegamento privato di automazione di Azure connette uno o più endpoint pri
 
 Dopo aver creato gli endpoint privati per l'automazione, è possibile eseguire il mapping di ognuno degli URL di automazione pubblici, che possono essere contattati direttamente da un utente o da un computer, a un endpoint privato nella VNet.
 
+Come parte della versione di anteprima, un account di automazione non è in grado di accedere alle risorse di Azure protette tramite endpoint privato. Ad esempio Azure Key Vault, SQL di Azure, l'account di archiviazione di Azure e così via.
+
 ### <a name="webhook-scenario"></a>Scenario webhook
 
-È possibile avviare manuali operativi eseguendo un POST sull'URL del webhook. Ad esempio, l'URL ha un aspetto simile al seguente:`https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+È possibile avviare manuali operativi eseguendo un POST sull'URL del webhook. Ad esempio, l'URL è simile al seguente:`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Scenario di configurazione dello stato (agentsvc)
 
@@ -60,11 +65,11 @@ L'URL per l'endpoint pubblico & privato sarebbe lo stesso, ma verrebbe mappato a
 
 ## <a name="planning-based-on-your-network"></a>Pianificazione basata sulla rete
 
-Prima di configurare la risorsa dell'account di automazione, prendere in considerazione i requisiti di isolamento rete. Valutare l'accesso delle reti virtuali alla rete Internet pubblica e le restrizioni di accesso all'account di automazione (inclusa la configurazione di un ambito del gruppo di collegamento privato nei log di monitoraggio di Azure se integrato con l'account di automazione).
+Prima di configurare la risorsa dell'account di automazione, prendere in considerazione i requisiti di isolamento rete. Valutare l'accesso delle reti virtuali alla rete Internet pubblica e le restrizioni di accesso all'account di automazione (inclusa la configurazione di un ambito del gruppo di collegamento privato nei log di monitoraggio di Azure se integrato con l'account di automazione). Includere anche una revisione dei [record DNS](./automation-region-dns-records.md) del servizio di automazione come parte del piano per garantire che le funzionalità supportate funzionino senza problemi.
 
 ### <a name="connect-to-a-private-endpoint"></a>Connettersi a un endpoint privato
 
-Creare un endpoint privato per connettere la rete. Questa attività può essere eseguita nel [portale di Azure centro collegamenti privati](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Una volta applicate le modifiche apportate a publicNetworkAccess e al collegamento privato, possono essere necessari fino a 35 minuti per rendere effettive le modifiche.
+Creare un endpoint privato per connettere la rete. È possibile crearlo nel [portale di Azure centro collegamenti privati](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Una volta applicate le modifiche apportate a publicNetworkAccess e al collegamento privato, possono essere necessari fino a 35 minuti per rendere effettive le modifiche.
 
 In questa sezione verrà creato un endpoint privato per l'account di automazione.
 
@@ -72,34 +77,34 @@ In questa sezione verrà creato un endpoint privato per l'account di automazione
 
 2. In **Centro collegamento privato - Informazioni generali** selezionare **Avvia** per l'opzione **Crea una connessione privata a un servizio**.
 
-3. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
+3. In **creare una macchina virtuale-nozioni di base**immettere o selezionare le informazioni seguenti:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome | Immettere il *PrivateEndpoint*. |
-    | Region | Selezionare **YourRegion**. |
+    | Area | Selezionare **YourRegion**. |
     |||
 
 4. Selezionare **Avanti: Risorsa**.
 
-5. In **Crea un endpoint privato - Risorsa** immettere o selezionare queste informazioni:
+5. In **Crea una risorsa endpoint privato**immettere o selezionare le informazioni seguenti:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     |Metodo di connessione  | Selezionare Connettersi a una risorsa di Azure nella directory.|
     | Subscription| Selezionare la propria sottoscrizione. |
     | Tipo di risorsa | Selezionare **Microsoft. Automation/automationAccounts**. |
-    | Risorsa |Seleziona *myAutomationAccount*|
+    | Resource |Seleziona *myAutomationAccount*|
     |Sottorisorsa di destinazione |Selezionare *webhook* o *DSCAndHybridWorker* a seconda dello scenario.|
     |||
 
 6. Selezionare **Avanti: Configurazione**.
 
-7. In **Crea un endpoint privato - Configurazione** immettere o selezionare queste informazioni:
+7. In **Crea un endpoint privato-configurazione**immettere o selezionare le informazioni seguenti:
 
     | Impostazione | valore |
     | ------- | ----- |
@@ -141,7 +146,7 @@ $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 
 ## <a name="dns-configuration"></a>Configurazione del DNS
 
-Quando ci si connette a una risorsa di collegamento privato usando un nome di dominio completo come parte della stringa di connessione, è importante configurare correttamente le impostazioni DNS per la risoluzione nell'indirizzo IP privato allocato. I servizi di Azure esistenti potrebbero avere già una configurazione DNS da usare per la connessione tramite un endpoint pubblico. Per connettersi usando l'endpoint privato, è necessario ignorarla.
+Quando ci si connette a una risorsa di collegamento privato usando un nome di dominio completo (FQDN) come parte della stringa di connessione, è importante configurare correttamente le impostazioni DNS per la risoluzione nell'indirizzo IP privato allocato. I servizi di Azure esistenti potrebbero avere già una configurazione DNS da usare per la connessione tramite un endpoint pubblico. È necessario rivedere e aggiornare la configurazione DNS per la connessione tramite l'endpoint privato.
 
 L'interfaccia di rete associata all'endpoint privato contiene il set completo di informazioni necessarie per configurare il DNS, inclusi FQDN e indirizzi IP privati allocati per una determinata risorsa Collegamento privato.
 

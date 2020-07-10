@@ -1,5 +1,5 @@
 ---
-title: Valutare e mitigare i problemi di equità nei modelli di Machine Learning
+title: Valutare e mitigare i problemi di equità nei modelli di Machine Learning (anteprima)
 titleSuffix: Azure Machine Learning
 description: Informazioni sull'equità nei modelli di Machine Learning e sul modo in cui il pacchetto Fairlearn Python può aiutare a creare modelli più equi.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 06/30/2020
-ms.openlocfilehash: c4e9b8386c8341d076a69e2e81b5e92f296153ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611782"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207304"
 ---
-# <a name="build-fairer-machine-learning-models"></a>Creazione di modelli di Machine Learning più giusti
+# <a name="build-fairer-machine-learning-models-preview"></a>Creazione di modelli di Machine Learning più giusti (anteprima)
 
 Informazioni sull'equità nell'apprendimento automatico e sul modo in cui il pacchetto python open source di [Fairlearn](https://fairlearn.github.io/) consente di creare modelli più corretti. Se non si sta tentando di comprendere i problemi di equità e di valutare l'equità quando si creano modelli di apprendimento automatico, è possibile creare modelli che producono risultati non corretti. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: a96e22ee8d2f9565ae676574e263beae96b5c1f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809419"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207550"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -29,8 +29,8 @@ I probe di integrità supportano più protocolli. La disponibilità di uno speci
 
 | | SKU Standard | SKU Basic |
 | --- | --- | --- |
-| [Tipi di probe](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamento in caso di inattività dei probe](#probedown) | Tutti i probe sono inattivi, tutti i flussi TCP continuano. | Tutte le sonde vengono arrestate, tutti i flussi TCP scadono. | 
+| **[Tipi di probe](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Comportamento del probe](#probedown)** | Tutti i probe sono inattivi, tutti i flussi TCP continuano. | Tutte le sonde vengono arrestate, tutti i flussi TCP scadono. | 
 
 
 >[!IMPORTANT]
@@ -92,8 +92,8 @@ I protocolli disponibili dipendono dallo SKU Load Balancer usato:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| SKU Standard |    &#9989; |   &#9989; |   &#9989; |
-| SKU Basic |   &#9989; |   &#9989; | &#10060; |
+| **SKU standard** |    &#9989; |   &#9989; |   &#9989; |
+| **SKU Basic** |   &#9989; |   &#9989; | &#10060; |
 
 ### <a name="tcp-probe"></a><a name="tcpprobe"></a>Probe TCP
 

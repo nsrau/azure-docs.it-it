@@ -3,19 +3,20 @@ title: Attiva la pipeline di ML per i nuovi dati
 titleSuffix: Azure Machine Learning
 description: Informazioni su come attivare l'esecuzione di una pipeline di ML usando app per la logica di Azure.
 services: machine-learning
-author: sanpil
-ms.author: sanpil
+author: NilsPohlmann
+ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 02/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: b56b07bce558a65df79a23eaf1948aac8e4fabad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d6222b4ea0e30997b3b55adb887c839fef6e624
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433762"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207424"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Attivare un'esecuzione di una pipeline di Machine Learning da un'app per la logica
 
@@ -66,7 +67,7 @@ Una volta eseguito il provisioning dell'app per la logica, seguire questa proced
 
   Usare le impostazioni seguenti per configurare l'azione:
 
-  | Impostazione | valore | 
+  | Impostazione | Valore | 
   |---|---|
   | Azione HTTP | POST |
   | URI |endpoint della pipeline pubblicata che è stato trovato come [prerequisito](#prerequisites) |

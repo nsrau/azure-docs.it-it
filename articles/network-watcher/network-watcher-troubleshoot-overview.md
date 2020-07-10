@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738652"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207363"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
@@ -47,7 +47,7 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo di errore | Motivo | File di log|
+| Tipo di errore | Motivo | Log|
 |---|---|---|
 | NoFault | Nessun errore rilevato |Sì|
 | GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No|
@@ -62,7 +62,7 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 ### <a name="connection"></a>Connessione
 
-| Tipo di errore | Motivo | File di log|
+| Tipo di errore | Motivo | Log|
 |---|---|---|
 | NoFault | Nessun errore rilevato |Sì|
 | GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No|
@@ -73,7 +73,7 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 | ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected" |No|
 | ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
 | ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Authentication | Mancata corrispondenza della chiave precondivisa | Sì|
+| Autenticazione | Mancata corrispondenza della chiave precondivisa | Sì|
 | PeerReachability | Il gateway peer non è raggiungibile. | Sì|
 | IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
 | WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
@@ -82,21 +82,21 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 L'elenco tabella seguente mostra i gateway e le connessioni supportate con la risoluzione dei problemi di Network Watcher:
 
-|  |  |
+| Gateway o connessione | Supportato  |
 |---------|---------|
 |**Tipi di gateway**   |         |
-|Connessione      | Supportato        |
+|VPN      | Supportato        |
 |ExpressRoute | Non supportato |
 |**Tipi di VPN** | |
 |Basato su route | Supportato|
 |Basata su criteri | Non supportato|
-|**Tipi di connessione**||
+|**Tipi di connessioni**||
 |IPsec| Supportato|
 |Vnet2Vnet| Supportato|
 |ExpressRoute| Non supportato|
 |VPNClient| Non supportato|
 
-## <a name="log-files"></a>File di registro
+## <a name="log-files"></a>File di log
 
 I file di log della risoluzione dei problemi delle risorse vengono archiviati in un account di archiviazione al termine della risoluzione dei problemi delle risorse. L'immagine seguente mostra i contenuti di esempio di una chiamata che ha generato un errore.
 

@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 861e011c4bd368a274998859170e78cf444400a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113062"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206176"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Informazioni sui filtri di raccolta OData in Azure ricerca cognitiva
 
@@ -49,13 +50,17 @@ Il primo motivo è solo una conseguenza del modo in cui vengono definiti il ling
 
 Quando si applicano più criteri di filtro su una raccolta di oggetti complessi, i criteri sono **correlati** perché si applicano a *ogni oggetto nella raccolta*. Ad esempio, il filtro seguente restituirà Alberghi con almeno una stanza Deluxe con una tariffa inferiore a 100:
 
+```odata-filter-expr
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
+```
 
 Se l'applicazione di filtri non è *correlata*, il filtro precedente potrebbe restituire gli hotel in cui una stanza è Deluxe e una stanza diversa ha una tariffa di base inferiore a 100. Non avrebbe senso, perché entrambe le clausole dell'espressione lambda si applicano alla stessa variabile di intervallo, ovvero `room` . Questo è il motivo per cui questi filtri sono correlati.
 
 Per la ricerca full-text, tuttavia, non è possibile fare riferimento a una variabile di intervallo specifica. Se si usa la ricerca in campo per emettere una [query Lucene completa](query-lucene-syntax.md) come questa:
 
+```odata-filter-expr
     Rooms/Type:deluxe AND Rooms/Description:"city view"
+```
 
 è possibile che si ottenga un hotel in cui una stanza è Deluxe e una stanza diversa indica "City View" nella descrizione. Ad esempio, il documento seguente con `Id` di `1` corrisponderebbe alla query:
 
@@ -148,19 +153,27 @@ Questa struttura di dati è progettata per rispondere a una domanda con grande v
 
 Basandosi sull'uguaglianza, verrà ora esaminato in che modo è possibile combinare più controlli di uguaglianza sulla stessa variabile di intervallo con `or` . Funziona grazie all'algebra e [alla proprietà distributiva dei quantificatori](https://en.wikipedia.org/wiki/Existential_quantification#Negation). Espressione seguente:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 Equivale a:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
+```
 
 e ognuna delle due `any` sottoespressioni può essere eseguita in modo efficiente tramite l'indice invertito. Inoltre, grazie alla [legge di negazione dei quantificatori](https://en.wikipedia.org/wiki/Existential_quantification#Negation), questa espressione:
 
+```odata-filter-expr
     seasons/all(s: s ne 'winter' and s ne 'fall')
+```
 
 Equivale a:
 
+```odata-filter-expr
     not seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 per questo motivo è possibile usare `all` con `ne` e `and` .
 

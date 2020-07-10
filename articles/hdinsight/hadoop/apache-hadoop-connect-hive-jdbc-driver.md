@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 258dfec20644ee29368de075673dfc7798bee28a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183bc416dde941f11bd94cfcff3bf738b35f876f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083543"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207374"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Apache Hive tramite il driver JDBC in HDInsight
 
@@ -33,7 +33,9 @@ Per altre informazioni sull'interfaccia Hive JDBC, vedere [HiveJDBCInterface](ht
 
 Le connessioni JDBC a un cluster HDInsight in Azure vengono effettuate sulla porta 443. Il traffico viene protetto tramite TLS/SSL. Il gateway pubblico dietro cui si trovano i cluster reindirizza il traffico alla porta su cui HiveServer2 è attualmente in ascolto. La stringa di connessione seguente mostra il formato da usare per HDInsight:
 
+```http
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
+```
 
 Sostituire `CLUSTERNAME` con il nome del cluster HDInsight.
 
@@ -49,7 +51,7 @@ Il nome host ' CLUSTERNAME.azurehdinsight.net ' nella stringa di connessione è 
 
 È possibile usare solo la **porta 443** per connettersi al cluster da alcune posizioni esterne alla rete virtuale di Azure. HDInsight è un servizio gestito che indica che tutte le connessioni al cluster vengono gestite tramite un gateway sicuro. Non è possibile connettersi direttamente a del 2 sulle porte 10001 o 10000. Queste porte non sono esposte all'esterno.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Quando si stabilisce la connessione, usare il nome e la password dell'amministratore del cluster HDInsight per l'autenticazione. Da client JDBC, ad esempio SQuirreL SQL, immettere il nome dell'amministratore e la password nelle impostazioni client.
 
@@ -83,9 +85,9 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 5. Nella finestra di dialogo di aggiunta del driver aggiungere le informazioni seguenti:
 
-    |Proprietà | valore |
+    |Proprietà | Valore |
     |---|---|
-    |Nome|Hive|
+    |Name (Nome)|Hive|
     |URL di esempio|`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`|
     |Percorso di classe aggiuntivo|Usare il pulsante **Aggiungi** per aggiungere tutti i file jar scaricati in precedenza.|
     |Nome della classe|org. Apache. hive. JDBC. HiveDriver|
@@ -100,9 +102,9 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 7. Usare i valori seguenti per la finestra di dialogo **Aggiungi alias** :
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
-    |Nome|Hive in HDInsight|
+    |Name (Nome)|Hive in HDInsight|
     |Driver|Usare l'elenco a discesa per selezionare il driver **hive** .|
     |URL|`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight.|
     |Nome utente|nome dell'account di accesso per il cluster HDInsight. Il valore predefinito è **admin**.|
@@ -121,7 +123,7 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 9. Una volta stabilita la connessione, immettere la query seguente nella finestra di dialogo query SQL e quindi selezionare l'icona **Esegui** (persona in esecuzione). Nell'area dei risultati dovrebbero comparire i risultati della query.
 
-    ```hql
+    ```hiveql
     select * from hivesampletable limit 10;
     ```
 

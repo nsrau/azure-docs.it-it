@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: db2fa377cc10759fc57c3e4a27bd7815a5724bd7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 08e146ebde34c6d85e258c93a1ed1780bb97727b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114738"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206441"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per MariaDB usando il portale
 
@@ -35,13 +35,13 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
 2. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
-    | Nome | Immettere *MyVirtualNetwork*. |
+    | Name (Nome) | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Location | Selezionare **Europa occidentale**.|
+    | Località | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
@@ -53,7 +53,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 2. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -80,7 +80,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
@@ -103,7 +103,7 @@ In questa sezione verrà creato un database di Azure per il server MariaDB in Az
 
 1. In **database di Azure per MariaDB** fornire queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -137,7 +137,7 @@ In questa sezione si creerà un endpoint privato al server MariaDB.
 
 1. In **Crea un endpoint privato-nozioni di base**immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -149,7 +149,7 @@ In questa sezione si creerà un endpoint privato al server MariaDB.
 5. Selezionare **Avanti: Risorsa**.
 6. In **Crea un endpoint privato - Risorsa** immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     |Metodo di connessione  | Selezionare Connettersi a una risorsa di Azure nella directory.|
     | Subscription| Selezionare la propria sottoscrizione. |
@@ -209,7 +209,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 
 ## <a name="access-the-mariadb-server-privately-from-the-vm"></a>Accedere al server MariaDB privatamente dalla macchina virtuale
 
-1. Nel desktop remoto di  *myVM* aprire PowerShell.
+1. Nel Desktop remoto di *myVm1* aprire PowerShell.
 
 2. Immettere  `nslookup mydemomserver.privatelink.mariadb.database.azure.com`. 
 

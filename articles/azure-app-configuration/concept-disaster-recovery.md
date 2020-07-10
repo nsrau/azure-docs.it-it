@@ -6,11 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523765"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207202"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resilienza e ripristino di emergenza
 
@@ -63,7 +64,11 @@ Si noti il parametro `optional` passato alla funzione `AddAzureAppConfiguration`
 
 ## <a name="synchronization-between-configuration-stores"></a>Sincronizzazione tra gli archivi di configurazione
 
-È importante che gli archivi di configurazione con ridondanza geografica abbiano tutti lo stesso set di dati. È possibile usare la funzione **Esporta** in Configurazione app per copiare dati dall'archivio primario al secondario su richiesta. La funzione è disponibile sia tramite il portale di Azure che tramite l'interfaccia della riga di comando.
+È importante che gli archivi di configurazione con ridondanza geografica abbiano tutti lo stesso set di dati. A questo scopo è possibile procedere in due modi:
+
+### <a name="backup-manually-using-the-export-function"></a>Eseguire manualmente il backup tramite la funzione Export
+
+È possibile usare la funzione **Esporta** in Configurazione app per copiare dati dall'archivio primario al secondario su richiesta. La funzione è disponibile sia tramite il portale di Azure che tramite l'interfaccia della riga di comando.
 
 Dal portale di Azure è possibile eseguire il push di una modifica in un altro archivio di configurazione seguendo questa procedura.
 
@@ -71,15 +76,19 @@ Dal portale di Azure è possibile eseguire il push di una modifica in un altro a
 
 1. Nel pannello nuovo visualizzato specificare la sottoscrizione, il gruppo di risorse e il nome della risorsa dell'archivio secondario, quindi selezionare **applica**.
 
-1. L'interfaccia utente verrà aggiornata in modo che sia possibile scegliere i dati di configurazione da esportare nell'archivio secondario. È possibile lasciare il valore di ora predefinito così come è e impostare sia **da Label** sia **da Label sullo** stesso valore. Selezionare **Applica**.
+1. L'interfaccia utente verrà aggiornata in modo che sia possibile scegliere i dati di configurazione da esportare nell'archivio secondario. È possibile lasciare il valore di ora predefinito così come è e impostare sia **da Label** che da **Label** sullo stesso valore. Selezionare **Applica**. Ripetere questa operazione per tutte le etichette nell'archivio primario.
 
-1. Ripetere i passaggi precedenti per tutte le modifiche di configurazione.
+1. Ripetere i passaggi precedenti ogni volta che viene modificata la configurazione.
 
-Per automatizzare questo processo di esportazione, usare l'interfaccia della riga di comando di Azure. Il comando seguente mostra come esportare una singola modifica di configurazione dall'archivio primario a quello secondario:
+È possibile ottenere il processo di esportazione anche usando l'interfaccia della riga di comando di Azure. Il comando seguente mostra come esportare tutte le configurazioni dall'archivio primario a quello secondario:
 
 ```azurecli
-    az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+    az appconfig kv export --destination appconfig --name {PrimaryStore} --dest-name {SecondaryStore} --label * --preserve-labels -y
 ```
+
+### <a name="backup-automatically-using-azure-functions"></a>Backup automatico con funzioni di Azure
+
+Il processo di backup può essere automatizzato con funzioni di Azure. Sfrutta l'integrazione con griglia di eventi di Azure nella configurazione dell'app. Una volta configurata, la configurazione dell'app pubblicherà gli eventi in griglia di eventi per tutte le modifiche apportate ai valori di chiave in un archivio di configurazione. Un'app funzioni di Azure può quindi restare in ascolto di questi eventi e di eseguire il backup dei dati di conseguenza. Per informazioni dettagliate, vedere l'esercitazione su [come eseguire automaticamente il backup degli archivi di configurazione dell'app](./howto-backup-config-store.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

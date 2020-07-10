@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: eec92672801d33290df1690d8cb17e79d4626192
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2e337628542475c081a59bffd25368de313011f8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042051"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206208"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Aree che supportano zone di disponibilità in Azure
 
@@ -24,16 +24,15 @@ Questa sezione elenca i servizi e le aree di Azure che supportano zone di dispon
 
 I servizi disponibili in ogni area, insieme alla prossima roadmap per la disponibilità, sono reperibili in [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/).
 
-|                                 |Americhe |              |           |           | Europa |              |          |              | Asia Pacifico |                 |                |
+| Servizio |Americhe: Stati Uniti centrali|Americhe: Stati Uniti orientali|Americhe: Stati Uniti orientali 2|Americhe: Stati Uniti occidentali 2|Europa: Francia centrale|Europa: Europa settentrionale|Europa: Regno Unito meridionale|Europa: Europa occidentale|Asia Pacifico: Giappone orientale|Asia Pacifico: Asia sudorientale|Asia Pacifico: Australia orientale|
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
-|          |Stati Uniti centrali|Stati Uniti orientali|Stati Uniti orientali 2|Stati Uniti occidentali 2|Francia centrale|Europa settentrionale|Regno Unito meridionale|Europa occidentale|Giappone orientale|Asia sud-orientale|Australia orientale|
 | **Calcolo**                         |            |              |           |           |                |              |          |             |            |                |                |
 | Macchine virtuali Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Macchine virtuali Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Set di scalabilità di macchine virtuali      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | ILB ambienti del servizio app Azure | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Servizio Azure Kubernetes        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Storage**   |            |              |           |           |                |              |          |             |            |                |                |
+| **Archiviazione**   |            |              |           |           |                |              |          |             |            |                |                |
 | Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Archiviazione con ridondanza della zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | **Rete**                     |            |              |           |           |                |              |          |             |            |                |                |

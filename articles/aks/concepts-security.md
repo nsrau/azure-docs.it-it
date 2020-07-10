@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 15bd0791917ca95e61a441b71947b70c81c0598e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0fe0803b0961b3aaa89627823b4867fac0d5d61
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831540"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206316"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -19,11 +19,16 @@ Per proteggere i dati dei clienti durante l'esecuzione di carichi di lavoro dell
 
 Questo articolo introduce i principali concetti per proteggere le applicazioni nel servizio Azure Kubernetes:
 
-- [Sicurezza dei componenti master](#master-security)
-- [Sicurezza dei nodi](#node-security)
-- [Aggiornare un cluster di Service Fabric](#cluster-upgrades)
-- [Sicurezza di rete](#network-security)
-- [Segreti di Kubernetes](#kubernetes-secrets)
+- [Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
+  - [Sicurezza master](#master-security)
+  - [Sicurezza dei nodi](#node-security)
+    - [Isolamento del calcolo](#compute-isolation)
+  - [Aggiornare un cluster di Service Fabric](#cluster-upgrades)
+    - [Blocco e svuotamento](#cordon-and-drain)
+  - [Sicurezza di rete](#network-security)
+    - [Gruppi di sicurezza di rete di Azure](#azure-network-security-groups)
+  - [Segreti di Kubernetes](#kubernetes-secrets)
+  - [Passaggi successivi](#next-steps)
 
 ## <a name="master-security"></a>Sicurezza master
 
@@ -45,7 +50,14 @@ I nodi vengono distribuiti in una subnet di rete privata virtuale, senza indiriz
 
 Per fornire spazio di archiviazione, i nodi usano Azure Managed Disks. Per la maggior parte delle dimensioni dei nodi delle macchine virtuali, si tratta di dischi Premium supportati da unità SSD a prestazioni elevate. I dati inattivi archiviati nei dischi gestiti vengono automaticamente crittografati all'interno della piattaforma Azure. Per migliorare la ridondanza, questi dischi vengono anche replicati in modo sicuro nel data center di Azure.
 
-Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, attualmente non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive quali i *criteri di sicurezza pod* o altri controlli degli accessi in base al ruolo (RBAC) con granularità fine per i nodi rendono più difficili gli attacchi. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati. Per altre informazioni sui modi per isolare i carichi di lavoro, vedere [Procedure consigliate per l'isolamento del cluster nel servizio Azure Kubernetes][cluster-isolation].
+Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, attualmente non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive quali i *criteri di sicurezza pod* o altri controlli degli accessi in base al ruolo (RBAC) con granularità fine per i nodi rendono più difficili gli attacchi. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati. Per altre informazioni sui modi per isolare i carichi di lavoro, vedere [procedure consigliate per l'isolamento del cluster in AKS][cluster-isolation].
+
+### <a name="compute-isolation"></a>Isolamento del calcolo
+
+ Alcuni carichi di lavoro possono richiedere un livello elevato di isolamento da altri carichi di lavoro dei clienti a causa dei requisiti normativi o di conformità. Per questi carichi di lavoro, Azure fornisce [macchine virtuali isolate](../virtual-machines/linux/isolation.md), che possono essere usate come nodi agente in un cluster AKS. Queste macchine virtuali isolate sono isolate a un tipo di hardware specifico e sono dedicate a un singolo cliente. 
+
+ Per usare queste macchine virtuali isolate con un cluster AKS, selezionare una delle dimensioni di macchine virtuali isolate elencate [qui](../virtual-machines/linux/isolation.md) come **dimensioni del nodo** durante la creazione di un cluster AKS o l'aggiunta di un pool di nodi.
+
 
 ## <a name="cluster-upgrades"></a>Aggiornamenti dei cluster
 

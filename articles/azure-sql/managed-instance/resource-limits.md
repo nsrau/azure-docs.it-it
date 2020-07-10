@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 85d347c45e1ca2cd39c7504e44bd3ea063f788d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708418"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206191"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,11 +33,11 @@ SQL Istanza gestita presenta le caratteristiche e i limiti delle risorse che dip
 
 |   | **Quarta generazione** | **Quinta generazione** |
 | --- | --- | --- |
-| Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake), unità SSD NVMe veloce, vCore = 1 LP (hyperthread) |
-| Numero di vCore | 8, 16, 24 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCore |
-| Memoria massima (rapporto memoria/core) | 7 GB per vCore<br/>Aggiungere altri vCore per ottenere una maggiore quantità di memoria. | 5,1 GB per vCore<br/>Aggiungere altri vCore per ottenere una maggiore quantità di memoria. |
-| Memoria OLTP in memoria massima | Limite istanza: 1-1,5 GB per vCore| Limite istanza: 0,8 - 1,65 GB per vCore |
-| Archiviazione riservata istanza massima |  Utilizzo generico: 8 TB<br/>Business Critical: 1 TB | Utilizzo generico: 8 TB<br/> Business Critical: 1 TB, 2 TB o 4 TB in base al numero di core |
+| **Hardware** | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake), unità SSD NVMe veloce, vCore = 1 LP (hyperthread) |
+| **Numero di vCore** | 8, 16, 24 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCore |
+| **Memoria massima (rapporto memoria/core)** | 7 GB per vCore<br/>Aggiungere altri vCore per ottenere una maggiore quantità di memoria. | 5,1 GB per vCore<br/>Aggiungere altri vCore per ottenere una maggiore quantità di memoria. |
+| **Memoria OLTP in memoria massima** | Limite istanza: 1-1,5 GB per vCore| Limite istanza: 0,8 - 1,65 GB per vCore |
+| **Archiviazione riservata istanza massima** |  Utilizzo generico: 8 TB<br/>Business Critical: 1 TB | Utilizzo generico: 8 TB<br/> Business Critical: 1 TB, 2 TB o 4 TB in base al numero di core |
 
 > [!IMPORTANT]
 > - L'hardware Gen4 viene eliminato e non è più disponibile per le nuove distribuzioni. Tutte le nuove istanze di SQL Istanza gestita devono essere distribuite in hardware quinta generazione.

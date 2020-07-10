@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 4a73ff517347baa2cf589432be025bd922597ed3
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: f76b444f737c4deb0fc61953c839c8826f379d5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611391"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207259"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creare una risorsa di servizi cognitivi usando il portale di Azure
 
@@ -29,19 +29,25 @@ Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure.
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Creare una nuova risorsa Servizi cognitivi di Azure
 
-1. Crea una risorsa.
+1. Creare una risorsa.
 
-    #### <a name="multi-service-resource"></a>[Risorsa multiservizio](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Risorsa multi-servizio](#tab/multiservice)
 
     La risorsa multiservizio è denominata **Servizi cognitivi** nel portale. [Creare una risorsa Servizi cognitivi](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
 
     A questo punto, la risorsa multiservizio consente l'accesso ai servizi cognitivi seguenti:
 
-    |                  |                                                      |                    |                               |                  |
-    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
-    | Visione artificiale  | Content Moderator                                    | Viso               | Language Understanding (LUIS) | Text Analytics   |
-    | Funzione di conversione  | Ricerca Bing V7 <br>(Web, immagini, notizie, video, oggetti visivi) | Ricerca personalizzata Bing | Ricerca entità Bing            | Suggerimenti automatici Bing |
-    | Controllo ortografico Bing |                                                      |                    |                               |                  |
+    - Visione artificiale
+    - Content Moderator
+    - Viso
+    - Language Understanding (LUIS)
+    - Text Analytics
+    - Funzione di conversione
+    - Ricerca Bing V7 <br>(Web, immagini, notizie, video, oggetti visivi)
+    - Ricerca personalizzata Bing
+    - Ricerca entità Bing
+    - Suggerimenti automatici Bing
+    - Controllo ortografico Bing
 
     #### <a name="single-service-resource"></a>[Risorsa a servizio singolo](#tab/singleservice)
 
@@ -58,7 +64,7 @@ Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure.
 
 3. Nella pagina **Crea** specificare le informazioni seguenti:
 
-    #### <a name="multi-service-resource"></a>[Risorsa multiservizio](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Risorsa multi-servizio](#tab/multiservice)
 
     |    |    |
     |--|--|

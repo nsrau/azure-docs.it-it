@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: ec4c40430f2cfe04a86ec5f3304aeebd00e4f658
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c957e2ee1d1e596ca8e3525e0f4a9802c4039107
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118274"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206819"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando
 
@@ -154,7 +154,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Accedere al server PostgreSQL privatamente dalla macchina virtuale
 
-1. Nel desktop remoto di  *myVM* aprire PowerShell.
+1. Nel Desktop remoto di *myVm1* aprire PowerShell.
 
 2. Immettere  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 

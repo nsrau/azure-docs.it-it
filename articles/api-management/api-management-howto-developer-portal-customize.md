@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79244095"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206245"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accedere e personalizzare il portale per sviluppatori
 
@@ -130,6 +131,7 @@ Dopo aver pubblicato il portale, è possibile accedervi con lo stesso URL del pa
 È necessario abilitare CORS (condivisione risorse tra le origini) sulle API per consentire ai visitatori del portale di testare le API tramite la console interattiva incorporata. Per ulteriori informazioni, fare riferimento a [questo articolo della documentazione](api-management-howto-developer-portal.md#cors) .
 
 ## <a name="next-steps"></a>Passaggi successivi
+- [Ottimizza e Risparmia sulla spesa per il cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Altre informazioni sul portale per sviluppatori:
 

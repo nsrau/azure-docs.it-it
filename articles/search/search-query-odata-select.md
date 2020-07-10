@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfe438f6940d3ccd5632a47be1389a30748716b0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113094"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206888"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintassi di $select OData in Azure ricerca cognitiva
 
@@ -62,7 +63,9 @@ Se si elenca un campo complesso senza specificare i campi secondari in modo espl
 
 Includere i `HotelId` `HotelName` `Rating` campi di primo livello, e nei risultati, nonché il `City` campo secondario di `Address` :
 
+```odata-filter-expr
     $select=HotelId, HotelName, Rating, Address/City
+```
 
 Un risultato di esempio può essere simile al seguente:
 
@@ -79,7 +82,9 @@ Un risultato di esempio può essere simile al seguente:
 
 Includere il `HotelName` campo di primo livello nei risultati, nonché tutti i sottocampi di e `Address` i `Type` `BaseRate` sottocampi e di ogni oggetto della `Rooms` raccolta:
 
+```odata-filter-expr
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
+```
 
 Un risultato di esempio può essere simile al seguente:
 

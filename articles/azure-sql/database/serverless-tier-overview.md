@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/6/2020
-ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 7/9/2020
+ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045961"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206941"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Il livello di calcolo senza server per database singoli nel database SQL di Azur
 - Il valore **minimo di Vcore** e il **numero massimo di Vcore** sono parametri configurabili che definiscono l'intervallo di capacità di calcolo disponibile per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
 - Il **ritardo di sospensione** automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga sospeso automaticamente. Il database viene ripreso automaticamente quando si verifica il successivo accesso o un'altra attività.  In alternativa, è possibile disabilitare l'autosospensione.
 
-### <a name="cost"></a>Costi
+### <a name="cost"></a>Costo
 
 - Il costo di un database senza server è la somma del costo di calcolo e dei costi di archiviazione.
 - Quando l'utilizzo delle risorse di calcolo è compreso tra i limiti minimo e massimo configurati, il costo di calcolo è basato su vCore e sulla memoria usata.
@@ -127,8 +127,8 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 
 |Funzionalità|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Accedi|
-|Introduzione al rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
+|Autenticazione e autorizzazione|Accesso|
+|Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
 |Maschera dati|Aggiunta, modifica, eliminazione o visualizzazione delle regole di maschera dati|
@@ -272,7 +272,7 @@ Il pool di risorse utente è il limite più interno di gestione delle risorse pe
 
 Nella tabella seguente sono elencate le metriche per il monitoraggio dell'utilizzo delle risorse del pacchetto dell'app e del pool di utenti di un database senza server.
 
-|Entità|Metrica|Descrizione|Unità|
+|Entità|Metrica|Descrizione|Units|
 |---|---|---|---|
 |Pacchetto dell'app|app_cpu_percent|Percentuale del numero di vCore usati dall'app rispetto al numero massimo di vCore consentito per l'app.|Percentuale|
 |Pacchetto dell'app|app_cpu_billed|Quantità di risorse di calcolo fatturata per l'app durante il periodo di riferimento. L'importo pagato durante questo periodo è dato dal prodotto di questa metrica per il prezzo unitario dei vCore. <br><br>I valori di questa metrica sono determinati dall'aggregazione nel tempo del numero massimo di CPU usate e dalla memoria usata al secondo. Se la quantità usata è inferiore a quella minima di cui è stato effettuato il provisioning in base al valore impostato per il numero minimo di vCore e la quantità minima di memoria, viene fatturata la quantità minima di cui è stato effettuato il provisioning.Per confrontare la quantità di CPU e di memoria ai fini della fatturazione, la memoria viene normalizzata in unità di vCore ridimensionando la quantità di memoria in GB in base a 3 GB per vCore.|Secondi per vCore|
@@ -324,6 +324,19 @@ La quantità di risorse di calcolo fatturata è esposta dalla metrica seguente:
 - **Frequenza report**: al minuto
 
 Questa quantità viene calcolata ogni secondo e aggregata in un minuto.
+
+### <a name="minimum-compute-bill"></a>Fattura minima di calcolo
+
+Se un database senza server è sospeso, la fattura di calcolo è pari a zero.  Se un database senza server non viene sospeso, la fattura di calcolo minima non è inferiore alla quantità di Vcore in base al valore Max (min Vcore, min memory GB * 1/3).
+
+Esempi:
+
+- Si supponga che un database senza server non sia sospeso e configurato con 8 Max Vcore e 1 min vCore corrispondente a 3,0 GB di memoria min.  La fattura di calcolo minima è quindi basata su Max (1 vCore, 3,0 GB * 1 vCore/3 GB) = 1 vCore.
+- Si supponga che un database senza server non sia sospeso e configurato con 4 Vcore Max e 0,5 min Vcore corrispondenti a 2,1 GB min di memoria.  La fattura di calcolo minima è basata su Max (0,5 Vcore, 2,1 GB * 1 vCore/3 GB) = 0,7 vcore.
+
+Il [calcolatore dei prezzi del database SQL di Azure](https://azure.microsoft.com/pricing/calculator/?service=sql-database) per senza server può essere usato per determinare la memoria minima configurabile in base al numero massimo e minimo di Vcore configurati.  Come regola, se il valore min Vcore configurato è maggiore di 0,5 Vcore, la fattura minima di calcolo è indipendente dalla memoria minima configurata e basata solo sul numero di min Vcore configurati.
+
+### <a name="example-scenario"></a>Scenario di esempio
 
 Si consideri un database senza server configurato con 1 min vCore e 4 Vcore max.  Corrisponde a circa 3 GB di memoria minima e a 12 GB di memoria max.  Si supponga che il ritardo di sospensione automatica sia impostato su 6 ore e che il carico di lavoro del database sia attivo nelle prime 2 ore di un periodo di 24 ore e in caso contrario inattivo.    
 

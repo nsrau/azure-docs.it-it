@@ -5,11 +5,12 @@ description: Informazioni su come creare e usare un indirizzo IP pubblico static
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80803383"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205775"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Usare un indirizzo IP statico per il traffico in uscita nel servizio Azure Kubernetes
 
@@ -22,6 +23,9 @@ Questo articolo illustra come creare e usare un indirizzo IP pubblico statico pe
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+
+> [!IMPORTANT]
+> Questo articolo usa il servizio di bilanciamento del carico SKU *Basic* con un pool a nodo singolo. Questa configurazione non è disponibile per più pool di nodi perché il servizio di bilanciamento del carico SKU *Basic* non è supportato con più pool di nodi. Vedere [usare un Load Balancer standard pubblico in Azure Kubernetes Service (AKS)][slb] per altri dettagli sull'uso del servizio di bilanciamento del carico *standard* SKU.
 
 ## <a name="egress-traffic-overview"></a>Panoramica sul traffico in uscita
 
@@ -92,7 +96,7 @@ Creare il servizio e la distribuzione con il comando `kubectl apply`.
 kubectl apply -f egress-service.yaml
 ```
 
-Questo servizio configura un nuovo indirizzo IP front-end in Azure Load Balancer. Se non sono configurati altri indirizzi IP, ora **tutto** il traffico in uscita dovrebbe usare questo indirizzo. Quando sono configurati più indirizzi in Azure Load Balancer, il flusso in uscita usa il primo indirizzo IP di questo bilanciamento del carico.
+Questo servizio configura un nuovo indirizzo IP front-end in Azure Load Balancer. Se non sono configurati altri indirizzi IP, ora **tutto** il traffico in uscita dovrebbe usare questo indirizzo. Quando nel Azure Load Balancer sono configurati più indirizzi, uno di questi indirizzi IP pubblici è un candidato per i flussi in uscita e ne viene selezionato uno in modo casuale.
 
 ## <a name="verify-egress-address"></a>Verificare l'indirizzo in uscita
 
@@ -133,3 +137,4 @@ Per evitare di mantenere più indirizzi IP pubblici in Azure Load Balancer, è p
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[slb]: load-balancer-standard.md

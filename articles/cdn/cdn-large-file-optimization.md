@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 22ec4058d9485858489162af223bb6d6c381797e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb136b6c37c8ef14f85455431fea80099088936
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887655"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206701"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Ottimizzazione del download di file di grandi dimensioni mediante la rete CDN di Azure
 
@@ -107,11 +107,10 @@ La rete CDN memorizza nella cache tutti i blocchi alla loro ricezione. Il file n
 ### <a name="caching"></a>Memorizzazione nella cache
 L'ottimizzazione per file di grandi dimensioni usa tempi di scadenza della memorizzazione nella cache predefiniti diversi rispetto alla distribuzione Web generica. Differenzia la memorizzazione nella cache positiva e negativa in base ai codici di risposta HTTP. Se il server di origine specifica una scadenza tramite l'intestazione Cache-Control o Expires nella risposta, la rete CDN rispetta questo valore. Quando l'origine non specifica alcuna scadenza e il file soddisfa le condizioni di tipo e dimensioni per questo tipo di ottimizzazione, la rete CDN usa i valori predefiniti per l'ottimizzazione per file di grandi dimensioni. In caso contrario, la rete CDN usa i valori predefiniti per la distribuzione Web generica.
 
-
-|    | Distribuzione Web generica | Ottimizzazione per file di grandi dimensioni 
+| Memorizzazione nella cache  | Distribuzione Web generica | Ottimizzazione per file di grandi dimensioni 
 --- | --- | --- 
 Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |1 giorno  
-Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | nessuno | 1 secondo 
+Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | Nessuno | 1 secondo 
 
 ### <a name="deal-with-origin-failure"></a>Gestire gli errori di origine
 

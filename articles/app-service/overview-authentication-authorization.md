@@ -3,14 +3,15 @@ title: Autenticazione e autorizzazione
 description: Informazioni sul supporto integrato per l'autenticazione e l'autorizzazione nel servizio app Azure e funzioni di Azure e su come può aiutare a proteggere l'app da accessi non autorizzati.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196445"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206758"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app Azure e funzioni di Azure
 
@@ -34,7 +35,7 @@ Per informazioni specifiche per le app per dispositivi mobili native, vedere [Au
 
 Il modulo di autenticazione e autorizzazione viene eseguito nello stesso ambiente sandbox del codice dell'applicazione. Quando è abilitato, ogni richiesta HTTP in ingresso passa attraverso tale modulo prima di essere gestita dal codice dell'applicazione.
 
-![](media/app-service-authentication-overview/architecture.png)
+![Diagramma dell'architettura che mostra le richieste intercettate da un processo nella sandbox del sito che interagisce con i provider di identità prima di consentire il traffico verso il sito distribuito](media/app-service-authentication-overview/architecture.png)
 
 Il modulo gestisce diversi aspetti dell'app:
 
@@ -81,8 +82,11 @@ Il servizio app usa l'[identità federata](https://en.wikipedia.org/wiki/Federat
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
+| Qualsiasi provider [OpenID Connect](https://openid.net/connect/) (anteprima) | `/.auth/login/<providerName>` |
 
-Quando si abilitano l'autenticazione e l'autorizzazione con uno di questi provider, il relativo endpoint di accesso è disponibile per l'autenticazione utente e per la convalida dei token di autenticazione del provider. È possibile offrire facilmente agli utenti tutte le opzioni di accesso desiderate. È anche possibile integrare un altro provider di identità o una [soluzione di gestione delle identità personalizzata][custom-auth].
+Quando si abilitano l'autenticazione e l'autorizzazione con uno di questi provider, il relativo endpoint di accesso è disponibile per l'autenticazione utente e per la convalida dei token di autenticazione del provider. È possibile offrire facilmente agli utenti tutte le opzioni di accesso desiderate.
+
+Un [percorso di estendibilità legacy][custom-auth] esiste per l'integrazione con altri provider di identità o una soluzione di autenticazione personalizzata, ma questa operazione non è consigliata. È invece consigliabile usare il supporto di OpenID Connect.
 
 ## <a name="authentication-flow"></a>Flusso di autenticazione
 
@@ -112,7 +116,7 @@ Per i browser client, il servizio app può indirizzare automaticamente tutti gli
 
 Nel [portale di Azure](https://portal.azure.com)è possibile configurare l'autorizzazione del servizio app con diversi comportamenti quando la richiesta in ingresso non è autenticata.
 
-![](media/app-service-authentication-overview/authorization-flow.png)
+![Screenshot che mostra l'elenco a discesa "azione da eseguire quando la richiesta non è autenticata"](media/app-service-authentication-overview/authorization-flow.png)
 
 I titoli seguenti descrivono le opzioni.
 
@@ -150,13 +154,14 @@ Guide alle procedure specifiche del provider:
 * [Come configurare un'applicazione per usare l'account di accesso di Google][Google]
 * [Come configurare un'applicazione per usare l'account di accesso Microsoft][MSA]
 * [Come configurare un'applicazione per usare l'account di accesso di Twitter][Twitter]
-* [Procedura: Usare l'autenticazione personalizzata per la propria applicazione][custom-auth]
+* [Come configurare l'app per l'uso di un provider OpenID Connect per l'accesso (anteprima)][OIDC]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
 [Google]: configure-authentication-provider-google.md
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
+[OIDC]: configure-authentication-provider-openid-connect.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

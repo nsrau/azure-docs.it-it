@@ -11,15 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 06/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661339545f2c3f01ffd2e07b0fad08de8ac90278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cf82080a54075353d2ff1d98a2ea19fc6a96dc7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078885"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204019"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -105,7 +106,7 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
 1. Per specificare impostazioni aggiuntive, espandere la sezione **Impostazioni avanzate**.
 
-    ![Creare una verifica di accesso-impostazioni avanzate](./media/create-access-review/advanced-settings.png)
+    ![Creare una verifica di accesso-impostazioni avanzate](./media/create-access-review/advanced-settings-preview.png)
 
 1. Impostare **Mostra i consigli** su **Abilita** per mostrare ai revisori i consigli del sistema basati sulle informazioni di accesso dell'utente.
 
@@ -113,9 +114,14 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
 1. Impostare **Notifiche tramite posta elettronica** su **Abilita** per fare in modo che Azure AD invii notifiche tramite posta elettronica ai revisori all'avvio di una verifica di accesso e agli amministratori al completamento di una verifica.
 
-1. Impostare **Promemoria** su **Abilita** per fare in modo che Azure AD invii promemoria delle verifiche di accesso in corso ai revisori che non hanno completato la verifica.
+1. Impostare **Promemoria** su **Abilita** per fare in modo che Azure AD invii promemoria delle verifiche di accesso in corso ai revisori che non hanno completato la verifica. 
 
-    Per impostazione predefinita, Azure AD invia automaticamente un promemoria ai revisori che non hanno ancora risposto a metà periodo rispetto alla data di scadenza.
+    >[!NOTE]
+    > Per impostazione predefinita, Azure AD invia automaticamente un promemoria a metà della data di fine ai revisori che non hanno ancora risposto
+
+1. Anteprima Il contenuto del messaggio di posta elettronica inviato ai revisori viene generato automaticamente in base ai dettagli della revisione, ad esempio il nome della revisione, il nome della risorsa, la scadenza e così via. Se è necessario un modo per comunicare informazioni aggiuntive, ad esempio istruzioni aggiuntive o informazioni di contatto, è possibile specificare questi dettagli nel contenuto aggiuntivo per l'indirizzo di posta elettronica del revisore che verrà incluso nei messaggi di posta elettronica di invito e promemoria inviati ai revisori assegnati. La sezione evidenziata di seguito consente di visualizzare queste informazioni.
+
+    ![Verificare l'accesso di un utente a un gruppo](./media/create-access-review/review-users-access-group.png)
 
 ## <a name="start-the-access-review"></a>Avviare la verifica di accesso
 

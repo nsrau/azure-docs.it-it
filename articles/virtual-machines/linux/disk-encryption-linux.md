@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601387"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206149"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di Crittografia dischi di Azure in macchine virtuali Linux
 
@@ -413,6 +413,8 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e la
 - Una macchina virtuale con "punti di montaggio nidificati", ovvero con più punti di montaggio in un singolo percorso, ad esempio "/1stmountpoint/data/2stmountpoint".
 - Una macchina virtuale con un'unità dati montata su una cartella del sistema operativo.
 - VM serie M con dischi acceleratore di scrittura.
+- Applicazione della [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md) a una VM crittografata da Ade e viceversa.
+- Migrazione di una macchina virtuale crittografata con ADE alla [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
