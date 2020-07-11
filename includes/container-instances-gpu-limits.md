@@ -13,7 +13,7 @@ ms.locfileid: "77117830"
 ---
 ### <a name="resource-availability"></a>Disponibilità delle risorse
 
-| OS | SKU GPU | Conteggio GPU | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
+| Sistema operativo | SKU GPU | Conteggio GPU | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
 | --- | --- | --- | --- | --- | --- |
 | Linux | K80 | 1 | 6 | 56 | 50 |
 | Linux | K80 | 2 | 12 | 112 | 50 |

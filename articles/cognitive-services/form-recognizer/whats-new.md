@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: bbf098feccaf760718b97b1afb2d24bc55eef9ad
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 09eba483a258c1e88b15a5795d32b3b4a029a175
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027036"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232713"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -26,14 +26,14 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 ## <a name="july-2020"></a>Luglio 2020
 
 ### <a name="new-features"></a>Nuove funzionalità
-* **riferimento v 2.0 disponibile** Visualizzare le informazioni di [riferimento sulle API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e gli SDK aggiornati per [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)e [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+* **riferimento v 2.0 disponibile** Visualizzare le informazioni di [riferimento sulle API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e gli SDK aggiornati per [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre), [Python](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)e [JavaScript](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 * I miglioramenti apportati alle tabelle e ai miglioramenti dell' **estrazione** includono miglioramenti di accuratezza ed estrazioni di tabelle, in particolare la possibilità di apprendere le intestazioni e le strutture delle tabelle in un training personalizzato senza etichette. 
 * **Supporto** per la valuta Rilevamento ed estrazione dei simboli di valuta globali.
 * **Azure gov** Il riconoscimento del modulo è ora disponibile anche in Azure gov.
-*   **Funzionalità di sicurezza avanzate**: 
-    *   **Bring your own key**  Il riconoscitore di form crittografa automaticamente i dati in modo permanente nel cloud per proteggerli e aiutarti a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione USA chiavi di crittografia gestite da Microsoft. È ora possibile gestire la sottoscrizione anche con le proprie chiavi di crittografia. Le [chiavi gestite dal cliente (CMK), note anche come Bring your own key (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
+*    **Funzionalità di sicurezza avanzate**: 
+    *    **Bring your own key**  Il riconoscitore di form crittografa automaticamente i dati in modo permanente nel cloud per proteggerli e aiutarti a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione USA chiavi di crittografia gestite da Microsoft. È ora possibile gestire la sottoscrizione anche con le proprie chiavi di crittografia. Le [chiavi gestite dal cliente (CMK), note anche come Bring your own key (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
 ), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.  
-    *   **Endpoint privati** : consente di accedere in modo [sicuro ai dati tramite un collegamento privato](https://docs.microsoft.com/azure/private-link/private-link-overview) in una rete virtuale (VNet).
+    *    **Endpoint privati** : consente di accedere in modo [sicuro ai dati tramite un collegamento privato](https://docs.microsoft.com/azure/private-link/private-link-overview) in una rete virtuale (VNet).
 
 
 ## <a name="june-2020"></a>Giugno 2020
@@ -51,10 +51,10 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 
 ### <a name="new-features"></a>Nuove funzionalità
 * **Supporto dell'SDK per l'anteprima pubblica dell'API di riconoscimento moduli v 2.0** Questo mese abbiamo ampliato il supporto tecnico per includere un SDK di anteprima per il rilascio di form Recognizer v 2.0 (anteprima). Usare i collegamenti seguenti per iniziare a usare la lingua preferita: 
-   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre)
    * [SDK per Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
+   * [Python SDK](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer)
+   * [JavaScript SDK](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)
 
   Il nuovo SDK supporta tutte le funzionalità dell'API REST v 2.0 per il riconoscimento del modulo. Ad esempio, è possibile eseguire il training di un modello con o senza etichette ed estrarre il testo, le coppie chiave-valore e le tabelle dai moduli, estrarre i dati dalle ricevute con il servizio ricevute predefinite ed estrarre il testo e le tabelle con il servizio di layout dai documenti. È possibile condividere commenti e suggerimenti sugli SDK tramite il [modulo feedback SDK](https://aka.ms/FR_SDK_v1_feedback).
  
