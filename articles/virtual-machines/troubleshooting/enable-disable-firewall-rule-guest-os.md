@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422887"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232237"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Abilitare o disabilitare una regola del firewall in un sistema operativo guest in una macchina virtuale di Azure
 
@@ -107,7 +107,7 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
     
         Cambiare quindi **Active=FALSE** in **Active=TRUE** nella stringa:
 
-        **v 2.22 | Azione = Consenti | Attivo = TRUE | Dir = in | Protocollo = 6 | Profile = dominio | Profilo = privato | Profilo = public | LPort = 3389 | App =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
     
     * Per disabilitare una regola, aprire il valore del Registro di sistema seguente:
     
@@ -115,7 +115,7 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
 
         Cambiare quindi **Active=TRUE** in **Active=FALSE**:
         
-        **v 2.22 | Azione = Consenti | Attivo = FALSE | Dir = in | Protocollo = 6 | Profile = dominio | Profilo = privato | Profilo = public | LPort = 3389 | App =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 3.  Riavviare la macchina virtuale per applicare le modifiche.
 
@@ -154,7 +154,7 @@ Prima di seguire questa procedura, creare uno snapshot del disco di sistema dell
         
         Cambiare quindi **Active=FALSE** in **Active=TRUE**.
         
-        **v 2.22 | Azione = Consenti | Attivo = TRUE | Dir = in | Protocollo = 6 | Profile = dominio | Profilo = privato | Profilo = public | LPort = 3389 | App =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
     3.  Per disabilitare una regola, aprire la chiave del Registro di sistema seguente:
 
@@ -162,7 +162,7 @@ Prima di seguire questa procedura, creare uno snapshot del disco di sistema dell
 
         Cambiare quindi **Active=TRUE** in **Active=FALSE**.
         
-        **v 2.22 | Azione = Consenti | Attivo = FALSE | Dir = in | Protocollo = 6 | Profile = dominio | Profilo = privato | Profilo = public | LPort = 3389 | App =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 9.  Evidenziare **BROKENSYSTEM**, quindi selezionare **file**  >  **unload hive** dal menu.
 

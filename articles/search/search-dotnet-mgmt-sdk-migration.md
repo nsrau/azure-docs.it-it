@@ -1,49 +1,73 @@
 ---
-title: Eseguire l'aggiornamento ad Azure search .NET Management SDK versione 2
+title: Eseguire l'aggiornamento ad Azure search .NET Management SDK
 titleSuffix: Azure Cognitive Search
-description: Eseguire l'aggiornamento ad Azure Search .NET Management SDK versione 2 da versioni precedenti. Informazioni sulle novità e sulle modifiche al codice necessarie.
+description: Eseguire l'aggiornamento ad Azure search .NET Management SDK da versioni precedenti. Informazioni sulle nuove funzionalità e sulle modifiche al codice necessarie per la migrazione.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: b18e9688141ee64eb7dfcb82ce58db198e324b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/01/2020
+ms.openlocfilehash: 436c2620b83513a2b814e050b2ae6407930b082d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73847544"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232050"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Aggiornamento delle versioni di Azure search .NET Management SDK
 
-> [!Important]
-> Questo contenuto è ancora in fase di creazione. La versione 3,0 di Azure Search Management .NET SDK è disponibile in NuGet. Questa guida alla migrazione verrà aggiornata per spiegare come eseguire l'aggiornamento alla nuova versione. 
->
+Questo articolo illustra come eseguire la migrazione a versioni successive di Azure search .NET Management SDK, usato per effettuare il provisioning o il deprovisioning dei servizi di ricerca, modificare la capacità e gestire le chiavi API.
 
-Se si usa la versione 1.0.2 o successiva di [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk), questo articolo include informazioni utili per aggiornare l'applicazione per l'uso della versione 2.
+Gli SDK di gestione sono destinati a una versione specifica dell'API REST di gestione. Per ulteriori informazioni sui concetti e sulle operazioni, vedere [gestione ricerca (REST)](https://docs.microsoft.com/rest/api/searchmanagement/).
 
-La versione 2 di Azure Search .NET Management SDK contiene alcune modifiche rispetto alle versioni precedenti. ma per lo più secondarie, quindi il codice potrà essere modificato facilmente. Per le istruzioni su come modificare il codice per usare la nuova versione dell'SDK, vedere [Passaggi per eseguire l'aggiornamento](#UpgradeSteps) .
+## <a name="versions"></a>Versioni
 
-<a name="WhatsNew"></a>
+| Versione dell'SDK | Versione API REST corrispondente | Funzionalità di aggiunta o modifica del comportamento |
+|-------------|--------------------------------|-------------------------------------|
+| [3,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | API-Version = 2020-30-20 | Aggiunge la sicurezza degli endpoint (firewall IP e integrazione con [collegamento privato di Azure](../private-link/private-endpoint-overview.md)) |
+| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | API-Version = 2019-10-01 | Miglioramenti dell’usabilità. Modifica di rilievo per le [chiavi di query di elenco](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) (Get non è più disponibile). |
+| [1,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | API-Version = 2015-08-19  | Prima versione |
 
-## <a name="whats-new-in-version-2"></a>Novità della versione 2
-La versione 2 di Azure Search .NET Management SDK fa riferimento alla stessa versione disponibile a livello generale dell'API REST di gestione di Ricerca di Azure a cui facevano riferimento le versioni precedenti dell'SDK, ovvero la versione del 19-08-2015. Le modifiche all'SDK sono esclusivamente modifiche sul lato client e consentono di migliorare l'usabilità dell'SDK stesso. Queste modifiche includono, ad esempio:
+## <a name="how-to-upgrade"></a>Come eseguire l'aggiornamento
+
+1. Aggiornare il riferimento a NuGet per `Microsoft.Azure.Management.Search` usando la console di gestione pacchetti NuGet o facendo clic con il pulsante destro del mouse sui riferimenti del progetto e scegliendo "Gestisci pacchetti NuGet". in Visual Studio.
+
+1. Una volta che NuGet ha scaricato i nuovi pacchetti e le relative dipendenze, ricompilare il progetto. A seconda del modo in cui il codice è strutturato, è possibile che venga ricompilato correttamente, nel qual caso l'operazione è stata completata.
+
+1. Se la compilazione non riesce, è possibile che siano state implementate alcune interfacce SDK (ad esempio, a scopo di testing delle unità) che sono state modificate. Per risolvere questo problema, è necessario implementare metodi più recenti, ad esempio `BeginCreateOrUpdateWithHttpMessagesAsync` .
+
+1. Dopo aver corretto gli errori di compilazione, è possibile apportare modifiche all'applicazione per sfruttare le nuove funzionalità. 
+
+## <a name="upgrade-to-30"></a>Aggiornamento a 3,0
+
+La versione 3,0 aggiunge la protezione degli endpoint privati limitando l'accesso agli intervalli IP e, facoltativamente, l'integrazione con il collegamento privato di Azure per i servizi di ricerca che non devono essere visibili sulla rete Internet pubblica.
+
+### <a name="new-apis"></a>Nuove API
+
+| API | Categoria| Dettagli |
+|-----|--------|------------------|
+| [NetworkRuleSet](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#networkruleset) | Firewall IP | Consente di limitare l'accesso a un endpoint di servizio a un elenco di indirizzi IP consentiti. Vedere [configurare il firewall IP](service-configure-firewall.md) per i concetti e le istruzioni del portale. |
+| [Risorsa collegamento privato condiviso](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) | Collegamento privato | Creare una risorsa di collegamento privata condivisa che deve essere utilizzata da un servizio di ricerca.  |
+| [Connessioni a endpoint privati](https://docs.microsoft.com/rest/api/searchmanagement/privateendpointconnections) | Collegamento privato | Definire e gestire le connessioni a un servizio di ricerca tramite endpoint privato. Vedere [creare un endpoint privato](service-create-private-endpoint.md) per i concetti e le istruzioni del portale.|
+| [Risorse di collegamento privato](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/) | Collegamento privato | Per un servizio di ricerca che dispone di una connessione a un endpoint privato, ottenere un elenco di tutti i servizi usati nella stessa rete virtuale. Se la soluzione di ricerca include indicizzatori che effettuano il pull da origini dati di Azure (archiviazione di Azure, Cosmos DB, SQL di Azure) o usano servizi cognitivi o Key Vault, tutte queste risorse dovrebbero avere endpoint nella rete virtuale e questa API dovrebbe restituire un elenco. |
+| [PublicNetworkAccess](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Collegamento privato | Si tratta di una proprietà per la creazione o l'aggiornamento delle richieste di servizio. Se disabilitato, il collegamento privato è l'unica modalità di accesso. |
+
+### <a name="breaking-changes"></a>Modifiche di rilievo
+
+Non è più possibile usare GET in un [elenco](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) di richieste di chiavi di query. Nelle versioni precedenti è possibile utilizzare GET o POST, in questa versione e in tutte le versioni in avanti, solo POST è supportato. 
+
+## <a name="upgrade-to-20"></a>Aggiornamento a 2,0
+
+La versione 2 di Azure search .NET Management SDK è un aggiornamento secondario, pertanto la modifica del codice dovrebbe richiedere solo un impegno minimo. Le modifiche apportate all'SDK sono esclusivamente modifiche sul lato client per migliorare l'usabilità dell'SDK. Queste modifiche includono, ad esempio:
 
 * `Services.CreateOrUpdate` e le relative versioni asincrone eseguono ora automaticamente il polling del provisioning di `SearchService` e non restituiscono alcun risultato fino a quando non viene completato il provisioning del servizio. In questo modo non è necessario scrivere manualmente il codice di polling.
+
 * Se si vuole comunque eseguire manualmente il polling del provisioning del servizio, è possibile usare il nuovo metodo `Services.BeginCreateOrUpdate` o una delle relative versioni asincrone.
+
 * Sono stati aggiunti all'SDK nuovi metodi `Services.Update` e le relative versioni asincrone. Questi metodi usano HTTP PATCH per supportare l'aggiornamento incrementale di un servizio. È ora possibile, ad esempio, ridimensionare un servizio passando a questi metodi un'istanza `SearchService` contenente solo le proprietà `partitionCount` e `replicaCount` desiderate. Il metodo usato in precedenza per chiamare `Services.Get`, modificando il servizio `SearchService` restituito e passandolo a `Services.CreateOrUpdate`, è ancora supportato, ma non è più necessario. 
 
-<a name="UpgradeSteps"></a>
-
-## <a name="steps-to-upgrade"></a>Passaggi per eseguire l'aggiornamento
-Per prima cosa aggiornare il riferimento a NuGet per `Microsoft.Azure.Management.Search` usando NuGet Package Manager Console o facendo clic con il pulsante destro del mouse sui riferimenti di progetto e scegliendo "Gestisci pacchetti NuGet" in Visual Studio.
-
-Una volta che NuGet ha scaricato i nuovi pacchetti e le relative dipendenze, ricompilare il progetto. A seconda della struttura del codice, la ricompilazione potrebbe essere eseguita correttamente. In questo caso è possibile procedere.
-
-Se la compilazione non riesce, è possibile che siano state implementate alcune interfacce SDK (ad esempio, a scopo di testing delle unità) che sono state modificate. Per risolvere questo problema, è necessario implementare nuovi metodi come `BeginCreateOrUpdateWithHttpMessagesAsync`.
-
-Dopo avere corretto gli errori di compilazione, è possibile apportare modifiche all'applicazione per sfruttare la nuova funzionalità, se si vuole. Le nuove funzionalità nell'SDK sono descritte in dettaglio in [Novità della versione 2](#WhatsNew).
-
 ## <a name="next-steps"></a>Passaggi successivi
-I commenti degli utenti sull'SDK saranno molto apprezzati. Se si verificano problemi, inviare le domande a [stack overflow](https://stackoverflow.com/questions/tagged/azure-cognitive-search?tab=Newest). Se si trova un bug, è possibile registrare il problema nel [repository di GitHub su Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Assicurarsi di etichettare il titolo del problema con "[Search]".
+
+Se si verificano problemi, il forum migliore per la pubblicazione di domande è [stack overflow](https://stackoverflow.com/questions/tagged/azure-cognitive-search?tab=Newest). Se si trova un bug, è possibile registrare il problema nel [repository di GitHub su Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Assicurarsi di etichettare il titolo del problema con "[Search]".

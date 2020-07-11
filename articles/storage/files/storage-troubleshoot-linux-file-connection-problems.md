@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffd73e9dff06df4b5acdd004dddcfca5ff03ede0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511999"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232271"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -30,12 +30,12 @@ Le cause comuni di questo problema sono le seguenti:
 
 |   | SMB 2.1 <br>(Montaggio in macchine virtuali nella stessa area di Azure) | SMB 3.0 <br>(Montaggio in locale e tra più aree) |
 | --- | :---: | :---: |
-| Ubuntu Server | 14.04+ | 16.04+ |
-| RHEL | 7+ | 7.5+ |
-| CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
-| openSUSE | 13.2+ | 42.3+ |
-| SuSE Linux Enterprise Server | 12 | 12 SP3+ |
+| **Ubuntu Server** | 14.04+ | 16.04+ |
+| **RHEL** | 7+ | 7.5+ |
+| **CentOS** | 7+ |  7.5+ |
+| **Debian** | 8+ |   |
+| **openSUSE** | 13.2+ | 42.3+ |
+| **SUSE Linux Enterprise Server** | 12 | 12 SP3+ |
 
 - Le utilità CIFS (CIFS-utils) non sono installate nel client.
 - La versione SMB/CIFS minima, ossia la 2.1, non è installata nel client.
@@ -84,9 +84,9 @@ In Linux si riceve un messaggio di errore simile al seguente:
 
 ### <a name="cause"></a>Causa
 
-È stato raggiunto il limite massimo di handle aperti simultaneamente consentito per un file.
+È stato raggiunto il limite massimo di handle aperti simultanei consentiti per un file o una directory.
 
-È prevista una quota pari a 2.000 handle aperti su un singolo file. In presenza di 2.000 handle aperti viene visualizzato un messaggio di errore che segnala il raggiungimento della quota.
+Esiste una quota di 2.000 handle aperti su un singolo file o directory. In presenza di 2.000 handle aperti viene visualizzato un messaggio di errore che segnala il raggiungimento della quota.
 
 ### <a name="solution"></a>Soluzione
 

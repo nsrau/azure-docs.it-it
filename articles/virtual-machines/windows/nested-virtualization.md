@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 543ed51cc10cce017e0e57a1a351ce382f1ca35f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f448174842ffd3b7ba14104c30319933c680127d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083509"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232322"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
 
@@ -145,7 +145,7 @@ Seguire la procedura seguente per configurare DHCP nella macchina virtuale host 
   
 3. Selezionare la casella di controllo **Server DHCP**, fare clic su **Aggiungi funzionalità** e quindi fare clic su **Avanti** fino a completare la procedura guidata.
   
-4. Fare clic su **Installa**.
+4. Fare clic su **Install** (Installa).
 
 #### <a name="configure-a-new-dhcp-scope"></a>Configurare un nuovo ambito DHCP
 
@@ -181,3 +181,4 @@ In questo esempio verrà usato un indirizzo compreso nell'intervallo 192.168.0.0
 Nella macchina virtuale guest aprire il browser e passare a una pagina Web.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
+Per istruzioni su come abilitare la connettività trasparente tra le macchine virtuali guest e le macchine virtuali di Azure, fare riferimento a [questo documento](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).

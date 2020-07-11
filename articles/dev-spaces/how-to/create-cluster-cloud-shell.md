@@ -5,11 +5,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Informazioni su come creare in modo rapido un cluster Kubernetes abilitato per Azure Dev Spaces direttamente dal browser senza installare alcun componente.
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 5e2e5cfd22eeedd3554737458caeca0b891b62fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6da9055e11b5c514d71122c3650bbc326fb8de8
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77605295"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232288"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-dev-spaces-enabled-with-azure-cloud-shell"></a>Creare un cluster Kubernetes con Azure Dev Spaces abilitato con Azure Cloud Shell
 
@@ -33,7 +34,7 @@ La creazione del cluster richiede alcuni minuti.  Al termine dell'esercitazione,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [Azure Dev Spaces](/azure/dev-spaces/) per i collegamenti alle esercitazioni complete.
+Vedere [Azure Dev Spaces](../index.yml) per i collegamenti alle esercitazioni complete.
 
 > [!IMPORTANT]
 > Molti dei Azure Dev Spaces guide introduttive e le esercitazioni usano l'interfaccia della riga di comando Azure Dev Spaces per eseguire operazioni. Non è possibile installare l'interfaccia della riga di comando Azure Dev Spaces in Azure Cloud Shell.

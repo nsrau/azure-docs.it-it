@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78199649"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232458"
 ---
 # <a name="live-event-low-latency-settings"></a>Impostazioni di bassa latenza eventi Live
 
@@ -61,15 +62,15 @@ La tabella seguente mostra i risultati tipici della latenza (quando è attivato 
 
 ||Bassa latenza (GOP 2 secondi) abilitata|Bassa latenza (GOP 1 secondo) abilitata|
 |---|---|---|
-|DASH in AMP|10 secondi|8 secondi|
-|HLS nel lettore iOS nativo|14 secondi|10 secondi|
+|**DASH in AMP**|10 secondi|8 secondi|
+|**HLS nel lettore iOS nativo**|14 secondi|10 secondi|
 
 ### <a name="live-encoding"></a>Codifica live
 
 ||Bassa latenza (GOP 2 secondi) abilitata|Bassa latenza (GOP 1 secondo) abilitata|
 |---|---|---|
-|DASH in AMP|14 secondi|10 secondi|
-|HLS nel lettore iOS nativo|18s|13s|
+|**DASH in AMP**|14 secondi|10 secondi|
+|**HLS nel lettore iOS nativo**|18s|13s|
 
 > [!NOTE]
 > La latenza end-to-end può variare in base alle condizioni della rete locale o con l'introduzione di un livello di memorizzazione nella cache della rete CDN. È consigliabile testare l'esatta configurazione in uso.

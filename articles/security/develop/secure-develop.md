@@ -13,11 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266764"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232696"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Sviluppare applicazioni sicure in Azure
 In questo articolo vengono presentati i controlli e le attività di sicurezza da prendere in considerazione quando si sviluppano applicazioni per il cloud. Vengono analizzate le domande e i concetti di sicurezza da considerare durante le fasi di implementazione e verifica di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx). L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più protetta.
@@ -133,7 +134,7 @@ Eseguire il DAST preferibilmente con l'assistenza di un professionista della sic
 
 Nel [test con dati casuali](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/), si induce l'errore del programma introducendo intenzionalmente dati non validi o casuali in un'applicazione. Inducendo un errore del programma, è possibile rivelare potenziali problemi di sicurezza prima del rilascio dell'applicazione.
 
-[Security Risk Detection](https://docs.microsoft.com/security-risk-detection/) è il servizio esclusivo Microsoft per il test con dati casuali, che consente di individuare i bug critici per la sicurezza nel software.
+[Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) è il servizio esclusivo Microsoft per il test con dati casuali, che consente di individuare i bug critici per la sicurezza nel software.
 
 ### <a name="conduct-attack-surface-review"></a>Eseguire la verifica della superficie di attacco
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168134"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232526"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Suggerimenti per i dispositivi vocali SDK per array microfoni
 
@@ -27,11 +27,11 @@ L'SDK per dispositivi vocali funziona meglio con una matrice di microfoni proget
 
 Le seguenti geometrie di matrice sono consigliate per l'uso con lo stack audio Microsoft. Il percorso delle origini audio e il rifiuto del rumore di ambiente sono migliorati con un numero maggiore di microfoni con dipendenze da applicazioni specifiche, scenari utente e il fattore di forma del dispositivo.
 
-|     | Matrice circolare |     | Matrice lineare |     |
+| Microfoni & geometria | Matrice circolare | Matrice circolare | Matrice lineare | Matrice lineare |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
 | \#Microfoni | 7 | 4 | 4 | 2 |
-| Geometry | 6 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | 3 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | Lunghezza = 120 mm, spaziatura = 40 mm | Spaziatura = 40 mm |
+| Geometria | 6 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | 3 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | Lunghezza = 120 mm, spaziatura = 40 mm | Spaziatura = 40 mm |
 
 I canali del microfono devono essere ordinati in base alla numerazione raffigurata per ogni matrice precedente, aumentando da 0. Lo stack audio Microsoft richiederà un flusso di riferimento aggiuntivo per la riproduzione audio per eseguire l'annullamento Echo.
 
@@ -90,8 +90,8 @@ Le linee guida seguenti per l'architettura sono necessarie quando si integrano i
 | Parametro | Recommendation |
 | --------- | -------------- |
 | Somiglianza porta MIC | Tutte le porte del microfono hanno la stessa lunghezza nella matrice |
-| Dimensioni porta MIC | Dimensioni porta da Ø 0.8 a 1,0 mm. Lunghezza porta/diametro \< porta 2 |
-| Sealing MIC         | Guarnizioni sealing implementate in modo uniforme nello stack. Consiglia \> il rapporto di compressione del 70% per le guarnizioni di schiuma |
+| Dimensioni porta MIC | Dimensioni porta da Ø 0.8 a 1,0 mm. Lunghezza porta/diametro porta \< 2 |
+| Sealing MIC         | Guarnizioni sealing implementate in modo uniforme nello stack. Consiglia il \> rapporto di compressione del 70% per le guarnizioni di schiuma |
 | Affidabilità MIC     | Mesh deve essere usato per evitare la polvere e il traffico in ingresso (tra i PCB per i microfoni con porta inferiore e la guarnizione di chiusura/copertura superiore) |
 | Isolamento MIC       | Guarnizioni di gomma e separazione delle vibrazioni attraverso la struttura, in particolare per isolare i percorsi di vibrazione a causa di altoparlanti integrati |
 | Clock di campionamento      | L'audio del dispositivo deve essere privo di jitter e drop-out con una bassa deviazione |

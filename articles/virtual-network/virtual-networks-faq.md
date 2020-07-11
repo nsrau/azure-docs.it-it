@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d32c130205420ef8f20d7ce8cb97f9a2595e978
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481732"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232203"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -174,7 +174,7 @@ Dipende. Se la macchina virtuale è stata distribuita tramite Resource Manager, 
 Sì, ma non è consigliabile a meno che non sia necessario, ad esempio quando si assegnano più indirizzi IP a una macchina virtuale. Per informazioni dettagliate, vedere [Aggiunta di più indirizzi IP a una macchina virtuale](virtual-network-multiple-ip-addresses-portal.md#os-config). Se l'indirizzo IP assegnato a una scheda di interfaccia di rete di Azure collegata a una macchina virtuale viene modificato e l'indirizzo IP all'interno del sistema operativo della macchina virtuale è differente, si perde la connessione alla macchina virtuale.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>Se si arresta il funzionamento di uno slot di distribuzione del servizio cloud o di una macchina virtuale dall'interno del sistema operativo, cosa accade agli indirizzi IP?
-Nessuno. Gli indirizzi IP, pubblici, privati o indirizzi VIP pubblici, rimangano assegnati alla relativa macchina virtuale o allo slot di distribuzione del servizio cloud.
+Nessun pacchetto. Gli indirizzi IP, pubblici, privati o indirizzi VIP pubblici, rimangano assegnati alla relativa macchina virtuale o allo slot di distribuzione del servizio cloud.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>È possibile spostare le macchine virtuali da una subnet a un'altra in una rete virtuale senza ripetere la distribuzione?
 Sì. Per altre informazioni, vedere l'articolo [Come spostare una macchina virtuale o un'istanza del ruolo in un'altra subnet](virtual-networks-move-vm-role-to-subnet.md).
@@ -406,9 +406,8 @@ Azure Active Directory (Azure AD) non supporta gli endpoint di servizio in modo 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Ci sono limiti per il numero di endpoint di servizio di rete virtuale che è possibile configurare dalla rete virtuale?
 Non ci sono limiti per il numero totale di endpoint di servizio di rete virtuale in una rete virtuale. Per una risorsa del servizio di Azure, ad esempio un account di archiviazione di Azure, i servizi possono applicare limiti al numero di subnet usate per la protezione della risorsa. La tabella seguente illustra alcuni limiti di esempio: 
 
-|||
-|---|---|
 |Servizio di Azure| Limiti per le regole della rete virtuale|
+|---|---|
 |Archiviazione di Azure| 100|
 |SQL di Azure| 128|
 |Azure SQL Data Warehouse|  128|

@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f9aff2ea88c2334ab30c9819f68fd6cbb9124c5
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79080361"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232441"
 ---
 # <a name="encrypt-deployment-data"></a>Crittografare i dati della distribuzione
 
@@ -25,10 +26,10 @@ I dati in ACI vengono crittografati e decrittografati usando la crittografia AES
 
 |    |    Chiavi gestite da Microsoft     |     Chiavi gestite dal cliente     |
 |----|----|----|
-|    Operazioni di crittografia/decrittografia    |    Azure    |    Azure    |
-|    Archiviazione chiavi    |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure    |
-|    Responsabilità della rotazione delle chiavi    |    Microsoft    |    Customer    |
-|    Accesso alle chiavi    |    Solo Microsoft    |    Microsoft, cliente    |
+|    **Operazioni di crittografia/decrittografia**    |    Azure    |    Azure    |
+|    **Archiviazione chiavi**    |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure    |
+|    **Responsabilità della rotazione delle chiavi**    |    Microsoft    |    Cliente    |
+|    **Accesso alle chiavi**    |    Solo Microsoft    |    Microsoft, cliente    |
 
 Il resto del documento illustra i passaggi necessari per crittografare i dati di distribuzione ACI con la chiave (chiave gestita dal cliente). 
 

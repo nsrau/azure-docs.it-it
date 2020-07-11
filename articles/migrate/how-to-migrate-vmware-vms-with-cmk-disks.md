@@ -7,11 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afc3132ebdd0f144d16507ef2ccda2dcaffaa34e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79269484"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232169"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Eseguire la migrazione di macchine virtuali VMware alle macchine virtuali di Azure abilitate con la crittografia lato server e le chiavi gestite dal cliente
 
@@ -57,7 +58,7 @@ L'esperienza del portale per la migrazione dei server semplifica la preparazione
 
 Un oggetto del set di crittografia del disco viene mappato Managed Disks a un Key Vault che contiene il CMK da usare per la crittografia SSE. Per replicare le macchine virtuali con CMK, è necessario creare un set di crittografia del disco e passarlo come input per l'operazione di replica.
 
-Seguire [l'esempio seguente](../virtual-machines/windows/disk-encryption.md#powershell) per creare un set di crittografia del disco usando Azure PowerShell. Verificare che il set di crittografia del disco venga creato nella sottoscrizione di destinazione in cui viene eseguita la migrazione delle macchine virtuali e nell'area di Azure di destinazione per la migrazione.
+Seguire [l'esempio seguente](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) per creare un set di crittografia del disco usando Azure PowerShell. Verificare che il set di crittografia del disco venga creato nella sottoscrizione di destinazione in cui viene eseguita la migrazione delle macchine virtuali e nell'area di Azure di destinazione per la migrazione.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 
