@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 04c541dc10b2e25aa1e24ef704b4d939243f23ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513728"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187065"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Risoluzione dei problemi di distribuzione del dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -138,7 +139,7 @@ Per registrare il dispositivo, utilizzare il servizio Gestione dispositivi StorS
 | 9 |Avviso: impossibile attivare il dispositivo. Le password di amministratore dispositivo e Gestione snapshot StorSimple non sono state modificate. |Se la registrazione ha esito negativo, le password di amministratore dispositivo e Gestione snapshot StorSimple non sono state modificate. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple
-StorSimple include numerosi strumenti che è possibile utilizzare per risolvere i problemi della soluzione di StorSimple. Tra queste sono incluse:
+StorSimple include numerosi strumenti che è possibile utilizzare per risolvere i problemi della soluzione di StorSimple. Queste includono:
 
 * Pacchetti di supporto e log del dispositivo.
 * Cmdlet progettati appositamente per la risoluzione dei problemi.
@@ -207,30 +208,34 @@ Controller 1 era il controller attivo ed è stato configurato come segue:
 
 Di seguito è riportato l'output dal controller 0 (il controller passivo). DATI 1, DATI 2 e DATI 3 non sono connessi. DATI 4 e DATI 5 dati non sono elencati perché non presenti nel dispositivo.
 
-     Controller0>Get-NetAdapter
-     Name                 InterfaceDescription                        ifIndex  Status
-     ------               --------------------                        -------  ----------
-     DATA3                Mellanox ConnectX-3 Ethernet Adapter #2     17       NotPresent
-     DATA2                Mellanox ConnectX-3 Ethernet Adapter        14       NotPresent
-     Ethernet 2           HCS VNIC                                    13       Up
-     DATA1                Intel(R) 82574L Gigabit Network Co...#2     16       NotPresent
-     DATA0                Intel(R) 82574L Gigabit Network Conn...     15       Up
+```output
+Controller0>Get-NetAdapter
+Name                 InterfaceDescription                        ifIndex  Status
+------               --------------------                        -------  ----------
+DATA3                Mellanox ConnectX-3 Ethernet Adapter #2     17       NotPresent
+DATA2                Mellanox ConnectX-3 Ethernet Adapter        14       NotPresent
+Ethernet 2           HCS VNIC                                    13       Up
+DATA1                Intel(R) 82574L Gigabit Network Co...#2     16       NotPresent
+DATA0                Intel(R) 82574L Gigabit Network Conn...     15       Up
+```
 
 
 **Esempio di output – controller 1**
 
 Di seguito viene riportato l'output dal controller 1 (il controller attivo). Solo l'interfaccia di rete DATI 0 nel dispositivo è configurata e funzionante.
 
-     Controller1>Get-NetAdapter
-     Name                 InterfaceDescription                        ifIndex  Status
-     ------               --------------------                        -------  ----------
-     DATA3                Mellanox ConnectX-3 Ethernet Adapter        18       NotPresent
-     DATA2                Mellanox ConnectX-3 Ethernet Adapter #2     19       NotPresent
-     DATA1                Intel(R) 82574L Gigabit Network Co...#2     16       NotPresent
-     DATA0                Intel(R) 82574L Gigabit Network Conn...     15       Up
-     Ethernet 2           HCS VNIC                                    13       Up
-     DATA5                Intel(R) Gigabit ET Dual Port Server...     14       NotPresent
-     DATA4                Intel(R) Gigabit ET Dual Port Serv...#2     17       NotPresent
+```output
+Controller1>Get-NetAdapter
+Name                 InterfaceDescription                        ifIndex  Status
+------               --------------------                        -------  ----------
+DATA3                Mellanox ConnectX-3 Ethernet Adapter        18       NotPresent
+DATA2                Mellanox ConnectX-3 Ethernet Adapter #2     19       NotPresent
+DATA1                Intel(R) 82574L Gigabit Network Co...#2     16       NotPresent
+DATA0                Intel(R) 82574L Gigabit Network Conn...     15       Up
+Ethernet 2           HCS VNIC                                    13       Up
+DATA5                Intel(R) Gigabit ET Dual Port Server...     14       NotPresent
+DATA4                Intel(R) Gigabit ET Dual Port Serv...#2     17       NotPresent
+```
 
 
 ## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Risoluzione dei problemi con il cmdlet Test-Connection
@@ -247,23 +252,27 @@ Vedere i seguenti esempi di output del cmdlet `Test-Connection` .
 
 Nell'esempio seguente, non è presente alcun output per gli indirizzi IPV4 e IPV6, che indica che il DNS non viene risolto. Ciò significa che non è disponibile una connettività alla rete esterna e che deve essere fornito un DNS corretto.
 
-     Source        Destination     IPV4Address      IPV6Address
-     ------        -----------     -----------      -----------
-     HCSNODE0      outlook.com
-     HCSNODE0      outlook.com
-     HCSNODE0      outlook.com
-     HCSNODE0      outlook.com
+```output
+Source        Destination     IPV4Address      IPV6Address
+------        -----------     -----------      -----------
+HCSNODE0      outlook.com
+HCSNODE0      outlook.com
+HCSNODE0      outlook.com
+HCSNODE0      outlook.com
+```
 
 **Esempio di output – DNS corretto**
 
 Nell'esempio seguente, il DNS restituisce l'indirizzo IPV4, che indica che il DNS è configurato correttamente. confermando così la presenza di connettività alla rete esterna.
 
-     Source        Destination     IPV4Address      IPV6Address
-     ------        -----------     -----------      -----------
-     HCSNODE0      outlook.com     132.245.92.194
-     HCSNODE0      outlook.com     132.245.92.194
-     HCSNODE0      outlook.com     132.245.92.194
-     HCSNODE0      outlook.com     132.245.92.194
+```output
+Source        Destination     IPV4Address      IPV6Address
+------        -----------     -----------      -----------
+HCSNODE0      outlook.com     132.245.92.194
+HCSNODE0      outlook.com     132.245.92.194
+HCSNODE0      outlook.com     132.245.92.194
+HCSNODE0      outlook.com     132.245.92.194
+```
 
 ## <a name="troubleshoot-with-the-test-hcsmconnection-cmdlet"></a>Risoluzione dei problemi con il cmdlet Test-HcsmConnection
 Utilizzare il cmdlet `Test-HcsmConnection` per un dispositivo che è già connesso a e registrato con il servizio Gestione dispositivi StorSimple. Questo cmdlet consente di verificare la connettività tra un dispositivo registrato e il corrispondente servizio Gestione dispositivi StorSimple. È possibile eseguire questo comando su Windows PowerShell per StorSimple.
@@ -308,41 +317,45 @@ Vedere i seguenti esempi di output del cmdlet `Test-HcsmConnection` .
 
 **Esempio di output: registrazione corretta di un dispositivo che esegue l'aggiornamento 3 di StorSimple**
 
-      Controller1>Test-HcsmConnection
+```output
+Controller1>Test-HcsmConnection
 
-      Checking device registration state  ... Success
-      Device registered successfully
+Checking device registration state  ... Success
+Device registered successfully
 
-      Checking primary NTP server [time.windows.com] ... Success
+Checking primary NTP server [time.windows.com] ... Success
 
-      Checking web proxy  ... NOT SET
+Checking web proxy  ... NOT SET
 
-      Checking primary IPv4 DNS server [10.222.118.154] ... Success
-      Checking primary IPv6 DNS server  ... NOT SET
-      Checking secondary IPv4 DNS server [10.222.120.24] ... Success
-      Checking secondary IPv6 DNS server  ... NOT SET
+Checking primary IPv4 DNS server [10.222.118.154] ... Success
+Checking primary IPv6 DNS server  ... NOT SET
+Checking secondary IPv4 DNS server [10.222.120.24] ... Success
+Checking secondary IPv6 DNS server  ... NOT SET
 
-      Checking device online  ... Success
+Checking device online  ... Success
 
-      Checking device authentication  ... This will take a few minutes.
-      Checking device authentication  ... Success
+Checking device authentication  ... This will take a few minutes.
+Checking device authentication  ... Success
 
-      Checking connectivity from device to service  ... This will take a few minutes.
+Checking connectivity from device to service  ... This will take a few minutes.
 
-      Checking connectivity from device to service  ... Success
+Checking connectivity from device to service  ... Success
 
-      Checking connectivity from service to device  ... Success
+Checking connectivity from service to device  ... Success
 
-      Checking connectivity to Microsoft Update servers  ... Success
-      Controller1>
+Checking connectivity to Microsoft Update servers  ... Success
+Controller1>
+```
 
 **Esempio di output: dispositivo offline** 
 
 Questo esempio riguarda un dispositivo con stato **Offline** nel portale di Azure.
 
-     Checking device registrationstate: Success
-     Device is registered successfully
-     Checking connectivity from device to SaaS.. Failure
+```output
+Checking device registrationstate: Success
+Device is registered successfully
+Checking connectivity from device to SaaS.. Failure
+```
 
 Il dispositivo non può effettuare la connessione utilizzando la configurazione del proxy Web corrente. Potrebbe trattarsi di un problema con la configurazione del proxy Web o un problema di connettività di rete. In questo caso, assicurarsi che le impostazioni del proxy Web siano corrette e che i server proxy Web siano online e raggiungibili.
 
@@ -354,48 +367,54 @@ Usare questo cmdlet per visualizzare l'ora del dispositivo. Se esiste una differ
 
 **Output di esempio - Sincronizzazione dell'ora forzata con Sync-HcsTime**
 
-     Controller0>Sync-HcsTime
-     The current device time is 4/24/2015 4:05:40 PM UTC.
+```output
+Controller0>Sync-HcsTime
+The current device time is 4/24/2015 4:05:40 PM UTC.
 
-     Time difference between NTP server and appliance is 00.0824069 seconds. Do you want to resync time with NTP server?
-     [Y] Yes [N] No (Default is "Y"): Y
-     Controller0>
+Time difference between NTP server and appliance is 00.0824069 seconds. Do you want to resync time with NTP server?
+[Y] Yes [N] No (Default is "Y"): Y
+Controller0>
+```
 
 ## <a name="troubleshoot-with-the-enable-hcsping-and-disable-hcsping-cmdlets"></a>Risoluzione dei problemi relativi ai cmdlet Enable-HcsPing e Disable-HcsPing
 Usare questi cmdlet per garantire che le interfacce di rete nel dispositivo rispondano alle richieste di ping ICMP. Per impostazione predefinita, le interfacce di rete StorSimple non rispondono alle richieste di ping. L'uso di questo cmdlet rappresenta il modo più semplice per sapere se il dispositivo è online e raggiungibile.
 
 **Output di esempio: Enable-HcsPing e Disable-HcsPing**
 
-     Controller0>
-     Controller0>Enable-HcsPing
-     Successfully enabled ping.
-     Controller0>
-     Controller0>
-     Controller0>Disable-HcsPing
-     Successfully disabled ping.
-     Controller0>
+```output
+Controller0>
+Controller0>Enable-HcsPing
+Successfully enabled ping.
+Controller0>
+Controller0>
+Controller0>Disable-HcsPing
+Successfully disabled ping.
+Controller0>
+```
 
 ## <a name="troubleshoot-with-the-trace-hcsroute-cmdlet"></a>Risoluzione dei problemi con il cmdlet Trace-HcsRoute
 Usare questo cmdlet come uno strumento di analisi della route. Invia pacchetti a ogni router nel percorso verso la destinazione finale in un periodo di tempo e calcola quindi i risultati in base ai pacchetti restituiti da ogni hop. Dato che il cmdlet mostra il livello di perdita di pacchetti in qualsiasi router o collegamento, è possibile individuare quali router o collegamenti potrebbero essere la causa dei problemi di rete.
 
 **Output di esempio che illustra come tracciare la route di un pacchetto con Trace-HcsRoute**
 
-     Controller0>Trace-HcsRoute -Target 10.126.174.25
+```output
+Controller0>Trace-HcsRoute -Target 10.126.174.25
 
-     Tracing route to contoso.com [10.126.174.25]
-     over a maximum of 30 hops:
-       0  HCSNode0 [10.126.173.90]
-       1  contoso.com [10.126.174.25]
+Tracing route to contoso.com [10.126.174.25]
+over a maximum of 30 hops:
+   0  HCSNode0 [10.126.173.90]
+   1  contoso.com [10.126.174.25]
 
-     Computing statistics for 25 seconds...
-                 Source to Here   This Node/Link
-     Hop  RTT    Lost/Sent = Pct  Lost/Sent = Pct  Address
-       0                                           HCSNode0 [10.126.173.90]
-                                     0/ 100 =  0%   |
-       1    0ms     0/ 100 =  0%     0/ 100 =  0%  contoso.com
-      [10.126.174.25]
+Computing statistics for 25 seconds...
+            Source to Here   This Node/Link
+Hop  RTT    Lost/Sent = Pct  Lost/Sent = Pct  Address
+   0                                           HCSNode0 [10.126.173.90]
+                                 0/ 100 =  0%   |
+   1    0ms     0/ 100 =  0%     0/ 100 =  0%  contoso.com
+[10.126.174.25]
 
-     Trace complete.
+Trace complete.
+```
 
 ## <a name="troubleshoot-with-the-get-hcsroutingtable-cmdlet"></a>Risoluzione dei problemi con il cmdlet Get-HcsRoutingTable
 Usare questo cmdlet per visualizzare la tabella di routing per il dispositivo StorSimple. Una tabella di routing è un set di regole che consentono di determinare dove verranno indirizzati i pacchetti di dati che passano attraverso una rete IP (Internet Protocol).
@@ -408,78 +427,82 @@ Se si esegue l'aggiornamento 1 nel dispositivo StorSimple, l'interfaccia di rete
 
 Se si esegue il cmdlet `Get-HcsRoutingTable` senza specificare alcun parametro (come illustrato nell'esempio seguente), il cmdlet memorizzerà le tabelle di routing IPv4 e IPv6. In alternativa, è possibile specificare `Get-HcsRoutingTable -IPv4` o `Get-HcsRoutingTable -IPv6` per ottenere una tabella di routing pertinente.
 
-      Controller0>
-      Controller0>Get-HcsRoutingTable
-      ===========================================================================
-      Interface List
-       14...00 50 cc 79 63 40 ......Intel(R) 82574L Gigabit Network Connection
-       12...02 9a 0a 5b 98 1f ......Microsoft Failover Cluster Virtual Adapter
-       13...28 18 78 bc 4b 85 ......HCS VNIC
-        1...........................Software Loopback Interface 1
-       21...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
-       22...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #3
-      ===========================================================================
+```output
+Controller0>
+Controller0>Get-HcsRoutingTable
+===========================================================================
+Interface List
+   14...00 50 cc 79 63 40 ......Intel(R) 82574L Gigabit Network Connection
+   12...02 9a 0a 5b 98 1f ......Microsoft Failover Cluster Virtual Adapter
+   13...28 18 78 bc 4b 85 ......HCS VNIC
+   1...........................Software Loopback Interface 1
+   21...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+   22...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #3
+===========================================================================
 
-      IPv4 Route Table
-      ===========================================================================
-      Active Routes:
-      Network Destination        Netmask          Gateway       Interface  Metric
-                0.0.0.0          0.0.0.0  192.168.111.100  192.168.111.101     15
-              127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
-              127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
-        127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
-            169.254.0.0      255.255.0.0         On-link     169.254.1.235    261
-          169.254.1.235  255.255.255.255         On-link     169.254.1.235    261
-        169.254.255.255  255.255.255.255         On-link     169.254.1.235    261
-          192.168.111.0    255.255.255.0         On-link   192.168.111.101    266
-        192.168.111.101  255.255.255.255         On-link   192.168.111.101    266
-        192.168.111.255  255.255.255.255         On-link   192.168.111.101    266
-              224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
-              224.0.0.0        240.0.0.0         On-link     169.254.1.235    261
-              224.0.0.0        240.0.0.0         On-link   192.168.111.101    266
-        255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
-        255.255.255.255  255.255.255.255         On-link     169.254.1.235    261
-        255.255.255.255  255.255.255.255         On-link   192.168.111.101    266
-      ===========================================================================
-      Persistent Routes:
-        Network Address          Netmask  Gateway Address  Metric
-                0.0.0.0          0.0.0.0  192.168.111.100       5
-      ===========================================================================
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+            0.0.0.0          0.0.0.0  192.168.111.100  192.168.111.101     15
+         127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+         127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+   127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+      169.254.0.0      255.255.0.0         On-link     169.254.1.235    261
+      169.254.1.235  255.255.255.255         On-link     169.254.1.235    261
+   169.254.255.255  255.255.255.255         On-link     169.254.1.235    261
+      192.168.111.0    255.255.255.0         On-link   192.168.111.101    266
+   192.168.111.101  255.255.255.255         On-link   192.168.111.101    266
+   192.168.111.255  255.255.255.255         On-link   192.168.111.101    266
+         224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+         224.0.0.0        240.0.0.0         On-link     169.254.1.235    261
+         224.0.0.0        240.0.0.0         On-link   192.168.111.101    266
+   255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+   255.255.255.255  255.255.255.255         On-link     169.254.1.235    261
+   255.255.255.255  255.255.255.255         On-link   192.168.111.101    266
+===========================================================================
+Persistent Routes:
+   Network Address          Netmask  Gateway Address  Metric
+            0.0.0.0          0.0.0.0  192.168.111.100       5
+===========================================================================
 
-      IPv6 Route Table
-      ===========================================================================
-      Active Routes:
-       If Metric Network Destination      Gateway
-        1    306 ::1/128                  On-link
-       13    276 fd99:4c5b:5525:d80b::/64 On-link
-       13    276 fd99:4c5b:5525:d80b::1/128
-                                          On-link
-       13    276 fd99:4c5b:5525:d80b::3/128
-                                          On-link
-       13    276 fe80::/64                On-link
-       12    261 fe80::/64                On-link
-       13    276 fe80::17a:4eba:7c80:727f/128
-                                          On-link
-       12    261 fe80::fc97:1a53:e81a:3454/128
-                                          On-link
-        1    306 ff00::/8                 On-link
-       13    276 ff00::/8                 On-link
-       12    261 ff00::/8                 On-link
-       14    266 ff00::/8                 On-link
-      ===========================================================================
-      Persistent Routes:
-        None
+IPv6 Route Table
+===========================================================================
+Active Routes:
+   If Metric Network Destination      Gateway
+   1    306 ::1/128                  On-link
+   13    276 fd99:4c5b:5525:d80b::/64 On-link
+   13    276 fd99:4c5b:5525:d80b::1/128
+                                    On-link
+   13    276 fd99:4c5b:5525:d80b::3/128
+                                    On-link
+   13    276 fe80::/64                On-link
+   12    261 fe80::/64                On-link
+   13    276 fe80::17a:4eba:7c80:727f/128
+                                    On-link
+   12    261 fe80::fc97:1a53:e81a:3454/128
+                                    On-link
+   1    306 ff00::/8                 On-link
+   13    276 ff00::/8                 On-link
+   12    261 ff00::/8                 On-link
+   14    266 ff00::/8                 On-link
+===========================================================================
+Persistent Routes:
+   None
 
-      Controller0>
+Controller0>
+```
 
 ## <a name="step-by-step-storsimple-troubleshooting-example"></a>Esempio dettagliato di risoluzione dei problemi
 Nell'esempio seguente viene illustrata la risoluzione dei problemi dettagliata di una distribuzione di StorSimple. Nello scenario di esempio, la registrazione del dispositivo ha esito negativo e viene visualizzato un messaggio di errore che indica che le impostazioni di rete o il nome DNS non è corretto.
 
 Il messaggio di errore restituito è:
 
-     Invoke-HcsSetupWizard: An error has occurred while registering the device. This could be due to incorrect IP address or DNS name. Please check your network settings and try again. If the problems persist, contact Microsoft Support.
-     +CategoryInfo: Not specified
-     +FullyQualifiedErrorID: CiSClientCommunicationErros, Microsoft.HCS.Management.PowerShell.Cmdlets.InvokeHcsSetupWizardCommand
+```output
+Invoke-HcsSetupWizard: An error has occurred while registering the device. This could be due to incorrect IP address or DNS name. Please check your network settings and try again. If the problems persist, contact Microsoft Support.
++CategoryInfo: Not specified
++FullyQualifiedErrorID: CiSClientCommunicationErros, Microsoft.HCS.Management.PowerShell.Cmdlets.InvokeHcsSetupWizardCommand
+```
 
 L'errore potrebbe essere causato da una delle seguenti cause:
 

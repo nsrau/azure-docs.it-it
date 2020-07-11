@@ -2,13 +2,14 @@
 title: Raccogli & analizzare i log delle risorse
 description: Informazioni su come inviare i log delle risorse e i dati degli eventi da gruppi di contenitori in istanze di contenitore di Azure ai log di monitoraggio di Azure
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892394"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169732"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze e gruppi di contenitori con i log di monitoraggio di Azure
 
@@ -67,7 +68,7 @@ az container create \
 Usare questo metodo se si preferisce distribuire gruppi di contenitori con YAML. Il codice YAML seguente definisce un gruppo di contenitori con un singolo contenitore. Copiare il codice YAML in un nuovo file e quindi sostituire `LOG_ANALYTICS_WORKSPACE_ID` e `LOG_ANALYTICS_WORKSPACE_KEY` con i valori ottenuti nel passaggio precedente. Salvare il file come **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -104,7 +105,7 @@ Si riceverà una risposta da Azure contenente i dettagli di distribuzione poco d
 Dopo aver distribuito il gruppo di contenitori, possono essere necessari diversi minuti (fino a 10) per la visualizzazione delle prime voci di log nel portale di Azure. Per visualizzare i log del gruppo di contenitori nella tabella `ContainerInstanceLog_CL`:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
-1. In **Generale** selezionare **Log**  
+1. In **generale**selezionare **log** .  
 1. Digitare la query seguente: `ContainerInstanceLog_CL | limit 50`
 1. Selezionare **Esegui**
 
@@ -117,7 +118,7 @@ Dovrebbero essere visibili i vari risultati visualizzati dalla query. Se inizial
 È anche possibile visualizzare gli eventi per le istanze di contenitori nel portale di Azure. Gli eventi includono la data e l'ora di creazione e di avvio dell'istanza. Per visualizzare i dati degli eventi nella tabella `ContainerEvent_CL`:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
-1. In **Generale** selezionare **Log**  
+1. In **generale**selezionare **log** .  
 1. Digitare la query seguente: `ContainerEvent_CL | limit 50`
 1. Selezionare **Esegui**
 

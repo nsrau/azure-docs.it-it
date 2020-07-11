@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6b6da2a15441564ef0b67e76ee5a0e0c85839a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609317"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142415"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendere i dispositivi gemelli digitali e i relativi grafici gemelli
 
@@ -97,6 +98,7 @@ Quando viene rappresentato come oggetto JSON, un dispositivo gemello digitale Vi
 | Nome campo | Descrizione |
 | --- | --- |
 | `$dtId` | Stringa fornita dall'utente che rappresenta l'ID del dispositivo gemello digitale |
+| `$etag` | Campo HTTP standard assegnato dal server Web |
 | `$conformance` | Enumerazione contenente lo stato di conformità del dispositivo gemello*digitale (conforme,* *non conforme*, *sconosciuto*) |
 | `{propertyName}` | Valore di una proprietà in JSON ( `string` , tipo numerico o oggetto) |
 | `$relationships` | URL del percorso della raccolta di relazioni. Questo campo è assente se il gemello digitale non ha bordi di relazione in uscita. |
@@ -115,6 +117,7 @@ Di seguito è riportato un esempio di un dispositivo gemello digitale formattato
 ```json
 {
   "$dtId": "Cafe",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "Temperature": 72,
   "Location": {
     "x": 101,
@@ -162,6 +165,7 @@ Quando rappresentata come oggetto JSON, una relazione da un dispositivo gemello 
 | Nome campo | Descrizione |
 | --- | --- |
 | `$relationshipId` | Stringa fornita dall'utente che rappresenta l'ID di questa relazione. Questa stringa è univoca nel contesto del dispositivo gemello digitale di origine, che significa anche che `sourceId`  +  `relationshipId` è univoco nel contesto dell'istanza di Azure Digital gemelli. |
+| `$etag` | Campo HTTP standard assegnato dal server Web |
 | `$sourceId` | ID del dispositivo gemello digitale di origine |
 | `$targetId` | ID del dispositivo gemello digitale di destinazione |
 | `$relationshipName` | Nome della relazione. |

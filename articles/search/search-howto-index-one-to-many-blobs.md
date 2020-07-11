@@ -1,7 +1,7 @@
 ---
 title: BLOB di indici contenenti più documenti
 titleSuffix: Azure Cognitive Search
-description: Eseguire la ricerca per indicizzazione di BLOB di Azure per contenuti di testo usando l'indicizzatore BLOB di ricerca di Azure cognitivi, in cui ogni BLOB può restituire uno o più documenti dell'indice
+description: Eseguire la ricerca per indicizzazione di BLOB di Azure per contenuti di testo tramite l'indicizzatore BLOB di Azure ricerca cognitiva, in cui ogni BLOB può restituire uno o più documenti dell'indice
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,11 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f93ae8a017c889f6c465b3ccbbb66382577e871
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74112273"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146799"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indicizzazione di BLOB per produrre più documenti di ricerca
 Per impostazione predefinita, un indicizzatore BLOB considererà il contenuto di un BLOB come singolo documento di ricerca. Alcuni valori **parsingMode** supportano scenari in cui un singolo BLOB può produrre più documenti di ricerca. I diversi tipi di **parsingMode** che consentono a un indicizzatore di estrarre più di un documento di ricerca da un BLOB sono:
@@ -41,25 +42,31 @@ E il contenitore BLOB contiene BLOB con la struttura seguente:
 
 _Blob1.js_
 
+```json
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
+```
 
 _Blob2.js_
 
+```json
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
+```
 
 Quando si crea un indicizzatore e si imposta **parsingMode** su `jsonLines` -senza specificare alcun mapping esplicito dei campi per il campo chiave, il mapping seguente verrà applicato in modo implicito
-    
+
+```http
     {
         "sourceFieldName" : "AzureSearch_DocumentKey",
         "targetFieldName": "id",
         "mappingFunction": { "name" : "base64Encode" }
     }
+```
 
 Questa installazione determinerà l'indice del ricerca cognitiva di Azure contenente le informazioni seguenti (ID con codifica Base64 abbreviato per brevità)
 
-| id | temperature | pressure | timestamp |
+| id | temperature | pressione | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |
@@ -72,22 +79,28 @@ Supponendo la stessa definizione di indice dell'esempio precedente, si supponga 
 
 _Blob1.js_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
+```
 
 _Blob2.js_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
+```
 
 Quando si crea un indicizzatore con `delimitedText` **parsingMode**, potrebbe sembrare naturale impostare una funzione di mapping dei campi nel campo chiave come indicato di seguito:
 
+```http
     {
         "sourceFieldName" : "recordid",
         "targetFieldName": "id"
     }
+```
 
 Tuttavia, questo mapping _non_ comporterà la visualizzazione di 4 documenti nell'indice, perché il `recordid` campo non è univoco _tra i BLOB_. È quindi consigliabile usare il mapping di campi implicito applicato dalla `AzureSearch_DocumentKey` proprietà al campo indice chiave per le modalità di analisi "uno-a-molti".
 

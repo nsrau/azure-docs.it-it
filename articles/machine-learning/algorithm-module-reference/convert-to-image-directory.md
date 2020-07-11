@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 41724753df0d529e4c44344e8e975e68ee5eafd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904593"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171143"
 ---
 # <a name="convert-to-image-directory"></a>Convert to Image Directory
 
@@ -24,11 +24,15 @@ Questo articolo descrive come usare il modulo Convert to Image directory per con
 
 1.  Aggiungere il modulo **Convert to Image directory** all'esperimento. È possibile trovare questo modulo nella categoria ' Visione artificiale/immagine trasformazione dati ' nell'elenco dei moduli. 
 
-2.  Connettere un set di dati dell'immagine come input. Assicurarsi che sia presente un'immagine nel set di dati di input.
+2.  [Registrare un set di dati dell'immagine](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) e connetterlo alla porta di input del modulo. Assicurarsi che sia presente un'immagine nel set di dati di input. 
     Sono supportati i formati di set di dati seguenti:
 
     - File compresso in queste estensioni:'. zip ','. tar ','. gz ','. bz2'.
     - Cartella contenente le immagini. Si **consiglia vivamente di comprimere tale cartella prima di usare il file compresso come set di dati**.
+
+    > [!WARNING]
+    > **Non è possibile** usare il modulo **Import Data** per importare il set di dati dell'immagine, perché il tipo di output del modulo **Import Data** è la directory dataframe, che contiene solo la stringa del percorso del file.
+    
 
     > [!NOTE]
     > Se usa il set di dati dell'immagine nell'apprendimento supervisionato, l'etichetta è obbligatoria.

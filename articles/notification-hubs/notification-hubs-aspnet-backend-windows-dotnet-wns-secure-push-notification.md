@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f953b21a221967c2310b2fc70056d48863149821
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75530732"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220049"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Inviare notifiche push in modo sicuro da Hub di notifica di Azure
 
@@ -93,7 +94,7 @@ Il passaggio successivo consiste nella creazione del componente push in backgrou
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nodo di primo livello della soluzione (in questo caso **Solution SecurePush**), fare clic su **Aggiungi** e quindi su **Nuovo progetto**.
 2. Espandere **Applicazioni Windows Store**, fare clic su **App di Windows Phone** e quindi su **Componente Windows Runtime (Windows Phone)**. Assegnare al progetto il nome **PushBackgroundComponent** e quindi fare clic su **OK** per creare il progetto.
 
-    ![][12]
+    ![Screenshot della finestra di dialogo Aggiungi nuovo progetto con l'opzione Visual C# Windows Runtime Component (Windows Phone) evidenziata.][12]
 3. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **PushBackgroundComponent (Windows Phone 8.1)**, quindi fare clic su **Aggiungi** e infine su **Classe**. Assegnare alla nuova classe il nome `PushBackgroundTask.cs`. Fare clic su **Aggiungi** per generare la classe.
 4. Sostituire l'intero contenuto della definizione dello spazio dei nomi di `PushBackgroundComponent` con il seguente codice e sostituire il segnaposto `{back-end endpoint}` con l'endpoint back-end ottenuto durante la distribuzione del back-end:
 
@@ -161,12 +162,12 @@ Il passaggio successivo consiste nella creazione del componente push in backgrou
 11. In Esplora soluzioni, nel progetto **NotifyUserWindowsPhone (Windows Phone 8,1)** , fare clic con il pulsante destro del mouse su **riferimenti**, quindi scegliere **Aggiungi riferimento.** Nella finestra di dialogo Gestione riferimenti selezionare la casella accanto a **PushBackgroundComponent**, quindi fare clic su **OK**.
 12. In Esplora soluzioni fare doppio clic sul file **Package.appxmanifest** nel progetto **NotifyUserWindowsPhone (Windows Phone 8.1)**. In **Notifiche** impostare **Popup supportati** su **Sì**.
 
-    ![][3]
+    ![Screenshot della finestra di Esplora soluzioni che si concentra sul pacchetto. appxmanifest con l'opzione di supporto per i popup impostata su Sì, evidenziato in rosso.][3]
 13. Sempre nel file **Package.appxmanifest** fare clic sul menu **Dichiarazioni** nella parte superiore. Nell'elenco a discesa **Dichiarazioni disponibili** fare clic su **Attività di background** e quindi su **Aggiungi**.
 14. In **Package.appxmanifest**, in **Proprietà** selezionare **Notifica Push**.
 15. Nel file **Package.appxmanifest**, in **Impostazioni app** digitare **PushBackgroundComponent.PushBackgroundTask** nel campo **Punto di ingresso**.
 
-    ![][13]
+    ![Screenshot della finestra di Esplora soluzioni che si concentra sul pacchetto. appxmanifest con le dichiarazioni disponibili, le dichiarazioni supportate, le notifiche push e le opzioni del punto di ingresso descritte in rosso.][13]
 16. Scegliere **Salva tutto**dal menu **file** .
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione

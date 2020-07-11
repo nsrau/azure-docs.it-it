@@ -3,11 +3,12 @@ title: Analizza i video live con l'intelligenza artificiale scelta-Azure
 description: In questo articolo si apprenderà come compilare un modulo IoT Edge che può essere integrato con analisi video in tempo reale su IoT Edge per analizzare i video live usando un modello di visione artificiale di propria scelta.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 0ac2af280eefd5ce293a8be422551d5ee6f6d3f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a1ea3ebd8c7de4c691d7a982dbc08e9d08d9e38
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260644"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182866"
 ---
 # <a name="analyze-live-video-with-ai-of-your-choice"></a>Analizzare i video live con intelligenza artificiale a scelta
 
@@ -45,7 +46,7 @@ Il contratto HTTP viene definito come segue:
 
 Le richieste dal modulo Live Video Analytics al modulo sono le seguenti:
 
-|||
+| Chiave | Valore |
 |---|---|
 |POST| `https://hostname/optional-path?optional-query`|
 |Accetta|Application/JSON,*/*|
@@ -71,7 +72,7 @@ Content-Length: 519222
 
 Le risposte dal modulo al modulo Live Video Analytics dovrebbero essere le seguenti
 
-|||
+| Chiave | Valore |
 |---|---|
 |Codici di stato|200 OK-risultati dell'inferenza trovati<br/>204 nessun contenuto: nessun contenuto trovato dall'intelligenza artificiale<br/>400 richiesta non valida-non prevista<br/>500 errore interno del server-non previsto<br/>503 Server occupato-AMS eseguirà il backup in base all'intestazione "Retry-After" o in base a un periodo di tempo predefinito nell'intestazione del case non preimpostata.|
 |Content-Type|application/json|
@@ -187,7 +188,7 @@ Ogni oggetto inferenza segue questo schema superset:
 
 ![Contratti dati-gerarchia di classi](./media/analyze-live-video-with-ai-your-choice-how-to/data-contracts.png)
 
-### <a name="examples"></a>Esempi  
+### <a name="examples"></a>Esempio  
 
 L'esempio seguente contiene un solo evento con tutti i tipi di inferenza supportati:
 
@@ -264,7 +265,7 @@ L'esempio seguente contiene un solo evento con tutti i tipi di inferenza support
  
 ## <a name="sample-http-extension-modules"></a>Moduli di estensione HTTP di esempio
 
-Alcuni moduli di estensione HTTP di esempio sono disponibili nel [repository GitHub di analisi video in tempo reale](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis). Uno di questi [esempi di analisi video](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) illustra come usare il modello [Yolov3](https://pjreddie.com/darknet/yolo/) [ONNX](http://onnx.ai/) per compilare un modulo IOT Edge per il rilevamento di oggetti. È possibile usare lo stesso approccio per creare un modulo personalizzato con un modello di intelligenza artificiale di propria scelta.
+Alcuni moduli di estensione HTTP di esempio sono disponibili nel [repository GitHub di analisi video in tempo reale](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis). Uno di questi [esempi di analisi video](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) illustra come usare il modello [YOLOv3](https://pjreddie.com/darknet/yolo/) [ONNX](http://onnx.ai/) per compilare un modulo IOT Edge per il rilevamento di oggetti. Un altro [esempio di analisi video](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx-tiny) illustra come usare YOLOv3 di piccole dimensioni, una versione leggera del modello YOLOv3 ONNX. È possibile usare lo stesso approccio per creare un modulo personalizzato con un modello di intelligenza artificiale di propria scelta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

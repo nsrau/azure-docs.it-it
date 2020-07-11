@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: b0585c755e8dd9a6625a8259dc71ca521f156afb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88c2536ad53be0beb583dc64e633322b2a531d15
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704064"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183444"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
@@ -55,9 +56,11 @@ Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirectio
 
 Output di esempio:
 
-    StatusCode StatusDescription
-    ---------- -----------------
-           301 Moved Permanently
+```output
+StatusCode StatusDescription
+---------- -----------------
+        301 Moved Permanently
+```
 
 Si noti che è pervenuta una risposta di reindirizzamento. Come indicato in precedenza, qualsiasi StatusCode diverso da 200 viene considerato un errore. Gestione traffico modifica lo stato dell'endpoint impostandolo su Offline. Per risolvere il problema, controllare la configurazione del sito Web per verificare che il percorso probe sia in grado di restituire lo StatusCode appropriato. Riconfigurare quindi il probe di Gestione traffico in modo che punti a un percorso che restituisce un valore di 200.
 

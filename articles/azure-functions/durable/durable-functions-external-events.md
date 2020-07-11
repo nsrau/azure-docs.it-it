@@ -4,11 +4,12 @@ description: Informazioni su come gestire gli eventi esterni nell'estensione Fun
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 387b5d920de4a295366cc7e948862a12cea901d3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76262963"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165550"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestione di eventi esterni in Funzioni permanenti (Funzioni di Azure)
 
@@ -19,7 +20,7 @@ Le funzioni di orchestrazione possono rimanere in attesa e in ascolto di eventi 
 
 ## <a name="wait-for-events"></a>Attendere eventi
 
-I `WaitForExternalEvent` metodi (.NET) e `waitForExternalEvent` (JavaScript) dell' [associazione del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger) consentono a una funzione dell'agente di orchestrazione di attendere in modo asincrono e restare in ascolto di un evento esterno. La funzione di orchestrazione in ascolto dichiara il *nome* dell'evento e la *forma dei dati* che si aspetta di ricevere.
+I metodi [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) e `waitForExternalEvent` (JavaScript) dell'associazione del trigger di [orchestrazione](durable-functions-bindings.md#orchestration-trigger) consentono a una funzione di orchestrazione di attendere in modo asincrono e restare in ascolto di un evento esterno. La funzione di orchestrazione in ascolto dichiara il *nome* dell'evento e la *forma dei dati* che si aspetta di ricevere.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -172,7 +173,14 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>Inviare eventi
 
-Il `RaiseEventAsync` Metodo (.NET) o `raiseEvent` (JavaScript) dell' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) invia gli eventi `WaitForExternalEvent` in attesa di (.NET) o `waitForExternalEvent` (JavaScript).  Il metodo `RaiseEventAsync` accetta *eventName* e *eventData* come parametri. I dati dell'evento devono essere serializzabile in JSON.
+È possibile utilizzare i metodi [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) o `raiseEventAsync` (JavaScript) per inviare un evento esterno a un'orchestrazione. Questi metodi sono esposti dall'associazione del [client di orchestrazione](durable-functions-bindings.md#orchestration-client) . Per inviare un evento esterno a un'orchestrazione, è inoltre possibile utilizzare l' [API HTTP di generazione eventi](durable-functions-http-api.md#raise-event) incorporata.
+
+Un evento generato include un *ID istanza*, un *EventName*e *EventData* come parametri. Le funzioni dell'agente di orchestrazione gestiscono questi eventi usando le `WaitForExternalEvent` API (.NET) o `waitForExternalEvent` (JavaScript). Per poter elaborare l'evento, il *gestore eventi* deve corrispondere sia alle estremità di invio che alla ricezione. Anche i dati dell'evento devono essere serializzabili in JSON.
+
+Internamente, i meccanismi "genera evento" accodano un messaggio che viene prelevato dalla funzione dell'agente di orchestrazione in attesa. Se l'istanza non è in attesa del *nome dell'evento* specificato, il messaggio di evento viene aggiunto a una coda in memoria. Se l'istanza di orchestrazione in seguito inizia l'ascolto per tale *nome dell'evento*, controllerà la presenza dei messaggi di evento nella coda.
+
+> [!NOTE]
+> Se non esiste alcuna istanza di orchestrazione con l'*ID istanza* specificato, il messaggio di evento viene rimosso.
 
 Di seguito è riportata una funzione di esempio attivata da coda che invia un evento di "approvazione" a un'istanza della funzione dell'agente di orchestrazione. L'ID istanza di orchestrazione proviene dal corpo del messaggio in coda.
 
@@ -208,6 +216,19 @@ Internamente `RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript) accoda un mess
 
 > [!NOTE]
 > Se non esiste alcuna istanza di orchestrazione con l'*ID istanza* specificato, il messaggio di evento viene rimosso.
+
+### <a name="http"></a>HTTP
+
+Di seguito è riportato un esempio di una richiesta HTTP che genera un evento di "approvazione" per un'istanza di orchestrazione. 
+
+```http
+POST /runtime/webhooks/durabletask/instances/MyInstanceId/raiseEvent/Approval&code=XXX
+Content-Type: application/json
+
+"true"
+```
+
+In questo caso, l'ID istanza è hardcoded come *InstanceID*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

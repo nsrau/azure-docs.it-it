@@ -2,14 +2,14 @@
 title: Distribuire un gruppo di contenitori in rete virtuale di Azure
 description: Informazioni su come distribuire un gruppo di contenitori in una rete virtuale di Azure nuova o esistente usando l'interfaccia della riga di comando di Azure.
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: 7e54690efc7955eaaa88ca87a6f7a086dd3e19a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5a0e15b2e65be45e7f77e401b912ef7b784519b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583649"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169596"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -142,7 +142,7 @@ Output di esempio:
 Dopo aver ottenuto l'ID del profilo di rete, copiare il codice YAML seguente in un nuovo file denominato *vnet-deploy-aci.yaml*. In `networkProfile` sostituire il valore `id` con l'ID recuperato, quindi salvare il file. Il codice YAML seguente crea un gruppo di contenitori denominato *appcontaineryaml* nella rete virtuale.
 
 ```YAML
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: westus
 name: appcontaineryaml
 properties:
@@ -185,7 +185,7 @@ Name              ResourceGroup    Status    Image                              
 appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 ### <a name="delete-container-instances"></a>Eliminare le istanze di contenitore
 

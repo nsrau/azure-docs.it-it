@@ -16,13 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76263745"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219964"
 ---
-# <a name="templates"></a>Modelli
+# <a name="notification-hubs-templates"></a>Modelli di hub di notifica
 
 I modelli consentono alle applicazioni client di specificare il formato esatto delle notifiche da ricevere. Mediante i modelli, le app possono ottenere diversi vantaggi, fra cui i seguenti:
 
@@ -61,7 +62,7 @@ La funzionalità del modello degli Hub di notifica consente a un'app client di c
 
 Nell'immagine seguente viene illustrato il processo:
 
-![](./media/notification-hubs-templates/notification-hubs-hello.png)
+![Diagramma che illustra il processo di utilizzo dei modelli multipiattaforma](./media/notification-hubs-templates/notification-hubs-hello.png)
 
 Il modello per la registrazione dell'app client iOS è il seguente:
 
@@ -120,7 +121,7 @@ Il messaggio inviato all'Hub di notifica contiene tutte le proprietà seguenti:
 
 Utilizzando questo modello, il back-end invia solo un unico messaggio senza dover memorizzare opzioni di personalizzazione specifiche per gli utenti dell'app. Nell'immagine seguente viene illustrato tale scenario:
 
-![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
+![Diagramma che illustra il modo in cui il back-end invia un singolo messaggio a ogni piattaforma.](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ## <a name="how-to-register-templates"></a>Come registrare i modelli
 
@@ -144,7 +145,7 @@ Nella tabella seguente viene descritto il linguaggio consentito nei modelli:
 
 Il formato delle espressioni può essere uno dei precedenti.
 
-Quando si usa la concatenazione, l'intera espressione deve essere racchiusa tra `{}`. Ad esempio: `{$(prop) + ‘ - ’ + $(prop2)}`.
+Quando si usa la concatenazione, l'intera espressione deve essere racchiusa tra `{}`. Ad esempio, `{$(prop) + ‘ - ’ + $(prop2)}`
 
 Ad esempio, il modello XML seguente non è valido:
 

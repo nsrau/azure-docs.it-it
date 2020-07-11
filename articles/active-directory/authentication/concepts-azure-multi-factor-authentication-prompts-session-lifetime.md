@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b77f2e78fa3df6c7ac6a422a03335f93d2a19d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255794"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169341"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Ottimizzare le richieste di riautenticazione e comprendere la durata della sessione per Azure Multi-Factor Authentication
 
@@ -122,10 +122,10 @@ Se è stata abilitata la durata del token configurabile, questa funzionalità ve
 
 Nella tabella seguente sono riepilogate le raccomandazioni basate sulle licenze:
 
-|                              | App Azure AD Free e Office 365 | Azure AD Premium |
+|              | App Azure AD Free e Office 365 | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
-| SSO                          | [Azure ad join](../devices/concept-azure-ad-join.md) o [Azure ad ibrido join](../devices/concept-azure-ad-join-hybrid.md)o l'accesso [SSO](../hybrid/how-to-connect-sso.md) facile per i dispositivi non gestiti. | Aggiunta ad Azure AD<br />Aggiunta ad Azure AD ibrido |
-| Impostazioni di riautenticazione    | Resta connesso                  | Usare i criteri di accesso condizionale per la frequenza di accesso e la sessione del browser persistente |
+| **SSO**                      | [Azure ad join](../devices/concept-azure-ad-join.md) o [Azure ad ibrido join](../devices/concept-azure-ad-join-hybrid.md)o l'accesso [SSO](../hybrid/how-to-connect-sso.md) facile per i dispositivi non gestiti. | Aggiunta ad Azure AD<br />Aggiunta ad Azure AD ibrido |
+| **Impostazioni di riautenticazione** | Resta connesso                  | Usare i criteri di accesso condizionale per la frequenza di accesso e la sessione del browser persistente |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

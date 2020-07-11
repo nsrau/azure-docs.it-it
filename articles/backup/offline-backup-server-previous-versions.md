@@ -3,12 +3,12 @@ title: Backup offline per Data Protection Manager (DPM) e server di Backup di Mi
 description: Con backup di Azure è possibile inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per DPM e server di Backup di Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f39e93973deab09eb328eeafcff4e49b326483f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128051210984a55620be60a5965a7067e74de7c7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374832"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186946"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure (versioni precedenti)
 
@@ -44,6 +44,9 @@ Il backup offline è supportato per tutti i modelli di distribuzione di backup d
 > * Backup di file e cartelle con l'agente MARS o Azure Backup Agent.
 > * Backup di tutti i carichi di lavoro e i file con DPM.
 > * Backup di tutti i carichi di lavoro e i file con MAB.
+
+>[!NOTE]
+>Le sottoscrizioni di Azure CSP non sono supportate per l'uso con il seeding offline per DPM 2019 RTM e versioni precedenti e per MAB V3 RTM e versioni precedenti. I backup online sulla rete sono ancora supportati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

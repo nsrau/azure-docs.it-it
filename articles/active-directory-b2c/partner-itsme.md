@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d8229864acc80a27994ae3c795213dc2a65d22db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385570"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170123"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configurare itsme OpenID Connect (OIDC) con Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Per iniziare, è necessario:
 Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
 -->
 
-|   |   |
+| Passaggio | Descrizione |
 |------|------|
 |1     | Nel sito Web o nell'applicazione includere il pulsante **Accedi con itsme** adattando il flusso di Azure ad B2C utente. Il flusso di interazione viene avviato quando l'utente fa clic su questo pulsante.  |
 |2     | Azure AD B2C avvia il flusso di OpenID Connect inviando una richiesta di autorizzazione all'API Secret client itsme. È disponibile un endpoint di configurazione well-known/OpenID che contiene informazioni sugli endpoint.  |
@@ -80,13 +80,13 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 4. Compilare il modulo con le informazioni seguenti:
 
-   |Proprietà | valore |
+   |Proprietà | Valore |
    |------------ |------- |
    | Nome | itsme |
    | URL dei metadati | `https://oidc.<environment>.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration` <br>dove `<environment>` è `e2e` (ambiente di test) o `prd` (produzione)  |
    | ClientID     | **ID client**, noto anche come **codice partner**  |
    | Client Secret | Il **client_secret** |
-   | Scope  | servizio OpenID: indirizzo di posta elettronica del profilo YOURSERVICECODE [Phone] [indirizzo]  |
+   | Ambito  | servizio OpenID: indirizzo di posta elettronica del profilo YOURSERVICECODE [Phone] [indirizzo]  |
    |Tipo di risposta | codice |
    |Modalità di risposta | query |
    |Hint di dominio | *È possibile lasciare vuoto questo* |
@@ -94,7 +94,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |Nome visualizzato | name |
    |Nome specificato | given_name |
    |Surname | family_name |
-   |Posta elettronica | email|
+   |E-mail | email|
 
 5. Selezionare **Salva**.
 

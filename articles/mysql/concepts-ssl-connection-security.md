@@ -5,16 +5,20 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 2421f8a9396b47d04db35a7cad843f6baa6f6177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 0956a38349ef7bc7571dfac2f3722dd9fea425a3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416104"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201650"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Connettività SSL/TLS nel database di Azure per MySQL
 
 Il Database di Azure per MySQL supporta la connessione del server di database alle applicazioni client mediante Secure Sockets Layer (SSL). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
+
+> [!NOTE]
+> L'aggiornamento del `require_secure_transport` valore del parametro Server non influisce sul comportamento del servizio MySQL. Usare le funzionalità di imposizione SSL e TLS descritte in questo articolo per proteggere le connessioni al.
 
 ## <a name="ssl-default-settings"></a>Impostazioni predefinite SSL
 
@@ -23,6 +27,10 @@ Per impostazione predefinita, il servizio di database deve essere configurato pe
 Per impostazione predefinita, l'opzione di applicazione delle connessioni SSL è attiva quando si esegue il provisioning di un nuovo Database di Azure per il server MySQL attraverso l'interfaccia della riga di comando e il portale di Azure. 
 
 Nel portale di Azure vengono visualizzate le stringhe di connessione per diversi linguaggi di programmazione. Tali stringhe di connessione includono i parametri SSL necessari per la connessione al database. Nel portale di Azure selezionare il server. Sotto l'intestazione **Impostazioni**, selezionare **Stringhe di connessione**. Il parametro SSL varia in base al connettore, ad esempio "ssl=true", "sslmode=require" oppure "sslmode=required" e altre varianti.
+
+In alcuni casi, le applicazioni richiedono un file di certificato locale generato da un file di certificato dell'autorità di certificazione (CA) attendibile per la connessione sicura. Il certificato per la connessione a un database di Azure per il server MySQL si trova in https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . 
+
+Vedere i collegamenti seguenti per i certificati per i server in cloud sovrani: [Azure per enti pubblici](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure Cina](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)e [Azure Germania](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 Per informazioni su come abilitare o disabilitare la connessione SSL durante lo sviluppo dell'applicazione, consultare [Come configurare SSL](howto-configure-ssl.md).
 
@@ -45,9 +53,9 @@ Database di Azure per MySQL offre la possibilità di applicare la versione TLS p
 Se ad esempio si imposta il valore della versione minima dell'impostazione TLS su TLS 1,0, il server consentirà le connessioni dai client usando TLS 1,0, 1,1 e 1.2 +. In alternativa, l'impostazione di questa opzione su 1,2 significa che è possibile consentire solo le connessioni dai client che usano TLS 1.2 + e tutte le connessioni con TLS 1,0 e TLS 1,1 verranno rifiutate.
 
 > [!Note] 
-> Il valore predefinito di TLS per database di Azure per MySQL è disabilitato per tutti i nuovi server.
+> Per impostazione predefinita, database di Azure per MySQL non impone una versione minima di TLS (impostazione `TLSEnforcementDisabled` ).
 >
-> Attualmente le versioni di TLS supportate da database di Azure per MySQL sono TLS 1,0, 1,1 e 1,2. Una volta applicata una versione minima specifica di TLS, non è possibile modificarla in disabilitata.
+> Quando si applica una versione minima di TLS, non sarà più possibile disabilitare l'imposizione minima della versione.
 
 Per informazioni su come impostare l'impostazione TLS per il database di Azure per MySQL, vedere [How to configure TLS setting](howto-tls-configurations.md).
 

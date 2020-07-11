@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5de4b6f16f52d7cab7088ab39aa70267110eed88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0665a6aa55b998d54d076013a25e2efadaa2b06
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84606888"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187184"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Risolvere i problemi relativi ai runbook
 
@@ -203,7 +204,7 @@ Questo errore si verifica nei casi seguenti:
 Per accertarsi di essere autenticati ad Azure e poter accedere alla sottoscrizione che si sta provando a selezionare, seguire questa procedura:
 
 1. Per verificare che lo script funzioni autonomamente, testare lo script all'esterno di Automazione di Azure.
-1. Verificare che lo script esegua il cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) prima di eseguire il cmdlet `Select-*`.
+1. Verificare che lo script esegua il cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) prima di eseguire il cmdlet `Select-*`.
 1. Aggiungere `Disable-AzContextAutosave –Scope Process` all'inizio del runbook. Questo cmdlet garantisce che eventuali credenziali vengano applicate solo all'esecuzione del runbook corrente.
 1. Se il messaggio di errore è ancora visibile, modificare il codice aggiungendo il parametro `AzContext` per `Connect-AzAccount` e quindi eseguire il codice.
 
@@ -400,7 +401,7 @@ Se il flusso contiene oggetti, `Start-AzAutomationRunbook` non gestisce corretta
 
 ### <a name="resolution"></a>Risoluzione
 
-Implementare una logica di polling e usare il cmdlet [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) per recuperare l'output. Di seguito è riportato un esempio di questa logica:
+Implementare una logica di polling e usare il cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) per recuperare l'output. Di seguito è riportato un esempio di questa logica:
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -485,7 +486,7 @@ Questo errore può verificarsi durante il recupero dell'output del processo da u
 Per correggere l'errore, eseguire una di queste operazioni:
 
 * Modificare il runbook riducendo il numero di flussi del processo generati dal runbook stesso.
-* Ridurre il numero di flussi da recuperare all'esecuzione del cmdlet. A tale scopo, è possibile impostare il valore del parametro `Stream` per il cmdlet [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) in modo che vengano recuperati solo flussi di output. 
+* Ridurre il numero di flussi da recuperare all'esecuzione del cmdlet. A tale scopo, è possibile impostare il valore del parametro `Stream` per il cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) in modo che vengano recuperati solo flussi di output. 
 
 ## <a name="scenario-runbook-job-fails-because-allocated-quota-was-exceeded"></a><a name="quota-exceeded"></a>Scenario: processo runbook non riuscito per superamento della quota allocata
 
@@ -558,7 +559,7 @@ Questo errore può indicare che i runbook in esecuzione in una sandbox di Azure 
 
 È possibile risolvere questo problema in due modi:
 
-* Anziché [Start-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), usare [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) per avviare il runbook.
+* Anziché [Start-Job](/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), usare [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) per avviare il runbook.
 * Provare a eseguire il runbook in un ruolo di lavoro ibrido per runbook.
 
 Per altre informazioni su questo e altri comportamenti dei runbook di Automazione di Azure, vedere [Esecuzione di runbook in Automazione di Azure](../automation-runbook-execution.md).
@@ -587,8 +588,8 @@ Un'altra soluzione consiste nell'ottimizzare il runbook creando [runbook figlio]
 
 I cmdlet di PowerShell che consentono lo scenario del runbook figlio sono:
 
-* [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0), questo cmdlet consente di avviare un runbook e trasmettergli i parametri.
-* [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0), questo cmdlet consente di controllare lo stato del processo per ogni runbook figlio e si rivela utile qualora siano presenti operazioni che devono essere eseguite dopo il completamento di un runbook figlio.
+* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0), questo cmdlet consente di avviare un runbook e trasmettergli i parametri.
+* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0), questo cmdlet consente di controllare lo stato del processo per ogni runbook figlio e si rivela utile qualora siano presenti operazioni che devono essere eseguite dopo il completamento di un runbook figlio.
 
 ## <a name="scenario-error-in-job-streams-about-the-get_serializationsettings-method"></a><a name="get-serializationsettings"></a>Scenario: errore nei flussi del processo per il metodo get_SerializationSettings
 
@@ -651,7 +652,7 @@ Possibili cause di questo problema sono:
 
 #### <a name="not-using-a-run-as-account"></a>Mancato uso di un account RunAs
 
-Eseguire il passaggio 5 [Aggiungere l'autenticazione per gestire le risorse di Azure](../automation-first-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources) per assicurarsi di usare un account RunAs per accedere a Key Vault.
+Eseguire il passaggio 5 [Aggiungere l'autenticazione per gestire le risorse di Azure](../learn/automation-tutorial-runbook-textual-powershell.md#step-5---add-authentication-to-manage-azure-resources) per assicurarsi di usare un account RunAs per accedere a Key Vault.
 
 #### <a name="insufficient-permissions"></a>Autorizzazioni insufficienti
 
@@ -660,7 +661,7 @@ Eseguire il passaggio 5 [Aggiungere l'autenticazione per gestire le risorse di A
 ## <a name="recommended-documents"></a>Documenti consigliati
 
 * [Esecuzione di runbook in Automazione di Azure](../automation-runbook-execution.md)
-* [Avvio di un Runbook in Automazione di Azure](../automation-starting-a-runbook.md)
+* [Avvio di un Runbook in Automazione di Azure](../start-runbooks.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

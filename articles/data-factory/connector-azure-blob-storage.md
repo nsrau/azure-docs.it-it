@@ -9,12 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 2edf2b61f46e3638af3c2291932a6ab1c1cf23e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 8862de0ba36d0731fff0e47ab51f828ff69af201
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100901"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220423"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory
 
@@ -511,10 +512,12 @@ Quando si copiano i file da Amazon S3, archiviazione BLOB di Azure o Azure Data 
 ## <a name="mapping-data-flow-properties"></a>Proprietà del flusso di dati per mapping
 
 Quando si trasformano i dati nei flussi di dati di mapping, è possibile leggere e scrivere file dall'archiviazione BLOB di Azure nei formati seguenti:
-* [JSON](format-json.md#mapping-data-flow-properties)
 * [Avro](format-avro.md#mapping-data-flow-properties)
 * [Testo delimitato](format-delimited-text.md#mapping-data-flow-properties)
-* [Parquet](format-parquet.md#mapping-data-flow-properties).
+* [Delta](format-delta.md#mapping-data-flow-properties)
+* [Excel](format-excel.md#mapping-data-flow-properties)
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 Le impostazioni specifiche del formato si trovano nella documentazione relativa a tale formato. Per ulteriori informazioni, vedere [trasformazione origine nel flusso di dati di mapping](data-flow-source.md) e [trasformazione sink nel flusso di dati del mapping](data-flow-sink.md).
 

@@ -6,15 +6,19 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74129420"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184974"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Come configurare la replica geografica per cache di Azure per Redis
 
-La replica geografica fornisce un meccanismo per il collegamento di due istanze Cache Redis di Azure di livello Premium. Una cache viene scelta come cache collegata primaria e l'altra come cache collegata secondaria. La cache secondaria collegata diventa di sola lettura e i dati scritti nella cache primaria vengono replicati nella cache collegata secondaria. Questa funzionalità può essere usata per replicare una cache nelle aree di Azure. Questo articolo fornisce una guida alla configurazione della replica geografica per la cache di Azure di livello Premium per le istanze di Redis.
+La replica geografica fornisce un meccanismo per il collegamento di due istanze Cache Redis di Azure di livello Premium. Una cache viene scelta come cache collegata primaria e l'altra come cache collegata secondaria. La cache secondaria collegata diventa di sola lettura e i dati scritti nella cache primaria vengono replicati nella cache collegata secondaria. Il trasferimento dei dati tra le istanze della cache primaria e secondaria è protetto da TLS. La replica geografica può essere usata per configurare una cache che si estende su due aree di Azure. Questo articolo fornisce una guida alla configurazione della replica geografica per la cache di Azure di livello Premium per le istanze di Redis.
+
+> [!NOTE]
+> La replica geografica è progettata come soluzione di ripristino di emergenza. Per impostazione predefinita, l'applicazione viene scritta e letta dall'area primaria. Facoltativamente, può essere configurato per la lettura dall'area secondaria. La replica geografica non fornisce il failover automatico a causa di problemi rispetto alla latenza di rete aggiuntiva tra le aree se il resto dell'applicazione rimane nell'area primaria. È necessario gestire e avviare il failover scollegando la cache secondaria. In questo modo verrà innalzato di livello la nuova istanza primaria.
 
 ## <a name="geo-replication-prerequisites"></a>Prerequisiti per la replica geografica
 

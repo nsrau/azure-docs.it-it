@@ -1,5 +1,5 @@
 ---
-title: Spiegabilità in Machine Learning automatico
+title: Spiegabilità in Machine Learning Machine Learning (anteprima)
 titleSuffix: Azure Machine Learning
 description: Informazioni su come ottenere spiegazioni sul modo in cui il modello di Machine Learning automatico determina l'importanza della funzionalità ed esegue stime quando si usa il Azure Machine Learning SDK.
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 03/11/2020
-ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: af3fe7bffbf985936a1648088daaf1a294a69905
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430522"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206592"
 ---
-# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretazione: spiegazione del modello in Machine Learning automatizzato
+# <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretazione: spiegazione del modello in Machine Learning automatizzato (anteprima)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 959adec9f74a8cda7fde941ccea7db75e981a650
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692802"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201544"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintassi di $filter OData in Azure ricerca cognitiva
 
@@ -83,20 +84,28 @@ Se si scrive un'espressione di filtro senza parentesi intorno alle relative espr
 
 Un operatore più elevato nella tabella precedente verrà "associato in modo più rigoroso" ai propri operandi rispetto ad altri operatori. Ad esempio, `and` è di precedenza superiore a `or` e gli operatori di confronto sono con precedenza maggiore di uno di essi, quindi le due espressioni seguenti sono equivalenti:
 
+```odata-filter-expr
     Rating gt 0 and Rating lt 3 or Rating gt 7 and Rating lt 10
     ((Rating gt 0) and (Rating lt 3)) or ((Rating gt 7) and (Rating lt 10))
+```
 
 L' `not` operatore ha la precedenza più alta di tutti--anche maggiore degli operatori di confronto. Per questo motivo, se si tenta di scrivere un filtro simile al seguente:
 
+```odata-filter-expr
     not Rating gt 5
+```
 
 Verrà ricevuto questo messaggio di errore:
 
+```text
     Invalid expression: A unary operator with an incompatible type was detected. Found operand type 'Edm.Int32' for operator kind 'Not'.
+```
 
 Questo errore si verifica perché l'operatore è associato solo al `Rating` campo, che è di tipo `Edm.Int32` e non all'intera espressione di confronto. La correzione consiste nell'inserire l'operando di `not` tra parentesi:
 
+```odata-filter-expr
     not (Rating gt 5)
+```
 
 <a name="bkmk_limits"></a>
 
@@ -107,91 +116,133 @@ Sono previsti limiti per le dimensioni e la complessità delle espressioni di fi
 > [!TIP]
 > L'utilizzo della [ `search.in` funzione](search-query-odata-search-in-function.md) anziché di disgiunzioni lunghe di confronti di uguaglianza consente di evitare il limite della clausola di filtro, perché una chiamata di funzione viene conteggiata come una singola clausola.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Trovare tutti gli alberghi con almeno una stanza con una tariffa di base inferiore a $200 che sono classificate a o superiori a 4:
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/BaseRate lt 200.0) and Rating ge 4
+```
 
 Trovare tutti gli alberghi diversi da "Motel di Sea View" rinnovati da 2010:
 
+```odata-filter-expr
     $filter=HotelName ne 'Sea View Motel' and LastRenovationDate ge 2010-01-01T00:00:00Z
+```
 
 Trovare tutti gli hotel rinnovati in 2010 o versioni successive. Il valore letterale datetime include le informazioni sul fuso orario per l'ora solare Pacifico:  
 
+```odata-filter-expr
     $filter=LastRenovationDate ge 2010-01-01T00:00:00-08:00
+```
 
 Trovare tutti gli alberghi con il parcheggio incluso e la posizione in cui tutte le stanze non sono in fumo:
 
+```odata-filter-expr
     $filter=ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
+```
 
  \- OPPURE -  
 
+```odata-filter-expr
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
+```
 
 Trovare tutti gli alberghi di lusso o con parcheggio incluso e di categoria 5 o superiore:  
 
+```odata-filter-expr
     $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
+```
 
 Trovare tutti gli alberghi con il tag "WiFi" in almeno una stanza (dove ogni stanza contiene tag archiviati in un `Collection(Edm.String)` campo):  
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: tag eq 'wifi'))
+```
 
 Trova tutti gli hotel con qualsiasi chat room:  
 
+```odata-filter-expr
     $filter=Rooms/any()
+```
 
 Trovare tutti gli alberghi senza chat room:
 
+```odata-filter-expr
     $filter=not Rooms/any()
+```
 
 Trovare tutti gli alberghi entro 10 chilometri da un punto di riferimento specificato (dove `Location` è un campo di tipo `Edm.GeographyPoint` ):
 
+```odata-filter-expr
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
 Trova tutti gli alberghi all'interno di un viewport specificato, descritto come poligono (dove `Location` è un campo di tipo EDM. GeographyPoint). Il poligono deve essere chiuso, vale a dire che il primo e l'ultimo set di punti devono essere uguali. Inoltre, [i punti devono essere elencati in ordine antiorario](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
+```odata-filter-expr
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
 Trova tutti gli hotel in cui il campo "Description" è null. Il campo sarà null se non è mai stato impostato o se è stato impostato in modo esplicito su null:  
 
+```odata-filter-expr
     $filter=Description eq null
+```
 
 Trovare tutti gli alberghi con nome uguale a' Sea View Motel ' o ' Budget Hotel '). Queste frasi contengono spazi e lo spazio è un delimitatore predefinito. È possibile specificare un delimitatore alternativo tra virgolette singole come terzo parametro di stringa:  
 
+```odata-filter-expr
     $filter=search.in(HotelName, 'Sea View motel,Budget hotel', ',')
+```
 
 Trovare tutti gli alberghi con nome uguale a' Sea View Motel ' o ' Budget Hotel ' separati da' |'):  
 
+```odata-filter-expr
     $filter=search.in(HotelName, 'Sea View motel|Budget hotel', '|')
+```
 
 Trovare tutti gli hotel in cui tutte le stanze hanno il tag ' WiFi ' o ' tub ':
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub'))
+```
 
 Trovare una corrispondenza sulle frasi all'interno di una raccolta, ad esempio "rack di asciugamani riscaldati" o "asciugacapelli incluso" nei tag.
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
+```
 
 Trovare documenti con la parola "waterfront". Questa query di filtro è identica a una [richiesta di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) con `search=waterfront`.
 
+```odata-filter-expr
     $filter=search.ismatchscoring('waterfront')
+```
 
 Trovare i documenti con la parola "hostel" e classificazione 4 o superiore oppure i documenti con la parola "motel" e classificazione 5. Questa richiesta non può essere espressa senza la `search.ismatchscoring` funzione poiché combina la ricerca full-text con le operazioni di filtro usando `or` .
 
+```odata-filter-expr
     $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
+```
 
 Trovare i documenti senza la parola "luxury".
 
+```odata-filter-expr
     $filter=not search.ismatch('luxury')
+```
 
 Trovare i documenti con la frase "ocean view" o classificazione 5. La query `search.ismatchscoring` verrà eseguita solo sui campi `HotelName` e `Description`. Verranno restituiti anche i documenti corrispondenti solo alla seconda clausola della disgiunzione, ovvero Hotel con `Rating` uguale a 5. Tali documenti verranno restituiti con punteggio uguale a zero per chiarire che non corrispondono a nessuna delle parti con punteggio dell'espressione.
 
+```odata-filter-expr
     $filter=search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
+```
 
 Trovare gli hotel in cui i termini "Hotel" e "Airport" non sono più di cinque parole nella descrizione e dove tutte le stanze non sono fumanti. Questa query usa il [linguaggio di query Lucene completo](query-lucene-syntax.md).
 
+```odata-filter-expr
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
+```
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

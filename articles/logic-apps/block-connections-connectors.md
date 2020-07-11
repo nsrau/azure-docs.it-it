@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 938f10b621d6081af84cf15d7e04c5f5ab517417
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6563f3e263867387332940db58abff62e085cded
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84977551"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187694"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blocca le connessioni create dai connettori nelle app per la logica di Azure
 
@@ -129,7 +129,7 @@ Per bloccare la creazione di una connessione in un'app per la logica, seguire qu
    | **Nome** | Sì | <*Policy-Definition-nome*> | Nome da usare per la definizione dei criteri |
    | **Descrizione** | No | <*Policy-Definition-nome*> | Una descrizione per la definizione dei criteri |
    | **Categoria** | Sì | **App per la logica** | Nome di una categoria esistente o di una nuova categoria per la definizione dei criteri |
-   | **Imposizione dei criteri** | Sì | **Enabled** | Questa impostazione specifica se abilitare o disabilitare la definizione dei criteri quando si salva il lavoro. |
+   | **Imposizione dei criteri** | Sì | **Abilitato** | Questa impostazione specifica se abilitare o disabilitare la definizione dei criteri quando si salva il lavoro. |
    ||||
 
 1. In **regola dei criteri**, la casella di modifica JSON è già popolata con un modello di definizione dei criteri. Sostituire questo modello con la [definizione dei criteri](../governance/policy/concepts/definition-structure.md) in base alle proprietà descritte nella tabella seguente e seguendo questa sintassi:
@@ -250,7 +250,7 @@ Quando si crea una connessione all'interno di un'app per la logica, tale conness
    | **Nome** | Sì | <*Policy-Definition-nome*> | Nome da usare per la definizione dei criteri |
    | **Descrizione** | No | <*Policy-Definition-nome*> | Una descrizione per la definizione dei criteri |
    | **Categoria** | Sì | **App per la logica** | Nome di una categoria esistente o di una nuova categoria per la definizione dei criteri |
-   | **Imposizione dei criteri** | Sì | **Enabled** | Questa impostazione specifica se abilitare o disabilitare la definizione dei criteri quando si salva il lavoro. |
+   | **Imposizione dei criteri** | Sì | **Abilitato** | Questa impostazione specifica se abilitare o disabilitare la definizione dei criteri quando si salva il lavoro. |
    ||||
 
 1. In **regola dei criteri**, la casella di modifica JSON è già popolata con un modello di definizione dei criteri. Sostituire questo modello con la [definizione dei criteri](../governance/policy/concepts/definition-structure.md) in base alle proprietà descritte nella tabella seguente e seguendo questa sintassi:
@@ -329,9 +329,9 @@ Successivamente, è necessario assegnare la definizione dei criteri in cui si vu
 
 1. In **nozioni di base**fornire queste informazioni per l'assegnazione dei criteri:
 
-   | Proprietà | Obbligatoria | Descrizione |
+   | Proprietà | Obbligatorio | Descrizione |
    |----------|----------|-------------|
-   | **Ambito** | Sì | Risorse in cui si desidera applicare l'assegnazione dei criteri. <p><p>1. accanto alla casella **ambito** , selezionare il pulsante con i puntini di sospensione (**...**). <br>2. dall'elenco **sottoscrizione** selezionare la sottoscrizione di Azure. <br>3. Facoltativamente, nell'elenco **gruppo di risorse** selezionare il gruppo di risorse. <br>4. al termine, selezionare **Seleziona**. |
+   | **Scope** | Sì | Risorse in cui si desidera applicare l'assegnazione dei criteri. <p><p>1. accanto alla casella **ambito** , selezionare il pulsante con i puntini di sospensione (**...**). <br>2. dall'elenco **sottoscrizione** selezionare la sottoscrizione di Azure. <br>3. Facoltativamente, nell'elenco **gruppo di risorse** selezionare il gruppo di risorse. <br>4. al termine, selezionare **Seleziona**. |
    | **Esclusioni** | No | Tutte le risorse di Azure da escludere dall'assegnazione dei criteri. <p><p>1. accanto alla casella **esclusioni** , selezionare il pulsante con i puntini di sospensione (**...**). <br>2. dall'elenco di **risorse** selezionare la risorsa > **Aggiungi a ambito selezionato**. <br>3. al termine, selezionare **Salva**. |
    | **Definizione di criteri** | Sì | Nome della definizione dei criteri che si desidera assegnare e applicare. Questo esempio continua con il criterio Instagram di esempio "blocca le connessioni Instagram". <p><p>1. accanto alla casella **definizione criteri** selezionare il pulsante con i puntini di sospensione (**...**). <br>2. trovare e selezionare la definizione dei criteri usando il filtro dei **tipi** o la casella di **ricerca** . <br>3. al termine, selezionare **Seleziona**. |
    | **Nome assegnazione** | Sì | Nome da utilizzare per l'assegnazione dei criteri, se diverso dalla definizione dei criteri |
@@ -355,7 +355,7 @@ Per altre informazioni, vedere [Guida introduttiva: creare un'assegnazione di cr
 
 <a name="test-policy"></a>
 
-## <a name="test-the-policy"></a>Testare i criteri
+## <a name="test-the-policy"></a>Testare il criterio
 
 Per provare il criterio, avviare la creazione di una connessione usando il connettore con restrizioni Now nella finestra di progettazione dell'app per la logica. Continuando con l'esempio di Instagram, quando si accede a Instagram si ottiene questo errore che l'app per la logica non è riuscita a creare la connessione:
 
@@ -363,7 +363,7 @@ Per provare il criterio, avviare la creazione di una connessione usando il conne
 
 Il messaggio include le informazioni seguenti:
 
-| | |
+| Descrizione | Contenuto |
 |---|---|
 | Motivo dell'errore | `"Resource 'instagram' was disallowed by policy."` |
 | Nome assegnazione | `"Block Instagram connections"` |

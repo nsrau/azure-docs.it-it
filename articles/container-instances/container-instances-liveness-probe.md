@@ -2,12 +2,13 @@
 title: Configurare il probe di liveity nell'istanza del contenitore
 description: Informazioni su come configurare probe di attività per riavviare i contenitori non integri in Istanze di Azure Container
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: befe9693be1413abf455d915814c53aab20db53c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934171"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169698"
 ---
 # <a name="configure-liveness-probes"></a>Configurare probe di attività
 
@@ -25,7 +26,7 @@ Istanze di contenitore di Azure supporta anche [Probe di conformità](container-
 Creare un file `liveness-probe.yaml` con il frammento seguente. Questo file definisce un gruppo di contenitori costituito da un contenitore NGNIX che diventa non integro.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: livenesstest
 properties:

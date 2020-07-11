@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 741569740713fef72f714f7cbce38a3c6f075684
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f175e495af8e925c0d5a6c61669a5e2f44f73ae7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836686"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186002"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Informazioni sul flusso di lavoro di PowerShell per Automazione di Azure
 
@@ -20,7 +21,7 @@ Pur essendo scritto con la sintassi di Windows PowerShell e avviato da Windows P
 > [!NOTE]
 > Uno script di flusso di lavoro di PowerShell è molto simile a uno script Windows PowerShell, ma presenta alcune differenze significative che possono generare confusione in un nuovo utente. È pertanto consigliabile scrivere i runbook usando il flusso di lavoro di PowerShell solo se è necessario usare [checkpoint](#use-checkpoints-in-a-workflow). 
 
-Per informazioni dettagliate sugli argomenti inclusi in questo articolo, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](https://technet.microsoft.com/library/jj134242.aspx).
+Per informazioni dettagliate sugli argomenti inclusi in questo articolo, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134242(v=ws.11)).
 
 ## <a name="use-workflow-keyword"></a>Usare la parola chiave Workflow
 
@@ -45,9 +46,9 @@ Il codice del flusso di lavoro di PowerShell è quasi identico al relativo codic
 
 Un'attività è un'attività specifica in un flusso di lavoro eseguita in una sequenza. Il flusso di lavoro di Windows PowerShell converte automaticamente molti dei cmdlet di Windows PowerShell in attività quando esegue un flusso di lavoro. Quando si specifica uno di questi cmdlet in un runbook, l'attività corrispondente viene eseguita da Windows Workflow Foundation. 
 
-Se un cmdlet non presenta un'attività corrispondente, il flusso di lavoro di Windows PowerShell lo esegue automaticamente in un'attività [InlineScript](#use-inlinescript). Alcuni cmdlet sono esclusi e non possono essere usati in un flusso di lavoro, a meno che non vengano inclusi in modo esplicito in un blocco InlineScript. Per altre informazioni, vedere [Uso delle attività nei flussi di lavoro di script](https://technet.microsoft.com/library/jj574194.aspx).
+Se un cmdlet non presenta un'attività corrispondente, il flusso di lavoro di Windows PowerShell lo esegue automaticamente in un'attività [InlineScript](#use-inlinescript). Alcuni cmdlet sono esclusi e non possono essere usati in un flusso di lavoro, a meno che non vengano inclusi in modo esplicito in un blocco InlineScript. Per altre informazioni, vedere [Uso delle attività nei flussi di lavoro di script](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574194(v=ws.11)).
 
-Le attività dei flussi di lavoro condividono un set di parametri comuni per configurare il proprio funzionamento. Vedere [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
+Le attività dei flussi di lavoro condividono un set di parametri comuni per configurare il proprio funzionamento. Vedere [about_WorkflowCommonParameters](/powershell/module/psworkflow/about/about_workflowcommonparameters).
 
 ### <a name="positional-parameters"></a>Parametri posizionali
 
@@ -150,7 +151,7 @@ Sebbene le attività InlineScript possano essere critiche in determinati flussi 
 * Non è possibile usare l'[esecuzione parallela](#use-parallel-processing) all'interno di un blocco InlineScriptBlock.
 * L'attività InlineScript influisce sulla scalabilità del Runbook perché vincola la sessione di Windows PowerShell per l'intera lunghezza del blocco InlineScript.
 
-Per altre informazioni sull'uso di InlineScript, vedere [Esecuzione dei comandi di Windows PowerShell in un flusso di lavoro](https://technet.microsoft.com/library/jj574197.aspx) e [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
+Per altre informazioni sull'uso di InlineScript, vedere [Esecuzione dei comandi di Windows PowerShell in un flusso di lavoro](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574197(v=ws.11)) e [about_InlineScript](/powershell/module/psworkflow/about/about_inlinescript).
 
 ## <a name="use-parallel-processing"></a>Usare l'elaborazione parallela
 
@@ -260,7 +261,7 @@ Workflow Copy-Files
 }
 ```
 
-Poiché le credenziali nome utente non vengono rese permanenti dopo la chiamata dell'attività [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) o dopo l'ultimo checkpoint, è necessario impostare le credenziali su Null e quindi recuperarle di nuovo dall'archivio di asset dopo la chiamata di `Suspend-Workflow` o del checkpoint.  In caso contrario, è possibile che venga visualizzato il messaggio di errore seguente: `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
+Poiché le credenziali nome utente non vengono rese permanenti dopo la chiamata dell'attività [Suspend-Workflow](/powershell/module/psworkflow/about/about_suspend-workflow) o dopo l'ultimo checkpoint, è necessario impostare le credenziali su Null e quindi recuperarle di nuovo dall'archivio di asset dopo la chiamata di `Suspend-Workflow` o del checkpoint.  In caso contrario, è possibile che venga visualizzato il messaggio di errore seguente: `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 Il codice seguente mostra come gestire questa situazione nei runbook del flusso di lavoro di PowerShell.
 
@@ -289,9 +290,9 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> Per runbook PowerShell non grafici, `Add-AzAccount` e `Add-AzureRMAccount` sono alias per [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). È possibile usare questi cmdlet oppure è possibile [aggiornare i moduli](automation-update-azure-modules.md) nell'account di Automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli, anche se è stato appena creato un nuovo account di Automazione. L'uso di questi cmdlet non è necessario se si esegue l'autenticazione usando un account RunAs configurato con un'entità servizio.
+> Per runbook PowerShell non grafici, `Add-AzAccount` e `Add-AzureRMAccount` sono alias per [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). È possibile usare questi cmdlet oppure è possibile [aggiornare i moduli](automation-update-azure-modules.md) nell'account di Automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli, anche se è stato appena creato un nuovo account di Automazione. L'uso di questi cmdlet non è necessario se si esegue l'autenticazione usando un account RunAs configurato con un'entità servizio.
 
-Per altre informazioni sui checkpoint, vedere l'articolo relativo all' [aggiunta di checkpoint a un flusso di lavoro di script](https://technet.microsoft.com/library/jj574114.aspx).
+Per altre informazioni sui checkpoint, vedere l'articolo relativo all' [aggiunta di checkpoint a un flusso di lavoro di script](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574114(v=ws.11)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: adsasine
-ms.openlocfilehash: 6ff33bd594181aabc4fd7d55ce33f780a0d06086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d14e030898db364d6621933d0032fa9ce0cab676
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74122198"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185025"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Failover e applicazione di patch per cache di Azure per Redis
 
@@ -22,32 +23,32 @@ Iniziamo con una panoramica del failover per cache di Azure per Redis.
 
 ### <a name="a-quick-summary-of-cache-architecture"></a>Riepilogo rapido dell'architettura della cache
 
-Una cache è costituita da più macchine virtuali con indirizzi IP privati separati. Ogni macchina virtuale, nota anche come nodo, è connessa a un servizio di bilanciamento del carico condiviso con un singolo indirizzo IP virtuale. Ogni nodo esegue il processo del server Redis ed è accessibile tramite il nome host e le porte Redis. Ogni nodo viene considerato un nodo master o replica. Quando un'applicazione client si connette a una cache, il traffico passa attraverso questo servizio di bilanciamento del carico e viene indirizzato automaticamente al nodo master.
+Una cache è costituita da più macchine virtuali con indirizzi IP privati separati. Ogni macchina virtuale, nota anche come nodo, è connessa a un servizio di bilanciamento del carico condiviso con un singolo indirizzo IP virtuale. Ogni nodo esegue il processo del server Redis ed è accessibile tramite il nome host e le porte Redis. Ogni nodo viene considerato un nodo primario o di replica. Quando un'applicazione client si connette a una cache, il traffico passa attraverso questo servizio di bilanciamento del carico e viene indirizzato automaticamente al nodo primario.
 
-In una cache di base, il singolo nodo è sempre un master. In una cache standard o Premium sono presenti due nodi: uno viene scelto come master e l'altro è la replica. Poiché le cache standard e Premium includono più nodi, è possibile che un nodo non sia disponibile mentre l'altro continua a elaborare le richieste. Le cache in cluster sono costituite da numerose partizioni, ognuna con nodi master e di replica distinti. Una partizione potrebbe essere inattiva mentre le altre restano disponibili.
+In una cache di base, il singolo nodo è sempre primario. In una cache standard o Premium sono presenti due nodi: uno viene scelto come primario e l'altro è la replica. Poiché le cache standard e Premium includono più nodi, è possibile che un nodo non sia disponibile mentre l'altro continua a elaborare le richieste. Le cache in cluster sono costituite da numerose partizioni, ognuna con nodi primari e di replica distinti. Una partizione potrebbe essere inattiva mentre le altre restano disponibili.
 
 > [!NOTE]
 > Una cache di base non ha più nodi e non offre un contratto di servizio (SLA) per la disponibilità. Le cache di base sono consigliate solo a scopo di sviluppo e test. Usare una cache standard o Premium per una distribuzione a più nodi, per aumentare la disponibilità.
 
 ### <a name="explanation-of-a-failover"></a>Spiegazione di un failover
 
-Si verifica un failover quando un nodo di replica promuove se stesso per diventare un nodo master e il nodo master precedente chiude le connessioni esistenti. Al termine del backup del nodo master, si nota la modifica dei ruoli e viene abbassata di valore per diventare una replica. Si connette quindi al nuovo master e sincronizza i dati. Un failover potrebbe essere pianificato o non pianificato.
+Si verifica un failover quando un nodo di replica promuove se stesso per diventare un nodo primario e il nodo primario precedente chiude le connessioni esistenti. Una volta che il nodo primario torna attivo, nota la modifica dei ruoli e ne abbassa il valore per diventare una replica. Si connette quindi al nuovo database primario e sincronizza i dati. Un failover potrebbe essere pianificato o non pianificato.
 
 Durante gli aggiornamenti del sistema si verifica un *failover pianificato* , ad esempio l'applicazione di patch di redis o gli aggiornamenti del sistema operativo, nonché le operazioni di gestione, ad esempio il ridimensionamento e il riavvio. Poiché i nodi ricevono una notifica di avanzamento dell'aggiornamento, possono scambiare ruoli in modo cooperativo e aggiornare rapidamente il servizio di bilanciamento del carico della modifica. Un failover pianificato viene in genere completato in meno di un secondo.
 
-È possibile che si verifichi un *failover non pianificato* a causa di errori hardware, errori di rete o altre interruzioni impreviste del nodo master. Il nodo di replica promuove se stesso al Master, ma il processo richiede più tempo. Un nodo di replica deve prima rilevare che il nodo master non è disponibile prima di poter avviare il processo di failover. Il nodo replica deve inoltre verificare che l'errore non pianificato non sia temporaneo o locale, per evitare un failover non necessario. Questo ritardo nel rilevamento indica che un failover non pianificato viene in genere completato entro 10-15 secondi.
+È possibile che si verifichi un *failover non pianificato* a causa di errori hardware, errori di rete o altre interruzioni impreviste del nodo primario. Il nodo di replica promuove se stesso a primario, ma il processo richiede più tempo. Un nodo di replica deve prima rilevare che il nodo primario non è disponibile prima di poter avviare il processo di failover. Il nodo replica deve inoltre verificare che l'errore non pianificato non sia temporaneo o locale, per evitare un failover non necessario. Questo ritardo nel rilevamento indica che un failover non pianificato viene in genere completato entro 10-15 secondi.
 
 ## <a name="how-does-patching-occur"></a>In che modo si verifica l'applicazione di patch?
 
 Il servizio cache di Azure per Redis aggiorna regolarmente la cache con le funzionalità e le correzioni più recenti della piattaforma. Per applicare una patch a una cache, il servizio segue i passaggi seguenti:
 
 1. Il servizio di gestione seleziona un nodo a cui applicare le patch.
-1. Se il nodo selezionato è un nodo master, il nodo di replica corrispondente promuove in modo cooperativo. Questa promozione è considerata un failover pianificato.
+1. Se il nodo selezionato è un nodo primario, il nodo di replica corrispondente promuove in modo cooperativo. Questa promozione è considerata un failover pianificato.
 1. Il nodo selezionato viene riavviato per eseguire le nuove modifiche e viene restituito come nodo di replica.
-1. Il nodo di replica si connette al nodo master e sincronizza i dati.
+1. Il nodo di replica si connette al nodo primario e sincronizza i dati.
 1. Al termine della sincronizzazione dei dati, il processo di applicazione delle patch si ripete per i nodi rimanenti.
 
-Poiché l'applicazione di patch è un failover pianificato, il nodo di replica promuove rapidamente se stesso per diventare un master e inizia a gestire le richieste e le nuove connessioni. Le cache di base non dispongono di un nodo di replica e non sono disponibili fino al completamento dell'aggiornamento. Ogni partizione di una cache in cluster viene applicata separatamente e non chiuderà le connessioni a un'altra partizione.
+Poiché l'applicazione di patch è un failover pianificato, il nodo di replica promuove rapidamente se stesso per diventare un primario e inizia a gestire le richieste e le nuove connessioni. Le cache di base non dispongono di un nodo di replica e non sono disponibili fino al completamento dell'aggiornamento. Ogni partizione di una cache in cluster viene applicata separatamente e non chiuderà le connessioni a un'altra partizione.
 
 > [!IMPORTANT]
 > I nodi vengono patchati uno alla volta per evitare la perdita di dati. Le cache di base avranno una perdita di dati. Le cache in cluster vengono applicate a patch una partizione alla volta.

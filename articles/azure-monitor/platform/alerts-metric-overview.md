@@ -1,14 +1,15 @@
 ---
 title: Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure.
 description: È disponibile una panoramica delle operazioni eseguibili con gli avvisi delle metriche e del relativo funzionamento in Monitoraggio di Azure.
-ms.date: 03/17/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248822"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187524"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -125,7 +126,7 @@ Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usat
 
 Questa funzionalità è attualmente supportata per le metriche della piattaforma (non per le metriche personalizzate) per i servizi seguenti nei cloud di Azure seguenti:
 
-| Servizio | Public Azure (Azure pubblico) | Government | Cina |
+| Servizio | Public Azure (Azure pubblico) | Enti governativi | Cina |
 |:--------|:--------|:--------|:--------|
 | Macchine virtuali  | **Sì** | No | No |
 | Database di SQL Server | **Sì** | **Sì** | No |
@@ -134,9 +135,13 @@ Questa funzionalità è attualmente supportata per le metriche della piattaforma
 
 È possibile specificare l'ambito di monitoraggio tramite una singola regola di avviso metrica in uno dei tre modi seguenti. Con le macchine virtuali, ad esempio, è possibile specificare l'ambito come:  
 
-- elenco di macchine virtuali in un'area di Azure all'interno di una sottoscrizione
+- elenco di macchine virtuali (in un'area di Azure) all'interno di una sottoscrizione
 - tutte le macchine virtuali (in un'area di Azure) in uno o più gruppi di risorse in una sottoscrizione
 - tutte le macchine virtuali (in un'area di Azure) in una sottoscrizione
+
+> [!NOTE]
+>
+> L'ambito di una regola di avviso per la metrica di più risorse deve contenere almeno una risorsa del tipo di risorsa selezionato.
 
 La creazione di regole di avviso per le metriche che monitorano più risorse equivale a [creare qualsiasi altro avviso per le metriche](alerts-metric.md) che monitora una sola risorsa. L'unica differenza è che occorre selezionare tutte le risorse da monitorare. È possibile creare queste regole anche tramite i [modelli di Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Si riceveranno notifiche singole per ogni risorsa monitorata.
 

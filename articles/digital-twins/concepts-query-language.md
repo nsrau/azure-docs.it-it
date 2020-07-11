@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3196004015046b4d3d2789745c80d323bacdced9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 6da539ccd8ad293aed402a4a6d130b6701e7b9c2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985242"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187116"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informazioni sul linguaggio di query per i dispositivi gemelli digitali di Azure
 
@@ -30,10 +30,10 @@ Di seguito sono riportate le operazioni disponibili in Azure Digital Gemells Que
 * Ottiene i gemelli in base alle proprietà della relazione.
 * Ottenere i gemelli su più tipi di relazione ( `JOIN` query). Esistono limitazioni sul numero di istanze `JOIN` consentite (un livello per l'anteprima pubblica).
 * Usare la funzione personalizzata `IS_OF_MODEL(twinCollection, twinTypeName)` , che consente di filtrare in base al [modello](concepts-models.md)del gemello. Supporta l'ereditarietà.
-* Usare qualsiasi combinazione ( `AND` , `OR` , `NOT` operatore) della versione precedente.
 * Usare funzioni scalari: `IS_BOOL` , `IS_DEFINED` , `IS_NULL` , `IS_NUMBER` , `IS_OBJECT` , `IS_PRIMITIVE` , `IS_STRING` , `STARTS_WITH` , `ENDS_WITH` .
-* Utilizzare gli operatori di confronto delle query: `AND` / `OR` / `NOT` , `IN` / `NOT IN` , `STARTSWITH` / `ENDSWITH` , `=` , `!=` , `<` , `>` , `<=` , `>=` .
-* Use continuation: viene creata un'istanza dell'oggetto query con una dimensione di pagina (fino a 100). È possibile recuperare i gemelli digitali una pagina alla volta, ripetendo le chiamate al `nextAsTwin` metodo.
+* Utilizzare gli operatori di confronto delle query: `IN` / `NIN` , `=` , `!=` , `<` , `>` , `<=` , `>=` .
+* Usare qualsiasi combinazione ( `AND` , `OR` , `NOT` operatore) della versione precedente.
+* Use continuation: viene creata un'istanza dell'oggetto query con una dimensione di pagina (fino a 100). È possibile recuperare i gemelli digitali una pagina alla volta specificando il token di continuazione nelle chiamate successive all'API.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7666ee1a81c2ed93ee5e246b3ec79f056f9d63ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078731"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187779"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Ottenere dati meteorologici da partner meteorologici
 
@@ -153,7 +153,7 @@ Per eseguire query sui dati meteorologici usando l'API REST di FarmBeats, seguir
 
 1. In FarmBeats Data Hub https://yourdatahub.azurewebsites.net/swagger) , passare all'API/WeatherDataLocation ed effettuare una richiesta GET. Per la risposta sono stati creati oggetti/WeatherDataLocation per il percorso (Latitudine/Longitudine) specificato come parte dell'esecuzione del processo. Prendere nota dell' **ID** e del **weatherDataModelId** degli oggetti.
 
-2. Eseguire un'operazione GET/{ID} sull'API/WeatherDataModel per **weatherDataModelId** come indicato nel passaggio 1. Il "modello di dati meteorologici" include tutti i metadati e i dettagli relativi ai dati meteorologici inseriti. Ad esempio, la **misura Meteo** nell'oggetto **modello di dati meteorologici** contiene informazioni dettagliate sulle informazioni meteorologiche supportate e sui tipi e le unità. Ad esempio,
+2. Eseguire un'operazione GET/{ID} sull'API/WeatherDataModel per **weatherDataModelId** come indicato nel passaggio 1. Il "modello di dati meteorologici" include tutti i metadati e i dettagli relativi ai dati meteorologici inseriti. Ad esempio, la **misura Meteo** nell'oggetto **modello di dati meteorologici** contiene informazioni dettagliate sulle informazioni meteorologiche supportate e sui tipi e le unità. ad esempio:
 
    ```json
    {
@@ -211,6 +211,11 @@ Per eseguire query sui dati meteorologici usando l'API REST di FarmBeats, seguir
 
 Nell'esempio precedente, la risposta contiene dati per due timestamp insieme al nome della misura ("temperature") e ai valori dei dati meteorologici segnalati nei due timestamp. È necessario fare riferimento al modello di dati meteorologico associato (come descritto nel passaggio 2 precedente) per interpretare il tipo e l'unità dei valori segnalati.
 
+## <a name="troubleshoot-job-failures"></a>Risolvere gli errori di processo
+
+Per risolvere gli errori di processo, è possibile controllare i log dei processi. Per lo stesso, seguire questa [procedura](troubleshoot-azure-farmbeats.md#weather-data-job-failures) .
+
+
 ## <a name="appendix"></a>Appendice
 
 |        Partner   |  Dettagli   |
@@ -224,7 +229,7 @@ Nell'esempio precedente, la risposta contiene dati per due timestamp insieme al 
 | DockerDetails - partnerCredentials | credenziali per la chiamata dell'API partner in docker. Il partner deve fornire tali informazioni ai clienti in base al meccanismo di autenticazione supportato, ad esempio. Nome utente/password o chiavi API. |
 | partnerType | "Weather" (altri tipi di partner in FarmBeats sono "Sensor" e "Imagery")  |
 |  name   |   Nome desiderato del partner nel sistema FarmBeats   |
-|  description |  Descrizione   |
+|  Descrizione |  Descrizione   |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

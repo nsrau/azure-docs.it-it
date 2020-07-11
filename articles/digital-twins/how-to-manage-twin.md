@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 707cfb2e9bea3286daa92ea54f7bb9659a455caf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e37c680f6bf9e296230232c0d4e0fab5f50ad3cd
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390517"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142368"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -122,6 +122,7 @@ Il risultato della chiamata `object result = await client.DigitalTwins.GetByIdAs
 ```json
 {
   "$dtId": "myMoon-001",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
@@ -146,14 +147,15 @@ Il risultato della chiamata `object result = await client.DigitalTwins.GetByIdAs
 
 Le proprietà definite del gemello digitale vengono restituite come proprietà di primo livello nel dispositivo gemello digitale. I metadati o le informazioni di sistema che non fanno parte della definizione DTDL vengono restituiti con un `$` prefisso. Le proprietà dei metadati includono:
 * ID del gemello digitale in questa istanza di Azure Digital gemelli, come `$dtId` .
-* Altre proprietà in una `$metadata` sezione. Ciò include:
+* `$etag`, un campo HTTP standard assegnato dal server Web
+* Altre proprietà in una `$metadata` sezione. Queste includono:
     - DTMI del modello del gemello digitale.
     - Stato di sincronizzazione per ogni proprietà scrivibile. Questa operazione è particolarmente utile per i dispositivi, in cui è possibile che il servizio e il dispositivo abbiano stati divergenti, ad esempio quando un dispositivo è offline. Attualmente questa proprietà si applica solo ai dispositivi fisici connessi all'hub Internet. Con i dati nella sezione dei metadati, è possibile comprendere lo stato completo di una proprietà, oltre ai timestamp dell'Ultima modifica. Per altre informazioni sullo stato di sincronizzazione, vedere [questa esercitazione sull'hub di questo](../iot-hub/tutorial-device-twins.md) strumento sulla sincronizzazione dello stato del dispositivo.
     - Metadati specifici del servizio, ad esempio dall'hub o dai dispositivi gemelli digitali di Azure. 
 
 È possibile analizzare il JSON restituito per il gemello usando una libreria di analisi JSON di propria scelta, ad esempio `System.Text.Json` .
 
-È anche possibile usare la classe helper di serializzazione `BasicDigitalTwin` inclusa nell'SDK, che restituirà i metadati e le proprietà del gemello di base in un modulo pre-analizzato. Esempio:
+È anche possibile usare la classe helper di serializzazione `BasicDigitalTwin` inclusa nell'SDK, che restituirà i metadati e le proprietà del gemello di base in un modulo pre-analizzato. Ecco un esempio:
 
 ```csharp
 Response<string> res = client.GetDigitalTwin(twin_id);

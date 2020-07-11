@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ec407b7f6baf56f0a2fe724089826d8f9303b85
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68854075"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186844"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
 
@@ -35,12 +35,10 @@ Per configurare un'interfaccia utente ospitata per le applicazioni Web, completa
   
 4. Selezionare un layout.
 
-    |  |  |
-    |---------|---------|
-    |Barra di ricerca e risultati (impostazione predefinita)    | Visualizza la casella di ricerca con i risultati della ricerca sotto essa.         |
-    |Solo risultati     | Visualizza solo i risultati della ricerca senza la casella di ricerca. Quando si usa questo layout è necessario fornire la query di ricerca (`&q=<query string>`). Aggiungere il parametro di query all'URL della richiesta nel frammento di codice JavaScript oppure il collegamento all'endpoint HTML.        |
-    |Finestra a comparsa     | Fornisce una casella di ricerca e visualizza i risultati della ricerca in una sovrapposizione scorrevole.        |
-    
+    - Barra di ricerca e risultati (impostazione predefinita): Visualizza una casella di ricerca con i risultati della ricerca sotto di essa.
+    - Solo risultati: Visualizza solo i risultati della ricerca, senza una casella di ricerca. Quando si usa questo layout è necessario fornire la query di ricerca (`&q=<query string>`). Aggiungere il parametro di query all'URL della richiesta nel frammento di codice JavaScript oppure il collegamento all'endpoint HTML.
+    - Popup: fornisce una casella di ricerca e Visualizza i risultati della ricerca in una sovrapposizione scorrevole.
+
 5. Selezionare un tema colori. È possibile personalizzare i colori per adattare l'applicazione facendo clic su **Customize theme** (Personalizza tema). Per modificare un colore, immettere il valore RGB esadecimale del colore, ad esempio `#366eb8`, o fare clic sull'anteprima colore.
 
    È possibile visualizzare in anteprima le modifiche sul lato destro del portale. Facendo clic su **Ripristina impostazioni predefinite** si ripristinano i colori predefiniti per il tema selezionato.
@@ -96,55 +94,38 @@ Per altre informazioni, tra cui l'ID di configurazione personalizzato, vedere **
 
 ### <a name="web-search-configurations"></a>Web search configurations (Configurazioni di ricerca Web)
 
-|  |  |
-|---------|---------|
-|Web results enabled (Risultati Web abilitati)    | Determina se la ricerca Web è abilitata: sarà visualizzata una scheda Web nella parte superiore della pagina        |
-|Enable autosuggest (Abilita suggerimenti automatici)     | Determina se sono abilitati i suggerimenti automatici personalizzati; per informazioni sugli eventuali costi aggiuntivi, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).        |
-|Web results per page (Risultati Web per pagina)    | Numero di risultati della ricerca Web da visualizzare per volta: il numero massimo è 50 risultati per pagina.        |
-|Image caption (Didascalia immagine)   | Determina se visualizzare le immagini con i risultati della ricerca.|
-
+- Web results Enabled: determina se la ricerca Web è abilitata (verrà visualizzata una scheda Web nella parte superiore della pagina)
+- Abilita suggerimenti automatici: determina se il suggerimento automatico personalizzato è abilitato (vedere [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) per costi aggiuntivi).
+- Risultati Web per pagina: numero di risultati della ricerca Web da visualizzare alla volta (il valore massimo è 50 risultati per pagina).
+- Didascalia immagine: determina se le immagini vengono visualizzate con i risultati della ricerca.
 
 Se si fa clic su **Mostra configurazioni avanzate**, vengono visualizzate le configurazioni seguenti:
 
-
-|  | |
-|---------|---------|
-|Highlight words (Evidenzia parole)     | Determina se i risultati vengono visualizzati con i termini di ricerca in grassetto.         |
-|Link target (Destinazione collegamento)    |  Determina se la pagina Web viene aperta in una nuova scheda del browser (vuota) o nella stessa scheda (autonoma) del browser quando l'utente fa clic su un risultato della ricerca.        |
+- Highlight Words: determina se i risultati vengono visualizzati con i termini di ricerca in grassetto.
+- Destinazione collegamento: determina se la pagina Web viene aperta in una nuova scheda del browser (vuota) o nella stessa scheda del browser (self) quando l'utente fa clic su un risultato della ricerca.
 
 ### <a name="image-search-configurations"></a>Image search configurations (Configurazioni di ricerca immagini)
 
-| | |
-|---------|---------|
-|Image results enabled (Immagini abilitate nei risultati)     | Determina se la ricerca di immagini è abilitata: verrà visualizzata una scheda Immagini nella parte superiore della pagina.            |
-|Image results per page (Immagini nei risultati per pagina)     | Numero di immagini nei risultati della ricerca da visualizzare per volta; il numero massimo è 150 risultati per pagina.          |
+- Image results Enabled: determina se la ricerca immagini è abilitata (verrà visualizzata una scheda immagini nella parte superiore della pagina).
+- Risultati immagine per pagina: numero di risultati della ricerca immagini da visualizzare alla volta (il valore massimo è 150 risultati per pagina).
 
 Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), viene visualizzata la configurazione seguente.  
   
-| | |
-|---------|---------|
-| Enable filters (Abilita filtri)     | Aggiunge filtri che l'utente può usare per filtrare le immagini restituite da Bing. Ad esempio, l'utente può filtrare i risultati per ottenere solo immagini GIF animate.|
+- Enable filters: aggiunge filtri che l'utente può usare per filtrare le immagini restituite da Bing. Ad esempio, l'utente può filtrare i risultati per ottenere solo immagini GIF animate.
 
 ### <a name="video-search-configurations"></a>Configurazioni per la ricerca di video
 
-|  | |
-|---------|---------|
-|Video results enabled (Video abilitati nei risultati)     | Determina se la ricerca di video è abilitata: verrà visualizzata una scheda Video nella parte superiore della pagina.           |
-|Video results per page (Video nei risultati per pagina)   | Numero di video nei risultati della ricerca da visualizzare per volta; il numero massimo è 150 risultati per pagina.        |
+- Risultati video abilitato: determina se la ricerca video è abilitata (verrà visualizzata una scheda video nella parte superiore della pagina).
+- Risultati video per pagina: numero di risultati della ricerca video da visualizzare alla volta (il valore massimo è 150 risultati per pagina).
 
 Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), viene visualizzata la configurazione seguente.  
   
-|  | |
-|---------|---------|
-|Enable filters (Abilita filtri)    | Aggiunge filtri che l'utente può usare per filtrare i video restituiti da Bing. Ad esempio, l'utente può filtrare i risultati per i video con una risoluzione specifica o i video individuati nelle ultime 24 ore.          |
+- Enable filters: aggiunge filtri che l'utente può usare per filtrare i video restituiti da Bing. Ad esempio, l'utente può filtrare i risultati per i video con una risoluzione specifica o i video individuati nelle ultime 24 ore.
 
 ### <a name="miscellaneous-configurations"></a>Miscellaneous configurations (Configurazioni varie)
 
-
-| |  |
-|---------|---------|
-|Page title (Titolo della pagina)   | Testo visualizzato nell'area del titolo della pagina dei risultati della ricerca; non disponibile per il layout con risultati sovrapposti.        |
-|Toolbar theme (Tema della barra degli strumenti)    | Determina il colore di sfondo dell'area del titolo della pagina dei risultati della ricerca. |
+- Titolo pagina: testo visualizzato nell'area titolo della pagina Risultati ricerca (non per il layout popup).
+- Tema della barra degli strumenti: determina il colore di sfondo dell'area del titolo della pagina dei risultati della ricerca.
 
 Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), vengono visualizzate le configurazioni seguenti.  
 

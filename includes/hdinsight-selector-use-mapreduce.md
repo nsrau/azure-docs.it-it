@@ -12,7 +12,7 @@ ms.lasthandoff: 07/02/2020
 ms.locfileid: "67180274"
 ---
 > [!div class="op_single_selector"]
-> * [Panoramica](../articles/hdinsight/hadoop/hdinsight-use-mapreduce.md)
+> * [Overview](../articles/hdinsight/hadoop/hdinsight-use-mapreduce.md)
 > * [SSH](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh.md)
 > * [CURL](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-curl.md)
 > * [PowerShell](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-powershell.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 191c6d411418229d40b10704ea14d5a536c0d5f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: de1c6e91a6502e3a5e03dde69c5559445628d369
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110624"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184549"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -95,7 +95,7 @@ Se un hop è rosso, significa che fa parte di almeno un percorso non integro. Mo
 Monitoraggio prestazioni rete adotta un meccanismo probabilistico per assegnare le probabilità di errore a ogni percorso e segmento di rete e agli hop di rete in base al numero di percorsi non integri di cui fanno parte. Quando i segmenti e gli hop di rete diventano parte di un numero maggiore di percorsi non integri, la probabilità di errore associata aumenta. Questo algoritmo funziona in modo ottimale quando sono presenti molti nodi con agente di Monitoraggio prestazioni rete connessi tra loro poiché in questo modo aumenta il numero di punti dati per calcolare le probabilità di errore.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Come è possibile creare avvisi in Monitoraggio prestazioni rete?
-Per istruzioni dettagliate, vedere la [sezione relativa agli avvisi nella documentazione](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts).
+La creazione di avvisi dall'interfaccia utente di NPM è attualmente in errore a causa di un problema. Creare gli avvisi manualmente.
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quali sono le query Log Analytics predefinite per gli avvisi
 Query di performance monitor
@@ -190,7 +190,7 @@ Monitoraggio prestazioni rete può monitorare la connettività ai servizi in qua
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quali aree sono supportate per la funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete?
 Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro Log Analytics ospitata in una delle [aree supportate](/azure/expressroute/how-to-npm).
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere i problemi
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Per quale motivo alcuni hop sono contrassegnati come non identificati nella visualizzazione della topologia di rete?
 Monitoraggio prestazioni rete usa una versione modificata di traceroute per individuare la topologia dall'agente di origine alla destinazione. Un hop non identificato indica che l'hop di rete non ha risposto alla richiesta traceroute dell'agente di origine. Se tre hop di rete consecutivi non rispondono al traceroute dell'agente, la soluzione contrassegna gli hop che non rispondono come non identificati e non tenta di individuare più hop.

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 06eb29f2f3245d3f4fd047fb86b2b57fb1f0989e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 837237be636e67f37f5c744cd4863f1eb159652a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72793357"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201390"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funzioni di ricerca full-text OData in Azure ricerca cognitiva `search.ismatch` e`search.ismatchscoring`
 
@@ -69,7 +69,7 @@ La `search.ismatch` funzione valuta una query di ricerca full-text come parte di
 
 I parametri sono definiti nella tabella seguente:
 
-| Nome parametro | Type | Descrizione |
+| Nome parametro | Tipo | Descrizione |
 | --- | --- | --- |
 | `search` | `Edm.String` | Query di ricerca, in una sintassi di query Lucene [semplice](query-simple-syntax.md) o [completa](query-lucene-syntax.md) . |
 | `searchFields` | `Edm.String` | Elenco delimitato da virgole di campi ricercabili in cui eseguire la ricerca; il valore predefinito è tutti i campi disponibili per la ricerca nell'indice. Quando si usa la ricerca nel parametro nel [campo](query-lucene-syntax.md#bkmk_fields) `search` , gli identificatori di campo nella query Lucene eseguono l'override di tutti i campi specificati in questo parametro. |
@@ -94,29 +94,39 @@ La `search.ismatchscoring` funzione, come la `search.ismatch` funzione, restitui
 
 Entrambe le `search.ismatch` `search.ismatchscoring` funzioni e possono essere utilizzate nella stessa espressione di filtro.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Trovare documenti con la parola "waterfront". Questa query di filtro è identica a una [richiesta di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) con `search=waterfront`.
 
+```odata-filter-expr
     search.ismatchscoring('waterfront')
+```
 
 Trovare i documenti con la parola "hostel" e classificazione 4 o superiore oppure i documenti con la parola "motel" e classificazione 5. Si noti che questa richiesta non potrebbe essere espressa senza la funzione `search.ismatchscoring`.
 
+```odata-filter-expr
     search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
+```
 
 Trovare i documenti senza la parola "luxury".
 
+```odata-filter-expr
     not search.ismatch('luxury')
+```
 
 Trovare i documenti con la frase "ocean view" o classificazione 5. La query `search.ismatchscoring` verrà eseguita solo sui campi `HotelName` e `Rooms/Description`.
 
 Verranno restituiti anche i documenti corrispondenti solo alla seconda clausola della disgiunzione, ovvero Hotel con `Rating` uguale a 5. Per rendere chiaro che i documenti non corrispondono a nessuna delle parti con punteggio dell'espressione, verranno restituiti con punteggio uguale a zero.
 
+```odata-filter-expr
     search.ismatchscoring('"ocean view"', 'Rooms/Description,HotelName') or Rating eq 5
+```
 
 Trovare i documenti in cui i termini "Hotel" e "Airport" si trovano entro 5 parole l'uno dall'altro nella descrizione dell'hotel e in cui il fumo non è consentito in almeno alcune stanze. Questa query usa il [linguaggio di query Lucene completo](query-lucene-syntax.md).
 
+```odata-filter-expr
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
+```
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

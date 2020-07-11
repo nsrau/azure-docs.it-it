@@ -2,13 +2,13 @@
 title: Abilitare l'identità gestita nel gruppo di contenitori
 description: Informazioni su come abilitare un'identità gestita in istanze di contenitore di Azure in grado di eseguire l'autenticazione con altri servizi di Azure
 ms.topic: article
-ms.date: 04/15/2020
-ms.openlocfilehash: 31dc198bfb2023684f3a9022bec5a5f50f0d9a72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 9bc96ed29039650082bdfa8b7b2b1b48ecb6bd3f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115721"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169783"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
 

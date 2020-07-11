@@ -2,12 +2,13 @@
 title: Montaggio del volume Secret nel gruppo di contenitori
 description: Informazioni su come montare un volume segreto per archiviare informazioni sensibili per l'accesso da parte delle istanze di contenitore
 ms.topic: article
-ms.date: 04/03/2020
-ms.openlocfilehash: 756828e71174246450245938595c8872afc62961
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: ea82ba5994feaf102d4622eada284df431e004d0
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657159"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169562"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montare un volume segreto in Istanze di Azure Container
 
@@ -61,7 +62,7 @@ Quando si distribuisce un modello YAML, i valori del segreto devono essere **con
 Il modello YAML seguente definisce un gruppo di contenitori con un solo contenitore che monta un volume *segreto* in `/mnt/secrets`. Il volume Secret include due file contenenti segreti, "mysecret1" e "mysecret2".
 
 ```yaml
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: eastus
 name: secret-volume-demo
 properties:

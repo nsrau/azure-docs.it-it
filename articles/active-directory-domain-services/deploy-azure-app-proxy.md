@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 285f5aabe32013a629eebb150e55ba343150f589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0880f697ceea9c10a070ede0a73235022ce0529d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734844"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220290"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Distribuire Azure AD proxy di applicazione per l'accesso sicuro alle applicazioni interne in un dominio gestito Azure Active Directory Domain Services
 
@@ -40,9 +40,9 @@ Per completare le procedure descritte in questo articolo, sono necessari i privi
 
 ## <a name="create-a-domain-joined-windows-vm"></a>Creare una macchina virtuale Windows aggiunta a un dominio
 
-Per instradare il traffico alle applicazioni in esecuzione nell'ambiente, installare il componente connettore del proxy di applicazione Azure AD. Questo Azure AD connettore del proxy di applicazione deve essere installato in macchine virtuali (VM) Windows Server appartenenti al dominio gestito. Per alcune applicazioni, è possibile distribuire più server in cui è installato il connettore. Questa opzione di distribuzione offre maggiore disponibilità e permette di gestire carichi di lavoro di autenticazione più gravosi.
+Per instradare il traffico alle applicazioni in esecuzione nell'ambiente, installare il componente connettore del proxy di applicazione Azure AD. Questo Azure AD connettore del proxy di applicazione deve essere installato in una macchina virtuale (VM) Windows Server aggiunta al dominio gestito. Per alcune applicazioni, è possibile distribuire più server in cui è installato il connettore. Questa opzione di distribuzione offre maggiore disponibilità e permette di gestire carichi di lavoro di autenticazione più gravosi.
 
-La VM che esegue il connettore del proxy di applicazione Azure AD deve trovarsi nella stessa rete virtuale o in una rete virtuale con peering in cui è stato abilitato Azure AD DS. Anche le macchine virtuali che ospitano le applicazioni pubblicate con il proxy di applicazione devono essere distribuite nella stessa rete virtuale di Azure.
+La macchina virtuale che esegue il connettore del proxy di applicazione Azure AD deve trovarsi nella stessa rete virtuale o in una rete virtuale con peering come dominio gestito. Anche le macchine virtuali che ospitano le applicazioni pubblicate con il proxy di applicazione devono essere distribuite nella stessa rete virtuale di Azure.
 
 Per creare una macchina virtuale per il connettore del proxy di applicazione Azure AD, completare i passaggi seguenti:
 
@@ -72,7 +72,7 @@ Con una macchina virtuale pronta per l'uso come connettore del proxy di applicaz
         > [!NOTE]
         > L'account amministratore globale usato per registrare il connettore deve appartenere alla stessa directory in cui si Abilita il servizio proxy di applicazione.
         >
-        > Se ad esempio il dominio Azure AD è *aaddscontoso.com*, l'amministratore globale deve essere `admin@aaddscontoso.com` o un altro alias valido in tale dominio.
+        > Se ad esempio il dominio Azure AD è *contoso.com*, l'amministratore globale deve essere `admin@contoso.com` o un altro alias valido in tale dominio.
 
    * Se è attivata la configurazione sicurezza avanzata di Internet Explorer per la macchina virtuale in cui si installa il connettore, la schermata di registrazione potrebbe essere bloccata. Per consentire l'accesso, seguire le istruzioni nel messaggio di errore o disattivare sicurezza avanzata di Internet Explorer durante il processo di installazione.
    * Se la registrazione del connettore non riesce, vedere [risolvere i problemi del proxy dell'applicazione](../active-directory/manage-apps/application-proxy-troubleshoot.md).

@@ -3,11 +3,12 @@ title: Backup offline per DPM e server di Backup di Azure
 description: Con backup di Azure è possibile inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per DPM e server di Backup di Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 0ff6198eed4e3e365b443a51e5c63534c2cf0973
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921268"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187796"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure (MAB)
 
@@ -123,7 +124,7 @@ L'utilità *AzureOfflineBackupDiskPrep* prepara le unità SATA che vengono invia
     | Parametro | Descrizione |
     | --- | --- |
     | s:&lt;*Percorso di gestione temporanea*&gt; |Questo input obbligatorio viene usato per specificare il percorso del percorso di gestione temporanea immesso nel flusso di lavoro nella sezione "avvio del backup offline". |
-    | p:&lt;*Percorso file delle impostazioni di pubblicazione*&gt; |Questo input facoltativo viene usato per specificare il percorso del file di impostazioni di pubblicazione di Azure immesso nel flusso di lavoro nella sezione "avvio del backup offline". |
+    | p:&lt;*Percorso file delle impostazioni di pubblicazione*&gt; |Questo input facoltativo viene usato per specificare il percorso del file di impostazioni di pubblicazione di Azure. |
 
     Quando si esegue il comando, l'utilità richiede la selezione del processo di importazione di Azure corrispondente alle unità che devono essere preparate. Se al percorso di gestione temporanea indicato è associato un solo processo di importazione, viene visualizzata una schermata simile alla seguente.
 

@@ -5,15 +5,14 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru
-ms.date: 12/13/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9389e0aff04baa18cb216f2a7ab6da42eb7031f2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77086599"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171432"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Esercitazione: rispondere agli eventi di archiviazione BLOB in IoT Edge (anteprima)
 Questo articolo illustra come distribuire il servizio di archiviazione BLOB di Azure nel modulo Internet, che fungerebbe da server di pubblicazione di griglia di eventi per inviare gli eventi durante la creazione e l'eliminazione di BLOB in griglia di eventi.  
@@ -76,7 +75,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
         }
     ```    
 
- 1. Fare clic su **Save** (Salva).
+ 1. Fare clic su **Salva**
  1. Passare alla sezione successiva per aggiungere il modulo del Sottoscrittore di griglia di eventi di Azure prima di distribuirli insieme.
 
     >[!IMPORTANT]
@@ -96,7 +95,7 @@ Questa sezione illustra come distribuire un altro modulo Internet che funge da g
    * **Nome**: Sottoscrittore
    * **URI immagine**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opzioni di creazione del contenitore**: nessuna
-1. Fare clic su **Save** (Salva).
+1. Fare clic su **Salva**
 1. Passare alla sezione successiva per aggiungere il modulo di archiviazione BLOB di Azure
 
 ## <a name="deploy-azure-blob-storage-module"></a>Distribuire il modulo di archiviazione BLOB di Azure
@@ -147,7 +146,7 @@ Questa sezione illustra come distribuire il modulo di archiviazione BLOB di Azur
      - Per i contenitori Linux, **My-volume:/blobroot**
      - Per i contenitori di Windows,**My-volume: C:/BlobRoot**
 
-5. Fare clic su **Save** (Salva).
+5. Fare clic su **Salva**
 6. Fare clic su **Avanti** per passare alla sezione Route
 
     > [!NOTE]
@@ -319,7 +318,7 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
             }
     ```
 
-Congratulazioni! L'esercitazione è stata completata. Le sezioni seguenti forniscono informazioni dettagliate sulle proprietà dell'evento.
+La procedura è stata completata. L'esercitazione è stata completata. Le sezioni seguenti forniscono informazioni dettagliate sulle proprietà dell'evento.
 
 ### <a name="event-properties"></a>Proprietà degli eventi
 
@@ -328,13 +327,13 @@ Di seguito è riportato l'elenco delle proprietà di evento supportate, i relati
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
 | data | object | Dati relativi all'evento di archiviazione BLOB. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 

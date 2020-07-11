@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701831"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220695"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creare un'app Web in un ambiente del servizio app (versione 1)
 
@@ -33,7 +34,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
 ## <a name="create-a-web-app"></a>Creare un'app Web
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa > Web e dispositivi mobili > App Web**. 
    
-    ![][1]
+    ![Screenshot che mostra dove creare un'app Web nel portale di Azure.][1]
 2. Selezionare la propria sottoscrizione.  
    
     Se sono presenti più sottoscrizioni, ricordare che per creare un'app nell'ambiente del servizio app è necessario usare la stessa sottoscrizione usata per la creazione dell'ambiente. 
@@ -46,7 +47,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
    
     È possibile identificare i piani di servizio app nell'ambiente del servizio app osservando la località indicata sotto il nome del piano.  
    
-    ![][5]
+    ![Screenshot che Mostra come visualizzare i piani di servizio app nell'ambiente del servizio app.][5]
    
     Per usare un piano di servizio app che esiste già nell'ambiente del servizio app, selezionarlo. Per creare un nuovo piano di servizio app, vedere la sezione successiva di questa esercitazione [Creare un piano di servizio app in un ambiente del servizio app](#createplan).
 5. Immettere il nome dell'app Web e fare clic su **Crea**. 
@@ -68,18 +69,18 @@ Le istruzioni seguenti mostrano come creare un piano di servizio app mentre si c
    
     Poiché un ambiente del servizio app è essenzialmente una località di distribuzione privata, è visualizzato in Località. 
    
-    ![][2]
+    ![Screenshot che mostra la selezione località per la selezione dell'ambiente del servizio app desiderato.][2]
    
     Dopo aver selezionato un ambiente nell'elenco di selezione della località, l'interfaccia utente di creazione del piano di servizio app viene aggiornata.  Nella località è ora visualizzato il nome del sistema dell'ambiente del servizio app e l'area in cui si trova e l'elenco di selezione del piano tariffario è stato sostituito dalla selezione del pool di lavoro.  
    
-    ![][3]
+    ![Screenshot che mostra i dettagli del sistema dell'ambiente del servizio app dopo aver selezionato l'ambiente del servizio app nella selezione località.][3]
 
 ### <a name="selecting-a-worker-pool"></a>Selezione di un pool di lavoro
 Quando si seleziona un piano tariffario dedicato, nel servizio app di Azure e all'esterno di un ambiente del servizio app sono in genere disponibili tre dimensioni di calcolo.  Analogamente, per un ambiente del servizio app è possibile definire fino a tre pool di ruoli di lavoro e specificare le dimensioni di calcolo da usare per i pool di lavoro.  Per i tenant dell'ambiente del servizio app significa che invece di selezionare un piano tariffario con dimensioni di calcolo per il piano di servizio app, si seleziona ciò che viene definito un *pool di lavoro*.  
 
 Nell'interfaccia utente di selezione del pool di lavoro sotto il nome del pool sono indicate le dimensioni di calcolo usate per il pool.  La quantità disponibile si riferisce al numero di istanze di calcolo disponibili per l'uso nel pool.  In totale nel pool possono esistere più istanze rispetto a tale numero, ma questo valore si riferisce semplicemente al numero di quelle non in uso.  Se è necessario adeguare l'ambiente del servizio app e aggiungere altre risorse di calcolo, vedere [Configurazione dell'ambiente del servizio app](app-service-web-configure-an-app-service-environment.md).
 
-![][4]
+![Screenshot che mostra il riquadro del pool di lavoro in cui è possibile selezionare i pool di lavoro per l'ambiente del servizio app.][4]
 
 In questo esempio sono disponibili solo due pool di lavoro, in quanto l'amministratore dell'ambiente del servizio app ha allocato host solo in questi due pool di lavoro.  Allocando macchine virtuali a un terzo pool, i pool di lavoro visualizzati saranno tre.  
 

@@ -12,7 +12,7 @@ ms.lasthandoff: 07/02/2020
 ms.locfileid: "67180748"
 ---
 > [!div class="op_single_selector"]
-> * [Panoramica](../articles/hdinsight/hadoop/hdinsight-use-hive.md)
+> * [Overview](../articles/hdinsight/hadoop/hdinsight-use-hive.md)
 > * [Visualizzazione hive](../articles/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md)
 > * [SSH](../articles/hdinsight/hdinsight-hadoop-use-hive-ssh.md)
 > * [Beeline](../articles/hdinsight/hadoop/apache-hadoop-use-hive-beeline.md)

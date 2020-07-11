@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 7/10/2020
 ms.author: raynew
-ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132403"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219879"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -76,6 +76,7 @@ Proxy HTTPS | No | No
 
 
 
+
 ## <a name="azure-vm-network-configuration-after-failover"></a>Configurazione di rete per VM di Azure (dopo il failover)
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
@@ -94,7 +95,7 @@ Rete accelerata | No | No
 
 ## <a name="hyper-v-host-storage"></a>Archiviazione host Hyper-V
 
-**Storage** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
+**Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | --- 
 NFS | ND | ND
 SMB 3.0 | Sì | Sì
@@ -103,7 +104,7 @@ Percorsi multipli (MPIO). Testato con:<br></br> DSM Microsoft, EMC PowerPath 5,7
 
 ## <a name="hyper-v-vm-guest-storage"></a>Archiviazione VM guest Hyper-V
 
-**Storage** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
+**Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
 VMDK | ND | ND
 VHD/VHDX | Sì | Sì
@@ -136,11 +137,13 @@ Archiviazione ad accesso frequente| No | No
 BLOB in blocchi | No | No
 Crittografia per dati inattivi (SSE)| Sì | Sì
 Crittografia dei dati inattivi (CMK) <br></br> (Solo per failover a Managed Disks)| Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive)
+Crittografia a doppio inattivo <br></br> (Solo per failover a Managed Disks) <br></br> Altre informazioni sulle aree supportate per [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive) | Sì (tramite PowerShell AZ 3.3.0 Module e versioni successive)
 Archiviazione Premium | Sì | Sì
 Archiviazione standard | Sì | Sì
 Servizio di importazione/esportazione | No | No
 Account di archiviazione di Azure con firewall abilitato | Sì. Per l'archiviazione e la cache di destinazione. | Sì. Per l'archiviazione e la cache di destinazione.
 Modifica dell'account di archiviazione | No. L'account di archiviazione di Azure di destinazione non può essere modificato dopo l'abilitazione della replica. Per modificare, disabilitare e quindi riabilitare il ripristino di emergenza. | No
+Opzione di trasferimento sicuro | Sì
 
 
 ## <a name="azure-compute-features"></a>Funzionalità di calcolo di Azure
@@ -169,7 +172,7 @@ Disco FC | Non supportato | Il controllo dei prerequisiti ha esito negativo se n
 Formato disco rigido | VHD  <br/><br/>  VHDX | In Site Recovery VHDX viene convertito automaticamente in VHD quando si esegue il failover in Azure. Quando si esegue il failback in locale, le macchine virtuali continuano a usare il formato VHDX.
 BitLocker | Non supportato | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
 Nome della VM. | Tra 1 e 63 caratteri. Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero. | Aggiornare il valore nelle proprietà della VM in Site Recovery.
-Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
+Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Azioni dell'insieme di credenziali dei Servizi di ripristino
 

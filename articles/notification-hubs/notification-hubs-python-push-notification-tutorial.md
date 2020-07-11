@@ -17,11 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e94448debe3e846e37dcffa81a6a6a28f0f7d757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af03d0fc091c34bfef7f38b1a215832086de57c6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84561189"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220066"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Come usare Hub di notifica da Python
 
@@ -376,13 +377,13 @@ hub.send_baidu_notification(baidu_payload)
 
 Eseguendo il codice Python dovrebbe essere visualizzata una notifica sul dispositivo di destinazione.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="enabling-the-debug-property"></a>Abilitazione della proprietà `debug`
 
 Quando si abilita il flag di debug durante l'inizializzazione di Hub di notifica, vengono visualizzati una richiesta HTTP dettagliata e un dump di risposta, nonché un risultato di notifica simile a quello riportato di seguito, dove è possibile comprendere quali intestazioni HTTP vengono passate e quale risposta HTTP è stata ricevuta da Hub di notifica:
 
-![][1]
+![Screenshot di una console con i dettagli del dump della richiesta e della risposta di H T T e dei messaggi di risultato delle notifiche indicati in rosso.][1]
 
 viene visualizzato il risultato dettagliato di Hub di notifica, ad esempio:
 
@@ -403,7 +404,7 @@ Notare le intestazioni che vengono inviate quando si inoltra una notifica di tip
 hub.send_windows_notification(wns_payload)
 ```
 
-![][2]
+![Screenshot di una console con i dettagli della richiesta H T T e del formato di notifica del bus di servizio e dei valori di tipo X W N delineati in rosso.][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Inviare la notifica specificando un tag (o un'espressione tag)
 
@@ -413,7 +414,7 @@ Si noti l'intestazione HTTP Tags che viene aggiunta alla richiesta HTTP (nell'es
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![][3]
+![Screenshot di una console con i dettagli della richiesta H T T e il formato di notifica del bus di servizio, dei tag di notifica del bus di servizio e dei valori di tipo X W N descritti in rosso.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Inviare la notifica specificando più tag
 
@@ -424,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![][4]
+![Screenshot di una console con i dettagli della richiesta H T T e il formato di notifica del bus di servizio, dei tag di notifica del bus di servizio e dei valori di tipo X W N descritti in rosso.][4]
 
 ### <a name="templated-notification"></a>Notifica basata su modelli
 
@@ -443,7 +444,7 @@ template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 hub.send_template_notification(template_payload)
 ```
 
-![][5]
+![Screenshot di una console con i dettagli della richiesta H T P e del tipo di contenuto e dei valori del formato di notifica del bus di servizio delineati in rosso.][5]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

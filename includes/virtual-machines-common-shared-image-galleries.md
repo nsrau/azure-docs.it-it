@@ -4,19 +4,19 @@ description: includere file
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/16/2020
+ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 1ca9d41134bf33a9e007da4b5a56652ccdbd4e22
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218114"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221638"
 ---
-Raccolta immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini gestite. Raccolte di immagini condivise fornisce:
+Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini. Raccolte di immagini condivise fornisce:
 
-- Replica globale gestita di immagini.
+- Replica globale delle immagini.
 - Controllo delle versioni e raggruppamento delle immagini per la semplificazione della gestione.
 - Immagini a disponibilità elevata con account di archiviazione con ridondanza della zona (ZRS) in aree che supportano le zone di disponibilità. Le ZRS offrono una migliore resilienza nei confronti degli errori di zona.
 - Supporto archiviazione Premium (Premium_LRS).
@@ -33,7 +33,7 @@ La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
 | Risorsa | Descrizione|
 |----------|------------|
-| **Origine immagine** | Si tratta di una risorsa che è possibile usare per creare una **versione di immagine** in una raccolta di immagini. Un'origine dell'immagine può essere una macchina virtuale di Azure esistente [generalizzata o specializzata](#generalized-and-specialized-images), un'immagine gestita, uno snapshot o una versione di immagine di un'altra raccolta immagini. |
+| **Origine immagine** | Si tratta di una risorsa che è possibile usare per creare una **versione di immagine** in una raccolta di immagini. Un'origine immagine può essere una macchina virtuale di Azure esistente, [generalizzata o specializzata](#generalized-and-specialized-images), un'immagine gestita, uno snapshot, un disco rigido virtuale o una versione dell'immagine in un'altra raccolta di immagini. |
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
 | **Definizione delle immagini** | Le definizioni di immagini vengono create all'interno di una raccolta e forniscono informazioni sull'immagine e sui requisiti per il relativo uso interno. Questa include il fatto che l'immagine è per Windows o Linux, le note sulla versione e i requisiti minimi e massimi di memoria. Si tratta della definizione di un tipo di immagine. |
 | **Versione dell'immagine** | La **versione dell'immagine** è ciò che si usa per creare una macchina virtuale quando si usa una raccolta. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Come un'immagine gestita, quando si usa una **versione dell'immagine** per creare una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale. Le versioni delle immagini possono essere usate più volte. |
@@ -68,6 +68,7 @@ Di seguito sono elencati altri parametri che è possibile impostare nella defini
 * Elementi consigliati per la CPU virtuale e memoria minime e massime: se l'immagine presenta CPU virtuale ed elementi consigliati per la memoria, è possibile allegare tali informazioni alla definizione dell'immagine.
 * Tipi di dischi non consentiti: è possibile fornire informazioni sulle esigenze di archiviazione per la macchina virtuale. Se, ad esempio, l'immagine non è adatta per dischi HDD standard, è necessario aggiungerli all'elenco di quelli non consentiti.
 * Generazione di Hyper-V: è possibile specificare se l'immagine è stata creata da un disco rigido virtuale Hyper-V di prima o di seconda generazione.
+* Informazioni sul piano di acquisto per le immagini del Marketplace `-PurchasePlanPublisher ` ,, `-PurchasePlanName` e `-PurchasePlanProduct` . Per altre informazioni sulle informazioni sul piano di acquisto, vedere [trovare immagini in Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](../articles/virtual-machines/marketplace-images.md).
 
 ## <a name="generalized-and-specialized-images"></a>Immagini specializzate e generalizzate
 
@@ -82,11 +83,7 @@ Le macchine virtuali specializzate non sono state sottoposte a un processo per r
 
 ## <a name="regional-support"></a>Supporto a livello di area
 
-Le aree di origine sono descritte nella tabella seguente. Tutte le aree pubbliche possono essere aree di destinazione, tuttavia per la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia inserita nell'elenco elementi consentiti. Per richiedere l'inserimento nella whitelist, passare a: https://azure.microsoft.com/global-infrastructure/australia/contact/
-
-> Australia centrale, Cina orientale, India meridionale, Europa occidentale, Australia centrale 2, Cina orientale 2, Asia sudorientale, Regno Unito meridionale, Australia orientale, Cina settentrionale, Giappone orientale, Regno Unito occidentale, Australia sudorientale, Cina settentrionale 2, Giappone occidentale, US DoD (area centrale), Brasile meridionale, Asia orientale, Corea centrale, US DoD (area orientale), Canada centrale, Stati Uniti orientali, Corea meridionale, US gov Arizona, Canada orientale, Stati Uniti orientali 2 , US Gov Texas, India centrale, Stati Uniti orientali 2 EUAP, Europa settentrionale, US Gov Virginia, Stati Uniti centrali, Francia centrale, Stati Uniti centro-meridionali, India occidentale, Stati Uniti centrali EUAP, Francia meridionale, Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2 |
-
-
+Tutte le aree pubbliche possono essere aree di destinazione, tuttavia per la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia inserita nell'elenco elementi consentiti. Per richiedere l'inserimento nella whitelist, passare a: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>Limiti 
 
@@ -233,13 +230,7 @@ Sì. Esistono tre scenari in base ai tipi di immagini che si possono avere.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>È possibile creare una versione di immagine da un disco specializzato?
 
-Sì. Il supporto per dischi specializzati come immagini è in anteprima. È possibile creare una macchina virtuale soltanto da un'immagine specializzata usando il portale, PowerShell o l'API. 
-
-
-Usare [PowerShell per la creazione di un'immagine di una macchina virtuale specializzata](../articles/virtual-machines/image-version-vm-powershell.md).
-
-Usare il portale per creare un'immagine [Windows](../articles/virtual-machines/linux/shared-images-portal.md) o [Linux] (../articles/virtual-machines/linux/shared-images-portal.md). 
-
+Sì, può creare una macchina virtuale da un'immagine specializzata usando l' [interfaccia](../articles/virtual-machines/vm-specialized-image-version-cli.md)della riga di comando, [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md)o l'API. 
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>È possibile spostare la risorsa Raccolta immagini condivise in una sottoscrizione diversa in seguito alla sua creazione?
 

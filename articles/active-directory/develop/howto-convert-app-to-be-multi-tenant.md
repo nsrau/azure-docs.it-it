@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477856"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201951"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -71,15 +71,21 @@ Le applicazioni Web e le API Web ricevono e convalidano i token dalla piattaform
 
 Verrà ora esaminato il modo in cui un'applicazione convalida i token ricevuti dalla piattaforma di identità Microsoft. Un'applicazione single-tenant prende in genere un valore dell'endpoint come:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com
+```
 
 e lo usa per creare un URL di metadati, in questo caso OpenID Connect, come:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+```
 
 per scaricare due informazioni critiche che vengono usate per convalidare i token: il valore dell'autorità di certificazione e le chiavi di firma del tenant. Ogni tenant di Azure AD ha un valore univoco dell'autorità di certificazione del formato:
 
+```http
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
 
 dove il valore GUID è la versione sicura di ridenominazione dell'ID tenant del tenant. Se si seleziona il collegamento dei metadati precedente per `contoso.onmicrosoft.com`, è possibile visualizzare il valore dell'autorità di certificazione nel documento.
 
@@ -87,7 +93,9 @@ Quando un'applicazione single-tenant convalida un token, controlla la firma del 
 
 Poiché l'endpoint /common non corrisponde a un tenant e non è un'autorità di certificazione, il valore dell'autorità di certificazione nei metadati per /common ha un URL basato su modello invece di un valore effettivo:
 
+```http
     https://sts.windows.net/{tenantid}/
+```
 
 Un'applicazione multi-tenant non può quindi convalidare i token semplicemente confrontando il valore dell'autorità di certificazione nei metadati con il valore `issuer` nel token. Un'applicazione multi-tenant richiede una logica per decidere quali valori di autorità di certificazione sono validi in base alla parte ID del tenant del valore dell'autorità di certificazione. 
 
@@ -135,7 +143,9 @@ L'applicazione può avere più livelli, ognuno rappresentato dalla propria regis
 
 Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Ad esempio:
 
+```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```
 
 Ciò viene illustrato in un client nativo multilivello che esegue la chiamata all'esempio di API Web nella sezione [Contenuti correlati](#related-content) alla fine di questo articolo. Il diagramma seguente fornisce una panoramica del consenso per un'app multilivello registrata in un singolo tenant.
 

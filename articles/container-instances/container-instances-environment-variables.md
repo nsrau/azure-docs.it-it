@@ -3,11 +3,12 @@ title: Impostare le variabili di ambiente nell'istanza del contenitore
 description: Informazioni su come impostare le variabili di ambiente nei contenitori eseguiti in Istanze di Azure Container
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ae59f69b7cb43fee1d3ce8190a85fc20a11f60
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686733"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169766"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Impostare le variabili di ambiente nelle istanze di contenitore
 
@@ -165,7 +166,7 @@ Impostare una variabile di ambiente sicura, specificando la proprietà `secureVa
 Creare un file `secure-env.yaml` con il frammento seguente.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: securetest
 properties:

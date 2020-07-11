@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae9b6bf41d90b0a9111414302b2eafea3c8332d3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965624"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169817"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configurare un nome di rete distribuita per un'istanza FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -81,6 +81,10 @@ Set-ClusterParameter -Name DnsName -Value FCIDNN
 
 I client verranno ora inseriti `FCIDNN` nella stringa di connessione per la connessione al SQL Server FCI. 
 
+   > [!WARNING]
+   > Non eliminare il nome della rete virtuale (VNN) corrente perché è un componente necessario dell'infrastruttura FCI. 
+
+
 ### <a name="rename-the-vnn"></a>Rinominare il VNN 
 
 Se si dispone di un nome di rete virtuale esistente e si desidera che i client continuino a utilizzare questo valore per connettersi alla SQL Server FCI, è necessario rinominare il VNN corrente in un valore segnaposto. Dopo la ridenominazione del VNN corrente, è possibile impostare il valore del nome DNS per DNN su VNN. 
@@ -122,7 +126,7 @@ Per aggiornare i proprietari possibili, attenersi alla procedura seguente:
 
 ## <a name="restart-sql-server-instance"></a>Riavvia SQL Server istanza 
 
-Utilizzare Gestione cluster di failover per riavviare l'istanza di SQL Server. Attenersi ai passaggi descritti di seguito.
+Utilizzare Gestione cluster di failover per riavviare l'istanza di SQL Server. Seguire questa procedura:
 
 1. Passare alla risorsa SQL Server in Gestione cluster di failover.
 1. Fare clic con il pulsante destro del mouse sulla risorsa SQL Server e portarla offline. 
