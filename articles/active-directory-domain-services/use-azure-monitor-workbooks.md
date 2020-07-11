@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84733399"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223041"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Esaminare gli eventi di controllo di sicurezza in Azure Active Directory Domain Services usando le cartelle di lavoro di monitoraggio di Azure
 
@@ -32,8 +32,8 @@ Per completare le procedure descritte in questo articolo, sono necessari i privi
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
     * Se necessario, completare l'esercitazione per [creare e configurare un Azure Active Directory Domain Services dominio gestito][create-azure-ad-ds-instance].
-* Eventi del controllo di sicurezza abilitati per il dominio gestito Azure Active Directory Domain Services che trasmettono i dati in un'area di lavoro Log Analytics.
-    * Se necessario, [abilitare i controlli di sicurezza per Azure Active Directory Domain Services][enable-security-audits].
+* Eventi del controllo di sicurezza abilitati per il dominio gestito che trasmettono i dati a un'area di lavoro Log Analytics.
+    * Se necessario, [abilitare i controlli di sicurezza per Azure AD DS][enable-security-audits].
 
 ## <a name="azure-monitor-workbooks-overview"></a>Panoramica di cartelle di lavoro di monitoraggio di Azure
 
@@ -61,11 +61,13 @@ Per accedere al modello di cartella di lavoro per il report Panoramica sicurezza
     ![Selezionare l'opzione di menu cartelle di lavoro nella portale di Azure](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Scegliere il **report Panoramica sicurezza**.
-1. Dai menu a discesa nella parte superiore della cartella di lavoro selezionare la sottoscrizione di Azure e quindi l'area di lavoro Monitoraggio di Azure. Scegliere un **intervallo di tempo**, ad esempio gli *ultimi 7 giorni*.
+1. Dai menu a discesa nella parte superiore della cartella di lavoro selezionare la sottoscrizione di Azure e quindi un'area di lavoro di monitoraggio di Azure.
+
+    Scegliere un **intervallo di tempo**, ad esempio gli *ultimi 7 giorni*, come illustrato nella schermata di esempio seguente:
 
     ![Selezionare l'opzione di menu cartelle di lavoro nella portale di Azure](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
-    È anche possibile modificare le opzioni **visualizzazione affiancata** e **visualizzazione grafico** per analizzare e visualizzare i dati nel modo desiderato.
+    Le opzioni **visualizzazione affiancata** e **visualizzazione grafico** possono essere modificate anche per analizzare e visualizzare i dati nel modo desiderato.
 
 1. Per eseguire il drill-down in un tipo di evento specifico, selezionare una delle schede dei **risultati di accesso** , ad esempio *account bloccato*, come illustrato nell'esempio seguente:
 
@@ -85,7 +87,11 @@ Per accedere al modello di cartella di lavoro per il report attività account, c
 1. Selezionare il dominio gestito, ad esempio *aaddscontoso.com*
 1. Dal menu sul lato sinistro scegliere **monitoraggio > cartelle di lavoro**
 1. Scegliere il **report attività account**.
-1. Dai menu a discesa nella parte superiore della cartella di lavoro selezionare la sottoscrizione di Azure e quindi l'area di lavoro Monitoraggio di Azure. Scegliere un **intervallo di tempo**, ad esempio gli *ultimi 30 giorni*, quindi come si desidera che la **visualizzazione affiancata** rappresenti i dati. È possibile filtrare in base al **nome utente dell'account**, ad esempio *Felix*, come illustrato nel report di esempio seguente:
+1. Dai menu a discesa nella parte superiore della cartella di lavoro selezionare la sottoscrizione di Azure e quindi un'area di lavoro di monitoraggio di Azure.
+
+    Scegliere un **intervallo di tempo**, ad esempio gli *ultimi 30 giorni*, quindi come si desidera che la **visualizzazione affiancata** rappresenti i dati.
+
+    È possibile filtrare in base al **nome utente dell'account**, ad esempio *Felix*, come illustrato nel report di esempio seguente:
 
     [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 

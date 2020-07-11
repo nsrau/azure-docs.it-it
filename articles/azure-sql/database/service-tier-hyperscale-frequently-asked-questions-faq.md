@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: d265726835620c5b468c8a81570e80c7167b2997
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084342"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231591"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,12 +45,12 @@ I livelli di servizio basati su vCore sono differenziati in base alla disponibil
 | **Ideale per** |Tutti|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale rapida del calcolo, ripristino rapido del database.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
 |  **Tipo di risorsa** ||Database SQL/SQL Istanza gestita | Database singolo | Database SQL/SQL Istanza gestita |
 | **Dimensioni di calcolo**|Database SQL * | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
-| |Istanza gestita di SQL | 8, 16, 24, 32, 40, 64, 80 vCore | N/D | 8, 16, 24, 32, 40, 64, 80 vCore |
+| **Dimensioni di calcolo**|Istanza gestita di SQL | 8, 16, 24, 32, 40, 64, 80 vCore | N/A | 8, 16, 24, 32, 40, 64, 80 vCore |
 | **Tipo di archiviazione** | Tutti |Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
 | **Dimensioni dello spazio di archiviazione** | Database SQL *| 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
-| | Istanza gestita di SQL  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
+| **Dimensioni dello spazio di archiviazione** | Istanza gestita di SQL  | 32 GB - 8 TB | N/A | 32 GB - 4 TB |
 | **IOPS** | Database singolo | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPS effettivi dipendono dal carico di lavoro. | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
-| | Istanza gestita di SQL | Dipende dalle dimensioni del file | N/D | 1375 IOPS/vCore |
+| **IOPS** | Istanza gestita di SQL | Dipende dalle dimensioni del file | N/A | 1375 IOPS/vCore |
 |**Disponibilità**|Tutti|1 replica, nessuna scalabilità in lettura, nessuna cache locale | Più repliche, fino a 4 scalabilità in lettura, cache locale parziale | 3 repliche, 1 scalabilità in lettura, disponibilità elevata con ridondanza della zona, archiviazione locale completa |
 |**Backup**|Tutti|RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita)| RA-GRS, conservazione di 7 giorni, ripristino temporizzato temporizzato costante (ripristino temporizzato) | RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita) |
 
@@ -96,7 +96,7 @@ L'iperscalabilità offre una scalabilità rapida in base alla domanda del carico
 
 ### <a name="can-i-mix-hyperscale-and-single-databases-in-a-single-server"></a>È possibile combinare iperscalare e database singoli in un unico server
 
-Sì,
+Sì, è possibile.
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>Il livello Hyperscale richiede la modifica del modello di programmazione dell'applicazione
 

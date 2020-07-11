@@ -1,5 +1,5 @@
 ---
-title: Copiare una versione dell'immagine da un'altra raccolta
+title: Copiare una versione dell'immagine da un'altra raccolta usando l'interfaccia della riga di comando
 description: Copiare una versione dell'immagine da un'altra raccolta con l'interfaccia della riga di comando di Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -9,13 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 764fe98ad20aa29506b4fba723762124e24af245
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797058"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224333"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Copiare un'immagine da un'altra raccolta
+# <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copiare un'immagine da un'altra raccolta usando l'interfaccia della riga di comando di Azure
 
 Se nell'organizzazione sono presenti più raccolte, è anche possibile creare versioni di immagini da versioni di immagini esistenti archiviate in altre raccolte. È ad esempio possibile disporre di una raccolta di sviluppo e test per la creazione e il test di nuove immagini. Quando sono pronti per l'uso nell'ambiente di produzione, è possibile copiarli in una raccolta di produzione usando questo esempio. È anche possibile creare un'immagine da un'immagine in un'altra raccolta usando [Azure PowerShell](image-version-another-gallery-powershell.md).
 
@@ -83,7 +84,7 @@ az sig image-definition show \
    --gallery-image-definition myImageDefinition
 ```
 
-Verrà visualizzato un risultato simile al seguente:
+L'output sarà simile al seguente:
 
 ```output
 {
@@ -161,3 +162,5 @@ az sig image-version create \
 Creare una macchina virtuale da una versione di immagine [generalizzata](vm-generalized-image-version-cli.md) o [specializzata](vm-specialized-image-version-cli.md) .
 
 Provare anche il [Generatore di immagini di Azure (anteprima)](./linux/image-builder-overview.md) per automatizzare la creazione della versione di immagine. è anche possibile usarlo per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](./linux/image-builder-gallery-update-image-version.md). 
+
+Per informazioni su come fornire informazioni sul piano di acquisto, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).

@@ -9,11 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: f54adb54ca842ea389b0d3ea203d747df0071ee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792031"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223296"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Panoramica dei BLOB di pagine di Azure
 
@@ -122,7 +123,7 @@ Non appena una richiesta di scrittura per un set sequenziale di pagine ha esito 
 
 Il diagramma seguente mostra 2 operazioni di scrittura separate:
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![Diagramma che mostra le due opzioni di scrittura separate.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.  Un'operazione di scrittura che inizia dall'offset 0 di lunghezza pari a 1024 byte 
 2.  Un'operazione di scrittura che inizia dall'offset 4096 di lunghezza pari a 1024 byte 
@@ -150,7 +151,7 @@ In questo modo è possibile scaricare l'intero BLOB o un intervallo di byte a pa
 
 Nella figura seguente viene illustrata un'operazione di lettura con un offset di 256 e una dimensione di intervallo pari a 4352. I dati restituiti vengono evidenziati in arancione. Per le pagine NUL vengono restituiti zeri.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![Diagramma che mostra un'operazione di lettura con un offset di 256 e una dimensione di intervallo pari a 4352](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 Se si ha un BLOB scarsamente popolato, potrebbe essere necessario scaricare solo le aree della pagina valide per evitare addebiti per l'uscita di zero byte e per ridurre la latenza di download.  
 

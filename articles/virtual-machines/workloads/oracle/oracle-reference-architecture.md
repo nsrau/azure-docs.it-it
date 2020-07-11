@@ -2,22 +2,22 @@
 title: Architetture di riferimento per database Oracle in Azure | Microsoft Docs
 description: Fa riferimento a architetture per l'esecuzione di database di Oracle Database Enterprise Edition in Macchine virtuali di Microsoft Azure.
 services: virtual-machines-linux
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: bbb6665299ce9b6521eeb8801d8621dfbdc17f4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9125d8d2177b9bc40bb280f414cdfb2797ccf8fe
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683483"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221613"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architetture di riferimento per Oracle Database Enterprise Edition in Azure
 
@@ -41,7 +41,7 @@ Infine, quando si esegue la migrazione o la creazione di applicazioni per il clo
 
 ### <a name="oracle-rac-in-the-cloud"></a>Oracle RAC nel cloud
 
-Oracle Real Application cluster (RAC) è una soluzione di Oracle che consente ai clienti di ottenere velocità effettiva elevate, con molte istanze che accedono a una risorsa di archiviazione del database (modello di architettura condivisa-tutti). Sebbene Oracle RAC possa essere usato anche per la disponibilità elevata in locale, non è possibile usare solo Oracle RAC per la disponibilità elevata nel cloud, perché protegge solo da errori a livello di istanza e non da errori a livello di rack o di Data Center. Per questo motivo, Oracle consiglia di usare Oracle Data Guard con il database (a seconda dell'istanza o del RAC) per la disponibilità elevata. Per l'esecuzione delle applicazioni mission-critical, i clienti richiedono in genere un contratto di contratto elevato. Oracle RAC non è attualmente certificato né supportato da Oracle in Azure. Tuttavia, Azure offre funzionalità come Azure offre zone di disponibilità e le finestre di manutenzione pianificate per la protezione da errori a livello di istanza. Oltre a questo, i clienti possono usare tecnologie quali Oracle Data Guard, Oracle GoldenGate e il partizionamento orizzontale Oracle per prestazioni elevate e resiliancy, proteggendo i database da errori a livello di rack, oltre che a livello di data center e geo-politico.
+Oracle Real Application cluster (RAC) è una soluzione di Oracle che consente ai clienti di ottenere velocità effettiva elevate, con molte istanze che accedono a una risorsa di archiviazione del database (modello di architettura condivisa-tutti). Sebbene Oracle RAC possa essere usato anche per la disponibilità elevata in locale, non è possibile usare solo Oracle RAC per la disponibilità elevata nel cloud, perché protegge solo da errori a livello di istanza e non da errori a livello di rack o di Data Center. Per questo motivo, Oracle consiglia di usare Oracle Data Guard con il database (a seconda dell'istanza o del RAC) per la disponibilità elevata. Per l'esecuzione delle applicazioni mission-critical, i clienti richiedono in genere un contratto di contratto elevato. Oracle RAC non è attualmente certificato né supportato da Oracle in Azure. Tuttavia, Azure offre funzionalità come Azure offre zone di disponibilità e le finestre di manutenzione pianificate per la protezione da errori a livello di istanza. Oltre a questo, i clienti possono usare tecnologie quali Oracle Data Guard, Oracle GoldenGate e il partizionamento orizzontale Oracle per garantire prestazioni e resilienza elevate proteggendo i database da errori a livello di rack, oltre che a livello di data center e geo-politico.
 
 Quando si eseguono database Oracle in più [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview) insieme a Oracle Data Guard o GoldenGate, i clienti sono in grado di ottenere un contratto di tempo di uptime del 99,99%. Nelle aree di Azure in cui le zone di disponibilità non sono ancora presenti, i clienti possono usare i [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) e ottenere un contratto di tempo di uptime del 99,95%.
 

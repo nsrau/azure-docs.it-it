@@ -10,11 +10,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: c640adb0758c8dfd9dcdae3e26fd023afd5499f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9abf4b46896a3c067cfb189da7921dfe318aedab
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252271"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229381"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Esempi di Azure PowerShell per Azure Data Factory
 
@@ -22,7 +23,7 @@ ms.locfileid: "85252271"
 
 La tabella seguente include collegamenti a esempi di script di Azure PowerShell per Azure Data Factory.
 
-| |  |
+| Script | Descrizione  |
 |---|---|
 |**Copia dati**||
 |[Copiare BLOB da una cartella in un'altra cartella in un'Archiviazione BLOB di Azure](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lo script di PowerShell copia i BLOB da una cartella nell'Archiviazione BLOB di Azure in un'altra cartella della stessa archiviazione BLOB. |

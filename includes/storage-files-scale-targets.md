@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 6cf9be653da2dd587b93724b6e319dc4d20686c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c130fb2e032a24384f52f11957632319093e1e3
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536438"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226410"
 ---
 | Resource | Condivisioni file Standard | Condivisioni file Premium |
 |----------|---------------|------------------------------------------|
@@ -22,7 +22,7 @@ ms.locfileid: "81536438"
 | Velocità effettiva di destinazione per una singola condivisione file | fino a 300 MiB/sec *, fino a 60 MiB/sec,  | Vedere valori in ingresso e in uscita di condivisione file Premium|
 | Numero massimo in uscita per una singola condivisione file | Vedere velocità effettiva di destinazione della condivisione file standard | Fino a 6.204 MiB/s |
 | Ingresso massimo per una singola condivisione file | Vedere velocità effettiva di destinazione della condivisione file standard | Fino a 4.136 MiB/s |
-| Numero massimo di handle aperti per ogni file | 2000 handle aperti | 2000 handle aperti |
+| Numero massimo di handle aperti per ogni file o directory | 2000 handle aperti | 2000 handle aperti |
 | Numero massimo di condivisioni snapshot | 200 snapshot di condivisione | 200 snapshot di condivisione |
 | Lunghezza massima del nome dell'oggetto (directory e file) | 2.048 caratteri | 2.048 caratteri |
 | Numero massimo di componenti del percorso (nel percorso \A\B\C\D ogni lettera è un componente) | 255 caratteri | 255 caratteri |

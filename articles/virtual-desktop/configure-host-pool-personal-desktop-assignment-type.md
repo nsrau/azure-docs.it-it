@@ -5,15 +5,15 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 158ac92a930b53e02ee81570c62711ca27dc4ae8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfe428b9eba1f83f3e1bb05c3941c4c56317c9bc
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200393"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223109"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurare il tipo di assegnazione del pool di host di desktop personale
 
@@ -71,6 +71,21 @@ Per assegnare un utente a un host di sessione specifico, eseguire il cmdlet di P
 ```powershell
 Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
+
+Per assegnare direttamente un utente a un host sessione nel portale di Azure:
+
+1. Accedere al portale di Azure all'indirizzo <https://portal.azure.com>.
+2. Immettere **desktop virtuale Windows** nella barra di ricerca.
+3. In **Servizi**selezionare **desktop virtuale di Windows**.
+4. Nella pagina desktop virtuale di Windows, passare al menu a sinistra della finestra e selezionare **pool host**.
+5. Selezionare il nome del pool host che si desidera aggiornare.
+6. Passare quindi al menu sul lato sinistro della finestra e selezionare **gruppi di applicazioni**.
+7. Selezionare il nome del gruppo di app desktop da modificare, quindi selezionare **assegnazioni** nel menu sul lato sinistro della finestra.
+8. Selezionare **+ Aggiungi**, quindi selezionare gli utenti o i gruppi di utenti in cui si vuole pubblicare il gruppo di app desktop.
+9. Selezionare **assegna macchina virtuale** nella barra informazioni per assegnare un host sessione a un utente.
+10. Selezionare l'host di sessione che si vuole assegnare all'utente e quindi selezionare **assegna**.
+11. Selezionare l'utente a cui si desidera assegnare l'host della sessione dall'elenco degli utenti disponibili.
+12. Al termine, selezionare **Seleziona**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

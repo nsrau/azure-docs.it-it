@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77657164"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229364"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
 Questo articolo fornisce una panoramica delle funzionalità di sicurezza principali di Azure che possono essere usate con le macchine virtuali.
@@ -60,7 +61,7 @@ Per una protezione ancora più potente, è consigliabile usare [Windows Defender
 * [Protezione di nuova generazione](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Protezione di endpoint e azioni di risposta](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Indagini automatizzate e azioni di correzione](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Punteggio di sicurezza](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
+* [Punteggio di sicurezza](/windows/security/threat-protection/microsoft-defender-atp/tvm-microsoft-secure-score-devices)
 * [Ricerca avanzata](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Gestione e API](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
@@ -78,7 +79,7 @@ L'insieme di credenziali delle chiavi consente di archiviare le chiavi in moduli
 
 Altre informazioni:
 
-* [Cos'è l'insieme di credenziali chiave di Azure?](/azure/key-vault/key-vault-overview)
+* [Che cos'è Azure Key Vault?](/azure/key-vault/key-vault-overview)
 * [Blog sull'insieme di credenziali delle chiavi di Azure](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Crittografia dischi delle macchine virtuali
@@ -157,9 +158,9 @@ Altre informazioni:
 
 ## <a name="confidential-computing"></a>Confidential computing
 
-Il confidential computing non fa tecnicamente parte dell'ambito della sicurezza delle macchine virtuali. L'argomento relativo alla sicurezza delle macchine virtuali appartiene tuttavia alla categoria di più alto livello della sicurezza di calcolo, in cui è incluso anche il confidential computing.
+Sebbene il computing riservato non sia tecnicamente parte della sicurezza delle macchine virtuali, l'argomento relativo alla sicurezza della macchina virtuale appartiene al soggetto di livello superiore della sicurezza "calcolo". Il computing riservato appartiene alla categoria "calcolo" della sicurezza.
 
-Con il confidential computing si ha la sicurezza che i dati "in chiaro", necessari per un'elaborazione efficiente, siano protetti all'interno di un ambiente di esecuzione attendibile (https://en.wikipedia.org/wiki/Trusted_execution_environment), noto anche come enclave, di cui è illustrato un esempio di seguito.  
+Il computing riservato garantisce che, quando i dati sono "in chiaro", che è necessario per un'elaborazione efficiente, i dati sono protetti in un ambiente di esecuzione attendibile https://en.wikipedia.org/wiki/Trusted_execution_environment (Tee, noto anche come enclave), un esempio di come illustrato nella figura seguente.  
 
 Gli ambienti di esecuzione attendibili impediscono qualsiasi tentativo di visualizzare operazioni o dati interni dall'esterno, anche con un debugger. Consentono inoltre l'accesso ai dati solo a codice autorizzato. Se il codice è stato modificato o manomesso, le operazioni vengono negate e l'ambiente viene disabilitato. Gli ambienti di esecuzione attendibili applicano queste protezioni a tutto il ciclo di esecuzione del codice in essi contenuto.
 

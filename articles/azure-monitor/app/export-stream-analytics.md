@@ -3,12 +3,12 @@ title: Esportare da Azure Application Insights usando l'analisi di flusso | Docu
 description: L'analisi di flusso può trasformare, filtrare e instradare continuativamente i dati esportati da Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 400c727b44d3794dc9a17c59959dc5c75cea71fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110488"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224520"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
@@ -60,7 +60,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
     I dati verranno inoltre esportati nell'archivio. 
 2. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer**e aprire Azure/Archiviazione. Se questa opzione di menu non è disponibile, è necessario installare Azure SDK: aprire la finestra di dialogo Nuovo progetto e aprire Visual C#/Cloud/Get Microsoft Azure SDK for .NET (Ottieni Microsoft Azure SDK per .NET).
    
-    ![](./media/export-stream-analytics/04-data.png)
+    ![Screenshot che illustra come impostare i tipi di evento che si desidera visualizzare.](./media/export-stream-analytics/04-data.png)
    
     Prendere nota della parte comune del nome del percorso, derivata dal nome dell’applicazione e dalla chiave di strumentazione. 
 
@@ -69,21 +69,21 @@ Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contene
 ## <a name="create-an-azure-stream-analytics-instance"></a>Creare un'istanza di analisi di flusso di Azure
 Nel [portale di Azure](https://portal.azure.com/) selezionare il servizio Analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
 
-![](./media/export-stream-analytics/SA001.png)
+![Screenshot che mostra la pagina principale per la creazione di un processo di analisi di flusso nel portale di Azure.](./media/export-stream-analytics/SA001.png)
 
-![](./media/export-stream-analytics/SA002.png)
+![Screenshot che mostra i dettagli necessari durante la creazione di un nuovo processo di analisi di flusso.](./media/export-stream-analytics/SA002.png)
 
 Quando viene creato il nuovo processo, selezionare **Vai alla risorsa**.
 
-![](./media/export-stream-analytics/SA003.png)
+![Screenshot che mostra il messaggio ricevuto quando la distribuzione del nuovo processo di analisi di flusso ha esito positivo.](./media/export-stream-analytics/SA003.png)
 
 ### <a name="add-a-new-input"></a>Aggiungere un nuovo input
 
-![](./media/export-stream-analytics/SA004.png)
+![Screenshot che illustra come aggiungere input al processo di analisi di flusso.](./media/export-stream-analytics/SA004.png)
 
 Impostarlo in modo da accettare l'input dal BLOB di esportazione continua:
 
-![](./media/export-stream-analytics/SA0005.png)
+![Screenshot che mostra la configurazione del processo di analisi di flusso per l'input da un BLOB di esportazione continua.](./media/export-stream-analytics/SA0005.png)
 
 A questo punto è necessaria la chiave di accesso primaria dell'account di archiviazione, di cui si è preso nota in precedenza. Impostarla come chiave dell'account di archiviazione.
 
@@ -109,7 +109,7 @@ Esempio:
 ## <a name="add-new-output"></a>Aggiungere un nuovo output
 Selezionare il processo > **Output** > **Aggiungi**.
 
-![](./media/export-stream-analytics/SA006.png)
+![Screenshot che mostra la selezione del processo di analisi di flusso per aggiungere un nuovo output.](./media/export-stream-analytics/SA006.png)
 
 
 ![Selezionare il nuovo canale, fare clic su Output, su Aggiungi e quindi su Power BI](./media/export-stream-analytics/SA010.png)

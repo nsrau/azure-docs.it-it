@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4959d530e1f7a3c777aa3db21fe577c853fbca13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855996"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230826"
 ---
 # <a name="key-vault-versions"></a>Versioni di Key Vault
 
@@ -58,13 +58,13 @@ Nuove funzionalità rilasciate quest'anno:
 - Gestione dei certificati. Aggiunta come funzionalità alla versione GA 2015-06-01 del 26 settembre 2016.
 
 La disponibilità generale (versione 2015-06-01) è stata annunciata il 24 giugno 2015. In questa versione sono state apportate le modifiche seguenti: 
-- Eliminare una chiave: campo "Usa" rimosso.
-- Ottenere informazioni relative a una chiave: campo "Usa" rimosso.
-- Importare una chiave in un insieme di credenziali: campo "Usa" rimosso.
-- Ripristinare una chiave: campo "Usa" rimosso.     
-- “RSA_OAEP” modificato in “RSA-OAEP” per gli algoritmi RSA. Vedere [informazioni su chiavi, segreti e certificati](about-keys-secrets-certificates.md).    
+- Eliminare una chiave: il campo "use" è stato rimosso.
+- Ottenere informazioni su un campo chiave: "use" rimosso.
+- Importare una chiave in un insieme di credenziali: il campo "use" è stato rimosso.
+- Ripristinare una chiave: il campo "use" è stato rimosso.     
+- "RSA_OAEP" è stato modificato in "RSA-OAEP" per gli algoritmi RSA. Vedere [informazioni su chiavi, segreti e certificati](about-keys-secrets-certificates.md).    
  
-La seconda versione di anteprima (versione 2015-02-01-Preview) è stata annunciata il 20 aprile 2015. Per altre informazioni, vedere il post di blog [REST API Update](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) (Aggiornamento API REST). Sono state aggiornate le attività seguenti:
+La seconda versione di anteprima (versione 2015-02-01-Preview) è stata annunciata il 20 aprile 2015. Per altre informazioni, vedere il post di blog [REST API Update](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) (Aggiornamento API REST). Sono state aggiornate le attività seguenti:
  
 - Elencare le chiavi in un insieme di credenziali - aggiunta del supporto per la paginazione all'operazione.
 - Elencare le versioni di una chiave - aggiunta dell'operazione per elencare le versioni di una chiave.  

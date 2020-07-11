@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b7b2a75bff21825a47f4364a8936ee7d5f122c1a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144602"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223891"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Informazioni sull'accesso Single Sign-On (SSO)
 
@@ -90,6 +90,9 @@ Scegliere l'accesso Single Sign-On basato su password quando:
 - Un'applicazione non supporta il protocollo di accesso Single Sign-On SAML.
 - Un'applicazione esegue l'autenticazione con un nome utente e una password anziché usando intestazioni e token di accesso.
 
+>[!NOTE]
+>Non è possibile applicare criteri di accesso condizionale o autenticazione a più fattori per l'accesso SSO basato su password.
+
 L'accesso Single Sign-On basato su password è supportato per qualunque applicazione basata su cloud con pagina di accesso basata su HTML. L'utente può usare uno dei browser seguenti:
 
 - Internet Explorer 11 su Windows 7 o versioni successive
@@ -136,6 +139,9 @@ L'accesso Single Sign-On collegato consente ad Azure AD di fornire l'accesso Sin
 L'accesso collegato può offrire un'esperienza utente coerente durante la migrazione di applicazioni in un determinato periodo di tempo. Se si esegue la migrazione di applicazioni a Azure Active Directory, è possibile usare l'accesso collegato per pubblicare rapidamente i collegamenti a tutte le applicazioni di cui si intende eseguire la migrazione.  Gli utenti possono trovare tutti i collegamenti nel [portale MyApps](../user-help/active-directory-saas-access-panel-introduction.md) o nell'[applicazione di avvio di Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Gli utenti non si accorgeranno di accedere a un'applicazione collegata o sottoposta migrazione.  
 
 Dopo che un utente ha eseguito l'autenticazione con un'applicazione collegata, dovrà essere creato un record di account prima che all'utente finale venga concesso l'accesso Single Sign-On. Il provisioning di questo record di account può verificarsi automaticamente o può essere effettuato manualmente da un amministratore.
+
+>[!NOTE]
+>Non è possibile applicare criteri di accesso condizionale o autenticazione a più fattori a un'applicazione collegata. Ciò è dovuto al fatto che un'applicazione collegata non fornisce funzionalità di Single Sign-On tramite Azure AD. Quando si configura un'applicazione collegata, viene semplicemente aggiunto un collegamento che verrà visualizzato nell'utilità di avvio delle app o nel portale app. 
 
 ## <a name="disabled-sso"></a>SSO disabilitato
 

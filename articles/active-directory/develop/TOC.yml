@@ -4,9 +4,7 @@
   items:
     - name: Che cos'è Microsoft Identity Platform?
       href: v2-overview.md
-    - name: Evoluzione di Microsoft Identity Platform
-      href: about-microsoft-identity-platform.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Configurare un tenant

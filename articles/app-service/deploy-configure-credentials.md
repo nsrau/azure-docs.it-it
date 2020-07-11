@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649139"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223857"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Il [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) supporta due tipi di credenziali per la [distribuzione di GIT locale](deploy-local-git.md) e la [distribuzione FTP/S](deploy-ftp.md). Queste credenziali sono diverse dalle credenziali della sottoscrizione di Azure.
@@ -22,7 +23,7 @@ Il [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) suppo
 
 ### <a name="in-the-cloud-shell"></a>In Cloud Shell
 
-Per configurare l'utente della distribuzione in [Cloud Shell](https://shell.azure.com), eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Sostituire \<username> e \<password> con il nome utente e la password di un utente della distribuzione. 
+Per configurare l'utente della distribuzione in [Cloud Shell](https://shell.azure.com), eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Sostituire \<username> e \<password> con il nome utente e la password di una distribuzione. 
 
 - Il nome utente deve essere univoco in Azure e per i push Git locali non deve contenere il simbolo "\@". 
 - La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli. 
@@ -37,19 +38,19 @@ L'output JSON mostra la password come `null`. Se viene visualizzato un errore `'
 
 È necessario disporre di almeno un'app nel portale di Azure per poter accedere alla pagina delle credenziali per la distribuzione. Per configurare le credenziali a livello di utente:
 
-1. Nel [portale di Azure](https://portal.azure.com), nel menu a sinistra, selezionare **Servizi app** >  **\<any_app >**  > **Centro distribuzione** > **FTP** > **Dashboard**.
+1. Nel [portale di Azure](https://portal.azure.com), dal menu a sinistra, selezionare **app Services**  >  **\<any_app>**  >  **Deployment Center**  >  **FTP**  >  **Dashboard**.
 
-    ![](./media/app-service-deployment-credentials/access-no-git.png)
+    ![Mostra come è possibile selezionare il dashboard FTP dal centro distribuzione in app Azure Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
     In alternativa, se è già stata configurata la distribuzione Git, selezionare **Servizi app** >  **&lt;any_app >**  > **Centro distribuzione** > **FTP/Credenziali**.
 
-    ![](./media/app-service-deployment-credentials/access-with-git.png)
+    ![Mostra come è possibile selezionare il dashboard FTP da Deployment Center in app Azure Services per la distribuzione git configurata.](./media/app-service-deployment-credentials/access-with-git.png)
 
 2. Selezionare **Credenziali utente**, configurare il nome utente e la password e quindi selezionare **Salva credenziali**.
 
 Dopo aver impostato le credenziali per la distribuzione, è possibile trovare il nome utente per la distribuzione di *GIT* nella pagina **Panoramica** dell'app,
 
-![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![Mostra come trovare il nome utente della distribuzione git nella pagina Panoramica dell'app.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
 Se è configurata la distribuzione Git, nella pagina viene visualizzato un **nome utente Git/distribuzione**; in caso contrario, un **nome utente FTP/distribuzione**.
 

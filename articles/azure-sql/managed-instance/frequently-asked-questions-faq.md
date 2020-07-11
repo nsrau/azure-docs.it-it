@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: d2e4b07c97e09fce5cdaa034e2fe67a18ef0d7f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171160"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224418"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -122,56 +122,121 @@ Per usare un'altra zona DNS anziché quella predefinita, ad esempio, *. contoso.
 - Usare CliConfig per definire un alias. Lo strumento è semplicemente un wrapper di impostazioni del registro di sistema, pertanto può essere eseguito anche tramite criteri di gruppo o uno script.
 - Usare *CNAME* con l'opzione *TrustServerCertificate = true* .
 
-## <a name="move-a-database-from-sql-managed-instance"></a>Spostare un database da SQL Istanza gestita 
+## <a name="migration-options"></a>Opzioni di migrazione
 
-**Come è possibile spostare un database da SQL Istanza gestita alla SQL Server o al database SQL di Azure?**
+**Come è possibile eseguire la migrazione da un pool elastico o singolo del database SQL di Azure a SQL Istanza gestita?**
 
-È possibile [esportare un database in BacPac](../database/database-export.md) e quindi [importare il file BACPAC](../database/database-import.md). Si tratta dell'approccio consigliato se il database è inferiore a 100 GB.
+Istanza gestita offre gli stessi livelli di prestazioni per calcolo e dimensioni di archiviazione delle altre opzioni di distribuzione del database SQL di Azure. Se si desidera consolidare i dati in una singola istanza oppure è sufficiente una funzionalità supportata esclusivamente in istanza gestita, è possibile eseguire la migrazione dei dati tramite la funzionalità di esportazione/importazione (BACPAC). Ecco altri modi per prendere in considerazione la migrazione del database SQL a SQL Istanza gestita: 
+- Uso dell' [origine dati esterna]()
+- Utilizzo di [SqlPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
+- Uso di [bcp](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
-La replica transazionale può essere utilizzata se tutte le tabelle del database includono chiavi primarie.
+**Come è possibile eseguire la migrazione del database dell'istanza a un singolo database SQL di Azure?**
 
-`COPY_ONLY`Non è possibile ripristinare i backup nativi eseguiti da sql istanza gestita per SQL Server perché SQL istanza gestita ha una versione del database superiore rispetto a SQL Server.
+Un'opzione consiste nell' [esportare un database in BacPac](../database/database-export.md) e quindi [importare il file BACPAC](../database/database-import.md). Si tratta dell'approccio consigliato se il database è inferiore a 100 GB.
 
-## <a name="migrate-an-instance-database"></a>Eseguire la migrazione di un database dell'istanza
+La [replica transazionale](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) può essere utilizzata se tutte le tabelle del database includono chiavi *primarie* e nel database non sono presenti oggetti OLTP in memoria.
 
-**Come è possibile eseguire la migrazione del database dell'istanza al database SQL di Azure?**
+Non è possibile ripristinare i backup nativi di COPY_ONLY eseguiti dall'istanza gestita per SQL Server perché l'istanza gestita ha una versione del database superiore rispetto a SQL Server. Per informazioni dettagliate, vedere [backup di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
 
-Un'opzione consiste nell' [esportare il database in un BacPac](../database/database-export.md) e quindi [importare il file BACPAC](../database/database-import.md). 
+**Come è possibile eseguire la migrazione dell'istanza di SQL Server a SQL Istanza gestita?**
 
-Si tratta dell'approccio consigliato se il database è inferiore a 100 GB. La replica transazionale può essere utilizzata se tutte le tabelle del database includono chiavi primarie.
+Per eseguire la migrazione dell'istanza di SQL Server, vedere [migrazione dell'istanza di SQL Server ad Azure SQL istanza gestita](migrate-to-instance-from-sql-server.md).
+
+**Come è possibile eseguire la migrazione da altre piattaforme a SQL Istanza gestita?**
+
+Per informazioni sulla migrazione da altre piattaforme, vedere [Azure Database Migration Guide](https://datamigration.microsoft.com/) (Guida alla migrazione di database di Azure).
 
 ## <a name="switch-hardware-generation"></a>Cambia generazione hardware 
 
-**È possibile cambiare la generazione di hardware Istanza gestita SQL tra gen 4 e gen 5 online?**
+**È possibile cambiare la generazione di hardware dell'istanza gestita tra gen 4 e gen 5 online?**
 
-Il cambio automatico online tra le generazioni hardware è possibile se entrambe le generazioni hardware sono disponibili nell'area in cui viene effettuato il provisioning di SQL Istanza gestita. In questo caso, è possibile controllare la [pagina Panoramica del modello vCore](../database/service-tiers-vcore.md), che illustra come passare da una generazione all'altra.
+Il cambio automatico online da Gen4 a Quinta generazione è possibile se l'hardware quinta generazione è disponibile nell'area in cui viene effettuato il provisioning dell'istanza gestita. In questo caso, è possibile controllare la [pagina di panoramica del modello vCore](../database/service-tiers-vcore.md) che spiega come passare da una generazione all'altra.
 
-Si tratta di un'operazione a esecuzione prolungata, in quanto verrà effettuato il provisioning di una nuova istanza gestita in background e i database trasferiti automaticamente tra le istanze precedenti e quelle nuove, con un failover rapido alla fine del processo. 
+Si tratta di un'operazione a esecuzione prolungata perché verrà effettuato il provisioning di una nuova istanza gestita in background e i database trasferiti automaticamente tra la vecchia e la nuova istanza con un failover rapido alla fine del processo.
 
-**Cosa accade se entrambe le generazioni hardware non sono supportate nella stessa area?**
+Nota: l'hardware Gen4 viene eliminato e non è più disponibile per le nuove distribuzioni. Tutti i nuovi database devono essere distribuiti nell'hardware quinta generazione. Non è inoltre possibile passare da Quinta generazione a Gen4.
 
-Se entrambe le generazioni hardware non sono supportate nella stessa area, la modifica della generazione hardware è possibile, ma deve essere eseguita manualmente. A tale scopo, è necessario effettuare il provisioning di una nuova istanza nell'area in cui è disponibile la generazione hardware desiderata e eseguire manualmente il backup e il ripristino dei dati tra le istanze precedenti e nuove.
+## <a name="performance"></a>Prestazioni 
 
-**Cosa accade se non sono disponibili indirizzi IP sufficienti per eseguire l'operazione di aggiornamento?**
+**Come è possibile confrontare le prestazioni Istanza gestita per SQL Server prestazioni?**
 
-Se nella subnet non è disponibile un numero sufficiente di indirizzi IP in cui viene effettuato il provisioning dell'istanza gestita, sarà necessario creare una nuova subnet e una nuova istanza gestita al suo interno. Si consiglia inoltre di creare la nuova subnet con più indirizzi IP allocati, in modo che le operazioni di aggiornamento future eviteranno situazioni simili. Per le dimensioni corrette della subnet, controllare [come determinare le dimensioni di una subnet VNet](vnet-subnet-determine-size.md). Al termine del provisioning della nuova istanza, è possibile eseguire manualmente il backup e il ripristino dei dati tra le istanze precedenti e nuove o eseguire il [ripristino temporizzato](point-in-time-restore.md?tabs=azure-powershell)tra istanze. 
+Per un confronto delle prestazioni tra istanza gestita e SQL Server, un punto di partenza valido è la procedura consigliata [per il confronto delle prestazioni tra l'istanza gestita di SQL di Azure e SQL Server](https://techcommunity.microsoft.com/t5/azure-sql-database/the-best-practices-for-performance-comparison-between-azure-sql/ba-p/683210) articolo.
 
+**Quali sono le differenze di prestazioni tra Istanza gestita e SQL Server?**
 
-## <a name="tune-performance"></a>Ottimizzare le prestazioni
+Vedere le [cause principali delle differenze di prestazioni tra istanza gestita di SQL e SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/). Per ulteriori informazioni sull'effetto sulle dimensioni dei file di log sulle prestazioni per utilizzo generico Istanza gestita, vedere [conseguenze della dimensione del file di log in per utilizzo generico](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
-**Ricerca per categorie ottimizzare le prestazioni di SQL Istanza gestita?**
+**Ricerca per categorie ottimizzare le prestazioni dell'istanza gestita?**
 
-Il Istanza gestita SQL nel livello per utilizzo generico usa l'archiviazione remota, quindi le dimensioni dei file di dati e di log sono importanti per le prestazioni. Per ulteriori informazioni, vedere [conseguenze delle dimensioni del file di registro in per utilizzo generico prestazioni di SQL istanza gestita](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
+Per ottimizzare le prestazioni dell'istanza gestita, è possibile:
+- [Ottimizzazione automatica](../database/automatic-tuning-overview.md) che fornisce prestazioni di picco e carichi di lavoro stabili tramite l'ottimizzazione delle prestazioni continua basata su intelligenza artificiale e machine learning.
+-   [OLTP in memoria](../in-memory-oltp-overview.md) che migliora la velocità effettiva e la latenza sui carichi di lavoro di elaborazione transazionale e offre informazioni aziendali più veloci. 
 
-Se il carico di lavoro è costituito da numerose transazioni di piccole dimensioni, provare a cambiare il tipo di connessione dal proxy alla modalità di reindirizzamento.
+Per ottimizzare ulteriormente le prestazioni, è consigliabile applicare alcune delle *procedure consigliate* per l' [ottimizzazione dell'applicazione e del database](../database/performance-guidance.md#tune-your-database).
+Se il carico di lavoro è costituito da molte piccole transazioni, provare [a cambiare il tipo di connessione dal proxy alla modalità di reindirizzamento per una](connection-types-overview.md#changing-connection-type) latenza più bassa e una velocità effettiva più elevata
 
-## <a name="maximum-storage-size"></a>Dimensioni massime di archiviazione
+## <a name="monitoring-metrics-and-alerts"></a>Monitoraggio, metriche e avvisi
+
+**Quali sono le opzioni per il monitoraggio e gli avvisi per l'istanza gestita?**
+
+Per tutte le opzioni possibili per il monitoraggio e l'avviso sull'utilizzo e sulle prestazioni di SQL Istanza gestita, vedere il [post di Blog sulle opzioni di monitoraggio di sql istanza gestita di Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Per il monitoraggio delle prestazioni in tempo reale per SQL MI, vedere [monitoraggio delle prestazioni in tempo reale per il database SQL di Azure istanza gestita](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+
+**È possibile utilizzare SQL Profiler per il rilevamento delle prestazioni?**
+
+Sì, SQL Profiler è supportato o SQL Istanza gestita. Per ulteriori informazioni, vedere [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+
+**Advisor per database e Informazioni dettagliate prestazioni query sono supportati per i database Istanza gestita?**
+
+No, non sono supportate. È possibile usare [DMV](../database/monitoring-with-dmvs.md) e [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) insieme a [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) e [XEvent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) per monitorare i database.
+
+**È possibile creare avvisi sulle metriche in SQL Istanza gestita?**
+
+Sì. Per istruzioni, vedere [creare avvisi per SQL istanza gestita](alerts-create.md).
+
+**È possibile creare avvisi delle metriche in un database in un'istanza gestita?**
+
+Non è possibile, le metriche di avviso sono disponibili solo per l'istanza gestita. Le metriche di avviso per i singoli database nell'istanza gestita non sono disponibili.
+
+## <a name="storage-size"></a>Dimensioni dello spazio di archiviazione
 
 **Quali sono le dimensioni massime di archiviazione per SQL Istanza gestita?**
 
 Le dimensioni di archiviazione per SQL Istanza gestita variano a seconda del livello di servizio selezionato (per utilizzo generico o business critical). Per le limitazioni di archiviazione di questi livelli di servizio, vedere [caratteristiche del livello di servizio](../database/service-tiers-general-purpose-business-critical.md).
 
-  
+**Quali sono le dimensioni minime di archiviazione disponibili per un'istanza gestita?**
+
+La quantità minima di spazio di archiviazione disponibile in un'istanza è 32 GB. È possibile aggiungere spazio di archiviazione a incrementi di 32 GB fino alle dimensioni massime di archiviazione. I primi 32GB sono gratuiti.
+
+**È possibile aumentare lo spazio di archiviazione assegnato a un'istanza, indipendentemente dalle risorse di calcolo?**
+
+Sì, è possibile acquistare spazio di archiviazione aggiuntivo, indipendentemente dal calcolo, in una certa misura. Vedere *archiviazione riservata per istanze max* nella [tabella](resource-limits.md#hardware-generation-characteristics).
+
+**Come è possibile ottimizzare le prestazioni di archiviazione in per utilizzo generico livello di servizio?**
+
+Per ottimizzare le prestazioni di archiviazione, vedere [procedure consigliate di archiviazione in per utilizzo generico](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
+
+## <a name="backup-and-restore"></a>Backup e ripristino
+
+**L'archivio di backup è stato sottratto dalla risorsa di archiviazione delle istanze gestite?**
+
+No, l'archiviazione di backup non viene dedotta dallo spazio di archiviazione dell'istanza gestita. L'archivio di backup è indipendente dallo spazio di archiviazione dell'istanza e non ha dimensioni limitate. L'archiviazione di backup è limitata al periodo di tempo per cui conservare il backup dei database dell'istanza, configurabile fino a 35 giorni. Per informazioni dettagliate, vedere [backup automatici](../database/automated-backups-overview.md).
+
+**Come è possibile vedere quando vengono eseguiti backup automatici nell'istanza gestita?**
+Per tenere traccia del momento in cui sono stati eseguiti i backup automatici in Istanza gestita, vedere [come tenere traccia del backup automatico per un istanza gestita SQL di Azure](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
+
+**Il backup su richiesta è supportato?**
+Sì, è possibile creare un backup completo di sola copia nell'archiviazione BLOB di Azure, ma sarà ripristinabile solo in Istanza gestita. Per informazioni dettagliate, vedere [backup di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Il backup di sola copia, tuttavia, non è possibile se il database è crittografato da Transparent Service Management perché il certificato usato per la crittografia non è accessibile. In tal caso, utilizzare la funzionalità di ripristino temporizzato per spostare il database in un altro Istanza gestita SQL oppure passare alla chiave gestita dal cliente.
+
+**Il ripristino nativo (da file con estensione bak) a Istanza gestita supportato?**
+Sì, è supportato e disponibile per SQL Server versione 2005 +.  Per usare il ripristino nativo, caricare il file con estensione bak nell'archivio BLOB di Azure ed eseguire i comandi T-SQL. Per altri dettagli, vedere [ripristino nativo da URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
+
+## <a name="business-continuity"></a>Continuità aziendale
+
+**I database di sistema sono replicati nell'istanza secondaria in un gruppo di failover?**
+
+I database di sistema non vengono replicati nell'istanza secondaria in un gruppo di failover. Pertanto, gli scenari che dipendono da oggetti dei database di sistema non saranno possibili nell'istanza secondaria, a meno che gli oggetti non vengano creati manualmente sul database secondario. Per la soluzione alternativa, vedere [abilitare gli scenari dipendenti dall'oggetto dai database di sistema](../database/auto-failover-group-overview.md?tabs=azure-powershell#enable-scenarios-dependent-on-objects-from-the-system-databases).
+ 
 ## <a name="networking-requirements"></a>Requisiti di rete 
 
 **Quali sono i vincoli Current NSG in ingresso/in uscita sulla subnet Istanza gestita?**
@@ -231,6 +296,44 @@ Questa operazione non è obbligatoria. È possibile [creare una rete virtuale pe
 
 No. Attualmente non è supportata l'immissione di Istanza gestita in una subnet che contiene già altri tipi di risorse.
 
+## <a name="connectivity"></a>Connettività 
+
+**È possibile connettersi all'istanza gestita usando l'indirizzo IP?**
+
+No, questa operazione non è supportata. Il nome host di un Istanza gestita viene mappato al servizio di bilanciamento del carico davanti al cluster virtuale del Istanza gestita. Poiché un cluster virtuale può ospitare più istanze gestite, non è possibile indirizzare una connessione al Istanza gestita appropriato senza specificarne il nome.
+Per ulteriori informazioni sull'architettura di cluster virtuali SQL Istanza gestita, vedere [architettura della connettività del cluster virtuale](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
+
+**L'istanza gestita può avere un indirizzo IP statico?**
+
+Non supportato attualmente.
+
+In casi rari ma necessari, potrebbe essere necessario eseguire una migrazione in linea di un'istanza gestita a un nuovo cluster virtuale. Se necessario, questa migrazione è dovuta a modifiche nello stack di tecnologie mirate a migliorare la sicurezza e l'affidabilità del servizio. La migrazione a un nuovo cluster virtuale comporta la modifica dell'indirizzo IP di cui è stato eseguito il mapping al nome host dell'istanza gestita. Il servizio istanza gestita non richiede il supporto di indirizzi IP statici e si riserva il diritto di modificarlo senza preavviso nell'ambito dei normali cicli di manutenzione.
+
+Per questo motivo, è fortemente sconsigliabile basarsi sull'immutabilità dell'indirizzo IP perché potrebbe causare tempi di inattività superflui.
+
+**Istanza gestita dispone di un endpoint pubblico?**
+
+Sì. Istanza gestita dispone di un endpoint pubblico che viene usato per impostazione predefinita solo per la gestione dei servizi, ma un cliente può abilitarlo anche per l'accesso ai dati. Per informazioni dettagliate, vedere [usare istanza gestita SQL con endpoint pubblici](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Per configurare l'endpoint pubblico, passare a [Configura endpoint pubblico in SQL istanza gestita](public-endpoint-configure.md).
+
+**In che modo Istanza gestita controlla l'accesso all'endpoint pubblico?**
+
+Istanza gestita controlla l'accesso all'endpoint pubblico a livello di rete e di applicazione.
+
+I servizi di gestione e distribuzione si connettono a un'istanza gestita usando un [endpoint di gestione](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) mappato a un servizio di bilanciamento del carico esterno. Il traffico viene indirizzato ai nodi solo se viene ricevuto su un set di porte predefinite usate esclusivamente dai componenti di gestione dell'istanza gestita. Per consentire il traffico solo da intervalli IP specifici di Microsoft, viene inoltre configurato un firewall incorporato nei nodi. Tutte le comunicazioni tra i componenti di gestione e il piano di gestione vengono autenticate reciprocamente tramite i certificati. Per ulteriori informazioni, vedere [architettura di connettività per SQL istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+
+**È possibile usare l'endpoint pubblico per accedere ai dati in Istanza gestita database?**
+
+Sì. Il cliente dovrà abilitare l'accesso ai dati dell'endpoint pubblico dal [portale di Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurare NSG per bloccare l'accesso alla porta dati (numero di porta 3342). Per altre informazioni, vedere [configurare un endpoint pubblico in Azure sql istanza gestita](public-endpoint-configure.md) e [usare Azure SQL istanza gestita in modo sicuro con l'endpoint pubblico](public-endpoint-overview.md). 
+
+**È possibile specificare una porta personalizzata per gli endpoint dati SQL?**
+
+No, questa opzione non è disponibile.  Per l'endpoint di dati privati, Istanza gestita usa il numero di porta predefinito 1433 e per l'endpoint di dati pubblici Istanza gestita usa il numero di porta predefinito 3342.
+
+**Qual è il modo consigliato per connettere le istanze gestite posizionate in aree diverse?**
+
+Il peering del circuito Express route è il modo migliore per eseguire questa operazione. Questo non deve essere combinato con il peering di rete virtuale tra aree non supportato a causa di [vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)interni correlati al servizio di bilanciamento del carico.
+
+Se il peering del circuito Express route non è possibile, l'unica altra opzione consiste nel creare una connessione VPN da sito a sito ([portale di Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Attenuazione dei rischi exfiltration  
 
@@ -277,21 +380,6 @@ Alla fine, la configurazione DNS verrà aggiornata:
 - Aggiornamento della piattaforma.
 
 Per risolvere il problema, eseguire il downgrade di SQL Istanza gestita a 4 Vcore e aggiornarlo di nuovo in seguito. Questa operazione ha effetto collaterale sull'aggiornamento della configurazione DNS.
-
-
-## <a name="ip-address"></a>Indirizzo IP
-
-**È possibile connettersi a SQL Istanza gestita usando un indirizzo IP?**
-
-La connessione a SQL Istanza gestita tramite un indirizzo IP non è supportata. Il nome host di SQL Istanza gestita viene mappato a un servizio di bilanciamento del carico davanti al cluster virtuale di SQL Istanza gestita. Poiché un cluster virtuale può ospitare più istanze gestite, le connessioni non possono essere indirizzate all'istanza gestita corretta senza specificare il nome in modo esplicito.
-
-Per ulteriori informazioni sull'architettura di cluster virtuali SQL Istanza gestita, vedere [architettura della connettività del cluster virtuale](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
-
-**È possibile che SQL Istanza gestita disponga di un indirizzo IP statico?**
-
-In casi rari ma necessari, potrebbe essere necessario eseguire una migrazione in linea di SQL Istanza gestita a un nuovo cluster virtuale. Se necessario, questa migrazione è dovuta a modifiche nello stack di tecnologie mirate a migliorare la sicurezza e l'affidabilità del servizio. La migrazione a un nuovo cluster virtuale comporta la modifica dell'indirizzo IP di cui è stato eseguito il mapping al nome host di SQL Istanza gestita. Il servizio SQL Istanza gestita non richiede il supporto di indirizzi IP statici e si riserva il diritto di modificarlo senza preavviso nell'ambito dei normali cicli di manutenzione.
-
-Per questo motivo, è fortemente sconsigliabile basarsi sull'immutabilità dell'indirizzo IP perché potrebbe causare tempi di inattività superflui.
 
 ## <a name="change-time-zone"></a>Modificare il fuso orario
 

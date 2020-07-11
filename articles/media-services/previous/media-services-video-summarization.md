@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b85cffe497ad0b374edb18a1089412da839cdf8
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918332"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231846"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Uso delle anteprime video multimediali di Azure per creare un riepilogo video  
 
@@ -66,10 +67,10 @@ Al momento, è possibile modificare i parametri seguenti:
 
 La tabella seguente descrive la durata predefinita, quando **maxMotionThumbnailInSecs** non viene usato.
 
-|  |  |  |
+|  | Small | Maggiore |
 | --- | --- | --- |
-| Durata del video |d < 3 min |3 minuti. < d < 15 minuti |
-| Durata dell'anteprima |15 sec (2-3 scene) |30 sec (3-5 scene) |
+| **Durata del video** |d < 3 min |3 minuti. < d < 15 minuti |
+| **Durata dell'anteprima** |15 sec (2-3 scene) |30 sec (3-5 scene) |
 
 Il codice JSON seguente imposta i parametri disponibili.
 

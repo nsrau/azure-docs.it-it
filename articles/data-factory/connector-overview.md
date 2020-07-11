@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 07/08/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: d7a872121ca6560b8ede86abc35294ab8c9b0c1b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: f22b4bec17abe95be2a17d3e0e3c41fab3483fe0
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142017"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224817"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Panoramica di Azure Data Factory Connector
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory supportano gli archivi dati e i formati seguenti tramite copia, flusso di dati, ricerca, Ottieni metadati ed Elimina attività. Fare clic su ogni archivio dati per ottenere informazioni sulle funzionalità supportate e sulle configurazioni corrispondenti.
+Azure Data Factory supporta gli archivi dati e i formati seguenti tramite copia, flusso di dati, ricerca, Ottieni metadati ed Elimina attività. Fare clic su ogni archivio dati per ottenere informazioni sulle funzionalità supportate e sulle configurazioni corrispondenti.
 
 ## <a name="supported-data-stores"></a>Archivi dati supportati
 
@@ -34,6 +34,7 @@ Azure Data Factory supporta i formati di file seguenti. Vedere ogni articolo per
 - [Formato binario](format-binary.md)
 - [Formato Common Data Model](format-common-data-model.md)
 - [Formato di testo delimitato](format-delimited-text.md)
+- [Formato Delta](format-delta.md)
 - [Formato Excel](format-excel.md)
 - [Formato JSON](format-json.md)
 - [Formato ORC](format-orc.md)

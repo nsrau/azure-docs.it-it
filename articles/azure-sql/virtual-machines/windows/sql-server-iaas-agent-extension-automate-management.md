@@ -16,19 +16,16 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 89210cda6390fd7c3cf4ca2877b8899559a41321
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67df782cf8044593859e7761278d93187d258d26
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668713"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231938"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatizzare le attività di gestione in macchine virtuali di Azure usando l'estensione SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-
-> [!div class="op_single_selector"]
-> * [Gestione risorse](sql-server-iaas-agent-extension-automate-management.md)
-> * [Classico](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
 L'estensione SQL Server IaaS Agent (SQLIaaSExtension) viene eseguita su macchine virtuali di Azure per automatizzare le attività di amministrazione. Questo articolo offre una panoramica dei servizi supportati dall'estensione, oltre a istruzioni per l'installazione, lo stato e la rimozione dell'estensione.
 
@@ -58,7 +55,7 @@ Di seguito sono riportati i requisiti per l'uso dell'estensione SQL Server Iaas 
 
 * Windows Server 2008 R2
 * Windows Server 2012
-* Windows Server 2012 R2
+* R2 per Windows Server 2012
 * Windows Server 2016
 * Windows Server 2019 
 

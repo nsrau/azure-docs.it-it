@@ -3,12 +3,12 @@ title: Domande frequenti sulla migrazione di Azure Migrate server
 description: Risposte alle domande comuni sull'uso della migrazione del server Azure Migrate per eseguire la migrazione dei computer.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744332"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224129"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrazione di Azure Migrate server: domande comuni
 
@@ -27,7 +27,7 @@ Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-
 
 Il metodo di replica senza agenti per VMware USA snapshot VMware e il rilevamento dei blocchi modificati VMware (CBT).
 
-Questa è la procedura:
+È necessario eseguire le operazioni seguenti:
 
 1. Quando si avvia la replica, viene pianificato un ciclo di replica iniziale. Nel ciclo iniziale viene effettuato uno snapshot della macchina virtuale. Lo snapshot viene usato per replicare le macchine virtuali VMDK (dischi). 
 2. Al termine del ciclo di replica iniziale, delta replication cicli vengono pianificati periodicamente.
@@ -66,6 +66,9 @@ No. Zone di disponibilità di Azure non sono supportate per la migrazione del Az
 ## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>Quale protocollo di trasporto Azure Migrate utilizzare durante la replica?
 
 Azure Migrate usa il protocollo NBD (Network Block Device) con la crittografia TLS.
+
+## <a name="how-is-the-data-transmitted-from-on-prem-environment-to-azure-is-it-encrypted-before-transmission"></a>In che modo i dati vengono trasmessi da un ambiente locale ad Azure? Crittografato prima della trasmissione? 
+Il Azure Migrate Appliance nel caso di replica senza agente comprime i dati e li crittografa prima del caricamento. I dati vengono trasmessi tramite un canale di comunicazione protetto su HTTPS e usano TLS 1,2 o versione successiva. Inoltre, archiviazione di Azure crittografa automaticamente i dati quando vengono salvati in modo permanente nel cloud (crittografia dei dati inattivi).  
 
 ## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>Qual è la versione minima di server vCenter necessaria per la migrazione?
 
@@ -106,7 +109,7 @@ La migrazione di computer come se fossero server fisici è utile in diversi scen
 Sebbene possa trattarsi di un caso d'uso valido, attualmente non è supportato. La distribuzione di due o più appliance per individuare lo stesso set di macchine virtuali causa un problema di servizio in cui la proprietà della macchina virtuale continua a passare tra le due appliance. Questo è il motivo per cui le VM appaiono e scompaiono. In questi casi, per risolvere il problema, è necessario eliminare un'appliance ed eseguire un aggiornamento hardware.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>È necessario VMware vCenter per eseguire la migrazione di macchine virtuali VMware?
-Per eseguire la migrazione di [macchine virtuali VMware](server-migrate-overview.md) con la migrazione senza agente o basata su agenti VMware, gli host ESXi in cui si trovano le macchine virtuali devono essere gestiti da server vCenter. Se non si dispone di server vCenter, è possibile eseguire la migrazione di macchine virtuali VMware eseguendone la migrazione come server fisici. [Altre informazioni](migrate-support-matrix-physical-migration.md)
+Per eseguire la migrazione di [macchine virtuali VMware](server-migrate-overview.md) con la migrazione senza agente o basata su agenti VMware, gli host ESXi in cui si trovano le macchine virtuali devono essere gestiti da server vCenter. Se non si dispone di server vCenter, è possibile eseguire la migrazione di macchine virtuali VMware eseguendone la migrazione come server fisici. [Altre informazioni](migrate-support-matrix-physical-migration.md).
  
 ## <a name="next-steps"></a>Passaggi successivi
 

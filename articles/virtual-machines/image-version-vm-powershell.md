@@ -9,11 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 454ed810f950924d3dd790a2442fe29816bf940d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa8e928a10deb3d6d97e601c607074c09e0572e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838468"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223517"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Anteprima: creare un'immagine da una macchina virtuale
 
@@ -138,3 +139,5 @@ $job.State
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver verificato che la nuova versione dell'immagine funziona correttamente, è possibile creare una macchina virtuale. Creare una macchina virtuale da una [versione di immagine specializzata](vm-specialized-image-version-powershell.md) o da una [versione di immagine generalizzata](vm-generalized-image-version-powershell.md).
+
+Per informazioni su come fornire informazioni sul piano di acquisto, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).

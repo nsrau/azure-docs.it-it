@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565272"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230775"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Archivio informazioni in Azure ricerca cognitiva
 
@@ -138,8 +138,8 @@ Una volta che gli arricchimenti sono presenti nell'archiviazione, è possibile u
 
 La versione dell'API REST `2020-06-30` fornisce l'archivio conoscenze tramite definizioni aggiuntive nei set di competenze. Oltre ai riferimenti, vedere [Creare un archivio conoscenze con Postman](knowledge-store-create-rest.md) per informazioni dettagliate su come chiamare le API.
 
-+ [Crea competenze (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
-+ [Update Skills (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
++ [Crea competenze (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Update Skills (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

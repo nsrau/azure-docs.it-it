@@ -8,16 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 06/15/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9bfc7f194730545469e7d17d46c47f7293f016e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e067e8d56f8a928f952648fc76cd5d6b7a1afe7
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728895"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221279"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualizzare e assegnare i ruoli di amministratore in Azure Active Directory
 
@@ -25,29 +26,50 @@ ms.locfileid: "84728895"
 
 ## <a name="view-all-roles"></a>Visualizzare tutti i ruoli
 
-Cercare e selezionare **Azure Active Directory**. Selezionare **ruoli e amministratori** per visualizzare l'elenco di tutti i ruoli disponibili.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Azure Active Directory**.
 
-Fare clic sui puntini di sospensione a destra di ogni riga per aprire la descrizione dettagliata del ruolo.
+1. Selezionare **ruoli e amministratori** per visualizzare l'elenco di tutti i ruoli disponibili.
 
-![elenco dei ruoli nel portale di Azure AD](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
+1. Selezionare i puntini di sospensione a destra di ogni riga per visualizzare le autorizzazioni per il ruolo. Selezionare un ruolo per visualizzare gli utenti assegnati al ruolo. Se viene visualizzato un valore diverso dall'immagine seguente, leggere la nota in [visualizzare le assegnazioni per i ruoli con privilegi](#view-assignments-for-privileged-roles) per verificare se si è in Privileged Identity Management (PIM).
+
+    ![elenco dei ruoli nel portale di Azure AD](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
 ## <a name="view-my-roles"></a>Visualizzare i ruoli personali
 
 È facile visualizzare anche le proprie autorizzazioni. Selezionare **Your Role** (Ruolo dell'utente) sulla pagina **Roles and administrators** (Ruoli e amministratori) per visualizzare i ruoli attualmente assegnati all'utente.
 
-## <a name="view-assignments-for-a-role"></a>Visualizzare le assegnazioni per un ruolo
+## <a name="view-assignments-for-privileged-roles"></a>Visualizzare le assegnazioni per i ruoli con privilegi
 
-Selezionare un ruolo per visualizzare gli utenti assegnati al ruolo. È possibile selezionare la **gestione nel servizio PIM** per funzionalità di gestione aggiuntive. Gli amministratori dei ruoli con privilegi possono trasformare le assegnazioni "permanenti" (sempre attive nel ruolo) in "idonee" (nel ruolo solo con privilegi elevati). In assenza del servizio PIM è comunque possibile selezionare **Gestisci in PIM** per registrarsi per una versione di prova gratuita. Privileged Identity Management richiede un [piano di licenza di Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
+È possibile selezionare la **gestione nel servizio PIM** per funzionalità di gestione aggiuntive. Gli amministratori dei ruoli con privilegi possono trasformare le assegnazioni "permanenti" (sempre attive nel ruolo) in "idonee" (nel ruolo solo con privilegi elevati). Se non si dispone di Privileged Identity Management, è comunque possibile selezionare **Gestisci in PIM** per iscriversi a una versione di valutazione. Privileged Identity Management richiede un [piano di licenza di Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
 
 ![elenco dei membri di un ruolo di amministratore](./media/directory-manage-roles-portal/member-list.png)
 
 Se l'utente è un amministratore globale o un amministratore di ruoli con privilegi, può aggiungere o rimuovere facilmente i membri, filtrare l'elenco o selezionare un membro per visualizzare i ruoli assegnati attivi.
+
+> [!Note]
+> Se si dispone di una licenza Azure AD Premium P2 e si usano già Privileged Identity Management, tutte le attività di gestione dei ruoli vengono eseguite in Privileged Identity Management e non in Azure AD.
+>
+> ![Azure AD ruoli gestiti in PIM per gli utenti che usano già PIM e hanno una licenza Premium P2](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
 
 ## <a name="view-a-users-role-permissions"></a>Visualizzare le autorizzazioni del ruolo di un utente
 
 Quando si visualizzano i membri di un ruolo, selezionare **Descrizione** per visualizzare l'elenco completo delle autorizzazioni concesse in base all'assegnazione del ruolo. La pagina include collegamenti alla documentazione pertinente, che contiene indicazioni utili per la gestione dei ruoli della directory.
 
 ![elenco di autorizzazioni per un ruolo di amministratore](./media/directory-manage-roles-portal/role-description.png)
+
+## <a name="assign-a-role"></a>Assegnare un ruolo
+
+1. Accedere al [portale di Azure](https://portal.azure.com) con autorizzazioni di amministratore globale o ruolo con privilegi e selezionare **Azure Active Directory**.
+
+1. Selezionare **ruoli e amministratori** per visualizzare l'elenco di tutti i ruoli disponibili.
+
+1. Selezionare un ruolo per visualizzare le relative assegnazioni.
+
+    ![elenco di autorizzazioni per un ruolo di amministratore](./media/directory-manage-roles-portal/member-list.png)
+
+1. Selezionare **Aggiungi assegnazioni** e selezionare i ruoli che si desidera assegnare. È possibile selezionare la **gestione nel servizio PIM** per funzionalità di gestione aggiuntive. Se viene visualizzato un valore diverso dall'immagine seguente, leggere la nota in [visualizzare le assegnazioni per i ruoli con privilegi](#view-assignments-for-privileged-roles) per verificare se si è in PIM.
+
+    ![elenco di autorizzazioni per un ruolo di amministratore](./media/directory-manage-roles-portal/directory-role-select-role.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

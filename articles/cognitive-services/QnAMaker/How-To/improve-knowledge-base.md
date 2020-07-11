@@ -3,12 +3,12 @@ title: Migliorare una knowledge base - QnA Maker
 description: Migliorare la qualità della Knowledge base con l'apprendimento attivo. Verifica, accetta o rifiuta, Aggiungi senza rimuovere o modificare le domande esistenti.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 88ccbc52e0eb3447d0b99cac9ba41761e292a6fd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650766"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231778"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accetta le domande suggerite di apprendimento attivo nella Knowledge base
 
@@ -127,7 +127,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Proprietà della richiesta HTTP|Nome|Type|Scopo|
+|Proprietà della richiesta HTTP|Nome|Tipo|Scopo|
 |--|--|--|--|
 |Parametro di route URL|ID della knowledge Base|string|L'identificatore univoco globale della Knowledge Base.|
 |Sottodominio personalizzato|Nome della risorsa QnAMaker|string|Il nome della risorsa viene usato come sottodominio personalizzato per la QnA Maker. Questa operazione è disponibile nella pagina impostazioni dopo la pubblicazione della Knowledge base. Viene elencato come `host` .|
@@ -140,9 +140,9 @@ Il corpo JSON ha diverse impostazioni:
 |Proprietà corpo JSON|Tipo|Scopo|
 |--|--|--|--|
 |`feedbackRecords`|array|Elenco di commenti.|
-|`userId`|string|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. Facoltativa.|
-|`userQuestion`|string|Testo esatto della query dell'utente. Obbligatoria.|
-|`qnaID`|Numero|ID della domanda, disponibile nella [risposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`userId`|string|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. facoltativo.|
+|`userQuestion`|string|Testo esatto della query dell'utente. Obbligatorio.|
+|`qnaID`|d'acquisto|ID della domanda, disponibile nella [risposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Un esempio di corpo JSON ha un aspetto simile al seguente:
 
@@ -199,7 +199,7 @@ Il codice del Framework bot deve chiamare l'API di training, se la query dell'ut
 * Determinare se la query deve essere utilizzata per l'apprendimento attivo
 * Invia una query all'API Train di QnA Maker per l'apprendimento attivo
 
-Nell' [esempio Azure bot](https://aka.ms/activelearningsamplebot)sono state programmate entrambe le attività.
+Nell' [esempio Azure bot](https://github.com/microsoft/BotBuilder-Samples)sono state programmate entrambe le attività.
 
 ### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Codice C# di esempio per l'API Train con bot Framework 4. x
 
@@ -264,7 +264,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 }
 ```
 
-### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Codice node. js di esempio per l'API Train con bot Framework 4. x
+### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Esempio di codice di Node.js per l'API Train con bot Framework 4. x
 
 Il codice seguente illustra come inviare informazioni a QnA Maker con l'API Train.
 

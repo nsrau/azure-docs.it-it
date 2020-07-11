@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80981308"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224707"
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi, le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio la [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
 
 Anche se le funzionalità multiple di accesso e gestione offrono una vasta gamma di opzioni, questa variabilità può aggiungere rischi significativi a una distribuzione cloud, complicando la gestione, la verifica e il controllo delle azioni amministrative. Questa variabilità potrebbe introdurre anche minacce alla sicurezza tramite accesso non regolamentato agli endpoint client usati per la gestione dei servizi cloud. L'uso di workstation generiche o personali per lo sviluppo e la gestione dell'infrastruttura genera vettori di minaccia imprevedibili, come l'esplorazione del Web (ad esempio attacchi di tipo watering hole) o la posta elettronica (ad esempio "ingegneria sociale" e phishing).
 
-![](./media/management/typical-management-network-topology.png)
+![Diagramma che illustra i diversi modi in cui una minaccia può montare un attacco.](./media/management/typical-management-network-topology.png)
 
 Il rischio di attacco aumenta in questo tipo di ambiente perché risulta difficile creare criteri e meccanismi di sicurezza per la gestione appropriata dell'accesso alle interfacce di Azure, ad esempio SMAPI, da endpoint molto diversi.
 
@@ -156,12 +157,12 @@ Con una workstation autonoma con protezione avanzata gli amministratori hanno un
 
 Nello scenario con workstation autonoma con protezione avanzata, illustrato di seguito, l'istanza locale di Windows Firewall o di un firewall client non Microsoft viene configurata in modo da bloccare le connessioni in arrivo, ad esempio RDP. L'amministratore può accedere alla workstation con protezione avanzata e avviare una sessione RDP che si connette ad Azure dopo avere stabilito una connessione VPN con la rete virtuale di Azure, ma non può accedere a un computer aziendale e usare RDP per connettersi alla workstation con protezione avanzata stessa.
 
-![](./media/management/stand-alone-hardened-workstation-topology.png)
+![Diagramma che mostra lo scenario della workstation autonoma con protezione avanzata.](./media/management/stand-alone-hardened-workstation-topology.png)
 
 ### <a name="corporate-pc-as-virtual-machine"></a>Computer aziendale come macchina virtuale
 Nei casi in cui una workstation autonoma con protezione avanzata separata risulta troppo costosa o poco pratica, la workstation con protezione avanzata può ospitare una macchina virtuale per l'esecuzione di attività non amministrative.
 
-![](./media/management/hardened-workstation-enabled-with-hyper-v.png)
+![Diagramma che mostra la workstation con protezione avanzata che ospita una macchina virtuale per eseguire attività non amministrative.](./media/management/hardened-workstation-enabled-with-hyper-v.png)
 
 Per evitare alcuni rischi relativi alla sicurezza che possono derivare dall'uso di una workstation per la gestione dei sistemi e per altre attività lavorative quotidiane, è possibile distribuire una macchina virtuale Hyper-V Windows per la workstation con protezione avanzata. Questa macchina virtuale può essere usata come computer aziendale. L'ambiente del computer aziendale può rimanere isolato dall'host, in modo da ridurne la superficie di attacco e rimuovere le attività quotidiane dell'utente, ad esempio la posta elettronica, per evitare la coesistenza con attività amministrative riservate.
 
@@ -205,7 +206,7 @@ La riduzione al minimo del numero di attività che gli amministratori possono es
 * Crittografia. Assicurarsi che le workstation di gestione abbiano un TPM per abilitare in modo più sicuro [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) e BitLocker.
 * Governance. Usare gli oggetti Criteri di gruppo di Active Directory Domain Services per controllare tutte le interfacce amministrative di Windows, ad esempio la condivisione di file. Includere le workstation di gestione nei processi di controllo, monitoraggio e registrazione. Tenere traccia di tutti gli accessi e gli utilizzi di amministratori e sviluppatori.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 L'uso di una configurazione di workstation con protezione avanzata per l'amministrazione dei servizi cloud di Azure, delle macchine virtuali e delle applicazione può contribuire a evitare numerosi rischi e minacce derivanti dalla gestione remota dell'infrastruttura IT essenziale. Azure e Windows offrono meccanismi utili per semplificare la protezione e il controllo di comunicazioni, autenticazione e comportamento del client.
 
 ## <a name="next-steps"></a>Passaggi successivi

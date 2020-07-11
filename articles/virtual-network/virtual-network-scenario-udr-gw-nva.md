@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81455363"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231710"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario dell'appliance virtuale
 Uno scenario comune tra i clienti di Azure di grandi dimensioni è la necessità di offrire un'applicazione a due livelli esposta a Internet, consentendo l'accesso al livello back-end da un data center locale. Questo documento illustra uno scenario che prevede route definite dall'utente (UDR), un gateway VPN e appliance di rete virtuali per distribuire un ambiente a due livelli che soddisfi i requisiti seguenti:
@@ -33,8 +33,8 @@ Si tratta di uno scenario di rete perimetrale standard (noto anche come DMZ) con
 
 |  | Vantaggi | Svantaggi |
 | --- | --- | --- |
-| NSG |Nessun costo. <br/>Integrato nel controllo degli accessi in base al ruolo di Azure. <br/>In Azure Resource Manager modelli è possibile creare regole. |La complessità può variare in ambienti più grandi. |
-| Firewall |Controllo completo del piano dati. <br/>Gestione centrale con console firewall. |Costo dell'appliance firewall. <br/>Non integrato nel controllo degli accessi in base al ruolo di Azure. |
+| **NSG** |Nessun costo. <br/>Integrato nel controllo degli accessi in base al ruolo di Azure. <br/>In Azure Resource Manager modelli è possibile creare regole. |La complessità può variare in ambienti più grandi. |
+| **Firewall** |Controllo completo del piano dati. <br/>Gestione centrale con console firewall. |Costo dell'appliance firewall. <br/>Non integrato nel controllo degli accessi in base al ruolo di Azure. |
 
 La soluzione seguente usa appliance virtuali del firewall per implementare uno scenario di rete/protected perimetrale (DMZ).
 
@@ -77,30 +77,30 @@ Per garantire la comunicazione tramite l'appliance firewall corretta, in base al
 ### <a name="azgwudr"></a>azgwudr
 In questo scenario, il solo traffico da locale ad Azure verrà usato per gestire i firewall connettendosi a **AZF3** e tale traffico deve passare attraverso il firewall interno, **AZF2**. È quindi necessaria una sola route in **GatewaySubnet** come illustrato di seguito.
 
-| Destination | Hop successivo | Spiegazione |
+| Destinazione | Hop successivo | Spiegazione |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |Consente al traffico locale di raggiungere il firewall di gestione **AZF3** |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| Destination | Hop successivo | Spiegazione |
+| Destinazione | Hop successivo | Spiegazione |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |Consente il traffico verso la subnet di back-end che ospita il server applicazioni tramite **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |Consente di indirizzare il resto del traffico tramite **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| Destination | Hop successivo | Spiegazione |
+| Destinazione | Hop successivo | Spiegazione |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |Consente al traffico verso **azsn2** di passare dal server app al server Web attraverso **AZF2** |
 
 È anche necessario creare tabelle route per le subnet in **onpremvnet** per simulare il centro dati locale.
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| Destination | Hop successivo | Spiegazione |
+| Destinazione | Hop successivo | Spiegazione |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |Consente il traffico verso **onpremsn2** attraverso **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| Destination | Hop successivo | Spiegazione |
+| Destinazione | Hop successivo | Spiegazione |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |Consente il traffico verso la subnet back-end in Azure tramite **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Consente il traffico verso **onpremsn1** attraverso **OPFW** |

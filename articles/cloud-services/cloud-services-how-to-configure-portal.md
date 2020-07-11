@@ -8,11 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
-ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 169b12ff4fbf2471270aa912d5d1f8242371036b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811405"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223738"
 ---
 # <a name="how-to-configure-cloud-services"></a>Come configurare i servizi cloud
 
@@ -47,7 +48,7 @@ Se è necessario fare riferimento a una versione specifica del sistema operativo
 
 È possibile aggiungere avvisi al servizio cloud. Fare clic su **Impostazioni**  >  **regole di avviso**  >  **Aggiungi avviso**.
 
-![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![Screenshot della panoramica delle impostazioni con l'opzione regole di avviso evidenziata e delineata in rosso e l'opzione Aggiungi avviso descritta in rosso.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 Da qui è possibile configurare un avviso. La casella di riepilogo a discesa **Metrica** consente di configurare un avviso per i tipi di dati seguenti.
 
@@ -57,7 +58,7 @@ Da qui è possibile configurare un avviso. La casella di riepilogo a discesa **M
 * Rete in uscita
 * Percentuale CPU
 
-![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+![Screenshot del riquadro Aggiungi una regola di avviso con tutte le opzioni di configurazione impostate.](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Configurazione del monitoraggio da un riquadro della metrica
 

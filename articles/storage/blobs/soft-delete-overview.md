@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: dd5d9c721c3e0204a66367b76654f9a917e26ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82884631"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223789"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Eliminazione temporanea per l'archiviazione BLOB
 
@@ -53,7 +54,7 @@ L'eliminazione temporanea consente di mantenere i dati in molti casi in cui gli 
 
 Quando un BLOB viene sovrascritto con **Put Blob**, **Put Block List**o **Copy Blob**, viene generata automaticamente una versione o uno snapshot dello stato del BLOB prima dell'operazione di scrittura. Questo oggetto è invisibile, a meno che non vengano elencati in modo esplicito gli oggetti eliminati temporaneamente. Vedere la sezione [Ripristino](#recovery) per informazioni su come elencare gli oggetti eliminati temporaneamente.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
+![Diagramma che illustra come vengono archiviati gli snapshot dei BLOB quando vengono sovrascritti usando Put Blob, Put Block List o copy BLOB.](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
 
 *I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono blu. I dati scritti più di recente vengono visualizzati sotto i dati meno recenti. Quando B0 viene sovrascritto con B1, viene generato uno snapshot di B0 eliminato temporaneamente. Quando B1 viene sovrascritto con B2, viene generato uno snapshot di B1 eliminato temporaneamente.*
 
@@ -65,13 +66,13 @@ Quando un BLOB viene sovrascritto con **Put Blob**, **Put Block List**o **Copy B
 
 Quando viene chiamato **Delete Blob** su uno snapshot, lo snapshot viene contrassegnato come eliminato temporaneamente. Non viene generato un nuovo snapshot.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
+![Diagramma che Mostra come vengono eliminati temporaneamente gli snapshot dei BLOB quando si usa Elimina BLOB.](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
 *I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono blu. I dati scritti più di recente vengono visualizzati sotto i dati meno recenti. Quando viene chiamato il **BLOB dello snapshot** , B0 diventa uno snapshot e B1 è lo stato attivo del BLOB. Quando lo snapshot B0 viene eliminato, viene contrassegnato come eliminato temporaneamente.*
 
 Quando viene chiamato **Delete Blob** su un BLOB di base (qualsiasi BLOB che non è di per sé uno snapshot), tale BLOB viene contrassegnato come eliminato temporaneamente. Coerentemente con il comportamento precedente, una chiamata **Delete Blob** su un BLOB contenente snapshot attivi restituisce un errore. Una chiamata **Delete Blob** su un BLOB con snapshot eliminati temporaneamente non restituisce un errore. Quando l'eliminazione temporanea è abilitata, è comunque possibile eliminare un BLOB e tutti i relativi snapshot in un'unica operazione. In questo modo il BLOB di base e gli snapshot vengono contrassegnati come eliminati temporaneamente.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
+![Un diagramma che mostra cosa accade quando il Blog Delete viene chiamato su un BLOB di base.](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
 
 *I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono blu. I dati scritti più di recente vengono visualizzati sotto i dati meno recenti. Qui viene eseguita una chiamata **Delete Blob** per eliminare B2 e tutti gli snapshot associati. Il BLOB attivo, B2 e tutti gli snapshot associati sono contrassegnati come eliminati temporaneamente.*
 
@@ -104,7 +105,7 @@ La chiamata dell'operazione [Undelete BLOB](/rest/api/storageservices/undelete-b
 
 Per ripristinare un BLOB in uno snapshot eliminato temporaneamente specifico, è possibile chiamare **Undelete BLOB** sul BLOB di base. quindi copiare lo snapshot sul BLOB ora attivo. È anche possibile copiare lo snapshot in un nuovo BLOB.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
+![Diagramma che mostra cosa accade quando si usa Undelete BLOB.](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
 
 *I dati eliminati temporaneamente sono di colore grigio, mentre i dati attivi sono blu. I dati scritti più di recente vengono visualizzati sotto i dati meno recenti. Qui viene chiamato **Undelete BLOB** sul BLOB B, ripristinando in questo modo il BLOB di base, B1 e tutti gli snapshot associati, in questo caso B0, come Active. Nel secondo passaggio, B0 viene copiato sul BLOB di base. Questa operazione di copia genera uno snapshot di B1 eliminato temporaneamente.*
 

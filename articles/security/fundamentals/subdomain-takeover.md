@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: b395931d11c7bc7119be0122531908ed680fc3b9
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a7ff8a0cf23bf0701a7cc35cb137ec0965f295ec
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145970"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223976"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini
 
@@ -117,8 +117,8 @@ Spesso gli sviluppatori e i team operativi eseguono processi di pulizia per evit
 
     - Esaminare regolarmente i record DNS per assicurarsi che i sottodomini siano tutti mappati alle risorse di Azure:
 
-        - **Exist** : esegue una query sulle zone DNS per le risorse che puntano a sottodomini di Azure, ad esempio *. azurewebsites.NET o *. cloudapp.Azure.com (vedere [questo elenco di riferimenti](azure-domains.md)).
-        - **Si è proprietari** : confermare che si è proprietari di tutte le risorse a cui sono destinati i sottodomini DNS.
+        - Exist: esegue una query sulle zone DNS per le risorse che puntano a sottodomini di Azure, ad esempio *. azurewebsites.net o *. cloudapp.azure.com (vedere [questo elenco di riferimenti](azure-domains.md)).
+        - Si è proprietari: confermare che si è proprietari di tutte le risorse a cui sono destinati i sottodomini DNS.
 
     - Mantenere un catalogo di servizi per gli endpoint del nome di dominio completo (FQDN) di Azure e i proprietari dell'applicazione. Per compilare il catalogo di servizi, eseguire la query di Azure Resource Graph (ARG) seguente con i parametri della tabella seguente:
     
@@ -127,26 +127,15 @@ Spesso gli sviluppatori e i team operativi eseguono processi di pulizia per evit
         >
         > **Limitazioni** : il grafico delle risorse di Azure presenta limiti di limitazione e paging da considerare se si dispone di un ambiente di Azure di grandi dimensioni. [Altre](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) informazioni sull'uso di set di dati di risorse di Azure di grandi dimensioni.  
 
-        ```
-        Search-AzGraph -Query "resources | where type == '[ResourceType]' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = [FQDNproperty]"
+        ```powershell
+        Search-AzGraph -Query "resources | where type == '<ResourceType>' | 
+        project tenantId, subscriptionId, type, resourceGroup, name, 
+        endpoint = <FQDNproperty>"
         ``` 
-        
-        Ad esempio, questa query restituisce le risorse da app Azure servizio:
-
-        ```
-        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
-        
-        È anche possibile combinare più tipi di risorse. Questa query di esempio restituisce le risorse da app Azure Service **e** app Azure slot di servizio:
-
-        ```azurepowershell
-        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
-
 
         Per i parametri del servizio per la query ARG:
 
-        |Nome risorsa  |[ResourceType]  | [FQDNproperty]  |
+        |Nome risorsa  | `<ResourceType>`  | `<FQDNproperty>`  |
         |---------|---------|---------|
         |Frontdoor di Azure|microsoft.network/frontdoors|Properties. cName|
         |Archiviazione BLOB di Azure|microsoft.storage/storageaccounts|Properties. primari. blob|
@@ -157,6 +146,23 @@ Spesso gli sviluppatori e i team operativi eseguono processi di pulizia per evit
         |Gestione API di Azure|microsoft.apimanagement/service|Properties. hostnameConfigurations. hostName|
         |Servizio app di Azure|microsoft.web/sites|Properties. defaultHostName|
         |Servizio app Azure-slot|microsoft.web/sites/slots|Properties. defaultHostName|
+
+        
+        **Esempio 1** : questa query restituisce le risorse dal servizio app Azure: 
+
+        ```powershell
+        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | 
+        project tenantId, subscriptionId, type, resourceGroup, name, 
+        endpoint = properties.defaultHostName"
+        ```
+        
+        **Esempio 2** : questa query combina più tipi di risorse per restituire le risorse da app Azure service **e** app Azure slot di servizio:
+
+        ```powershell
+        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 
+        'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, 
+        resourceGroup, name, endpoint = properties.defaultHostName"
+        ```
 
 
 - **Creare procedure per la correzione:**
@@ -173,4 +179,4 @@ Per altre informazioni sui servizi correlati e sulle funzionalità di Azure che 
 
 - [Usare l'ID di verifica del dominio quando si aggiungono domini personalizzati nel servizio app Azure](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
 
--    [Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)

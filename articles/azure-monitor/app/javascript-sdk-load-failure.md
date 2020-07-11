@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: 50a7e9520730159ad2df3ec3e0b75fcfa0c5ce0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450585"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229534"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Risoluzione degli errori di caricamento SDK per app Web JavaScript
 
@@ -75,11 +76,11 @@ Se si conferma che si verifica un'interruzione, è possibile [creare un nuovo ti
 Poiché il frammento e la relativa configurazione vengono restituiti dall'applicazione come parte di ogni pagina generata, è possibile modificare la configurazione del frammento `src` per usare un URL diverso per l'SDK. Con questo approccio, è possibile ignorare il problema di blocco della rete CDN perché il nuovo URL non deve essere bloccato.
 
 Endpoint della rete CDN Application Insights JavaScript SDK correnti
-- https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js
-- https://js.monitor.azure.com/scripts/b/ai.2.min.js
+- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
+- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
 
 > [!NOTE]
-> L' https://js.monitor.azure.com/ endpoint è un alias che consente di passare tra i provider della rete CDN entro circa 5 minuti, senza dover modificare alcuna configurazione. Questo consente di risolvere più rapidamente i problemi rilevati della rete CDN se un provider della rete CDN presenta problemi a livello di area o globale senza richiedere a tutti di modificare le impostazioni.
+> L' `https://js.monitor.azure.com/` endpoint è un alias che consente di passare tra i provider della rete CDN entro circa 5 minuti, senza dover modificare alcuna configurazione. Questo consente di risolvere più rapidamente i problemi rilevati della rete CDN se un provider della rete CDN presenta problemi a livello di area o globale senza richiedere a tutti di modificare le impostazioni.
 
 ## <a name="sdk-failed-to-initialize-after-loading-the-script"></a>Impossibile inizializzare SDK dopo il caricamento dello script
 

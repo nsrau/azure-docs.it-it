@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc665503413d2f022b10ae043aac3315597c6ba4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734997"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221392"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemi noti: Avvisi dell'entità servizio in Azure Active Directory Domain Services
 
@@ -34,11 +34,11 @@ Se viene eliminata un'entità servizio necessaria, la piattaforma Azure non può
 
 ### <a name="check-for-missing-service-principals"></a>Verificare la presenza delle entità servizio mancanti
 
-Per verificare quale entità servizio manca e deve essere ricreata, seguire questa procedura:
+Per verificare quale entità servizio manca e deve essere ricreata, attenersi alla procedura seguente:
 
 1. Nel portale di Azure selezionare **Azure Active Directory** dal menu di spostamento a sinistra.
 1. Selezionare **Applicazioni aziendali**. Scegliere *Tutte le applicazioni* dal menu a discesa **Tipo di applicazione** e quindi selezionare **Applica**.
-1. Cercare ogni ID applicazione. Se non viene trovata alcuna applicazione esistente, seguire i passaggi in *Risoluzione* per creare l'entità servizio o registrare nuovamente lo spazio dei nomi.
+1. Cercare ognuno dei seguenti ID applicazione. Se non viene trovata alcuna applicazione esistente, seguire i passaggi in *Risoluzione* per creare l'entità servizio o registrare nuovamente lo spazio dei nomi.
 
     | ID applicazione | Risoluzione |
     | :--- | :--- |
@@ -49,9 +49,9 @@ Per verificare quale entità servizio manca e deve essere ricreata, seguire ques
 
 ### <a name="recreate-a-missing-service-principal"></a>Ricreare un'entità servizio mancante
 
-Se nella directory Azure AD manca l'ID applicazione *2565bd9d-da50-47d4-8b85-4c97f669dc36*, usare Azure AD PowerShell per completare i passaggi seguenti. Per altre informazioni, vedere [Installare Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
+Se nella directory Azure AD manca l'ID applicazione *2565bd9d-da50-47d4-8b85-4c97f669dc36*, usare Azure AD PowerShell per completare i passaggi seguenti. Per altre informazioni, vedere [Azure ad PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Installare e importare il modulo Azure AD PowerShell come segue:
+1. Se necessario, installare il modulo Azure AD PowerShell e importarlo come segue:
 
     ```powershell
     Install-Module AzureAD
@@ -81,7 +81,7 @@ L'integrità del dominio gestito si aggiorna automaticamente entro due ore e rim
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*L'entità servizio con ID applicazione "d87dcbc6-a371-462e-88e3-28ad15ec4e64" è stata eliminata e quindi ricreata. La nuova creazione ha generato autorizzazioni non coerenti nelle risorse di Azure AD Domain Services necessarie per la gestione del dominio gestito. È possibile che la sincronizzazione di password nel dominio gestito sia interessata da questo problema.*
+*L'entità servizio con ID applicazione "d87dcbc6-A371-462E-88e3-28ad15ec4e64" è stata eliminata e quindi ricreata. La ricreazione abbandona le autorizzazioni incoerenti per Azure AD Domain Services risorse necessarie per il servizio del dominio gestito. Potrebbe essere interessata la sincronizzazione delle password nel dominio gestito.*
 
 Azure AD DS sincronizza automaticamente gli account utente e le credenziali da Azure AD. In presenza di un problema con l'applicazione Azure AD usata per questo processo, la sincronizzazione delle credenziali tra Azure AD DS e Azure AD ha esito negativo.
 
@@ -89,7 +89,7 @@ Azure AD DS sincronizza automaticamente gli account utente e le credenziali da A
 
 Per ricreare l'applicazione Azure AD usata per la sincronizzazione delle credenziali, usare Azure AD PowerShell per completare i passaggi seguenti. Per altre informazioni, vedere [Installare Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Installare e importare il modulo Azure AD PowerShell come segue:
+1. Se necessario, installare il modulo Azure AD PowerShell e importarlo come segue:
 
     ```powershell
     Install-Module AzureAD

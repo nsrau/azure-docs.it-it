@@ -3,8 +3,8 @@ title: Configurare Oracle ASM su una macchina virtuale Linux in Azure | Microsof
 description: Attivare e mettere in funzione rapidamente Oracle ASM nell'ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
-ms.openlocfilehash: aa65b789d02c60ef6042aa62e1c138c0e1bd7224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: a707081aca4a28743bff8bdd1046a5e9aee285f1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676907"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224401"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurare Oracle ASM su una macchina virtuale Linux in Azure  
 
@@ -567,7 +568,7 @@ Il software del database Oracle è già installato nell'immagine di Azure Market
 
 4. Nella pagina **Summary** (Riepilogo) rivedere le impostazioni selezionate e quindi fare clic su `Finish` per creare il database.
 
-   ![Schermata della pagina Summary (Riepilogo)](./media/oracle-asm/createdb03.png)
+   ![Screenshot della pagina Summary (Riepilogo)](./media/oracle-asm/createdb03.png)
 
 5. Il database è stato creato. Nella pagina **Fine** è possibile sbloccare gli account aggiuntivi per usare il database e modificare le password. Se si desidera eseguire questa operazione, selezionare **Gestione password**, in caso contrario fare clic su `close`.
 

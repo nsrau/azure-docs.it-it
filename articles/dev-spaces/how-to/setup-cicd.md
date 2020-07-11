@@ -8,11 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Informazioni su come configurare l'integrazione continua/distribuzione continua con Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a5f232111bd01f707080cc1638970f8dc51e6fa
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81685626"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229330"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
 
@@ -25,7 +26,7 @@ Anche se questo articolo usa Azure DevOps, gli stessi concetti si applicano a si
 ## <a name="prerequisites"></a>Prerequisiti
 * [Cluster del servizio Azure Kubernetes con Azure Dev Spaces abilitato](../get-started-netcore.md)
 * [Interfaccia della riga di comando di Azure Dev Spaces installata](upgrade-tools.md)
-* [Organizzazione di Azure DevOps con un progetto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [Organizzazione di Azure DevOps con un progetto](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Registro Azure Container](../../container-registry/container-registry-get-started-azure-cli.md)
     * Dettagli sull'[account amministratore](../../container-registry/container-registry-authentication.md#admin-account) del Registro Azure Container disponibili
 * [Autorizzare il cluster del servizio Azure Kubernetes a eseguire il pull dal Registro Azure Container](../../aks/cluster-container-registry-integration.md)
@@ -67,7 +68,7 @@ Opzione da disabilitare:
 > [!Note]
 > La funzionalità di anteprima _Nuova esperienza di creazione pipeline YAML_ di Azure DevOps è al momento in conflitto con la creazione di pipeline di compilazione predefinite. È necessario disabilitarla per il momento, per distribuire la pipeline di compilazione predefinita.
 
-Nel ramo _azds_updates_ è stato incluso un semplice [schema YAML di Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) che definisce i passaggi di compilazione necessari per *mywebapi* e *webfrontend*.
+Nel ramo _azds_updates_ è stato incluso un semplice [schema YAML di Azure Pipelines](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) che definisce i passaggi di compilazione necessari per *mywebapi* e *webfrontend*.
 
 A seconda del linguaggio scelto, lo schema YAML della pipeline è stato archiviato in un percorso simile a: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
@@ -76,7 +77,7 @@ Per creare una pipeline da questo file:
 1. Selezionare l'opzione per creare una **nuova** pipeline di compilazione.
 1. Selezionare **GitHub** come origine, autorizzare con l'account github, se necessario, e selezionare il ramo _azds_updates_ dalla versione con fork del repository dell'applicazione di esempio _dev-Spaces_ .
 1. Selezionare **configurazione come codice**o **YAML**come modello.
-1. Viene visualizzata una pagina di configurazione per la pipeline di compilazione. Come indicato in precedenza, passare al percorso specifico della lingua per il **percorso del file YAML** usando il pulsante **..** .. Ad esempio: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Viene visualizzata una pagina di configurazione per la pipeline di compilazione. Come indicato in precedenza, passare al percorso specifico della lingua per il **percorso del file YAML** usando il pulsante **..** .. Ad esempio, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`
 1. Passare alla scheda **variabili** .
 1. Aggiungere manualmente _dockerId_ come variabile, corrispondente al nome utente dell'[account amministratore del Registro Azure Container](../../container-registry/container-registry-authentication.md#admin-account) (indicato nei prerequisiti dell'articolo).
 1. Aggiungere manualmente _dockerPassword_ come variabile, corrispondente alla password dell'[account amministratore del Registro Azure Container](../../container-registry/container-registry-authentication.md#admin-account). Assicurarsi di specificare _dockerPassword_ come segreto (selezionando l'icona a forma di lucchetto) per motivi di sicurezza.
@@ -98,7 +99,7 @@ A questo punto, è stata creata una soluzione CI che compilerà automaticamente 
 1. Per la **versione predefinita**, scegliere **più recente dal ramo predefinito della pipeline di compilazione con i tag**.
 1. Lasciare i **tag** vuoti.
 1. Impostare **Alias di origine** su `drop`. Il valore dell' **alias di origine** viene usato dalle attività di rilascio predefinite, quindi deve essere impostato.
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 1. Fare ora clic sull'icona del fulmine sull'origine dell'elemento `drop` appena creato, come illustrato sotto:
 
     ![Configurazione della distribuzione continua dell'elemento della versione](../media/common/release-artifact-cd-setup.png)

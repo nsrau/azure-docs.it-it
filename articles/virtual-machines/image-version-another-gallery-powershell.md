@@ -1,5 +1,5 @@
 ---
-title: Copiare un'immagine da un'altra raccolta
+title: Copiare un'immagine da un'altra raccolta usando PowerShell
 description: Copiare un'immagine da un'altra raccolta usando Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 10cd8514b529f29f68ea3df14cdc208dd8fdd556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fe26a880979a431e456d9a1819dfd1b18d25f77
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796928"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221222"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Copiare un'immagine da un'altra raccolta
+# <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copiare un'immagine da un'altra raccolta usando PowerShell
 
 Se nell'organizzazione sono presenti più raccolte, è possibile creare immagini da immagini archiviate in altre raccolte. È ad esempio possibile disporre di una raccolta di sviluppo e test per la creazione e il test di nuove immagini. Quando sono pronti per l'uso nell'ambiente di produzione, è possibile copiarli in una raccolta di produzione usando questo esempio. È anche possibile creare un'immagine da un'immagine in un'altra raccolta usando l'interfaccia della riga di comando di [Azure](image-version-another-gallery-cli.md).
 
@@ -70,7 +70,7 @@ Get-AzGalleryImageDefinition `
 ```
 
 
-Verrà visualizzato un risultato simile al seguente:
+L'output sarà simile al seguente:
 
 ```output
 {
@@ -165,3 +165,5 @@ $job.State
 Creare una macchina virtuale da una versione di immagine [generalizzata](vm-generalized-image-version-powershell.md) o [specializzata](vm-specialized-image-version-powershell.md) .
 
 Il [Generatore di immagini di Azure (anteprima)](./linux/image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](./linux/image-builder-gallery-update-image-version.md). 
+
+Per informazioni su come fornire informazioni sul piano di acquisto, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).

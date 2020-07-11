@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: c6a4b2c1d95bc803d10697ce2164ea190f824d96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8850162847f2dd416b0951a797e2eb0cd7d55d2
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505444"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229568"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montare il cluster Avere vFXT
 
@@ -102,7 +102,7 @@ Per garantire un montaggio senza problemi del client, passare le impostazioni e 
 
 ``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Impostazioni obbligatorie | |
+| Impostazioni obbligatorie | Descrizione |
 --- | ---
 ``hard`` | A un soft mount al cluster vFXT sono associati errori dell'applicazione e possibili perdite di dati.
 ``proto=netid`` | Questa opzione supporta la gestione appropriata degli errori di rete NFS.

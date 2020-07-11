@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 970a6dfc167a6bef7984598c60e7ce89c6e4b34c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2914dfed14360c114476025c74f3dc0c03d82e25
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463723"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224894"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Abilitare e gestire l'eliminazione temporanea per i BLOB
 
@@ -39,31 +40,31 @@ Abilitare l'eliminazione temporanea per i BLOB nell'account di archiviazione usa
 
 5. Scegliere il pulsante **Salva** per confermare le impostazioni di protezione dati
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+![Screenshot del portale di Azure con il servizio BLOB di protezione dati eletto.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 Per visualizzare i BLOB eliminati temporaneamente, selezionare la casella di controllo **Mostra BLOB eliminati**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
+![Screenshot della pagina del servizio BLOB di protezione dati con l'opzione Mostra BLOB eliminati evidenziata.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
 Per visualizzare gli snapshot eliminati temporaneamente per un determinato BLOB, selezionare il BLOB, quindi fare clic su **Visualizza snapshot**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+![Screenshot della pagina del servizio BLOB di protezione dati con l'opzione Visualizza Snapshots evidenziata.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
 Verificare che la casella di controllo **Mostra snapshot eliminati** sia selezionata.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+![Screenshot della pagina Visualizza snapshot con l'opzione Mostra BLOB eliminati evidenziata.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
 Quando si fa clic su un BLOB o uno snapshot eliminato temporaneamente, si notino le nuove proprietà del BLOB. Esse indicano quando l'oggetto è stato eliminato e il numero di giorni rimanenti fino alla scadenza definitiva del BLOB o dello snapshot del BLOB. Se l'oggetto eliminato temporaneamente non è uno snapshot, è anche possibile annullarne l'eliminazione.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
+![Screenshot dei dettagli di un oggetto eliminato temporaneamente.](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
 
 Tenere presente che annullando l'eliminazione di un BLOB verrà annullata anche l'eliminazione di tutti gli snapshot associati ad esso. Per annullare l'eliminazione degli snapshot eliminati temporaneamente per un BLOB attivo, fare clic sul BLOB e selezionare **Undelete all snapshots** (Annulla l'eliminazione di tutti gli snapshot).
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+![Screenshot dei dettagli di un BLOB eliminato temporaneamente.](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
 Dopo aver annullato l'eliminazione degli snapshot di un BLOB, è possibile fare clic su **Alza di livello** per copiare uno snapshot sul BLOB radice, ripristinando in questo modo il BLOB allo snapshot.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
+![Screenshot della pagina Visualizza snapshot con l'opzione promo evidenziata.](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

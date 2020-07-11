@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 083580435c467a7d4b6a4cede0a821a2c271962f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589653"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224588"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Migliorare la sintesi con lo strumento di creazione del contenuto audio
 
@@ -23,11 +23,13 @@ La [creazione di contenuti audio](https://aka.ms/audiocontentcreation) è uno st
 
 Lo strumento di creazione di contenuti audio è basato sul [linguaggio di markup sintesi vocale (SSML)](speech-synthesis-markup.md). Per semplificare la personalizzazione e l'ottimizzazione, la creazione di contenuti audio consente di esaminare visivamente gli output di sintesi vocale in tempo reale.
 
+Vedere l' [esercitazione video](https://www.youtube.com/watch?v=O1wIJ7mts_w) per la creazione di contenuto audio.
+
 ## <a name="how-does-it-work"></a>Come funziona?
 
 Questo diagramma illustra i passaggi necessari per ottimizzare gli output di sintesi vocale. Usare i collegamenti seguenti per ulteriori informazioni su ogni passaggio.
 
-![](media/audio-content-creation/audio-content-creation-diagram.jpg)
+![Diagramma dei passaggi necessari per ottimizzare gli output di sintesi vocale.](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
 1. [Configurare l'account Azure e la risorsa vocale](#set-up-your-azure-account-and-speech-resource) per iniziare.
 2. [Creare un file di ottimizzazione audio](#create-an-audio-tuning-file) usando gli script SSML o testo normale.
@@ -103,7 +105,7 @@ Dopo aver esaminato l'output audio e aver soddisfatto l'ottimizzazione e la rego
 | wav | riff-16kHz-16 bit-mono-PCM | riff-24kHz-16 bit-mono-PCM |
 | mp3 | audio-16kHz-128kbitrate-mono-MP3 | audio-24kHz-160kbitrate-mono-MP3 |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [API Long audio](https://aka.ms/long-audio-api)
 

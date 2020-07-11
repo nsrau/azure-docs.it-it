@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: f169cf45702d4a5051f9f6908b77c645c7a0018f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042391"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230843"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)
 
@@ -78,7 +78,7 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Sincronizzazione file di Azure | Sì | Sì |  |  |
 | Azure Managed Disks | Sì | N/D |  |  |
 | Servizi contenitore di Azure per Kubernetes | Sì | Sì |  |  |
-| Servizi di dominio Azure Active Directory | Sì | No |  |  |
+| Azure Active Directory Domain Services | Sì | No |  |  |
 | Registrazioni per l'app | Sì | Sì |  |  |
 
 Se si usa la crittografia dei dati inattivi per una risorsa, ad esempio un account di archiviazione o un database SQL, che ha una dipendenza da un insieme di credenziali delle chiavi che non si trova nella stessa sottoscrizione da trasferire, può causare uno scenario irreversibile. In tal caso, è necessario eseguire i passaggi per usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare questo scenario irreversibile.
@@ -189,7 +189,7 @@ Le identità gestite non vengono aggiornate quando si trasferisce una sottoscriz
 
 1. Esaminare l' [elenco dei servizi di Azure che supportano le identità gestite](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) per tenere presente dove si potrebbero usare identità gestite.
 
-1. Usare [AZ ad SP list](/azure/ad/sp#az-ad-sp-list) per elencare le identità gestite assegnate dall'utente e assegnate dal sistema.
+1. Usare [AZ ad SP list](/cli/azure/identity?view=azure-cli-latest#az-identity-list) per elencare le identità gestite assegnate dall'utente e assegnate dal sistema.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"

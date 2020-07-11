@@ -6,11 +6,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 693e552c8743b435fac6fda9d5ab023be5d9adeb
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77482973"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221137"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizzare i contenuti da una cartella nel cloud per il servizio app di Azure
 Questo articolo illustra come eseguire la sincronizzazione del contenuto in [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) da Dropbox e OneDrive. 
@@ -23,11 +24,11 @@ Per abilitare la sincronizzazione del contenuto, passare alla pagina del servizi
 
 Nel menu a sinistra fare clic su **Deployment Center**  >  **OneDrive** o **Dropbox**  >  **autorizza**. Seguire le istruzioni di autorizzazione. 
 
-![](media/app-service-deploy-content-sync/choose-source.png)
+![Viene illustrato come autorizzare OneDrive o Dropbox in centro distribuzione nel portale di Azure.](media/app-service-deploy-content-sync/choose-source.png)
 
 È sufficiente concedere l'autorizzazione a OneDrive o Dropbox una sola volta. Se si ha già l'autorizzazione, fare semplicemente clic su **Continua**. È possibile modificare l'account OneDrive o Dropbox autorizzato facendo clic su **Cambia account**.
 
-![](media/app-service-deploy-content-sync/continue.png)
+![Mostra come modificare l'account OneDrive o Dropbox autorizzato in centro distribuzione nel portale di Azure.](media/app-service-deploy-content-sync/continue.png)
 
 Nella pagina **Configura** selezionare la cartella da sincronizzare. La cartella viene creata nel percorso del contenuto designato seguente in OneDrive o Dropbox. 
    
@@ -42,7 +43,7 @@ Nella pagina **Riepilogo** verificare le opzioni e fare clic su **Fine**.
 
 Quando si vuole sincronizzare il contenuto nella cartella cloud con il servizio app, tornare alla pagina **Centro distribuzione** e fare clic su **Sincronizzazione**.
 
-![](media/app-service-deploy-content-sync/synchronize.png)
+![Mostra come sincronizzare la cartella Cloud con il servizio app.](media/app-service-deploy-content-sync/synchronize.png)
    
    > [!NOTE]
    > A causa delle differenze sottostanti nelle API, **OneDrive for Business** non è attualmente supportato. 
@@ -55,7 +56,7 @@ Per disabilitare la sincronizzazione del contenuto, passare alla pagina del serv
 
 Nel menu a sinistra fare clic su **centro distribuzione**  >  **Disconnetti**.
 
-![](media/app-service-deploy-content-sync/disable.png)
+![Mostra come disconnettere la sincronizzazione delle cartelle Cloud con l'app del servizio app nel portale di Azure.](media/app-service-deploy-content-sync/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 

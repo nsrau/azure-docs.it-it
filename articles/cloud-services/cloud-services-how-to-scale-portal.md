@@ -7,11 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75360838"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223687"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Come configurare la scalabilità automatica per un servizio cloud nel portale
 
@@ -42,10 +43,10 @@ Dopo aver selezionato il servizio cloud, viene visualizzato il pannello del serv
 1. Nel pannello del servizio cloud, nel riquadro **Ruoli e istanze** , selezionare il nome del servizio cloud.   
    **IMPORTANTE**: assicurarsi di selezionare il ruolo del servizio cloud, non l'istanza del ruolo che si trova sotto il ruolo.
 
-    ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
+    ![Screenshot del riquadro ruoli e istanze con il ruolo di lavoro con l'opzione della coda 1 di S B delineata in rosso.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Selezionare il riquadro **Ridimensiona** .
 
-    ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
+    ![Screenshot della pagina operazioni con il riquadro vendite indicato in rosso.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Scalabilità automatica
 È possibile configurare le impostazioni di scalabilità per un ruolo scegliendo tra due modalità **manuale** o **automatica**. Con la modalità manuale, come si può immaginare, si imposta il numero assoluto di istanze. La modalità automatica consente tuttavia di impostare regole che determinano il modo e la dimensione della scalabilità.
@@ -88,7 +89,7 @@ Le regole vengono aggiunte al profilo e rappresentano la condizione che attiva l
 
 Il trigger della regola è basato su una metrica del servizio cloud (uso della CPU, attività del disco o attività di rete) a cui è possibile aggiungere un valore condizionale. È anche possibile impostare il trigger in base a una coda di messaggi o alla metrica di un'altra risorsa di Azure associata alla sottoscrizione.
 
-![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
+![Screenshot della finestra di dialogo regola con l'opzione nome metrica delineata in rosso.](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 Dopo aver configurato la regola, selezionare il pulsante **OK** nella parte inferiore del pannello della regola.
 

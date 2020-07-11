@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 06/25/2020
-ms.openlocfilehash: e48a027af70ec9d002ddcfbb2ee36ded4ca7875a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4eb1afdd7a6e48d8701dafc6dff44ce6e6db4902
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983520"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231625"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -69,7 +69,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | [Eventi estesi (XEvent)](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Supportati in alcuni casi. Vedere [Eventi estesi nel database SQL](xevent-db-diff-from-svr.md) | Sì - vedere le [differenze relative agli eventi estesi](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
 | [Stored procedure estese](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | No | No |
 | [File e gruppi di file](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Solo gruppi di file primari | Sì. I percorsi dei file vengono assegnati automaticamente e il percorso del file non può essere specificato nell' `ALTER DATABASE ADD FILE` [istruzione](../managed-instance/transact-sql-tsql-differences-sql-server.md#alter-database-statement).  |
-| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No | [No](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
+| [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No | [No](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [Ricerca full-text (FTS)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Sì, ma i Word breaker di terze parti non sono supportati | Sì, ma [i Word breaker di terze parti non sono supportati](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) |
 | [Funzioni](https://docs.microsoft.com/sql/t-sql/functions/functions) | Supportate per la maggior parte. Vedere le singole funzioni | Sì, vedere le [differenze relative a stored procedure, funzioni e trigger](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [Ottimizzazione in memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sì, i [livelli Premium e business critical supportano solo](../in-memory-oltp-overview.md) il supporto limitato per gli oggetti in memoria non persistenti, ad esempio i tipi di tabella | Sì - [solo livello Business Critical](../managed-instance/sql-managed-instance-paas-overview.md) |
@@ -157,7 +157,7 @@ Il database SQL di Azure e Azure SQL Istanza gestita supportano diversi strument
 | Portale di Azure | Sì | Sì |
 | Interfaccia della riga di comando di Azure | Sì | Sì|
 | [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Sì | Sì |
-| Azure Powershell | Sì | Sì |
+| Azure PowerShell | Sì | Sì |
 | [File BACPAC (esportazione)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sì. Vedere [Esportazione di un database SQL](database-export.md) | Sì. vedere [esportazione istanza gestita SQL](database-export.md) |
 | [File BACPAC (importazione)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sì. Vedere [Importazione di un database SQL](database-import.md) | Sì. vedere [importazione SQL istanza gestita](database-import.md) |
 | [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | No | No |
@@ -167,7 +167,7 @@ Il database SQL di Azure e Azure SQL Istanza gestita supportano diversi strument
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sì | Sì [versione 18,0 e successive](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sì | Sì |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No. Vedere [Eventi estesi](xevent-db-diff-from-svr.md) | Sì |
-| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Sì](https://www.microsoft.com/download/details.aspx?id=38829) | Sì, [in anteprima](https://www.microsoft.com/download/details.aspx?id=100306) |
+| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Sì](https://www.microsoft.com/download/details.aspx?id=38829) | Sì, [in anteprima](https://www.microsoft.com/download/details.aspx?id=38829) |
 
 ## <a name="migration-methods"></a>Metodi di migrazione
 

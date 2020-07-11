@@ -3,11 +3,12 @@ title: Monitorare un sito di SharePoint con Application Insights
 description: Avviare il monitoraggio di una nuova applicazione con una nuova chiave di strumentazione
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671444"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221052"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorare un sito di SharePoint con Application Insights
 Azure Application Insights consente di monitorare disponibilità, prestazioni e utilizzo delle app. Di seguito verrà illustrato come impostarlo per un sito di SharePoint.
@@ -48,18 +49,18 @@ Se è possibile modificare la pagina master del sito, che fornisce il monitoragg
 
 Consultare la pagina master e modificarla mediante SharePoint Designer o un altro editor.
 
-![](./media/sharepoint/03-master.png)
+![Screenshot che illustra come modificare la pagina master utilizzando SharePoint Designer o un altro editor.](./media/sharepoint/03-master.png)
 
 Aggiungere il codice immediatamente prima del </head> Tag. 
 
-![](./media/sharepoint/04-code.png)
+![Screenshot che mostra dove aggiungere il codice alla pagina del sito.](./media/sharepoint/04-code.png)
 
 #### <a name="or-on-individual-pages"></a>oppure nelle singole pagine
 Per monitorare un set limitato di pagine, aggiungere lo script separatamente a ogni pagina. 
 
 Inserire una Web part e incorporarvi il frammento di codice.
 
-![](./media/sharepoint/05-page.png)
+![Screenshot che Mostra come aggiungere lo script per monitorare un set limitato di pagine.](./media/sharepoint/05-page.png)
 
 ## <a name="view-data-about-your-app"></a>Visualizza i dati sull'app
 Ridistribuire l'app.
@@ -68,7 +69,7 @@ Tornare al pannello dell'applicazione nel [portale di Azure](https://portal.azur
 
 I primi eventi verranno visualizzati nella ricerca. 
 
-![](./media/sharepoint/09-search.png)
+![Screenshot che mostra i nuovi dati che è possibile visualizzare nell'app.](./media/sharepoint/09-search.png)
 
 Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
@@ -77,7 +78,7 @@ Il frammento di codice della pagina Web standard non acquisisce l'ID utente da S
 
 1. Copiare la chiave di strumentazione dell'app dall'elenco a discesa Informazioni di base in Application Insights. 
 
-    ![](./media/sharepoint/02-props.png)
+    ![Screenshot che mostra la copia della strumentazione dell'app dall'elenco a discesa Essentials in Application Insights.](./media/sharepoint/02-props.png)
 
 1. Sostituire la chiave di strumentazione per "XXXX" nel frammento di codice riportato di seguito. 
 2. Incorporare lo script nell'app di SharePoint anziché il frammento di codice ottenuto dal portale.

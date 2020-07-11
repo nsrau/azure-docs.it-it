@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 37df5ae8e88bf7832fbbeae37555d60943fca446
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: eea4de106fe566b55ae30330d4c9d101f7126bbf
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187303"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229619"
 ---
 # <a name="use-source-control-integration"></a>Usare l'integrazione del controllo del codice sorgente
 
@@ -202,7 +202,7 @@ Se più persone modificano i runbook nel repository del controllo del codice sor
 Non è al momento possibile usare il portale di Azure per aggiornare il token di accesso personale nel controllo del codice sorgente. Quando il token di accesso personale è scaduto o revocato, è possibile aggiornare il controllo del codice sorgente con un nuovo token di accesso in uno dei modi seguenti:
 
 * Usare l'[API REST](/rest/api/automation/sourcecontrol/update).
-* Usare il cmdlet [Update-AzAutomationSourceControl](//powershell/module/az.automation/update-azautomationsourcecontrol).
+* Usare il cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
