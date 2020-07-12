@@ -16,7 +16,7 @@ ms.locfileid: "70381782"
 È possibile accedere ai servizi cognitivi di Azure tramite due risorse diverse: una risorsa multiservizio o un singolo servizio.
 
 * Risorsa multiservizio:
-    * Accedere a più servizi cognitivi di Azure con una singola chiave e un endpoint.
+    * Accedere a più Servizi cognitivi di Azure con una singola chiave o uno singolo endpoint.
     * Consolida la fatturazione dai servizi che usi.
 * Risorsa a servizio singolo:
     * Accedere a un singolo servizio cognitivo di Azure con una chiave univoca e un endpoint per ogni servizio creato. 
