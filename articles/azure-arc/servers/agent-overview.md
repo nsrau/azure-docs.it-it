@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 38c487928f15e953a1c660c5007398bc5c2b3f7d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ed95b902c2c0768f50a0c6dadbfc617292932c2b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206608"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242951"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Panoramica dell'agente di Azure Arc per server
 
@@ -62,7 +62,7 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
 
     |Cartella |Descrizione |
     |-------|------------|
-    |C:\Programmi\AzureConnectedMachineAgent |Percorso di installazione predefinito che contiene i file di supporto dell'agente.|
+    |%ProgramFiles%\AzureConnectedMachineAgent |Percorso di installazione predefinito che contiene i file di supporto dell'agente.|
     |%ProgramData%\AzureConnectedMachineAgent |Contiene i file di configurazione dell'agente.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contiene i token acquisiti.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contiene il file di configurazione dell'agente `agentconfig.json`, che documenta le informazioni di registrazione con il servizio.|
@@ -99,7 +99,7 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
 
 * Durante la disinstallazione dell'agente, non vengono rimossi gli artefatti seguenti.
 
-    * C:\Programmi\AzureConnectedMachineAgent\Logs
+    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent e sottodirectory
     * %ProgramData%\GuestConfig
 
@@ -170,9 +170,9 @@ Le versioni seguenti dei sistemi operativi Windows e Linux sono ufficialmente su
 
 ### <a name="required-permissions"></a>Autorizzazioni necessarie
 
-- Per eseguire l'onboarding di computer, è necessario essere membri del ruolo **Onboarding di computer connessi di Azure**.
+* Per eseguire l'onboarding di computer, è necessario essere membri del ruolo **Onboarding di computer connessi di Azure**.
 
-- Per leggere, modificare, ripetere l'onboarding ed eliminare un computer, è necessario essere membri del ruolo **Amministratore delle risorse dei computer connessi di Azure**. 
+* Per leggere, modificare, ripetere l'onboarding ed eliminare un computer, è necessario essere membri del ruolo **Amministratore delle risorse dei computer connessi di Azure**. 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limiti del servizio e della sottoscrizione di Azure
 
@@ -195,8 +195,8 @@ Se la connettività in uscita è limitata dal firewall o dal server proxy, verif
 
 Tag del servizio:
 
-- AzureActiveDirectory
-- AzureTrafficManager
+* AzureActiveDirectory
+* AzureTrafficManager
 
 URL:
 
@@ -218,8 +218,8 @@ Gli URL nella tabella precedente sono necessari in aggiunta alle informazioni re
 
 Azure Arc per server (anteprima) dipende dai provider di risorse di Azure seguenti nella sottoscrizione per poter usare questo servizio:
 
-- **Microsoft.HybridCompute**
-- **Microsoft.GuestConfiguration**
+* **Microsoft.HybridCompute**
+* **Microsoft.GuestConfiguration**
 
 Se non sono registrati, è possibile registrarli con i comandi seguenti:
 

@@ -5,11 +5,12 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 0a243c1cd0ab0dcb93a1cc6169c89ba18606f346
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c093958b9a8c5a21cb6996db891705ec8c3d21ab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75451674"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246283"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>API client Java di Azure Service Fabric
 
@@ -124,5 +125,4 @@ Per ogni API sono disponibili quattro overload di implementazione. Se sono prese
     * Questa variante della chiamata API è utile se si vuole usare la programmazione asincrona reattiva e gestire la risposta REST non elaborata
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [API REST di Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/)
-
+* Informazioni sulle [API REST di Service Fabric](/rest/api/servicefabric/)

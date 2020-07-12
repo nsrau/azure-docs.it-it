@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458369"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246572"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Impostazioni di configurazione per un cluster autonomo in Windows
 Questo articolo descrive le impostazioni di configurazione di un cluster autonomo di Azure Service Fabric definibili nel file *ClusterConfig.json*. Questo file verrà usato per specificare informazioni sui nodi del cluster, le configurazioni di sicurezza, nonché la topologia di rete in termini di domini di errore e di aggiornamento.  Dopo la modifica o l'aggiunta di impostazioni di configurazione, è possibile [creare un cluster autonomo](service-fabric-cluster-creation-for-windows-server.md) oppure [aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -88,7 +89,7 @@ La sezione diagnosticsStore consente di configurare i parametri per consentire l
 }
 ```
 
-La variabile metadata descrive la diagnostica del cluster e può essere impostata in base alla configurazione in uso. Queste variabili consentono di raccogliere log di traccia ETW, dump di arresto anomalo e contatori delle prestazioni. Per altre informazioni sui log di traccia ETW, leggere gli articoli [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Traccia ETW](https://msdn.microsoft.com/library/ms751538.aspx). Tutti i log che includono [dump di arresto anomalo](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) e [contatori delle prestazioni](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) possono essere indirizzati alla cartella connectionString nel computer. È inoltre possibile usare AzureStorage per l'archiviazione di diagnostica. Vedere il frammento di esempio seguente:
+La variabile metadata descrive la diagnostica del cluster e può essere impostata in base alla configurazione in uso. Queste variabili consentono di raccogliere log di traccia ETW, dump di arresto anomalo e contatori delle prestazioni. Per altre informazioni sui log di traccia ETW, leggere gli articoli [Tracelog](/windows-hardware/drivers/devtest/tracelog) e [Traccia ETW](/dotnet/framework/wcf/samples/etw-tracing). Tutti i log che includono [dump di arresto anomalo](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) e [contatori delle prestazioni](/windows/win32/perfctrs/performance-counters-portal) possono essere indirizzati alla cartella connectionString nel computer. È inoltre possibile usare AzureStorage per l'archiviazione di diagnostica. Vedere il frammento di esempio seguente:
 
 ```json
 "diagnosticsStore": {
@@ -192,7 +193,7 @@ Per configurare le funzioni aggiuntive, l'impostazione di apiVersion deve essere
     ]
 }
 ```
-Tutte le funzionalità del componente aggiuntivo disponibili possono essere visualizzate nella Guida di [riferimento all'API REST di Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
+Tutte le funzionalità del componente aggiuntivo disponibili possono essere visualizzate nella Guida di [riferimento all'API REST di Service Fabric](/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Supporto dei contenitori
 Per abilitare il supporto dei contenitori sia per i contenitori di Windows Server che per i contenitori di Hyper-V per i cluster autonomi, deve essere attivata la funzionalità aggiuntiva DnsService.
@@ -203,4 +204,3 @@ Dopo aver configurato unClusterConfig.jscompleto per il file *in* base alla conf
 Se si dispone di un cluster autonomo distribuito, è anche possibile [aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Informazioni su come [visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-

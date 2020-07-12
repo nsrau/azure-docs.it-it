@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: adb11f29460bd6dee7171fa97a6ebfc958cfad12
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169911"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242764"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -17,6 +17,9 @@ Le impostazioni dell'app in un'app per le funzioni contengono le opzioni di conf
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Sono disponibili altre opzioni di configurazione globali nel file [host.json](functions-host-json.md) e nel file [local.settings.json](functions-run-local.md#local-settings-file).
+
+> [!NOTE]  
+> È possibile utilizzare le impostazioni dell'applicazione per eseguire l'override host.jssull'impostazione di valori senza dover modificare il host.jsnel file stesso. Questa operazione è utile per gli scenari in cui è necessario configurare o modificare host.jsspecifiche sulle impostazioni per un ambiente specifico. Questo consente anche di modificare host.jssulle impostazioni senza dover ripubblicare il progetto. Per altre informazioni, vedere l' [articolohost.jssu riferimento](functions-host-json.md#override-hostjson-values).  
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 

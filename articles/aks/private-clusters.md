@@ -4,12 +4,12 @@ description: Informazioni su come creare un cluster privato del servizio Azure K
 services: container-service
 ms.topic: article
 ms.date: 6/18/2020
-ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c788f2009bdc771bcdde20d1c3dbe9eafdbcffcb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374526"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244226"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creare un cluster privato del servizio Azure Kubernetes
 
@@ -83,7 +83,7 @@ Come indicato in precedenza, il peering di VNet è un modo per accedere al clust
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Hub e spoke con DNS personalizzato
 
-[Le architetture hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) vengono comunemente usate per distribuire le reti in Azure. In molte di queste distribuzioni, le impostazioni DNS nelle reti virtuali spoke sono configurate in modo da fare riferimento a un server d'inoltro DNS centrale per consentire la risoluzione DNS locale e basata su Azure. Quando si distribuisce un cluster AKS in un ambiente di rete di questo tipo è necessario tenere conto di alcune considerazioni speciali.
+[Le architetture hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) vengono comunemente usate per distribuire le reti in Azure. In molte di queste distribuzioni, le impostazioni DNS nelle reti virtuali spoke sono configurate in modo da fare riferimento a un server d'inoltro DNS centrale per consentire la risoluzione DNS locale e basata su Azure. Quando si distribuisce un cluster AKS in un ambiente di rete di questo tipo è necessario tenere conto di alcune considerazioni speciali.
 
 ![Hub e spoke del cluster privato](media/private-clusters/aks-private-hub-spoke.png)
 
@@ -116,9 +116,9 @@ Come indicato in precedenza, il peering di VNet è un modo per accedere al clust
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /azure/private-link/private-link-service-overview#limitations
+[private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
 [availability-zones]: availability-zones.md

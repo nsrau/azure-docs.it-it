@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b9568d352b22d9c48789f2648489be0444823fff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea46a42fa8063aaf1d67c4f5ae0d2eef3a83fd5a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195987"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242705"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Baseline della sicurezza di Azure per cache di Azure per Redis
 
@@ -467,7 +467,7 @@ Come visualizzare gli accessi rischiosi per Azure AD: https://docs.microsoft.com
 
 Come configurare e abilitare i criteri di rischio di Identity Protection:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Come eseguire l'onboarding di Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

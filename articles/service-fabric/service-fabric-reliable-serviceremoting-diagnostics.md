@@ -5,27 +5,28 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692564"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245926"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Service Remoting
-Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) che forniscono informazioni utili per comprendere il funzionamento di ServiceRemoting e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
+Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1) che forniscono informazioni utili per comprendere il funzionamento di ServiceRemoting e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
 
 
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable ServiceRemoting definisce le categorie di contatori delle prestazioni seguenti.
 
-| Category | Descrizione |
+| Categoria | Descrizione |
 | --- | --- |
 | Servizio Service Fabric |Contatori specifici per Azure Service Fabric Serivce Remoting, ad esempio tempo medio impiegato per elaborare la richiesta |
 | Metodo del servizio Service Fabric |Contatori specifici dei metodi implementati da Service Fabric Remoting Service, ad esempio per la frequenza con cui viene richiamato un metodo di un servizio |
 
 Ognuna di queste categorie include uno o più contatori.
 
-L'applicazione [Performance Monitor di Windows](https://technet.microsoft.com/library/cc749249.aspx) , disponibile per impostazione predefinita nel sistema operativo Windows, può essere usata per raccogliere e visualizzare i dati dei contatori delle prestazioni. [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) rappresenta una valida alternativa per la raccolta di tali dati e il relativo caricamento nelle tabelle di Azure.
+L'applicazione [Performance Monitor di Windows](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) , disponibile per impostazione predefinita nel sistema operativo Windows, può essere usata per raccogliere e visualizzare i dati dei contatori delle prestazioni. [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) rappresenta una valida alternativa per la raccolta di tali dati e il relativo caricamento nelle tabelle di Azure.
 
 ### <a name="performance-counter-instance-names"></a>Nomi delle istanze dei contatori delle prestazioni
 Un cluster con un numero elevato di servizi o partizioni di ServiceRemoting disporrà di un numero considerevole di istanze di contatori delle prestazioni. I nomi delle istanze possono facilitare l'identificazione della partizione specifica e del metodo del servizio (se applicabile) a cui l'istanza è associata.
@@ -35,7 +36,7 @@ Per la categoria `Service Fabric Service`, i nomi delle istanze dei contatori so
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metodo con l'identificatore di formato "D".
+*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
 
 *ServiceReplicaOrInstanceId* è la rappresentazione sotto forma di stringa di Service Fabric Replica/ID dell'istanza a cui è associata l'istanza del contatore delle prestazioni.
 
@@ -56,7 +57,7 @@ Per la categoria `Service Fabric Service Method`, i nomi delle istanze dei conta
 
 *ServiceRuntimeMethodId* è la rappresentazione sotto forma di stringa di un numero intero a 32 bit generato dal runtime di Fabric Service per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 
-*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metodo con l'identificatore di formato "D".
+*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
 
 *ServiceReplicaOrInstanceId* è la rappresentazione sotto forma di stringa di Service Fabric Replica/ID dell'istanza a cui è associata l'istanza del contatore delle prestazioni.
 
@@ -91,4 +92,4 @@ Quando un client richiama un metodo tramite un oggetto proxy di servizio, viene 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Codice di esempio](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
-* [Provider di EventSource in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [Provider di EventSource in PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

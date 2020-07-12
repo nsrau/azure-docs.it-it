@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b7552fc083c5ed340dc54c2a31160b0c8b4bd076
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420908"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244039"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Protezione avanzata per il sistema operativo host del nodo AKS Agent
 
-Azure Kubernetes Service (AKS) è un servizio sicuro conforme agli standard SOC, ISO, PCI DSS e HIPAA. Questo articolo illustra la protezione avanzata applicata agli host di macchine virtuali AKS. Per altre informazioni sulla sicurezza di AKS, vedere Concetti relativi alla [sicurezza per le applicazioni e i cluster in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
+Azure Kubernetes Service (AKS) è un servizio sicuro conforme agli standard SOC, ISO, PCI DSS e HIPAA. Questo articolo illustra la protezione avanzata applicata agli host di macchine virtuali AKS. Per altre informazioni sulla sicurezza di AKS, vedere Concetti relativi alla [sicurezza per le applicazioni e i cluster in Azure Kubernetes Service (AKS)](./concepts-security.md).
 
 > [!Note]
 > Questo documento è limitato agli agenti Linux in AKS.
@@ -32,7 +32,7 @@ L'obiettivo del sistema operativo host con protezione avanzata consiste nel ridu
 
 * AKS fornisce un sistema operativo host con ottimizzazione per la sicurezza per impostazione predefinita. Non è possibile selezionare un sistema operativo alternativo.
 
-* Azure applica patch giornaliere (incluse le patch di sicurezza) agli host di macchine virtuali AKS. Per alcune di queste patch è necessario riavviare il computer, mentre altre non lo sono. L'utente è responsabile della pianificazione dei riavvii dell'host della macchina virtuale AKS in base alle esigenze. Per istruzioni su come automatizzare l'applicazione di patch AKS, vedere applicazione di [patch ai nodi AKS](https://docs.microsoft.com/azure/aks/node-updates-kured).
+* Azure applica patch giornaliere (incluse le patch di sicurezza) agli host di macchine virtuali AKS. Per alcune di queste patch è necessario riavviare il computer, mentre altre non lo sono. L'utente è responsabile della pianificazione dei riavvii dell'host della macchina virtuale AKS in base alle esigenze. Per istruzioni su come automatizzare l'applicazione di patch AKS, vedere applicazione di [patch ai nodi AKS](./node-updates-kured.md).
 
 ## <a name="what-is-configured"></a>Cosa è configurato
 
@@ -85,8 +85,8 @@ L'obiettivo del sistema operativo host con protezione avanzata consiste nel ridu
 
 Per ulteriori informazioni sulla sicurezza di AKS, vedere gli articoli seguenti: 
 
-[Servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+[Servizio Azure Kubernetes](./intro-kubernetes.md)
 
-[Considerazioni sulla sicurezza di AKS](https://docs.microsoft.com/azure/aks/concepts-security)
+[Considerazioni sulla sicurezza di AKS](./concepts-security.md)
 
-[Procedure consigliate di AKS](https://docs.microsoft.com/azure/aks/best-practices)
+[Procedure consigliate di AKS](./best-practices.md)

@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6415214e5d6b71d174e5117c1cf1e41af381334c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bbd461072a137bf32874805e5c6171d1102ef0c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84013578"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245348"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -262,7 +263,7 @@ Usare la procedura seguente per configurare un account del servizio che può ess
 > Se si vuole limitare l'agente di provisioning per creare e leggere solo gli utenti di una determinata OU a scopo di test, è consigliabile delegare il controllo al livello OU appropriato durante le esecuzioni dei test.
 
 4. Nella schermata iniziale fare clic su **Avanti** . 
-5. Nella schermata **Seleziona utenti o gruppi** aggiungere l'utente di dominio creato nel passaggio 2. Fare clic su **Avanti**.
+5. Nella schermata **Seleziona utenti o gruppi** aggiungere l'utente di dominio creato nel passaggio 2. Fare clic su **Next** (Avanti).
    >[!div class="mx-imgBorder"]
    >![Aggiungi schermata](./media/workday-inbound-tutorial/delegation-wizard-01.png "Aggiungi schermata")
 
@@ -683,12 +684,7 @@ Sostituire le variabili [server proxy] e [proxy-port] con il nome del server pro
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Come garantire che l'agente di provisioning sia in grado di comunicare con il tenant di Azure AD e che nessun firewall blocchi le porte richieste dall'agente?
 
-È inoltre possibile controllare se tutte le porte di cui si dispone sono aperte mediante lo [strumento di test delle porte del connettore](https://aadap-portcheck.connectorporttest.msappproxy.net/) dalla rete locale. La presenza di più segni di spunta verdi indica una maggiore resilienza.
-
-Per assicurarsi che lo strumento fornisca i risultati corretti, accertarsi di:
-
-* Aprire lo strumento in un browser dal server in cui è installato l'agente di provisioning.
-* Assicurarsi che qualsiasi proxy o firewall applicabile all'agente di provisioning venga applicato anche a questa pagina. Questa operazione può essere eseguita in Internet Explorer selezionando **Impostazioni -> Opzioni Internet -> Connessioni -> Impostazioni LAN**. In questa pagina viene visualizzato il campo "Usa un server di proxy per la rete LAN". Selezionare questa casella e inserire l'indirizzo del proxy nel campo "Indirizzo".
+È inoltre possibile controllare se tutte le [porte necessarie](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) sono aperte.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Un agente di provisioning può essere configurato per effettuare il provisioning di più domini di Active Directory?
 

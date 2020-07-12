@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f473b70d260c552dc67d00715b6ee4bc56b670e0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259474"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246555"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrivere un cluster di Service Fabric usando cluster Gestione risorse
 La funzionalità cluster Gestione risorse di Azure Service Fabric fornisce diversi meccanismi per la descrizione di un cluster:
@@ -36,7 +36,7 @@ Nell'ambiente Azure Service Fabric usa le informazioni sul dominio di errore for
 > [!WARNING]
 > È importante che le informazioni sul dominio di errore fornite per Service Fabric siano accurate. Si consideri, ad esempio, che i nodi del cluster Service Fabric sono in esecuzione in 10 macchine virtuali, in esecuzione su 5 host fisici. In questo caso, anche se sono presenti 10 macchine virtuali, sono presenti solo 5 domini di errore diversi (livello superiore). La condivisione dello stesso host fisico fa sì che le macchine virtuali condividano lo stesso dominio di errore radice, in quanto le VM riscontrano un errore coordinato se l'host fisico non riesce  
 >
-> Service Fabric prevede che il dominio di errore di un nodo non venga modificato. Altri meccanismi per garantire la disponibilità elevata delle macchine virtuali, ad esempio le [VM](https://technet.microsoft.com/library/cc967323.aspx)a disponibilità elevata, possono causare conflitti con Service Fabric. Questi meccanismi usano la migrazione trasparente delle macchine virtuali da un host a un altro. Non riconfigurano né inviano notifiche al codice in esecuzione all'interno della macchina virtuale. Di conseguenza, non sono *supportati* come ambienti per l'esecuzione di cluster Service Fabric. 
+> Service Fabric prevede che il dominio di errore di un nodo non venga modificato. Altri meccanismi per garantire la disponibilità elevata delle macchine virtuali, ad esempio le [VM](/previous-versions/system-center/virtual-machine-manager-2008-r2/cc967323(v=technet.10))a disponibilità elevata, possono causare conflitti con Service Fabric. Questi meccanismi usano la migrazione trasparente delle macchine virtuali da un host a un altro. Non riconfigurano né inviano notifiche al codice in esecuzione all'interno della macchina virtuale. Di conseguenza, non sono *supportati* come ambienti per l'esecuzione di cluster Service Fabric. 
 >
 > Service Fabric deve essere l'unica tecnologia di disponibilità elevata in uso. Non sono necessari meccanismi come la migrazione in tempo reale delle macchine virtuali e i San. Se questi meccanismi vengono usati insieme ai Service Fabric, _riducono_ la disponibilità e l'affidabilità dell'applicazione. Il motivo è che introducono complessità aggiuntive, aggiungono origini centralizzate di errori e utilizzano strategie di affidabilità e disponibilità che sono in conflitto con quelle Service Fabric. 
 >
@@ -347,7 +347,7 @@ In alcuni casi (in realtà, la maggior parte del tempo) è opportuno assicurarsi
 
 Un ottimo esempio di destinazione dell'hardware per determinati carichi di lavoro è quasi ogni architettura a più livelli. Alcuni computer fungono da front-end o lato API dell'applicazione e vengono esposti ai client o a Internet. Altri computer, spesso con risorse hardware diverse, gestiscono il lavoro dei livelli di calcolo o archiviazione. In genere _non_ sono esposti direttamente a Internet o ai client. 
 
-Service Fabric prevede che in alcuni casi, potrebbe essere necessario eseguire determinati carichi di lavoro in particolari configurazioni hardware. Ad esempio:
+Service Fabric prevede che in alcuni casi, potrebbe essere necessario eseguire determinati carichi di lavoro in particolari configurazioni hardware. ad esempio:
 
 * Un'applicazione a più livelli esistente è stata "sollevata e spostata" in un ambiente Service Fabric.
 * Un carico di lavoro deve essere eseguito su hardware specifico per motivi di prestazioni, scalabilità o isolamento della sicurezza.

@@ -5,11 +5,12 @@ author: alexwun
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fc0239dd18fc7071823a129a7dbc4f102023d66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645668"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246198"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Informazioni sull'impostazione ImageStoreConnectionString
 
@@ -37,7 +38,7 @@ Il provider di File System viene usato al posto del servizio di archiviazione im
 
 Inoltre, né il provider di File System né il provider di Archiviazione di Azure devono essere usati come metodo di condivisione di un archivio immagini tra più cluster. Tale operazione determinerebbe il danneggiamento dei dati di configurazione del cluster, perché ogni cluster potrebbe scrivere dati in conflitto nell'archivio immagini. Per condividere i pacchetti dell'applicazione con provisioning tra più cluster, usare i file [sfpkg][12], che possono essere caricati in qualsiasi archivio esterno con un URI di download.
 
-Quindi, sebbene ImageStoreConnectionString sia configurabile, viene semplicemente usata l'impostazione predefinita. Durante la pubblicazione in Azure tramite Visual Studio, il parametro viene impostato automaticamente in base alle esigenze dell'utente. Per la distribuzione a livello di codice ai cluster ospitati in Azure, la stringa di connessione è sempre "fabric:ImageStore". In caso di dubbi, il suo valore può essere verificato sempre recuperando il manifesto del cluster da [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) o [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Sia i test in locale che i cluster di produzione devono essere sempre configurati per poter usare anche il provider del Servizio di archivio immagini.
+Quindi, sebbene ImageStoreConnectionString sia configurabile, viene semplicemente usata l'impostazione predefinita. Durante la pubblicazione in Azure tramite Visual Studio, il parametro viene impostato automaticamente in base alle esigenze dell'utente. Per la distribuzione a livello di codice ai cluster ospitati in Azure, la stringa di connessione è sempre "fabric:ImageStore". In caso di dubbi, il suo valore può essere verificato sempre recuperando il manifesto del cluster da [PowerShell](/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](/previous-versions/azure/reference/mt161375(v=azure.100)) o [REST](/rest/api/servicefabric/get-a-cluster-manifest). Sia i test in locale che i cluster di produzione devono essere sempre configurati per poter usare anche il provider del Servizio di archivio immagini.
 
 ### <a name="next-steps"></a>Passaggi successivi
 [Distribuire e rimuovere applicazioni con PowerShell][10]

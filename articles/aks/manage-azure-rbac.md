@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 84800f978790a114b80c415a5e5e3dad77eaf8da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122304"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244261"
 ---
-# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes
+# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione di Kubernetes (anteprima)
 
 Oggi è già possibile sfruttare [l'autenticazione integrata tra Azure Active Directory (Azure ad) e AKS](managed-aad.md). Se abilitata, questa integrazione consente ai clienti di usare Azure AD utenti, gruppi o entità servizio come argomenti in Kubernetes RBAC. vedere altre informazioni [qui](azure-ad-rbac.md).
 Questa funzionalità non consente di gestire separatamente le identità e le credenziali degli utenti per Kubernetes. Tuttavia, è comunque necessario configurare e gestire il controllo degli accessi in base al ruolo di Azure e Kubernetes RBAC separatamente. Per ulteriori informazioni sull'autenticazione, l'autorizzazione e il controllo degli accessi in base al ruolo in AKS vedere [qui](concepts-identity.md)
@@ -215,7 +215,7 @@ az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 ```
 
 > [!IMPORTANT]
-> Per eseguire il passaggio precedente, è necessario il ruolo predefinito [utente del cluster di servizi di Azure Kubernetes](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) .
+> Per eseguire il passaggio precedente, è necessario il ruolo predefinito [utente del cluster di servizi di Azure Kubernetes](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) .
 
 A questo punto, è possibile usare kubectl per elencare, ad esempio, i nodi nel cluster. La prima volta che si esegue questa operazione, è necessario eseguire l'accesso e i comandi successivi utilizzeranno il rispettivo token di accesso.
 

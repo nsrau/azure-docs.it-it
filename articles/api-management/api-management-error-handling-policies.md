@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674262"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243546"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
 
@@ -50,7 +51,7 @@ Durante l'elaborazione di una richiesta, i passaggi predefiniti vengono eseguiti
 La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli autori di API possono configurare comportamenti personalizzati come la registrazione degli errori nell'hub eventi o la creazione di una nuova risposta da restituire al chiamante.
 
 > [!NOTE]
-> Per impostazione predefinita, la sezione `on-error` non è presente nei criteri. Per aggiungere la sezione `on-error` a un criterio, selezionare il criterio desiderato nell'editor dei criteri e aggiungerlo. Per ulteriori informazioni sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
+> Per impostazione predefinita, la sezione `on-error` non è presente nei criteri. Per aggiungere la sezione `on-error` a un criterio, selezionare il criterio desiderato nell'editor dei criteri e aggiungerlo. Per ulteriori informazioni sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-howto-policies.md).
 >
 > Se la sezione `on-error` non è presente, il chiamante riceverà dei messaggi di risposta 400 o 500 HTTP in caso di una condizione di errore.
 
@@ -99,7 +100,7 @@ Quando si verifica un errore e il controllo passa alla `on-error` sezione dei cr
 
 Gli errori seguenti sono predefiniti per le condizioni di errore che possono verificarsi durante la valutazione dei passaggi di elaborazione predefiniti.
 
-| Source (Sorgente)        | Condizione                                 | Motivo                  | Message                                                                                                                |
+| Origine        | Condizione                                 | Motivo                  | Message                                                                                                                |
 | ------------- | ----------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | configurazione | L'URI non corrisponde a un'API o a un'operazione | OperationNotFound       | Impossibile associare la richiesta in ingresso a un'operazione.                                                                      |
 | authorization | Chiave di sottoscrizione non fornita             | SubscriptionKeyNotFound | Accesso negato, chiave di sottoscrizione mancante. Assicurarsi di includere la chiave di sottoscrizione quando si effettuano richieste a questa API. |
@@ -112,7 +113,7 @@ Gli errori seguenti sono predefiniti per le condizioni di errore che possono ver
 
 Gli errori seguenti sono predefiniti per le condizioni di errore che possono verificarsi durante la valutazione dei criteri.
 
-| Source (Sorgente)       | Condizione                                                       | Motivo                    | Message                                                                                                                              |
+| Origine       | Condizione                                                       | Motivo                    | Message                                                                                                                              |
 | ------------ | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | rate-limit   | Limite di velocità superato                                             | RateLimitExceeded         | Il limite di velocità è stato superato                                                                                                               |
 | quota        | La quota è stata superata                                                  | QuotaExceeded             | La quota del volume di chiamate è esaurita. La quota verrà ripristinata in xx:xx:xx. -oppure- La quota della larghezza di banda è esaurita. La quota verrà ripristinata in xx:xx:xx. |
@@ -188,5 +189,5 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 
 -   [Criteri di Gestione API](api-management-howto-policies.md)
 -   [Trasformare le API](transform-api.md)
--   [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
+-   [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 -   [Esempi di criteri](policy-samples.md)

@@ -5,11 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75377906"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246691"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Ripristino del backup in Azure Service Fabric
 
@@ -51,7 +52,7 @@ Il ripristino può essere attivato per gli scenari seguenti:
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Ripristino dati in caso di ripristino di emergenza
 
-In caso di perdita di un intero cluster di Service Fabric, è possibile recuperare i dati delle partizioni del servizio Reliable con stato e Reliable Actors. Il backup desiderato può essere selezionato dall'elenco quando si usa [GetBackupAPI con i dettagli di archiviazione del backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). L'enumerazione del backup può essere relativa a un'applicazione, un servizio o una partizione.
+In caso di perdita di un intero cluster di Service Fabric, è possibile recuperare i dati delle partizioni del servizio Reliable con stato e Reliable Actors. Il backup desiderato può essere selezionato dall'elenco quando si usa [GetBackupAPI con i dettagli di archiviazione del backup](/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). L'enumerazione del backup può essere relativa a un'applicazione, un servizio o una partizione.
 
 Per l'esempio seguente supponiamo che il cluster andato perso sia lo stesso a cui si fa riferimento in [Abilita i backup periodici per servizio Reliable con stato e Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In questo caso, l'app `SampleApp` viene distribuita con i criteri di backup abilitati e i backup sono configurati in Archiviazione di Azure.
 
@@ -165,7 +166,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 #### <a name="rest-call-using-powershell"></a>Chiamata REST con PowerShell
 
-Occorre richiedere il ripristino sulla partizione del cluster di backup usando l'[API di ripristino](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition) seguente:
+Occorre richiedere il ripristino sulla partizione del cluster di backup usando l'[API di ripristino](/rest/api/servicefabric/sfclient-api-restorepartition) seguente:
 
 ```powershell
 
@@ -305,7 +306,7 @@ La richiesta di ripristino procede nell'ordine seguente:
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Timeout**: uno stato di ripristino del _timeout_ indica che la richiesta ha il timeout. Creare una nuova richiesta di ripristino con un valore di [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) maggiore. Il timeout predefinito è 10 minuti. Verificare che la partizione non sia nello stato di perdita dei dati prima di richiedere di nuovo il ripristino.
+    - **Timeout**: uno stato di ripristino del _timeout_ indica che la richiesta ha il timeout. Creare una nuova richiesta di ripristino con un valore di [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) maggiore. Il timeout predefinito è 10 minuti. Verificare che la partizione non sia nello stato di perdita dei dati prima di richiedere di nuovo il ripristino.
      
         ```
         RestoreState  : Timeout
@@ -319,12 +320,12 @@ La richiesta di ripristino procede nell'ordine seguente:
 È possibile configurare le partizioni del servizio Reliable con stato e Reliable Actors nel cluster di Service Fabric per il _ripristino automatico_. Nei criteri di backup impostare `AutoRestore` su _true_. L'abilitazione del _ripristino automatico_ ripristina automaticamente i dati dal backup più recente della partizione quando viene segnalata una perdita di dati. Per altre informazioni, vedere:
 
 - [Abilitazione del ripristino automatico nei criteri di backup](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
-- [Informazioni di riferimento sull'API RestorePartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-- [Informazioni di riferimento sull'API GetPartitionRestoreProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+- [Informazioni di riferimento sull'API RestorePartition](/rest/api/servicefabric/sfclient-api-restorepartition)
+- [Informazioni di riferimento sull'API GetPartitionRestoreProgress](/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Informazioni sulla configurazione del backup periodico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Informazioni di riferimento sull'API REST di ripristino backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Informazioni di riferimento sull'API REST di ripristino backup](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
 [3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

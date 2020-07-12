@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 5b17b7784691cdf38c45e4f306b2ed14b981a2d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3843ff986fdc37c37690bee9616861f16a334c67
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751253"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243733"
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 
@@ -38,7 +38,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   [Imposta metodo di richiesta](#SetRequestMethod) : consente di modificare il metodo HTTP per una richiesta.
 -   [Imposta codice di stato](#SetStatus): modifica il codice di stato HTTP per il valore specificato.
 -   [Imposta variabile](api-management-advanced-policies.md#set-variable): rende persistente un valore in una variabile di [contesto](api-management-policy-expressions.md#ContextVariables) denominata e consente di accedervi in un momento successivo.
--   [Trace](#Trace) : aggiunge tracce personalizzate nell'output di [controllo API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , Application Insights telemetrie e i log delle risorse.
+-   [Trace](#Trace) : aggiunge tracce personalizzate nell'output di [controllo API](./api-management-howto-api-inspector.md) , Application Insights telemetrie e i log delle risorse.
 -   [Wait](#Wait) : attende il completamento dei criteri di [invio della richiesta](api-management-advanced-policies.md#SendRequest), [del valore della cache o del](api-management-caching-policies.md#GetFromCacheByKey)flusso di [controllo](api-management-advanced-policies.md#choose) prima di procedere.
 
 ## <a name="control-flow"></a><a name="choose"></a>Flusso di controllo
@@ -63,7 +63,7 @@ Il criterio `choose` si applica alle istruzioni del criterio incluse in base al 
 
 Il criterio del flusso di controllo deve contenere almeno un elemento `<when/>`. L'elemento `<otherwise/>` è facoltativo. Le condizioni negli elementi `<when/>` vengono valutate in ordine di visualizzazione all'interno del criterio. Si applicano le istruzioni del criterio incluse all'interno del primo elemento `<when/>` con attributo di condizione uguale a `true`. I criteri inclusi all'interno dell'elemento `<otherwise/>`, se presente, vengono applicati se tutti gli attributi di condizione dell'elemento `<when/>` sono `false`.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example"></a><a name="ChooseExample"></a>Esempio
 
@@ -132,7 +132,7 @@ Questo esempio mostra come eseguire operazioni di filtro sui contenuti rimuovend
 | when      | La condizione da usare per le parti `if` o `ifelse` del criterio `choose`. Se il criterio `choose` ha più sezioni `when`, vengono valutate in modo sequenziale. Una volta che la `condition` di un elemento when risulta `true`, non vengono valutate altre condizioni `when`. | Sì      |
 | otherwise | Contiene il frammento di criterio da usare se nessuna delle condizioni `when` viene valutata `true`.                                                                                                                                                                               | No       |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo                                              | Descrizione                                                                                               | Obbligatoria |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
@@ -140,7 +140,7 @@ Questo esempio mostra come eseguire operazioni di filtro sui contenuti rimuovend
 
 ### <a name="usage"></a><a name="ChooseUsage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -148,7 +148,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 
 ## <a name="forward-request"></a><a name="ForwardRequest"></a>Invia richiesta
 
-Il criterio `forward-request` inoltra la richiesta in ingresso al servizio back-end specificato nel [contesto](api-management-policy-expressions.md#ContextVariables) della richiesta. L'URL del servizio back-end viene specificato nelle [Impostazioni](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) dell'API e può essere modificato usando i criteri di [impostazione del servizio back-end](api-management-transformation-policies.md) .
+Il criterio `forward-request` inoltra la richiesta in ingresso al servizio back-end specificato nel [contesto](api-management-policy-expressions.md#ContextVariables) della richiesta. L'URL del servizio back-end viene specificato nelle [Impostazioni](./import-and-publish.md) dell'API e può essere modificato usando i criteri di [impostazione del servizio back-end](api-management-transformation-policies.md) .
 
 > [!NOTE]
 > Se questo criterio viene rimosso, la richiesta non viene inoltrata al servizio back-end e i criteri nella sezione in uscita vengono valutati immediatamente dopo il completamento dei criteri nella sezione in ingresso.
@@ -159,7 +159,7 @@ Il criterio `forward-request` inoltra la richiesta in ingresso al servizio back-
 <forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example"></a>Esempio
 
@@ -248,7 +248,7 @@ Questo criterio a livello di operazione non inoltra le richieste al servizio bac
 | --------------- | ------------- | -------- |
 | forward-request | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo                                     | Descrizione                                                                                                                                                                                                                                                                                                    | Obbligatoria | Predefinito |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -259,7 +259,7 @@ Questo criterio a livello di operazione non inoltra le richieste al servizio bac
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** back-end
 -   **Ambiti del criterio:** tutti gli ambiti
@@ -276,7 +276,7 @@ Il criterio `limit-concurrency` impedisce ai criteri racchiusi di eseguire un nu
 </limit-concurrency>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example"></a>Esempio
 
@@ -300,7 +300,7 @@ Nell'esempio seguente viene illustrato come limitare il numero di richieste inol
 | ----------------- | ------------- | -------- |
 | limita concorrenza | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo | Descrizione                                                                                        | Obbligatoria | Predefinito |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -309,7 +309,7 @@ Nell'esempio seguente viene illustrato come limitare il numero di richieste inol
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -320,7 +320,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 Il criterio `log-to-eventhub` invia messaggi nel formato specificato a un Hub eventi definito da un'entità Logger. Come suggerisce il nome, il criterio viene usato per il salvataggio di informazioni selezionate sul contesto di richiesta o risposta per l'analisi online o offline.
 
 > [!NOTE]
-> Per una guida dettagliata sulla configurazione di un hub eventi e la registrazione di eventi, vedere [Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
+> Per una guida dettagliata sulla configurazione di un hub eventi e la registrazione di eventi, vedere [Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure](./api-management-howto-log-event-hubs.md).
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
@@ -353,17 +353,17 @@ Il criterio `log-to-eventhub` invia messaggi nel formato specificato a un Hub ev
 | --------------- | ------------------------------------------------------------------------------- | -------- |
 | log-to-eventhub | Elemento radice. Il valore di questo elemento è la stringa per la registrazione all'hub eventi. | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo     | Descrizione                                                               | Obbligatoria                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | ID del logger registrato con il servizio gestione API.         | Sì                                                                  |
-| partition-id  | Specifica l'indice della partizione a cui i messaggi vengono inviati.             | Facoltativa. Questo attributo non può essere usato se si usa `partition-key`. |
-| partition-key | Specifica il valore usato per l'assegnazione della partizione quando vengono inviati i messaggi. | Facoltativa. Questo attributo non può essere usato se si usa `partition-id`.  |
+| partition-id  | Specifica l'indice della partizione a cui i messaggi vengono inviati.             | facoltativo. Questo attributo non può essere usato se si usa `partition-key`. |
+| partition-key | Specifica il valore usato per l'assegnazione della partizione quando vengono inviati i messaggi. | facoltativo. Questo attributo non può essere usato se si usa `partition-id`.  |
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -380,7 +380,7 @@ Il criterio `mock-response`, come implica il nome, viene usato per restituire AP
 
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 ```xml
 <!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this
@@ -398,7 +398,7 @@ status code and media type. If no example or schema found, the content is empty.
 | ------------- | ------------- | -------- |
 | mock-response | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo    | Descrizione                                                                                           | Obbligatoria | Predefinito |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -407,7 +407,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, on-error
 
@@ -457,15 +457,15 @@ Nella richiesta di esempio seguente l'inoltro viene ripetuto fino a dieci volte 
 | ------- | ------------------------------------------------------------------- | -------- |
 | retry   | Elemento radice. Può contenere tutti gli altri criteri come elementi figlio. | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo        | Descrizione                                                                                                                                           | Obbligatoria | Predefinito |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condizione        | Valore letterale booleano o [espressione](api-management-policy-expressions.md) che specifica se i tentativi devono essere interrotti (`false`) o devono continuare (`true`).      | Sì      | N/D     |
-| count            | Numero positivo che specifica il numero massimo di tentativi da eseguire.                                                                                | Sì      | N/D     |
+| conteggio            | Numero positivo che specifica il numero massimo di tentativi da eseguire.                                                                                | Sì      | N/D     |
 | interval         | Numero positivo in secondi che specifica l'intervallo di attesa tra i tentativi di ripetizione.                                                                 | Sì      | N/D     |
-| max-interval     | Un numero positivo che specifica l'intervallo di attesa massimo tra i tentativi di ripetizione. Viene usato per implementare un algoritmo di ripetizione esponenziale. | No       | N/D     |
-| delta            | Numero positivo in secondi che specifica l'incremento dell'intervallo di attesa. Viene usato per implementare gli algoritmi di ripetizione lineari ed esponenziali.             | No       | N/D     |
+| max-interval     | Un numero positivo che specifica l'intervallo di attesa massimo tra i tentativi di ripetizione. Viene usato per implementare un algoritmo di ripetizione esponenziale. | No       | N/A     |
+| delta            | Numero positivo in secondi che specifica l'incremento dell'intervallo di attesa. Viene usato per implementare gli algoritmi di ripetizione lineari ed esponenziali.             | No       | N/A     |
 | first-fast-retry | Se impostato su `true` , il primo tentativo viene eseguito immediatamente.                                                                                  | No       | `false` |
 
 > [!NOTE]
@@ -475,7 +475,7 @@ Nella richiesta di esempio seguente l'inoltro viene ripetuto fino a dieci volte 
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti. Si noti che le restrizioni sull'uso dei criteri figlio verranno ereditate da questo criterio.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti. Si noti che le restrizioni sull'uso dei criteri figlio verranno ereditate da questo criterio.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -517,15 +517,15 @@ Il criterio `return-response` interrompe l'esecuzione della pipeline e restituis
 | set-body        | Istruzione del criterio.[set-body](api-management-transformation-policies.md#SetBody).         | No       |
 | set-status      | Istruzione del criterio [set-status](api-management-advanced-policies.md#SetStatus).           | No       |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo              | Descrizione                                                                                                                                                                          | Obbligatoria  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| response-variable-name | Nome della variabile di contesto a cui fa riferimento, ad esempio, un criterio di upstream [send-request](api-management-advanced-policies.md#SendRequest) e contenente un oggetto `Response`. | Facoltativa. |
+| response-variable-name | Nome della variabile di contesto a cui fa riferimento, ad esempio, un criterio di upstream [send-request](api-management-advanced-policies.md#SendRequest) e contenente un oggetto `Response`. | facoltativo. |
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -550,7 +550,7 @@ Il criterio `send-one-way-request` invia la richiesta specificata all'URL specif
 
 ### <a name="example"></a>Esempio
 
-Questo criterio di esempio illustra come usare il criterio `send-one-way-request` per inviare un messaggio a una chat di Slack, se il codice della risposta HTTP è maggiore o uguale a 500. Per altre informazioni relative a questo esempio, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Questo criterio di esempio illustra come usare il criterio `send-one-way-request` per inviare un messaggio a una chat di Slack, se il codice della risposta HTTP è maggiore o uguale a 500. Per altre informazioni relative a questo esempio, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -589,7 +589,7 @@ Questo criterio di esempio illustra come usare il criterio `send-one-way-request
 | Corpo                       | Corpo della richiesta.                                                                                           | No                              |
 | authentication-certificate | [Certificato da usare per l'autenticazione client](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo     | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
@@ -599,7 +599,7 @@ Questo criterio di esempio illustra come usare il criterio `send-one-way-request
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -625,7 +625,7 @@ Il criterio `send-request` invia la richiesta fornita all'URL specificato, atten
 
 ### <a name="example"></a>Esempio
 
-Questo esempio mostra un metodo per verificare un token di riferimento con un server di autorizzazione. Per altre informazioni relative a questo esempio, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Questo esempio mostra un metodo per verificare un token di riferimento con un server di autorizzazione. Per altre informazioni relative a questo esempio, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](./api-management-sample-send-request.md).
 
 ```xml
 <inbound>
@@ -673,7 +673,7 @@ Questo esempio mostra un metodo per verificare un token di riferimento con un se
 | Corpo                       | Corpo della richiesta.                                                                                           | No                              |
 | authentication-certificate | [Certificato da usare per l'autenticazione client](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo                       | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
@@ -686,7 +686,7 @@ Questo esempio mostra un metodo per verificare un token di riferimento con un se
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -718,17 +718,17 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 | ------- | ------------ | -------- |
 | proxy   | Elemento radice | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo         | Descrizione                                            | Obbligatoria | Predefinito |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="string"      | URL del proxy nel formato http://host:port.             | Sì      | N/D     |
-| username="string" | Nome utente da usare per l'autenticazione con il proxy. | No       | N/D     |
-| password="string" | Password da usare per l'autenticazione con il proxy. | No       | N/D     |
+| username="string" | Nome utente da usare per l'autenticazione con il proxy. | No       | N/A     |
+| password="string" | Password da usare per l'autenticazione con il proxy. | No       | N/A     |
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound
 
@@ -747,7 +747,7 @@ Il criterio `set-method` consente di modificare il metodo di richiesta HTTP per 
 
 ### <a name="example"></a>Esempio
 
-Questo criterio di esempio che usa il criterio `set-method` mostra un esempio di invio di un messaggio a una chat di Slack, se il codice della risposta HTTP è maggiore o uguale a 500. Per altre informazioni relative a questo esempio, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Questo criterio di esempio che usa il criterio `set-method` mostra un esempio di invio di un messaggio a una chat di Slack, se il codice della risposta HTTP è maggiore o uguale a 500. Per altre informazioni relative a questo esempio, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -783,7 +783,7 @@ Questo criterio di esempio che usa il criterio `set-method` mostra un esempio di
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, on-error
 
@@ -802,7 +802,7 @@ Il criterio `set-status` modifica il codice di stato HTTP sul valore specificato
 
 ### <a name="example"></a>Esempio
 
-Questo esempio illustra come restituire una risposta 401 se il token di autorizzazione non è valido. Per altre informazioni, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Questo esempio illustra come restituire una risposta 401 se il token di autorizzazione non è valido. Per altre informazioni, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -824,7 +824,7 @@ Questo esempio illustra come restituire una risposta 401 se il token di autorizz
 | ---------- | ------------- | -------- |
 | set-status | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo       | Descrizione                                                | Obbligatoria | Predefinito |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
@@ -833,7 +833,7 @@ Questo esempio illustra come restituire una risposta 401 se il token di autorizz
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** outbound, backend, on-error
 -   **Ambiti del criterio:** tutti gli ambiti
@@ -862,16 +862,16 @@ L'esempio seguente illustra un criterio di impostazione della variabile nella se
 | ------------ | ------------- | -------- |
 | set-variable | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo | Descrizione                                                              | Obbligatoria |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nome della variabile.                                                | Sì      |
-| Valore     | Valore della variabile. Può essere un'espressione o un valore letterale. | Sì      |
+| value     | Valore della variabile. Può essere un'espressione o un valore letterale. | Sì      |
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 -   **Ambiti del criterio:** tutti gli ambiti
@@ -916,9 +916,9 @@ Le espressioni usate nel criterio `set-variable` devono restituire uno dei segue
 
 Il `trace` criterio aggiunge una traccia personalizzata nell'output di controllo API, Application Insights telemetria e/o nei log delle risorse.
 
--   Il criterio aggiunge una traccia personalizzata all'output di [controllo API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quando viene attivata la traccia, ad esempio l' `Ocp-Apim-Trace` intestazione della richiesta è presente e impostata su true e l'intestazione della `Ocp-Apim-Subscription-Key` richiesta è presente e include una chiave valida che consente la traccia.
--   Il criterio crea una telemetria di [traccia](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) in Application Insights, quando è abilitata l' [integrazione con Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) e il `severity` livello specificato nei criteri è maggiore o pari al `verbosity` livello specificato nell'impostazione di diagnostica.
--   Il criterio aggiunge una proprietà nella voce di log quando i [log delle risorse](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) sono abilitati e il livello di gravità specificato nei criteri è maggiore o uguale al livello di dettaglio specificato nell'impostazione di diagnostica.
+-   Il criterio aggiunge una traccia personalizzata all'output di [controllo API](./api-management-howto-api-inspector.md) quando viene attivata la traccia, ad esempio l' `Ocp-Apim-Trace` intestazione della richiesta è presente e impostata su true e l'intestazione della `Ocp-Apim-Subscription-Key` richiesta è presente e include una chiave valida che consente la traccia.
+-   Il criterio crea una telemetria di [traccia](../azure-monitor/app/data-model-trace-telemetry.md) in Application Insights, quando è abilitata l' [integrazione con Application Insights](./api-management-howto-app-insights.md) e il `severity` livello specificato nei criteri è maggiore o pari al `verbosity` livello specificato nell'impostazione di diagnostica.
+-   Il criterio aggiunge una proprietà nella voce di log quando i [log delle risorse](./api-management-howto-use-azure-monitor.md#activity-logs) sono abilitati e il livello di gravità specificato nei criteri è maggiore o uguale al livello di dettaglio specificato nell'impostazione di diagnostica.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
@@ -946,20 +946,20 @@ Il `trace` criterio aggiunge una traccia personalizzata nell'output di controllo
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | traccia    | Elemento radice.                                                                                                                                        | Sì      |
 | message  | Stringa o espressione da registrare.                                                                                                                 | Sì      |
-| metadata | Aggiunge una proprietà personalizzata alla telemetria della [traccia](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) Application Insights. | No       |
+| metadata | Aggiunge una proprietà personalizzata alla telemetria della [traccia](../azure-monitor/app/data-model-trace-telemetry.md) Application Insights. | No       |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo | Descrizione                                                                                                               | Obbligatoria | Predefinito |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | Valore letterale della stringa significativo per il visualizzatore di tracce e che specifica l'origine del messaggio.                                   | Sì      | N/D     |
 | severity  | Specifica il livello di gravità della traccia. I valori consentiti sono `verbose` , `information` , `error` (dal più basso al più alto). | No       | Dettagliato |
 | name      | Nome della proprietà.                                                                                                     | Sì      | N/D     |
-| Valore     | Valore della proprietà.                                                                                                    | Sì      | N/D     |
+| value     | Valore della proprietà.                                                                                                    | Sì      | N/D     |
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -1021,15 +1021,15 @@ L'esempio seguente contiene due criteri `choose` come criteri figlio immediato d
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
 | wait    | Elemento radice. Può contenere come elementi figlio solo i criteri `send-request`, `cache-lookup-value` e `choose`. | Sì      |
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Attributo | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                            | Obbligatoria | Predefinito |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| per       | Determina se il criterio `wait` attende il completamento di tutti o solo uno dei criteri figlio immediati. I valori consentiti sono i seguenti:<br /><br /> - `all`: consente di attendere il completamento di tutti i criteri figlio immediati<br />-any-attendi il completamento di qualsiasi criterio figlio immediato. Dopo il completamento del primo criterio figlio immediato, il criterio `wait` si completa e l'esecuzione di qualsiasi altro criterio figlio immediato viene arrestata. | No       | all     |
+| for       | Determina se il criterio `wait` attende il completamento di tutti o solo uno dei criteri figlio immediati. I valori consentiti sono i seguenti:<br /><br /> - `all`: consente di attendere il completamento di tutti i criteri figlio immediati<br />-any-attendi il completamento di qualsiasi criterio figlio immediato. Dopo il completamento del primo criterio figlio immediato, il criterio `wait` si completa e l'esecuzione di qualsiasi altro criterio figlio immediato viene arrestata. | No       | all     |
 
 ### <a name="usage"></a>Utilizzo
 
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, back-end
 -   **Ambiti del criterio:** tutti gli ambiti
@@ -1040,5 +1040,5 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 
 -   [Criteri di Gestione API](api-management-howto-policies.md)
 -   [Espressioni di criteri](api-management-policy-expressions.md)
--   [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
+-   [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 -   [Esempi di criteri](policy-samples.md)

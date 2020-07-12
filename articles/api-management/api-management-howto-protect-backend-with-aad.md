@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445509"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243410"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API
 
@@ -145,7 +146,7 @@ In questo esempio la console per sviluppatori è l'app client. La procedura segu
 
 1. Se si usano endpoint **V1** , aggiungere un parametro body denominato **Resource**. Per il valore di questo parametro, usare l' **ID applicazione** dell'app back-end. 
 
-1. Se si usano gli endpoint **v2** , usare l'ambito creato per l'app back-end nel campo **ambito predefinito** . Inoltre, assicurarsi di impostare il valore per la [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) proprietà su `2` nel [manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+1. Se si usano gli endpoint **v2** , usare l'ambito creato per l'app back-end nel campo **ambito predefinito** . Inoltre, assicurarsi di impostare il valore per la [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) proprietà su `2` nel [manifesto dell'applicazione](../active-directory/develop/reference-app-manifest.md).
 
 1. Specificare quindi le credenziali del client. Queste sono le credenziali per l'app client.
 
@@ -167,9 +168,9 @@ Il passaggio successivo consiste nell'abilitare l'autorizzazione utente OAuth 2.
 
 1. Passare all'istanza di Gestione API e quindi ad **API**.
 
-1. Selezionare l'API da proteggere. Ad esempio: `Echo API`.
+1. Selezionare l'API da proteggere. Ad esempio, `Echo API`
 
-1. Passare a **Settings**.
+1. Passare a **Impostazioni**.
 
 1. In **Sicurezza** scegliere **OAuth 2.0** e selezionare il server OAuth 2.0 configurato in precedenza. 
 
@@ -202,7 +203,7 @@ A questo punto, quando un utente prova a eseguire una chiamata dalla console per
 
 Tuttavia, cosa accade se un utente chiama l'API senza un token o con un token non valido? Ad esempio, provare a chiamare l'API senza l' `Authorization` intestazione, la chiamata continuerà a essere superata. Questo avviene perché Gestione API non convalida il token di accesso a questo punto. Passa invece semplicemente l'intestazione `Authorization` all'API back-end.
 
-Usare i criteri di [convalida JWT](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateJWT) per preautorizzare le richieste in gestione API convalidando i token di accesso di ogni richiesta in ingresso. Se una richiesta non ha un token valido, Gestione API la blocca. Ad esempio, aggiungere i criteri seguenti alla `<inbound>` sezione dei criteri della `Echo API` . In questo modo, viene verificata l'attestazione dei destinatari in un token di accesso e viene restituito un messaggio di errore se il token non è valido. Per informazioni su come configurare i criteri, vedere [Impostare o modificare criteri](https://docs.microsoft.com/azure/api-management/set-edit-policies).
+Usare i criteri di [convalida JWT](./api-management-access-restriction-policies.md#ValidateJWT) per preautorizzare le richieste in gestione API convalidando i token di accesso di ogni richiesta in ingresso. Se una richiesta non ha un token valido, Gestione API la blocca. Ad esempio, aggiungere i criteri seguenti alla `<inbound>` sezione dei criteri della `Echo API` . In questo modo, viene verificata l'attestazione dei destinatari in un token di accesso e viene restituito un messaggio di errore se il token non è valido. Per informazioni su come configurare i criteri, vedere [Impostare o modificare criteri](./set-edit-policies.md).
 
 
 ```xml
@@ -227,7 +228,7 @@ In questa guida è stata usata la console per sviluppatori di Gestione API come 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Azure Active Directory e OAuth 2.0](../active-directory/develop/authentication-scenarios.md).
+- Altre informazioni su [Azure Active Directory e OAuth 2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Altre informazioni sui [video](https://azure.microsoft.com/documentation/videos/index/?services=api-management) relativi a Gestione API.
 - Per altri metodi di protezione del servizio back-end, vedere [Autenticazione reciproca dei certificati](./api-management-howto-mutual-certificates.md).
 - [Creare un'istanza del servizio gestione API](./get-started-create-service-instance.md).

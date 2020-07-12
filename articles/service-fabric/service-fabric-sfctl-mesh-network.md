@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2b2c444bb492fa6c6b945a82090e91963fb1a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906005"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245861"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 Consente di ottenere ed eliminare le risorse di rete mesh.
@@ -18,7 +19,7 @@ Consente di ottenere ed eliminare le risorse di rete mesh.
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminare | Elimina la risorsa di rete. |
+| eliminazione | Elimina la risorsa di rete. |
 | list | Elimina tutte le risorse di rete. |
 | show | Ottiene la risorsa di rete con il nome specificato. |
 
@@ -27,7 +28,7 @@ Elimina la risorsa di rete.
 
 Elimina la risorsa di rete identificata dal nome.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -63,7 +64,7 @@ Ottiene la risorsa di rete con il nome specificato.
 
 Ottiene le informazioni sulla risorsa di rete con il nome specificato. Le informazioni includono la descrizione e altre proprietà della rete.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -82,4 +83,4 @@ Ottiene le informazioni sulla risorsa di rete con il nome specificato. Le inform
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

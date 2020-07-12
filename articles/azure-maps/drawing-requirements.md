@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791572"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242475"
 ---
 # <a name="drawing-package-requirements"></a>Requisiti del pacchetto di disegni
 
@@ -20,7 +21,7 @@ Il [servizio di conversione di Mappe di Azure](https://docs.microsoft.com/rest/a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Il pacchetto di disegni include i disegni salvati in formato DWG, ovvero il formato di file nativo per il software AutoCAD® di Autodesk, un [marchio di Autodesk, Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
+Il pacchetto di disegno include i disegni salvati in formato DWG, che è il formato di file nativo per il software AutoCAD® di Autodesk, un [marchio di Autodesk, Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
 
 È possibile scegliere qualsiasi software CAD per produrre i disegni del pacchetto di disegni.  
 
@@ -217,15 +218,15 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 ### <a name="georeference"></a>georeference
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
 |lat    | NUMERIC |    true |    Rappresentazione decimale della latitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`).|
 |lon    |NUMERIC|    true|    Rappresentazione decimale della longitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`). |
-|angle|    NUMERIC|    true|   L'angolo in senso orario, in gradi, tra il nord geografico e l'asse verticale (Y) del disegno.   |
+|angle|    NUMERIC|    true|   Angolo in senso orario, in gradi, tra il vero nord e l'asse verticale (Y) del disegno.   |
 
 ### <a name="dwglayers"></a>dwgLayers
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
 |exterior    |Matrice di stringhe|    true|    Nomi dei livelli che definiscono il profilo della facciata dell'edificio.|
 |unit|    Matrice di stringhe|    true|    Nomi dei livelli che definiscono le unità.|
@@ -239,7 +240,7 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
 |unitName    |string    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando nei livelli `unitLabel` è disponibile un'etichetta corrispondente `unitName`. |
 |categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
@@ -259,7 +260,7 @@ L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 
 L'oggetto `zoneProperties` contiene una matrice JSON di proprietà delle zone.
 
-| Proprietà  | Type | Obbligatoria | Descrizione |
+| Proprietà  | Type | Obbligatorio | Descrizione |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
 |categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |

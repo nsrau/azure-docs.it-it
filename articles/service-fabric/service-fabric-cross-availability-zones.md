@@ -5,16 +5,17 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 54382e74899d2cbb56ccf424b0f39bd874e31630
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8f883457c2d6da6d2776bb2119caf5d09565170
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259372"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246419"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
 
-Service Fabric supporta i cluster che si estendono tra zone di disponibilità distribuendo i tipi di nodo aggiunti a zone specifiche. In questo modo si garantisce la disponibilità elevata delle applicazioni. Zone di disponibilità di Azure sono disponibili solo in aree selezionate. Per ulteriori informazioni, vedere [zone di disponibilità di Azure Overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Service Fabric supporta i cluster che si estendono tra zone di disponibilità distribuendo i tipi di nodo aggiunti a zone specifiche. In questo modo si garantisce la disponibilità elevata delle applicazioni. Zone di disponibilità di Azure sono disponibili solo in aree selezionate. Per ulteriori informazioni, vedere [zone di disponibilità di Azure Overview](../availability-zones/az-overview.md).
 
 Sono disponibili modelli di esempio: [Service Fabric modello di zona a disponibilità incrociata](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
@@ -135,7 +136,7 @@ Le regole NAT in ingresso del servizio di bilanciamento del carico devono corris
 ```
 
 ### <a name="standard-sku-load-balancer-outbound-rules"></a>SKU standard Load Balancer regole in uscita
-Load Balancer Standard e l'IP pubblico standard introducono nuove funzionalità e comportamenti diversi per la connettività in uscita rispetto all'uso di SKU di base. Per disporre di connettività in uscita quando si utilizzano SKU standard, è necessario definire questa opzione sia per gli indirizzi IP pubblici standard sia per un'istanza di Load Balancer Standard pubblica. Per altre informazioni, vedere [connessioni in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) e [Load Balancer standard di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+Load Balancer Standard e l'IP pubblico standard introducono nuove funzionalità e comportamenti diversi per la connettività in uscita rispetto all'uso di SKU di base. Per disporre di connettività in uscita quando si utilizzano SKU standard, è necessario definire questa opzione sia per gli indirizzi IP pubblici standard sia per un'istanza di Load Balancer Standard pubblica. Per altre informazioni, vedere [connessioni in uscita](../load-balancer/load-balancer-outbound-connections.md) e [Load Balancer standard di Azure](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
 > Il modello standard fa riferimento a un NSG che consente tutto il traffico in uscita per impostazione predefinita. Il traffico in ingresso è limitato alle porte richieste per Service Fabric operazioni di gestione. Le regole NSG possono essere modificate per soddisfare i requisiti.

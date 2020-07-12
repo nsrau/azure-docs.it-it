@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 28a9f37f58a6c056bf23a85fcf2641f407988891
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649207"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243478"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare i valori denominati nei criteri di Gestione API di Azure
 
@@ -33,7 +34,7 @@ Ogni istanza del servizio Gestione API dispone di una raccolta di coppie chiave/
 
 ![Valori denominati](./media/api-management-howto-properties/named-values.png)
 
-I valori denominati possono contenere stringhe letterali ed [espressioni di criteri](/azure/api-management/api-management-policy-expressions). Ad esempio, il valore di `Expression` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. Il valore denominato `Credential` è contrassegnato come segreto, quindi il relativo valore non viene visualizzato per impostazione predefinita.
+I valori denominati possono contenere stringhe letterali ed [espressioni di criteri](./api-management-policy-expressions.md). Ad esempio, il valore di `Expression` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. Il valore denominato `Credential` è contrassegnato come segreto, quindi il relativo valore non viene visualizzato per impostazione predefinita.
 
 | Nome       | valore                      | Segreto | Tag          |
 | ---------- | -------------------------- | ------ | ------------- |
@@ -109,8 +110,8 @@ Sebbene i valori denominati possano contenere espressioni di criteri, non posson
 
 -   Ulteriori informazioni sull'uso dei criteri
     -   [Criteri di Gestione API](api-management-howto-policies.md)
-    -   [Riferimento ai criteri](/azure/api-management/api-management-policies)
-    -   [Espressioni di criteri](/azure/api-management/api-management-policy-expressions)
+    -   [Riferimento ai criteri](./api-management-policies.md)
+    -   [Espressioni di criteri](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

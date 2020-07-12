@@ -13,11 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857167"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246810"
 ---
 # <a name="design-secure-applications-on-azure"></a>Progettare applicazioni sicure in Azure
 In questo articolo vengono presentate le attività e i controlli di sicurezza da prendere in considerazione quando si progettano applicazioni per il cloud. Vengono analizzate le risorse di formazione e le domande e i concetti di sicurezza da prendere in considerazione durante i requisiti e le fasi di progettazione di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per progettare un'applicazione più protetta.
@@ -150,12 +151,12 @@ Per semplificare il processo di modellazione delle minacce, abbiamo progettato i
 
 Modellazione della progettazione dell'applicazione ed enumerazione delle minacce [stride](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) , ovvero spoofing, manomissioni, ripudio, divulgazione di informazioni, Denial of Service ed elevazione dei privilegi, in tutti i confini di trust si è dimostrato un modo efficace per individuare gli errori di progettazione in anticipo. La tabella seguente elenca le minacce STRIDE e fornisce alcune attenuazioni di esempio che usano le funzionalità fornite da Azure. Queste mitigazioni dei rischi non funzioneranno in tutte le situazioni.
 
-| Threat | Proprietà di sicurezza | Mitigazione potenziale della piattaforma Azure |
+| Minaccia | Proprietà di sicurezza | Mitigazione potenziale della piattaforma Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Spoofing               | Authentication        | [Richiedere connessioni HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Spoofing               | Autenticazione        | [Richiedere connessioni HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manomissione              | Integrità             | Convalidare i certificati SSL/TLS. Le applicazioni che usano SSL/TLS devono verificare completamente i certificati X. 509 delle entità a cui si connettono. Usare i certificati Azure Key Vault per [gestire i certificati X509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Ripudio            | Non ripudio       | Abilitazione del [monitoraggio e diagnostica](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) di Azure.|
-| Divulgazione di informazioni | Riservatezza       | Crittografare i [dati](../fundamentals/encryption-atrest.md) sensibili inattivi e [in transito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
+| Diffusione di informazioni | Riservatezza       | Crittografare i [dati](../fundamentals/encryption-atrest.md) sensibili inattivi e [in transito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Denial of Service      | Disponibilità          | Monitorare le metriche delle prestazioni per le potenziali condizioni di tipo Denial of Service. Implementare i filtri di connessione. [Protezione DDoS di Azure](../../virtual-network/ddos-protection-overview.md#next-steps), in combinazione con le procedure consigliate per la progettazione di applicazioni, fornisce una difesa contro gli attacchi DDoS.|
 | Elevazione dei privilegi | Autorizzazione         | Utilizzare Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
@@ -208,7 +209,7 @@ Usare l'autenticazione a due fattori. L'autenticazione a due fattori è lo stand
 
 Usare i meccanismi di autenticazione e autorizzazione forniti dalla piattaforma invece di un codice personalizzato. Questo è dovuto al fatto che lo sviluppo di codice di autenticazione personalizzato può essere soggetto a errori. Il codice commerciale, ad esempio da Microsoft, spesso viene ampiamente esaminato per la sicurezza. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) è la soluzione di Microsoft Azure per la gestione delle identità e degli accessi. Questi strumenti e servizi Azure AD sono utili per lo sviluppo sicuro:
 
-- [Azure ad Identity Platform (Azure ad per sviluppatori)](../../active-directory/develop/about-microsoft-identity-platform.md) è un servizio di identità cloud che gli sviluppatori usano per creare app che assicurano l'accesso agli utenti in modo sicuro. Azure AD assiste gli sviluppatori che sviluppano app LOB (line-of-business) a tenant singolo e sviluppatori che vogliono sviluppare app multi-tenant. Oltre all'accesso di base, le app compilate con Azure AD possono chiamare le API Microsoft e le API personalizzate basate sulla piattaforma di Azure AD. La piattaforma di identità Azure AD supporta protocolli standard di settore come OAuth 2,0 e OpenID Connect.
+- [Microsoft Identity Platform](/azure/active-directory/develop/) è un set di componenti che gli sviluppatori usano per creare app che assicurano l'accesso agli utenti in modo sicuro. La piattaforma assiste gli sviluppatori che compilano app LOB, line-of-business (LOB) a tenant singolo e sviluppatori che vogliono sviluppare app multi-tenant. Oltre all'accesso di base, le app create con la piattaforma Microsoft Identity possono chiamare le API Microsoft e le API personalizzate. La piattaforma Microsoft Identity supporta protocolli standard di settore come OAuth 2,0 e OpenID Connect.
 
 - [Azure Active Directory B2C (Azure ad B2C)](../../active-directory-b2c/index.yml) è un servizio di gestione delle identità che è possibile usare per personalizzare e controllare la modalità di iscrizione, accesso e gestione dei profili dei clienti quando usano le applicazioni. Sono incluse le applicazioni sviluppate per iOS, Android e .NET, tra le altre. Azure AD B2C Abilita queste azioni proteggendo al tempo stesso le identità dei clienti.
 

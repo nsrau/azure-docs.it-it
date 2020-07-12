@@ -3,11 +3,12 @@ title: Reliable Actors timer e promemoria
 description: Introduzione ai timer e ai promemoria per Service Fabric Reliable Actors, incluse indicazioni su quando utilizzarli.
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: 67dc5d9706c2176b2fe70d2540be00d0af79fd80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a464fda3f8b0f293efd36cf0a064156bd7795d44
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996362"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245948"
 ---
 # <a name="actor-timers-and-reminders"></a>Timer e promemoria degli attori
 Gli attori possono pianificare il relativo lavoro periodico registrando timer o promemoria. Questo articolo illustra come usare timer e promemoria e ne spiega le differenze.
@@ -129,7 +130,7 @@ I promemoria sono un meccanismo per attivare i callback persistenti su un attore
 > [!NOTE]
 > L'affidabilità dei promemoria è legata alle garanzie di affidabilità dello stato fornite dal provider di stato dell'attore. Ciò significa che per gli attori la cui persistenza dello stato è impostata su *None*, i promemoria non vengono attivati dopo un failover.
 
-Per registrare un promemoria, un attore chiama il [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) metodo fornito nella classe di base, come illustrato nell'esempio seguente:
+Per registrare un promemoria, un attore chiama il [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) metodo fornito nella classe di base, come illustrato nell'esempio seguente:
 
 ```csharp
 protected override async Task OnActivateAsync()

@@ -6,11 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981922"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245307"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Panoramica della continuità aziendale con database di Azure per PostgreSQL-server singolo
 
@@ -22,7 +23,7 @@ Database di Azure per PostgreSQL offre funzionalità di continuità aziendale ch
 
 La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità disponibili:
 
-| **Funzionalità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
+| **Funzionalità** | **Basic** | **Utilizzo generico** | **Ottimizzato per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
 | Ripristino geografico dai backup con replica geografica | Non supportato | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
@@ -51,6 +52,11 @@ La funzionalità di ripristino geografico ripristina il server usando i backup c
 
 ## <a name="cross-region-read-replicas"></a>Repliche Read tra aree
 È possibile usare le repliche di lettura tra aree per migliorare la continuità aziendale e la pianificazione del ripristino di emergenza. Le repliche di lettura vengono aggiornate in modo asincrono usando la tecnologia di replica fisica di PostgreSQL. Altre informazioni sulle repliche di lettura, le aree disponibili e su come eseguire il failover dall' [articolo leggere i concetti relativi alle repliche](concepts-read-replicas.md). 
+
+## <a name="faq"></a>Domande frequenti
+### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Dove database di Azure per PostgreSQL archivia i dati dei clienti?
+Per impostazione predefinita, database di Azure per PostgreSQL non sposta o archivia i dati dei clienti dall'area in cui è distribuito. Tuttavia, i clienti possono scegliere di abilitare i [backup con ridondanza geografica](concepts-backup.md#backup-redundancy-options) o creare una [replica di lettura tra aree](concepts-read-replicas.md#cross-region-replication) per archiviare i dati in un'altra area.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sui [backup automatizzati in Database di Azure per PostgreSQL](concepts-backup.md). 

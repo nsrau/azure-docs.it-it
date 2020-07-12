@@ -4,12 +4,12 @@ description: Informazioni su come individuare e risolvere i problemi comuni quan
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054390"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243682"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -22,7 +22,7 @@ Consultare la [guida ufficiale per la risoluzione dei problemi dei cluster di Ku
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Durante la creazione o l’aggiornamento, viene visualizzato un errore di tipo “quota superata”. Cosa devo fare? 
 
- [Richiedere altre memorie centrali](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Richiedere altre memorie centrali](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Qual è l'impostazione del numero massimo di pod per nodo per il servizio Azure Kubernetes?
 
@@ -34,7 +34,7 @@ Il numero massimo di pod per nodo è 110 per impostazione predefinita se si dist
 Questo errore indica che una subnet in uso per un cluster non dispone più di IP disponibili all'interno della relativa CIDR per l'assegnazione di risorse riuscita. Per i cluster Kubenet, il requisito è uno spazio IP sufficiente per ogni nodo del cluster. Per i cluster CNI di Azure, il requisito è uno spazio IP sufficiente per ogni nodo e Pod nel cluster.
 Scopri di più sulla [progettazione di Azure CNI per assegnare indirizzi IP ai pod](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Questi errori sono inoltre esposti nella [diagnostica AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics) , che consente di individuare in modo proattivo problemi come le dimensioni di una subnet insufficiente.
+Questi errori sono inoltre esposti nella [diagnostica AKS](./concepts-diagnostics.md) , che consente di individuare in modo proattivo problemi come le dimensioni di una subnet insufficiente.
 
 I tre (3) casi seguenti generano un errore di dimensione della subnet insufficiente:
 
@@ -197,14 +197,14 @@ Verificare che le impostazioni non siano in conflitto con le regole per le porte
 
 In Kubernetes versione 1.10, MountVolume.WaitForAttach potrebbe non riuscire con un rimontaggio del disco di Azure.
 
-In Linux, è possibile che venga visualizzato un errore di formato DevicePath errato. Ad esempio:
+In Linux, è possibile che venga visualizzato un errore di formato DevicePath errato. ad esempio:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-In Windows, è possibile che venga visualizzato un errore di numero DevicePath (LUN) errato. Ad esempio:
+In Windows, è possibile che venga visualizzato un errore di numero DevicePath (LUN) errato. ad esempio:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -274,7 +274,7 @@ Questo problema è stato risolto nelle versioni di Kubernetes seguenti:
 | 1.12 | 1.12.9 o successive |
 | 1.13 | 1.13.6 o successive |
 | 1,14 | 1.14.2 o successive |
-| 1.15 e successive | N/D |
+| 1.15 e successive | N/A |
 
 Se si usa una versione di Kubernetes che non dispone della correzione per questo problema e il nodo ha un elenco dischi obsoleto, è possibile attenuare il problema scollegando tutti i dischi non esistenti dalla macchina virtuale come operazione in blocco. **Lo scollegamento dei dischi non esistenti singolarmente può avere esito negativo.**
 
@@ -293,7 +293,7 @@ Questo problema è stato risolto nelle versioni di Kubernetes seguenti:
 | 1.12 | 1.12.10 o successive |
 | 1.13 | 1.13.8 o successive |
 | 1,14 | 1.14.4 o successive |
-| 1.15 e successive | N/D |
+| 1.15 e successive | N/A |
 
 Se si usa una versione di Kubernetes che non dispone della correzione per questo problema e il nodo si trova in stato di errore, è possibile attenuare il problema aggiornando manualmente lo stato della macchina virtuale usando uno dei metodi seguenti:
 
@@ -410,7 +410,7 @@ Se la chiave dell'account di archiviazione è cambiata, è possibile che vengano
 
 È possibile attenuare il problema aggiornando manualmente il campo `azurestorageaccountkey` in un segreto di File di Azure con la chiave dell'account di archiviazione con codifica base64.
 
-Per codificare la chiave dell'account di archiviazione in base64, è possibile usare `base64`. Ad esempio:
+Per codificare la chiave dell'account di archiviazione in base64, è possibile usare `base64`. ad esempio:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64

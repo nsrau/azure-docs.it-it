@@ -4,11 +4,12 @@ description: Panoramica dell'importanza di compilare applicazioni cloud con un a
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792869"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246021"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Perché usare un approccio basato su microservizi per la creazione di applicazioni
 
@@ -62,7 +63,7 @@ La progettazione con un approccio basato su microservizi non è appropriata per 
 
 Quando si usa un approccio basato su microservizi, si compone l'applicazione di molti servizi di piccole dimensioni. Questi servizi vengono eseguiti in contenitori distribuiti in un cluster di computer. I team più piccoli sviluppano un servizio incentrato su uno scenario e test, versione, distribuzione e scalabilità indipendenti di ogni servizio, in modo che l'intera applicazione possa evolvere.
 
-## <a name="what-is-a-microservice"></a>Definizione di microservizio
+## <a name="what-is-a-microservice"></a>Che cos'è un microservizio?
 
 Esistono diverse definizioni di microservizi. Tuttavia, la maggior parte di queste caratteristiche dei microservizi è ampiamente accettata:
 
@@ -130,7 +131,7 @@ L'integrità è diversa dalla diagnostica. Per integrità si intende la segnalaz
 
 ## <a name="guidance-for-designing-microservices-on-azure"></a>Linee guida per la progettazione di microservizi in Azure
 
-Visitare il centro architetture di Azure per indicazioni sulla [progettazione e la creazione di microservizi in Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+Visitare il centro architetture di Azure per indicazioni sulla [progettazione e la creazione di microservizi in Azure](/azure/architecture/microservices/).
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric come piattaforma di microservizi
 
@@ -190,7 +191,7 @@ L'obiettivo di Service Fabric consiste nel ridurre le complessità della creazio
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
-* [Centro architetture di Azure: creazione di microservizi in Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Centro architetture di Azure: creazione di microservizi in Azure](/azure/architecture/microservices/)
 * [Procedure consigliate per applicazioni e cluster di Azure Service Fabric](service-fabric-best-practices-overview.md)
 * [Panoramica della terminologia di Service Fabric](service-fabric-technical-overview.md)
 

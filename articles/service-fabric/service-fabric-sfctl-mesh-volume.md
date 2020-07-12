@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 0e5ba1a311bd0480c56ee40edf01fc13ec01664a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57efca87aefad346fda175b073409868d21564ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905919"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245510"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Consente di ottenere ed eliminare le risorse di volume.
@@ -18,7 +19,7 @@ Consente di ottenere ed eliminare le risorse di volume.
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminare | Elimina la risorsa di volume. |
+| eliminazione | Elimina la risorsa di volume. |
 | list | Elenca tutte le risorse di volume. |
 | show | Ottiene la risorsa di volume con il nome specificato. |
 
@@ -27,7 +28,7 @@ Elimina la risorsa di volume.
 
 Elimina la risorsa di volume identificata dal nome.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -63,7 +64,7 @@ Ottiene la risorsa di volume con il nome specificato.
 
 Ottiene le informazioni sulla risorsa di volume con il nome specificato. Le informazioni includono la descrizione e altre proprietà del volume.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -82,4 +83,4 @@ Ottiene le informazioni sulla risorsa di volume con il nome specificato. Le info
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

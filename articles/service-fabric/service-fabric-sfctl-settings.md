@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b805b7047b00f416664a001f02f311f6b387af19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baf4e843eea859fc16ed6e3bcd509785cc4db8bc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76896268"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245586"
 ---
 # <a name="sfctl-settings"></a>sfctl settings
 Consente di configurare le impostazioni locali per l'istanza di sfctl.
@@ -22,4 +23,4 @@ Consente di configurare le impostazioni locali per l'istanza di sfctl.
 
 ## <a name="next-steps"></a>Passaggi successivi   
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.   
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

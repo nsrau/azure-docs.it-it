@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557980"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243716"
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -52,7 +52,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|
 |authentication-basic|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
@@ -60,7 +60,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |password|Specifica la password della credenziale di base.|Sì|N/D|
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound
 
@@ -75,7 +75,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 <authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 In questo esempio, il certificato client viene identificato dalla relativa identificazione personale:
 
@@ -101,17 +101,17 @@ In questo esempio, il certificato client viene impostato nei criteri anziché es
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento radice.|Sì|  
   
-### <a name="attributes"></a>Attributes  
+### <a name="attributes"></a>Attributi  
   
 |Nome|Descrizione|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|Identificazione personale del certificato client.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/D|
-|ID certificato|Nome della risorsa del certificato.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/D|
-|Corpo|Certificato client sotto forma di matrice di byte.|No|N/D|
-|password|Password per il certificato client.|Utilizzato se il certificato specificato in `body` è protetto da password.|N/D|
+|thumbprint|Identificazione personale del certificato client.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/A|
+|ID certificato|Nome della risorsa del certificato.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/A|
+|Corpo|Certificato client sotto forma di matrice di byte.|No|N/A|
+|password|Password per il certificato client.|Utilizzato se il certificato specificato in `body` è protetto da password.|N/A|
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
   
@@ -178,17 +178,17 @@ Per richiedere il token, è possibile usare sia l'identità assegnata dal sistem
 |----------|-----------------|--------------|  
 |autenticazione-gestita-identità |Elemento radice.|Sì|  
   
-### <a name="attributes"></a>Attributes  
+### <a name="attributes"></a>Attributi  
   
 |Nome|Descrizione|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |Risorsa|Stringa. ID app dell'API Web di destinazione (risorsa protetta) in Azure Active Directory.|Sì|N/D|
 |ID client|Stringa. ID app dell'identità assegnata dall'utente in Azure Active Directory.|No|identità assegnata dal sistema|
-|output-token-variabile-nome|Stringa. Nome della variabile di contesto che riceverà il valore del token come tipo di oggetto `string` . |No|N/D|  
+|output-token-variabile-nome|Stringa. Nome della variabile di contesto che riceverà il valore del token come tipo di oggetto `string` . |No|N/A|  
 |ignore-error|Proprietà di tipo Boolean. Se impostato su `true` , la pipeline dei criteri continuerà a essere eseguita anche se non viene ottenuto un token di accesso.|No|false|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
   
@@ -199,5 +199,5 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
 + [Trasformare le API](transform-api.md)
-+ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
++ [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)

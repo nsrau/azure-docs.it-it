@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b2fe3a7995cdd88a8f63d0d865e72e9f161cf9d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 985fb505aae96f4ebd1ba8aeb61679081f303243
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905955"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245773"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Consente di ottenere ed eliminare le risorse secretvalue mesh.
@@ -18,7 +19,7 @@ Consente di ottenere ed eliminare le risorse secretvalue mesh.
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminare | Elimina il valore specificato della risorsa di segreto denominata. |
+| eliminazione | Elimina il valore specificato della risorsa di segreto denominata. |
 | list | Elenca i nomi di tutti i valori della risorsa di segreto specificata. |
 | show | Elenca il valore specificato della risorsa segreta. |
 
@@ -27,7 +28,7 @@ Elimina il valore specificato della risorsa di segreto denominata.
 
 Elimina la risorsa di valore di segreto identificata dal nome. Il nome della risorsa è in genere la versione associata a tale valore. L'eliminazione non riuscirà se il valore specificato è in uso.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -49,7 +50,7 @@ Elenca i nomi di tutti i valori della risorsa di segreto specificata.
 
 Ottiene informazioni su tutte le risorse di valore del segreto della risorsa di segreto specificata. Le informazioni includono i nomi delle risorse di valore del segreto, ma non i valori effettivi.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -68,7 +69,7 @@ Ottiene informazioni su tutte le risorse di valore del segreto della risorsa di 
 ## <a name="sfctl-mesh-secretvalue-show"></a>sfctl mesh secretvalue show
 Elenca il valore specificato della risorsa segreta.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -89,4 +90,4 @@ Elenca il valore specificato della risorsa segreta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

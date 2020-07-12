@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: 1780cb47696813b5d26035f54e0685969482dba6
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5b311dd9b0cd2c2b007bc19994aee771b2c4360f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058113"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246381"
 ---
 # <a name="scaling-in-service-fabric"></a>Scalabilità in Service Fabric
 Azure Service Fabric semplifica la creazione di applicazioni scalabili gestendo i servizi, le partizioni e le repliche nei nodi di un cluster. L'esecuzione di molti carichi di lavoro sullo stesso hardware determina il massimo utilizzo delle risorse, ma offre anche la flessibilità in termini di scelta di come scalare i carichi di lavoro. Questo video di Channel 9 descrive come compilare applicazioni di microservizi scalabili:
@@ -63,7 +63,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Implementazione della scalabilità tramite creazione o rimozione di nuovi servizi denominati
 Un'istanza del servizio denominata è un'istanza specifica di un tipo di servizio (vedere l'articolo [Ciclo di vita dell'applicazione Service Fabric](service-fabric-application-lifecycle.md)) all'interno di un'istanza dell'applicazione denominata nel cluster. 
 
-È possibile creare o rimuovere nuove istanze del servizio denominate man mano che aumenta o diminuisce l'utilizzo dei servizi. In questo modo le richieste possono essere distribuite tra più istanze del servizio, con conseguente riduzione del carico sui servizi esistenti. Quando si creano i servizi, Gestione risorse cluster di Service Fabric li inserisce nel cluster secondo una modalità distribuita. Le decisioni precise vengono gestite dalle [metriche](service-fabric-cluster-resource-manager-metrics.md) nel cluster e da altre regole di posizionamento. I servizi possono essere creati in diversi modi, ma i più comuni sono tramite azioni amministrative come un utente che chiama [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) o tramite il codice chiamante [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) . L'oggetto `CreateServiceAsync` può persino essere chiamato all'interno di altri servizi in esecuzione nel cluster.
+È possibile creare o rimuovere nuove istanze del servizio denominate man mano che aumenta o diminuisce l'utilizzo dei servizi. In questo modo le richieste possono essere distribuite tra più istanze del servizio, con conseguente riduzione del carico sui servizi esistenti. Quando si creano i servizi, Gestione risorse cluster di Service Fabric li inserisce nel cluster secondo una modalità distribuita. Le decisioni precise vengono gestite dalle [metriche](service-fabric-cluster-resource-manager-metrics.md) nel cluster e da altre regole di posizionamento. I servizi possono essere creati in diversi modi, ma i più comuni sono tramite azioni amministrative come un utente che chiama [`New-ServiceFabricService`](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) o tramite il codice chiamante [`CreateServiceAsync`](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) . L'oggetto `CreateServiceAsync` può persino essere chiamato all'interno di altri servizi in esecuzione nel cluster.
 
 La creazione dinamica dei servizi può essere usata in tutti i tipi di scenari ed è un criterio di uso comune. Si consideri ad esempio un servizio con stato che rappresenta uno specifico flusso di lavoro. Le chiamate che rappresentano il lavoro vengono presentate al servizio e questo esegue i passaggi per tale flusso di lavoro e ne registra lo stato. 
 
