@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un cluster Linux di Service Fabric
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 1d6edc086233d757269c12e323241bc4bf55249f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14e029622f17e8aae392cc55ba4418b3971a5ad2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611697"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260227"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
@@ -162,7 +162,7 @@ sfctl cluster health
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se non si intende passare subito all'articolo successivo, è opportuno [eliminare il cluster](service-fabric-cluster-delete.md) per evitare di sostenere costi.
+Se non si intende passare subito all'articolo successivo, è opportuno [eliminare il cluster](./service-fabric-tutorial-delete-cluster.md) per evitare di sostenere costi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

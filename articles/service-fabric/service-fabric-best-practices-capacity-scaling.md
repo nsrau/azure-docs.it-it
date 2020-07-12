@@ -5,16 +5,16 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: be0f0a48e2fd334e2000c8a4b8c2e0101b291cef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d41a71ff5f97449968d82812119cfdfd4bc2ef44
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791868"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261174"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Pianificazione della capacità e scalabilità per Azure Service Fabric
 
-Prima di creare un cluster di Azure Service Fabric o ridimensionare le risorse di calcolo che ospitano il cluster, è importante pianificare la capacità. Per altre informazioni sulla pianificazione della capacità, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Per altre indicazioni sulle procedure consigliate per la scalabilità dei cluster, vedere [Service Fabric considerazioni sulla scalabilità](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
+Prima di creare un cluster di Azure Service Fabric o ridimensionare le risorse di calcolo che ospitano il cluster, è importante pianificare la capacità. Per altre informazioni sulla pianificazione della capacità, vedere [Pianificazione della capacità del cluster di Service Fabric](./service-fabric-cluster-capacity.md). Per altre indicazioni sulle procedure consigliate per la scalabilità dei cluster, vedere [Service Fabric considerazioni sulla scalabilità](/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
 
 Oltre a considerare il tipo di nodo e le caratteristiche del cluster, è necessario prevedere che le operazioni di ridimensionamento imprendano più di un'ora per il completamento di un ambiente di produzione. Questa considerazione è valida indipendentemente dal numero di macchine virtuali che si stanno aggiungendo.
 
@@ -25,7 +25,7 @@ Con il ridimensionamento automatico tramite i set di scalabilità di macchine vi
 
 * La distribuzione di modelli di Resource Manager con un'opportuna capacità dichiarata non è adatta al proprio caso.
      
-   Oltre al ridimensionamento manuale, è possibile configurare una [pipeline di integrazione e recapito continua in Azure DevOps Services usando i progetti di distribuzione del gruppo di risorse di Azure](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts). Questa pipeline viene in genere attivata da un'app per la logica che usa le metriche delle prestazioni delle macchine virtuali sottoposte a query dall' [API REST di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough). La pipeline viene ridimensionata in modo efficiente in base alle metriche desiderate, ottimizzando al contempo i modelli Gestione risorse.
+   Oltre al ridimensionamento manuale, è possibile configurare una [pipeline di integrazione e recapito continua in Azure DevOps Services usando i progetti di distribuzione del gruppo di risorse di Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Questa pipeline viene in genere attivata da un'app per la logica che usa le metriche delle prestazioni delle macchine virtuali sottoposte a query dall' [API REST di monitoraggio di Azure](../azure-monitor/platform/rest-api-walkthrough.md). La pipeline viene ridimensionata in modo efficiente in base alle metriche desiderate, ottimizzando al contempo i modelli Gestione risorse.
 * È necessario ridimensionare orizzontalmente un solo nodo del set di scalabilità di macchine virtuali alla volta.
    
    Per applicare la scalabilità orizzontale di tre o più nodi alla volta, è consigliabile [scalare in orizzontale un cluster Service Fabric aggiungendo un set di scalabilità di macchine virtuali](virtual-machine-scale-set-scale-node-type-scale-out.md). È più sicuro ridimensionare orizzontalmente e scalare orizzontalmente i set di scalabilità di macchine virtuali, un nodo alla volta.
@@ -38,7 +38,7 @@ Con il ridimensionamento automatico tramite i set di scalabilità di macchine vi
 
 ## <a name="vertical-scaling-considerations"></a>Considerazioni sul ridimensionamento verticale
 
-Il [ridimensionamento verticale](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) di un tipo di nodo in Azure Service Fabric richiede una serie di passaggi e considerazioni. Ad esempio:
+Il [ridimensionamento verticale](./virtual-machine-scale-set-scale-node-type-scale-out.md) di un tipo di nodo in Azure Service Fabric richiede una serie di passaggi e considerazioni. ad esempio:
 
 * Prima del ridimensionamento, il cluster deve essere integro, In caso contrario, sarà necessario destabilizzare ulteriormente il cluster.
 * Il livello di durabilità Silver o un valore superiore è necessario per tutti i tipi di nodo del cluster Service Fabric che ospitano i servizi con stato.
@@ -48,7 +48,7 @@ Il [ridimensionamento verticale](https://docs.microsoft.com/azure/service-fabric
 
 Scalabilità verticale un set di scalabilità di macchine virtuali è un'operazione distruttiva. In alternativa, ridimensionare orizzontalmente il cluster aggiungendo un nuovo set di scalabilità con lo SKU desiderato. Eseguire quindi la migrazione dei servizi nello SKU desiderato per completare un'operazione di ridimensionamento verticale sicura. La modifica di uno SKU di risorse del set di scalabilità di macchine virtuali è un'operazione distruttiva perché ricrea le immagini degli host, che rimuove tutto lo stato locale salvato.
 
-Il cluster USA Service Fabric [proprietà del nodo e vincoli di posizionamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) per decidere dove ospitare i servizi dell'applicazione. Quando si esegue il ridimensionamento verticale del tipo di nodo primario, dichiarare valori di proprietà identici per `"nodeTypeRef"` . È possibile trovare questi valori nell'estensione Service Fabric per i set di scalabilità di macchine virtuali. 
+Il cluster USA Service Fabric [proprietà del nodo e vincoli di posizionamento](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) per decidere dove ospitare i servizi dell'applicazione. Quando si esegue il ridimensionamento verticale del tipo di nodo primario, dichiarare valori di proprietà identici per `"nodeTypeRef"` . È possibile trovare questi valori nell'estensione Service Fabric per i set di scalabilità di macchine virtuali. 
 
 Il frammento di codice seguente di un modello di Gestione risorse Mostra le proprietà che verranno dichiarate. Ha lo stesso valore per i set di scalabilità di cui si sta eseguendo il ridimensionamento ed è supportato solo come servizio con stato temporaneo per il cluster.
 
@@ -68,13 +68,13 @@ Con le proprietà dei nodi e i vincoli di posizionamento dichiarati, eseguire i 
 1. Da PowerShell eseguire `Disable-ServiceFabricNode` con lo scopo `RemoveNode` di disabilitare il nodo che si intende rimuovere. Rimuovere il tipo di nodo con il numero più alto. Se, ad esempio, si dispone di un cluster a sei nodi, rimuovere l'istanza di macchina virtuale "MyNodeType_5".
 2. Eseguire `Get-ServiceFabricNode` per assicurarsi che il nodo sia disabilitato. In caso contrario, attendere la disabilitazione del nodo. Questa operazione potrebbe richiedere un paio di ore per ogni nodo. Non continuare finché il nodo non risulta disabilitato.
 3. Ridurre il numero di macchine virtuali di uno in quel tipo di nodo. L'istanza di macchina virtuale con il numero più alto verrà rimossa.
-4. Ripetere i passaggi da 1 a 3 in base alle esigenze, ma mai ridimensionare il numero di istanze nei tipi di nodo primari minori rispetto a quanto garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+4. Ripetere i passaggi da 1 a 3 in base alle esigenze, ma mai ridimensionare il numero di istanze nei tipi di nodo primari minori rispetto a quanto garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](./service-fabric-cluster-capacity.md).
 5. Quando tutte le macchine virtuali non sono più disponibili (rappresentate come "inattive"), l'infrastruttura:/System/InfrastructureService/[nome nodo] mostrerà uno stato di errore. Quindi, è possibile aggiornare la risorsa cluster per rimuovere il tipo di nodo. È possibile usare la distribuzione del modello ARM o modificare la risorsa cluster tramite [Azure Resource Manager](https://resources.azure.com). Verrà avviato un aggiornamento del cluster che rimuoverà il servizio Fabric:/System/InfrastructureService/[tipo di nodo] in stato di errore.
  6. Al termine di questa operazione, è possibile eliminare il VMScaleSet. i nodi vengono comunque visualizzati come "inattivo" da Service Fabric Explorer vista. L'ultimo passaggio consiste nel pulirli con il `Remove-ServiceFabricNodeState` comando.
 
 ## <a name="horizontal-scaling"></a>Scalabilità orizzontale
 
-La scalabilità orizzontale può essere eseguita [manualmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out) o [a livello di codice](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+La scalabilità orizzontale può essere eseguita [manualmente](./service-fabric-cluster-scale-in-out.md) o [a livello di codice](./service-fabric-cluster-programmatic-scaling.md).
 
 > [!NOTE]
 > Se si sta eseguendo il ridimensionamento di un tipo di nodo con durabilità Silver o Gold, la scalabilità sarà lenta.
@@ -89,7 +89,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Per eseguire la scalabilità orizzontale manualmente, aggiornare la capacità nella proprietà SKU della risorsa del [set di scalabilità di macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) desiderata.
+Per eseguire la scalabilità orizzontale manualmente, aggiornare la capacità nella proprietà SKU della risorsa del [set di scalabilità di macchine virtuali](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) desiderata.
 
 ```json
 "sku": {
@@ -111,9 +111,9 @@ Per ridurre il numero di istanze, seguire questi passaggi:
 1. Da PowerShell eseguire `Disable-ServiceFabricNode` con lo scopo `RemoveNode` di disabilitare il nodo che si intende rimuovere. Rimuovere il tipo di nodo con il numero più alto. Se, ad esempio, si dispone di un cluster a sei nodi, rimuovere l'istanza di macchina virtuale "MyNodeType_5".
 2. Eseguire `Get-ServiceFabricNode` per assicurarsi che il nodo sia disabilitato. In caso contrario, attendere la disabilitazione del nodo. Questa operazione potrebbe richiedere un paio di ore per ogni nodo. Non continuare finché il nodo non risulta disabilitato.
 3. Ridurre il numero di macchine virtuali di uno in quel tipo di nodo. L'istanza di macchina virtuale con il numero più alto verrà rimossa.
-4. Ripetere i passaggi da 1 a 3 in base alle esigenze finché non si esegue il provisioning della capacità desiderata. Non ridimensionare il numero di istanze nei tipi di nodo primario a un livello inferiore rispetto a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+4. Ripetere i passaggi da 1 a 3 in base alle esigenze finché non si esegue il provisioning della capacità desiderata. Non ridimensionare il numero di istanze nei tipi di nodo primario a un livello inferiore rispetto a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](./service-fabric-cluster-capacity.md).
 
-Per applicare la scalabilità manuale, aggiornare la capacità nella proprietà SKU della risorsa del [set di scalabilità di macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) desiderata.
+Per applicare la scalabilità manuale, aggiornare la capacità nella proprietà SKU della risorsa del [set di scalabilità di macchine virtuali](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) desiderata.
 
 ```json
 "sku": {
@@ -123,7 +123,7 @@ Per applicare la scalabilità manuale, aggiornare la capacità nella proprietà 
 }
 ```
 
-È necessario preparare il nodo per la scalabilità a livello di codice. Trovare il nodo da rimuovere (il nodo di istanza più elevato). Ad esempio:
+È necessario preparare il nodo per la scalabilità a livello di codice. Trovare il nodo da rimuovere (il nodo di istanza più elevato). ad esempio:
 
 ```csharp
 using (var client = new FabricClient())
@@ -166,13 +166,13 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Quando si esegue la scalabilità in un cluster, l'istanza di nodo/VM rimossa verrà visualizzata in uno stato non integro in Service Fabric Explorer. Per una spiegazione di questo comportamento, vedere [comportamenti che è possibile osservare in Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#behaviors-you-may-observe-in-service-fabric-explorer). È possibile:
-> * Chiamare il [comando Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con il nome del nodo appropriato.
+> Quando si esegue la scalabilità in un cluster, l'istanza di nodo/VM rimossa verrà visualizzata in uno stato non integro in Service Fabric Explorer. Per una spiegazione di questo comportamento, vedere [comportamenti che è possibile osservare in Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). È possibile:
+> * Chiamare il [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con il nome del nodo appropriato.
 > * Distribuire il [Service Fabric applicazione di supporto per la scalabilità](https://github.com/Azure/service-fabric-autoscale-helper/) automatica nel cluster. Questa applicazione garantisce che i nodi con scalabilità orizzontale vengano cancellati dal Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Livelli di affidabilità
 
-Il [livello di affidabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) è una proprietà della risorsa cluster Service Fabric. Non può essere configurato in modo diverso per i singoli tipi di nodo. Questo livello controlla il fattore di replica dei servizi di sistema per il cluster ed è definito tramite un'impostazione a livello di risorsa cluster. 
+Il [livello di affidabilità](./service-fabric-cluster-capacity.md) è una proprietà della risorsa cluster Service Fabric. Non può essere configurato in modo diverso per i singoli tipi di nodo. Questo livello controlla il fattore di replica dei servizi di sistema per il cluster ed è definito tramite un'impostazione a livello di risorsa cluster. 
 
 Il livello di affidabilità determina il numero minimo di nodi che deve avere il tipo di nodo primario. Il livello di affidabilità può avere i valori seguenti:
 
@@ -183,7 +183,7 @@ Il livello di affidabilità determina il numero minimo di nodi che deve avere il
 
 Il livello minimo di affidabilità consigliato è Silver.
 
-Il livello di affidabilità è impostato nella sezione delle proprietà della [risorsa Microsoft.ServiceFabric/clusters](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters), come in questo esempio:
+Il livello di affidabilità è impostato nella sezione delle proprietà della [risorsa Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/2018-02-01/clusters), come in questo esempio:
 
 ```json
 "properties":{
@@ -196,9 +196,9 @@ Il livello di affidabilità è impostato nella sezione delle proprietà della [r
 > [!WARNING]
 > I tipi di nodo in esecuzione con durabilità Bronze _non ottengono privilegi_. I processi di infrastruttura che interessano i carichi di lavoro senza stato non verranno interrotti o posticipati, che potrebbero influire sui carichi di lavoro. 
 >
-> Usare il livello di durabilità Bronze solo per i tipi di nodo che eseguono carichi di lavoro senza stato. Per i carichi di lavoro di produzione, eseguire Silver o versione successiva per garantire la coerenza dello stato. Scegliere il livello di affidabilità appropriato seguendo le indicazioni riportate nella [documentazione sulla pianificazione della capacità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+> Usare il livello di durabilità Bronze solo per i tipi di nodo che eseguono carichi di lavoro senza stato. Per i carichi di lavoro di produzione, eseguire Silver o versione successiva per garantire la coerenza dello stato. Scegliere il livello di affidabilità appropriato seguendo le indicazioni riportate nella [documentazione sulla pianificazione della capacità](./service-fabric-cluster-capacity.md).
 
-Il livello di durabilità deve essere impostato in due risorse: Uno è il profilo di estensione della [risorsa del set di scalabilità di macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile):
+Il livello di durabilità deve essere impostato in due risorse: Uno è il profilo di estensione della [risorsa del set di scalabilità di macchine virtuali](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile):
 
 ```json
 "extensionProfile": {
@@ -213,7 +213,7 @@ Il livello di durabilità deve essere impostato in due risorse: Uno è il profil
 }
 ```
 
-L'altra risorsa è sotto `nodeTypes` nella [risorsa Microsoft. ServiceFabric/Clusters](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters): 
+L'altra risorsa è sotto `nodeTypes` nella [risorsa Microsoft. ServiceFabric/Clusters](/azure/templates/microsoft.servicefabric/2018-02-01/clusters): 
 
 ```json
 "nodeTypes": [

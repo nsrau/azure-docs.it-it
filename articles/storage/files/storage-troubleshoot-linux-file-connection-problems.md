@@ -7,18 +7,18 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ffd73e9dff06df4b5acdd004dddcfca5ff03ede0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 4dddc2eab5004377afd6743c4722498dd5c6e2a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232271"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260001"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
 Questo articolo elenca i problemi comuni correlati a File di Azure quando si effettua la connessione da client Linux. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. 
 
-Oltre alle procedure di risoluzione dei problemi descritte in questo articolo, si può usare [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) per verificare che il client Linux abbia i prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi descritti in questo articolo. Aiuta a configurare l'ambiente per ottenere prestazioni ottimali. Queste informazioni sono disponibili anche in [Troubleshooter for Azure Files storage problems](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) (Strumento di risoluzione dei problemi di archiviazione di File di Azure). Lo strumento di risoluzione dei problemi fornisce le procedure da eseguire per risolvere i problemi di connessione, mapping e montaggio di condivisioni di File di Azure.
+Oltre alle procedure di risoluzione dei problemi descritte in questo articolo, si può usare [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) per verificare che il client Linux abbia i prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi descritti in questo articolo. Aiuta a configurare l'ambiente per ottenere prestazioni ottimali. Queste informazioni sono disponibili anche in [Troubleshooter for Azure Files storage problems](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) (Strumento di risoluzione dei problemi di archiviazione di File di Azure). Lo strumento di risoluzione dei problemi fornisce le procedure da eseguire per risolvere i problemi di connessione, mapping e montaggio di condivisioni di File di Azure.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Non è possibile connettersi a o montare una condivisione file di Azure
 

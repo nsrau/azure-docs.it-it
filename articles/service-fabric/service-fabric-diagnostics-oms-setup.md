@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609928"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258647"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurare i log di monitoraggio di Azure per un cluster
 
@@ -90,7 +91,7 @@ Azure Resource Manager rileva che questo comando è un aggiornamento a una risor
 
 ## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Distribuire i log di monitoraggio di Azure con Azure PowerShell
 
-È anche possibile distribuire la risorsa log Analytics tramite PowerShell usando il `New-AzOperationalInsightsWorkspace` comando. Per usare questo metodo, assicurarsi che sia installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Usare questo script per creare una nuova area di lavoro Log Analytics e aggiungervi la soluzione Service Fabric: 
+È anche possibile distribuire la risorsa log Analytics tramite PowerShell usando il `New-AzOperationalInsightsWorkspace` comando. Per usare questo metodo, assicurarsi che sia installato [Azure PowerShell](/powershell/azure/install-az-ps). Usare questo script per creare una nuova area di lavoro Log Analytics e aggiungervi la soluzione Service Fabric: 
 
 ```powershell
 
@@ -122,5 +123,5 @@ Al termine, seguire i passaggi della sezione precedente per connettere i log di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere contatori delle prestazioni, statistiche Docker e registri per i contenitori
-* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) incluse nei log di Monitoraggio di Azure
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) incluse nei log di Monitoraggio di Azure
 * [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di monitoraggio di Azure](../azure-monitor/platform/view-designer.md)

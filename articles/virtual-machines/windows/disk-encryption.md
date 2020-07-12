@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: d0625c817703fe5d5645bcfdab962591cb184ae2
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 0bb0fb268d18ddc152dae45014e2154686762976
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232730"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259809"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Crittografia lato server di archiviazione su disco di Azure
 
@@ -84,9 +84,9 @@ I clienti sensibili alla sicurezza elevata interessati dal rischio associato a u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare la crittografia basata su host](disks-enable-host-based-encryption-powershell.md)
-- [Azure PowerShell abilitare la crittografia doppia nei dischi gestiti di Rest](disks-enable-double-encryption-at-rest-powershell.md)
-- [Abilitare le chiavi gestite dal cliente per il disco gestito-PowerShell](disks-enable-customer-managed-keys-powershell.md)
-- [Abilitare le chiavi gestite dal cliente-Managed Disks](disks-enable-customer-managed-keys-portal.md)
+- [Abilitare la crittografia end-to-end usando la crittografia nell'host-PowerShell](disks-enable-host-based-encryption-powershell.md)
+- [Abilitare la crittografia doppia per i dischi gestiti-PowerShell](disks-enable-double-encryption-at-rest-powershell.md)
+- [Abilitare le chiavi gestite dal cliente per i dischi gestiti-PowerShell](disks-enable-customer-managed-keys-powershell.md)
+- [Abilitare le chiavi gestite dal cliente per Managed disks-portale](disks-enable-customer-managed-keys-portal.md)
 - [Esplorare i modelli di Azure Resource Manager per la creazione di dischi crittografati con chiavi gestite dal cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Cos'è l'insieme di credenziali chiave di Azure?](../../key-vault/general/overview.md)

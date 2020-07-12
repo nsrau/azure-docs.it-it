@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906205"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260869"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni.
@@ -19,7 +20,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 |Comando|Descrizione|
 | --- | --- |
 | create | Crea un'applicazione di Service Fabric usando la descrizione specificata. |
-| eliminare | Elimina un'applicazione di Service Fabric esistente. |
+| eliminazione | Elimina un'applicazione di Service Fabric esistente. |
 | deployed | Recupera le informazioni relative a un'applicazione distribuita in un nodo di Service Fabric. |
 | deployed-health | Recupera le informazioni sull'integrità di un'applicazione distribuita in un nodo Service Fabric. |
 | deployed-list | Mostra l'elenco delle applicazioni distribuite in un nodo di Service Fabric. |
@@ -42,7 +43,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 ## <a name="sfctl-application-create"></a>sfctl application create
 Crea un'applicazione di Service Fabric usando la descrizione specificata.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -70,7 +71,7 @@ Elimina un'applicazione di Service Fabric esistente.
 
 Prima di poter essere eliminata, un'applicazione deve essere creata. Se si elimina un'applicazione, si elimineranno tutti i servizi che fanno parte di tale applicazione. Per impostazione predefinita, Service Fabric tenterà di chiudere le repliche del servizio normalmente, per poi eliminare il servizio. Se tuttavia in un servizio si verificano problemi chiudendo normalmente la replica, l'operazione di eliminazione potrebbe richiedere molto tempo o bloccarsi. Usare il flag facoltativo ForceRemove per ignorare la normale sequenza di chiusura ed eliminare l'applicazione e tutti i relativi servizi in modo forzato.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -93,7 +94,7 @@ Recupera le informazioni relative a un'applicazione distribuita in un nodo di Se
 
 Questa query restituisce informazioni sull'applicazione di sistema se l'ID applicazione fornito è relativo all'applicazione di sistema. I risultati includono le applicazioni distribuite con stato "attivo", "attivazione in corso" e "download in corso". Questa query richiede che il nome del nodo corrisponda a un nodo nel cluster. La query ha esito negativo se il nome del nodo specificato non fa riferimento ad alcun nodo di Service Fabric attivo nel cluster.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -117,7 +118,7 @@ Recupera le informazioni sull'integrità di un'applicazione distribuita in un no
 
 Recupera le informazioni sull'integrità di un'applicazione distribuita in un nodo Service Fabric. Usare EventsHealthStateFilter per eventualmente filtrare la raccolta di oggetti HealthEvent segnalati nell'applicazione distribuita in base allo stato di integrità. Usare DeployedServicePackagesHealthStateFilter per eventualmente filtrare l'elemento figlio DeployedServicePackageHealth in base allo stato di integrità.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -143,7 +144,7 @@ Mostra l'elenco delle applicazioni distribuite in un nodo di Service Fabric.
 
 Mostra l'elenco delle applicazioni distribuite in un nodo di Service Fabric. I risultati non includono informazioni sulle applicazioni di sistema distribuite, a meno che non vengano eseguite query in base all'ID. I risultati includono le applicazioni distribuite con stato "attivo", "attivazione in corso" e "download in corso". Questa query richiede che il nome del nodo corrisponda a un nodo nel cluster. La query ha esito negativo se il nome del nodo specificato non fa riferimento ad alcun nodo di Service Fabric attivo nel cluster.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -168,7 +169,7 @@ Mostra l'integrità dell'applicazione di Service Fabric.
 
 Restituisce lo stato di integrità dell'applicazione di Service Fabric. La risposta indica lo stato di integrità com OK, Errore o Avviso. Se l'entità non viene trovata nell'archivio integrità, verrà restituito Error.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -194,7 +195,7 @@ Recupera informazioni su un'applicazione di Service Fabric.
 
 Restituisce le informazioni sull'applicazione creata o in corso di creazione nel cluster di Service Fabric e il cui nome corrisponde a quello specificato come parametro. La risposta include il nome, il tipo, lo stato, i parametri e altri dettagli relativi all'applicazione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -217,7 +218,7 @@ Mostra l'elenco di applicazioni create nel cluster di Service Fabric che corrisp
 
 Recupera le informazioni sulle applicazioni create o in corso di creazione nel cluster di Service Fabric e che corrispondono ai filtri specificati. La risposta include il nome, il tipo, lo stato, i parametri e altri dettagli relativi all'applicazione. Se le applicazioni non rientrano in una pagina, viene restituita una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Non è possibile specificare contemporaneamente i filtri ApplicationTypeName e ApplicationDefinitionKindFilter.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -243,7 +244,7 @@ Mostra informazioni di caricamento su un'applicazione di Service Fabric.
 
 Restituisce le informazioni di carico sull'applicazione creata o in corso di creazione nel cluster di Service Fabric e il cui nome corrisponde a quello specificato come parametro. La risposta include il nome, il numero di nodi minimo e massimo, il numero di nodi che l'applicazione occupa al momento e le informazioni sulla metrica di carico dell'applicazione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -265,7 +266,7 @@ Mostra il manifesto che descrive un tipo di applicazione.
 
 La risposta contiene il manifesto dell'applicazione XML sotto forma di stringa.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -288,7 +289,7 @@ Esegue il provisioning o registra un tipo di applicazione Service Fabric con il 
 
 Esegue il provisioning di un tipo di applicazione di Service Fabric con il cluster. Il provisioning è necessario prima di poter creare un'istanza di nuove applicazioni. L'operazione di provisioning può essere eseguita nel pacchetto dell'applicazione specificato da relativePathInImageStore o usando l'URI dell'oggetto '. sfpkg ' esterno. A meno che non sia impostato --external-provision, questo comando prevede il provisioning dell'archivio immagini.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -315,7 +316,7 @@ Invia un report di integrità sull'applicazione di Service Fabric.
 
 Segnala lo stato di integrità dell'applicazione di Service Fabric specificata. Il report deve contenere le informazioni relative all'origine del report sull'integrità e alla proprietà in cui viene segnalato. Il report viene inviato a un'applicazione del gateway di Service Fabric, che lo inoltra all'archivio integrità. Il report può essere accettato dal gateway, ma rifiutato dall'archivio integrità dopo la convalida aggiuntiva. L'archivio integrità, ad esempio, può rifiutare il report a causa di un parametro non valido, come un numero di sequenza non aggiornato. Per determinare se il report è stato applicato nell'archivio integrità, ottenere l'integrità dell'applicazione e controllare che il report venga visualizzato.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -345,7 +346,7 @@ Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corri
 
 Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in corso il provisioning del cluster di Service Fabric. Questi risultati sono tipi di applicazioni il cui nome corrisponde esattamente a quello specificato come parametro e che rispettano i parametri di query specificati. Vengono restituite tutte le versioni del tipo di applicazione corrispondenti al nome del tipo di applicazione, ogni versione viene restituita come un tipo di applicazione. La risposta include il nome, la versione, lo stato e altri dettagli relativi al tipo di applicazione. Si tratta di una query di paging, il che vuol dire che se i tipi di applicazione non rientrano tutti in una pagina, viene restituita una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Se ad esempio sono presenti 10 tipi di applicazione, ma una pagina contiene solo i primi tre tipi di applicazione oppure il risultato massimo è impostato su 3, ne vengono restituiti tre. Per accedere al resto dei risultati, recuperare le pagine successive usando il token di continuazione restituito nella query successiva. Se non ci sono pagine successive, viene restituito un token di continuazione vuoto.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -371,7 +372,7 @@ Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric.
 
 Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in corso il provisioning del cluster di Service Fabric. Ogni versione di un tipo di applicazione viene restituito come tipo di applicazione. La risposta include il nome, la versione, lo stato e altri dettagli relativi al tipo di applicazione. Si tratta di una query di paging, il che vuol dire che se i tipi di applicazione non rientrano tutti in una pagina, viene restituita una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Se ad esempio sono presenti 10 tipi di applicazione, ma una pagina contiene solo i primi tre tipi di applicazione oppure il risultato massimo è impostato su 3, ne vengono restituiti tre. Per accedere al resto dei risultati, recuperare le pagine successive usando il token di continuazione restituito nella query successiva. Se non ci sono pagine successive, viene restituito un token di continuazione vuoto.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -396,7 +397,7 @@ Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric 
 
 Questa operazione può essere eseguita solo se tutte le istanze dell'applicazione del tipo di applicazione sono state eliminate. Dopo aver annullato la registrazione del tipo di applicazione, non è possibile creare nuove istanze di applicazione per questo particolare tipo di applicazione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -420,7 +421,7 @@ Avvia l'aggiornamento di un'applicazione nel cluster di Service Fabric.
 
 Convalida i parametri di aggiornamento dell'applicazione offerta e avvia l'aggiornamento dell'applicazione se i parametri sono validi. Si noti che la descrizione dell'aggiornamento sostituisce la descrizione dell'applicazione esistente. Ciò significa che se i parametri vengono omessi, i parametri esistenti per le applicazioni verranno sovrascritti con l'elenco di parametri vuoto. Il risultato sarà l'applicazione che usa il valore predefinito dei parametri del manifesto dell'applicazione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -457,7 +458,7 @@ Riprende l'aggiornamento di un'applicazione nel cluster di Service Fabric.
 
 Riprende l'aggiornamento manuale non monitorato di un'applicazione di Service Fabric. Service Fabric aggiorna un dominio di aggiornamento alla volta. Per gli aggiornamenti manuali non monitorati, dopo che Service Fabric ha terminato un dominio di aggiornamento, attende la chiamata a questa API prima di procedere al dominio di aggiornamento successivo.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -480,7 +481,7 @@ Avvia il rollback dell'aggiornamento attualmente in corso di un'applicazione nel
 
 Avvia il rollback dell'aggiornamento dell'applicazione corrente alla versione precedente. Questa API può essere usata solo per eseguire il rollback dell'aggiornamento corrente in corso, ovvero il roll forward alla nuova versione. Se attualmente non è in corso l'aggiornamento dell'applicazione, usare l'API StartApplicationUpgrade per aggiornarla alla versione desiderata, incluso il roll back a una versione precedente.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -502,7 +503,7 @@ Mostra i dettagli dell'aggiornamento più recente eseguito sull'applicazione.
 
 Restituisce informazioni sullo stato dell'aggiornamento più recente dell'applicazione, con dettagli che agevolano il debug dei problemi di integrità dell'applicazione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -524,7 +525,7 @@ Copia il pacchetto dell'applicazione di Service Fabric nell'archivio immagini.
 
 Facoltativamente, è possibile visualizzare lo stato di caricamento per ogni file nel pacchetto. Lo stato di caricamento viene inviato a `stderr`.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -549,4 +550,4 @@ Facoltativamente, è possibile visualizzare lo stato di caricamento per ogni fil
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

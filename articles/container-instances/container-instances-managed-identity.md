@@ -3,12 +3,12 @@ title: Abilitare l'identità gestita nel gruppo di contenitori
 description: Informazioni su come abilitare un'identità gestita in istanze di contenitore di Azure in grado di eseguire l'autenticazione con altri servizi di Azure
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 9bc96ed29039650082bdfa8b7b2b1b48ecb6bd3f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169783"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259630"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
 
@@ -392,6 +392,6 @@ In questo articolo sono state fornite altre informazioni sulle identità gestite
 > * Concedere all'identità l'accesso a un insieme di credenziali delle chiavi di Azure
 > * Usare l'identità gestita per accedere a un insieme di credenziali delle chiavi da un contenitore in esecuzione
 
-* Altre informazioni sulle [identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/).
+* Altre informazioni sulle [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/index.yml).
 
 * Vedere un [esempio di Azure go SDK](https://medium.com/@samkreter/c98911206328) sull'uso di un'identità gestita per accedere a un insieme di credenziali delle chiavi da istanze di contenitore di Azure.

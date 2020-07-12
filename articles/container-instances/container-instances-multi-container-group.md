@@ -4,12 +4,12 @@ description: In questa esercitazione si apprenderà come distribuire un gruppo d
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: 48068659d99fc060aa0c0580eb781e10c434c597
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: cb085112c6e6458d897f52f19988e6301d4ae6e8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169715"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259574"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Esercitazione: Distribuire un gruppo multi-contenitore usando un modello di Resource Manager
 
@@ -154,7 +154,7 @@ az group create --name myResourceGroup --location eastus
 Distribuire il modello con il comando [AZ Deployment Group create][az-deployment-group-create] .
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
+az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
 Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure.
@@ -240,4 +240,4 @@ Per esempi di modello aggiuntivi, vedere [Modelli di Azure Resource Manager per 
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create
 [az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups
+[template-reference]: /azure/templates/microsoft.containerinstance/containergroups

@@ -7,11 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267631"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260169"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
 
@@ -75,6 +76,8 @@ Se gli obiettivi del tempo di attività aziendale non sono soddisfatti dal RTO a
 
 L'opzione di failover manuale è sempre disponibile per l'uso, indipendentemente dal fatto che nell'area primaria si siano verificati o meno tempi di inattività. Pertanto, questa opzione potrebbe potenzialmente essere usata per eseguire i failover pianificati. Un esempio di utilizzo del failover pianificato consiste nell'eseguire esercitazioni periodiche per il failover. Tuttavia, è importante precisare che un'operazione di failover pianificata determina un tempo di inattività per l'Hub per il periodo definito per l'obiettivo RTO per questa opzione e genera anche una perdita di dati definita dalla tabella RPO sovrastante. Si può considerare l'impostazione di un test di istanza dell'Hub IoT per provare l'opzione di failover pianificato periodicamente per ottenere una maggiore fiducia nella capacità di soluzioni end-to-end backup e in esecuzione quando si verifica un'emergenza reale.
 
+Il failover manuale è disponibile senza costi aggiuntivi per gli hub Internet creato dopo il 18 maggio 2017
+
 Per istruzioni dettagliate, vedere [esercitazione: eseguire il failover manuale per un hub](tutorial-manual-failover.md) Internet.
 
 ### <a name="running-test-drills"></a>Esecuzione di drill-through test
@@ -129,9 +132,9 @@ Ecco un riepilogo delle opzioni di disponibilità elevata e ripristino di emerge
 
 | Opzione a disponibilità elevata e ripristino di emergenza | RTO | RPO | È necessario un intervento manuale? | Complessità dell'implementazione | Impatto dei costi aggiuntivi|
 | --- | --- | --- | --- | --- | --- |
-| Failover avviato da Microsoft |2-26 ore|Fare riferimento a tabella RPO precedente|No|nessuno|nessuno|
-| Failover manuale |10 min-2 ore|Fare riferimento a tabella RPO precedente|Sì|Molto bassa. È sufficiente attivare questa operazione dal portale.|nessuno|
-| Disponibilità elevata fra aree |< 1 min|Dipende dalla frequenza di replica della soluzione disponibilità elevata personalizzata|No|Alta|> 1 x il costo di 1 Hub IoT|
+| Failover avviato da Microsoft |2-26 ore|Fare riferimento a tabella RPO precedente|No|nessuno|Nessuno|
+| Failover manuale |10 min-2 ore|Fare riferimento a tabella RPO precedente|Sì|Molto bassa. È sufficiente attivare questa operazione dal portale.|Nessuno|
+| Disponibilità elevata fra aree |< 1 min|Dipende dalla frequenza di replica della soluzione disponibilità elevata personalizzata|No|Alto|> 1 x il costo di 1 Hub IoT|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

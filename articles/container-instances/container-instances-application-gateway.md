@@ -3,11 +3,12 @@ title: Indirizzo IP statico per il gruppo di contenitori
 description: Creare un gruppo di contenitori in una rete virtuale e usare un gateway applicazione di Azure per esporre un indirizzo IP front-end statico a un'app Web in contenitori
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299163"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260780"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Esporre un indirizzo IP statico per un gruppo di contenitori
 
@@ -28,7 +29,7 @@ Finché viene eseguito il gateway applicazione e il gruppo di contenitori espone
 
 In un caso tipico, è possibile che si disponga già di una rete virtuale di Azure. Se non è disponibile, crearne uno come illustrato con i comandi di esempio seguenti. La rete virtuale necessita di subnet separate per il gateway applicazione e il gruppo di contenitori.
 
-Se necessario, creare un gruppo di risorse di Azure. Ad esempio:
+Se necessario, creare un gruppo di risorse di Azure. ad esempio:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
@@ -102,7 +103,7 @@ ACI_IP=$(az container show \
 
 ## <a name="create-application-gateway"></a>Creare il gateway applicazione
 
-Creare un gateway applicazione nella rete virtuale attenendosi alla procedura descritta nella [Guida introduttiva del gateway applicazione](../application-gateway/quick-create-cli.md). Il comando [AZ Network Application-Gateway create][az-network-application-gateway-create] seguente crea un gateway con un indirizzo IP front-end pubblico e una route per il gruppo di contenitori back-end. Per informazioni dettagliate sulle impostazioni del gateway, vedere la [documentazione del gateway applicazione](/azure/application-gateway/) .
+Creare un gateway applicazione nella rete virtuale attenendosi alla procedura descritta nella [Guida introduttiva del gateway applicazione](../application-gateway/quick-create-cli.md). Il comando [AZ Network Application-Gateway create][az-network-application-gateway-create] seguente crea un gateway con un indirizzo IP front-end pubblico e una route per il gruppo di contenitori back-end. Per informazioni dettagliate sulle impostazioni del gateway, vedere la [documentazione del gateway applicazione](../application-gateway/index.yml) .
 
 ```azurecli
 az network application-gateway create \

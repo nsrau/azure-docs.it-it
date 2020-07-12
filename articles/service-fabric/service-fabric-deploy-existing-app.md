@@ -3,12 +3,12 @@ title: Distribuire un eseguibile esistente in Azure Service Fabric
 description: Informazioni su come creare il pacchetto di un'applicazione esistente come eseguibile guest, in modo da consentirne la distribuzione in un cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80520493"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259259"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric
 
@@ -76,7 +76,7 @@ Il processo per la creazione manuale del pacchetto di un eseguibile guest si bas
 
 ### <a name="create-the-package-directory-structure"></a>Creare la struttura di directory del pacchetto
 
-È possibile iniziare creando la struttura di directory, come descritto in creare [un pacchetto di un'App Service fabric di Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+È possibile iniziare creando la struttura di directory, come descritto in creare [un pacchetto di un'App Service fabric di Azure](./service-fabric-package-apps.md).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Aggiungere i file di codice e di configurazione dell'applicazione
 
@@ -178,7 +178,7 @@ Nell'esempio precedente SetupEntryPoint esegue un file batch denominato `LaunchC
 
 L'elemento `EntryPoint` nel manifesto del servizio consente di specificare la modalità di avvio del servizio.
 
-L'elemento `ExeHost` specifica il file eseguibile e i relativi argomenti da usare per avviare il servizio. Facoltativamente, è possibile aggiungere l'attributo `IsExternalExecutable="true"` a `ExeHost` per indicare che il programma è un eseguibile esterno di fuori del pacchetto di codice. Ad esempio: `<ExeHost IsExternalExecutable="true">`.
+L'elemento `ExeHost` specifica il file eseguibile e i relativi argomenti da usare per avviare il servizio. Facoltativamente, è possibile aggiungere l'attributo `IsExternalExecutable="true"` a `ExeHost` per indicare che il programma è un eseguibile esterno di fuori del pacchetto di codice. Ad esempio, `<ExeHost IsExternalExecutable="true">`
 
 * `Program` specifica il nome dell'eseguibile che deve avviare il servizio.
 * `Arguments` specifica gli argomenti da passare al file eseguibile. Può essere un elenco di parametri con argomenti.

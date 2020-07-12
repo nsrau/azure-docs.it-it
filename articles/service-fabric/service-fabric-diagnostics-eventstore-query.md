@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 48350caef6bdaafda9aff7ac776d67b314aeaf8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d66248797d577d6894d1125188735ecf71029b0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614401"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258892"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Eseguire query sulle API di EventStore per eventi del cluster
 
@@ -109,7 +110,7 @@ In questo caso è possibile verificare che tra `2018-04-03T18:00:00Z` e `2018-04
 
 ## <a name="query-the-eventstore-programmatically"></a>Eseguire query su EventStore a livello di codice
 
-È anche possibile eseguire query su EventStore a livello di codice, tramite la [libreria client di Service Fabric](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+È anche possibile eseguire query su EventStore a livello di codice, tramite la [libreria client di Service Fabric](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
 
 Dopo aver configurato il client di Service Fabric, è possibile eseguire query per gli eventi accedendo a EventStore nel modo seguente: `sfhttpClient.EventStore.<request>`
 
@@ -199,4 +200,3 @@ Per visualizzare tutti gli spostamenti delle partizioni nel cluster, eseguire un
 *Servizio Chaos*
 
 Per l'avvio o l'arresto del servizio Chaos è disponibile un evento esposto a livello di cluster. Per visualizzare l'uso recente del servizio Chaos, usare la query seguente: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
-

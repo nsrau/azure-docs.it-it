@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: 65a5f7e261913fa38c41930cc44341ca872d1b44
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086892"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260070"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Informazioni sull'anteprima dell'area perimetrale di Azure
 
@@ -75,6 +75,8 @@ I casi d'uso tipici includono:
 Le zone perimetrali verranno offerte in collaborazione con gli operatori seguenti:
 
 - ALLE&T (Atlanta, Dallas e Los Angeles) 
+
+Gli ISV che lavorano su applicazioni ottimizzate e scalabili connesse a reti 5G possono ora usare la nuova posizione di anteprima di Los Angeles per le zone perimetrali di Azure con&T durante la compilazione e la sperimentazione con piattaforme con latenza ultra-bassa, scenari mobili e connessi. Registrati per il programma early adopter per sfruttare la connettività sicura e a larghezza di banda elevata.
 
 Per ulteriori informazioni, [contattare il team dell'area perimetrale](https://aka.ms/EdgeZones) .
 

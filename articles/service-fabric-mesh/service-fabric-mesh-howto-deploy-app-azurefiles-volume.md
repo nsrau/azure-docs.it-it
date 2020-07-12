@@ -6,17 +6,18 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5bb7ab6c861d958f6811ca852363c59cfced3940
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54edc242260479a8f48cc4aae91845041fc2d376
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76718821"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260100"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montare un volume basato su File di Azure in un'applicazione di Service Fabric Mesh 
 
 Questo articolo spiega come montare un volume basato su File di Azure in un servizio di un'applicazione di Service Fabric Mesh.  Il driver di volume di File di Azure è un driver di volume Docker usato per montare una condivisione di File di Azure in un contenitore, che viene usato per rendere persistente lo stato del servizio. I volumi offrono una risorsa di archiviazione file per utilizzo generico e consentono di leggere/scrivere i file usando le normali API di file I/O del disco.  Per altre informazioni sui volumi e sulle opzioni per l'archiviazione dei dati dell'applicazione, vedere l'[archiviazione dello stato](service-fabric-mesh-storing-state.md).
 
-Per montare un volume in un servizio, creare una risorsa di volume nell'applicazione di Service Fabric Mesh e quindi fare riferimento a quel volume nel servizio.  La dichiarazione della risorsa di volume e il riferimento alla stessa nella risorsa di servizio si possono effettuare nei [file di risorsa basati su YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) o nel [modello di distribuzione basato su JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Prima di montare il volume, creare un account di archiviazione di Azure e una [condivisione file in File di Azure](/azure/storage/files/storage-how-to-create-file-share).
+Per montare un volume in un servizio, creare una risorsa di volume nell'applicazione di Service Fabric Mesh e quindi fare riferimento a quel volume nel servizio.  La dichiarazione della risorsa di volume e il riferimento alla stessa nella risorsa di servizio si possono effettuare nei [file di risorsa basati su YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) o nel [modello di distribuzione basato su JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Prima di montare il volume, creare un account di archiviazione di Azure e una [condivisione file in File di Azure](../storage/files/storage-how-to-create-file-share.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 > [!NOTE]

@@ -4,14 +4,14 @@ description: Informazioni su come configurare il collegamento privato di Azure p
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/10/2020
 ms.author: thweiss
-ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb1310d0f45f945fc150e0ae011ede0d102a5918
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261631"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259114"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurare il collegamento privato di Azure per un account Azure Cosmos
 
@@ -655,8 +655,6 @@ Quando si usa il collegamento privato con un account Azure Cosmos, si applicano 
 * Quando si usa un'API di Azure Cosmos DB per l'account MongoDB che ha il collegamento privato, alcuni strumenti o librerie potrebbero non funzionare poiché rimuovono automaticamente il parametro `appName` dalla stringa di connessione. Questo parametro è necessario per connettersi all'account tramite un endpoint privato. Alcuni strumenti, ad esempio Visual Studio Code, non rimuovono il parametro dalla stringa di connessione e sono pertanto compatibili.
 
 * È necessario concedere a un amministratore di rete almeno l'autorizzazione `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` nell'ambito dell'account Azure Cosmos per creare automaticamente endpoint privati approvati.
-
-* La modalità diretta non è attualmente supportata nelle aree di Azure in Cina.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitazioni per l'integrazione della zona DNS privata
 

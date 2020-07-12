@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 7c571136e6bef64c2024c81db85ef736f64a4e01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 835369116b07b74c666fba271476f1cba5a708b8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906067"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259953"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
 Consente di ottenere ed eliminare le risorse dell'applicazione.
@@ -18,7 +19,7 @@ Consente di ottenere ed eliminare le risorse dell'applicazione.
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminare | Elimina la risorsa dell'applicazione. |
+| eliminazione | Elimina la risorsa dell'applicazione. |
 | list | Elenca tutte le risorse dell'applicazione. |
 | show | Ottiene la risorsa dell'applicazione con il nome specificato. |
 
@@ -27,7 +28,7 @@ Elimina la risorsa dell'applicazione.
 
 Elimina la risorsa dell'applicazione identificata dal nome.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -63,7 +64,7 @@ Ottiene la risorsa dell'applicazione con il nome specificato.
 
 Ottiene le informazioni sulla risorsa dell'applicazione con il nome specificato. Le informazioni includono la descrizione e altre proprietà dell'applicazione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -82,4 +83,4 @@ Ottiene le informazioni sulla risorsa dell'applicazione con il nome specificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

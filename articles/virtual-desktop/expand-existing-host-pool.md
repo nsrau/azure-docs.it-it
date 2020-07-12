@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eee6f34124f8b286deff278c6c3d1038b595357
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209352"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259886"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Espandi un pool di host esistente con nuovi host sessione
 
@@ -31,7 +31,7 @@ In questo articolo viene illustrato come espandere un pool di host esistente con
 
 Prima di iniziare, assicurarsi di aver creato un pool host e le macchine virtuali (VM) host sessione usando uno dei metodi seguenti:
 
-- [Azure portal](./create-host-pools-azure-marketplace.md)
+- [Portale di Azure](./create-host-pools-azure-marketplace.md)
 - [Creare un pool di host con PowerShell](./create-host-pools-powershell.md)
 
 Al momento della creazione delle VM host della sessione e del pool host sono necessarie anche le informazioni seguenti:
@@ -78,7 +78,7 @@ Per espandere il pool di host aggiungendo macchine virtuali:
 
 Ora che il pool host esistente è stato espanso, è possibile accedere a un client desktop virtuale di Windows per testarli come parte di una sessione utente. È possibile connettersi a una sessione con uno dei client seguenti:
 
-- [Connettersi con il client desktop di Windows](./connect-windows-7-and-10.md)
+- [Connettersi con il client desktop di Windows](./connect-windows-7-10.md)
 - [Connettersi con il client Web](./connect-web.md)
 - [Connettersi con il client Android](./connect-android.md)
 - [Connettersi con il client macOS](./connect-macos.md)

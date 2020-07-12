@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 376f9d78f508c245bec2d066863566ace68eff0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f4ee0a6ba028a6359a83f5130aca7c6f05ba08b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204864"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259792"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurare il tipo di assegnazione del pool di host di desktop personale
 
@@ -92,5 +92,5 @@ Se è necessario aggiungere di nuovo l'host di sessione al pool di host di deskt
 
 Dopo aver configurato il tipo di assegnazione del desktop personale, è possibile accedere a un client Desktop virtuale Windows per testarlo nell’ambito di una sessione utente. Le prossime due procedure spiegano come connettersi a una sessione usando il client di propria scelta:
 
-- [Connettersi con il client desktop di Windows](../connect-windows-7-and-10.md)
+- [Connettersi con il client desktop di Windows](connect-windows-7-10-2019.md)
 - [Connettersi con il client Web](connect-web-2019.md)

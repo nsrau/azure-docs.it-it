@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147385"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259187"
 ---
 # <a name="about-virtual-hub-routing"></a>Informazioni sul routing dell'hub virtuale
 
@@ -63,6 +63,9 @@ Per ogni hub virtuale è disponibile anche una **tabella di route None** . La pr
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configurazione delle route statiche in una connessione di rete virtuale
 
 La configurazione delle route statiche fornisce un meccanismo per gestire il traffico attraverso un indirizzo IP hop successivo, che può essere un appliance virtuale di rete sottoposta a provisioning in una VNet spoke collegata a un hub virtuale. La route statica è costituita da un nome di route, da un elenco di prefissi di destinazione e da un indirizzo IP hop successivo.
+
+## <a name="reset-hub"></a><a name="route"></a>Reimposta Hub
+Disponibile solo nella portale di Azure, questa opzione consente all'utente di portare le risorse non riuscite, ad esempio le tabelle di route, il router hub o la risorsa dell'hub virtuale, tornando allo stato di provisioning legittimo. Si tratta di un'opzione aggiuntiva che l'utente deve prendere in considerazione prima di contattare Microsoft per ottenere assistenza. Questa operazione non Reimposta alcun gateway in un hub virtuale. 
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Eseguire il routing delle tabelle nelle WAN virtuali Basic e standard prima del set di funzionalità di associazione e propagazione
 

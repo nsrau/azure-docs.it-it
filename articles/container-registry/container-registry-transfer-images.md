@@ -4,12 +4,12 @@ description: Trasferire raccolte di immagini o altri artefatti da un registro co
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186929"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259452"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Trasferire gli artefatti in un altro registro
 
@@ -36,7 +36,7 @@ Questa funzionalità è disponibile per il livello di servizio **Premium** del r
 * **Account di archiviazione** : creare account di archiviazione di origine e di destinazione in una sottoscrizione e in una località di propria scelta. A scopo di test, è possibile usare la stessa sottoscrizione o sottoscrizioni dei registri di origine e di destinazione. Per gli scenari tra cloud, in genere si crea un account di archiviazione separato in ogni cloud. Se necessario, creare gli account di archiviazione con l'interfaccia della riga di comando di [Azure](../storage/common/storage-account-create.md?tabs=azure-cli) o altri strumenti. 
 
   Creare un contenitore BLOB per il trasferimento di elementi in ogni account. Ad esempio, creare un contenitore denominato *Transfer*. Due o più pipeline di trasferimento possono condividere lo stesso account di archiviazione, ma devono usare ambiti del contenitore di archiviazione diversi.
-* Insiemi di credenziali delle **chiavi** : gli insiemi di credenziali delle chiavi sono necessari per archiviare i segreti dei token SAS usati per accedere agli account di archiviazione di origine e destinazione. Creare gli insiemi di credenziali delle chiavi di origine e di destinazione nella stessa sottoscrizione o sottoscrizioni di Azure dei registri di origine e di destinazione. Se necessario, creare insiemi di credenziali delle chiavi con l'interfaccia della riga di comando di [Azure](../key-vault/quick-create-cli.md) o altri strumenti.
+* Insiemi di credenziali delle **chiavi** : gli insiemi di credenziali delle chiavi sono necessari per archiviare i segreti dei token SAS usati per accedere agli account di archiviazione di origine e destinazione. Creare gli insiemi di credenziali delle chiavi di origine e di destinazione nella stessa sottoscrizione o sottoscrizioni di Azure dei registri di origine e di destinazione. Se necessario, creare insiemi di credenziali delle chiavi con l'interfaccia della riga di comando di [Azure](../key-vault/secrets/quick-create-cli.md) o altri strumenti.
 * **Variabili di ambiente** : per i comandi di esempio di questo articolo, impostare le variabili di ambiente seguenti per gli ambienti di origine e di destinazione. Tutti gli esempi sono formattati per la shell bash.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -162,7 +162,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-Nell'output del comando prendere nota dell'ID risorsa ( `id` ) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. Ad esempio:
+Nell'output del comando prendere nota dell'ID risorsa ( `id` ) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. ad esempio:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -208,7 +208,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-Se si prevede di eseguire l'importazione manualmente, prendere nota dell'ID risorsa ( `id` ) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. Ad esempio:
+Se si prevede di eseguire l'importazione manualmente, prendere nota dell'ID risorsa ( `id` ) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. ad esempio:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -257,7 +257,7 @@ az storage blob list \
 
 Usare lo strumento AzCopy o altri metodi per [trasferire i dati BLOB](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) dall'account di archiviazione di origine all'account di archiviazione di destinazione.
 
-Ad esempio, il [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) comando seguente copia il BLOB dal contenitore di *trasferimento* dell'account di origine al contenitore di *trasferimento* nell'account di destinazione. Se il BLOB esiste nell'account di destinazione, viene sovrascritto. L'autenticazione usa i token SAS con le autorizzazioni appropriate per i contenitori di origine e di destinazione. I passaggi per la creazione di token non vengono visualizzati.
+Ad esempio, il [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) comando seguente copia il BLOB dal contenitore di *trasferimento* dell'account di origine al contenitore di *trasferimento* nell'account di destinazione. Se il BLOB esiste nell'account di destinazione, viene sovrascritto. L'autenticazione usa i token SAS con le autorizzazioni appropriate per i contenitori di origine e di destinazione. I passaggi per la creazione di token non vengono visualizzati.
 
 ```console
 azcopy copy \
@@ -366,6 +366,3 @@ Per importare singole immagini del contenitore in un registro contenitori di Azu
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
-
-
-

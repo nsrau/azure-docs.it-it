@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: pepogors
-ms.openlocfilehash: 46601fd91fccb5bd0866bd999cc7643c37c6d582
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86a02fd489ca0eec61b798db7136f963277f6c82
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551778"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261090"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Procedure consigliate per applicazioni e cluster di Azure Service Fabric
 
@@ -26,9 +27,9 @@ Questo articolo fornisce i collegamenti alle procedure consigliate per la gestio
 ## <a name="compute-planning-and-scaling"></a>Pianificazione e scalabilità dell'ambiente di calcolo
 
 * [Procedure consigliate per il ridimensionamento del calcolo](service-fabric-best-practices-capacity-scaling.md)
-* [Pianificazione della capacità di calcolo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+* [Pianificazione della capacità di calcolo](./service-fabric-cluster-capacity.md)
 
-## <a name="infrastructure-as-code"></a>Infrastructure as code
+## <a name="infrastructure-as-code"></a>Infrastruttura come codice
 
 * [Procedure consigliate per l'implementazione di Infrastructure as Code (IaC)](service-fabric-best-practices-infrastructure-as-code.md)
 
@@ -43,7 +44,7 @@ Questo articolo fornisce i collegamenti alle procedure consigliate per la gestio
 ## <a name="checklist"></a>Elenco di controllo
 
 Dopo aver implementato le procedure consigliate nelle sezioni precedenti, assicurarsi di aver integrato tutte le procedure consigliate nell'elenco di controllo della conformità per la produzione:
-* [Elenco di controllo della conformità per la produzione di Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+* [Elenco di controllo della conformità per la produzione di Azure Service Fabric](./service-fabric-production-readiness-checklist.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

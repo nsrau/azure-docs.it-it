@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 2f9aff2ea88c2334ab30c9819f68fd6cbb9124c5
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3c7a84dad1f107d8709e3bcdeac696414cdf883d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232441"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259719"
 ---
 # <a name="encrypt-deployment-data"></a>Crittografare i dati della distribuzione
 
@@ -39,7 +39,7 @@ Il resto del documento illustra i passaggi necessari per crittografare i dati di
 
 ### <a name="create-service-principal-for-aci"></a>Creare un'entità servizio per ACI
 
-Il primo passaggio consiste nel verificare che il [tenant di Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) disponga di un'entità servizio assegnata per concedere le autorizzazioni al servizio istanze di contenitore di Azure. 
+Il primo passaggio consiste nel verificare che il [tenant di Azure](../active-directory/develop/quickstart-create-new-tenant.md) disponga di un'entità servizio assegnata per concedere le autorizzazioni al servizio istanze di contenitore di Azure. 
 
 > [!IMPORTANT]
 > Per eseguire il comando seguente e creare correttamente un'entità servizio, verificare di disporre delle autorizzazioni per creare entità servizio nel tenant.
@@ -59,7 +59,7 @@ Nel caso in cui non sia possibile creare correttamente l'entità servizio:
 
 ### <a name="create-a-key-vault-resource"></a>Creare una risorsa Key Vault
 
-Creare una Azure Key Vault usando [portale di Azure](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault), l' [interfaccia](https://docs.microsoft.com/azure/key-vault/quick-create-cli)della riga di comando o [PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell). 
+Creare una Azure Key Vault usando [portale di Azure](../key-vault/secrets/quick-create-portal.md#create-a-vault), l' [interfaccia](../key-vault/secrets/quick-create-cli.md)della riga di comando o [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
 
 Per le proprietà dell'insieme di credenziali delle chiavi, usare le linee guida seguenti: 
 * Name: è necessario un nome univoco. 
@@ -96,7 +96,7 @@ I criteri di accesso dovrebbero ora essere visualizzati nei criteri di accesso d
 > [!IMPORTANT]
 > La crittografia dei dati di distribuzione con una chiave gestita dal cliente è disponibile nella versione più recente dell'API (2019-12-01) attualmente in fase di implementazione. Specificare questa versione dell'API nel modello di distribuzione. In caso di problemi, rivolgersi al supporto tecnico di Azure.
 
-Una volta configurati i criteri di accesso e la chiave dell'insieme di credenziali delle chiavi, aggiungere le proprietà seguenti al modello di distribuzione ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello [, vedere l'esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Una volta configurati i criteri di accesso e la chiave dell'insieme di credenziali delle chiavi, aggiungere le proprietà seguenti al modello di distribuzione ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello [, vedere l'esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](./container-instances-multi-container-group.md). 
 * In `resources` , impostare `apiVersion` su `2019-12-01` .
 * Nella sezione Proprietà gruppo di contenitori del modello di distribuzione aggiungere un oggetto `encryptionProperties` che contiene i valori seguenti:
   * `vaultBaseUrl`: il nome DNS dell'insieme di credenziali delle chiavi è disponibile nel pannello panoramica della risorsa di Key Vault nel portale
@@ -129,7 +129,7 @@ Il frammento di modello seguente mostra queste proprietà aggiuntive per crittog
 ]
 ```
 
-Di seguito è riportato un modello completo, adattato dal modello in [esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Di seguito è riportato un modello completo, adattato dal modello in [esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](./container-instances-multi-container-group.md). 
 
 ```json
 {
@@ -233,14 +233,14 @@ Creare un gruppo di risorse con il comando [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuire il modello con il comando [az group deployment create][az-group-deployment-create].
+Distribuire il modello con il comando [AZ Deployment Group create][az-deployment-group-create] .
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure. Al termine della distribuzione, tutti i dati relativi a tale servizio verranno crittografati con la chiave specificata.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group/#az-deployment-group-create

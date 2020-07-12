@@ -4,12 +4,12 @@ description: Informazioni su come inviare i log delle risorse e i dati degli eve
 ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169732"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259613"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze e gruppi di contenitori con i log di monitoraggio di Azure
 
@@ -29,7 +29,7 @@ Le sezioni seguenti descrivono come creare un gruppo di contenitori abilitato pe
 Per abilitare la registrazione nelle istanze di contenitore, è necessario quanto segue:
 
 * [area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
-* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](/azure/cloud-shell/overview))
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Ottenere le credenziali di Log Analytics
 
@@ -153,7 +153,7 @@ ContainerInstanceLog_CL
 
 Per altre informazioni sull'esecuzione di query sui log e la configurazione di avvisi nei log di Monitoraggio di Azure, vedere:
 
-* [Informazioni sulle ricerche nei log nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-search.md)
+* [Informazioni sulle ricerche nei log nei log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
 * [Avvisi unificati in Monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md)
 
 

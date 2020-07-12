@@ -4,18 +4,19 @@ description: Informazioni su come portare la soluzione Azure IoT Edge dallo svil
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/25/2020
+ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431917"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258784"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -37,11 +38,14 @@ I dispositivi IoT Edge possono essere qualsiasi cosa, da un dispositivo Raspberr
 
 ### <a name="install-production-certificates"></a>Installare i certificati di produzione
 
-Ogni dispositivo IoT Edge nell'ambiente di produzione richiede un certificato di autorità di certificazione (CA) del dispositivo installato. Tale certificato della CA viene quindi dichiarato per il runtime di IoT Edge nel file config.yaml file. Per gli scenari di sviluppo e test, il runtime di IoT Edge crea certificati temporanei se non sono stati dichiarati certificati nel file config. yaml. Tuttavia, questi certificati temporanei scadono dopo tre mesi e non sono sicuri per gli scenari di produzione.
+Ogni dispositivo IoT Edge nell'ambiente di produzione richiede un certificato di autorità di certificazione (CA) del dispositivo installato. Tale certificato della CA viene quindi dichiarato per il runtime di IoT Edge nel file config.yaml file. Per gli scenari di sviluppo e test, il runtime di IoT Edge crea certificati temporanei se non sono stati dichiarati certificati nel file config. yaml. Tuttavia, questi certificati temporanei scadono dopo tre mesi e non sono sicuri per gli scenari di produzione. Per gli scenari di produzione, è necessario fornire il proprio certificato CA del dispositivo, da un'autorità di certificazione autofirmata o acquistata da un'autorità di certificazione commerciale.
+
+> [!NOTE]
+> Attualmente, una limitazione in libiothsm impedisce l'utilizzo di certificati che scadono il 1 ° gennaio 2050 o successivo.
 
 Per comprendere il ruolo del certificato della CA del dispositivo, vedere [Come Azure IoT Edge usa i certificati](iot-edge-certs.md).
 
-Per altre informazioni su come installare i certificati in un dispositivo IoT Edge e farvi riferimento dal file config. YAML, vedere [installare i certificati di produzione in un dispositivo IOT Edge](how-to-manage-device-certificates.md).
+Per altre informazioni su come installare i certificati in un dispositivo IoT Edge e farvi riferimento dal file config. YAML, vedere [gestire il certificato in un dispositivo IOT Edge](how-to-manage-device-certificates.md).
 
 ### <a name="have-a-device-management-plan"></a>Disporre di un piano di gestione dei dispositivi
 
@@ -272,7 +276,7 @@ Per impostazione predefinita, il motore di contenitori di Moby non imposta limit
 
 Aggiungere (o accodare) queste informazioni a un file denominato `daemon.json` e posizionarlo nella posizione corretta per la piattaforma del dispositivo.
 
-| Piattaforma | Location |
+| Piattaforma | Località |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
@@ -281,7 +285,7 @@ Per rendere effettive le modifiche, è necessario riavviare il motore del conten
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>Opzione: regolare le impostazioni del log per ogni modulo contenitore
 
-Questa operazione può essere eseguita nella **createOptions** di ogni modulo. Ad esempio:
+Questa operazione può essere eseguita nella **createOptions** di ogni modulo. ad esempio:
 
 ```yml
 "createOptions": {

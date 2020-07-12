@@ -4,12 +4,12 @@ description: Scenari, risorse e limitazioni per la distribuzione di gruppi di co
 ms.topic: article
 ms.date: 04/29/2020
 ms.author: danlep
-ms.openlocfilehash: 77fbdb1720e571027f28b5bdca5c0e3c65c3ded2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4e983e7d83e661b4ba50ebe2c6d65bce2f42514
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584402"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259545"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenari e risorse della rete virtuale
 
@@ -67,7 +67,7 @@ La subnet usata per i gruppi di contenitori può includere solo gruppi di conten
 
 Un profilo di rete è un modello di configurazione di rete per le risorse di Azure. Il profilo specifica determinate proprietà di rete per la risorsa, ad esempio la subnet in cui deve essere distribuito. Quando si usa per la prima volta il comando [az container create][az-container-create] per distribuire un gruppo di contenitori in una subnet (e quindi una rete virtuale), Azure crea automaticamente un profilo di rete. È quindi possibile usare tale profilo di rete per le distribuzioni future nella subnet. 
 
-Per usare un modello di Resource Manager, il file YAML o un metodo a livello di codice per distribuire un gruppo di contenitori in una subnet, è necessario specificare l'ID risorsa di Resource Manager completo di un profilo di rete. È possibile usare un profilo creato in precedenza usando [az container create][az-container-create] oppure creare un profilo usando un modello di Resource Manager (vedere l'[esempio di modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) e le [informazioni di riferimento](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Per ottenere l'ID di un profilo creato in precedenza, usare il comando [az network profile list][az-network-profile-list]. 
+Per usare un modello di Resource Manager, il file YAML o un metodo a livello di codice per distribuire un gruppo di contenitori in una subnet, è necessario specificare l'ID risorsa di Resource Manager completo di un profilo di rete. È possibile usare un profilo creato in precedenza usando [az container create][az-container-create] oppure creare un profilo usando un modello di Resource Manager (vedere l'[esempio di modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) e le [informazioni di riferimento](/azure/templates/microsoft.network/networkprofiles)). Per ottenere l'ID di un profilo creato in precedenza, usare il comando [az network profile list][az-network-profile-list]. 
 
 Nel diagramma seguente diversi gruppi di contenitori sono stati distribuiti in una subnet delegata a Istanze di Azure Container. Dopo aver distribuito un gruppo di contenitori in una subnet, è possibile distribuire gruppi di contenitori aggiuntivi ala subnet specificando lo stesso profilo di rete.
 
@@ -86,4 +86,3 @@ Nel diagramma seguente diversi gruppi di contenitori sono stati distribuiti in u
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
-

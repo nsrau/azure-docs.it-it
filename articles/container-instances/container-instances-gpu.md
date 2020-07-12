@@ -3,12 +3,12 @@ title: Distribuire un'istanza del contenitore abilitata per GPU
 description: Informazioni su come distribuire istanze di contenitore di Azure per eseguire app contenitore a elevato utilizzo di calcolo con risorse GPU.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 78b67843978583dd6b0f0aee2c1d8ad0e5a7ca77
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a25efc90573eb338b81f4a6532a632a140c7ab7d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169749"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259597"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuire le istanze di contenitore che usano risorse della GPU
 
@@ -209,7 +209,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Poiché l'utilizzo delle risorse GPU può risultare costoso, assicurarsi che i contenitori non vengono eseguiti in modo imprevisto per lunghi periodi di tempo. Monitorare i contenitori nel portale di Azure o controllare lo stato di un gruppo di contenitori con il comando [az container show][az-container-show]. Ad esempio:
+Poiché l'utilizzo delle risorse GPU può risultare costoso, assicurarsi che i contenitori non vengono eseguiti in modo imprevisto per lunghi periodi di tempo. Monitorare i contenitori nel portale di Azure o controllare lo stato di un gruppo di contenitori con il comando [az container show][az-container-show]. ad esempio:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table
@@ -225,7 +225,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Visualizzare altre informazioni sulla distribuzione di un gruppo di contenitori tramite un [file YAML](container-instances-multi-container-yaml.md) o un [modello di Resource Manager](container-instances-multi-container-group.md).
-* Visualizzare altre informazioni sulle [dimensioni delle macchine virtuali ottimizzate per la GPU](../virtual-machines/linux/sizes-gpu.md) in Azure.
+* Visualizzare altre informazioni sulle [dimensioni delle macchine virtuali ottimizzate per la GPU](../virtual-machines/sizes-gpu.md) in Azure.
 
 
 <!-- IMAGES -->

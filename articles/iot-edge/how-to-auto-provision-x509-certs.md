@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c54690645286a4fceb3fd786d85652b1cf77d7aa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131316"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260027"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando certificati X. 509
 
@@ -50,6 +50,9 @@ Per configurare il provisioning automatico con X. 509 sono necessari i file segu
 * Il certificato di identità del dispositivo e il relativo certificato di chiave privata. Il certificato di identità del dispositivo viene caricato in DPS se si crea una registrazione singola. La chiave privata viene passata al runtime IoT Edge.
 * Un certificato a catena completa, che deve avere almeno l'identità del dispositivo e i certificati intermedi. Il certificato a catena completa viene passato al runtime IoT Edge.
 * Un certificato CA intermedio o radice dalla catena di certificati di attendibilità. Questo certificato viene caricato in DPS se si crea una registrazione di gruppo.
+
+> [!NOTE]
+> Attualmente, una limitazione in libiothsm impedisce l'utilizzo di certificati che scadono il 1 ° gennaio 2050 o successivo.
 
 ### <a name="use-test-certificates"></a>Usa certificati di test
 
@@ -100,7 +103,7 @@ Per ulteriori informazioni sulle registrazioni nel servizio Device provisioning,
 
    * **Selezionare gli hub di Internet delle cose a cui è possibile assegnare il dispositivo**: scegliere l'hub delle cose collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati.
 
-   * **Stato iniziale del dispositivo gemello**: aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per i gruppi di destinazione dei dispositivi per la distribuzione automatica. Ad esempio:
+   * **Stato iniziale del dispositivo gemello**: aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per i gruppi di destinazione dei dispositivi per la distribuzione automatica. ad esempio:
 
       ```json
       {
@@ -185,7 +188,7 @@ Per ulteriori informazioni sulle registrazioni nel servizio Device provisioning,
 
    * **Selezionare gli hub di Internet delle cose a cui è possibile assegnare il dispositivo**: scegliere l'hub delle cose collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati.
 
-   * **Stato iniziale del dispositivo gemello**: aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per i gruppi di destinazione dei dispositivi per la distribuzione automatica. Ad esempio:
+   * **Stato iniziale del dispositivo gemello**: aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per i gruppi di destinazione dei dispositivi per la distribuzione automatica. ad esempio:
 
       ```json
       {
@@ -204,7 +207,7 @@ Ora che è presente una registrazione per questo dispositivo, il runtime di IoT 
 
 ## <a name="install-the-iot-edge-runtime"></a>Installare il runtime IoT Edge.
 
-Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale.
+Il runtime IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale.
 
 Il provisioning X. 509 con DPS è supportato solo in IoT Edge versione 1.0.9 o successiva.
 
@@ -221,7 +224,7 @@ Usare il collegamento seguente per installare il runtime di Azure IoT Edge nel d
 
 [Installare il runtime di Azure IoT Edge in Linux](how-to-install-iot-edge-linux.md)
 
-Quando si aggiungono le informazioni sulla chiave e sul certificato X. 509 al file config. YAML, i percorsi devono essere specificati come URI di file. Ad esempio:
+Quando si aggiungono le informazioni sulla chiave e sul certificato X. 509 al file config. YAML, i percorsi devono essere specificati come URI di file. ad esempio:
 
 * `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`

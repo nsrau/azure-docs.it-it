@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 11e32c9d1290227e638a314ed8417b1bed906842
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e1c96d0b04140f8c1121cfb74b43969b49cfdda
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749539"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260533"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Panoramica dei modelli di programmazione di Service Fabric
 
@@ -25,7 +26,7 @@ Introduzione agli eseguibili guest con distribuzione della prima [applicazione e
 
 Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi come processi. Service Fabric può anche distribuire servizi in [contenitori](service-fabric-containers-overview.md). Service Fabric supporta la distribuzione di contenitori Linux e contenitori di Windows in Windows Server 2016 e versioni successive. Le immagini del contenitore possono essere estratte da qualsiasi archivio del contenitore e distribuite al computer. È possibile distribuire applicazioni esistenti, come eseguibili guest, servizi senza stato di Service Fabric oppure servizi Reliable con stato o Reliable Actors in contenitori ed è possibile combinare nella stessa applicazione servizi nei processi e servizi nei contenitori.
 
-[Altre informazioni sull'inserimento in contenitori dei servizi in Windows o Linux](service-fabric-deploy-container.md)
+[Altre informazioni sull'inserimento in contenitori dei servizi in Windows o Linux](./service-fabric-get-started-containers.md)
 
 ## <a name="reliable-services"></a>Reliable Services
 

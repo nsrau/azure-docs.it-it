@@ -4,11 +4,12 @@ description: Informazioni sulle domande frequenti e sulle risposte relative a Az
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78252498"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260112"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Domande frequenti su Service Fabric Mesh
 
@@ -43,7 +44,7 @@ Al momento la durata di un'applicazione è stata limitata a due giorni. Lo scopo
 
 In questo caso, è possibile convalidare l'arresto da parte del sistema eseguendo il comando `az mesh app show` nell'interfaccia della riga di comando di Azure e verificare se restituisce `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Ad esempio: 
+ad esempio: 
 
 ```azurecli
 az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -74,7 +75,7 @@ az mesh app show --resource-group myResourceGroup --name helloWorldApp
 
 Per eliminare il gruppo di risorse, usare il comando `az group delete <nameOfResourceGroup>`.
 
-## <a name="deployments"></a>Deployments
+## <a name="deployments"></a>Distribuzioni
 
 ### <a name="what-container-images-are-supported"></a>Quali immagini del contenitore sono supportate?
 
@@ -106,7 +107,7 @@ Le query DNS in uscita da un contenitore al servizio DNS di Service Fabric DNS p
 
 - Usare Windows Fall Creators Update (versione 1709) o versione successiva come immagine del contenitore di base.
 - Se il nome del servizio da solo non funziona, provare il nome completo: ServiceName. ApplicationName.
-- Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Ad esempio:
+- Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. ad esempio:
 
 ```Dockerfile
 EXPOSE 80
@@ -120,7 +121,7 @@ Nel cluster di sviluppo locale usare `{serviceName}.{applicationName}`. In Azure
 
 Azure Service Fabric Mesh attualmente non supporta la risoluzione DNS tra le applicazioni.
 
-Per altri problemi noti relativi a DNS con l'esecuzione di un cluster di sviluppo Service Fabric in Windows 10, vedere: [eseguire il debug di contenitori Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemi DNS noti](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+Per altri problemi noti relativi a DNS con l'esecuzione di un cluster di sviluppo Service Fabric in Windows 10, vedere: [eseguire il debug di contenitori Windows](../service-fabric/service-fabric-how-to-debug-windows-containers.md) e [problemi DNS noti](../service-fabric/service-fabric-dnsservice.md#known-issues).
 
 ### <a name="networking"></a>Rete
 

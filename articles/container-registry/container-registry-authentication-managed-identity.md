@@ -3,11 +3,12 @@ title: Eseguire l'autenticazione con un'identità gestita
 description: Fornire l'accesso alle immagini nel registro contenitori privato usando un'identità gestita di Azure assegnata dall'utente o dal sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3a1f0f9c9e814cabaa205fbb0abf05333fd6daf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74456502"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259093"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Usare un'identità gestita di Azure per eseguire l'autenticazione a un Registro Azure Container 
 
@@ -238,7 +239,7 @@ In questo articolo sono state fornite altre informazioni sull'uso delle identit�
 > * Concedere all'identità l'accesso al Registro Azure Container
 > * Usare l'identità gestita per accedere al registro e per eseguire il pull di un'immagine del contenitore
 
-* Altre informazioni sulle [identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/).
+* Altre informazioni sulle [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/index.yml).
 
 
 <!-- LINKS - external -->

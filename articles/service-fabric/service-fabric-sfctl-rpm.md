@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7317fd66303aaabf5232106aa7391439880bebaf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76904935"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260282"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consente di eseguire query e inviare comandi al servizio di gestione di ripristino.
@@ -19,7 +20,7 @@ Consente di eseguire query e inviare comandi al servizio di gestione di ripristi
 |Comando|Descrizione|
 | --- | --- |
 | approve-force | Forza l'approvazione dell'attività di ripristino specificata. |
-| eliminare | Elimina un'attività di ripristino completata. |
+| eliminazione | Elimina un'attività di ripristino completata. |
 | list | Recupera un elenco di attività di ripristino corrispondenti ai filtri specificati. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm approve-force
@@ -27,7 +28,7 @@ Forza l'approvazione dell'attività di ripristino specificata.
 
 Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata direttamente dal codice.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -49,7 +50,7 @@ Elimina un'attività di ripristino completata.
 
 Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata direttamente dal codice.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -71,7 +72,7 @@ Recupera un elenco di attività di ripristino corrispondenti ai filtri specifica
 
 Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata direttamente dal codice.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -92,4 +93,4 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bfe428b9eba1f83f3e1bb05c3941c4c56317c9bc
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223109"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260821"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurare il tipo di assegnazione del pool di host di desktop personale
 
@@ -91,7 +91,7 @@ Per assegnare direttamente un utente a un host sessione nel portale di Azure:
 
 Dopo aver configurato il tipo di assegnazione del desktop personale, è possibile accedere a un client Desktop virtuale Windows per testarlo nell’ambito di una sessione utente. Le prossime due procedure spiegano come connettersi a una sessione usando il client di propria scelta:
 
-- [Connettersi con il client desktop di Windows](connect-windows-7-and-10.md)
+- [Connettersi con il client desktop di Windows](connect-windows-7-10.md)
 - [Connettersi con il client Web](connect-web.md)
 - [Connettersi con il client Android](connect-android.md)
 - [Connettersi con il client iOS](connect-ios.md)

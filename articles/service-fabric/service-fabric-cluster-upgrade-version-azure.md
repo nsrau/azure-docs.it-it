@@ -3,12 +3,12 @@ title: Aggiornare la versione di Azure Service Fabric di un cluster
 description: Aggiornamento del codice di Service Fabric e/o della configurazione eseguita in un cluster di Service Fabric, con impostazione della modalità di aggiornamento del cluster, aggiornamento dei certificati, aggiunta di porte dell'applicazione, applicazione di patch del sistema operativo e così via. Possibili risultati degli aggiornamenti.
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: 802e7402f60370b7151c5e373c8a4921a5af7c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0fef612725d606f1415e7e8d004aacee025cedf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82789601"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261047"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Aggiornare la versione di Service Fabric di un cluster
 
@@ -19,7 +19,7 @@ Per i sistemi attuali la progettazione a livello di aggiornamento è fondamental
 A questo scopo, impostare l'opzione di configurazione "upgradeMode" del cluster nel portale oppure usare Resource Manager al momento della creazione o successivamente in un cluster attivo. 
 
 > [!NOTE]
-> Verificare che il cluster esegua sempre una versione di Fabric supportata. Quando viene annunciato il rilascio di una nuova versione di Service Fabric, viene segnalato il termine del periodo di supporto per la versione precedente dopo un minimo di 60 giorni da tale data. Le nuove versioni vengono annunciate nel [blog del team di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). A questo punto è possibile scegliere la nuova versione. 
+> Verificare che il cluster esegua sempre una versione di Fabric supportata. Quando viene annunciato il rilascio di una nuova versione di Service Fabric, viene segnalato il termine del periodo di supporto per la versione precedente dopo un minimo di 60 giorni da tale data. Le nuove versioni vengono annunciate nel [blog del team di Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). A questo punto è possibile scegliere la nuova versione. 
 > 
 > 
 

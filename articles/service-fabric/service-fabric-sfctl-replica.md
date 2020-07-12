@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: f6ad0b4c08ac8d710340fe654a068d0a3804e58f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ed1ecca686471e052f07e945738ad1a49e68464
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905818"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260299"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Consente di gestire le repliche che appartengono alle partizioni del servizio.
@@ -32,7 +33,7 @@ Recupera i dettagli della replica distribuita in un nodo di Service Fabric.
 
 Recupera i dettagli della replica distribuita in un nodo di Service Fabric. Le informazioni includono il tipo di servizio, il nome del servizio, l'operazione del servizio corrente, l'ora e la data di inizio dell'operazione del servizio corrente, l'ID della partizione, l'ID dell'istanza e della replica, il carico segnalato e altre informazioni.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -56,7 +57,7 @@ Recupera l'elenco della replica distribuita in un nodo di Service Fabric.
 
 Recupera l'elenco contenente le informazioni relative alle repliche distribuite in un nodo di Service Fabric. Le informazioni includono ID partizione, ID replica, stato della replica, nome del servizio, nome del tipo di servizio e altre informazioni. Usare i parametri di query PartitionId o ServiceManifestName per restituire le informazioni sulle repliche distribuite corrispondenti ai valori specificati per tali parametri.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -81,7 +82,7 @@ Recupera l'integrità di una replica di un servizio con stato o di un'istanza di
 
 Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateFilter per filtrare la raccolta di eventi di integrità riportati nella replica in base allo stato di integrità.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -105,7 +106,7 @@ Recupera le informazioni su una replica di una partizione di Service Fabric.
 
 La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il tempo di attività e altri dettagli relativi alla replica.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -128,7 +129,7 @@ Recupera le informazioni sulle repliche di una partizione del servizio Service F
 
 L'endpoint GetReplicas restituisce le informazioni sulle repliche della partizione specificata. La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il tempo di attività e altri dettagli relativi alla replica.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -151,7 +152,7 @@ Rimuove una replica del servizio in esecuzione in un nodo.
 
 Questa API consente di simulare un errore di replica di Service Fabric rimuovendo una replica da un cluster di Service Fabric. La rimozione chiude la replica, la passa al ruolo Nessuno e quindi rimuove tutte le informazioni sullo stato della replica dal cluster. Questa API verifica il percorso di rimozione dello stato della replica e simula il percorso permanente di errore del report tramite le API del client. Avviso: quando si usa questa API non viene eseguito alcun controllo di sicurezza. L'uso non corretto di questa API può causare la perdita di dati per i servizi con stato. Il flag forceRemove ha anche effetto su tutte le altre repliche ospitate nello stesso processo.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -176,7 +177,7 @@ Invia un report di integrità nella replica di Service Fabric.
 
 Segnala lo stato di integrità della replica di Service Fabric specificata. Il report deve contenere le informazioni relative all'origine del report sull'integrità e alla proprietà in cui viene segnalato. Il report viene inviato a una replica del gateway di Service Fabric, che lo inoltra all'archivio integrità. Il report può essere accettato dal gateway, ma rifiutato dall'archivio integrità dopo la convalida aggiuntiva. L'archivio integrità, ad esempio, può rifiutare il report a causa di un parametro non valido, come un numero di sequenza non aggiornato. Per determinare se il report è stato applicato nell'archivio integrità, eseguire il comando get replica health e controllare che il report venga visualizzato nella sezione HealthEvents.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -208,7 +209,7 @@ Riavvia una replica del servizio di un servizio persistente in esecuzione in un 
 
 Riavvia una replica del servizio di un servizio persistente in esecuzione in un nodo. Avviso: quando si usa questa API non viene eseguito alcun controllo di sicurezza. L'uso non corretto di questa API può causare la perdita di disponibilità per i servizi con stato.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -230,4 +231,4 @@ Riavvia una replica del servizio di un servizio persistente in esecuzione in un 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

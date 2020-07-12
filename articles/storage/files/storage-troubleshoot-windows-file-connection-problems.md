@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 8a8fff374edab7e307cd6dc8fb9aa4a4f974d09c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e855ed169a0c4eca7dda696c03deedb9e519e9bf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224690"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259989"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
-Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Windows. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. Oltre ai passaggi per la risoluzione dei problemi di questo articolo, è anche possibile usare [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)   per assicurarsi che l'ambiente client Windows disponga dei prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi indicati in questo articolo e consente di configurare l'ambiente in modo da ottenere prestazioni ottimali. Queste informazioni sono disponibili anche nello strumento di [risoluzione dei problemi di condivisione file di Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , che fornisce i passaggi necessari per semplificare la connessione, il mapping e il montaggio di condivisioni file di Azure.
+Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Windows. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. Oltre ai passaggi per la risoluzione dei problemi di questo articolo, è anche possibile usare [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   per assicurarsi che l'ambiente client Windows disponga dei prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi indicati in questo articolo e consente di configurare l'ambiente in modo da ottenere prestazioni ottimali. Queste informazioni sono disponibili anche nello strumento di [risoluzione dei problemi di condivisione file di Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , che fornisce i passaggi necessari per semplificare la connessione, il mapping e il montaggio di condivisioni file di Azure.
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Errore 5 durante il montaggio di una condivisione file di Azure
@@ -65,7 +65,7 @@ Quando si prova a montare una condivisione file da locale o da un data center di
 
 L'errore di sistema 53 o 67 può verificarsi se la comunicazione in uscita dalla porta 445 verso un data center di File di Azure è bloccata. Passare a [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) per visualizzare un riepilogo degli ISP in grado di consentire o proibire l'accesso dalla porta 445.
 
-È possibile verificare se la porta 445 è bloccata dal firewall o dai vincoli dell'ISP con lo strumento [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) o il cmdlet `Test-NetConnection`. 
+È possibile verificare se la porta 445 è bloccata dal firewall o dai vincoli dell'ISP con lo strumento [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) o il cmdlet `Test-NetConnection`. 
 
 Per usare il `Test-NetConnection` cmdlet, è necessario installare il modulo Azure PowerShell. per altre informazioni, vedere [Install Azure PowerShell Module](/powershell/azure/install-Az-ps) . Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resource-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
 
@@ -334,7 +334,7 @@ Attualmente, è possibile prendere in considerazione la ridistribuzione di AAD D
 ### <a name="self-diagnostics-steps"></a>Passaggi di diagnostica automatica
 Prima di tutto, assicurarsi di aver seguito tutti e quattro i passaggi per [abilitare l'autenticazione file di Azure ad](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
 
-Secondo, provare [a montare la condivisione file di Azure con la chiave dell'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se non è stato possibile eseguire il montaggio, scaricare [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) per convalidare l'ambiente in cui viene eseguito il client, rilevare la configurazione del client incompatibile che potrebbe causare un errore di accesso per file di Azure, fornire indicazioni dettagliate sulla correzione automatica e raccogliere le tracce di diagnostica.
+Secondo, provare [a montare la condivisione file di Azure con la chiave dell'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se non è stato possibile eseguire il montaggio, scaricare [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) per convalidare l'ambiente in cui viene eseguito il client, rilevare la configurazione del client incompatibile che potrebbe causare un errore di accesso per file di Azure, fornire indicazioni dettagliate sulla correzione automatica e raccogliere le tracce di diagnostica.
 
 In terzo luogo, è possibile eseguire il cmdlet debug-AzStorageAccountAuth per eseguire un set di controlli di base sulla configurazione di Active Directory con l'utente di Active Directory connesso. Questo cmdlet è supportato nella [versione AzFilesHybrid v 0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). È necessario eseguire questo cmdlet con un utente di AD che disponga dell'autorizzazione di proprietario per l'account di archiviazione di destinazione.  
 ```PowerShell

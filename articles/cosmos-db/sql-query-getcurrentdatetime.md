@@ -4,25 +4,26 @@ description: Informazioni sulla funzione di sistema SQL GetCurrentDateTime in Az
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 07/09/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2ac3235191952702f2acc39a25e948511901050b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4db2ec7bbd05d982af57c05fd46ef7da7c682e15
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555888"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258807"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
- Restituisce la data e l'ora UTC (Coordinated Universal Time) correnti come stringa ISO 8601.
+
+Restituisce la data e l'ora UTC (Coordinated Universal Time) correnti come stringa ISO 8601.
   
 ## <a name="syntax"></a>Sintassi
   
 ```sql
 GetCurrentDateTime ()
 ```
-  
+
 ## <a name="return-types"></a>Tipi restituiti
   
   Restituisce la data e l'ora UTC correnti del valore stringa ISO 8601 nel formato in `YYYY-MM-DDThh:mm:ss.fffffffZ` cui:
@@ -41,15 +42,15 @@ GetCurrentDateTime ()
   
   Per ulteriori informazioni sul formato ISO 8601, vedere [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
-  GetCurrentDateTime () è una funzione non deterministica. 
+  GetCurrentDateTime () è una funzione non deterministica.
   
   Il risultato restituito è UTC.
 
   La precisione è 7 cifre, con un'accuratezza di 100 nanosecondi.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente viene illustrato come ottenere la data e ora UTC correnti utilizzando la funzione predefinita GetCurrentDateTime ().
   

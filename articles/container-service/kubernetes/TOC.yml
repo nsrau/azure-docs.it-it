@@ -8,7 +8,7 @@
 - name: Guide pratiche
   items:
     - name: Rendere persistenti i dati con File di Azure
-      href: ../../aks/azure-files.md?toc=%2fazure%2fcontainer-service%2fkubernetes%2ftoc.json
+      href: ../../aks/azure-files-dynamic-pv.md?toc=/azure/container-service/kubernetes/toc.json
     - name: Monitorare
     - name: Distribuire app Spring Boot
       items:

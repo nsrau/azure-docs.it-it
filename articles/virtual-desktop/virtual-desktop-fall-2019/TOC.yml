@@ -24,6 +24,8 @@
   items:
     - name: Connettersi alle risorse di Desktop virtuale Windows
       items:
+        - name: Connettersi con il client desktop di Windows
+          href: connect-windows-7-10-2019.md
         - name: Connettersi con il client Web
           href: connect-web-2019.md
         - name: Connettersi con il client Android

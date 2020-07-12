@@ -5,12 +5,12 @@ author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
-ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be079b97c2660437344f88203fdda06cc6d6740
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430630"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258979"
 ---
 # <a name="initializer-codepackages"></a>CodePackage dell'inizializzatore
 
@@ -50,7 +50,7 @@ Viene ora esaminato un esempio completo con i CodePackage di inizializzatori.
 > [!IMPORTANT]
 > Nell'esempio seguente si presuppone una certa familiarità con la creazione di [applicazioni contenitore Windows con Service Fabric e Docker][containers-getting-started-link].
 >
-> Questo esempio fa riferimento a mcr.microsoft.com/windows/nanoserver:1809. I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. Per altre informazioni, vedere [Compatibilità delle versioni dei contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> Questo esempio fa riferimento a mcr.microsoft.com/windows/nanoserver:1809. I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. Per altre informazioni, vedere [Compatibilità delle versioni dei contenitori di Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 Il ServiceManifest.xml seguente si basa sul frammento di ServiceManifest descritto in precedenza. *InitCodePackage0*, *InitCodePackage1* e *WorkloadCodePackage* sono codepackages che rappresentano i contenitori. Al momento dell'attivazione, *InitCodePackage0* viene eseguito per primo. Registra un messaggio in un file e viene chiuso. Viene quindi eseguito *InitCodePackage1* , che registra anche un messaggio in un file e viene chiuso. Infine, il *WorkloadCodePackage* avvia l'esecuzione. Registra inoltre un messaggio in un file, restituisce il contenuto del file in **stdout** e quindi esegue il ping per sempre.
 
@@ -151,4 +151,3 @@ Per informazioni correlate, vedere gli articoli seguenti.
 [application-model-link]: service-fabric-application-model.md
 [hosting-model-link]: service-fabric-hosting-model.md
 [setup-entry-point-link]: service-fabric-run-script-at-service-startup.md
-

@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 233148c04fb1a9c6cf1d6c7042c12c54eebd0205
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e9f4b55945afc04e5c826b26632d68cb75e502f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76904932"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260274"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Gestisce i cluster di Service Fabric autonomi.
@@ -27,7 +28,7 @@ Ottiene la configurazione del cluster autonomo di Service Fabric.
 
 La configurazione del cluster contiene le proprietà del cluster che includono i diversi tipi di nodi nel cluster, le configurazioni di sicurezza, gli errori e le topologie del dominio di aggiornamento e così via.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -49,7 +50,7 @@ Avvia l'aggiornamento della configurazione di un cluster autonomo di Service Fab
 
 Convalida i parametri di aggiornamento della configurazione forniti e avvia l'aggiornamento della configurazione di un cluster se i parametri sono validi.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -76,7 +77,7 @@ Convalida i parametri di aggiornamento della configurazione forniti e avvia l'ag
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Avviare un aggiornamento della configurazione cluster
 ```
@@ -89,7 +90,7 @@ Ottiene lo stato dell'aggiornamento della configurazione del cluster di un clust
 
 Ottiene i dettagli dello stato dell'aggiornamento della configurazione del cluster di un cluster autonomo di Service Fabric.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -108,4 +109,4 @@ Ottiene i dettagli dello stato dell'aggiornamento della configurazione del clust
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

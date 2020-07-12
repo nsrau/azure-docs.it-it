@@ -4,11 +4,12 @@ description: Configurare i certificati per l'app con il runtime di Service Fabri
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a97c8b8315fe3be405aed9c6570004afb8fafd1d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79282575"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258677"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificati e sicurezza nei cluster Linux
 
@@ -20,11 +21,11 @@ Service Fabric prevede, in genere, che i certificati X.509 si trovino nella dire
 
 Per i cluster Linux, Service Fabric prevede che i certificati siano presenti come un file con estensione pem contenente il certificato e la chiave privata oppure come un file con estensione crt contenente il certificato e un file con estensione key contenente la chiave privata. Tutti i file devono essere in formato PEM. 
 
-Se si installa il certificato da Azure Key Vault usando un [modello di Resource Manager](./service-fabric-cluster-creation-create-template.md) o i comandi [PowerShell](https://docs.microsoft.com/powershell/module/az.servicefabric/?view=azps-2.6.0), il certificato viene installato nel formato corretto nella directory */var/lib/sfcerts* in ogni nodo. Se si installa un certificato con un altro metodo, è necessario assicurarsi che il certificato sia installato correttamente nei nodi del cluster.
+Se si installa il certificato da Azure Key Vault usando un [modello di Resource Manager](./service-fabric-cluster-creation-create-template.md) o i comandi [PowerShell](/powershell/module/az.servicefabric/?view=azps-2.6.0), il certificato viene installato nel formato corretto nella directory */var/lib/sfcerts* in ogni nodo. Se si installa un certificato con un altro metodo, è necessario assicurarsi che il certificato sia installato correttamente nei nodi del cluster.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificati a cui fa riferimento il manifesto dell'applicazione
 
-I certificati specificati nel manifesto dell'applicazione, ad esempio tramite gli elementi [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) o [**EndpointCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element), devono trovarsi nella directory */var/lib/sfcerts*. Gli elementi usati per specificare i certificati nel manifesto dell'applicazione non accettano un attributo di percorso, pertanto i certificati devono trovarsi nella directory predefinita. Questi elementi accettano un attributo facoltativo **X509StoreName**. Il valore predefinito è "My", che fa riferimento alla directory */var/lib/sfcerts* nei nodi Linux. Qualsiasi altro valore non è definito in un cluster Linux. È consigliabile omettere l'attributo **X509StoreName** per le app che vengono eseguite in cluster Linux. 
+I certificati specificati nel manifesto dell'applicazione, ad esempio tramite gli elementi [**SecretsCertificate**](./service-fabric-service-model-schema-elements.md#secretscertificate-element) o [**EndpointCertificate**](./service-fabric-service-model-schema-elements.md#endpointcertificate-element), devono trovarsi nella directory */var/lib/sfcerts*. Gli elementi usati per specificare i certificati nel manifesto dell'applicazione non accettano un attributo di percorso, pertanto i certificati devono trovarsi nella directory predefinita. Questi elementi accettano un attributo facoltativo **X509StoreName**. Il valore predefinito è "My", che fa riferimento alla directory */var/lib/sfcerts* nei nodi Linux. Qualsiasi altro valore non è definito in un cluster Linux. È consigliabile omettere l'attributo **X509StoreName** per le app che vengono eseguite in cluster Linux. 
 
 ## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certificati a cui fa riferimento il pacchetto di configurazione (Settings.xml)
 
@@ -32,7 +33,7 @@ Per alcuni servizi, è possibile configurare i certificati X.509 in [ConfigPacka
 
 ### <a name="using-x509-securitycredentialstype"></a>Uso di X509 per SecurityCredentialsType
 
-Con .NET SDK o Java SDK, è possibile specificare **X509** per **SecurityCredentialsType**. Corrisponde al `X509Credentials` tipo ([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) di (.NET `SecurityCredentials` [.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
+Con .NET SDK o Java SDK, è possibile specificare **X509** per **SecurityCredentialsType**. Corrisponde al `X509Credentials` tipo ([.NET](/previous-versions/azure/reference/mt124925(v=azure.100)) / [Java](/java/api/system.fabric.x509credentials)) di (.NET `SecurityCredentials` [.NET](/previous-versions/azure/reference/mt124894(v=azure.100)) / [Java](/java/api/system.fabric.securitycredentials)).
 
 Il riferimento **X509** identifica la posizione del certificato in un archivio certificati. Il codice XML seguente illustra i parametri usati per specificare il percorso del certificato:
 
@@ -63,7 +64,7 @@ Il codice XML seguente illustra una sezione **TransportSettings** che si basa su
 
 ### <a name="using-x509_2-securitycredentialstype"></a>Uso di X509_2 per SecurityCredentialsType
 
-Con Java SDK, è possibile specificare **X509_2** per **SecurityCredentialsType**. Questo corrisponde al tipo `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) di `SecurityCredentials` ([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
+Con Java SDK, è possibile specificare **X509_2** per **SecurityCredentialsType**. Questo corrisponde al tipo `X509Credentials2` ([Java](/java/api/system.fabric.x509credentials2)) di `SecurityCredentials` ([Java](/java/api/system.fabric.securitycredentials)). 
 
 Con un riferimento **X509_2**, si specifica un parametro di percorso, in modo da poter identificare la posizione del certificato in una directory diversa da */var/lib/sfcerts*.  Il codice XML seguente illustra i parametri usati per specificare il percorso del certificato: 
 
@@ -93,7 +94,7 @@ Nel codice XML seguente viene illustrata una sezione **TransportSettings** basat
 
 Gli SDK di Service Fabric consentono di comunicare con le API di runtime di Service Fabric per sfruttare i vantaggi offerti dalla piattaforma. Quando si esegue un'applicazione che usa questa funzionalità in cluster Linux sicuri, è necessario configurare l'applicazione con un certificato che può usare per la convalida con il runtime di Service Fabric. Questa configurazione è richiesta dalle applicazioni che contengono servizi di Service Fabric Reliable Services scritte tramite .NET Core SDK o Java SDK. 
 
-Per configurare un'applicazione, aggiungere un elemento [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) al tag **Certificates**, che si trova nel tag **ApplicationManifest** nel file *ApplicationManifest.xml*. Il codice XML seguente illustra un certificato a cui viene fatto riferimento dalla relativa identificazione personale: 
+Per configurare un'applicazione, aggiungere un elemento [**SecretsCertificate**](./service-fabric-service-model-schema-elements.md#secretscertificate-element) al tag **Certificates**, che si trova nel tag **ApplicationManifest** nel file *ApplicationManifest.xml*. Il codice XML seguente illustra un certificato a cui viene fatto riferimento dalla relativa identificazione personale: 
 
 ```xml
    <Certificates>
@@ -102,6 +103,3 @@ Per configurare un'applicazione, aggiungere un elemento [**SecretsCertificate**]
 ```
 
 È possibile fare riferimento al certificato del cluster o a un certificato installato in ogni nodo del cluster. In Linux i file del certificato devono trovarsi nella directory */var/lib/sfcerts*. Per altre informazioni, vedere [Percorso e formato dei certificati X.509 nei nodi Linux](#location-and-format-of-x509-certificates-on-linux-nodes).
-
-
-

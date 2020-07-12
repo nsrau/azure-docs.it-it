@@ -7,12 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: afc3132ebdd0f144d16507ef2ccda2dcaffaa34e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 01f30305529e7f142be0ca6ddffa0f5a12a235bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232169"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260021"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Eseguire la migrazione di macchine virtuali VMware alle macchine virtuali di Azure abilitate con la crittografia lato server e le chiavi gestite dal cliente
 
@@ -59,6 +59,10 @@ L'esperienza del portale per la migrazione dei server semplifica la preparazione
 Un oggetto del set di crittografia del disco viene mappato Managed Disks a un Key Vault che contiene il CMK da usare per la crittografia SSE. Per replicare le macchine virtuali con CMK, è necessario creare un set di crittografia del disco e passarlo come input per l'operazione di replica.
 
 Seguire [l'esempio seguente](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) per creare un set di crittografia del disco usando Azure PowerShell. Verificare che il set di crittografia del disco venga creato nella sottoscrizione di destinazione in cui viene eseguita la migrazione delle macchine virtuali e nell'area di Azure di destinazione per la migrazione.
+
+Il set di crittografia del disco può essere configurato per crittografare i dischi gestiti con una chiave gestita dal cliente o per la crittografia doppia con una chiave gestita dal cliente e una chiave della piattaforma. Per usare l'opzione Double Encryption at rest, configurare il set di crittografia del disco come descritto [qui](../virtual-machines/windows/disks-enable-double-encryption-at-rest-powershell.md).
+
+Nell'esempio riportato di seguito il set di crittografia del disco è configurato per l'uso di una chiave gestita dal cliente.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 

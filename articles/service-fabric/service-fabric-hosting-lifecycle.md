@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: da395f020cf3d299211427e740975764653b487d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85802279"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258820"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Ciclo di vita dell'hosting di Azure Service Fabric
 Questo articolo fornisce una panoramica degli eventi che si verificano quando un'applicazione viene attivata in un nodo e in varie configurazioni del cluster usate per controllare il comportamento.
@@ -131,7 +131,7 @@ Configurazioni con impostazioni predefinite che influiscano sull'attivazione/dec
 **ServiceTypeDisableGraceInterval**: valore predefinito di 30 secondi. intervallo di tempo dopo il quale il tipo di servizio può essere disabilitato.
 **ServiceTypeRegistrationTimeout**: valore predefinito 300 sec. Timeout per la registrazione del ServiceType con Service Fabric.
 
-### <a name="activation"></a>Activation
+### <a name="activation"></a>Attivazione
 **ActivationRetryBackoffInterval**: valore predefinito di 10 sec. backoff per ogni errore di attivazione.
 **ActivationMaxFailureCount**: valore predefinito 20. Numero massimo di tentativi di attivazione del sistema non riusciti prima di rinunciare. 
 **ActivationRetryBackoffExponentiationBase**: valore predefinito 1,5.
@@ -159,4 +159,4 @@ Configurazioni con impostazioni predefinite che influiscano sull'attivazione/dec
 [a3]: service-fabric-package-apps.md
 [a4]: service-fabric-deploy-remove-applications.md
 
-[p1]: https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricservicepackagetonode
+[p1]: /powershell/module/servicefabric/copy-servicefabricservicepackagetonode

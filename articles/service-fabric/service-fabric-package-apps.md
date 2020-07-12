@@ -3,11 +3,12 @@ title: Creare un pacchetto di un'app Service Fabric di Azure
 description: Informazioni su come creare un pacchetto di un'applicazione Service Fabric di Azure e su come prepararsi per la distribuzione in un cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c00e46915c7bf147d224911ef4988d9fedd691c7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701048"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260976"
 ---
 # <a name="package-an-application"></a>Inserire un'applicazione in un pacchetto
 
@@ -42,7 +43,7 @@ Le cartelle sono denominate in modo da corrispondere agli attributi **Name** di 
 
 ## <a name="use-setupentrypoint"></a>Usare SetupEntryPoint
 
-Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessario eseguire un file eseguibile prima dell'avvio del servizio o quando è necessario eseguire un'operazione con privilegi elevati. Ad esempio:
+Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessario eseguire un file eseguibile prima dell'avvio del servizio o quando è necessario eseguire un'operazione con privilegi elevati. ad esempio:
 
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
@@ -210,7 +211,7 @@ Con questa opzione, il pacchetto dell'applicazione non deve essere copiato nell'
 `sfpkg` è un file zip con estensione sfpkg che contiene il pacchetto dell'applicazione iniziale.
 All'interno, il pacchetto dell'applicazione può essere compresso o meno. La compressione del pacchetto dell'applicazione all'interno del file zip viene eseguita a livello di codice, configurazione e pacchetto dati, come [illustrato in precedenza](service-fabric-package-apps.md#compress-a-package).
 
-Per creare un file `sfpkg`, iniziare con una cartella contenente il pacchetto dell'applicazione originale, compresso o meno. Usare quindi una qualsiasi utilità per comprimere la cartella con estensione sfpkg, ad esempio [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+Per creare un file `sfpkg`, iniziare con una cartella contenente il pacchetto dell'applicazione originale, compresso o meno. Usare quindi una qualsiasi utilità per comprimere la cartella con estensione sfpkg, ad esempio [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

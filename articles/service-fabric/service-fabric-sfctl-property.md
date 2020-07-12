@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a5ebd4822c5f0ff1735464bb4d5b42c436ee529
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905819"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260330"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Consente di archiviare proprietà ed eseguire query su di esse con i nomi di Service Fabric.
@@ -18,7 +19,7 @@ Consente di archiviare proprietà ed eseguire query su di esse con i nomi di Ser
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminare | Elimina la proprietà di Service Fabric specificata. |
+| eliminazione | Elimina la proprietà di Service Fabric specificata. |
 | get | Ottiene la proprietà di Service Fabric specificata. |
 | list | Ottiene informazioni su tutte le proprietà di Service Fabric con un determinato nome. |
 | put | Crea o aggiorna una proprietà di Service Fabric. |
@@ -28,7 +29,7 @@ Elimina la proprietà di Service Fabric specificata.
 
 Elimina la proprietà di Service Fabric specificata con un determinato nome. Prima di poter essere eliminata, una proprietà deve essere creata.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -51,7 +52,7 @@ Ottiene la proprietà di Service Fabric specificata.
 
 Ottiene la proprietà di Service Fabric specificata con un determinato nome. Questa proprietà restituirà sempre sia il valore che i metadati.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -74,7 +75,7 @@ Ottiene informazioni su tutte le proprietà di Service Fabric con un determinato
 
 Un nome di Service Fabric può avere una o più proprietà denominate che archiviano informazioni personalizzate. Questa operazione ottiene le informazioni su queste proprietà in un elenco di paging. Le informazioni includono nome, valore e metadati di ogni proprietà.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -98,7 +99,7 @@ Crea o aggiorna una proprietà di Service Fabric.
 
 Crea o aggiorna la proprietà di Service Fabric specificata con un determinato nome.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -121,4 +122,4 @@ Crea o aggiorna la proprietà di Service Fabric specificata con un determinato n
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

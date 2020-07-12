@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 007ad6f59f0ce304db579f4faa1bb95611a93a37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05132e4c7e644e681e2e4cfdedaa2b04a066ebeb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906146"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259971"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selezionare, gestire e usare dei cluster di Service Fabric.
@@ -41,7 +42,7 @@ Mostra un elenco di versioni del codice di un'infrastruttura di cui viene effett
 
 Mostra un elenco di informazioni sulle versioni del codice di un'infrastruttura di cui viene effettuato il provisioning nel cluster. Il parametro CodeVersion può essere usato per filtrare facoltativamente l'output solo in tale versione specifica.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -63,7 +64,7 @@ Mostra un elenco di versioni di configurazione di un'infrastruttura di cui viene
 
 Mostra un elenco di informazioni sulle versioni di configurazione di un'infrastruttura di cui viene effettuato il provisioning nel cluster. Il parametro ConfigVersion può essere usato per filtrare facoltativamente l'output solo in tale versione specifica.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -85,7 +86,7 @@ Mostra l'integrità di un cluster di Service Fabric.
 
 Usare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riportati nel cluster in base allo stato di integrità. Analogamente, usare NodesHealthStateFilter e ApplicationsHealthStateFilter per filtrare la raccolta di nodi e applicazioni restituito in base al relativo stato di integrità aggregato.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -111,7 +112,7 @@ Mostra il manifesto del cluster di Service Fabric.
 
 Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster contiene le proprietà del cluster che includono tipi di nodo diversi nel cluster, le configurazioni di sicurezza, gli errori e le topologie di dominio di aggiornamento e così via. Queste proprietà vengono specificate come parte del ClusterConfig.JSsu file durante la distribuzione di un cluster autonomo. Tuttavia, la maggior parte delle informazioni contenute nel manifesto del cluster viene generata internamente da Service Fabric durante la distribuzione del cluster in altri scenari di distribuzione (ad esempio, quando si usa il portale di Azure). Il contenuto del manifesto del cluster è solo a scopo informativo; gli utenti non sono tenuti a usare una dipendenza dal formato del contenuto dei file o dalla loro interpretazione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -132,7 +133,7 @@ Annulla un'operazione di errore indotta dall'utente.
 
 Le API seguenti avviano le operazioni di errore che possono essere annullate usando CancelOperation \: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se force è false, l'operazione specificata indotta dall'utente verrà normalmente arrestata e pulita.  Se force è true, il comando verrà interrotto e parte dello stato interno potrebbe permanere.  L'impostazione di force su true deve essere usata con cautela. La chiamata a questa API con force impostato su true è consentita solo se questa API è già stata chiamata prima sullo stesso comando di test con force impostato su false oppure se il valore di un elemento OperationState del comando di test è già OperationState.RollingBack. Chiarimento\: OperationState.RollingBack indica che il sistema eseguirà/esegue la pulizia dello stato del sistema interno in seguito all'esecuzione del comando.  Non ripristinerà i dati se il comando di test doveva causare la perdita dei dati.  Se ad esempio si chiama StartDataLoss, quindi si chiama questa API, il sistema pulirà lo stato interno solo a partire dall'esecuzione del comando. Non ripristinerà i dati della partizione di destinazione, se il comando è stato eseguito abbastanza a lungo da causare la perdita di dati. Nota importante \: : se questa API viene richiamata con Force = = true, lo stato interno potrebbe essere lasciato indietro.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -155,7 +156,7 @@ Mostra un elenco di operazioni di errore indotte dall'utente filtrato in base al
 
 Mostra l'elenco di operazioni di errore indotte dall'utente filtrato in base all'input specificato.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -178,7 +179,7 @@ Esegue il provisioning dei pacchetti di codici o configurazioni di un cluster di
 
 Esegue la convalida e il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -201,7 +202,7 @@ Indica al cluster di Service Fabric che deve provare a recuperare i servizi di s
 
 Indica al cluster di Service Fabric che deve provare a recuperare i servizi di sistema attualmente bloccati in una perdita di quorum. Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un uso non corretto di questa API può causare una perdita di dati.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -222,7 +223,7 @@ Invia un report di integrità nel cluster di Service Fabric.
 
 Invia un report di stato su un cluster Service Fabric. Il report deve contenere le informazioni relative all'origine del report sull'integrità e alla proprietà in cui viene segnalato. Il report viene inviato a un nodo del gateway di Service Fabric, che lo inoltra all'archivio integrità. Il report può essere accettato dal gateway, ma rifiutato dall'archivio integrità dopo la convalida aggiuntiva. L'archivio integrità, ad esempio, può rifiutare il report a causa di un parametro non valido, come un numero di sequenza non aggiornato. Per verificare se il report è stato applicato nell'archivio integrità, eseguire GetClusterHealth e verificare che il report venga visualizzato nella sezione HealthEvents.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -251,7 +252,7 @@ Si connette a un endpoint di cluster di Service Fabric.
 
 In caso di connessione a un cluster sicuro, specificare un percorso assoluto a un certificato (CRT), un file di chiave (KEY) o un singolo file con entrambi (PEM). Non specificare entrambi. Facoltativamente, in caso di connessione a un cluster sicuro, specificare anche un percorso assoluto a un file di aggregazione CA o a una directory di certificati della CA attendibili.  Non esiste alcuna connessione a un cluster senza eseguire prima questo comando, inclusa una connessione a localhost. Tuttavia, non è necessario alcun endpoint esplicito per la connessione a un cluster locale.  Se si usa un certificato autofirmato o un altro certificato non firmato da un'autorità di certificazione ben nota, passare il parametro--CA per assicurarsi che la convalida venga passata. Se non è presente in un cluster di produzione, per ignorare la convalida lato client (utile per la firma autofirmata o non nota firmata), usare l'opzione--No-Verify. Sebbene sia possibile, non è consigliabile per i cluster di produzione. In caso contrario, può verificarsi un errore di verifica del certificato.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -291,7 +292,7 @@ Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster d
 
 È supportato per annullare il provisioning di codici e configurazioni separatamente.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -314,7 +315,7 @@ Avvia l'aggiornamento della versione codice o configurazione di un cluster di Se
 
 Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della versione del codice o della configurazione di un cluster di Service Fabric se i parametri sono validi.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -354,7 +355,7 @@ Consente all'aggiornamento del cluster di passare al dominio di aggiornamento su
 
 Consente all'aggiornamento del codice o della configurazione del cluster di passare al dominio di aggiornamento successivo, se appropriato.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -376,7 +377,7 @@ Esegue il rollback dell'aggiornamento di un cluster di Service Fabric.
 
 Esegue il rollback dell'aggiornamento di codici o configurazioni di un cluster di Service Fabric.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -397,7 +398,7 @@ Mostra lo stato di avanzamento dell'aggiornamento del cluster corrente.
 
 Mostra lo stato di avanzamento corrente dell'aggiornamento del cluster in corso. Se attualmente non sono in corso aggiornamenti, ottenere lo stato più recente dell'aggiornamento del cluster precedente.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -416,7 +417,7 @@ Mostra lo stato di avanzamento corrente dell'aggiornamento del cluster in corso.
 ## <a name="sfctl-cluster-upgrade-update"></a>sfctl cluster upgrade-update
 Aggiorna i parametri di aggiornamento di un cluster di Service Fabric.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -453,4 +454,4 @@ Aggiorna i parametri di aggiornamento di un cluster di Service Fabric.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

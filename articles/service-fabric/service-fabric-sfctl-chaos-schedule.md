@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 29b365c48e405830e238945f1d94156f477c15b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd911574cd37c18e3043cfc2482bd1fcd5f3857b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906177"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260858"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Ottiene e imposta la pianificazione di chaos.
@@ -26,7 +27,7 @@ Ottiene la pianificazione di Chaos che definisce quando e come eseguire Chaos.
 
 Ottiene la versione della pianificazione di Chaos in uso e la pianificazione di Chaos che definisce quando e come eseguire Chaos.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -47,7 +48,7 @@ Imposta la pianificazione usata da Chaos.
 
 Chaos pianificherà automaticamente le esecuzioni in base alla pianificazione di Chaos. La pianificazione Chaos verrà aggiornata se la versione specificata corrisponde alla versione sul server. Quando si aggiorna la pianificazione Chaos, la versione sul server viene incrementata di 1. La versione sul server eseguirà il ritorno a 0 dopo il raggiungimento di un numero elevato. Se Chaos è in esecuzione quando viene effettuata la chiamata, la chiamata avrà esito negativo.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -68,7 +69,7 @@ Chaos pianificherà automaticamente le esecuzioni in base alla pianificazione di
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Il comando seguente imposta una pianificazione (presumendo che la versione della pianificazione corrente sia 0) che inizia il giorno 2016-01-01 e scade il giorno 2038-01-01 per l'esecuzione di Chaos 24 ore al giorno, sette giorni alla settimana.
 Chaos verrà pianificato nel cluster per tale periodo.
@@ -140,4 +141,4 @@ sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z"
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bfcd6927d4a2e5e0b5314b4fb2aa26c6dc46b8f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eeab433bbbfc9db0f1c5f5546ae80434899a91dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362561"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259220"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool host
 
@@ -36,7 +36,7 @@ Per impostazione predefinita, i file RDP pubblicati contengono le proprietà seg
 
 |Proprietà di RDP | Desktop | RemoteApps |
 |---|---| --- |
-| Modalità multimonitor | Abilitato | N/D |
+| Modalità multimonitor | Abilitato | N/A |
 | Reindirizzamento unità abilitati | Unità, appunti, stampanti, porte COM, dispositivi USB e smart card| Unità, appunti e stampanti |
 | Modalità audio remoto | Riproduci localmente | Riproduci localmente |
 
@@ -80,5 +80,5 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 
 Ora che sono state personalizzate le proprietà RDP per un determinato pool di host, è possibile accedere a un client desktop virtuale di Windows per testarle come parte di una sessione utente. Le prossime due procedure spiegano come connettersi a una sessione usando il client di propria scelta:
 
-- [Connettersi con il client desktop di Windows](../connect-windows-7-and-10.md)
+- [Connettersi con il client desktop di Windows](connect-windows-7-10-2019.md)
 - [Connettersi con il client Web](connect-web-2019.md)

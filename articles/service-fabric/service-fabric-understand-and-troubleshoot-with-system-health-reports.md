@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392574"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260191"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
 I componenti di Azure Service Fabric forniscono report sull'integrità del sistema in tutte le entità del cluster per impostazione predefinita. L' [archivio integrità](service-fabric-health-introduction.md#health-store) crea ed elimina le entità in base ai report di sistema. Le organizza anche in una gerarchia che acquisisce le interazioni delle entità.
@@ -73,17 +74,17 @@ Nel report di avviso per lo stato del nodo di inizializzazione vengono elencati 
 * **Passaggi successivi**: se questo avviso viene visualizzato nel cluster, seguire le istruzioni seguenti per risolvere il problema: per il cluster che esegue Service Fabric versione 6,5 o successiva: per Service Fabric cluster in Azure, dopo che il nodo di inizializzazione diventa inattivo, Service Fabric tenterà di modificarlo automaticamente in un nodo non di inizializzazione. Per eseguire questa operazione, assicurarsi che il numero di nodi non di inizializzazione nel tipo di nodo primario sia maggiore o uguale al numero di nodi di inizializzazione inattivi. Se necessario, aggiungere altri nodi al tipo di nodo primario per ottenere questo risultato.
 A seconda dello stato del cluster, la risoluzione del problema potrebbe richiedere del tempo. Al termine di questa operazione, il report di avviso verrà cancellato automaticamente.
 
-Per Service Fabric cluster autonomo, per cancellare il report di avviso, tutti i nodi di inizializzazione devono diventare integri. A seconda del motivo per cui i nodi di inizializzazione non sono integri, è necessario eseguire diverse azioni: se il nodo di inizializzazione è inattivo, gli utenti devono portare il nodo di inizializzazione; Se il nodo di inizializzazione è stato rimosso o sconosciuto, questo nodo di inizializzazione [deve essere rimosso dal cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+Per Service Fabric cluster autonomo, per cancellare il report di avviso, tutti i nodi di inizializzazione devono diventare integri. A seconda del motivo per cui i nodi di inizializzazione non sono integri, è necessario eseguire diverse azioni: se il nodo di inizializzazione è inattivo, gli utenti devono portare il nodo di inizializzazione; Se il nodo di inizializzazione è stato rimosso o sconosciuto, questo nodo di inizializzazione [deve essere rimosso dal cluster](./service-fabric-cluster-windows-server-add-remove-nodes.md).
 Il report di avviso viene cancellato automaticamente quando tutti i nodi di inizializzazione diventano integri.
 
 Per il cluster che esegue Service Fabric versione precedente alla 6,5: in questo caso, è necessario cancellare manualmente il report di avviso. **Gli utenti devono assicurarsi che tutti i nodi di inizializzazione diventino integri prima di cancellare il report**: se il nodo di inizializzazione è inattivo, gli utenti devono riportare il nodo di inizializzazione. se il nodo di inizializzazione viene rimosso o sconosciuto, il nodo di inizializzazione deve essere rimosso dal cluster.
-Dopo che tutti i nodi di inizializzazione diventano integri, utilizzare il comando seguente da PowerShell per [cancellare il report di avviso](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+Dopo che tutti i nodi di inizializzazione diventano integri, utilizzare il comando seguente da PowerShell per [cancellare il report di avviso](/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
 
 ## Node system health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### Node up/down
 System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
@@ -138,7 +139,7 @@ System.Hosting genera un avviso se le capacità del nodo definite nel manifesto 
 ## <a name="application-system-health-reports"></a>Report sull'integrità del sistema di applicazioni
 System.CM, che rappresenta il servizio Cluster Manager, è l'autorità che gestisce le informazioni su un applicazione.
 
-### <a name="state"></a>State
+### <a name="state"></a>Stato
 System.CM restituisce OK quando l'applicazione viene creata o aggiornata. Informa l'archivio integrità quando l'applicazione viene eliminata, in modo che possa essere rimossa dall'archivio.
 
 * **SourceId**: System.CM
@@ -171,7 +172,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Report sull'integrità del sistema di servizi
 System.FM, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui servizi.
 
-### <a name="state"></a>State
+### <a name="state"></a>Stato
 System.FM restituisce OK quando il servizio viene creato. Elimina l'entità dall'archivio integrità quando il servizio viene eliminato.
 
 * **SourceId**: System.FM
@@ -213,7 +214,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>Report sull'integrità del sistema di partizioni
 System.FM, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sulle partizioni del servizio.
 
-### <a name="state"></a>State
+### <a name="state"></a>Stato
 System.FM restituisce OK quando la partizione viene creata ed è integra. Elimina l'entità dall'archivio integrità quando la partizione viene eliminata.
 
 Se il numero di repliche della partizione è inferiore al minimo, viene segnalata una condizione di errore. Se il numero di repliche della partizione non è inferiore al minimo, ma è al di sotto del numero di repliche di destinazione, viene segnalata una condizione di avviso. Se la partizione è in una condizione di perdita del quorum, System.FM segnala un errore.
@@ -390,7 +391,7 @@ In un caso come quello dell'esempio, sono necessari ulteriori approfondimenti. V
 ## <a name="replica-system-health-reports"></a>Report sull'integrità del sistema di repliche
 **System.RA**, che rappresenta il componente agente di riconfigurazione, è l'autorità per lo stato della replica.
 
-### <a name="state"></a>State
+### <a name="state"></a>Stato
 System.RA restituisce OK quando viene creata la replica.
 
 * **SourceId**: System.RA
@@ -646,7 +647,7 @@ La proprietà e il testo indicano quale API è rimasta bloccata. I passaggi succ
 
 - **IStatefulServiceReplica. ChangeRole (P)**: il caso più comune è che il servizio non ha restituito un'attività da `RunAsync` .
 
-Altre chiamate API che possono rimanere bloccate si trovano nell'interfaccia **IReplicator** . Ad esempio:
+Altre chiamate API che possono rimanere bloccate si trovano nell'interfaccia **IReplicator** . ad esempio:
 
 - **IReplicator.CatchupReplicaSet**: questo avviso indica una di due situazioni. Le repliche attive sono insufficienti. Per appurare se questo è il caso, esaminare lo stato delle repliche nella partizione o il rapporto di stato di System.FM per una riconfigurazione bloccata. oppure le repliche non riconoscono le operazioni. È possibile usare il cmdlet `Get-ServiceFabricDeployedReplicaDetail` di PowerShell per determinare lo stato di tutte le repliche. Il problema è relativo alle repliche il cui valore `LastAppliedReplicationSequenceNumber` è successivo al valore `CommittedSequenceNumber` della replica primaria.
 
@@ -674,7 +675,7 @@ Altre chiamate API che possono rimanere bloccate si trovano nell'interfaccia **I
 * **Proprietà**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo della replica.
 
 ### <a name="slow-naming-operations"></a>Operazioni di Naming lente
-**System.NamingService** segnala lo stato di integrità per la replica primaria quando un'operazione di denominazione richiede più tempo di quanto sia accettabile. Esempi di operazioni di Naming sono [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) e [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Sono disponibili più metodi in FabricClient, ad esempio nell'ambito dei [metodi di gestione dei servizi](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) o dei [metodi di gestione delle proprietà](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+**System.NamingService** segnala lo stato di integrità per la replica primaria quando un'operazione di denominazione richiede più tempo di quanto sia accettabile. Esempi di operazioni di Naming sono [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) e [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Sono disponibili più metodi in FabricClient, ad esempio nell'ambito dei [metodi di gestione dei servizi](/dotnet/api/system.fabric.fabricclient.servicemanagementclient) o dei [metodi di gestione delle proprietà](/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > Il servizio di denominazione abbina i nomi di servizio a una posizione nel cluster. Gli utenti possono usarlo per gestire i nomi e le proprietà dei servizi. È un servizio permanente partizionato di Service Fabric. Una partizione rappresenta l'*authority owner*, contenente i metadati relativi a tutti i nomi e i servizi di Service Fabric. Viene eseguito il mapping dei nomi di Service Fabric a partizioni diverse, denominate *name owner*, e il servizio è quindi estendibile. Per altre informazioni, vedere [Architettura di Service Fabric](service-fabric-architecture.md).
@@ -737,7 +738,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>Report sull'integrità del sistema DeployedApplication
 **System.Hosting** è l'autorità per le entità distribuite.
 
-### <a name="activation"></a>Activation
+### <a name="activation"></a>Attivazione
 System.Hosting restituisce OK quando un'applicazione viene attivata correttamente nel nodo. In caso contrario, restituisce un errore.
 
 * **SourceId**: System.Hosting
@@ -879,4 +880,3 @@ System.Hosting genera un avviso se le capacità del nodo non sono definite nel m
 * [Monitorare e diagnosticare servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 * [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
-

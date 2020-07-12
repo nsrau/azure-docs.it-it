@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214282"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260767"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Espandi un pool di host esistente con nuovi host sessione
 
@@ -75,7 +76,7 @@ Di seguito viene illustrato come ridistribuire il modello di Azure Resource Mana
 
 [Per eseguire il provisioning di un nuovo pool host](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool), seguire le istruzioni in [creare un pool di host usando Azure Marketplace](create-host-pools-azure-marketplace-2019.md) fino a quando non si raggiunge l'offerta di Azure Marketplace. Quando si arriva a questo punto, è necessario immettere le informazioni seguenti per ogni scheda:
 
-### <a name="basics"></a>Nozioni di base
+### <a name="basics"></a>Operazioni di base
 
 Tutti i valori in questa sezione devono corrispondere a quanto specificato al momento della creazione del pool host e delle VM host della sessione, ad eccezione degli *utenti desktop predefiniti*:
 
@@ -129,7 +130,7 @@ Seguire le istruzioni riportate in [eseguire il modello di Azure Resource Manage
 
 Ora che il pool host esistente è stato espanso, è possibile accedere a un client desktop virtuale di Windows per testarli come parte di una sessione utente. È possibile connettersi a una sessione con uno dei client seguenti:
 
-- [Connettersi con il client desktop di Windows](../connect-windows-7-and-10.md)
+- [Connettersi con il client desktop di Windows](connect-windows-7-10-2019.md)
 - [Connettersi con il client Web](connect-web-2019.md)
 - [Connettersi con il client Android](connect-android-2019.md)
 - [Connettersi con il client macOS](connect-macos-2019.md)

@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 9bc7a5405309e35a36b15f44a1b136b899afbb55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f59eb3296c27e64eb6a4644b2f455e3704381f49
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84119328"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260837"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Consente di avviare, arrestare e creare report nel servizio di test chaos.
@@ -32,7 +33,7 @@ Recupera il segmento successivo degli eventi di Chaos in base al token di contin
 
 Per ottenere il segmento successivo degli eventi di Chaos, è possibile specificare ContinuationToken. Per ottenere l'inizio di un nuovo segmento degli eventi di Chaos, è possibile specificare l'intervallo di tempo tramite StartTimeUtc ed EndTimeUtc. Non è possibile specificare sia ContinuationToken che l'intervallo di tempo nella stessa chiamata. Quando sono presenti più di 100 eventi di Chaos, tali eventi vengono restituiti in più segmenti. Un segmento non contiene più di 100 eventi di Chaos e, per ottenere il segmento successivo, si effettua una chiamata a questa API con il token di continuazione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -57,7 +58,7 @@ Ottiene lo stato di Chaos.
 
 Ottiene lo stato di Chaos che indica se Chaos è in esecuzione o meno, i parametri di Chaos usati per l'esecuzione di Chaos e lo stato della pianificazione di Chaos.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -78,7 +79,7 @@ Avvia Chaos nel cluster.
 
 Se Chaos non è già in esecuzione nel cluster, avvia Chaos con i parametri di Chaos passati. Se Chaos è già in esecuzione quando viene effettuata la chiamata, la chiamata ha esito negativo con codice di errore FABRIC_E_CHAOS_ALREADY_RUNNING. Per altri dettagli, vedere l'articolo [indurre Chaos controllato nei cluster Service Fabric](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) .
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -111,7 +112,7 @@ Arresta Chaos se è in esecuzione nel cluster e imposta lo stato della pianifica
 
 Impedisce a Chaos di eseguire nuovi errori. Gli errori in elaborazione continueranno a essere eseguiti fino al completamento. Lo stato della pianificazione di Chaos corrente viene impostato come arrestato. Dopo che una pianificazione è stata arrestata, rimarrà nello stato arrestato e non verrà usata per nuove esecuzioni di Chaos. È necessario impostare una nuova pianificazione di Chaos per riprendere la pianificazione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -130,4 +131,4 @@ Impedisce a Chaos di eseguire nuovi errori. Gli errori in elaborazione continuer
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

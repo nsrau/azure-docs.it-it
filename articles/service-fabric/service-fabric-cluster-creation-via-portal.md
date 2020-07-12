@@ -3,17 +3,17 @@ title: Creare un cluster di Service Fabric nel portale di Azure
 description: Informazioni su come configurare un cluster di Service Fabric protetto in Azure tramite il portale di Azure e Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611153"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259308"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creare un cluster di Service Fabric in Azure tramite il portale di Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
+> * [Portale di Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -121,7 +121,7 @@ Configurare i nodi del cluster. poiché definiscono le dimensioni delle VM, il n
 ### <a name="3-security"></a>3. sicurezza
 ![Screenshot delle configurazioni di sicurezza in portale di Azure.][BasicSecurityConfigs]
 
-Per facilitare l'impostazione di un cluster di test sicuro per l'utente, Microsoft ha fornito l'opzione **Basic**. Se si ha già un certificato caricato nell'[insieme di credenziali delle chiavi](/azure/key-vault/) e tale insieme è abilitato per la distribuzione, usare l'opzione **Personalizzata**.
+Per facilitare l'impostazione di un cluster di test sicuro per l'utente, Microsoft ha fornito l'opzione **Basic**. Se si ha già un certificato caricato nell'[insieme di credenziali delle chiavi](../key-vault/index.yml) e tale insieme è abilitato per la distribuzione, usare l'opzione **Personalizzata**.
 
 #### <a name="basic-option"></a>Opzione di base
 Seguire le schermate per aggiungere o usare di nuovo un insieme di credenziali delle chiavi e aggiungere un certificato. L'aggiunta del certificato è un processo sincrono e pertanto sarà necessario attendere che il certificato venga creato.
@@ -173,7 +173,7 @@ Selezionare la casella **Configura impostazioni avanzate** per l'immissione dei 
 
 Per completare la creazione del cluster fare clic su **Crea**. È possibile, facoltativamente, scaricare il modello.
 
-![Summary]
+![Riepilogo]
 
 È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: Fare clic sull'icona "campanello" accanto alla barra di stato nella parte superiore destra della schermata. Se è stato fatto clic su **Aggiungi a schermata iniziale** durante la creazione del cluster, viene visualizzata la **distribuzione di Service Fabric cluster** aggiunto alla lavagna **iniziale** . Questo processo richiede tempo. 
 
@@ -202,7 +202,7 @@ Ognuno dei tipi di nodo specificati nel cluster determina la configurazione di u
 A questo punto, è stato creato un cluster protetto tramite i certificati per l'autenticazione di gestione. Successivamente, [connettersi al cluster](service-fabric-connect-to-secure-cluster.md) e scoprire come [gestire i segreti delle applicazioni](service-fabric-application-secret-management.md).  Vedere anche [Service Fabric support options](service-fabric-support.md) (Opzioni di supporto di Service Fabric).
 
 <!-- Links -->
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 [azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md

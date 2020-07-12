@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79366746"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258683"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitoraggio delle prestazioni con i log di monitoraggio di Azure
 
@@ -22,7 +23,7 @@ Questo articolo illustra i passaggi necessari per aggiungere l'agente di Log Ana
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Aggiungere l'estensione dell'agente tramite l'interfaccia della riga di comando di Azure
 
-Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite le API del set di scalabilità di macchine virtuali disponibili con l'interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è ancora configurata, passare al portale di Azure e aprire un'istanza [Cloud Shell](../cloud-shell/overview.md) oppure [installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite le API del set di scalabilità di macchine virtuali disponibili con l'interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è ancora configurata, passare al portale di Azure e aprire un'istanza [Cloud Shell](../cloud-shell/overview.md) oppure [installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 1. Dopo aver eseguito la richiesta per Cloud Shell, assicurarsi di usare la stessa sottoscrizione della risorsa. A tale scopo, usare `az account show` e assicurarsi che il valore "name" corrisponda a quello della sottoscrizione del cluster.
 
@@ -72,7 +73,7 @@ Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analyti
 
 3. Fare clic su **Impostazioni avanzate**.
 
-4. Fare clic su **Dati**, quindi fare clic su **Contatori delle prestazioni di Linux o di Windows**. È disponibile un elenco di contatori predefiniti che è possibile scegliere di abilitare ed è anche possibile impostare l'intervallo per la raccolta. È anche possibile aggiungere [altri contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) da raccogliere. Il formato corretto è descritto in questo [articolo](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+4. Fare clic su **Dati**, quindi fare clic su **Contatori delle prestazioni di Linux o di Windows**. È disponibile un elenco di contatori predefiniti che è possibile scegliere di abilitare ed è anche possibile impostare l'intervallo per la raccolta. È anche possibile aggiungere [altri contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) da raccogliere. Il formato corretto è descritto in questo [articolo](/windows/win32/perfctrs/specifying-a-counter-path).
 
 5. Fare clic su **Salva**, quindi su **OK**.
 
@@ -91,5 +92,5 @@ Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analyti
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Raccogliere i [contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) rilevanti. Per configurare l'agente di Log Analytics affinché raccolga contatori di prestazioni specifici, vedere [Configurazione delle origini dati](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configurare i log di monitoraggio di Azure per impostare [avvisi automatici](../log-analytics/log-analytics-alerts.md) per facilitare il rilevamento e la diagnostica
+* Configurare i log di monitoraggio di Azure per impostare [avvisi automatici](../azure-monitor/platform/alerts-overview.md) per facilitare il rilevamento e la diagnostica
 * In alternativa, è possibile raccogliere i contatori delle prestazioni tramite l'[estensione di Diagnostica di Azure e inviarli ad Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)
