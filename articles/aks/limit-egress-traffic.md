@@ -6,18 +6,18 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
 author: palma21
-ms.openlocfilehash: 6aed6c84439e65646c15367cdad3bf13c5573256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d06852e9d3d61b3e3d368a1d1c6f4107aff1442
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831694"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251315"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
 Questo articolo fornisce i dettagli necessari che consentono di proteggere il traffico in uscita dal servizio Azure Kubernetes (AKS). Contiene i requisiti del cluster per una distribuzione di base AKS e requisiti aggiuntivi per le funzionalità e gli addons facoltativi. [Verrà fornito un esempio alla fine di come configurare questi requisiti con il firewall di Azure](#restrict-egress-traffic-using-azure-firewall). Tuttavia, è possibile applicare queste informazioni a qualsiasi dispositivo o metodo di restrizione in uscita.
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Background
 
 I cluster AKS vengono distribuiti in una rete virtuale. Questa rete può essere gestita (creata da AKS) o personalizzata (precedentemente configurata dall'utente). In entrambi i casi, il cluster ha dipendenze in **uscita** da servizi esterni a tale rete virtuale (il servizio non ha dipendenze in ingresso).
 
@@ -239,7 +239,7 @@ Di seguito è riportata un'architettura di esempio della distribuzione:
   * Le richieste provenienti dai nodi agente del servizio Azure Kubernetes seguono una route definita dall'utente che è stata inserita nella subnet in cui è stato distribuito il cluster del servizio Azure Kubernetes.
   * Uscite di Firewall di Azure dalla rete virtuale da un front-end IP pubblico
   * L'accesso alla rete Internet pubblica o ad altri servizi di Azure viene trasmesso da e verso l'indirizzo IP front-end del firewall
-  * Facoltativamente, l'accesso al piano di controllo AKS è protetto da [intervalli IP autorizzati del server API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), che include l'indirizzo IP front-end pubblico del firewall.
+  * Facoltativamente, l'accesso al piano di controllo AKS è protetto da [intervalli IP autorizzati del server API](./api-server-authorized-ip-ranges.md), che include l'indirizzo IP front-end pubblico del firewall.
 * Traffico interno
   * Facoltativamente, invece o in aggiunta a un [Load Balancer pubblico](load-balancer-standard.md) è possibile usare una [Load Balancer interna](internal-lb.md) per il traffico interno, che è possibile isolare anche nella propria subnet.
 
@@ -353,7 +353,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 ```
 
 > [!NOTE]
-> Se si usa l'accesso sicuro al server dell'API AKS con [intervalli di indirizzi IP autorizzati](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), è necessario aggiungere l'IP pubblico del firewall nell'intervallo di indirizzi IP autorizzati.
+> Se si usa l'accesso sicuro al server dell'API AKS con [intervalli di indirizzi IP autorizzati](./api-server-authorized-ip-ranges.md), è necessario aggiungere l'IP pubblico del firewall nell'intervallo di indirizzi IP autorizzati.
 
 ### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Creare una route definita dall'utente con un hop a Firewall di Azure
 
@@ -389,7 +389,7 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aks
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
-Per altre informazioni sul servizio Firewall di Azure, vedere la [documentazione di Firewall di Azure](https://docs.microsoft.com/azure/firewall/overview).
+Per altre informazioni sul servizio Firewall di Azure, vedere la [documentazione di Firewall di Azure](../firewall/overview.md).
 
 ### <a name="associate-the-route-table-to-aks"></a>Associare la tabella di route al servizio Azure Kubernetes
 
@@ -722,7 +722,7 @@ kubectl apply -f example.yaml
 ### <a name="add-a-dnat-rule-to-azure-firewall"></a>Aggiungere una regola DNAT a Firewall di Azure
 
 > [!IMPORTANT]
-> Quando si usa Firewall di Azure per limitare il traffico in uscita e creare una route definita dall'utente (UDR) per forzare tutto il traffico in uscita, assicurarsi di creare una regola DNAT appropriata nel firewall per consentire correttamente il traffico in ingresso. L'uso del servizio Firewall di Azure con una route definita dall'utente interrompe la configurazione in ingresso a causa del routing asimmetrico. Questo problema si verifica se la subnet del servizio Azure Kubernetes ha una route predefinita verso l'indirizzo IP privato del firewall, ma si sta usando un servizio di bilanciamento del carico pubblico in ingresso o del servizio Kubernetes di tipo LoadBalancer. In questo caso, il traffico del servizio di bilanciamento del carico in ingresso viene ricevuto tramite l'indirizzo IP pubblico, ma il percorso di ritorno passa attraverso l'indirizzo IP privato del firewall. Poiché il firewall è con stato, elimina il pacchetto di ritorno perché il firewall non è a conoscenza del fatto che è stata stabilita una sessione. Per informazioni su come integrare Firewall di Azure con il servizio di bilanciamento del carico in ingresso o del servizio, vedere [Integrare Firewall di Azure con Azure Load Balancer Standard](https://docs.microsoft.com/azure/firewall/integrate-lb).
+> Quando si usa Firewall di Azure per limitare il traffico in uscita e creare una route definita dall'utente (UDR) per forzare tutto il traffico in uscita, assicurarsi di creare una regola DNAT appropriata nel firewall per consentire correttamente il traffico in ingresso. L'uso del servizio Firewall di Azure con una route definita dall'utente interrompe la configurazione in ingresso a causa del routing asimmetrico. Questo problema si verifica se la subnet del servizio Azure Kubernetes ha una route predefinita verso l'indirizzo IP privato del firewall, ma si sta usando un servizio di bilanciamento del carico pubblico in ingresso o del servizio Kubernetes di tipo LoadBalancer. In questo caso, il traffico del servizio di bilanciamento del carico in ingresso viene ricevuto tramite l'indirizzo IP pubblico, ma il percorso di ritorno passa attraverso l'indirizzo IP privato del firewall. Poiché il firewall è con stato, elimina il pacchetto di ritorno perché il firewall non è a conoscenza del fatto che è stata stabilita una sessione. Per informazioni su come integrare Firewall di Azure con il servizio di bilanciamento del carico in ingresso o del servizio, vedere [Integrare Firewall di Azure con Azure Load Balancer Standard](../firewall/integrate-lb.md).
 
 
 Per configurare la connettività in ingresso, è necessario scrivere una regola DNAT in Firewall di Azure. Per testare la connettività al cluster, viene definita una regola per l'indirizzo IP pubblico front-end del firewall da indirizzare all'IP interno esposto dal servizio interno.

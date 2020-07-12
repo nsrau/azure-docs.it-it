@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c03c8b385fc287737853c3cabd2e25f365a84578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11f8442f188ea6ce7ee1de5a093362279da4594c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831523"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251164"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un Load Balancer Standard pubblico in Azure Kubernetes Service (AKS)
 
@@ -229,7 +229,7 @@ Per superare in modo sicuro oltre 100 nodi, è necessario aggiungere altri indir
 > [!IMPORTANT]
 > È necessario [calcolare la quota necessaria e verificare i requisiti][requirements] prima di personalizzare *allocatedOutboundPorts* per evitare problemi di connettività o di ridimensionamento.
 
-È anche possibile usare i **`load-balancer-outbound-ports`** parametri durante la creazione di un cluster, ma è anche necessario specificare **`load-balancer-managed-outbound-ip-count`** , **`load-balancer-outbound-ips`** o **`load-balancer-outbound-ip-prefixes`** .  Ad esempio:
+È anche possibile usare i **`load-balancer-outbound-ports`** parametri durante la creazione di un cluster, ma è anche necessario specificare **`load-balancer-managed-outbound-ip-count`** , **`load-balancer-outbound-ips`** o **`load-balancer-outbound-ip-prefixes`** .  ad esempio:
 
 ```azurecli-interactive
 az aks create \
@@ -297,7 +297,7 @@ spec:
 
 Di seguito è riportato un elenco di annotazioni supportate per i servizi Kubernetes con tipo `LoadBalancer` . queste annotazioni si applicano solo ai flussi in **ingresso** :
 
-| Annotazione | valore | Descrizione
+| Annotazione | Valore | Descrizione
 | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` o `false`                     | Consente di specificare se il servizio di bilanciamento del carico deve essere interno. Il valore predefinito è Public se non impostato.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Nome della subnet                    | Specificare la subnet a cui deve essere associato il servizio di bilanciamento del carico interno. Il valore predefinito è la subnet configurata nel file di configurazione cloud se non è impostata.
@@ -393,10 +393,10 @@ Per altre informazioni sull'uso di Load Balancer interni per il traffico in ingr
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/skus.md
-[azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
+[azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-connections.md#outboundrules
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md
 [azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports
-[azure-lb-outbound-rules-overview]: ../load-balancer/load-balancer-outbound-rules-overview.md
+[azure-lb-outbound-rules-overview]: ../load-balancer/load-balancer-outbound-connections.md#outboundrules
 [install-azure-cli]: /cli/azure/install-azure-cli
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md

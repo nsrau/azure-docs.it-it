@@ -3,12 +3,12 @@ title: Usare l'identità gestita con un'applicazione
 description: Come usare le identità gestite in Azure Service Fabric il codice dell'applicazione per accedere ai servizi di Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461566"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253644"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Come sfruttare un'identità gestita dell'applicazione Service Fabric per accedere ai servizi di Azure
 
@@ -371,7 +371,7 @@ I limiti di limitazione si applicano al numero di chiamate effettuate al sottosi
 | 5 | Attendere 16 secondi e riprovare |
 
 ## <a name="resource-ids-for-azure-services"></a>ID di risorsa per i servizi di Azure
-Vedere i [servizi di Azure che supportano l'autenticazione Azure ad](../active-directory/managed-identities-azure-resources/services-support-msi.md) per un elenco di risorse che supportano Azure ad e i rispettivi ID di risorsa.
+Vedere i [servizi di Azure che supportano l'autenticazione Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) per un elenco di risorse che supportano Azure ad e i rispettivi ID di risorsa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire un'applicazione Service Fabric di Azure con un'identità gestita assegnata dal sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)

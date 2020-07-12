@@ -2,14 +2,15 @@
 title: Trigger e associazioni in Funzioni di Azure
 description: Informazioni su come usare trigger e associazioni per connettere la funzione di Azure agli eventi online e ai servizi basati sul cloud.
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687651"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252692"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -27,10 +28,10 @@ Si considerino gli esempi seguenti di come implementare funzioni diverse.
 
 | Scenario di esempio | Trigger | Binding di input | Binding di output |
 |-------------|---------|---------------|----------------|
-| Arriva un nuovo messaggio di coda che esegue una funzione per scrivere in un'altra coda. | Coda<sup>*</sup> | *Nessuno* | Coda<sup>*</sup> |
+| Arriva un nuovo messaggio di coda che esegue una funzione per scrivere in un'altra coda. | Coda<sup>*</sup> | *Nessuna* | Coda<sup>*</sup> |
 |Un processo pianificato legge il contenuto dell'archiviazione BLOB e crea un nuovo documento Cosmos DB. | Timer | Archiviazione BLOB | Cosmos DB |
 |La griglia di eventi viene usata per leggere un'immagine dall'archiviazione BLOB e un documento da Cosmos DB per inviare un messaggio di posta elettronica. | Griglia di eventi | Archiviazione BLOB e Cosmos DB | SendGrid |
-| Un webhook che usa Microsoft Graph per aggiornare un foglio di Excel. | HTTP | *Nessuno* | Microsoft Graph |
+| Un webhook che usa Microsoft Graph per aggiornare un foglio di Excel. | HTTP | *Nessuna* | Microsoft Graph |
 
 <sup>\*</sup>Rappresenta le code diverse
 

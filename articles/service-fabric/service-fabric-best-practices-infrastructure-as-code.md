@@ -5,13 +5,14 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551829"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253678"
 ---
-# <a name="infrastructure-as-code"></a>Infrastructure as code
+# <a name="infrastructure-as-code"></a>Infrastruttura come codice
 
 In uno scenario di produzione, creare i cluster Azure Service Fabric usando i modelli di Resource Manager. I modelli di Resource Manager offrono un maggiore controllo delle proprietà delle risorse e assicurano di avere a disposizione un modello di risorse coerente.
 
@@ -43,7 +44,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## <a name="azure-service-fabric-resources"></a>Risorse di Azure Service Fabric
 
-È possibile distribuire applicazioni e servizi in un cluster di Service Fabric tramite Azure Resource Manager. Per altri dettagli, vedere [Gestire applicazioni e servizi come risorse di Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource). Il codice seguente include le risorse specifiche dell'applicazione Service Fabric consigliate da includere nelle risorse dei modelli di Resource Manager.
+È possibile distribuire applicazioni e servizi in un cluster di Service Fabric tramite Azure Resource Manager. Per altri dettagli, vedere [Gestire applicazioni e servizi come risorse di Azure Resource Manager](./service-fabric-application-arm-resource.md). Il codice seguente include le risorse specifiche dell'applicazione Service Fabric consigliate da includere nelle risorse dei modelli di Resource Manager.
 
 ```json
 {
@@ -72,7 +73,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 }
 ```
 
-Per distribuire l'applicazione usando Azure Resource Manager, è prima di tutto necessario [creare un pacchetto dell'applicazione Service Fabric con estensione sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg). Lo script Python seguente è un esempio di come creare un pacchetto sfpkg:
+Per distribuire l'applicazione usando Azure Resource Manager, è prima di tutto necessario [creare un pacchetto dell'applicazione Service Fabric con estensione sfpkg](./service-fabric-package-apps.md#create-an-sfpkg). Lo script Python seguente è un esempio di come creare un pacchetto sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
@@ -90,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configurazione dell'aggiornamento automatico del sistema operativo della macchina virtuale di Azure 
-L'aggiornamento delle macchine virtuali è un'operazione avviata dall'utente ed è consigliabile usare l' [aggiornamento automatico del sistema operativo del set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) per i cluster di Azure Service Fabric host gestione delle patch; Patch Orchestration Application è una soluzione alternativa destinata a quando ospitata all'esterno di Azure, sebbene il POA possa essere usato in Azure, con un sovraccarico del POA di hosting in Azure, un motivo comune per preferire l'aggiornamento automatico del sistema operativo della macchina virtuale su POA. Di seguito è riportato il set di scalabilità di macchine virtuali di calcolo Gestione risorse le proprietà del modello per abilitare l'aggiornamento automatico del sistema operativo:
+L'aggiornamento delle macchine virtuali è un'operazione avviata dall'utente ed è consigliabile usare l' [aggiornamento automatico del sistema operativo del set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) per i cluster di Azure Service Fabric host gestione delle patch; Patch Orchestration Application è una soluzione alternativa destinata a quando ospitata all'esterno di Azure, sebbene il POA possa essere usato in Azure, con un sovraccarico del POA di hosting in Azure, un motivo comune per preferire l'aggiornamento automatico del sistema operativo della macchina virtuale su POA. Di seguito è riportato il set di scalabilità di macchine virtuali di calcolo Gestione risorse le proprietà del modello per abilitare l'aggiornamento automatico del sistema operativo:
 
 ```json
 "upgradePolicy": {

@@ -15,16 +15,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ace0ef2660a44af41d8942cfe4d225bc1a03228e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75442534"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254589"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorare le API con Gestione API di Azure, Hub eventi e Moesif
 Il [servizio Gestione API](api-management-key-concepts.md) offre molte capacità per migliorare l'elaborazione di richieste HTTP inviate all'API HTTP. L'esistenza di richieste e risposte è tuttavia temporanea. La richiesta viene effettuata e passa attraverso al servizio Gestione API fino all'API back-end. L'API elabora la richiesta e una risposta viene restituita al consumer dell'API. Il servizio Gestione API mantiene alcune statistiche importanti sulle API da visualizzare nel dashboard del portale di Azure, ma eventuali altri dettagli verranno eliminati.
 
-L'uso del criterio log-to-eventhub nel servizio Gestione API consente di inviare eventuali dettagli dalla richiesta e dalla risposta a un [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md). È possibile che si voglia generare eventi dai messaggi HTTP inviati alle API per diversi motivi, ad esempio per ottenere audit trail di aggiornamenti, analisi di utilizzo, avvisi relativi alle eccezioni e integrazioni di terze parti.
+L'uso del criterio log-to-eventhub nel servizio Gestione API consente di inviare eventuali dettagli dalla richiesta e dalla risposta a un [Hub eventi di Azure](../event-hubs/event-hubs-about.md). È possibile che si voglia generare eventi dai messaggi HTTP inviati alle API per diversi motivi, ad esempio per ottenere audit trail di aggiornamenti, analisi di utilizzo, avvisi relativi alle eccezioni e integrazioni di terze parti.
 
 Questo articolo illustra come acquisire l'intero messaggio di richiesta e risposta HTTP, inviarlo a un hub eventi e quindi inoltrare il messaggio a un servizio d terze parti che fornisce servizi di registrazione HTTP e monitoraggio.
 
@@ -47,7 +48,7 @@ Un hub eventi accetta i dati evento sotto forma di semplice stringa. I contenuti
 
 Un'opzione alternativa consiste nell'usare il tipo di dati multimediali `application/http` , come illustrato nella specifica HTTP [RFC 7230](https://tools.ietf.org/html/rfc7230). Questo tipo di dati multimediali usa esattamente lo stesso formato adottato per inviare effettivamente i messaggi HTTP in rete, ma l'intero messaggio può essere inserito nel corpo di un'altra richiesta HTTP. In questo caso il corpo verrà usato come messaggio da inviare all'Hub eventi. Il parser disponibile nelle librerie [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) può essere usato per analizzare questo formato e convertirlo negli oggetti `HttpRequestMessage` e `HttpResponseMessage` nativi.
 
-Per potere creare questo messaggio, è necessario sfruttare le [espressioni di criteri](/azure/api-management/api-management-policy-expressions) basate su C# disponibili in Gestione API di Azure. Ecco il criterio che invia un messaggio di richiesta HTTP all'Hub eventi di Azure.
+Per potere creare questo messaggio, è necessario sfruttare le [espressioni di criteri](./api-management-policy-expressions.md) basate su C# disponibili in Gestione API di Azure. Ecco il criterio che invia un messaggio di richiesta HTTP all'Hub eventi di Azure.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -296,7 +297,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 `MoesifHttpMessageProcessor` si avvale di una [libreria di API C# per Moesif](https://www.moesif.com/docs/api?csharp#events) che facilita il push di dati di eventi HTTP nel proprio servizio. Per inviare i dati HTTP all'API dell'agente di raccolta Moesif, sono necessari un account e un ID applicazione. Per ottenere un ID applicazione Moesif, creare un account nel [sito Web di Moesif](https://www.moesif.com) e quindi passare all'installazione dell'app del _menu in alto a destra_  ->  _App Setup_.
 
 ## <a name="complete-sample"></a>Esempio completo
-Il [codice sorgente](https://github.com/dgilling/ApimEventProcessor) e i test per l'esempio sono disponibili su GitHub. Per eseguire l'esempio, è necessario disporre di un [servizio Gestione API](get-started-create-service-instance.md), [un hub eventi connesso](api-management-howto-log-event-hubs.md) e un [account di archiviazione](../storage/common/storage-create-storage-account.md).   
+Il [codice sorgente](https://github.com/dgilling/ApimEventProcessor) e i test per l'esempio sono disponibili su GitHub. Per eseguire l'esempio, è necessario disporre di un [servizio Gestione API](get-started-create-service-instance.md), [un hub eventi connesso](api-management-howto-log-event-hubs.md) e un [account di archiviazione](../storage/common/storage-account-create.md).   
 
 L'esempio è costituito da una semplice applicazione console che rimane in attesa di eventi provenienti dall'Hub eventi, quindi li converte in oggetti Moesif `EventRequestModel` e `EventResponseModel` e li inoltra all'API di raccolta Moesif.
 
@@ -304,15 +305,15 @@ L'immagine animata seguente illustra l'invio di una richiesta a un'API nel porta
 
 ![Illustrazione dell'inoltro di una richiesta a Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffico HTTP verso e dalle API. Hub eventi di Azure è una soluzione a scalabilità elevata e costi ridotti per l'acquisizione e l'inserimento del traffico in sistemi di elaborazione secondari per operazioni di registrazione e monitoraggio e per altre analisi avanzate. Per connettersi a sistemi di monitoraggio del traffico di terze parti come Moesif basta scrivere qualche decina di righe di codice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sull'Hub eventi di Azure
   * [Introduzione all'Hub eventi](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [Ricevere messaggi con EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+  * [Ricevere messaggi con EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md)
 * Altre informazioni sull'integrazione di Gestione API e Hub eventi
   * [Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure](api-management-howto-log-event-hubs.md)
-  * [Informazioni di riferimento per l'entità logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [Informazioni di riferimento per i criteri log-to-event](/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [Informazioni di riferimento per l'entità logger](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
+  * [Informazioni di riferimento per i criteri log-to-event](./api-management-advanced-policies.md#log-to-eventhub)

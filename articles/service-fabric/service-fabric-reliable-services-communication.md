@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0899e33e875fea4a1708e593876b7ef771004677
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75462946"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253185"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Come usare le API di comunicazione di Reliable Services
 Azure Service Fabric è una piattaforma completamente indipendente dalle comunicazioni tra servizi. Sono accettabili tutti i protocolli e gli stack, da UDP a HTTP. Dipende dallo sviluppatore del servizio scegliere la modalità di comunicazione tra servizi. Il framework applicazione di Reliable Services offre gli stack di comunicazione predefiniti nonché le API che è possibile usare per creare componenti di comunicazione personalizzati.
@@ -187,7 +188,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric fornisce le API che consentono ai client e ad altri servizi di richiedere questo indirizzo in base al nome del servizio. Questo aspetto è importante perché l'indirizzo del servizio non è statico. I servizi vengono spostati nel cluster ai fini del bilanciamento del carico e della disponibilità delle risorse. Questo meccanismo consente ai client di risolvere l'indirizzo di ascolto per un servizio.
 
 > [!NOTE]
-> Per una procedura dettagliata completa di come scrivere un listener di comunicazione, vedere [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md) (Servizi API Web di Service Fabric con self-hosting OWIN) per C#, mentre per Java è possibile scrivere la propria implementazione di server HTTP, vedere l'esempio di applicazione EchoServer all'indirizzo https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> Per una procedura dettagliata completa di come scrivere un listener di comunicazione, vedere [Service Fabric Web API services with OWIN self-hosting](./service-fabric-reliable-services-communication-aspnetcore.md) (Servizi API Web di Service Fabric con self-hosting OWIN) per C#, mentre per Java è possibile scrivere la propria implementazione di server HTTP, vedere l'esempio di applicazione EchoServer all'indirizzo https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
@@ -206,7 +207,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Per connettersi ai servizi in un cluster diverso, è possibile creare un oggetto ServicePartitionResolver con un set di endpoint del gateway del cluster. Si noti che gli endpoint del gateway sono solo endpoint diversi per la connessione allo stesso cluster. Ad esempio:
+Per connettersi ai servizi in un cluster diverso, è possibile creare un oggetto ServicePartitionResolver con un set di endpoint del gateway del cluster. Si noti che gli endpoint del gateway sono solo endpoint diversi per la connessione allo stesso cluster. ad esempio:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");

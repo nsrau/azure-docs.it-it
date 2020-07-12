@@ -9,11 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82854101"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254283"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Distribuire un gateway self-hosted in Kubernetes
 
@@ -64,7 +65,7 @@ Questo articolo descrive i passaggi per la distribuzione del componente gateway 
 ### <a name="access-token"></a>Token di accesso
 Senza un token di accesso valido, un gateway self-hosted non può accedere ai dati di configurazione e scaricarli dall'endpoint del servizio gestione API associato. Il token di accesso può essere valido per un massimo di 30 giorni. Deve essere rigenerata e il cluster configurato con un token aggiornato, manualmente o tramite automazione, prima della scadenza. 
 
-Quando si automatizza l'aggiornamento del token, usare [questa operazione dell'API di gestione](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway/generatetoken) per generare un nuovo token. Per informazioni sulla gestione dei segreti Kubernetes, vedere il [sito Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
+Quando si automatizza l'aggiornamento del token, usare [questa operazione dell'API di gestione](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) per generare un nuovo token. Per informazioni sulla gestione dei segreti Kubernetes, vedere il [sito Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ### <a name="namespace"></a>Spazio dei nomi
 Gli [spazi dei nomi](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) Kubernetes consentono di dividere un singolo cluster tra più team, progetti o applicazioni. Gli spazi dei nomi forniscono un ambito per le risorse e i nomi. Possono essere associati a criteri di quota di risorse e di controllo di accesso.

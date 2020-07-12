@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259137"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254745"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Come integrare Gestione API di Azure con Azure Application Insights
 
@@ -50,7 +51,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
     ![Logger di Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> A parte, viene creata un'entità [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) nell'istanza di gestione API, contenente la chiave di strumentazione dell'istanza di Application Insights.
+> A parte, viene creata un'entità [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) nell'istanza di gestione API, contenente la chiave di strumentazione dell'istanza di Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Abilitare la registrazione di Application Insights per l'API
 
@@ -69,12 +70,12 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 > Sovrascrivere il valore predefinito **0** nei **primi byte del campo corpo** potrebbe ridurre in modo significativo le prestazioni delle API.
 
 > [!NOTE]
-> A parte viene creata un'entità [Diagnostica](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) denominata "applicationinsights" a livello di API.
+> A parte viene creata un'entità [Diagnostica](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) denominata "applicationinsights" a livello di API.
 
 | Nome impostazione                        | Tipo di valore                        | Descrizione                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Abilitare                              | boolean                           | Specifica se la registrazione di questa API è abilitata.                                                                                                                                                                                                                                                                                                |
-| Destination                         | Logger di Azure Application Insights | Specifica il logger di Azure Application Insights da usare                                                                                                                                                                                                                                                                                           |
+| Abilita                              | boolean                           | Specifica se la registrazione di questa API è abilitata.                                                                                                                                                                                                                                                                                                |
+| Destinazione                         | Logger di Azure Application Insights | Specifica il logger di Azure Application Insights da usare                                                                                                                                                                                                                                                                                           |
 | Sampling (%) (Campionamento - %)                        | decimal                           | Valori compresi tra 0 e 100 (percentuale). <br/> Specifica la percentuale di richieste che verranno registrate in Azure Application Insights. Un campionamento pari allo 0% indica che verranno registrate zero richieste, mentre un campionamento del 100% indica che verranno registrate tutte le richieste. <br/> Questa impostazione viene usata per ridurre l'impatto sulle prestazioni dovuto alla registrazione delle richieste in Azure Application Insights (vedere la sezione seguente). |
 | Always log errors (Registra sempre gli errori)                   | boolean                           | Se questa impostazione viene selezionata, tutti gli errori verranno registrati in Azure Application Insights, indipendentemente dall'impostazione di **campionamento**.                                                                                                                                                                                                                  |
 | Opzioni di base: Intestazioni              | list                              | Specifica le intestazioni che verranno registrate in Azure Application Insights per le richieste e risposte.  Impostazione predefinita: non vengono registrate intestazioni.                                                                                                                                                                                                             |
@@ -125,5 +126,5 @@ Evitando di registrare le intestazioni e il corpo di richieste e risposte, si ri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ Altre informazioni su [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
++ Altre informazioni su [Azure Application Insights](/azure/application-insights/).
 + Considerare la possibilità di eseguire la [registrazione con Hub eventi di Azure](api-management-howto-log-event-hubs.md).

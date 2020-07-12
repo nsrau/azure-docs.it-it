@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183ece0d82431a8a961902d75d2fc24b013bc97b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076573"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252267"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Comprendere la continuità aziendale nel database di Azure per MariaDB
 
@@ -23,7 +23,7 @@ Database di Azure per MariaDB offre funzionalità di continuità aziendale che i
 
 La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità disponibili:
 
-| **Funzionalità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
+| **Funzionalità** | **Basic** | **Utilizzo generico** | **Ottimizzato per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
 | Ripristino geografico dai backup con replica geografica | Non supportato | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
@@ -51,6 +51,10 @@ La seconda opzione consiste nell'usare la funzionalità di ripristino geografico
 ## <a name="cross-region-read-replicas"></a>Repliche Read tra aree
 
 È possibile usare le repliche di lettura tra aree per migliorare la continuità aziendale e la pianificazione del ripristino di emergenza. Le repliche di lettura vengono aggiornate in modo asincrono utilizzando la tecnologia di replica dei log binari di MariaDB. Altre informazioni sulle repliche di lettura, le aree disponibili e su come eseguire il failover dall' [articolo leggere i concetti relativi alle repliche](concepts-read-replicas.md). 
+
+## <a name="faq"></a>Domande frequenti
+### <a name="where-does-azure-database-for-mariadb-store-customer-data"></a>Dove il database di Azure per MariaDB archivia i dati dei clienti?
+Per impostazione predefinita, il database di Azure per MariaDB non sposta o archivia i dati del cliente all'esterno dell'area in cui viene distribuito. Tuttavia, i clienti possono scegliere di abilitare i [backup con ridondanza geografica](concepts-backup.md#backup-redundancy-options) o creare una [replica di lettura tra aree](concepts-read-replicas.md#cross-region-replication) per archiviare i dati in un'altra area.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,12 +4,12 @@ description: Informazioni su come creare e gestire pool di nodi multipli per un 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 64eaa3fd38a9f3de7e2032ef7ff7a18924353a1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c35b3cdbde79a771eccc42c7c3a60b0ab4e08e8a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318437"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250856"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ Quando si creano e si gestiscono cluster del servizio Azure Kubernetes che suppo
 * Tutti i pool di nodi devono trovarsi nella stessa rete virtuale.
 * Quando si creano più pool di nodi in fase di creazione del cluster, tutte le versioni di Kubernetes utilizzate dai pool di nodi devono corrispondere al set di versioni per il piano di controllo. Questa operazione può essere aggiornata dopo il provisioning del cluster tramite operazioni del pool per nodo.
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
+## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Kubernetes
 
 > [!Important]
 > Se si esegue un singolo pool di nodi di sistema per il cluster AKS in un ambiente di produzione, è consigliabile usare almeno tre nodi per il pool di nodi.
@@ -844,7 +844,7 @@ Usare i [gruppi di posizionamento di prossimità][reduce-latency-ppg] per ridurr
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [quotas-skus-regions]: quotas-skus-regions.md
 [supported-versions]: supported-kubernetes-versions.md
-[tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
+[tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md

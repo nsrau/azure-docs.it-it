@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 0d432bd19d0689ef508fca0bf24eed4406929f82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8866714ca1736b3ba785b560cb5a7aea451fdf1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639633"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253338"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core in Azure Service Fabric Reliable Services
 
@@ -19,7 +20,7 @@ Questo articolo è una guida dettagliata per l'hosting di servizi ASP.NET Core i
 
 Per un'esercitazione introduttiva su ASP.NET Core in Service Fabric e istruzioni su come configurare l'ambiente di sviluppo, vedere [esercitazione: creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato](service-fabric-tutorial-create-dotnet-app.md).
 
-Il resto di questo articolo presuppone che si abbia già familiarità con ASP.NET Core. In caso contrario, leggere l' [ASP.NET Core nozioni fondamentali](https://docs.microsoft.com/aspnet/core/fundamentals/index).
+Il resto di questo articolo presuppone che si abbia già familiarità con ASP.NET Core. In caso contrario, leggere l' [ASP.NET Core nozioni fondamentali](/aspnet/core/fundamentals/index).
 
 ## <a name="aspnet-core-in-the-service-fabric-environment"></a>ASP.NET Core nell'ambiente Service Fabric
 
@@ -93,7 +94,7 @@ In questo modo, entrambe `ICommunicationListener` le implementazioni di gheppio 
 ## <a name="httpsys-in-reliable-services"></a>HTTP.sys in Reliable Services
 È possibile usare HTTP.sys in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. HttpSys** . Questo pacchetto contiene `HttpSysCommunicationListener` , un'implementazione di `ICommunicationListener` . `HttpSysCommunicationListener`consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando HTTP.sys come server Web.
 
-HTTP.sys si basa sull' [API server http di Windows](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). Questa API usa il driver del kernel **HTTP.sys** per elaborare le richieste HTTP e instradarle ai processi che eseguono applicazioni Web. Questo consente a più processi nella stessa macchina virtuale o fisica di ospitare applicazioni Web sulla stessa porta, ambiguità in base a un percorso URL univoco o a un nome host. Queste funzionalità sono utili in Service Fabric per ospitare più siti Web nello stesso cluster.
+HTTP.sys si basa sull' [API server http di Windows](/windows/win32/http/http-api-start-page). Questa API usa il driver del kernel **HTTP.sys** per elaborare le richieste HTTP e instradarle ai processi che eseguono applicazioni Web. Questo consente a più processi nella stessa macchina virtuale o fisica di ospitare applicazioni Web sulla stessa porta, ambiguità in base a un percorso URL univoco o a un nome host. Queste funzionalità sono utili in Service Fabric per ospitare più siti Web nello stesso cluster.
 
 >[!NOTE]
 >HTTP.sys implementazione funziona solo sulla piattaforma Windows.
@@ -132,9 +133,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="endpoint-configuration"></a>Configurazione dell'endpoint
 
-`Endpoint`È necessaria una configurazione per i server Web che usano l'API server http di Windows, tra cui HTTP.sys. I server Web che usano l'API del server HTTP di Windows devono innanzitutto riservare il proprio URL con HTTP.sys (questa operazione viene in genere eseguita con lo strumento [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) ). 
+`Endpoint`È necessaria una configurazione per i server Web che usano l'API server http di Windows, tra cui HTTP.sys. I server Web che usano l'API del server HTTP di Windows devono innanzitutto riservare il proprio URL con HTTP.sys (questa operazione viene in genere eseguita con lo strumento [netsh](/windows/win32/http/netsh-commands-for-http) ). 
 
-Questa azione richiede privilegi elevati che i servizi non hanno per impostazione predefinita. Le opzioni "http" o "https" per la `Protocol` proprietà della `Endpoint` configurazione in ServiceManifest.xml vengono usate in modo specifico per indicare al Runtime Service fabric di registrare un URL con HTTP.sys per conto dell'utente. A tale scopo, viene utilizzato il prefisso URL con [*carattere jolly*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) complesso.
+Questa azione richiede privilegi elevati che i servizi non hanno per impostazione predefinita. Le opzioni "http" o "https" per la `Protocol` proprietà della `Endpoint` configurazione in ServiceManifest.xml vengono usate in modo specifico per indicare al Runtime Service fabric di registrare un URL con HTTP.sys per conto dell'utente. A tale scopo, viene utilizzato il prefisso URL con [*carattere jolly*](/windows/win32/http/urlprefix-strings) complesso.
 
 Ad esempio, per riservare `http://+:80` un servizio, usare la configurazione seguente in ServiceManifest.xml:
 
@@ -190,7 +191,7 @@ Una porta dinamica allocata da una `Endpoint` configurazione fornisce solo una p
 ## <a name="kestrel-in-reliable-services"></a>Kestrel in Reliable Services
 È possibile usare gheppio in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. gheppio** . Questo pacchetto contiene `KestrelCommunicationListener` , un'implementazione di `ICommunicationListener` . `KestrelCommunicationListener`consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando gheppio come server Web.
 
-Kestrel è un server Web per ASP.NET Core multipiattaforma. A differenza di HTTP.sys, gheppio non usa una gestione endpoint centralizzata. Inoltre, a differenza HTTP.sys, gheppio non supporta la condivisione delle porte tra più processi. Ogni istanza di Kestrel deve usare una porta univoca. Per altre informazioni su gheppio, vedere i [Dettagli di implementazione](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
+Kestrel è un server Web per ASP.NET Core multipiattaforma. A differenza di HTTP.sys, gheppio non usa una gestione endpoint centralizzata. Inoltre, a differenza HTTP.sys, gheppio non supporta la condivisione delle porte tra più processi. Ogni istanza di Kestrel deve usare una porta univoca. Per altre informazioni su gheppio, vedere i [Dettagli di implementazione](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
 
 ![Diagramma gheppio][4]
 
@@ -334,7 +335,7 @@ Per HTTPS, deve avere l'endpoint configurato con il protocollo HTTPS senza una p
 
 
 ## <a name="service-fabric-configuration-provider"></a>Provider di configurazione Service Fabric
-La configurazione dell'app in ASP.NET Core si basa sulle coppie chiave-valore stabilite dal provider di configurazione. Per ulteriori informazioni sul supporto della configurazione ASP.NET Core generale, vedere la pagina relativa alla [configurazione ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) .
+La configurazione dell'app in ASP.NET Core si basa sulle coppie chiave-valore stabilite dal provider di configurazione. Per ulteriori informazioni sul supporto della configurazione ASP.NET Core generale, vedere la pagina relativa alla [configurazione ASP.NET Core](/aspnet/core/fundamentals/configuration/) .
 
 Questa sezione descrive il modo in cui il provider di configurazione Service Fabric si integra con la configurazione ASP.NET Core importando il `Microsoft.ServiceFabric.AspNetCore.Configuration` pacchetto NuGet.
 
@@ -447,7 +448,7 @@ public Startup()
 ```
 
 ### <a name="configuration-updates"></a>Aggiornamenti della configurazione
-Il provider di configurazione Service Fabric supporta anche gli aggiornamenti della configurazione. È possibile usare ASP.NET Core `IOptionsMonitor` per ricevere le notifiche di modifica e quindi usare `IOptionsSnapshot` per ricaricare i dati di configurazione. Per ulteriori informazioni, vedere [opzioni ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+Il provider di configurazione Service Fabric supporta anche gli aggiornamenti della configurazione. È possibile usare ASP.NET Core `IOptionsMonitor` per ricevere le notifiche di modifica e quindi usare `IOptionsSnapshot` per ricaricare i dati di configurazione. Per ulteriori informazioni, vedere [opzioni ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
 Queste opzioni sono supportate per impostazione predefinita. Per abilitare gli aggiornamenti della configurazione non è necessaria alcuna ulteriore codifica.
 
@@ -473,7 +474,7 @@ Se esposti a Internet, un servizio senza stato deve usare un endpoint noto e sta
 | --- | --- | --- |
 | Server Web | Kestrel | Gheppio è il server Web preferito perché è supportato in Windows e Linux. |
 | Configurazione delle porte | static | È necessario configurare una porta statica nota nella configurazione `Endpoints` di ServiceManifest.xml, ad esempio 80 per HTTP o 443 per HTTPS. |
-| ServiceFabricIntegrationOptions | nessuno | Usare l' `ServiceFabricIntegrationOptions.None` opzione quando si configura Service Fabric middleware di integrazione, in modo che il servizio non tenti di convalidare le richieste in ingresso per un identificatore univoco. Gli utenti esterni dell'applicazione non saranno in grado di riconoscere le informazioni di identificazione univoche utilizzate dal middleware. |
+| ServiceFabricIntegrationOptions | Nessuno | Usare l' `ServiceFabricIntegrationOptions.None` opzione quando si configura Service Fabric middleware di integrazione, in modo che il servizio non tenti di convalidare le richieste in ingresso per un identificatore univoco. Gli utenti esterni dell'applicazione non saranno in grado di riconoscere le informazioni di identificazione univoche utilizzate dal middleware. |
 | Conteggio istanze | -1 | Nei casi d'uso tipici, l'impostazione del numero di istanze deve essere impostata su *-1*. Questa operazione viene eseguita in modo che un'istanza sia disponibile in tutti i nodi che ricevono traffico da un servizio di bilanciamento del carico. |
 
 Se più servizi esposti esternamente condividono lo stesso set di nodi, è possibile usare HTTP.sys con un percorso URL univoco ma stabile. A tale scopo, è possibile modificare l'URL fornito durante la configurazione di IWebHost. Si noti che questo vale solo per HTTP.sys.

@@ -12,11 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83004735"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252896"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
 
@@ -63,15 +64,15 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 1. Selezionare l'endpoint che si vuole aggiornare.
 1. Nella finestra di destra fare clic su **Personalizzato**.
 
-    - In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio: `api.contoso.com`.
+    - In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio, `api.contoso.com`
     - Nel **certificato**selezionare un certificato da Key Vault. È anche possibile caricare un valido. File PFX e fornire la relativa **password**, se il certificato è protetto con una password.
 
     > [!NOTE]
     > I nomi di dominio con caratteri jolly, ad esempio, `*.contoso.com` sono supportati in tutti i livelli eccetto il livello di consumo.
 
     > [!TIP]
-    > Si consiglia di usare [Azure Key Vault per la gestione dei certificati](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) e di impostarli per il rinnovo.
-    > Se si usa Azure Key Vault per gestire il certificato TLS/SSL di dominio personalizzato, assicurarsi che il certificato venga inserito in Key Vault [come _certificato_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), non come _segreto_.
+    > Si consiglia di usare [Azure Key Vault per la gestione dei certificati](../key-vault/certificates/about-certificates.md) e di impostarli per il rinnovo.
+    > Se si usa Azure Key Vault per gestire il certificato TLS/SSL di dominio personalizzato, assicurarsi che il certificato venga inserito in Key Vault [come _certificato_](/rest/api/keyvault/createcertificate/createcertificate), non come _segreto_.
     >
     > Per recuperare un certificato TLS/SSL, gestione API deve avere le autorizzazioni List e Get Secrets per la Azure Key Vault che contiene il certificato. Quando si usa portale di Azure tutti i passaggi di configurazione necessari verranno completati automaticamente. Quando si usano gli strumenti da riga di comando o l'API di gestione, è necessario concedere queste autorizzazioni manualmente. Questa operazione si esegue in due passaggi. Per prima cosa, usare la pagina identità gestite nell'istanza di gestione API per assicurarsi che l'identità gestita sia abilitata e prendere nota dell'ID entità visualizzato nella pagina. In secondo luogo, concedere l'elenco di autorizzazioni e ottenere le autorizzazioni Secrets per questo ID entità nel Azure Key Vault contenente il certificato.
     >

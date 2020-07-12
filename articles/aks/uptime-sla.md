@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 672a5afe36449aaa486ca6980f510ba52cf6daf2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361575"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250958"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Servizio Azure Kubernetes: contratto di servizio relativo al tempo di attività
 
@@ -40,7 +40,7 @@ Il contratto di servizio relativo al tempo di attività è una funzionalità a p
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-* Installare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure versione 2.8.0 o successiva
+* Installare l' [interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure versione 2.8.0 o successiva
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Creazione di un nuovo cluster con contratto di servizio con tempo di esecuzione
 

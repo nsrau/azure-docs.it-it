@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66fc58941de206d0bff086f44852d0f2a31587f1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77083511"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253083"
 ---
 # <a name="reliable-services-overview"></a>Panoramica di Reliable Services
 
@@ -36,7 +37,7 @@ Reliable Services offre un modello di programmazione di alto livello, semplice e
   * Usare le [raccolte Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
   * Accedi a molte altre funzionalità, da un modello di programmazione di prima classe in diversi linguaggi di programmazione.
 * Un modello semplice per l'esecuzione di codice che si riferisce ad altri modelli di programmazione noti. Il codice ha un punto di ingresso ben definito e un ciclo di vita facile da gestire.
-* Un modello di comunicazione modulare. Usare il metodo di trasporto di propria scelta, ad esempio HTTP con [API Web](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolli TCP personalizzati e così via. Reliable Services fornisce alcune interessanti opzioni predefinite, ma consente anche di usarne di personalizzate.
+* Un modello di comunicazione modulare. Usare il metodo di trasporto di propria scelta, ad esempio HTTP con [API Web](./service-fabric-reliable-services-communication-aspnetcore.md), WebSockets, protocolli TCP personalizzati e così via. Reliable Services fornisce alcune interessanti opzioni predefinite, ma consente anche di usarne di personalizzate.
 * Per i servizi con stato, il modello di programmazione Reliable Services consente di archiviare lo stato in modo coerente e affidabile all'interno del servizio usando [raccolte Reliable](service-fabric-reliable-services-reliable-collections.md). Le raccolte Reliable sono un semplice set di classi di raccolte Reliable a disponibilità elevata che risulterà familiare a chiunque abbia usato raccolte C#. In passato, per la gestione di uno stato affidabile i servizi dovevano contare su sistemi esterni. Le raccolte Reliable consentono di archiviare lo stato insieme ai calcoli effettuati con gli stessi livelli di disponibilità e affidabilità garantiti dagli archivi esterni a disponibilità elevata. Questo modello riduce anche la latenza perché si condividono le risorse di calcolo e stato necessarie per il funzionamento.
 
 ## <a name="what-makes-reliable-services-different"></a>Cosa rende Reliable Services diversi
@@ -52,7 +53,7 @@ Reliable Services sono diversi dai servizi che potrebbero essere stati scritti i
 
 Reliable Services fornisce un ciclo di vita semplice che consente di attivare rapidamente il codice e iniziare a usarlo.  Per rendere operativo un nuovo servizio è necessario implementare due metodi:
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners**: questo metodo è dove il servizio definisce gli stack di comunicazione da usare. Lo stack di comunicazione, ad esempio [API Web](service-fabric-reliable-services-communication-webapi.md), definisce l'endpoint di ascolto o gli endpoint per il servizio, ovvero il modo in cui i client potranno raggiungerlo. Definisce anche in che modo i messaggi visualizzati interagiscono con il resto del codice del servizio.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners**: questo metodo è dove il servizio definisce gli stack di comunicazione da usare. Lo stack di comunicazione, ad esempio [API Web](./service-fabric-reliable-services-communication-aspnetcore.md), definisce l'endpoint di ascolto o gli endpoint per il servizio, ovvero il modo in cui i client potranno raggiungerlo. Definisce anche in che modo i messaggi visualizzati interagiscono con il resto del codice del servizio.
 * **RunAsync**: questo metodo è dove il servizio esegue la logica di business e dove avvierà attività in background da eseguire per tutta la durata del servizio. Il token di annullamento fornito indica quando l'operazione deve essere interrotta. Se, ad esempio, il servizio deve effettuare il pull dei messaggi da un oggetto Reliable Queue per elaborarli, questa è l'area in cui vengono eseguite tali attività.
 
 Se è la prima volta che si sente parlare di Reliable Services, è consigliabile continuare a leggere. Se si sta cercando una procedura dettagliata del ciclo di vita di Reliable Services, vedere [Panoramica del ciclo](service-fabric-reliable-services-lifecycle.md)di vita Reliable Services.
@@ -67,7 +68,7 @@ Un *servizio* senza stato è un servizio in cui non viene mantenuto alcuno stato
 
 Si consideri ad esempio un servizio Calculator privo di memoria che riceve contemporaneamente tutti i termini e le operazioni da eseguire.
 
-In questo caso il metodo `RunAsync()` (C#) o `runAsync()` (Java) del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un `ICommunicationListener` (C#) o un `CommunicationListener` (Java), ad esempio [API Web](service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai diversi metodi, ad esempio di calcolo, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
+In questo caso il metodo `RunAsync()` (C#) o `runAsync()` (Java) del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un `ICommunicationListener` (C#) o un `CommunicationListener` (Java), ad esempio [API Web](./service-fabric-reliable-services-communication-aspnetcore.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai diversi metodi, ad esempio di calcolo, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
 
 Quando viene effettuata una chiamata da un client, viene richiamato il metodo appropriato. Il servizio Calculator esegue le operazioni sui dati forniti e restituisce il risultato, senza archiviare alcuno stato.
 

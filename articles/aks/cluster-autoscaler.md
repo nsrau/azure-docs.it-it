@@ -4,11 +4,12 @@ description: Informazioni su come usare il componente di scalabilità automatica
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730017"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252029"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -212,7 +213,7 @@ AKS gestisce il componente di scalabilità automatica per conto dell'utente e lo
 
 Per configurare i log in modo che il componente di scalabilità automatica del cluster ne esegua il push in Log Analytics, attenersi alla seguente procedura.
 
-1. Configurare una regola per i log delle risorse per eseguire il push dei log del componente di scalabilità automatica del cluster in Log Analytics. [Le istruzioni sono descritte in dettaglio qui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs), assicurarsi di selezionare la casella per `cluster-autoscaler` quando si selezionano le opzioni per "Log".
+1. Configurare una regola per i log delle risorse per eseguire il push dei log del componente di scalabilità automatica del cluster in Log Analytics. [Le istruzioni sono descritte in dettaglio qui](./view-master-logs.md#enable-resource-logs), assicurarsi di selezionare la casella per `cluster-autoscaler` quando si selezionano le opzioni per "Log".
 1. Fare clic sulla sezione "Log" del cluster usando il portale di Azure.
 1. Immettere la seguente query di esempio in Log Analytics:
 

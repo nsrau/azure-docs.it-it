@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3f19d1240c2dcf1e62d5723c40b4f7c8b2154f0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75433876"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253287"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicazione remota nei servizi C# con Reliable Services
 
@@ -64,7 +65,7 @@ class MyService : StatelessService, IMyService
 ```
 
 > [!NOTE]
-> Gli argomenti e i tipi restituiti nell'interfaccia del servizio possono essere semplici, complessi o personalizzati ma, in tutti i casi, devono essere serializzabili mediante il serializzatore .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
+> Gli argomenti e i tipi restituiti nell'interfaccia del servizio possono essere semplici, complessi o personalizzati ma, in tutti i casi, devono essere serializzabili mediante il serializzatore .NET [DataContractSerializer](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer).
 >
 >
 
@@ -88,19 +89,19 @@ La creazione del proxy servizio è un'operazione semplice e, pertanto, potrai cr
 
 ### <a name="service-proxy-factory-lifetime"></a>Durata del proxy servizio factory
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) è una factory che crea istanze di proxy per interfacce di connessione remota diverse. Se si usa l'API `ServiceProxyFactory.CreateServiceProxy` per la creazione di un proxy, il framework crea un singleton proxy servizio.
-È utile per crearne una manualmente quando è necessario eseguire l'override delle proprietà [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory).
+[ServiceProxyFactory](/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) è una factory che crea istanze di proxy per interfacce di connessione remota diverse. Se si usa l'API `ServiceProxyFactory.CreateServiceProxy` per la creazione di un proxy, il framework crea un singleton proxy servizio.
+È utile per crearne una manualmente quando è necessario eseguire l'override delle proprietà [IServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory).
 La creazione di una factory è un'operazione costosa. Il proxy servizio factory mantiene una cache interna di comunicazione client.
 Una best practice consiste nel salvare nella cache il proxy servizio factory il più a lungo possibile.
 
 ## <a name="remoting-exception-handling"></a>Gestione delle eccezioni di comunicazione remota
 
-Tutte le eccezioni generate dall'API del servizio vengono inviate nuovamente al client come AggregateException. Le eccezioni di comunicazione remota devono riuscire a essere serializzate da DataContract. In caso contrario, l'API del proxy genera una [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) contenente l'errore di serializzazione.
+Tutte le eccezioni generate dall'API del servizio vengono inviate nuovamente al client come AggregateException. Le eccezioni di comunicazione remota devono riuscire a essere serializzate da DataContract. In caso contrario, l'API del proxy genera una [ServiceException](/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) contenente l'errore di serializzazione.
 
 Il proxy servizio gestisce tutte le eccezioni di failover per la partizione del servizio per la quale è stato creato. Risolve nuovamente gli endpoint in presenza di eccezioni di failover (eccezioni non temporanee) e tenta di nuovo la chiamata con l'endpoint corretto. Il numero di tentativi per le eccezioni di failover è illimitato.
 In caso di eccezioni temporanee, il proxy ripete la chiamata.
 
-I parametri di ripetizione dei tentativi predefiniti sono forniti da [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+I parametri di ripetizione dei tentativi predefiniti sono forniti da [OperationRetrySettings](/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 
 L'utente può configurare questi valori passando l'oggetto OperationRetrySettings al costruttore ServiceProxyFactory.
 
@@ -160,7 +161,7 @@ Questi passaggi modificano il codice del modello per usare lo stack V2, mediante
    </Resources>
    ```
 
-2. Usare [FabricTransportServiceRemotingListener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet) dallo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime`.
+2. Usare [FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet) dallo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime`.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -176,7 +177,7 @@ Questi passaggi modificano il codice del modello per usare lo stack V2, mediante
     }
    ```
 
-3. Usare [FabricTransportServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) dallo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`, per creare i client.
+3. Usare [FabricTransportServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) dallo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`, per creare i client.
 
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
@@ -255,7 +256,7 @@ Per passare a uno stack V2_1, seguire questi passaggi.
     }
    ```
 
-3. Aggiungere l'[attributo assembly](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) nelle interfacce di comunicazione remota.
+3. Aggiungere l'[attributo assembly](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) nelle interfacce di comunicazione remota.
 
    ```csharp
     [assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
@@ -267,7 +268,7 @@ Compilare l'assembly client con l'assembly dell'interfaccia, per assicurarsi che
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>Usare le classi esplicite di comunicazione remota per creare un listener/client factory per la versione V2 (compatibile con l'interfaccia)
 
-Attenersi ai passaggi descritti di seguito.
+Seguire questa procedura:
 
 1. Aggiungere una risorsa endpoint con il nome "ServiceEndpointV2_1" nel manifesto del servizio.
 
@@ -279,7 +280,7 @@ Attenersi ai passaggi descritti di seguito.
    </Resources>
    ```
 
-2. Usare il [listener V2 per la comunicazione remota](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). Il nome predefinito della risorsa endpoint servizio usato è "ServiceEndpointV2_1". Quest'ultimo deve essere definito nel manifesto del servizio.
+2. Usare il [listener V2 per la comunicazione remota](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). Il nome predefinito della risorsa endpoint servizio usato è "ServiceEndpointV2_1". Quest'ultimo deve essere definito nel manifesto del servizio.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -297,7 +298,7 @@ Attenersi ai passaggi descritti di seguito.
     }
    ```
 
-3. Usare la versione V2 della [factory client](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
+3. Usare la versione V2 della [factory client](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
           {
@@ -356,7 +357,7 @@ Questo passaggio assicura che il servizio sia in ascolto solo sul listener V2.
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>Usare la serializzazione personalizzata con i messaggi di comunicazione remota su cui è stato eseguito il wrapping
 
 Nei messaggi di comunicazione remota su cui è stato eseguito il wrapping, si creano singoli oggetti sottoposti a wrapping, i cui parametri vengono visualizzati al loro interno come campi.
-Attenersi ai passaggi descritti di seguito.
+Seguire questa procedura:
 
 1. Implementare l'interfaccia `IServiceRemotingMessageSerializationProvider`, al fine di fornire l'implementazione per la serializzazione personalizzata.
     Questo frammento di codice mostra come appare l'implementazione.
@@ -548,6 +549,6 @@ Attenersi ai passaggi descritti di seguito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Web API con OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Web API con OWIN in Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Comunicazioni di Windows Communication Foundation con Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Comunicazioni protette per Reliable Services](service-fabric-reliable-services-secure-communication.md)

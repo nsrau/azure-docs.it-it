@@ -3,11 +3,12 @@ title: Raccogli & analizzare i log delle risorse
 description: Registrare e analizzare gli eventi del log delle risorse per Container Registry di Azure, ad esempio autenticazione, push di immagini e pull di immagini.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8757b8bdb67cf75b1ba800658d80b2a44311f1ba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343184"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252488"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Log di Azure Container Registry per la valutazione diagnostica e il controllo
 
@@ -141,10 +142,9 @@ ContainerRegistryLoginEvents
 
 Oltre a inviare i log a Log Analytics o in alternativa, uno scenario comune consiste nel selezionare un account di archiviazione di Azure come destinazione del log. Per archiviare i log in archiviazione di Azure, creare un account di archiviazione prima di abilitare l'archiviazione tramite le impostazioni di diagnostica.
 
-È anche possibile trasmettere gli eventi del log di diagnostica a un [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale. 
+È anche possibile trasmettere gli eventi del log di diagnostica a un [Hub eventi di Azure](../event-hubs/event-hubs-about.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sull'uso di [log Analytics](../azure-monitor/log-query/get-started-portal.md) e sulla creazione di [query di log](../azure-monitor/log-query/get-started-queries.md).
 * Vedere [Panoramica dei log della piattaforma Azure](../azure-monitor/platform/platform-logs-overview.md) per informazioni sui log della piattaforma disponibili in diversi livelli di Azure.
-

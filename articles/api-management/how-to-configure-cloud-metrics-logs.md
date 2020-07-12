@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: d0fbdcb877e91a703306f15fdc7507fd19d534f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bbfd167e89ae1b5f9b7de1df5fd1cb72c720cb6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205131"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254530"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurare le metriche e i log cloud per il gateway self-hosted di gestione API di Azure
 
@@ -57,14 +57,12 @@ Il gateway self-hosted emette attualmente le metriche seguenti tramite monitorag
 
 ## <a name="logs"></a>Log
 
-Il gateway self-hosted attualmente non invia [log di diagnostica](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) al cloud. Tuttavia, è possibile [configurare e salvare](how-to-configure-local-metrics-logs.md) in modo permanente i log in locale in cui viene distribuito il gateway self-hosted. 
+Il gateway self-hosted attualmente non invia [log di diagnostica](./api-management-howto-use-azure-monitor.md#activity-logs) al cloud. Tuttavia, è possibile [configurare e salvare](how-to-configure-local-metrics-logs.md) in modo permanente i log in locale in cui viene distribuito il gateway self-hosted. 
 
-Se un gateway viene distribuito nel [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/), è possibile abilitare [monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) per raccogliere i log dai contenitori e visualizzarli in log Analytics. 
+Se un gateway viene distribuito nel [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/), è possibile abilitare [monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-overview.md) per raccogliere i log dai contenitori e visualizzarli in log Analytics. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sul gateway self-hosted, vedere [Panoramica del gateway self-hosted di gestione API di Azure](self-hosted-gateway-overview.md)
 * Informazioni sulla [configurazione e la permanenza dei log in locale](how-to-configure-local-metrics-logs.md)
-
-

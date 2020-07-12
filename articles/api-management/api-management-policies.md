@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f4a29c7cb7e35e69eb9410dd7ddc9f07757e3565
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 069fc95d226e4417bb650b6092a7d00953f69e8d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82128725"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252848"
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
 Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
@@ -50,12 +50,12 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
     -   [Imposta variabile](api-management-advanced-policies.md#set-variable): rende persistente un valore in una variabile context denominata e consente di accedervi in un momento successivo.  
     -   [Imposta metodo di richiesta](api-management-advanced-policies.md#SetRequestMethod) : consente di modificare il metodo HTTP per una richiesta.  
     -   [Imposta codice di stato](api-management-advanced-policies.md#SetStatus): modifica il codice di stato HTTP per il valore specificato.  
-    -   [Trace](api-management-advanced-policies.md#Trace) : aggiunge tracce personalizzate nell'output di [controllo API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , Application Insights telemetrie e i log delle risorse.  
+    -   [Trace](api-management-advanced-policies.md#Trace) : aggiunge tracce personalizzate nell'output di [controllo API](./api-management-howto-api-inspector.md) , Application Insights telemetrie e i log delle risorse.  
     -   [Wait](api-management-advanced-policies.md#Wait) : attende il completamento dei criteri di [invio della richiesta](api-management-advanced-policies.md#SendRequest), [del valore della cache o del](api-management-caching-policies.md#GetFromCacheByKey)flusso di [controllo](api-management-advanced-policies.md#choose) prima di procedere.  
 -   [Criteri di autenticazione](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [authentication-basic](api-management-authentication-policies.md#Basic) : consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.  
     -   [Autenticazione con certificato](api-management-authentication-policies.md#ClientCertificate): consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.  
-    -   [Eseguire l'autenticazione con identità gestita](api-management-authentication-policies.md#ManagedIdentity) : eseguire l'autenticazione con un servizio back-end usando un' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+    -   [Eseguire l'autenticazione con identità gestita](api-management-authentication-policies.md#ManagedIdentity) : eseguire l'autenticazione con un servizio back-end usando un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md).  
 -   [Criteri di memorizzazione nella cache](api-management-caching-policies.md#CachingPolicies)  
     -   [Recupera dalla cache](api-management-caching-policies.md#GetFromCache) : esegue una ricerca nella cache e restituisce una risposta valida memorizzata nella cache, se disponibile.  
     -   [cache-lookup](api-management-caching-policies.md#StoreToCache) : memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.  

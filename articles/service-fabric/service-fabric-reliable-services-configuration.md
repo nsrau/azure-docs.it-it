@@ -5,11 +5,12 @@ author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8765e86ffeae86b9f4e2b693c0dbf92478632dbf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645515"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253168"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurazione di servizi Reliable Services con stato
 Esistono due set di impostazioni di configurazione per i servizi Reliable Services. Un set è globale per tutti i servizi Reliable Services del cluster, mentre l'altro è specifico per un particolare servizio Reliable Services.
@@ -18,7 +19,7 @@ Esistono due set di impostazioni di configurazione per i servizi Reliable Servic
 La configurazione globale dei servizi Reliable Services viene specificata nel manifesto del cluster per il cluster nella sezione KtlLogger. Consente di configurare il percorso di log condiviso e la dimensione oltre i limiti di memoria globali utilizzati dal logger. Il manifesto del cluster è un unico file XML che contiene le impostazioni e le configurazioni applicabili a tutti i nodi e ai servizi del cluster. Il file tipicamente si chiama ClusterManifest.xml. È possibile visualizzare il manifesto del cluster utilizzando il comando Powershell Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Nomi di configurazione
-| Nome | Unità | Valore predefinito | Osservazioni |
+| Nome | Unità | Valore predefinito | Commenti |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Numero minimo di KB da allocare in modalità kernel per il pool di memoria del buffer di scrittura del logger. Questo pool di memoria viene utilizzato per il caching delle informazioni sullo stato prima della scrittura su disco. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobyte |Nessun limite |Dimensioni massime raggiungibili dal pool di memoria del buffer di scrittura del logger. |
@@ -49,7 +50,7 @@ Per modificare questa sezione nell'ambiente di sviluppo locale, è necessario mo
    </Section>
 ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 Il logger dispone di un pool di memoria globale allocato dalla memoria non di paging del kernel disponibile per tutti i servizi Reliable Services su un nodo per il caching dei dati sullo stato prima che siano scritti sul log dedicato associato alla replica del servizio Reliable Services. La dimensione del pool è controllata dalle impostazioni WriteBufferMemoryPoolMinimumInKB e WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB specifica la dimensione iniziale del pool di memoria e la dimensione minima alla quale è possibile ridurre la memoria. WriteBufferMemoryPoolMaximumInKB è la dimensione massima che può raggiungere il pool di memoria. Ogni replica del servizio Reliable Services aperta può aumentare la dimensione del pool di memoria di una quantità determinata dal sistema, fino a WriteBufferMemoryPoolMaximumInKB. Qualora la domanda per la memoria sia superiore alla disponibilità del pool di memoria, le richieste per la memoria sono ritardate finché la memoria non è disponibile. Pertanto se il pool di memoria del buffer di scrittura è troppo piccolo per una configurazione specifica, le prestazioni potrebbero risentirne.
 
 Le impostazioni SharedLogId e SharedLogPath vengono sempre utilizzate per definire GUID e percorso del log condiviso predefinito per tutti i nodi del cluster. Il log condiviso predefinito viene utilizzato per tutti i servizi Reliable Services che non specificano le impostazioni nel file settings.xml per il servizio specifico. Per ottenere le migliori prestazioni, i file di log condivisi devono essere memorizzati su dischi riservati esclusivamente al file di log condiviso, in modo da ridurre le situazioni di contesa della testina.
@@ -99,10 +100,10 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Nomi di configurazione
-| Nome | Unità | Valore predefinito | Osservazioni |
+| Nome | Unità | Valore predefinito | Commenti |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondi |0,015 |Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica. |
-| ReplicatorEndpoint |N/D |Nessun valore predefinito: parametro obbligatorio |Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Deve fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per ulteriori informazioni sulla definizione delle risorse dell'endpoint in un manifesto del servizio, vedere [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md) . |
+| ReplicatorEndpoint |N/A |Nessun valore predefinito: parametro obbligatorio |Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Deve fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per ulteriori informazioni sulla definizione delle risorse dell'endpoint in un manifesto del servizio, vedere [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md) . |
 | MaxPrimaryReplicationQueueSize |Numero di operazioni |8192 |Numero massimo di operazioni nella coda principale. Un'operazione viene liberata quando il replicatore principale riceve un acknowledgement da tutti i replicatori secondari. Questo valore deve essere maggiore di 64 ed essere una potenza di 2. |
 | MaxSecondaryReplicationQueueSize |Numero di operazioni |16384 |Numero massimo di operazioni nella coda secondaria. Un'operazione viene liberata quando il relativo stato viene reso altamente disponibile tramite persistenza. Questo valore deve essere maggiore di 64 ed essere una potenza di 2. |
 | CheckpointThresholdInMB |MB |50 |Quantità di spazio del file di log dopo il quale viene eseguito un checkpoint dello stato. |
@@ -115,7 +116,7 @@ ReplicatorConfig
 | SharedLogPath |Nome di percorso completo |"" |Specifica il percorso completo in cui verrà creato il file di log condiviso per la replica in oggetto. In genere, i servizi non devono usare questa impostazione. Tuttavia, se è stato specificato SharedLogPath, lo deve essere anche SharedLogId. |
 | SlowApiMonitoringDuration |Secondi |300 |Imposta l'intervallo di monitoraggio per le chiamate API gestite. Esempio: funzione di callback di backup fornita dall'utente. Al termine dell'intervallo verrà inviato un report sull'integrità di avviso a Health Manager. |
 | LogTruncationIntervalSeconds |Secondi |0 |Intervallo configurabile in cui il troncamento dei registri verrà avviato a ogni replica. Viene utilizzato per garantire che anche il registro sia troncato in base al tempo invece che in base alla sola dimensione del registro. Questa impostazione forza anche l'eliminazione delle voci cancellate in un dizionario affidabile. Può quindi essere utilizzato per garantire che gli elementi eliminati vengano rimossi in modo tempestivo. |
-| EnableStableReads |Boolean |False |L'abilitazione di letture stabili limita le repliche secondarie alla restituzione di valori che sono stati quorum-confermati. |
+| EnableStableReads |Booleano |Falso |L'abilitazione di letture stabili limita le repliche secondarie alla restituzione di valori che sono stati quorum-confermati. |
 
 ### <a name="sample-configuration-via-code"></a>Configurazione di esempio tramite codice
 ```csharp
@@ -171,7 +172,7 @@ class MyStatefulService : StatefulService
 ```
 
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 BatchAcknowledgementInterval controlla la latenza di replica. Il valore '0' determina la latenza più bassa possibile a scapito della velocità effettiva, in quanto è necessario inviare ed elaborare una maggiore quantità di messaggi di acknowledgement, ciascuno dei quali contenente un numero minore di acknowledgement.
 Più alto è il valore di BatchAcknowledgementInterval, maggiore sarà la velocità effettiva di replica complessiva, ma con una latenza delle operazioni più elevata. Questo ha un impatto diretto sulla latenza dei commit delle transazioni.
 
@@ -183,5 +184,4 @@ Le impostazioni SharedLogId e SharedLogPath vengono sempre usate insieme e conse
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Debug dell'applicazione di Service Fabric in Visual Studio](service-fabric-debugging-your-application.md)
-* [Guida di riferimento per gli sviluppatori per Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+* [Guida di riferimento per gli sviluppatori per Reliable Services](/previous-versions/azure/dn706529(v=azure.100))

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649228"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254844"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -141,7 +142,7 @@ git push
 
 Dopo il commit e il push delle modifiche locali nel repository del server, è possibile distribuire le modifiche all'istanza del servizio Gestione API.
 
-Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa alla distribuzione delle modifiche al database di configurazione tramite l'API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/tenantconfiguration).
+Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa alla distribuzione delle modifiche al database di configurazione tramite l'API REST](/rest/api/apimanagement/2019-12-01/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale
 
@@ -171,8 +172,8 @@ Questi file possono essere creati, eliminati, modificati e gestiti nel file syst
 > [!NOTE]
 > Le entità seguenti non sono contenute nel repository Git e non possono essere configurate tramite Git.
 >
-> * [Utenti](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
-> * [Sottoscrizioni](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
+> * [Utenti](/rest/api/apimanagement/2019-12-01/user)
+> * [Sottoscrizioni](/rest/api/apimanagement/2019-12-01/subscription)
 > * Valori denominati
 > * Entità del portale per sviluppatori diverse dagli stili
 >
@@ -221,15 +222,15 @@ L'impostazione finale, `$ref-policy`, esegue il mapping al file di istruzioni de
 ### <a name="apis-folder"></a>Cartella apis
 La cartella `apis` contiene, per ogni API nell'istanza del servizio, una cartella contenente a sua volta gli elementi seguenti.
 
-* `apis\<api name>\configuration.json`: configurazione dell'API. Contiene informazioni relative all'URL del servizio back-end e alle operazioni. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario [ottenere un'API specifica](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apis/get) con `export=true` nel formato `application/json`.
-* `apis\<api name>\api.description.html`: descrizione dell'API. Corrisponde alla proprietà `description` dell'[entità relativa all'API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty).
-* `apis\<api name>\operations\`: questa cartella contiene i file `<operation name>.description.html` mappati alle operazioni nell'API. Ogni file contiene la descrizione di una singola operazione dell'API che esegue il mapping alla proprietà `description` dell'[entità relativa all'operazione](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) nell'API REST.
+* `apis\<api name>\configuration.json`: configurazione dell'API. Contiene informazioni relative all'URL del servizio back-end e alle operazioni. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario [ottenere un'API specifica](/rest/api/apimanagement/2019-12-01/apis/get) con `export=true` nel formato `application/json`.
+* `apis\<api name>\api.description.html`: descrizione dell'API. Corrisponde alla proprietà `description` dell'[entità relativa all'API](/java/api/com.microsoft.azure.storage.table.entityproperty).
+* `apis\<api name>\operations\`: questa cartella contiene i file `<operation name>.description.html` mappati alle operazioni nell'API. Ogni file contiene la descrizione di una singola operazione dell'API che esegue il mapping alla proprietà `description` dell'[entità relativa all'operazione](/rest/api/visualstudio/operations/list#operationproperties) nell'API REST.
 
 ### <a name="groups-folder"></a>Cartella groups
 La cartella `groups` contiene una cartella per ogni gruppo definito nell'istanza del servizio.
 
-* `groups\<group name>\configuration.json`: configurazione del gruppo. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un gruppo specifico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/group/get) .
-* `groups\<group name>\description.html`: descrizione del gruppo. Corrisponde alla proprietà `description` dell'[entità relativa al gruppo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
+* `groups\<group name>\configuration.json`: configurazione del gruppo. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un gruppo specifico](/rest/api/apimanagement/2019-12-01/group/get) .
+* `groups\<group name>\description.html`: descrizione del gruppo. Corrisponde alla proprietà `description` dell'[entità relativa al gruppo](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>Cartella policies
 La cartella `policies` contiene le istruzioni dei criteri per l'istanza del servizio.
@@ -248,8 +249,8 @@ La cartella `portalStyles` contiene la configurazione e i fogli di stile delle p
 ### <a name="products-folder"></a>Cartella products
 La cartella `products` contiene una cartella per ogni prodotto definito nell'istanza del servizio.
 
-* `products\<product name>\configuration.json` : configurazione del prodotto. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un prodotto specifico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/product/get) .
-* `products\<product name>\product.description.html`: descrizione del prodotto. Corrisponde alla proprietà `description` dell'[entità relativa al prodotto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) nell'API REST.
+* `products\<product name>\configuration.json` : configurazione del prodotto. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un prodotto specifico](/rest/api/apimanagement/2019-12-01/product/get) .
+* `products\<product name>\product.description.html`: descrizione del prodotto. Corrisponde alla proprietà `description` dell'[entità relativa al prodotto](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) nell'API REST.
 
 ### <a name="templates"></a>Modelli
 La cartella `templates` contiene la configurazione per i [modelli di posta elettronica](api-management-howto-configure-notifications.md) dell'istanza del servizio.
@@ -261,8 +262,8 @@ La cartella `templates` contiene la configurazione per i [modelli di posta elett
 Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 
 * Gestire l'istanza del servizio con i cmdlet di PowerShell seguenti
-  * [Informazioni di riferimento sui cmdlet di PowerShell per la distribuzione dei servizi](https://docs.microsoft.com/powershell/module/wds)
-  * [Informazioni di riferimento sui cmdlet di PowerShell per la gestione dei servizi](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
+  * [Informazioni di riferimento sui cmdlet di PowerShell per la distribuzione dei servizi](/powershell/module/wds)
+  * [Informazioni di riferimento sui cmdlet di PowerShell per la gestione dei servizi](/powershell/azure/servicemanagement/overview)
 * Gestire l'istanza del servizio tramite l'API REST
   * [Informazioni di riferimento sull'API REST di Gestione API](/rest/api/apimanagement/)
 
@@ -280,7 +281,3 @@ Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
-
-
-

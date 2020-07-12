@@ -5,11 +5,12 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba68df53f1f21b9ff360772fe1a60c93c8df74d3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609622"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252216"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Proteggere le comunicazioni remote in un servizio C#
 > [!div class="op_single_selector"]
@@ -199,4 +200,4 @@ Per proteggere un servizio quando si usa la comunicazione remota con i servizi C
     ```
 
 
-Come passaggio successivo, vedere [API Web con OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).
+Come passaggio successivo, vedere [API Web con OWIN in Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md).

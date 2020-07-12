@@ -1245,9 +1245,14 @@
     - name: Interfaccia della riga di comando di Azure
       items:
         - name: Monitoraggio di Azure
-          href: /cli/azure/monitor?view=azure-cli-latest
+          href: /cli/azure/azure-cli-reference-for-monitor
+          displayName: 'Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope'
         - name: Application Insights
-          href: 'https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest'
+          href: /cli/azure/ext/application-insights/monitor/app-insights
+        - name: Log attività
+          href: /cli/azure/monitor/activity-log
+        - name: Log Analytics
+          href: /cli/azure/monitor/log-analytics
     - name: API REST
       items:
         - name: Monitoraggio di Azure
