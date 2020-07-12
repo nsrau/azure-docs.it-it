@@ -3,11 +3,12 @@ title: Creare un pacchetto di un eseguibile esistente in Azure Service Fabric
 description: Informazioni su come creare il pacchetto di un'applicazione esistente come eseguibile guest, in modo da consentirne la distribuzione in un cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457823"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247388"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Distribuire un eseguibile esistente in Service Fabric
 In Azure Service Fabric distribuito come servizio è possibile eseguire qualsiasi tipo di codice, ad esempio Node.js, Java, e C++. Service Fabric fa riferimento a questi tipi di servizi come eseguibili guest.
@@ -64,8 +65,7 @@ ApplicationPackageRoot contiene il file ApplicationManifest.xml che definisce l'
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni e attività correlate, vedere gli articoli seguenti.
 * [Distribuire un eseguibile guest](service-fabric-deploy-existing-app.md)
-* [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
+* [Distribuire più eseguibili guest](./service-fabric-deploy-existing-app.md)
 * [Creare la prima applicazione eseguibile guest con Visual Studio](quickstart-guest-app.md)
 * [Esempio per la creazione del pacchetto e la distribuzione di un file guest eseguibile ](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), con un collegamento alla versione preliminare dello strumento per la creazione di pacchetti
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-containers)
-

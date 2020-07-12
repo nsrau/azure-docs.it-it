@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 6054c595bca26dc2a0432c53369a60a61e3efde0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd7ca6bdfa7626707af9efa20d76dab633dc16fd
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76841864"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249533"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
@@ -50,7 +51,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 + Quando un servizio gestione API viene distribuito in una rete virtuale, viene usato un [elenco di porte](./api-management-using-with-vnet.md#required-ports) che devono essere aperte. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Creazione di un servizio Gestione API in una rete virtuale interna
-Il servizio gestione API in una rete virtuale interna è ospitato dietro un servizio di [bilanciamento del carico interno (classico)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Questa è l'unica opzione disponibile e non può essere modificata.
+Il servizio gestione API in una rete virtuale interna è ospitato dietro un servizio di [bilanciamento del carico interno (classico)](/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Questa è l'unica opzione disponibile e non può essere modificata.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Abilitare la connessione a una rete virtuale usando il portale di Azure
 
@@ -143,4 +144,3 @@ Per altre informazioni, vedere gli articoli seguenti:
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
 [ServiceTags]: ../virtual-network/security-overview.md#service-tags
-

@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/25/2020
-ms.openlocfilehash: 33e521046889733b2f0a66b839ab5dde46398318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 350c542e1b183c79707c99989b2544fd8faa43ac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412696"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248476"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -179,7 +180,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 ### <a name="authentication-limits"></a>Limiti di autenticazione
 
-Ecco i limiti per un'app per la logica che inizia con un trigger di richiesta e abilita [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) per autorizzare le chiamate in ingresso al trigger di richiesta:
+Ecco i limiti per un'app per la logica che inizia con un trigger di richiesta e abilita [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) per autorizzare le chiamate in ingresso al trigger di richiesta:
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
@@ -206,7 +207,7 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 | Nome | Limite |
 |------|-------|
 | Identità gestite per ogni app per la logica | Identità assegnata dal sistema o un'identità assegnata dall'utente |
-| Numero di app per la logica con identità gestita in una sottoscrizione di Azure per area | 1\.000 |
+| Numero di app per la logica con identità gestita in una sottoscrizione di Azure per area | 1.000 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -241,10 +242,10 @@ Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.
 
 | Elemento | Gratuito | Basic | Standard |
 |----------|------|-------|----------|
-| Contratti commerciali EDI | 10 | 1 | 1\.000 |
-| Partner commerciali EDI | 25 | 2 | 1\.000 |
-| Mappe | 25 | 500 | 1\.000 |
-| Schemi | 25 | 500 | 1\.000 |
+| Contratti commerciali EDI | 10 | 1 | 1.000 |
+| Partner commerciali EDI | 25 | 2 | 1.000 |
+| Mappe | 25 | 500 | 1.000 |
+| Schemi | 25 | 500 | 1.000 |
 | Assembly | 10 | 25 | 1\.000 |
 | Certificati | 25 | 2 | 1\.000 |
 | Configurazioni batch | 5 | 1 | 50 |
@@ -301,7 +302,8 @@ Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza 
 Gli indirizzi IP usati da App per la logica di Azure per le chiamate in arrivo e in uscita dipendono dall'area in cui è presente l'app per la logica. *Tutte* le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP. Alcune chiamate [Power Automate](https://docs.microsoft.com/power-automate/getting-started), come le richieste **HTTP** e **HTTP + OpenAPI**, passano direttamente attraverso il servizio App per la logica di Azure e provengono dagli indirizzi IP elencati qui. Per altre informazioni sugli indirizzi IP usati da Power Automate, vedere [Limiti e configurazione in Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
 > [!TIP]
-> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente [tag di servizio](../virtual-network/service-tags-overview.md), invece di specificare gli indirizzi IP di App per la logica per ogni area, come descritto più avanti in questa sezione. Questi tag funzionano in tutte le aree in cui è disponibile il servizio App per la logica:
+> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente [tag di servizio](../virtual-network/service-tags-overview.md), invece di specificare gli indirizzi IP di App per la logica per ogni area, come descritto più avanti in questa sezione.
+> Questi tag funzionano in tutte le aree in cui è disponibile il servizio App per la logica:
 >
 > * **LogicAppsManagement**: rappresenta i prefissi degli indirizzi IP in ingresso per il servizio App per la logica.
 > * **LogicApps**: rappresenta i prefissi degli indirizzi IP in uscita per il servizio App per la logica.
@@ -325,7 +327,8 @@ Gli indirizzi IP usati da App per la logica di Azure per le chiamate in arrivo e
 Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio App per la logica di Azure. Se si usa Azure per enti pubblici, vedere [Azure per enti pubblici - Indirizzi IP in ingresso](#azure-government-inbound).
 
 > [!TIP]
-> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicAppsManagement** invece di specificare i prefissi di indirizzi IP di App per la logica in ingresso per ogni area. Questo tag funziona in tutte le aree in cui è disponibile il servizio App per la logica.
+> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicAppsManagement** invece di specificare i prefissi di indirizzi IP di App per la logica in ingresso per ogni area.
+> Questo tag funziona in tutte le aree in cui è disponibile il servizio App per la logica.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -385,7 +388,9 @@ Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio App per 
 Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logica di Azure e per i connettori gestiti. Se si usa Azure per enti pubblici, vedere [Azure per enti pubblici - Indirizzi IP in uscita](#azure-government-outbound).
 
 > [!TIP]
-> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicApps** invece di specificare i prefissi di indirizzi IP di App per la logica in uscita per ogni area. Questo tag funziona in tutte le aree in cui è disponibile il servizio App per la logica. Per i connettori gestiti, è necessario continuare a usare gli indirizzi IP.
+> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicApps** invece di specificare i prefissi di indirizzi IP di App per la logica in uscita per ogni area.
+> Questo tag funziona in tutte le aree in cui è disponibile il servizio App per la logica.
+> Per i connettori gestiti, è necessario continuare a usare gli indirizzi IP.
 
 <a name="multi-tenant-outbound"></a>
 
@@ -440,5 +445,5 @@ Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Informazioni su come [creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * Informazioni su [esempi e scenari comuni](../logic-apps/logic-apps-examples-and-scenarios.md)

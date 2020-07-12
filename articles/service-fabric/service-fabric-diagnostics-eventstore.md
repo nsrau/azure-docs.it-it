@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: d23c8114bf10ef3225775accef6910c0ba539e15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2fcbd07c105885da4180b06fa27ec13045940a6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645736"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247643"
 ---
 # <a name="eventstore-overview"></a>Panoramica di EventStore
 
@@ -45,7 +46,7 @@ Per visualizzare un elenco completo di eventi disponibili in EventStore, vedere 
 * Repliche delle partizioni: eventi di tutte le repliche/istanze all'interno di una partizione specifica identificata da `partitionId`
 * Replica delle partizioni: eventi di una replica/istanza specifica identificata da `replicaId` e `partitionId`
 
-Per altre informazioni sull'API, vedere le informazioni di [riferimento sull'API EventStore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
+Per altre informazioni sull'API, vedere le informazioni di [riferimento sull'API EventStore](/rest/api/servicefabric/sfclient-index-eventsstore).
 
 Il servizio EventStore consente anche di correlare gli eventi del cluster. Esaminando gli eventi scritti nello stesso momento da entità diverse che potrebbero avere avuto effetti reciproci, il servizio EventStore è in grado di collegare questi eventi per facilitare l'identificazione delle cause per le attività del cluster. Ad esempio, se una delle applicazioni risulta non integra senza che siano state apportate modifiche, il servizio EventStore controlla anche altri eventi esposti dalla piattaforma ed è in grado di metterli in correlazione con un evento `Error` o `Warning`. Ciò rende più rapido il rilevamento degli errori e l'analisi delle cause principali.
 
@@ -125,5 +126,5 @@ Se si usa la versione 6,4, è possibile modificare il modello di Azure Resource 
 * Introduzione all'API di EventStore - [Uso delle API di EventStore nei cluster di Azure Service Fabric](service-fabric-diagnostics-eventstore-query.md)
 * Altre informazioni sull'elenco di eventi offerto da EventStore - [Eventi di Service Fabric](service-fabric-diagnostics-event-generation-operational.md)
 * Panoramica di monitoraggio e diagnostica in Service Fabric - [Monitoraggio e diagnostica per Service Fabric](service-fabric-diagnostics-overview.md)
-* Visualizzare l'elenco completo delle chiamate API - [Riferimento all'API REST di EventStore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)
+* Visualizzare l'elenco completo delle chiamate API - [Riferimento all'API REST di EventStore](/rest/api/servicefabric/sfclient-index-eventsstore)
 * Altre informazioni sul monitoraggio del cluster - [Monitoraggio del cluster e della piattaforma](service-fabric-diagnostics-event-generation-infra.md).

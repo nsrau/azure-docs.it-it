@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81260905"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249604"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -43,7 +44,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 -   [Trasforma XML usando una trasformazione XSLT](api-management-transformation-policies.md#XSLTransform): si applica una trasformazione da XSL a XML nel corpo della richiesta o della risposta.
 
-##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Converti JSON in XML
+##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a>Converti JSON in XML
  Il criterio `json-to-xml` converte il corpo della richiesta o della risposta da JSON a XML.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -72,7 +73,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|
 |json-to-xml|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
@@ -81,13 +82,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |parse-date|Se impostato su `false`, i valori data vengono semplicemente copiati durante la trasformazione|No|true|
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, on-error
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Converti XML in JSON
+##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a>Converti XML in JSON
  Il criterio `xml-to-json` converte il corpo della richiesta o della risposta da XML a JSON. Il criterio può essere applicato per modernizzare le API basate su servizi Web back-end solo di tipo XML.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -116,7 +117,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|
 |xml-to-json|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
@@ -125,13 +126,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |consider-accept-header|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   true - applica la conversione se JSON è richiesto nell'intestazione Accept della richiesta.<br />-   false - applica sempre la conversione.|No|true|
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, on-error
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Trova e sostituisci stringa nel corpo
+##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a>Trova e Sostituisci stringa nel corpo
  Il criterio `find-and-replace` trova una sottostringa di richiesta o risposta e la sostituisce con una sottostringa diversa.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -152,15 +153,15 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|
 |find-and-replace|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |da|Stringa da cercare.|Sì|N/D|
-|to|La stringa di sostituzione. Specificare una stringa di sostituzione con lunghezza zero per rimuovere la stringa di ricerca.|Sì|N/D|
+|to|Stringa di sostituzione. Specificare una stringa di sostituzione con lunghezza zero per rimuovere la stringa di ricerca.|Sì|N/D|
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
@@ -191,7 +192,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |redirect-content-urls|Elemento radice.|Sì|
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound
 
@@ -206,14 +207,14 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 <set-backend-service base-url="base URL of the backend service" />
 ```
 
-o
+oppure
 
 ```xml
 <set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
 ```
 
 > [!NOTE]
-> Le entità back-end possono essere gestite tramite l' [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) di gestione e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Le entità back-end possono essere gestite tramite l' [API](/rest/api/apimanagement/2019-12-01/backend) di gestione e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Esempio
 
@@ -263,26 +264,26 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 |----------|-----------------|--------------|
 |set-backend-service|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
-|base-url|Nuovo URL di base del servizio back-end.|`base-url` `backend-id` È necessario che sia presente uno di o.|N/D|
-|backend-id|Identificatore del back-end verso cui avviene il routing. Le entità back-end vengono gestite tramite [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).|`base-url` `backend-id` È necessario che sia presente uno di o.|N/D|
-|sf-partition-key|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Usato per risolvere una partizione specifica dal servizio di risoluzione del nome.|No|N/D|
-|sf-replica-type|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Controlla se la richiesta deve passare alla replica primaria o secondaria di una partizione. |No|N/D|
-|sf-resolve-condition|Applicabile solo quando il back-end è un servizio di Service Fabric. Condizione che identifica se la chiamata al back-end di Service Fabric deve essere ripetuta con una nuova risoluzione.|No|N/D|
-|sf-service-instance-name|Applicabile solo quando il back-end è un servizio di Service Fabric. Consente di modificare le istanze del servizio durante il runtime. |No|N/D|
+|base-url|Nuovo URL di base del servizio back-end.|`base-url` `backend-id` È necessario che sia presente uno di o.|N/A|
+|backend-id|Identificatore del back-end verso cui avviene il routing. Le entità back-end vengono gestite tramite [API](/rest/api/apimanagement/2019-12-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).|`base-url` `backend-id` È necessario che sia presente uno di o.|N/A|
+|sf-partition-key|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Usato per risolvere una partizione specifica dal servizio di risoluzione del nome.|No|N/A|
+|sf-replica-type|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Controlla se la richiesta deve passare alla replica primaria o secondaria di una partizione. |No|N/A|
+|sf-resolve-condition|Applicabile solo quando il back-end è un servizio di Service Fabric. Condizione che identifica se la chiamata al back-end di Service Fabric deve essere ripetuta con una nuova risoluzione.|No|N/A|
+|sf-service-instance-name|Applicabile solo quando il back-end è un servizio di Service Fabric. Consente di modificare le istanze del servizio durante il runtime. |No|N/A|
 |sf-listener-name|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Reliable Services di Service Fabric consente di creare più listener in un servizio. Questo attributo viene usato per selezionare un listener specifico quando un'istanza di Reliable Services back-end ha più di un listener. Se questo attributo non viene specificato, il servizio Gestione API tenterà di usare un listener senza nome. Un listener senza nome è tipico di un'istanza di Reliable Services con un solo listener. |No|N/D|
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, backend
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="set-body"></a><a name="SetBody"></a> Imposta corpo
+##  <a name="set-body"></a><a name="SetBody"></a>Imposta corpo
  Il criterio `set-body` consente di impostare il corpo del messaggio per le richieste in ingresso e in uscita. Per accedere al corpo del messaggio è possibile usare la proprietà `context.Request.Body` o `context.Response.Body`, a seconda che il criterio sia nella sezione inbound o outbound.
 
 > [!IMPORTANT]
@@ -303,7 +304,7 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 <set-body>new body value as text</set-body>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="literal-text-example"></a>Esempio di testo letterale
 
@@ -446,7 +447,7 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, back-end
 
@@ -465,7 +466,7 @@ OriginalUrl.
 </set-header>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example---adding-header-override-existing"></a>Esempio: aggiunta di un'intestazione, override esistente
 
@@ -512,7 +513,7 @@ OriginalUrl.
 |Nome|Descrizione|Obbligatoria|
 |----------|-----------------|--------------|
 |set-header|Elemento radice.|Sì|
-|Valore|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
+|value|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
 
 ### <a name="properties"></a>Proprietà
 
@@ -522,13 +523,13 @@ OriginalUrl.
 |name|Specifica il nome dell'intestazione da impostare.|Sì|N/D|
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Imposta parametro di stringa della query
+##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a>Impostare il parametro della stringa di query
  Il criterio `set-query-parameter` aggiunge, sostituisce il valore di o elimina il parametro di stringa della query di richiesta. Può essere usato per passare i parametri di query previsti dal servizio back-end che sono facoltativi o non sono mai presenti nella richiesta.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -567,7 +568,7 @@ OriginalUrl.
 |Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento radice.|Sì|
-|Valore|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
+|value|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
 
 ### <a name="properties"></a>Proprietà
 
@@ -577,7 +578,7 @@ OriginalUrl.
 |name|Specifica il nome del parametro di query da impostare.|Sì|N/D|
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, backend
 
@@ -647,7 +648,7 @@ OriginalUrl.
 |----------|-----------------|--------------|
 |rewrite-uri|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Attributo|Descrizione|Obbligatoria|Predefinito|
 |---------------|-----------------|--------------|-------------|
@@ -655,13 +656,13 @@ OriginalUrl.
 |copy-unmatched-params|Specifica se i parametri di query nella richiesta in ingresso non presenti nel modello di URL originale vengono aggiunti all'URL definito dal modello di riscrittura|No|true|
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a>Trasforma XML usando XSLT
+##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a>Trasformare XML usando un XSLT
  Il criterio `Transform XML using an XSLT` applica una trasformazione XSL all'XML nel corpo della richiesta o della risposta.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -719,7 +720,7 @@ OriginalUrl.
 |xsl:stylesheet|Elemento del foglio di stile principale. Tutti gli elementi e gli attributi definiti rispettano le [specifiche XSLT](https://www.w3.org/TR/xslt) standard|Sì|
 
 ### <a name="usage"></a>Utilizzo
- Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+ Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound, outbound
 
@@ -730,5 +731,5 @@ OriginalUrl.
 Per altre informazioni, vedere gli argomenti seguenti:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
-+ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
++ [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)

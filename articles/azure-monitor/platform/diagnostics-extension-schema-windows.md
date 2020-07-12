@@ -6,11 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e078f81db75dd6b89a65ff2d00bb2805ea912d0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676422"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249139"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schema dell'estensione di diagnostica Windows
 Diagnostica di Azure estensione è un agente di monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle risorse di calcolo di Azure. Questo articolo descrive in dettaglio lo schema usato per la configurazione dell'estensione di diagnostica nelle macchine virtuali Windows e in altre risorse di calcolo.
@@ -45,7 +46,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
 |**PublicConfig**|Obbligatorio. Vedere la descrizione altrove in questa pagina.|  
-|**PrivateConfig**|Facoltativa. Vedere la descrizione altrove in questa pagina.|  
+|**PrivateConfig**|facoltativo. Vedere la descrizione altrove in questa pagina.|  
 |**IsEnabled**|Proprietà di tipo Boolean. Vedere la descrizione altrove in questa pagina.|  
 
 ## <a name="publicconfig-element"></a>Elemento PublicConfig  
@@ -71,11 +72,11 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Necessario
 
-|Attributes|Descrizione|  
+|Attributi|Descrizione|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | Spazio massimo sul disco locale che può essere usato dai vari tipi di dati di diagnostica raccolti da Diagnostica di Azure. L'impostazione predefinita è 4096 MB.<br />
 |**useProxyServer** | Configurare Diagnostica di Azure per l'uso delle impostazioni del server proxy definite nelle impostazioni di Internet Explorer.|
-|**sinks** | Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
+|**sinks** | Aggiunto nella versione 1.5. facoltativo. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi. Si noti che è necessario aggiungere la proprietà *resourceId* nell'elemento *metrics* se si vuole che gli eventi caricati in hub eventi DISPONGAno di un ID di risorsa. |  
 
 
 <br /> <br />
@@ -86,7 +87,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |**DiagnosticInfrastructureLogs**|Abilita la raccolta dei log generati da Diagnostica di Azure. I log dell'infrastruttura di diagnostica sono utili per la risoluzione dei problemi del sistema di diagnostica stesso. Gli attributi facoltativi sono i seguenti:<br /><br /> - **scheduledTransferLogLevelFilter**: consente di configurare il livello di gravità minimo dei log raccolti.<br /><br /> - **scheduledTransferPeriod**: intervallo tra trasferimenti pianificati per l'archivio, arrotondato per eccesso al minuto più vicino. Il valore è un ["Tipo di dati di durata" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp). |  
 |**Directory**|Vedere la descrizione altrove in questa pagina.|  
 |**EtwProviders**|Vedere la descrizione altrove in questa pagina.|  
-|**Metriche**|Vedere la descrizione altrove in questa pagina.|  
+|**Metrics** (Metriche)|Vedere la descrizione altrove in questa pagina.|  
 |**PerformanceCounters**|Vedere la descrizione altrove in questa pagina.|  
 |**WindowsEventLog**|Vedere la descrizione altrove in questa pagina.|
 |**DockerSources**|Vedere la descrizione altrove in questa pagina. |
@@ -98,11 +99,11 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Abilitare la raccolta di dump di arresto anomalo del sistema.  
 
-|Attributes|Descrizione|  
+|Attributi|Descrizione|  
 |----------------|-----------------|  
-|**containerName**|Facoltativa. Nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i dump di arresto anomalo del sistema.|  
-|**crashDumpType**|Facoltativa.  Configura Diagnostica di Azure per la raccolta di dump di arresto anomalo del sistema completi o mini.|  
-|**directoryQuotaPercentage**|Facoltativa.  Configura la percentuale di **overallQuotaInMB** da riservare per i dump di arresto anomalo del sistema nella macchina virtuale.|  
+|**containerName**|facoltativo. Nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i dump di arresto anomalo del sistema.|  
+|**crashDumpType**|facoltativo.  Configura Diagnostica di Azure per la raccolta di dump di arresto anomalo del sistema completi o mini.|  
+|**directoryQuotaPercentage**|facoltativo.  Configura la percentuale di **overallQuotaInMB** da riservare per i dump di arresto anomalo del sistema nella macchina virtuale.|  
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
@@ -188,7 +189,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Consente di generare una tabella di contatori delle prestazioni ottimizzata per le query veloci. Ogni contatore delle prestazioni definito nell'elemento **PerformanceCounters** viene archiviato nella tabella delle metriche oltre che nella tabella dei contatori delle prestazioni.  
 
- L'attributo **resourceId** è obbligatorio.  L'ID risorsa della macchina virtuale o del set di scalabilità di macchine virtuali in cui si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Sfoglia**  ->  **gruppi di risorse**  ->  **<\> nome**. Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.  
+ L'attributo **resourceId** è obbligatorio.  L'ID risorsa della macchina virtuale o del set di scalabilità di macchine virtuali in cui si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Sfoglia**  ->  **gruppi di risorse**  ->  **<\> nome**. Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.  Questa proprietà resourceID viene usata per l'invio di metriche personalizzate e per l'aggiunta di una proprietà resourceID ai dati inviati a hub eventi. Si noti che è necessario aggiungere la proprietà *resourceId* nell'elemento *metrics* se si vuole che gli eventi caricati in hub eventi DISPONGAno di un ID di risorsa.
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
@@ -207,8 +208,8 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elemento figlio|Descrizione|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Gli attributi seguenti sono obbligatori:<br /><br /> - **counterSpecifier**: nome del contatore delle prestazioni. Ad esempio: `\Processor(_Total)\% Processor Time`. Per ottenere un elenco di contatori delle prestazioni nell'host eseguire il comando `typeperf`.<br /><br /> - **sampleRate**: frequenza di campionamento del contatore.<br /><br /> Attributo facoltativo:<br /><br /> **unit**: unità di misura del contatore. I valori sono disponibili nella [classe UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
-|**sinks** | Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per l'invio di dati di diagnostica, Ad esempio, Monitoraggio di Azure o Hub eventi.|    
+|**PerformanceCounterConfiguration**|Gli attributi seguenti sono obbligatori:<br /><br /> - **counterSpecifier**: nome del contatore delle prestazioni. Ad esempio, `\Processor(_Total)\% Processor Time` Per ottenere un elenco di contatori delle prestazioni nell'host eseguire il comando `typeperf`.<br /><br /> - **sampleRate**: frequenza di campionamento del contatore.<br /><br /> Attributo facoltativo:<br /><br /> **unit**: unità di misura del contatore. I valori sono disponibili nella [classe UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
+|**sinks** | Aggiunto nella versione 1.5. facoltativo. Punta a una posizione di sink per l'invio di dati di diagnostica, Ad esempio, Monitoraggio di Azure o Hub eventi. Si noti che è necessario aggiungere la proprietà *resourceId* nell'elemento *metrics* se si vuole che gli eventi caricati in hub eventi DISPONGAno di un ID di risorsa.|    
 
 
 
@@ -222,8 +223,8 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elemento figlio|Descrizione|  
 |-------------------|-----------------|  
-|**DataSource**|Log eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. Ad esempio:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*" |
-|**sinks** | Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
+|**DataSource**|Log eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. ad esempio:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*" |
+|**sinks** | Aggiunto nella versione 1.5. facoltativo. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
 
 
 ## <a name="logs-element"></a>Elemento Logs  
@@ -235,10 +236,10 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Attributo|Type|Descrizione|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|Facoltativa. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferLogLevelFilter**|**string**|Facoltativa. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**scheduledTransferPeriod**|**duration**|Facoltativa. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
-|**sinks** |**string**| Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi.|  
+|**bufferQuotaInMB**|**unsignedInt**|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
+|**scheduledTransferLogLevelFilter**|**string**|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**scheduledTransferPeriod**|**duration**|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
+|**sinks** |**string**| Aggiunto nella versione 1.5. facoltativo. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi. Si noti che è necessario aggiungere la proprietà *resourceId* nell'elemento *metrics* se si vuole che gli eventi caricati in hub eventi DISPONGAno di un ID di risorsa.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -265,14 +266,14 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Definisce le posizioni a cui inviare i dati di diagnostica, ad esempio il servizio Application Insights.  
 
-|Attributo|Type|Descrizione|  
+|Attributo|Tipo|Descrizione|  
 |---------------|----------|-----------------|  
 |**nome**|string|Stringa che identifica il nome del sink.|  
 
-|Elemento|Type|Descrizione|  
+|Elemento|Tipo|Descrizione|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Usato solo per inviare dati ad Application Insights. Contiene la chiave di strumentazione per un account di Application Insights attivo a cui è possibile accedere.|  
-|**Channels**|string|Uno per ogni filtro aggiuntivo per i flussi|  
+|**Canali**|string|Uno per ogni filtro aggiuntivo per i flussi|  
 
 ## <a name="channels-element"></a>Elemento Channels  
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -281,7 +282,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Definisce i filtri per i flussi di dati di log che attraversano un sink.  
 
-|Elemento|Type|Descrizione|  
+|Elemento|Tipo|Descrizione|  
 |-------------|----------|-----------------|  
 |**Channel**|string|Vedere la descrizione altrove in questa pagina.|  
 
@@ -292,7 +293,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Definisce le posizioni a cui inviare i dati di diagnostica, ad esempio il servizio Application Insights.  
 
-|Attributes|Type|Descrizione|  
+|Attributi|Tipo|Descrizione|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
 |**nome**|**string**|Nome univoco per fare riferimento al canale|  
@@ -326,7 +327,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 *PublicConfig* e *PrivateConfig* sono separati perché nella maggior parte dei casi di utilizzo JSON vengono passati come variabili diverse. Questi casi includono Gestione risorse modelli, PowerShell e Visual Studio.
 
 > [!NOTE]
-> La definizione di sink di monitoraggio di Azure per la configurazione pubblica presenta due proprietà, *resourceId* e *Region*. Questi sono necessari solo per le macchine virtuali classiche e i servizio cloud classici. Queste proprietà non devono essere usate per altre risorse.
+> La definizione di sink di monitoraggio di Azure per la configurazione pubblica presenta due proprietà, *resourceId* e *Region*. Questi sono necessari solo per le macchine virtuali classiche e i servizio cloud classici. La proprietà *Region* non deve essere usata per altre risorse, la proprietà *resourceId* viene usata nelle VM ARM per popolare il campo ResourceId nei log caricati in hub eventi.
 
 ```json
 "PublicConfig" {

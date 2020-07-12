@@ -3,11 +3,12 @@ title: Aggiornare un cluster per l'uso del nome comune del certificato
 description: Informazioni su come passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a90290430616302dbbe9ab9cf717510070936529
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272628"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247915"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster
 Nessun certificato può avere la stessa identificazione digitale di un altro, il che rende difficile eseguire il rollover o gestire il certificato del cluster. Più certificati, tuttavia, possono avere lo stesso nome comune o lo stesso oggetto.  Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati. In questo articolo viene descritto come aggiornare un cluster di Service Fabric in esecuzione per usare il nome comune del certificato anziché l'identificazione personale del certificato.
@@ -19,7 +20,7 @@ Nessun certificato può avere la stessa identificazione digitale di un altro, il
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Ottenere un certificato
-Ottenere innanzitutto un certificato da un'[autorità di certificazione](https://wikipedia.org/wiki/Certificate_authority).  Il nome comune del certificato deve essere usato per il dominio personalizzato di cui si è proprietari e deve essere acquistato da un registrar di dominio. Ad esempio "azureservicefabricbestpractices.com"; gli utenti che non sono dipendenti Microsoft non possono effettuare il provisioning di certificati per i domini MS, pertanto non è possibile usare i nomi DNS del bilanciamento del carico o di Gestione traffico come nomi comuni per il certificato e quindi sarà necessario eseguire il provisioning di una [zona DNS di Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) affinché il dominio personalizzato sia risolvibile in Azure. È anche possibile dichiarare il dominio personalizzato di cui si è proprietari come "managementEndpoint" del cluster se si desidera che il portale rifletta l'alias di dominio personalizzato per il cluster.
+Ottenere innanzitutto un certificato da un'[autorità di certificazione](https://wikipedia.org/wiki/Certificate_authority).  Il nome comune del certificato deve essere usato per il dominio personalizzato di cui si è proprietari e deve essere acquistato da un registrar di dominio. Ad esempio "azureservicefabricbestpractices.com"; gli utenti che non sono dipendenti Microsoft non possono effettuare il provisioning di certificati per i domini MS, pertanto non è possibile usare i nomi DNS del bilanciamento del carico o di Gestione traffico come nomi comuni per il certificato e quindi sarà necessario eseguire il provisioning di una [zona DNS di Azure](../dns/dns-delegate-domain-azure-dns.md) affinché il dominio personalizzato sia risolvibile in Azure. È anche possibile dichiarare il dominio personalizzato di cui si è proprietari come "managementEndpoint" del cluster se si desidera che il portale rifletta l'alias di dominio personalizzato per il cluster.
 
 A scopo di test, è possibile ottenere un certificato firmato da un'autorità di certificazione disponibile o aperta.
 
@@ -178,7 +179,7 @@ Aprire quindi il file di modello in un editor di testo e apportare tre aggiornam
         ...
     ```
 
-Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione di un cluster Service fabric che utilizza il nome comune del certificato anziché l'identificazione personale.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
+Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione di un cluster Service fabric che utilizza il nome comune del certificato anziché l'identificazione personale.](./service-fabric-create-cluster-using-cert-cn.md)
 
 ## <a name="deploy-the-updated-template"></a>Distribuire il modello aggiornato
 Distribuire nuovamente il modello aggiornato dopo aver apportato le modifiche.

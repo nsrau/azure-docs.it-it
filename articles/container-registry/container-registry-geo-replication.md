@@ -5,11 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84508795"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247133"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 
@@ -27,7 +28,7 @@ Un registro con replica geografica è caratterizzato dai vantaggi seguenti:
 >
 
 ## <a name="example-use-case"></a>Esempio di caso d'uso
-Contoso gestisce un sito Web per la presenza online pubblica esteso a Stati Uniti, Canada ed Europa. Per gestire questi mercati con contenuti in locale e in una posizione di rete vicina, Contoso esegue cluster del [servizio Azure Kubernetes](/azure/aks/) nelle aree Stati Uniti occidentali, Stati Uniti orientali, Canada centrale ed Europa occidentale. L'applicazione del sito Web, distribuita come un'immagine Docker, usa lo stesso codice e la stessa immagine in tutte le aree. Il contenuto locale per un'area specifica viene recuperato da un database, di cui viene eseguito il provisioning in modo univoco in ogni area. Ogni distribuzione regionale dispone della relativa configurazione univoca per risorse quali, ad esempio, il database locale.
+Contoso gestisce un sito Web per la presenza online pubblica esteso a Stati Uniti, Canada ed Europa. Per gestire questi mercati con contenuti in locale e in una posizione di rete vicina, Contoso esegue cluster del [servizio Azure Kubernetes](../aks/index.yml) nelle aree Stati Uniti occidentali, Stati Uniti orientali, Canada centrale ed Europa occidentale. L'applicazione del sito Web, distribuita come un'immagine Docker, usa lo stesso codice e la stessa immagine in tutte le aree. Il contenuto locale per un'area specifica viene recuperato da un database, di cui viene eseguito il provisioning in modo univoco in ogni area. Ogni distribuzione regionale dispone della relativa configurazione univoca per risorse quali, ad esempio, il database locale.
 
 Il team di sviluppo si trova a Seattle (Washington) e usa il data center degli Stati Uniti occidentali.
 
@@ -94,7 +95,7 @@ Il servizio Registro Azure Container inizia a sincronizzare le immagine tra le r
 * Quando si esegue il push o il pull di immagini da un registro con replica geografica, Gestione traffico di Azure invia in background la richiesta al registro che si trova nell'area più vicina in termini di latenza di rete.
 * Una volta eseguito il push dell'aggiornamento di un'immagine o un tag nell'area più vicina, il Registro Azure Container impiega del tempo per replicare i livelli e i manifesti nelle rimanenti aree scelte. La replica delle immagini di grandi dimensioni richiede più tempo rispetto alla replica delle immagini più piccole. Immagini e tag vengono sincronizzati tra le aree di replica con un modello di coerenza finale.
 * Per gestire i flussi di lavoro che dipendono da aggiornamenti push a un registro con replica geografica, è consigliabile configurare [webhook](container-registry-webhook.md) per rispondere agli eventi push. È possibile configurare webhook regionali all'interno di un registro con replica geografica per tenere traccia degli eventi push man mano che vengono completati tra le aree con replica geografica.
-* Per gestire i BLOB che rappresentano i livelli di contenuto, Registro Azure Container usa gli endpoint dei dati. È possibile abilitare gli [endpoint dei dati dedicati](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) per il registro in ognuna delle aree con replica geografica del registro. Questi endpoint consentono la configurazione di regole di accesso del firewall con ambito molto rigorose.
+* Per gestire i BLOB che rappresentano i livelli di contenuto, Azure Container Registry usa gli endpoint di dati. È possibile abilitare gli [endpoint dei dati dedicati](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) per il registro in ognuna delle aree con replica geografica del registro. Questi endpoint consentono la configurazione di regole di accesso del firewall con ambito molto rigorose.
 * Se si configura un [collegamento privato](container-registry-private-link.md) per il registro usando endpoint privati in una rete virtuale, gli endpoint di dati dedicati in ognuna delle aree con replica geografica sono abilitati per impostazione predefinita. 
 
 ## <a name="delete-a-replica"></a>Eliminare una replica

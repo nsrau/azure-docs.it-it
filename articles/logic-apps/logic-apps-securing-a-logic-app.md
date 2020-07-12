@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 769d82cae6b5f9039587018ba5a7cde407f74e4c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 902c48f2edcca6eb25958a9f22d6760faf1fcbc2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964244"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248714"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -110,7 +110,7 @@ Nel corpo includere la proprietà `KeyType` come `Primary` o `Secondary`. Questa
 
 ### <a name="enable-azure-active-directory-oauth"></a>Abilitare Azure Active Directory OAuth
 
-Se l'app per la logica inizia con un [trigger di richiesta](../connectors/connectors-native-reqres.md), è possibile abilitare [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure ad OAuth) creando un criterio di autorizzazione per le chiamate in ingresso al trigger di richiesta. Prima di abilitare questa autenticazione, considerare quanto segue:
+Se l'app per la logica inizia con un [trigger di richiesta](../connectors/connectors-native-reqres.md), è possibile abilitare [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure ad OAuth) creando un criterio di autorizzazione per le chiamate in ingresso al trigger di richiesta. Prima di abilitare questa autenticazione, considerare quanto segue:
 
 * Una chiamata in ingresso all'app per la logica può usare un solo schema di autorizzazione, Azure AD OAuth o le [firme di accesso condiviso (SAS)](#sas). Per i token OAuth sono supportati solo gli schemi di autorizzazione di [tipo Bearer](../active-directory/develop/active-directory-v2-protocols.md#tokens) , che sono supportati solo per il trigger request.
 
@@ -309,7 +309,7 @@ Per controllare l'accesso agli input e agli output nella cronologia di esecuzion
 
 1. In **Configurazione del controllo di accesso** > **Indirizzi IP in ingresso consentiti** selezionare **Intervalli IP specifici**.
 
-1. In **Intervalli IP per i contenuti**, specificare gli intervalli di indirizzi IP che possono accedere al contenuto da input e output. 
+1. In **Intervalli IP per i contenuti**, specificare gli intervalli di indirizzi IP che possono accedere al contenuto da input e output.
 
    Un intervallo IP valido usa questi formati: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
 
@@ -462,7 +462,8 @@ Se si esegue la distribuzione in ambienti diversi, provare a parametrizzare i va
 Ad esempio, per autenticare azioni HTTP con [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), è possibile definire e nascondere i parametri che accettano l'ID client e il segreto client usati per l'autenticazione. Per definire questi parametri nell'app per la logica, usare la `parameters` sezione nella definizione del flusso di lavoro dell'app per la logica e il modello di Resource Manager per la distribuzione. Per proteggere i valori di parametro che non si vogliono mostrare quando si modifica l'app per la logica o si visualizza la cronologia di esecuzione, definire i parametri usando il tipo `securestring` o `secureobject`e usare la codifica in base alle esigenze. I parametri con questo tipo non vengono restituiti con la definizione della risorsa e non sono accessibili quando si visualizza la risorsa dopo la distribuzione. Per accedere a questi valori di parametro durante la fase di esecuzione, usare l'espressione `@parameters('<parameter-name>')` all'interno della definizione del flusso di lavoro. Questa espressione viene valutata solo in fase di esecuzione e viene descritta dal [linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> Se si usa un parametro nelle intestazioni o nel corpo della richiesta, tale parametro potrebbe essere visibile quando si visualizza la cronologia di esecuzione dell'app per la logica e la richiesta HTTP in uscita. Assicurarsi anche di configurare di conseguenza i criteri di accesso ai contenuti. È possibile anche usare [l'offuscamento](#obfuscate) per nascondere gli input e gli output nella cronologia di esecuzione. Le intestazioni di autorizzazione non sono mai visibili tramite input o output. Se quindi viene usato un segreto, questo non sarà recuperabile.
+> Se si usa un parametro nelle intestazioni o nel corpo della richiesta, tale parametro potrebbe essere visibile quando si visualizza la cronologia di esecuzione dell'app per la logica e la richiesta HTTP in uscita. Assicurarsi anche di configurare di conseguenza i criteri di accesso ai contenuti.
+> È possibile anche usare [l'offuscamento](#obfuscate) per nascondere gli input e gli output nella cronologia di esecuzione. Le intestazioni di autorizzazione non sono mai visibili tramite input o output. Se quindi viene usato un segreto, questo non sarà recuperabile.
 
 Per altre informazioni, vedere le sezioni in questo argomento:
 
@@ -680,7 +681,7 @@ Ecco alcuni modi in cui è possibile proteggere gli endpoint che ricevono chiama
   * [Autenticazione Active Directory OAuth](#azure-active-directory-oauth-authentication)
 
   * [Autenticazione identità gestita](#managed-identity-authentication)
-  
+
   Per altre informazioni, vedere [Aggiunta dell'autenticazione alle chiamate in uscita](#add-authentication-outbound) più avanti in questo argomento.
 
 * Limitazione dell'accesso dagli indirizzi IP delle app per la logica.
@@ -727,7 +728,8 @@ Ecco alcuni modi in cui è possibile proteggere gli endpoint che ricevono chiama
 Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In alcuni trigger e azioni usati per inviare chiamate in uscita o richieste a questi endpoint, è possibile specificare un tipo di autenticazione. Nella finestra di progettazione dell'app per la logica, i trigger e le azioni che supportano la scelta di un tipo di autenticazione hanno una proprietà di **autenticazione** . Questa proprietà, tuttavia, potrebbe non essere sempre visualizzata per impostazione predefinita. In questi casi, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **autenticazione**.
 
 > [!IMPORTANT]
-> Per proteggere le informazioni riservate gestite dall'app per la logica, usare i parametri protetti e codificare i dati in modo necessario. Per altre informazioni sull'uso e sulla protezione dei parametri, vedere [Accesso agli input dei parametri](#secure-action-parameters).
+> Per proteggere le informazioni riservate gestite dall'app per la logica, usare i parametri protetti e codificare i dati in modo necessario.
+> Per altre informazioni sull'uso e sulla protezione dei parametri, vedere [Accesso agli input dei parametri](#secure-action-parameters).
 
 Questa tabella identifica i tipi di autenticazione disponibili per i trigger e le azioni in cui è possibile selezionare un tipo di autenticazione:
 
@@ -814,7 +816,7 @@ Per altre informazioni sulla protezione dei servizi tramite l'autenticazione del
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
-Nei trigger di richiesta è possibile usare [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) per autenticare le chiamate in ingresso dopo aver [configurato i criteri di autorizzazione di Azure AD](#enable-oauth) per l'app per la logica. Per tutti gli altri trigger e azioni che forniscono il tipo di autenticazione **Active Directory OAuth** da selezionare, specificare i valori delle proprietà seguenti:
+Nei trigger di richiesta è possibile usare [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) per autenticare le chiamate in ingresso dopo aver [configurato i criteri di autorizzazione di Azure AD](#enable-oauth) per l'app per la logica. Per tutti gli altri trigger e azioni che forniscono il tipo di autenticazione **Active Directory OAuth** da selezionare, specificare i valori delle proprietà seguenti:
 
 | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
@@ -823,7 +825,7 @@ Nei trigger di richiesta è possibile usare [Azure Active Directory Open Authent
 | **Tenant** | `tenant` | Sì | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD |
 | **Destinatari** | `audience` | Sì | <*resource-to-authorize*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
 | **ID client** | `clientId` | Sì | <*client-ID*> | L'ID client per l'app richiedente l'autorizzazione |
-| **Tipo di credenziali** | `credentialType` | Sì | Certificato <br>o <br>Segreto | Il tipo di credenziale che il client usa per la richiesta di autorizzazione. Questa proprietà e questo valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà che vengono visualizzate per il tipo di credenziale selezionato. |
+| **Tipo di credenziali** | `credentialType` | Sì | Certificato <br>oppure <br>Segreto | Il tipo di credenziale che il client usa per la richiesta di autorizzazione. Questa proprietà e questo valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà che vengono visualizzate per il tipo di credenziale selezionato. |
 | **Segreto** | `secret` | Sì, ma solo per il tipo di credenziale "Segreto" | <*client-secret*> | Il segreto client per la richiesta dell'autorizzazione |
 | **Pfx** | `pfx` | Sì, ma solo per il tipo di credenziale "Certificato" | <*encoded-pfx-file-content*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
 | **Password** | `password` | Sì, ma solo per il tipo di credenziale "Certificato" | <*password-for-pfx-file*> | Password per accedere al file PFX. |
@@ -907,7 +909,7 @@ Se l'opzione [identità gestita](../active-directory/managed-identities-azure-re
 
    | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
    |---------------------|-----------------|----------|-------|-------------|
-   | **autenticazione** | `type` | Sì | **Identità gestita** <br>o <br>`ManagedServiceIdentity` | Tipo di autenticazione da usare |
+   | **autenticazione** | `type` | Sì | **Identità gestita** <br>oppure <br>`ManagedServiceIdentity` | Tipo di autenticazione da usare |
    | **Identità gestita** | `identity` | Sì | * **Identità gestita assegnata dal sistema** <br>o <br>`SystemAssigned` <p><p>* <*user-assigned-identity-name*> | L'identità gestita da usare |
    | **Destinatari** | `audience` | Sì | <*target-resource-ID*> | L'ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende i [token di accesso](../active-directory/develop/access-tokens.md) per l'autenticazione validi per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota**: la proprietà **Destinatari** potrebbe essere nascosta in alcuni trigger o azioni. Per fare in modo che la proprietà venga visualizzata, nel trigger o nell'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Destinatari**. <p><p>**Importante**: assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse le eventuali barre finali necessarie. Quindi, l'ID della risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID della risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID risorsa, vedere [Servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||

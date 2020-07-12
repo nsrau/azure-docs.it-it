@@ -2,13 +2,13 @@
 title: Procedure consigliate per i modelli
 description: Descrive gli approcci consigliati per la creazione di modelli di Azure Resource Manager. Offre suggerimenti per evitare problemi comuni quando si usano i modelli.
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/10/2020
+ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058062"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248918"
 ---
 # <a name="arm-template-best-practices"></a>Procedure consigliate per il modello ARM
 
@@ -28,7 +28,7 @@ Esistono anche i limiti seguenti:
 
 È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [Uso di modelli collegati nella distribuzione di risorse di Azure](linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>Gruppo di risorse
 
 Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati relativi alle risorse. I metadati vengono archiviati nella posizione del gruppo di risorse.
 
@@ -136,7 +136,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Per le risorse che non sono disponibili in tutte le posizioni, usare un parametro distinto oppure specificare un valore letterale per location.
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variabili
 
 Le informazioni seguenti possono essere utili quando si usano le [variabili](template-variables.md):
 
@@ -160,7 +160,7 @@ Le informazioni seguenti possono essere utili quando si usano le [variabili](tem
 
 Quando si definiscono le [dipendenze](define-resource-dependency.md) da impostare, attenersi alle linee guida seguenti:
 
-* Usare la funzione **reference** passando il nome della risorsa per impostare una dipendenza implicita tra risorse che devono condividere una proprietà. Non aggiungere un elemento `dependsOn` esplicito quando è già stata definita una dipendenza implicita. Questo approccio riduce il rischio di creare dipendenze non necessarie.
+* Usare la funzione **reference** passando il nome della risorsa per impostare una dipendenza implicita tra risorse che devono condividere una proprietà. Non aggiungere un elemento `dependsOn` esplicito quando è già stata definita una dipendenza implicita. Questo approccio riduce il rischio di creare dipendenze non necessarie. Per un esempio di impostazione di una dipendenza implicita, vedere [dipendenza implicita](define-resource-dependency.md#reference-and-list-functions).
 
 * Impostare una risorsa figlio come dipendente dalla risorsa padre.
 

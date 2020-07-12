@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
-ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa6d4fc27373e524f4c492635cffbf8b735add8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614367"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247218"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Aggiungere la registrazione all'applicazione di Service Fabric
 
@@ -95,7 +96,7 @@ Anche un ibrido di strumentazione strutturata e generica può essere una soluzio
 
 La funzione di registrazione di ASP.NET Core ([pacchetto NuGet Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging)) è un framework di registrazione che fornisce un'API di registrazione standard per l'applicazione. Alla funzione di registrazione di ASP.NET Core è possibile collegare il supporto per altri back-end di registrazione. Ciò offre un'ampia gamma di supporto per l'elaborazione di registrazioni nell'applicazione, senza alcuna necessità di modifiche rilevanti al codice.
 
-1. Aggiungere il pacchetto NuGet **Microsoft. Extensions. Logging** al progetto che si vuole instrumentare. Aggiungere anche eventuali pacchetti di provider. Per altre informazioni, vedere [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) (Registrazione in ASP.NET Core).
+1. Aggiungere il pacchetto NuGet **Microsoft. Extensions. Logging** al progetto che si vuole instrumentare. Aggiungere anche eventuali pacchetti di provider. Per altre informazioni, vedere [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging) (Registrazione in ASP.NET Core).
 2. Aggiungere una direttiva **using** per **Microsoft. Extensions. Logging** al file del servizio.
 3. Definire una variabile privata all'interno della classe di servizio.
 
@@ -166,13 +167,3 @@ Alcuni provider di terze parti usano l'approccio descritto nella sezione precede
 
 - Altre informazioni sul [monitoraggio delle applicazioni in Service Fabric](service-fabric-diagnostics-event-generation-app.md).
 - Informazioni sulla registrazione con [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [Diagnostica di Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md).
-
-
-
-
-
-
-
-
-
-

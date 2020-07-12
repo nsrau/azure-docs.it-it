@@ -2,13 +2,13 @@
 title: Eliminazioni della cronologia di distribuzione
 description: Viene descritto come Azure Resource Manager Elimina automaticamente le distribuzioni dalla cronologia di distribuzione. Le distribuzioni vengono eliminate quando la cronologia è prossima al superamento del limite di 800.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: 70730ce814ebc689d9672952bad7c3dd39b5a7f1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/10/2020
+ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981657"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248983"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminazioni automatiche dalla cronologia di distribuzione
 
@@ -23,16 +23,18 @@ Azure Resource Manager inizierà a breve eliminare automaticamente le distribuzi
 
 ## <a name="when-deployments-are-deleted"></a>Quando vengono eliminate le distribuzioni
 
-Le distribuzioni vengono eliminate dalla cronologia di distribuzione quando si raggiungono 790 distribuzioni. Azure Resource Manager Elimina un piccolo set di distribuzioni meno recenti per liberare spazio per le distribuzioni future. La maggior parte della cronologia rimane invariata. Le distribuzioni meno recenti vengono sempre eliminate per prime.
+Le distribuzioni vengono eliminate dalla cronologia quando si raggiungono 775 o più distribuzioni. Azure Resource Manager Elimina le distribuzioni finché la cronologia non è impostata su 750. Le distribuzioni meno recenti vengono sempre eliminate per prime.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Eliminazioni dalla cronologia di distribuzione":::
+
+> [!NOTE]
+> Il numero iniziale (775) e il numero finale (750) sono soggetti a modifica.
+>
+> Se il gruppo di risorse è già al limite di 800, la distribuzione successiva avrà esito negativo con un errore. Il processo di eliminazione automatica viene avviato immediatamente. È possibile riprovare la distribuzione dopo una breve attesa.
 
 Oltre alle distribuzioni, le eliminazioni vengono attivate anche quando si esegue l' [operazione](template-deploy-what-if.md) di simulazione o si convalida una distribuzione.
 
 Quando si assegna a una distribuzione lo stesso nome di uno nella cronologia, è necessario reimpostarne la posizione nella cronologia. La distribuzione viene spostata nella posizione più recente della cronologia. È anche possibile reimpostare la posizione di una distribuzione quando si [esegue il rollback alla distribuzione](rollback-on-error.md) dopo un errore.
-
-> [!NOTE]
-> Se il gruppo di risorse è già al limite di 800, la distribuzione successiva avrà esito negativo con un errore. Il processo di eliminazione automatica viene avviato immediatamente. È possibile riprovare la distribuzione dopo una breve attesa.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Rifiutare esplicitamente le eliminazioni automatiche
 

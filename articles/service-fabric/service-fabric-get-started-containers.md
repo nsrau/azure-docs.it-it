@@ -4,11 +4,12 @@ description: Creare la prima applicazione contenitore Windows in Azure Service F
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: tracking-python
-ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0baad5d2596de04b629c4cf9eb86c51b37b8cdc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560655"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247405"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
 
@@ -16,7 +17,7 @@ ms.locfileid: "84560655"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Per eseguire un'applicazione esistente in un contenitore Windows in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questo articolo illustra come creare un'immagine Docker contenente un'applicazione Web Python [Flask](http://flask.pocoo.org/) e distribuirla in un cluster di Azure Service Fabric. Si condividerà anche l'applicazione in contenitore tramite [Registro Azure Container](/azure/container-registry/). L'articolo presuppone una conoscenza di base di Docker. Per informazioni su Docker, vedere [Docker overview](https://docs.docker.com/engine/understanding-docker/) (Panoramica su Docker).
+Per eseguire un'applicazione esistente in un contenitore Windows in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questo articolo illustra come creare un'immagine Docker contenente un'applicazione Web Python [Flask](http://flask.pocoo.org/) e distribuirla in un cluster di Azure Service Fabric. Si condividerà anche l'applicazione in contenitore tramite [Registro Azure Container](../container-registry/index.yml). L'articolo presuppone una conoscenza di base di Docker. Per informazioni su Docker, vedere [Docker overview](https://docs.docker.com/engine/understanding-docker/) (Panoramica su Docker).
 
 > [!NOTE]
 > Questo articolo si applica a un ambiente di sviluppo Windows.  Il runtime del cluster di Service Fabric e il runtime di Docker devono essere in esecuzione nello stesso sistema operativo.  Non è possibile eseguire contenitori Windows su un cluster Linux.
@@ -320,7 +321,7 @@ Se si vuole disabilitare l'integrazione di **HEALTHCHECK** per l'intero cluster 
 ## <a name="deploy-the-container-application"></a>Distribuire l'applicazione del contenitore
 Salvare tutte le modifiche e compilare l'applicazione. Per pubblicare l'applicazione, fare clic con il pulsante destro del mouse su **MyFirstContainer** in Esplora soluzioni e scegliere **Pubblica**.
 
-In **Endpoint connessione** immettere l'endpoint di gestione per il cluster, Ad esempio: `containercluster.westus2.cloudapp.azure.com:19000`. L'endpoint di connessione del client è disponibile nella scheda Panoramica del cluster nel [portale di Azure](https://portal.azure.com).
+In **Endpoint connessione** immettere l'endpoint di gestione per il cluster, Ad esempio, `containercluster.westus2.cloudapp.azure.com:19000` L'endpoint di connessione del client è disponibile nella scheda Panoramica del cluster nel [portale di Azure](https://portal.azure.com).
 
 Fare clic su **Pubblica**.
 
@@ -332,7 +333,7 @@ Aprire un browser e passare a `http://containercluster.westus2.cloudapp.azure.co
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
-Mentre il cluster è in esecuzione, continuano a essere addebitati i relativi costi. È quindi consigliabile [eliminare il cluster](service-fabric-cluster-delete.md).
+Mentre il cluster è in esecuzione, continuano a essere addebitati i relativi costi. È quindi consigliabile [eliminare il cluster](./service-fabric-tutorial-delete-cluster.md).
 
 Dopo aver effettuato il push dell'immagine nel registro contenitori, è possibile eliminare l'immagine locale dal computer di sviluppo:
 
@@ -343,15 +344,15 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Compatibilità tra il sistema operativo del contenitore di Windows Server e il sistema operativo dell'host
 
-I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. Ad esempio:
+I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. ad esempio:
  
 - I contenitori di Windows Server creati tramite Windows Server versione 1709 non funzionano in un host che esegue Windows Server 2016. 
 - I contenitori di Windows Server compilati con Windows Server 2016 funzionano in modalità di isolamento Hyper-V solo in un host che esegue Windows Server versione 1709. 
 - Con i contenitori di Windows Server creati tramite Windows Server 2016, potrebbe essere necessario assicurarsi che la revisione del sistema operativo del contenitore e del sistema operativo host corrispondano durante l'esecuzione in modalità di isolamento dei processi in un host che esegue Windows Server 2016.
  
-Per altre informazioni, vedere [Compatibilità delle versioni dei contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+Per altre informazioni, vedere [Compatibilità delle versioni dei contenitori di Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Considerare la compatibilità del sistema operativo host e del sistema operativo del contenitore durante la creazione e la distribuzione dei contenitori nel cluster di Service Fabric. Ad esempio:
+Considerare la compatibilità del sistema operativo host e del sistema operativo del contenitore durante la creazione e la distribuzione dei contenitori nel cluster di Service Fabric. ad esempio:
 
 - Assicurarsi di distribuire i contenitori con un sistema operativo compatibile con il sistema operativo nei nodi del cluster.
 - Assicurarsi che la modalità di isolamento specificata per l'app contenitore sia coerente con il supporto per il sistema operativo del contenitore nel nodo in cui viene distribuito.

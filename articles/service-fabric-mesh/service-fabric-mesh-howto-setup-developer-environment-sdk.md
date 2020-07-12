@@ -5,11 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 12/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: a674047722d4deca02d8f4d38a0826e479065037
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1040218795b824728e144697247bb070e164da22
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79259201"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248277"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurare l'ambiente di sviluppo Windows per compilare app Service Fabric Mesh
 
@@ -37,7 +38,7 @@ Visual Studio 2017 o versione successiva è necessario per distribuire applicazi
 * Sviluppo Web e ASP.NET
 * Sviluppo di Azure
 
-## <a name="install-docker"></a>Installazione di Docker
+## <a name="install-docker"></a>Installare Docker
 
 Se Docker è già installato, assicurarsi di disporre della versione più recente. Docker può richiedere l'utente quando una nuova versione è in uscita, ma controllare manualmente per assicurarsi di avere la versione più recente.
 
@@ -114,7 +115,7 @@ Leggere l'esercitazione sulla [creazione di un'app Azure Service Fabric](service
 
 Risposte a [domande comuni e problemi noti](service-fabric-mesh-faq.md).
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
+[azure-cli-install]: /cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
 [download-runtime]: https://aka.ms/sfruntime

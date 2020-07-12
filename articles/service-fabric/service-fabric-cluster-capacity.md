@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 774b114a47958b173f891ed13d423f9b051ee37c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610541"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247778"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 
@@ -26,7 +26,7 @@ In questo articolo vengono illustrati i punti decisionali significativi per ognu
 
 ## <a name="initial-number-and-properties-of-cluster-node-types"></a>Numero iniziale e proprietà dei tipi di nodo del cluster
 
-Un *tipo di nodo* definisce dimensioni, numero e proprietà per un set di nodi (macchine virtuali) del cluster. Ogni tipo di nodo definito in un cluster di Service Fabric è mappato a un [set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+Un *tipo di nodo* definisce dimensioni, numero e proprietà per un set di nodi (macchine virtuali) del cluster. Ogni tipo di nodo definito in un cluster di Service Fabric è mappato a un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md).
 
 Poiché ogni tipo di nodo è un set di scalabilità distinto, può essere ridimensionato in modo indipendente, avere diversi set di porte aperte e avere metriche di capacità diverse. Per altre informazioni sulla relazione tra i tipi di nodo e i set di scalabilità di macchine virtuali, vedere [Service Fabric tipi di nodo del cluster](service-fabric-cluster-nodetypes.md).
 
@@ -34,7 +34,7 @@ Ogni cluster richiede un **tipo di nodo primario**, che esegue i servizi di sist
 
 I **tipi di nodo non primari** possono essere usati per definire i ruoli applicazione, ad esempio i servizi *front-end* e *back-end* , e per isolare fisicamente i servizi all'interno di un cluster. I cluster Service Fabric possono avere zero o più tipi di nodo non primari.
 
-Il tipo di nodo primario viene configurato usando l' `isPrimary` attributo sotto la definizione del tipo di nodo nel modello di distribuzione Azure Resource Manager. Per l'elenco completo delle proprietà del tipo di nodo, vedere l' [oggetto NodeTypeDescription](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) . Ad esempio, è possibile aprire qualsiasi *AzureDeploy.js* di file in [Service Fabric esempi di cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) e trovare la ricerca della *pagina* per l' `nodetTypes` oggetto.
+Il tipo di nodo primario viene configurato usando l' `isPrimary` attributo sotto la definizione del tipo di nodo nel modello di distribuzione Azure Resource Manager. Per l'elenco completo delle proprietà del tipo di nodo, vedere l' [oggetto NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) . Ad esempio, è possibile aprire qualsiasi *AzureDeploy.js* di file in [Service Fabric esempi di cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) e trovare la ricerca della *pagina* per l' `nodetTypes` oggetto.
 
 ### <a name="node-type-planning-considerations"></a>Considerazioni sulla pianificazione del tipo di nodo
 
@@ -79,7 +79,7 @@ La tabella seguente elenca Service Fabric livelli di durabilità, i rispettivi r
 > Con la durabilità Bronze, l'aggiornamento automatico delle immagini del sistema operativo non è disponibile. Sebbene [patch Orchestration Application](service-fabric-patch-orchestration-application.md) (destinata solo ai cluster non ospitati da Azure) *non sia consigliata* per i livelli di durabilità Silver o superiore, è l'unica opzione per automatizzare gli aggiornamenti di Windows rispetto ai domini di aggiornamento Service Fabric.
 
 > [!IMPORTANT]
-> Indipendentemente dal livello di durabilità, l'esecuzione di un'operazione di [deallocazione](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) in un set di scalabilità di macchine virtuali eliminerà definitivamente il cluster.
+> Indipendentemente dal livello di durabilità, l'esecuzione di un'operazione di [deallocazione](/rest/api/compute/virtualmachinescalesets/deallocate) in un set di scalabilità di macchine virtuali eliminerà definitivamente il cluster.
 
 ### <a name="bronze"></a>Bronzo
 

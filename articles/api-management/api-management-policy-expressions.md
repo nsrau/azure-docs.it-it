@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 40ea26a2394b7ca093f1bba2456ebf5ef116cd0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1713f2ca8fda0c768727ea12e682b373d644bcba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695811"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249819"
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
 Questo articolo illustra la sintassi delle espressioni di criteri in C# 7. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita esplicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) consentito di tipi .NET Framework.
@@ -26,7 +27,7 @@ Per altre informazioni:
 
 - Vedere la procedura per fornire informazioni di contesto al servizio back-end. Per fornire queste informazioni, usare i criteri per l'[impostazione del parametro di stringa di query](api-management-transformation-policies.md#SetQueryStringParameter) e l'[impostazione dell'intestazione HTTP](api-management-transformation-policies.md#SetHTTPheader).
 - Vedere la procedura per usare i criteri di [convalida JWT](api-management-access-restriction-policies.md#ValidateJWT) per preautorizzare l'accesso alle operazioni in base alle attestazioni dei token.
-- Vedere la procedura per usare una traccia di [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) (Controllo API) per visualizzare il modo in cui i criteri vengono valutati e i risultati delle valutazioni.
+- Vedere la procedura per usare una traccia di [API Inspector](./api-management-howto-api-inspector.md) (Controllo API) per visualizzare il modo in cui i criteri vengono valutati e i risultati delle valutazioni.
 - Vedere la procedura per usare le espressioni con i criteri di [recupero dalla cache](api-management-caching-policies.md#GetFromCache) e di [archiviazione nella cache](api-management-caching-policies.md#StoreToCache) per configurare la memorizzazione delle risposte nella cache di Gestione API. Impostare la durata corrispondente alla memorizzazione delle risposte nella cache del servizio back-end, come specificato dalla direttiva `Cache-Control` del servizio.
 - Vedere la procedura per eseguire operazioni di filtro dei contenuti. Rimuovere elementi dati dalla risposta ricevuta dal servizio back-end usando i criteri di [controllo del flusso](api-management-advanced-policies.md#choose) e [impostazione del corpo](api-management-transformation-policies.md#SetBody).
 - Per scaricare le istruzioni dei criteri, vedere il repository GitHub [API-Management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) .
@@ -73,7 +74,7 @@ Le espressioni possono essere usate come valori di attributo o valori di testo i
 ## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> Tipi di .NET Framework consentiti nelle espressioni di criteri
 Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membri consentiti nelle espressioni di criteri.
 
-|Type|Membri supportati|
+|Tipo|Membri supportati|
 |--------------|-----------------------|
 |Newtonsoft.Js. Formattazione|Tutti|
 |Newtonsoft.Json.Jsonconvert|Per SerializeObject è, DeserializeObject|
@@ -209,7 +210,7 @@ Una variabile denominata `context` è implicitamente disponibile in qualunque [e
 
 |Variabile di contesto|Metodi, proprietà e valori di parametro consentiti|
 |----------------------|-------------------------------------------------------|
-|contesto|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Distribuzione](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - intervallo di tempo tra il valore di Timestamp e l'ora corrente<br /><br /> [lastError](#ref-context-lasterror)<br /><br /> [Operazione](#ref-context-operation)<br /><br /> [Prodotto](#ref-context-product)<br /><br /> [Richiesta](#ref-context-request)<br /><br /> RequestId: Guid - identificatore univoco della richiesta<br /><br /> [Risposta](#ref-context-response)<br /><br /> [Sottoscrizione](#ref-context-subscription)<br /><br /> Timestamp: DateTime - momento di ricezione della richiesta<br /><br /> Tracing: bool - indica se la funzionalità di traccia è attiva o disattiva <br /><br /> [Utente](#ref-context-user)<br /><br /> [Variabili](#ref-context-variables): IReadOnlyDictionary<String, Object><br /><br /> void Trace(message: string)|
+|contesto|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Distribuzione](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - intervallo di tempo tra il valore di Timestamp e l'ora corrente<br /><br /> [lastError](#ref-context-lasterror)<br /><br /> [Operazione](#ref-context-operation)<br /><br /> [Prodotto](#ref-context-product)<br /><br /> [Richiesta](#ref-context-request)<br /><br /> RequestId: Guid - identificatore univoco della richiesta<br /><br /> [Response](#ref-context-response).<br /><br /> [Sottoscrizione](#ref-context-subscription)<br /><br /> Timestamp: DateTime - momento di ricezione della richiesta<br /><br /> Tracing: bool - indica se la funzionalità di traccia è attiva o disattiva <br /><br /> [Utente](#ref-context-user)<br /><br /> [Variabili](#ref-context-variables): IReadOnlyDictionary<String, Object><br /><br /> void Trace(message: string)|
 |<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: string |
 |<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificati: IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Per ulteriori informazioni su context.LastError, vedere [Gestione degli errori](api-management-error-handling-policies.md).|
@@ -251,5 +252,5 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
 + [Trasformare le API](transform-api.md)
-+ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
++ [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)

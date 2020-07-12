@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: f8d8d5ae677ea438de4baed7d6636c2087277427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa1499c57ead28bfcee90a2f224ef9c3bb1d7f58
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602704"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247825"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric Guardrails 
 Quando si distribuisce un cluster di Service Fabric, vengono messi a posto Guardrails, che non riusciranno a eseguire una distribuzione Azure Resource Manager in caso di configurazione del cluster non valida. Nelle sezioni seguenti viene fornita una panoramica dei problemi comuni di configurazione del cluster e dei passaggi necessari per attenuare tali problemi. 
@@ -68,7 +68,7 @@ Per correggere una mancata corrispondenza di durabilità, indicata da uno dei me
 
 ## <a name="seed-node-deletion"></a>Eliminazione del nodo di inizializzazione 
 ### <a name="overview"></a>Panoramica
-Un cluster Service Fabric dispone di una proprietà del [livello di affidabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) che consente di determinare il numero di repliche dei servizi di sistema in esecuzione sul tipo di nodo primario del cluster. Il numero di repliche necessarie determinerà il numero minimo di nodi che devono essere mantenuti nel tipo di nodo primario del cluster. Se il numero di nodi nel tipo di nodo primario scende al di sotto del valore minimo necessario per il livello di affidabilità, il cluster diventerà instabile.  
+Un cluster Service Fabric dispone di una proprietà del [livello di affidabilità](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) che consente di determinare il numero di repliche dei servizi di sistema in esecuzione sul tipo di nodo primario del cluster. Il numero di repliche necessarie determinerà il numero minimo di nodi che devono essere mantenuti nel tipo di nodo primario del cluster. Se il numero di nodi nel tipo di nodo primario scende al di sotto del valore minimo necessario per il livello di affidabilità, il cluster diventerà instabile.  
 
 ### <a name="error-messages"></a>Messaggi di errore 
 L'operazione di rimozione del nodo di inizializzazione è stata rilevata e verrà rifiutata. 
@@ -79,7 +79,7 @@ L'operazione di rimozione del nodo di inizializzazione è stata rilevata e verr�
 Verificare che il tipo di nodo primario disponga di macchine virtuali sufficienti per l'affidabilità specificata nel cluster. Non sarà possibile rimuovere una macchina virtuale se il set di scalabilità di macchine virtuali sarà inferiore al numero minimo di nodi per il livello di affidabilità specificato.
 * Se il livello di affidabilità è specificato correttamente, assicurarsi di disporre di un numero sufficiente di nodi nel tipo di nodo primario secondo le esigenze per il livello di affidabilità. 
 * Se il livello di affidabilità non è corretto, avviare una modifica nella risorsa Service Fabric per abbassare il livello di affidabilità prima di avviare qualsiasi operazione del set di scalabilità di macchine virtuali e attenderne il completamento.
-* Se il livello di affidabilità è bronzo, attenersi alla [procedura seguente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) per ridimensionare il cluster in modo normale.
+* Se il livello di affidabilità è bronzo, attenersi alla [procedura seguente](./service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) per ridimensionare il cluster in modo normale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Creare un cluster nelle VM o nei computer che eseguono Windows Server: [Creazione di cluster di Service Fabric per Windows Server](service-fabric-cluster-creation-for-windows-server.md)

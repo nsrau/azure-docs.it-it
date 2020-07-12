@@ -5,18 +5,19 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 010f2b5d6dee3a5985c421e468bcd28b18148e5a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793075"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247728"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Aggiornare la configurazione di un cluster in Azure 
 
 Questo articolo illustra come personalizzare le varie impostazioni dell'infrastruttura per il cluster di Service Fabric. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager.
 
 > [!NOTE]
-> Non tutte le impostazioni sono disponibili nel portale. Una [procedura consigliata consiste nel personalizzarlo usando un modello di Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); il portale è destinato soltanto agli scenari di sviluppo/test di Service Fabric.
+> Non tutte le impostazioni sono disponibili nel portale. Una [procedura consigliata consiste nel personalizzarlo usando un modello di Azure Resource Manager](./service-fabric-best-practices-infrastructure-as-code.md); il portale è destinato soltanto agli scenari di sviluppo/test di Service Fabric.
 > 
 
 
@@ -44,11 +45,11 @@ Questo articolo illustra come personalizzare le varie impostazioni dell'infrastr
 
 È anche possibile personalizzare le impostazioni del cluster in uno dei modi seguenti con Azure Resource Manager:
 
-- Usare il [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) per esportare e aggiornare il modello di Resource Manager.
-- Usare [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) per esportare e aggiornare il modello di Resource Manager.
-- Usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) per esportare e aggiornare il modello di Resource Manager.
-- Usare i comandi Azure PowerShell [set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) e [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) per modificare direttamente l'impostazione.
-- Usare i comandi [az sf cluster setting](https://docs.microsoft.com/cli/azure/sf/cluster/setting) dell'interfaccia della riga di comando di Azure per modificare l'impostazione direttamente.
+- Usare il [portale di Azure](../azure-resource-manager/templates/export-template-portal.md) per esportare e aggiornare il modello di Resource Manager.
+- Usare [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md) per esportare e aggiornare il modello di Resource Manager.
+- Usare l'[interfaccia della riga di comando di Azure](../azure-resource-manager/management/manage-resources-cli.md) per esportare e aggiornare il modello di Resource Manager.
+- Usare i comandi Azure PowerShell [set-AzServiceFabricSetting](/powershell/module/az.servicefabric/set-azservicefabricsetting) e [Remove-AzServiceFabricSetting](/powershell/module/az.servicefabric/remove-azservicefabricsetting) per modificare direttamente l'impostazione.
+- Usare i comandi [az sf cluster setting](/cli/azure/sf/cluster/setting) dell'interfaccia della riga di comando di Azure per modificare l'impostazione direttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [impostazioni dei cluster di Service Fabric](service-fabric-cluster-fabric-settings.md).

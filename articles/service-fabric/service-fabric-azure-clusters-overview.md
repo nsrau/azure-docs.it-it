@@ -7,11 +7,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbe64bdcbff5592d271c773eff1d5c99c585fcd7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234683"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248017"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. I cluster possono essere ridimensionati fino a migliaia di nodi. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancia le repliche e le istanze di partizione del servizio nel numero incrementato di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo.
@@ -23,21 +24,21 @@ Un cluster di Service Fabric in Azure è una risorsa di Azure che usa e interagi
 * macchine virtuali e schede di rete virtuale
 * set di scalabilità di macchine virtuali
 * reti virtuali
-* servizi di bilanciamento del carico
+* Servizi di bilanciamento del carico
 * account di archiviazione
 * indirizzi IP pubblici
 
 ![Cluster di Service Fabric][Image]
 
 ### <a name="virtual-machine"></a>Macchina virtuale
-Una [macchina virtuale](/azure/virtual-machines/) che fa parte di un cluster è detta nodo anche se, tecnicamente, un nodo del cluster è un processo di runtime di Service Fabric. A ogni nodo viene assegnato un nome (stringa). I nodi presentano delle caratteristiche, ad esempio le [proprietà di posizionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). In ogni computer o macchina virtuale è disponibile un servizio di avvio automatico, *FabricHost.exe*, che viene eseguito all'avvio e che a sua volta avvia due eseguibili: *Fabric.exe* e *FabricGateway.exe*, che costituiscono il nodo. Una distribuzione di produzione è un nodo per computer fisico o macchina virtuale. Negli scenari di test è possibile ospitare più nodi in un singolo computer o una singola macchina virtuale eseguendo più istanze di *Fabric.exe* e *FabricGateway.exe*.
+Una [macchina virtuale](../virtual-machines/index.yml) che fa parte di un cluster è detta nodo anche se, tecnicamente, un nodo del cluster è un processo di runtime di Service Fabric. A ogni nodo viene assegnato un nome (stringa). I nodi presentano delle caratteristiche, ad esempio le [proprietà di posizionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). In ogni computer o macchina virtuale è disponibile un servizio di avvio automatico, *FabricHost.exe*, che viene eseguito all'avvio e che a sua volta avvia due eseguibili: *Fabric.exe* e *FabricGateway.exe*, che costituiscono il nodo. Una distribuzione di produzione è un nodo per computer fisico o macchina virtuale. Negli scenari di test è possibile ospitare più nodi in un singolo computer o una singola macchina virtuale eseguendo più istanze di *Fabric.exe* e *FabricGateway.exe*.
 
 Ogni macchina virtuale è associata a una scheda di interfaccia di rete virtuale e a ogni scheda di interfaccia di rete è assegnato un indirizzo IP privato.  Una macchina virtuale viene assegnata a una rete virtuale e a un servizio di bilanciamento del carico locale mediante la scheda di interfaccia di rete.
 
 Tutte le macchine virtuali in un cluster vengono collocate in una rete virtuale.  Tutti i nodi dello stesso tipo di nodo/set di scalabilità vengono collocati nella stessa subnet nella rete virtuale.  Questi nodi hanno solo indirizzi IP privati e non sono direttamente raggiungibili all'esterno della rete virtuale.  I client possono accedere ai servizi nei nodi tramite Azure Load Balancer.
 
 ### <a name="scale-setnode-type"></a>Set di scalabilità/tipo di nodo
-Quando si crea un cluster, occorre definire uno o più tipi di nodo.  I nodi, o macchine virtuali, in un tipo di nodo hanno le stesse dimensioni e caratteristiche, come il numero di CPU, la quantità di memoria, il numero di dischi e l'I/O su disco.  Ad esempio, un tipo di nodo potrebbe essere riservato alle macchine virtuali front-end di piccole dimensioni con porte aperte a Internet, mentre un altro tipo di nodo potrebbe essere dedicato alle macchine virtuali back-end di grandi dimensioni che elaborano i dati. Nei cluster di Azure ogni tipo di nodo è mappato a un [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/).
+Quando si crea un cluster, occorre definire uno o più tipi di nodo.  I nodi, o macchine virtuali, in un tipo di nodo hanno le stesse dimensioni e caratteristiche, come il numero di CPU, la quantità di memoria, il numero di dischi e l'I/O su disco.  Ad esempio, un tipo di nodo potrebbe essere riservato alle macchine virtuali front-end di piccole dimensioni con porte aperte a Internet, mentre un altro tipo di nodo potrebbe essere dedicato alle macchine virtuali back-end di grandi dimensioni che elaborano i dati. Nei cluster di Azure ogni tipo di nodo è mappato a un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/index.yml).
 
 I set di scalabilità possono essere usati per distribuire e gestire una raccolta di macchine virtuali come un set. Ogni tipo di nodo definito in un cluster di Azure Service Fabric configura un set di scalabilità separato. Viene eseguito il bootstrap del runtime di Service Fabric in ogni macchina virtuale del set di scalabilità usando le estensioni di macchina virtuale di Azure. È possibile aumentare o ridurre in modo indipendente ogni nodo, cambiare lo SKU del sistema operativo in esecuzione in ogni nodo del cluster, avere diversi set di porte aperte e usare metriche per la capacità diverse. Un set di scalabilità ha cinque [domini di aggiornamento](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) e cinque [domini di errore](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains) e può contenere fino a 100 macchine virtuali.  Per creare cluster con più di 100 nodi occorre creare più set di scalabilità/tipi di nodo.
 
@@ -47,12 +48,12 @@ I set di scalabilità possono essere usati per distribuire e gestire una raccolt
 Per altre informazioni, vedere [Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Le istanze di macchine virtuali vengono aggiunte dietro un servizio [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), che è associato a un [indirizzo IP pubblico](../virtual-network/public-ip-addresses.md) e a un'etichetta DNS.  Quando si esegue il provisioning di un cluster con * &lt; clustername &gt; *, il nome DNS, * &lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com* è l'etichetta DNS associata al servizio di bilanciamento del carico davanti al set di scalabilità.
+Le istanze di macchine virtuali vengono aggiunte dietro un servizio [Azure Load Balancer](../load-balancer/load-balancer-overview.md), che è associato a un [indirizzo IP pubblico](../virtual-network/public-ip-addresses.md) e a un'etichetta DNS.  Quando si esegue il provisioning di un cluster con * &lt; clustername &gt; *, il nome DNS, * &lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com* è l'etichetta DNS associata al servizio di bilanciamento del carico davanti al set di scalabilità.
 
 Le macchine virtuali in un cluster hanno solo [indirizzi IP privati](../virtual-network/private-ip-addresses.md).  Il traffico di gestione e il traffico dei servizi vengono instradati attraverso il servizio di bilanciamento del carico pubblico.  Il traffico di rete viene instradato a queste macchine tramite regole NAT (i client si connettono a specifici nodi/istanze) o regole di bilanciamento del carico (il traffico viene indirizzato alle macchine virtuali tramite round robin).  Un servizio di bilanciamento del carico ha un indirizzo IP pubblico associato con un nome DNS nel formato: * &lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com*.  Un IP pubblico è un'altra risorsa di Azure nel gruppo di risorse.  Se si definiscono più tipi di nodo in un cluster, viene creato un servizio di bilanciamento del carico per ogni tipo di nodo/set di scalabilità. In alternativa è possibile configurare un singolo servizio di bilanciamento del carico per più tipi di nodo.  Il tipo di nodo primario ha l'etichetta DNS * &lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com*, altri tipi di nodo hanno l'etichetta DNS * &lt; clustername &gt; - &lt; NodeType &gt; . &lt; location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Account di archiviazione
-Ogni tipo di nodo del cluster è supportato da un [account di archiviazione di Azure](/azure/storage/common/storage-introduction) e da dischi gestiti.
+Ogni tipo di nodo del cluster è supportato da un [account di archiviazione di Azure](../storage/common/storage-introduction.md) e da dischi gestiti.
 
 ## <a name="cluster-security"></a>Sicurezza del cluster
 Un cluster di Service Fabric è una risorsa di cui si è proprietari.  È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. 
@@ -70,7 +71,7 @@ Oltre ai certificati client, è possibile configurare Azure Active Directory anc
 Per altre informazioni, vedere [Sicurezza da client a nodo](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
-Il controllo degli accessi in base al ruolo consente di assegnare controlli di accesso dettagliati sulle risorse di Azure.  È possibile assegnare regole di accesso diverse a sottoscrizioni, gruppi di risorse e risorse.  Le regole di controllo degli accessi in base al ruolo vengono ereditate lungo la gerarchia delle risorse, a meno che non ne venga eseguito l'override a un livello inferiore.  È possibile assegnare regole di controllo degli accessi in base al ruolo a qualsiasi utente o gruppo utenti in Azure Active Directory, per consentire agli utenti e ai gruppi designati di modificare il cluster.  Per altre informazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](/azure/role-based-access-control/overview)
+Il controllo degli accessi in base al ruolo consente di assegnare controlli di accesso dettagliati sulle risorse di Azure.  È possibile assegnare regole di accesso diverse a sottoscrizioni, gruppi di risorse e risorse.  Le regole di controllo degli accessi in base al ruolo vengono ereditate lungo la gerarchia delle risorse, a meno che non ne venga eseguito l'override a un livello inferiore.  È possibile assegnare regole di controllo degli accessi in base al ruolo a qualsiasi utente o gruppo utenti in Azure Active Directory, per consentire agli utenti e ai gruppi designati di modificare il cluster.  Per altre informazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](../role-based-access-control/overview.md)
 
 Service Fabric supporta anche il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster, sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.  
 
@@ -79,7 +80,7 @@ Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](servic
 ### <a name="network-security-groups"></a>Gruppi di sicurezza di rete 
 I gruppi di sicurezza di rete (NSG) controllano il traffico in ingresso e in uscita di una subnet, una macchina virtuale o una scheda di interfaccia di rete specifica.  Per impostazione predefinita, quando più macchine virtuali si trovano nella stessa rete virtuale, possono comunicare tra loro attraverso qualsiasi porta.  Se si vogliono limitare le comunicazioni tra le macchine virtuali, è possibile definire gruppi di sicurezza di rete per segmentare la rete o isolare le macchine virtuali l'una dall'altra.  Se un cluster contiene più tipi di nodo, è possibile applicare gruppi di sicurezza di rete alle subnet per impedire alle macchine virtuali che appartengono a tipi di nodo diversi di comunicare tra loro.  
 
-Per altre informazioni, vedere [Gruppi di sicurezza](/azure/virtual-network/security-overview)
+Per altre informazioni, vedere [Gruppi di sicurezza](../virtual-network/security-overview.md)
 
 ## <a name="scaling"></a>Scalabilità
 
@@ -105,7 +106,7 @@ Per altre informazioni, vedere [Aggiornamento di un cluster di Azure Service Fab
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
 
-Per altre informazioni, vedere [versioni supportate del cluster in Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
+Per altre informazioni, vedere [versioni supportate del cluster in Azure](./service-fabric-versions.md#supported-operating-systems)
 
 > [!NOTE]
 > Se si decide di distribuire Service Fabric in Windows Server 1709, si noti che (1) non si tratta di una distribuzione LTSB (Long Term Servicing Branch) e quindi potrebbe essere necessario passare ad altre versioni in futuro, e (2) se la distribuzione include contenitori, i contenitori basati su Windows Server 2016 non funzionano in Windows Server 1709 e viceversa (sarà necessario ricompilarli per distribuirli).

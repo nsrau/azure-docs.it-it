@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7be1e90d10a84465d6416f2c13a6e4b6855077b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76713139"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250074"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Come proteggere le API usando l'autenticazione con certificati client in Gestione API
 
 Gestione API offre la possibilità di proteggere l'accesso alle API (ovvero dal client a Gestione API) mediante certificati client. È possibile convalidare il certificato in ingresso e controllare le proprietà del certificato in base ai valori desiderati utilizzando espressioni di criteri.
 
-Per informazioni sulla protezione dell'accesso al servizio back-end di un'API usando i certificati client (ad esempio, gestione API nel back-end), vedere [come proteggere i servizi back-end usando l'autenticazione con certificati client](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) .
+Per informazioni sulla protezione dell'accesso al servizio back-end di un'API usando i certificati client (ad esempio, gestione API nel back-end), vedere [come proteggere i servizi back-end usando l'autenticazione con certificati client](./api-management-howto-mutual-certificates.md) .
 
 > [!IMPORTANT]
 > Per ricevere e verificare i certificati client su HTTP/2 nei livelli Developer, Basic, standard o Premium, è necessario attivare l'impostazione "Negotiate client certificate" nel pannello "Custom Domains" come illustrato di seguito.
@@ -98,5 +99,5 @@ L'esempio seguente illustra come controllare l'identificazione personale di un c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
--   [Come proteggere i servizi back-end usando l'autenticazione con certificati client](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
--   [Come caricare i certificati](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+-   [Come proteggere i servizi back-end usando l'autenticazione con certificati client](./api-management-howto-mutual-certificates.md)
+-   [Come caricare i certificati](./api-management-howto-mutual-certificates.md)

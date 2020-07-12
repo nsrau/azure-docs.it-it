@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e940f0cf0d1547b317cd9e7bd15ac5486d5e70b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75498152"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248408"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
 Azure Service Fabric Mesh è un servizio completamente gestito che consente agli sviluppatori di distribuire applicazioni di microservizi senza dover gestire macchine virtuali, archiviazione o connettività di rete. Il monitoraggio e la diagnostica di mesh Service Fabric sono suddivisi in tre tipi principali di dati di diagnostica:
@@ -50,14 +51,14 @@ L'ambiente mesh espone alcune metriche che indicano il modo in cui i contenitori
 | AllocatedMemory | Memoria allocata in base al modello di Azure Resource Manager | MB |
 | ActualCpu | Utilizzo della CPU | Millicore |
 | ActualMemory | Utilizzo memoria | MB |
-| ContainerStatus | 0-non valido: lo stato del contenitore è sconosciuto <br> 1-in sospeso: il contenitore ha pianificato l'avvio <br> 2-avvio: il contenitore è in fase di avvio <br> 3-avviato: il contenitore è stato avviato correttamente <br> 4-arresto: il contenitore viene arrestato <br> 5-arrestato: il contenitore è stato arrestato correttamente | N/D |
-| ApplicationStatus | 0-sconosciuto: lo stato non è recuperabile <br> 1-pronto: l'applicazione viene eseguita correttamente <br> 2-aggiornamento: è in corso un aggiornamento <br> 3-creazione: è in corso la creazione dell'applicazione <br> 4-Eliminazione: è in corso l'eliminazione dell'applicazione <br> 5-non riuscito: non è stato possibile distribuire l'applicazione | N/D |
-| ServiceStatus | 0-non valido: il servizio attualmente non dispone di uno stato di integrità <br> 1-OK: il servizio è integro  <br> 2-avviso: è possibile che si verifichi un errore durante l'analisi <br> 3-errore: si è verificato un problema che richiede un'analisi <br> 4-sconosciuto: lo stato non è recuperabile | N/D |
-| ServiceReplicaStatus | 0-non valido: la replica non dispone attualmente di uno stato di integrità <br> 1-OK: il servizio è integro  <br> 2-avviso: è possibile che si verifichi un errore durante l'analisi <br> 3-errore: si è verificato un problema che richiede un'analisi <br> 4-sconosciuto: lo stato non è recuperabile | N/D | 
-| RestartCount | Numero di riavvii del contenitore | N/D |
+| ContainerStatus | 0-non valido: lo stato del contenitore è sconosciuto <br> 1-in sospeso: il contenitore ha pianificato l'avvio <br> 2-avvio: il contenitore è in fase di avvio <br> 3-avviato: il contenitore è stato avviato correttamente <br> 4-arresto: il contenitore viene arrestato <br> 5-arrestato: il contenitore è stato arrestato correttamente | N/A |
+| ApplicationStatus | 0-sconosciuto: lo stato non è recuperabile <br> 1-pronto: l'applicazione viene eseguita correttamente <br> 2-aggiornamento: è in corso un aggiornamento <br> 3-creazione: è in corso la creazione dell'applicazione <br> 4-Eliminazione: è in corso l'eliminazione dell'applicazione <br> 5-non riuscito: non è stato possibile distribuire l'applicazione | N/A |
+| ServiceStatus | 0-non valido: il servizio attualmente non dispone di uno stato di integrità <br> 1-OK: il servizio è integro  <br> 2-avviso: è possibile che si verifichi un errore durante l'analisi <br> 3-errore: si è verificato un problema che richiede un'analisi <br> 4-sconosciuto: lo stato non è recuperabile | N/A |
+| ServiceReplicaStatus | 0-non valido: la replica non dispone attualmente di uno stato di integrità <br> 1-OK: il servizio è integro  <br> 2-avviso: è possibile che si verifichi un errore durante l'analisi <br> 3-errore: si è verificato un problema che richiede un'analisi <br> 4-sconosciuto: lo stato non è recuperabile | N/A | 
+| RestartCount | Numero di riavvii del contenitore | N/A |
 
 > [!NOTE]
-> I valori ServiceStatus e ServiceReplicaStatus sono uguali a quelli di [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
+> I valori ServiceStatus e ServiceReplicaStatus sono uguali a quelli di [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
 
 Ogni metrica è disponibile su dimensioni diverse, in modo da poter visualizzare le aggregazioni a livelli diversi. L'elenco corrente delle dimensioni è il seguente:
 
@@ -73,7 +74,7 @@ Ogni dimensione corrisponde a componenti diversi del [modello di applicazione Se
 
 ### <a name="azure-monitor-cli"></a>INTERFACCIA della riga di comando monitoraggio di Azure
 
-Un elenco completo dei comandi è disponibile nella documentazione dell'interfaccia della riga di comando di [monitoraggio di Azure](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , ma sono stati inclusi alcuni esempi utili di seguito 
+Un elenco completo dei comandi è disponibile nella documentazione dell'interfaccia della riga di comando di [monitoraggio di Azure](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , ma sono stati inclusi alcuni esempi utili di seguito 
 
 In ogni esempio, l'ID risorsa segue questo modello
 
@@ -117,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni su mesh Service Fabric, leggere la [panoramica di mesh Service Fabric](service-fabric-mesh-overview.md).
-* Per altre informazioni sui comandi di metrica di monitoraggio di Azure, vedere la [documentazione dell'interfaccia](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list)della riga di comando di monitoraggio di Azure.
+* Per altre informazioni sui comandi di metrica di monitoraggio di Azure, vedere la [documentazione dell'interfaccia](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list)della riga di comando di monitoraggio di Azure.

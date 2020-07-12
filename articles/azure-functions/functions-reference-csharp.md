@@ -2,15 +2,15 @@
 title: Guida di riferimento a Funzioni di Azure per sviluppatori di script C#
 description: Informazioni su come sviluppare Funzioni di Azure usando script C#.
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: a5497300f6b0cbf3a073681bac41adc583d869ef
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: a8041f2514f59ac2511fcd64eeb0283565a0e07a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733397"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249241"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
@@ -459,7 +459,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
+`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T` .
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 

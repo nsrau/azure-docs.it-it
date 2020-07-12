@@ -3,11 +3,12 @@ title: Descrizione delle app e dei servizi di Azure Service Fabric
 description: Viene descritto come vengono usati i manifesti per descrivere applicazioni e servizi di Service Fabric.
 ms.topic: conceptual
 ms.date: 8/12/2019
-ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349972"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248221"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifesti delle applicazioni e dei servizi di Service Fabric
 Questo articolo illustra in che modo le applicazioni e i servizi di Service Fabric vengono definiti e sottoposti a controllo delle versioni con i file ApplicationManifest.xml e ServiceManifest.xml.  Per esempi più dettagliati, vedere [esempi del manifesto di servizio e dell'applicazione](service-fabric-manifest-examples.md).  Lo schema XML di questi file manifesto è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -62,7 +63,7 @@ Il manifesto del servizio definisce in modo dichiarativo il tipo di servizio e l
 
 L'eseguibile specificato da **EntryPoint** è in genere l'host del servizio a esecuzione prolungata. **SetupEntryPoint** è un punto di ingresso con privilegi che viene eseguito con le stesse credenziali di Service Fabric (in genere l'account *LocalSystem* ) prima di qualsiasi altro punto di ingresso.  La presenza di un punto di ingresso di configurazione separato consente di evitare di dover eseguire l'host del servizio con privilegi elevati per lunghi periodi di tempo. L'eseguibile specificato da **EntryPoint** viene eseguito dopo che **SetupEntryPoint** termina correttamente. Se il processo termina o si arresta in modo anomalo, il processo risultante viene monitorato e riavviato (iniziando di nuovo con **SetupEntryPoint**).  
 
-Gli scenari tipici per l'uso di **SetupEntryPoint** sono l'esecuzione di un file eseguibile prima dell'avvio del servizio o l'esecuzione di un'operazione con privilegi elevati. Ad esempio:
+Gli scenari tipici per l'uso di **SetupEntryPoint** sono l'esecuzione di un file eseguibile prima dell'avvio del servizio o l'esecuzione di un'operazione con privilegi elevati. ad esempio:
 
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
@@ -156,7 +157,7 @@ Analogamente ai manifesti dei servizi, gli attributi **Version** sono stringhe n
 
 **Certificates** (non impostato nell'esempio precedente) dichiara i certificati usati per [configurare gli endpoint HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) o [crittografare i segreti nel manifesto dell'applicazione](service-fabric-application-secret-management.md).
 
-I **vincoli di posizionamento** sono le istruzioni che definiscono dove devono essere eseguiti i servizi. Queste istruzioni sono associate a singoli servizi selezionati per una o più proprietà del nodo. Per altre informazioni, vedere [vincoli di posizionamento e sintassi delle proprietà dei nodi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+I **vincoli di posizionamento** sono le istruzioni che definiscono dove devono essere eseguiti i servizi. Queste istruzioni sono associate a singoli servizi selezionati per una o più proprietà del nodo. Per altre informazioni, vedere [vincoli di posizionamento e sintassi delle proprietà dei nodi](./service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-property-syntax)
 
 **Criteri** (non impostati nell'esempio precedente) descrive i criteri di raccolta dei log, [esecuzione predefinita](service-fabric-application-runas-security.md), [integrità](service-fabric-health-introduction.md#health-policies)e [accesso di sicurezza](service-fabric-application-runas-security.md) da impostare a livello di applicazione, compreso se i servizi hanno accesso al Runtime Service Fabric.
 
@@ -191,6 +192,3 @@ For more information about other features supported by application manifests, re
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
-
-
-

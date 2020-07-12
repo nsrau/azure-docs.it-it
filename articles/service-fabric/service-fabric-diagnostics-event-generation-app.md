@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 97c3be391dfbee7301ea47bf7234a9549d373370
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1871df962a26def8c12000f8b8bc0cf31bae9a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464715"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247660"
 ---
 # <a name="application-logging"></a>Registrazione di applicazioni
 
@@ -21,11 +22,11 @@ Per esempi su come usare questi suggerimenti, vedere [Aggiungere la registrazion
 
 ## <a name="application-insights-sdk"></a>Application Insights SDK
 
-Application Insights offre un'integrazione avanzata predefinita con Service Fabric. Gli utenti possono aggiungere i pacchetti nuget di intelligenza artificiale per Service Fabric e ricevere dati e log creati e raccolti visualizzabili nel portale di Azure. Inoltre, gli utenti sono invitati ad aggiungere i propri dati di telemetria per diagnosticare ed eseguire il debug delle applicazioni e rilevare i servizi e le parti dell'applicazione usate con maggior frequenza. La classe [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) nell'SDK offre diversi modi per rilevare la telemetria nelle applicazioni. Consultare un esempio su come instrumentare e aggiungere Application Insights all'applicazione in questa esercitazione per il [monitoraggio e la diagnosi di un'applicazione .NET](service-fabric-tutorial-monitoring-aspnet.md)
+Application Insights offre un'integrazione avanzata predefinita con Service Fabric. Gli utenti possono aggiungere i pacchetti nuget di intelligenza artificiale per Service Fabric e ricevere dati e log creati e raccolti visualizzabili nel portale di Azure. Inoltre, gli utenti sono invitati ad aggiungere i propri dati di telemetria per diagnosticare ed eseguire il debug delle applicazioni e rilevare i servizi e le parti dell'applicazione usate con maggior frequenza. La classe [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) nell'SDK offre diversi modi per rilevare la telemetria nelle applicazioni. Consultare un esempio su come instrumentare e aggiungere Application Insights all'applicazione in questa esercitazione per il [monitoraggio e la diagnosi di un'applicazione .NET](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="eventsource"></a>EventSource
 
-Quando si crea una soluzione di Azure Service Fabric da un modello in Visual Studio, viene generata una classe derivata da **EventSource** (**ServiceEventSource** o **ActorEventSource**). Viene creato un modello in cui è possibile aggiungere eventi per l'applicazione o il servizio. Il nome del **EventSource** **deve** essere univoco e deve essere rinominato dal progetto di stringa di modello predefinito MyCompany- &lt; Solution &gt; - &lt; &gt; . Se esistono più definizioni di **EventSource** con lo stesso nome, potranno verificarsi errori di runtime. Ogni evento definito deve avere un identificatore univoco. Se un identificatore non è univoco, si verificherà un errore di runtime. Alcune organizzazioni preassegnano intervalli di valori per gli identificatori, in modo da evitare conflitti tra team di sviluppo separati. Per altre informazioni, vedere il [blog di Vance](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) o la [documentazione di MSDN](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
+Quando si crea una soluzione di Azure Service Fabric da un modello in Visual Studio, viene generata una classe derivata da **EventSource** (**ServiceEventSource** o **ActorEventSource**). Viene creato un modello in cui è possibile aggiungere eventi per l'applicazione o il servizio. Il nome del **EventSource** **deve** essere univoco e deve essere rinominato dal progetto di stringa di modello predefinito MyCompany- &lt; Solution &gt; - &lt; &gt; . Se esistono più definizioni di **EventSource** con lo stesso nome, potranno verificarsi errori di runtime. Ogni evento definito deve avere un identificatore univoco. Se un identificatore non è univoco, si verificherà un errore di runtime. Alcune organizzazioni preassegnano intervalli di valori per gli identificatori, in modo da evitare conflitti tra team di sviluppo separati. Per altre informazioni, vedere il [blog di Vance](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) o la [documentazione di MSDN](/previous-versions/msp-n-p/dn774985(v=pandp.20)).
 
 ## <a name="aspnet-core-logging"></a>Registrazione di ASP.NET Core
 

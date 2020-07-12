@@ -13,11 +13,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674279"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249462"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -102,7 +103,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 * **Installazione di server DNS personalizzata**: il servizio Gestione API dipende da vari servizi di Azure. Quando Gestione API è ospitata in una rete virtuale con un server DNS personalizzato, deve risolvere i nomi host dei servizi di Azure. Vedere [queste](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) informazioni aggiuntive sulla configurazione del DNS personalizzato. Vedere la tabella delle porte e altri requisiti di rete per riferimento.
 
 > [!IMPORTANT]
-> Se si intende usare un server DNS personalizzato per la rete virtuale, è consigliabile impostarlo **prima** di distribuirvi un servizio Gestione API. In caso contrario è necessario aggiornare il servizio Gestione API ogni volta che si modifica il server DNS eseguendo [l'operazione di applicazione della configurazione di rete](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Se si intende usare un server DNS personalizzato per la rete virtuale, è consigliabile impostarlo **prima** di distribuirvi un servizio Gestione API. In caso contrario è necessario aggiornare il servizio Gestione API ogni volta che si modifica il server DNS eseguendo [l'operazione di applicazione della configurazione di rete](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates)
 
 * **Porte necessarie per il servizio Gestione API**: il traffico in ingresso e in uscita nella subnet in cui viene distribuito Gestione delle API può essere controllato usando il [gruppo di sicurezza di rete][Network Security Group]. Se una qualsiasi di queste porte non è disponibile, Gestione API potrebbe non funzionare correttamente e potrebbe diventare inaccessibile. Il blocco di una o più di tali porte è un problema di configurazione comune nell'uso di Gestione API in una rete virtuale.
 
@@ -173,7 +174,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
   > [!IMPORTANT]
   > Dopo aver convalidato la connettività, assicurarsi di rimuovere tutte le risorse distribuite nella subnet, prima di distribuire Gestione API nella subnet.
 
-* **Aggiornamenti incrementali**: quando si apportano modifiche alla rete, fare riferimento all'[API NetworkStatus](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/networkstatus) per verificare che il servizio Gestione API non abbia perso l'accesso ad alcuna delle risorse critiche da cui dipende. Lo stato della connettività dovrebbe essere aggiornato ogni 15 minuti.
+* **Aggiornamenti incrementali**: quando si apportano modifiche alla rete, fare riferimento all'[API NetworkStatus](/rest/api/apimanagement/2019-12-01/networkstatus) per verificare che il servizio Gestione API non abbia perso l'accesso ad alcuna delle risorse critiche da cui dipende. Lo stato della connettività dovrebbe essere aggiornato ogni 15 minuti.
 
 * **Collegamenti di navigazione delle risorse**: quando si esegue la distribuzione in una subnet di macchina virtuale in stile Resource Manager, Gestione API riserva la subnet, creando un collegamento di navigazione delle risorse. Se la subnet contiene già una risorsa da un provider diverso, la distribuzione ha **esito negativo**. Quando, analogamente, si sposta un servizio Gestione API in una subnet diversa o lo si elimina, viene rimosso il collegamento di navigazione delle risorse.
 
@@ -248,7 +249,7 @@ Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si abilitano le r
 | Azure Public| Germania settentrionale| 51.116.0.0|
 | Azure Public| Norvegia orientale| 51.120.2.185|
 | Azure Public| Norvegia occidentale| 51.120.130.134|
-| 21Vianet per Azure Cina| Cina settentrionale (globale)| 139.217.51.16|
+| Azure Cina 21Vianet| Cina settentrionale (globale)| 139.217.51.16|
 | 21Vianet per Azure Cina| Cina orientale (globale)| 139.217.171.176|
 | 21Vianet per Azure Cina| Cina settentrionale| 40.125.137.220|
 | 21Vianet per Azure Cina| Cina orientale| 40.126.120.30|

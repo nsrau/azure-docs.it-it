@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0fb65ceeabca9331130083f8ec5b3fe8acce13b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ce2dbcefa63cc55a66e712664d1436ca24d3a1d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707955"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248527"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurare l'interfaccia della riga di comando di mesh Service Fabric
 L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per distribuire e gestire risorse in locale e in Azure Service Fabric Mesh. Di seguito viene illustrato come configurarlo.
@@ -44,7 +44,7 @@ Per l'anteprima l'interfaccia della riga di comando di Azure Service Fabric Mesh
 
 ## <a name="install-the-service-fabric-cli-sfctl"></a>Installare l'interfaccia della riga di comando di Service Fabric (sfctl) 
 
-Seguire le istruzioni in [Interfaccia della riga di comando di Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli). Il modulo **sfctl** può essere usato per la distribuzione di applicazioni basate sul modello di risorsa sui cluster di Service Fabric nel computer locale. 
+Seguire le istruzioni in [Interfaccia della riga di comando di Azure Service Fabric](../service-fabric/service-fabric-cli.md). Il modulo **sfctl** può essere usato per la distribuzione di applicazioni basate sul modello di risorsa sui cluster di Service Fabric nel computer locale. 
 
 ## <a name="install-the-maven-cli"></a>Installare l'interfaccia della riga di comando di Maven 
 

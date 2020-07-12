@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79243926"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249904"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelli di prodotto in Gestione API di Azure
 
@@ -30,7 +31,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 -   [Prodotto](#Product)  
   
 > [!NOTE]
->  La documentazione seguente include alcuni modelli predefiniti di esempio. A causa dei continui miglioramenti che vengono apportati, questi modelli sono però soggetti a modifiche. È possibile visualizzare i modelli predefiniti direttamente nel portale per sviluppatori accedendo ai singoli modelli desiderati. Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  La documentazione seguente include alcuni modelli predefiniti di esempio. A causa dei continui miglioramenti che vengono apportati, questi modelli sono però soggetti a modifiche. È possibile visualizzare i modelli predefiniti direttamente nel portale per sviluppatori accedendo ai singoli modelli desiderati. Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -82,7 +83,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |--------------|----------|-----------------|  
 |Paging|Entità [Paging](api-management-template-data-model-reference.md#Paging).|Le informazioni di paging per la raccolta di prodotti.|  
 |Filtro|Entità [Filtri](api-management-template-data-model-reference.md#Filtering).|Le informazioni dei filtri per la pagina di elenco proodtti.|  
-|Prodotti|Raccolta di entità [Prodotto](api-management-template-data-model-reference.md#Product).|I prodotti visibili all'utente corrente.|  
+|Products|Raccolta di entità [Prodotto](api-management-template-data-model-reference.md#Product).|I prodotti visibili all'utente corrente.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   
@@ -209,7 +210,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |IsDeveloperSubscribed|boolean|Indica se l'utente corrente è sottoscritto a questo prodotto.|  
 |SubscriptionState|d'acquisto|Stato della sottoscrizione. Gli stati possibili sono elencati di seguito:<br /><br /> -   `0 - suspended`: la sottoscrizione è bloccata e il sottoscrittore non può chiamare le API del prodotto.<br />-   `1 - active`: la sottoscrizione è attiva.<br />-   `2 - expired`: la sottoscrizione ha raggiunto la data di scadenza ed è stata disattivata.<br />-   `3 - submitted`: la richiesta di sottoscrizione è stata eseguita dallo sviluppatore, ma non è ancora stata approvata o rifiutata.<br />-   `4 - rejected`: la richiesta di sottoscrizione è stata rifiutata da un amministratore.<br />-   `5 - cancelled`: la sottoscrizione è stata annullata dallo sviluppatore o dall'amministratore.|  
 |Limiti|array|Questa proprietà è deprecata e non deve essere usata.|  
-|DelegatedSubscriptionEnabled|boolean|Indica se sia abilitata la [delega](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) per questa sottoscrizione.|  
+|DelegatedSubscriptionEnabled|boolean|Indica se sia abilitata la [delega](./api-management-howto-setup-delegation.md) per questa sottoscrizione.|  
 |DelegatedSubscriptionUrl|string|Se è abilitata la delega, indica l'URL della sottoscrizione delegata.|  
 |IsAgreed|boolean|Se il prodotto presenta delle condizioni, indica se l'utente corrente le ha accettate.|  
 |Sottoscrizioni|Raccolta di entità [Riepilogo della sottoscrizione](api-management-template-data-model-reference.md#SubscriptionSummary).|Le sottoscrizioni al prodotto.|  

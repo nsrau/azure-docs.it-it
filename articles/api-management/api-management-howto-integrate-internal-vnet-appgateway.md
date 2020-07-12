@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08e718739971283418d151bef9ad75333e313d85
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811165"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250431"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
 
@@ -329,7 +330,7 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Bas
 
 ### <a name="step-11"></a>Passaggio 11
 
-Configurare il numero di istanze e le dimensioni per il gateway applicazione. In questo esempio si usa [SKU WAF](../application-gateway/application-gateway-webapplicationfirewall-overview.md) per aumentare la sicurezza della risorsa di Gestione API.
+Configurare il numero di istanze e le dimensioni per il gateway applicazione. In questo esempio si usa [SKU WAF](../web-application-firewall/ag/ag-overview.md) per aumentare la sicurezza della risorsa di Gestione API.
 
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
@@ -367,9 +368,9 @@ Gestione API di Azure configurata in un VNET offre un'unica interfaccia del gate
 
 ## <a name="next-steps"></a><a name="next-steps"> </a> Passaggi successivi
 * Altre informazioni sul gateway applicazione di Azure
-  * [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
-  * [Web application firewall del gateway applicazione](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
-  * [Creare un gateway applicazione con il routing basato sul percorso](../application-gateway/application-gateway-create-url-route-arm-ps.md)
+  * [Panoramica del gateway applicazione](../application-gateway/overview.md)
+  * [Web application firewall del gateway applicazione](../web-application-firewall/ag/ag-overview.md)
+  * [Creare un gateway applicazione con il routing basato sul percorso](../application-gateway/tutorial-url-route-powershell.md)
 * Altre informazioni su Gestione API e reti virtuali
   * [Uso del servizio Gestione API di Azure con una rete virtuale interna](api-management-using-with-internal-vnet.md)
   * [Usare Gestione API in una rete virtuale](api-management-using-with-vnet.md)

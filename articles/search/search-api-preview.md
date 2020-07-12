@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fb99530923f25541316fd159a2270f7035a1916b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 0c0f40144fde49d467ca7fb126a19afa6c76660a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229245"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246957"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funzionalità in anteprima in Azure ricerca cognitiva
 
@@ -23,6 +23,7 @@ Le funzionalità di anteprima che passano alla disponibilità generale vengono r
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
+| [**Azure Machine Learning (AML) Skill**](cognitive-search-aml-skill.md) | Arricchimento con intelligenza artificiale| Un nuovo tipo di competenze per integrare un endpoint di inferenza da Azure Machine Learning. Introduzione a [questa esercitazione](cognitive-search-tutorial-aml-custom-skill.md). | Usare l' [API REST di ricerca 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/) o 2019-05-06-Preview. Disponibile anche nel portale, in progettazione di competenze, supponendo che ricerca cognitiva e i servizi di Azure ML siano distribuiti nella stessa sottoscrizione. |
 | [**parametro featuresMode**](https://docs.microsoft.com/rest/api/searchservice/search-documents#featuresmode) | Pertinenza (Punteggio) | Espansione del Punteggio di pertinenza per includere i dettagli: Punteggio di somiglianza per campo, frequenza del termine per campo e numero di token univoci corrispondenti. È possibile utilizzare questi punti dati nelle soluzioni di assegnazione dei [punteggi personalizzate](https://github.com/Azure-Samples/search-ranking-tutorial). | Aggiungere questo parametro di query usando i [documenti di ricerca (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) con API-Version = 2020-06 -30-preview o 2019-05-06-Preview. |
 | [**Identità del servizio gestita**](search-howto-managed-identities-data-sources.md) | Indicizzatori, sicurezza| Registrare un servizio di ricerca con Azure Active Directory per renderlo un servizio attendibile e quindi usare le autorizzazioni RBAC per le origini dati di Azure per consentire l'accesso in sola lettura da un indicizzatore. | Accedere a questa funzionalità quando si usa il portale o [creare un'origine dati (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) con API-Version = 2020-06 -30-Preview o API-Version = 2019-05-06-Preview. |
 | [**Sessioni di debug**](cognitive-search-debug-session.md) | Portale, arricchimento AI (competenze) | Editor di competenze in-Session utilizzato per analizzare e risolvere i problemi relativi a un insieme di competenze. Le correzioni applicate durante una sessione di debug possono essere salvate in un skillt nel servizio. | Solo portale, usando i collegamenti a metà pagina nella pagina Panoramica per aprire una sessione di debug. |

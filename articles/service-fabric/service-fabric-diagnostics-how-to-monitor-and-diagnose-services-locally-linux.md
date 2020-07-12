@@ -3,11 +3,12 @@ title: Eseguire il debug di app Service Fabric di Azure in Linux
 description: Informazioni su come eseguire il monitoraggio e la diagnosi dei servizi Service Fabric in un computer di sviluppo locale Linux.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f637721d24045f5ca3386ffc31775d469e88537
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80991331"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247558"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorare e diagnosticare i servizi in una configurazione di sviluppo per computer Linux locale
 
@@ -131,4 +132,4 @@ Gli esempi in [C# Samples](https://github.com/Azure-Samples/service-fabric-dotne
 
 ## <a name="next-steps"></a>Passaggi successivi
 Lo stesso codice di traccia aggiunto all'applicazione potrà essere usato per la diagnostica dell'applicazione in un cluster di Azure. Consultare questi articoli che illustrano le diverse opzioni per gli strumenti e descrivono come configurarli.
-* [Come raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-lad.md)
+* [Come raccogliere log con Diagnostica di Azure](./service-fabric-diagnostics-event-aggregation-lad.md)

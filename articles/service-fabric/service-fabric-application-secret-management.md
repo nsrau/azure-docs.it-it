@@ -3,12 +3,12 @@ title: Gestire i segreti dell'applicazione Service Fabric di Azure
 description: Informazioni su come proteggere i valori dei segreti in un'applicazione di Service Fabric (indipendente dalla piattaforma).
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af82a55d41c48eebcbcbd1581ec5096a89c49bea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583245"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248119"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gestire i segreti crittografati nelle applicazioni di Service Fabric
 Questa guida descrive la procedura di gestione dei segreti in un'applicazione di Service Fabric. I segreti possono essere informazioni riservate, ad esempio le stringhe di connessione di archiviazione, le password o altri valori che non devono essere gestiti in testo normale.
@@ -99,7 +99,7 @@ Per sostituire i valori in Settings.xml, dichiarare un parametro di sostituzione
 
 A questo punto, il valore può essere specificato come un *parametro dell'applicazione* quando si crea un'istanza dell'applicazione. La creazione di un'istanza dell'applicazione può generare uno script con PowerShell o essere scritta in C#, per semplificare l'integrazione in un processo di compilazione.
 
-Tramite PowerShell, viene fornito il parametro del comando `New-ServiceFabricApplication` come [tabella hash](https://technet.microsoft.com/library/ee692803.aspx):
+Tramite PowerShell, viene fornito il parametro del comando `New-ServiceFabricApplication` come [tabella hash](/previous-versions/windows/it-pro/windows-powershell-1.0/ee692803(v=technet.10)):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}

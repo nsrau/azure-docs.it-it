@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: b0ddf6dda99ee666e3052b5a70e51c7e4208a374
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e02a47cd6ae6e4883b5113b07d4049cd723232d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80347101"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250193"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
 
@@ -75,7 +75,7 @@ Se il certificato è in uso da parte di un'API, verrà visualizzata una schermat
 3. Modificare **Credenziali gateway** impostando **Certificato client** e selezionare il certificato nell'elenco a discesa.
     ![Abilitare i certificati client](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 > [!WARNING]
 > Questa modifica ha effetto immediato e le chiamate alle operazioni di quell'API useranno il certificato per autenticarsi sul server back-end.
@@ -86,24 +86,24 @@ Se il certificato è in uso da parte di un'API, verrà visualizzata una schermat
 
 ## <a name="self-signed-certificates"></a>Certificati autofirmati
 
-Se si usano i certificati autofirmati, è necessario disabilitare la convalida della catena di certificati affinché il servizio Gestione API possa comunicare con il sistema back-end. In caso contrario, verrà restituito un codice di Errore 500. Per configurarlo, è possibile usare i [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdlet di PowerShell (per il nuovo back-end) o [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (per il back-end esistente) e impostare il `-SkipCertificateChainValidation` parametro su `True` .
+Se si usano i certificati autofirmati, è necessario disabilitare la convalida della catena di certificati affinché il servizio Gestione API possa comunicare con il sistema back-end. In caso contrario, verrà restituito un codice di Errore 500. Per configurarlo, è possibile usare i [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdlet di PowerShell (per il nuovo back-end) o [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (per il back-end esistente) e impostare il `-SkipCertificateChainValidation` parametro su `True` .
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[Azure API Management REST API Certificate entity]: https://msdn.microsoft.com/library/azure/dn783483.aspx
+[Azure API Management REST API Certificate entity]: ./api-management-caching-policies.md
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 

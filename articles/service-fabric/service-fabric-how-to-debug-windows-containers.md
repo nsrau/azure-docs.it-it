@@ -4,11 +4,12 @@ description: Informazioni su come eseguire il debug di contenitori di Windows in
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e6e7785278b182cebb21115a70f35ade52303c3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701150"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247252"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Procedura: eseguire il debug di contenitori di Windows in Azure Service Fabric con Visual Studio 2019
 
@@ -16,9 +17,9 @@ Con Visual Studio 2019, è possibile eseguire il debug di applicazioni .NET in c
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* In Windows 10, seguire questa guida introduttiva per [configurare Windows 10 per l'esecuzione dei contenitori Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-* In Windows Server 2016, seguire questa guida introduttiva per [configurare Windows 2016 per l'esecuzione dei contenitori Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
-* Configurare l'ambiente di Service Fabric locale seguendo le indicazioni in [Preparare l'ambiente di sviluppo in Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* In Windows 10, seguire questa guida introduttiva per [configurare Windows 10 per l'esecuzione dei contenitori Windows](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
+* In Windows Server 2016, seguire questa guida introduttiva per [configurare Windows 2016 per l'esecuzione dei contenitori Windows](/virtualization/windowscontainers/quick-start/quick-start-windows-server)
+* Configurare l'ambiente di Service Fabric locale seguendo le indicazioni in [Preparare l'ambiente di sviluppo in Windows](./service-fabric-get-started.md)
 
 ## <a name="configure-your-developer-environment-to-debug-containers"></a>Configurare l'ambiente di sviluppo per l'esecuzione del debug dei contenitori
 
@@ -37,7 +38,7 @@ Con Visual Studio 2019, è possibile eseguire il debug di applicazioni .NET in c
       > È possibile usare `-CreateOneNodeCluster` per configurare un cluster con un solo nodo. Per impostazione predefinita, verrà creato un cluster locale con cinque nodi.
       >
 
-      Per altre informazioni sul servizio DNS in Service Fabric, vedere [Servizio DNS in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Per altre informazioni sull'uso del proxy inverso di Service Fabric per i servizi in esecuzione in un contenitore, vedere [Reverse proxy special handling for services running in containers](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers) (Gestione speciale del proxy inverso per i servizi in esecuzione nei contenitori).
+      Per altre informazioni sul servizio DNS in Service Fabric, vedere [Servizio DNS in Azure Service Fabric](./service-fabric-dnsservice.md). Per altre informazioni sull'uso del proxy inverso di Service Fabric per i servizi in esecuzione in un contenitore, vedere [Reverse proxy special handling for services running in containers](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers) (Gestione speciale del proxy inverso per i servizi in esecuzione nei contenitori).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Limitazioni note durante il debug dei contenitori in Service Fabric
 

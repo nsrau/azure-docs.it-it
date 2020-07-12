@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: e059a503a29872ee6241fe00ff5c7ec94ae30308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e82c7809f5a6c79b61dc0c6731a696c672f6aa97
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888094"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247337"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 
@@ -42,7 +42,7 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
 ## <a name="install-the-sdk-and-tools"></a>Installare l'SDK e gli strumenti
 
-Installazione guidata piattaforma Web (WebPI) è la soluzione consigliata per installare l'SDK e gli strumenti. Se si ricevono errori di runtime tramite WebPI, è anche possibile trovare collegamenti diretti ai programmi di installazione nelle note sulla versione per una versione specifica di Service Fabric. Le note sulla versione sono reperibili nei vari annunci sulla versione nel [blog del team di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Installazione guidata piattaforma Web (WebPI) è la soluzione consigliata per installare l'SDK e gli strumenti. Se si ricevono errori di runtime tramite WebPI, è anche possibile trovare collegamenti diretti ai programmi di installazione nelle note sulla versione per una versione specifica di Service Fabric. Le note sulla versione sono reperibili nei vari annunci sulla versione nel [blog del team di Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
 > [!NOTE]
 > Gli aggiornamenti del cluster di sviluppo locale di Service Fabric non sono supportati.

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff13f8301274ebfc8b31dcbe01ef2a0fe6cd6fcc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846672"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247762"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregazione e raccolta di eventi con Diagnostica di Microsoft Azure
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "85846672"
 
 Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i log da tutti i nodi in una posizione centrale. Il salvataggio dei log in una posizione centrale semplifica l'analisi e la risoluzione di eventuali problemi nel cluster o nelle applicazioni e nei servizi in esecuzione nel cluster.
 
-Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Microsoft Azure, che carica i log in Archiviazione di Azure e offre anche la possibilità di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in un prodotto della piattaforma di analisi, ad esempio i [log di monitoraggio di Azure](../log-analytics/log-analytics-service-fabric.md) o un'altra soluzione di analisi dei log.
+Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Microsoft Azure, che carica i log in Archiviazione di Azure e offre anche la possibilità di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in un prodotto della piattaforma di analisi, ad esempio i [log di monitoraggio di Azure](./service-fabric-diagnostics-oms-setup.md) o un'altra soluzione di analisi dei log.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -31,7 +31,7 @@ In questo articolo vengono usati gli strumenti seguenti:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Modello di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Modello di Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventi della piattaforma Service Fabric
 Service Fabric offre alcuni [canali di registrazione predefiniti](service-fabric-diagnostics-event-generation-infra.md). Tra questi, i canali seguenti vengono preconfigurati con l'estensione per inviare i dati di monitoraggio e diagnostica a una tabella di archiviazione o un'altra posizione:
@@ -202,12 +202,12 @@ Dato che le tabelle popolate dall'estensione aumentano fino al raggiungimento de
 ## <a name="log-collection-configurations"></a>Configurazioni di raccolta log
 Sono disponibili per la raccolta anche log da canali aggiuntivi; di seguito sono riportare alcune delle configurazioni più comuni che è possibile apportare nel modello per i cluster in esecuzione in Azure.
 
-* Canale operativo-base: abilitata per impostazione predefinita, operazioni di alto livello eseguite da Service Fabric e dal cluster, inclusi gli eventi per un nodo in arrivo, una nuova applicazione da distribuire o un rollback dell'aggiornamento e così via. Per un elenco di eventi, vedere [eventi del canale operativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canale operativo-base: abilitata per impostazione predefinita, operazioni di alto livello eseguite da Service Fabric e dal cluster, inclusi gli eventi per un nodo in arrivo, una nuova applicazione da distribuire o un rollback dell'aggiornamento e così via. Per un elenco di eventi, vedere [eventi del canale operativo](./service-fabric-diagnostics-event-generation-operational.md).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canale operativo - Dettagliato: sono inclusi i rapporti sull'integrità e le decisioni sul bilanciamento del carico, oltre a tutti gli elementi del canale operativo di base. Questi eventi sono generati dal sistema o dal codice usando le API di creazione di report di integrità o caricamento, ad esempio [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Per visualizzare tali eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000008" all'elenco di provider ETW.
+* Canale operativo - Dettagliato: sono inclusi i rapporti sull'integrità e le decisioni sul bilanciamento del carico, oltre a tutti gli elementi del canale operativo di base. Questi eventi sono generati dal sistema o dal codice usando le API di creazione di report di integrità o caricamento, ad esempio [ReportPartitionHealth](/previous-versions/azure/reference/mt645153(v=azure.100)) o [ReportLoad](/previous-versions/azure/reference/mt161491(v=azure.100)). Per visualizzare tali eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000008" all'elenco di provider ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
@@ -296,7 +296,7 @@ Ad esempio, se l'origine evento è denominato My Eventsource, aggiungere il codi
         }
 ```
 
-Per raccogliere i contatori delle prestazioni o i log eventi, modificare il modello di Resource Manager tramite gli esempi forniti in [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pubblicare di nuovo il modello di Resource Manager.
+Per raccogliere i contatori delle prestazioni o i log eventi, modificare il modello di Resource Manager tramite gli esempi forniti in [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json). Pubblicare di nuovo il modello di Resource Manager.
 
 ## <a name="collect-performance-counters"></a>Raccogliere i contatori delle prestazioni
 
@@ -358,7 +358,7 @@ Dopo aver configurato correttamente Diagnostica di Azure, sarà possibile visual
 >[!NOTE]
 >Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non si implementa un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare. È attualmente disponibile un esempio di servizio di eliminazione dati in esecuzione nel [watchdog di esempio](https://github.com/Azure-Samples/service-fabric-watchdog-service). È consigliabile scriverne uno personalizzato, a meno che non esista un motivo valido per archiviare i log per un intervallo di tempo superiore a 30 o 90 giorni.
 
-* [Informazioni su come raccogliere i contatori delle prestazioni o i log mediante l'estensione Diagnostica](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Informazioni su come raccogliere i contatori delle prestazioni o i log mediante l'estensione Diagnostica](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 * [Analisi e visualizzazione degli eventi con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Analisi e visualizzazione di eventi con i log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md)
 * [Analisi e visualizzazione degli eventi con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)

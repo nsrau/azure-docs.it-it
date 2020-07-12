@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 8ff78934005b3c0fd5fbd2b9c4d289c7b3668824
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8806390fe772491b629276b21734947a149d67e4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389922"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250686"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -86,7 +86,7 @@ Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure ven
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a>Creare una rete virtuale
 
 Creare una rete virtuale con il comando [az network vnet create][az-network-vnet-create]. L'esempio seguente crea il nome di rete virtuale *myVnet* con il prefisso di indirizzo *10.0.0.0/8* e una subnet denominata *myAKSSubnet*. Per impostazione predefinita, il prefisso di indirizzo di questa subnet è *10.240.0.0/16*:
 
@@ -149,7 +149,7 @@ Per concedere l'accesso corretto al cluster del servizio Azure Kubernetes per l'
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 ```
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
+## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Kubernetes
 
 Distribuire un cluster del servizio Azure Kubernetes nella subnet del servizio creata nel passaggio precedente. Ottenere l'ID della subnet usando il comando [az network vnet subnet show][az-network-vnet-subnet-show]:
 
@@ -374,7 +374,7 @@ I nodi virtuali sono spesso un componente di una soluzione di scalabilità nel s
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks disable-addons]: /cli/azure/aks#az-aks-disable-addons
 [aks-hpa]: tutorial-kubernetes-scale.md
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
