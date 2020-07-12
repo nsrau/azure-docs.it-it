@@ -3,11 +3,12 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Questo articolo include le risposte ad alcune domande frequenti sul servizio Azure Kubernetes.
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300927"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275717"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -136,7 +137,7 @@ I nodi dell'agente del servizio Azure Kubernetes sono fatturati come macchine vi
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>È possibile spostare o eseguire la migrazione del cluster tra tenant di Azure?
 
-È possibile usare il comando `az aks update-credentials` per spostare un cluster del servizio Azure Kubernetes tra i tenant di Azure. Seguire le istruzioni riportate in [Scegliere di aggiornare o creare un'entità servizio](https://docs.microsoft.com/azure/aks/update-credentials), quindi quelle in [Aggiornare il cluster del servizio Azure Kubernetes con le nuove credenziali](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
+È possibile usare il comando `az aks update-credentials` per spostare un cluster del servizio Azure Kubernetes tra i tenant di Azure. Seguire le istruzioni riportate in [Scegliere di aggiornare o creare un'entità servizio](./update-credentials.md), quindi quelle in [Aggiornare il cluster del servizio Azure Kubernetes con le nuove credenziali](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>È possibile spostare o eseguire la migrazione del cluster tra sottoscrizioni?
 
@@ -144,7 +145,11 @@ Lo spostamento di cluster tra sottoscrizioni non è al momento supportato.
 
 ## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>È possibile spostare i cluster del servizio Azure Kubernetes dalla sottoscrizione di Azure corrente a un'altra? 
 
-Lo spostamento del cluster del servizio Azure Kubernetes e delle risorse associate tra sottoscrizioni di Azure non è supportato.
+Lo stato di trasferimento del cluster AKS e delle risorse associate tra le sottoscrizioni di Azure non è supportato.
+
+## <a name="can-i-move-my-aks-cluster-or-aks-infrastructure-resources-to-other-resource-groups-or-rename-them"></a>È possibile spostare il cluster AKS o le risorse dell'infrastruttura AKS in altri gruppi di risorse o rinominarli?
+
+Lo stato di trasferimento o ridenominazione del cluster AKS e delle risorse associate non è supportato.
 
 ## <a name="why-is-my-cluster-delete-taking-so-long"></a>Perché l'eliminazione del cluster richiede molto tempo? 
 
@@ -164,11 +169,11 @@ In genere, questo problema è dovuto al fatto che gli utenti hanno uno o più gr
 
 ## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>Dopo un aggiornamento, si verificano arresti anomali ciclici dei pod e i probe di idoneità restituiscono un errore. Come si risolve il problema?
 
-Verificare che l'entità servizio non sia scaduta.  Vedere [Entità servizio del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [Credenziali per l'aggiornamento del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/update-credentials).
+Verificare che l'entità servizio non sia scaduta.  Vedere [Entità servizio del servizio Azure Kubernetes](./kubernetes-service-principal.md) e [Credenziali per l'aggiornamento del servizio Azure Kubernetes](./update-credentials.md).
 
 ## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Il cluster funzionava ma improvvisamente non è possibile effettuare il provisioning di Load Balancer, montare PVC e così via. Come si risolve il problema? 
 
-Verificare che l'entità servizio non sia scaduta.  Vedere [Entità servizio del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) e [Credenziali per l'aggiornamento del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/update-credentials).
+Verificare che l'entità servizio non sia scaduta.  Vedere [Entità servizio del servizio Azure Kubernetes](./kubernetes-service-principal.md) e [Credenziali per l'aggiornamento del servizio Azure Kubernetes](./update-credentials.md).
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>È possibile usare le API del set di scalabilità di macchine virtuali per il ridimensionamento manuale?
 
@@ -189,9 +194,9 @@ No. Il servizio Azure Kubernetes è un servizio gestito e la manipolazione delle
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md
-[aks-cluster-autoscale]: ./autoscaler.md
+[aks-cluster-autoscale]: ./cluster-autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
-[aks-rbac-aad]: ./azure-ad-integration.md
+[aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create

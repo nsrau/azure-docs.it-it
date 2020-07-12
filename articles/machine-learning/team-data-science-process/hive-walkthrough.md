@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf69786f56f52874bd9358ae44a6b88b466e77f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb144aa7b6c717ada3a51fe3286f349bc3d8b325
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81677466"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273915"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
 In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
@@ -28,21 +29,32 @@ Per una procedura dettagliata in cui viene illustrato come gestire un set di dat
 I dati relativi alle corse dei taxi di New York sono costituiti da circa 20 GB di file con valori delimitati da virgole (CSV) compressi (circa 48 GB non compressi). Contengono più di 173 milioni di singole corse e includono le tariffe pagate per ogni corsa. Il record di ogni corsa include luogo e ora di partenza e arrivo, numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse effettuate nell'anno 2013 e vengono forniti nei due set di dati seguenti per ogni mese:
 
 - I file CSV trip_data contengono i dettagli relativi al viaggio, ovvero il numero di passeggeri, i punti di prelievo e abbandono, la durata e la lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
-   
-        medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
-        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
+
+  `medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude`
+
+  `89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171`
+
+  `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066`
+
+  `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002`
+
+  `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388`
+
+  `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868`
+
 - I file CSV trip_fare contengono i dettagli della tariffa pagata per ogni viaggio: tipo di pagamento, importo della tariffa, sovrapprezzo e tasse, mance e pedaggi e l'importo totale pagato. Di seguito vengono forniti alcuni record di esempio:
-   
-        medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
-        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
+
+  `medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount`
+
+  `89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7`
+
+  `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7`
+
+  `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7`
+
+  `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6`
+
+  `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5`
 
 La chiave univoca per creare un join di trip\_data e trip\_fare è costituita da questi campi: medallion, hack\_licence e pickup\_datetime. Per ottenere tutti i dettagli relativi a una corsa specifica, è sufficiente creare un join con queste tre sottochiavi.
 
@@ -50,16 +62,18 @@ La chiave univoca per creare un join di trip\_data e trip\_fare è costituita da
 Determinare il tipo di stime che si vuole eseguire in base all'analisi dei dati per chiarire le attività di elaborazione richieste. Di seguito sono riportati tre esempi di problemi di stima che verranno affrontati in questa procedura dettagliata, tutti basati sull' * \_ importo del suggerimento*:
 
 - **Classificazione binaria**: permette di stimare se per la corsa è stata lasciata o meno una mancia. Se *tip\_amount* è maggiore di $ 0, si tratta di un esempio positivo, mentre se *tip\_amount* è uguale a $ 0, si tratta di un esempio negativo.
-   
-        Class 0: tip_amount = $0
-        Class 1: tip_amount > $0
+
+  - Classe 0: tip_amount = $0
+  - Classe 1: tip_amount > $0
+
 - **Classificazione multiclasse**: permette di stimare l'intervallo di importi delle mance lasciate per la corsa. Il valore di *tip\_amount* viene diviso in cinque classi:
-   
-        Class 0: tip_amount = $0
-        Class 1: tip_amount > $0 and tip_amount <= $5
-        Class 2: tip_amount > $5 and tip_amount <= $10
-        Class 3: tip_amount > $10 and tip_amount <= $20
-        Class 4: tip_amount > $20
+
+  - Classe 0: tip_amount = $0
+  - Classe 1: tip_amount > $0 e tip_amount <= $5
+  - Classe 2: tip_amount > $5 e tip_amount <= $10
+  - Classe 3: tip_amount > $10 e tip_amount <= $20
+  - Classe 4: tip_amount > $20
+
 - **Attività di regressione**: permette di stimare l'importo della mancia lasciata per una corsa.  
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Configurare un cluster Hadoop di HDInsight per l'analisi avanzata
@@ -89,7 +103,9 @@ Qui viene descritto come usare AzCopy per trasferire i file contenenti i dati. P
 
 1. Da una finestra del prompt dei comandi eseguire i comandi AzCopy seguenti, sostituendo *\<path_to_data_folder>* con la destinazione desiderata:
 
-        "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
+    ```console
+    "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
+    ```
 
 1. Al termine dell'operazione di copia, nella cartella dati scelta sarà presente un totale di 24 file compressi. Decomprimere i file scaricati nella stessa directory del computer locale. Prendere nota della cartella in cui si trovano i dati non compressi. Questa cartella viene definita *\<path\_to\_unzipped_data\_files\>* in quanto segue.
 
@@ -110,11 +126,15 @@ Da un prompt dei comandi o una finestra di Windows PowerShell eseguire i due com
 
 Questo comando carica i dati delle corse nella directory ***nyctaxitripraw*** all'interno del contenitore predefinito del cluster Hadoop.
 
-        "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
+```console
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
+```
 
 Questo comando carica i dati delle tariffe nella directory ***nyctaxifareraw*** all'interno del contenitore predefinito del cluster Hadoop.
 
-        "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
+```console
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
+```
 
 I dati si trovano ora nell'archiviazione BLOB e sono pronti per essere usati all'interno del cluster HDInsight.
 
@@ -130,9 +150,11 @@ In questa procedura dettagliata si useranno essenzialmente query scritte in [Hiv
 
 Per preparare il cluster per l'analisi esplorativa dei dati, scaricare i file ". HQL" contenenti gli script hive pertinenti da [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) a una directory locale (C:\Temp) nel nodo head. Aprire il prompt dei comandi dall'interno del nodo head del cluster ed eseguire i due comandi seguenti:
 
-    set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/DataScienceProcess/DataScienceScripts/Download_DataScience_Scripts.ps1'
+```console
+set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/DataScienceProcess/DataScienceScripts/Download_DataScience_Scripts.ps1'
 
-    @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
+```
 
 Questi due comandi scaricano tutti i file '. HQL ' necessari in questa procedura dettagliata alla directory locale ***C:\temp&#92;*** nel nodo head.
 
@@ -145,7 +167,9 @@ Questi due comandi scaricano tutti i file '. HQL ' necessari in questa procedura
 È ora possibile creare tabelle Hive per il set di dati dei taxi di New York.
 Nel nodo head del cluster Hadoop aprire la riga di comando di Hadoop sul desktop del nodo head. Immettere la directory Hive eseguendo il comando seguente:
 
-    cd %hive_home%\bin
+```console
+cd %hive_home%\bin
+```
 
 > [!NOTE]
 > Al prompt della directory bin/ Hive eseguire tutti i comandi di Hive riportati in questa procedura dettagliata. In questo modo, vengono risolti automaticamente tutti i problemi relativi al percorso. I termini "prompt della directory Hive", "prompt della directory/del bin Hive" e "riga di comando di Hadoop" verranno usati in modo intercambiabile in questa procedura dettagliata.
@@ -154,48 +178,52 @@ Nel nodo head del cluster Hadoop aprire la riga di comando di Hadoop sul desktop
 
 Dal prompt della directory hive eseguire il comando seguente nella riga di comando di Hadoop del nodo head che crea il database e le tabelle hive:
 
-    hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
+```console
+hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
+```
 
 Di seguito è riportato il contenuto del file ** \_ hive \_ Create \_ DB \_ e \_ Tables. HQL di file c:\Temp\sample** che crea il database hive **nyctaxidb**e la corsa e la **Tariffa** **delle tabelle.**
 
-    create database if not exists nyctaxidb;
+```hiveql
+create database if not exists nyctaxidb;
 
-    create external table if not exists nyctaxidb.trip
-    (
-        medallion string,
-        hack_license string,
-        vendor_id string,
-        rate_code string,
-        store_and_fwd_flag string,
-        pickup_datetime string,
-        dropoff_datetime string,
-        passenger_count int,
-        trip_time_in_secs double,
-        trip_distance double,
-        pickup_longitude double,
-        pickup_latitude double,
-        dropoff_longitude double,
-        dropoff_latitude double)  
-    PARTITIONED BY (month int)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
-    STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
+create external table if not exists nyctaxidb.trip
+(
+    medallion string,
+    hack_license string,
+    vendor_id string,
+    rate_code string,
+    store_and_fwd_flag string,
+    pickup_datetime string,
+    dropoff_datetime string,
+    passenger_count int,
+    trip_time_in_secs double,
+    trip_distance double,
+    pickup_longitude double,
+    pickup_latitude double,
+    dropoff_longitude double,
+    dropoff_latitude double)  
+PARTITIONED BY (month int)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
+STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
 
-    create external table if not exists nyctaxidb.fare
-    (
-        medallion string,
-        hack_license string,
-        vendor_id string,
-        pickup_datetime string,
-        payment_type string,
-        fare_amount double,
-        surcharge double,
-        mta_tax double,
-        tip_amount double,
-        tolls_amount double,
-        total_amount double)
-    PARTITIONED BY (month int)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
-    STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
+create external table if not exists nyctaxidb.fare
+(
+    medallion string,
+    hack_license string,
+    vendor_id string,
+    pickup_datetime string,
+    payment_type string,
+    fare_amount double,
+    surcharge double,
+    mta_tax double,
+    tip_amount double,
+    tolls_amount double,
+    total_amount double)
+PARTITIONED BY (month int)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
+STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
+```
 
 Questo script Hive crea due tabelle:
 
@@ -212,64 +240,80 @@ Per ricevere maggiore assistenza per l'esecuzione di queste procedure o per info
 
 Il set di dati sui taxi di New York presenta un partizionamento naturale per mese, utile per velocizzare i tempi di elaborazione e ridurre la durata delle query. I comandi di PowerShell seguenti (specificati dalla directory Hive tramite la riga di comando di Hadoop) caricano i dati nelle tabelle Hive trip e fare, partizionate per mese.
 
-    for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
+```powershell
+for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
+```
 
 Il **file \_ di esempio hive \_ Load \_ Data by partitions \_ \_ . HQL** contiene i comandi **Load** seguenti:
 
-    LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
-    LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
+```hiveql
+LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
+LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
+```
 
 Una serie di query hive utilizzate nel processo di esplorazione implica la ricerca di una o due partizioni. Queste query, tuttavia, possono essere eseguite sull'intero set di dati.
 
 ### <a name="show-databases-in-the-hdinsight-hadoop-cluster"></a><a name="#show-db"></a>Visualizzare i database nel cluster Hadoop di HDInsight
 Per visualizzare i database creati nel cluster Hadoop di HDInsight nella finestra della riga di comando di Hadoop, eseguire il comando seguente nella riga di comando di Hadoop:
 
-    hive -e "show databases;"
+```console
+hive -e "show databases;"
+```
 
 ### <a name="show-the-hive-tables-in-the-nyctaxidb-database"></a><a name="#show-tables"></a>Visualizzare le tabelle Hive nel database **nyctaxidb**
 Per visualizzare le tabelle nel database **nyctaxidb**, eseguire il comando seguente nella riga di comando di Hadoop:
 
-    hive -e "show tables in nyctaxidb;"
+```console
+hive -e "show tables in nyctaxidb;"
+```
 
 È possibile verificare che le tabelle siano partizionate eseguendo il comando seguente:
 
-    hive -e "show partitions nyctaxidb.trip;"
+```console
+hive -e "show partitions nyctaxidb.trip;"
+```
 
 Ecco l'output previsto:
 
-    month=1
-    month=10
-    month=11
-    month=12
-    month=2
-    month=3
-    month=4
-    month=5
-    month=6
-    month=7
-    month=8
-    month=9
-    Time taken: 2.075 seconds, Fetched: 12 row(s)
+```output
+month=1
+month=10
+month=11
+month=12
+month=2
+month=3
+month=4
+month=5
+month=6
+month=7
+month=8
+month=9
+Time taken: 2.075 seconds, Fetched: 12 row(s)
+```
 
 Analogamente, è possibile verificare che la tabella fare sia partizionata eseguendo il comando seguente:
 
-    hive -e "show partitions nyctaxidb.fare;"
+```console
+hive -e "show partitions nyctaxidb.fare;"
+```
 
 Ecco l'output previsto:
 
-    month=1
-    month=10
-    month=11
-    month=12
-    month=2
-    month=3
-    month=4
-    month=5
-    month=6
-    month=7
-    month=8
-    month=9
-    Time taken: 1.887 seconds, Fetched: 12 row(s)
+```output
+month=1
+month=10
+month=11
+month=12
+month=2
+month=3
+month=4
+month=5
+month=6
+month=7
+month=8
+month=9
+Time taken: 1.887 seconds, Fetched: 12 row(s)
+```
 
 ## <a name="data-exploration-and-feature-engineering-in-hive"></a><a name="#explore-hive"></a>Esplorare i dati e progettare le funzionalità in Hive
 > [!NOTE]
@@ -295,15 +339,21 @@ Per determinare che aspetto avranno i dati, esaminare 10 record di ogni tabella.
 
 Per ottenere i primi 10 record della tabella trip dal primo mese:
 
-    hive -e "select * from nyctaxidb.trip where month=1 limit 10;"
+```console
+hive -e "select * from nyctaxidb.trip where month=1 limit 10;"
+```
 
 Per ottenere i primi 10 record della tabella fare dal primo mese:
 
-    hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
+```console
+hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
+```
 
 È possibile salvare i record in un file per una visualizzazione pratica con una piccola modifica alla query precedente:
 
-    hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
+```console
+hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
+```
 
 ### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>Esplorazione: visualizzare il numero di record in ognuna delle 12 partizioni
 > [!NOTE]
@@ -313,65 +363,81 @@ Per ottenere i primi 10 record della tabella fare dal primo mese:
 
 È interessante osservare come il numero delle corse possa variare nel corso dell'anno. Il raggruppamento in base al mese mostra la distribuzione delle corse.
 
-    hive -e "select month, count(*) from nyctaxidb.trip group by month;"
+```console
+hive -e "select month, count(*) from nyctaxidb.trip group by month;"
+```
 
 Questo comando produce l'output seguente:
 
-    1       14776615
-    2       13990176
-    3       15749228
-    4       15100468
-    5       15285049
-    6       14385456
-    7       13823840
-    8       12597109
-    9       14107693
-    10      15004556
-    11      14388451
-    12      13971118
-    Time taken: 283.406 seconds, Fetched: 12 row(s)
+```output
+1       14776615
+2       13990176
+3       15749228
+4       15100468
+5       15285049
+6       14385456
+7       13823840
+8       12597109
+9       14107693
+10      15004556
+11      14388451
+12      13971118
+Time taken: 283.406 seconds, Fetched: 12 row(s)
+```
 
 In questa tabella la prima colonna corrisponde al mese, la seconda al numero di corse effettuate nel mese.
 
 È anche possibile contare il numero totale di record nel set di dati delle corse eseguendo il comando seguente al prompt della directory Hive:
 
-    hive -e "select count(*) from nyctaxidb.trip;"
+```console
+hive -e "select count(*) from nyctaxidb.trip;"
+```
 
 Questo comando restituisce:
 
-    173179759
-    Time taken: 284.017 seconds, Fetched: 1 row(s)
+```output
+173179759
+Time taken: 284.017 seconds, Fetched: 1 row(s)
+```
 
 Usando comandi simili a quelli mostrati per il set di dati delle corse, è possibile eseguire query Hive dal prompt della directory Hive per il set di dati delle tariffe in modo da convalidare il numero di record.
 
-    hive -e "select month, count(*) from nyctaxidb.fare group by month;"
+```console
+hive -e "select month, count(*) from nyctaxidb.fare group by month;"
+```
 
 Questo comando genera questo output:
 
-    1       14776615
-    2       13990176
-    3       15749228
-    4       15100468
-    5       15285049
-    6       14385456
-    7       13823840
-    8       12597109
-    9       14107693
-    10      15004556
-    11      14388451
-    12      13971118
-    Time taken: 253.955 seconds, Fetched: 12 row(s)
+```output
+1       14776615
+2       13990176
+3       15749228
+4       15100468
+5       15285049
+6       14385456
+7       13823840
+8       12597109
+9       14107693
+10      15004556
+11      14388451
+12      13971118
+Time taken: 253.955 seconds, Fetched: 12 row(s)
+```
 
 Viene restituito esattamente lo stesso numero di corse al mese per entrambi i set di dati, fornendo la prima convalida che i dati sono stati caricati correttamente.
 
 È possibile contare il numero totale di record nel set di dati delle tariffe eseguendo il comando seguente al prompt della directory Hive:
 
-    hive -e "select count(*) from nyctaxidb.fare;"
+```console
+hive -e "select count(*) from nyctaxidb.fare;"
+```
 
 Questo comando restituisce:
 
-    173179759
-    Time taken: 186.683 seconds, Fetched: 1 row(s)
+```output
+173179759
+Time taken: 186.683 seconds, Fetched: 1 row(s)
+```
 
 Il numero totale di record in entrambe le tabelle è anche lo stesso, fornendo una seconda convalida che i dati sono stati caricati correttamente.
 
@@ -383,31 +449,39 @@ Il numero totale di record in entrambe le tabelle è anche lo stesso, fornendo u
 
 Questo esempio identifica le licenze (numeri di taxi) che hanno eseguito più di 100 corse in un determinato periodo. La query trae vantaggio dall'accesso alla tabella partizionata, perché è condizionata dalla variabile di partizione **month**. I risultati della query vengono scritti in un file locale, **QueryOutput. TSV**, in nel `C:\temp` nodo head.
 
-    hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
+```console
+hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
+```
 
 Ecco il contenuto del file **sample\_hive\_trip\_count\_by\_medallion.hql** per l'analisi.
 
-    SELECT medallion, COUNT(*) as med_count
-    FROM nyctaxidb.fare
-    WHERE month<=3
-    GROUP BY medallion
-    HAVING med_count > 100
-    ORDER BY med_count desc;
+```hiveql
+SELECT medallion, COUNT(*) as med_count
+FROM nyctaxidb.fare
+WHERE month<=3
+GROUP BY medallion
+HAVING med_count > 100
+ORDER BY med_count desc;
+```
 
 Nel set di dati sui taxi di New York la licenza identifica un'auto univoca. È possibile identificare in modo comparativo i taxi più o meno occupati chiedendo quali hanno effettuato più di un certo numero di corse in un intervallo di tempo specifico. Nell'esempio seguente vengono identificati i CAB che hanno effettuato più di cento corse nei primi tre mesi e i risultati della query vengono salvati in un file locale, **C:\temp\queryoutput.TSV**.
 
 Ecco il contenuto del file **sample\_hive\_trip\_count\_by\_medallion.hql** per l'analisi.
 
-    SELECT medallion, COUNT(*) as med_count
-    FROM nyctaxidb.fare
-    WHERE month<=3
-    GROUP BY medallion
-    HAVING med_count > 100
-    ORDER BY med_count desc;
+```hiveql
+SELECT medallion, COUNT(*) as med_count
+FROM nyctaxidb.fare
+WHERE month<=3
+GROUP BY medallion
+HAVING med_count > 100
+ORDER BY med_count desc;
+```
 
 Dal prompt della directory Hive eseguire il comando seguente:
 
-    hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
+```console
+hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
+```
 
 ### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Esplorazione: distribuzione delle corse per licenza e hack_license
 > [!NOTE]
@@ -419,18 +493,22 @@ Quando si Esplora un set di dati, spesso si desidera esaminare le distribuzioni 
 
 Il file **sample\_hive\_trip\_count\_by\_medallion\_license.hql** raggruppa il set di dati delle tariffe in **medallion** e **hack_license** e restituisce la quantità di ogni combinazione. Ecco il contenuto del file:
 
-    SELECT medallion, hack_license, COUNT(*) as trip_count
-    FROM nyctaxidb.fare
-    WHERE month=1
-    GROUP BY medallion, hack_license
-    HAVING trip_count > 100
-    ORDER BY trip_count desc;
+```hiveql
+SELECT medallion, hack_license, COUNT(*) as trip_count
+FROM nyctaxidb.fare
+WHERE month=1
+GROUP BY medallion, hack_license
+HAVING trip_count > 100
+ORDER BY trip_count desc;
+```
 
 Questa query restituisce le combinazioni di taxi e autisti, visualizzate in ordine decrescente in base al numero di corse.
 
 Al prompt della directory Hive eseguire:
 
-    hive -f "C:\temp\sample_hive_trip_count_by_medallion_license.hql" > C:\temp\queryoutput.tsv
+```console
+hive -f "C:\temp\sample_hive_trip_count_by_medallion_license.hql" > C:\temp\queryoutput.tsv
+```
 
 I risultati della query vengono scritti in un file locale, **C:\temp\queryoutput.TSV**.
 
@@ -444,17 +522,20 @@ Un obiettivo comune di analisi esplorativa dei dati è quello di eliminare i rec
 
 Di seguito è riportato il contenuto del file **sample\_hive\_quality\_assessment.hql** per l'analisi.
 
-        SELECT COUNT(*) FROM nyctaxidb.trip
-        WHERE month=1
-        AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
-        OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
-        OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
-        OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
-
+```hiveql
+    SELECT COUNT(*) FROM nyctaxidb.trip
+    WHERE month=1
+    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
+    OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
+    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
+    OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
+```
 
 Al prompt della directory Hive eseguire:
 
-    hive -S -f "C:\temp\sample_hive_quality_assessment.hql"
+```console
+hive -S -f "C:\temp\sample_hive_quality_assessment.hql"
+```
 
 L'argomento *-S* incluso in questo comando sostituisce l'immagine della schermata di stato relativa ai processi Map/Reduce di Hive. Questo comando è utile perché rende più leggibile la stampa dello schermo dell'output della query hive.
 
@@ -471,17 +552,21 @@ Per il problema di classificazione binaria descritto nella sezione [Esempi di at
 
 Il file di esempio seguente per le ** \_ frequenze con \_ Tipping hive \_ . HQL** Mostra il comando da eseguire:
 
-    SELECT tipped, COUNT(*) AS tip_freq
-    FROM
-    (
-        SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
-        FROM nyctaxidb.fare
-    )tc
-    GROUP BY tipped;
+```hiveql
+SELECT tipped, COUNT(*) AS tip_freq
+FROM
+(
+    SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
+    FROM nyctaxidb.fare
+)tc
+GROUP BY tipped;
+```
 
 Al prompt della directory Hive eseguire:
 
-    hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
+```console
+hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
+```
 
 
 ### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Esplorazione: distribuzioni in classi nell'impostazione multiclasse
@@ -492,20 +577,24 @@ Al prompt della directory Hive eseguire:
 
 Per il problema di classificazione multiclasse descritto nella sezione [Esempi di attività di stima](hive-walkthrough.md#mltasks), questo set di dati si presta a una classificazione naturale per stimare l'importo delle mance. Per definire gli intervalli di mance nella query, è possibile usare i contenitori. Per ottenere le distribuzioni in classi per i diversi intervalli di mance, usare il file **sample\_hive\_tip\_range\_frequencies.hql**. Ecco il contenuto del file.
 
-    SELECT tip_class, COUNT(*) AS tip_freq
-    FROM
-    (
-        SELECT if(tip_amount=0, 0,
-            if(tip_amount>0 and tip_amount<=5, 1,
-            if(tip_amount>5 and tip_amount<=10, 2,
-            if(tip_amount>10 and tip_amount<=20, 3, 4)))) as tip_class, tip_amount
-        FROM nyctaxidb.fare
-    )tc
-    GROUP BY tip_class;
+```hiveql
+SELECT tip_class, COUNT(*) AS tip_freq
+FROM
+(
+    SELECT if(tip_amount=0, 0,
+        if(tip_amount>0 and tip_amount<=5, 1,
+        if(tip_amount>5 and tip_amount<=10, 2,
+        if(tip_amount>10 and tip_amount<=20, 3, 4)))) as tip_class, tip_amount
+    FROM nyctaxidb.fare
+)tc
+GROUP BY tip_class;
+```
 
 Eseguire il comando seguente dalla console della riga di comando di Hadoop:
 
-    hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
+```console
+hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
+```
 
 ### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Esplorazione: calcolare la distanza diretta tra due posizioni di latitudine/longitudine
 > [!NOTE]
@@ -517,24 +606,26 @@ Potrebbe essere necessario determinare se esiste una differenza tra la distanza 
 
 Per visualizzare il confronto tra la distanza effettiva della corsa e la [distanza in base alla formula dell'emisenoverso](https://en.wikipedia.org/wiki/Haversine_formula) tra due punti di latitudine/longitudine (distanza di cerchio massimo), è possibile usare le funzioni trigonometriche disponibili in Hive:
 
-    set R=3959;
-    set pi=radians(180);
+```hiveql
+set R=3959;
+set pi=radians(180);
 
-    insert overwrite directory 'wasb:///queryoutputdir'
+insert overwrite directory 'wasb:///queryoutputdir'
 
-    select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
-    ${hiveconf:R}*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-     *${hiveconf:pi}/180/2),2)-cos(pickup_latitude*${hiveconf:pi}/180)
-     *cos(dropoff_latitude*${hiveconf:pi}/180)*pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2)))
-     /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*${hiveconf:pi}/180/2),2)
-     +cos(pickup_latitude*${hiveconf:pi}/180)*cos(dropoff_latitude*${hiveconf:pi}/180)*
-     pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2))) as direct_distance
-    from nyctaxidb.trip
-    where month=1
-    and pickup_longitude between -90 and -30
-    and pickup_latitude between 30 and 90
-    and dropoff_longitude between -90 and -30
-    and dropoff_latitude between 30 and 90;
+select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
+${hiveconf:R}*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
+ *${hiveconf:pi}/180/2),2)-cos(pickup_latitude*${hiveconf:pi}/180)
+ *cos(dropoff_latitude*${hiveconf:pi}/180)*pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2)))
+ /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*${hiveconf:pi}/180/2),2)
+ +cos(pickup_latitude*${hiveconf:pi}/180)*cos(dropoff_latitude*${hiveconf:pi}/180)*
+ pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2))) as direct_distance
+from nyctaxidb.trip
+where month=1
+and pickup_longitude between -90 and -30
+and pickup_latitude between 30 and 90
+and dropoff_longitude between -90 and -30
+and dropoff_latitude between 30 and 90;
+```
 
 Nella query precedente R è il raggio della terra in miglia e pi greco viene convertito in radianti. I punti di Latitudine Longitudine sono filtrati per rimuovere i valori che sono lontani dall'area NYC.
 
@@ -542,20 +633,25 @@ In questo caso, i risultati vengono scritti in una directory denominata **queryo
 
 Al prompt della directory Hive eseguire:
 
-    hdfs dfs -mkdir wasb:///queryoutputdir
+```hiveql
+hdfs dfs -mkdir wasb:///queryoutputdir
 
-    hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
-
+hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
+```
 
 I risultati della query vengono scritti in nove BLOB di Azure (da **queryoutputdir/000000\_0** a **queryoutputdir/000008\_0**), all'interno del contenitore predefinito del cluster Hadoop.
 
 Per visualizzare le dimensioni dei singoli BLOB, è possibile eseguire il comando seguente dal prompt della directory Hive:
 
-    hdfs dfs -ls wasb:///queryoutputdir
+```hiveql
+hdfs dfs -ls wasb:///queryoutputdir
+```
 
 Per visualizzare il contenuto di un file specifico, ad esempio **000000\_0**, usare il comando `copyToLocal` di Hadoop.
 
-    hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
+```hiveql
+hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
+```
 
 > [!WARNING]
 > In presenza di file di grandi dimensioni, l'operazione `copyToLocal` può essere molto lenta e non è quindi consigliabile.  
@@ -588,130 +684,134 @@ La query esegue quindi il sottocampionamento dei dati in modo che i risultati po
 
 Ecco il contenuto del file **sample\_hive\_prepare\_for\_aml\_full.hql** che prepara i dati per la creazione del modello in Machine Learning:
 
-        set R = 3959;
-        set pi=radians(180);
+```hiveql
+set R = 3959;
+set pi=radians(180);
 
-        create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
+create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
 
-        medallion string,
-        hack_license string,
-        vendor_id string,
-        rate_code string,
-        store_and_fwd_flag string,
-        pickup_datetime string,
-        dropoff_datetime string,
-        pickup_hour string,
-        pickup_week string,
-        weekday string,
-        passenger_count int,
-        trip_time_in_secs double,
-        trip_distance double,
-        pickup_longitude double,
-        pickup_latitude double,
-        dropoff_longitude double,
-        dropoff_latitude double,
-        direct_distance double,
-        payment_type string,
-        fare_amount double,
-        surcharge double,
-        mta_tax double,
-        tip_amount double,
-        tolls_amount double,
-        total_amount double,
-        tipped string,
-        tip_class string
-        )
-        row format delimited fields terminated by ','
-        lines terminated by '\n'
-        stored as textfile;
+medallion string,
+hack_license string,
+vendor_id string,
+rate_code string,
+store_and_fwd_flag string,
+pickup_datetime string,
+dropoff_datetime string,
+pickup_hour string,
+pickup_week string,
+weekday string,
+passenger_count int,
+trip_time_in_secs double,
+trip_distance double,
+pickup_longitude double,
+pickup_latitude double,
+dropoff_longitude double,
+dropoff_latitude double,
+direct_distance double,
+payment_type string,
+fare_amount double,
+surcharge double,
+mta_tax double,
+tip_amount double,
+tolls_amount double,
+total_amount double,
+tipped string,
+tip_class string
+)
+row format delimited fields terminated by ','
+lines terminated by '\n'
+stored as textfile;
 
-        --- now insert contents of the join into the above internal table
+--- now insert contents of the join into the above internal table
 
-        insert overwrite table nyctaxidb.nyctaxi_downsampled_dataset
-        select
-        t.medallion,
-        t.hack_license,
-        t.vendor_id,
-        t.rate_code,
-        t.store_and_fwd_flag,
-        t.pickup_datetime,
-        t.dropoff_datetime,
-        hour(t.pickup_datetime) as pickup_hour,
-        weekofyear(t.pickup_datetime) as pickup_week,
-        from_unixtime(unix_timestamp(t.pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),'u') as weekday,
-        t.passenger_count,
-        t.trip_time_in_secs,
-        t.trip_distance,
-        t.pickup_longitude,
-        t.pickup_latitude,
-        t.dropoff_longitude,
-        t.dropoff_latitude,
-        t.direct_distance,
-        f.payment_type,
-        f.fare_amount,
-        f.surcharge,
-        f.mta_tax,
-        f.tip_amount,
-        f.tolls_amount,
-        f.total_amount,
-        if(tip_amount>0,1,0) as tipped,
-        if(tip_amount=0,0,
-        if(tip_amount>0 and tip_amount<=5,1,
-        if(tip_amount>5 and tip_amount<=10,2,
-        if(tip_amount>10 and tip_amount<=20,3,4)))) as tip_class
+insert overwrite table nyctaxidb.nyctaxi_downsampled_dataset
+select
+t.medallion,
+t.hack_license,
+t.vendor_id,
+t.rate_code,
+t.store_and_fwd_flag,
+t.pickup_datetime,
+t.dropoff_datetime,
+hour(t.pickup_datetime) as pickup_hour,
+weekofyear(t.pickup_datetime) as pickup_week,
+from_unixtime(unix_timestamp(t.pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),'u') as weekday,
+t.passenger_count,
+t.trip_time_in_secs,
+t.trip_distance,
+t.pickup_longitude,
+t.pickup_latitude,
+t.dropoff_longitude,
+t.dropoff_latitude,
+t.direct_distance,
+f.payment_type,
+f.fare_amount,
+f.surcharge,
+f.mta_tax,
+f.tip_amount,
+f.tolls_amount,
+f.total_amount,
+if(tip_amount>0,1,0) as tipped,
+if(tip_amount=0,0,
+if(tip_amount>0 and tip_amount<=5,1,
+if(tip_amount>5 and tip_amount<=10,2,
+if(tip_amount>10 and tip_amount<=20,3,4)))) as tip_class
 
-        from
-        (
-        select
-        medallion,
-        hack_license,
-        vendor_id,
-        rate_code,
-        store_and_fwd_flag,
-        pickup_datetime,
-        dropoff_datetime,
-        passenger_count,
-        trip_time_in_secs,
-        trip_distance,
-        pickup_longitude,
-        pickup_latitude,
-        dropoff_longitude,
-        dropoff_latitude,
-        ${hiveconf:R}*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-        *${hiveconf:pi}/180/2),2)-cos(pickup_latitude*${hiveconf:pi}/180)
-        *cos(dropoff_latitude*${hiveconf:pi}/180)*pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2)))
-        /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*${hiveconf:pi}/180/2),2)
-        +cos(pickup_latitude*${hiveconf:pi}/180)*cos(dropoff_latitude*${hiveconf:pi}/180)*pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2))) as direct_distance,
-        rand() as sample_key
+from
+(
+select
+medallion,
+hack_license,
+vendor_id,
+rate_code,
+store_and_fwd_flag,
+pickup_datetime,
+dropoff_datetime,
+passenger_count,
+trip_time_in_secs,
+trip_distance,
+pickup_longitude,
+pickup_latitude,
+dropoff_longitude,
+dropoff_latitude,
+${hiveconf:R}*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
+*${hiveconf:pi}/180/2),2)-cos(pickup_latitude*${hiveconf:pi}/180)
+*cos(dropoff_latitude*${hiveconf:pi}/180)*pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2)))
+/sqrt(pow(sin((dropoff_latitude-pickup_latitude)*${hiveconf:pi}/180/2),2)
++cos(pickup_latitude*${hiveconf:pi}/180)*cos(dropoff_latitude*${hiveconf:pi}/180)*pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2))) as direct_distance,
+rand() as sample_key
 
-        from nyctaxidb.trip
-        where pickup_latitude between 30 and 90
-            and pickup_longitude between -90 and -30
-            and dropoff_latitude between 30 and 90
-            and dropoff_longitude between -90 and -30
-        )t
-        join
-        (
-        select
-        medallion,
-        hack_license,
-        vendor_id,
-        pickup_datetime,
-        payment_type,
-        fare_amount,
-        surcharge,
-        mta_tax,
-        tip_amount,
-        tolls_amount,
-        total_amount
-        from nyctaxidb.fare
-        )f
-        on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
-        where t.sample_key<=0.01
+from nyctaxidb.trip
+where pickup_latitude between 30 and 90
+    and pickup_longitude between -90 and -30
+    and dropoff_latitude between 30 and 90
+    and dropoff_longitude between -90 and -30
+)t
+join
+(
+select
+medallion,
+hack_license,
+vendor_id,
+pickup_datetime,
+payment_type,
+fare_amount,
+surcharge,
+mta_tax,
+tip_amount,
+tolls_amount,
+total_amount
+from nyctaxidb.fare
+)f
+on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
+where t.sample_key<=0.01
+```
 
 Per eseguire questa query, dal prompt della directory Hive eseguire il comando seguente:
 
-    hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
+```console
+hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
+```
 
 È ora disponibile la tabella interna **nyctaxidb.nyctaxi_downsampled_dataset**, alla quale è possibile accedere tramite il modulo [Import Data][import-data] (Importa dati) da Machine Learning. Inoltre, è possibile usare questo set di dati per la creazione di modelli di Machine Learning.  
 
@@ -739,7 +839,9 @@ Ecco alcuni dettagli sul modulo [Import Data][import-data] (Importa dati) e sui 
 
 Ecco come determinare se una tabella **T** in un database **D.db** è una tabella interna. Dal prompt della directory Hive eseguire il comando seguente:
 
-    hdfs dfs -ls wasb:///D.db/T
+```hiveql
+hdfs dfs -ls wasb:///D.db/T
+```
 
 Se la tabella è una tabella interna e viene popolata, il relativo contenuto deve essere visualizzato in questa posizione.
 

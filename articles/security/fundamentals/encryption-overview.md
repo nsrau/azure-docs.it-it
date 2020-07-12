@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 005932f4a4be9e4a7bae85a6b380c934de5e9874
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84012977"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276533"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
 
@@ -116,9 +117,13 @@ Vengono usate tre tipi di chiavi per la crittografia e decrittografia dei dati: 
 
 Azure offre numerosi meccanismi per conservare i dati privati durante lo spostamento da una posizione a un'altra.
 
-### <a name="tlsssl-encryption-in-azure"></a>Crittografia TLS/SSL in Azure
+### <a name="data-link-layer-encryption-in-azure"></a>Crittografia del livello di collegamento dati in Azure
 
-Microsoft usa il protocollo [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) per proteggere i dati durante il trasferimento tra i servizi cloud e i clienti. I data center Microsoft negoziano una connessione TLS con i sistemi client che si connettono ai servizi di Azure. Il protocollo TLS offre autenticazione avanzata, riservatezza dei messaggi e integrità (abilitando il rilevamento di manomissioni, intercettazioni e falsificazioni di messaggi), interoperabilità, flessibilità degli algoritmi e facilità di distribuzione e di utilizzo.
+Ogni volta che il traffico dei clienti di Azure viene spostato tra i Data Center, oltre i limiti fisici non controllati da Microsoft (o per conto di Microsoft), viene applicato un metodo di crittografia a livello di collegamento dati con gli [standard di sicurezza IEEE 802.1 AE Mac](https://1.ieee802.org/security/802-1ae/) (noto anche come MACsec), da punto a punto nell'hardware di rete sottostante.  I pacchetti vengono crittografati e decrittografati nei dispositivi prima di essere inviati, impedendo gli attacchi di tipo "Man-in-the-Middle" o di snooping/intercettazione fisici.  Poiché questa tecnologia è integrata nell'hardware di rete, fornisce la crittografia della velocità di riga nell'hardware di rete senza aumento della latenza dei collegamenti misurabile.  Questa crittografia MACsec è abilitata per impostazione predefinita per tutto il traffico di Azure che si trova all'interno di un'area o tra aree e non è richiesta alcuna azione da parte dei clienti. 
+
+### <a name="tls-encryption-in-azure"></a>Crittografia TLS in Azure
+
+Microsoft offre ai clienti la possibilità di usare il protocollo [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) per proteggere i dati durante il viaggio tra i servizi cloud e i clienti. I data center Microsoft negoziano una connessione TLS con i sistemi client che si connettono ai servizi di Azure. Il protocollo TLS offre autenticazione avanzata, riservatezza dei messaggi e integrità (abilitando il rilevamento di manomissioni, intercettazioni e falsificazioni di messaggi), interoperabilità, flessibilità degli algoritmi e facilità di distribuzione e di utilizzo.
 
 [Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protegge le connessioni tra i sistemi client dei clienti e i servizi cloud di Microsoft con chiavi univoche. Le connessioni usano anche lunghezze di chiavi di crittografia basate a 2.048 bit basate su RSA. Questa combinazione rende difficile ad altri utenti intercettare e accedere ai dati in transito.
 
@@ -140,7 +145,7 @@ Per impostazione predefinita, dopo avere attivato la crittografia SMB per una co
 
 ## <a name="in-transit-encryption-in-vms"></a>Crittografia dei dati in transito nelle VM
 
-I dati in transito da, verso o tra macchine virtuali che eseguono Windows vengono crittografati in diversi modi, a seconda della natura della connessione.
+I dati in transito verso, da e tra le macchine virtuali che eseguono Windows possono essere crittografati in diversi modi, a seconda della natura della connessione.
 
 ### <a name="rdp-sessions"></a>Sessioni RDP
 

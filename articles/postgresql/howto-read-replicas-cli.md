@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: b8da326ea48133d2029f385fc55450c00aecf656
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/10/2020
+ms.openlocfilehash: de74258cadcdf81da211561a84ff06927830e690
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106612"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274408"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Creare e gestire le repliche di lettura dall'interfaccia della riga di comando di Azure, API REST
 
@@ -84,9 +84,9 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 
 Se il parametro non è stato impostato `azure.replication_support` su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
 
-Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
-
 > [!IMPORTANT]
+> Vedere la [sezione Considerazioni relativa alla panoramica di Read replica](concepts-read-replicas.md#considerations).
+>
 > Prima che un'impostazione del server master venga aggiornata a un nuovo valore, aggiornare l'impostazione della replica a un valore uguale o maggiore. Questa azione consente alla replica di rimanere al passo con le modifiche apportate al database master.
 
 ### <a name="list-replicas"></a>Elencare le repliche

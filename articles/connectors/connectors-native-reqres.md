@@ -7,11 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325134"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261370"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso in App per la logica di Azure
 
@@ -23,7 +24,7 @@ Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md), assieme 
 
 * Riceva e risponda a una chiamata HTTPS da un'altra app per la logica.
 
-Il trigger di richiesta supporta [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) per autorizzare le chiamate in ingresso all'app per la logica. Per altre informazioni sull'abilitazione di questa autenticazione, vedere [Proteggere l'accesso e i dati in App per la logica di Azure: abilitare l'autenticazione OAuth di Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+Il trigger di richiesta supporta [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) per autorizzare le chiamate in ingresso all'app per la logica. Per altre informazioni sull'abilitazione di questa autenticazione, vedere [Proteggere l'accesso e i dati in App per la logica di Azure: abilitare l'autenticazione OAuth di Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -156,7 +157,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
          "account": {
             "name": "Contoso",
             "ID": "12345",
-            "address": { 
+            "address": {
                "number": "1234",
                "street": "Anywhere Street",
                "city": "AnyTown",
@@ -171,9 +172,9 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 1. Per verificare che la chiamata in ingresso disponga di un corpo della richiesta corrispondente allo schema specificato, attenersi alla seguente procedura:
 
    1. Nella barra del titolo del trigger di richiesta selezionare il pulsante con i puntini di sospensione (**...**).
-   
+
    1. Nelle impostazioni del trigger attivare la **convalida dello schema**e selezionare **fine**.
-   
+
       Se il corpo della richiesta della chiamata in ingresso non corrisponde allo schema, il trigger restituisce un `HTTP 400 Bad Request` errore.
 
 1. Per specificare proprietà aggiuntive, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
@@ -258,7 +259,7 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un [period
 
    In questo esempio, il trigger di richiesta è compresso per semplicità.
 
-1. Aggiungere i valori necessari per il messaggio di risposta. 
+1. Aggiungere i valori necessari per il messaggio di risposta.
 
    In alcuni campi, facendo clic sulle relative caselle si apre un elenco di contenuti dinamico. È quindi possibile selezionare i token che rappresentano gli output disponibili dei passaggi precedenti del flusso di lavoro. Le proprietà dello schema specificato nell'esempio precedente appaiono ora nell'elenco dei contenuti dinamici.
 
@@ -270,7 +271,7 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un [period
 
    ![Intestazioni - Passa alla visualizzazione Testo](./media/connectors-native-reqres/switch-to-text-view.png)
 
-   Di seguito sono riportate altre informazioni sulle proprietà che è possibile impostare nell'azione di risposta. 
+   Di seguito sono riportate altre informazioni sulle proprietà che è possibile impostare nell'azione di risposta.
 
    | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
    |---------------|--------------------|----------|-------------|
@@ -281,7 +282,7 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un [period
 
 1. Per specificare proprietà aggiuntive, come ad esempio uno schema JSON per il corpo della risposta, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri da aggiungere.
 
-1. Al termine, salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**. 
+1. Al termine, salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

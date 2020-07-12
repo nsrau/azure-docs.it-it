@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: 89450e5518d854fbc31b43324ecb05f47e1ab5ac
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.date: 07/10/2020
+ms.openlocfilehash: fc41b76fa14d464b2e4ddcca7e98997011a51cd4
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970995"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276635"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorare e ottimizzare Database di Azure per PostgreSQL - Server singolo
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per PostgreSQL offre varie opzioni di monitoraggio che consentono di ottenere informazioni dettagliate sul comportamento del server.
@@ -34,7 +34,7 @@ Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 |serverlog_storage_usage|Archiviazione dei log del server usata|Byte|Quantità di spazio di archiviazione dei log del server in uso.|
 |serverlog_storage_limit|Limite di archiviazione dei log del server|Byte|Spazio di archiviazione massimo dei log del server per il server.|
 |active_connections|Connessioni attive|Conteggio|Numero di connessioni al server attive.|
-|connections_failed|Connessioni non riuscite|Conteggio|Numero di connessioni al server non riuscite.|
+|connections_failed|Connessioni non riuscite|Conteggio|Numero di connessioni stabilite che hanno avuto esito negativo.|
 |network_bytes_egress|Rete in uscita|Byte|Rete in uscita tra connessioni attive.|
 |network_bytes_ingress|Rete in ingresso|Byte|Rete in ingresso tra connessioni attive.|
 |backup_storage_used|Risorse di backup in uso|Byte|Quantità di risorse dell'archivio di backup usate.|
@@ -44,7 +44,7 @@ Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 ## <a name="server-logs"></a>Log del server
 È possibile abilitare l'accesso al server. Questi log delle risorse possono essere inviati a [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md), Hub eventi e un account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei [log del server](concepts-server-logs.md).
 
-## <a name="query-store"></a>Archivio query
+## <a name="query-store"></a>Query Store
 [Query Store](concepts-query-store.md) tiene traccia delle prestazioni delle query nel tempo, incluse le statistiche di runtime di query e gli eventi di attesa. La funzionalità salva in modo permanente le informazioni sulle prestazioni dei runtime di query in un database di sistema denominato **azure_sys** nello schema query_store. È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.
 
 ## <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query

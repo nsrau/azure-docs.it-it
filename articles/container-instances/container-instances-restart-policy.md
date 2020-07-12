@@ -3,12 +3,12 @@ title: Criteri di riavvio per le attività Esegui una sola volta
 description: Informazioni su come usare Istanze di Azure Container per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini.
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a582036ae54a0b100b768e37bcf0d952521559d9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80131501"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261341"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Eseguire attività in contenitori con criteri di riavvio
 
@@ -90,13 +90,13 @@ Output:
  ('HAMLET', 386)]
 ```
 
-Questo esempio mostra l'output che lo script ha inviato a STDOUT. Le attività nei contenitori, tuttavia, potrebbero invece scrivere l'output in un archivio permanente per il recupero successivo. Ad esempio in una [condivisione file di Azure](container-instances-mounting-azure-files-volume.md).
+Questo esempio mostra l'output che lo script ha inviato a STDOUT. Le attività nei contenitori, tuttavia, potrebbero invece scrivere l'output in un archivio permanente per il recupero successivo. Ad esempio in una [condivisione file di Azure](./container-instances-volume-azure-files.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono sfruttare le [variabili di ambiente](container-instances-environment-variables.md) o le [righe di comando](container-instances-start-command.md) personalizzate in fase di esecuzione.
 
-Per informazioni dettagliate su come mantenere l'output dei contenitori che vengono eseguiti fino al completamento, vedere [Montaggio di una condivisione file di Azure con Istanze di Azure Container](container-instances-mounting-azure-files-volume.md).
+Per informazioni dettagliate su come mantenere l'output dei contenitori che vengono eseguiti fino al completamento, vedere [Montaggio di una condivisione file di Azure con Istanze di Azure Container](./container-instances-volume-azure-files.md).
 
 <!-- LINKS - External -->
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount

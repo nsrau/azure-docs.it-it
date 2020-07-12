@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 26569606ce2aeb9d645f82e474b728cc4044ca93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250945"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276312"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ Il controllo del [database SQL di Azure](sql-database-paas-overview.md) e di [Az
 
 Inoltre, il servizio di controllo:
 
-- Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che potrebbero indicare problemi aziendali o possibili violazioni della sicurezza.
+- Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che possono indicare problemi aziendali o possibili violazioni della sicurezza.
 
 - Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per ulteriori informazioni sui programmi di Azure che supportano la conformità agli standard, vedere la [Centro protezione di Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità SQL di Azure.
 
@@ -35,8 +35,8 @@ Inoltre, il servizio di controllo:
 
 È possibile usare il servizio di controllo del database SQL per eseguire le operazioni seguenti:
 
-- **Conservare** un audit trail di eventi selezionati. È possibile definire categorie di azioni di database da controllare.
-- **Creare report** sulle attività del database. È possibile usare i report preconfigurati e un dashboard per iniziare rapidamente a usare l'attività e la segnalazione di eventi.
+- **Mantiene** un audit trail di eventi selezionati. È possibile definire categorie di azioni di database da controllare.
+- **Report** sull'attività del database. È possibile usare i report preconfigurati e un dashboard per iniziare rapidamente a usare l'attività e la segnalazione di eventi.
 - **Analizzare** i report. È possibile individuare eventi sospetti, attività insolite e tendenze.
 
 > [!IMPORTANT]
@@ -100,7 +100,7 @@ Per configurare la scrittura dei log per un account di archiviazione, selezionar
 
   ![archiviazione di Azure](./media/auditing-overview/auditing_select_storage.png)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 - I log di controllo vengono scritti per **aggiungere BLOB** in un archivio BLOB di Azure nella sottoscrizione di Azure
 - Per configurare un archivio di log non modificabile per gli eventi di controllo a livello di server o di database, seguire le [istruzioni fornite da archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). Assicurarsi di aver selezionato **Consenti aggiunte aggiuntive** quando si configura l'archiviazione BLOB non modificabile.
@@ -116,6 +116,8 @@ Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analy
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
+Per altre informazioni sulle aree di lavoro dei log di monitoraggio di Azure, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
+   
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Controllare la destinazione dell'hub eventi
 
 > [!WARNING]
@@ -255,7 +257,7 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 - [Ottenere i criteri di controllo *esteso* del database](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Ottenere i criteri di controllo *estesi* del server](/rest/api/sql/server%20auditing%20settings/get)
 
-### <a name="using-azure-resource-manager-templates"></a>Uso dei modelli di Gestione risorse di Azure
+### <a name="using-azure-resource-manager-templates"></a>Uso di modelli di Azure Resource Manager
 
 È possibile gestire il controllo del database SQL di Azure usando modelli di [Azure Resource Manager](../../azure-resource-manager/management/overview.md) , come illustrato negli esempi seguenti:
 

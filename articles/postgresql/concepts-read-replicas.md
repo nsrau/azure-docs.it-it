@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/24/2020
-ms.openlocfilehash: 0d678d900ec31b00d27eba19617d533c5010c1dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: f2f752d6435b311c1737d531f5572aed5af223f2
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367997"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276652"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche nel database di Azure per PostgreSQL-server singolo
 
@@ -161,12 +161,14 @@ Il server deve essere riavviato dopo una modifica di questo parametro. Intername
 Una replica in lettura viene creata come nuovo server di Database di Azure per PostgreSQL. Un server esistente non può essere impostato come replica. Non è possibile creare una replica di un'altra replica in lettura.
 
 ### <a name="replica-configuration"></a>Configurazione della replica
-Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
+Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo la creazione di una replica, è possibile modificare diverse impostazioni, tra cui archiviazione e periodo di conservazione dei backup.
+
+VCore e il piano tariffario possono anche essere modificati nella replica nei casi seguenti:
+* PostgreSQL richiede che il valore del parametro`max_connections` sulla replica in lettura sia maggiore o uguale a quello del master; in caso contrario, la replica non si avvia. In database di Azure per PostgreSQL, il `max_connections` valore del parametro è basato sullo SKU (VCore e piano tariffario). Per altre informazioni, vedere [Limiti in Database di Azure per PostgreSQL](concepts-limits.md). 
+* Il ridimensionamento a o dal piano tariffario Basic non è supportato
 
 > [!IMPORTANT]
 > Prima che un'impostazione master venga aggiornata a un nuovo valore, aggiornare la configurazione della replica a un valore uguale o maggiore. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
-
-PostgreSQL richiede che il valore del parametro`max_connections` sulla replica in lettura sia maggiore o uguale a quello del master; in caso contrario, la replica non si avvia. Nel Database di Azure per PostgreSQL, il valore del parametro `max_connections` è basato sullo SKU. Per altre informazioni, vedere [Limiti in Database di Azure per PostgreSQL](concepts-limits.md). 
 
 Se si tenta di aggiornare i valori del server descritti sopra, ma non si rispettano i limiti, viene visualizzato un errore.
 

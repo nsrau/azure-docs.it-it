@@ -5,18 +5,20 @@ author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 5/6/2019
-ms.openlocfilehash: 9b0e263d3b8bce9e04548f5e8433ff90d2bda274
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/09/2020
+ms.openlocfilehash: a94afc1ab970c2cd3f509c86efba4e455d46fd13
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116354"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274510"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Ottimizzare autovacuum in un database di Azure per PostgreSQL-server singolo
+
 Questo articolo descrive come ottimizzare efficacemente i processi autovacuum in un server di Database di Azure per PostgreSQL.
 
 ## <a name="overview-of-autovacuum"></a>Panoramica dei processi autovacuum
+
 PostgreSQL usa il controllo della concorrenza multiversione (MVCC) per consentire una maggiore concorrenza del database. Ogni aggiornamento comporta un inserimento e un'eliminazione e ogni eliminazione comporta che una o più righe vengano contrassegnate in modo temporaneo per essere eliminate. L'operazione di contrassegno temporaneo identifica le tuple inattive da eliminare in un secondo momento. Per eseguire queste attività, PostgreSQL esegue un processo vacuum.
 
 Un processo vacuum può essere attivato manualmente o automaticamente. Un numero maggiore di tuple inattive è presente quando nel database vengono eseguite operazioni di aggiornamento o di eliminazione onerose. Un numero minore è presente quando il database è inattivo. La necessità di eseguire processi vacuum più frequentemente è maggiore quando il carico del database è oneroso, rendendo non conveniente l'esecuzione *manuale* di processi di questo tipo.
@@ -36,6 +38,7 @@ Se i processi non vengono eseguiti con una certa frequenza, le tuple inattive ch
 - Aumento delle operazioni di I/O.
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>Monitorare l'aumento di dati con query sui processi autovacuum
+
 La query di esempio seguente è progettata per identificare il numero di tuple attive e inattive in una tabella denominata XYZ:
 
 ```sql
@@ -43,7 +46,9 @@ SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRa
 ```
 
 ## <a name="autovacuum-configurations"></a>Configurazioni di processi autovacuum
+
 I parametri di configurazione che controllano i processi autovacuum si basano sulle risposte a due domande fondamentali:
+
 - Quando è necessario iniziare?
 - Quanti elementi è necessario eliminare dopo l'avvio?
 
@@ -55,10 +60,10 @@ autovacuum_vacuum_threshold|Specifica il numero minimo di tuple aggiornate o eli
 autovacuum_vacuum_scale_factor|Specifica una frazione delle dimensioni della tabella da aggiungere a autovacuum_vacuum_threshold quando si decide se attivare un'operazione vacuum. Il valore predefinito è 0,2, ovvero il 20% delle dimensioni della tabella. Impostare questo parametro solo nel file postgresql.conf o nella riga di comando del server. Per eseguire l'override dell'impostazione per le singole tabelle, modificare i parametri di archiviazione della tabella stessa.|0,2
 autovacuum_vacuum_cost_limit|Specifica il valore di limite di costo usato nelle operazioni vacuum automatiche. Se viene specificato -1, l'impostazione predefinita, viene usato il valore vacuum_cost_limit normale. Se è presente più di un ruolo di lavoro, il valore viene distribuito in modo proporzionale tra ruoli di lavoro autovacuum in esecuzione. La somma dei limiti per ogni ruolo di lavoro non supera il valore di questa variabile. Impostare questo parametro solo nel file postgresql.conf o nella riga di comando del server. Per eseguire l'override dell'impostazione per le singole tabelle, modificare i parametri di archiviazione della tabella stessa.|-1
 autovacuum_vacuum_cost_delay|Specifica il valore di intervallo di costo usato nelle operazioni vacuum automatiche. Se viene specificato -1, viene usato il valore vacuum_cost_delay normale. Il valore predefinito è 20 millisecondi. Impostare questo parametro solo nel file postgresql.conf o nella riga di comando del server. Per eseguire l'override dell'impostazione per le singole tabelle, modificare i parametri di archiviazione della tabella stessa.|20 ms
-autovacuum_nap_time|Specifica l'intervallo minimo tra le esecuzioni di processi autovacuum su un database specifico. In ogni ciclo il daemon esamina il database e genera i comandi VACUUM e ANALYZE in base alle necessità per le tabelle nel database. L'intervallo viene misurato in secondi e il valore predefinito è 1 minuto (1 min). Impostare questo parametro solo nel file postgresql.conf o nella riga di comando del server.|15 s
-autovacuum_max_workers|Specifica il numero massimo di processi autovacuum, diversi dall'utilità di avvio autovacuum, che possono essere in esecuzione in qualsiasi momento. Il valore predefinito è tre. Impostare questo parametro solo all'avvio del server.|3
+autovacuum_naptime | Specifica l'intervallo minimo tra le esecuzioni di processi autovacuum su un database specifico. In ogni ciclo il daemon esamina il database e genera i comandi VACUUM e ANALYZE in base alle necessità per le tabelle nel database. Il ritardo viene misurato in secondi. Impostare questo parametro solo nel file postgresql.conf o nella riga di comando del server.| 15 s
+autovacuum_max_workers | Specifica il numero massimo di processi autovacuum, diversi dall'utilità di avvio autovacuum, che possono essere in esecuzione in qualsiasi momento. Il valore predefinito è tre. Impostare questo parametro solo all'avvio del server.|3
 
-Per eseguire l'override delle impostazioni per le singole tabelle, modificare i parametri di archiviazione della tabella stessa. 
+Per eseguire l'override delle impostazioni per le singole tabelle, modificare i parametri di archiviazione della tabella stessa.
 
 ## <a name="autovacuum-cost"></a>Costo dei processi autovacuum
 
@@ -82,12 +87,14 @@ Il fattore di scala predefinito pari al 20% funziona bene in tabelle con una bas
 Con PostgreSQL, è possibile impostare questi parametri a livello di tabella oppure a livello di istanza. Attualmente è possibile impostare questi parametri a livello di tabella solo nel Database di Azure per PostgreSQL.
 
 ## <a name="estimate-the-cost-of-autovacuum"></a>Stimare i costi dei processi autovacuum
+
 L'esecuzione di processi autovacuum comporta un costo e sono disponibili parametri per il controllo del runtime delle operazioni autovacuum. I parametri seguenti consentono di stimare il costo di esecuzione dei un processo autovacuum:
+
 - vacuum_cost_page_hit = 1
 - vacuum_cost_page_miss = 10
 - vacuum_cost_page_dirty = 20
 
-Il processo vacuum legge pagine fisiche e verifica la presenza di tuple inattive. Per ogni pagina in shared_buffers viene considerato un costo pari a 1 (vacuum_cost_page_hit). Per tutte le altre pagine viene considerato un costo pari a 20 (vacuum_cost_page_dirty) se sono presenti tuple inattive o pari a 10 (vacuum_cost_page_miss) se non è presente alcuna tupla inattiva. L'operazione vacuum si interrompe quando il processo supera il valore di autovacuum_vacuum_cost_limit. 
+Il processo vacuum legge pagine fisiche e verifica la presenza di tuple inattive. Per ogni pagina in shared_buffers viene considerato un costo pari a 1 (vacuum_cost_page_hit). Per tutte le altre pagine viene considerato un costo pari a 20 (vacuum_cost_page_dirty) se sono presenti tuple inattive o pari a 10 (vacuum_cost_page_miss) se non è presente alcuna tupla inattiva. L'operazione vacuum si interrompe quando il processo supera il valore di autovacuum_vacuum_cost_limit.
 
 Dopo che il limite è stato raggiunto, il processo viene sospeso per la durata specificata dal parametro autovacuum_vacuum_cost_delay prima di essere avviato nuovamente. Se non viene raggiunto il limite, il processo autovacuum viene avviato dopo un intervallo specificato dal parametro autovacuum_nap_time.
 
@@ -99,7 +106,7 @@ Con PostgreSQL, è possibile impostare questi parametri a livello di tabella opp
 
 ## <a name="optimize-autovacuum-per-table"></a>Ottimizzare i processi autovacuum per ogni tabella
 
-È possibile configurare tutti i parametri di configurazione precedente per ogni tabella. Ad esempio:
+È possibile configurare tutti i parametri di configurazione precedente per ogni tabella. Ecco un esempio:
 
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d8d712e4eecb930b52a519a1aaddf97c744a24ab
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 6a400ae798245cc4912724c16840421d5282b3a0
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218061"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277779"
 ---
 I dischi del sistema operativo temporaneo vengono creati nell'archivio della macchina virtuale (VM) locale e non vengono salvati nell'archiviazione di Azure remota. I dischi del sistema operativo temporaneo funzionano bene per i carichi di lavoro senza stato, in cui le applicazioni sono a tolleranza di singoli errori delle macchine virtuali, ma sono più interessate dal tempo di distribuzione delle VM o dalla ricreazione dell'immagine delle singole istanze Con il disco del sistema operativo temporaneo si ottiene una latenza di lettura/scrittura più bassa per il disco del sistema operativo e una ricreazione più veloce della macchina virtuale 
  
@@ -33,7 +33,7 @@ Differenze principali tra dischi del sistema operativo permanenti e temporanei:
 |                             | Disco del sistema operativo permanente                          | Disco del sistema operativo temporaneo                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | **Limite di dimensioni per il disco del sistema operativo**      | 2 TiB                                                                                        | Dimensioni della cache per le dimensioni della macchina virtuale o 2TiB, a seconda del numero minore. Per le **dimensioni della cache in Gib**, vedere [DS](../articles/virtual-machines/linux/sizes-general.md), [es](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
-| **Dimensioni delle macchine virtuali supportate**          | Tutti                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
+| **Dimensioni delle macchine virtuali supportate**          | Tutti                                                                                          | Dimensioni delle macchine virtuali che supportano archiviazione Premium, ad esempio DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, LSv2, M                                               |
 | **Supporto del tipo di disco**           | Disco del sistema operativo gestito e non gestito                                                                | Solo disco del sistema operativo gestito                                                               |
 | **Supporto di area**              | Tutte le aree                                                                                  | Tutte le aree                              |
 | **Salvataggio permanente dei dati**            | I dati del disco del sistema operativo scritti nel disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti nel disco del sistema operativo vengono archiviati nella risorsa di archiviazione locale della macchina virtuale e non vengono salvati in modo permanente in archiviazione di Azure. |
@@ -237,7 +237,7 @@ R: Sì, è possibile creare macchine virtuali con disco del sistema operativo te
 R: i dischi temporanei non supportano:
 - Acquisizione di immagini di VM
 - Snapshot dei dischi 
-- Crittografia dischi di Azure 
+- Azure Disk Encryption 
 - Backup di Azure
 - Azure Site Recovery  
 - Scambio del disco del sistema operativo 

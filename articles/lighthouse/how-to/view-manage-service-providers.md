@@ -1,14 +1,14 @@
 ---
 title: Visualizzare e gestire i provider di servizi
 description: I clienti possono usare la pagina Provider di servizi nel portale di Azure per visualizzare informazioni sui provider di servizi, sulle offerte di provider di servizi e sulle risorse delegate.
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 56ba5b8c88cd4653c9d41f7f3fcc6219cc376256
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111627"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273779"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualizzare e gestire i provider di servizi
 
@@ -19,7 +19,7 @@ Per accedere alla pagina **Provider di servizi** nel portale di Azure, il client
 > [!NOTE]
 > Per visualizzare la pagina dei **provider di servizi** , un utente nel tenant del cliente deve avere il [ruolo predefinito Reader](../../role-based-access-control/built-in-roles.md#reader) (o un altro ruolo predefinito che include l'accesso in lettura).
 >
-> Per aggiungere offerte, delegare risorse e rimuovere offerte, l'utente deve disporre del [ruolo predefinito proprietario](../../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione.
+> Per aggiungere o aggiornare offerte, delegare risorse e rimuovere offerte, l'utente deve disporre del [ruolo predefinito proprietario](../../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione.
 
 Tenere presente che la pagina **provider di servizi** Mostra solo le informazioni sui provider di servizi che hanno accesso alle sottoscrizioni o ai gruppi di risorse del cliente tramite Azure Lighthouse. Se un cliente lavora con provider di servizi aggiuntivi che non usano Azure Lighthouse per accedere alle risorse del cliente, le informazioni su tali provider di servizi non vengono visualizzate qui.
 

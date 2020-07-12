@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1171c07a754b056fb9df2cee73ddf224427037cc
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77123182"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86277730"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Confronto tra disponibilità generale e anteprima
 
@@ -22,16 +22,16 @@ Nella tabella seguente sono riepilogate alcune differenze principali tra Azure T
 
 | | GA | Anteprima |
 | --- | --- | ---|
-| Cittadino di prima classe | Incentrato sugli eventi | Incentrato sulle serie temporali |
-| Ragionamento semantico | Di basso livello (dati di riferimento) | Alto livello (modelli) |
-| Contestualizzazione dei dati | Livello non dispositivo | Livello dispositivo e non dispositivo |
-| Archiviazione logica di calcolo | No | Archiviato in variabili di tipo parte del modello |
-| Archiviazione e controllo di accesso | No | Abilitato tramite modello |
-| Aggregazioni/campionamento | No | Ponderato e tempo ponderato per l'evento |
-| Ricostruzione del segnale | No | Interpolazione |
-| Produzione di serie temporali derivate | No | Sì, unioni e join |
-| Flessibilità del linguaggio | Non componibile | Componibile |
-| Linguaggio delle espressioni | Stringa di predicato | Espressioni Time Series (stringhe di predicato, valori, espressioni e funzioni) |
+| **Cittadino di prima classe** | Incentrato sugli eventi | Incentrato sulle serie temporali |
+| **Ragionamento semantico** | Di basso livello (dati di riferimento) | Alto livello (modelli) |
+| **Contestualizzazione dei dati** | Livello non dispositivo | Livello dispositivo e non dispositivo |
+| **Archiviazione logica di calcolo** | No | Archiviato in variabili di tipo parte del modello |
+| **Archiviazione e controllo di accesso** | No | Abilitato tramite modello |
+| **Aggregazioni/campionamento** | No | Ponderato e tempo ponderato per l'evento |
+| **Ricostruzione del segnale** | No | Interpolazione |
+| **Produzione di serie temporali derivate** | No | Sì, unioni e join |
+| **Flessibilità del linguaggio** | Non componibile | Componibile |
+| **Linguaggio delle espressioni** | Stringa di predicato | Espressioni Time Series (stringhe di predicato, valori, espressioni e funzioni) |
 
 ### <a name="property-limits"></a>Limiti delle proprietà
 

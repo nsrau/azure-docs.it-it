@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 15cdd4c53105998488d2ae1f544e34c1e07a157a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 549fd9851ffce4459e16b4d84f368234bfdf207d
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82147136"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275819"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Distribuire un sistema di SAP HANA con scale-out con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su SUSE Linux Enterprise Server 
 
@@ -137,7 +137,7 @@ Le istruzioni seguenti presuppongono che la [rete virtuale di Azure](https://doc
 
 5. Distribuire Azure NetApp Files volumi seguendo le istruzioni riportate in [creare un volume NFS per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
 
-   Quando si distribuiscono i volumi, assicurarsi di selezionare la versione **NFSv 4.1** . Attualmente, l'accesso a NFSv 4.1 richiede un elenco elementi consentiti aggiuntivo. Distribuire i volumi nella [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets) di Azure NetApp Files designata. Gli indirizzi IP dei volumi di Azure NetApp vengono assegnati automaticamente. 
+   Quando si distribuiscono i volumi, assicurarsi di selezionare la versione **NFSv 4.1** . Attualmente, è necessario aggiungere l'accesso a NFSv 4.1 a un elenco Consenti. Distribuire i volumi nella [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets) di Azure NetApp Files designata. Gli indirizzi IP dei volumi di Azure NetApp vengono assegnati automaticamente. 
    
    Tenere presente che le risorse Azure NetApp Files e le macchine virtuali di Azure devono trovarsi nella stessa rete virtuale di Azure o in reti virtuali di Azure con peering. Ad esempio, **HN1**-data-Mnt00001, **HN1**-log-mnt00001 e così via, sono i nomi di volume e NFS://10.23.1.5/**HN1**-data-mnt00001, NFS://10.23.1.4/**HN1**-log-mnt00001 e così via, sono i percorsi dei file per i volumi Azure NetApp files.  
 
@@ -635,8 +635,8 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 6. Per ottimizzare SAP HANA per l'archiviazione Azure NetApp Files sottostante, impostare i parametri di SAP HANA seguenti:
 
    - `max_parallel_io_requests`**128**
-   - `async_read_submit`**il**
-   - `async_write_submit_active`**il**
+   - `async_read_submit` **on**
+   - `async_write_submit_active` **on**
    - `async_write_submit_blocks`**tutto**
 
    Per altre informazioni, vedere [applicazioni SAP NetApp su Microsoft Azure con Azure NetApp files][anf-sap-applications-azure]. 

@@ -5,11 +5,12 @@ author: hrushib
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 938cbbde9f53c52350ef64715f6c61c4aa961057
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07a6260c176165af5ced5ce275b9e4b365707d77
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75526244"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261247"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Backup e ripristino periodici in un Service Fabric autonomo
 > [!div class="op_single_selector"]
@@ -287,7 +288,7 @@ Per visualizzare i backup in Service Fabric Explorer, passare a una partizione e
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Informazioni sulla configurazione del backup periodico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Informazioni di riferimento sull'API REST di ripristino backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Informazioni di riferimento sull'API REST di ripristino backup](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event.png
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png

@@ -5,11 +5,12 @@ author: hrushib
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: f56fcb7d1dde700d954c3b55bcf8cd7759893521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a99a936b3e6cf53c30c0264b70046008dab283c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712463"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261262"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Backup e ripristino periodici in un cluster di Service Fabric di Azure
 > [!div class="op_single_selector"]
@@ -303,7 +304,7 @@ Per visualizzare i backup in Service Fabric Explorer, passare a una partizione e
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Informazioni sulla configurazione del backup periodico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Informazioni di riferimento sull'API REST di ripristino backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Informazioni di riferimento sull'API REST di ripristino backup](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event-azure.png
 [1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
