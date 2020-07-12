@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db8ae98302ad6df7355ce03f5a33b5d21f1ea09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334033"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242101"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
@@ -28,6 +28,7 @@ Una mappa **stradale** è una mappa standard che indica le strade, caratteristic
 * [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Controllo mappa Web SDK
 * Controllo mappa Android
+* Oggetto visivo di Power BI
 
 ## <a name="blank-and-blank_accessible"></a>Blank e blank_accessible
 
@@ -48,6 +49,7 @@ Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
 * [Riquadro del satellite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Controllo mappa Web SDK
 * Controllo mappa Android
+* Oggetto visivo di Power BI
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte alle immagini del satellite e aeree.
@@ -57,6 +59,7 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 **API idonee:**
 * Controllo mappa Web SDK
 * Controllo mappa Android
+* Oggetto visivo di Power BI
 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **gradazioni di grigio scuro** è una versione scura dello stile della mappa stradale.
@@ -68,6 +71,7 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 * [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Controllo mappa Web SDK 
 * Controllo mappa Android
+* Oggetto visivo di Power BI
 
 
 ## <a name="grayscale_light"></a>grayscale_light
@@ -78,6 +82,7 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 **API idonee:**
 * Controllo mappa Web SDK
 * Controllo mappa Android
+* Oggetto visivo di Power BI
 
 
 ## <a name="night"></a>notte
@@ -88,6 +93,7 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 **API idonee:**
 * Controllo mappa Web SDK
 * Controllo mappa Android
+* Oggetto visivo di Power BI
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 **road shaded relief** è uno dei principali stili di Mappe di Azure, completato con contorni della Terra.
@@ -98,6 +104,7 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 * [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Controllo mappa Web SDK
 * Controllo mappa Android
+* Oggetto visivo di Power BI
 
 ## <a name="high_contrast_dark"></a>high_contrast_dark
 
@@ -107,6 +114,7 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 
 **API idonee:**
 * Controllo mappa Web SDK
+* Oggetto visivo di Power BI
 
 ## <a name="next-steps"></a>Passaggi successivi
 

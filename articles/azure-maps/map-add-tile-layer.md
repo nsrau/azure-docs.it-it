@@ -9,11 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bb3cfa7266688ac8973bd3838d0d03e9efe8d50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76988601"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242305"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Aggiungere un livello riquadro a una mappa
 
@@ -36,6 +37,7 @@ L'URL del riquadro passato a un livello sezione deve essere un URL http o HTTPS 
 * `{quadkey}` - Identificatore del riquadro quadkey basato sulla convenzione di denominazione del sistema di riquadri di Mappe di Bing.
 * `{bbox-epsg-3857}` - Una stringa  del rettangolo delimitatore nel formato `{west},{south},{east},{north}` nel sistema di riferimento spaziale EPSG 3857.
 * `{subdomain}`: Segnaposto per i valori del sottodominio, se specificato, `subdomain` verrà aggiunto.
+* `{azMapsDomain}`: Segnaposto per allineare il dominio e l'autenticazione delle richieste del riquadro con gli stessi valori usati dalla mappa.
 
 ## <a name="add-a-tile-layer"></a>Aggiungere un livello per i riquadri
 

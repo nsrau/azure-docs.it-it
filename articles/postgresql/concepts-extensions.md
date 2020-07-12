@@ -5,12 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: b97b373936f9c485eaa96cdd34ed33c49e75ad9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201272"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242067"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Estensioni di PostgreSQL nel database di Azure per PostgreSQL-server singolo
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni raggruppano più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un unico comando. Dopo essere stato caricato nel database, le estensioni funzionano come le funzionalità predefinite.
@@ -211,7 +212,7 @@ L'impostazione `pg_stat_statements.track`, che controlla le istruzioni conteggia
 ## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
 [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) consentono di connettersi da un server PostgreSQL a un altro o a un altro database nello stesso server. Il server di destinazione deve consentire le connessioni dal server di origine attraverso il firewall. Quando si usano queste estensioni per la connessione tra server Database di Azure per PostgreSQL, questa operazione può essere eseguita attivando l'impostazione "Consenti l'accesso a Servizi di Azure". Questo è necessario anche quando si vogliono usare le estensioni per il loopback allo stesso server. L'impostazione "Consenti l'accesso a Servizi di Azure" è disponibile nella pagina del portale di Azure per il server Postgres, nell'area Sicurezza connessione. Quando si attiva "Consenti l'accesso ai servizi di Azure" in vengono inseriti tutti gli indirizzi IP di Azure nell'elenco Consenti.
 
-Attualmente, le connessioni in uscita da database di Azure per PostgreSQL non sono supportate, tranne che per le connessioni ad altri server di database di Azure per PostgreSQL.
+Attualmente, le connessioni in uscita da database di Azure per PostgreSQL non sono supportate, tranne che per le connessioni ad altri server di database di Azure per PostgreSQL nella stessa area.
 
 ## <a name="uuid"></a>uuid
 Se si prevede di usare `uuid_generate_v4()` dall' [estensione uuid-ossp](https://www.postgresql.org/docs/current/uuid-ossp.html), provare a confrontare con `gen_random_uuid()` dall' [estensione pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html) per ottenere i vantaggi delle prestazioni.

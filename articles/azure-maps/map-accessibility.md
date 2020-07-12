@@ -8,11 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 23f52e48c6a435678a01569d25e0072d9c8a3e28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648567"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242373"
 ---
 # <a name="building-an-accessible-application"></a>Compilazione di un'applicazione accessibile
 
@@ -21,7 +22,7 @@ Oltre il 20% degli utenti di Internet ha la necessità di avere applicazioni Web
 Ecco alcune considerazioni comuni sull'accessibilità in relazione ai contenuti interattivi ricchi come le mappe:
 - Supportare l'utilità per la lettura dello schermo per gli utenti che hanno difficoltà a visualizzare le applicazioni Web.
 - Prevedere più metodi per interagire ed esplorare l'applicazione Web quali il mouse, il tocco e la tastiera.
-- Assicurarsi che il contrasto sia tale che i colori non si mescolino tra loro e diventi difficile distinguerli. 
+- Assicurarsi che il contrasto dei colori sia tale che i colori non si mescolino tra loro e diventano difficili da distinguere tra loro. 
 
 L'SDK Web di Mappe di Azure è precompilato con numerose funzionalità di accessibilità, quali:
 - Descrizioni dell'utilità per la lettura dello schermo quando la mappa si muove e quando l'utente si concentra su un controllo o un popup.
@@ -45,6 +46,7 @@ Esistono diversi modi in cui è possibile ingrandire, fare una panoramica, ruota
 - Con la mappa attiva, usare il segno meno (`-`) o il carattere di sottolineatura (`_`) per fare zoom indietro di un livello.
 - Usando il controllo zoom con un mouse, un tocco o il tasto TAB/INVIO della tastiera.
 - Premere e tenere premuto il pulsante `Shift` insieme al pulsante sinistro del mouse sulla mappa e trascinare per disegnare un'area da ingrandire.
+- Utilizzando alcuni rilievi multitocco, trascinare due dita per eseguire lo zoom indietro o verso il basso per ingrandire.
 
 **Panoramica della mappa**
 
@@ -75,7 +77,7 @@ Gli sviluppatori non sempre desiderano rendere disponibili tutti gli stili della
 - Quando il controllo mappa viene caricato, verifica che il contrasto elevato sia abilitato e che il browser lo supporti.
 - Il controllo mappa non monitora la modalità di contrasto elevato del dispositivo. Se la modalità del dispositivo viene modificata, la modifica non si applica alla mappa. L'utente dovrà quindi ricaricare la mappa aggiornando la pagina.
 - Quando viene rilevato un contrasto elevato, lo stile della mappa lo applica automaticamente e tutti i controlli predefiniti usano uno stile con contrasto elevato. Ad esempio, ZoomControl, PitchControl, CompassControl, StyleControl e altri controlli predefiniti useranno uno stile a contrasto elevato.
-- Ci sono due tipi di contrasto elevato, chiaro e scuro. Se i controlli mappa rilevano il tipo di contrasto elevato, il comportamento della mappa viene modificato di conseguenza. Se è chiaro, viene caricato lo stile della mappa grayscale_light. Se non è possibile rilevarlo o è scuro, viene caricato lo stile high_contrast_dark.
+- Ci sono due tipi di contrasto elevato, chiaro e scuro. Se i controlli mappa rilevano il tipo di contrasto elevato, il comportamento della mappa viene modificato di conseguenza. Se è chiaro, viene caricato lo stile della mappa grayscale_light. Se il tipo non può essere rilevato o è scuro, lo stile del high_contrast_dark verrà caricato.
 - Se si creano controlli personalizzati, è utile sapere se i controlli predefiniti usano uno stile a contrasto elevato. Gli sviluppatori possono aggiungere una classe CSS nel div del contenitore della mappa che può essere controllata. Le classi CSS che vengono aggiunte sono `high-contrast-dark` e `high-contrast-light`. Per controllare con JavaScript, usare:
 
 ```javascript
@@ -109,7 +111,7 @@ La mappa dispone di una serie di tasti di scelta rapida predefiniti che ne sempl
 | Segno meno (`-`) o <sup>*</sup>carattere di sottolineatura (`_`) | Zoom indietro | 
 | `Shift` + trascinare il mouse sulla mappa per disegnare un'area | Zoom nell'area |
 
-<sup>*</sup> Questi tasti di scelta rapida condividono in genere lo stesso tasto su una tastiera. Questi tasti di scelta rapida sono stati aggiunti per migliorare l'esperienza utente. Inoltre, non è importante se l'utente usa il tasto MAIUSC o meno per i tasti di scelta rapida.
+<sup>*</sup> Questi tasti di scelta rapida condividono in genere lo stesso tasto su una tastiera. Questi tasti di scelta rapida sono stati aggiunti per migliorare l'esperienza utente. Inoltre, non è importante se l'utente utilizza il tasto MAIUSC o meno per questi tasti di scelta rapida.
 
 ## <a name="screen-reader-support"></a>Supporto dell'utilità per la lettura dello schermo
 

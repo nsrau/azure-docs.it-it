@@ -5,12 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: feeef1773ffe68f3ff88175b413cd40ba618b8d9
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e6174f35bd54b3ca0b2c5240a663369350b30ce8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207234"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241897"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -21,7 +21,7 @@ Se nel manifesto del servizio è presente un servizio contenitore con un endpoin
 Quando un servizio contenitore viene riavviato o spostato in un altro nodo del cluster, l'indirizzo IP cambia. Per individuare i servizi contenitore, quindi, non è consigliabile usare l'indirizzo IP assegnato dinamicamente, ma solo Service Fabric Naming Service o il servizio DNS. 
 
 >[!WARNING]
->Azure consente un totale di 65.356 indirizzi IP per ogni rete virtuale. La somma del numero di nodi e del numero di istanze del servizio contenitore (che usano la modalità di apertura) non può superare 65.356 indirizzi IP all'interno di una rete virtuale. Per gli scenari ad alta densità, è consigliabile la modalità di rete nat. Inoltre, altre dipendenze, ad esempio il servizio di bilanciamento del carico, dovranno prendere in considerazione altre [limitazioni](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) . Attualmente fino a 50 IP per nodo sono stati testati e collaudati stabili. 
+>Azure consente un totale di 65.356 indirizzi IP per ogni rete virtuale. La somma del numero di nodi e del numero di istanze del servizio contenitore (che usano la modalità di apertura) non può superare 65.356 indirizzi IP all'interno di una rete virtuale. Per gli scenari ad alta densità, è consigliabile la modalità di rete nat. Inoltre, altre dipendenze, ad esempio il servizio di bilanciamento del carico, dovranno prendere in considerazione altre [limitazioni](../azure-resource-manager/management/azure-subscription-service-limits.md) . Attualmente fino a 50 IP per nodo sono stati testati e collaudati stabili. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurare la modalità di rete Open
@@ -194,7 +194,7 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
    |Impostazione |Valore |
    | --- | --- |
    |Priorità |2000 |
-   |Name (Nome) |Custom_Dns  |
+   |Nome |Custom_Dns  |
    |Origine |VirtualNetwork |
    |Destinazione | VirtualNetwork |
    |Servizio | DNS (UDP/53) |
@@ -263,6 +263,6 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
  
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni sul modello applicativo di Service Fabric](service-fabric-application-model.md)
-* [Informazioni sulle risorse del manifesto del servizio di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Informazioni sulle risorse del manifesto del servizio di Service Fabric](./service-fabric-service-manifest-resources.md)
 * [Distribuire un contenitore Windows in Service Fabric su Windows Server 2016](service-fabric-get-started-containers.md)
 * [Distribuire un contenitore Docker in Service Fabric su Linux](service-fabric-get-started-containers-linux.md)

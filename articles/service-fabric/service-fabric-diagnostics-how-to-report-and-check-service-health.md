@@ -5,18 +5,19 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 751af36c630d1b0faa0c07bdd3a8b7519bd328c9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464630"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241931"
 ---
 # <a name="report-and-check-service-health"></a>Creare report e verificare l'integrità dei servizi
 Quando si verificano problemi nei servizi, la possibilità di rispondere e correggere interruzioni ed eventi imprevisti dipende dalla capacità di rilevare i problemi in tempi rapidi. Se si segnalano problemi ed errori allo strumento di gestione dell'integrità di Azure Service Fabric dal codice del servizio, è possibile usare gli strumenti standard di monitoraggio dell'integrità forniti da Service Fabric per verificare lo stato di integrità.
 
 È possibile segnalare lo stato di integrità dal servizio in tre modi:
 
-* Usare gli oggetti [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) o [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext).  
+* Usare gli oggetti [Partition](/dotnet/api/system.fabric.istatefulservicepartition) o [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext).  
   È possibile usare gli oggetti `Partition` e `CodePackageActivationContext` per segnalare lo stato di integrità degli elementi appartenenti al contesto corrente. Il codice in esecuzione come parte di una replica può ad esempio segnalare lo stato di integrità solo sulla replica, sulla partizione a cui appartiene e sull'applicazione di cui fa parte.
 * Usare `FabricClient`.   
   È possibile usare `FabricClient` per segnalare lo stato di integrità dal codice del servizio se il cluster non è [sicuro](service-fabric-cluster-security.md) o se il servizio è in esecuzione con privilegi di amministratore. La maggior parte degli scenari reali non usa cluster non protetti oppure fornisce privilegi di amministratore. Con `FabricClient`è possibile segnalare lo stato di integrità per qualsiasi entità appartenente al cluster. Idealmente il codice del servizio dovrebbe tuttavia inviare solo report correlati alla propria integrità.
@@ -140,6 +141,5 @@ activationContext.ReportApplicationHealth(healthInformation);
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
-* [REST API for reporting service health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service) (API REST per segnalare l'integrità del servizio)
-* [REST API for reporting application health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application) (API REST per segnalare l'integrità dell'applicazione)
-
+* [REST API for reporting service health](/rest/api/servicefabric/report-the-health-of-a-service) (API REST per segnalare l'integrità del servizio)
+* [REST API for reporting application health](/rest/api/servicefabric/report-the-health-of-an-application) (API REST per segnalare l'integrità dell'applicazione)
