@@ -3,12 +3,12 @@ title: Informazioni sulla sicurezza delle applicazioni di Azure Service Fabric
 description: Panoramica su come eseguire in sicurezza applicazioni di microservizi in Service Fabric. Informazioni su come eseguire servizi e script di avvio con account di sicurezza diversi, autenticare e autorizzare utenti, gestire i segreti delle applicazioni, proteggere comunicazioni di servizio, usare un gateway API e proteggere i dati inattivi delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f17840f31d2a4c12a1d4618bd16e81dcc2cc8a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461430"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256578"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sicurezza del servizio e dell'applicazione Service Fabric
 Un'architettura di microservizi può apportare [numerosi vantaggi](service-fabric-overview-microservices.md). Gestire la sicurezza dei microservizi, tuttavia, richiede procedure complesse, diverse da quelle necessarie per gestire la sicurezza delle tradizionali applicazioni monolitiche. 
@@ -20,7 +20,7 @@ Questo articolo non è una guida alla sicurezza dei microservizi, poiché online
 ## <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
 È spesso necessario che le risorse e le API esposte da un servizio vengano limitate a determinati client o utenti attendibili. ovvero il processo con cui si accerta in modo affidabile l'identità di un utente.  mentre l'autorizzazione è il processo che rende le API o i servizi disponibili per alcuni utenti autenticati, ma non per altri.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 Il primo passaggio del processo decisionale relativo all'attendibilità a livello di API è l'autenticazione, ovvero il processo con cui si accerta in modo affidabile l'identità di un utente.  In scenari di microservizi, l'autenticazione viene in genere gestita centralmente. Se si usa un gateway API, tuttavia, è possibile [scaricare l'autenticazione](/azure/architecture/patterns/gateway-offloading) sul gateway. Se si usa questo approccio, accertarsi che i singoli servizi non possano essere raggiunti direttamente (senza il gateway API), a meno che non siano stati configurati strumenti di sicurezza aggiuntivi per l'autenticazione dei messaggi, indipendentemente dal fatto che provengano o meno dal gateway.
 
 Se è possibile accedere direttamente ai servizi, per autenticare gli utenti è possibile usare un servizio di autenticazione come Azure Active Directory o un microservizio di autenticazione dedicato che svolge la funzione di servizio token di sicurezza. Le decisioni sull'attendibilità vengono condivise tra i servizi tramite cookie o token di sicurezza. 
@@ -35,7 +35,7 @@ L'[autorizzazione di ASP.NET Core](/dotnet/standard/microservices-architecture/s
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Limitare e proteggere l'accesso con un gateway API
 Le applicazioni cloud necessitano in genere di un gateway front-end per garantire un singolo punto di ingresso per utenti, dispositivi o altre applicazioni. Un [gateway API](/azure/architecture/microservices/gateway) si trova tra i client e i servizi e costituisce il punto di ingresso per tutti i servizi forniti dall'applicazione. e funge da proxy inverso, indirizzando le richieste dai client ai servizi. Può anche eseguire varie attività trasversali come l'autenticazione e l'autorizzazione, la terminazione TLS e la limitazione della frequenza. Se non si distribuisce un gateway, i client devono inviare le richieste direttamente ai servizi front-end.
 
-In Service Fabric un gateway può essere qualsiasi servizio senza stato, ad esempio un'[applicazione ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), o un altro servizio progettati per l'ingresso del traffico, ad esempio [Traefik](https://docs.traefik.io/), [Hub eventi](https://docs.microsoft.com/azure/event-hubs/), [Hub IoT](https://docs.microsoft.com/azure/iot-hub/) o [Gestione API di Azure](https://docs.microsoft.com/azure/api-management).
+In Service Fabric un gateway può essere qualsiasi servizio senza stato, ad esempio un'[applicazione ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), o un altro servizio progettati per l'ingresso del traffico, ad esempio [Traefik](https://docs.traefik.io/), [Hub eventi](../event-hubs/index.yml), [Hub IoT](../iot-hub/index.yml) o [Gestione API di Azure](../api-management/index.yml).
 
 Gestione API si integra direttamente in Service Fabric, consentendo di pubblicare API con un ampio set di regole di routing nei servizi Service Fabric back-end.  Consente inoltre di proteggere l'accesso ai servizi back-end, impedire attacchi DoS con la limitazione o verificare chiavi API, token JWT, certificati e altre credenziali. Per altre informazioni, vedere [Panoramica di Service Fabric con Gestione API di Azure](service-fabric-api-management-overview.md).
 
@@ -85,7 +85,7 @@ In Service Fabric un servizio viene eseguito in una posizione nel cluster di Ser
 Il framework di applicazioni di Reliable Services offre alcuni stack e strumenti predefiniti che è possibile usare per migliorare la sicurezza. Sono disponibili alcuni articoli che illustrano come migliorare la sicurezza quando si usa la comunicazione remota per un servizio (in [C#](service-fabric-reliable-services-secure-communication.md) o [Java](service-fabric-reliable-services-secure-communication-java.md)) o [Windows Communication Foundation](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## <a name="encrypt-application-data-at-rest"></a>Crittografare i dati inattivi delle applicazioni
-Ogni [tipo di nodo](service-fabric-cluster-nodetypes.md) in un cluster di Service Fabric in esecuzione in Azure è supportato da un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Usando un modello di Azure Resource Manager, è possibile collegare dischi dati ai set di scalabilità che costituiscono il cluster di Service Fabric.  Se i servizi salvano i dati su un disco dati collegato, è possibile proteggere i dati dell'applicazione [crittografando i dischi dati](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md).
+Ogni [tipo di nodo](service-fabric-cluster-nodetypes.md) in un cluster di Service Fabric in esecuzione in Azure è supportato da un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md). Usando un modello di Azure Resource Manager, è possibile collegare dischi dati ai set di scalabilità che costituiscono il cluster di Service Fabric.  Se i servizi salvano i dati su un disco dati collegato, è possibile proteggere i dati dell'applicazione [crittografando i dischi dati](../virtual-machine-scale-sets/disk-encryption-powershell.md).
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

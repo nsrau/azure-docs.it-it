@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 43825728da34c027557f6e6d722e39d494451e55
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653633"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255932"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteggere un cluster autonomo in Windows usando i certificati X.509
 Questo articolo descrive come proteggere la comunicazione tra i vari nodi del cluster di Windows autonomo. Descrive inoltre come autenticare i client che si connettono a questo cluster usando i certificati X.509. Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere abilitata nel cluster durante la creazione del cluster.  
@@ -109,7 +110,7 @@ Questa sezione descrive i certificati necessari per proteggere il cluster Window
 
 
 > [!NOTE]
-> Un' [identificazione personale](https://en.wikipedia.org/wiki/Public_key_fingerprint) è l'identità primaria di un certificato. Per trovare l'identificazione personale dei certificati creati dall'utente, vedere [Procedura: recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695.aspx).
+> Un' [identificazione personale](https://en.wikipedia.org/wiki/Public_key_fingerprint) è l'identità primaria di un certificato. Per trovare l'identificazione personale dei certificati creati dall'utente, vedere [Procedura: recuperare l'identificazione personale di un certificato](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 > 
 > 
 
@@ -124,7 +125,7 @@ La tabella seguente include un elenco dei certificati necessari per la configura
 | ServerCertificateCommonNames |Consigliato per un ambiente di produzione. Questo certificato viene presentato al client quando tenta di connettersi al cluster. CertificateIssuerThumbprint corrisponde all'identificazione personale dell'autorità emittente del certificato. È possibile specificare più di un'identificazione personale dell'autorità emittente se si usa più di un certificato con lo stesso nome comune. Per praticità, è possibile scegliere di usare lo stesso certificato per ClusterCertificateCommonNames e ServerCertificateCommonNames. È possibile usare uno o due nomi comuni del certificato del server. |
 | ServerCertificateIssuerStores |Consigliato per un ambiente di produzione. Questo certificato corrisponde all'autorità di certificazione del certificato server. È possibile specificare il nome comune dell'autorità di certificazione e il nome dell'archivio corrispondente in questa sezione, anziché specificare l'identificazione personale dell'autorità di certificazione in ServerCertificateCommonNames.  Ciò semplifica il rollover dei certificati dell'autorità di certificazione server. È possibile specificare più autorità di certificazione se viene usato più di un certificato server. Un valore IssuerCommonName vuoto consente di aggiungere all'elenco elementi consentiti tutti i certificati negli archivi corrispondenti specificati in X509StoreNames.|
 | ClientCertificateThumbprints |Installare questo set di certificati nei client autenticati. È possibile avere diversi certificati client installati nei computer a cui si vuole consentire l'accesso al cluster. Impostare l'identificazione personale di ogni certificato nella variabile CertificateThumbprint. Se si imposta IsAdmin su *true*, il client in cui è installato questo certificato può eseguire attività di gestione degli amministratori sul cluster. Se IsAdmin è *false*, il client con questo certificato può eseguire solo le azioni consentite con diritti di accesso utente, in genere di sola lettura. Per altre informazioni sui ruoli, vedere [Controllo degli accessi in base al ruolo](service-fabric-cluster-security.md#role-based-access-control-rbac). |
-| ClientCertificateCommonNames |Impostare il nome comune del primo certificato client per CertificateCommonName. CertificateIssuerThumbprint è l'identificazione personale dell'autorità emittente del certificato. Per altre informazioni sui nomi comuni e sull'autorità emittente, vedere [Utilizzo dei certificati](https://msdn.microsoft.com/library/ms731899.aspx). |
+| ClientCertificateCommonNames |Impostare il nome comune del primo certificato client per CertificateCommonName. CertificateIssuerThumbprint è l'identificazione personale dell'autorità emittente del certificato. Per altre informazioni sui nomi comuni e sull'autorità emittente, vedere [Utilizzo dei certificati](/dotnet/framework/wcf/feature-details/working-with-certificates). |
 | ClientCertificateIssuerStores |Consigliato per un ambiente di produzione. Questo certificato corrisponde all'autorità di certificazione del certificato client (ruoli di amministratore e non). È possibile specificare il nome comune dell'autorità di certificazione e il nome dell'archivio corrispondente in questa sezione, anziché specificare l'identificazione personale dell'autorità di certificazione in ClientCertificateCommonNames.  Ciò semplifica il rollover dei certificati dell'autorità di certificazione client. È possibile specificare più autorità di certificazione se viene usato più di un certificato client. Un valore IssuerCommonName vuoto consente di aggiungere all'elenco elementi consentiti tutti i certificati negli archivi corrispondenti specificati in X509StoreNames.|
 | ReverseProxyCertificate |Consigliato per un ambiente di test. Si tratta di un certificato facoltativo che è possibile specificare se si vuole proteggere il [proxy inverso](service-fabric-reverseproxy.md). Se si usa questo certificato, assicurarsi che reverseProxyEndpointPort sia impostato in nodeTypes. |
 | ReverseProxyCertificateCommonNames |Consigliato per un ambiente di produzione. Si tratta di un certificato facoltativo che è possibile specificare se si vuole proteggere il [proxy inverso](service-fabric-reverseproxy.md). Se si usa questo certificato, assicurarsi che reverseProxyEndpointPort sia impostato in nodeTypes. |
@@ -247,7 +248,7 @@ Se si usano archivi dell'autorità di certificazione, non deve essere eseguito a
 ## <a name="acquire-the-x509-certificates"></a>Acquisire i certificati X.509
 Per proteggere la comunicazione nel cluster, è prima necessario ottenere i certificati X.509 per i nodi del cluster. Per limitare inoltre la connessione al cluster a computer o utenti autorizzati, è necessario ottenere e installare i certificati per i computer client.
 
-Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necessario usare un certificato X.509 firmato da un' [Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Per altre informazioni su come ottenere questi certificati, vedere [Procedura: ottenere un certificato (WCF)](https://msdn.microsoft.com/library/aa702761.aspx). 
+Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necessario usare un certificato X.509 firmato da un' [Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Per altre informazioni su come ottenere questi certificati, vedere [Procedura: ottenere un certificato (WCF)](/dotnet/framework/wcf/feature-details/how-to-obtain-a-certificate-wcf). 
 
 Perché il certificato funzioni correttamente è necessario che disponga di alcune proprietà:
 
@@ -261,7 +262,7 @@ Perché il certificato funzioni correttamente è necessario che disponga di alcu
 
 Per i cluster usati solo a scopo di test, si può scegliere di usare un certificato autofirmato.
 
-Per altre domande, consultare [domande frequenti sui certificati](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
+Per altre domande, consultare [domande frequenti sui certificati](./cluster-security-certificate-management.md#troubleshooting-and-frequently-asked-questions).
 
 ## <a name="optional-create-a-self-signed-certificate"></a>Facoltativo: Creare un certificato autofirmato
 Un modo per creare un certificato autofirmato che possa essere protetto correttamente consiste nell'usare lo script CertSetup.ps1 della cartella Service Fabric SDK nella directory C:\Programmi\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Modificare questo file per cambiare il nome predefinito del certificato (individuare il valore CN=ServiceFabricDevClusterCert). Eseguire questo script come `.\CertSetup.ps1 -Install`.
@@ -356,7 +357,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-È quindi possibile eseguire altri comandi di PowerShell per usare questo cluster. È possibile, ad esempio, usare il comando [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per visualizzare un elenco di nodi nel cluster protetto.
+È quindi possibile eseguire altri comandi di PowerShell per usare questo cluster. È possibile, ad esempio, usare il comando [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per visualizzare un elenco di nodi nel cluster protetto.
 
 
 Per rimuovere il cluster, connettersi al nodo del cluster in cui è stato scaricato il pacchetto di Service Fabric, aprire una riga di comando e passare alla cartella del pacchetto. Eseguire ora il comando seguente:
@@ -369,4 +370,3 @@ Per rimuovere il cluster, connettersi al nodo del cluster in cui è stato scaric
 > La configurazione non corretta del certificato può impedire la visualizzazione del cluster durante la distribuzione. Per diagnosticare automaticamente i problemi di sicurezza, consultare il gruppo di Visualizzatore eventi **Registri applicazioni e servizi** > **Microsoft Service Fabric**.
 > 
 > 
-

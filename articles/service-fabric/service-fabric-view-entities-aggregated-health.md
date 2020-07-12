@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 4688664fea29cc07f5895e33ebfff541d61070d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f20c5180b078bc49fcf1eb35893325fa3a7fa50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392744"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256153"
 ---
 # <a name="view-service-fabric-health-reports"></a>Come visualizzare i report sull'integrità di Service Fabric
 Azure Service Fabric introduce un [modello di integrità](service-fabric-health-introduction.md) con entità di integrità per le quali i componenti di sistema e i watchdog possono creare report sulle condizioni locali sottoposte a monitoraggio. L' [archivio integrità](service-fabric-health-introduction.md#health-store) aggrega tutti i dati di integrità per determinare se le entità sono integre.
@@ -54,10 +55,10 @@ Visualizzazione del cluster con Service Fabric Explorer:
 >
 
 ## <a name="health-queries"></a>Query relative all’integrità
-Infrastruttura di servizi espone le query relative all’integrità per ognuno dei [tipi di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy)supportati. È possibile accedervi tramite l'API, usando i metodi in [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), i cmdlet di PowerShell e REST. Queste query restituiscono informazioni complete sull'integrità per l'entità, come lo stato aggregato dell'integrità, gli eventi di integrità dell'entità, gli stati di integrità degli elementi figlio, se applicabili, le valutazioni di non integrità (quando l'entità non è integra) e le statistiche sull'integrità degli elementi figlio, quando applicabili.
+Infrastruttura di servizi espone le query relative all’integrità per ognuno dei [tipi di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy)supportati. È possibile accedervi tramite l'API, usando i metodi in [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), i cmdlet di PowerShell e REST. Queste query restituiscono informazioni complete sull'integrità per l'entità, come lo stato aggregato dell'integrità, gli eventi di integrità dell'entità, gli stati di integrità degli elementi figlio, se applicabili, le valutazioni di non integrità (quando l'entità non è integra) e le statistiche sull'integrità degli elementi figlio, quando applicabili.
 
 > [!NOTE]
-> Un'entità integra viene restituita quando è popolata completamente nell'archivio integrità. L'entità deve essere attiva (non eliminata) e avere un report di sistema. Anche le entità padre nella catena della gerarchia devono avere report di sistema. Se una di queste condizioni non viene soddisfatta, le query relative all'integrità restituiscono un oggetto [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) con [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` che illustra il motivo per cui l'entità non viene restituita.
+> Un'entità integra viene restituita quando è popolata completamente nell'archivio integrità. L'entità deve essere attiva (non eliminata) e avere un report di sistema. Anche le entità padre nella catena della gerarchia devono avere report di sistema. Se una di queste condizioni non viene soddisfatta, le query relative all'integrità restituiscono un oggetto [FabricException](/dotnet/api/system.fabric.fabricexception) con [FabricErrorCode](/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` che illustra il motivo per cui l'entità non viene restituita.
 >
 >
 
@@ -86,7 +87,7 @@ Restituisce l'integrità dell'entità cluster e contiene gli stati di integrità
 * [Facoltativo] Filtrare per includere le statistiche di integrità di fabric:/System. Applicabile solo quando le statistiche di integrità non sono escluse. Per impostazione predefinita, le statistiche di integrità includono solo le statistiche per le applicazioni utente e non per l'applicazione System.
 
 ### <a name="api"></a>API
-Per ottenere l'integrità del cluster, creare un oggetto `FabricClient` e chiamare il metodo [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) sul relativo **HealthManager**.
+Per ottenere l'integrità del cluster, creare un oggetto `FabricClient` e chiamare il metodo [GetClusterHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) sul relativo **HealthManager**.
 
 La chiamata seguente permette di ottenere l'integrità del cluster:
 
@@ -94,7 +95,7 @@ La chiamata seguente permette di ottenere l'integrità del cluster:
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-Il codice seguente permette di ottenere l'integrità del cluster usando criteri di integrità del cluster personalizzati e filtri per nodi e applicazioni. Specifica che le statistiche di integrità includono le statistiche di fabric:/System. Crea un oggetto [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), che contiene le informazioni di input.
+Il codice seguente permette di ottenere l'integrità del cluster usando criteri di integrità del cluster personalizzati e filtri per nodi e applicazioni. Specifica che le statistiche di integrità includono le statistiche di fabric:/System. Crea un oggetto [ClusterHealthQueryDescription](/dotnet/api/system.fabric.description.clusterhealthquerydescription), che contiene le informazioni di input.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -126,7 +127,7 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-Il cmdlet per ottenere l'integrità del cluster è [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
+Il cmdlet per ottenere l'integrità del cluster è [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 Lo stato del cluster è costituito da cinque nodi, dall'applicazione di sistema e da fabric:/WordCount, configurati come descritto.
 
@@ -224,7 +225,7 @@ HealthEvents            : None
 ```
 
 ### <a name="rest"></a>REST
-Per ottenere l'integrità di un cluster è possibile usare una [richiesta GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) o una [richiesta POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
+Per ottenere l'integrità di un cluster è possibile usare una [richiesta GET](/rest/api/servicefabric/get-the-health-of-a-cluster) o una [richiesta POST](/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
 
 ## <a name="get-node-health"></a>Get node health
 Restituisce l'integrità di un'entità nodo e contiene gli eventi di integrità segnalati sul nodo. Input:
@@ -234,7 +235,7 @@ Restituisce l'integrità di un'entità nodo e contiene gli eventi di integrità 
 * [Facoltativo] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi, indipendentemente dal filtro.
 
 ### <a name="api"></a>API
-Per ottenere l'integrità del nodo tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) sul relativo HealthManager.
+Per ottenere l'integrità del nodo tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetNodeHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) sul relativo HealthManager.
 
 Il codice seguente permette di ottenere l'integrità del nodo per il nome del nodo specificato:
 
@@ -242,7 +243,7 @@ Il codice seguente permette di ottenere l'integrità del nodo per il nome del no
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-Il codice seguente permette di ottenere l'integrità del nodo per il nome del nodo specificato e passa un filtro eventi e criteri personalizzati tramite [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
+Il codice seguente permette di ottenere l'integrità del nodo per il nome del nodo specificato e passa un filtro eventi e criteri personalizzati tramite [NodeHealthQueryDescription](/dotnet/api/system.fabric.description.nodehealthquerydescription):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
@@ -255,7 +256,7 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### <a name="powershell"></a>PowerShell
-Il cmdlet per ottenere l'integrità del nodo è [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
+Il cmdlet per ottenere l'integrità del nodo è [Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 I cmdlet seguenti ottengono l'integrità del nodo con criteri di integrità predefiniti:
 
 ```powershell
@@ -293,7 +294,7 @@ _Node_0                     Ok
 ```
 
 ### <a name="rest"></a>REST
-Per ottenere l'integrità di un nodo è possibile usare una [richiesta GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) o una [richiesta POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
+Per ottenere l'integrità di un nodo è possibile usare una [richiesta GET](/rest/api/servicefabric/get-the-health-of-a-node) o una [richiesta POST](/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
 
 ## <a name="get-application-health"></a>Ottieni lo stato dell'integrità dell'applicazione
 Restituisce lo stato di un'entità applicazione. Contiene gli stati di integrità dell'applicazione distribuita e gli elementi figlio del servizio. Input:
@@ -304,7 +305,7 @@ Restituisce lo stato di un'entità applicazione. Contiene gli stati di integrit�
 * [Facoltativo] Filtrare per escludere le statistiche di integrità. Se non specificato, le statistiche di integrità includono il numero di stati ok, di avviso e di errore per tutti gli elementi figlio dell'applicazione: servizi, partizioni, repliche, applicazioni distribuite e pacchetti del servizio distribuiti.
 
 ### <a name="api"></a>API
-Per ottenere l'integrità dell'applicazione, creare un oggetto `FabricClient` e chiamare il metodo [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) sul relativo HealthManager.
+Per ottenere l'integrità dell'applicazione, creare un oggetto `FabricClient` e chiamare il metodo [GetApplicationHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) sul relativo HealthManager.
 
 Il codice seguente permette di ottenere l'integrità dell'applicazione per il nome dell'applicazione (URI) specificato:
 
@@ -312,7 +313,7 @@ Il codice seguente permette di ottenere l'integrità dell'applicazione per il no
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-Il codice seguente permette di ottenere l'integrità dell'applicazione per il nome dell'applicazione (URI) specificato, con filtri e criteri personalizzati specificati tramite [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
+Il codice seguente permette di ottenere l'integrità dell'applicazione per il nome dell'applicazione (URI) specificato, con filtri e criteri personalizzati specificati tramite [ApplicationHealthQueryDescription](/dotnet/api/system.fabric.description.applicationhealthquerydescription).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -439,7 +440,7 @@ HealthEvents                    : None
 ```
 
 ### <a name="rest"></a>REST
-Per ottenere l'integrità di un'applicazione è possibile usare una [richiesta GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) o una [richiesta POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) che nel corpo include la descrizione di criteri di integrità.
+Per ottenere l'integrità di un'applicazione è possibile usare una [richiesta GET](/rest/api/servicefabric/get-the-health-of-an-application) o una [richiesta POST](/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) che nel corpo include la descrizione di criteri di integrità.
 
 ## <a name="get-service-health"></a>Get service health
 Restituisce lo stato di un'entità di servizio. Contiene gli stati di integrità della partizione. Input:
@@ -450,7 +451,7 @@ Restituisce lo stato di un'entità di servizio. Contiene gli stati di integrità
 * [Facoltativo] Filtrare per escludere le statistiche di integrità. Se non specificato, le statistiche di integrità mostrano il numero di stati ok, di avviso e di errore per tutte le partizioni e le repliche del servizio.
 
 ### <a name="api"></a>API
-Per ottenere l'integrità del servizio tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) sul relativo HealthManager.
+Per ottenere l'integrità del servizio tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetServiceHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) sul relativo HealthManager.
 
 L'esempio seguente ottiene l'integrità di un servizio con il nome di servizio (URI) specificato:
 
@@ -458,7 +459,7 @@ L'esempio seguente ottiene l'integrità di un servizio con il nome di servizio (
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-Il codice seguente permette di ottenere l'integrità del servizio per il nome del servizio (URI) specificato, con filtri e criteri personalizzati specificati tramite [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
+Il codice seguente permette di ottenere l'integrità del servizio per il nome del servizio (URI) specificato, con filtri e criteri personalizzati specificati tramite [ServiceHealthQueryDescription](/dotnet/api/system.fabric.description.servicehealthquerydescription):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -471,7 +472,7 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-Il cmdlet per ottenere l'integrità del servizio è [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
+Il cmdlet per ottenere l'integrità del servizio è [Get-ServiceFabricServiceHealth](/powershell/module/servicefabric/get-servicefabricservicehealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 Il cmdlet seguente ottiene l'integrità del servizio usando i criteri di integrità predefiniti:
 
@@ -511,7 +512,7 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Per ottenere l'integrità di un servizio è possibile usare una [richiesta GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) o una [richiesta POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
+Per ottenere l'integrità di un servizio è possibile usare una [richiesta GET](/rest/api/servicefabric/get-the-health-of-a-service) o una [richiesta POST](/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
 
 ## <a name="get-partition-health"></a>Get partition health
 Restituisce lo stato di un'entità partizione. Contiene gli stati di integrità della replica. Input:
@@ -522,14 +523,14 @@ Restituisce lo stato di un'entità partizione. Contiene gli stati di integrità 
 * [Facoltativo] Filtrare per escludere le statistiche di integrità. Se non specificato, le statistiche di integrità mostrano il numero di repliche con stati ok, di avviso e di errore.
 
 ### <a name="api"></a>API
-Per ottenere l'integrità della partizione tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) sul relativo HealthManager. Per specificare parametri facoltativi, creare [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+Per ottenere l'integrità della partizione tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetPartitionHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) sul relativo HealthManager. Per specificare parametri facoltativi, creare [PartitionHealthQueryDescription](/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-Il cmdlet per ottenere l'integrità della partizione è [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
+Il cmdlet per ottenere l'integrità della partizione è [Get-ServiceFabricPartitionHealth](/powershell/module/servicefabric/get-servicefabricpartitionhealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 Il cmdlet seguente ottiene l'integrità di tutte le partizioni del servizio **fabric:/WordCount/WordCountService** ed esclude tramite filtro gli stati di integrità delle repliche:
 
@@ -603,7 +604,7 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Per ottenere l'integrità di una partizione è possibile usare una [richiesta GET](/rest/api/servicefabric/sfclient-api-getpartitionhealth) o una [richiesta POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
+Per ottenere l'integrità di una partizione è possibile usare una [richiesta GET](/rest/api/servicefabric/sfclient-api-getpartitionhealth) o una [richiesta POST](/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
 
 ## <a name="get-replica-health"></a>Get replica health
 Restituisce l'integrità di una replica di un servizio con stato o di un'istanza di un servizio senza stato. Input:
@@ -613,14 +614,14 @@ Restituisce l'integrità di una replica di un servizio con stato o di un'istanza
 * [Facoltativo] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi, indipendentemente dal filtro.
 
 ### <a name="api"></a>API
-Per ottenere l'integrità della replica tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) sul relativo HealthManager. Per specificare parametri avanzati, usare [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+Per ottenere l'integrità della replica tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetReplicaHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) sul relativo HealthManager. Per specificare parametri avanzati, usare [ReplicaHealthQueryDescription](/dotnet/api/system.fabric.description.replicahealthquerydescription).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-Il cmdlet per ottenere l'integrità della replica è [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
+Il cmdlet per ottenere l'integrità della replica è [Get-ServiceFabricReplicaHealth](/powershell/module/servicefabric/get-servicefabricreplicahealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 Il cmdlet seguente ottiene l'integrità della replica primaria per tutte le partizioni del servizio.
 
@@ -646,7 +647,7 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Per ottenere l'integrità di una replica è possibile usare una [richiesta GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) o una [richiesta POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
+Per ottenere l'integrità di una replica è possibile usare una [richiesta GET](/rest/api/servicefabric/get-the-health-of-a-replica) o una [richiesta POST](/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
 
 ## <a name="get-deployed-application-health"></a>Ottieni lo stato dell'integrità delle applicazioni distribuite.
 Restituisce l’integrità di un’applicazione distribuita in un’entità nodo. Contiene gli stati di integrità del pacchetto di servizi distribuito. Input:
@@ -657,7 +658,7 @@ Restituisce l’integrità di un’applicazione distribuita in un’entità nodo
 * [Facoltativo] Filtrare per escludere le statistiche di integrità. Se non specificato, le statistiche di integrità mostrano il numero di pacchetti del servizio distribuiti con stati di integrità ok, di avviso e di errore.
 
 ### <a name="api"></a>API
-Per ottenere l'integrità di un'applicazione distribuita in un nodo tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) sul relativo HealthManager. Per specificare parametri facoltativi, usare [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+Per ottenere l'integrità di un'applicazione distribuita in un nodo tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetDeployedApplicationHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) sul relativo HealthManager. Per specificare parametri facoltativi, usare [DeployedApplicationHealthQueryDescription](/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -705,7 +706,7 @@ HealthStatistics                   :
 ```
 
 ### <a name="rest"></a>REST
-Per ottenere l'integrità di un'applicazione distribuita è possibile usare una [richiesta GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) o una [richiesta POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
+Per ottenere l'integrità di un'applicazione distribuita è possibile usare una [richiesta GET](/rest/api/servicefabric/get-the-health-of-a-deployed-application) o una [richiesta POST](/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
 
 ## <a name="get-deployed-service-package-health"></a>Get deployed service package health
 Restituisce lo stato di un'entità di pacchetto di servizi distribuito. Input:
@@ -715,7 +716,7 @@ Restituisce lo stato di un'entità di pacchetto di servizi distribuito. Input:
 * [Facoltativo] Filtri per gli eventi che specificano le voci di interesse che devono essere restituite nel risultato (ad esempio, solo gli errori o avvisi ed errori). Per valutare l'integrità aggregata dell'entità, vengono usati tutti gli eventi, indipendentemente dal filtro.
 
 ### <a name="api"></a>API
-Per ottenere l'integrità di un pacchetto del servizio distribuito tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) sul relativo HealthManager. Per specificare parametri facoltativi, usare [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+Per ottenere l'integrità di un pacchetto del servizio distribuito tramite l'API, creare un oggetto `FabricClient` e chiamare il metodo [GetDeployedServicePackageHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) sul relativo HealthManager. Per specificare parametri facoltativi, usare [DeployedServicePackageHealthQueryDescription](/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -723,7 +724,7 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-Il cmdlet per ottenere l'integrità del pacchetto del servizio distribuito è [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Per verificare dove viene distribuita un'applicazione, eseguire [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) e osservare le applicazioni distribuite. Per verificare quali pacchetti di servizi sono contenuti in un'applicazione, esaminare gli elementi figlio del pacchetto del servizio distribuito nell'output di [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) .
+Il cmdlet per ottenere l'integrità del pacchetto del servizio distribuito è [Get-ServiceFabricDeployedServicePackageHealth](/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Per verificare dove viene distribuita un'applicazione, eseguire [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) e osservare le applicazioni distribuite. Per verificare quali pacchetti di servizi sono contenuti in un'applicazione, esaminare gli elementi figlio del pacchetto del servizio distribuito nell'output di [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) .
 
 Il cmdlet seguente permette di ottenere l'integrità del pacchetto del servizio **WordCountServicePkg** dell'applicazione **fabric:/WordCount** distribuita in **Node2**. L'entità include report **System.Hosting** per l'attivazione corretta del pacchetto del servizio e del punto di ingresso, nonché per la registrazione corretta del tipo di servizio.
 
@@ -775,7 +776,7 @@ HealthEvents               :
 ```
 
 ### <a name="rest"></a>REST
-Per ottenere l'integrità di un pacchetto del servizio distribuito è possibile usare una [richiesta GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) o una [richiesta POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
+Per ottenere l'integrità di un pacchetto del servizio distribuito è possibile usare una [richiesta GET](/rest/api/servicefabric/get-the-health-of-a-service-package) o una [richiesta POST](/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) che nel corpo include la descrizione di criteri di integrità.
 
 ## <a name="health-chunk-queries"></a>Query sul blocco di integrità
 Le query sul blocco di integrità possono restituire gli elementi figlio di un cluster a più livelli (in modo ricorsivo) per ogni filtro di input. Supporta i filtri avanzati che consentono una notevole flessibilità nella scelta degli elementi figlio da restituire. I filtri consentono di specificare gli elementi figlio in base a un identificatore univoco o ad altri identificatori di gruppo e/o stati di integrità. Per impostazione predefinita, non sono inclusi elementi figlio, a differenza dei comandi relativi all'integrità che includono sempre gli elementi figlio di primo livello.
@@ -803,14 +804,14 @@ Restituisce l'integrità dell'entità cluster e contiene blocchi di stato dell'i
 * [Facoltativo] Criteri di integrità del cluster usati per valutare i nodi e gli eventi del cluster.
 * [Facoltativo] Mappa dei criteri di integrità dell'applicazione con criteri di integrità usati per sostituire i criteri del manifesto dell'applicazione.
 * [Facoltativo] Filtri per i nodi e per le applicazioni che specificano le voci di interesse e da restituire nel risultato. I filtri sono specifici per un'entità/un gruppo di entità o sono applicabili a tutte le entità a tale livello. L'elenco di filtri può contenere un filtro generale e/o filtri per identificatori specifici per entità dettagliate restituite dalla query. Se l'elenco è vuoto, gli elementi figlio non vengono restituiti per impostazione predefinita.
-  Per altre informazioni sui filtri, vedere [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) e [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). I filtri dell'applicazione possono specificare in modo ricorsivo filtri avanzati per gli elementi figlio.
+  Per altre informazioni sui filtri, vedere [NodeHealthStateFilter](/dotnet/api/system.fabric.health.nodehealthstatefilter) e [ApplicationHealthStateFilter](/dotnet/api/system.fabric.health.applicationhealthstatefilter). I filtri dell'applicazione possono specificare in modo ricorsivo filtri avanzati per gli elementi figlio.
 
 I risultati del blocco includono gli elementi figlio che rispettano i filtri.
 
 Analogamente, la query sul blocco non restituisce valutazioni non integre o eventi dell'entità. Tali informazioni aggiuntive possono essere ottenute usando la query sull'integrità del cluster esistente.
 
 ### <a name="api"></a>API
-Per ottenere il blocco di integrità del cluster, creare un oggetto `FabricClient` e chiamare il metodo [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) sul relativo **HealthManager**. È possibile passare [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) per descrivere i criteri di integrità e i filtri avanzati.
+Per ottenere il blocco di integrità del cluster, creare un oggetto `FabricClient` e chiamare il metodo [GetClusterHealthChunkAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) sul relativo **HealthManager**. È possibile passare [ClusterHealthQueryDescription](/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) per descrivere i criteri di integrità e i filtri avanzati.
 
 Il codice seguente permette di ottenere il blocco di integrità del cluster con filtri avanzati.
 
@@ -856,7 +857,7 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### <a name="powershell"></a>PowerShell
-Il cmdlet per ottenere l'integrità del cluster è [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
+Il cmdlet per ottenere l'integrità del cluster è [Get-ServiceFabricClusterChunkHealth](/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Connettersi prima di tutto al cluster con il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 Il codice seguente permette di ottenere solo i nodi in stato di errore, eccetto un nodo specifico che deve essere restituito sempre.
 
@@ -1006,7 +1007,7 @@ ApplicationHealthStateChunks :
 ```
 
 ### <a name="rest"></a>REST
-Per ottenere il blocco di integrità di un cluster è possibile usare una [richiesta GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) o una [richiesta POST](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) che nel corpo include la descrizione di criteri di integrità.
+Per ottenere il blocco di integrità di un cluster è possibile usare una [richiesta GET](/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) o una [richiesta POST](/rest/api/servicefabric/health-of-cluster) che nel corpo include la descrizione di criteri di integrità.
 
 ## <a name="general-queries"></a>Query generali
 Le query generali restituiscono l'elenco delle entità di Service Fabric di un tipo specificato. Le query vengono esposte tramite l'API con i metodi in **FabricClient.QueryManager**, tramite i cmdlet di PowerShell e REST. Queste query aggregano sottoquery da più componenti. Uno di questi è l' [archivio integrità](service-fabric-health-introduction.md#health-store), che popola lo stato di integrità aggregato per ogni risultato della query.  
@@ -1021,31 +1022,31 @@ Se le query generali restituiscono uno stato di integrità sconosciuto per un'en
 Di seguito sono elencate le query che contengono **HealthState** per le entità:
 
 * Elenco dei nodi: restituisce i nodi elencati nel cluster (di paging).
-  * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
+  * API: [FabricClient.QueryClient.GetNodeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
 * Elenco delle applicazioni: restituisce l'elenco di applicazioni nel cluster (di paging).
-  * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
+  * API: [FabricClient.QueryClient.GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
 * Elenco dei servizi: restituisce l'elenco dei servizi in un'applicazione (di paging).
-  * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
+  * API: [FabricClient.QueryClient.GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
 * Elenco delle partizioni: restituisce l'elenco delle partizioni in un servizio (di paging).
-  * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
+  * API: [FabricClient.QueryClient.GetPartitionListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
 * Elenco delle repliche: restituisce l'elenco delle repliche in una partizione (di paging).
-  * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
+  * API: [FabricClient.QueryClient.GetReplicaListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
 * Elenco delle applicazioni distribuite: restituisce l'elenco delle applicazioni distribuite in un nodo.
-  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
+  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 * Elenco dei pacchetti di servizi distribuiti: restituisce l'elenco dei pacchetti di servizi in un'applicazione distribuita.
-  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
+  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Alcune query restituiscono risultati di paging. Queste query restituiscono un elenco derivato da [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se questi risultati non corrispondono a un messaggio, viene restituita solo una pagina e un ContinuationToken che tiene traccia del punto in cui l'enumerazione è stata arrestata. Continuare a chiamare la stessa query e passare il token di continuazione dalla query precedente per ottenere i risultati successivi.
+> Alcune query restituiscono risultati di paging. Queste query restituiscono un elenco derivato da [PagedList\<T>](/dotnet/api/system.fabric.query.pagedlist-1). Se questi risultati non corrispondono a un messaggio, viene restituita solo una pagina e un ContinuationToken che tiene traccia del punto in cui l'enumerazione è stata arrestata. Continuare a chiamare la stessa query e passare il token di continuazione dalla query precedente per ottenere i risultati successivi.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 Il codice seguente permette di ottenere le applicazioni non integre nel cluster:
 
 ```csharp

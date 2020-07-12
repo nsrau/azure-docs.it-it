@@ -3,12 +3,12 @@ title: Modelli di rete per Azure Service Fabric
 description: Questo articolo descrive i modelli di rete comuni per Service Fabric e illustra come creare un cluster con le funzionalità di rete di Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106616"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258526"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modelli di rete di Service Fabric
 È possibile integrare il cluster di Azure Service Fabric con altre funzionalità di rete di Azure. Questo articolo illustra come creare cluster che fanno uso delle funzionalità seguenti:
@@ -598,10 +598,9 @@ Dopo la distribuzione, nel gruppo di risorse vengono visualizzati due servizi di
 
 ## <a name="notes-for-production-workloads"></a>Note per i carichi di lavoro di produzione
 
-I modelli GitHub precedenti sono progettati per funzionare con lo SKU predefinito per Azure Load Balancer Standard (SLB), lo SKU Basic. Questo SLB non dispone di contratti di contratto, quindi per i carichi di lavoro di produzione deve essere usato lo SKU standard. Per altre informazioni, vedere Panoramica di [Azure Load Balancer standard](/azure/load-balancer/load-balancer-standard-overview). Qualsiasi Service Fabric cluster che usa lo SKU standard per SLB deve garantire che ogni tipo di nodo abbia una regola che consenta il traffico in uscita sulla porta 443. Questa operazione è necessaria per completare la configurazione del cluster e tutte le distribuzioni senza tale regola avranno esito negativo. Nell'esempio precedente di un servizio di bilanciamento del carico "solo interno", è necessario aggiungere al modello un servizio di bilanciamento del carico esterno aggiuntivo con una regola che consente il traffico in uscita per la porta 443.
+I modelli GitHub precedenti sono progettati per funzionare con lo SKU predefinito per Azure Load Balancer Standard (SLB), lo SKU Basic. Questo SLB non dispone di contratti di contratto, quindi per i carichi di lavoro di produzione deve essere usato lo SKU standard. Per altre informazioni, vedere Panoramica di [Azure Load Balancer standard](../load-balancer/load-balancer-overview.md). Qualsiasi Service Fabric cluster che usa lo SKU standard per SLB deve garantire che ogni tipo di nodo abbia una regola che consenta il traffico in uscita sulla porta 443. Questa operazione è necessaria per completare la configurazione del cluster e tutte le distribuzioni senza tale regola avranno esito negativo. Nell'esempio precedente di un servizio di bilanciamento del carico "solo interno", è necessario aggiungere al modello un servizio di bilanciamento del carico esterno aggiuntivo con una regola che consente il traffico in uscita per la porta 443.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un cluster](service-fabric-cluster-creation-via-arm.md)
 
 Dopo la distribuzione, nel gruppo di risorse vengono visualizzati due servizi di bilanciamento del carico. Esplorando tali servizi è possibile visualizzare l'indirizzo IP pubblico e gli endpoint di gestione (porte 19000 e 19080) assegnati all'indirizzo IP pubblico. È anche possibile visualizzare l'indirizzo IP interno statico e l'endpoint dell'applicazione (porta 80) assegnati al servizio di bilanciamento del carico interno. Entrambi i servizi di bilanciamento del carico usano lo stesso pool back-end del set di scalabilità di macchine virtuali.
-

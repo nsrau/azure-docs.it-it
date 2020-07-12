@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142415"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258215"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendere i dispositivi gemelli digitali e i relativi grafici gemelli
 
@@ -21,11 +21,27 @@ In una soluzione di dispositivi gemelli digitali di Azure, le entità nell'ambie
 > [!TIP]
 > "I dispositivi gemelli digitali di Azure" si riferiscono a questo servizio di Azure nel suo complesso. "I gemelli digitali" o solo i "gemelli" si riferiscono ai singoli nodi gemelli all'interno dell'istanza del servizio.
 
-## <a name="creating-digital-twins"></a>Creazione di gemelli digitali
+## <a name="digital-twins"></a>Dispositivi gemelli digitali
 
 Prima di poter creare un dispositivo gemello digitale nell'istanza di Azure Digital gemelli, è necessario che nel servizio sia caricato un *modello* . Un modello descrive il set di proprietà, i messaggi di telemetria e le relazioni che un particolare gemello può avere, tra le altre cose. Per informazioni sui tipi definiti in un modello, vedere [concetti: modelli personalizzati](concepts-models.md).
 
 Dopo la creazione e il caricamento di un modello, l'app client può creare un'istanza del tipo. si tratta di un dispositivo gemello digitale. Ad esempio, dopo aver creato un modello di *floor*, è possibile creare uno o più dispositivi gemelli digitali che usano questo tipo, ad esempio un gemello di tipo *floor*denominato *pianterreno*, un altro denominato *floor2*e così via. 
+
+## <a name="relationships-a-graph-of-digital-twins"></a>Relazioni: un grafico di gemelli digitali
+
+I dispositivi gemelli sono connessi in un grafo gemello dalle relazioni. Le relazioni che possono avere un gemello sono definite come parte del modello.  
+
+Ad esempio, il *piano* del modello potrebbe definire una relazione *Contains* destinata ai gemelli di tipo *room*. Con questa definizione *, i dispositivi* gemelli digitali di Azure consentiranno *di creare relazioni tra i* dispositivi gemelli *e i dispositivi gemelli* , inclusi i sottotipi di *chat* . 
+
+Il risultato di questo processo è un set di nodi (i gemelli digitali) connessi tramite bordi (le rispettive relazioni) in un grafico.
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+## <a name="create-with-the-apis"></a>Creare con le API
+
+In questa sezione viene illustrato come creare i gemelli digitali e le relazioni da un'applicazione client. Contiene esempi di codice .NET che usano le [API DigitalTwins](how-to-use-apis-sdks.md), per fornire un contesto aggiuntivo su ciò che accade all'interno di ognuno di questi concetti.
+
+### <a name="create-digital-twins"></a>Creare i gemelli digitali
 
 Di seguito è riportato un frammento di codice client che usa le [API DigitalTwins](how-to-use-apis-sdks.md) per creare un'istanza di un gemello di tipo *room*.
 
@@ -59,11 +75,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-## <a name="relationships-creating-a-graph-of-digital-twins"></a>Relazioni: creazione di un grafico di gemelli digitali
-
-I dispositivi gemelli sono connessi in un grafo gemello dalle relazioni. Le relazioni che possono avere un gemello sono definite come parte del modello.  
-
-Ad esempio, il *piano* del modello potrebbe definire una relazione *Contains* destinata ai gemelli di tipo *room*. Con questa definizione *, i dispositivi* gemelli digitali di Azure consentiranno *di creare relazioni tra i* dispositivi gemelli *e i dispositivi gemelli* , inclusi i sottotipi di *chat* . 
+### <a name="create-relationships"></a>Creare relazioni
 
 Di seguito è riportato un esempio di codice client che usa le [API DigitalTwins](how-to-use-apis-sdks.md) per creare una relazione tra un gemello digitale di tipo *floor*denominato *pianterreno* e un gemello digitale di tipo *room*chiamato *Cafe*.
 
@@ -84,8 +96,6 @@ try
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
 }
 ```
-
-Il risultato di questo processo è un set di nodi (i gemelli digitali) connessi tramite bordi (le rispettive relazioni) in un grafico.
 
 ## <a name="json-representations-of-graph-elements"></a>Rappresentazioni JSON degli elementi del grafico
 

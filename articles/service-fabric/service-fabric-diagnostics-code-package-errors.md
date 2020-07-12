@@ -5,11 +5,12 @@ author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983d45a7a240701fa6441d2d9edeeda16f1ed18b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463107"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256493"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticare gli errori comuni dei pacchetti di codice tramite Service Fabric
 
@@ -51,11 +52,11 @@ Codice di uscita | Descrizione
 Codice di uscita | Valore esadecimale | Breve descrizione | Causa radice | Potenziale correzione
 --------- | --------- | ----------------- | ---------- | -------------
 3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Questo errore talvolta indica che il computer ha esaurito lo spazio dell'heap del desktop. Questa causa è particolarmente probabile se sono presenti numerosi processi che appartengono all'applicazione in esecuzione nel nodo. | Se il programma non è stato compilato per rispondere ai segnali CTRL + C, è possibile abilitare l'impostazione **EnableActivateNoWindow** nel manifesto del cluster. L'abilitazione di questa impostazione indica che il pacchetto di codice verrà eseguito senza una finestra GUI e non riceverà segnali CTRL + C. Questa azione riduce anche la quantità di spazio dell'heap del desktop utilizzato da ogni processo. Se il pacchetto di codice deve ricevere segnali CTRL + C, è possibile aumentare le dimensioni dell'heap del desktop del nodo.
-3762504530 | 0xe0434352 | N/D | Questo valore rappresenta il codice di errore per un'eccezione non gestita dal codice gestito, ovvero .NET. | Questo codice di uscita indica che l'applicazione ha generato un'eccezione che rimane non gestita e che ha terminato il processo. Come primo passaggio per determinare la causa dell'errore, eseguire il debug dei log e dei file di dump dell'applicazione.
+3762504530 | 0xe0434352 | N/A | Questo valore rappresenta il codice di errore per un'eccezione non gestita dal codice gestito, ovvero .NET. | Questo codice di uscita indica che l'applicazione ha generato un'eccezione che rimane non gestita e che ha terminato il processo. Come primo passaggio per determinare la causa dell'errore, eseguire il debug dei log e dei file di dump dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sulla [diagnostica di altri scenari comuni](service-fabric-diagnostics-common-scenarios.md).
-* Per una panoramica più dettagliata dei log di monitoraggio di Azure e delle relative offerte, vedere [Panoramica di monitoraggio di Azure](../operations-management-suite/operations-management-suite-overview.md).
-* Altre informazioni sugli [avvisi](../log-analytics/log-analytics-alerts.md) dei log di monitoraggio di Azure per facilitare il rilevamento e la diagnostica.
-* Acquisire familiarità con le funzionalità di [ricerca e query nei log](../log-analytics/log-analytics-log-searches.md) disponibili nell'ambito dei log di monitoraggio di Azure.
+* Per una panoramica più dettagliata dei log di monitoraggio di Azure e delle relative offerte, vedere [Panoramica di monitoraggio di Azure](../azure-monitor/overview.md).
+* Altre informazioni sugli [avvisi](../azure-monitor/platform/alerts-overview.md) dei log di monitoraggio di Azure per facilitare il rilevamento e la diagnostica.
+* Acquisire familiarità con le funzionalità di [ricerca e query nei log](../azure-monitor/log-query/log-query-overview.md) disponibili nell'ambito dei log di monitoraggio di Azure.

@@ -3,12 +3,12 @@ title: Lavorare con le raccolte Reliable Collections
 description: Informazioni sulle procedure consigliate per l'uso di Reliable Collections all'interno di un'applicazione Service Fabric di Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374696"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255796"
 ---
 # <a name="working-with-reliable-collections"></a>Lavorare con le raccolte Reliable Collections
 Service Fabric offre un modello di programmazione con stato disponibile per gli sviluppatori .NET tramite Reliable Collections. In particolare, Service Fabric offre classi ReliableDictionary e ReliableQueue. Quando si usano queste classi, lo stato è partizionato (per la scalabilità), replicato (per la disponibilità) e le transazioni vengono eseguite all'interno di una partizione (per la semantica ACID). Verrà ora esaminato un utilizzo tipico di un oggetto Reliable Dictionary e ne verrà verificata la realtà.
@@ -219,10 +219,10 @@ Il codice del servizio viene aggiornato un dominio di aggiornamento alla volta. 
 In alternativa, è possibile eseguire un aggiornamento noto come aggiornamento a due fasi. Con un aggiornamento in due fasi, si aggiorna il servizio da V1 a V2: V2 contiene il codice che sa come gestire la nuova modifica dello schema, ma questo codice non viene eseguito. Quando il codice V2 legge i dati V1, opera su di esso e scrive i dati V1. Quindi, al termine dell'aggiornamento di tutti i domini di aggiornamento, è possibile in qualche modo segnalare alle istanze V2 in esecuzione che l'aggiornamento è stato completato. Un modo per segnalare questo problema consiste nell'implementazione di un aggiornamento della configurazione. questo è ciò che rende un aggiornamento in due fasi. A questo punto, le istanze V2 possono leggere i dati V1, convertirli in dati V2, operare su di esso e scriverli come dati V2. Quando altre istanze leggono i dati V2, non è necessario convertirli: possono operano su di essi e scrivere dati V2.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni sulla creazione di contratti di dati compatibili con versioni successive, vedere [Contratti di dati compatibili con versioni successive](https://msdn.microsoft.com/library/ms731083.aspx)
+Per informazioni sulla creazione di contratti di dati compatibili con versioni successive, vedere [Contratti di dati compatibili con versioni successive](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
 
-Per informazioni sulle procedure consigliate per il controllo delle versioni dei contratti di dati, vedere [Controllo delle versioni dei contratti di dati](https://msdn.microsoft.com/library/ms731138.aspx)
+Per informazioni sulle procedure consigliate per il controllo delle versioni dei contratti di dati, vedere [Controllo delle versioni dei contratti di dati](/dotnet/framework/wcf/feature-details/data-contract-versioning)
 
-Per informazioni su come implementare contratti di dati a tolleranza di versione, vedere [Callback di serializzazione a tolleranza di versione](https://msdn.microsoft.com/library/ms733734.aspx)
+Per informazioni su come implementare contratti di dati a tolleranza di versione, vedere [Callback di serializzazione a tolleranza di versione](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
-Per informazioni su come fornire una struttura di dati che possa interagire con più versioni, vedere [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
+Per informazioni su come fornire una struttura di dati che possa interagire con più versioni, vedere [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)

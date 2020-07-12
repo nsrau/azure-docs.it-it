@@ -3,11 +3,12 @@ title: Scenari comuni di diagnosi per Azure Service Fabric
 description: Informazioni sulla risoluzione dei problemi relativi agli scenari di monitoraggio e diagnostica comuni nelle applicazioni Azure Service Fabric.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: bc17f00dc46c6e995d18621353c8f10cacf7759c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: f92bc02082d8bcd9d917f05c93d3da413f772cd0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697673"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257743"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Scenari comuni di diagnosi con Service Fabric
 
@@ -132,9 +133,9 @@ Fare clic su questi collegamenti per l'elenco completo dei contatori delle prest
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Cercare errori comuni di attivazione del pacchetto di codice](./service-fabric-diagnostics-code-package-errors.md)
-* [Configurare gli avvisi in AI](/azure/azure-monitor/platform/alerts-log) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
+* [Configurare gli avvisi in AI](../azure-monitor/platform/alerts-log.md) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
 * [Rilevamento intelligente in Application Insights](../azure-monitor/app/proactive-diagnostics.md) esegue un'analisi proattiva dei dati di telemetria che vengono inviati ad AI per avvisare l'utente in caso di potenziali problemi di prestazioni
-* Altre informazioni sugli [avvisi](../log-analytics/log-analytics-alerts.md) dei log di Monitoraggio di Azure per agevolare il rilevamento e la diagnostica.
+* Altre informazioni sugli [avvisi](../azure-monitor/platform/alerts-overview.md) dei log di Monitoraggio di Azure per agevolare il rilevamento e la diagnostica.
 * Per i cluster locali, i log di Monitoraggio di Azure offrono un Gateway, ovvero un proxy di inoltro HTTP, che può essere usato per inviare i dati ai log di Monitoraggio di Azure. Per altre informazioni, vedere [Connettere computer senza accesso a Internet ai log di Monitoraggio di Azure usando il gateway Log Analytics](../azure-monitor/platform/gateway.md)
-* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) incluse nei log di Monitoraggio di Azure
-* Per avere una panoramica più dettagliata dei log di Monitoraggio di Azure e dei vantaggi offerti, vedere la pagina che spiega [che cosa sono i log di Monitoraggio di Azure](../operations-management-suite/operations-management-suite-overview.md)
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) incluse nei log di Monitoraggio di Azure
+* Per avere una panoramica più dettagliata dei log di Monitoraggio di Azure e dei vantaggi offerti, vedere la pagina che spiega [che cosa sono i log di Monitoraggio di Azure](../azure-monitor/overview.md)

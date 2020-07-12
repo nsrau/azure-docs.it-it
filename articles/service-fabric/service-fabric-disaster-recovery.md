@@ -5,11 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371648"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257506"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Ripristino di emergenza in Azure Service Fabric
 Una parte essenziale della disponibilità elevata è la garanzia che i servizi possano sopravvivere a tutti i diversi tipi di errori. Questa operazione è particolarmente importante per gli errori non pianificati e all'esterno del controllo. 
@@ -171,7 +172,7 @@ Le azioni seguenti potrebbero causare la perdita di dati. Verificare prima di pr
 >
 
 - Usare l' `Repair-ServiceFabricPartition -PartitionId` `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API o. Questa API consente di specificare l'ID della partizione per spostarsi fuori dalla perdita del quorum e in una potenziale perdita di dati.
-- Se nel cluster si verificano errori frequenti che fanno sì che i servizi entrano in uno stato di perdita del quorum e la potenziale _perdita di dati è accettabile, è_possibile specificare un valore [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) appropriato per consentire il ripristino automatico del servizio. Service Fabric attenderà il valore specificato `QuorumLossWaitDuration` (il valore predefinito è infinito) prima di eseguire il ripristino. Questo metodo *non* è consigliato perché può causare perdite di dati impreviste.
+- Se nel cluster si verificano errori frequenti che fanno sì che i servizi entrano in uno stato di perdita del quorum e la potenziale _perdita di dati è accettabile, è_possibile specificare un valore [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) appropriato per consentire il ripristino automatico del servizio. Service Fabric attenderà il valore specificato `QuorumLossWaitDuration` (il valore predefinito è infinito) prima di eseguire il ripristino. Questo metodo *non* è consigliato perché può causare perdite di dati impreviste.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Disponibilità del cluster di Service Fabric
 In generale, il cluster Service Fabric è un ambiente altamente distribuito senza singoli punti di errore. Un errore di un nodo non provocherà problemi di disponibilità o affidabilità per il cluster, principalmente perché i servizi di sistema Service Fabric seguono le stesse linee guida fornite in precedenza. Ovvero, vengono sempre eseguiti con tre o più repliche per impostazione predefinita e i servizi di sistema senza stato vengono eseguiti in tutti i nodi. 
@@ -207,17 +208,17 @@ In entrambi i cluster Service Fabric autonomo e Azure, il tipo di nodo primario 
 - Informazioni su come simulare diversi errori usando il [Framework di testabilità](service-fabric-testability-overview.md).
 - Lettura di altre risorse sul ripristino di emergenza e sulla disponibilità elevata. Microsoft ha pubblicato molti documenti su questi argomenti. Sebbene alcune di queste risorse facciano riferimento a tecniche specifiche per l'utilizzo in altri prodotti, contengono numerose procedure consigliate generali che è possibile applicare nel contesto Service Fabric:
   - [Elenco di controllo della disponibilità](/azure/architecture/checklist/resiliency-per-service)
-  - [Esercitazione nel ripristino di emergenza](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Esercitazione nel ripristino di emergenza](../azure-sql/database/disaster-recovery-drills.md)
   - [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure][dr-ha-guide]
 - Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md).
 
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[repair-partition-ps]: /windows/win32/perfctrs/specifying-a-counter-path
 [azure-status-dashboard]:https://azure.microsoft.com/status/
 [azure-regions]: https://azure.microsoft.com/regions/
-[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+[dr-ha-guide]: /previous-versions/azure/dn251004(v=azure.100)
 
 
 <!-- Images -->

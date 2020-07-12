@@ -8,11 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b13944e30c339357997fbc5f0919e5eb8485a0a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c49345f7036dfee7d1f37c15a4647202b3e5670
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308779"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257842"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gestire i certificati in un dispositivo IoT Edge
 
@@ -47,6 +48,9 @@ Per creare i file seguenti, è necessario usare la propria autorità di certific
 
 In questo articolo si fa riferimento alla *CA radice* non è l'autorità di certificazione in primo piano per un'organizzazione. Si tratta dell'autorità di certificazione superiore per lo scenario IoT Edge, che il modulo dell'hub IoT Edge, i moduli utente e tutti i dispositivi downstream usano per stabilire una relazione di trust tra loro.
 
+> [!NOTE]
+> Attualmente, una limitazione in libiothsm impedisce l'utilizzo di certificati che scadono il 1 ° gennaio 2050 o successivo.
+
 Per visualizzare un esempio di questi certificati, esaminare gli script che creano certificati demo in [gestione dei certificati della CA di test per esempi ed esercitazioni](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
 ### <a name="install-certificates-on-the-device"></a>Installare i certificati nel dispositivo
@@ -68,7 +72,7 @@ Se, ad esempio, sono stati usati gli script di esempio per [creare i certificati
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. Impostare le proprietà del **certificato** in config. YAML sul percorso dell'URI del file del certificato e dei file di chiave nel dispositivo IOT Edge. Rimuovere il `#` carattere prima delle proprietà del certificato per rimuovere il commento dalle quattro righe. Verificare che la riga **certificati:** non includa spazi vuoti precedenti e che gli elementi nidificati siano rientrati in due spazi. Ad esempio:
+1. Impostare le proprietà del **certificato** in config. YAML sul percorso dell'URI del file del certificato e dei file di chiave nel dispositivo IOT Edge. Rimuovere il `#` carattere prima delle proprietà del certificato per rimuovere il commento dalle quattro righe. Verificare che la riga **certificati:** non includa spazi vuoti precedenti e che gli elementi nidificati siano rientrati in due spazi. ad esempio:
 
    * Windows:
 
@@ -108,7 +112,7 @@ Per altre informazioni sulla funzione dei diversi certificati in un dispositivo 
 Per questi due certificati generati automaticamente, è possibile impostare il flag di **auto_generated_ca_lifetime_days** in config. YAML per configurare il numero di giorni per la durata dei certificati.
 
 >[!NOTE]
->È disponibile un terzo certificato generato automaticamente creato dal gestore della sicurezza IoT Edge, il **certificato del server dell'hub IOT Edge**. Questo certificato ha sempre un 90 giorno, ma viene rinnovato automaticamente prima della scadenza. Il valore di **auto_generated_ca_lifetime_days** non influisce sul certificato.
+>È disponibile un terzo certificato generato automaticamente creato dal gestore della sicurezza IoT Edge, il **certificato del server dell'hub IOT Edge**. Questo certificato ha sempre una durata di 90 giorni, ma viene rinnovato automaticamente prima della scadenza. Il valore di **auto_generated_ca_lifetime_days** non influisce sul certificato.
 
 Per configurare la scadenza del certificato a un valore diverso da quello predefinito di 90 giorni, aggiungere il valore in giorni alla sezione **certificati** del file config. yaml.
 
@@ -119,6 +123,9 @@ certificates:
   trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
   auto_generated_ca_lifetime_days: <value>
 ```
+
+> [!NOTE]
+> Attualmente, una limitazione in libiothsm impedisce l'utilizzo di certificati che scadono il 1 ° gennaio 2050 o successivo.
 
 Se sono stati specificati i certificati della CA del dispositivo, questo valore viene comunque applicato al certificato della CA del carico di lavoro, purché il valore di durata impostato sia più breve della durata del certificato della CA del dispositivo.
 

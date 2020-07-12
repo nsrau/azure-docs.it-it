@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb2adafab88eb1d3855cdec8268601fb4e15dcbb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906034"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257270"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Consente di creare le risorse mesh Service Fabric.
@@ -23,7 +24,7 @@ Consente di creare le risorse mesh Service Fabric.
 ## <a name="sfctl-mesh-deployment-create"></a>sfctl mesh deployment create
 Crea una distribuzione delle risorse di mesh Service Fabric.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -40,7 +41,7 @@ Crea una distribuzione delle risorse di mesh Service Fabric.
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Consente di consolidare e di distribuire tutte le risorse nel cluster sostituendo i parametri indicati nel file yaml
 ``` 
@@ -62,4 +63,4 @@ sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

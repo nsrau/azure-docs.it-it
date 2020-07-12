@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 75c62b54ff3aa7f3af344aa3e1ca81d431ae0ab2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af5399be44d2946775622598c5c1db3d8355f7cd
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905616"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257071"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Esegue operazioni base a livello di file nell'archivio immagini del cluster.
@@ -18,7 +19,7 @@ Esegue operazioni base a livello di file nell'archivio immagini del cluster.
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminare | Elimina il contenuto dell’archivio immagini esistente. |
+| eliminazione | Elimina il contenuto dell’archivio immagini esistente. |
 | root-info | Mostra le informazioni sul contenuto alla radice dell'archivio immagini. |
 | stat | Mostra le informazioni sul contenuto dell’archivio immagini. |
 
@@ -27,7 +28,7 @@ Elimina il contenuto dell’archivio immagini esistente.
 
 Elimina il contenuto dell’archivio immagini esistente trovato all'interno del percorso relativo dell’archivio immagini specificato. Questo comando può essere utilizzato per eliminare i pacchetti dell’applicazione caricati dopo l'esecuzione del provisioning.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -49,7 +50,7 @@ Mostra le informazioni sul contenuto alla radice dell'archivio immagini.
 
 Restituisce le informazioni sul contenuto dell'archivio immagini nella radice dell'archivio immagini.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -70,7 +71,7 @@ Mostra le informazioni sul contenuto dell’archivio immagini.
 
 Restituisce le informazioni sul contenuto dell'archivio immagini nell'elemento contentPath specificato. contentPath è relativo alla radice dell'archivio immagini.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -90,4 +91,4 @@ Restituisce le informazioni sul contenuto dell'archivio immagini nell'elemento c
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

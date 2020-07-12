@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d6ff37024a3181a43b67d2af26b067225654fe
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78196980"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257482"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gestire le applicazioni per più ambienti
 
@@ -39,8 +40,8 @@ Si prendano in considerazione due semplici esempi:
 
 Quando si creano istanze di un'applicazione denominata in Service Fabric, si ha la possibilità di passare parametri. La modalità di esecuzione di questa operazione dipende da come si crea l'istanza dell'applicazione.
 
-  - In PowerShell, il [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet accetta i parametri dell'applicazione come Hashtable.
-  - Usando sfctl, il [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) comando accetta parametri come stringa JSON. Lo script install.sh usa sfctl.
+  - In PowerShell, il [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet accetta i parametri dell'applicazione come Hashtable.
+  - Usando sfctl, il [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) comando accetta parametri come stringa JSON. Lo script install.sh usa sfctl.
   - In Visual Studio, nella cartella Parametri del progetto dell'applicazione, è disponibile un set di file di parametri Questi file di parametri vengono usati per la pubblicazione da Visual Studio, usando Azure DevOps Services o Azure DevOps Server. In Visual Studio i file di parametri vengono passati allo script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Passaggi successivi

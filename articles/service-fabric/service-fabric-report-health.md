@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 167ca76d0b6977a87352f8219d807949a0e4a301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695e8d03f782527cd3a9a2667f3513046d7e76c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392642"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256306"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aggiungere report sull'integrità di Service Fabric personalizzati
 In Azure Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche. Il modello di integrità usa i **reporter di integrità** (componenti di sistema e watchdog). Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli sviluppatori del servizio devono tenere conto dell'integrità fin dall'inizio. È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi. L'utilità è particolarmente evidente quando il servizio è in esecuzione su larga scala nel cloud (privato o Azure).
@@ -37,7 +38,7 @@ Come indicato, i report possono essere creati da:
 > 
 > 
 
-Una volta definita la progettazione dei report sull'integrità, è possibile inviarli facilmente. È possibile usare [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) per segnalare lo stato di integrità se il cluster non è [sicuro](service-fabric-cluster-security.md) o se il client Fabric ha privilegi di amministratore. Per la creazione di report è possibile usare l'API con [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), PowerShell oppure REST. Sono disponibili controlli di configurazione che riuniscono i report in batch per migliorare le prestazioni.
+Una volta definita la progettazione dei report sull'integrità, è possibile inviarli facilmente. È possibile usare [FabricClient](/dotnet/api/system.fabric.fabricclient) per segnalare lo stato di integrità se il cluster non è [sicuro](service-fabric-cluster-security.md) o se il client Fabric ha privilegi di amministratore. Per la creazione di report è possibile usare l'API con [FabricClient.HealthManager.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), PowerShell oppure REST. Sono disponibili controlli di configurazione che riuniscono i report in batch per migliorare le prestazioni.
 
 > [!NOTE]
 > L'esecuzione di report sull'integrità è un'operazione sincrona e rappresenta solo l'attività di convalida sul lato client. Il fatto che il report venga accettato dal client di integrità o dagli oggetti `Partition` o `CodePackageActivationContext` non significa che venga applicato nell'archivio. Viene inviato in modo asincrono e possibilmente in batch con altri report. L'elaborazione sul server può comunque non riuscire. È possibile che un numero di sequenza non sia aggiornato, che l'entità a cui deve essere applicato il report sia stata eliminata e così via.
@@ -57,7 +58,7 @@ I report sull'integrità vengono inviati al gestore dell'integrità tramite un c
 > 
 
 La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Se un particolare generatore di report non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, ad esempio, i report vengono sostituiti con l'ultima versione. Nella coda del client sarà presente al massimo uno di questi report. Se la suddivisione in batch è configurata, il numero di report inviati al gestore di integrità è solo uno per ogni intervallo di invio. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità.
-Specificare i parametri di configurazione quando viene creato `FabricClient` passando [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) con i valori desiderati per le voci correlate all'integrità.
+Specificare i parametri di configurazione quando viene creato `FabricClient` passando [FabricClientSettings](/dotnet/api/system.fabric.fabricclientsettings) con i valori desiderati per le voci correlate all'integrità.
 
 L'esempio seguente crea un client Fabric e specifica che i report devono essere inviati quando vengono aggiunti. In caso di timeout ed errori che supportano nuovi tentativi, questi vengono eseguiti ogni 40 secondi.
 
@@ -71,7 +72,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-Si consiglia di mantenere le impostazioni predefinite del client Fabric, con `HealthReportSendInterval` pari a 30 secondi. Questa impostazione garantisce prestazioni ottimali con l'invio in batch. Per i report critici che devono essere inviati il prima possibile, usare `HealthReportSendOptions` con il flag Immediate `true` nell'API [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth). I report con flag Immediate ignorano l'intervallo di invio in batch. Usare questo flag con cautela. Quando possibile, è preferibile usare l'invio in batch del client di integrità. L'invio immediato è utile anche quando il client Fabric è in fase di chiusura (ad esempio, il processo ha determinato uno stato non valido e deve essere arrestato per evitare effetti collaterali). Ciò assicura un invio ottimale dei report accumulati. Quando viene aggiunto un report con il flag Immediate, il client di integrità invia in batch tutti i report accumulati dall'ultimo invio.
+Si consiglia di mantenere le impostazioni predefinite del client Fabric, con `HealthReportSendInterval` pari a 30 secondi. Questa impostazione garantisce prestazioni ottimali con l'invio in batch. Per i report critici che devono essere inviati il prima possibile, usare `HealthReportSendOptions` con il flag Immediate `true` nell'API [FabricClient.HealthClient.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth). I report con flag Immediate ignorano l'intervallo di invio in batch. Usare questo flag con cautela. Quando possibile, è preferibile usare l'invio in batch del client di integrità. L'invio immediato è utile anche quando il client Fabric è in fase di chiusura (ad esempio, il processo ha determinato uno stato non valido e deve essere arrestato per evitare effetti collaterali). Ciò assicura un invio ottimale dei report accumulati. Quando viene aggiunto un report con il flag Immediate, il client di integrità invia in batch tutti i report accumulati dall'ultimo invio.
 
 È possibile specificare gli stessi parametri quando si crea una connessione a un cluster tramite PowerShell. L'esempio seguente avvia una connessione a un cluster locale:
 
@@ -113,12 +114,12 @@ Per REST, i report vengono inviati al gateway di Service Fabric, che ha un clien
 ## <a name="report-from-within-low-privilege-services"></a>Report dai servizi con privilegi limitati
 Se i servizi di Service Fabric non hanno accesso amministrativo al cluster, è possibile creare report sull'integrità per le entità dal contesto corrente tramite `Partition` o `CodePackageActivationContext`.
 
-* Per i servizi senza stato usare [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) per creare report relativi all'istanza del servizio corrente.
-* Per i servizi con stato usare [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) per creare report relativi alla replica corrente.
-* Usare [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) per creare report relativi all'entità della partizione corrente.
-* Usare [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) per creare report relativi all'applicazione corrente.
-* Usare [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) per creare report relativi all'applicazione corrente distribuita sul nodo corrente.
-* Usare [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) per creare report relativi a un pacchetto del servizio per l'applicazione distribuita nel nodo corrente.
+* Per i servizi senza stato usare [IStatelessServicePartition.ReportInstanceHealth](/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) per creare report relativi all'istanza del servizio corrente.
+* Per i servizi con stato usare [IStatefulServicePartition.ReportReplicaHealth](/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) per creare report relativi alla replica corrente.
+* Usare [IServicePartition.ReportPartitionHealth](/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) per creare report relativi all'entità della partizione corrente.
+* Usare [CodePackageActivationContext.ReportApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) per creare report relativi all'applicazione corrente.
+* Usare [CodePackageActivationContext.ReportDeployedApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) per creare report relativi all'applicazione corrente distribuita sul nodo corrente.
+* Usare [CodePackageActivationContext.ReportDeployedServicePackageHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) per creare report relativi a un pacchetto del servizio per l'applicazione distribuita nel nodo corrente.
 
 > [!NOTE]
 > Internamente gli oggetti `Partition` e `CodePackageActivationContext` hanno un client di integrità configurato con le impostazioni predefinite. Come illustrato per il [client di integrità](service-fabric-report-health.md#health-client), i report vengono raggruppati in batch e inviati in base a un timer. Gli oggetti devono essere mantenuti attivi per poter inviare il report.
@@ -289,7 +290,7 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Inviare report sull'integrità usando REST con richieste POST indirizzate all'entità desiderata e contenenti nel corpo la descrizione del report sull'integrità. Vedere ad esempio come inviare [report sull'integrità di un cluster](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) o [report sull'integrità di un servizio](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service) con REST. Sono supportate tutte le entità.
+Inviare report sull'integrità usando REST con richieste POST indirizzate all'entità desiderata e contenenti nel corpo la descrizione del report sull'integrità. Vedere ad esempio come inviare [report sull'integrità di un cluster](/rest/api/servicefabric/report-the-health-of-a-cluster) o [report sull'integrità di un servizio](/rest/api/servicefabric/report-the-health-of-a-service) con REST. Sono supportate tutte le entità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In base ai dati sull'integrità, gli sviluppatori del servizio e gli amministratori di cluster e applicazioni possono valutare come usare le informazioni. Ad esempio, è possibile impostare avvisi in base allo stato integrità per rilevare problemi gravi prima che provochino interruzioni. Gli amministratori possono anche configurare sistemi di ripristino per risolvere i problemi automaticamente.
@@ -305,4 +306,3 @@ In base ai dati sull'integrità, gli sviluppatori del servizio e gli amministrat
 [Monitorare e diagnosticare servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
-

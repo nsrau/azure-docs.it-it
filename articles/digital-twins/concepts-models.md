@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a1bb07ee900622b138a556a33469641e4e8310af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392302"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258281"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendere i modelli gemelli nei dispositivi gemelli digitali di Azure
 
@@ -196,9 +197,14 @@ L'interfaccia di estensione non può modificare alcuna definizione delle interfa
 
 ## <a name="validating-models"></a>Convalida di modelli
 
-È disponibile un esempio per la convalida dei documenti del modello per verificare che DTDL sia valido. Si basa sulla libreria del parser DTDL ed è indipendente dal linguaggio. Trovarlo qui: [DTDL validator Sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+> [!TIP]
+> È consigliabile convalidare i modelli offline prima di caricarli nell'istanza di Azure Digital gemelli.
 
-In alternativa, per altre informazioni sulla libreria del parser, incluso un esempio di come usarlo direttamente, vedere [procedura: analizzare e convalidare i modelli](how-to-use-parser.md).
+È disponibile un esempio indipendente dal linguaggio per la convalida dei documenti del modello per verificare che DTDL sia corretto. Si trova qui: [**DTDL validator Sample**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+
+L'esempio di validator DTDL si basa su una libreria parser .NET DTDL, disponibile in NuGet come libreria lato client: [**Microsoft. Azure. DigitalTwins. parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). È anche possibile usare direttamente la libreria per progettare una soluzione di convalida personalizzata. Quando si usa la libreria del parser, assicurarsi di usare una versione compatibile con la versione che esegue i dispositivi gemelli digitali di Azure. Durante l'anteprima, si tratta della versione *3.7.0*.
+
+Per altre informazioni sulla libreria del parser, inclusi esempi di utilizzo, vedere [procedura: analizzare e convalidare i modelli](how-to-use-parser.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

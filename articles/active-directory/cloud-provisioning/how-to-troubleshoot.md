@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360793"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256867"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Risoluzione dei problemi di provisioning nel cloud
 
@@ -55,9 +55,7 @@ Per verificare che l'agente sia visualizzato da Azure ed è integro, attenersi a
 
 ### <a name="verify-the-port"></a>Verificare la porta
 
-Per verificare che Azure sia in ascolto sulla porta 443 e che l'agente sia in grado di comunicare con esso, usare lo strumento seguente:
-
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
+Verificare che Azure sia in ascolto sulla porta 443 e che l'agente sia in grado di comunicare con esso. 
 
 Questo test verifica che gli agenti possano comunicare con Azure tramite la porta 443. Aprire un browser e passare all'URL precedente dal server in cui è installato l'agente.
 
@@ -124,7 +122,7 @@ Questo problema in genere è dovuto al fatto che l'agente non è in grado di ese
 
 Per risolvere questo problema, modificare i criteri di esecuzione di PowerShell nel server. È necessario che i criteri computer e utente siano impostati come *undefined* o *RemoteSigned*. Se sono impostati come *senza restrizioni*, verrà visualizzato questo errore. Per altre informazioni, vedere [criteri di esecuzione di PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
-### <a name="log-files"></a>File di registro
+### <a name="log-files"></a>File di log
 
 Per impostazione predefinita, l'agente genera un numero ridotto di messaggi di errore e informazioni minime di analisi dello stack. È possibile trovare i log di traccia nella cartella *C:\ProgramData\Microsoft\Azure il provisioning di AGENT\TRACE ad Connect*.
 

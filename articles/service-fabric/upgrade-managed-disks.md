@@ -3,12 +3,12 @@ title: Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 description: Ecco come aggiornare un cluster di Service Fabric esistente per usare i dischi gestiti di Azure con un tempo di inattività minimo o insufficiente per il cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611629"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255898"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 
@@ -16,7 +16,7 @@ ms.locfileid: "85611629"
 
 La strategia generale per l'aggiornamento di un nodo del cluster Service Fabric per l'uso di Managed disks è:
 
-1. Distribuire un set di scalabilità di macchine virtuali altrimenti duplicato di quel tipo di nodo, ma con l'oggetto [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) aggiunto alla `osDisk` sezione del modello di distribuzione del set di scalabilità di macchine virtuali. Il nuovo set di scalabilità deve essere associato allo stesso bilanciamento del carico/IP originale, in modo che i clienti non sperimentino un'interruzione del servizio durante la migrazione.
+1. Distribuire un set di scalabilità di macchine virtuali altrimenti duplicato di quel tipo di nodo, ma con l'oggetto [managedDisk](/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) aggiunto alla `osDisk` sezione del modello di distribuzione del set di scalabilità di macchine virtuali. Il nuovo set di scalabilità deve essere associato allo stesso bilanciamento del carico/IP originale, in modo che i clienti non sperimentino un'interruzione del servizio durante la migrazione.
 
 2. Quando entrambi i set di scalabilità originali e aggiornati vengono eseguiti side-by-Side, disabilitare le istanze del nodo originale una alla volta in modo che i servizi di sistema (o le repliche dei servizi con stato) eseguano la migrazione al nuovo set di scalabilità.
 
@@ -25,7 +25,7 @@ La strategia generale per l'aggiornamento di un nodo del cluster Service Fabric 
 Questo articolo illustra i passaggi per l'aggiornamento del tipo di nodo primario di un cluster di esempio per l'uso di Managed disks, evitando al tempo stesso i tempi di inattività del cluster (vedere la nota riportata di seguito). Lo stato iniziale del cluster di test di esempio è costituito da un tipo di nodo di [durabilità Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), supportato da un singolo set di scalabilità con cinque nodi.
 
 > [!CAUTION]
-> Si verificherà un'interruzione con questa procedura solo se si dispone di dipendenze dal DNS del cluster, ad esempio quando si accede a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). La [procedura consigliata per l'architettura per i servizi front-end](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) consiste nel disporre di un tipo di servizio di [bilanciamento del carico](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) davanti ai tipi di nodo per consentire lo swapping dei nodi senza interruzioni.
+> Si verificherà un'interruzione con questa procedura solo se si dispone di dipendenze dal DNS del cluster, ad esempio quando si accede a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). La [procedura consigliata per l'architettura per i servizi front-end](/azure/architecture/microservices/design/gateway) consiste nel disporre di un tipo di servizio di [bilanciamento del carico](/azure/architecture/guide/technology-choices/load-balancing-overview) davanti ai tipi di nodo per consentire lo swapping dei nodi senza interruzioni.
 
 Ecco i [modelli e i cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) per Azure Resource Manager che verranno usati per completare lo scenario di aggiornamento. Le modifiche apportate al modello verranno descritte in [distribuire un set di scalabilità aggiornato per il tipo di nodo primario](#deploy-an-upgraded-scale-set-for-the-primary-node-type) riportato di seguito.
 
@@ -202,7 +202,7 @@ Aggiungere i parametri per il nome dell'istanza, il numero e le dimensioni del n
 }
 ```
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>Variabili
 
 Nella sezione modello di distribuzione `variables` aggiungere una voce per il pool di indirizzi NAT in ingresso del nuovo set di scalabilità.
 
@@ -258,7 +258,7 @@ Dopo aver implementato tutte le modifiche nei file di modello e di parametri, pa
 
 ### <a name="obtain-your-key-vault-references"></a>Ottenere i riferimenti Key Vault
 
-Per distribuire la configurazione aggiornata, è prima di tutto necessario ottenere diversi riferimenti al certificato del cluster archiviato nel Key Vault. Il modo più semplice per trovare questi valori consiste nell'portale di Azure. Sono necessari gli elementi seguenti:
+Per distribuire la configurazione aggiornata, è prima di tutto necessario ottenere diversi riferimenti al certificato del cluster archiviato nel Key Vault. Il modo più semplice per trovare questi valori consiste nell'portale di Azure. Saranno necessari gli elementi seguenti:
 
 * **URL Key Vault del certificato del cluster.** Dal Key Vault in portale di Azure selezionare **certificati**  >  *l'*  >  **identificatore del segreto**del certificato desiderato:
 

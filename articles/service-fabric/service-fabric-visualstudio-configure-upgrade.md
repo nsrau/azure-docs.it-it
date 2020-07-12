@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mikhegn
-ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1db6cea0af229664b07e88463e279b2a64d7e267
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464071"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256051"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configurare l'aggiornamento di un'applicazione di Infrastruttura di servizi in Visual Studio
 Gli strumenti di Visual Studio per Service Fabric di Azure forniscono supporto per l'aggiornamento per la pubblicazione nei cluster locali o remoti. Esistono tre scenari in cui è consigliabile eseguire l'aggiornamento dell'applicazione a una versione più recente anziché sostituirla durante il test e il debug:
@@ -56,7 +57,7 @@ Se si utilizzano gli strumenti di Service Fabric di Visual Studio per aggiornare
 3. Se si seleziona la modalità di aggiornamento UnmonitoredManual, è necessario avviare manualmente una console di PowerShell per continuare il processo di aggiornamento e completarlo. Fare riferimento a [Aggiornamento di un'applicazione di infrastruttura di servizi: argomenti avanzati](service-fabric-application-upgrade-advanced.md) per scoprire come funziona l'aggiornamento manuale.
 
 ## <a name="upgrade-an-application-by-using-powershell"></a>Aggiornare un'applicazione con PowerShell
-È possibile utilizzare i cmdlet PowerShell per aggiornare un'applicazione di Infrastruttura di servizi. Per informazioni dettagliate, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) e [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade).
+È possibile utilizzare i cmdlet PowerShell per aggiornare un'applicazione di Infrastruttura di servizi. Per informazioni dettagliate, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) e [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade).
 
 ## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Specificare un criterio di controllo dell'integrità nel file manifesto dell'applicazione
 Ogni servizio in un'applicazione di Infrastruttura di servizi può disporre di propri parametri di criteri di integrità che sostituiscono i valori predefiniti. È possibile fornire questi valori di parametro nel file manifesto dell'applicazione.

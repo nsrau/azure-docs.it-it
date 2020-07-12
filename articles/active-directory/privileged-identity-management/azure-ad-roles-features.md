@@ -1,27 +1,25 @@
 ---
-title: Gestione dei ruoli di Azure AD in Privileged Identity Management (PIM) | Microsoft Docs
+title: Funzionalità del ruolo Azure AD in Privileged Identity Management | Microsoft Docs
 description: Come gestire i ruoli di Azure AD per l'assegnazione Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
-ms.devlang: na
-ms.topic: how-to
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 501efaf2e9e97f37521daa770e6c760cc794fa36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a286ed63d842dba08ad545b17498cb4000a5cf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742862"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256629"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Funzionalità di gestione per i ruoli di Azure AD in Privileged Identity Management
 
@@ -29,28 +27,30 @@ L'esperienza di gestione per i ruoli Azure AD in Privileged Identity Management 
 
 Con l'aggiornamento attualmente implementato, i due vengono uniti in un'unica esperienza di gestione e, in questo modo, si ottiene la stessa funzionalità per i ruoli di Azure AD come per i ruoli delle risorse di Azure. Questo articolo informa le funzionalità aggiornate e tutti i requisiti.
 
-
 ## <a name="time-bound-assignments"></a>Assegnazioni con scadenza
 
-In precedenza Privileged Identity Management per i ruoli di Azure AD, si conoscevano le assegnazioni di ruolo con due stati possibili, *idonei* e *permanenti*. A questo punto è possibile impostare un'ora di inizio e di fine per ogni tipo di assegnazione. Questa aggiunta fornisce quattro stati possibili in cui è possibile effettuare un'assegnazione:
+In precedenza erano disponibili due stati possibili per le assegnazioni di ruolo: *idonee* e *permanenti*. Ora è anche possibile impostare un'ora di inizio e di fine per ogni tipo di assegnazione. Questa aggiunta fornisce quattro stati possibili in cui è possibile effettuare un'assegnazione:
 
 - Idoneo in modo permanente
 - Attivo in modo permanente
-- Idoneo, con le date di inizio/fine specificate per l'assegnazione
-- Attivo, con le date di inizio/fine specificate per l'assegnazione
+- Idoneo, con le date di inizio e di fine specificate per l'assegnazione
+- Attivo, con le date di inizio e di fine specificate per l'assegnazione
 
 In molti casi, anche se non si vuole che gli utenti dispongano di assegnazione idonea e attivino ogni volta i ruoli, è comunque possibile proteggere l'organizzazione Azure AD impostando una data di scadenza per le assegnazioni. Ad esempio, se si dispone di alcuni utenti temporanei idonei, è consigliabile impostare una scadenza in modo da rimuoverli automaticamente dall'assegnazione di ruolo al termine del lavoro.
 
 ## <a name="new-role-settings"></a>Impostazioni nuovo ruolo
 
-Vengono inoltre aggiunte nuove impostazioni per i ruoli Azure AD. In precedenza era possibile configurare solo le impostazioni di attivazione per singolo ruolo. Ovvero le impostazioni di attivazione, ad esempio i requisiti di autenticazione a più fattori e i requisiti del ticket per eventi imprevisti e richieste, sono stati applicati a tutti gli utenti idonei per un ruolo specifico. A questo punto, è possibile configurare se un singolo utente deve eseguire l'autenticazione a più fattori prima di poter attivare un ruolo. Inoltre, è possibile disporre di un controllo avanzato sui messaggi di posta elettronica di Privileged Identity Management correlati a ruoli specifici.
+Vengono inoltre aggiunte nuove impostazioni per i ruoli Azure AD.
+
+- **In precedenza**era possibile configurare solo le impostazioni di attivazione per singolo ruolo. Ovvero le impostazioni di attivazione, ad esempio i requisiti di autenticazione a più fattori e i requisiti del ticket per eventi imprevisti e richieste, sono stati applicati a tutti gli utenti idonei per un ruolo specifico.
+- A **questo punto**, è possibile configurare se un singolo utente deve eseguire l'autenticazione a più fattori prima di poter attivare un ruolo. Inoltre, è possibile disporre di un controllo avanzato sui messaggi di posta elettronica di Privileged Identity Management correlati a ruoli specifici.
 
 ## <a name="extend-and-renew-assignments"></a>Estendi e rinnova le assegnazioni
 
 Non appena si scopre l'assegnazione temporale, la prima domanda che si potrebbe chiedere è che cosa accade se un ruolo è scaduto? In questa nuova versione sono disponibili due opzioni per questo scenario:
 
-- Estendi: quando un'assegnazione di ruolo si avvicina alla scadenza, l'utente può usare Privileged Identity Management per richiedere un'estensione per tale assegnazione di ruolo
-- Rinnovo: quando un'assegnazione di ruolo scade, l'utente può usare Privileged Identity Management per richiedere un rinnovo per tale assegnazione di ruolo
+- **Estendi**: quando un'assegnazione di ruolo si avvicina alla scadenza, l'utente può usare Privileged Identity Management per richiedere un'estensione per tale assegnazione di ruolo
+- **Rinnovo**: quando un'assegnazione di ruolo è scaduta, l'utente può usare Privileged Identity Management per richiedere un rinnovo per tale assegnazione di ruolo
 
 Per entrambe le azioni avviate dall'utente è richiesta un'approvazione da un amministratore globale o da un amministratore del ruolo con privilegi. Gli amministratori non dovranno più occuparsi della gestione di queste scadenze. È sufficiente attendere le richieste di estensione o rinnovo e approvarle se la richiesta è valida.
 

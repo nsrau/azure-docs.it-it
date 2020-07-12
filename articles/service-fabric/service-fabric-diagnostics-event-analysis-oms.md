@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: 40dd930aa21e3056d5ecc908359215d6874ed8ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464731"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257670"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analisi e visualizzazione di eventi con i log di monitoraggio di Azure
  I log di Monitoraggio di Azure raccolgono e analizzano i dati telemetrici delle applicazioni e dei servizi ospitati nel cloud e forniscono gli strumenti di analisi per sfruttarne al meglio la disponibilità e le prestazioni. Questo articolo illustra come eseguire query nei log di monitoraggio di Azure per ottenere informazioni dettagliate e risolvere i problemi che si verificano nel cluster. Vengono affrontate le seguenti domande comuni:
@@ -103,6 +104,6 @@ Il linguaggio di query Kusto è potente. Un'altra query importante che è possib
 
 * Per abilitare il monitoraggio dell'infrastruttura, ovvero i contatori delle prestazioni, vedere come [aggiungere l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md). L'agente raccoglie i contatori delle prestazioni e li aggiunge all'area di lavoro esistente.
 * Per i cluster locali, log di monitoraggio di Azure offre un gateway (proxy di inoltro HTTP) che può essere usato per inviare dati ai log di monitoraggio di Azure. Per altre informazioni, vedere [connessione di computer senza accesso a Internet ai log di monitoraggio di Azure tramite il gateway log Analytics](../azure-monitor/platform/gateway.md).
-* Configurare gli [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) in modo da semplificare il rilevamento e la diagnostica.
-* Acquisire familiarità con le funzionalità di [Ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) disponibili nell'ambito dei log di monitoraggio di Azure.
-* Ottenere una panoramica più dettagliata dei log di monitoraggio di Azure e delle relative offerte, vedere informazioni sui [log di monitoraggio di Azure](../operations-management-suite/operations-management-suite-overview.md).
+* Configurare gli [avvisi automatizzati](../azure-monitor/platform/alerts-overview.md) in modo da semplificare il rilevamento e la diagnostica.
+* Acquisire familiarità con le funzionalità di [Ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) disponibili nell'ambito dei log di monitoraggio di Azure.
+* Ottenere una panoramica più dettagliata dei log di monitoraggio di Azure e delle relative offerte, vedere informazioni sui [log di monitoraggio di Azure](../azure-monitor/overview.md).

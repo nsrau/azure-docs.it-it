@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 06c4ede12f939e48973d3e0b502d90b848d199bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e58cd8f19ab98601d37df185656038dbd5679eb2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79280300"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255048"
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -55,7 +56,7 @@ Usare il criterio `cache-lookup` per eseguire una ricerca nella cache e restitui
 </cache-lookup>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example"></a>Esempio
 
@@ -105,7 +106,7 @@ Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-ex
 |vary-by-header|Avviare la memorizzazione delle risposte nella cache per ogni valore dell'intestazione specificata, come ad esempio Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host e If-Match.|No|
 |vary-by-query-parameter|Avvia risposte di memorizzazione nella cache per ogni valore dei parametri di query specificati. Immettere un singolo parametro o più parametri. Usare un punto e virgola (;) come separatore. Se non è specificato alcun nome, verranno usati tutti i parametri di query.|No|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Nome                           | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
@@ -113,11 +114,11 @@ Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-ex
 | tipo di memorizzazione nella cache               | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No       | `prefer-external` |
 | downstream-caching-type        | Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   none - Non è consentita la memorizzazione nella cache downstream.<br />-   private - È consentita la memorizzazione nella cache downstream privata.<br />-   public - È consentita la memorizzazione nella cache downstream privata e condivisa.                                                                                                          | No       | Nessuno              |
 | must-revalidate                | Quando è abilitata la memorizzazione nella cache downstream, questo attributo attiva o disattiva la direttiva di controllo di memorizzazione della cache `must-revalidate` nelle risposte del gateway.                                                                                                                                                                                                                      | No       | true              |
-| vary-by-developer              | Impostare su `true` per memorizzare le risposte nella cache per ogni [chiave sottoscrizione](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Sì      |         False          |
-| vary-by-developer-groups       | Impostare su `true` per memorizzare le risposte nella cache per ogni [gruppo utenti](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Sì      |       False            |
+| vary-by-developer              | Impostare su `true` per memorizzare le risposte nella cache per ogni [chiave sottoscrizione](./api-management-subscriptions.md).                                                                                                                                                                                                                                                                                                         | Sì      |         Falso          |
+| vary-by-developer-groups       | Impostare su `true` per memorizzare le risposte nella cache per ogni [gruppo utenti](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sì      |       Falso            |
 
 ### <a name="usage"></a>Utilizzo
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** inbound
 - **Ambiti del criterio:** tutti gli ambiti
@@ -134,7 +135,7 @@ Il criterio `cache-store` memorizza nella cache le risposte in base alle imposta
 <cache-store duration="seconds" />
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example"></a>Esempio
 
@@ -182,14 +183,14 @@ Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-ex
 |----------|-----------------|--------------|
 |cache-store|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Nome             | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | duration         | Durata (TTL, Time-To-Live) delle voci memorizzate nella cache, in secondi.                                                                                                                                                                                                                                                                                                   | Sì      | N/D               |
 
 ### <a name="usage"></a>Utilizzo
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** in uscita
 - **Ambiti del criterio:** tutti gli ambiti
@@ -210,7 +211,7 @@ Usare il criterio `cache-lookup-value` per eseguire la ricerca nella cache in ba
 ```
 
 ### <a name="example"></a>Esempio
-Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione nella cache personalizzata in Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/).
+Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione nella cache personalizzata in Gestione API di Azure](./api-management-sample-cache-by-key.md).
 
 ```xml
 <cache-lookup-value
@@ -225,7 +226,7 @@ Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione 
 |----------|-----------------|--------------|
 |cache-lookup-value|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Nome             | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
@@ -235,7 +236,7 @@ Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione 
 | variable-name    | Nome della [variabile di contesto](api-management-policy-expressions.md#ContextVariables) a cui verrà assegnato il valore cercato, se la ricerca ha esito positivo. Se la ricerca non produce risultati, alla variabile sarà assegnato il valore dell'attributo `default-value` o `null`, se l'attributo `default-value` è omesso.                                       | Sì      | N/D               |
 
 ### <a name="usage"></a>Utilizzo
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** inbound, outbound, backend, on-error
 - **Ambiti del criterio:** tutti gli ambiti
@@ -253,7 +254,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 ```
 
 ### <a name="example"></a>Esempio
-Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione nella cache personalizzata in Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/).
+Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione nella cache personalizzata in Gestione API di Azure](./api-management-sample-cache-by-key.md).
 
 ```xml
 <cache-store-value
@@ -268,16 +269,16 @@ Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione 
 |----------|-----------------|--------------|
 |cache-store-value|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Nome             | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | tipo di memorizzazione nella cache | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No       | `prefer-external` |
 | duration         | Il valore verrà memorizzato nella cache per il valore di durata specificato, espresso in secondi.                                                                                                                                                                                                                                                                                 | Sì      | N/D               |
 | Key              | La chiave della cache in cui verrà archiviato il valore.                                                                                                                                                                                                                                                                                                                   | Sì      | N/D               |
-| Valore            | Il valore da memorizzare nella cache.                                                                                                                                                                                                                                                                                                                                     | Sì      | N/D               |
+| value            | Il valore da memorizzare nella cache.                                                                                                                                                                                                                                                                                                                                     | Sì      | N/D               |
 ### <a name="usage"></a>Utilizzo
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** inbound, outbound, backend, on-error
 - **Ambiti del criterio:** tutti gli ambiti
@@ -307,7 +308,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 |----------|-----------------|--------------|
 |cache-remove-value|Elemento radice.|Sì|
 
-#### <a name="attributes"></a>Attributes
+#### <a name="attributes"></a>Attributi
 
 | Nome             | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
@@ -315,7 +316,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 | Key              | La chiave del valore memorizzato in precedenza nella cache da rimuovere dalla cache.                                                                                                                                                                                                                                                                                        | Sì      | N/D               |
 
 #### <a name="usage"></a>Utilizzo
-Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
+Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** inbound, outbound, backend, on-error
 - **Ambiti del criterio:** tutti gli ambiti
@@ -326,5 +327,5 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
 + [Trasformare le API](transform-api.md)
-+ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
++ [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)

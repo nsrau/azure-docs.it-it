@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564459"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255660"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
 
@@ -32,7 +32,7 @@ Con l'ottimizzazione multimediale per Microsoft teams, il client desktop di Wind
 Prima di poter usare Microsoft teams sul desktop virtuale di Windows, è necessario eseguire queste operazioni:
 
 - [Preparare la rete](/microsoftteams/prepare-network/) per Microsoft teams.
-- Installare il [client desktop di Windows](connect-windows-7-and-10.md) in un dispositivo Windows 10 o Windows 10 Internet che soddisfi i requisiti hardware per i team di Microsoft teams [in un computer Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Installare il [client desktop di Windows](connect-windows-7-10.md) in un dispositivo Windows 10 o Windows 10 Internet che soddisfi i requisiti hardware per i team di Microsoft teams [in un computer Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connettersi a una macchina virtuale (VM) di Windows 10 multisessione o Windows 10 Enterprise.
 - Installare l'app desktop per i team nell'host usando l'installazione per computer. L'ottimizzazione dei supporti per Microsoft teams richiede team desktop app 1.3.00.4461 o versione successiva.
 

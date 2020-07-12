@@ -15,11 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad8990512cb09f6048b169c1d0c0a259a62b61b
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827149"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256680"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -256,6 +257,16 @@ In rari casi, il servizio Azure AD Connect non si avvia dopo l'aggiornamento. In
 
 **D: Quali rischi si corrono quando si esegue l'aggiornamento a una versione più recente di Azure AD Connect? È possibile ricevere assistenza telefonica per eseguire correttamente l'aggiornamento?**  
 Se è necessaria assistenza per l'aggiornamento a una versione di Azure AD Connect più recente, aprire un ticket di supporto nella pagina [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) (Creare una richiesta di servizio per contattare il supporto di Office 365).
+
+## <a name="operational-best-practice"></a>Procedura consigliata operativa    
+Di seguito sono riportate alcune procedure consigliate da implementare durante la sincronizzazione tra Active Directory di Windows Server e Azure Active Directory.
+
+**Applica multi-factor authentication per tutti gli account sincronizzati** Azure Multi-Factor Authentication aiuta a proteggere l'accesso ai dati e alle applicazioni mantenendo la semplicità per gli utenti. Offre ulteriore sicurezza richiedendo una seconda forma di autenticazione nonché un'autenticazione avanzata tramite una gamma di metodi di autenticazione semplici. Gli utenti possono o meno visualizzare una richiesta di autenticazione MFA in base alle decisioni di configurazione prese da un amministratore. Altre informazioni sull'autenticazione a più fattori sono disponibili qui:https://www.microsoft.com/security/business/identity/mfa?rtc=1
+
+**Segui le linee guida per la sicurezza di Azure ad Connect Server** Il server Azure AD Connect contiene dati di identità critici e deve essere considerato come un componente di livello 0, come documentato nel [modello di livello amministrativo Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Consultare anche le [linee guida per la protezione del server AADConnect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server).
+
+**Abilita pH per il rilevamento di credenziali perse** La sincronizzazione dell'hash delle password consente anche il [rilevamento di credenziali perse](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) per gli account ibridi. Microsoft collabora con i ricercatori e le autorità giudiziarie dell'autorità di amministrazione per trovare le coppie nome utente/password disponibili pubblicamente. Se una di queste coppie corrisponde a quelle degli utenti, l'account associato viene spostato a rischio elevato. 
+
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 **D: Come è possibile ottenere informazioni su Azure AD Connect?**

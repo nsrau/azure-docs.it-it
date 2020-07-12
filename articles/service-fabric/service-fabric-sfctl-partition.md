@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: c038ef3266a727bf6984a5bd88ca540a589380db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fff569c586548d84ed55018764363ad7f05e526d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905848"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257088"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consente di eseguire una query e gestire partizioni per qualsiasi servizio.
@@ -44,7 +45,7 @@ Avvierà una chiamata all'API OnDataLossAsync della partizione.  Questa API dete
 > [!NOTE]   
 > Dopo aver chiamato questa API, la chiamata non può essere annullata. La chiamata di CancelOperation arresterà solo l'esecuzione e pulirà lo stato di sistema interno. Non ripristinerà i dati se il comando è stato eseguito abbastanza a lungo da causare la perdita di dati. Chiamare l'API GetDataLossProgress con lo stesso OperationId per restituire le informazioni sull'operazione avviata con questa API.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -69,7 +70,7 @@ Indica lo stato di avanzamento di un'operazione di perdita di dati avviata usand
 
 Indica lo stato di avanzamento di un'operazione di perdita di dati avviata con StartDataLoss, usando il valore OperationId.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -93,7 +94,7 @@ Mostra l'integrità della partizione di Service Fabric specificata.
 
 Usare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riportati nel servizio in base allo stato di integrità. Utilizzare ReplicasHealthStateFilter per filtrare la raccolta di oggetti ReplicaHealthState nella partizione. Se si specifica una partizione che non esiste nell'archivio integrità, questa richiesta restituisce un errore.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -118,7 +119,7 @@ Mostra le informazioni su una partizione di Service Fabric.
 
 Ottiene le informazioni sulla partizione specificata. La risposta include l'ID di partizione, le informazioni dello schema di partizionamento, le chiavi supportate dalla partizione, lo stato, l’integrità e altri dettagli sulla partizione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -140,7 +141,7 @@ Mostra l'elenco delle partizioni di un servizio di Service Fabric.
 
 La risposta include l'ID di partizione, le informazioni dello schema di partizionamento, le chiavi supportate dalla partizione, lo stato, l’integrità e altri dettagli sulla partizione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -163,7 +164,7 @@ Ottiene le informazioni sul carico della partizione di Service Fabric specificat
 
 Restituisce informazioni sul carico di una partizione specificata. La risposta include un elenco di report di carico per una partizione di Service Fabric. Ogni report include il nome e il valore della metrica del carico e l’ultimo orario di segnalazione riportato in UTC.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -185,7 +186,7 @@ Reimposta il carico corrente di una partizione di Service Fabric.
 
 Reimposta il carico corrente di una partizione di Service Fabric sul carico predefinito per il servizio.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -207,7 +208,7 @@ Provoca la perdita di quorum per una partizione di servizio con stato specificat
 
 Questa API è utile per un caso di perdita di quorum temporaneo sul servizio. Chiamare l'API GetQuorumLossProgress con lo stesso OperationId per restituire le informazioni sull'operazione avviata con questa API. È possibile eseguire la chiamata solo in servizi permanenti con stato (HasPersistedState==true).  Non usare questa API in servizi senza stato o in servizi con stato solo in memoria.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -233,7 +234,7 @@ Indica lo stato di avanzamento di un'operazione di perdita di quorum in una part
 
 Indica lo stato di avanzamento di un'operazione di perdita di quorum avviata con StartQuorumLoss, usando l'OperationId specificato.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -257,7 +258,7 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare una partizi
 
 Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un uso non corretto di questa API può causare una perdita di dati.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -279,7 +280,7 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare tutti i ser
 
 Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un uso non corretto di questa API può causare una perdita di dati.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -300,7 +301,7 @@ Invia un report di integrità sulla partizione di Service Fabric.
 
 Segnala lo stato di integrità della partizione di Service Fabric specificata. Il report deve contenere le informazioni relative all'origine del report sull'integrità e alla proprietà in cui viene segnalato. Il report viene inviato a una partizione del gateway di Service Fabric, che lo inoltra all'archivio integrità. Il report può essere accettato dal gateway, ma rifiutato dall'archivio integrità dopo la convalida aggiuntiva. L'archivio integrità, ad esempio, può rifiutare il report a causa di un parametro non valido, come un numero di sequenza non aggiornato. Per determinare se il report è stato applicato nell'archivio integrità, controllare che il report venga visualizzato nella sezione degli eventi.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -330,7 +331,7 @@ Questa API riavvierà alcune o tutte le repliche o le istanze della partizione s
 
 Questa API è utile per il test del failover. Se utilizzato come destinazione di una partizione del servizio senza stato, RestartPartitionMode deve essere AllReplicasOrInstances. Richiamare l'API GetPartitionRestartProgress utilizzando la stessa OperationId per ottenere lo stato di avanzamento.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -355,7 +356,7 @@ Indica lo stato di avanzamento di un'operazione PartitionRestart avviata usando 
 
 Indica lo stato di avanzamento di un'operazione PartitionRestart avviata con StartPartitionRestart, usando l'OperationId specificato.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -379,7 +380,7 @@ Mostra il nome del servizio Service Fabric per una partizione.
 
 Ottiene il nome del servizio per la partizione specificata. Se l'ID di partizione non esiste nel cluster, viene restituito un errore 404.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -399,4 +400,4 @@ Ottiene il nome del servizio per la partizione specificata. Se l'ID di partizion
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

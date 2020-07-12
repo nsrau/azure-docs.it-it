@@ -4,12 +4,12 @@ description: Informazioni su come ruotare i certificati in un cluster Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 715771c7a1704e0d39f790d018980c4b39ba351b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e48a05a36fdbd56fb78cd1394c512485b521e50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817454"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255354"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Ruotare i certificati in Azure Kubernetes Service (AKS)
 
@@ -62,7 +62,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > Il completamento dell'operazione potrebbe richiedere fino a 30 minuti `az aks rotate-certs` . Se il comando ha esito negativo prima del completamento, usare `az aks show` per verificare che lo stato del cluster sia la *rotazione del certificato*. Se il cluster si trova in uno stato di errore, eseguire `az aks rotate-certs` di nuovo per ruotare nuovamente i certificati.
 
-Verificare che i certificati precedenti non siano più validi eseguendo un `kubectl` comando. Poiché non sono stati aggiornati i certificati utilizzati da `kubectl` , verrà visualizzato un errore.  Ad esempio:
+Verificare che i certificati precedenti non siano più validi eseguendo un `kubectl` comando. Poiché non sono stati aggiornati i certificati utilizzati da `kubectl` , verrà visualizzato un errore.  ad esempio:
 
 ```console
 $ kubectl get no
@@ -75,7 +75,7 @@ Aggiornare il certificato utilizzato da eseguendo `kubectl` `az aks get-credenti
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Verificare che i certificati siano stati aggiornati eseguendo un `kubectl` comando che ora avrà esito positivo. Ad esempio:
+Verificare che i certificati siano stati aggiornati eseguendo un `kubectl` comando che ora avrà esito positivo. ad esempio:
 
 ```console
 kubectl get no
@@ -94,5 +94,5 @@ Questo articolo ha illustrato come ruotare automaticamente i certificati, le aut
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
-[dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[dev-spaces]: ../dev-spaces/index.yml
 [dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates

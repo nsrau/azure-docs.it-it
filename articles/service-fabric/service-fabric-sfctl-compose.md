@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1e40ca4e3c5ec8b7566646aa7ef723bd4c9e45a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e84b35ff3dfa7be0c848a4d7b906c622d9b88914
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906139"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257338"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Creare, eliminare e gestire applicazioni Docker Compose.
@@ -29,7 +30,7 @@ Creare, eliminare e gestire applicazioni Docker Compose.
 ## <a name="sfctl-compose-create"></a>sfctl compose create
 Crea una distribuzione di composizione di Service Fabric.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -55,7 +56,7 @@ Mostra l'elenco di distribuzioni di composizione create nel cluster di Service F
 
 Mostra lo stato delle distribuzioni di composizione che sono state create oppure sono in corso di creazione nel cluster di Service Fabric. La risposta include il nome, lo stato e altri dettagli relativi alle distribuzioni di composizione. Se l'elenco di distribuzioni non rientra in una pagina, vengono restituiti una pagina di risultati e un token di continuazione, che può essere usato per accedere alla pagina successiva.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Description|
 | --- | --- |
@@ -78,7 +79,7 @@ Elimina una distribuzione di composizione Service Fabric esistente dal cluster.
 
 Elimina una distribuzione di composizione Service Fabric esistente dal cluster.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -100,7 +101,7 @@ Mostra informazioni su una distribuzione di composizione Service Fabric.
 
 Restituisce lo stato della distribuzione di composizione che è stata creata o è in corso di creazione nel cluster di Service Fabric e il cui nome corrisponde a quello specificato come parametro. La risposta include il nome, lo stato e altri dettagli relativi alla distribuzione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -122,7 +123,7 @@ Avvia l'aggiornamento di una distribuzione di composizione nel cluster di Servic
 
 Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della distribuzione se i parametri sono validi.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -162,7 +163,7 @@ Avvia il rollback di un aggiornamento di una distribuzione Compose nel cluster d
 
 Consente di eseguire il rollback di un aggiornamento di una distribuzione Compose di Service Fabric.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -184,7 +185,7 @@ Mostra i dettagli dell'aggiornamento più recente eseguito sulla distribuzione C
 
 Restituisce le informazioni sullo stato dell'aggiornamento della distribuzione di composizione, con dettagli che agevolano il debug dei problemi di integrità dell'applicazione.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -204,4 +205,4 @@ Restituisce le informazioni sullo stato dell'aggiornamento della distribuzione d
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
-- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](./scripts/sfctl-upgrade-application.md).

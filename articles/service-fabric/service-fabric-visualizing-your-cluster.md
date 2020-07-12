@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79258187"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256255"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -131,7 +132,7 @@ Sono possibili le operazioni seguenti:
 * Attivare e tenere traccia del backup di una partizione.
 * Attivare e tenere traccia del ripristino per una partizione.
 
-Per altre informazioni sul servizio di backup e ripristino, vedere le informazioni di [riferimento sull'API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+Per altre informazioni sul servizio di backup e ripristino, vedere le informazioni di [riferimento sull'API REST](/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Distribuzione di un'applicazione di Infrastruttura di servizi mediante PowerShell](service-fabric-deploy-remove-applications.md)

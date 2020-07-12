@@ -3,11 +3,12 @@ title: Distribuire e aggiornare con Azure Resource Manager
 description: Informazioni su come distribuire applicazioni e servizi in un cluster di Service Fabric usando un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75610251"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256510"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gestire applicazioni e servizi come risorse di Azure Resource Manager
 
@@ -260,13 +261,12 @@ La semplice rimozione di Microsoft. ServiceFabric/cluster/applicazione dal model
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Gestire un'applicazione esistente tramite Resource Manager
 
-Se il cluster è già attivo e si vogliono gestire come risorse di Resource Manager alcune applicazioni già distribuite nel cluster, invece di rimuovere le applicazioni e ridistribuirle è possibile eseguire una chiamata PUT usando le stesse API affinché le applicazioni vengano riconosciute come risorse di Resource Manager. Per altre informazioni, vedere [che cos'è il modello di risorsa Service Fabric applicazione?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
+Se il cluster è già attivo e si vogliono gestire come risorse di Resource Manager alcune applicazioni già distribuite nel cluster, invece di rimuovere le applicazioni e ridistribuirle è possibile eseguire una chiamata PUT usando le stesse API affinché le applicazioni vengano riconosciute come risorse di Resource Manager. Per altre informazioni, vedere [che cos'è il modello di risorsa Service Fabric applicazione?](./service-fabric-concept-resource-model.md)
 
 > [!NOTE]
-> Per consentire un aggiornamento del cluster e ignorare le app non integre, il cliente può specificare "maxPercentUnhealthyApplications: 100" nella sezione "upgradeDescription/healthPolicy". Descrizioni dettagliate per tutte le impostazioni sono disponibili nella [documentazione dei criteri di aggiornamento del cluster API REST di Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Per consentire un aggiornamento del cluster e ignorare le app non integre, il cliente può specificare "maxPercentUnhealthyApplications: 100" nella sezione "upgradeDescription/healthPolicy". Descrizioni dettagliate per tutte le impostazioni sono disponibili nella [documentazione dei criteri di aggiornamento del cluster API REST di Service Fabric](/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Usare l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md) o [PowerShell](service-fabric-deploy-remove-applications.md) per distribuire altre applicazioni nel cluster. 
 * [Aggiornare il cluster di Service Fabric](service-fabric-cluster-upgrade.md)
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43b6f5d4367cfc641183a17fda89cf1381c22a6c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82608916"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258607"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -28,7 +28,7 @@ ms.locfileid: "82608916"
 > A partire dal 30 aprile 2019, patch Orchestration Application versione 1,2. * non è più supportata. Assicurarsi di eseguire l'aggiornamento alla versione più recente.
 
 > [!NOTE]
-> Ottenere gli [aggiornamenti automatici delle immagini del sistema operativo nel set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) è la procedura consigliata per mantenere aggiornato il sistema operativo in Azure. Gli aggiornamenti automatici delle immagini del sistema operativo basati su set di scalabilità di macchine virtuali richiedono una durabilità Silver o maggiore in un set di scalabilità.
+> Ottenere gli [aggiornamenti automatici delle immagini del sistema operativo nel set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) è la procedura consigliata per mantenere aggiornato il sistema operativo in Azure. Gli aggiornamenti automatici delle immagini del sistema operativo basati su set di scalabilità di macchine virtuali richiedono una durabilità Silver o maggiore in un set di scalabilità.
 >
 
  Patch Orchestration Application (POA) è un wrapper per il servizio Azure Service Fabric Gestione ripristini, che consente la pianificazione della patch del sistema operativo basata sulla configurazione per i cluster non ospitati in Azure. Il POA non è obbligatorio per i cluster non ospitati da Azure, ma è necessaria la pianificazione dell'installazione delle patch da un dominio di aggiornamento per applicare patch Service Fabric host del cluster senza incorrere in tempi di inattività.
@@ -82,9 +82,9 @@ I cluster di Azure nel livello di durabilità Silver hanno il servizio Gestione 
 ![Immagine dell'abilitazione di Gestione ripristini dalla portale di Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="the-azure-resource-manager-deployment-model"></a>Il modello di distribuzione Azure Resource Manager
-In alternativa, è possibile usare il [modello di distribuzione Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) per abilitare il servizio gestione ripristini nei cluster Service Fabric nuovi ed esistenti. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i modelli di esempio o creare un modello di distribuzione Azure Resource Manager personalizzato. 
+In alternativa, è possibile usare il [modello di distribuzione Azure Resource Manager](./service-fabric-cluster-creation-via-arm.md) per abilitare il servizio gestione ripristini nei cluster Service Fabric nuovi ed esistenti. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i modelli di esempio o creare un modello di distribuzione Azure Resource Manager personalizzato. 
 
-Per abilitare il servizio Gestione ripristini tramite il modello di [distribuzione Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm), procedere come segue:
+Per abilitare il servizio Gestione ripristini tramite il modello di [distribuzione Azure Resource Manager](./service-fabric-cluster-creation-via-arm.md), procedere come segue:
 
 1. Verificare che `apiVersion` sia impostato su *2017-07-01-Preview* per la risorsa *Microsoft. ServiceFabric/Clusters* . Se è diverso, è necessario eseguire l'aggiornamento `apiVersion` a *2017-07-01-Preview* o versione successiva:
 
@@ -113,11 +113,11 @@ Per abilitare il servizio Gestione ripristini tramite il modello di [distribuzio
 
 ### <a name="standalone-on-premises-clusters"></a>Cluster locali autonomi
 
-Per abilitare il servizio Gestione ripristini in un cluster Service Fabric nuovo o esistente, è possibile usare le [impostazioni di configurazione per il cluster autonomo di Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
+Per abilitare il servizio Gestione ripristini in un cluster Service Fabric nuovo o esistente, è possibile usare le [impostazioni di configurazione per il cluster autonomo di Windows](./service-fabric-cluster-manifest.md).
 
 Per abilitare il servizio Gestione ripristini:
 
-1. Verificare che `apiVersion` in [configurazioni generali del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) sia impostato su *04-2017* o versione successiva, come illustrato di seguito:
+1. Verificare che `apiVersion` in [configurazioni generali del cluster](./service-fabric-cluster-manifest.md#general-cluster-configurations) sia impostato su *04-2017* o versione successiva, come illustrato di seguito:
 
     ```json
     {
@@ -139,7 +139,7 @@ Per abilitare il servizio Gestione ripristini:
     ],
     ```
 
-1. Aggiornare il manifesto del cluster con queste modifiche usando il manifesto del cluster aggiornato [creare un nuovo cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) o [aggiornare la configurazione del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). 
+1. Aggiornare il manifesto del cluster con queste modifiche usando il manifesto del cluster aggiornato [creare un nuovo cluster](./service-fabric-cluster-creation-for-windows-server.md) o [aggiornare la configurazione del cluster](./service-fabric-cluster-upgrade-windows-server.md). 
 
    Quando il cluster è in esecuzione con un manifesto del cluster aggiornato, è possibile visualizzare il servizio Gestione ripristini in esecuzione nel cluster. È denominato *Fabric:/System/RepairManagerService*e si trova nella sezione servizi di sistema in Service Fabric Explorer.
 
@@ -155,18 +155,18 @@ Per scaricare il pacchetto dell'applicazione, passare alla [pagina della version
 
 È possibile configurare il comportamento di POA per soddisfare le proprie esigenze. Eseguire l'override dei valori predefiniti passando il parametro dell'applicazione durante la creazione o l'aggiornamento dell'applicazione. È possibile specificare i parametri dell'applicazione specificando `ApplicationParameter` i `Start-ServiceFabricApplicationUpgrade` `New-ServiceFabricApplication` cmdlet o.
 
-| Parametro        | Type                          | Dettagli |
+| Parametro        | Tipo                          | Dettagli |
 |:-|-|-|
 |MaxResultsToCache    |long                              | Numero massimo di Windows Update risultati che devono essere memorizzati nella cache. <br><br>Il valore predefinito è 3000, supponendo che: <br> &nbsp;&nbsp;-Il numero di nodi è 20. <br> &nbsp;&nbsp;-Il numero di aggiornamenti per un nodo al mese è 5. <br> &nbsp;&nbsp;-Il numero di risultati per ogni operazione può essere 10. <br> &nbsp;&nbsp;-I risultati degli ultimi tre mesi devono essere archiviati. |
 |TaskApprovalPolicy   |Enumerazione <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br><br>Di seguito sono elencati i valori consentiti: <br>*No,:* gli aggiornamenti di Windows vengono installati un nodo alla volta. <br> *UpgradeDomainWise*: gli aggiornamenti di Windows sono installati un dominio di aggiornamento alla volta. Al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono andare per un aggiornamento di Windows.<br><br> Per decidere quale criterio è più adatto per il cluster, vedere la sezione [domande frequenti](#frequently-asked-questions) .
 |LogsDiskQuotaInMB   |long  <br> (Valore predefinito: *1024*)               | Dimensioni massime dei log di patch Orchestration app in MB, che possono essere rese disponibili localmente nei nodi.
-| WUQuery               | string<br>(Impostazione predefinita: *disinstallato = 0*)                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
-| InstallWindowsOSOnlyUpdates | *Boolean* <br> (impostazione predefinita: false)                 | Usare questo flag per controllare quali aggiornamenti devono essere scaricati e installati. Sono consentiti i valori seguenti: <br>true: installa solo gli aggiornamenti del sistema operativo Windows.<br>false: installa tutti gli aggiornamenti disponibili nel computer.          |
+| WUQuery               | string<br>(Impostazione predefinita: *disinstallato = 0*)                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search).
+| InstallWindowsOSOnlyUpdates | *Booleano* <br> (impostazione predefinita: false)                 | Usare questo flag per controllare quali aggiornamenti devono essere scaricati e installati. Sono consentiti i valori seguenti: <br>true: installa solo gli aggiornamenti del sistema operativo Windows.<br>false: installa tutti gli aggiornamenti disponibili nel computer.          |
 | WUOperationTimeOutInMinutes | Int <br>(Valore predefinito: *90*)                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
 | WURescheduleCount     | Int <br> (Valore predefinito: *5*)                  | Il numero massimo di volte in cui il servizio Ripianifica l'aggiornamento di Windows se un'operazione ha esito negativo in modo permanente.          |
 | WURescheduleTimeInMinutes | Int <br>(Valore predefinito: *30*) | Intervallo in base al quale il servizio Ripianifica gli aggiornamenti di Windows in caso di errore permanente. |
 | WUFrequency           | Stringa con valori delimitati da virgole (valore predefinito: *settimanale, mercoledì, 7:00:00*)     | Frequenza di installazione degli aggiornamenti di Windows. Il formato e i valori possibili sono: <br>-Monthly, GG, HH: MM: SS (esempio: *mensile, 5, 12:22:32*). I valori consentiti per il campo _GG_ (giorno) sono numeri compresi tra 1 e 28 e _l'ultimo_. <br>-Weekly, Day, HH: MM: SS (esempio: *Weekly, Tuesday, 12:22:32*)  <br>-Daily, HH: MM: SS (ad esempio: *Daily, 12:22:32*)  <br>-Settimana, giorno, HH: MM: SS (esempio: *2, venerdì, 21:00:00* indica 9:00 PM UTC il venerdì della seconda settimana di ogni mese) <br>- *None* indica che non è necessario eseguire gli aggiornamenti di Windows.  <br><br> Gli orari sono in formato UTC.|
-| AcceptWindowsUpdateEula | Boolean <br>(Valore predefinito: *true*) | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
+| AcceptWindowsUpdateEula | Booleano <br>(Valore predefinito: *true*) | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
 
 > [!TIP]
 > Se si desidera che gli aggiornamenti di Windows vengano eseguiti immediatamente, impostare `WUFrequency` in relazione al tempo di distribuzione dell'applicazione. Ad esempio, si supponga di disporre di un cluster di test a cinque nodi e si prevede di distribuire l'app all'incirca alle 17:00:00 UTC. Se si presuppone che l'aggiornamento o la distribuzione dell'applicazione riprenda al massimo 30 minuti, impostare WUFrequency come *giornaliero, 17:30:00*.
@@ -174,7 +174,7 @@ Per scaricare il pacchetto dell'applicazione, passare alla [pagina della version
 ## <a name="deploy-poa"></a>Distribuisci POA
 
 1. Completare tutti i passaggi preliminari per preparare il cluster.
-1. Distribuire il POA come qualsiasi altra app Service Fabric. Per distribuirlo usando PowerShell, vedere [distribuire e rimuovere applicazioni con PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+1. Distribuire il POA come qualsiasi altra app Service Fabric. Per distribuirlo usando PowerShell, vedere [distribuire e rimuovere applicazioni con PowerShell](./service-fabric-deploy-remove-applications.md).
 1. Per configurare l'applicazione al momento della distribuzione, passare `ApplicationParameter` al cmdlet `New-ServiceFabricApplication`. Per praticità, è stato fornito lo script Deploy.ps1 insieme all'applicazione. Per usare lo script:
 
     - Connettersi a un cluster di Service Fabric tramite `Connect-ServiceFabricCluster`.
@@ -185,11 +185,11 @@ Per scaricare il pacchetto dell'applicazione, passare alla [pagina della version
 
 ## <a name="upgrade-poa"></a>Aggiornamento POA
 
-Per aggiornare la versione di POA usando PowerShell, seguire le istruzioni riportate in [Service Fabric aggiornamento dell'applicazione con PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell).
+Per aggiornare la versione di POA usando PowerShell, seguire le istruzioni riportate in [Service Fabric aggiornamento dell'applicazione con PowerShell](./service-fabric-application-upgrade-tutorial-powershell.md).
 
 ## <a name="remove-poa"></a>Rimuovi POA
 
-Per rimuovere l'applicazione, seguire le istruzioni in [distribuire e rimuovere applicazioni con PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+Per rimuovere l'applicazione, seguire le istruzioni in [distribuire e rimuovere applicazioni con PowerShell](./service-fabric-deploy-remove-applications.md).
 
 Per praticità, è stato fornito lo script Undeploy.ps1 insieme all'applicazione. Per usare lo script:
 
@@ -240,7 +240,7 @@ Campo | Valori | Dettagli
 OperationResult | 0 - Completata<br> 1 - Completata con errori<br> 2 - Non riuscita<br> 3 - Interrotta<br> 4 - Interrotta con timeout | Indica il risultato dell'operazione complessiva, che in genere comporta l'installazione di uno o più aggiornamenti.
 ResultCode | Stesso di OperationResult | Questo campo indica il risultato dell'operazione di installazione per un singolo aggiornamento.
 Tipo operazione | 1 - Installazione<br> 0-ricerca e download| Per impostazione predefinita, l'installazione è l'unico OperationType visualizzato nei risultati.
-WindowsUpdateQuery | Impostazione predefinita: "IsInstalled = 0" | Query Windows Update utilizzata per la ricerca di aggiornamenti. Per ulteriori informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+WindowsUpdateQuery | Impostazione predefinita: "IsInstalled = 0" | Query Windows Update utilizzata per la ricerca di aggiornamenti. Per ulteriori informazioni, vedere [WuQuery](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search).
 RebootRequired | true: il riavvio è necessario<br> false: il riavvio non è necessario | Indica se è necessario riavviare il computer per completare l'installazione degli aggiornamenti.
 OperationStartTime | Datetime | Indica l'ora in cui è stata avviata l'operazione (download/installazione).
 OperationTime | Datetime | Indica l'ora in cui è stata completata l'operazione (download/installazione).
@@ -258,7 +258,7 @@ Se il proxy inverso è abilitato nel cluster, è possibile accedere anche all'UR
 
 L'endpoint che è necessario raggiungere è *http:// &lt; ServerURL &gt; : &lt; REVERSEPROXYPORT &gt; /PatchOrchestrationApplication/CoordinatorService/V1/GetWindowsUpdateResults*.
 
-Per abilitare il proxy inverso nel cluster, seguire le istruzioni in [proxy inverso in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
+Per abilitare il proxy inverso nel cluster, seguire le istruzioni in [proxy inverso in Azure Service Fabric](./service-fabric-reverseproxy.md). 
 
 > 
 > [!WARNING]
@@ -271,17 +271,17 @@ Questa sezione illustra come eseguire il debug o diagnosticare i problemi relati
 > [!NOTE]
 > Per ottenere molti dei miglioramenti seguenti denominati e di diagnostica automatica, è necessario che sia installato POA versione 1.4.0 o successiva.
 
-Node Agent NTService crea [attività di ripristino](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) per l'installazione degli aggiornamenti nei nodi. Ogni attività viene quindi preparata dal servizio Coordinator in base ai criteri di approvazione delle attività. Infine, le attività preparate vengono approvate da Gestione ripristini, che non approva alcuna attività se il cluster si trova in uno stato non integro. 
+Node Agent NTService crea [attività di ripristino](/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) per l'installazione degli aggiornamenti nei nodi. Ogni attività viene quindi preparata dal servizio Coordinator in base ai criteri di approvazione delle attività. Infine, le attività preparate vengono approvate da Gestione ripristini, che non approva alcuna attività se il cluster si trova in uno stato non integro. 
 
 Per comprendere il modo in cui gli aggiornamenti vengono eseguiti in un nodo, procediamo con la procedura dettagliata:
 
 1. NodeAgentNTService, in esecuzione in ogni nodo, Cerca gli aggiornamenti di Windows disponibili all'ora pianificata. Se sono disponibili aggiornamenti, vengono scaricati nel nodo.
 
-1. Una volta scaricati gli aggiornamenti, l'agente del nodo NTService crea un'attività di ripristino corrispondente per il nodo con il nome *POS___ \<unique_id> *. Per visualizzare le attività di ripristino, è possibile usare il cmdlet [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) o l'utilizzo di SFX nella sezione dei dettagli del nodo. Al termine della creazione, l'attività di ripristino passa rapidamente allo [stato *richiesto* ](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. Una volta scaricati gli aggiornamenti, l'agente del nodo NTService crea un'attività di ripristino corrispondente per il nodo con il nome *POS___ \<unique_id> *. Per visualizzare le attività di ripristino, è possibile usare il cmdlet [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) o l'utilizzo di SFX nella sezione dei dettagli del nodo. Al termine della creazione, l'attività di ripristino passa rapidamente allo [stato *richiesto* ](/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
 
 1. Il servizio Coordinator cerca periodicamente le attività di ripristino nello stato *richiesto* e quindi le aggiorna per *preparare* lo stato in base a TaskApprovalPolicy. Se TaskApprovalPolicy è configurato per essere No, un'attività di ripristino corrispondente a un nodo viene preparata solo se nessuna altra attività di ripristino è attualmente in fase di *preparazione*, *approvazione*, *esecuzione*o *ripristino* dello stato. 
 
-   Analogamente, nel caso di UpgradeWise TaskApprovalPolicy, sono presenti attività negli stati precedenti solo per i nodi che appartengono allo stesso dominio di aggiornamento. Quando un'attività di ripristino viene spostata nello stato di *preparazione* , il nodo Service Fabric corrispondente viene [disabilitato](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) con l'Intent set per il *riavvio*.
+   Analogamente, nel caso di UpgradeWise TaskApprovalPolicy, sono presenti attività negli stati precedenti solo per i nodi che appartengono allo stesso dominio di aggiornamento. Quando un'attività di ripristino viene spostata nello stato di *preparazione* , il nodo Service Fabric corrispondente viene [disabilitato](/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) con l'Intent set per il *riavvio*.
 
    POA Versions 1.4.0 e successivi eventi post con la proprietà ClusterPatchingStatus in CoordinatorService per visualizzare i nodi a cui viene applicata la patch. Gli aggiornamenti vengono installati in _poanode_0, come illustrato nella figura seguente:
 
@@ -300,7 +300,7 @@ Per comprendere il modo in cui gli aggiornamenti vengono eseguiti in un nodo, pr
 
    [![Immagine dello stato dell'operazione Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
-   È anche possibile ottenere i dettagli usando PowerShell. A tale scopo, connettersi al cluster e recuperare lo stato dell'attività di ripristino usando [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
+   È anche possibile ottenere i dettagli usando PowerShell. A tale scopo, connettersi al cluster e recuperare lo stato dell'attività di ripristino usando [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
    
    Nell'esempio seguente, l'attività "POS__poanode_2_125f2969-933c-4774-85D1-ebdf85e79f15" si trova nello stato *DownloadComplete* . Significa che gli aggiornamenti sono stati scaricati nel nodo *poanode_2* e l'installazione verrà tentata quando l'attività passa allo stato in *esecuzione* .
 
@@ -334,7 +334,7 @@ Per comprendere il modo in cui gli aggiornamenti vengono eseguiti in un nodo, pr
 
 I log di patch Orchestration Application vengono raccolti come parte dei log di Runtime Service Fabric.
 
-È possibile acquisire i log usando lo strumento di diagnostica o la pipeline di propria scelta. POA usa i seguenti ID provider fissi per registrare gli eventi tramite l' [origine evento](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1):
+È possibile acquisire i log usando lo strumento di diagnostica o la pipeline di propria scelta. POA usa i seguenti ID provider fissi per registrare gli eventi tramite l' [origine evento](/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1):
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -379,7 +379,7 @@ R: POA non installa gli aggiornamenti mentre il cluster non è integro. Provare 
 
 **D: è necessario impostare TaskApprovalPolicy come "No" o "UpgradeDomainWise" per il cluster?**
 
-R: l'impostazione "UpgradeDomainWise" accelera la correzione complessiva del cluster tramite l'applicazione di patch in parallelo a tutti i nodi appartenenti a un dominio di aggiornamento. Durante il processo, i nodi che appartengono a un intero dominio di aggiornamento non sono disponibili (in [stato *disabilitato* ](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
+R: l'impostazione "UpgradeDomainWise" accelera la correzione complessiva del cluster tramite l'applicazione di patch in parallelo a tutti i nodi appartenenti a un dominio di aggiornamento. Durante il processo, i nodi che appartengono a un intero dominio di aggiornamento non sono disponibili (in [stato *disabilitato* ](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
 
 Al contrario, l'impostazione "No," applica patch solo a un nodo alla volta, il che implica che l'applicazione di patch del cluster complessiva potrebbe richiedere più tempo. Tuttavia, durante il processo di applicazione di patch solo un nodo non sarà più disponibile (in stato *disabilitato* ).
 
@@ -405,9 +405,9 @@ R: il tempo necessario per applicare una patch a un intero cluster dipende da:
     - Per "No,": ~ 20 ore.
     - Per "UpgradeDomainWise": ~ 5 ore.
 
-- Carico del cluster. Ogni operazione di applicazione di patch richiede il trasferimento del carico di lavoro del cliente ad altri nodi disponibili nel cluster. Un nodo di cui è in corso l'applicazione di patch si trova nello [stato *disabilitato* ](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante questo periodo di tempo. Se il cluster è in esecuzione in prossimità del picco del carico, il processo di disabilitazione richiederà più tempo. Pertanto, il processo di applicazione di patch globale potrebbe sembrare lento in condizioni di questo tipo.
+- Carico del cluster. Ogni operazione di applicazione di patch richiede il trasferimento del carico di lavoro del cliente ad altri nodi disponibili nel cluster. Un nodo di cui è in corso l'applicazione di patch si trova nello [stato *disabilitato* ](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante questo periodo di tempo. Se il cluster è in esecuzione in prossimità del picco del carico, il processo di disabilitazione richiederà più tempo. Pertanto, il processo di applicazione di patch globale potrebbe sembrare lento in condizioni di questo tipo.
 
-- Errori di integrità del cluster durante l'applicazione di patch. Qualsiasi [riduzione](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) dell' [integrità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) interrompe il processo di applicazione delle patch. Questo problema può essere aggiunto al tempo complessivo necessario per applicare la patch all'intero cluster.
+- Errori di integrità del cluster durante l'applicazione di patch. Qualsiasi [riduzione](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) dell' [integrità del cluster](./service-fabric-health-introduction.md) interrompe il processo di applicazione delle patch. Questo problema può essere aggiunto al tempo complessivo necessario per applicare la patch all'intero cluster.
 
 **D: perché vengono visualizzati alcuni aggiornamenti nei risultati Windows Update ottenuti tramite l'API REST, ma non nella cronologia Windows Update del computer?**
 
@@ -415,11 +415,11 @@ R: alcuni aggiornamenti del prodotto vengono visualizzati solo nella relativa cr
 
 **D: è possibile usare POA per applicare patch al cluster di sviluppo (cluster a un nodo)?**
 
-R: No, non è possibile usare POA per applicare patch a un cluster a un nodo. Questa limitazione è dovuta alla progettazione, perché [Service Fabric servizi di sistema](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) o altre app del cliente potrebbero causare tempi di inattività. Pertanto, l'applicazione di patch ai processi di ripristino non verrà mai approvata da Gestione ripristini.
+R: No, non è possibile usare POA per applicare patch a un cluster a un nodo. Questa limitazione è dovuta alla progettazione, perché [Service Fabric servizi di sistema](./service-fabric-technical-overview.md#system-services) o altre app del cliente potrebbero causare tempi di inattività. Pertanto, l'applicazione di patch ai processi di ripristino non verrà mai approvata da Gestione ripristini.
 
 **D: Ricerca per categorie applicare patch ai nodi del cluster in Linux?**
 
-R: per informazioni su come orchestrare gli aggiornamenti in Linux, vedere [aggiornamenti automatici delle immagini del sistema operativo del set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+R: per informazioni su come orchestrare gli aggiornamenti in Linux, vedere [aggiornamenti automatici delle immagini del sistema operativo del set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 **D: perché il ciclo di aggiornamento richiede molto tempo?**
 

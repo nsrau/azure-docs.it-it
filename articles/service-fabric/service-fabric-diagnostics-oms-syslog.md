@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645753"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258634"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventi cluster Linux di Service Fabric in Syslog
 
@@ -112,6 +113,6 @@ L'esempio precedente è di un evento NodeDown. L'elenco completo degli eventi è
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere contatori delle prestazioni, statistiche Docker e registri per i contenitori
-* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) incluse nei log di Monitoraggio di Azure
-* [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di monitoraggio di Azure](../log-analytics/log-analytics-view-designer.md)
-* Informazioni di riferimento sull' [integrazione dei log di monitoraggio di Azure con syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) incluse nei log di Monitoraggio di Azure
+* [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di monitoraggio di Azure](../azure-monitor/platform/view-designer.md)
+* Informazioni di riferimento sull' [integrazione dei log di monitoraggio di Azure con syslog](../azure-monitor/platform/data-sources-syslog.md).

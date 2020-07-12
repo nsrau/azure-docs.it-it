@@ -4,12 +4,12 @@ description: Informazioni sull'uso delle identità gestite per Azure con Service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: a5c82f49195fc6d790ca4308d78b70106b6cc042
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 786d9b4b577f4a686367a103542ae4f8fa5453da
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710304"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257625"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Uso delle identità gestite per Azure con Service Fabric
 
@@ -24,7 +24,7 @@ Un problema comune durante la creazione di applicazioni cloud è la modalità di
 
 Le identità gestite per Azure sono basate su diversi concetti chiave:
 
-- **ID client** : un identificatore univoco generato da Azure ad associato a un'applicazione e un'entità servizio durante il provisioning iniziale (vedere anche [ID applicazione](/azure/active-directory/develop/developer-glossary#application-id-client-id)).
+- **ID client** : un identificatore univoco generato da Azure ad associato a un'applicazione e un'entità servizio durante il provisioning iniziale (vedere anche [ID applicazione](../active-directory/develop/developer-glossary.md#application-id-client-id)).
 
 - **ID entità** : ID oggetto dell'oggetto entità servizio per l'identità gestita usata per concedere l'accesso in base al ruolo a una risorsa di Azure.
 

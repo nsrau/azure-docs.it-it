@@ -5,20 +5,20 @@ author: abhishekram
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a38a11d9cf062cd0a45890d43afe9b2530b2b7bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846597"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258465"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Actors
-Il runtime di Reliable Actors rende disponibili eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contatori delle prestazioni](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx), che forniscono informazioni utili per comprendere il funzionamento del runtime e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
+Il runtime di Reliable Actors rende disponibili eventi [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) e [contatori delle prestazioni](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1), che forniscono informazioni utili per comprendere il funzionamento del runtime e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
 
 ## <a name="eventsource-events"></a>Eventi EventSource
 Il nome provider di EventSource per il runtime di Reliable Actors è "Microsoft-ServiceFabric-Actors". Gli eventi provenienti da questa origine vengono visualizzati nella finestra degli [eventi di diagnostica](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando l'applicazione attore viene sottoposta a [debug in Visual Studio](service-fabric-debugging-your-application.md).
 
-Alcuni esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Alcuni esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](/previous-versions/msp-n-p/dn774980(v=pandp.10)) e [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### <a name="keywords"></a>Parole chiave
 Tutti gli eventi appartenenti a EventSource di Reliable Actors sono associati a una o più parole chiave. Questo consente di filtrare gli eventi che vengono raccolti. Sono definiti i bit delle parole chiave seguenti:
@@ -33,14 +33,14 @@ Tutti gli eventi appartenenti a EventSource di Reliable Actors sono associati a 
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable Actors definisce le categorie di contatori delle prestazioni seguenti.
 
-| Category | Descrizione |
+| Categoria | Descrizione |
 | --- | --- |
 | Service Fabric Actor |Contatori specifici degli attori di Azure Service Fabric, ad esempio per il tempo necessario per salvare lo stato di un attore |
 | Service Fabric Actor Method |Contatori specifici dei metodi implementati dagli attori di Service Fabric, ad esempio per la frequenza con cui viene richiamato un metodo di un attore |
 
 Ognuna di queste categorie include uno o più contatori.
 
-L'applicazione [Performance Monitor di Windows](https://technet.microsoft.com/library/cc749249.aspx) , disponibile per impostazione predefinita nel sistema operativo Windows, può essere usata per raccogliere e visualizzare i dati dei contatori delle prestazioni. [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) rappresenta una valida alternativa per la raccolta di tali dati e il relativo caricamento nelle tabelle di Azure.
+L'applicazione [Performance Monitor di Windows](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) , disponibile per impostazione predefinita nel sistema operativo Windows, può essere usata per raccogliere e visualizzare i dati dei contatori delle prestazioni. [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) rappresenta una valida alternativa per la raccolta di tali dati e il relativo caricamento nelle tabelle di Azure.
 
 ### <a name="performance-counter-instance-names"></a>Nomi delle istanze dei contatori delle prestazioni
 Un cluster con un numero elevato di servizi attore o di partizioni di servizi attore disporrà di un numero considerevole di istanze di contatori delle prestazioni degli attori. I nomi delle istanze possono facilitare l'identificazione della [partizione](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) specifica e del metodo dell'attore (se applicabile) a cui l'istanza è associata.
@@ -50,7 +50,7 @@ Per la categoria `Service Fabric Actor`, i nomi delle istanze dei contatori sono
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metodo con l'identificatore di formato "D".
+*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
 
 *ActorRuntimeInternalID* è la rappresentazione sotto forma di stringa di un numero intero a 64 bit generato dal runtime di Fabric Actors per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 
@@ -69,7 +69,7 @@ Per la categoria `Service Fabric Actor Method`, i nomi delle istanze dei contato
 
 *ActorsRuntimeMethodId* è la rappresentazione sotto forma di stringa di un numero intero a 32 bit generato dal runtime di Fabric Actors per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 
-*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metodo con l'identificatore di formato "D".
+*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
 
 *ActorRuntimeInternalID* è la rappresentazione sotto forma di stringa di un numero intero a 64 bit generato dal runtime di Fabric Actors per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 
@@ -83,7 +83,7 @@ Nell'esempio precedente `ivoicemailboxactor.leavemessageasync` è il nome del me
 ### <a name="actor-method-events-and-performance-counters"></a>Eventi dei metodi degli attori e relativi contatori delle prestazioni
 Il runtime di Reliable Actors rende disponibili gli eventi seguenti relativi ai [metodi degli attori](service-fabric-reliable-actors-introduction.md).
 
-| Nome evento | ID evento | Level | Parola chiave | Descrizione |
+| Nome evento | ID evento | Livello | Parola chiave | Descrizione |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Dettagliato |0x2 |Il runtime di Actors sta per richiamare un metodo di un attore. |
 | ActorMethodStop |8 |Dettagliato |0x2 |È terminata l'esecuzione di un metodo di un attore, ovvero la chiamata asincrona del runtime al metodo ha restituito il controllo e l'attività restituita dal metodo stesso è stata completata. |
@@ -100,7 +100,7 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 ### <a name="concurrency-events-and-performance-counters"></a>Eventi di concorrenza e relativi contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [concorrenza](service-fabric-reliable-actors-introduction.md#concurrency).
 
-| Nome evento | ID evento | Level | Parola chiave | Descrizione |
+| Nome evento | ID evento | Livello | Parola chiave | Descrizione |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Dettagliato |0x8 |Questo evento viene scritto all'inizio di ogni nuovo turno in un attore. Include il numero di chiamate dell'attore in sospeso, in attesa di acquisire il blocco per attore che applica la concorrenza basata su turni. |
 
@@ -115,7 +115,7 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 ### <a name="actor-state-management-events-and-performance-counters"></a>Eventi di gestione dello stato degli attori e relativi contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md).
 
-| Nome evento | ID evento | Level | Parola chiave | Descrizione |
+| Nome evento | ID evento | Livello | Parola chiave | Descrizione |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Dettagliato |0x4 |Il runtime di Actors sta per salvare lo stato di un attore. |
 | ActorSaveStateStop |11 |Dettagliato |0x4 |Il runtime di Actors ha finito di salvare lo stato di un attore. |
@@ -130,7 +130,7 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 ### <a name="events-related-to-actor-replicas"></a>Eventi relativi alle repliche di attori
 Il runtime di Reliable Actors rende disponibili gli eventi seguenti relativi alle [repliche di attori](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| Nome evento | ID evento | Level | Parola chiave | Descrizione |
+| Nome evento | ID evento | Livello | Parola chiave | Descrizione |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |Informativo |0x1 |Il ruolo della replica dell'attore è cambiato e la replica è diventata primaria. Ciò significa che gli attori per questa partizione verranno creati all'interno della replica. |
 | ReplicaChangeRoleFromPrimary |2 |Informativo |0x1 |Il ruolo della replica dell'attore è cambiato e la replica non è più primaria. Ciò significa che gli attori per questa partizione non verranno più creati all'interno della replica. Non verranno recapitate nuove richieste agli attori già creati all'interno della replica. Gli attori verranno distrutti dopo il completamento di qualsiasi richiesta in corso. |
@@ -138,7 +138,7 @@ Il runtime di Reliable Actors rende disponibili gli eventi seguenti relativi all
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Eventi di attivazione e disattivazione degli attori e contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi all' [attivazione e disattivazione degli attori](service-fabric-reliable-actors-lifecycle.md).
 
-| Nome evento | ID evento | Level | Parola chiave | Descrizione |
+| Nome evento | ID evento | Livello | Parola chiave | Descrizione |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5 |Informativo |0x1 |Un attore è stato attivato. |
 | ActorDeactivated |6 |Informativo |0x1 |Un attore è stato disattivato. |
@@ -161,6 +161,6 @@ Quando un client richiama un metodo tramite un oggetto proxy di attore, viene ge
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Modalità d'uso della piattaforma Service Fabric da parte di Reliable Actors](service-fabric-reliable-actors-platform.md)
-* [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Documentazione di riferimento delle API di Actors](/previous-versions/azure/dn971626(v=azure.100))
 * [Codice di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Provider di EventSource in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [Provider di EventSource in PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)
