@@ -1,24 +1,22 @@
 ---
-title: 'Esercitazione: Proteggere la rete WAN virtuale con Gestione firewall di Azure (anteprima)'
-description: In questa esercitazione viene illustrato come proteggere la rete WAN virtuale con Gestione firewall di Azure usando il portale di Azure.
+title: "Esercitazione: Proteggere l'hub virtuale con Gestione firewall di Azure"
+description: In questa esercitazione viene illustrato come proteggere l'hub virtuale con Gestione firewall di Azure usando il portale di Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c44daa67b4029c73c57ca82d72ee0a9759dd4c2d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691029"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563661"
 ---
-# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Esercitazione: Proteggere la rete WAN virtuale con Gestione firewall di Azure (anteprima) 
+# <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Esercitazione: Proteggere l'hub virtuale con Gestione firewall di Azure
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Gestione firewall di Azure (anteprima) consente di creare hub virtuali protetti per proteggere il traffico di rete cloud destinato a indirizzi IP privati, a PaaS di Azure e a Internet. Il routing del traffico verso il firewall è automatizzato, pertanto non è necessario creare route definite dall'utente.
+Gestione firewall di Azure consente di creare hub virtuali protetti per proteggere il traffico di rete cloud destinato a indirizzi IP privati, a soluzioni PaaS di Azure e a Internet. Il routing del traffico verso il firewall è automatizzato, pertanto non è necessario creare route definite dall'utente.
 
 ![proteggere la rete cloud](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -63,7 +61,7 @@ Creare quindi una subnet per un jump server.
 Creare quindi la rete virtuale.
 
 1. Selezionare **Rivedi e crea**.
-2. Selezionare **Create** (Crea).
+2. Selezionare **Crea**.
 
 ### <a name="create-the-secured-virtual-hub"></a>Creare l'hub virtuale protetto
 
@@ -82,7 +80,7 @@ Creare l'hub virtuale protetto usando Gestione firewall.
 5. Selezionare **Avanti: Firewall di Azure**.
 6. Accettare l'impostazione predefinita **Firewall di Azure** **Abilitato** e quindi selezionare **Avanti: Partner di sicurezza affidabile**.
 7. Accettare l'impostazione predefinita **Partner di sicurezza affidabile** **Disabilitato** e selezionare **Avanti: Rivedi e crea**.
-8. Selezionare **Create** (Crea). La distribuzione richiederà circa 30 minuti.
+8. Selezionare **Crea**. La distribuzione richiederà circa 30 minuti.
 
 ### <a name="connect-the-hub-and-spoke-vnets"></a>Connettere le reti virtuali hub e spoke
 
@@ -95,7 +93,7 @@ Ora è possibile eseguire il peering tra le reti virtuali hub e spoke.
 5. Per **Hub**, selezionare **Hub-01**.
 6. In **Gruppo di risorse** selezionare **FW-Manager**.
 7. Per **Rete virtuale**, selezionare **Spoke-01**.
-8. Selezionare **OK**.
+8. Selezionare **Crea**.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Creare un criterio firewall e proteggere l'hub
 
@@ -111,16 +109,18 @@ Un criterio firewall definisce raccolte di regole per indirizzare il traffico su
 8. In **Priorità** digitare **100**.
 9. Verificare che **Azione raccolta regole** sia **Consenti**.
 10. Come **Nome** della regola, digitare **Allow-msft**.
-11. Per **Indirizzo di origine**, digitare **\*** .
-12. Per **Protocollo**, digitare **http,https**.
-13. Verificare che **Tipo di destinazione sia impostato su **FQDN**.
-14. Per **Destinazione**, digitare **\*.microsoft.com**.
-15. Selezionare **Aggiungi**.
-16. Selezionare **Avanti: Hub**.
-17. Nella scheda **Hub** selezionare **Associa hub virtuali**.
-18. Selezionare **Hub-01** e quindi **Aggiungi**.
-1. Selezionare **Rivedi e crea**.
-2. Selezionare **Create** (Crea).
+11. Per **Tipo di origine**, selezionare **Indirizzo IP**.
+12. Per **Origine**, digitare **\*** .
+13. Per **Protocollo**, digitare **http,https**.
+14. Verificare che **Tipo di destinazione** sia impostato su **FQDN**.
+15. Per **Destinazione**, digitare **\*.microsoft.com**.
+16. Selezionare **Aggiungi**.
+17. Selezionare **Avanti: Intelligence sulle minacce**.
+18. Selezionare **Avanti: Hub**.
+19. Nella scheda **Hub** selezionare **Associa hub virtuali**.
+20. Selezionare **Hub-01** e quindi **Aggiungi**.
+21. Selezionare **Rivedi e crea**.
+22. Selezionare **Crea**.
 
 Il completamento di questa operazione può richiedere circa cinque minuti.
 
@@ -130,13 +130,11 @@ A questo punto è necessario assicurarsi che il traffico di rete venga instradat
 
 1. In Gestione firewall selezionare **Hub virtuali protetti**.
 2. Selezionare **Hub-01**.
-3. In **Impostazioni** selezionare **Impostazioni route**.
-4. In **Traffico Internet**, **Traffico dalle reti virtuali**, selezionare **Invia tramite Firewall di Azure**.
-5. In **Traffico privato di Azure**, **Traffico alle reti virtuali**, selezionare **Invia tramite Firewall di Azure**.
-6. Selezionare **Modifica prefisso/i indirizzi IP**.
-8. Digitare **10.0.1.0/24** come indirizzo della subnet del carico di lavoro e selezionare **Salva**.
-9. In **Impostazioni** selezionare **Connessioni**.
+3. In **Impostazioni** selezionare **Configurazione della sicurezza**.
+4. In **Traffico Internet** selezionare **Firewall di Azure**.
+5. In **Traffico privato** selezionare **Send via Azure Firewall** (Invia tramite Firewall di Azure).
 10. Verificare che **Traffico Internet** per le connessioni **hub-spoke** sia impostato su **Protetto**.
+11. Selezionare **Salva**.
 
 
 ## <a name="test-your-firewall"></a>Testare il firewall
@@ -149,11 +147,11 @@ Per testare le regole del firewall, è necessario distribuire un paio di server.
 2. Selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**.
 3. Immettere i valori seguenti per la macchina virtuale:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
-   |Gruppo di risorse     |**FW-Manager**|
+   |Resource group     |**FW-Manager**|
    |Nome macchina virtuale     |**Jump-Srv**|
-   |Area     |**(USA) Stati Uniti orientali**|
+   |Region     |**(USA) Stati Uniti orientali**|
    |Nome utente amministratore     |digitare un nome utente|
    |Password     |digitare una password|
 
@@ -169,7 +167,7 @@ Per testare le regole del firewall, è necessario distribuire un paio di server.
 
 Usare le informazioni nella tabella seguente per configurare un'altra macchina virtuale denominata **Workload-Srv**. Il resto della configurazione è uguale a quella della macchina virtuale Srv-Jump.
 
-|Impostazione  |Valore  |
+|Impostazione  |valore  |
 |---------|---------|
 |Subnet|**Workload-SN**|
 |IP pubblico|**Nessuno**|
@@ -181,10 +179,10 @@ Per consentire una connessione Internet a Jump-Srv, è necessario creare una tab
 
 1. Nel portale di Azure fare clic su **Crea una risorsa**.
 2. Digitare **tabella di route** nella casella di ricerca e quindi selezionare **Tabella di route**.
-3. Selezionare **Create** (Crea).
+3. Selezionare **Crea**.
 4. Digitare **RT-01** in **Nome**.
 5. Selezionare la propria sottoscrizione, **FW-Manager** come gruppo di risorse e **(USA) Stati Uniti orientali** come area.
-6. Selezionare **Create** (Crea).
+6. Selezionare **Crea**.
 7. Al termine della distribuzione, selezionare la tabella di route **RT-01**.
 8. Selezionare **Route**, quindi **Aggiungi**.
 9. Digitare **jump-to-inet** in **Nome route**.

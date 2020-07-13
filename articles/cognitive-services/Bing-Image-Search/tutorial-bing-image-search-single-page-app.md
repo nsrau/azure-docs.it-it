@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6a88ca1f028efcb3b9614df532b6d2dcc9dcfac8
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943899"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800905"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca immagini Bing
 
@@ -31,7 +31,7 @@ L'applicazione di esercitazione illustra come:
 
 Il codice sorgente completo di questa esercitazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * La versione più recente di [Node.js](https://nodejs.org/).
 * Il framework [Express.js](https://expressjs.com/) per Node.js. Le istruzioni di installazione del codice sorgente sono disponibili nel file Leggimi di esempio di GitHub.
@@ -390,15 +390,18 @@ A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing t
 
 È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Digitare quindi il comando seguente in una finestra di comando:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Poi modificare l'endpoint di Ricerca Web Bing nel file HTML in:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Successivamente, modificare l'endpoint di Ricerca Web Bing nel file HTML in:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Infine avviare il proxy CORS con il comando seguente:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile visualizzare l'intestazione `X-MSEdge-ClientID` (tra le altre) e verificare che sia la stessa per ogni richiesta.
 

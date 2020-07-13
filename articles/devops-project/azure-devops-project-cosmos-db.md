@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: distribuire app node. js basate su Azure Cosmos DB con Azure DevOps Starter'
-description: Azure DevOps Starter consente di iniziare a usare Azure in modo semplice. Con DevOps Starter è possibile distribuire l'app node. js con tecnologia Azure Cosmos DB a Windows Web App in pochi passaggi rapidi.
+title: 'Esercitazione: Distribuire app Node.js con tecnologia Azure Cosmos DB con Azure DevOps Starter'
+description: Azure DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con DevOps Starter, è possibile distribuire l'app Node.js con tecnologia Azure Cosmos DB in un'app Web Windows in pochi passaggi rapidi.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 07579cf22738e195e3e4ae7a2aa18ffeb885bbe2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233253"
 ---
-# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Distribuire app node. js basate su Azure Cosmos DB con DevOps Starter
+# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Distribuire app Node.js con tecnologia Azure Cosmos DB con DevOps Starter
 
-Azure DevOps Starter offre un'esperienza semplificata in cui è possibile creare una pipeline di integrazione continua e distribuzione continua (CD) in Azure. A tale scopo, usare il codice esistente e il repository GIT oppure selezionare un'applicazione di esempio.
+Azure DevOps Starter offre un'esperienza semplificata in cui è possibile creare una pipeline di integrazione continua (CI, Continuous Integration) e distribuzione continua (CD, Continuous Deployment) in Azure. A tale scopo, usare il codice esistente e il repository GIT oppure selezionare un'applicazione di esempio.
 
-DevOps Starter anche:
+DevOps Starter consente inoltre di effettuare le seguenti operazioni:
 
 * Creare automaticamente le risorse di Azure, ad esempio Azure Cosmos DB, Azure Application Insights, Servizio app di Azure e il piano servizio app.e
 
@@ -28,7 +28,7 @@ DevOps Starter anche:
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Usare l'utilità di avvio DevOps per distribuire un'app node. js con tecnologia Azure Cosmos DB
+> * Usare DevOps Starter per distribuire un'app Node.js con tecnologia Azure Cosmos DB
 > * Configurare Azure DevOps e una sottoscrizione di Azure
 > * Esaminare il database Azure Cosmos DB
 > * Esaminare la pipeline di integrazione continua
@@ -40,15 +40,15 @@ In questa esercitazione si apprenderà come:
 
 È necessaria una sottoscrizione di Azure, che è possibile ottenere gratuitamente tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="use-devops-starter-to-deploy-nodejs-app"></a>Usare l'utilità di avvio di DevOps per distribuire l'app node. js
+## <a name="use-devops-starter-to-deploy-nodejs-app"></a>Usare DevOps Starter per distribuire l'app Node.js
 
-DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Starter crea anche risorse di Azure, ad esempio Azure Cosmos DB, Application Insights, servizio app e piani di servizio app, nella sottoscrizione di Azure di propria scelta.
+DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Starter crea anche le risorse di Azure, ad esempio un database Azure Cosmos DB, Application Insights, Servizio app di Azure e piani di servizio app, nella sottoscrizione di Azure di propria scelta.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nella casella di ricerca digitare **DevOps Starter**, quindi selezionare. Fare clic su **Aggiungi** per crearne uno nuovo.
+1. Nella casella di ricerca digitare **DevOps Starter** e quindi selezionare. Fare clic su **Aggiungi** per crearne una nuova.
 
-    ![Dashboard Starter DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![Dashboard di DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Selezionare **Node.js** come runtime e quindi fare clic **su Avanti**. In **Scegli un framework applicazione** selezionare **Express.js**.
 
@@ -56,7 +56,7 @@ DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare u
 
     ![Aggiungi un database](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    Azure DevOps Starter supporta diversi framework applicazione, ad esempio **Express. js**, **app node. js di esempio**e **Sail. js**. In questa esercitazione si userà **Express.js**.
+    Azure DevOps Starter supporta vari framework applicazione come **Express.js**, l'**app Node.js di esempio** e **Sail.js**. In questa esercitazione si userà **Express.js**.
 
 1. Selezionare un servizio di Azure per distribuire l'applicazione, quindi selezionare **Avanti**. Sono disponibili opzioni come l'app Web Windows, il servizio Azure Kubernetes e l'app Web per contenitori di Azure. In questa esercitazione viene usata l'**app Web Windows**.
 
@@ -74,7 +74,7 @@ DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare u
 
 1. Il processo viene completato dopo alcuni minuti. Viene configurata un'app Node.js in un repository GIT nell'organizzazione Azure DevOps. Quindi, vengono create le risorse Azure Cosmos DB, servizio app, piano di servizio app e Application Insights, oltre alla pipeline CI/CD. L'app viene quindi distribuita in Azure.
 
-   Al termine di tutti questi processi, il dashboard di Azure DevOps Starter viene visualizzato nel portale di Azure. È anche possibile accedere al dashboard DevOps Starter direttamente da **tutte le risorse** nella portale di Azure.
+   Al termine di tutti i processi, il dashboard di Azure DevOps Starter viene visualizzato nel portale di Azure. È anche possibile passare al dashboard di DevOps Starter direttamente da **Tutte le risorse** nel portale di Azure.
 
    Questo dashboard fornisce visibilità su repository di codice di Azure DevOps, pipeline CI/CD e nel database Azure Cosmos DB. È possibile configurare le opzioni aggiuntive di CI/CD nella pipeline di Azure DevOps. A destra del dashboard selezionare **Azure Cosmos DB** per visualizzare queste opzioni.
 
@@ -82,7 +82,7 @@ DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare u
 
 DevOps Starter configura automaticamente Azure Cosmos DB, che è possibile esplorare e personalizzare. Per acquisire familiarità con Azure Cosmos DB, eseguire questa procedura:
 
-1. Passare al dashboard iniziale di DevOps.
+1. Passare al dashboard di DevOps Starter.
 
     ![Dashboard di DevOps Projects](_img/azure-devops-project-cosmos-db/devops-starter-dashboard.png)
 
@@ -92,9 +92,9 @@ DevOps Starter configura automaticamente Azure Cosmos DB, che è possibile esplo
 
 ## <a name="examine-the-ci-pipeline"></a>Esaminare la pipeline di integrazione continua
 
-DevOps Starter configura automaticamente una pipeline CI/CD nell'organizzazione DevOps di Azure. È possibile esplorare e personalizzare la pipeline. Per acquisire familiarità, eseguire questa procedura:
+DevOps Starter configura automaticamente una pipeline CI/CD nell'organizzazione di Azure DevOps. È possibile esplorare e personalizzare la pipeline. Per acquisire familiarità, eseguire questa procedura:
 
-1. Passare al dashboard iniziale di DevOps.
+1. Passare al dashboard di DevOps Starter.
 
 1. Selezionare il collegamento ipertestuale sotto **Compilare**. In una scheda del browser viene visualizzata la pipeline di compilazione per il nuovo progetto.
 
@@ -102,7 +102,7 @@ DevOps Starter configura automaticamente una pipeline CI/CD nell'organizzazione 
 
 1. Selezionare **Modifica**. In questo riquadro è possibile esaminare le diverse attività per la pipeline di compilazione. La compilazione esegue diverse attività, ad esempio il recupero del codice sorgente dal repository Git, la compilazione dell'applicazione, l'esecuzione di unit test e la pubblicazione degli output usati per le distribuzioni.
 
-1. Selezionare **Trigger**. DevOps Starter crea automaticamente un trigger CI e ogni commit nel repository avvia una nuova compilazione. È possibile scegliere di includere o escludere rami dal processo di integrazione continua.
+1. Selezionare **Trigger**. DevOps Starter crea automaticamente un trigger di integrazione continua e a ogni commit nel repository viene avviata una nuova compilazione. È possibile scegliere di includere o escludere rami dal processo di integrazione continua.
 
 1. Selezionare **Conservazione**. A seconda dello scenario specifico, è possibile indicare i criteri per conservare o rimuovere un determinato numero di compilazioni.
 
@@ -114,7 +114,7 @@ DevOps Starter configura automaticamente una pipeline CI/CD nell'organizzazione 
 
 ## <a name="examine-the-cd-release-pipeline"></a>Esaminare la pipeline di versione CD
 
-DevOps Starter crea e configura automaticamente i passaggi necessari per eseguire la distribuzione dall'organizzazione DevOps di Azure alla sottoscrizione di Azure. Questi passaggi includono la configurazione di una connessione al servizio di Azure per eseguire l'autenticazione di Azure DevOps nella sottoscrizione di Azure. L'automazione crea anche una pipeline di versione che fornisce la distribuzione continua in Azure. Per altre informazioni sulla pipeline di versione, eseguire le operazioni seguenti:
+DevOps Starter crea e configura automaticamente i passaggi necessari per la distribuzione dall'organizzazione di Azure DevOps alla sottoscrizione di Azure. Questi passaggi includono la configurazione di una connessione al servizio di Azure per eseguire l'autenticazione di Azure DevOps nella sottoscrizione di Azure. L'automazione crea anche una pipeline di versione che fornisce la distribuzione continua in Azure. Per altre informazioni sulla pipeline di versione, eseguire le operazioni seguenti:
 
 1. Passare a **Pipeline** e selezionare **Versioni**.
 
@@ -147,18 +147,18 @@ A questo punto, si è pronti per collaborare con un team a un'app usando un proc
 
 1. In alto a destra, selezionare **Commit**, quindi selezionare **Commit** nuovamente per eseguire il push della modifica.
 
-     Dopo alcuni secondi verrà avviata una compilazione in Azure DevOps e verrà eseguita una versione per distribuire le modifiche. Monitorare lo stato di compilazione nel dashboard iniziale di DevOps o nel browser con l'organizzazione DevOps di Azure.
+     Dopo alcuni secondi verrà avviata una compilazione in Azure DevOps e verrà eseguita una versione per distribuire le modifiche. Monitorare lo stato della compilazione nel dashboard di DevOps Starter oppure nel browser con l'organizzazione di Azure DevOps.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, eliminare le risorse correlate create in precedenza. Usare la funzionalità di **eliminazione** nel dashboard iniziale di DevOps.
+Quando non servono più, eliminare le risorse correlate create in precedenza. Usare la funzionalità **Elimina** del dashboard di DevOps Starter.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 È possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altre pipeline. In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Usare l'utilità di avvio DevOps per distribuire un'app node. js con tecnologia Azure Cosmos DB
+> * Usare DevOps Starter per distribuire un'app Node.js con tecnologia Azure Cosmos DB
 > * Configurare Azure DevOps e una sottoscrizione di Azure 
 > * Esaminare il database Azure Cosmos DB
 > * Esaminare la pipeline di integrazione continua

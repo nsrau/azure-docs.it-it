@@ -8,19 +8,19 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 93b150d47f1703662ebda5b017e1824cf74b7ab0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233704"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318625"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Esercitazione: Distribuire un'app ASP.NET e il codice di un database SQL di Azure usando Azure DevOps Starter
 
 Azure DevOps Starter offre un'esperienza semplificata in cui è possibile usare il codice esistente e il repository Git oppure scegliere un'applicazione di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) in Azure. 
 
 DevOps Starter consente inoltre di effettuare le seguenti operazioni:
-* Creare automaticamente risorse di Azure, ad esempio un database SQL di Azure.
+* Creare automaticamente risorse di Azure, ad esempio un database in database SQL di Azure.
 * Creare e configurare una pipeline di versione in Azure Pipelines che includa una pipeline di compilazione per CI.
 * Configurare una pipeline di versione per CD. 
 * Creare una risorsa di Azure Application Insights per il monitoraggio.
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 
 * Una sottoscrizione di Azure. È possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>Creare un progetto in DevOps Projects per un'app ASP.NET e un database SQL di Azure
+## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-azure-sql-database"></a>Creare un progetto in DevOps Projects per un'app ASP.NET e un database SQL di Azure
 
 DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Starter crea anche risorse di Azure, ad esempio un database SQL di Azure, nella sottoscrizione di Azure di propria scelta.
 
@@ -140,7 +140,7 @@ A questo punto, si è pronti per collaborare con un team a un'app usando un proc
 
 1. Quando la versione sarà completa, aggiornare l'applicazione per verificare le modifiche.
 
-## <a name="connect-to-the-azure-sql-database"></a>Connettersi al database SQL di Azure
+## <a name="connect-to-azure-sql-database"></a>Connettersi al database SQL di Azure
 
 Per connettersi al database SQL di Azure, sono necessarie le autorizzazioni appropriate.
 
@@ -165,7 +165,7 @@ Per connettersi al database SQL di Azure, sono necessarie le autorizzazioni appr
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si stanno eseguendo test, è possibile pulire le risorse per evitare che vengano addebitati costi. Quando non sono più necessari, è possibile eliminare il database SQL di Azure e le risorse correlate create in questa esercitazione. A tale scopo, usare la funzionalità **Elimina** del dashboard di DevOps Starter.
+Se si stanno eseguendo test, è possibile pulire le risorse per evitare che vengano addebitati costi. Quando non sono più necessari, è possibile eliminare il database SQL di Azure e le risorse correlate creati in questa esercitazione. A tale scopo, usare la funzionalità **Elimina** del dashboard di DevOps Starter.
 
 > [!IMPORTANT]
 > La procedura seguente elimina definitivamente le risorse. La funzionalità *Elimina* cancella definitivamente i dati creati dal progetto in DevOps Starter sia in Azure che in Azure DevOps e non sarà più possibile recuperarli. Usare questa procedura solo dopo aver letto attentamente le istruzioni visualizzate.

@@ -1,9 +1,8 @@
 ---
-title: Modelli di Gestione risorse di Azure
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Modelli di Azure Resource Manager - Database SQL di Azure e Istanza gestita di SQL
 description: Usare i modelli di Azure Resource Manager per creare e configurare il database SQL di Azure e l'istanza gestita di SQL di Azure.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
@@ -12,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 76b9b1301a0aeee24b698b15a3871754de8ca0b9
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718802"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983639"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modelli di Azure Resource Manager per il database SQL di Azure e l'istanza gestita di SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +27,7 @@ I modelli di Azure Resource Manager consentono di definire l'infrastruttura come
 
 La tabella seguente include collegamenti ai modelli di Azure Resource Manager per il database SQL di Azure.
 
-| |  |
+|Collegamento |Descrizione|
 |---|---|
 | [Database SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Questo modello di Azure Resource Manager crea un database singolo nel database SQL di Azure e configura le regole del firewall IP a livello di server. |
 | [Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Questo modello di Azure Resource Manager crea un server per il database SQL di Azure. |
@@ -47,7 +46,7 @@ La tabella seguente include collegamenti ai modelli di Azure Resource Manager pe
 
 La tabella seguente include collegamenti ai modelli di Azure Resource Manager per Istanza gestita di SQL di Azure.
 
-| |  |
+|Collegamento|Descrizione|
 |---|---|
 | [Istanza gestita di SQL in una nuova rete virtuale](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Questo modello di Azure Resource Manager crea una nuova rete virtuale di Azure configurata e un'istanza gestita al suo interno. |
 | [Ambiente di rete per Istanza gestita di SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Questa distribuzione crea una rete virtuale di Azure configurata con due subnet, una dedicata alle istanze gestite e l'altra in cui è possibile inserire altre risorse, ad esempio VM, ambienti di Servizio App e così via. Questo modello crea un ambiente di rete correttamente configurato in cui è possibile distribuire istanze gestite. |

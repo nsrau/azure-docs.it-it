@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201993"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983150"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Esercitazione: Consentire agli utenti di sbloccare l'account o reimpostare le password con la reimpostazione della password self-service di Azure Active Directory
 
@@ -47,7 +47,11 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
 
 ## <a name="enable-self-service-password-reset"></a>Abilitare la reimpostazione self-service delle password
 
-Azure AD consente di abilitare la reimpostazione della password self-service per *Nessuno*, utente *Selezionato* o *Tutti* gli utenti. Questa funzionalità granulare consente di scegliere un subset di utenti per testare il processo e il flusso di lavoro di reimpostazione della password self-service e registrazione. Una volta acquisita familiarità con il processo e quando si è pronti per condividere i requisiti con un set più ampio di utenti, è possibile selezionare altri gruppi di utenti da abilitare per la reimpostazione della password self-service. In alternativa, è possibile abilitare la reimpostazione della password self-service per tutti gli utenti nel tenant Azure AD.
+Azure AD consente di abilitare la reimpostazione della password self-service per *Nessuno*, utente *Selezionato* o *Tutti* gli utenti. Questa funzionalità granulare consente di scegliere un subset di utenti per testare il processo e il flusso di lavoro di reimpostazione della password self-service e registrazione. Una volta acquisita familiarità con il processo e quando si è pronti per condividere i requisiti con un set più ampio di utenti, è possibile selezionare un gruppo di utenti da abilitare per la reimpostazione della password self-service. In alternativa, è possibile abilitare la reimpostazione della password self-service per tutti gli utenti nel tenant Azure AD.
+
+> [!NOTE]
+>
+> È attualmente possibile abilitare un solo gruppo di Azure AD per la reimpostazione della password self-service usando il portale di Azure. Come parte di una distribuzione più ampia della reimpostazione della password self-service, sono supportati i gruppi annidati. Verificare che agli utenti del gruppo scelto siano assegnate le licenze appropriate. Attualmente non è disponibile alcun processo di convalida per questi requisiti di licenza.
 
 In questa esercitazione verrà configurata la reimpostazione della password self-service per un set di utenti in un gruppo di test. Nell'esempio seguente viene usato il gruppo *SSPR-Test-Group*. Specificare il gruppo di Azure AD personalizzato in base alle esigenze:
 
@@ -57,8 +61,6 @@ In questa esercitazione verrà configurata la reimpostazione della password self
 1. Cercare e selezionare il gruppo di Azure AD, ad esempio *SSPR-Test-Group*, quindi scegliere *Seleziona*.
 
     [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
-
-    Come parte di una distribuzione più ampia della reimpostazione della password self-service, sono supportati i gruppi annidati. Verificare che agli utenti del gruppo scelto siano assegnate le licenze appropriate. Attualmente non è disponibile alcun processo di convalida per questi requisiti di licenza.
 
 1. Per abilitare la reimpostazione della password self-service per gli utenti selezionati, selezionare **Salva**.
 
@@ -77,6 +79,7 @@ Quando gli utenti devono sbloccare l'account o reimpostare la password, viene ri
     * *Indirizzo di posta elettronica*
     * *Cellulare*
     * *Telefono ufficio*
+    * *Domande di sicurezza*
 
 1. Per applicare i metodi di autenticazione, selezionare **Salva**.
 

@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
 ms.openlocfilehash: 2de60b90eb6fb75ef013a2fd8785f1b8b616fba6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232139"
 ---
-# <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Esercitazione: eliminare un cluster di Azure Red Hat OpenShift 4
+# <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Esercitazione: Eliminare un cluster di Azure Red Hat OpenShift 4
 
 In questa esercitazione, parte tre di tre, viene eliminato un cluster Azure Red Hat OpenShift che esegue OpenShift 4. Si apprenderà come:
 
@@ -23,7 +23,7 @@ In questa esercitazione, parte tre di tre, viene eliminato un cluster Azure Red 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nelle esercitazioni precedenti è stato creato e connesso un cluster Azure Red Hat OpenShift con la console Web di OpenShift. Se questi passaggi non sono stati eseguiti e si vuole procedere, iniziare con [l'esercitazione 1-creare un cluster Azure Red Hat OpenShift 4.](tutorial-create-cluster.md)
+Nelle esercitazioni precedenti è stato creato e connesso un cluster Azure Red Hat OpenShift con la console Web di OpenShift. Se questi passaggi non sono stati eseguiti e si vuole procedere, iniziare con [Esercitazione 1: Creare un cluster di Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.75 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -52,12 +52,12 @@ Usando questi valori, eliminare il cluster:
 az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
-Verrà quindi richiesto di confermare se si desidera eliminare il cluster. Dopo aver confermato con `y`, l'eliminazione del cluster richiederà diversi minuti. Al termine del comando, l'intero gruppo di risorse e tutte le risorse al suo interno, incluso il cluster, verranno eliminati.
+Verrà quindi richiesto di confermare se si vuole eliminare il cluster. Dopo aver confermato con `y`, l'eliminazione del cluster richiederà diversi minuti. Al termine del comando, l'intero gruppo di risorse e le risorse al suo interno, tra cui il cluster, verranno eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa parte dell'esercitazione si è appreso come:
 > [!div class="checklist"]
-> * Eliminare un cluster Azure Red Hat OpenShift 4
+> * Eliminare un cluster di Azure Red Hat OpenShift 4
 
 Altre informazioni sull'uso di OpenShift sono disponibili nella [documentazione ufficiale di Red Hat OpenShift](https://www.openshift.com/try)

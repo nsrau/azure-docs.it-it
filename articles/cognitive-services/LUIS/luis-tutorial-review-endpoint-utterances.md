@@ -3,13 +3,13 @@ title: 'Esercitazione: Revisione delle espressioni di endpoint - LUIS'
 description: Questa esercitazione illustra come migliorare le previsioni per le app verificando o correggendo le espressioni ricevute tramite l'endpoint HTTPS LUIS di cui LUIS non è sicuro. Potrebbe essere necessario verificare l'entità o la finalità di alcune espressioni.
 services: cognitive-services
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: c2df8cdba3422c522aa4ccf1fe4138a510355d12
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.date: 07/02/2020
+ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445926"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959034"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Esercitazione: Correggere le stime dubbie con la revisione delle espressioni di endpoint
 Questa esercitazione illustra come migliorare le stime delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTPS LUIS di cui LUIS non è sicuro. È consigliabile includere l'analisi delle espressioni dell'endpoint come fase regolare della manutenzione pianificata di LUIS.
@@ -35,11 +35,16 @@ La revisione delle espressioni endpoint consente di verificare o correggere la f
 
 ## <a name="download-json-file-for-app"></a>Scaricare il file JSON per l'app
 
-Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 ## <a name="import-json-file-for-app"></a>Importare il file JSON per l'app
 
-[!INCLUDE [Import app steps](includes/import-app-steps.md)]
+
+1. Nella pagina **My apps** (App personali) del [portale LUIS](https://www.luis.ai) selezionare **+ New app for conversation** (Nuova app di conversazione) e quindi **Import as JSON** (Importa come JSON). Trovare il file JSON salvato nel passaggio precedente. Non è necessario modificare il nome dell'app. Selezionare **Operazione completata**
+
+1. Selezionare **Build** (Compila) e quindi **Intents** (Finalità) per visualizzare le finalità, ovvero i blocchi principali di un'app LUIS.
+
+    :::image type="content" source="media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png" alt-text="Passare dalla pagina Versions (Versioni) alla pagina Intents (Finalità).":::
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Eseguire il training dell'app per applicare le modifiche alle entità all'app
 
@@ -77,15 +82,11 @@ Esaminare le espressioni dell'endpoint per assicurarsi che la finalità sia alli
 
 1. Nella sezione **Build** (Compila) del portale selezionare **Controlla le espressioni di endpoint** nel riquadro di spostamento sinistro. All'elenco viene applicato un filtro relativo alla finalità **ApplyForJob**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot del pulsante Controlla le espressioni di endpoint nel riquadro di spostamento sinistro](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Screenshot del pulsante Controlla le espressioni di endpoint nel riquadro di spostamento sinistro.":::
 
-    L'espressione `I'm looking for a job with Natural Language Processing` non ha la finalità corretta.
+    L'espressione `I'm looking for a job with Natural Language Processing` non ha la finalità corretta, _GetJobInformation_. È stata stimata in modo errato come _ApplyForJob_ a causa della somiglianza tra i nomi e i verbi dei processi nelle due finalità.
 
 1.  Per allineare questa espressione, nella riga corrispondente selezionare la **Finalità allineata** corretta `GetJobInformation`. Aggiungere l'espressione cambiata all'app selezionando il segno di spunta.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot del pulsante Controlla le espressioni di endpoint nel riquadro di spostamento sinistro](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
 
     Esaminare le espressioni rimanenti in questa finalità, correggendo la finalità allineata in base alle esigenze. Usare la tabella di espressioni iniziali di questa esercitazione per visualizzare la finalità allineata.
 
@@ -110,37 +111,37 @@ Per verificare che le espressioni di esempio correttamente allineate abbiano mig
             "topIntent": "GetJobInformation",
             "intents": {
                 "GetJobInformation": {
-                    "score": 0.903607249
-                },
-                "EmployeeFeedback": {
-                    "score": 0.0312187821
+                    "score": 0.901367366
                 },
                 "ApplyForJob": {
-                    "score": 0.0230276529
+                    "score": 0.0307973567
+                },
+                "EmployeeFeedback": {
+                    "score": 0.0296942145
                 },
                 "MoveEmployee": {
-                    "score": 0.008322801
-                },
-                "Utilities.Stop": {
-                    "score": 0.004480808
+                    "score": 0.00739785144
                 },
                 "FindForm": {
-                    "score": 0.00425248267
+                    "score": 0.00449316856
+                },
+                "Utilities.Stop": {
+                    "score": 0.00417657848
                 },
                 "Utilities.StartOver": {
-                    "score": 0.004224336
+                    "score": 0.00407167152
                 },
                 "Utilities.Help": {
-                    "score": 0.00373591436
+                    "score": 0.003662492
                 },
                 "None": {
-                    "score": 0.0034621188
+                    "score": 0.00335733569
                 },
                 "Utilities.Cancel": {
-                    "score": 0.00230977475
+                    "score": 0.002225436
                 },
                 "Utilities.Confirm": {
-                    "score": 0.00112078607
+                    "score": 0.00107437756
                 }
             },
             "entities": {
@@ -156,7 +157,7 @@ Per verificare che le espressioni di esempio correttamente allineate abbiano mig
                                 "timex": "PRESENT_REF",
                                 "resolution": [
                                     {
-                                        "value": "2019-12-05 23:23:53"
+                                        "value": "2020-07-02 21:45:50"
                                     }
                                 ]
                             }

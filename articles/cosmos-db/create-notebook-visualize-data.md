@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115279"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961099"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Esercitazione: Creare un notebook in Azure Cosmos DB per analizzare e visualizzare i dati
 
@@ -235,7 +235,7 @@ In questa sezione si eseguiranno alcune query sui dati recuperati.
 
    L'output visualizza la mappa del mondo con diversi colori, da quelli più scuri che rappresentano i paesi/aree geografiche con il fatturato più alto a quelli più chiari che rappresentano il fatturato più basso.
 
-   ![Visualizzazione della mappa con il fatturato dei paesi/aree geografiche](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Visualizzazione mappa con il fatturato dei paesi/aree geografiche":::
 
 1. Esaminiamo un altro caso di visualizzazione dei dati. Nel contenitore WebsiteData vengono registrati gli utenti che hanno visualizzato un articolo, lo hanno aggiunto al carrello e lo hanno acquistato. Tracciamo il tasso di conversione degli articoli acquistati. Eseguire questo codice in una nuova cella per visualizzare il tasso di conversione per ogni articolo:
 

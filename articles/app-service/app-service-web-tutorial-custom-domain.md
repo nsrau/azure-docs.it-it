@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 46c27f18f8f16f783248790f03364654d0b3c2fe
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559913"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986829"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -95,9 +95,7 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 
 ## <a name="get-domain-verification-id"></a>Ottenere l'ID verifica del dominio
 
-Per aggiungere un dominio personalizzato all'app, è necessario verificare la proprietà del dominio aggiungendo un ID verifica come record TXT al provider di dominio. Nel riquadro di spostamento sinistro della pagina dell'app fare clic su **Esplora risorse** in **Strumenti di sviluppo** e quindi fare clic su **Vai**.
-
-Nella visualizzazione JSON delle proprietà dell'app cercare `customDomainVerificationId` e copiarne il valore tra virgolette doppie. Questo ID verifica è necessario per il passaggio successivo.
+Per aggiungere un dominio personalizzato all'app, è necessario verificare la proprietà del dominio aggiungendo un ID verifica come record TXT al provider di dominio. Nel riquadro di spostamento a sinistra della pagina dell'app, fare clic su **Domini personalizzati** in **Impostazioni**. Copiare il valore dell'ID di verifica dominio personalizzato da qui. Questo ID verifica è necessario per il passaggio successivo.
 
 ## <a name="map-your-domain"></a>Eseguire il mapping del dominio
 
@@ -113,6 +111,8 @@ Nella visualizzazione JSON delle proprietà dell'app cercare `customDomainVerifi
 ### <a name="map-a-cname-record"></a>Esecuzione del mapping di un record CNAME
 
 Nell'esempio dell'esercitazione si aggiunge un record CNAME per il sottodominio `www`, ad esempio `www.contoso.com`.
+
+Se è presente un sottodominio diverso da `www`, sostituire `www` con il sottodominio (ad esempio, con `sub` se il dominio personalizzato è `sub.constoso.com`).
 
 #### <a name="access-dns-records-with-domain-provider"></a>Accedere ai record DNS con il provider di dominio
 
@@ -196,7 +196,7 @@ Per eseguire il mapping di un record A a un'app, in genere al dominio radice, cr
 
 | Tipo di record | Host | valore | Commenti |
 | - | - | - |
-| Una  | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) | Il mapping di dominio stesso (`@` rappresenta in genere il dominio radice). |
+| Una | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) | Il mapping di dominio stesso (`@` rappresenta in genere il dominio radice). |
 | TXT | `asuid` | [ID verifica ottenuto in precedenza](#get-domain-verification-id) | Il servizio app accede al record TXT `asuid.<subdomain>` per verificare la proprietà del dominio personalizzato. Per il dominio radice usare `asuid`. |
 
 > [!NOTE]
@@ -204,7 +204,7 @@ Per eseguire il mapping di un record A a un'app, in genere al dominio radice, cr
 >
 > | Tipo di record | Host | valore |
 > | - | - | - |
-> | Una  | `www` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
+> | Una | `www` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
 > | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
 >
 

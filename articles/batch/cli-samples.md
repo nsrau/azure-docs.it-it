@@ -1,30 +1,23 @@
 ---
-title: Esempi di interfaccia della riga di comando di Azure
-description: Esempi di interfaccia della riga di comando di Azure per il servizio Azure Batch. Informazioni su come creare un account Batch e aggiungere un'applicazione.
+title: Esempi di interfaccia della riga di comando di Azure per Azure Batch
+description: Informazioni su come creare un account Batch e aggiungere un'applicazione usando l'interfaccia della riga di comando di Azure.
 ms.topic: sample
-ms.date: 01/29/2018
+ms.date: 07/01/2020
 ms.custom: mvc
-ms.openlocfilehash: 59fc944024e2d51b16193db01ff06f2d434ad1e7
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ff18043f4d411a70be7ad7f4d373d7c6a8b0e4e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725755"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832271"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Esempi di interfaccia della riga di comando di Azure per Azure Batch
 
-La tabella seguente include collegamenti a esempi dell'interfaccia della riga di comando di Azure per Azure Batch.
+Gli esempi seguenti illustrano come usare il servizio Batch con l'interfaccia della riga di comando di Azure.
 
-|  |  |
-|---|---|
-|**Creare un account Batch**||
-| [Creare un account Batch in modalità servizio Batch](./scripts/batch-cli-sample-create-account.md) | Crea un account Batch nella modalità predefinita e lo associa a un account di archiviazione. |
-| [Creare un account Batch in modalità sottoscrizione utente](./scripts/batch-cli-sample-create-user-subscription-account.md) | Crea un account Batch in modalità sottoscrizione utente. |
-|**Aggiungere un'applicazione**||
-| [Aggiungere un'applicazione a un account Batch](./scripts/batch-cli-sample-add-application.md) | Aggiunge un'applicazione e carica i file binari nel pacchetto.|
-|**Creare e gestire pool di nodi di calcolo**||
-| [Creare e gestire un pool Linux](./scripts/batch-cli-sample-manage-linux-pool.md) | Illustra la creazione, il ridimensionamento e la gestione di un pool Linux. |
-| [Creare e gestire un pool Windows](./scripts/batch-cli-sample-manage-windows-pool.md) | Illustra la creazione, il ridimensionamento e la gestione di un pool Windows. |
-|**Eseguire processi e attività**||
-| [Eseguire un processo e le attività con Batch](./scripts/batch-cli-sample-run-job.md) | Illustra l'esecuzione di un processo e l'aggiunta di attività. |
-
+- [Creare un account Batch nella modalità predefinita e associarlo a un account di archiviazione](./scripts/batch-cli-sample-create-account.md)
+- [Creare un account Batch in modalità sottoscrizione utente](./scripts/batch-cli-sample-create-user-subscription-account.md)
+- [Aggiungere un'applicazione a un account Batch e caricare file binari in pacchetto](./scripts/batch-cli-sample-add-application.md)
+- [Creare e gestire un pool Linux](./scripts/batch-cli-sample-manage-linux-pool.md)
+- [Creare e gestire un pool Windows](./scripts/batch-cli-sample-manage-windows-pool.md)
+- [Eseguire un processo e le attività con Batch](./scripts/batch-cli-sample-run-job.md)

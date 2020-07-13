@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3d3aeecb66ba332d9c32c944d527ac3a07f2fe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 13be33843172f505ed8f12293137c0808e9bd2a0
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920374"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL
 
@@ -66,10 +66,10 @@ Per concedere alla macchina virtuale l'accesso a un database sono necessari due 
 
 Questa sezione illustra come creare un utente indipendente nel database che rappresenta l'identità assegnata dal sistema della macchina virtuale. Per questo passaggio è necessario [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Prima di iniziare, potrebbe essere utile consultare anche gli articoli seguenti per avere informazioni sull'integrazione di Azure AD:
 
-* [Autenticazione universale con database SQL e SQL Data Warehouse (supporto SSMS per MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-* [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL oppure con SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Autenticazione universale con il database SQL e Azure Synapse Analytics (supporto di SSMS per MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL o Azure Synapse Analytics](/azure/sql-database/sql-database-aad-authentication-configure)
 
-Il database SQL richiede nomi visualizzati AAD univoci. Con questa impostazione, gli account AAD come utenti, gruppi ed entità servizio (applicazioni) e i nomi di macchine virtuali abilitati per l'identità gestita devono essere definiti in modo univoco in AAD in relazione ai nomi visualizzati. Il database SQL controlla il nome visualizzato AAD durante la creazione T-SQL di tali utenti. Se tale nome non è univoco, il comando ha esito negativo e viene richiesto di specificare un nome visualizzato AAD univoco per un determinato account.
+Il database SQL richiede nomi visualizzati AAD univoci. Con questa impostazione, gli account AAD come utenti, gruppi ed entità servizio (applicazioni) e i nomi di macchine virtuali abilitati per l'identità gestita devono essere definiti in modo univoco in AAD in relazione ai nomi visualizzati. Il database SQL controlla il nome visualizzato AAD durante la creazione T-SQL di tali utenti e, se non è univoco, il comando ha esito negativo e richiede di specificare un nome visualizzato AAD univoco per un determinato account.
 
 **Per creare un utente indipendente:**
 

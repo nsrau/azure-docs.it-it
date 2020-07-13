@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per l'API di creazione report di Active Directory con certificati | Microsoft Docs
+title: Esercitazione per l'API di creazione report di Azure AD con certificati | Microsoft Docs
 description: Questa esercitazione spiega come usare l'API di creazione report di Azure AD con le credenziali del certificato per ottenere i dati provenienti da directory senza intervento dell'utente.
 services: active-directory
 documentationcenter: ''
@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: a6699d7a117eee95ba635c8c94ed9b2955f21a7b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 4f27385cc33c6c289718c3143d03e24f0454a9f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608009"
 ---
-# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Esercitazione: Ottenere i dati usando l'API di creazione report di Azure Active Directory con i certificati
+# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Esercitazione: Ottenere dati con l'API di creazione report di Azure Active Directory con certificati
 
 Le [API di creazione report di Azure Active Directory (Azure AD)](concept-reporting-api.md) forniscono l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare le API da numerosi linguaggi di programmazione e strumenti. Se si vuole accedere all'API di creazione report di Azure AD senza l'intervento dell'utente, è necessario configurare l'accesso per l'uso di certificati.
 
@@ -45,9 +45,9 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
     - Token di accesso dell'utente, chiavi dell'applicazione e certificati con ADAL
     - API Graph che gestisce i risultati di paging
 
-6. Se è la prima volta che si usa il modulo, eseguire **Install-MSCloudIdUtilsModule**, altrimenti importarlo usando il comando **Import-Module** di PowerShell. La sessione dovrebbe avere un aspetto simile a questa schermata: ![ Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Se è la prima volta che si usa il modulo, eseguire **Install-MSCloudIdUtilsModule**; in caso contrario, è possibile importarlo tramite il comando **Import-Module** di PowerShell. La sessione avrà un aspetto simile a questa schermata: ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Usare il cmdlet di PowerShell **New-SelfSignedCertificate** per creare un certificato di prova.
+7. Usare il cmdlet **New-SelfSignedCertificate** di PowerShell per creare un certificato di test.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -64,13 +64,13 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
 
 1. Passare al [portale di Azure](https://portal.azure.com), selezionare **Azure Active Directory**, quindi selezionare **Registrazioni app** e scegliere l'app dall'elenco. 
 
-2. Selezionare **certificati & segreti** nella sezione **Gestisci** del pannello registrazione dell'applicazione e selezionare **Carica certificato**.
+2. Selezionare **Certificati e segreti** nella sezione **Gestisci** nel pannello Registrazione dell'applicazione e selezionare **Carica certificato**.
 
-3. Selezionare il file del certificato nel passaggio precedente e selezionare **Aggiungi**. 
+3. Selezionare il file di certificato del passaggio precedente e selezionare **Aggiungi**. 
 
-4. Si noti l'ID applicazione e l'identificazione personale del certificato appena registrato con l'applicazione. Per trovare l'identificazione personale, dalla pagina dell'applicazione nel portale passare a **certificati & segreti** sotto la sezione **Gestisci** . L'identificazione personale sarà nell'elenco dei **certificati** .
+4. Si noti l'ID applicazione e l'identificazione personale del certificato appena registrato con l'applicazione. Per trovare l'identificazione personale, dalla pagina dell'applicazione nel portale passare a **Certificati e segreti** nella sezione **Gestisci**. L'identificazione personale sarà visualizzata nell'elenco **Certificati**.
 
-5. Aprire il manifesto dell'applicazione nell'editor del manifesto inline e verificare che la proprietà *Credentials* sia aggiornata con le nuove informazioni del certificato, come illustrato di seguito: 
+5. Aprire il manifesto dell'applicazione nell'editor manifesto inline e verificare che la proprietà *keyCredentials* sia aggiornata con le nuove informazioni del certificato usando lo schema seguente. 
 
    ```
    "keyCredentials": [
@@ -87,7 +87,7 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
 
    ![Portale di Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-7. Usare il token di accesso nello script di PowerShell per eseguire una query sul API Graph. Usare il cmdlet **Invoke-MSCloudIdMSGraphQuery** da MSCloudIDUtils per enumerare l'endpoit Signins e directoryAudits. Questo cmdlet gestisce i risultati di multi-paging e li invia alla pipeline di PowerShell.
+7. Usare il token di accesso nello script di PowerShell per eseguire una query sull'API Graph. Usare il cmdlet **Invoke-MSCloudIdMSGraphQuery** da MSCloudIDUtils per enumerare l'endpoit Signins e directoryAudits. Questo cmdlet gestisce i risultati di multi-paging e li invia alla pipeline di PowerShell.
 
 8. Eseguire una query sull'endpoint directoryAudits per recuperare i log di controllo. 
    ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)

@@ -1,26 +1,26 @@
 ---
-title: "Esercitazione: personalizzare l'interfaccia utente"
+title: "Esercitazione: Personalizzare l'interfaccia utente"
 titleSuffix: Azure AD B2C
-description: Informazioni su come personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C usando il portale di Azure.
+description: Informazioni su come personalizzare l'interfaccia utente delle applicazioni in Azure Active Directory B2C mediante il portale di Azure.
 services: B2C
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e023e9c8c4c6f0021eabccad8783c27eba98d0d5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 235fd429707a418fa193e986b95c9b38fa6c8101
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116527"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385026"
 ---
-# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Esercitazione: personalizzare l'interfaccia delle esperienze utente in Azure Active Directory B2C
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Esercitazione: Personalizzare l'interfaccia delle esperienze utente in Azure Active Directory B2C
 
-Per esperienze utente più comuni, ad esempio iscrizione, accesso e modifica del profilo, è possibile usare i [flussi utente](user-flow-overview.md) in Azure Active Directory B2C (Azure ad B2C). Le informazioni fornite in questa esercitazione spiegano come [personalizzare l'interfaccia utente](customize-ui-overview.md) di queste esperienze usando i propri file HTML e CSS.
+Per esperienze utente più comuni, come l'iscrizione, l'accesso e la modifica del profilo, è possibile usare i [flussi utente](user-flow-overview.md) di Azure Active Directory B2C (Azure AD B2C). Le informazioni fornite in questa esercitazione spiegano come [personalizzare l'interfaccia utente](customize-ui-overview.md) di queste esperienze usando i propri file HTML e CSS.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -44,7 +44,7 @@ Occorre creare un account di archiviazione e un contenitore di Azure e quindi in
 I file possono essere archiviati in diversi modi, ma per questa esercitazione si userà l'[archivio BLOB di Azure](../storage/blobs/storage-blobs-introduction.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory che contiene la sottoscrizione di Azure. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene la sottoscrizione. Questa directory è diversa da quella che contiene il tenant Azure B2C.
+2. Assicurarsi di usare la directory che contiene la sottoscrizione di Azure. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e selezionare la directory che contiene la sottoscrizione. Questa directory è diversa da quella che contiene il tenant Azure B2C.
 3. Scegliere Tutti i servizi nell'angolo superiore sinistro del portale di Azure e quindi cercare e selezionare **Account di archiviazione**.
 4. Selezionare **Aggiungi**.
 5. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
@@ -63,21 +63,21 @@ I file possono essere archiviati in diversi modi, ma per questa esercitazione si
  Il codice Azure AD B2C in un browser usa un approccio moderno e standard per caricare il contenuto personalizzato da un URL specificato in un flusso utente. La funzionalità Condivisione di risorse tra le origini (CORS) abilita la richiesta di un numero limitato di risorse in una pagina Web da parte di altri domini.
 
 1. Nel menu selezionare **CORS**.
-2. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio, `https://fabrikam.b2clogin.com` È necessario usare solo lettere minuscole quando si immette il nome del tenant.
-3. Per i **metodi consentiti**, selezionare `GET` , `PUT` e `OPTIONS` .
+2. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
+3. Per **Metodi consentiti** selezionare `GET`, `PUT` e `OPTIONS`.
 4. Per **Intestazioni consentite** immettere un asterisco (*).
 5. Per **Intestazioni esposte** immettere un asterisco (*).
 6. Per **Età massima** immettere 200.
 
-    ![Pagina di configurazione di CORS nell'archivio BLOB di Azure in portale di Azure](./media/tutorial-customize-ui/enable-cors.png)
+    ![Pagina di configurazione di CORS nell'archiviazione BLOB di Azure nel portale di Azure](./media/tutorial-customize-ui/enable-cors.png)
 
 5. Fare clic su **Salva**.
 
 ### <a name="create-the-customization-files"></a>Creare i file di personalizzazione
 
-Per personalizzare l'interfaccia utente dell'esperienza di iscrizione, creare innanzitutto un file HTML e un file CSS semplici. È possibile configurare l'HTML nel modo che si preferisce, purché abbia un elemento **div** con un identificatore `api`. Ad esempio, `<div id="api"></div>` Azure AD B2C inserisce gli elementi nel contenitore `api` quando viene visualizzata la pagina.
+Per personalizzare l'interfaccia utente dell'esperienza di iscrizione, creare innanzitutto un file HTML e un file CSS semplici. È possibile configurare l'HTML nel modo che si preferisce, purché abbia un elemento **div** con un identificatore `api`. Ad esempio: `<div id="api"></div>`. Azure AD B2C inserisce gli elementi nel contenitore `api` quando viene visualizzata la pagina.
 
-1. In una cartella locale creare il file seguente e sostituire `your-storage-account` con il nome dell'account di archiviazione e `your-container` con il nome del contenitore creato. Ad esempio, `https://store1.blob.core.windows.net/b2c/style.css`
+1. In una cartella locale creare il file seguente e sostituire `your-storage-account` con il nome dell'account di archiviazione e `your-container` con il nome del contenitore creato. Ad esempio: `https://store1.blob.core.windows.net/b2c/style.css`.
 
     ```html
     <!DOCTYPE html>
@@ -127,11 +127,11 @@ Per personalizzare l'interfaccia utente dell'esperienza di iscrizione, creare in
 
 In questa esercitazione i file creati devono essere archiviati nell'account di archiviazione, in modo che Azure AD B2C possa accedervi.
 
-1. Scegliere **tutti i servizi** nell'angolo superiore sinistro del portale di Azure cercare e selezionare **account di archiviazione**.
+1. Scegliere **Tutti i servizi** nell'angolo superiore sinistro del portale di Azure e quindi cercare e selezionare **Account di archiviazione**.
 2. Selezionare l'account di archiviazione creato, selezionare **BLOB** e quindi selezionare il contenitore creato.
 3. Selezionare **Carica**, individuare e selezionare il file *custom-ui.html* e quindi fare clic su **Carica**.
 
-    ![Carica la pagina BLOB nel portale con il pulsante di caricamento e i file evidenziati](./media/tutorial-customize-ui/upload-blob.png)
+    ![Pagina Carica BLOB nel portale con il pulsante Carica e File evidenziati](./media/tutorial-customize-ui/upload-blob.png)
 
 4. Copiare l'URL del file che era stato caricato per usarlo successivamente nell'esercitazione.
 5. Ripetere i passaggi 3 e 4 per il file *style.css*.
@@ -150,11 +150,11 @@ In questa esercitazione i file creati devono essere archiviati nell'account di a
 2. Nella parte superiore della pagina, fare clic su **Esegui il flusso utente**.
 3. Fare clic sul pulsante **Esegui il flusso utente**.
 
-    ![Pagina Esegui flusso utente per il flusso utente di iscrizione o accesso](./media/tutorial-customize-ui/run-user-flow.png)
+    ![Pagina Esegui il flusso utente per il flusso utente di iscrizione o accesso](./media/tutorial-customize-ui/run-user-flow.png)
 
     Dovrebbe essere visualizzata una pagina simile all'esempio seguente, con gli elementi allineati al centro in base al file CSS creato:
 
-    ![Web browser visualizzazione della pagina di iscrizione o di accesso con elementi dell'interfaccia utente personalizzati](./media/tutorial-customize-ui/run-now.png)
+    ![Web browser che visualizza la pagina di iscrizione o di accesso con elementi dell'interfaccia utente personalizzati](./media/tutorial-customize-ui/run-now.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

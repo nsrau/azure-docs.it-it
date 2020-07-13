@@ -1,48 +1,48 @@
 ---
-title: 'Esercitazione: Active Directory di base in locale e in ambiente Azure AD.'
+title: 'Esercitazione: Ambiente Azure AD e Active Directory locale di base.'
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356a05d4d92f17ceb66ff0208153ec3eac736757
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe2d0a16aeacfc551a6a07a72b58b5f461f93433
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360521"
 ---
-# <a name="tutorial-basic-active-directory-environment"></a>Esercitazione: ambiente di base Active Directory
+# <a name="tutorial-basic-active-directory-environment"></a>Esercitazione: Ambiente Active Directory di base
 
-Questa esercitazione illustra la creazione di un ambiente Active Directory di base. 
+Questa esercitazione illustra come creare un ambiente Active Directory di base. 
 
 ![Create](media/tutorial-single-forest/diagram1.png)
 
-È possibile usare l'ambiente creato nell'esercitazione per testare vari aspetti degli scenari di identità ibrida e sarà un prerequisito per alcune delle esercitazioni.  Se si dispone già di un ambiente di Active Directory esistente, è possibile utilizzarlo come sostituto.  Queste informazioni vengono fornite per i singoli utenti che iniziano da zero.
+È possibile usare l'ambiente creato nell'esercitazione per testare vari aspetti degli scenari di identità ibrida e tale ambiente sarà un prerequisito per alcune delle esercitazioni.  Se si dispone già di un ambiente Active Directory esistente, è possibile usarlo come sostituto.  Queste informazioni sono destinate a singoli utenti che iniziano da zero.
 
-Questa esercitazione è costituita da
+Sezioni dell'esercitazione
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione sono necessari i requisiti seguenti
 - Un computer in cui è installato [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview).  È consigliabile installarlo in un computer con [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) o in un computer con [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Una [scheda di rete esterna](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) per consentire alla macchina virtuale di comunicare con Internet.
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free)
 - Una copia di Windows Server 2016
-- [4.7.1 Framework di Microsoft .NET](https://www.microsoft.com/download/details.aspx?id=56115)
+- [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
 
 > [!NOTE]
 > Questa esercitazione usa script di PowerShell in modo che sia possibile creare l'ambiente dell'esercitazione molto velocemente.  Ogni script usa variabili dichiarate all'inizio degli script.  È possibile ed è consigliabile modificare le variabili in base al proprio ambiente.
 >
->Gli script usati creano un ambiente di Active Directory generale prima di installare l'agente di provisioning di Azure AD Connect Cloud.  Sono rilevanti per tutte le esercitazioni.
+>L'uso degli script consente di creare un ambiente Active Directory generale prima dell'installazione dell'agente di provisioning cloud di Azure AD Connect.  Sono rilevanti per tutte le esercitazioni.
 >
 > Le copie degli script di PowerShell usati in questa esercitazione sono disponibili in GitHub [qui](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
-La prima cosa da fare è la creazione di una macchina virtuale che verrà usata come server di Active Directory locale, per fare in modo che l'ambiente di identità ibrido sia operativo.  Eseguire le operazioni seguenti:
+Per configurare un ambiente ibrido di gestione delle identità operativo, è prima necessario creare una macchina virtuale che servirà come server Active Directory locale.  Eseguire le operazioni seguenti:
 
 1. Aprire PowerShell ISE come amministratore.
 2. Eseguire lo script seguente.
@@ -87,7 +87,7 @@ Per concludere la creazione della macchina virtuale, è necessario completare l'
 10. Dopo aver completato l'installazione, riavviare la macchina virtuale, accedere ed eseguire gli aggiornamenti di Windows per assicurarsi che la macchina virtuale sia aggiornata.  Installare gli aggiornate più recenti.
 
 ## <a name="install-active-directory-prerequisites"></a>Installare i prerequisiti di Active Directory
-Ora che si dispone di una macchina virtuale, è necessario eseguire alcune operazioni prima di installare Active Directory.  Ovvero, è necessario rinominare la macchina virtuale, impostare un indirizzo IP statico e informazioni DNS e installare gli strumenti di amministrazione remota del server.   Eseguire le operazioni seguenti:
+Ora che la macchina virtuale è disponibile, è necessario eseguire alcune operazioni prima di installare Active Directory.  È necessario rinominare la macchina virtuale, impostare un indirizzo IP statico e le informazioni DNS e installare gli strumenti di amministrazione remota del server.   Eseguire le operazioni seguenti:
 
 1. Aprire PowerShell ISE come amministratore.
 2. Eseguire lo script seguente.
@@ -123,7 +123,7 @@ Ora che si dispone di una macchina virtuale, è necessario eseguire alcune opera
     ```
 
 ## <a name="create-a-windows-server-ad-environment"></a>Creare un ambiente di Active Directory per Windows Server
-Ora che la macchina virtuale è stata creata ed è stata rinominata con un indirizzo IP statico, è possibile procedere e installare e configurare Active Directory Domain Services.  Eseguire le operazioni seguenti:
+Dopo che la macchina virtuale è stata creata e rinominata e ha un indirizzo IP statico, è possibile installare e configurare Active Directory Domain Services.  Eseguire le operazioni seguenti:
 
 1. Aprire PowerShell ISE come amministratore.
 2. Eseguire lo script seguente.
@@ -154,7 +154,7 @@ Ora che la macchina virtuale è stata creata ed è stata rinominata con un indir
     ```
 
 ## <a name="create-a-windows-server-ad-user"></a>Creare un utente di Active Directory per Windows Server
-Ora che si dispone di un ambiente di Active Directory, è necessario un account di prova.  Questo account verrà creato nell'ambiente di Active Directory locale, poi verrà sincronizzato in Azure AD.  Eseguire le operazioni seguenti:
+Ora che l'ambiente Active Directory è pronto, è necessario un account di test.  Questo account verrà creato nell'ambiente di Active Directory locale, poi verrà sincronizzato in Azure AD.  Eseguire le operazioni seguenti:
 
 1. Aprire PowerShell ISE come amministratore.
 2. Eseguire lo script seguente.
@@ -194,12 +194,12 @@ Ora che si dispone di un ambiente di Active Directory, è necessario un account 
 
 
 ## <a name="create-an-azure-ad-tenant"></a>Come creare un tenant di Azure Active Directory
-A questo punto è necessario creare un tenant di Azure AD in modo che sia possibile sincronizzare gli utenti con il cloud.  Per creare un nuovo tenant di Azure Active Directory Azure, eseguire le operazioni seguenti.
+A questo punto occorre creare un tenant di Azure Active Directory per poter sincronizzare gli utenti nel cloud.  Per creare un nuovo tenant di Azure Active Directory Azure, eseguire le operazioni seguenti.
 
 1. Selezionare il [portale di Azure](https://portal.azure.com) e accedere con un account che dispone di una sottoscrizione di Azure.
 2. Selezionare l'**icona +** e cercare **Azure Active Directory**.
 3. Selezionare **Azure Active Directory** dai risultati della ricerca.
-4. Selezionare **Create** (Crea).</br>
+4. Selezionare **Crea**.</br>
 ![Creare](media/tutorial-single-forest/create1.png)</br>
 5. Specificare un **nome per l'organizzazione** e il **nome di dominio iniziale**. Selezionare quindi **Crea**. Verrà così creata la directory.
 6. A questo punto, selezionare il collegamento **qui** per gestire la directory.
@@ -215,10 +215,10 @@ Ora che si dispone di un tenant di Azure AD, verrà creato un account amministra
 4. Al termine dell'operazione, aprire un nuovo Web browser e accedere a myapps.microsoft.com usando il nuovo account di amministratore globale e la password temporanea.
 5. Modificare la password dell'amministratore globale in una da ricordare.
 
-## <a name="optional--additional-server-and-forest"></a>Facoltativo: server e foresta aggiuntivi
-Di seguito è riportata una sezione facoltativa che illustra la procedura per la creazione di un server e di una foresta aggiuntiva.  Questo può essere usato in alcune delle esercitazioni più avanzate, ad esempio il [progetto pilota per il provisioning nel cloud Azure ad Connect](tutorial-pilot-aadc-aadccp.md).
+## <a name="optional--additional-server-and-forest"></a>Facoltativo:  Server e foresta aggiuntivi
+Di seguito è riportata una sezione facoltativa che illustra la procedura per la creazione di un server e/o di una foresta aggiuntiva,  che potrebbero essere necessari in alcune delle esercitazioni più avanzate, ad esempio [Creare un progetto pilota per il provisioning cloud di Azure AD Connect](tutorial-pilot-aadc-aadccp.md).
 
-Se è necessario solo un server aggiuntivo, è possibile arrestare dopo il passaggio- **creare la macchina virtuale** e aggiungere il server al dominio esistente creato in precedenza.  
+Se è necessario solo un server aggiuntivo, è possibile fermarsi dopo il passaggio **Creare la macchina virtuale** e aggiungere il server al dominio esistente creato in precedenza.  
 
 ### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
@@ -274,7 +274,7 @@ Per concludere la creazione della macchina virtuale, è necessario completare l'
 10. Dopo aver completato l'installazione, riavviare la macchina virtuale, accedere ed eseguire gli aggiornamenti di Windows per assicurarsi che la macchina virtuale sia aggiornata.  Installare gli aggiornate più recenti.
 
 ### <a name="install-active-directory-prerequisites"></a>Installare i prerequisiti di Active Directory
-Ora che si dispone di una macchina virtuale, è necessario eseguire alcune operazioni prima di installare Active Directory.  Ovvero, è necessario rinominare la macchina virtuale, impostare un indirizzo IP statico e informazioni DNS e installare gli strumenti di amministrazione remota del server.   Eseguire le operazioni seguenti:
+Ora che la macchina virtuale è disponibile, è necessario eseguire alcune operazioni prima di installare Active Directory.  È necessario rinominare la macchina virtuale, impostare un indirizzo IP statico e le informazioni DNS e installare gli strumenti di amministrazione remota del server.   Eseguire le operazioni seguenti:
 
 1. Aprire PowerShell ISE come amministratore.
 2. Eseguire lo script seguente.
@@ -324,7 +324,7 @@ Ora che si dispone di una macchina virtuale, è necessario eseguire alcune opera
     Restart-Computer
     ```
 ### <a name="create-a-windows-server-ad-environment"></a>Creare un ambiente di Active Directory per Windows Server
-Ora che la macchina virtuale è stata creata ed è stata rinominata con un indirizzo IP statico, è possibile procedere e installare e configurare Active Directory Domain Services.  Eseguire le operazioni seguenti:
+Dopo che la macchina virtuale è stata creata e rinominata e ha un indirizzo IP statico, è possibile installare e configurare Active Directory Domain Services.  Eseguire le operazioni seguenti:
 
 1. Aprire PowerShell ISE come amministratore.
 2. Eseguire lo script seguente.
@@ -370,7 +370,7 @@ Ora che la macchina virtuale è stata creata ed è stata rinominata con un indir
     ```
 
 ### <a name="create-a-windows-server-ad-user"></a>Creare un utente di Active Directory per Windows Server
-Ora che si dispone di un ambiente di Active Directory, è necessario un account di prova.  Questo account verrà creato nell'ambiente di Active Directory locale, poi verrà sincronizzato in Azure AD.  Eseguire le operazioni seguenti:
+Ora che l'ambiente Active Directory è pronto, è necessario un account di test.  Questo account verrà creato nell'ambiente di Active Directory locale, poi verrà sincronizzato in Azure AD.  Eseguire le operazioni seguenti:
 
 1. Aprire PowerShell ISE come amministratore.
 2. Eseguire lo script seguente.
@@ -409,7 +409,7 @@ Ora che si dispone di un ambiente di Active Directory, è necessario un account 
     ```
 
 ## <a name="conclusion"></a>Conclusioni
-A questo punto si dispone di un ambiente che può essere usato per esercitazioni esistenti e per testare funzionalità aggiuntive offerte dal provisioning cloud.
+A questo punto è stato creato un ambiente che può essere usato per le esercitazioni esistenti e per testare funzionalità aggiuntive offerte dal provisioning cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

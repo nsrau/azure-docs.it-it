@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5283916194d407cebd30ef072907c56ded1c6cb0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74870140"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848947"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Eseguire query sui dati usando l'API Azure Cosmos DB per MongoDB
 
@@ -63,12 +63,15 @@ Le query di questo articolo usano il documento di esempio seguente.
 Nel precedente documento della famiglia, la query seguente restituisce i documenti in cui il campo ID corrisponde a `WakefieldFamily`.
 
 **Query**
-    
-    db.families.find({ id: "WakefieldFamily"})
+
+```bash
+db.families.find({ id: "WakefieldFamily"})
+```
 
 **Risultati**
 
-    {
+```json
+{
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
     "id": "WakefieldFamily",
     "parents": [
@@ -106,19 +109,23 @@ Nel precedente documento della famiglia, la query seguente restituisce i documen
     },
     "creationDate": 1431620462,
     "isRegistered": false
-    }
+}
+```
 
 ## <a name="example-query-2"></a><a id="examplequery2"></a>Query di esempio 2 
 
 La query seguente restituisce tutti i figli della famiglia. 
 
 **Query**
-    
-    db.families.find( { id: "WakefieldFamily" }, { children: true } )
+
+```bash 
+db.families.find( { id: "WakefieldFamily" }, { children: true } )
+``` 
 
 **Risultati**
 
-    {
+```json
+{
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
     "children": [
       {
@@ -138,28 +145,37 @@ La query seguente restituisce tutti i figli della famiglia.
         "grade": 8
       }
     ]
-    }
-
+}
+```
 
 ## <a name="example-query-3"></a><a id="examplequery3"></a>Query di esempio 3 
 
 La query seguente restituisce tutte le famiglie registrate. 
 
 **Query**
-    
-    db.families.find( { "isRegistered" : true })
-**Risultati** Non viene restituito alcun documento. 
+
+```bash
+db.families.find( { "isRegistered" : true })
+``` 
+
+**Risultati**
+
+Non viene restituito alcun documento. 
 
 ## <a name="example-query-4"></a><a id="examplequery4"></a>Query di esempio 4
 
 La query seguente restituisce tutte le famiglie non registrate. 
 
 **Query**
-    
-    db.families.find( { "isRegistered" : false })
+
+```bash
+db.families.find( { "isRegistered" : false })
+``` 
+
 **Risultati**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -193,18 +209,22 @@ La query seguente restituisce tutte le famiglie non registrate.
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-5"></a><a id="examplequery5"></a>Query di esempio 5
 
 La query seguente restituisce tutte le famiglie non registrate e il cui stato di residenza è NY. 
 
 **Query**
-    
-     db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+
+```bash
+db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+``` 
 
 **Risultati**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -238,19 +258,22 @@ La query seguente restituisce tutte le famiglie non registrate e il cui stato di
     "creationDate": 1431620462,
     "isRegistered": false
 }
-
+```
 
 ## <a name="example-query-6"></a><a id="examplequery6"></a>Query di esempio 6
 
 La query seguente restituisce tutte le famiglie in cui il grado della classe frequentata dai figli corrisponde a 8.
 
 **Query**
-  
-     db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+
+```bash
+db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+```
 
 **Risultati**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -284,14 +307,17 @@ La query seguente restituisce tutte le famiglie in cui il grado della classe fre
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-7"></a><a id="examplequery7"></a>Query di esempio 7
 
 La query seguente restituisce tutte le famiglie in cui la dimensione della matrice dei figli corrisponde a 3.
 
 **Query**
-  
-      db.Family.find( {children: { $size:3} } )
+
+```bash
+db.Family.find( {children: { $size:3} } )
+```
 
 **Risultati**
 

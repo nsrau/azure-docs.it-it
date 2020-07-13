@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Procedura per l'esecuzione di query con SQL in Azure Cosmos DB"
-description: 'Esercitazione: Informazioni su come eseguire query con SQL in Azure Cosmos DB usando il playground per le query'
+description: 'Esercitazione: Informazioni su come eseguire query SQL in Azure Cosmos DB usando il playground per le query'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e83ed0f9e635ed24b7e6115eeaaa9057d422c69
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74870072"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921121"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Esercitazione: Eseguire query in Azure Cosmos DB con l'API SQL
 
@@ -56,6 +56,7 @@ Le query SQL di questo articolo usano il documento di esempio seguente.
   "isRegistered": false
 }
 ```
+
 ## <a name="where-can-i-run-sql-queries"></a>Dove è possibile eseguire query SQL?
 
 È possibile eseguire query usando Esplora dati nel Portale di Azure, tramite le [API REST e gli SDK](sql-api-sdk-dotnet.md) e anche usando [Query Playground](https://www.documentdb.com/sql/demo), che esegue query su un set di dati di esempio esistente.
@@ -65,7 +66,7 @@ Per altre informazioni sulle query SQL, vedere:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'esercitazione presuppone la presenza di un account e di una raccolta di Azure Cosmos DB. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-cosmosdb-resources-portal.md).
+L'esercitazione presuppone la presenza di un account e di una raccolta di Azure Cosmos DB. Queste risorse non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-cosmosdb-resources-portal.md).
 
 ## <a name="example-query-1"></a>Query di esempio 1
 
@@ -73,9 +74,11 @@ Nel precedente documento della famiglia, la query SQL seguente restituisce i doc
 
 **Query**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "WakefieldFamily"
+```
 
 **Risultati**
 
@@ -110,23 +113,34 @@ Nel precedente documento della famiglia, la query SQL seguente restituisce i doc
 
 ## <a name="example-query-2"></a>Query di esempio 2
 
-La query successiva restituisce tutti i nomi dei figli della famiglia il cui ID corrisponde a `WakefieldFamily`, ordinati in base al grado della classe frequentata.
+La query successiva restituisce tutti i nomi dei figli della famiglia il cui ID corrisponde a `WakefieldFamily`, ordinati in base alla classe frequentata.
 
 **Query**
 
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
+```
 
 **Risultati**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
+```
+[
+    {
+        "givenName": "Jesse"
+    },
+    {
+        "givenName": "Lisa"
+    }
+]
+```
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state eseguite le operazioni seguenti:
+In questa esercitazione verranno effettuate le attività seguenti:
 
 > [!div class="checklist"]
 > * È stato appreso come eseguire una query usando SQL  

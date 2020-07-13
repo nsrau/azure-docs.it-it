@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: f56abe2bf6ccea1f55f9b3fe94b75016d449b46b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dcb3afd14a7355a08291cd8553d5050d96919aec
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670180"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801428"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introduzione alle query di log in Monitoraggio di Azure
 
 > [!NOTE]
-> È possibile eseguire questo esercizio nel proprio ambiente se si raccolgono dati da almeno una macchina virtuale. In caso contrario, usare l'[ambiente Demo](https://portal.loganalytics.io/demo), che include numerosi dati di esempio.
+> È possibile eseguire questo esercizio nel proprio ambiente se si raccolgono dati da almeno una macchina virtuale. In caso contrario, usare l'[ambiente Demo](https://portal.loganalytics.io/demo), che include numerosi dati di esempio.  Se si ha già familiarità con l'esecuzione di query in KQL e si deve solo creare rapidamente query utili basate sui tipi di risorse, vedere il [riquadro query di esempio salvate](saved-queries.md).
 
 In questa esercitazione si apprenderà come scrivere query di log in Monitoraggio di Azure. Si apprenderà come:
 
@@ -36,12 +36,14 @@ Di seguito è disponibile una versione video di questa esercitazione:
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>Scrittura di una nuova query
+
 Le query possono iniziare con un nome di tabella o con il comando *search*. È consigliabile iniziare con un nome di tabella, perché definisce un chiaro ambito per la query e consente di migliorare sia le prestazioni di query che la pertinenza dei risultati.
 
 > [!NOTE]
 > Il linguaggio di query Kusto usato da Monitoraggio di Azure fa distinzione tra maiuscole e minuscole. Le parole chiave del linguaggio sono in genere scritte in lettere minuscole. Quando si usano nomi di tabelle o di colonne in una query, assicurarsi di usare la giusta combinazione di maiuscole e minuscole, come indicato nel riquadro dello schema.
 
 ### <a name="table-based-queries"></a>Query basate su tabella
+
 Monitoraggio di Azure organizza i dati in tabelle, ognuna composta da più colonne. Tutte le tabelle e le colonne vengono visualizzate nel riquadro Schema del portale di Log Analytics. Identificare una tabella di interesse ed esaminarne i dati:
 
 ```Kusto
@@ -58,6 +60,7 @@ La query precedente restituisce 10 risultati dalla tabella *SecurityEvent*, senz
 Sarebbe stato possibile eseguire la query anche senza aggiungere `| take 10`. La query sarebbe comunque valida, ma potrebbe restituire fino a 10.000 risultati.
 
 ### <a name="search-queries"></a>Query di ricerca
+
 Le query di ricerca sono meno strutturate e in genere più appropriate per trovare record che includono un valore specifico in una delle relative colonne:
 
 ```Kusto
@@ -132,12 +135,14 @@ SecurityEvent
 ## <a name="specify-a-time-range"></a>Specificare un intervallo di tempo
 
 ### <a name="time-picker"></a>Controllo di selezione di data e ora
+
 Il controllo di selezione di data e ora si trova accanto al pulsante Esegui e indica che viene eseguita una query solo sui record delle ultime 24 ore. Si tratta dell'intervallo di tempo predefinito applicato a tutte le query. Per ottenere solo i record dall'ultima ora, selezionare _Ultima ora_ ed eseguire di nuovo la query.
 
 ![Selezione ora](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtro temporale nella query
+
 È anche possibile definire un intervallo di tempo personalizzato aggiungendo un filtro temporale alla query. È consigliabile posizionare il filtro temporale immediatamente dopo il nome della tabella: 
 
 ```Kusto
@@ -150,6 +155,7 @@ Nel filtro temporale precedente, `ago(30m)` indica "30 minuti fa", quindi la que
 
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>Project ed extend: selezionare e calcolare le colonne
+
 Usare **project** per selezionare colonne specifiche da includere nei risultati:
 
 ```Kusto

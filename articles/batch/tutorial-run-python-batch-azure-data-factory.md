@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: c60f9df87930519684c6c29b1194624342b11528
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a8f6fe49faf0624f6ef6d4fa8a346e22c69da599
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555049"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851731"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Esercitazione: Eseguire script Python tramite Azure Data Factory usando Azure Batch
 
@@ -116,27 +116,27 @@ In questa sezione verrà creata e convalidata una pipeline con lo script Python.
 1. Nella casella delle **risorse della factory** selezionare il pulsante + (più) e quindi selezionare **Pipeline**.
 1. Nella scheda **Generale** impostare il nome della pipeline su "Esegui Python".
 
-    ![](./media/run-python-batch-azure-data-factory/create-pipeline.png)
+    ![Nella scheda Generale impostare il nome della pipeline su "Esegui Python"](./media/run-python-batch-azure-data-factory/create-pipeline.png)
 
 1. Nella casella **Attività** espandere **Servizio batch**. Trascinare l'attività personalizzata dalla casella degli strumenti **Attività** all'area di progettazione della pipeline.
 1. Nella scheda **Generale** specificare **testPipeline** per il nome.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task.png)
+    ![Nella scheda Generale specificare testPipeline per il nome](./media/run-python-batch-azure-data-factory/create-custom-task.png)
 1. Nella scheda **Azure Batch** aggiungere l'**account Batch** creato nei passaggi precedenti e selezionare **Test connessione** per assicurarsi che abbia esito positivo.
 
-    ![](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
+    ![Nella scheda Azure Batch aggiungere l'account Batch creato nei passaggi precedenti, quindi testare la connessione](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
 1. Nella scheda **Impostazioni** immettere il comando `python main.py`.
 1. Per il **servizio collegato alle risorse**  aggiungere l'account di archiviazione creato nei passaggi precedenti. Testare la connessione per assicurarsi che abbia esito positivo.
 1. Nel **percorso della cartella** selezionare il nome del contenitore di **Archiviazione BLOB di Azure** che contiene lo script Python e gli input associati. In questo modo i file selezionati vengono scaricati dal contenitore nelle istanze del nodo del pool prima dell'esecuzione dello script Python.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
+    ![In Percorso cartella selezionare il nome del contenitore di archiviazione BLOB di Azure](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 1. Fare clic su **Convalida** sulla barra degli strumenti della pipeline sopra l'area di disegno per convalidare le impostazioni della pipeline. Assicurarsi che la pipeline sia stata convalidata correttamente. Per chiudere l'output della convalida, selezionare il pulsante &gt;&gt; (freccia destra).
 1. Fare clic su **Debug** per testare la pipeline e verificare che funzioni correttamente.
 1. Fare clic su **Pubblica** per pubblicare la pipeline.
 1. Fare clic su **Trigger** per eseguire lo script Python come parte di un processo batch.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
+    ![Fare clic su Trigger per eseguire lo script Python come parte di un processo batch](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
 
 ### <a name="monitor-the-log-files"></a>Monitorare i file di log
 

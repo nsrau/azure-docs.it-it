@@ -1,26 +1,24 @@
 ---
-title: 'Esercitazione: Proteggere la rete virtuale hub con Gestione firewall di Azure (anteprima)'
+title: 'Esercitazione: Proteggere la rete virtuale hub con Gestione firewall di Azure'
 description: In questa esercitazione viene illustrato come proteggere la rete virtuale con Gestione firewall di Azure usando il portale di Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: cdd416bdb833e4784334a6847d724a7375e2ef8d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77459954"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563646"
 ---
-# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager-preview"></a>Esercitazione: Proteggere la rete virtuale hub con Gestione firewall di Azure (anteprima) 
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Esercitazione: Proteggere la rete virtuale hub con Gestione firewall di Azure
 
 Quando si connette la rete locale a una rete virtuale di Azure per creare una rete ibrida, la possibilità di controllare l'accesso alle risorse di rete di Azure è una parte importante di un piano di sicurezza complessivo.
 
-Gestione firewall di Azure (anteprima) consente di creare una rete virtuale hub per proteggere il traffico di rete ibrido destinato a indirizzi IP privati, a PaaS di Azure e a Internet. È possibile usare Gestione firewall di Azure per controllare l'accesso alla rete in una rete ibrida usando criteri che definiscono il traffico di rete consentito e negato.
+Gestione firewall di Azure consente di creare una rete virtuale hub per proteggere il traffico di rete ibrido destinato a indirizzi IP privati, a soluzioni PaaS di Azure e a Internet. È possibile usare Gestione firewall di Azure per controllare l'accesso alla rete in una rete ibrida usando criteri che definiscono il traffico di rete consentito e negato.
 
 Gestione firewall supporta anche un'architettura dell'hub virtuale protetto. Per un confronto delle architetture di tipo hub virtuale protetto e rete virtuale hub, vedere [Informazioni sulle opzioni disponibili per l'architettura di Gestione firewall di Azure](vhubs-and-vnets.md).
 
@@ -291,11 +289,11 @@ Creare quindi due route:
 1. Dalla home page del portale di Azure selezionare **Crea una risorsa**.
 2. Nella casella di testo di ricerca digitare **tabella di route** e premere **INVIO**.
 3. Selezionare **Tabella di route**.
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 5. Per il nome digitare **UDR-Hub-Spoke**.
 6. Selezionare **FW-Hybrid-Test** come gruppo di risorse.
 8. In **Località** selezionare **(USA) Stati Uniti orientali**.
-9. Selezionare **Create** (Crea).
+9. Selezionare **Crea**.
 10. Al termine della creazione della tabella di route, selezionarla per aprire la pagina corrispondente.
 11. Selezionare **Route** nella colonna di sinistra.
 12. Selezionare **Aggiungi**.
@@ -318,12 +316,12 @@ A questo punto creare la route predefinita dalla subnet spoke.
 1. Dalla home page del portale di Azure selezionare **Crea una risorsa**.
 2. Nella casella di testo di ricerca digitare **tabella di route** e premere **INVIO**.
 3. Selezionare **Tabella di route**.
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 6. Per il nome digitare **UDR-DG**.
 7. Selezionare **FW-Hybrid-Test** come gruppo di risorse.
 8. In **Località** selezionare **(USA) Stati Uniti orientali**.
 4. In **Propagazione route del gateway di rete virtuale** selezionare **Disabilitato**.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 2. Al termine della creazione della tabella di route, selezionarla per aprire la pagina corrispondente.
 3. Selezionare **Route** nella colonna di sinistra.
 4. Selezionare **Aggiungi**.
@@ -392,7 +390,7 @@ Si tratta di una macchina virtuale usata per connettersi all'indirizzo IP pubbli
 2. In **Più comuni** selezionare **Windows Server 2016 Datacenter**.
 3. Immettere i valori seguenti per la macchina virtuale:
     - **Gruppo di risorse**: selezionare Usa esistente e quindi **FW-Hybrid-Test**.
-    - **Nome della macchina virtuale**: *VM-Onprem*.
+    - **Nome della macchina virtuale**: - *VM-Onprem*.
     - **Area** -  *(US) East US)* .
     - **Nome utente**: *azureuser*.
     - **Password**: digitare la password.
@@ -413,7 +411,7 @@ Si tratta di una macchina virtuale usata per connettersi all'indirizzo IP pubbli
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Aprire un Web browser in **VM-Onprem** e andare a http://\<IP privato VM-spoke-01\>.
+3. Aprire un Web browser in **VM-Onprem** e andare a http://\<VM-spoke-01 private IP\>.
 
    Viene visualizzata la pagina **VM-spoke-01**: ![Pagina Web VM-Spoke-01](media/secure-hybrid-network/vm-spoke-01-web.png)
 
@@ -444,4 +442,4 @@ Chiudere eventuali browser e desktop remoti esistenti in **VM-Onprem** prima di 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Proteggere la rete WAN virtuale con Gestione firewall di Azure (anteprima)](secure-cloud-network.md)
+> [Esercitazione: Proteggere la rete WAN virtuale con Gestione firewall di Azure](secure-cloud-network.md)

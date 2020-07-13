@@ -3,12 +3,12 @@ title: 'Esercitazione: Prevedere finalità - LUIS'
 description: In questa esercitazione viene creata un'app personalizzata che consente di prevedere l'intenzione dell'utente in base all'espressione (testo).
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588948"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959860"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Esercitazione: Creare un'app LUIS per determinare le intenzioni dell'utente
 
@@ -113,9 +113,8 @@ Per classificare un'espressione, sono necessari esempi di espressioni utente che
 
     `get a medium vegetarian pizza for delivery`
 
-    Poiché il testo non corrisponde esattamente a un'espressione di esempio, si tratta di un ottimo test per verificare se LUIS è in grado di apprendere ciò che deve essere stimato con questa finalità.
-
-    L'ultimo parametro della stringa di query è `query`, la **query** dell'espressione. Questa espressione non è uguale a nessuna delle espressioni di esempio. Si tratta di un test valido che dovrebbe restituire la finalità `OrderPizza` come finalità con il punteggio più alto.
+  
+    L'ultimo parametro della stringa di query è `query`, la **query** dell'espressione viene passata nell'URI. Questa espressione non è uguale a nessuna delle espressioni di esempio. Si tratta di un test efficace per verificare se LUIS apprende e prevede la finalità `OrderPizza` come la finalità con il punteggio più elevato.
 
     ```JSON
     {
