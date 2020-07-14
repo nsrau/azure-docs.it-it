@@ -4,18 +4,18 @@ description: Creare un nuovo progetto Azure Notebooks (anteprima) configurato co
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 03935b9672c25db11b91733fac1c63f1f5978b87
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c5f73b73b4bab99e07874c2d16d47da69f8026ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559740"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832900"
 ---
-# <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Guida introduttiva: Creare un progetto con un ambiente personalizzato in Azure Notebooks (anteprima)
-
-Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, file di dati, documentazione, immagini e così via, inclusi in un ambiente configurabile con comandi specifici. Dato che l'ambiente viene definito con il progetto, l'utente che clona il progetto nel proprio account Azure Notebooks dispone di tutti i dati necessari per ricreare l'ambiente necessario.
+# <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Avvio rapido: Creare un progetto con un ambiente personalizzato in Azure Notebooks (anteprima)
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, file di dati, documentazione, immagini e così via, inclusi in un ambiente configurabile con comandi specifici. Dato che l'ambiente viene definito con il progetto, l'utente che clona il progetto nel proprio account Azure Notebooks dispone di tutti i dati necessari per ricreare l'ambiente necessario.
 
 ## <a name="create-a-project"></a>Creare un progetto
 
@@ -73,4 +73,4 @@ Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, fil
 > [Manage and configure projects in Azure Notebooks](configure-manage-azure-notebooks-projects.md) (Gestire e configurare progetti in Azure Notebooks)
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare ed eseguire un notebook di Jupyter per la regressione lineare](tutorial-create-run-jupyter-notebook.md)
+> [Esercitazione: Creare ed eseguire un Jupyter Notebook per la regressione lineare](tutorial-create-run-jupyter-notebook.md)

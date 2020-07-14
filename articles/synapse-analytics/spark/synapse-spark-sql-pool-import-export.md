@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 515fd9bfedc5bc5d3cefda2a357c351f515fb5f5
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ebf948fdb1df76cb7bcb03ee5d85f581d856524f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194672"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918725"
 ---
 # <a name="introduction"></a>Introduzione
 
@@ -30,7 +30,7 @@ Il connettore dal pool Apache Spark di Azure Synapse a Synapse SQL è un'impleme
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Autenticazione in Azure Synapse Analytics
 
-Azure Synapse Analytics semplifica l'autenticazione tra i sistemi. Un servizio token si connette con Azure Active Directory per ottenere i token di sicurezza da usare per accedere all'account di archiviazione o al server del data warehouse. 
+Azure Synapse Analytics semplifica l'autenticazione tra i sistemi. Un servizio token si connette con Azure Active Directory per ottenere i token di sicurezza da usare per accedere all'account di archiviazione o al server del data warehouse.
 
 Per questo motivo, non occorre creare le credenziali o specificarle nell'API del connettore, purché l'autenticazione di AAD sia configurata nell'account di archiviazione e nel server del data warehouse. In caso contrario, è possibile specificare l'autenticazione SQL. Per informazioni più dettagliate, vedere la sezione [Uso](#usage).
 
@@ -40,19 +40,27 @@ Per questo motivo, non occorre creare le credenziali o specificarle nell'API del
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario il ruolo **db_exporter** nel database o nel pool SQL nel quale e dal quale si vogliono trasferire i dati.
+- È necessario essere un membro del ruolo **db_exporter** nel database o nel pool SQL in/da cui si vogliono trasferire i dati.
+- È necessario essere un membro del ruolo Collaboratore ai dati dei BLOB di archiviazione nell'account di archiviazione predefinito.
 
-Per creare utenti, connettersi al database e seguire questi esempi:
+Per creare gli utenti, connettersi al database del pool SQL e seguire questi esempi:
 
 ```sql
+--SQL User
 CREATE USER Mary FROM LOGIN Mary;
+
+--Azure Active Directory User
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 Per assegnare un ruolo:
 
 ```sql
+--SQL User
 EXEC sp_addrolemember 'db_exporter', 'Mary';
+
+--Azure Active Directory User
+EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 ```
 
 ## <a name="usage"></a>Uso
@@ -72,7 +80,7 @@ Le istruzioni di importazione non sono necessarie, ma sono pre-importate per l'e
 #### <a name="read-api"></a>API di lettura
 
 ```scala
-val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
+val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```
 
 L'API riportata sopra funziona sia per le tabelle interne (gestite) sia per quelle esterne nel pool SQL.
@@ -80,17 +88,51 @@ L'API riportata sopra funziona sia per le tabelle interne (gestite) sia per quel
 #### <a name="write-api"></a>API di scrittura
 
 ```scala
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-dove TableType può essere Constants.INTERNAL o Constants.EXTERNAL
+L'API di scrittura crea la tabella nel pool SQL e quindi richiama Polybase per caricare i dati.  La tabella non deve esistere nel pool SQL. In caso contrario, verrà restituito un errore che indica "Esiste già un oggetto denominato..."
+
+Valori TableType
+
+- Constants.INTERNAL: tabella gestita nel pool SQL
+- Constants.EXTERNAL: tabella esterna nel pool SQL
+
+Tabella gestita del pool SQL
 
 ```scala
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.INTERNAL)
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
+df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 ```
 
-L'autenticazione con Archiviazione di Azure e SQL Server è stata completata
+Tabella esterna del pool SQL
+
+Per eseguire la scrittura in una tabella esterna del pool SQL, nel pool SQL devono essere presenti gli oggetti EXTERNAL DATA SOURCE ed EXTERNAL FILE FORMAT.  Per altre informazioni, vedere [creazione di un'origine dati esterna](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [formati di file esterni](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) nel pool SQL.  Di seguito sono riportati alcuni esempi per la creazione di un'origine dati esterna e di formati di file esterni nel pool SQL.
+
+```sql
+--For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+CREATE EXTERNAL DATA SOURCE <DataSourceName>
+WITH
+  ( LOCATION = 'abfss://...' ,
+    TYPE = HADOOP
+  ) ;
+
+CREATE EXTERNAL FILE FORMAT <FileFormatName>
+WITH (  
+    FORMAT_TYPE = PARQUET,  
+    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'  
+);
+```
+
+Quando si usa l'autenticazione pass-through di Azure Active Directory per l'account di archiviazione, non è necessario un oggetto EXTERNAL CREDENTIAL.  Assicurarsi di essere un membro del ruolo "Collaboratore ai dati dei BLOB di archiviazione" nell'account di archiviazione.
+
+```scala
+
+df.write.
+    option(Constants.DATA_SOURCE, <DataSourceName>).
+    option(Constants.FILE_FORMAT, <FileFormatName>).
+    sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
+
+```
 
 ### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Se si trasferiscono dati in o da un database o un pool SQL esterno all'area di lavoro
 
@@ -114,8 +156,8 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 ```scala
 df.write.
-option(Constants.SERVER, "[samplews].[database.windows.net]").
-sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+option(Constants.SERVER, "samplews.database.windows.net").
+sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="using-sql-auth-instead-of-aad"></a>Uso dell'autenticazione SQL invece di quella di AAD
@@ -127,8 +169,8 @@ Il connettore attualmente non supporta l'autenticazione basata su token con un p
 ```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
-option(Constants.USER, [SQLServer Login UserName]).
-option(Constants.PASSWORD, [SQLServer Login Password]).
+option(Constants.USER, <SQLServer Login UserName>).
+option(Constants.PASSWORD, <SQLServer Login Password>).
 sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```
 
@@ -136,10 +178,10 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 ```scala
 df.write.
-option(Constants.SERVER, "[samplews].[database.windows.net]").
-option(Constants.USER, [SQLServer Login UserName]).
-option(Constants.PASSWORD, [SQLServer Login Password]).
-sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+option(Constants.SERVER, "samplews.database.windows.net").
+option(Constants.USER, <SQLServer Login UserName>).
+option(Constants.PASSWORD, <SQLServer Login Password>).
+sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="using-the-pyspark-connector"></a>Uso del connettore PySpark
@@ -166,7 +208,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 Allo stesso modo, nello scenario di lettura leggere i dati usando Scala e scriverli in una tabella temporanea, quindi usare Spark SQL in PySpark per eseguire query sulla tabella temporanea in un dataframe.
 
-## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>Consentire ad altri utenti di usare il connettore DW nell'area di lavoro
+## <a name="allowing-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>Consentire ad altri utenti di usare il connettore Azure Synapse Apache Spark a Synapse SQL nell'area di lavoro
 
 Per modificare le autorizzazioni mancanti per altri utenti, è necessario essere proprietario dei dati BLOB di archiviazione nell'account di archiviazione ADLS Gen2 connesso all'area di lavoro. Verificare che l'utente disponga dell'accesso all'area di lavoro e delle autorizzazioni per eseguire i notebook.
 
@@ -178,7 +220,7 @@ Per modificare le autorizzazioni mancanti per altri utenti, è necessario essere
 
 - Specificare gli elenchi di controllo di accesso seguenti nella struttura di cartelle:
 
-| Cartella | / | synapse | aree di lavoro  | <workspacename> | pool spark | <sparkpoolname>  | istanze di pool spark  |
+| Cartella | / | synapse | aree di lavoro  | \<workspacename> | pool spark | \<sparkpoolname>  | istanze di pool spark  |
 |--|--|--|--|--|--|--|--|
 | Autorizzazioni di accesso | --X | --X | --X | --X | --X | --X | -WX |
 | Autorizzazioni predefinite | ---| ---| ---| ---| ---| ---| ---|

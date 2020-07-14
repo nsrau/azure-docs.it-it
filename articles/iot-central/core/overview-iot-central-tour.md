@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: b905b1e86810b25c4c94072d6cd414b993e2a883
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1792f158ac59e2b80a037621be2c2ce2556e1097
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77426197"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799786"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Presentazione dell'interfaccia utente di Azure IoT Central
 
@@ -103,7 +103,7 @@ Il menu superiore viene visualizzato in ogni pagina:
 * Per cercare modelli di dispositivo e dispositivi, immettere un valore in **Search** (Cerca).
 * Per cambiare la lingua o il tema dell'interfaccia utente, scegliere l'icona **Settings** (Impostazioni). Altre informazioni sulla [gestione delle preferenze dell'applicazione](howto-manage-preferences.md)
 * Per disconnettersi dall'applicazione, scegliere l'icona **Account**.
-* Per accedere alla guida e al supporto tecnico, fare clic sul menu a discesa **Help** (Guida) per visualizzare un elenco di risorse. Nelle applicazioni del piano tariffario gratuito le risorse di supporto includono l'accesso alla [live chat](howto-show-hide-chat.md).
+* Per accedere alla guida e al supporto tecnico, fare clic sul menu a discesa **Help** (Guida) per visualizzare un elenco di risorse. È possibile [ottenere informazioni sull'applicazione](./howto-get-app-info.md) dal collegamento **Informazioni sull'app**. Nelle applicazioni del piano tariffario gratuito le risorse di supporto includono l'accesso alla [live chat](howto-show-hide-chat.md).
 
 È possibile scegliere tra un tema scuro o un tema chiaro per l'interfaccia utente:
 
@@ -169,7 +169,7 @@ Questa pagina consente a un generatore di creare e gestire i modelli di disposit
 
 * Dati di telemetria, stato e misure di evento
 * Proprietà
-* Comandi:
+* Comandi
 * Viste
 
 Il *generatore di soluzioni* può anche creare moduli e dashboard che gli operatori possono usare per gestire i dispositivi.

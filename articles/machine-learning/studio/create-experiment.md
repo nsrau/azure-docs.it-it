@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un esperimento di data science'
+title: 'Avvio rapido: Creare un esperimento di data science'
 titleSuffix: ML Studio (classic) - Azure
 description: Questa guida introduttiva di Machine Learning illustra un esperimento semplice di data science. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
 services: machine-learning
@@ -10,14 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: a8ad945e20e1274025595620e08f264863297892
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117363"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965145"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Guida introduttiva: Creare il primo esperimento data science in Azure Machine Learning Studio (classico)
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Avvio rapido: Creare il primo esperimento data science in Azure Machine Learning Studio (classico)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -136,7 +136,7 @@ Per cercare un set di caratteristiche adeguato per creare un modello predittivo,
 
 Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del set di dati. È possibile tornare più tardi e selezionare caratteristiche diverse, eseguire di nuovo l'esperimento e verificare se i risultati ottenuti sono migliori. Per iniziare verranno tuttavia provate le funzionalità seguenti:
 
-    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+> make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
 1. Trascinare un altro modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) nell'area di disegno dell'esperimento. Connettere la porta di output sinistra del modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) alla porta di input del modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati).
 
