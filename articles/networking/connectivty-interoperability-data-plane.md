@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 635a8fc5409e18da9529763b06e4a531a36d0156
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80518255"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169205"
 ---
 # <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilità in Azure: analisi del piano dati
 
@@ -29,13 +29,15 @@ L'analisi del piano dati esamina il percorso seguito dai pacchetti che passano d
 
 Il peering reti virtuali emula la funzionalità di bridge di rete tra le due reti virtuali con peering. Di seguito è indicato l'output traceroute da una rete virtuale dell'hub a una macchina virtuale nella rete virtuale spoke:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.11.30.4
+  1     2 ms     1 ms     1 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 L'immagine seguente è la rappresentazione grafica della connessione tra la rete virtuale dell'hub e la rete virtuale spoke dal punto di vista di Azure Network Watcher:
 
@@ -46,15 +48,17 @@ L'immagine seguente è la rappresentazione grafica della connessione tra la rete
 
 Di seguito è indicato l'output traceroute da una rete virtuale dell'hub a una macchina virtuale nella rete virtuale del ramo:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms     1 ms     1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     2 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms     1 ms     1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     2 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute il primo hop è il gateway VPN in Gateway VPN di Azure della rete virtuale dell'hub. Il secondo hop è il gateway VPN della rete virtuale del ramo. L'indirizzo IP del gateway VPN della rete virtuale del ramo non è annunciato nella rete virtuale dell'hub. Il terzo hop è la macchina virtuale nella rete virtuale del ramo.
 
@@ -70,16 +74,18 @@ Per la stessa connessione, la figura seguente mostra la visualizzazione griglia 
 
 Di seguito è indicato l'output traceroute da una rete virtuale dell'hub a una macchina virtuale nella rete locale Location 1:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     2 ms     2 ms     2 ms  10.2.30.10
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     2 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute il primo hop è l'endpoint del tunnel del gateway Azure ExpressRoute a Microsoft Enterprise Edge Router (MSEE). Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 1. Questi indirizzi IP non sono annunciati nella rete virtuale dell'hub. Il quarto hop è la macchina virtuale nella rete locale Location 1.
 
@@ -88,16 +94,18 @@ In questo traceroute il primo hop è l'endpoint del tunnel del gateway Azure Exp
 
 Di seguito è indicato l'output traceroute da una rete virtuale dell'hub a una macchina virtuale nella rete locale Location 2:
 
-    C:\Users\rb>tracert 10.1.31.10
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-      1    76 ms    75 ms    75 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
+  1    76 ms    75 ms    75 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute il primo hop è l'endpoint del tunnel del gateway ExpressRoute a MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 2. Questi indirizzi IP non sono annunciati nella rete virtuale dell'hub. Il quarto hop è la macchina virtuale nella rete locale Location 2.
 
@@ -105,15 +113,17 @@ In questo traceroute il primo hop è l'endpoint del tunnel del gateway ExpressRo
 
 Di seguito è indicato l'output traceroute da una rete virtuale dell'hub a una macchina virtuale nella rete virtuale remota:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    69 ms  10.17.30.4
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute il primo hop è l'endpoint del tunnel del gateway ExpressRoute a MSEE. Il secondo hop è l'IP del gateway di VNet remoto. L'intervallo IP del secondo hop non è annunciato all'interno della rete virtuale dell'hub. Il terzo hop è la macchina virtuale nella rete virtuale remota.
 
@@ -125,27 +135,31 @@ La rete virtuale spoke condivide la visualizzazione di rete della rete virtuale 
 
 Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macchina virtuale nella rete virtuale dell'hub:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet"></a>Percorso della rete virtuale del ramo
 
 Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macchina virtuale nella rete virtuale del ramo:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms    <1 ms    <1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute il primo hop è il gateway VPN della rete virtuale dell'hub. Il secondo hop è il gateway VPN della rete virtuale del ramo. L'indirizzo IP del gateway VPN della rete virtuale del ramo non è annunciato nella rete virtuale dell'hub/spoke. Il terzo hop è la macchina virtuale nella rete virtuale del ramo.
 
@@ -153,16 +167,18 @@ In questo traceroute il primo hop è il gateway VPN della rete virtuale dell'hub
 
 Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macchina virtuale nella rete locale Location 1:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    24 ms     2 ms     3 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     3 ms     2 ms     2 ms  10.2.30.10
+  1    24 ms     2 ms     3 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     3 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet per un MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 1. Questi indirizzi IP non sono annunciati nella rete virtuale dell'hub/spoke. Il quarto hop è la macchina virtuale nella rete locale Location 1.
 
@@ -170,17 +186,18 @@ In questo traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressR
 
 Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macchina virtuale nella rete locale Location 2:
 
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    C:\Users\rb>tracert 10.1.31.10
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+  1    76 ms    75 ms    76 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-      1    76 ms    75 ms    76 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
-
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet per un MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 2. Questi indirizzi IP non sono annunciati nelle reti virtuali dell'hub/spoke. Il quarto hop è la macchina virtuale nella rete locale Location 2.
 
@@ -188,15 +205,17 @@ In questo traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressR
 
 Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macchina virtuale nella rete virtuale remota:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.10.30.133
-      2     *        *        *     Request timed out.
-      3    71 ms    70 ms    70 ms  10.17.30.4
+  1     2 ms     1 ms     1 ms  10.10.30.133
+  2     *        *        *     Request timed out.
+  3    71 ms    70 ms    70 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet per un MSEE. Il secondo hop è l'IP del gateway di VNet remoto. L'intervallo IP del secondo hop non è annunciato all'interno della rete virtuale dell'hub/spoke. Il terzo hop è la macchina virtuale nella rete virtuale remota.
 
@@ -206,15 +225,17 @@ In questo traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressR
 
 Di seguito è indicato l'output traceroute dalla rete virtuale del ramo a una macchina virtuale nella rete virtuale dell'hub:
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute il primo hop è il gateway VPN della rete virtuale del ramo. Il secondo hop è il gateway VPN della rete virtuale dell'hub. L'indirizzo IP del gateway VPN della rete virtuale dell'hub non è annunciato nella rete virtuale remota. Il terzo hop è la macchina virtuale nella rete virtuale dell'hub.
 
@@ -222,15 +243,17 @@ In questo traceroute il primo hop è il gateway VPN della rete virtuale del ramo
 
 Di seguito è indicato l'output traceroute dalla rete virtuale del ramo a una macchina virtuale nella rete virtuale spoke:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     1 ms    <1 ms     1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     2 ms  10.11.30.4
+  1     1 ms    <1 ms     1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute il primo hop è il gateway VPN della rete virtuale del ramo. Il secondo hop è il gateway VPN della rete virtuale dell'hub. L'indirizzo IP del gateway VPN della rete virtuale dell'hub non è annunciato nella rete virtuale remota. Il terzo hop è la macchina virtuale nella rete virtuale spoke.
 
@@ -238,17 +261,19 @@ In questo traceroute il primo hop è il gateway VPN della rete virtuale del ramo
 
 Di seguito è indicato l'output traceroute dalla rete virtuale del ramo a una macchina virtuale nella rete locale Location 1:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.2.30.125
-      4     *        *        *     Request timed out.
-      5     3 ms     3 ms     3 ms  10.2.30.10
+  1     1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.2.30.125
+  4     *        *        *     Request timed out.
+  5     3 ms     3 ms     3 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute il primo hop è il gateway VPN della rete virtuale del ramo. Il secondo hop è il gateway VPN della rete virtuale dell'hub. L'indirizzo IP del gateway VPN della rete virtuale dell'hub non è annunciato nella rete virtuale remota. Il terzo hop è il punto di terminazione del tunnel VPN sul router CE primario. Il quarto hop è un indirizzo IP interno della rete locale Location 1. Questo indirizzo IP della rete LAN non è annunciato all'esterno del router perimetrale del cliente. Il quinto hop è la macchina virtuale di destinazione nella rete locale Location 1.
 
@@ -256,27 +281,29 @@ In questo traceroute il primo hop è il gateway VPN della rete virtuale del ramo
 
 Come descritto nell'analisi del piano di controllo, la rete virtuale del ramo non ha visibilità sulla rete locale Location 2 o sulla rete virtuale remota in base alla configurazione di rete. I risultati del ping seguenti ne sono una conferma: 
 
-    C:\Users\rb>ping 10.1.31.10
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Pinging 10.1.31.10 with 32 bytes of data:
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
-    C:\Users\rb>ping 10.17.30.4
+C:\Users\rb>ping 10.17.30.4
 
-    Pinging 10.17.30.4 with 32 bytes of data:
+Pinging 10.17.30.4 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.17.30.4:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.17.30.4:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ## <a name="data-path-from-on-premises-location-1"></a>Percorso dei dati dalla rete locale Location 1
 
@@ -284,17 +311,19 @@ Come descritto nell'analisi del piano di controllo, la rete virtuale del ramo no
 
 Di seguito è indicato l'output traceroute dalla rete locale Location 1 a una macchina virtuale nella rete virtuale dell'hub:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     2 ms     2 ms     2 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     2 ms     2 ms     2 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 In questo traceroute i primi due hop fanno parte della rete locale. Il terzo hop è l'interfaccia MSEE primaria per il router perimetrale del cliente. Il quarto hop è il gateway ExpressRoute della rete virtuale dell'hub. L'intervallo IP del gateway ExpressRoute della rete virtuale dell'hub non è annunciato nella rete locale. Il quinto hop è la macchina virtuale di destinazione.
 
@@ -306,15 +335,17 @@ L'immagine seguente è la visualizzazione della topologia della connettività da
 
 Come indicato in precedenza, l'installazione test usa una VPN da sito a sito come connettività di backup per ExpressRoute tra la rete locale Location 1 e la rete virtuale dell'hub. Per testare il percorso dei dati di backup, è possibile che si verifichi un errore di collegamento ExpressRoute tra il percorso locale 1 router CE primario e il MSEE corrispondente. arrestando l'interfaccia perimetrale del cliente rivolta verso il router MSEE:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 L'immagine seguente è la visualizzazione della topologia della connettività dalla macchina virtuale della rete locale Location 1 alla macchina virtuale nella rete virtuale dell'hub attraverso la connettività VPN da sito a sito quando la connettività ExpressRoute non è attiva:
 
@@ -326,17 +357,19 @@ Di seguito è indicato l'output traceroute dalla rete locale Location 1 a una ma
 
 Si prenda di nuovo in considerazione la connettività ExpressRoute primaria per eseguire l'analisi del percorso dati verso la rete virtuale spoke:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     3 ms     2 ms     2 ms  10.11.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     3 ms     2 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 La connettività ExpressRoute 1 primaria verrà usata per il resto dell'analisi del percorso dati.
 
@@ -344,46 +377,52 @@ La connettività ExpressRoute 1 primaria verrà usata per il resto dell'analisi 
 
 Di seguito è indicato l'output traceroute dalla rete locale Location 1 a una macchina virtuale nella rete virtuale del ramo:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-on-premises-location-2"></a>Percorso della rete locale Location 2
 
 Come descritto nell'[analisi del piano di controllo][Control-Analysis], la rete locale Location 1 non ha visibilità sulla rete locale Location 2 in base alla configurazione di rete. I risultati del ping seguenti ne sono una conferma: 
 
-    C:\Users\rb>ping 10.1.31.10
-    
-    Pinging 10.1.31.10 with 32 bytes of data:
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Request timed out.
-    ...
-    Request timed out.
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Request timed out.
+...
+Request timed out.
+
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ### <a name="path-to-the-remote-vnet"></a>Percorso della rete virtuale remota
 
 Di seguito è indicato l'output traceroute dalla rete locale Location 1 a una macchina virtuale nella rete virtuale remota:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2     2 ms     5 ms     7 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5    69 ms    70 ms    69 ms  10.17.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2     2 ms     5 ms     7 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5    69 ms    70 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ## <a name="data-path-from-on-premises-location-2"></a>Percorso dei dati dalla rete locale Location 2
 
@@ -391,32 +430,36 @@ Di seguito è indicato l'output traceroute dalla rete locale Location 1 a una ma
 
 Di seguito è indicato l'output traceroute dalla rete locale Location 2 a una macchina virtuale nella rete virtuale dell'hub:
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.4
-      3    <1 ms    <1 ms    <1 ms  192.168.31.22
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.4
+  3    <1 ms    <1 ms    <1 ms  192.168.31.22
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>Percorso della rete virtuale spoke
 
 Di seguito è indicato l'output traceroute dalla rete locale Location 2 a una macchina virtuale nella rete virtuale spoke:
 
-    C:\Windows\system32>tracert 10.11.30.4
+```console
+C:\Windows\system32>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
-      1    <1 ms    <1 ms     1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.0
-      3    <1 ms    <1 ms    <1 ms  192.168.31.18
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.11.30.4
+Tracing route to 10.11.30.4 over a maximum of 30 hops
+  1    <1 ms    <1 ms     1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.0
+  3    <1 ms    <1 ms    <1 ms  192.168.31.18
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Percorso della rete virtuale del ramo, della rete locale Location 1 e della rete virtuale remota
 
@@ -428,29 +471,33 @@ Come descritto nell'[analisi del piano di controllo][Control-Analysis], la rete 
 
 Di seguito è indicato l'output traceroute dalla rete virtuale remota a una macchina virtuale nella rete virtuale dell'hub:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    65 ms    65 ms    65 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    68 ms  10.10.30.4
+  1    65 ms    65 ms    65 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    68 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>Percorso della rete virtuale spoke
 
 Di seguito è indicato l'output traceroute dalla rete virtuale remota a una macchina virtuale nella rete virtuale spoke:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    71 ms    69 ms    69 ms  10.11.30.4
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    71 ms    69 ms    69 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Percorso della rete virtuale del ramo e della rete locale Location 2
 
@@ -460,17 +507,18 @@ Come descritto nell'[analisi del piano di controllo][Control-Analysis], la rete 
 
 Di seguito è indicato l'output traceroute dalla rete virtuale remota a una macchina virtuale nella rete locale Location 1:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    69 ms    69 ms    69 ms  10.2.30.10
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    69 ms    69 ms    69 ms  10.2.30.10
 
-    Trace complete.
-
+Trace complete.
+```
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute e connettività VPN da sito a sito in parallelo
 

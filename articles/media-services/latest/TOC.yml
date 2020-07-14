@@ -7,7 +7,7 @@
     - name: Novità di Servizi multimediali
       displayName: release notes
       href: release-notes.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Evento live con portale e Wirecast
@@ -159,6 +159,8 @@
           href: streaming-policy-concept.md
         - name: Criteri di chiave simmetrica
           href: content-key-policy-concept.md
+        - name: Protezione dei contenuti con Azure AD
+          href: azure-ad-content-protection.md
     - name: Monitoraggio
       items:
         - name: Eventi con Griglia di eventi

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 519520538c16b1bde18f0810344864d37090accf
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 98675b0f986ecb78ff122ed052a01d521aac1f6f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342647"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114211"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Valutare i server con i dati importati
 
@@ -66,7 +66,7 @@ Per configurare un nuovo progetto di Azure Migrate:
 
 4. In **Attività iniziali** selezionare **Aggiungi strumenti**.
 5. In **Progetto di migrazione** selezionare la sottoscrizione di Azure e creare un gruppo di risorse, se non se ne ha già uno.
-6. In **DETTAGLI DEL PROGETTO** specificare il nome del progetto e l'area geografica in cui lo si vuole creare. Per altre informazioni:
+6. In **Dettagli del progetto** specificare il nome del progetto e l'area geografica in cui lo si vuole creare. Per altre informazioni:
 
     - Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-matrix.md#supported-geographies-public-cloud) e per [enti pubblici](migrate-support-matrix.md#supported-geographies-azure-government).
     - Per la migrazione è possibile selezionare qualsiasi area di destinazione.
@@ -179,10 +179,21 @@ Per verificare se i server vengono visualizzati nel portale di Azure dopo l'indi
 
 È possibile creare due tipi di valutazioni con Valutazione server.
 
-**Tipo di valutazione** | **Dettagli** | **Dati**
+
+**Tipo di valutazione** | **Dettagli**
+--- | --- 
+**Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione.(concepts-assessment-calculation.md)
+**Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+
+### <a name="sizing-criteria"></a>Criteri di dimensionamento
+
+Lo strumento Valutazione server offre due opzioni per i criteri di dimensionamento:
+
+**Criteri di dimensionamento** | **Dettagli** | **Dati**
 --- | --- | ---
-**Basata sulle prestazioni** | Valutazioni basate sui valori dei dati sulle prestazioni specificati. | **Dimensioni VM consigliate**: in base ai dati sull'utilizzo di CPU e memoria.<br/><br/> **Tipo di disco consigliato (disco gestito Standard o Premium)** : in base alle operazioni di input/output al secondo e alla velocità effettiva dei dischi locali.
-**Come in locale** | Valutazioni basate sul dimensionamento locale. | **Dimensioni VM consigliate**: in base alle dimensioni del server specificate.<br/><br> **Tipo di disco consigliato**: in base all'impostazione del tipo di archiviazione selezionata per la valutazione.
+**Basata sulle prestazioni** | Valutazioni che fanno raccomandazioni in base ai dati sulle prestazioni raccolti | **Valutazione delle macchine virtuali di Azure**: la raccomandazione sulle dimensioni della VM è basata sui dati relativi all'utilizzo di CPU e memoria.<br/><br/> La raccomandazione sul tipo di disco (HDD/SSD standard o dischi gestiti Premium) è basata sulle operazioni di I/O al secondo e sulla velocità effettiva dei dischi locali.<br/><br/> **Valutazione della soluzione Azure VMware**: la raccomandazione sui nodi della soluzione Azure VMware è basata sui dati relativi all'utilizzo di CPU e memoria.
+**Come in locale** | Valutazioni che non usano i dati sulle prestazioni per fare raccomandazioni. | **Valutazione delle macchine virtuali di Azure**: la raccomandazione sulle dimensioni della VM è basata sulle dimensioni delle VM locali<br/><br> Il tipo di disco consigliato è basato sull'opzione selezionata nell'impostazione del tipo di archiviazione per la valutazione.<br/><br/> **Valutazione della soluzione Azure VMware**: la raccomandazione sui nodi della soluzione Azure VMware è basata sulle dimensioni delle VM locali.
+
 
 Per eseguire una valutazione:
 
@@ -191,24 +202,31 @@ Per eseguire una valutazione:
 
     ![Valutare](./media/tutorial-assess-physical/assess.png)
 
-3. In **Valuta server** specificare un nome per la valutazione.
+3. In **Valuta server** specificare il nome della valutazione e selezionare *Macchina virtuale di Azure* come tipo di **valutazione** se si intende eseguire valutazioni di VM di Azure oppure *Soluzione Azure VMware* per eseguire valutazioni della soluzione Azure VMware.
+
+    ![Informazioni di base sulla valutazione](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
 4. In **Origine individuazione** selezionare **Machines added via import to Azure Migrate** (Computer aggiunti tramite importazione in Azure Migrate).
+
 5. Fare clic su **Visualizza tutto** per rivedere le proprietà della valutazione.
 
     ![Proprietà valutazione](./media/tutorial-assess-physical/view-all.png)
 
-6. In **Selezionare o creare un gruppo** selezionare **Crea nuovo** e specificare un nome per il gruppo. Un gruppo raccoglie una o più VM per la valutazione.
+6. Fare clic su **Avanti** per **selezionare i computer da valutare**. In **Selezionare o creare un gruppo** selezionare **Crea nuovo** e specificare un nome per il gruppo. Un gruppo raccoglie una o più VM per la valutazione.
 7. In **Aggiungere le macchine virtuali al gruppo** selezionare i server da aggiungere al gruppo.
-8. Selezionare **Crea valutazione** per creare il gruppo e quindi eseguire la valutazione.
+8. Fare clic su **Avanti** per passare a **Rivedi e crea valutazione** e rivedere i dettagli della valutazione.
+9. Fare clic su **Crea valutazione** per creare il gruppo e quindi eseguire la valutazione.
 
     ![Creare una valutazione](./media/tutorial-assess-physical/assessment-create.png)
 
 9. Dopo aver creato la valutazione, visualizzarla in **Server** > **Azure Migrate: Valutazione server** > **Valutazioni**.
 10. Selezionare **Esporta valutazione** per scaricarla come file di Microsoft Excel.
 
-## <a name="review-an-assessment"></a>Esaminare una valutazione
+Per altre informazioni sulla valutazione della **soluzione Azure VMware**, vedere [qui](how-to-create-azure-vmware-solution-assessment.md). 
 
-Una valutazione descrive:
+## <a name="review-an-azure-vm-assessment"></a>Rivedere una valutazione di macchine virtuali di Azure
+
+Una valutazione di VM di Azure descrive:
 
 - **Idoneità per Azure**: se i server sono idonei per la migrazione ad Azure.
 - **Stima dei costi mensili**: i costi mensili di calcolo e archiviazione stimati per l'esecuzione dei server in Azure.

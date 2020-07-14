@@ -145,7 +145,7 @@
               href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Avviare il failover di un account
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Autenticazione
+    - name: Authenticate
       items:
         - name: Abilitare l'autorizzazione e l'autenticazione di Active Directory Domain Services locale
           items:
@@ -211,12 +211,18 @@
                   href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
                 - name: Interfaccia della riga di comando di Azure
                   href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Abilitare la crittografia dell'infrastruttura per un account di archiviazione
+          href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json
         - name: Configurare i firewall e le reti virtuali
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Richiedere il trasferimento sicuro
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
-          href: ../common/storage-security-tls.md
+        - name: Configurare Transport Layer Security (TLS)
+          items:
+            - name: Configurare la versione minima di TLS per un account di archiviazione
+              href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Configurare TLS per un'applicazione client
+              href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Trasferimento
       items:
         - name: Introduzione - AzCopy

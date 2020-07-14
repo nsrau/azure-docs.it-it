@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 03a16ac065b585c499efa268500e0a8c81c07738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f38ef2c337564d2b36d3939b3ed03130437e35ea
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333809"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221766"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servizi Meteo in mappe di Azure
 
@@ -55,46 +56,46 @@ Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode
 
 | Numero icona |Icona| Giorno | Notte | Text |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Sì |  No    | Sunny|
-| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Sì |  No    | Per lo più soleggiato|
-| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Sì |  No    | Parzialmente soleggiato|
-| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Sì |  No    | Cloud intermittenti|
-| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Sì |  No    | Sole nebbioso |
-| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Sì |  No    | Per la maggior parte cloud|
-| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sì |  Sì   | Nuvoloso |
-| 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Sì |  Sì   | Tetro (nuvoloso)|
-| 11           |![](./media/weather-services-concepts/fog-i.png)                       | Sì |  Sì   | Nebbia|
-| 12           |![](./media/weather-services-concepts/showers-i.png)                   | Sì |  Sì   | Docce|
-| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Sì |  No    | Per lo più nuvoloso con docce|
-| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Sì |  No    | Parzialmente soleggiato con docce|
-| 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | Sì |  Sì   | Temporali|
-| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Sì |  No    | Per lo più nuvoloso con temporali|
-| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Sì |  No    | Parzialmente soleggiato con temporali|
-| 18           |![](./media/weather-services-concepts/rain-i.png)                      | Sì |  Sì   | Pioggia|
-| 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Sì |  Sì   | Folate|
-| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Sì |  No    | Per lo più cloud con folate|
-| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Sì |  No    | Parzialmente soleggiato con folate|
-| 22           |![](./media/weather-services-concepts/snow-i.png)                      | Sì |  Sì   | Neve|
-| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Sì |  No    | Per lo più nuvoloso con neve|
-| 24           |![](./media/weather-services-concepts/ice-i.png)                       | Sì |  Sì   | Ice |
-| 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Sì |  Sì   | Nevischio|
-| 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Sì |  Sì   | Congelamento pioggia|
-| 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Sì |  Sì   | Pioggia e neve|
-| 30           |![](./media/weather-services-concepts/hot-i.png)                       | Sì |  Sì   | Accesso frequente|
-| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Sì |  Sì   | Cold|
-| 32           |![](./media/weather-services-concepts/windy-i.png)                     | Sì |  Sì   | Ventoso|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | No  |  Sì   | Cancella|
-| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | No  |  Sì   | Per lo più chiaro|
-| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | No  |  Sì   | Parzialmente nuvoloso|
-| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | No  |  Sì   | Cloud intermittenti|
-| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | No  |  Sì   | Chiaro chiaro|
-| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | No  |  Sì   | Per la maggior parte cloud|
-| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | No  |  Sì   | Parzialmente nuvoloso con docce|
-| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | No  |  Sì   | Per lo più nuvoloso con docce|
-| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | No  |  Sì   | Parzialmente nuvoloso con temporali|
-| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | No  |  Sì   | Per lo più nuvoloso con temporali|
-| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | No  |  Sì   | Per lo più cloud con folate|
-| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | No  |  Sì   | Per lo più nuvoloso con neve|
+| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Sì |  No    | Sunny|
+| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Sì |  No    | Per lo più soleggiato|
+| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Sì |  No    | Parzialmente soleggiato|
+| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Sì |  No    | Cloud intermittenti|
+| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Sì |  No    | Sole nebbioso |
+| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Sì |  No    | Per la maggior parte cloud|
+| 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | Sì |  Sì   | Nuvoloso |
+| 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | Sì |  Sì   | Tetro (nuvoloso)|
+| 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | Sì |  Sì   | Nebbia|
+| 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | Sì |  Sì   | Docce|
+| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Sì |  No    | Per lo più nuvoloso con docce|
+| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Sì |  No    | Parzialmente soleggiato con docce|
+| 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | Sì |  Sì   | Temporali|
+| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Sì |  No    | Per lo più nuvoloso con temporali|
+| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Sì |  No    | Parzialmente soleggiato con temporali|
+| 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | Sì |  Sì   | Pioggia|
+| 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | Sì |  Sì   | Folate|
+| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Sì |  No    | Per lo più cloud con folate|
+| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Sì |  No    | Parzialmente soleggiato con folate|
+| 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | Sì |  Sì   | Neve|
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Sì |  No    | Per lo più nuvoloso con neve|     
+| 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | Sì |  Sì   | Ice |
+| 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Sì |  Sì   | Nevischio|
+| 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Sì |  Sì   | Congelamento pioggia|
+| 29           | :::image type="icon" source="./media/weather-services-concepts/rain-snow.png"::: | Sì |  Sì   | Pioggia e neve|
+| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sì |  Sì   | Accesso frequente|
+| 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Sì |  Sì   | Cold|
+| 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Sì |  Sì   | Ventoso|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | No  |  Sì   | Cancella|
+| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | No  |  Sì   | Per lo più chiaro|
+| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | No  |  Sì   | Parzialmente nuvoloso|
+| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | No  |  Sì   | Cloud intermittenti|
+| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | No  |  Sì   | Chiaro chiaro|
+| 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | No  |  Sì   | Per la maggior parte cloud|
+| 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | No  |  Sì   | Parzialmente nuvoloso con docce|
+| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | No  |  Sì   | Per lo più nuvoloso con docce|
+| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | No  |  Sì   | Parzialmente nuvoloso con temporali|
+| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | No  |  Sì   | Per lo più nuvoloso con temporali|
+| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | No  |  Sì   | Per lo più cloud con folate|
+| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | No  |  Sì   | Per lo più nuvoloso con neve|
 
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Scala del colore per immagini radar e satellite
@@ -107,22 +108,22 @@ La tabella seguente fornisce indicazioni per interpretare le immagini radar e cr
 
 | Codice colore esadecimale | Esempio di colore | Condizione meteo |
 |----------------|--------------|-------------------|
-| #93c701        | ![](./media/weather-services-concepts/color-93c701.png) | Pioggia-chiaro |
-| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) | Pioggia-moderata |
-| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) | Pioggia intensa |
-| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) | Pioggia-grave |
-| #9ec8f2        | ![](./media/weather-services-concepts/color-9ec8f2.png) | Luce neve |
-| #2a8fdb        | ![](./media/weather-services-concepts/color-2a8fdb.png) | Da neve a moderata |
-| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) | Innevamento intenso |
-| #020096        | ![](./media/weather-services-concepts/color-020096.png) | Neve-grave |
-| #e6a5c8        | ![](./media/weather-services-concepts/color-e6a5c8.png) | Ghiaccio chiaro |
-| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) | Ice-moderato |
-| #b71691        | ![](./media/weather-services-concepts/color-b71691.png) | Ghiaccio grave |
-| #7a1570        | ![](./media/weather-services-concepts/color-7a1570.png) | Ghiaccio elevato |
-| #c196e6        | ![](./media/weather-services-concepts/color-c196e6.png) | Mix-Light |
-| #ae6ee6        | ![](./media/weather-services-concepts/color-ae6ee6.png) | Mix-moderato |
-| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Con utilizzo intensivo |
-| #6500ba        | ![](./media/weather-services-concepts/color-6500ba.png) | Misto-grave |
+| #93c701        | ![Colore per la pioggia-chiaro.](./media/weather-services-concepts/color-93c701.png) | Pioggia-chiaro |
+| #ffd701        | ![Colore per la pioggia-moderata.](./media/weather-services-concepts/color-ffd701.png) | Pioggia-moderata |
+| #f05514        | ![Colore per le piogge pesanti.](./media/weather-services-concepts/color-f05514.png) | Pioggia intensa |
+| #dc250e        | ![Colore per la pioggia-grave.](./media/weather-services-concepts/color-dc250e.png) | Pioggia-grave |
+| #9ec8f2        | ![Colore per la luce innevata.](./media/weather-services-concepts/color-9ec8f2.png) | Luce neve |
+| #2a8fdb        | ![Colore per la neve-moderata.](./media/weather-services-concepts/color-2a8fdb.png) | Da neve a moderata |
+| #144bed        | ![Colore per la neve.](./media/weather-services-concepts/color-144bed.png) | Innevamento intenso |
+| #020096        | ![Colore per Snow-grave.](./media/weather-services-concepts/color-020096.png) | Neve-grave |
+| #e6a5c8        | ![Colore per la luce glaciale.](./media/weather-services-concepts/color-e6a5c8.png) | Ghiaccio chiaro |
+| #d24fa0        | ![Colore per il ghiaccio moderato.](./media/weather-services-concepts/color-d24fa0.png) | Ice-moderato |
+| #b71691        | ![Colore per la gravità del ghiaccio.](./media/weather-services-concepts/color-b71691.png) | Ghiaccio grave |
+| #7a1570        | ![Colore per l'utilizzo intensivo del ghiaccio.](./media/weather-services-concepts/color-7a1570.png) | Ghiaccio elevato |
+| #c196e6        | ![Colore per la combinazione di luci.](./media/weather-services-concepts/color-c196e6.png) | Mix-Light |
+| #ae6ee6        | ![Colore per la combinazione-moderata.](./media/weather-services-concepts/color-ae6ee6.png) | Mix-moderato |
+| #8a32d7        | ![Colore per l'utilizzo intensivo della combinazione.](./media/weather-services-concepts/color-8a32d7.png) | Con utilizzo intensivo |
+| #6500ba        | ![Colore per la combinazione di gravità.](./media/weather-services-concepts/color-6500ba.png) | Misto-grave |
 
 Di seguito è illustrata la tavolozza dei colori dettagliata per i riquadri radar con codici colore esadecimali e valori di dBZ. dBZ rappresenta l'intensità della precipitazione nel radar meteorologico. 
 
@@ -198,18 +199,18 @@ La tabella seguente fornisce indicazioni per interpretare le immagini satellite 
 
 | Codice colore esadecimale | Esempio di colore | Temperatura cloud |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Temperatura-bassa | 
-| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) |  |
-| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) |  |
-| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) |  |
-| #479702        | ![](./media/weather-services-concepts/color-479702.png) |  |
-| #72b403        | ![](./media/weather-services-concepts/color-72b403.png) |  |
-| #93c701        | ![](./media/weather-services-concepts/color-93c701.png) |  |
-| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) |  |
-| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) |  |
-| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) |  |
-| #ba0808        | ![](./media/weather-services-concepts/color-ba0808.png) |  |
-| #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Temperatura-alta |
+| #b5b5b5        | ![Riquadro colore per #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperatura-bassa | 
+| #d24fa0        | ![Riquadro colore per #d24fa0.](./media/weather-services-concepts/color-d24fa0.png) |  |
+| #8a32d7        | ![Riquadro colore per #8a32d7.](./media/weather-services-concepts/color-8a32d7.png) |  |
+| #144bed        | ![Riquadro colore per #144bed.](./media/weather-services-concepts/color-144bed.png) |  |
+| #479702        | ![Riquadro colore per #479702.](./media/weather-services-concepts/color-479702.png) |  |
+| #72b403        | ![Riquadro colore per #72b403.](./media/weather-services-concepts/color-72b403.png) |  |
+| #93c701        | ![Riquadro colore per #93c701.](./media/weather-services-concepts/color-93c701.png) |  |
+| #ffd701        | ![Riquadro colore per #ffd701.](./media/weather-services-concepts/color-ffd701.png) |  |
+| #f05514        | ![Riquadro colore per #f05514.](./media/weather-services-concepts/color-f05514.png) |  |
+| #dc250e        | ![Riquadro colore per #dc250e.](./media/weather-services-concepts/color-dc250e.png) |  |
+| #ba0808        | ![Riquadro colore per #ba0808.](./media/weather-services-concepts/color-ba0808.png) |  |
+| #1f1f1f        | ![Riquadro colore per #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperatura-alta |
 
 
 Di seguito è riportata la tavolozza colori dettagliata per i riquadri satellite a infrarossi.

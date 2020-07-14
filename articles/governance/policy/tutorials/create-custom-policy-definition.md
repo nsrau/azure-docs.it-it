@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare una definizione di criteri personalizzata'
 description: In questa esercitazione viene creata una definizione di criteri personalizzata per Criteri di Azure per applicare regole di business personalizzate alla risorse di Azure.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: f8702e84923762b2f417eee882a473228d6bafb8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888147"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044618"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Esercitazione: Creare una definizione di criteri personalizzata
 
@@ -53,7 +53,7 @@ In base ai requisiti aziendali, la risorsa di Azure da controllare con Criteri d
 Per determinare le proprietà delle risorse di Azure, sono disponibili varie opzioni, che verranno descritte in questa esercitazione:
 
 - Estensione Criteri di Azure per VS Code
-- Modelli di Gestione risorse
+- Modelli di Azure Resource Manager
   - Esportazione di una risorsa esistente
   - Esperienza di creazione
   - Modelli di avvio rapido (GitHub)
@@ -64,9 +64,9 @@ Per determinare le proprietà delle risorse di Azure, sono disponibili varie opz
 
 L'[estensione per VS Code](../how-to/extension-for-vscode.md#search-for-and-view-resources) può essere usata per visualizzare le risorse nell'ambiente e le proprietà di Resource Manager di ognuna.
 
-### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
+### <a name="arm-templates"></a>Modelli di Gestione risorse di Azure
 
-È possibile esaminare in vari modi un [modello di Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) che include la proprietà da gestire.
+È possibile esaminare in vari modi un [modello di Resource Manager](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) che include la proprietà da gestire.
 
 #### <a name="existing-resource-in-the-portal"></a>Risorsa esistente nel portale
 
@@ -148,8 +148,7 @@ I [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-t
 
 #### <a name="resource-reference-docs"></a>Documenti di riferimento per le risorse
 
-Per verificare se **supportsHttpsTrafficOnly** è la proprietà corretta, controllare le informazioni di riferimento del modello di Resource Manager relativo alla [risorsa account di archiviazione](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) nel provider di archiviazione.
-L'oggetto proprietà include un elenco di parametri validi. Selezionando il collegamento [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) viene visualizzata una tabella di proprietà accettabili. La proprietà **supportsHttpsTrafficOnly** è presente e la descrizione corrisponde alla risorsa necessaria per soddisfare i requisiti aziendali.
+Per verificare se **supportsHttpsTrafficOnly** è la proprietà corretta, controllare le informazioni di riferimento del modello di Resource Manager relative alla [risorsa account di archiviazione](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) nel provider di archiviazione. L'oggetto proprietà include un elenco di parametri validi. Selezionando il collegamento [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) viene visualizzata una tabella di proprietà accettabili. La proprietà **supportsHttpsTrafficOnly** è presente e la descrizione corrisponde alla risorsa necessaria per soddisfare i requisiti aziendali.
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49045c8b8c7b3ccfa44a1077e59683191393e1ee
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833104"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220814"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app
 
@@ -54,7 +54,7 @@ La creazione di un ambiente del servizio app con bilanciamento del carico intern
 7. Fornire un nome di sottodominio; questo sarà il sottodominio usato per le app create con questo ambiente del servizio app.
 8. Selezionare **OK**, quindi **Crea**.
 
-![][1]
+![Mostra le schermate usate per creare un ambiente del servizio app ILB.][1]
 
 Nel riquadro Rete virtuale è disponibile l'opzione Configurazione rete virtuale che consente di scegliere tra un indirizzo VIP esterno o interno. L'opzione predefinita è Esterno. Se si seleziona Esterno, l'ambiente del servizio app userà un indirizzo VIP accessibile da Internet. Se si seleziona l'opzione Interno, l'ambiente del servizio app verrà configurato con un bilanciamento del carico interno su un indirizzo IP all'interno della rete virtuale. 
 
@@ -70,7 +70,7 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 5. Selezionare o creare un piano di servizio app. Se si crea un nuovo piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro in cui si vuole creare il piano di servizio. Quando si crea il piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro. Quando si specifica il nome dell'app, si noterà che il sottodominio sotto il nome dell'app verrà sostituito con il sottodominio dell'ambiente del servizio app. 
 6. Selezionare **Crea**. Selezionare la casella di controllo **Aggiungi al dashboard** se si vuole che l'app venga visualizzata nel dashboard. 
 
-![][2]
+![Mostra come creare un'app in un ambiente del servizio app ILB nel portale di Azure.][2]
 
 Sotto il nome dell'app il nome del sottodominio viene aggiornato per riflettere il sottodominio dell'ambiente del servizio app. 
 
@@ -79,11 +79,11 @@ Un ambiente del servizio app con bilanciamento del carico interno è leggermente
 
 Dopo la creazione dell'ambiente del servizio app, si noterà che il sottodominio mostra il sottodominio specificato e che esiste un nuovo elemento nel menu **Impostazione** denominato **Certificato ILB**. L'ambiente del servizio app viene creato con un certificato autofirmato, che semplifica i test di HTTPS. Il portale indica che è necessario specificare un certificato per HTTPS, in modo che sia disponibile un certificato associato al sottodominio. 
 
-![][3]
+![Mostra il sottodominio specificato durante la creazione dell'ambiente del servizio app.][3]
 
 Se si stanno semplicemente eseguendo alcune prove e non si conosce la procedura per creare un certificato, è possibile usare l'applicazione della console MMC IIS per creare un certificato autofirmato. Dopo la creazione è possibile esportarlo come file PFX e caricarlo nell'interfaccia utente dei certificati ILB. Quando si accede a un sito protetto con un certificato autofirmato, il browser visualizza un avviso per indicare che il sito a cui si sta accedendo non è protetto perché non è possibile convalidare il certificato. Per evitare che venga visualizzato l'avviso, è necessario un certificato firmato correttamente che corrisponda al sottodominio e abbia una catena di certificati riconosciuta dal browser.
 
-![][6]
+![Viene illustrato come utilizzare l'applicazione console MMC IIS per creare un certificato autofirmato.][6]
 
 Se si vuole provare il flusso con i propri certificati e testare l'accesso HTTP e HTTPS all'ambiente del servizio app:
 
@@ -98,7 +98,7 @@ Se si vuole provare il flusso con i propri certificati e testare l'accesso HTTP 
 
 L'indirizzo IP per il bilanciamento del carico interno è elencato nelle proprietà come indirizzo IP virtuale.
 
-![][4]
+![Indica che l'indirizzo IP per il ILB è elencato nelle proprietà come indirizzo IP virtuale.][4]
 
 ## <a name="using-an-ilb-ase"></a>Uso di un ambiente del servizio app con bilanciamento del carico interno
 #### <a name="network-security-groups"></a>Gruppi di sicurezza di rete
@@ -108,7 +108,7 @@ Per usare i gruppi di sicurezza di rete per limitare ulteriormente l'accesso, è
 
 Per configurare i gruppi di sicurezza di rete è necessario conoscere l'indirizzo IP usato da Azure per la gestione dell'ambiente del servizio app. Questo indirizzo IP è l'indirizzo IP in uscita dell'ambiente del servizio app se questo esegue richieste tramite internet. L'indirizzo IP in uscita per l'ambiente del servizio app rimane statico per l'intera durata dell'ambiente. Se si elimina e si ricrea l'ambiente del servizio app, si ottiene un nuovo indirizzo IP. Per trovare l'indirizzo IP, passare a **Impostazioni -> Proprietà** e trovare **Indirizzo IP in uscita**. 
 
-![][5]
+![Mostra dove è possibile trovare l'indirizzo IP in uscita per l'ambiente del servizio app.][5]
 
 #### <a name="general-ilb-ase-management"></a>Gestione generale dell'ambiente del servizio app con bilanciamento del carico interno
 La gestione di un ambiente del servizio app con bilanciamento del carico interno è sostanzialmente la stessa che in un ambiente del servizio app regolare. È necessario aumentare le prestazioni dei pool di lavoro per ospitare più istanze del piano di servizio app e aumentare le prestazioni dei server front-end per gestire un maggiore traffico HTTP/HTTPS. Per informazioni generali sulla gestione della configurazione di un ambiente del servizio app, vedere [Configurazione di un ambiente del servizio app][ASEConfig]. 

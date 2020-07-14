@@ -10,7 +10,7 @@ Il fuso orario predefinito usato con le espressioni CRON è Coordinated Universa
 
 Il valore di questa impostazione dipende dal sistema operativo e dal piano in cui viene eseguita l'app per le funzioni.
 
-|Sistema operativo |Piano |Valore |
+|Sistema operativo |Piano |valore |
 |-|-|-|
 | **Windows** |Tutti | Impostare il valore sul nome del fuso orario desiderato, come illustrato nell'[indice del fuso orario Microsoft] ( https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10) . |
 | **Linux** |Premium<br/>Dedicato |Impostare il valore sul nome del fuso orario desiderato, come illustrato nel [database TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |

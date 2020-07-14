@@ -176,6 +176,8 @@
               href: configure-authentication-provider-microsoft.md
             - name: Eseguire l'autenticazione con Twitter
               href: configure-authentication-provider-twitter.md
+            - name: Eseguire l'autenticazione con un provider OpenID Connect (anteprima)
+              href: configure-authentication-provider-openid-connect.md
         - name: Autenticazione avanzata
           href: app-service-authentication-how-to.md
         - name: Limitare l'accesso

@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 12ad18edbb434bdfaec2ae817ea079a843661ef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 937f220980d602b755b6329da4d93df0e4b372ab
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111346"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224061"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall applicazione Web di Azure e criteri di Azure
 
@@ -38,10 +38,12 @@ Sono disponibili diversi criteri predefiniti di Azure per gestire le risorse di 
 
 2.  Nel servizio criteri di Azure, in **creazione e modifica**, selezionare **assegnazioni**.
 
+[!div class="mx-imgBorder"]
 ![Web Application Firewall di Azure](../media/waf-azure-policy/policy-home.png)
 
 3.  Nella pagina assegnazioni selezionare l'icona **assegna criterio** nella parte superiore.
 
+[!div class="mx-imgBorder"]
 ![Web Application Firewall di Azure](../media/waf-azure-policy/assign-policy.png)
 
 4.  Nella scheda assegna nozioni di base della pagina dei criteri aggiornare i campi seguenti:
@@ -49,6 +51,7 @@ Sono disponibili diversi criteri predefiniti di Azure per gestire le risorse di 
     2.  **Esclusioni**: selezionare le risorse dall'ambito da escludere dai criteri 
     3.  **Definizione dei criteri**: selezionare i criteri di Azure da applicare all'ambito con esclusioni. Digitare "Web Application Firewall" nella barra di ricerca per scegliere il criterio di Azure per il Web Application Firewall pertinente.
 
+[!div class="mx-imgBorder"]
 ![Web Application Firewall di Azure](../media/waf-azure-policy/policy-listing.png)
 
 

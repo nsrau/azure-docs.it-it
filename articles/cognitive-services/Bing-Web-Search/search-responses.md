@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7933d5e5cf7d82de013e18b221f3a0c3ce6b5229
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800529"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202237"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
 
@@ -296,7 +296,7 @@ Un'espressione matematica può contenere i simboli seguenti:
 |-|Sottrazione|
 |/|Divisione|
 |*|Moltiplicazione|
-|^|Potenza|
+|^|Elettricità|
 |!|Fattoriale|
 |.|Decimal|
 |()|Raggruppamento con precedenza|
@@ -431,11 +431,11 @@ Se Bing stabilisce che l'utente potrebbe aver voluto cercare qualcosa di diverso
 }, ...
 ```
 
-## <a name="response-headers"></a>Intestazioni della risposta
+## <a name="response-headers"></a>Intestazioni di risposta
 
 Le risposte dell'API Ricerca Web Bing possono contenere le intestazioni seguenti:
 
-|||
+| Intestazione | Descrizione |
 |-|-|
 |`X-MSEdge-ClientID`|ID univoco assegnato da Bing all'utente|
 |`BingAPIs-Market`|Mercato usato per soddisfare la richiesta|
@@ -480,6 +480,6 @@ Di seguito è riportato un esempio di suggerimento ortografico da parte di Bing.
 
 * Rivedere la documentazione relativa alla [limitazione delle richieste](throttling-requests.md).  
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 
 * [Informazioni di riferimento per l'API Ricerca Web Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

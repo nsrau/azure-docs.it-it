@@ -6,7 +6,7 @@
       href: overview.md
     - name: Domande frequenti
       href: faq.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Configurazione
@@ -103,6 +103,8 @@
       href: howto-import-export-data.md
     - name: Indirizzare gli eventi a un endpoint personalizzato
       href: howto-app-configuration-event.md
+    - name: Eseguire automaticamente il backup dell'archivio di configurazione
+      href: howto-backup-config-store.md
     - name: Procedure consigliate
       href: howto-best-practices.md
 - name: Informazioni di riferimento

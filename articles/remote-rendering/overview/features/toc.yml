@@ -4,7 +4,9 @@
   href: debug-rendering.md
 - name: Override dello stato gerarchico
   href: override-hierarchical-state.md
-- name: Riproiezione con ritardo della fase
+- name: Spazio della fase
+  href: stage-space.md
+- name: Riproiezione in fase avanzata
   href: late-stage-reprojection.md
 - name: Illuminazione della scena
   href: lights.md

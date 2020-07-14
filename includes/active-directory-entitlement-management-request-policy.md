@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655960"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156584"
 ---
 ## <a name="for-users-in-your-directory"></a>Per gli utenti nella directory
 
@@ -194,7 +194,7 @@ Se ad esempio sono stati elencati Alice e Bob come primo responsabile approvazio
 
 1. In **futuro per i responsabili approvazione alternativi dopo** il numero di giorni, inserire il numero di giorni per cui i responsabili approvazione devono approvare o rifiutare una richiesta. Se nessun responsabile approvazione ha approvato o negato la richiesta prima della durata della richiesta, la richiesta scade (timeout) e l'utente dovrà inviare un'altra richiesta per il pacchetto di accesso. 
 
-    Le richieste possono essere inviate solo a responsabili approvazione alternativi al giorno dopo la durata della richiesta. In questo esempio, la durata della richiesta è di 14 giorni. Quindi, la durata della richiesta raggiunge la metà della vita del giorno 7. Quindi, la richiesta non può essere trasmessa prima del giorno 8. Non è inoltre possibile inviare le richieste l'ultimo giorno della durata della richiesta. Nell'esempio, l'ultima richiesta che è possibile trasmettere è il giorno 13.
+    Le richieste possono essere inviate solo a responsabili approvazione alternativi al giorno dopo che la durata della richiesta raggiunge la metà della durata e la decisione dei responsabili approvazione principali deve eseguire il timeout dopo almeno 4 giorni. Se il timeout della richiesta è minore o uguale a 3, non c'è tempo sufficiente per l'invio della richiesta a responsabili approvazione alternativi. In questo esempio, la durata della richiesta è di 14 giorni. Quindi, la durata della richiesta raggiunge la metà della vita del giorno 7. Quindi, la richiesta non può essere trasmessa prima del giorno 8. Non è inoltre possibile inviare le richieste l'ultimo giorno della durata della richiesta. Nell'esempio, l'ultima richiesta che è possibile trasmettere è il giorno 13.
 
 ## <a name="enable-requests"></a>Abilita richieste
 

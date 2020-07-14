@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610065"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223459"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -147,11 +147,11 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
 
 * **Portale di Azure**: se si passa direttamente a visualizzare l'area di lavoro da un collegamento di condivisione dall'SDK o dal portale, non sarà possibile visualizzare la pagina **Panoramica** normale con le informazioni sulla sottoscrizione nell'estensione. Inoltre non sarà possibile passare in un'altra area di lavoro. Se è necessario visualizzare un'altra area di lavoro, passare direttamente a [Azure Machine Learning Studio](https://ml.azure.com) e cercare il nome dell'area di lavoro.
 
-## <a name="set-up-your-environment"></a>Configura il tuo ambiente
+## <a name="set-up-your-environment"></a>Configurare l'ambiente
 
 * **Problemi di creazione di AmlCompute**: esiste una rara possibilità che alcuni utenti che hanno creato l'area di lavoro Azure Machine Learning dal portale di Azure prima della versione GA potrebbero non essere in grado di creare AmlCompute in tale area di lavoro. È possibile generare una richiesta di supporto per il servizio o creare una nuova area di lavoro tramite il portale o l'SDK per sbloccarsi immediatamente.
 
-## <a name="work-with-data"></a>Uso dei dati
+## <a name="work-with-data"></a>Usare i dati
 
 ### <a name="overloaded-azurefile-storage"></a>Archiviazione AzureFile di overload
 
@@ -174,14 +174,34 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
 
 ### <a name="data-labeling-projects"></a>Progetti di assegnazione di etichette ai dati
 
-|Problema  |Soluzione  |
+|Problema  |Risoluzione  |
 |---------|---------|
 |È possibile usare solo i set di dati creati negli archivi dati BLOB.     |  Si tratta di un limite noto della versione corrente.       |
 |Dopo la creazione, il progetto Mostra "inizializzazione" per molto tempo.     | Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 punti di database al secondo. La mancanza di AutoRefresh è un problema noto.         |
 |Quando si esaminano le immagini, le immagini appena etichettate non vengono visualizzate.     |   Per caricare tutte le immagini con etichetta, scegliere il **primo** pulsante. Il **primo** pulsante consente di tornare all'inizio dell'elenco, ma carica tutti i dati con etichetta.      |
 |Quando si preme il tasto ESC durante l'assegnazione di etichette per il rilevamento di oggetti, viene creata un'etichetta con dimensioni pari a zero nell'angolo superiore sinistro. L'invio di etichette in questo stato non riesce.     |   Eliminare l'etichetta facendo clic sul segno incrociato accanto.  |
 
-### <a name="data-drift-monitors"></a>Monitoraggi della deviazione dati
+### <a name="data-drift-monitors"></a><a name="data-drift"></a>Monitoraggi della deviazione dati
+
+Limitazioni e problemi noti per i monitoraggi della deriva dei dati:
+
+* L'intervallo di tempo durante l'analisi dei dati cronologici è limitato a 31 intervalli di impostazione della frequenza del monitoraggio. 
+* Limitazione delle funzionalità di 200, a meno che non sia specificato un elenco di funzionalità (tutte le funzionalità usate).
+* La dimensione di calcolo deve essere sufficientemente grande da poter gestire i dati.
+* Verificare che il set di dati includa dati entro la data di inizio e di fine per una determinata esecuzione del monitoraggio.
+* I monitoraggi del set di dati funzioneranno solo sui set di dati che contengono 50 righe o più.
+* Le colonne, o funzionalità, nel set di dati vengono classificate come categoriche o numeriche in base alle condizioni riportate nella tabella seguente. Se la funzionalità non soddisfa queste condizioni, ad esempio una colonna di tipo String con >100 valori univoci, la funzionalità viene eliminata dall'algoritmo di Drift dei dati, ma viene comunque profilata. 
+
+    | Tipo di funzionalità | Tipo di dati | Condizione | Limitazioni | 
+    | ------------ | --------- | --------- | ----------- |
+    | Categorical | String, bool, int, float | Il numero di valori univoci nella funzionalità è minore di 100 e minore del 5% del numero di righe. | Il valore null viene considerato come una categoria specifica. | 
+    | Numerico | int, float | I valori nella funzionalità sono di un tipo di dati numerico e non soddisfano la condizione per una funzionalità categorica. | Funzionalità eliminata se >15% dei valori sono null. | 
+
+* Quando è stato [creato un monitoraggio datadrift](how-to-monitor-datasets.md) ma non è possibile visualizzare i dati nella pagina **monitoraggi del set** di dati in Azure Machine Learning Studio, provare a eseguire le operazioni seguenti.
+
+    1. Controllare se è stato selezionato l'intervallo di date corretto nella parte superiore della pagina.  
+    1. Nella scheda **monitoraggi set di dati** selezionare il collegamento esperimento per controllare lo stato dell'esecuzione.  Questo collegamento si trova all'estrema destra della tabella.
+    1. Se l'esecuzione è stata completata correttamente, controllare i registri driver per vedere quante metriche sono state generate o se sono presenti messaggi di avviso.  Trovare i log dei driver nella scheda **output + logs** dopo aver fatto clic su un esperimento.
 
 * Se la `backfill()` funzione SDK non genera l'output previsto, la causa potrebbe essere un problema di autenticazione.  Quando si crea il calcolo da passare a questa funzione, non usare `Run.get_context().experiment.workspace.compute_targets` .  Usare invece [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) come il seguente per creare il calcolo passato a tale `backfill()` funzione: 
 
@@ -258,7 +278,7 @@ Problemi noti:
 
 Eseguire queste azioni per gli errori seguenti:
 
-|Errore  | Soluzione  |
+|Errore  | Risoluzione  |
 |---------|---------|
 |Errore di compilazione dell'immagine durante la distribuzione del servizio Web     |  Aggiungere "pynacl = = 1.2.1" come dipendenza pip al file conda per la configurazione dell'immagine       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Modificare lo SKU per le macchine virtuali usate nella distribuzione in uno con una maggiore quantità di memoria. |

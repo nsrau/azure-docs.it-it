@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 46ef67e5ede1ea41469a8dcc78244e74c0bffc45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254328"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186759"
 ---
 # <a name="application-gateway-components"></a>Componenti del gateway applicazione
 
@@ -59,7 +59,7 @@ Usare un listener HTTPS per la terminazione TLS. Un listener HTTPS trasferisce i
 
 ### <a name="custom-error-pages"></a>Pagine di errore personalizzate
 
-Il gateway applicazione consente di creare pagine di errore personalizzate anziché visualizzare le pagine di errore predefinite. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali. Il gateway applicazione visualizza una pagina di errore personalizzata quando una richiesta non riesce a raggiungere il back-end.
+Il gateway applicazione consente di creare pagine di errore personalizzate anziché visualizzare le pagine di errore predefinite. Con una pagina di errore personalizzata è possibile usare il layout e il marchio aziendali. Il gateway applicazione visualizza una pagina di errore personalizzata quando una richiesta non riesce a raggiungere il back-end.
 
 Per altre informazioni, vedere [pagine di errore personalizzate per il gateway applicazione](custom-error.md).
 
@@ -67,7 +67,7 @@ Per altre informazioni, vedere [pagine di errore personalizzate per il gateway a
 
 Esistono due tipi di listener:
 
-- Di **base**. Questo tipo di listener è in ascolto su un singolo sito di dominio, in cui è presente un singolo mapping DNS all'indirizzo IP del gateway applicazione. Questa configurazione del listener è necessaria quando si ospita un sito singolo dietro un gateway applicazione.
+- **Basic**. Questo tipo di listener è in ascolto su un singolo sito di dominio, in cui è presente un singolo mapping DNS all'indirizzo IP del gateway applicazione. Questa configurazione del listener è necessaria quando si ospita un sito singolo dietro un gateway applicazione.
 
 - **Multisito**. Questa configurazione del listener è necessaria quando si configura più di un'applicazione Web nella stessa istanza del gateway applicazione. Consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Ad esempio, tre sottodomini, abc.contoso.com, xyz.contoso.com e pqr.contoso.com, puntano all'indirizzo IP del gateway applicazione. Si creeranno tre listener multisito e si configureranno ogni listener per la rispettiva porta e impostazione del protocollo.
 
@@ -85,7 +85,7 @@ Quando un listener accetta una richiesta, la regola di routing delle richieste I
 
 Esistono due tipi di regole di routing delle richieste:
 
-- Di **base**. Tutte le richieste sul listener associato (ad esempio, blog.contoso.com/*) vengono inviate al pool back-end associato usando l'impostazione HTTP associata.
+- **Basic**. Tutte le richieste sul listener associato (ad esempio, blog.contoso.com/*) vengono inviate al pool back-end associato usando l'impostazione HTTP associata.
 
 - **Basato sul percorso**. Questa regola di routing consente di instradare le richieste sul listener associato a un pool back-end specifico, in base all'URL nella richiesta. Se il percorso dell'URL in una richiesta corrisponde al modello di percorso in una regola basata sul percorso, la regola instrada la richiesta. Applica il modello di percorso solo al percorso URL, non ai relativi parametri di query. Se il percorso URL in una richiesta del listener non corrisponde ad alcuna regola basata sul percorso, instrada la richiesta al pool back-end predefinito e alle impostazioni HTTP.
 
@@ -144,7 +144,7 @@ Un gateway applicazione può anche comunicare con i server locali quando sono co
 
 Per impostazione predefinita, un gateway applicazione esegue il monitoraggio dello stato di tutte le risorse nel pool back-end e rimuove automaticamente quelle non integre. Monitora quindi le istanze non integre e le aggiunge al pool back-end integro quando diventano disponibili e rispondono ai Probe di integrità.
 
-Oltre al monitoraggio del probe di integrità predefinito, è anche possibile personalizzare il probe di integrità in base ai requisiti dell'applicazione. I probe personalizzati consentono un controllo più granulare sul monitoraggio dell'integrità. Quando si usano Probe personalizzati, è possibile configurare l'intervallo di probe, l'URL e il percorso da testare e il numero di risposte non riuscite da accettare prima che l'istanza del pool back-end sia contrassegnata come non integra. Si consiglia di configurare Probe personalizzati per monitorare l'integrità di ogni pool back-end.
+Oltre al monitoraggio del probe di integrità predefinito, è anche possibile personalizzare il probe di integrità in base ai requisiti dell'applicazione. I probe personalizzati consentono un controllo più granulare sul monitoraggio dell'integrità. Quando si usano Probe personalizzati, è possibile configurare un nome host personalizzato, un percorso URL, un intervallo di probe e il numero di risposte non riuscite da accettare prima di contrassegnare l'istanza del pool back-end come non integro, codici di stato personalizzati e corrispondenza del corpo della risposta e così via. Si consiglia di configurare Probe personalizzati per monitorare l'integrità di ogni pool back-end.
 
 Per altre informazioni, vedere [monitorare l'integrità del gateway applicazione](../application-gateway/application-gateway-probe-overview.md).
 

@@ -70,7 +70,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |---------|---------|
     |Tipo di trasferimento     | Selezionare **Esporta in Azure**.        |
     |Subscription     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
-    |Gruppo di risorse     |    Selezionare un gruppo di risorse esistente. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
+    |Resource group     |    Selezionare un gruppo di risorse esistente. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
     |Area di Azure di origine    |    Selezionare l'area di Azure in cui sono attualmente presenti i dati.         |
     |Paese di destinazione     |     Selezionare il paese in cui si vuole spedire il dispositivo.        |
 
@@ -84,8 +84,8 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     |Impostazione  |valore  |
     |---------|---------|
-    |Sottoscrizione     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
-    |Gruppo di risorse | Il gruppo di risorse selezionato in precedenza. |
+    |Subscription     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
+    |Resource group | Il gruppo di risorse selezionato in precedenza. |
     |Nome dell'ordine di esportazione     |  Specificare un nome descrittivo per tenere traccia dell'ordine. <br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero.      |
 
     ![Nozioni fondamentali sull'ordine di esportazione](media/data-box-deploy-export-ordered/azure-data-box-export-03.png)
@@ -205,11 +205,11 @@ Se è stata selezionata l'opzione self-Managed shipping, si riceverà una notifi
 
 ## <a name="cancel-the-order"></a>Annullare l'ordine
 
-Per annullare questo ordine, nella portale di Azure passare a **Panoramica** e selezionare **Annulla** dalla barra dei comandi.
+Per annullare l'ordine, nel portale di Azure passare a **Panoramica** e fare clic su **Annulla** sulla barra dei comandi.
 
 Dopo l'inserimento di un ordine, è possibile annullarlo in qualsiasi momento prima dell'avvio dell'elaborazione dell'ordine.
 
-Per eliminare un ordine annullato, passare a **Panoramica** e selezionare **Elimina** dalla barra dei comandi.
+Per eliminare un ordine annullato, passare a **Panoramica** e fare clic su **Elimina** sulla barra dei comandi.
 
 ## <a name="sample-xml-file"></a>File XML di esempio
 

@@ -40,6 +40,8 @@
       items:
         - name: Informazioni su circuiti e peering
           href: expressroute-circuit-peerings.md
+        - name: Informazioni sulla larghezza di banda del circuito
+          href: about-upgrade-circuit-bandwidth.md
         - name: Spostamento dei circuiti dal modello classico a Resource Manager
           href: expressroute-move.md
     - name: BFD su ExpressRoute

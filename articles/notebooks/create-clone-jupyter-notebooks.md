@@ -3,12 +3,12 @@ title: Creare e clonare notebook Jupyter-anteprima Azure Notebooks
 description: Azure Notebooks progetti di anteprima gestiscono una raccolta di notebook e file correlati, che è possibile creare nuovi o clonare da un'altra origine.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831285"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181498"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Creare e clonare progetti in Azure Notebooks anteprima
 
@@ -61,20 +61,40 @@ Quando si usa il comando **+ New Project** (+ Nuovo progetto), Azure Notebooks c
 | --- | --- |
 | Project name (Nome progetto) | Nome descrittivo del progetto usato da Azure Notebooks per scopi di visualizzazione. Ad esempio, "My Notebook Project". |
 | ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto (il formato è `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Questo ID può utilizzare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un [ID di progetto riservato](#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |
-| Pubblico | Se impostato, consente a chiunque disponga del collegamento di accedere al progetto. Quando si crea un progetto privato, deselezionare questa opzione. |
+| Blockchain pubblica | Se impostato, consente a chiunque disponga del collegamento di accedere al progetto. Quando si crea un progetto privato, deselezionare questa opzione. |
 | Initialize this project with a README (Inizializzare il progetto con un file Leggimi) | Se impostato, nel progetto viene creato un file *README.md* predefinito. Nel file *README.md* predefinito è possibile specificare la documentazione per il progetto, se lo si desidera. |
 
 ### <a name="reserved-project-ids"></a>ID progetto riservati
 
 Le seguenti parole riservate non possono essere utilizzate da soli come ID progetto. Queste parole riservate possono tuttavia essere usate come parte degli ID di progetto più lunghi.
 
-| | | | | | |
-| --- | --- | --- | --- | --- | --- |
-| informazioni | account | amministrazione | api | blog | classe |
-| contenuto | dashboard | esplorare | Domande frequenti | help | html |
-| home | importazione | library | management | Nuovo | notebook |
-| Notebooks | pdf | preview | prezzi | profile | cerca |
-| status | support | test | | | |
+- informazioni
+- account
+- amministrazione
+- api
+- blog
+- classe
+- contenuto
+- dashboard
+- esplorare
+- Domande frequenti
+- help
+- html
+- home
+- importazione
+- library
+- management
+- Nuovo
+- notebook
+- Notebooks
+- pdf
+- preview
+- prezzi
+- profile
+- cerca
+- status
+- support
+- test
 
 Se si tenta di usare una di queste parole come ID progetto, i popup **Crea nuovo progetto** e **Impostazioni progetto** indicano che "ID libreria è un identificatore riservato".
 
@@ -90,7 +110,7 @@ Poiché un ID progetto fa anche parte dell'URL di un progetto, il software ad Bl
 | Clone recursively (Clona in modo ricorsivo) | I repository GitHub possono contenere più repository figlio. Impostare questa opzione se si vuole clonare il repository padre e tutti gli elementi figlio. Poiché un repository può avere molti figli, lasciare questa opzione deselezionata se non si è certi che sia necessaria. |
 | Project name (Nome progetto) | Nome descrittivo del progetto usato da Azure Notebooks per scopi di visualizzazione. |
 | ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto (il formato è `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Questo ID può utilizzare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un [ID di progetto riservato](#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |
-| Pubblico | Se impostato, consente a chiunque disponga del collegamento di accedere al progetto. Quando si crea un progetto privato, deselezionare questa opzione. |
+| Blockchain pubblica | Se impostato, consente a chiunque disponga del collegamento di accedere al progetto. Quando si crea un progetto privato, deselezionare questa opzione. |
 
 L'importazione di un repository da GitHub importa anche la relativa cronologia. È possibile usare i comandi Git standard del terminale per eseguire il commit delle nuove modifiche, eseguire il pull delle modifiche da GitHub e così via.
 

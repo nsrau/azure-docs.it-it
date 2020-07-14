@@ -6,7 +6,7 @@
       href: notification-hubs-push-notification-overview.md
     - name: Integrazione con le app per dispositivi mobili del servizio app
       href: notification-hubs-app-service.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare un hub di notifica - Portale di Azure
@@ -70,6 +70,8 @@
           items:
             - name: Xamarin.Forms
               href: notification-hubs-backend-service-xamarin-forms.md
+            - name: Flutter
+              href: notification-hubs-backend-service-flutter.md
             - name: React Native
               href: notification-hubs-backend-service-react-native.md
     - name: Windows Phone

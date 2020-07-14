@@ -7,37 +7,59 @@
           items:
             - name: Informazioni su Data Box
               href: data-box-overview.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           expanded: true
           items:
             - name: Configurazione - Portale di Azure
               href: data-box-quickstart-portal.md
         - name: Esercitazioni
           items:
-            - name: 1 - Ordinare
-              href: data-box-deploy-ordered.md
-            - name: 2 - Configurare
-              href: data-box-deploy-set-up.md
-            - name: 3 - Connettere e copiare
+            - name: Importare dati in Azure
               items:
-                - name: Tramite SMB
-                  href: data-box-deploy-copy-data.md
-                - name: Tramite NFS
-                  href: data-box-deploy-copy-data-via-nfs.md
-                - name: Tramite REST
-                  href: data-box-deploy-copy-data-via-rest.md
-                - name: Tramite il servizio di copia dei dati
-                  href: data-box-deploy-copy-data-via-copy-service.md
-                - name: In dischi gestiti
-                  href: data-box-deploy-copy-data-from-vhds.md
-            - name: '4 - Restituire, caricare, verificare'
-              href: data-box-deploy-picked-up.md
+                - name: 1 - Ordinare
+                  href: data-box-deploy-ordered.md
+                - name: 2 - Configurare
+                  href: data-box-deploy-set-up.md
+                - name: 3 - Connettere e copiare
+                  items:
+                    - name: Tramite SMB
+                      href: data-box-deploy-copy-data.md
+                    - name: Tramite NFS
+                      href: data-box-deploy-copy-data-via-nfs.md
+                    - name: Tramite REST
+                      href: data-box-deploy-copy-data-via-rest.md
+                    - name: Tramite il servizio di copia dei dati
+                      href: data-box-deploy-copy-data-via-copy-service.md
+                    - name: In dischi gestiti
+                      href: data-box-deploy-copy-data-from-vhds.md
+                - name: '4 - Restituire, caricare, verificare'
+                  href: data-box-deploy-picked-up.md
+            - name: Esportare dati da Azure
+              items:
+                - name: 1 - Ordinare
+                  href: data-box-deploy-export-ordered.md
+                - name: 2 - Configurare
+                  href: data-box-deploy-set-up.md
+                - name: 3 - Connettere e copiare
+                  items:
+                    - name: Tramite SMB
+                      href: data-box-deploy-export-copy-data.md
+                    - name: Tramite NFS
+                      href: data-box-deploy-export-copy-data-via-nfs.md
+                - name: 4 - Restituire
+                  href: data-box-deploy-export-picked-up.md
         - name: Concetti
           items:
             - name: Leggere le linee guida per la sicurezza
               href: data-box-safety.md
             - name: Esaminare il rilevamento e la registrazione
-              href: data-box-logs.md
+              items:
+                - name: Per ordini di importazione
+                  href: data-box-logs.md
+                - name: Per ordini di esportazione
+                  href: data-box-export-logs.md
+            - name: Visualizzare i log di controllo
+              href: data-box-audit-logs.md
             - name: Esaminare i requisiti
               items:
                 - name: Per Data Box
@@ -64,6 +86,8 @@
               href: data-box-portal-customer-managed-shipping.md
             - name: Abilitare la chiave gestita dal cliente
               href: data-box-customer-managed-encryption-key-portal.md
+            - name: Usare Customer Lockbox
+              href: data-box-customer-lockbox.md
             - name: Spostare i dati in un livello BLOB
               href: data-box-how-to-set-data-tier.md
             - name: Cablare il dispositivo
@@ -92,7 +116,7 @@
           items:
             - name: Informazioni su Data Box Disk
               href: data-box-disk-overview.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           expanded: true
           items:
             - name: Configurazione - Portale di Azure
@@ -143,7 +167,7 @@
           items:
             - name: Informazioni su Data Box Heavy
               href: data-box-heavy-overview.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Configurazione - Portale di Azure
               href: data-box-heavy-quickstart-portal.md

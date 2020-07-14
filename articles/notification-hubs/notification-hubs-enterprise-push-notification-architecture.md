@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76264034"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223602"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guida all'architettura push aziendale
 
@@ -34,9 +35,9 @@ Una soluzione migliore consiste nell'uso del modello Bus di servizio di Azure - 
 
 Di seguito è descritta l'architettura generale della soluzione, descritta con numerose app per dispositivi mobili ma ugualmente applicabile nel caso in cui ne venga usata una soltanto.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
-![][1]
+![Diagramma dell'architettura aziendale che mostra il flusso attraverso gli eventi, le sottoscrizioni e i messaggi push.][1]
 
 L'elemento chiave di questo diagramma dell'architettura è il bus di servizio di Azure, che fornisce un modello di programmazione di tipo argomenti/sottoscrizioni. Per altre informazioni su tale modello, vedere [Come usare gli argomenti e le sottoscrizioni del bus di servizio]. Il ricevitore, che in questo caso è il back-end per dispositivi mobili, in genere il [servizio mobile di Azure], che avvia un push per le app per dispositivi mobili, non riceve messaggi direttamente dai sistemi back-end, bensì da un livello di astrazione intermedia fornito dal [bus di servizio di Azure], che consente al back-end mobile di ricevere messaggi da uno o più sistemi back-end È necessario creare un argomento del bus di servizio per ciascuno dei sistemi back-end, ad esempio Contabilità, Risorse umane e Finanza. Si tratta fondamentalmente di "argomenti" rilevanti che danno luogo a messaggi da inviare come notifiche push. I sistemi back-end inviano messaggi a questi argomenti. Un back-end Mobile può sottoscrivere uno o più di tali argomenti creando una sottoscrizione del bus di servizio. Questo autorizza il back-end Mobile a ricevere una notifica dal sistema back-end corrispondente. Il back-end Mobile continua a rimanere in ascolto per rilevare i messaggi inviati alla sottoscrizione e, non appena ne arriva uno, lo invia come notifica all'hub di notifica. L'hub di notifica invia infine il messaggio all'app per dispositivi mobili. Ecco l'elenco dei componenti principali:
 
@@ -227,15 +228,17 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 
     e. Per pubblicare quest'app come **processo Web**, in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Pubblica come processo Web di Azure**
 
-    ![][2]
+    ![Screenshot delle opzioni con il pulsante destro del mouse da visualizzare con pubblica come processo Web di Azure evidenziato in rosso.][2]
 
     f. Selezionare il proprio profilo di pubblicazione e, se non è già presente, creare un nuovo sito Web di Azure che ospita questo processo Web, quindi fare clic su **Pubblica**.
 
-    ![][3]
+    :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Screenshot che illustra il flusso di lavoro per creare un sito in Azure.":::
+    Screenshot della finestra di dialogo Pubblica sito Web con l'opzione Microsoft Azure siti Web selezionata, una freccia verde che punta alla finestra di dialogo Seleziona sito Web esistente con la nuova opzione delineata in rosso e una freccia verde che punta alla finestra di dialogo Crea sito in Microsoft Azure con il nome del sito e le opzioni di creazione delineate in rosso.
+    :::image-end:::
 
     g. Configurare il processo per l'esecuzione continua, in modo che, quando si accede al [portale di Azure], venga visualizzata una schermata simile alla seguente:
 
-    ![][4]
+    ![Screenshot del portale di Azure con i processi Web back-end push aziendali visualizzati e il nome, la pianificazione e i valori dei log delineati in rosso.][4]
 
 3. **EnterprisePushMobileApp**
 
@@ -269,11 +272,11 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 2. Eseguire **EnterprisePushMobileApp**, che avvia l'app di Windows Store.
 3. Eseguire l'applicazione console **EnterprisePushBackendSystem** che simula il back-end LOB e avvia l'invio di messaggi. Verranno visualizzate notifiche di tipo avviso popup simili all'immagine seguente:
 
-    ![][5]
+    ![Screenshot di una console che esegue l'app del sistema back-end Enterprise push e del messaggio inviato dall'app.][5]
 
 4. All'inizio i messaggi sono stati inviati ad argomenti del bus di servizio, operazione monitorata da sottoscrizioni del bus di servizio nel processo Web. Una volta ricevuto un messaggio, è stata creata una notifica che è stata inviata all'app per dispositivi mobili. Per confermare l'elaborazione, è possibile esaminare i log del processo Web quando si accede al collegamento Log relativo al processo Web nel [portale di Azure]:
 
-    ![][6]
+    ![Screenshot della finestra di dialogo Dettagli processo Web continuo con il messaggio inviato in rosso.][6]
 
 <!-- Images -->
 [1]: ./media/notification-hubs-enterprise-push-architecture/architecture.png

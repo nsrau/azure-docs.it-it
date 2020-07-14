@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 1e725fb483afed0f126248737c2e9121ce823a45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdef11fec93d4ba6254957ad14e0612e2fd05580
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734691"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221358"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito Azure Active Directory Domain Services usando un modello di Gestione risorse
 
@@ -84,11 +84,11 @@ Per creare una macchina virtuale Windows Server, aggiungerla a un dominio gestit
 1. Passare al [modello di avvio rapido](https://azure.microsoft.com/resources/templates/201-vm-domain-join/). Selezionare l'opzione per la **distribuzione in Azure**.
 1. Nella pagina **distribuzione personalizzata** immettere le informazioni seguenti per creare e aggiungere una macchina virtuale Windows Server al dominio gestito:
 
-    | Impostazione                   | valore |
+    | Impostazione                   | Valore |
     |---------------------------|-------|
     | Subscription              | Selezionare la stessa sottoscrizione di Azure in cui è abilitato Azure Active Directory Domain Services. |
     | Resource group            | Scegliere il gruppo di risorse per la macchina virtuale. |
-    | Location                  | Selezionare il percorso di per la macchina virtuale. |
+    | Località                  | Selezionare il percorso di per la macchina virtuale. |
     | Nome VNET esistente        | Nome della rete virtuale esistente a cui connettere la VM, ad esempio *myVnet*. |
     | Nome subnet esistente      | Nome della subnet della rete virtuale esistente, ad esempio *carichi di lavoro*. |
     | Prefisso etichetta DNS          | Immettere un nome DNS da usare per la macchina virtuale, ad esempio *MyVM*. |
@@ -117,11 +117,11 @@ Per aggiungere una macchina virtuale Windows Server esistente a un dominio gesti
 1. Passare al [modello di avvio rapido](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/). Selezionare l'opzione per la **distribuzione in Azure**.
 1. Nella pagina **distribuzione personalizzata** immettere le informazioni seguenti per aggiungere la macchina virtuale al dominio gestito:
 
-    | Impostazione                   | valore |
+    | Impostazione                   | Valore |
     |---------------------------|-------|
     | Subscription              | Selezionare la stessa sottoscrizione di Azure in cui è abilitato Azure Active Directory Domain Services. |
     | Resource group            | Scegliere il gruppo di risorse con la macchina virtuale esistente. |
-    | Location                  | Selezionare il percorso della macchina virtuale esistente. |
+    | Località                  | Selezionare il percorso della macchina virtuale esistente. |
     | Elenco VM                   | Immettere l'elenco delimitato da virgole delle macchine virtuali esistenti da aggiungere al dominio gestito, ad esempio *myVM1, myVM2*. |
     | Nome utente aggiunta al dominio     | Account utente nel dominio gestito che deve essere usato per aggiungere la macchina virtuale al dominio gestito, ad esempio `contosoadmin@aaddscontoso.com` . Questo account deve far parte del dominio gestito. |
     | Password utente aggiunta al dominio | Password per l'account utente specificato nell'impostazione precedente. |

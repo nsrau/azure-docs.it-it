@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sull'accesso condizionale
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Richiedere l'accettazione delle condizioni per l'utilizzo
       href: require-tou.md
@@ -104,6 +104,18 @@
           href: troubleshoot-conditional-access-what-if.md
         - name: Domande frequenti
           href: faqs.md
+- name: Informazioni di riferimento
+  items:
+    - name: API Graph versione beta
+      items:
+        - name: API conditionalAccessPolicy
+          href: /graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta
+        - name: API namedLocation
+          href: /graph/api/resources/namedlocation?view=graph-rest-beta
+        - name: API countryNamedLocation
+          href: /graph/api/resources/countrynamedlocation?view=graph-rest-beta
+        - name: API ipNamedLocation
+          href: /graph/api/resources/ipnamedlocation?view=graph-rest-beta
 - name: Risorse
   items:
     - name: Forum di commenti e suggerimenti su Azure

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9448b7df8855f7cf2883f6cf8bd7f2ce465038cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e1efb1f93910f311ad5df898152d71158003244
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563562"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146850"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Come indicizzare i BLOB JSON usando un indicizzatore BLOB in Azure ricerca cognitiva
 
@@ -149,6 +149,7 @@ Questo passaggio fornisce le informazioni di connessione all'origine dati utiliz
 
 Sostituire i valori validi per il nome del servizio, la chiave amministratore, l'account di archiviazione e i segnaposto della chiave dell'account.
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -159,6 +160,7 @@ Sostituire i valori validi per il nome del servizio, la chiave amministratore, l
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
+```
 
 ### <a name="3---create-a-target-search-index"></a>3: creare un indice di ricerca di destinazione 
 
@@ -168,6 +170,7 @@ L'indice archivia contenuto ricercabile in ricerca cognitiva di Azure. Per crear
 
 L'esempio seguente illustra una richiesta [Crea indice](https://docs.microsoft.com/rest/api/searchservice/create-index). L'indice avrà un campo `content` ricercabile in cui archiviare il testo estratto dai BLOB:   
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -179,12 +182,14 @@ L'esempio seguente illustra una richiesta [Crea indice](https://docs.microsoft.c
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 
 ### <a name="4---configure-and-run-the-indexer"></a>4-configurare ed eseguire l'indicizzatore
 
 Come per un indice e un'origine dati, l'indicizzatore è anche un oggetto denominato che è possibile creare e riutilizzare in un servizio ricerca cognitiva di Azure. Una richiesta completamente specificata per la creazione di un indicizzatore potrebbe avere un aspetto simile al seguente:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -196,6 +201,7 @@ Come per un indice e un'origine dati, l'indicizzatore è anche un oggetto denomi
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
+```
 
 La configurazione dell'indicizzatore è nel corpo della richiesta. Richiede un'origine dati e un indice di destinazione vuoto già esistente in Azure ricerca cognitiva. 
 
@@ -212,6 +218,7 @@ Questa sezione è un riepilogo di tutte le richieste usate per la creazione di o
 
 Tutti gli indicizzatori richiedono un oggetto origine dati che fornisca informazioni di connessione ai dati esistenti. 
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -222,12 +229,13 @@ Tutti gli indicizzatori richiedono un oggetto origine dati che fornisca informaz
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }  
-
+```
 
 ### <a name="index-request"></a>Richiesta di indice
 
 Tutti gli indicizzatori richiedono un indice di destinazione che riceve i dati. Il corpo della richiesta definisce lo schema dell'indice, costituito da campi, con attributi per supportare i comportamenti desiderati in un indice ricercabile. Questo indice deve essere vuoto quando si esegue l'indicizzatore. 
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -239,7 +247,7 @@ Tutti gli indicizzatori richiedono un indice di destinazione che riceve i dati. 
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
-
+```
 
 ### <a name="indexer-request"></a>Richiesta dell'indicizzatore
 
@@ -247,6 +255,7 @@ Questa richiesta Mostra un indicizzatore completamente specificato. Sono inclusi
 
 La creazione dell'indicizzatore in Azure ricerca cognitiva attiva l'importazione dati. Viene eseguito immediatamente e successivamente in base a una pianificazione, se ne è stato specificato uno.
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -263,7 +272,7 @@ La creazione dell'indicizzatore in Azure ricerca cognitiva attiva l'importazione
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
         ]
     }
-
+```
 
 <a name="json-indexer-dotnet"></a>
 
@@ -284,7 +293,7 @@ I BLOB JSON possono assumere più forme. Il parametro **parsingMode** nell'indic
 
 | parsingMode | Descrizione |
 |-------------|-------------|
-| `json`  | Indicizzare ogni BLOB come un singolo documento. Questo è il valore predefinito. |
+| `json`  | Indicizzare ogni BLOB come un singolo documento. Questa è la modalità predefinita. |
 | `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario che ogni elemento della matrice diventi un documento separato in Azure ricerca cognitiva. |
 |`jsonLines` | Scegliere questa modalità se i BLOB sono costituiti da più entità JSON, separate da una nuova riga, ed è necessario che ogni entità diventi un documento separato in Azure ricerca cognitiva. |
 
@@ -302,6 +311,7 @@ Se si vuole, all'interno della definizione dell'indicizzatore è possibile usare
 
 Per impostazione predefinita, l' [indicizzatore BLOB di Azure ricerca cognitiva](search-howto-indexing-azure-blob-storage.md) analizza i BLOB JSON come singolo blocco di testo. È spesso possibile che si voglia preservare la struttura dei documenti JSON. Si supponga, ad esempio, che in Archiviazione BLOB di Azure sia presente il documento JSON seguente:
 
+```http
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -309,6 +319,7 @@ Per impostazione predefinita, l' [indicizzatore BLOB di Azure ricerca cognitiva]
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
+```
 
 L'indicizzatore BLOB analizza il documento JSON in un singolo documento di ricerca cognitiva di Azure. Per caricare un indice, l'indicizzatore stabilisce una corrispondenza tra i campi "text", "datePublished" e "tags" dell'origine e i campi di indice di destinazione tipizzati con lo stesso nome.
 
@@ -320,14 +331,17 @@ Come già indicato, i mapping dei campi non sono obbligatori. Dato un indice con
 
 In alternativa, è possibile usare l'opzione di matrice JSON. Questa opzione è utile quando i BLOB contengono una *matrice di oggetti JSON ben formati*e si vuole che ogni elemento diventi un documento di Azure ricerca cognitiva separato. Dato il BLOB JSON seguente, ad esempio, è possibile popolare l'indice di Azure ricerca cognitiva con tre documenti distinti, ognuno con i campi "ID" e "Text".  
 
+```text
     [
         { "id" : "1", "text" : "example 1" },
         { "id" : "2", "text" : "example 2" },
         { "id" : "3", "text" : "example 3" }
     ]
+```
 
 Per una matrice JSON, la definizione di indicizzatore dovrebbe avere un aspetto simile all'esempio seguente. Si noti che il parametro parsingMode specifica il parser `jsonArray`. Specificare il parser corretto e avere l'input di dati appropriato sono gli unici due requisiti specifici della matrice per l'indicizzazione dei BLOB JSON.
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -339,6 +353,7 @@ Per una matrice JSON, la definizione di indicizzatore dovrebbe avere un aspetto 
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
     }
+```
 
 Anche in questo caso il mapping dei campi può essere omesso. Dato un indice con i campi "id" e "text" con nome identico, l'indicizzatore di BLOB è in grado di dedurre il mapping corretto senza un elenco di mapping dei campi esplicito.
 
@@ -347,6 +362,7 @@ Anche in questo caso il mapping dei campi può essere omesso. Dato un indice con
 ## <a name="parse-nested-arrays"></a>Analizza matrici annidate
 Per le matrici JSON con elementi annidati, è possibile specificare un `documentRoot` per indicare una struttura a più livelli. Ad esempio, se i BLOB sono simili a questo:
 
+```http
     {
         "level1" : {
             "level2" : [
@@ -356,25 +372,31 @@ Per le matrici JSON con elementi annidati, è possibile specificare un `document
             ]
         }
     }
+```
 
 Usare questa configurazione per indicizzare la matrice contenuta nella proprietà `level2`:
 
+```http
     {
         "name" : "my-json-array-indexer",
         ... other indexer properties
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
+```
 
 ## <a name="parse-blobs-separated-by-newlines"></a>Analizza i BLOB separati da una nuova riga
 
 Se il BLOB contiene più entità JSON separate da una nuova riga e si vuole che ogni elemento diventi un documento di Azure ricerca cognitiva separato, è possibile scegliere l'opzione per le righe JSON. Ad esempio, dato il BLOB seguente (in cui sono presenti tre entità JSON diverse), è possibile popolare l'indice di ricerca cognitiva di Azure con tre documenti distinti, ognuno con i campi "ID" e "Text".
 
-    { "id" : "1", "text" : "example 1" }
-    { "id" : "2", "text" : "example 2" }
-    { "id" : "3", "text" : "example 3" }
+```text
+{ "id" : "1", "text" : "example 1" }
+{ "id" : "2", "text" : "example 2" }
+{ "id" : "3", "text" : "example 3" }
+```
 
 Per le righe JSON, la definizione dell'indicizzatore dovrebbe essere simile all'esempio seguente. Si noti che il parametro parsingMode specifica il parser `jsonLines`. 
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -386,6 +408,7 @@ Per le righe JSON, la definizione dell'indicizzatore dovrebbe essere simile all'
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
+```
 
 Anche in questo caso, si noti che è possibile omettere i mapping dei campi, analogamente alla `jsonArray` modalità di analisi.
 
@@ -397,6 +420,7 @@ Attualmente, Azure ricerca cognitiva non può indicizzare direttamente i documen
 
 Tornando al documento JSON di esempio:
 
+```http
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -404,27 +428,32 @@ Tornando al documento JSON di esempio:
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
+```
 
 Si supponga di avere un indice di ricerca con i campi seguenti: `text` di tipo `Edm.String`, `date` di tipo `Edm.DateTimeOffset` e `tags` di tipo `Collection(Edm.String)`. Si noti la discrepanza tra "datePublished" nell'origine e il campo `date` nell'indice. Per eseguire il mapping del file JSON per ottenere la forma desiderata, usare i mapping dei campi seguenti:
 
+```http
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
         { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
+```
 
 I nomi dei campi di origine nei mapping vengono specificati mediante la notazione di tipo [Puntatore JSON](https://tools.ietf.org/html/rfc6901) . Iniziare con una barra per fare riferimento alla radice del documento JSON, quindi passare alla proprietà desiderata, a un livello di annidamento arbitrario, usando un percorso separato da barre.
 
 È anche possibile fare riferimento a singoli elementi della matrice usando un indice a base zero. Ad esempio, per selezionare il primo elemento della matrice "tags" dall'esempio precedente, usare un mapping dei campi analogo al seguente:
 
+```http
     { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
+```
 
 > [!NOTE]
 > Se un nome del campo di origine in un percorso di mapping dei campi fa riferimento a una proprietà inesistente nel file JSON, il mapping verrà ignorato senza errori. Ciò consente di supportare documenti con schemi diversi, ovvero un caso di utilizzo comune. Poiché non è disponibile alcuna convalida, sarà necessario evitare accuratamente gli errori di ortografia nella specifica dei mapping dei campi.
 >
 >
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Indicizzatori in Ricerca cognitiva di Azure](search-indexer-overview.md)
 + [Indicizzazione dell'archiviazione BLOB di Azure con Azure ricerca cognitiva](search-howto-index-json-blobs.md)

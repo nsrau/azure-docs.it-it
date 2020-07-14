@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Gestione firewall di Azure?
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Hub virtuale protetto - Modello di Resource Manager
@@ -44,12 +44,14 @@
       href: migrate-to-policy.md
     - name: Impostazioni DNS
       href: dns-settings.md
+    - name: Distribuire più indirizzi IP pubblici
+      href: multiple-public-ip-powershell.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/ext/azure-firewall/network/firewall
+      href: /cli/azure/ext/azure-firewall/network/firewall/policy
     - name: Azure PowerShell
-      href: /powershell/module/az.network/new-azfirewall
+      href: /powershell/module/az.network/new-azfirewallpolicy
     - name: .NET
       href: /dotnet/api
     - name: Java
@@ -59,7 +61,7 @@
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
-      href: /rest/api/firewall
+      href: /rest/api/virtualnetwork/firewallpolicies
     - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md
 - name: Risorse

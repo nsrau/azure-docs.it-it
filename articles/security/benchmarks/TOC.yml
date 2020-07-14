@@ -39,12 +39,34 @@
       href: ../../application-gateway/security-baseline.md
     - name: Baseline di sicurezza di Automazione
       href: ../../automation/security-baseline.md
+    - name: Baseline di sicurezza di Backup di Azure
+      href: ../../backup/security-baseline.md
     - name: Baseline di sicurezza di Cache di Azure per Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Baseline di sicurezza di Azure Data Box
+      href: ../../databox/security-baseline.md
+    - name: Baseline di sicurezza di Esplora dati di Azure
+      href: /azure/data-explorer/security-baseline
+    - name: Baseline di sicurezza di Azure Data Factory
+      href: ../../data-factory/security-baseline.md
+    - name: Baseline di sicurezza di Database di Azure per MySQL
+      href: ../../mysql/security-baseline.md
+    - name: Baseline di sicurezza di Database di Azure per MariaDB
+      href: ../../mariadb/security-baseline.md
+    - name: Baseline di sicurezza di Database di Azure per PostgreSQL
+      href: ../../postgresql/security-baseline.md
+    - name: Baseline di sicurezza di Azure Databricks
+      href: ../../azure-databricks/security-baseline.md
+    - name: Baseline di sicurezza di Funzioni di Azure
+      href: ../../azure-functions/security-baseline.md
     - name: Baseline di sicurezza di Criteri di Azure
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
-    - name: Baseline di sicurezza di Backup
-      href: ../../backup/security-baseline.md
+    - name: Baseline di sicurezza di Azure Resource Graph
+      href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+    - name: Baseline di sicurezza del database SQL di Azure
+      href: ../../sql-database/security-baseline.md
+    - name: Baseline di sicurezza di Archiviazione di Azure
+      href: ../../storage/common/security-baseline.md
     - name: Baseline di sicurezza di Batch
       href: ../../batch/security-baseline.md
     - name: Baseline di sicurezza di Servizi cognitivi
@@ -57,39 +79,19 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Baseline di sicurezza di Customer Lockbox
       href: ../fundamentals/customer-lockbox-security-baseline.md
-    - name: Baseline di sicurezza di Data Box
-      href: ../../databox/security-baseline.md
-    - name: Baseline di sicurezza di Esplora dati
-      href: /azure/data-explorer/security-baseline
-    - name: Baseline di sicurezza di Data Factory
-      href: ../../data-factory/security-baseline.md
-    - name: Baseline di sicurezza di Databricks
-      href: ../../azure-databricks/security-baseline.md
     - name: Baseline di sicurezza di Hub eventi
       href: ../../event-hubs/security-baseline.md
     - name: Baseline di sicurezza di ExpressRoute
       href: ../../expressroute/security-baseline.md
-    - name: Baseline di sicurezza di Funzioni
-      href: ../../azure-functions/security-baseline.md
     - name: Baseline di sicurezza di HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Baseline di sicurezza di Key Vault
       href: ../../key-vault/security-baseline.md
     - name: Baseline di App per la logica
       href: ../../logic-apps/security-baseline.md
-    - name: Baseline di sicurezza di MariaDB
-      href: ../../mariadb/security-baseline.md
-    - name: Baseline di sicurezza di MySQL
-      href: ../../mysql/security-baseline.md
     - name: Baseline di sicurezza di Network Watcher
       href: ../../network-watcher/security-baseline.md
-    - name: Baseline di sicurezza di PostgreSQL
-      href: ../../postgresql/security-baseline.md
-    - name: Baseline di sicurezza di Database SQL
-      href: ../../sql-database/security-baseline.md
     - name: Baseline di Analisi di flusso
       href: ../../stream-analytics/security-baseline.md
-    - name: Baseline di sicurezza di Archiviazione
-      href: ../../storage/common/security-baseline.md
     - name: Baseline di sicurezza di Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md

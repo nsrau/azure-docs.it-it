@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b62d69220a931bef8d91a85bcbbaedfbce86110a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: b3f337798525860748cf7b535c2bce478dad8e27
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211393"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043003"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
@@ -105,15 +105,17 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
 
 L'output è simile al seguente:
 
-    StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
-    ServiceBusRuleId   :
-    StorageAccountName :
-        Logs
-        Enabled           : True
-        Category          : AuditEvent
-        RetentionPolicy
-        Enabled : False
-        Days    : 0
+```output
+StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccountContosoKeyVaultLogs
+ServiceBusRuleId   :
+StorageAccountName :
+    Logs
+    Enabled           : True
+    Category          : AuditEvent
+    RetentionPolicy
+    Enabled : False
+    Days    : 0
+```
 
 Questo output conferma che la registrazione è abilitata per l'insieme di credenziali delle chiavi e che le informazioni vengono salvate nell'account di archiviazione.
 
@@ -289,7 +291,7 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 
 | operationName | Comando API REST |
 | --- | --- |
-| **Autenticazione** |Eseguire l'autenticazione tramite l'endpoint di Azure Active Directory |
+| **autenticazione** |Eseguire l'autenticazione tramite l'endpoint di Azure Active Directory |
 | **VaultGet** |[Ottenere informazioni su un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | **VaultPut** |[Creare o aggiornare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | **VaultDelete** |[Eliminare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
@@ -330,5 +332,3 @@ Per un'esercitazione sull'uso di Azure Key Vault in un'applicazione Web .NET, ve
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](developers-guide.md).
 
 Per un elenco di cmdlet di Azure PowerShell 1.0 per Azure Key Vault, vedere [Cmdlet per Azure Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
-
-Per un'esercitazione sulla rotazione delle chiavi e il controllo dei log con Azure Key Vault, vedere [Configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end](../secrets/key-rotation-log-monitoring.md).

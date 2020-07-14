@@ -11,11 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118823"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86172027"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Risolvere i problemi di gestione di SSIS Integration Runtime in Azure Data Factory
 
@@ -114,7 +115,7 @@ Questo errore indica che il tentativo di caricare i log di esecuzione dell'insta
 ## <a name="virtual-network-configuration"></a>Configurazione della rete virtuale
 
 Quando viene aggiunto alla rete virtuale di Azure, SSIS IR usa la rete virtuale prevista dalla sottoscrizione dell'utente. Per altre informazioni, vedere [Aggiungere Azure-SSIS Integration Runtime a una rete virtuale](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
-
+Dopo l'avvio del runtime di integrazione SSIS, se si verificano problemi di connessione di rete, è possibile provare a usare [lo strumento di connettività di diagnostica](ssis-integration-runtime-diagnose-connectivity-faq.md) per diagnosticare il problema.
 Quando si verifica un problema relativo alla rete virtuale, viene visualizzato uno degli errori seguenti.
 
 ### <a name="invalidvnetconfiguration"></a>InvalidVnetConfiguration
