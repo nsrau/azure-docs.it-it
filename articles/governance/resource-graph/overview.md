@@ -1,14 +1,14 @@
 ---
 title: Panoramica di Azure Resource Graph
 description: Informazioni sul servizio Azure Resource Graph, che consente di eseguire query complesse sulle risorse su vasta scala, in diverse sottoscrizioni e diversi tenant.
-ms.date: 03/02/2020
+ms.date: 06/29/2020
 ms.topic: overview
-ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167265"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970604"
 ---
 # <a name="what-is-azure-resource-graph"></a>Che cos'è Azure Resource Graph?
 
@@ -29,7 +29,7 @@ In questa documentazione verrà esaminata ogni funzionalità in modo dettagliato
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>In che modo Resource Graph integra Azure Resource Manager
 
-Attualmente, Azure Resource Manager supporta le query su campi di risorse di base, in particolare il nome della risorsa, l'ID, il tipo, il gruppo di risorse, la sottoscrizione e la posizione. Resource Manager fornisce anche funzionalità per la chiamata di provider di risorse individuali per ottenere proprietà dettagliate una risorsa alla volta.
+Attualmente, Resource Manager supporta le query su campi di risorse di base, in particolare il nome della risorsa, l'ID, il tipo, il gruppo di risorse, la sottoscrizione e la posizione. Resource Manager fornisce anche funzionalità per la chiamata di provider di risorse individuali per ottenere proprietà dettagliate una risorsa alla volta.
 
 Con Azure Resource Graph, è possibile accedere a queste proprietà restituite dai provider di risorse senza la necessità di effettuare chiamate singole per ogni provider di risorse. Per un elenco dei tipi di risorse supportati, vedere la [tabella e le informazioni di riferimento per i tipi di risorse](./reference/supported-tables-resources.md). Un modo alternativo per visualizzare i tipi di risorse supportati è tramite il [browser di schemi di Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 
@@ -52,8 +52,7 @@ Ora che si conosce meglio Azure Resource Graph, è possibile approfondire la cre
 
 È importante sapere che il linguaggio di query di Azure Resource Graph è basato sul [linguaggio di query Kusto](/azure/data-explorer/data-explorer-overview) usato da Esplora dati di Azure.
 
-In primo luogo, per informazioni dettagliate sulle operazioni e le funzioni che possono essere usate con Azure Resource Graph, vedere l'articolo sul [linguaggio di query di Azure Resource Graph](./concepts/query-language.md).
-Per esaminare le risorse, vedere l'articolo sull'[esplorazione delle risorse](./concepts/explore-resources.md).
+In primo luogo, per informazioni dettagliate sulle operazioni e le funzioni che possono essere usate con Azure Resource Graph, vedere l'articolo sul [linguaggio di query di Azure Resource Graph](./concepts/query-language.md). Per esaminare le risorse, vedere l'articolo sull'[esplorazione delle risorse](./concepts/explore-resources.md).
 
 ## <a name="permissions-in-azure-resource-graph"></a>Autorizzazioni in Azure Resource Graph
 
@@ -62,8 +61,7 @@ Per usare Resource Graph, è necessario avere i diritti appropriati nel [control
 > [!NOTE]
 > Resource Graph usa le sottoscrizioni disponibili a un'entità di sicurezza durante l'accesso. Per visualizzare le risorse di una nuova sottoscrizione aggiunta durante una sessione attiva, l'entità deve aggiornare il contesto. Questa azione viene eseguita automaticamente quando ci si disconnette e si accede nuovamente.
 
-L'interfaccia della riga di comando di Azure e Azure PowerShell usano sottoscrizioni accessibili all'utente. Quando si usa direttamente l'API REST, l'elenco delle sottoscrizioni viene fornito dall'utente. Se l'utente ha accesso a una qualsiasi delle sottoscrizioni dell'elenco, i risultati della query vengono restituiti per le sottoscrizioni accessibili all'utente. Questo comportamento è identico a quello riscontrato quando si chiama [Gruppi di risorse - Elenco](/rest/api/resources/resourcegroups/list) e si ottengono i gruppi di risorse a cui si ha accesso senza alcuna indicazione del fatto che il risultato potrebbe essere parziale.
-Se l'elenco non include presenti sottoscrizioni per cui l'utente dispone dei diritti appropriati, la risposta è _403_ (accesso negato).
+L'interfaccia della riga di comando di Azure e Azure PowerShell usano sottoscrizioni accessibili all'utente. Quando si usa direttamente l'API REST, l'elenco delle sottoscrizioni viene fornito dall'utente. Se l'utente ha accesso a una qualsiasi delle sottoscrizioni dell'elenco, i risultati della query vengono restituiti per le sottoscrizioni accessibili all'utente. Questo comportamento è identico a quello riscontrato quando si chiama [Gruppi di risorse - Elenco](/rest/api/resources/resourcegroups/list) e si ottengono i gruppi di risorse a cui si ha accesso senza alcuna indicazione del fatto che il risultato potrebbe essere parziale. Se l'elenco non include presenti sottoscrizioni per cui l'utente dispone dei diritti appropriati, la risposta è _403_ (accesso negato).
 
 ## <a name="throttling"></a>Limitazione
 

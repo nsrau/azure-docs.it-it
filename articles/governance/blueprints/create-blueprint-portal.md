@@ -3,16 +3,16 @@ title: 'Avvio rapido: Creare un progetto nel portale'
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti tramite il portale di Azure.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: dd50b1833f16d364a4494483fcccfee017bb982b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381898"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045213"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Avvio rapido: Definire e assegnare un progetto nel portale
 
-Quando si impara a creare e assegnare progetti è possibile definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Azure Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprints per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione. Queste attività includono:
+Quando si impara a creare e assegnare progetti è possibile definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager (modelli ARM), criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprints per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione. Queste attività includono:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -85,8 +85,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    1. Selezionare **Modello di Azure Resource Manager** per **Tipo di artefatto**, impostare **Nome visualizzato dell'artefatto** su **Account di archiviazione** e lasciare vuoto il campo **Descrizione**.
 
-   1. Nella scheda **Modello** nella casella dell'editor incollare il modello di Resource Manager seguente.
-      Dopo aver incollato il modello, selezionare la scheda **Parametri** e notare che i parametri del modello **storageAccountType** e **location** sono stati rilevati. Ogni parametro è stato rilevato e popolato automaticamente, ma configurato come parametro dinamico.
+   1. Nella scheda **Modello** della casella dell'editor incollare il modello di Resource Manager seguente. Dopo aver incollato il modello, selezionare la scheda **Parametri** e notare che i parametri del modello **storageAccountType** e **location** sono stati rilevati. Ogni parametro è stato rilevato e popolato automaticamente, ma configurato come parametro dinamico.
 
       > [!IMPORTANT]
       > Se si importa il modello, assicurarsi che il file sia solo JSON e non includa codice HTML. Quando si fa riferimento a un URL in GitHub, assicurarsi di aver selezionato **RAW** per ottenere il file JSON puro e non quello che include HTML per la visualizzazione in GitHub. Se il modello importato non è un file JSON puro, si verificherà un errore.
@@ -140,7 +139,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
       }
       ```
 
-   1. Deselezionare la casella di controllo **storageAccountType** e osservare come l'elenco a discesa contenga ora solo i valori inclusi nel modello di Resource Manager in **allowedValues**. Selezionare la casella per reimpostarla su un parametro dinamico.
+   1. Deselezionare la casella di controllo **storageAccountType** e notare che l'elenco a discesa contiene ora solo i valori inclusi nel modello di Resource Manager in **allowedValues**. Selezionare la casella per reimpostarla su un parametro dinamico.
 
    1. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 
@@ -207,7 +206,7 @@ Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. As
 
 1. Nell'elenco a discesa **Sottoscrizione** della pagina **Assegna progetto** selezionare una o più sottoscrizioni in cui si vuole distribuire il progetto.
 
-   Se sono disponibili offerte Enterprise supportate da [Fatturazione di Azure](../../billing/index.md), viene attivato un collegamento **Crea nuovo** sotto la casella **Sottoscrizione**. A tale scopo, seguire questa procedura:
+   Se sono disponibili offerte Enterprise supportate da [Fatturazione di Azure](../../cost-management-billing/index.yml), viene attivato un collegamento **Crea nuovo** sotto la casella **Sottoscrizione**. A tale scopo, seguire questa procedura:
 
    1. Selezionare il collegamento **Crea nuovo** per creare una nuova sottoscrizione invece di selezionarne una esistente.
 

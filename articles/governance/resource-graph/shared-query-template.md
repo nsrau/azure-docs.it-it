@@ -1,19 +1,19 @@
 ---
-title: 'Guida introduttiva: Creare una query condivisa con i modelli'
-description: Questa guida di avvio rapido illustra come usare un modello di Resource Manager per creare una query condivisa di Resource Graph che conta le macchine virtuali in base al sistema operativo.
-ms.date: 04/28/2020
+title: 'Avvio rapido: Creare una query condivisa con i modelli'
+description: Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager (modello ATM) per creare una query condivisa di Resource Graph che conta le macchine virtuali in base al sistema operativo.
+ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 050cf26da2054883fceaa08b11f94c6af4c85a16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254242"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969807"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-a-resource-manager-template"></a>Guida introduttiva: Creare una query condivisa usando un modello di Resource Manager
+# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare una query condivisa usando un modello di Azure Resource Manager
 
-Le query di Resource Graph possono essere salvate come _query private_ o _query condivise_. Una query privata viene salvata nel profilo del portale dei singoli utenti e non è visibile ad altri. Una query condivisa è un oggetto di Resource Manager che può essere condiviso con altri utenti tramite le autorizzazioni e l'accesso in base al ruolo. Una query condivisa fornisce un'esecuzione comune e coerente dell'individuazione delle risorse. Questa guida di avvio rapido usa un modello di Resource Manager per creare una query condivisa.
+Le query di Resource Graph possono essere salvate come _query private_ o _query condivise_. Una query privata viene salvata nel profilo del portale dei singoli utenti e non è visibile ad altri. Una query condivisa è un oggetto di Resource Manager che può essere condiviso con altri utenti tramite le autorizzazioni e l'accesso in base al ruolo. Una query condivisa fornisce un'esecuzione comune e coerente dell'individuazione delle risorse. Questa guida di avvio rapido usa un modello di Azure Resource Manager (modello ARM) per creare una query condivisa.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -42,7 +42,7 @@ Nel modello è definita la risorsa seguente:
 
 1. Fare clic sull'immagine seguente per accedere al portale di Azure e aprire il modello:
 
-   [![Distribuire il modello in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuire il modello ARM per la creazione di una query condivisa in Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. Selezionare o immettere i valori seguenti:
 
@@ -62,7 +62,7 @@ Alcune risorse aggiuntive:
 
 - Per altri modelli di esempio, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Per informazioni di riferimento sul modello, vedere [Informazioni di riferimento sui modelli di Azure](/azure/templates/microsoft.resourcegraph/allversions).
-- Per informazioni su come sviluppare modelli di Resource Manager, vedere [Documentazione di Resource Manager in Azure](../../azure-resource-manager/management/overview.md).
+- Per informazioni su come sviluppare modelli di Resource Manager, vedere la [documentazione di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 - Per informazioni sulla distribuzione a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione

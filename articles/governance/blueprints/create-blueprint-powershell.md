@@ -1,18 +1,18 @@
 ---
-title: 'Guida introduttiva: Creare un progetto con PowerShell'
+title: 'Avvio rapido: Creare un progetto con PowerShell'
 description: In questo argomento di avvio rapido viene usato Azure Blueprints per creare, definire e distribuire artefatti con PowerShell.
 ms.date: 05/06/2020
 ms.topic: quickstart
-ms.openlocfilehash: 79feafa48d5d180949b8a23163f2ee9b686e6076
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: b881731dfdcaf9e9e016d1437e51dbd5c1a7488a
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864114"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970502"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Guida introduttiva: Definire e assegnare un progetto Azure Blueprint con PowerShell
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con PowerShell
 
-Imparare a creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
+Informazioni su come creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Azure Resource Manager (modelli ARM), criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -24,7 +24,7 @@ Se il modulo **Az.Blueprint** non è già installato, seguire le istruzioni cont
 
 ## <a name="create-a-blueprint"></a>Creare un progetto
 
-Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. Verrà creato un progetto denominato 'MyBlueprint' per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione. Verrà quindi aggiunto un nuovo gruppo di risorse, un modello di Resource Manager e un'assegnazione di ruolo nel gruppo di risorse.
+Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. Verrà creato un progetto denominato 'MyBlueprint' per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione. Verranno quindi aggiunti un gruppo di risorse, un modello di Resource Manager e un'assegnazione di ruolo nel gruppo di risorse.
 
 > [!NOTE]
 > Quando si usa PowerShell, viene creato per primo l'oggetto _progetto_. Per ogni _elemento_ da aggiungere che include parametri, i parametri devono essere definiti in anticipo nel _progetto_ iniziale.
@@ -189,7 +189,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
 1. Aggiungere un modello nel gruppo di risorse. **TemplateFile** per un modello di Resource Manager include il normale componente JSON del modello. Il modello riusa inoltre i parametri di progetto **storageAccountType**, **tagName** e **tagValue** passando ciascun parametro al modello. I parametri del progetto sono disponibili nel modello usando il parametro **TemplateParameterFile** e all'interno del file JSON del modello in cui viene usata questa coppia chiave-valore per inserire il valore. I nomi dei parametri del progetto e del modello possono essere gli stessi.
 
-   - File JSON del modello di Azure Resource Manager - \artifacts\templateStorage.json
+   - File JSON del modello di Resource Manager - \artifacts\templateStorage.json
 
      ```json
      {
@@ -243,7 +243,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
      }
      ```
 
-   - File JSON dei parametri del modello di Azure Resource Manager - \artifacts\templateStorageParams.json
+   - File JSON dei parametri del modello di Resource Manager - \artifacts\templateStorageParams.json
 
      ```json
      {

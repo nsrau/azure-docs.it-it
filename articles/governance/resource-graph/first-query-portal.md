@@ -1,16 +1,16 @@
 ---
-title: 'Guida introduttiva: Prima query nel portale'
+title: 'Avvio rapido: Prima query nel portale'
 description: Questa guida di avvio rapido illustra la procedura per eseguire la prima query dal portale di Azure usando Azure Resource Graph Explorer.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 1e506ee1b1c610381f300323f80c38eb6bf67caa
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148039"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958808"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Guida introduttiva: Eseguire la prima query di Resource Graph con Azure Resource Graph Explorer
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Avvio rapido: Eseguire la prima query di Resource Graph con Azure Resource Graph Explorer
 
 Le funzionalità di Azure Resource Graph sono disponibili direttamente nel portale di Azure tramite Azure Resource Graph Explorer. Resource Graph Explorer fornisce informazioni visualizzabili sulle proprietà e i tipi di risorse di Azure Resource Manager su cui è possibile eseguire una query. Resource Graph Explorer fornisce inoltre un'interfaccia pulita per l'uso di più query, la valutazione dei risultati e anche la conversione dei risultati di alcune query in un grafico che può essere aggiunto a un dashboard di Azure.
 
@@ -90,11 +90,11 @@ Per trovare esempi di query di Resource Graph e informazioni su come usare Resou
 
 - [Resource Graph Explorer - Dashboard di esempio n. 1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Immagine di esempio per il dashboard di esempio n. 1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Immagine di esempio per il dashboard di esempio n. 1" lightbox="./media/arge-sample1-large.png":::
 
 - [Resource Graph Explorer - Dashboard di esempio n. 2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Immagine di esempio per il dashboard di esempio n. 2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Immagine di esempio per il dashboard di esempio n. 2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > I conteggi e i grafici negli screenshot di dashboard di esempio precedenti variano a seconda dell'ambiente di Azure.

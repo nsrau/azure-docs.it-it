@@ -2,7 +2,8 @@
 title: Automazione dei processi
 description: Usare l'automazione dei processi per eseguire script T-SQL (Transact-SQL) su un set di uno o più database SQL di Azure
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
@@ -10,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 1b27eac1a8b5989734d3451bf21c5b13dd5cc0af
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220561"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984659"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizzare le attività di gestione con processi di database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +55,8 @@ Sono disponibili le tecnologie di pianificazione dei processi seguenti:
 
 | |Processi elastici |SQL Agent |
 |---------|---------|---------|
-|Scope | Qualsiasi numero di database di Database SQL di Azure e/o di data warehouse nello stesso cloud di Azure dell'agente di processo. Le destinazioni possono trovarsi in server, sottoscrizioni e/o aree differenti. <br><br>I gruppi di destinazione possono essere composti da singoli database o data warehouse o da tutti i database in un server, pool o mappa delle partizioni (enumerati dinamicamente al momento dell'esecuzione del processo). | Qualsiasi database singolo nella stessa istanza di SQL Agent. |
-|API e strumenti supportati | Portale, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
+|**Ambito** | Qualsiasi numero di database di Database SQL di Azure e/o di data warehouse nello stesso cloud di Azure dell'agente di processo. Le destinazioni possono trovarsi in server, sottoscrizioni e/o aree differenti. <br><br>I gruppi di destinazione possono essere composti da singoli database o data warehouse o da tutti i database in un server, pool o mappa delle partizioni (enumerati dinamicamente al momento dell'esecuzione del processo). | Qualsiasi database singolo nella stessa istanza di SQL Agent. |
+|**API e strumenti supportati** | Portale, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
 ## <a name="sql-agent-jobs"></a>Processi di SQL Agent
 

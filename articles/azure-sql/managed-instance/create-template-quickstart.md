@@ -11,43 +11,39 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/22/2020
-ms.openlocfilehash: 01c6c37d31d41f88b370face372555536724adde
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: eed333b5e6a83b140df515fc02767b8a7c7a63c7
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256071"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506640"
 ---
-# <a name="quickstart-create-an-azure-sql-managed-instance-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare un'istanza gestita di SQL di Azure con un modello di Azure Resource Manager
+# <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Avvio rapido: Creare un'istanza gestita di SQL di Azure con un modello di Resource Manager
 
-Questo argomento di avvio rapido illustra il processo di distribuzione di un modello di Resource Manager per creare un'istanza gestita di SQL di Azure e una rete virtuale.
+Questo argomento di avvio rapido illustra il processo di distribuzione di un modello di Azure Resource Manager (modello ARM) per creare un'istanza gestita di SQL di Azure e una rete virtuale. [Istanza gestita di SQL di Azure](sql-managed-instance-paas-overview.md) è un database cloud intelligente, scalabile e completamente gestito le cui funzionalità sono quasi sovrapponibili a quelle del motore di database di SQL Server.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/).
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sqlmi-new-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-No.
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/).
 
-## <a name="create-an-azure-sql-managed-instance"></a>Creare un'istanza gestita di SQL di Azure
-
-[Istanza gestita di SQL di Azure](sql-managed-instance-paas-overview.md) è un database cloud intelligente, scalabile e completamente gestito le cui funzionalità sono quasi sovrapponibili a quelle del motore di database di SQL Server.
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json" range="001-249" highlight="113,178,188,226":::
 
 Nel modello sono definite queste risorse:
 
-- [**Microsoft.Sql/managedinstances**](/azure/templates/microsoft.sql/managedinstances)
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.Network/virtualNetworks)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.Network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.Network/networkSecurityGroups)
-
-
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.Network/routeTables)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.Network/virtualNetworks)
+- [**Microsoft.Sql/managedinstances**](/azure/templates/microsoft.sql/managedinstances)
 
 Per altri modelli di esempio disponibili, vedere i [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
@@ -73,7 +69,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-# <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 read -p "Enter a project name that is used for generating resource names:" projectName &&
@@ -86,7 +82,7 @@ echo "Press [ENTER] to continue ..." &&
 read
 ```
 
-* * *
+---
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
@@ -109,7 +105,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-# <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -117,7 +113,7 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName
 ```
 
-* * *
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

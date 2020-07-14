@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare, distribuire e usare un modello personalizzato - Traduttore personalizzato'
+title: 'Avvio rapido: Creare, distribuire e usare un modello personalizzato - Traduttore personalizzato'
 titleSuffix: Azure Cognitive Services
 description: Questa guida introduttiva illustra nel dettaglio il processo di creazione di un sistema di traduzione con Custom Translator.
 author: swmachan
@@ -9,14 +9,14 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: ea01fcd259075caee1e21eb091b8df1b326c553f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996466"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964380"
 ---
-# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Guida introduttiva: Creare, distribuire e usare un modello personalizzato per la traduzione
+# <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Avvio rapido: Creare, distribuire e usare un modello personalizzato per la traduzione
 
 Questo articolo contiene istruzioni dettagliate per creare un sistema di traduzione con Custom Translator.
 
@@ -24,7 +24,7 @@ Questo articolo contiene istruzioni dettagliate per creare un sistema di traduzi
 
 1. Per accedere al portale [Custom Translator](https://portal.customtranslator.azure.ai) è necessario un [account Microsoft](https://signup.live.com) o un [account di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (account aziendale ospitato su Azure).
 
-2. Una sottoscrizione di Translator effettuata tramite il portale di Azure. Per l'associazione all'area di lavoro nel traduttore personalizzato è necessaria la chiave di sottoscrizione di Translator. Vedere [Come iscriversi a Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Una sottoscrizione di Translator effettuata tramite il portale di Azure. Per l'associazione all'area di lavoro nel traduttore personalizzato è necessaria una chiave di sottoscrizione di Translator. Vedere [Come iscriversi a Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. Una volta soddisfatti entrambi i prerequisiti, accedere al portale di [Traduttore personalizzato](https://portal.customtranslator.azure.ai) per creare aree di lavoro e progetti, caricare file, nonché creare e distribuire modelli.
 
@@ -83,7 +83,7 @@ Quando si è pronti a distribuire il modello con training, fare clic sul pulsant
 
 ## <a name="use-a-deployed-model"></a>Usare un modello distribuito
 
-I modelli distribuiti sono accessibili tramite l'[API Traduzione testuale V3 di Microsoft specificando il CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Altre informazioni su Translator sono disponibili nella pagina Web [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+È possibile accedere ai modelli distribuiti tramite Translator specificando il valore di CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Altre informazioni su Translator sono disponibili nella pagina Web [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

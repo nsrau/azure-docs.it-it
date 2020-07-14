@@ -1,23 +1,25 @@
 ---
-title: Creare un'app di ricerca nel portale di Azure
+title: Creare un'app demo nel portale di Azure
 titleSuffix: Azure Cognitive Search
-description: Eseguire la procedura guidata Crea app (anteprima) per generare pagine e script HTML per un'app Web operativa. La pagina include una barra di ricerca, un'area dei risultati, una barra laterale e il supporto per il completamento automatico.
+description: Eseguire la procedura guidata Crea app demo (anteprima) per generare pagine e script HTML per un'app Web operativa. La pagina include una barra di ricerca, un'area dei risultati, una barra laterale e il supporto per il completamento automatico.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 07/01/2020
+ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488172"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955693"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Avvio rapido: Creare un'app di ricerca nel portale di Azure (Ricerca cognitiva di Azure)
+# <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Avvio rapido: Creare un'app demo nel portale di Azure (Ricerca cognitiva di Azure)
 
-Usare la procedura guidata **Crea app di ricerca** del portale di Azure per generare un'app Web di tipo "localhost" scaricabile che viene eseguita in un browser. A seconda della configurazione, l'app generata è operativa al primo utilizzo, con una connessione dinamica a un indice remoto. Un'app predefinita può includere una barra di ricerca, un'area dei risultati, i filtri della barra laterale e il supporto per il completamento automatico.
+Usare la procedura guidata **Crea app demo** del portale di Azure per generare un'app Web di tipo "localhost" scaricabile che viene eseguita in un browser. A seconda della configurazione, l'app generata è operativa al primo utilizzo, con una connessione dinamica di sola lettura a un indice remoto. Un'app predefinita può includere una barra di ricerca, un'area dei risultati, i filtri della barra laterale e il supporto per il completamento automatico.
+
+L'app demo può essere utile per verificare il funzionamento di un indice in un'app client, ma è consigliabile non usarla per gli scenari di produzione. Le app client devono includere la funzionalità di sicurezza, gestione degli errori e logica di hosting che non vengono fornite dalla pagina HTML generata. Quando si è pronti per creare un'app client, vedere [Creare la prima app di ricerca con .NET SDK](tutorial-csharp-create-first-app.md) per i passaggi successivi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,7 +47,7 @@ Quando l'indice è pronto per l'uso, procedere al passaggio successivo.
 
 1. Scegliere *realestate-us-sample-index* dall'elenco degli indici esistenti.
 
-1. Nella parte superiore della pagina di indice selezionare **Crea app di ricerca (anteprima)** per avviare la procedura guidata.
+1. Nella parte superiore della pagina di indice selezionare **Crea app demo (anteprima)** per avviare la procedura guidata.
 
 1. Nella prima pagina della procedura guidata selezionare **Enable Cross Origin Resource Sharing (CORS)** (Abilita CORS (Cross Origin Resource Sharing)) per aggiungere il supporto di CORS alla definizione dell'indice. Questo passaggio è facoltativo, ma l'app Web locale non si connette all'indice remoto senza di esso.
 
@@ -85,7 +87,7 @@ Lo screenshot seguente mostra le opzioni della procedura guidata, affiancate a u
 
 ## <a name="create-download-and-execute"></a>Creare, scaricare ed eseguire
 
-1. Selezionare **Crea app di ricerca** per generare il file HTML.
+1. Selezionare **Crea app demo** per generare il file HTML.
 
 1. Quando richiesto, selezionare **Scarica l'app** per scaricare il file.
 

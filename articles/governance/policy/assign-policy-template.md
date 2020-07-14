@@ -1,17 +1,17 @@
 ---
-title: 'Guida introduttiva: Nuova assegnazione di criteri con i modelli'
-description: In questo argomento di avvio rapido viene usato un modello di Resource Manager per creare un'assegnazione di criteri per identificare le risorse non conformi.
+title: 'Avvio rapido: Nuova assegnazione di criteri con i modelli'
+description: In questo argomento di avvio rapido viene usato un modello di Azure Resource Manager (modello ARM) per creare un'assegnazione di criteri per identificare le risorse non conformi.
 ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 7b9e372e8b86e1ac5b0a99d0aba77982896b4d11
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: c3a37e9086744fb45c8d1e4ebe3bd16da7a83770
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757450"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971148"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi con un modello di Azure Resource Manager
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
 Questa guida introduttiva illustra il processo di creazione di un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti. Alla fine di questo processo, verranno identificate le macchine virtuali che non usano dischi gestiti e che sono quindi _non conformi_ all'assegnazione di criteri.
@@ -43,14 +43,14 @@ Nel modello è definita la risorsa seguente:
 
 1. Fare clic sull'immagine seguente per accedere al portale di Azure e aprire il modello:
 
-   [![Distribuire il modello in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuire il modello di Resource Manager per l'assegnazione di criteri di Azure ad Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Selezionare o immettere i valori seguenti:
 
    | Nome | valore |
    |------|-------|
    | Subscription | Selezionare la sottoscrizione di Azure. |
-   | Resource group | Selezionare **Crea nuovo**, specificare un nome e quindi fare clic su **OK**. Nello screenshot il nome del gruppo di risorse è _mypolicyquickstart\<Data in MMGG\>rg_. |
+   | Resource group | Selezionare **Crea nuovo**, specificare un nome e quindi fare clic su **OK**. Nello screenshot il nome del gruppo di risorse è _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Scegliere un'area, Ad esempio **Stati Uniti centrali**. |
    | Nome assegnazione criteri | Specificare un nome per l'assegnazione di criteri. È anche possibile usare il nome visualizzato della definizione dei criteri, ad esempio **Controlla macchine virtuali che non usano dischi gestiti**. |
    | Nome gruppo di risorse | Specificare il nome di un gruppo di risorse a cui si vogliono assegnare i criteri. In questo argomento di avvio rapido usare il valore predefinito **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** è una funzione di modello che recupera il gruppo di risorse. |
@@ -63,7 +63,7 @@ Alcune risorse aggiuntive:
 
 - Per altri modelli di esempio, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Per informazioni di riferimento sul modello, vedere [Informazioni di riferimento sui modelli di Azure](/azure/templates/microsoft.authorization/allversions).
-- Per informazioni su come sviluppare modelli di Resource Manager, vedere [Documentazione di Resource Manager in Azure](../../azure-resource-manager/management/overview.md).
+- Per informazioni su come sviluppare modelli di Resource Manager (modelli ARM), vedere la [documentazione di Resource Manager](../../azure-resource-manager/management/overview.md).
 - Per informazioni sulla distribuzione a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione

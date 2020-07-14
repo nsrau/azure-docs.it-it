@@ -3,12 +3,12 @@ title: Panoramica di Azure Blueprint
 description: Informazioni sul servizio Azure Blueprints, che consente di creare, definire e distribuire artefatti nell'ambiente di Azure.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864505"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970927"
 ---
 # <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
 
@@ -18,20 +18,20 @@ I progetti costituiscono un metodo dichiarativo per orchestrare la distribuzione
 
 - Assegnazioni di ruoli
 - Assegnazioni di criteri
-- Modelli di Gestione risorse di Azure
+- Modelli di Azure Resource Manager
 - Gruppi di risorse
 
 Il servizio Azure Blueprints è supportato da [Azure Cosmos DB](../../cosmos-db/introduction.md) distribuito a livello globale. Gli oggetti del progetto vengono replicati in più aree di Azure. Questa replica fornisce bassa latenza, disponibilità elevata e accesso ininterrotto agli oggetti del progetto, indipendentemente dall'area in cui Azure Blueprints distribuisce le risorse.
 
-## <a name="how-its-different-from-resource-manager-templates"></a>In cosa differisce dai modelli di Resource Manager
+## <a name="how-its-different-from-arm-templates"></a>In cosa differisce dai modelli di Resource Manager
 
 Il servizio è progettato per facilitare la _configurazione dell'ambiente_. Questa configurazione spesso è costituita da un set di gruppi di risorse, criteri, assegnazioni di ruolo e distribuzioni dei modelli di Resource Manager. Un progetto è un pacchetto che raggruppa tutti questi tipi di _artefatti_ e consente di comporre e controllare la versione di tale pacchetto, anche tramite una pipeline CI/CD. In definitiva, ognuno viene assegnato a una sottoscrizione in una singola operazione che può essere controllata e monitorata.
 
-Quasi tutto ciò che si vuole includere per la distribuzione in Azure Blueprints può essere eseguito con un modello di Resource Manager. Tuttavia, un modello di Resource Manager è un documento che non esiste in modo nativo in Azure: ognuno viene archiviato in locale o nel controllo del codice sorgente. Il modello viene usato per le distribuzioni di una o più risorse di Azure, ma dopo la distribuzione di tali risorse non c'è una connessione o relazione attiva con il modello.
+Quasi tutto ciò che si vuole includere per la distribuzione in Azure Blueprints può essere eseguito con un modello di Resource Manager. Un modello di Resource Manager è però un documento che non esiste in modo nativo in Azure: ognuno viene archiviato in locale o nel controllo del codice sorgente. Il modello viene usato per le distribuzioni di una o più risorse di Azure, ma dopo la distribuzione di tali risorse non c'è una connessione o relazione attiva con il modello.
 
 Con Azure Blueprints, la relazione tra la definizione di progetto (_cosa_ distribuire) e l'assegnazione di progetto (_cosa è stato_ distribuito) viene mantenuta. Questa connessione supporta un migliore monitoraggio e controllo delle distribuzioni. Azure Blueprints può anche aggiornare più sottoscrizioni contemporaneamente regolate dallo stesso progetto.
 
-Non è necessario scegliere tra un modello di Resource Manager e un progetto. Ogni progetto può essere costituito da zero o più _artefatti_ dei modelli di Resource Manager. Ciò significa che il lavoro richiesto in precedenza per sviluppare e gestire una libreria di modelli di Resource Manager può essere sfruttato di nuovo in Azure Blueprints.
+Non è necessario scegliere tra un modello di Resource Manager e un progetto. Ogni progetto può essere costituito da zero o più _artefatti_ dei modelli di Resource Manager. Questo significa che il lavoro richiesto in precedenza per sviluppare e gestire una libreria di modelli di Resource Manager può essere sfruttato di nuovo in Azure Blueprints.
 
 ## <a name="how-its-different-from-azure-policy"></a>In cosa differisce dai Criteri di Azure
 
@@ -49,8 +49,8 @@ Un progetto è costituito da _artefatti_. Azure Blueprints supporta attualmente 
 
 |Risorsa  | Opzioni della gerarchia| Descrizione  |
 |---------|---------|---------|
-|Gruppi di risorse | Subscription | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager. |
-|Modello di Azure Resource Manager | Sottoscrizione, gruppo di risorse | Vengono usati modelli, inclusi quelli annidati e collegati, per comporre ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro Log Analytics. |
+|Gruppi di risorse | Subscription | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Resource Manager. |
+|Modello ARM | Sottoscrizione, gruppo di risorse | Vengono usati modelli, inclusi quelli annidati e collegati, per comporre ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro Log Analytics. |
 |Assegnazione dei criteri | Sottoscrizione, gruppo di risorse | Consente di assegnare criteri o iniziative alla sottoscrizione a cui è assegnato il progetto. I criteri o le iniziative devono trovarsi nell'ambito della posizione della definizione di progetto. Se i criteri o le iniziative includono dei parametri, questi vengono assegnati al momento della creazione del progetto o durante l'assegnazione dello stesso. |
 |Assegnazione di ruolo | Sottoscrizione, gruppo di risorse | Aggiungere un utente o gruppo esistente a un ruolo predefinito per assicurarsi che gli utenti corretti possano sempre accedere correttamente alle risorse. Le assegnazioni di ruolo possono essere definite per l'intera sottoscrizione o annidate in un gruppo di risorse specifiche incluso nel progetto. |
 
@@ -60,9 +60,7 @@ Durante la creazione di una definizione di progetto, viene definita la posizione
 
 ### <a name="blueprint-parameters"></a>Parametri di progetto
 
-Azure Blueprint può passare i parametri a criteri o iniziative oppure a un modello di Azure Resource Manager.
-Quando si aggiunge un _artefatto_ a un progetto, l'autore decide se fornire un valore definito per ogni assegnazione di progetto o se consentire a ogni assegnazione di progetto di fornire un valore in fase di assegnazione.
-Questa flessibilità consente di definire un valore predeterminato per tutti gli usi del progetto o per consentire che tale decisione venga presa al momento dell'assegnazione.
+Azure Blueprint può passare i parametri a criteri o iniziative oppure a un modello di Azure Resource Manager. Quando si aggiunge un _artefatto_ a un progetto, l'autore decide se fornire un valore definito per ogni assegnazione di progetto o se consentire a ogni assegnazione di progetto di fornire un valore in fase di assegnazione. Questa flessibilità consente di definire un valore predeterminato per tutti gli usi del progetto o per consentire che tale decisione venga presa al momento dell'assegnazione.
 
 > [!NOTE]
 > Un progetto può avere i propri parametri, ma al momento questi possono essere creati solo se un progetto è generato dall'API REST anziché tramite il portale.

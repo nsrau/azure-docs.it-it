@@ -1,56 +1,56 @@
 ---
-title: Usare app Web-personalizzatore
-description: Personalizzare un'app Web C# .NET con un ciclo di personalizzazione per fornire il contenuto corretto a un utente in base alle azioni (con funzionalità) e alle funzionalità di contesto.
-ms.topic: troubleshooting
+title: Usare app Web - Personalizza esperienze
+description: Personalizzare un'app Web .NET C# con un ciclo di Personalizza esperienze per fornire il contenuto corretto a un utente in base alle azioni (con caratteristiche) e alle caratteristiche del contesto.
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: diberry
-ms.openlocfilehash: 9def69a1540e81b99723c16ad34ba522d1737c7f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: 9514e92432c2be5441dec5ff998a9deede35d7f4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84713917"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207598"
 ---
-# <a name="add-personalizer-to-a-net-web-app"></a>Aggiungere il Personalizzatore a un'app Web .NET
+# <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Esercitazione: Usare Personalizza esperienze in un'app Web .NET
 
-Personalizzare un'app Web C# .NET con un ciclo di personalizzazione per fornire il contenuto corretto a un utente in base alle azioni (con funzionalità) e alle funzionalità di contesto.
+Personalizzare un'app Web .NET C# con un ciclo di Personalizza esperienze per fornire il contenuto corretto a un utente in base alle azioni (con caratteristiche) e alle caratteristiche del contesto.
 
 **In questa esercitazione si imparerà come:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Configurare la chiave e l'endpoint di personalizzazione
-> * Raccogli funzionalità
-> * Chiamare le API Rank e Reward
-> * Visualizza l'azione top, designata come _rewardActionId_
+> * Configurare la chiave e l'endpoint di Personalizza esperienze
+> * Raccogliere funzionalità
+> * Chiamare le API Classificazione e Ricompensa
+> * Visualizzare l'azione principale, designata come _rewardActionId_
 
 
 
 ## <a name="select-the-best-content-for-a-web-app"></a>Selezionare il contenuto migliore per un'app Web
 
-Un'app Web deve usare il Personalizzatore quando è presente un elenco di _azioni_ (un tipo di contenuto) nella pagina Web che deve essere personalizzato per un singolo elemento principale (rewardActionId) da visualizzare. Esempi di elenchi di azioni includono articoli di notizie, posizioni di selezione dei pulsanti e scelte di parole per i nomi di prodotto.
+Un'app Web dovrebbe usare Personalizza esperienze quando è presente un elenco di _azioni_ (un tipo di contenuto) nella pagina Web che deve essere personalizzato in base a un singolo elemento principale (rewardActionId) da visualizzare. Gli esempi di elenchi di azioni includono articoli di notizie, posizioni di selezione dei pulsanti e scelte di parole per i nomi di prodotti.
 
-Si invia l'elenco di azioni, insieme alle funzionalità del contesto, al ciclo di personalizzazione. Personalizzatore seleziona la singola azione migliore, quindi l'app Web visualizza tale azione.
+Si invia l'elenco di azioni, insieme alle caratteristiche del contesto, al ciclo di Personalizza esperienze. Personalizza esperienze seleziona la singola azione migliore, che verrà visualizzata nell'app Web.
 
-In questa esercitazione, le azioni sono tipi di cibo:
+In questa esercitazione le azioni sono tipi di cibo:
 
 * pasta
-* gelato
-* succo
-* insalata
+* ice cream
+* juice
+* salad
 * popcorn
-* Coffee
+* coffee
 * soup
 
-Per semplificare la conoscenza delle azioni da personalizzare, inviare le_azioni _ con_ le funzionalità e le _funzionalità di contesto_ con ogni richiesta dell'API Rank.
+Per consentire a Personalizza esperienze di acquisire informazioni sulle azioni, inviare _azioni con caratteristiche_ e _caratteristiche del contesto_ con ogni richiesta all'API Classificazione.
 
-Una **funzionalità** del modello è costituita dalle informazioni sull'azione o sul contesto che possono essere aggregate (raggruppate) tra i membri della base utente dell'app Web. Una funzionalità _non è_ specifica singolarmente, ad esempio un ID utente, oppure è molto specifica (ad esempio l'ora esatta del giorno).
+Una **caratteristica** del modello è costituita da informazioni sull'azione o sul contesto che possono essere aggregate (raggruppate) tra i membri della base di utenti dell'app Web. Una caratteristica _non è_ specifica per un individuo, come un ID utente, né altamente specifica, come l'ora esatta del giorno.
 
-### <a name="actions-with-features"></a>Azioni con funzionalità
+### <a name="actions-with-features"></a>Azioni con caratteristiche
 
-Ogni azione (elemento contenuto) dispone di funzionalità che consentono di distinguere l'elemento del cibo.
+Ogni azione (contenuto) include caratteristiche per distinguere l'alimento.
 
-Le funzionalità non sono configurate come parte della configurazione del ciclo nel portale di Azure. Vengono invece inviati come oggetto JSON con ogni chiamata API di rango. In questo modo, le azioni e le relative funzionalità possono aumentare, modificare e compattarsi nel tempo, consentendo al Personalizzatore di seguire le tendenze.
+Le caratteristiche non vengono configurate come parte della configurazione del ciclo nel portale di Azure. Vengono invece inviate come oggetto JSON con ogni chiamata all'API Classificazione. In questo modo, le azioni e le relative caratteristiche possono aumentare, cambiare e diminuire con grande flessibilità, consentendo a Personalizza esperienze di seguire le tendenze.
 
 ```csharp
  /// <summary>
@@ -118,11 +118,11 @@ Le funzionalità non sono configurate come parte della configurazione del ciclo 
 
 ## <a name="context-features"></a>Caratteristiche del contesto
 
-Le funzionalità del contesto consentono al personale di comprendere il contesto delle azioni. Il contesto per questa applicazione di esempio include:
+Le caratteristiche del contesto consentono a Personalizza esperienze di capire il contesto delle azioni. Il contesto per questa applicazione di esempio include:
 
-* ora del giorno, mattina, pomeriggio, sera, notte
-* preferenza dell'utente per i gusti, dolce, amara, acida o gustosa
-* contesto del browser: agente utente, posizione geografica, referrer
+* ora del giorno: morning, afternoon, evening, night
+* preferenza di gusto dell'utente: salty, sweet, bitter, sour, savory
+* contesto del browser: user agent, geographical location, referrer
 
 ```csharp
 /// <summary>
@@ -150,42 +150,42 @@ private string GetUsersTastePreference()
 }
 ```
 
-## <a name="how-does-the-web-app-use-personalizer"></a>In che modo l'app Web usa il Personalizzatore?
+## <a name="how-does-the-web-app-use-personalizer"></a>In che modo l'app Web usa Personalizza esperienze?
 
-L'app Web usa il Personalizzatore per selezionare l'azione migliore dall'elenco di scelte alimentari. Questa operazione viene eseguita inviando le informazioni seguenti con ogni chiamata all'API Rank:
-* **azioni** con funzionalità quali `taste` e`spiceLevel`
-* funzionalità del **contesto** quali `time` il giorno, `taste` le preferenze dell'utente e le informazioni sull'agente utente del browser e le funzionalità del contesto
-* **azioni da escludere** , ad esempio Juice
-* **ID**evento, che è diverso per ogni chiamata all'API Rank.
+L'app Web usa Personalizza esperienze per selezionare l'azione migliore nell'elenco di scelte alimentari. A questo scopo invia le informazioni seguenti con ogni chiamata all'API Classificazione:
+* **Azioni**, con relative caratteristiche, ad esempio `taste` e `spiceLevel`
+* Caratteristiche del **contesto**, ad esempio `time` del giorno, preferenza di `taste` dell'utente e informazioni sull'agente utente del browser
+* **Azioni da escludere**, ad esempio juice
+* **ID evento**, che è diverso per ogni chiamata all'API Classificazione.
 
-## <a name="personalizer-model-features-in-a-web-app"></a>Funzionalità del modello di personalizzatore in un'app Web
+## <a name="personalizer-model-features-in-a-web-app"></a>Caratteristiche del modello di Personalizza esperienze in un'app Web
 
-Il Personalizzatore necessita di funzionalità per le azioni (contenuto) e il contesto corrente (utente e ambiente). Le funzionalità vengono utilizzate per allineare le azioni al contesto corrente nel modello. Il modello è una rappresentazione delle informazioni precedenti su azioni, contesto e funzionalità che consentono al personale IT di prendere decisioni consapevoli.
+Personalizza esperienze richiede le caratteristiche per le azioni (contenuto) e il contesto corrente (utente e ambiente). Le caratteristiche vengono usate per allineare le azioni al contesto corrente nel modello. Il modello è una rappresentazione delle conoscenze passate di Personalizza esperienze riguardanti azioni, contesto e relative caratteristiche tramite cui il servizio può prendere decisioni informate.
 
-Il modello, incluse le funzionalità, viene aggiornato in base a una pianificazione in base all'impostazione della **frequenza di aggiornamento del modello** nel portale di Azure.
+Il modello, incluse le caratteristiche, viene aggiornato in base a una pianificazione definita dall'impostazione di **Frequenza di aggiornamento del modello** nel portale di Azure.
 
 > [!CAUTION]
-> Le funzionalità di questa applicazione hanno lo scopo di illustrare le funzionalità e i valori delle funzionalità, ma non necessariamente le funzionalità migliori da usare in un'app Web.
+> In questa applicazione sono illustrate le caratteristiche e i relativi valori, ma non necessariamente quelle migliori da usare in un'app Web.
 
-### <a name="plan-for-features-and-their-values"></a>Pianificare le funzionalità e i relativi valori
+### <a name="plan-for-features-and-their-values"></a>Pianificare le caratteristiche e i relativi valori
 
-È necessario selezionare le funzionalità con la stessa pianificazione e progettazione che si applicano a qualsiasi schema o modello nell'architettura tecnica. I valori della funzionalità possono essere impostati con la logica di business o sistemi di terze parti. I valori delle funzionalità non devono essere così specifici che non si applicano a un gruppo o a una classe di funzionalità.
+Le caratteristiche devono essere selezionate con la stessa pianificazione e gli stessi criteri che si applicherebbero a qualsiasi schema o modello nell'architettura tecnica. I valori delle caratteristiche possono essere impostati con la logica di business o con sistemi di terze parti. I valori delle caratteristiche non devono essere talmente specifici da non essere applicabili a un gruppo o a una categoria di caratteristiche.
 
-### <a name="generalize-feature-values"></a>Generalizzare i valori delle funzionalità
+### <a name="generalize-feature-values"></a>Generalizzare i valori delle caratteristiche
 
-#### <a name="generalize-into-categories"></a>Generalizza in categorie
+#### <a name="generalize-into-categories"></a>Generalizzare in categorie
 
-Questa app usa `time` come funzionalità ma raggruppa il tempo in categorie come `morning` ,, `afternoon` `evening` e `night` . Questo è un esempio di utilizzo delle informazioni di tempo ma non in modo estremamente specifico, ad esempio `10:05:01 UTC+2` .
+Questa app usa `time` come caratteristica ma raggruppa il tempo in categorie come `morning`, `afternoon`, `evening` e `night`. Questo è un esempio dell'uso delle informazioni sul tempo, ma in modo non altamente specifico, come ad esempio `10:05:01 UTC+2`.
 
-#### <a name="generalize-into-parts"></a>Generalizza in parti
+#### <a name="generalize-into-parts"></a>Generalizzare in parti
 
-Questa app usa le funzionalità di richiesta HTTP dal browser. Questa operazione inizia con una stringa molto specifica con tutti i dati, ad esempio:
+Questa app usa le caratteristiche delle richieste HTTP del browser. Inizia con una stringa molto specifica con tutti i dati, ad esempio:
 
 ```http
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko) Chrome/80.0.3900.140 Safari/537.36
 ```
 
-La libreria di classi **HttpRequestFeatures** generalizza questa stringa in un oggetto **userAgentInfo** con singoli valori. Tutti i valori troppo specifici vengono impostati su una stringa vuota. Quando vengono inviate le funzionalità di contesto per la richiesta, il formato JSON è il seguente:
+La libreria di classi **HttpRequestFeatures** generalizza questa stringa in un oggetto **userAgentInfo** con singoli valori. Tutti i valori troppo specifici vengono impostati su una stringa vuota. Quando vengono inviate le caratteristiche del contesto per la richiesta, il formato JSON è il seguente:
 
 ```JSON
 {
@@ -208,35 +208,35 @@ La libreria di classi **HttpRequestFeatures** generalizza questa stringa in un o
 
 ## <a name="using-sample-web-app"></a>Uso dell'app Web di esempio
 
-Per eseguire l'app, è necessario che sia installata l'app Web di esempio basata su browser (tutto il codice).
+Per eseguire l'app Web di esempio basata su browser (viene fornito tutto il codice), è necessario che siano installate le applicazioni seguenti.
 
 Installare il software seguente:
 
-* [.Net core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.1) -il server back-end di esempio USA .NET Core
-* [Node.js](https://nodejs.org/) : il client/front-end dipende da questa applicazione
-* [Visual studio 2019](https://visualstudio.microsoft.com/vs/)o [interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/) : usare l'ambiente di sviluppo di Visual studio 2019 o il interfaccia della riga di comando di .NET Core per compilare ed eseguire l'app
+* [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1): il server back-end di esempio usa .NET Core
+* [Node.js](https://nodejs.org/): il client/front-end dipende da questa applicazione
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) o l'[interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/): usare l'ambiente di sviluppo di Visual Studio 2019 o l'interfaccia della riga di comando di .NET Core per compilare ed eseguire l'app
 
 ### <a name="set-up-the-sample"></a>Configurare l'esempio
-1. Clonare il repository degli esempi di personalizzazione di Azure.
+1. Clonare il repository di esempi di Personalizza esperienze di Azure.
 
     ```bash
     git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
     ```
 
-1. Passare a _Samples/HttpRequestFeatures_ per aprire la soluzione `HttpRequestFeaturesExample.sln` .
+1. Passare a _samples/HttpRequestFeatures_ per aprire la soluzione `HttpRequestFeaturesExample.sln`.
 
-    Se richiesto, consentire a Visual Studio di aggiornare il pacchetto .NET per la personalizzazione.
+    Se richiesto, consentire a Visual Studio di aggiornare il pacchetto .NET per Personalizza esperienze.
 
-### <a name="set-up-azure-personalizer-service"></a>Configurare il servizio di personalizzazione di Azure
+### <a name="set-up-azure-personalizer-service"></a>Configurare il servizio Personalizza esperienze di Azure
 
-1. [Creare una risorsa di personalizzazione](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) nel portale di Azure.
+1. Nel portale di Azure [creare una risorsa di Personalizza esperienze](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
 
-1. Nella portale di Azure individuare `Endpoint` e o (funzionerà `Key1` `Key2` ) nella scheda **chiavi ed endpoint** . Si tratta del `PersonalizerServiceEndpoint` e del `PersonalizerApiKey` .
-1. Compilare il `PersonalizerServiceEndpoint` in **appsettings.js**.
-1. Configurare `PersonalizerApiKey` come segreti dell' [app](https://docs.microsoft.com/aspnet/core/security/app-secrets) in uno dei modi seguenti:
+1. Nel portale di Azure trovare `Endpoint` e `Key1` o `Key2` (funzionano entrambi) nella scheda **Chiavi ed endpoint**. Corrispondono a `PersonalizerServiceEndpoint` e `PersonalizerApiKey`.
+1. Inserire `PersonalizerServiceEndpoint` in **appsettings.json**.
+1. Configurare `PersonalizerApiKey` come [segreti dell'app](https://docs.microsoft.com/aspnet/core/security/app-secrets) in uno dei modi seguenti:
 
-    * Se si usa il interfaccia della riga di comando di .NET Core, è possibile usare il `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` comando.
-    * Se si usa Visual Studio, è possibile fare clic con il pulsante destro del mouse sul progetto e selezionare l'opzione di menu **Gestisci segreti utente** per configurare le chiavi di personalizzazione. In questo modo, Visual Studio apre un `secrets.json` file in cui è possibile aggiungere le chiavi come segue:
+    * Se si usa l'interfaccia della riga di comando di .NET Core, è possibile usare il comando `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"`.
+    * Se si usa Visual Studio, è possibile fare clic con il pulsante destro del mouse sul progetto e scegliere l'opzione di menu **Gestisci segreti utente** per configurare le chiavi di Personalizza esperienze. In questo modo, Visual Studio apre un file `secrets.json` in cui è possibile aggiungere le chiavi come indicato di seguito:
 
     ```JSON
     {
@@ -249,50 +249,50 @@ Installare il software seguente:
 Compilare ed eseguire HttpRequestFeaturesExample con uno dei metodi seguenti:
 
 * Visual Studio 2019: premere **F5**
-* Interfaccia della riga di comando di .NET Core: `dotnet build` quindi`dotnet run`
+* Interfaccia della riga di comando di .NET Core: `dotnet build` e quindi `dotnet run`
 
-Tramite un Web browser è possibile inviare una richiesta di rango e una richiesta di ricompensa e visualizzarne le risposte, nonché le funzionalità di richiesta http estratte dall'ambiente.
+Tramite un Web browser è possibile inviare una richiesta di classificazione e una richiesta di ricompensa e visualizzare le rispettive risposte, oltre alle caratteristiche delle richieste HTTP estratte dalle ambiente.
 
 > [!div class="mx-imgBorder"]
-> ![Compilare ed eseguire il progetto HTTPRequestFeaturesExample. Viene visualizzata una finestra del browser per visualizzare l'applicazione a pagina singola.](./media/tutorial-web-app/web-app-single-page.png)
+> ![Compilare ed eseguire il progetto HTTPRequestFeaturesExample. Viene visualizzata una finestra del browser con l'applicazione a pagina singola.](./media/tutorial-web-app/web-app-single-page.png)
 
-## <a name="demonstrate-the-personalizer-loop"></a>Dimostrazione del ciclo di personalizzazione
+## <a name="demonstrate-the-personalizer-loop"></a>Dimostrazione del ciclo di Personalizza esperienze
 
-1. Selezionare il pulsante **generate New Rank Request (genera nuovo rango** ) per creare un nuovo oggetto JSON per la chiamata all'API Rank. In questo modo vengono create le azioni (con funzionalità) e le funzionalità di contesto e vengono visualizzati i valori in modo da visualizzare l'aspetto di JSON.
+1. Selezionare il pulsante **Generate new Rank Request** (Genera nuova richiesta di classificazione) per creare un nuovo oggetto JSON per la chiamata all'API Classificazione. Vengono create le azioni (con caratteristiche) e le caratteristiche del contesto, quindi vengono visualizzati i valori per mostrare l'aspetto dell'oggetto JSON.
 
-    Per la tua applicazione futura, la generazione di azioni e funzionalità può verificarsi nel client, nel server, in una combinazione delle due o con chiamate ad altri servizi.
+    Per le applicazioni future, la generazione di azioni e caratteristiche potrebbe essere eseguita nel client, nel server, in una combinazione di questi due o con chiamate ad altri servizi.
 
-1. Selezionare **Invia la richiesta di rango** per inviare l'oggetto JSON al server. Il server chiama l'API di rango della personalizzazione. Il server riceve la risposta e restituisce l'azione di classificazione più alta al client da visualizzare.
+1. Selezionare **Send Rank Request** (Invia richiesta di classificazione) per inviare l'oggetto JSON al server. Il server chiama l'API Classificazione di Personalizza esperienze. Il server riceve la risposta e restituisce l'azione con la classificazione più alta al client per la visualizzazione.
 
-1. Impostare il valore Reward, quindi selezionare il pulsante **Send Reward request** . Se non si modifica il valore Reward, l'applicazione client invia sempre il valore di `1` a personalizzar.
+1. Impostare il valore della ricompensa, quindi selezionare il pulsante **Send Reward Request** (Invia richiesta di ricompensa). Se non si cambia il valore della ricompensa, l'applicazione client invia sempre il valore `1` a Personalizza esperienze.
 
     > [!div class="mx-imgBorder"]
-    > ![Compilare ed eseguire il progetto HTTPRequestFeaturesExample. Viene visualizzata una finestra del browser per visualizzare l'applicazione a pagina singola.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![Compilare ed eseguire il progetto HTTPRequestFeaturesExample. Viene visualizzata una finestra del browser con l'applicazione a pagina singola.](./media/tutorial-web-app/reward-score-api-call.png)
 
-    Per la tua applicazione futura, la generazione del Punteggio di ricompensa può verificarsi dopo aver raccolto le informazioni dal comportamento dell'utente sul client, insieme alla logica di business nel server.
+    Per le applicazioni future, la generazione del punteggio di ricompensa potrebbe essere eseguita dopo la raccolta di informazioni dal comportamento dell'utente nel client, oltre che dalla logica di business nel server.
 
-## <a name="understand-the-sample-web-app"></a>Informazioni sull'app Web di esempio
+## <a name="understand-the-sample-web-app"></a>Spiegazione dell'app Web di esempio
 
-L'app Web di esempio dispone di un server **C# .NET** , che gestisce la raccolta di funzionalità e l'invio e la ricezione di chiamate http all'endpoint di personalizzazione.
+L'app Web di esempio include un server **.NET C#** , che gestisce la raccolta di caratteristiche, oltre all'invio e alla ricezione di chiamate HTTP all'endpoint di Personalizza esperienze.
 
-L'app Web di esempio usa un' **applicazione client front-end Knockout** per acquisire funzionalità ed elaborare le azioni dell'interfaccia utente, ad esempio fare clic sui pulsanti e inviare dati al server .NET.
+L'app Web di esempio usa un'**applicazione client front-end Knockout** per acquisire le caratteristiche ed elaborare le azioni dell'interfaccia utente, ad esempio il clic sui pulsanti e l'invio di dati al server .NET.
 
-Le sezioni seguenti illustrano le parti del server e del client che uno sviluppatore deve comprendere per usare la personalizzazione.
+Le sezioni seguenti illustrano le parti di server e client con cui lo sviluppatore deve acquisire familiarità per usare Personalizza esperienze.
 
-## <a name="rank-api-client-application-sends-context-to-server"></a>Rank API: l'applicazione client invia il contesto al server
+## <a name="rank-api-client-application-sends-context-to-server"></a>API Classificazione: l'applicazione client invia il contesto al server
 
-L'applicazione client raccoglie l' _agente utente_del browser dell'utente.
+L'applicazione client raccoglie l'_agente utente_ del browser dell'utente.
 
 > [!div class="mx-imgBorder"]
-> ![Compilare ed eseguire il progetto HTTPRequestFeaturesExample. Viene visualizzata una finestra del browser per visualizzare l'applicazione a pagina singola.](./media/tutorial-web-app/user-agent.png)
+> ![Compilare ed eseguire il progetto HTTPRequestFeaturesExample. Viene visualizzata una finestra del browser con l'applicazione a pagina singola.](./media/tutorial-web-app/user-agent.png)
 
-## <a name="rank-api-server-application-calls-personalizer"></a>Rank API: server application calls
+## <a name="rank-api-server-application-calls-personalizer"></a>API Classificazione: l'applicazione server chiama Personalizza esperienze
 
-Si tratta di un'app Web .NET tipica con un'applicazione client. la maggior parte del codice della piastra calda è disponibile per l'utente. Qualsiasi codice non specifico per la personalizzazione viene rimosso dai frammenti di codice seguenti, in modo da potersi concentrare sul codice specifico del personalizzatore.
+Si tratta di una tipica app Web .NET con un'applicazione client. Viene fornita la maggior parte del codice boilerplate. Qualsiasi codice non specifico di Personalizza esperienze è stato rimosso dai frammenti di codice seguente, in modo da potersi concentrare sul codice specifico di Personalizza esperienze.
 
-### <a name="create-personalizer-client"></a>Crea client di personalizzazione
+### <a name="create-personalizer-client"></a>Creare il client di Personalizza esperienze
 
-Nel **Startup.cs**del server, l'endpoint e la chiave di personalizzazione vengono usati per creare il client di personalizzazione. L'applicazione client non deve comunicare con il Personalizzatore in questa app, invece di fare affidamento sul server per effettuare le chiamate dell'SDK.
+Per creare il client di Personalizza esperienze, vengono usati l'endpoint e la chiave di Personalizza esperienze nel file **Startup.cs** del server. L'applicazione client non deve comunicare con Personalizza esperienze in questa app, ma deve invece fare affidamento sul server per effettuare queste chiamate all'SDK.
 
 Il codice di avvio .NET del server Web è:
 
@@ -338,13 +338,13 @@ namespace HttpRequestFeaturesExample
 
 ### <a name="select-best-action"></a>Selezionare l'azione migliore
 
-Nel **PersonalizerController.cs**del server, l'API del server **GenerateRank** riepiloga la preparazione per chiamare l'API Rank
+Nel file **PersonalizerController.cs** del server l'API server **GenerateRank** riepiloga la preparazione della chiamata all'API Classificazione
 
-* Crea nuovo `eventId` per la chiamata di rango
+* Creare nuovo oggetto `eventId` per la chiamata a Classificazione
 * Ottenere l'elenco di azioni
-* Ottenere l'elenco delle funzionalità dall'utente e creare le funzionalità del contesto
+* Ottenere l'elenco delle funzionalità dall'utente e creare le caratteristiche del contesto
 * Facoltativamente, impostare eventuali azioni escluse
-* Call Rank API, risultati restituiti al client
+* Chiamare l'API Classificazione e restituire i risultati al client
 
 ```csharp
 /// <summary>
@@ -380,7 +380,7 @@ public RankRequest GenerateRank()
 }
 ```
 
-Il codice JSON inviato al personalizzatore, che contiene entrambe le azioni (con funzionalità) e le funzionalità del contesto corrente, è simile al seguente:
+Il codice JSON inviato a Personalizza esperienze, contenente sia le azioni (con caratteristiche) sia le caratteristiche del cotesto corrente, avrà l'aspetto seguente:
 
 ```json
 {
@@ -511,11 +511,11 @@ Il codice JSON inviato al personalizzatore, che contiene entrambe le azioni (con
 }
 ```
 
-### <a name="return-personalizer-rewardactionid-to-client"></a>Restituisce il rewardActionId di personalizzazione al client
+### <a name="return-personalizer-rewardactionid-to-client"></a>Restituire rewardActionId di Personalizza esperienze al client
 
-L'API Rank restituisce il **rewardActionId** di azione migliore selezionato al server.
+L'API Classificazione restituisce al server l'azione migliore selezionata in **rewardActionId**.
 
-Visualizza l'azione restituita in **rewardActionId**.
+Visualizzare l'azione restituita in **rewardActionId**.
 
 ```json
 {
@@ -554,28 +554,28 @@ Visualizza l'azione restituita in **rewardActionId**.
 }
 ```
 
-### <a name="client-displays-the-rewardactionid-action"></a>Il client Visualizza l'azione rewardActionId
+### <a name="client-displays-the-rewardactionid-action"></a>Il client visualizza l'azione rewardActionId
 
-In questa esercitazione `rewardActionId` viene visualizzato il valore.
+Per questa esercitazione, viene visualizzato il valore`rewardActionId`.
 
-Nell'applicazione futura, può trattarsi di un testo esatto, di un pulsante o di una sezione della pagina Web evidenziata. L'elenco viene restituito per qualsiasi post-analisi dei punteggi, non per un ordinamento del contenuto. `rewardActionId`Viene visualizzato solo il contenuto.
+Nelle applicazioni future potrebbe essere un testo esatto, un pulsante o una sezione evidenziata di una pagina Web. L'elenco viene restituito per un'eventuale analisi successiva dei punteggi, non per l'ordinamento del contenuto. Dovrebbe essere visualizzato solo il contenuto di `rewardActionId`.
 
-## <a name="reward-api-collect-information-for-reward"></a>API Reward: Raccogli informazioni per la ricompensa
+## <a name="reward-api-collect-information-for-reward"></a>API Ricompensa: raccogliere informazioni per la ricompensa
 
-Il [Punteggio di ricompensa](concept-rewards.md) dovrebbe essere pianificato con attenzione, proprio come le funzionalità sono pianificate. Il Punteggio di ricompensa in genere deve essere un valore compreso tra 0 e 1. Il valore _può_ essere calcolato parzialmente nell'applicazione client, in base ai comportamenti degli utenti e parzialmente sul server, in base alla logica di business e agli obiettivi.
+Il [punteggio di ricompensa](concept-rewards.md) dovrà essere pianificato con cautela, proprio come le caratteristiche. Il punteggio di ricompensa è in genere un valore compreso tra 0 e 1. Il valore _può_ essere calcolato parzialmente nell'applicazione client, in base ai comportamenti degli utenti, e parzialmente nel server, in base alla logica di business e agli obiettivi.
 
-Se il server non chiama l'API Reward entro il **tempo di attesa della ricompensa** configurato nel portale di Azure per la risorsa di personalizzazione, viene usata la **ricompensa predefinita** (configurata anche nel portale di Azure) per tale evento.
+Se il server non chiama l'API Ricompensa entro il periodo indicato in **Tempo di attesa per la ricompensa** configurato nel portale di Azure per la risorsa di Personalizza esperienze, per tale evento verrà usato il valore di **Ricompensa predefinita**, anche questo configurato nel portale di Azure.
 
-In questa applicazione di esempio è possibile selezionare un valore per vedere come la ricompensa influisca sulle selezioni.
+In questa applicazione di esempio è possibile selezionare un valore per vedere l'effetto della ricompensa sulle selezioni.
 
-## <a name="additional-ways-to-learn-from-this-sample"></a>Ulteriori modi per apprendere da questo esempio
+## <a name="additional-ways-to-learn-from-this-sample"></a>Altre informazioni ricavabili da questo esempio
 
-Nell'esempio vengono utilizzati diversi eventi basati sul tempo configurati nella portale di Azure per la risorsa di personalizzazione. Giocare con questi valori, quindi tornare a questa app Web di esempio per verificare il modo in cui le modifiche influiscano sul rango e sulle chiamate di ricompensa:
+Per la risorsa di Personalizza esperienze, l'esempio usa diversi eventi basati sul tempo configurati nel portale di Azure. Sperimentare con questi valori, quindi tornare in questa app Web di esempio per verificare l'effetto delle modifiche sulle chiamate a Classificazione e a Ricompensa:
 
 * Reward wait time (Tempo di attesa ricompense)
 * Model update frequency (Frequenza di aggiornamento del modello)
 
-Altre impostazioni da riprodurre includono:
+Altre impostazioni con cui sperimentare includono:
 * Default reward (Ricompensa predefinita)
 * Percentuale di esplorazione
 
@@ -585,10 +585,10 @@ Altre impostazioni da riprodurre includono:
 Al termine di questa esercitazione, pulire le risorse seguenti:
 
 * Eliminare la directory del progetto di esempio.
-* Elimina la risorsa di personalizzazione: è possibile pensare a una risorsa di personalizzazione come dedicata alle azioni e riutilizzare solo il contesto della risorsa se si usano ancora gli alimenti come dominio soggetto azioni.
+* Elimina la risorsa di Personalizza esperienze, che può essere considerata una risorsa dedicata ad azioni e contesto, da riutilizzare solo se si usa ancora il cibo come dominio delle azioni.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Funzionamento di Personalizza esperienze](how-personalizer-works.md)
-* [Funzionalità](concepts-features.md): informazioni sui concetti relativi alle funzionalità usando con azioni e contesto
-* [Vantaggi](concept-rewards.md): informazioni sul calcolo dei premi
+* [Caratteristiche](concepts-features.md): informazioni sui concetti relativi alle caratteristiche usate con azioni e contesto
+* [Ricompense](concept-rewards.md): informazioni sul calcolo delle ricompense

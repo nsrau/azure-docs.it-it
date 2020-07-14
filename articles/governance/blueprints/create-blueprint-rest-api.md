@@ -1,18 +1,18 @@
 ---
-title: "Guida introduttiva: Creare un progetto con l'API REST"
+title: "Avvio rapido: Creare un progetto con l'API REST"
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti con l'API REST.
-ms.date: 02/26/2020
+ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: ec84e8396ad65aa01f73414b971f27bc95396e2f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745103"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971199"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Guida introduttiva: Definire e assegnare un progetto Azure Blueprint con l'API REST
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con l'API REST
 
-Imparare a creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
+Informazioni su come creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Azure Resource Manager (modelli ARM), criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,7 +52,7 @@ Sostituire `{subscriptionId}` nella variabile **$restUri** precedente per ottene
 
 ## <a name="create-a-blueprint"></a>Creare un progetto
 
-Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. Verrà creato un progetto denominato 'MyBlueprint' per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione. Verrà quindi aggiunto un nuovo gruppo di risorse, un modello di Resource Manager e un'assegnazione di ruolo nel gruppo di risorse.
+Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. Verrà creato un progetto denominato 'MyBlueprint' per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione. Verranno quindi aggiunti un gruppo di risorse, un modello di Resource Manager e un'assegnazione di ruolo nel gruppo di risorse.
 
 > [!NOTE]
 > Quando si usa l'API REST, viene creato per primo l'oggetto _progetto_. Per ogni _elemento_ da aggiungere che include parametri, i parametri devono essere definiti in anticipo nel _progetto_ iniziale.

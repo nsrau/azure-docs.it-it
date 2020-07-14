@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3e1c67ee91298b9e8d0c3c427988c9966771aeaa
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920557"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -48,9 +48,9 @@ Visione artificiale può ottimizzare molti scenari di gestione delle risorse dig
 |**[Generare un'anteprima](concept-generating-thumbnails.md)**|È possibile analizzare i contenuti di un'immagine per generare un'anteprima appropriata per tale immagine. Visione artificiale genera prima di tutto un'anteprima di qualità elevata e quindi analizza gli oggetti inclusi nell'immagine per determinare l'*area di interesse*. L'immagine viene quindi ritagliata per soddisfare i requisiti dell'area di interesse. L'anteprima generata può essere visualizzata con proporzioni diverse da quelle dell'immagine originale, in base alle esigenze specifiche.|
 |**[Ottenere l'area di interesse](concept-generating-thumbnails.md#area-of-interest)**|Analizzare il contenuto di un'immagine per restituire le coordinate dell'*area di interesse*. Invece di ritagliare l'immagine e generare un'anteprima, Visione artificiale restituisce le coordinate del rettangolo di selezione dell'area, in modo che l'applicazione chiamante possa modificare l'immagine originale in base alle esigenze.|
 
-## <a name="detect-text-from-images"></a>Rilevare il testo nelle immagini
+## <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 
-È possibile usare l'[API di rilevamento del testo](concept-recognizing-text.md) di Visione artificiale per estrarre il testo stampato e scritto a mano dalle immagini in un flusso di caratteri leggibili dal computer. L'API di lettura usa i modelli più recenti e legge il testo su una varietà di superfici e sfondi, ad esempio ricevute, poster, biglietti da visita, lettere e lavagne. Le due API di rilevamento del testo supportano l'estrazione di testo stampato in [diverse lingue](./language-support.md).
+Visione artificiale include funzionalità di [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md). È possibile usare la nuova API di lettura per estrarre testo, scritto a mano o stampato, da immagini e documenti. Usa i modelli più recenti e funziona con testo su un'ampia gamma di superfici e sfondi, tra cui ricevute, poster, biglietti da visita, lettere e lavagne. Le due API di riconoscimento ottico dei caratteri supportano l'estrazione di testo stampato in [diverse lingue](./language-support.md).
 
 ## <a name="moderate-content-in-images"></a>Moderare i contenuti nelle immagini
 

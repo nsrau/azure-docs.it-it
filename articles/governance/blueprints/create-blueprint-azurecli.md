@@ -3,16 +3,16 @@ title: "Avvio rapido: Creare un progetto con l'interfaccia della riga di comando
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti con l'interfaccia della riga di comando di Azure.
 ms.date: 06/02/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7d144edca0794679e67358ff820e1508736ba723
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 30a450fc7eab55424da7ce971ad234cbf2248b30
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613350"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969669"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con l'interfaccia della riga di comando di Azure
 
-Imparare a creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
+Informazioni su come creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Azure Resource Manager (modelli ARM), criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,7 +46,7 @@ Questa estensione funziona ovunque sia possibile usare l'interfaccia della riga 
 
 ## <a name="create-a-blueprint"></a>Creare un progetto
 
-Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. Verrà creato un progetto denominato 'MyBlueprint' per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione. Verrà quindi aggiunto un nuovo gruppo di risorse, un modello di Resource Manager e un'assegnazione di ruolo nel gruppo di risorse.
+Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. Verrà creato un progetto denominato 'MyBlueprint' per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione. Verranno quindi aggiunti un gruppo di risorse, un modello di Resource Manager e un'assegnazione di ruolo nel gruppo di risorse.
 
 > [!NOTE]
 > Quando si usa l'interfaccia della riga di comando di Azure, viene creato per primo l'oggetto _progetto_. Per ogni _elemento_ da aggiungere che include parametri, i parametri devono essere definiti in anticipo nel _progetto_ iniziale.
@@ -195,7 +195,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
 1. Aggiungere un modello nel gruppo di risorse. Il parametro **template** per un modello di Resource Manager include i normali componenti JSON del modello. Il modello riusa inoltre i parametri di progetto **storageAccountType**, **tagName** e **tagValue** passando ciascun parametro al modello. I parametri del progetto sono disponibili nel modello usando il parametro **parameters** e all'interno del file JSON del modello in cui viene usata questa coppia chiave-valore per inserire il valore. I nomi dei parametri del progetto e del modello possono essere gli stessi.
 
-   - File JSON del modello di Azure Resource Manager - artifacts\templateStorage.json
+   - File JSON del modello di Resource Manager - artifacts\templateStorage.json
 
      ```json
      {
@@ -249,7 +249,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
      }
      ```
 
-   - File JSON dei parametri del modello di Azure Resource Manager - artifacts\templateStorageParams.json
+   - File JSON dei parametri del modello di Resource Manager - artifacts\templateStorageParams.json
 
      ```json
      {

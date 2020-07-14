@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8885f66b3501217ead302486d2e5ef7de63f5f47
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2193bd85265103957c5cafad10a243b266f7e5bc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563255"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026883"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -57,18 +57,20 @@ Riconoscimento modulo può anche estrarre la struttura di testo e tabelle (il nu
 
 Seguire un argomento di avvio rapido per iniziare a estrarre i dati dai moduli. È consigliabile usare il servizio gratuito mentre si acquisisce familiarità con questa tecnologia. Tenere presente che il numero di pagine gratuite è limitato a 500 al mese.
 
-* Eseguire il training personalizzato di un modello nei moduli
-  * Training senza etichette
-    * [Avvio rapido: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL](quickstarts/curl-train-extract.md)
-    * [Avvio rapido: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con Python](quickstarts/python-train-extract.md)
-  * Training con etichette
-    * [Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni](quickstarts/label-tool.md)
-    * [Eseguire il training di un modello di Riconoscimento modulo con le etichette usando l'API REST e Python](quickstarts/python-labeled-data.md)
-* Ricevute predefinite: estrarre dati dalle ricevute di vendita USA
-  * [Avvio rapido: Estrarre i dati delle ricevute usando cURL](quickstarts/curl-receipts.md)
-  * [Avvio rapido: Estrarre i dati delle ricevute usando Python](quickstarts/python-receipts.md)
-* Layout: estrarre la struttura di testo e tabelle dai moduli
-  * [Avvio rapido: Estrarre i dati del layout usando Python](quickstarts/python-layout.md)
+* [Avvio rapido per la libreria client](./quickstarts/client-library.md) (tutti i linguaggi, più scenari)
+* Avvii rapidi per l'interfaccia utente Web
+  * [Training con etichette - Strumenti di etichettatura campioni](quickstarts/label-tool.md)
+* Avvii rapidi per REST
+  * Eseguire il training di modelli personalizzati ed estrarre i dati dei moduli
+    * [Training senza etichette - cURL](quickstarts/curl-train-extract.md)
+    * [Training senza etichette - Python](quickstarts/python-train-extract.md)
+    * [Training con etichette - Python](quickstarts/python-labeled-data.md)
+  * Estrarre dati dalle ricevute di vendita USA
+    * [Estrarre dati dalle ricevute - cURL](quickstarts/curl-receipts.md)
+    * [Estrarre dati dalle ricevute - Python](quickstarts/python-receipts.md)
+  * Estrarre la struttura di testo e tabelle dai moduli
+    * [Estrarre i dati del layout - Python](quickstarts/python-layout.md)
+
 
 ### <a name="review-the-rest-apis"></a>Esaminare le API REST
 
@@ -81,7 +83,7 @@ Per eseguire il training dei modelli ed estrarre dati strutturati dai moduli, ve
 | **Analyze Receipt** |Analizzare una singola ricevuta per estrarre le informazioni principali e eventuale testo aggiuntivo contenuto nella ricevuta.|
 | **Analyze Layout** |Analizzare il layout di un modulo per estrarre la struttura di testo e tabelle.|
 
-Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
+Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.
 
 ## <a name="input-requirements"></a>Requisiti di input
 ### <a name="custom-model"></a>Modello personalizzato
@@ -104,4 +106,4 @@ Come per tutti i servizi cognitivi, gli sviluppatori che usano il servizio di ri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Completare un argomento di [avvio rapido](quickstarts/curl-train-extract.md) per iniziare a usare le [API di riconoscimento modulo](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).
+Completare un argomento di [avvio rapido](quickstarts/curl-train-extract.md) per iniziare a usare le [API di riconoscimento modulo](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
