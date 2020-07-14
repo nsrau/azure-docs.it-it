@@ -1,17 +1,17 @@
 ---
-title: 'Esercitazione: Usare Traccia distribuita con Azure Spring Cloud'
-description: Questa esercitazione mostra come usare Traccia distribuita di Spring Cloud tramite Azure Application Insights
+title: Usare la traccia distribuita con Azure Spring Cloud
+description: Informazioni su come usare la traccia distribuita di Spring Cloud tramite Azure Application Insights
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ccaf58465c1ade0228daea2b535d06fb6168d64f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273203"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142123"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Usare la traccia distribuita con Azure Spring Cloud
 
@@ -27,7 +27,7 @@ In questo articolo viene spiegato come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, è necessario un servizio Azure Spring Cloud di cui sia già stato effettuato il provisioning e che sia in esecuzione. Completare la guida di [avvio rapido sulla distribuzione di un'app tramite l'interfaccia della riga di comando di Azure](spring-cloud-quickstart-launch-app-cli.md) per effettuare il provisioning ed eseguire un servizio Azure Spring Cloud.
+Per seguire queste procedure, è necessario un servizio Azure Spring Cloud di cui sia già stato effettuato il provisioning e che sia in esecuzione. Completare la guida di [avvio rapido sulla distribuzione di un'app tramite l'interfaccia della riga di comando di Azure](spring-cloud-quickstart-launch-app-cli.md) per effettuare il provisioning ed eseguire un servizio Azure Spring Cloud.
     
 ## <a name="add-dependencies"></a>Aggiungere le dipendenze
 
@@ -102,7 +102,4 @@ Application Insights fornisce funzionalità di monitoraggio oltre alla mappa del
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come abilitare e interpretare la traccia distribuita in Azure Spring Cloud. Per informazioni su come associare l'applicazione a un database di Azure Cosmos DB, continuare con l'esercitazione successiva.
-
-> [!div class="nextstepaction"]
-> [Come eseguire l'associazione a un database di Azure Cosmos DB](spring-cloud-tutorial-bind-cosmos.md)
+In questo articolo si è appreso come abilitare e interpretare la traccia distribuita in Azure Spring Cloud. Per informazioni sul binding di servizi a un'applicazione, vedere [Associare un database Azure Cosmos DB a un'applicazione Azure Spring Cloud](spring-cloud-tutorial-bind-cosmos.md).

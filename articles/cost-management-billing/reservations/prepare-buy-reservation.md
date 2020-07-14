@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 718365119b8cdf9279dcabc5f8c54deb386e8500
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019042"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807782"
 ---
 # <a name="buy-a-reservation"></a>Acquistare una prenotazione
 
@@ -85,7 +85,7 @@ Ora è possibile pagare le prenotazioni con pagamenti mensili. A differenza di u
 
 Se la prenotazione è stata acquistata tramite un Contratto del cliente Microsoft, l'importo del pagamento mensile potrebbe essere soggetto a variazioni in base al tasso di cambio del mese corrente per la valuta locale.
 
-I pagamenti mensili non sono disponibili per: Databricks, prenotazioni SUSE Linux, piani Red Hat e calcolo Azure Red Hat OpenShift.
+I pagamenti mensili non sono disponibili per: Databricks, prenotazioni SUSE Linux, piani Red Hat e licenze Azure Red Hat OpenShift.
 
 ### <a name="view-payments-made"></a>Visualizzare i pagamenti effettuati
 

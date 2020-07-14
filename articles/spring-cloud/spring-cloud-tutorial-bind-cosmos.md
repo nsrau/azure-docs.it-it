@@ -1,17 +1,17 @@
 ---
-title: "Esercitazione: Associare un'istanza di Azure Cosmos DB all'applicazione Azure Spring Cloud"
-description: Questa esercitazione mostra come associare un'istanza di Azure Cosmos DB all'applicazione Azure Spring Cloud
+title: Associare un'istanza di Azure Cosmos DB all'applicazione Azure Spring Cloud
+description: Informazioni su come associare un'istanza di Azure Cosmos DB all'applicazione Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: 1566b6ab59e858217adcf6818e1d62f851f37eb1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 083c67184c6b039303b29119261a6967306a1447
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76277556"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142220"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Associare un database di Azure Cosmos DB all'applicazione Azure Spring Cloud
 
@@ -105,7 +105,4 @@ Azure Cosmos DB dispone di cinque tipi diversi di API che supportano l'associazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come associare l'applicazione Azure Spring Cloud a un database di Azure Cosmos DB. Per informazioni su come associare l'applicazione a una cache di Azure Cache for Redis, continuare con l'esercitazione successiva.
-
-> [!div class="nextstepaction"]
-> [Come eseguire l'associazione a una cache di Azure Cache for Redis](spring-cloud-tutorial-bind-redis.md)
+In questo articolo è stato illustrato come associare l'applicazione Azure Spring Cloud a un database di Azure Cosmos DB. Per altre informazioni sul binding di servizi all'applicazione, vedere [Eseguire il binding a una cache di Azure per Redis](spring-cloud-tutorial-bind-redis.md).

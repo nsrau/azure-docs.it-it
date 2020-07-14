@@ -1,23 +1,23 @@
 ---
-title: "Esercitazione: Associare la cache di Azure Cache for Redis all'applicazione Azure Spring Cloud"
-description: Questa esercitazione mostra come associare Cache di Azure per Redis all'applicazione Azure Spring Cloud
+title: Associare la cache di Azure Cache for Redis all'applicazione Azure Spring Cloud
+description: Informazioni su come associare Cache di Azure per Redis all'applicazione Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: brendm
-ms.openlocfilehash: 94f7b5a2363b7c53e0f70500e5a0a8cb6f64e611
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ddf239fc6415b3dbee6051d4199cd29e5244e4d2
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76277512"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142129"
 ---
 # <a name="bind-azure-cache-for-redis-to-your-azure-spring-cloud-application"></a>Associare la cache di Azure Cache for Redis all'applicazione Azure Spring Cloud 
 
 Anziché configurare manualmente le applicazioni Spring Boot, è possibile associare automaticamente determinati servizi di Azure alle applicazioni tramite Azure Spring Cloud. Questo articolo illustra come associare l'applicazione alla cache di Azure Cache for Redis.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un'istanza di Azure Spring Cloud distribuita
 * Un'istanza del servizio Cache di Azure per Redis
@@ -55,7 +55,4 @@ Se non è disponibile un'istanza di Azure Spring Cloud distribuita, seguire la p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come associare l'applicazione Azure Spring Cloud ad Azure Cache for Redis. Per altre informazioni sull'associazione di servizi all'applicazione, continuare con l'esercitazione su come associare un'applicazione a un'istanza di database di Azure per MySQL.
-
-> [!div class="nextstepaction"]
-> [Come eseguire l'associazione a un'istanza di database di Azure per MySQL](spring-cloud-tutorial-bind-mysql.md)
+In questo articolo è stato illustrato come associare l'applicazione Azure Spring Cloud alla cache di Azure per Redis. Per altre informazioni sul binding di servizi all'applicazione, vedere [Eseguire il binding a un'istanza di Database di Azure per MySQL](spring-cloud-tutorial-bind-mysql.md).

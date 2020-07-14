@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 03fe40cea5891e87f42f0d6a50eedee80a68f25e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: efcc5e8f629c8b6ccc903478473b54989c0e9fd6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200529"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959494"
 ---
 ::: zone target="docs"
 
@@ -46,7 +46,7 @@ In questa esercitazione si apprenderà come:
 Prima di iniziare, verificare che:
 
 - Sia stata completata l'[Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-deploy-copy-data.md). 
-- I processi di copia siano stati completati. La preparazione per la spedizione non può essere eseguita se sono in corso processi di copia.
+- I processi di copia sono stati completati e non sono presenti errori nella pagina **Connetti e copia**. Se i processi di copia sono in corso o se sono presenti errori nella pagina **Connetti e copia**, non è possibile procedere con la preparazione per la spedizione.
 
 ## <a name="prepare-to-ship"></a>Preparare per la spedizione
 

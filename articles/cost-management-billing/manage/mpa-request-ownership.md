@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 379f7a0ef60020566de9edfcafb0809d1955cac8
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752125"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601412"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure dall'account del contratto Microsoft Partner
 
@@ -22,7 +22,7 @@ Questa funzionalità è disponibile solo per i partner con fatturazione diretta 
 
 Per richiedere la proprietà della fatturazione, è necessario disporre del ruolo **Amministratore globale** o **Agenti amministratori**. Per altre informazioni, vedere [Centro per i partner - Assegnare autorizzazioni e ruoli utente](https://docs.microsoft.com/partner-center/permissions-overview).
 
-Le informazioni in questo articolo si applicano agli account di fatturazione per i contratti Microsoft Partner. Questi account vengono creati per i provider CSP e consentire loro di gestire la fatturazione per conto dei clienti nella nuova esperienza Commerce. La nuova esperienza è disponibile per i partner che hanno almeno un cliente che ha accettato un Contratto del cliente Microsoft con un piano di Azure. [Verificare di avere accesso a un Contratto Microsoft Partner](#check-access-to-a-microsoft-partner-agreement).
+Le informazioni in questo articolo si applicano agli account di fatturazione per i contratti Microsoft Partner. Questi account vengono creati per i provider CSP e consentire loro di gestire la fatturazione per conto dei clienti nella nuova esperienza Commerce. La nuova esperienza è disponibile solo per i partner che hanno almeno un cliente che ha accettato un Contratto del cliente Microsoft con un piano di Azure. [Verificare di avere accesso a un Contratto Microsoft Partner](#check-access-to-a-microsoft-partner-agreement).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

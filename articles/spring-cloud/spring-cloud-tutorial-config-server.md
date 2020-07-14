@@ -1,19 +1,19 @@
 ---
-title: "Esercitazione: Configurare l'istanza del server di configurazione in Azure Spring Cloud"
-description: Questa esercitazione illustra come configurare un'istanza del server di configurazione Spring Cloud per Azure Spring Cloud nel portale di Azure
+title: Configurare l'istanza del server di configurazione in Azure Spring Cloud
+description: Informazioni su come configurare un'istanza del server di configurazione Spring Cloud per Azure Spring Cloud nel portale di Azure
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 4c8b2e92cd7e88dde434e42971d091db689bfbc9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: bfce1ce54da9d9e8e7feaa8e8eb5cd676866a1cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791300"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142191"
 ---
-# <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Esercitazione: Configurare un'istanza del server di configurazione Spring Cloud per il servizio
+# <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurare un'istanza del server di configurazione Spring Cloud per il servizio
 
 Questa articolo descrive come connettere un'istanza del server di configurazione Spring Cloud al servizio Azure Spring Cloud.
 
@@ -190,7 +190,4 @@ Dopo aver salvato un file di configurazione, nella scheda **Configurazione** ver
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come abilitare e configurare l'istanza del server di configurazione Spring Cloud. Per altre informazioni su come gestire l'applicazione, passare all'esercitazione sul ridimensionamento manuale dell'app.
-
-> [!div class="nextstepaction"]
-> [Esercitazione: Ridimensionare un'applicazione in Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md)
+In questo articolo si è appreso come abilitare e configurare l'istanza del server di configurazione Spring Cloud. Per altre informazioni sulla gestione dell'applicazione, vedere [Dimensionare un'applicazione in Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).

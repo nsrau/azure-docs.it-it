@@ -6,20 +6,23 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/24/2019
 ms.author: banders
-ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e238a409adda674e1182c0ffd40a4f666d362731
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199688"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361507"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Tenere traccia del saldo dei crediti Azure per un Contratto del cliente Microsoft
 
 È possibile controllare il saldo del credito Azure dell'account di fatturazione per un Contratto del cliente Microsoft nel portale di Azure o tramite le API REST.
 
 Nell'account di fatturazione per un Contratto del cliente Microsoft, i crediti vengono assegnati a un profilo di fatturazione. Ogni profilo di fatturazione dispone di crediti che vengono applicati automaticamente agli addebiti sulla fattura. È necessario disporre di un ruolo di proprietario, collaboratore, lettore o gestione fatture nel profilo di fatturazione o del ruolo di proprietario, collaboratore o lettore nell'account di fatturazione per visualizzare il saldo del credito Azure per un profilo di fatturazione. Per altre informazioni sui ruoli, vedere [Informazioni sui ruoli amministrativi per il Contratto del cliente Microsoft in Azure](understand-mca-roles.md).
+
+> [!NOTE]
+> Prima di vedere il nuovo credito nel portale di Azure possono trascorrere fino a 24 ore. Se si ottiene nuovo credito ma non viene visualizzato nel portale, attendere 24 ore.
 
 Questo articolo di applica a un account di fatturazione per un Contratto del cliente Microsoft. [Verificare di avere accesso a un Contratto del cliente Microsoft](#check-access-to-a-microsoft-customer-agreement).
 

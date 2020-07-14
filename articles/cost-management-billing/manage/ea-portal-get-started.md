@@ -3,16 +3,16 @@ title: Introduzione ad Azure Enterprise Portal
 description: Questo articolo illustra come i clienti con un Contratto Enterprise di Azure (Azure EA, Azure Enterprise Agreement) usano Azure Enterprise Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7983afa32ff8104d181fbcdc75a50d12e2240128
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298109"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560369"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introduzione ad Azure Enterprise Portal
 
@@ -471,6 +471,7 @@ Azure Enterprise Portal esclude con un filtro la visualizzazione delle registraz
 
 ### <a name="enrollment-statuses"></a>Stati della registrazione
 
+- **Nuovo**: questo stato viene assegnato a una registrazione che è stata creata nel corso di 24 ore e viene aggiornato allo stato In sospeso entro 24 ore.
 - **Pending**: l'amministratore della registrazione deve accedere ad Azure Enterprise Portal. Dopo l'accesso, la registrazione passa allo stato Attivo.
 - **Attivo**: la registrazione è attiva ed è possibile creare account e sottoscrizioni in Azure Enterprise Portal. La registrazione rimane attiva fino alla data di fine del Contratto Enterprise.
 - **Periodo di validità esteso a tempo indeterminato**: si attiva dopo la data di fine del Contratto Enterprise. Consente ai clienti del Contratto Enterprise di Azure inclusi nel periodo esteso di continuare a usare i servizi Azure a tempo indefinito dopo la scadenza del Contratto Enterprise.
