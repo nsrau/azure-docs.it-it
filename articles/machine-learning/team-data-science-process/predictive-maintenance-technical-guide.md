@@ -13,6 +13,7 @@ ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 6452a826cfb6f7ceb65e6e89cdd42d683ee463b1
 ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83682726"
@@ -210,7 +211,7 @@ La procedura seguente mostra come visualizzare l'output dei dati da processi di 
    * Alla query di Analisi di flusso di Azure sono associati tre output: **aircraftmonitor**, **aircraftalert** e **flightsbyhour**. È possibile visualizzare la query facendo clic sulla scheda corrispondente. In corrispondenza di ognuna delle tabelle è necessario aggiungere un output alla query di Analisi di flusso di Azure. Quando si aggiunge il primo output (**aircraftmonitor**), verificare che i valori di **Alias di output**, **Nome del set di dati** e **Nome tabella** corrispondano (**aircraftmonitor**). Seguire la stessa procedura per aggiungere gli output relativi a **aircraftalert** e **flightsbyhour**. Dopo aver aggiunto le tre tabelle di output e aver avviato il processo di Analisi di flusso di Azure, viene visualizzato un messaggio di conferma (ad esempio, "L'avvio del processo di Analisi di flusso maintenancesa02asapbi è stato completato").
 2. Accedere a [Power BI online](https://www.powerbi.com)
    
-   * Nel riquadro di sinistra della sezione Set di dati in Area di lavoro personale vengono visualizzati i nomi ***DATASET*****aircraftmonitor**, **aircraftalert** e **flightsbyhour**. Si tratta dei dati di flusso di cui si è eseguito il push da Analisi di flusso di Azure nel passaggio precedente. Il set di dati **flightsbyhour** potrebbe non essere visualizzato contemporaneamente agli altri due set di dati a causa della natura della query SQL sottostante. Verrà tuttavia visualizzato dopo un'ora.
+   * Nel riquadro di sinistra della sezione Set di dati in Area di lavoro personale vengono visualizzati i nomi ***DATASET*** **aircraftmonitor**, **aircraftalert** e **flightsbyhour**. Si tratta dei dati di flusso di cui si è eseguito il push da Analisi di flusso di Azure nel passaggio precedente. Il set di dati **flightsbyhour** potrebbe non essere visualizzato contemporaneamente agli altri due set di dati a causa della natura della query SQL sottostante. Verrà tuttavia visualizzato dopo un'ora.
    * Assicurarsi che il riquadro ***Visualizzazioni*** sia aperto e visualizzato sul lato destro dello schermo.
 3. Dopo aver ottenuto il flusso dati in Power BI, è possibile iniziare a visualizzare i dati di streaming. Di seguito è riportato un dashboard di esempio a cui sono state aggiunte alcune visualizzazioni del percorso critico. È possibile creare altri riquadri del dashboard in base a set di dati appropriati. A seconda del tempo di esecuzione del generatore di dati, i numeri nelle visualizzazioni possono variare.
 

@@ -1,30 +1,30 @@
 ---
-title: 'Esercitazione: integrare una singola foresta con un singolo tenant di Azure AD'
-description: Questo argomento descrive i prerequisiti e i requisiti hardware per il provisioning del cloud.
+title: 'Esercitazione: Integrare una singola foresta con un singolo tenant di Azure AD'
+description: Questo argomento descrive i prerequisiti e i requisiti hardware per il provisioning cloud.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55dab553a93db4650a5d7126d7f1a0c3ca5f808f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0c922b95154f16a199660bcd5e58f792e46eade7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332228"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360606"
 ---
-# <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Esercitazione: integrare una singola foresta con un singolo tenant di Azure AD
+# <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Esercitazione: Integrare una singola foresta con un singolo tenant di Azure AD
 
-Questa esercitazione illustra la creazione di un ambiente di identità ibrido usando Azure Active Directory (Azure AD) connettere il provisioning cloud.
+Questa esercitazione descrive come creare un ambiente ibrido di gestione delle identità usando il provisioning cloud di Azure Active Directory (Azure AD) Connect.
 
-![Creazione](media/tutorial-single-forest/diagram1.png)
+![Create](media/tutorial-single-forest/diagram1.png)
 
-È possibile usare l'ambiente creato in questa esercitazione per i test o per acquisire familiarità con il provisioning cloud.
+È possibile usare l'ambiente creato in questa esercitazione a scopo di test per acquisire maggiore familiarità con il provisioning cloud.
 
 ## <a name="prerequisites"></a>Prerequisiti
 ### <a name="in-the-azure-active-directory-admin-center"></a>Nell'interfaccia di amministrazione di Azure Active Directory
@@ -34,7 +34,7 @@ Questa esercitazione illustra la creazione di un ambiente di identità ibrido us
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
-1. Identificare un server host aggiunto al dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e .NET 4.7.1 + Runtime 
+1. Identificare un server host aggiunto a un dominio che esegue Windows Server 2012 R2 o versione successiva con almeno 4 GB di RAM e il runtime di .NET 4.7.1 o versione successiva 
 
 2. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
    - Assicurarsi che gli agenti possano effettuare richieste *in uscita* ad Azure AD sulle porte seguenti:
@@ -46,14 +46,14 @@ Questa esercitazione illustra la creazione di un ambiente di identità ibrido us
      | **8080** (facoltativo) | Se la porta 443 non è disponibile, gli agenti di autenticazione segnalano il proprio stato ogni dieci minuti attraverso la porta 8080. Lo stato viene visualizzato nel portale di Azure AD. |
      
      Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
-   - Se il firewall o il proxy consente di specificare suffissi sicuri, aggiungere connessioni t a ** \*. msappproxy.NET** e ** \*. ServiceBus.Windows.NET**. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
+   - Se il firewall o il proxy consente di specificare suffissi sicuri, aggiungere connessioni a **\*.msappproxy.net** e **\*.servicebus.windows.net**. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
    - Gli agenti devono poter accedere a **login.windows.net** e **login.microsoftonline.net** per la registrazione iniziale. Aprire il firewall anche per questi URL.
    - Per la convalida del certificato, sbloccare questi URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www\.microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installare l'agente di provisioning cloud di Azure AD Connect
 1. Accedere al server aggiunto al dominio.  Se si usa l'esercitazione [Ambiente di AD e Azure di base](tutorial-basic-ad-azure.md), sarà DC1.
 2. Accedere al portale di Azure con le credenziali di amministratore globale solo cloud.
-3. A sinistra selezionare **Azure Active Directory**, fare clic su **Azure ad Connect**e al centro selezionare **Gestisci provisioning (anteprima)**.
+3. A sinistra selezionare **Azure Active Directory**, fare clic su **Azure AD Connect** e al centro selezionare **Gestione del provisioning (anteprima)** .
 
    ![Portale di Azure](media/how-to-install/install6.png)
 

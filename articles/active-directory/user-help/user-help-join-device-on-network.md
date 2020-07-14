@@ -14,6 +14,7 @@ ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: 6c93f34068cd296cb2d3a59f208fa644cdbf2260
 ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83745725"
@@ -60,7 +61,7 @@ Se il dispositivo è nuovo e non è ancora stato configurato, è possibile usare
 
     ![Account nella schermata Impostazioni](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selezionare **Accedi all'azienda o all'istituto di istruzione** e assicurarsi che venga visualizzato un testo simile a **Connesso ad Azure AD di *\<<nome_organizzazione>***.
+2. Selezionare **Accedi all'azienda o all'istituto di istruzione** e assicurarsi che venga visualizzato un testo simile a **Connesso ad Azure AD di *\<<nome_organizzazione>*** .
 
     ![Schermata Accedi all'azienda o all'istituto di istruzione con l'account contoso connesso](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -105,7 +106,7 @@ Se si possiede il dispositivo da tempo ed è già stato configurato, è possibil
 
     ![Account nella schermata Impostazioni](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selezionare **Accedi all'azienda o all'istituto di istruzione** e assicurarsi che venga visualizzato un testo simile a **Connesso ad Azure AD di *\<<nome_organizzazione>***.
+2. Selezionare **Accedi all'azienda o all'istituto di istruzione** e assicurarsi che venga visualizzato un testo simile a **Connesso ad Azure AD di *\<<nome_organizzazione>*** .
 
     ![Schermata Accedi all'azienda o all'istituto di istruzione con l'account contoso connesso](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

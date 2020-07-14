@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: e47dee10e00340f04afd4a9807501bf83d25f9ec
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: f16f9b3fe6cd17b9fb6eb1cb2bd3ef1f42824701
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709150"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312784"
 ---
 |Nome |Descrizione |Criteri |Versione |
 |---|---|---|---|
@@ -37,3 +37,4 @@ ms.locfileid: "84709150"
 |[Controlla le macchine virtuali Windows in cui sono installate le applicazioni specificate](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApp.json) |Questa iniziativa distribuisce i requisiti dei criteri e controlla le macchine virtuali Windows in cui sono installate le applicazioni specificate. Per altre informazioni sui criteri di configurazione guest, vedere [https://aka.ms/gcpol](https://aka.ms/gcpol). |2 |1.0.0 |
 |[Controlla le macchine virtuali Windows in attesa di riavvio](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPendingReboot.json) |Questa iniziativa distribuisce i requisiti dei criteri e controlla le macchine virtuali Windows in attesa di riavvio. Per altre informazioni sui criteri di configurazione guest, vedere [https://aka.ms/gcpol](https://aka.ms/gcpol). |2 |1.0.0 |
 |[Controlla i server Web Windows che non usano protocolli di comunicazione sicuri](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_TLS.json) |Questa iniziativa distribuisce i requisiti dei criteri e controlla i server Web Windows che non usano protocolli di comunicazione sicuri (TLS 1.1 o TLS 1.2). Per altre informazioni sui criteri di configurazione guest, vedere [https://aka.ms/gcpol](https://aka.ms/gcpol). |2 |1.0.0 |
+|[Distribuisci i prerequisiti per abilitare i criteri di configurazione guest nelle macchine virtuali](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json) |Questa iniziativa aggiunge un'identità gestita assegnata dal sistema e distribuisce l'estensione Configurazione guest appropriata per la piattaforma alle macchine virtuali che sono idonee per il monitoraggio da parte dei criteri di Configurazione guest. Si tratta di un prerequisito per i criteri di Configurazione guest e deve essere assegnato all'ambito di assegnazione dei criteri prima di usare qualsiasi criterio di Configurazione guest. Per altre informazioni su Configurazione guest, vedere [https://aka.ms/gcpol](https://aka.ms/gcpol). |4 |1.0.0-preview |
