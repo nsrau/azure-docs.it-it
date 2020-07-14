@@ -4,32 +4,32 @@ description: Questa esercitazione mostra come creare e distribuire moduli IoT Ed
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3cba7781ac80ae567b2bfd54c4131429ed94b90f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0726edae7c5f44fae7f573559d561e7ef5773e71
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75772364"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801296"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Esercitazione: Creare e distribuire moduli IoT Edge personalizzati
 
 > [!NOTE]
 > Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per avere risultati ottimali.
 
-In questo articolo vengono creati tre moduli IoT Edge che ricevono messaggi da dispositivi foglia, elaborano i dati tramite un modello di Machine Learning e quindi inoltrano le informazioni all'hub IoT.
+In questo articolo vengono creati tre moduli IoT Edge che ricevono messaggi da dispositivi IoT foglia, elaborano i dati tramite un modello di Machine Learning e quindi inoltrano le informazioni all'hub IoT.
 
 L'hub di IoT Edge facilita la comunicazione tra moduli. L'uso dell'hub IoT Edge come broker di messaggi mantiene i moduli indipendenti gli uni dagli altri. Per i moduli è sufficiente specificare gli input su cui accettano i messaggi e gli output su cui scrivono i messaggi.
 
 Il dispositivo IoT Edge dovrà eseguire quattro operazioni:
 
-* Ricevere dati da dispositivi foglia
-* Stimare la vita utile rimanente del dispositivo che ha inviato i dati
-* Inviare un messaggio all'hub IoT contenente solo la vita utile rimanente del dispositivo (questa funzione può essere modificata per inviare i dati solo se la vita utile rimanente scende al di sotto di un certo livello)
-* Salvare i dati del dispositivo foglia in un file locale nel dispositivo IoT Edge. Questo file di dati viene caricato periodicamente nell'hub IoT tramite caricamento file per affinare il training del modello di Machine Learning. L'uso del caricamento file invece dello streaming costante di messaggi è più conveniente.
+* Ricevere dati da dispositivi foglia.
+* Prevedere la vita utile rimanente del dispositivo che ha inviato i dati.
+* Inviare un messaggio con la vita utile rimanente per il dispositivo all'hub IoT. Questa funzione può essere modificata per inviare dati solo se la vita utile rimanente scende al di sotto di un livello specificato.
+* Salvare i dati del dispositivo foglia in un file locale nel dispositivo IoT Edge. Questo file di dati viene caricato periodicamente nell'hub IoT per affinare il training del modello di Machine Learning. L'uso del caricamento file invece dello streaming costante di messaggi è più conveniente.
 
 Per eseguire queste attività, vengono usati tre moduli personalizzati:
 
@@ -56,31 +56,33 @@ I passaggi di questo articolo vengono in genere eseguiti da sviluppatori cloud.
 
 ## <a name="create-a-new-iot-edge-solution"></a>Creare una nuova soluzione IoT Edge
 
-Durante l'esecuzione del secondo dei due notebook di Azure, è stata creata e pubblicata un'immagine del contenitore contenente il modello di vita utile rimanente. Azure Machine Learning, come parte del processo di creazione dell'immagine, ha creato un pacchetto di tale modello in modo che l'immagine sia distribuibile come modulo Azure IoT Edge. In questo passaggio verrà creata una soluzione Azure IoT Edge usando il modulo "Azure Machine Learning" e puntandolo all'immagine pubblicata con Azure Notebooks.
+Durante l'esecuzione del secondo dei due notebook di Azure, è stata creata e pubblicata un'immagine del contenitore contenente il modello di vita utile rimanente. Azure Machine Learning, come parte del processo di creazione dell'immagine, ha creato un pacchetto di tale modello in modo che l'immagine sia distribuibile come modulo Azure IoT Edge.
 
-1. Aprire una sessione Desktop remoto nel computer di sviluppo.
+In questo passaggio verrà creata una soluzione Azure IoT Edge usando il modulo "Azure Machine Learning" e puntandolo all'immagine pubblicata con Azure Notebooks.
 
-2. Aprire la cartella **C:\\source\\IoTEdgeAndMlSample** in Visual Studio Code.
+1. Aprire una sessione Desktop remoto nella VM di sviluppo.
 
-3. Fare clic con il pulsante destro del mouse in uno spazio vuoto del pannello di esplorazione e scegliere **New IoT Edge Solution** (Nuova soluzione IoT Edge).
+1. Aprire la cartella **C:\\source\\IoTEdgeAndMlSample** in Visual Studio Code.
+
+1. Fare clic con il pulsante destro del mouse in uno spazio vuoto del pannello di esplorazione e scegliere **New IoT Edge Solution** (Nuova soluzione IoT Edge).
 
     ![Creare una nuova soluzione IoT Edge](media/tutorial-machine-learning-edge-06-custom-modules/new-edge-solution-command.png)
 
-4. Accettare il nome predefinito **EdgeSolution** per la soluzione.
+1. Accettare il nome predefinito **EdgeSolution** per la soluzione.
 
-5. Scegliere **Azure Machine Learning** come modello del modulo.
+1. Scegliere **Azure Machine Learning** come modello del modulo.
 
-6. Assegnare al modulo il nome **turbofanRulClassifier**.
+1. Assegnare al modulo il nome **turbofanRulClassifier**.
 
-7. Scegliere l'area di lavoro di Machine Learning.
+1. Scegliere l'area di lavoro di Machine Learning. Si tratta dell'area di lavoro **turboFanDemo** creata nell'articolo [Esercitazione: Eseguire il training e la distribuzione di un modello di Azure Machine Learning](tutorial-machine-learning-edge-04-train-model.md)
 
-8. Selezionare l'immagine creata durante l'esecuzione del notebook di Azure.
+1. Selezionare l'immagine creata durante l'esecuzione del notebook di Azure.
 
-9. Esaminare la soluzione. Sono stati creati i file seguenti:
+1. Esaminare la soluzione. Sono stati creati i file seguenti:
 
    * **deployment.template.json:** questo file contiene la definizione di ogni modulo della soluzione. Ecco le tre sezioni a cui prestare attenzione:
 
-     * **RegistryCredentials:** definisce il set di registri contenitori personalizzati usati nella soluzione. Al momento, dovrebbe contenere il registro dell'area di lavoro di Machine Learning, in cui è stata archiviata l'immagine di Azure Machine Learning. È possibile avere un numero qualsiasi di registri contenitori, ma per semplicità verrà usato solo questo per tutti i moduli
+     * **RegistryCredentials:** definisce il set di registri contenitori personalizzati usati nella soluzione. Al momento, dovrebbe contenere il registro dell'area di lavoro di Machine Learning, in cui è stata archiviata l'immagine di Azure Machine Learning. È possibile avere un numero qualsiasi di registri contenitori, ma per semplicità verrà usato solo questo per tutti i moduli.
 
        ```json
        "registryCredentials": {
@@ -92,51 +94,40 @@ Durante l'esecuzione del secondo dei due notebook di Azure, è stata creata e pu
        }
        ```
 
-     * **Modules:** questa sezione contiene il set di moduli definiti dall'utente usati con questa soluzione. Come si può notare, questa sezione attualmente contiene due moduli: SimulatedTemperatureSensor e turbofanRulClassifier. Il modulo SimulatedTemperatureSensor è stato installato dal modello di Visual Studio Code, ma non è necessario per questa soluzione. È possibile eliminarne la definizione dalla sezione modules. La definizione del modulo turbofanRulClassifier punta all'immagine del registro contenitori. Gli altri moduli aggiunti alla soluzione verranno visualizzati in questa sezione.
+     * **Modules:** questa sezione contiene il set di moduli definiti dall'utente usati con questa soluzione. La definizione del modulo turbofanRulClassifier punta all'immagine del registro contenitori. Gli altri moduli aggiunti alla soluzione verranno visualizzati in questa sezione.
 
        ```json
-       "modules": {
-         "SimulatedTemperatureSensor": {
-           "version": "1.0",
-           "type": "docker",
-           "status": "running",
-           "restartPolicy": "always",
-           "settings": {
-             "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-             "createOptions": {}
-           }
-         },
-         "turbofanRulClassifier": {
-           "version": "1.0",
-           "type": "docker",
-           "status": "running",
-           "restartPolicy": "always",
-           "settings": {
-             "image": "<your registry>.azurecr.io/edgemlsample:1",
-             "createOptions": {}
-           }
-         }
-       }
+        "modules": {
+          "turbofanRulClassifier": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "turbofandemo2cd74296.azurecr.io/edgemlsample:1",
+              "createOptions": {}
+            }
+          }
+        }
        ```
 
-     * **Routes:** le route verranno usate spesso in questa esercitazione. Definiscono il modo in cui i moduli comunicano tra loro. Le due route definite dal modello non corrispondono al routing necessario. La prima route invia tutti i dati di qualsiasi output del classificatore all'hub IoT ($upstream). L'altra è per SimulatedTemperatureSensor, che è stato appena eliminato. Eliminare le due route predefinite.
+     * **Routes:** le route verranno usate spesso in questa esercitazione. Definiscono il modo in cui i moduli comunicano tra loro. La route esistente definita dal modello non corrisponde al routing necessario. Eliminare la route `turbofanRulClassifierToIoTHub`.
 
        ```json
-       "$edgeHub": {
-         "properties.desired": {
-           "schemaVersion": "1.0",
-           "routes": {
-             "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/\* INTO $upstream",
-             "sensorToturbofanRulClassifier": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
-           },
-           "storeAndForwardConfiguration": {
-             "timeToLiveSecs": 7200
-           }
-         }
-       }
+        "$edgeHub": {
+          "properties.desired": {
+            "schemaVersion": "1.0",
+            "routes": {
+              "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/* INTO $upstream"
+            },
+            "storeAndForwardConfiguration": {
+              "timeToLiveSecs": 7200
+            }
+          }
+        }
        ```
 
-   * **deployment.debug.template.json:** questo file è la versione di debug del file deployment.template.json. È necessario riflettere in questo file tutte le modifiche apportate nel file deployment.template.json.
+   * **deployment.debug.template.json:** questo file è la versione di debug del file deployment.template.json. In genere, questo file deve essere mantenuto sincronizzato con il contenuto del file deployment.template.json, ma questa operazione non è necessaria per questa esercitazione.
 
    * **.env:** in questo file sarà necessario specificare il nome utente e la password per l'accesso al registro.
 
@@ -145,9 +136,9 @@ Durante l'esecuzione del secondo dei due notebook di Azure, è stata creata e pu
       CONTAINER_REGISTRY_PASSWORD_<your registry name>=<ACR password>
       ```
 
-10. Fare clic con il pulsante destro del mouse sul file deployment.template.json nella finestra di esplorazione di Visual Studio Code e scegliere **Build IoT Edge Solution** (Crea soluzione IoT Edge).
+1. Fare clic con il pulsante destro del mouse sul file deployment.template.json nella finestra di esplorazione di Visual Studio Code e scegliere **Build IoT Edge Solution** (Crea soluzione IoT Edge).
 
-11. Si noti che questo comando crea una cartella config con un file deployment.amd64.json. Questo file è il modello di distribuzione effettivo per la soluzione.
+1. Si noti che questo comando crea una cartella config con un file deployment.amd64.json. Questo file è il modello di distribuzione effettivo per la soluzione.
 
 ## <a name="add-router-module"></a>Aggiungere il modulo Router
 
@@ -158,44 +149,41 @@ A questo punto, aggiungere il modulo Router alla soluzione. Il modulo Router ges
 * **Invio di messaggi sulla vita utile rimanente all'hub IoT:** quando il modulo Router riceve i messaggi dal classificatore, li trasforma in modo che contengano solo le informazioni essenziali, ossia ID dispositivo e vita utile rimanente, quindi invia la versione abbreviata all'hub IoT. Un ulteriore perfezionamento, che non viene effettuato in questo esempio, prevede l'invio di messaggi all'hub IoT solo quando la stima della vita utile rimanente scende al di sotto di una soglia, ad esempio meno di 100 cicli. Con l'applicazione di questo filtro, si ridurrebbe la quantità di messaggi e il costo dell'hub IoT.
 * **Invio del messaggio al modulo Writer Avro:** per preservare tutti i dati inviati dal dispositivo downstream, il modulo Router invia l'intero messaggio ricevuto dal classificatore al modulo Writer Avro, che rende persistenti i dati e li carica tramite caricamento file dell'hub IoT.
 
-> [!NOTE]
-> La descrizione delle funzionalità dei moduli potrebbe far pensare che l'elaborazione sia sequenziale, mentre il flusso è basato su messaggi/eventi. Ecco perché è necessario un modulo di orchestrazione come Router.
+Il modulo Router è una parte importante della soluzione che garantisce che i messaggi vengano elaborati nell'ordine corretto.
 
-### <a name="create-module-and-copy-files"></a>Creare il modulo e copiare i file
+### <a name="create-the-module-and-copy-files"></a>Creare il modulo e copiare i file
 
 1. Fare clic con il pulsante destro del mouse sulla cartella modules in Visual Studio Code e scegliere **Aggiungi modulo IoT Edge**.
 
-2. Scegliere **C# module** (Modulo C#).
+1. Scegliere **C# Module** (Modulo C#) come modello di modulo.
 
-3. Assegnare al modulo il nome **turbofanRouter**.
+1. Assegnare al modulo il nome **turbofanRouter**.
 
-4. Quando viene chiesto di specificare il repository di immagini Docker, usare il registro dell'area di lavoro di Machine Learning, disponibile nel nodo registryCredentials del file *deployment.template.json*. Questo valore corrisponde all'indirizzo completo del registro, ad esempio **\<registro\>.azurecr.io/turbofanrouter**.
+1. Quando viene chiesto di specificare il repository di immagini Docker, usare il registro dell'area di lavoro di Machine Learning, disponibile nel nodo registryCredentials del file *deployment.template.json*. Questo valore corrisponde all'indirizzo completo del registro, ad esempio **\<your registry\>.azurecr.io/turbofanrouter**.
 
     > [!NOTE]
-    > In questo articolo viene usato il Registro Azure Container creato dall'area di lavoro di Machine Learning, che è stata usata per il training e la distribuzione del classificatore. Questa scelta viene fatta esclusivamente per praticità. Sarebbe stato possibile creare un nuovo registro contenitori in cui pubblicare i moduli.
+    > In questo articolo viene usato il Registro Azure Container creato dall'area di lavoro di Machine Learning. Questa scelta viene fatta esclusivamente per praticità. Sarebbe stato possibile creare un nuovo registro contenitori in cui pubblicare i moduli.
 
-5. Aprire una nuova finestra del terminale in Visual Studio Code (**Visualizza** > **Terminale**) e copiare i file dalla directory modules.
+1. Nel terminale, usando una shell del prompt dei comandi, copiare i file del modulo di esempio nella soluzione.
 
     ```cmd
     copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\modules\turbofanRouter\
     ```
 
-6. Quando viene chiesto se sovrascrivere program.cs, premere `y` e quindi `Enter`.
+1. Accettare la richiesta di confermare la sovrascrittura del file program.cs.
 
 ### <a name="build-router-module"></a>Creare il modulo Router
 
 1. In Visual Studio Code selezionare **Terminale** > **Configure Default Build Task** (Configura attività di compilazione predefinita).
 
-2. Fare clic su **Create tasks.json file from template** (Crea file tasks.json da modello).
+1. Selezionare **Crea il file tasks.json dal modello**.
 
-3. Fare clic su **.NET Core**.
+1. Selezionare **.NET Core**.
 
-4. Quando il file tasks.json si apre, sostituirne il contenuto con:
+1. Sostituire il contenuto del file tasks.json con il codice seguente.
 
     ```json
     {
-      // See https://go.microsoft.com/fwlink/?LinkId=733558
-      // for the documentation about the tasks.json format
       "version": "2.0.0",
       "tasks": [
         {
@@ -219,9 +207,9 @@ A questo punto, aggiungere il modulo Router alla soluzione. Il modulo Router ges
     }
     ```
 
-5. Salvare e chiudere il file tasks.json.
+1. Salvare e chiudere il file tasks.json.
 
-6. Eseguire la compilazione premendo `Ctrl + Shift + B` o selezionando **Terminale** > **Esegui attività di compilazione**.
+1. Eseguire la compilazione premendo `Ctrl + Shift + B` o selezionando **Terminale** > **Esegui attività di compilazione**.
 
 ### <a name="set-up-module-routes"></a>Configurare le route del modulo
 
@@ -297,12 +285,8 @@ Con tutte le route definite, il nodo "$edgeHub" sarà simile al codice JSON segu
 }
 ```
 
-> [!NOTE]
-> Con l'aggiunta del modulo turbofanRouter è stata creata la route aggiuntiva seguente: `turbofanRouterToIoTHub": "FROM /messages/modules/turbofanRouter/outputs/* INTO $upstream`. Rimuovere questa route, lasciando nel file deployment.template.json solo quelle indicate sopra.
-
-#### <a name="copy-routes-to-deploymentdebugtemplatejson"></a>Copiare le route nel file deployment.debug.template.json
-
-Come passaggio finale, per mantenere i file sincronizzati, riflettere le modifiche apportate a deployment.template.json in deployment.debug.template.json.
+  > [!NOTE]
+  > Con l'aggiunta del modulo turbofanRouter è stata creata la route aggiuntiva seguente: `turbofanRouterToIoTHub": "FROM /messages/modules/turbofanRouter/outputs/* INTO $upstream`. Rimuovere questa route, lasciando nel file deployment.template.json solo quelle indicate sopra.
 
 ## <a name="add-avro-writer-module"></a>Aggiungere il modulo Writer Avro
 
@@ -314,21 +298,15 @@ Il modulo Writer Avro esegue due operazioni nella soluzione, ossia l'archiviazio
 
 ### <a name="create-module-and-copy-files"></a>Creare il modulo e copiare i file
 
-1. Nel riquadro comandi cercare e selezionare **Python: Select Interpreter** (Python: Seleziona interprete).
+1. In Visual Studio Code selezionare **Visualizza** > **Riquadro comandi**, quindi cercare e selezionare **Python: Select Interpreter** (Python: Seleziona interprete).
 
-1. Scegliere l'interprete disponibile in C:\\Python37.
-
-1. Aprire di nuovo il riquadro comandi, quindi cercare e selezionare **Terminal: Select Default Shell** (Terminale: Seleziona shell predefinita).
-
-1. Quando richiesto, scegliere **Prompt dei comandi**.
-
-1. Aprire una nuova shell del terminale, **Terminale** > **Nuovo terminale**.
+1. Selezionare la versione 3.7 o successiva di Python installata.
 
 1. Fare clic con il pulsante destro del mouse sulla cartella modules in Visual Studio Code e scegliere **Aggiungi modulo IoT Edge**.
 
 1. Scegliere **Modulo Python**.
 
-1. Assegnare al modulo il nome "avroFileWriter".
+1. Assegnare al modulo il nome `avroFileWriter`.
 
 1. Quando viene chiesto di specificare il repository di immagini Docker, scegliere lo stesso registro usato per l'aggiunta del modulo Router.
 
@@ -338,7 +316,7 @@ Il modulo Writer Avro esegue due operazioni nella soluzione, ossia l'archiviazio
    copy C:\source\IoTEdgeAndMlSample\EdgeModules\modules\avroFileWriter\*.py C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avroFileWriter\
    ```
 
-1. Se viene chiesto se sovrascrivere main.py, digitare `y` e quindi premere `Enter`.
+1. Accettare la sovrascrittura di main.py.
 
 1. Si noti che nella soluzione sono stati aggiunti i file filemanager.py e schema.py e che il file main.py è stato aggiornato.
 
@@ -347,29 +325,29 @@ Il modulo Writer Avro esegue due operazioni nella soluzione, ossia l'archiviazio
 
 ### <a name="bind-mount-for-data-files"></a>Bind mount per i file di dati
 
-Come accennato nell'introduzione, il modulo writer si basa sulla presenza del bind mount per scrivere i file Avro nel file system del dispositivo.
+Come accennato in precedenza, il modulo writer si basa sulla presenza del bind mount per scrivere i file Avro nel file system del dispositivo.
 
 #### <a name="add-directory-to-device"></a>Aggiungere la directory al dispositivo
 
-1. Connettersi alla VM del dispositivo IoT Edge tramite SSH.
+1. Nel portale di Azure avviare la VM del dispositivo IoT Edge se non è in esecuzione. Connettersi tramite SSH. Per la connessione è necessario il nome DNS che è possibile copiare dalla pagina di panoramica della macchina virtuale nel portale di Azure.
 
-   ```bash
-   ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
+   ```cmd
+   ssh -l <user>@<vm name>.<region>.cloudapp.azure.com
    ```
 
-2. Creare la directory in cui memorizzare i messaggi salvati dei dispositivi foglia.
+1. Dopo aver eseguito l'accesso, creare la directory in cui memorizzare i messaggi salvati dei dispositivi foglia.
 
    ```bash
    sudo mkdir -p /data/avrofiles
    ```
 
-3. Aggiornare le autorizzazioni per la directory per renderla scrivibile dal contenitore.
+1. Aggiornare le autorizzazioni per la directory per renderla scrivibile dal contenitore.
 
    ```bash
    sudo chmod ugo+rw /data/avrofiles
    ```
 
-4. Verificare se ora utente, gruppo e proprietario hanno autorizzazioni in scrittura (w) per la directory.
+1. Verificare se ora utente, gruppo e proprietario hanno autorizzazioni in scrittura (w) per la directory.
 
    ```bash
    ls -la /data
@@ -381,9 +359,9 @@ Come accennato nell'introduzione, il modulo writer si basa sulla presenza del bi
 
 Per aggiungere la directory al contenitore del modulo, i Dockerfile associati al modulo avroFileWriter verranno modificati. Al modulo sono associati tre Dockerfile: Dockerfile.amd64, Dockerfile.amd64.debug e Dockerfile.arm32v7. Questi file devono essere mantenuti sincronizzati nel caso si desideri eseguire il debug o la distribuzione in un dispositivo arm32. Per questo articolo, verrà usato solo Dockerfile.amd64.
 
-1. Nel computer di sviluppo aprire il file **Dockerfile.amd64**.
+1. Nella macchina virtuale di sviluppo aprire il file **C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avoFileWriter\Dockerfile.amd64**.
 
-2. Modificare il file in base all'esempio seguente:
+1. Modificare il file in base all'esempio seguente:
 
    ```dockerfile
    FROM ubuntu:xenial
@@ -408,9 +386,9 @@ Per aggiungere la directory al contenitore del modulo, i Dockerfile associati al
 
    I comandi `mkdir` e `chown` indicano al processo di compilazione Docker di creare una directory di primo livello denominata /avrofiles nell'immagine e quindi di impostare moduleuser come relativo proprietario. È importante inserire questi comandi dopo aver aggiunto l'utente del modulo all'immagine con il comando `useradd` e prima che il contesto passi a moduleuser (moduleuser USER).
 
-3. Apportare le modifiche corrispondenti nei file Dockerfile.amd64.debug e Dockerfile.arm32v7.
+1. Se necessario, apportare le modifiche corrispondenti nei file Dockerfile.amd64.debug e Dockerfile.arm32v7.
 
-#### <a name="update-the-module-configuration"></a>Aggiornare la configurazione del modulo
+#### <a name="add-bind-configuration-to-the-avrofilewriter"></a>Aggiungere la configurazione di binding a avroFileWriter
 
 Il passaggio finale nella creazione del bind consiste nell'aggiornare i file deployment.template.json e deployment.debug.template.json con le informazioni del bind.
 
@@ -437,8 +415,6 @@ Il passaggio finale nella creazione del bind consiste nell'aggiornare i file dep
    }
    ```
 
-3. Apportare le modifiche corrispondenti nel file deployment.debug.template.json.
-
 ### <a name="bind-mount-for-access-to-configyaml"></a>Bind mount per l'accesso a config.yaml
 
 È necessario aggiungere un altro bind per il modulo writer. Questo bind fornisce al modulo l'accesso per leggere la stringa di connessione del file /etc/iotedge/config.yaml nel dispositivo IoT Edge. La stringa di connessione è necessaria per creare un oggetto IoTHubClient, in modo da poter chiamare il metodo upload\_blob\_async per caricare i file nell'hub IoT. I passaggi per aggiungere questo bind sono simili a quelli della sezione precedente.
@@ -451,25 +427,25 @@ Il passaggio finale nella creazione del bind consiste nell'aggiornare i file dep
    ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
    ```
 
-2. Aggiungere l'autorizzazione in lettura per il file config.yaml.
+1. Aggiungere l'autorizzazione in lettura per il file config.yaml.
 
    ```bash
    sudo chmod +r /etc/iotedge/config.yaml
    ```
 
-3. Verificare se le autorizzazioni siano impostate correttamente.
+1. Verificare se le autorizzazioni siano impostate correttamente.
 
    ```bash
    ls -la /etc/iotedge/
    ```
 
-4. Assicurarsi che le autorizzazioni per config.yaml siano **-r--r--r--** .
+1. Assicurarsi che le autorizzazioni per config.yaml siano **-r--r--r--** .
 
 #### <a name="add-directory-to-module"></a>Aggiungere la directory al modulo
 
 1. Nel computer di sviluppo aprire il file **Dockerfile.amd64**.
 
-2. Aggiungere un altro set di comandi `mkdir` e `chown` al file in questo modo:
+1. Aggiungere un altro set di comandi `mkdir` e `chown` al file in questo modo:
 
    ```dockerfile
    FROM ubuntu:xenial
@@ -494,13 +470,13 @@ Il passaggio finale nella creazione del bind consiste nell'aggiornare i file dep
    CMD "python3", "-u", "./main.py"]
    ```
 
-3. Apportare le modifiche corrispondenti nei file Dockerfile.amd64.debug e Dockerfile.arm32v7.
+1. Apportare le modifiche corrispondenti nei file Dockerfile.amd64.debug e Dockerfile.arm32v7.
 
 #### <a name="update-the-module-configuration"></a>Aggiornare la configurazione del modulo
 
 1. Aprire il file **deployment.template.json**.
 
-2. Modificare la definizione del modulo avroFileWriter aggiungendo una seconda riga al parametro `Binds` che punta la directory del contenitore (/app/iotconfig) alla directory locale nel dispositivo (/etc/iotedge).
+1. Modificare la definizione del modulo avroFileWriter aggiungendo una seconda riga al parametro `Binds` che punta la directory del contenitore (/app/iotconfig) alla directory locale nel dispositivo (/etc/iotedge).
 
    ```json
    "avroFileWriter": {
@@ -522,7 +498,7 @@ Il passaggio finale nella creazione del bind consiste nell'aggiornare i file dep
    }
    ```
 
-3. Apportare le modifiche corrispondenti nel file deployment.debug.template.json.
+1. Apportare le modifiche corrispondenti nel file deployment.debug.template.json.
 
 ## <a name="install-dependencies"></a>Installare le dipendenze
 
@@ -530,14 +506,14 @@ Il modulo writer accetta una dipendenza da due librerie Python, fastavro e PyYAM
 
 ### <a name="pyyaml"></a>PyYAML
 
-1. Nel computer di sviluppo aprire il file **requirements.txt** e aggiungere pyyaml.
+1. Nel computer di sviluppo aprire il file `C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avoFileWriter\requirements.txt` e aggiungere "pyyaml" in una nuova riga.
 
    ```txt
    azure-iothub-device-client~=1.4.3
    pyyaml
    ```
 
-2. Aprire il file **Dockerfile.amd64** e aggiungere un comando `pip install` per aggiornare setuptools.
+1. Aprire il file **Dockerfile.amd64** e aggiungere un comando `pip install` per aggiornare setuptools.
 
    ```dockerfile
    FROM ubuntu:xenial
@@ -563,9 +539,7 @@ Il modulo writer accetta una dipendenza da due librerie Python, fastavro e PyYAM
    CMD [ "python3", "-u", "./main.py" ]
    ```
 
-3. Apportare le modifiche corrispondenti nel file Dockerfile.amd64.debug. <!--may not be necessary. Add 'if needed'?-->
-
-4. Installare pyyaml in locale aprendo un terminale in Visual Studio Code e digitando
+1. Al prompt dei comandi installare pyyaml nel computer di sviluppo.
 
    ```cmd
    pip install pyyaml
@@ -581,7 +555,7 @@ Il modulo writer accetta una dipendenza da due librerie Python, fastavro e PyYAM
    fastavro
    ```
 
-2. Installare fastavro nel computer di sviluppo usando il terminale di Visual Studio Code.
+1. Installare fastavro nel computer di sviluppo.
 
    ```cmd
    pip install fastavro
@@ -602,31 +576,31 @@ Con il router e il classificatore implementati, si dovrebbero ricevere messaggi 
 
 1. Nel portale di Azure passare all'hub IoT.
 
-2. Nel riquadro di spostamento sinistro scegliere **Routing messaggi**.
+1. Dal menu del riquadro sinistro, in **Messaggistica**, scegliere **Routing messaggi**.
 
-3. Selezionare **Aggiungi**.
+1. Nella scheda **Route** selezionare **Aggiungi**.
 
-4. Assegnare alla route il nome **RulMessageRoute**.
+1. Assegnare alla route il nome **RulMessageRoute**.
 
-5. Selezionare **Aggiungi** accanto al selettore **Endpoint** e scegliere **Archiviazione BLOB**.
+1. Selezionare **Aggiungi endpoint** accanto al selettore **Endpoint** e scegliere **Archiviazione**.
 
-6. Nel modulo **Aggiungi un endpoint di archiviazione** assegnare all'endpoint il nome **ruldata**.
+1. Nella pagina **Aggiungi un endpoint di archiviazione** assegnare all'endpoint il nome **ruldata**.
 
-7. Scegliere **Selezionare un contenitore**.
+1. Scegliere **Selezionare un contenitore**.
 
-8. Scegliere l'account di archiviazione usato in tutta l'esercitazione, denominato **iotedgeandml\<suffisso univoco\>** .
+1. Nella pagina **Account di archiviazione** individuare l'account di archiviazione in uso in questa esercitazione, denominato **iotedgeandml\<unique suffix\>** .
 
-9. Scegliere il contenitore **ruldata** e fare clic su **Seleziona**.
+1. Selezionare il contenitore **ruldata** e fare clic su **Seleziona**.
 
-10. Fare clic su **Crea** per creare l'endpoint di archiviazione.
+1. Tornare nella pagina **Aggiungi un endpoint di archiviazione** e selezionare **Crea** per creare l'endpoint di archiviazione.
 
-11. In **Query di routing** immettere la query seguente:
+1. Tornare nella pagina **Aggiungi una route** e per **Query di routing** sostituire `true` con la query seguente:
 
     ```sql
     IS_DEFINED($body.PredictedRul) AND NOT IS_DEFINED($body.OperationalSetting1)
     ```
 
-12. Espandere la sezione **Test** e quindi la sezione **Corpo del messaggio**. Sostituire il messaggio con questo esempio di messaggi previsti:
+1. Espandere la sezione **Test** e quindi la sezione **Corpo del messaggio**. Sostituire il corpo del messaggio con questo esempio di messaggi previsti:
 
     ```json
     {
@@ -637,25 +611,25 @@ Con il router e il classificatore implementati, si dovrebbero ricevere messaggi 
     }
     ```
 
-13. Selezionare **Testa route**. Se il test riesce, viene visualizzato il messaggio "Il messaggio corrisponde alla query".
+1. Selezionare **Testa route**. Se il test riesce, viene visualizzato il messaggio "Il messaggio corrisponde alla query".
 
-14. Fare clic su **Salva**.
+1. Fare clic su **Salva**.
 
-#### <a name="update-turbofandevicetostorage-route"></a>Aggiornare la route turbofanDeviceToStorage
+#### <a name="update-turbofandevicedatatostorage-route"></a>Aggiornare la route turbofanDeviceDataToStorage
 
 I nuovi dati di stima non dovranno essere instradati alla posizione di archiviazione precedente, quindi è necessario aggiornare la route per impedirlo.
 
 1. Nella pagina **Routing messaggi** dell'hub IoT selezionare la scheda **Route**.
 
-2. Selezionare **turbofanDeviceDataToStorage** o qualsiasi altro nome assegnato alla route iniziale dei dati dei dispositivi.
+1. Selezionare **turbofanDeviceDataToStorage** o qualsiasi altro nome assegnato alla route iniziale dei dati dei dispositivi.
 
-3. Aggiornare la query di routing in questo modo
+1. Aggiornare la query di routing in questo modo
 
    ```sql
    IS_DEFINED($body.OperationalSetting1)
    ```
 
-4. Espandere la sezione **Test** e quindi la sezione **Corpo del messaggio**. Sostituire il messaggio con questo esempio di messaggi previsti:
+1. Espandere la sezione **Test** e quindi la sezione **Corpo del messaggio**. Sostituire il messaggio con questo esempio di messaggi previsti:
 
    ```json
    {
@@ -689,23 +663,23 @@ I nuovi dati di stima non dovranno essere instradati alla posizione di archiviaz
    }
    ```
 
-5. Selezionare **Testa route**. Se il test riesce, viene visualizzato il messaggio "Il messaggio corrisponde alla query".
+1. Selezionare **Testa route**. Se il test riesce, viene visualizzato il messaggio "Il messaggio corrisponde alla query".
 
-6. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
 ### <a name="configure-file-upload"></a>Configurare il caricamento di file
 
 Configurare la funzionalità di caricamento file dell'hub IoT in modo da consentire al modulo writer di caricare file nello spazio di archiviazione.
 
-1. Nel riquadro di spostamento sinistro dell'hub IoT scegliere **Caricamento file**.
+1. Dal menu del riquadro sinistro nell'hub IoT, in **Messaggistica**, scegliere **Caricamento file**.
 
-2. Selezionare **Contenitore di archiviazione di Azure**.
+1. Selezionare **Contenitore di archiviazione di Azure**.
 
-3. Selezionare l'account di archiviazione dall'elenco.
+1. Selezionare l'account di archiviazione dall'elenco.
 
-4. Selezionare il contenitore **uploadturbofanfiles** e fare clic su **Seleziona**.
+1. Selezionare il contenitore che inizia con **azureml-blobstore** e termina con un GUID e fare clic su **Seleziona**.
 
-5. Selezionare **Salva**. Al termine del salvataggio, nel portale viene visualizzata una notifica.
+1. Selezionare **Salva**. Al termine del salvataggio, nel portale viene visualizzata una notifica.
 
 > [!Note]
 > Per questa esercitazione la notifica sul caricamento non è attivata, ma per informazioni su come gestirla vedere [Ricevere la notifica di caricamento di un file](../iot-hub/iot-hub-java-java-file-upload.md#receive-a-file-upload-notification).
@@ -740,7 +714,11 @@ Dopo aver apportato le modifiche di configurazione, è possibile creare le immag
 
 ### <a name="build-and-publish"></a>Compilare e pubblicare
 
-1. Nella VM di sviluppo aprire una finestra del terminale di Visual Studio Code e accedere al registro contenitori.
+1. Nella macchina virtuale di sviluppo avviare Docker se non è in esecuzione.
+
+1. In Visual Studio Code avviare un nuovo terminale con un prompt dei comandi e accedere al Registro Azure Container.
+
+  È possibile trovare i valori necessari di nome utente, password e server di accesso nel portale di Azure. Il formato del nome del registro contenitori è "turbofandemo\<unique id\>". Dal menu del riquadro sinistro, in **Impostazioni**, scegliere **Chiavi di accesso** per visualizzarle.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -752,15 +730,13 @@ Dopo aver apportato le modifiche di configurazione, è possibile creare le immag
 
 Dopo aver completato la compilazione, è possibile usare il portale di Azure per esaminare i moduli pubblicati.
 
-1. Nel portale di Azure passare all'area di lavoro di Machine Learning e fare clic sul collegamento ipertestuale **Registro**.
+1. Aprire il Registro Azure Container per questa esercitazione. Il formato del nome del registro contenitori è "turbofandemo\<unique id\>". 
 
-    ![Passare al registro dall'area di lavoro del servizio Machine Learning](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
+1. Dal menu del riquadro sinistro, in **Servizi**, scegliere **Repository**.
 
-2. Nel riquadro di spostamento laterale del registro selezionare **Repository**.
+1. Entrambi i moduli creati, **avrofilewriter** e **turbofanrouter**, vengono visualizzati come repository.
 
-3. Entrambi i moduli creati, **avrofilewriter** e **turbofanrouter**, vengono visualizzati come repository.
-
-4. Selezionare **turbofanrouter** e notare che è stata pubblicata un'immagine contrassegnata dal tag 0.0.1-amd64.
+1. Selezionare **turbofanrouter** e notare che è stata pubblicata un'immagine contrassegnata dal tag 0.0.1-amd64.
 
    ![Visualizzare la prima versione con tag di turbofanrouter](media/tutorial-machine-learning-edge-06-custom-modules/tagged-image-turbofanrouter-repo.png)
 
@@ -770,13 +746,13 @@ Una volta creati e configurati, i moduli della soluzione verranno distribuiti ne
 
 1. In Visual Studio Code fare clic con il pulsante destro del mouse sul file **deployment.amd64.json** nella cartella config.
 
-2. Scegliere **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo).
+1. Scegliere **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo).
 
-3. Scegliere il dispositivo IoT Edge, **aaTurboFanEdgeDevice**.
+1. Scegliere il dispositivo IoT Edge, **aaTurboFanEdgeDevice**.
 
-4. Aggiornare il pannello di dispositivi dell'hub IoT di Azure nella finestra di esplorazione di Visual Studio Code. Come si può notare, i tre nuovi moduli sono stati distribuiti ma non sono ancora in esecuzione.
+1. Aggiornare il pannello di dispositivi dell'hub IoT di Azure nella finestra di esplorazione di Visual Studio Code. Come si può notare, i tre nuovi moduli sono stati distribuiti ma non sono ancora in esecuzione.
 
-5. Aggiornare di nuovo dopo alcuni minuti per vedere i moduli in esecuzione.
+1. Aggiornare di nuovo dopo alcuni minuti per vedere i moduli in esecuzione.
 
    ![Visualizzazione dei moduli in esecuzione in Visual Studio Code](media/tutorial-machine-learning-edge-06-custom-modules/view-running-modules-list.png)
 
@@ -795,7 +771,13 @@ In questa sezione vengono descritte alcune tecniche per capire quale errore si �
 
 ### <a name="diagnosing-from-the-device"></a>Diagnosi dal servizio
 
-Accedendo al dispositivo IoT Edge, è possibile trovare numerose informazioni sullo stato dei moduli. Il meccanismo principale da usare è costituito dai comandi Docker che consentono di esaminare i contenitori e le immagini nel dispositivo.
+Accedendo al dispositivo IoT Edge (in questo caso la VM Linux), è possibile trovare numerose informazioni sullo stato dei moduli. Il meccanismo principale da usare è costituito dai comandi Docker che consentono di esaminare i contenitori e le immagini nel dispositivo.
+
+1. Accedere al dispositivo IoT Edge:
+
+   ```bash
+   ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
+   ```
 
 1. Elencare tutti i dispositivi in esecuzione. Si dovrebbe vedere un contenitore per ogni modulo con un nome che corrisponde al modulo. Inoltre, questo comando genera l'immagine esatta del contenitore, inclusa la versione, quindi è possibile verificare se corrisponde a quella prevista. È anche possibile elencare le immagini sostituendo "image" a "container" nel comando.
 
@@ -803,19 +785,19 @@ Accedendo al dispositivo IoT Edge, è possibile trovare numerose informazioni su
    sudo docker container ls
    ```
 
-2. Ottenere i log per un contenitore. L'output di questo comando include tutti i contenuti scritti in StdErr e StdOut nel contenitore. Questo comando funziona per i contenitori che sono stati avviati e poi si sono arrestati per qualche motivo. È anche utile per capire cosa succede nei contenitori edgeAgent o edgeHub.
+1. Ottenere i log per un contenitore. L'output di questo comando include tutti i contenuti scritti in StdErr e StdOut nel contenitore. Questo comando funziona per i contenitori che sono stati avviati e poi si sono arrestati per qualche motivo. È anche utile per capire cosa succede nei contenitori edgeAgent o edgeHub.
 
    ```bash
-   sudo docker container logs <container name>
+   sudo docker container logs <container id>
    ```
 
-3. Esaminare un contenitore. Questo comando fornisce moltissime informazioni sull'immagine. I dati possono essere filtrati in base all'informazione da cercare. Se ad esempio si vuole verificare se i bind di avroFileWriter sono corretti, è possibile usare il comando:
+1. Esaminare un contenitore. Questo comando fornisce moltissime informazioni sull'immagine. I dati possono essere filtrati in base all'informazione da cercare. Se ad esempio si vuole verificare se i bind di avroFileWriter sono corretti, è possibile usare il comando:
 
    ```bash
    sudo docker container inspect -f "{{ json .Mounts }}" avroFileWriter | python -m json.tool
    ```
 
-4. Connettersi a un contenitore in esecuzione. Questo comando può risultare utile se si vuole esaminare il contenitore durante l'esecuzione:
+1. Connettersi a un contenitore in esecuzione. Questo comando può risultare utile se si vuole esaminare il contenitore durante l'esecuzione:
 
    ```bash
    sudo docker exec -it avroFileWriter bash
@@ -823,9 +805,11 @@ Accedendo al dispositivo IoT Edge, è possibile trovare numerose informazioni su
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stata creata una soluzione IoT Edge in Visual Studio Code con tre moduli, ossia un classificatore, un router e un writer/strumento di caricamento file. Sono state configurate le route per consentire ai moduli di comunicare tra loro nel dispositivo Edge, è stata modificata la configurazione di tale dispositivo e sono stati aggiornati i Dockerfile per installare le dipendenze e aggiungere bind mount ai contenitori dei moduli. In seguito è stata aggiornata la configurazione dell'hub IoT per instradare i messaggi in base al tipo e per gestire il caricamento dei file. Dopo aver implementato il tutto, i moduli sono stati distribuiti nel dispositivo IoT Edge, verificando se vengono eseguiti correttamente.
+In questo articolo è stata creata una soluzione IoT Edge in Visual Studio Code con tre moduli, ossia un classificatore, un router e un writer/strumento di caricamento file. Sono state configurate le route per consentire le comunicazioni tra i moduli nel dispositivo perimetrale. È stata modificata la configurazione di tale dispositivo e sono stati aggiornati i Dockerfile per installare le dipendenze e aggiungere bind mount ai contenitori dei moduli. 
 
-Altre informazioni sono disponibili nelle pagine seguenti:
+In seguito è stata aggiornata la configurazione dell'hub IoT per instradare i messaggi in base al tipo e per gestire il caricamento dei file. Dopo aver implementato il tutto, i moduli sono stati distribuiti nel dispositivo IoT Edge, verificando se vengono eseguiti correttamente.
+
+Per altre indicazioni, vedere gli articoli seguenti:
 
 * [Informazioni su come distribuire moduli e definire route in IoT Edge](module-composition.md)
 * [Sintassi query per il routing dei messaggi di hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md)

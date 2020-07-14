@@ -4,23 +4,23 @@ description: Questa esercitazione mostra come usare il computer di sviluppo come
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 50f339b257110f0a5dc0ac08b9f40043ee384afb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dca903591c5d6805108d55163aaedc2435d9297e
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74706899"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610081"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Esercitazione: Inviare i dati tramite un gateway trasparente
 
 > [!NOTE]
 > Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per avere risultati ottimali.
 
-In questo articolo viene usato di nuovo il computer di sviluppo come dispositivo simulato ma, invece di inviare i dati direttamente all'hub IoT, il dispositivo li invia al dispositivo IoT Edge configurato come gateway trasparente.
+In questo articolo si usa di nuovo la macchina virtuale di sviluppo come dispositivo simulato. Tuttavia, invece di inviare i dati direttamente all'hub IoT, il dispositivo li invia al dispositivo IoT Edge configurato come gateway trasparente.
 
 Il funzionamento del dispositivo IoT Edge viene monitorato mentre il dispositivo simulato invia i dati. Al termine dell'esecuzione del dispositivo, i dati nell'account di archiviazione vengono esaminati per verificare che tutto abbia funzionato come previsto.
 
@@ -30,22 +30,22 @@ Questo passaggio viene in genere eseguito da uno sviluppatore per il cloud o per
 
 Riutilizzare il [progetto DeviceHarness](tutorial-machine-learning-edge-03-generate-data.md) per simulare il dispositivo downstream (o foglia). Per la connessione al gateway trasparente è necessario eseguire altre due operazioni:
 
-* Registrare il certificato in modo che il dispositivo downstream (in questo caso il computer di sviluppo) consideri attendibile l'autorità di certificazione usata dal runtime IoT Edge.
+* Registrare il certificato in modo che il dispositivo IoT downstream consideri attendibile l'autorità di certificazione usata dal runtime IoT Edge. In questo caso, il dispositivo downstream è la macchina virtuale di sviluppo.
 * Aggiungere il nome di dominio completo (FQDN) del gateway perimetrale alla stringa di connessione del dispositivo.
 
 Osservare il codice per vedere come vengono implementati questi due elementi.
 
 1. Nel computer di sviluppo aprire Visual Studio Code.
 
-2. Usare **File** > **Apri cartella** per aprire C:\\source\\IoTEdgeAndMlSample\\DeviceHarness.
+1. Usare **File** > **Apri cartella** per aprire C:\\source\\IoTEdgeAndMlSample\\DeviceHarness.
 
-3. Osservare il metodo InstallCertificate() in Program.cs.
+1. Osservare il metodo InstallCertificate() in Program.cs.
 
-4. Se il codice trova il percorso del certificato, chiama il metodo CertificateManager.InstallCACert per installare il certificato nel computer.
+1. Se il codice trova il percorso del certificato, chiama il metodo CertificateManager.InstallCACert per installare il certificato nel computer.
 
-5. Osservare ora il metodo GetIotHubDevice nella classe TurbofanDevice.
+1. Osservare ora il metodo GetIotHubDevice nella classe TurbofanDevice.
 
-6. Quando l'utente specifica l'FQDN del gateway usando l'opzione "-g", tale valore viene passato a questo metodo come gatewayFqdn, che viene accodato alla stringa di connessione del dispositivo.
+1. Quando l'utente specifica il nome FQDN del gateway usando l'opzione "-g", tale valore viene passato a questo metodo come variabile `gatewayFqdn`, che viene accodata alla stringa di connessione del dispositivo.
 
    ```csharp
    connectionString = $"{connectionString};GatewayHostName={gatewayFqdn.ToLower()}";
@@ -53,21 +53,23 @@ Osservare il codice per vedere come vengono implementati questi due elementi.
 
 ## <a name="build-and-run-leaf-device"></a>Creare ed eseguire il dispositivo foglia
 
-1. Con il progetto DeviceHarness ancora aperto in Visual Studio Code, compilare il progetto (CTRL+MAIUSC+B o **Terminale** > **Esegui attività di compilazione**) e selezionare **Compila** nella finestra di dialogo.
+1. Con il progetto DeviceHarness ancora aperto in Visual Studio Code, creare il progetto. Dal menu **Terminale** scegliere **Esegui attività di compilazione** e selezionare **Compila**.
 
-2. Trovare il nome di dominio completo (FQDN) del gateway perimetrale passando alla macchina virtuale del dispositivo IoT Edge nel portale e copiando il valore per **Nome DNS** dalla panoramica.
+1. Trovare il nome di dominio completo (FQDN) del gateway perimetrale passando al dispositivo IoT Edge (VM Linux) nel portale di Azure e copiando il valore di **Nome DNS** dalla pagina di panoramica.
 
-3. Aprire il terminale di Visual Studio Code (**Terminale** > **Nuovo terminale**) ed eseguire il comando seguente, sostituendo `<edge_device_fqdn>` con il nome DNS copiato dalla macchina virtuale:
+1. Avviare il dispositivo IoT (VM Linux) se non è già in esecuzione.
+
+1. Aprire il terminale di Visual Studio Code. Dal menu **Terminale** scegliere **Nuovo terminale**  ed eseguire il comando seguente, sostituendo `<edge_device_fqdn>` con il nome DNS copiato dal dispositivo IoT Edge (VM Linux):
 
    ```cmd
    dotnet run -- --gateway-host-name "<edge_device_fqdn>" --certificate C:\edgecertificates\certs\azure-iot-test-only.root.ca.cert.pem --max-devices 1
    ```
 
-4. L'applicazione prova a installare il certificato nel computer di sviluppo. Quando ci riesce, accettare l'avviso di sicurezza.
+1. L'applicazione prova a installare il certificato nel computer di sviluppo. Quando ci riesce, accettare l'avviso di sicurezza.
 
-5. Quando viene richiesta la stringa di connessione per l'hub IoT, fare clic sui puntini di sospensione ( **...** ) nel pannello dei dispositivi dell'hub Azure IoT e selezionare **Copy IoT Hub Connection String** (Copia stringa di connessione hub IoT). Incollare il valore nel terminale.
+1. Quando viene richiesta la stringa di connessione per l'hub IoT, fare clic sui puntini di sospensione ( **...** ) nel pannello dei dispositivi dell'hub Azure IoT e scegliere **Copy IoT Hub Connection String** (Copia stringa di connessione hub IoT). Incollare il valore nel terminale.
 
-6. L'output sarà simile al seguente:
+1. L'output sarà simile al seguente:
 
    ```output
    Found existing device: Client_001
@@ -89,13 +91,13 @@ L'output proveniente dal modulo avroFileWriter può essere osservato guardando i
 
 1. Usare SSH per connettersi alla macchina virtuale IoT Edge.
 
-2. Cercare i file scritti su disco.
+1. Cercare i file scritti su disco.
 
    ```bash
    find /data/avrofiles -type f
    ```
 
-3. L'output del comando sarà simile all'esempio seguente:
+1. L'output del comando sarà simile all'esempio seguente:
 
    ```output
    /data/avrofiles/2019/4/18/22/10.avro
@@ -103,9 +105,9 @@ L'output proveniente dal modulo avroFileWriter può essere osservato guardando i
 
    Può accadere che sia presente più di un singolo file a seconda dell'ora di esecuzione.
 
-4. Prestare attenzione ai timestamp. Il modulo avroFileWriter carica i file nel cloud quando l'ultima ora di modifica è trascorsa da più di 10 minuti (vedere MODIFIED\_FILE\_TIMEOUT in uploader.py nel modulo avroFileWriter).
+1. Prestare attenzione ai timestamp. Il modulo avroFileWriter carica i file nel cloud quando l'ultima ora di modifica è trascorsa da più di 10 minuti (vedere MODIFIED\_FILE\_TIMEOUT in uploader.py nel modulo avroFileWriter).
 
-5. Trascorsi 10 minuti, il modulo dovrebbe caricare i file. Se il caricamento ha esito positivo, elimina i file dal disco.
+1. Trascorsi 10 minuti, il modulo dovrebbe caricare i file. Se il caricamento ha esito positivo, elimina i file dal disco.
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
@@ -113,19 +115,19 @@ L'output proveniente dal modulo avroFileWriter può essere osservato guardando i
 
 1. Nel computer di sviluppo aprire Visual Studio Code.
 
-2. Nel pannello "ARCHIVIAZIONE DI AZURE", nella finestra di esplorazione, scorrere l'albero per trovare il proprio account di archiviazione.
+1. Nel pannello "ARCHIVIAZIONE DI AZURE", nella finestra di esplorazione, scorrere l'albero per trovare il proprio account di archiviazione.
 
-3. Espandere il nodo **Contenitori BLOB**.
+1. Espandere il nodo **Contenitori BLOB**.
 
-4. In base al lavoro svolto nella parte precedente dell'esercitazione, si prevede che il contenitore **ruldata** includa i messaggi con la vita utile rimanente. Espandere il nodo **ruldata**.
+1. In base al lavoro svolto nella parte precedente dell'esercitazione, si prevede che il contenitore **ruldata** includa i messaggi con la vita utile rimanente. Espandere il nodo **ruldata**.
 
-5. Verranno visualizzati uno o più file BLOB denominati come segue: `<IoT Hub Name>/<partition>/<year>/<month>/<day>/<hour>/<minute>`.
+1. Verranno visualizzati uno o più file BLOB denominati come segue: `<IoT Hub Name>/<partition>/<year>/<month>/<day>/<hour>/<minute>`.
 
-6. Fare clic con il pulsante destro del mouse su uno dei file e scegliere **Scarica BLOB** per salvare il file nel computer di sviluppo.
+1. Fare clic con il pulsante destro del mouse su uno dei file e scegliere **Scarica BLOB** per salvare il file nel computer di sviluppo.
 
-7. Espandere quindi il nodo **uploadturbofanfiles**. Nell'articolo precedente è stata impostata questa posizione come destinazione per i file caricati dal modulo avroFileWriter.
+1. Espandere quindi il nodo **uploadturbofanfiles**. Nell'articolo precedente è stata impostata questa posizione come destinazione per i file caricati dal modulo avroFileWriter.
 
-8. Fare clic con il pulsante destro del mouse sui file e scegliere **Scarica BLOB** per salvarlo nel computer di sviluppo.
+1. Fare clic con il pulsante destro del mouse sui file e scegliere **Scarica BLOB** per salvarlo nel computer di sviluppo.
 
 ### <a name="read-avro-file-contents"></a>Leggere il contenuto del file Avro
 
@@ -133,19 +135,19 @@ L'output proveniente dal modulo avroFileWriter può essere osservato guardando i
 
 1. Aprire una finestra del terminale in Visual Studio Code (**Terminale** > **Nuovo terminale**).
 
-2. Installare hubavroreader:
+1. Installare hubavroreader:
 
    ```cmd
    pip install c:\source\IoTEdgeAndMlSample\HubAvroReader
    ```
 
-3. Usare hubavroreader per leggere il file Avro scaricato da **ruldata**.
+1. Usare hubavroreader per leggere il file Avro scaricato da **ruldata**.
 
    ```cmd
    hubavroreader <avro file with ath> | more
    ```
 
-4. Notare che il corpo del messaggio ha l'aspetto atteso con l'ID dispositivo e la vita utile rimanente prevista.
+1. Notare che il corpo del messaggio ha l'aspetto atteso con l'ID dispositivo e la vita utile rimanente prevista.
 
    ```json
    {
@@ -176,9 +178,9 @@ L'output proveniente dal modulo avroFileWriter può essere osservato guardando i
    }
    ```
 
-5. Eseguire lo stesso comando passando il file Avro scaricato da **uploadturbofanfiles**.
+1. Eseguire lo stesso comando passando il file Avro scaricato da **uploadturbofanfiles**.
 
-6. Come previsto, questi messaggi contengono tutti i dati dei sensori e le impostazioni operative del messaggio originale. Questi dati potrebbero essere usati per migliorare il modello relativo alla vita utile rimanente nel dispositivo perimetrale.
+1. Come previsto, questi messaggi contengono tutti i dati dei sensori e le impostazioni operative del messaggio originale. Questi dati potrebbero essere usati per migliorare il modello relativo alla vita utile rimanente nel dispositivo perimetrale.
 
    ```json
    {
@@ -219,19 +221,19 @@ L'output proveniente dal modulo avroFileWriter può essere osservato guardando i
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si intende esplorare le risorse usate da questa esercitazione end-to-end, attendere fino alla fine per pulire le risorse create. Se non si prevede di continuare, usare i passaggi seguenti per eliminarle:
+Se si intende esplorare le risorse usate da questa esercitazione end-to-end, attendere fino alla fine per pulire le risorse create. In caso contrario, seguire questa procedura per eliminarle:
 
 1. Eliminare i gruppi di risorse creati per contenere la macchina virtuale di sviluppo, la macchina virtuale IoT Edge, l'hub IoT, l'account di archiviazione, l'area di lavoro del servizio Machine Learning (e le risorse create, ovvero registro contenitori, informazioni dettagliate sull'applicazione, insieme di credenziali delle chiavi e account di archiviazione).
 
-2. Eliminare il progetto di Machine Learning nei [notebook di Azure](https://notebooks.azure.com).
+1. Eliminare il progetto di Machine Learning nei [notebook di Azure](https://notebooks.azure.com).
 
-3. Se il repository è stato clonato localmente, chiudere le eventuali finestre di PowerShell o VS Code che fanno riferimento al repository locale e quindi eliminare la directory del repository.
+1. Se il repository è stato clonato localmente, chiudere le eventuali finestre di PowerShell o VS Code che fanno riferimento al repository locale e quindi eliminare la directory del repository.
 
-4. Se i certificati sono stati creati localmente, eliminare la cartella c:\\edgeCertificates.
+1. Se i certificati sono stati creati localmente, eliminare la cartella c:\\edgeCertificates.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo il computer di sviluppo è stato usato per simulare un dispositivo foglia che invia i dati dei sensori e i dati operativi al dispositivo perimetrale. È stato verificato che i moduli nel dispositivo abbiano instradato, classificato, salvato in modo permanente e caricato i dati prima esaminando il funzionamento in tempo reale del dispositivo perimetrale e quindi guardando i file caricati nell'account di archiviazione.
+In questo articolo è stata usata la VM di sviluppo per simulare un dispositivo foglia che invia i dati dei sensori e i dati operativi al dispositivo IoT Edge. È stato verificato che i moduli nel dispositivo abbiano instradato, classificato, salvato in modo permanente e caricato i dati prima esaminando il funzionamento in tempo reale del dispositivo perimetrale e quindi controllando i file caricati nell'account di archiviazione.
 
 Altre informazioni sono disponibili nelle pagine seguenti:
 

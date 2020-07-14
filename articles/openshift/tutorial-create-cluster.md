@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f8b34f1678d39471a1d0b91756ac93a01cbfedba
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800172"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985689"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Esercitazione: Creare un cluster di Azure Red Hat OpenShift 4
 
@@ -26,7 +26,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ### <a name="verify-your-permissions"></a>Verificare le autorizzazioni
 
-Per creare un cluster Azure Red Hat OpenShift, verificare le autorizzazioni seguenti per l'utente e l'account Azure:
+Per creare un cluster Azure Red Hat OpenShift, verificare le autorizzazioni seguenti per la sottoscrizione di Azure, l'utente di Azure Active Directory o l'entità servizio:
 
 |Autorizzazioni|Gruppo di risorse che contiene la rete virtuale|Utente che esegue `az aro create`|Entità servizio passata come `–client-id`|
 |----|:----:|:----:|:----:|

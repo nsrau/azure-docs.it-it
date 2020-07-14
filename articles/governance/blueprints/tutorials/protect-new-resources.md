@@ -3,16 +3,16 @@ title: 'Esercitazione: Proteggere le nuove risorse con blocchi'
 description: Questa esercitazione illustra come usare i blocchi delle risorse in Azure Blueprints in modalità Sola lettura e Non eliminare per proteggere le risorse appena distribuite.
 ms.date: 05/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: 90ffb0f5b8c1b6d3919b05abf778c5082bfee0dc
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864165"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969642"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Esercitazione: Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints
 
-Il [blocco delle risorse](../concepts/resource-locking.md) di Azure Blueprints consente di proteggere le risorse appena distribuite da eventuali manomissioni, anche da parte di un account con il ruolo _Proprietario_. È possibile aggiungere questo tipo di protezione per le risorse create da un elemento del modello di Resource Manager nelle definizioni del progetto.
+Il [blocco delle risorse](../concepts/resource-locking.md) di Azure Blueprints consente di proteggere le risorse appena distribuite da eventuali manomissioni, anche da parte di un account con il ruolo _Proprietario_. È possibile aggiungere questo tipo di protezione nelle definizioni del progetto delle risorse create da un artefatto del modello di Azure Resource Manager.
 
 In questa esercitazione si completeranno i passaggi seguenti:
 
@@ -55,8 +55,7 @@ Creare prima la definizione di progetto.
 1. Aggiungere un modello nel gruppo di risorse:
    1. Selezionare la riga **Aggiungi artefatto** sotto la voce **RGtoLock**.
    1. Selezionare **Modello di Azure Resource Manager** in **Tipo di artefatto**, impostare **Nome visualizzato dell'artefatto** su **Account di archiviazione** e lasciare vuoto il campo **Descrizione**.
-   1. Nella scheda **Modello** incollare il modello di Resource Manager seguente nella casella dell'editor.
-      Dopo aver incollato il modello, selezionare **Aggiungi** per aggiungere l'artefatto al progetto.
+   1. Nella scheda **Modello** incollare il modello di Resource Manager seguente nella casella dell'editor. Dopo aver incollato il modello, selezionare **Aggiungi** per aggiungere l'artefatto al progetto.
 
    ```json
    {

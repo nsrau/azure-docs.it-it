@@ -1,19 +1,19 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4bcee1097010bb8746b11185a470ca2584485c3f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ac23912b12bc6c7fcd40d7433cb4e2d257eeb5d0
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73488868"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563048"
 ---
 1. Nella pagina del portale per la rete WAN virtuale, nella sezione **Connettività** selezionare **Siti VPN** per aprire la pagina Siti VPN.
 2. Nella pagina **Siti VPN** fare clic su **+Crea sito**.
@@ -34,7 +34,12 @@ ms.locfileid: "73488868"
     * **Nome collegamento** - Nome che si desidera fornire per il collegamento fisico al sito VPN. Esempio: mylink1.
     * **Nome provider** - Nome del collegamento fisico al sito VPN. Esempio: ATT, Verizon.
     * **Velocità** - Velocità del dispositivo VPN in corrispondenza della località del ramo. Esempio: 50, che indica 50 Mbps è la velocità del dispositivo VPN nella sede del ramo.
-    * **Indirizzo IP** - Indirizzo IP pubblico del dispositivo locale usando questo collegamento. Facoltativamente, è possibile specificare l'indirizzo IP privato del dispositivo VPN locale che si trova dietro ExpressRoute.
+    * **Indirizzo IP/FQDN** - Indirizzo IP pubblico del dispositivo locale con questo collegamento. Facoltativamente, è possibile specificare l'indirizzo IP privato del dispositivo VPN locale che si trova dietro ExpressRoute. È anche possibile includere un nome di dominio completo. Ad esempio, *something.contoso.com*. Il nome FQDN deve essere risolvibile dal gateway VPN. Questo è possibile se il server DNS che ospita questo nome FQDN è raggiungibile tramite Internet. L'indirizzo IP ha la precedenza quando vengono specificati sia l'indirizzo IP che il nome FQDN.
+
+      >[!NOTE]
+      >* È supportato un unico indirizzo IPv4 per ogni nome FQDN. Se il nome FQDN deve essere risolto in più indirizzo IP, il gateway VPN preleva il primo indirizzo IP4 dall'elenco. Gli indirizzi IPv6 non sono supportati al momento.
+      >* Il gateway VPN mantiene una cache DNS che viene aggiornata ogni 5 minuti. Il gateway tenta di risolvere i nomi FQDN solo per i tunnel disconnessi. Anche una reimpostazione del gateway o una modifica di configurazione può attivare la risoluzione del nome FQDN.
+      >
 5. Per eliminare o aggiungere altri collegamenti, è possibile utilizzare la casella di controllo. Sono supportati quattro collegamenti per sito VPN. Se, ad esempio, si dispone di quattro provider di servizi Internet (ISP) nella posizione del ramo, è possibile creare quattro collegamenti: uno per ogni ISP e fornire le informazioni per ogni collegamento.
 6. Al termine della compilazione dei campi, selezionare **Rivedi + crea** per verificare e creare il sito.
 7. Visualizzare lo stato della pagina Siti VPN. Il sito passerà a **Connessione necessaria** perché il sito non è ancora stato collegato all'hub.

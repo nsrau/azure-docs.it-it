@@ -3,12 +3,12 @@ title: 'Criterio: Distribuire le risorse con una definizione di criteri'
 description: Questo modello di Criteri di Azure fornisce un esempio di come distribuire risorse con una definizione di criteri.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: a8b6528afbd21c7c667e48965574c9b48c403654
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7ce93f4895a86905cd31889e853f95a3de640b13
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77169989"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970859"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Modello di Criteri di Azure: distribuire risorse
 

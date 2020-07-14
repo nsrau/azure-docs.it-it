@@ -4,14 +4,14 @@ description: Questa esercitazione illustra come aumentare e ridurre il numero di
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788822"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611646"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: ridimensionare un cluster di Service Fabric in Azure
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: Ridimensionare un cluster di Service Fabric in Azure
 
 Questa esercitazione è la terza di una serie e illustra come aumentare e ridurre il numero di istanze del cluster esistente. Al termine, si riuscirà a ridimensionare il cluster e a pulire le risorse rimaste.  Per altre informazioni sul ridimensionamento di un cluster in esecuzione in Azure, vedere [Ridimensionamento dei cluster di Service Fabric](service-fabric-cluster-scaling.md).
 
@@ -33,7 +33,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
@@ -833,13 +833,12 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Aumentare le risorse dei nodi 
-Dopo aver creato un cluster di Service Fabric, è possibile scalare un tipo di nodo del cluster in verticale (modificare le risorse dei nodi) o aggiornare il sistema operativo delle macchine virtuali del tipo di nodo.  
+Dopo aver creato un cluster di Service Fabric, è possibile aumentare un tipo di nodo del cluster in verticale (cambiare le risorse dei nodi) o aggiornare il sistema operativo delle macchine virtuali del tipo di nodo sostituendo il tipo di nodo originale con un nuovo (con un'immagine del sistema operativo o uno SKU di VM aggiornato). Per altre informazioni, vedere [Aumentare le prestazioni di un tipo di nodo di Azure Service Fabric](service-fabric-scale-up-node-type.md).
 
-> [!WARNING]
-> È consigliabile non modificare lo SKU della macchina virtuale di un tipo di nodo o set di scalabilità, a meno che non sia in esecuzione al livello di durabilità Silver o superiore. La modifica delle dimensioni dello SKU della macchina virtuale è un'operazione dell'infrastruttura sul posto distruttiva per i dati. Senza la capacità di ritardare o monitorare questa modifica, è possibile che l'operazione causi una perdita di dati per i servizi con stato o provochi altri problemi operativi non previsti, anche per i carichi di lavoro senza stato.
+> [!IMPORTANT]
+> Non tentare mai una modifica sul posto dello SKU della VM o dell'immagine del sistema operativo, perché si tratta di un'operazione pericolosa e non supportata.
 
-> [!WARNING]
-> È consigliabile non modificare lo SKU della macchina virtuale del tipo di nodo primario essendo un'operazione pericolosa e non supportata.  Se occorre maggiore capacità del cluster, è possibile aggiungere altre istanze di macchine virtuali o altri tipi di nodo.  Se ciò non è possibile, creare un nuovo cluster e [ripristinare lo stato dell'applicazione](service-fabric-reliable-services-backup-restore.md) (se applicabile) dal cluster precedente.  Se ciò non è possibile, [modificare lo SKU della macchina virtuale del tipo di nodo primario](service-fabric-scale-up-node-type.md).
+Se non è possibile, creare un nuovo cluster e [ripristinare lo stato dell'applicazione](service-fabric-reliable-services-backup-restore.md) (se applicabile) dal cluster precedente. Non è necessario ripristinare lo stato dei servizi di sistema, perché verrà ricreato quando si distribuiscono le applicazioni nel nuovo cluster. Se nel cluster venivano eseguite solo applicazioni senza stato, è sufficiente distribuire le applicazioni nel nuovo cluster, non sono necessarie operazioni di ripristino.
 
 ### <a name="update-the-template"></a>Aggiornare il modello
 
@@ -873,19 +872,7 @@ Procedere quindi con l'esercitazione seguente per scoprire come aggiornare il ru
 > [!div class="nextstepaction"]
 > [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-
-> * Aggiungere e rimuovere tipi di nodo (aumento e riduzione)
-> * Aumentare le risorse dei nodi (aumento)
-
-Procedere quindi con l'esercitazione seguente per scoprire come aggiornare il runtime di un cluster.
-> [!div class="nextstepaction"]
-> [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
-
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

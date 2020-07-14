@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Predictix Assortment Planning | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Predictix Assortment Planning | Microsoft Docs'
 description: In questa esercitazione si apprenderà come configurare l'accesso Single Sign-On tra Azure Active Directory e Predictix Assortment Planning.
 services: active-directory
 documentationCenter: na
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: bc3ea2f6fddc233a69d96c0c885ab310ed1e77c2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: be1aa932e246992bd5826ac502ab2ac5b8d52ddf
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67094160"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Esercitazione: Integrazione di Azure Active Directory con Predictix Assortment Planning
 
-In questa esercitazione si apprenderà come integrare Predictix Assortment Planning con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare Predictix Assortment Planning con Azure Active Directory (Azure AD).
 Questa integrazione offre i seguenti vantaggi:
 
 * È possibile usare Azure AD per controllare chi può accedere a Predictix Assortment Planning.
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Acces
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Predictix Assortment Planning è necessario avere:
 
@@ -50,7 +50,7 @@ In questa esercitazione verranno eseguiti la configurazione e il test dell'acces
 
 ## <a name="add-predictix-assortment-planning-from-the-gallery"></a>Aggiungere Predictix Assortment Planning dalla raccolta
 
-Per configurare l'integrazione di Predictix Assortment Planning in Azure AD, è necessario aggiungere Predictix Assortment Planning dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Predictix Assortment Planning in Azure AD, è necessario aggiungere Predictix Assortment Planning dalla raccolta all'elenco di app SaaS gestite.
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** nel riquadro sinistro:
 
@@ -106,19 +106,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con Predictix Assortment Pl
 
     1. Nella casella **URL di accesso** immettere un URL nel formato seguente:
 
-       | |
-        |--|
-        | `https://<sub-domain>.ap.predictix.com/sso/request`|
-        | `https://<sub-domain>.dev.ap.predictix.com/`|
-        | |
+        ```https
+        https://<sub-domain>.ap.predictix.com/sso/request
+        https://<sub-domain>.dev.ap.predictix.com/
+        ```
 
     1. Nella casella **Identificatore (ID entità)** immettere un URL nel formato seguente:
 
-        | |
-        |--|
-        | `https://<sub-domain>.ap.predictix.com`|
-        | `https://<sub-domain>.dev.ap.predictix.com`|
-        | |
+        ```https
+        https://<sub-domain>.ap.predictix.com
+        https://<sub-domain>.dev.ap.predictix.com
+        ```
 
     > [!NOTE]
     > Questi valori sono segnaposto. Usare l'identificatore e l'URL di accesso effettivi. Per ottenere i valori, contattare il [team di supporto di Predictix Assortment Planning](https://www.infor.com/support). È anche possibile fare riferimento ai modelli disponibili nella finestra di dialogo **Configurazione SAML di base** del portale di Azure.
@@ -159,11 +157,11 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Nella casella **Nome** immettere **BrittaSimon**.
   
-    1. Nella casella **Nome utente** immettere **BrittaSimon@\<dominioaziendale>.\<estensione>** , ad esempio BrittaSimon@contoso.com.
+    1. Nella casella **Nome utente** immettere **BrittaSimon@\<yourcompanydomain>.\<extension>** . ad esempio BrittaSimon@contoso.com.
 
-    1. Selezionare **Mostra password**, quindi prendere nota del valore visualizzato nella casella **Password**.
+    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create** (Crea).
+    1. Selezionare **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
@@ -191,7 +189,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
-### <a name="create-a-predictix-assortment-planning-test-user"></a>Creare un utente test di Predictix Assortment Planning
+### <a name="create-a-predictix-assortment-planning-test-user"></a>Creare un utente di test di Predictix Assortment Planning
 
 A questo punto occorre creare un utente di nome Britta Simon in Predictix Assortment Planning. Collaborare con il [team di supporto di Predictix Assortment Planning](https://www.infor.com/support) per aggiungere utenti. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
@@ -202,7 +200,7 @@ A questo punto occorre creare un utente di nome Britta Simon in Predictix Assort
 
 Il passaggio finale consiste nel testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di Predictix Assortment Planning nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza dell'applicazione Predictix Assortment Planning per cui si è configurato l'accesso Single Sign-On. Per altre informazioni, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Predictix Assortment Planning nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Predictix Assortment Planning per cui si è configurato l'accesso Single Sign-On. Per altre informazioni, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -1,24 +1,21 @@
 ---
-title: Creare un archivio conoscenze (anteprima) con REST
+title: Creare un archivio conoscenze con REST
 titleSuffix: Azure Cognitive Search
-description: Usare l'API REST e Postman per creare un archivio conoscenze di Ricerca cognitiva di Azure per salvare in modo permanente gli arricchimenti da una pipeline di arricchimento tramite intelligenza artificiale. Questa funzionalità è attualmente in anteprima pubblica.
+description: Usare l'API REST e Postman per creare un archivio conoscenze di Ricerca cognitiva di Azure per salvare in modo permanente gli arricchimenti da una pipeline di arricchimento tramite intelligenza artificiale.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: f030fc81ab33ecd0531040662346e1ed44f5d17c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.date: 06/30/2020
+ms.openlocfilehash: f496413cf1a5175cee65bce46a2f7f6260d5451d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263025"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565228"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Creare un archivio conoscenze con REST e Postman
-
-> [!IMPORTANT] 
-> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
 L'archivio conoscenze contiene l'output di una pipeline di arricchimento di Ricerca cognitiva di Azure per l'analisi successiva o l'ulteriore elaborazione downstream. Una pipeline arricchita tramite intelligenza artificiale accetta file di immagine o file di testo non strutturati, li indicizza tramite Ricerca cognitiva di Azure, applica gli arricchimenti di intelligenza artificiale di Servizi cognitivi (come l'analisi delle immagini e l'elaborazione del linguaggio naturale) e quindi salva i risultati in un archivio conoscenze in Archiviazione di Azure. È possibile usare strumenti come Power BI o Storage Explorer nel portale di Azure per esplorare l'archivio conoscenze.
 
@@ -81,7 +78,7 @@ Per ottenere il valore per `admin-key`, passare al servizio Ricerca cognitiva di
 | Variabile    | Informazioni sulla collocazione |
 |-------------|-----------------|
 | `admin-key` | Nella pagina **Chiavi** del servizio Ricerca cognitiva di Azure.  |
-| `api-version` | Lasciare **2019-05-06-Preview**. |
+| `api-version` | Lasciare **2020-06-30**. |
 | `datasource-name` | Lasciare **hotel-reviews-ds**. | 
 | `indexer-name` | Lasciare **hotel-reviews-ixr**. | 
 | `index-name` | Lasciare **hotel-reviews-ix**. | 

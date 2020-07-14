@@ -1,6 +1,6 @@
 ---
-title: Esercitazione sulla rotazione per utente singolo/password singola
-description: Questa esercitazione illustra come automatizzare la rotazione di un segreto per le risorse che usano l'autenticazione utente singolo/password singola.
+title: Esercitazione sulla rotazione per le risorse con un set di credenziali di autenticazione
+description: Questa esercitazione illustra come automatizzare la rotazione di un segreto per le risorse che usano un unico set di credenziali di autenticazione.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9c0dca29d173eb2c7893a20b2ab41dd31522e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bff8c040f4cfed612278dd83ebb354b31a3a1f3
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183212"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801445"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>Automatizzare la rotazione di un segreto per le risorse con autenticazione utente singolo/password singola
+# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizzare la rotazione di un segreto per le risorse che usano un unico set di credenziali di autenticazione
 
 Sebbene il modo migliore per eseguire l'autenticazione ai servizi di Azure preveda l'utilizzo di un'[identità gestita](../general/managed-identity.md), esistono alcuni scenari in cui questa alternativa non è disponibile. In questi casi, si usano chiavi di accesso o segreti. Le chiavi di accesso o i segreti necessitano di una rotazione periodica.
 
-Questa esercitazione illustra come automatizzare la rotazione periodica dei segreti per i database e i servizi con autenticazione utente singolo/password singola. In particolare, questo scenario consente di ruotare le password di SQL Server archiviate in Azure Key Vault usando una funzione attivata da una notifica di Griglia di eventi di Azure:
+Questa esercitazione illustra come automatizzare la rotazione periodica dei segreti per i database e i servizi che usano un unico set di credenziali di autenticazione. In particolare, questo scenario consente di ruotare le password di SQL Server archiviate in Azure Key Vault usando una funzione attivata da una notifica di Griglia di eventi di Azure:
 
 ![Diagramma della soluzione di rotazione](../media/rotate1.png)
 

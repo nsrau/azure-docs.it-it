@@ -10,16 +10,16 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 9772ea320ff28325ffdc8cdcb6e35947b182d1b3
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85095518"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849497"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Creazione e unione di CSR in Key Vault
 
-Azure Key Vault consente di creare la richiesta di firma del certificato con una coppia di chiavi pubblica/privata e di richiedere che venga firmata da un'autorità di certificazione specifica. Può trattarsi di un'autorità di certificazione aziendale interna o di un'autorità di certificazione pubblica esterna. Una richiesta di firma del certificato (nota anche come CSR o richiesta di certificazione) è un messaggio che viene inviato dall'utente a un'autorità di certificazione per richiedere il rilascio di un certificato digitale.
+Azure Key Vault supporta l'archiviazione del certificato digitale emesso da qualsiasi autorità di certificazione nell'insieme di credenziali delle chiavi. Consente di creare la richiesta di firma del certificato con una coppia di chiavi pubblica/privata che può essere firmata dall'autorità di certificazione scelta. Può trattarsi di un'autorità di certificazione aziendale interna o di un'autorità di certificazione pubblica esterna. Una richiesta di firma del certificato (nota anche come CSR o richiesta di certificazione) è un messaggio che viene inviato dall'utente a un'autorità di certificazione per richiedere il rilascio di un certificato digitale.
 
 Per informazioni più generali sui certificati, vedere [Certificati di Azure Key Vault](/azure/key-vault/certificates/about-certificates).
 

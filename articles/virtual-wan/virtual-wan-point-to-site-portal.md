@@ -5,14 +5,14 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/16/2020
+ms.date: 06/29/2020
 ms.author: alzam
-ms.openlocfilehash: 11007bc39cb1112799c89afaf0ca670aa6760de6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 9c93ad0357011008c45b2898260a655509b02dc2
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482121"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560659"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione VNP utente usando la rete WAN virtuale di Azure
 
@@ -22,12 +22,10 @@ In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una rete WAN
-> * Creare un hub
 > * Creare una configurazione da punto a sito
+> * Creare un hub
+> * Specificare i server DNS
 > * Scaricare un profilo client VPN
-> * Applicare la configurazione da punto a sito a un hub
-> * Connettere una rete virtuale a un hub
-> * Scaricare e applicare la configurazione del client VPN
 > * Visualizzare la rete WAN virtuale
 
 ![Diagramma della rete WAN virtuale](./media/virtual-wan-about/virtualwanp2s.png)
@@ -48,9 +46,9 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 
 In un browser passare al [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 
-1. Passare alla pagina WAN virtuale. Nel portale fare clic su **+Crea una risorsa**. Digitare **Rete WAN virtuale** nella casella di ricerca e premere INVIO.
-2. Selezionare **Rete WAN virtuale** nei risultati. Nella pagina della rete WAN virtuale fare clic su **Crea** per aprire la pagina Crea rete WAN.
-3. Nella pagina **Crea rete WAN**, nella scheda **Nozioni di base**, compilare i campi seguenti:
+1. Passare alla pagina WAN virtuale. Nel portale selezionare **+ Crea una risorsa**. Digitare **Rete WAN virtuale** nella casella di ricerca e premere **INVIO**.
+1. Selezionare **Rete WAN virtuale** nei risultati. Nella pagina della rete WAN virtuale selezionare **Crea** per aprire la pagina Crea rete WAN.
+1. Nella pagina **Crea rete WAN**, nella scheda **Nozioni di base**, compilare i campi seguenti:
 
    ![Rete WAN virtuale](./media/virtual-wan-point-to-site-portal/vwan.png)
 
@@ -59,124 +57,100 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
    * **Posizione gruppo di risorse** - Scegliere una posizione per le risorse nell'elenco a discesa. Una rete WAN è una risorsa globale e non si trova in un'area specifica. Tuttavia, è necessario selezionare un'area per poter gestire e individuare più facilmente la risorsa WAN creata.
    * **Nome** - Digitare il nome che si vuole usare per la rete WAN.
    * **Tipo:** Standard. Con la creazione di una rete WAN di base è possibile creare solo un hub di base. Gli hub di base possono supportare solo la connettività VPN da sito a sito.
-4. Dopo aver completato i campi, selezionare **Rivedi e crea**.
-5. Al termine della convalida selezionare **Crea** per creare la rete WAN virtuale.
-
-## <a name="create-an-empty-virtual-hub"></a><a name="hub"></a>Creare un hub virtuale vuoto
-
-1. Nella rete WAN virtuale selezionare Hub e fare clic su **+Nuovo hub**
-
-   ![nuovo sito](media/virtual-wan-point-to-site-portal/hub1.jpg)
-2. Nella pagina Crea hub virtuale completare i campi seguenti.
-
-   **Area**: selezionare l'area in cui si vuole distribuire l'hub virtuale.
-
-   **Nome**: immettere il nome con cui denominare l'hub virtuale.
-
-   **Spazio di indirizzi privato dell'hub**: intervallo di indirizzi dell'hub nella notazione CIDR.
-
-   ![nuovo sito](media/virtual-wan-point-to-site-portal/hub2.jpg)  
-3. Fare clic su **Rivedi e crea**.
-4. Nella pagina **Convalida superata** fare clic su **Crea**.
+1. Dopo aver completato i campi, selezionare **Rivedi e crea**.
+1. Al termine della convalida selezionare **Crea** per creare la rete WAN virtuale.
 
 ## <a name="create-a-p2s-configuration"></a><a name="p2sconfig"></a>Creare una configurazione da punto a sito
 
 Una configurazione da punto a sito definisce i parametri per la connessione di client remoti.
 
 1. Passare a **Tutte le risorse**.
-2. Fare clic sulla rete WAN virtuale creata.
-3. Fare clic su **+Crea configurazione VPN utente** nella parte superiore della pagina per aprire la pagina **Crea nuova configurazione VPN utente**.
+1. Selezionare la rete WAN virtuale creata.
+1. Selezionare **+ Crea configurazione VPN utente** nella parte superiore della pagina per aprire la pagina **Crea nuova configurazione VPN utente**.
 
-   ![nuovo sito](media/virtual-wan-point-to-site-portal/p2s1.jpg)
-4. Nella pagina **Crea nuova configurazione VPN utente** completare i campi seguenti:
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/p2s1.jpg" alt-text="Configurazioni VPN utente":::
 
-   **Nome configurazione**: nome da usare per fare riferimento alla configurazione.
+1. Nella pagina **Crea nuova configurazione VPN utente** completare i campi seguenti:
 
-   **Tipo di tunnel**: protocollo da usare per il tunnel.
-
-   **Root Certificate Name** (Nome certificato radice): nome descrittivo per il certificato.
-
-   **Dati del certificato pubblico**: dati del certificato X.509 con codifica in base 64.
+   * **Nome configurazione**: nome da usare per fare riferimento alla configurazione.
+   * **Tipo di tunnel**: protocollo da usare per il tunnel.
+   * **Root Certificate Name** (Nome certificato radice): nome descrittivo per il certificato.
+   * **Dati del certificato pubblico**: dati del certificato X.509 con codifica in base 64.
   
-5. Fare clic su **Crea** per creare la configurazione.
+1. Selezionare **Crea** per creare la configurazione.
 
-## <a name="edit-hub-assignment"></a><a name="edit"></a>Modificare l'assegnazione dell'hub
+## <a name="create-hub-with-point-to-site-gateway"></a><a name="hub"></a>Creare un hub con un gateway da punto a sito
 
-1. Passare al pannello **Hub** nella rete WAN virtuale
-2. Selezionare l'hub a cui si vuole associare la configurazione del server VPN e fare clic su **...**
+1. Nella rete WAN virtuale selezionare Hub e quindi **+ Nuovo hub**.
 
-   ![nuovo sito](media/virtual-wan-point-to-site-portal/p2s4.jpg)
-3. Fare clic su **Modifica hub virtuale**.
-4. Selezionare la casella di controllo **Includi gateway da punto a sito** e selezionare l'**unità di scala gateway** che si vuole usare.
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/hub1.jpg" alt-text="Nuovo hub":::
 
-   ![nuovo sito](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+1. Nella pagina Crea hub virtuale completare i campi seguenti.
 
-La tabella seguente illustra i dettagli sulle **unità di scala** disponibili.
+   * **Area**: selezionare l'area in cui si vuole distribuire l'hub virtuale.
+   * **Nome**: immettere il nome con cui denominare l'hub virtuale.
+   * **Spazio di indirizzi privato dell'hub**: intervallo di indirizzi dell'hub nella notazione CIDR.
 
-| **Unità di scala** | **Velocità effettiva** | **Connessioni P2S** |
-| --- | --- | --- |
-| 1| 500 Mbps | 500 |
-| 2| 1 Gbps | 500 |
-| 3| 1,5 Gbps | 500 |
-| 4| 2 Gbps | 1000 |
-| 5| 2,5 Gbps | 1000 |
-| 6| 3 Gbps | 1000 |
-| 7| 3,5 Gbps | 5000 |
-| 8| 4 Gbps | 5000 |
-| 9| 4,5 Gbps | 5000 |
-| 10| 5 Gbps | 5000 |
-| 11| 5,5 Gbps | 5000 |
-| 12| 6 Gbps | 5000 |
-| 13| 6,5 Gbps | 10000 |
-| 14| 7 Gbps | 10000 |
-| 15| 7,5 Gbps | 10000 |
-| 16| 8 Gbps | 10000 |
-| 17| 8,5 Gbps | 10000 |
-| 18| 9 Gbps | 10000 |
-| 19| 9,5 Gbps | 10000 |
-| 20| 10 Gbps | 10000 |
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/hub2.jpg" alt-text="Creare un hub virtuale":::
 
-5. Immettere il **Pool di indirizzi** da cui gli indirizzi IP verranno assegnati ai client VPN.
-6. Fare clic su **Conferma**
-7. Il completamento dell'operazione potrà richiedere fino a 30 minuti.
+1. Nella scheda Da punto a sito completare i campi seguenti:
+
+   * **Unità di scala gateway**, che rappresenta la capacità aggregata del gateway VPN utente.
+   * **Configurazione da punto a sito**, creata nel passaggio precedente.
+   * **Pool indirizzi client**, per gli utenti remoti.
+   * **IP server DNS personalizzato**.
+
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/hub-with-p2s.png" alt-text="Hub con configurazione da punto a sito":::
+
+1. Selezionare **Rivedi e crea**.
+1. Nella pagina **Convalida superata** selezionare **Crea**.
+
+## <a name="specify-dns-server"></a><a name="dns"></a>Specificare il server DNS
+
+I gateway VPN utente della rete WAN virtuale consentono di specificare fino a 5 server DNS. È possibile eseguire questa configurazione durante il processo di creazione dell'hub oppure modificarla in un secondo momento. A questo scopo, individuare l'hub virtuale. In **VPN utente (da punto a sito)** fare clic su Configura e immettere gli indirizzi IP dei server DNS nella casella di testo **Server DNS personalizzati**.
+
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="DNS personalizzato" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
 ## <a name="download-vpn-profile"></a><a name="download"></a>Scaricare il profilo VPN
 
 Usare il profilo VPN per configurare i client.
 
-1. Nella pagina della rete WAN virtuale fare clic su **Configurazioni VPN utente**.
-2. Nella parte superiore della pagina fare clic su **Download user VPN config** (Scarica configurazione VPN utente).
-3. Al termine della creazione del file è possibile fare clic sul collegamento per scaricarlo.
-4. Usare il file del profilo per configurare i client VPN.
+1. Nella pagina della rete WAN virtuale selezionare **Configurazioni VPN utente**.
+2. Nella parte superiore della pagina Selezionare **Download user VPN config** (Scarica configurazione VPN utente). Il download della configurazione a livello di rete WAB fornisce un profilo predefinito della VPN utente basato su Gestione traffico. Per altre informazioni sui profili globali o sui profili basati su hub, vedere [Profili degli hub](https://docs.microsoft.com/azure/virtual-wan/global-hub-profile).   Gli scenari di failover sono semplificati con il profilo globale.
+
+   Se, per qualche motivo, un hub non è disponibile, il profilo predefinito di Gestione traffico fornito dal servizio assicura la connettività tramite un hub diverso alle risorse di Azure per gli utenti da punto a sito. È sempre possibile scaricare una configurazione VPN specifica dell'hub passando all'hub specifico. In **VPN utente (da punto a sito)** scaricare il profilo **VPN utente** dell'hub virtuale.
+
+1. Al termine della creazione del file è possibile selezionare il collegamento per scaricarlo.
+1. Usare il file del profilo per configurare i client VPN.
 
 ### <a name="configure-user-vpn-clients"></a>Configurare i client VPN utente
+
 Usare il profilo scaricato per configurare i client di accesso remoto. La procedura per ogni sistema operativo è diversa, seguire le istruzioni corrette riportate di seguito:
 
 #### <a name="microsoft-windows"></a>Microsoft Windows
 ##### <a name="openvpn"></a>OpenVPN
 
 1. Scaricare e installare il client OpenVPN dal sito Web ufficiale.
-2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Configurazioni VPN utente nel portale di Azure oppure tramite New-AzureRmVpnClientConfiguration in PowerShell.
-3. Decomprimere il profilo. Aprire il file di configurazione vpnconfig.ovpn dalla cartella OpenVPN nel Blocco note.
-4. Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato Base 64 tra le intestazioni del certificato. Per la procedura, vedere [Come esportare un certificato per ottenere la chiave pubblica codificata](certificates-point-to-site.md).
-5. Completare la sezione relativa alla chiave privata con la chiave privata del certificato client da punto a sito in formato Base 64. Per la procedura, vedere [Come estrarre la chiave privata](howto-openvpn-clients.md#windows).
-6. Lasciare invariati tutti gli altri campi. Usare la configurazione così completata nell'input del client per connettersi alla rete VPN.
-7. Copiare il file vpnconfig.ovpn nella cartella C:\Programmi\OpenVPN\config.
-8. Fare clic con il pulsante destro del mouse sull'icona OpenVPN nell'area di notifica e fare clic su Connetti.
+1. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Configurazioni VPN utente nel portale di Azure oppure tramite New-AzureRmVpnClientConfiguration in PowerShell.
+1. Decomprimere il profilo. Aprire il file di configurazione vpnconfig.ovpn dalla cartella OpenVPN nel Blocco note.
+1. Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato Base 64 tra le intestazioni del certificato. Per la procedura, vedere [Come esportare un certificato per ottenere la chiave pubblica codificata](certificates-point-to-site.md).
+1. Completare la sezione relativa alla chiave privata con la chiave privata del certificato client da punto a sito in formato Base 64. Per la procedura, vedere [Come estrarre la chiave privata](howto-openvpn-clients.md#windows).
+1. Lasciare invariati tutti gli altri campi. Usare la configurazione così completata nell'input del client per connettersi alla rete VPN.
+1. Copiare il file vpnconfig.ovpn nella cartella C:\Programmi\OpenVPN\config.
+1. Fare clic con il pulsante destro del mouse sull'icona OpenVPN nell'area di notifica e scegliere **Connetti**.
 
 ##### <a name="ikev2"></a>IKEv2
 
 1. Selezionare i file di configurazione del client VPN corrispondenti all'architettura del computer Windows. Per un'architettura con processore a 64 bit, scegliere il pacchetto di installazione "VpnClientSetupAmd64". Per un'architettura con processore a 32 bit, scegliere il pacchetto di installazione "VpnClientSetupX86".
-2. Fare doppio clic sul pacchetto per installarlo. Se viene visualizzato un popup SmartScreen, fare clic su Altre informazioni e quindi su Esegui comunque.
-3. Nel computer client passare a Impostazioni di rete e fare clic su VPN. La connessione VPN viene visualizzata con il nome della rete virtuale a cui si connette.
-4. Prima di tentare di connettersi, verificare che nel computer client sia installato un certificato client. Quando si usa il tipo di autenticazione del certificato di Azure nativo, è necessario un certificato client per l'autenticazione. Per altre informazioni sulla generazione di certificati, vedere [Generare i certificati](certificates-point-to-site.md). Per informazioni sull'installazione di un certificato client, vedere [Installare un certificato client](../vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md).
+1. Fare doppio clic sul pacchetto per installarlo. Se viene visualizzato un popup SmartScreen, selezionare **Altre informazioni** e quindi **Esegui comunque**.
+1. Nel computer client passare a **Impostazioni di rete** e selezionare **VPN**. La connessione VPN viene visualizzata con il nome della rete virtuale a cui si connette.
+1. Prima di tentare di connettersi, verificare che nel computer client sia installato un certificato client. Quando si usa il tipo di autenticazione del certificato di Azure nativo, è necessario un certificato client per l'autenticazione. Per altre informazioni sulla generazione di certificati, vedere [Generare i certificati](certificates-point-to-site.md). Per informazioni sull'installazione di un certificato client, vedere [Installare un certificato client](../vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md).
 
 ## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>Visualizzare la rete WAN virtuale
 
 1. Passare alla rete WAN virtuale.
-2. Nella pagina Panoramica ogni punto sulla mappa rappresenta un hub.
-3. Nella sezione degli hub e delle connessioni è possibile visualizzare lo stato dell'hub, il sito, l'area, lo stato della connessione VPN e i byte in entrata e in uscita.
-
+1. Nella pagina **Panoramica** ogni punto sulla mappa rappresenta un hub.
+1. Nella sezione **Hub e connessioni** è possibile visualizzare lo stato dell'hub, il sito, l'area, lo stato della connessione VPN e i byte in entrata e in uscita.
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Pulire le risorse
 

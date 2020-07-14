@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 918a7700df6b5be3ebca7949875127e42f8d3a91
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b8fcef13fbe41ac26b2a31d6871896428649eaa1
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75780696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920861"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-standard-load-balancer-in-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con un servizio Load Balancer Standard nel portale di Azure
 
@@ -46,7 +46,7 @@ Prima di tutto, creare una rete virtuale. Nella rete virtuale creare due VM da u
    - **Gruppo di risorse**: Selezionare **Crea nuovo**, immettere **MyResourceGroupLB**, quindi selezionare **OK**. 
    - **Subnet** > **Nome**: Digitare **MyBackendSubnet**.
    
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
    ![Crea rete virtuale](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
@@ -180,6 +180,8 @@ La regola di bilanciamento del carico denominata **MyLoadBalancerRule** rimane i
    - **Pool back-end**: Selezionare **MyBackendPool**.
    - **Probe di integrità**: Selezionare **MyHealthProbe**. 
    
+Per configurare le [porte a disponibilità elevata](load-balancer-ha-ports-overview.md) usando il portale di Azure, selezionare la casella di controllo **Porte a disponibilità elevata**. Se selezionata, la configurazione delle porte e del protocollo correlata viene automaticamente popolata. 
+
 1. Selezionare **OK**.
    
    ![Aggiungere una regola di bilanciamento del carico](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1cc89beb1e704428fdb4e10868e72e837804d3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 0b5a52d0a54a9671052b9b7d46810cc65c22951f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765259"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799896"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hub-planner"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Hub Planner
 
@@ -43,7 +43,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Hub Planner supporta l'accesso SSO avviato da **SP**
+* Hub Planner supporta l'accesso SSO avviato da **SP**.
 * Dopo aver configurato Hub Planner, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-hub-planner-from-the-gallery"></a>Aggiunta di Hub Planner dalla raccolta
@@ -65,8 +65,8 @@ Configurare e testare l'accesso SSO di Azure AD con Hub Planner usando un utente
 Per configurare e testare l'accesso SSO di Azure AD con Hub Planner, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Hub Planner](#configure-hub-planner-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Hub Planner](#create-hub-planner-test-user)** : per avere una controparte di B.Simon in Hub Planner collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -85,9 +85,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.hubplanner.com`
 
-    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.hubplanner.com/sso/metadata`
+    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://app.hubplanner.com/sso/metadata`
 
-    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.hubplanner.com/sso/callback`
+    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://app.hubplanner.com/sso/callback`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Hub Planner](mailto:hello@hubplanner.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -133,9 +133,29 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 Per configurare l'accesso Single Sign-On sul lato **Hub Planner**, è necessario inviare il **certificato (Base64)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Hub Planner](mailto:hello@hubplanner.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
+### <a name="install-the-extension-in-hub-planner"></a>Installare l'estensione in Hub Planner
+
+Per abilitare la funzionalità SSO, è prima necessario abilitare l'estensione. Se si è proprietario dell'account o si hanno autorizzazioni equivalenti, seguire questa procedura:
+
+1. Passare a **Impostazioni**.
+1. Nel menu laterale selezionare **Manage Extensions** > **Add/Remove Extensions** (Gestisci estensioni > Aggiungi/Rimuovi estensioni).
+1. Trovare l'estensione per Single Sign On e fare clic su Add (Aggiungi) o Try Free (Prova gratuitamente).
+1. Quando richiesto, accettare le condizioni e quindi selezionare **Add Now** (Aggiungi ora).
+
+### <a name="enable-sso"></a>Abilitare SSO
+
+Dopo aver abilitato l'estensione, è necessario abilitare l'accesso SSO per l'account. 
+
+1. Passare a **Impostazioni**.
+1. Nel menu laterale selezionare **Authentication** (Autenticazione).
+1. Selezionare **SSO (Single Sign-On)** .
+1. Immettere le informazioni di autenticazione aggiuntive, come illustrato nella figura seguente e quindi selezionare **Save** (Salva).
+
+![Screenshot delle impostazioni SSO](media/hub-planner-tutorial/sso-settings.png)
+
 ### <a name="create-hub-planner-test-user"></a>Creare l'utente di test di Hub Planner
 
-In questa sezione viene creato un utente di nome Britta Simon in Hub Planner. Collaborare con il [team di supporto di Hub Planner](mailto:hello@hubplanner.com) per aggiungere gli utenti alla piattaforma Hub Planner. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+Se si vogliono aggiungere altri utenti, passare a **Settings** > **Manage resources** (Impostazioni > Gestisci risorse) e aggiungere gli utenti da tale posizione. Assicurarsi di aggiungere l'indirizzo di posta elettronica e di invitarli. Gli utenti invitati riceveranno un messaggio di posta elettronica e potranno accedere tramite SSO. 
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
