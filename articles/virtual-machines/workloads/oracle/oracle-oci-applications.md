@@ -3,21 +3,22 @@ title: Architetture per la distribuzione di app Oracle in macchine virtuali di A
 description: Architetture delle applicazioni per la distribuzione di app Oracle, tra cui E-Business Suite, JD Edwards EnterpriseOne e PeopleSoft, in Microsoft Azure macchine virtuali con database in Azure o in Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: f36dfe0092e3447053871ee0e5b4d659bb443779
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe6886f368d053af919b326fabf1ad4c3066717
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687475"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224537"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Architetture per la distribuzione di applicazioni Oracle in Azure
 
@@ -122,7 +123,7 @@ I componenti di questo livello sono i seguenti:
  - **Server di distribuzione** : questo server è principalmente necessario per l'installazione di JD Edwards EnterpriseOne. Durante il processo di installazione, questo server funge da repository centrale per i file e i pacchetti di installazione necessari. Il software viene distribuito o distribuito ad altri server e client da questo server.
  - **Client di sviluppo** : questo server contiene componenti eseguiti in un Web browser, nonché applicazioni native.
 
-### <a name="presentation-tier"></a>Livello di presentazione
+### <a name="presentation-tier"></a>Livello presentazione
 
 Questo livello contiene diversi componenti, ad esempio Application Interface Services (AIS), Application Development Framework (ADF) e Java Application Servers (JAS). I server in questo livello comunicano con i server nel livello intermedio. Sono gestite da un servizio di bilanciamento del carico che instrada il traffico al server necessario in base al numero di porta e all'URL in cui viene ricevuto il traffico. Per la disponibilità elevata, è consigliabile distribuire più istanze di ogni tipo di server.
 

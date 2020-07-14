@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Mappe di Azure
       href: about-azure-maps.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare un'app Web
@@ -232,6 +232,24 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Visualizzare i dati sul traffico
           href: how-to-show-traffic-android.md
+    - name: Usare Mappe di Azure in Power BI
+      items:
+        - name: Introduzione
+          href: power-bi-visual-getting-started.md
+        - name: Informazioni sui livelli
+          href: power-bi-visual-understanding-layers.md
+        - name: Aggiungere un livello per le bolle
+          href: power-bi-visual-add-bubble-layer.md
+        - name: Aggiungere un livello per il grafico a barre
+          href: power-bi-visual-add-bar-chart-layer.md
+        - name: Aggiungere un livello per i riferimenti
+          href: power-bi-visual-add-reference-layer.md
+        - name: Aggiungere un livello per i riquadri
+          href: power-bi-visual-add-tile-layer.md
+        - name: Visualizzare il traffico in tempo reale
+          href: power-bi-visual-show-real-time-traffic.md
+        - name: Gestire l'accesso
+          href: power-bi-visual-manage-access.md
     - name: Inviare commenti e suggerimenti sui dati
       href: how-to-use-feedback-tool.md
 - name: Informazioni di riferimento

@@ -8,7 +8,7 @@
       href: introduction.md
     - name: Confrontare la versione corrente con la versione 1
       href: compare-versions.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare una data factory - Interfaccia utente
@@ -270,6 +270,8 @@
           href: connector-db2.md
         - name: Formato di testo delimitato
           href: format-delimited-text.md
+        - name: Formato delta
+          href: format-delta.md
         - name: Drill
           href: connector-drill.md
         - name: Dynamics 365
@@ -727,6 +729,8 @@
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Esecuzione di pacchetti in Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md
+        - name: Diagnosticare la connettività in Azure-SSIS IR
+          href: ssis-integration-runtime-diagnose-connectivity-faq.md
 - name: Informazioni di riferimento
   items:
     - name: Script del flusso di dati

@@ -5,7 +5,9 @@
   items:
     - name: Cos'è la gestione delle applicazioni?
       href: what-is-application-management.md
-- name: Avvi rapidi
+    - name: Informazioni sull'accesso Single Sign-On (SSO)
+      href: what-is-single-sign-on.md
+- name: Avvii rapidi
   items:
     - name: Visualizzare le app
       href: view-applications-portal.md
@@ -19,6 +21,8 @@
       href: delete-application-portal.md
 - name: Esercitazioni
   items:
+    - name: Aggiungere un'app non elencata nella raccolta
+      href: add-non-gallery-app.md
     - name: 'App della raccolta integrata (ad esempio ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Aggiungere un'app locale con proxy dell'applicazione
@@ -46,8 +50,6 @@
               href: developer-guidance-for-integrating-applications.md
         - name: Single sign-on
           items:
-            - name: Informazioni sull'accesso Single Sign-On
-              href: what-is-single-sign-on.md
             - name: Abilitare l'accesso SSO per l'applicazione multi-tenant
               href: isv-sso-content.md
             - name: Creazione di un tenant di Azure per l'applicazione multi-tenant
@@ -103,10 +105,6 @@
   items:
     - name: App cloud e Single Sign-On
       items:
-        - name: Aggiungere un'app cloud
-          items:
-            - name: Aggiungere un'app non della raccolta
-              href: add-non-gallery-app.md
         - name: Configura accesso Single Sign-On
           items:
             - name: Configurare l'accesso Single Sign-On basato su SAML
@@ -143,6 +141,8 @@
               href: configure-admin-consent-workflow.md
             - name: Assegnare un utente o un gruppo a un'app
               href: assign-user-or-group-access-portal.md
+            - name: Rivedere le autorizzazioni concesse alle app
+              href: manage-application-permissions.md
             - name: Creare raccolte in App personali
               href: access-panel-collections.md
             - name: Usare l'accesso alle app self-service

@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: 'Creare una VM: portale'
@@ -434,6 +434,8 @@
                   items:
                     - name: Da una VM
                       href: ../image-version-vm-powershell.md
+                    - name: Da un disco rigido virtuale o uno snapshot
+                      href: ../image-version-snapshot-powershell.md
                     - name: Eseguire la migrazione da un'immagine gestita
                       href: ../image-version-managed-image-powershell.md
                     - name: Copiare da un'altra raccolta
@@ -454,6 +456,8 @@
                   items:
                     - name: Da una VM
                       href: ../image-version-vm-cli.md
+                    - name: Da un disco rigido virtuale o uno snapshot
+                      href: ../image-version-snapshot-cli.md
                     - name: Eseguire la migrazione da un'immagine gestita
                       href: ../image-version-managed-image-cli.md
                     - name: Copiare da un'altra raccolta
@@ -508,6 +512,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Trovare e usare immagini
           href: cli-ps-findimage.md
+        - name: Informazioni sui piani di acquisto
+          href: ../marketplace-images.md
         - name: Preparare la macchina virtuale per il caricamento
           href: prepare-for-upload-vhd-image.md
         - name: Acquisire la macchina virtuale in un'immagine
@@ -853,10 +859,18 @@
           href: disks-incremental-snapshots-portal.md
         - name: Eseguire il backup di dischi non gestiti
           href: incremental-snapshots.md
+        - name: Crittografia
+          items:
+            - name: Abilitare la crittografia basata su host - PowerShell
+              href: disks-enable-host-based-encryption-powershell.md
+            - name: Abilitare chiavi gestite dal cliente - PowerShell
+              href: disks-enable-customer-managed-keys-powershell.md
+            - name: Abilitare chiavi gestite dal cliente - Portale
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Abilitare la crittografia doppia dei dati inattivi
+              href: disks-enable-double-encryption-at-rest-powershell.md
         - name: Migrazione e conversione
           items:
-            - name: Eseguire la conversione alla crittografia lato server
-              href: disks-ade-sse-conversion-powershell.md
             - name: Convertire il disco tra archiviazione Standard e Premium
               href: convert-disk-storage.md
             - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery

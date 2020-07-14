@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846724"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231300"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifiche di Azure FXT Edge Filer
 
@@ -36,7 +36,7 @@ I numeri delle unità sono stampati nello spazio tra le unità. In Azure FXT Edg
 
 | Numeri di unità    |  Uso   |  Specifiche |
 |------------------|--------|-----------------|
-| 0, 1             | OS     | Unità SSD SATA da 480 GB |
+| 0, 1             | Sistema operativo     | Unità SSD SATA da 480 GB |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600: unità SSD NVMe 3,2 TB <br> FXT 6400: unità SSD NVMe 1,6 TB |
 
 
@@ -46,9 +46,9 @@ Azure FXT Edge Filer è progettato per l'inserimento in un rack standard per app
 
 <!-- 10x2.5 inches version -->
 
-| Dimensioni del filer           |                          |
+| Dimensioni del filer            | Valore                    |
 |-----------------------------|--------------------------|
-| Altezza:                      | 42,8 mm (1,68 pollici)    |
+| Altezza                      | 42,8 mm (1,68 pollici)    |
 | Larghezza (incluse le staffe per il rack) | 482,0 mm (18,97 pollici)  |
 | Larghezza - chassis principale      | 434,0 mm (17,08 pollici) |
 | Profondità - dalle staffe per il rack alla parte posteriore dello chassis principale                   | 733,82 mm (29,61 pollici) |
@@ -56,7 +56,7 @@ Azure FXT Edge Filer è progettato per l'inserimento in un rack standard per app
 | Profondità - dalle staffe per il rack alla massima sporgenza anteriore, senza cornice | 22,0 mm (0,87 pollici)  |
 | Profondità - dalle staffe per il rack alla massima sporgenza anteriore, con cornice    | 35,84 mm (1,41 pollici) |
 
-| Peso | |
+| Peso | Valore |
 |-----------------|----------------------|
 | Peso del nodo (senza imballaggio, senza accessori) | 18,1 kg (40 libbre) |
 | Peso netto (senza imballaggio, con accessori) | 23,1 kg (51 libbre)|
@@ -160,7 +160,7 @@ Questa sezione contiene le specifiche per l'ambiente dell'hardware.
 
 Azure FXT Edge Filer è conforme alle normative elencate. 
 
-| Category       | Specifica della normativa | 
+| Categoria       | Specifica della normativa | 
 |----------------|--------------------------|
 | Sicurezza generale | EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 <br>EN 62311:2008 | 
 | EMC            | FCC A, ICES-003  <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 +A1:2015/CISPR 24:2010 +A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (classe D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013 |

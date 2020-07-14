@@ -162,7 +162,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-Nell'output del comando prendere nota dell'ID risorsa ( `id` ) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. ad esempio:
+Nell'output del comando prendere nota dell'ID risorsa ( `id` ) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. Ad esempio:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -208,7 +208,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-Se si prevede di eseguire l'importazione manualmente, prendere nota dell'ID risorsa ( `id` ) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. ad esempio:
+Se si prevede di eseguire l'importazione manualmente, prendere nota dell'ID risorsa ( `id` ) della pipeline. È possibile archiviare questo valore in una variabile di ambiente per un uso successivo eseguendo il comando [AZ Deployment Group Show][az-deployment-group-show]. Ad esempio:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \

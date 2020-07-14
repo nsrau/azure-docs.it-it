@@ -232,7 +232,7 @@
               href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
             - name: Eseguire la migrazione da Premium RS
               href: database/service-tiers-prs.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       href: database/quickstart-content-reference-guide.md
       items:
         - name: Creazione del database
@@ -630,7 +630,7 @@
         - name: Domande frequenti
           displayName: faq
           href: managed-instance/frequently-asked-questions-faq.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       href: managed-instance/quickstart-content-reference-guide.md
       items:
         - name: Creare un'istanza gestita di SQL
@@ -696,7 +696,7 @@
               href: managed-instance/machine-learning-services-overview.md
             - name: Differenze principali
               href: managed-instance/machine-learning-services-differences.md
-            - name: Avvi rapidi
+            - name: Avvii rapidi
               items:
                 - name: Python
                   items:
@@ -857,7 +857,7 @@
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
             - name: Novità
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Creare una macchina virtuale SQL
               items: null
@@ -921,6 +921,8 @@
                   href: virtual-machines/windows/storage-configuration.md
                 - name: Integrazione di Azure Key Vault
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
+                - name: Eseguire la migrazione dell'archiviazione a UltraSSD
+                  href: virtual-machines/windows/storage-migrate-to-ultradisk.md
                 - name: Eseguire la registrazione con il provider di risorse delle macchine virtuali SQL
                   displayName: 'resource provider, registration'
                   items:
@@ -1026,7 +1028,7 @@
           items:
             - name: Informazioni sulle VM di SQL Server Linux
               href: virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Creare una macchina virtuale SQL - Portale
               href: virtual-machines/linux/sql-vm-create-portal-quickstart.md

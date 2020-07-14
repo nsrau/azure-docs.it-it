@@ -78,16 +78,22 @@
       href: reference-service-limits.md
     - name: API e SDK
       items:
+        - name: Informazioni di riferimento sulle API REST
+          href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
         - name: Piano di controllo
           items:
             - name: Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
             - name: .NET (C#) SDK - NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
+            - name: .NET (C#) SDK - informazioni di riferimento
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview'
             - name: .NET (C#) SDK - origine
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: SDK per Java
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins'
+            - name: Java SDK - informazioni di riferimento
+              href: 'https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview'
             - name: Java SDK - origine
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
             - name: JavaScript SDK
@@ -102,14 +108,12 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins'
         - name: Piano dati
           items:
-            - name: Informazioni di riferimento sulle API REST
-              href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
             - name: Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins'
-            - name: .NET (C#) SDK - informazioni di riferimento
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: .NET (C#) SDK - NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
+            - name: .NET (C#) SDK - informazioni di riferimento
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: .NET (C#) SDK - origine
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
     - name: Interfaccia della riga di comando di Gemelli digitali
@@ -126,10 +130,20 @@
           href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
         - name: Libreria dei parser DTDL - NuGet
           href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
-        - name: Esempio di validator DTDL
-          href: 'https://github.com/Azure-Samples/dtdl-validator'
+        - name: Validator DTDL (esempio)
+          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
         - name: Specifica DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: Strumenti e progetti di esempio
+      items:
+        - name: Servizio del simulatore di dispositivi
+          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
+        - name: Esempi di Gemelli digitali di Azure
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
+        - name: Strumento di esplorazione di Gemelli digitali di Azure (esempio)
+          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+        - name: Validator DTDL (esempio)
+          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Strumenti di Azure
       items:
         - name: Azure Cloud Shell

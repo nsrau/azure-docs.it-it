@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: 'Creare una VM: interfaccia della riga di comando di Azure'
@@ -477,6 +477,8 @@
                   items:
                     - name: Da una VM
                       href: ../image-version-vm-cli.md
+                    - name: Da un disco rigido virtuale o uno snapshot
+                      href: ../image-version-snapshot-cli.md
                     - name: Eseguire la migrazione da un'immagine gestita
                       href: ../image-version-managed-image-cli.md
                     - name: Copiare da un'altra raccolta
@@ -499,6 +501,8 @@
                   items:
                     - name: Da una VM
                       href: ../image-version-vm-powershell.md
+                    - name: Da un disco rigido virtuale o uno snapshot
+                      href: ../image-version-snapshot-powershell.md
                     - name: Eseguire la migrazione da un'immagine gestita
                       href: ../image-version-managed-image-powershell.md
                     - name: Copiare da un'altra raccolta
@@ -547,6 +551,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Trovare e usare immagini
           href: cli-ps-findimage.md
+        - name: Informazioni sui piani di acquisto
+          href: ../marketplace-images.md
         - name: Acquisire una VM in un'immagine gestita
           href: capture-image.md
         - name: Creare un'immagine con Packer
@@ -945,6 +951,16 @@
           href: disks-incremental-snapshots-portal.md
         - name: Eseguire il backup di dischi non gestiti
           href: incremental-snapshots.md
+        - name: Crittografia
+          items:
+            - name: Abilitare la crittografia a livello di host - Interfaccia della riga di comando
+              href: disks-enable-host-based-encryption-cli.md
+            - name: Abilitare chiavi gestite dal cliente - Interfaccia della riga di comando
+              href: disks-enable-customer-managed-keys-cli.md
+            - name: Abilitare chiavi gestite dal cliente - Portale
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Abilitare la crittografia doppia dei dati inattivi
+              href: disks-enable-double-encryption-at-rest-cli.md
         - name: Migrazione e conversione
           items:
             - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery

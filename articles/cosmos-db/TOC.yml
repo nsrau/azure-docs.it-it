@@ -4,7 +4,7 @@
   items:
     - name: Introduzione ad Azure Cosmos DB
       href: introduction.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare le risorse di Cosmos DB
@@ -229,6 +229,15 @@
                     - name: GetCurrentTimestamp
                       displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
                       href: sql-query-getcurrenttimestamp.md
+                    - name: DateTimeFromParts
+                      displayName: 'DateTimeFromParts, date time from parts, date and time functions, datetime'
+                      href: sql-query-datetimefromparts.md
+                    - name: DateTimeAdd
+                      displayName: 'DateTimeAdd, date time add, timestamp, date and time functions, datetime'
+                      href: sql-query-datetimeadd.md
+                    - name: DateTimeDiff
+                      displayName: 'DateTimeDiff, date time diff, date and time functions, datetime'
+                      href: sql-query-datetimediff.md
                 - name: Funzioni matematiche
                   items:
                     - name: Funzioni matematiche
@@ -588,7 +597,7 @@
               href: cassandra-introduction.md
             - name: Supporto dei protocolli di collegamento
               href: cassandra-support.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: .NET
               href: create-cassandra-dotnet.md
@@ -664,7 +673,7 @@
           items:
             - name: Che cos'è l'API MongoDB in Cosmos DB?
               href: mongodb-introduction.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: .NET
               href: create-mongodb-dotnet.md
@@ -763,7 +772,7 @@
               href: graph-introduction.md
             - name: Supporto dei protocolli di collegamento
               href: gremlin-support.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Console Gremlin
               href: create-graph-gremlin-console.md
@@ -826,7 +835,7 @@
           items:
             - name: Che cos'è l'API Tabella in Cosmos DB?
               href: table-introduction.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: .NET
               href: create-table-dotnet.md

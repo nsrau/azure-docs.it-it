@@ -5,13 +5,15 @@
   items:
     - name: Informazioni su Servizi cognitivi
       href: Welcome.md
+    - name: Novità della documentazione di Servizi cognitivi
+      href: whats-new-docs.md
     - name: Servizi cognitivi e Machine Learning
       href: cognitive-services-and-machine-learning.md
     - name: Sottodomini personalizzati per Servizi cognitivi
       href: cognitive-services-custom-subdomains.md
     - name: Lingue supportate
       href: language-support.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare una nuova risorsa con il portale di Azure
       href: cognitive-services-apis-create-account.md
@@ -64,6 +66,24 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Servizio Azure Kubernetes
           href: ../aks/tutorial-kubernetes-prepare-app.md
+- name: Big Data
+  items:
+    - name: Servizi cognitivi per Big Data
+      href: ./big-data/cognitive-services-for-big-data.md
+    - name: Introduzione
+      href: ./big-data/getting-started.md
+    - name: Esempi
+      items:
+        - name: Python
+          href: ./big-data/samples-python.md
+        - name: Scala
+          href: ./big-data/samples-scala.md
+    - name: Recipe
+      items:
+        - name: 'Recipe: Rilevamento anomalie'
+          href: ./big-data/recipes/anomaly-detection.md
+        - name: 'Recipe: Esplorazione immagini artistiche'
+          href: ./big-data/recipes/art-explorer.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

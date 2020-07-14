@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sul servizio Azure Container
       href: intro-kubernetes.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare un cluster del servizio Azure Kubernetes
@@ -257,6 +257,8 @@
           href: private-clusters.md
         - name: BYOK per dischi
           href: azure-disk-customer-managed-keys.md
+        - name: Abilitare la crittografia basata su host
+          href: enable-host-encryption.md
     - name: Monitoraggio e registrazione
       items:
         - name: Monitoraggio di Azure per contenitori
@@ -282,9 +284,9 @@
         - name: Usare il dashboard di Kubernetes
           href: kubernetes-dashboard.md
         - name: Creare file Docker per i contenitori di Windows Server
-          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context'
+          href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Ottimizzare i file Docker per i contenitori di Windows Server
-          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
+          href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Sviluppare ed eseguire applicazioni
       items:
         - name: Usare Processo locale con Kubernetes con Visual Studio Code (anteprima)

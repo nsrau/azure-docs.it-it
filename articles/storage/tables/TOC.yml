@@ -8,7 +8,7 @@
     - name: Scegliere l'archiviazione tabelle o l'API Tabelle
       href: /azure/cosmos-db/table-support
       maintainContext: true
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare una tabella nel portale di Azure
       href: table-storage-quickstart-portal.md
@@ -111,6 +111,8 @@
                   href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
             - name: Controllare il modello della chiave di crittografia per l'account
               href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Abilitare la crittografia dell'infrastruttura per un account di archiviazione
+              href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Configurare la crittografia lato client
           items:
             - name: .NET
@@ -125,8 +127,12 @@
               href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
             - name: Richiedere il trasferimento sicuro
               href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-            - name: Abilitare Transport Layer Security
-              href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Configurare Transport Layer Security (TLS)
+              items:
+                - name: Configurare la versione minima di TLS per un account di archiviazione
+                  href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+                - name: Configurare TLS per un'applicazione client
+                  href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Gestire la ridondanza dei dati
       items:
         - name: Cambiare la modalità di replica dei dati

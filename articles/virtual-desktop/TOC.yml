@@ -23,7 +23,7 @@
     - name: Connettersi alle risorse di Desktop virtuale Windows
       items:
         - name: Connettersi con il client desktop di Windows
-          href: connect-windows-7-and-10.md
+          href: connect-windows-7-10.md
         - name: Connettersi con il client Web
           href: connect-web.md
         - name: Connettersi con il client Android
@@ -38,6 +38,8 @@
       items:
         - name: PowerShell
           href: create-host-pools-powershell.md
+        - name: Distribuire una macchina virtuale Windows 7
+          href: deploy-windows-7-virtual-machine.md
         - name: Distribuire un host sessione basato su GPU
           href: configure-vm-gpu.md
         - name: Espandere un pool di host esistente
@@ -90,6 +92,8 @@
       href: language-packs.md
 - name: Concetti
   items:
+    - name: Elenco degli URL sicuri
+      href: safe-url-list.md
     - name: Ambiente di Desktop virtuale Windows
       href: environment-setup.md
     - name: Determinare la latenza della connessione utente
