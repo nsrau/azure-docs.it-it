@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886707"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510988"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Esercitazione: Diagnosticare, correggere ed eseguire il commit delle modifiche apportate al set di competenze
 
 In questo articolo si userà il portale di Azure per accedere alle sessioni di debug per correggere i problemi relativi al set di competenze fornito. Il set di competenze presenta alcuni errori che devono essere corretti. In questa esercitazione verrà eseguita una sessione di debug per identificare e risolvere i problemi relativi agli input e agli output delle competenze.
 
 > [!Important]
-> Il supporto delle sessioni di debug per Ricerca cognitiva di Azure è disponibile [su richiesta](https://aka.ms/DebugSessions) come anteprima con accesso limitato. Le funzionalità di anteprima vengono messe a disposizione senza contratto di servizio e non sono consigliate per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Le sessioni di debug sono funzionalità di anteprima fornite senza un contratto di servizio e non sono consigliate per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Dopo aver ottenuto l'accesso all'anteprima, sarà possibile accedere alle sessioni di debug e usarle per il proprio servizio tramite il portale di Azure.
->   
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

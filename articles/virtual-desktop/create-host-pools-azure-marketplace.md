@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a20d7cb05f4529d5aa8a115b7d1db6e4d812be0
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100860"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362935"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Esercitazione: Creare un pool di host con il portale di Azure
 
@@ -67,20 +67,23 @@ Per iniziare a creare il nuovo pool di host:
    
    L'area geografica di Azure associata alle aree selezionate è la posizione in cui verranno archiviati i metadati per questo pool di host e i relativi oggetti correlati. Assicurarsi di scegliere le aree all'interno dell'area geografica in cui si vuole archiviare i metadati del servizio.
 
-     ![Screenshot del portale di Azure che mostra il campo Località con la località Stati Uniti orientali selezionata. Accanto al campo viene visualizzato il testo "I metadati saranno archiviati in Stati Uniti orientali".](media/portal-location-field.png)
+     > [!div class="mx-imgBorder"]
+     > ![Screenshot del portale di Azure che mostra il campo Località con la località Stati Uniti orientali selezionata. Accanto al campo viene visualizzato il testo "I metadati saranno archiviati in Stati Uniti orientali".](media/portal-location-field.png)
 
 8. In Tipo di pool di host selezionare se il pool di host sarà **Personale** o **In pool**.
 
     - Se si sceglie **Personale**, selezionare **Automatico** o **Diretto** nel campo Tipo di assegnazione.
 
-      ![Screenshot del menu a discesa del campo Tipo di assegnazione. L'utente ha selezionato Automatico.](media/assignment-type-field.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot del menu a discesa del campo Tipo di assegnazione. L'utente ha selezionato Automatico.](media/assignment-type-field.png)
 
 9. Se si sceglie **In pool**, immettere le informazioni seguenti:
 
      - Per **Limite massimo sessioni** immettere il numero massimo di utenti per cui si vuole eseguire il bilanciamento del carico in un singolo host di sessione.
      - Per **Algoritmo di bilanciamento del carico** scegliere bilanciamento in ampiezza o bilanciamento del carico in profondità, in base al modello di utilizzo.
 
-       ![Screenshot del campo Tipo di assegnazione con "In pool" selezionato. L'utente passa il puntatore del mouse sopra Bilanciamento in ampiezza nel menu a discesa del bilanciamento del carico.](media/pooled-assignment-type.png)
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot del campo Tipo di assegnazione con "In pool" selezionato. L'utente passa il puntatore del mouse sopra Bilanciamento in ampiezza nel menu a discesa del bilanciamento del carico.](media/pooled-assignment-type.png)
 
 10. Selezionare **Avanti: Dettagli macchina virtuale**.
 
@@ -117,11 +120,13 @@ Per configurare la macchina virtuale all'interno del processo di configurazione 
 
      Se non viene visualizzata l'immagine desiderata, selezionare **Esplora tutte le immagini e i dischi** che consente di selezionare un'altra immagine della raccolta o un'immagine fornita da Microsoft e da altri editori.
 
-     ![Screenshot del Marketplace con un elenco di immagini di Microsoft visualizzate.](media/marketplace-images.png)
+     > [!div class="mx-imgBorder"]
+     > ![Screenshot del Marketplace con un elenco di immagini di Microsoft visualizzate.](media/marketplace-images.png)
 
      È anche possibile passare a **Elementi personali** e scegliere un'immagine personalizzata già caricata.
 
-     ![Screenshot della scheda Elementi personali.](media/my-items.png)
+     > [!div class="mx-imgBorder"]
+     > ![Screenshot della scheda Elementi personali.](media/my-items.png)
 
     - Se si sceglie **BLOB di archiviazione**, è possibile usare la compilazione della propria immagine tramite Hyper-V o una macchina virtuale di Azure. È sufficiente immettere il percorso dell'immagine nel BLOB di archiviazione come URI.
 
@@ -136,7 +141,8 @@ Per configurare la macchina virtuale all'interno del processo di configurazione 
     >[!NOTE]
     >Per una maggiore sicurezza, si consiglia di non aprire porte in ingresso pubbliche.
 
-    ![Screenshot della pagina del gruppo di sicurezza che mostra un elenco di porte disponibili in un menu a discesa.](media/available-ports.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della pagina del gruppo di sicurezza che mostra un elenco di porte disponibili in un menu a discesa.](media/available-ports.png)
     
     Se si sceglie **Avanzato**, selezionare un gruppo di sicurezza di rete esistente che è stato già configurato.
 

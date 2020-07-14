@@ -8,24 +8,24 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 1ff29be9cde4a2bd53f0edbe57f3eab603c1796f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739495"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513816"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Esercitazione: Creare e distribuire una competenza personalizzata con Azure Machine Learning 
 
-In questa esercitazione si userà il [set di dati delle recensioni di hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuito con la licenza Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) per creare una [competenza personalizzata](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) usando Azure Machine Learning per estrarre il sentiment basato sull'aspetto dalle recensioni. Questo consente di attribuire correttamente l'assegnazione di sentiment positivo e negativo nella stessa recensione a entità identificate, come personale, stanza, hall o piscina.
+In questa esercitazione si userà il [set di dati delle recensioni di hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuito con la licenza Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) per creare una [competenza personalizzata](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) usando Azure Machine Learning per estrarre il sentiment basato sull'aspetto dalle recensioni. Questo consente di attribuire correttamente l'assegnazione di sentiment positivo e negativo nella stessa recensione a entità identificate, come personale, stanza, hall o piscina.
 
-Per eseguire il training del modello di sentiment basato sull'aspetto, si userà il [repository nlp-recipes](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Il modello verrà quindi distribuito come endpoint in un cluster di Azure Kubernetes. Una volta distribuito, il modello verrà aggiunto alla pipeline di arricchimento come competenza personalizzata per essere usata dal servizio Ricerca cognitiva.
+Per eseguire il training del modello di sentiment basato sull'aspetto in Azure Machine Learning, si userà il [repository nlp-recipes](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Il modello verrà quindi distribuito come endpoint in un cluster di Azure Kubernetes. Una volta distribuito, il modello verrà aggiunto alla pipeline di arricchimento come competenza di Azure Machine Learning che verrà usata dal servizio Ricerca cognitiva.
 
 Vengono forniti due set di dati. Se si vuole eseguire il training del modello autonomamente, è necessario il file hotel_reviews_1000.csv. Se si preferisce saltare la fase di training, scaricare il file hotel_reviews_100.csv.
 
 > [!div class="checklist"]
 > * Creare un'istanza di Ricerca cognitiva di Azure
-> * Creare un'area di lavoro di Machine Learning di Azure
+> * Creare un'area di lavoro Azure Machine Learning (il servizio di ricerca e l'area di lavoro devono trovarsi nella stessa sottoscrizione)
 > * Eseguire il training di un modello e distribuirlo in un cluster di Azure Kubernetes
 > * Collegare una pipeline di arricchimento tramite intelligenza artificiale al modello distribuito
 > * Inserire l'output del modello distribuito come competenza personalizzata

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: e70a3a1eedbc56754ad46fd99dddc0c7a3a6cf2f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735845"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362016"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il portale di Azure
 
@@ -72,7 +72,9 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo Azu
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
-   ![Menu Aggiungi](./media/role-assignments-portal/add-menu.png)
+   ![Menu Aggiungi assegnazione di ruolo](./media/shared/add-role-assignment-menu.png)
+
+    Viene visualizzato il riquadro Aggiungi assegnazione di ruolo.
 
    ![Riquadro Aggiungi assegnazione di ruolo](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 

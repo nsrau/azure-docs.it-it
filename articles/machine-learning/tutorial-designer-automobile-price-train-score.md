@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790535"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517642"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -107,8 +107,8 @@ Nella finestra di progettazione sono disponibili diversi set di dati di esempio 
 1. Nel riquadro dei dettagli del modulo a destra del canvas selezionare **Output + log**.
 
 1. Selezionare l'icona del grafico per visualizzare i dati.
-
-    ![Visualizzare i dati](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Testo alternativo qui.":::
 
 1. Selezionare le diverse colonne nella finestra dei dati per visualizzare le informazioni relative a ciascuna.
 
@@ -180,8 +180,8 @@ Dopo la rimozione della colonna **normalized-losses**, il set di dati contiene a
 1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare la casella **Commento** e immettere *Rimuovi righe valori mancanti*. 
 
     La pipeline avrà ora un aspetto analogo al seguente:
-    
-    ![Select-column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
+
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-column":::
 
 ## <a name="train-a-machine-learning-model"></a>Eseguire il training di un modello di Machine Learning
 
@@ -229,7 +229,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
     > [!IMPORTANT]
     > Assicurarsi che la porta di output sinistra di **Split Data** (Dividi i dati) si connetta a **Train Model** (Training modello). La porta sinistra contiene il set di training. La porta destra contiene il set di test.
 
-    ![Screenshot della configurazione corretta del modulo Train Model Il modulo Linear Regression si connette alla porta sinistra e il modulo Split Data alla porta destra del modulo Train Model](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot della configurazione corretta del modulo Train Model. Il modulo Linear Regression si connette alla porta sinistra e il modulo Split Data alla porta destra del modulo Train Model.":::
 
 1. Selezionare il modulo **Train Model**.
 
@@ -244,7 +244,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
     La pipeline dovrebbe avere un aspetto simile al seguente:
 
-    ![Screenshot della configurazione corretta della pipeline dopo l'aggiunta del modulo Train Model.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot della configurazione corretta della pipeline dopo l'aggiunta del modulo Train Model.":::
 
 ### <a name="add-the-score-model-module"></a>Aggiungere il modulo Score Model (Punteggio modello)
 
@@ -264,7 +264,7 @@ Usare il modulo **Evaluate Model** (Valutazione modello) per valutare il puntegg
 
     La pipeline finale avrà un aspetto analogo al seguente:
 
-    ![Screenshot della configurazione corretta della pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot della configurazione corretta della pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Inviare la pipeline
 
@@ -295,7 +295,7 @@ Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzion
 
     Qui è possibile visualizzare i prezzi stimati e i prezzi effettivi dai dati di test.
 
-    ![Screenshot della visualizzazione di output con la colonna Scored Label evidenziata](./media/tutorial-designer-automobile-price-train-score/score-result.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot della visualizzazione di output con la colonna Scored Label evidenziata":::
 
 ### <a name="evaluate-models"></a>Valutare i modelli
 

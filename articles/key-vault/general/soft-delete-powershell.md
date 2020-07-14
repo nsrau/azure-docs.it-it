@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f883b8527fff97ea3e16e7ffa7637c432dc33c2f
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 452dd99ae58858b661892e3f962fce8086d4503c
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783368"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444659"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Come usare l'eliminazione temporanea di Key Vault con PowerShell
 
@@ -267,7 +267,7 @@ Quando si elencano gli oggetti di un insieme di credenziali eliminato, viene ind
 
 Quando la protezione dall'eliminazione è attivata, un insieme di credenziali o un oggetto nello stato eliminato non può essere ripulito finché non ha superato il periodo di conservazione. Tale insieme di credenziali o oggetto può essere comunque ripristinato. Questa funzionalità offre maggiore sicurezza che un oggetto o un insieme di credenziali non venga mai eliminato definitivamente prima che sia trascorso il periodo di conservazione. Il periodo di conservazione predefinito è di 90 giorni, ma durante la creazione dell'insieme di credenziali delle chiavi è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni. I criteri di conservazione con protezione da eliminazione usano lo stesso intervallo. Una volta impostato, l'intervallo dei criteri di conservazione non può essere cambiato.
 
-È possibile abilitare la protezione dall'eliminazionesolo se è abilitata anche l'eliminazione temporanea. 
+È possibile abilitare la protezione dall'eliminazionesolo se è abilitata anche l'eliminazione temporanea. La disabilitazione della protezione dall'eliminazione non è attualmente supportata. 
 
 Per attivare l'eliminazione temporanea e la protezione dall'eliminazione durante la creazione di un insieme di credenziali, usare il cmdlet [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0):
 

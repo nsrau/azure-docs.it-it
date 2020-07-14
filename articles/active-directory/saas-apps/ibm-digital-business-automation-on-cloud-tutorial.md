@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f33992c7aa205e503c7de150adad7180ff823881
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: c0a8185d81966932c17fd3b0590b5f8ef2f7b6df
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099671"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479794"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con IBM Digital Business Automation on Cloud
 
@@ -65,8 +65,8 @@ Configurare e testare l'accesso SSO di Azure AD con IBM Digital Business Automat
 Per configurare e testare l'accesso SSO di Azure AD con IBM Digital Business Automation on Cloud, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di IBM Digital Business Automation on Cloud](#configure-ibm-digital-business-automation-on-cloud-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di IBM Digital Business Automation on Cloud](#create-ibm-digital-business-automation-on-cloud-test-user)** : per avere una controparte di B.Simon in IBM Digital Business Automation on Cloud collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -81,11 +81,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati del provider di servizi**, seguire questa procedura:
+1. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati di un provider di servizi**, seguire questa procedura:
     
     a. Fare clic su **Carica il file di metadati**.
 
-    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Carica**.
+    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
 
     c. In seguito al corretto caricamento del file di metadati, i valori di **Identificatore** e **URL di risposta** vengono inseriti automaticamente nella casella di testo della sezione relativa a IBM Digital Business Automation on Cloud:
 
@@ -93,7 +93,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > Se i valori di **Identificatore** e **URL di risposta** non vengono popolati automaticamente, inserirli manualmente in base alle esigenze.
 
     > [!Note]
-    > I clienti possono richiedere il file di metadati per la sottoscrizione cloud al [team DevOps di DBAoC](mailto:supportbpmoncloud@us.ibm.com).
+    > I clienti possono richiedere il file dei metadati per la sottoscrizione cloud al [team di supporto clienti di IBM Digital Business Automation on Cloud](mailto:supportbpmoncloud@us.ibm.com).
 
 1. Se non si dispone di un **file di metadati del provider di servizi** nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 

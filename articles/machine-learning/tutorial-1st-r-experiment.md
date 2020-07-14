@@ -10,17 +10,17 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684741"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483381"
 ---
-# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Esercitazione: Usare R per creare un modello di Machine Learning
+# <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Esercitazione: Usare R per creare un modello di Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questa esercitazione si userà Azure Machine Learning R SDK per creare un modello di regressione logistica che prevede la probabilità di un incidente d'auto mortale. Si osserverà il modo in cui le risorse cloud di Azure Machine Learning funzionano con R per offrire un ambiente scalabile per il training e la distribuzione di un modello.  
+In questa esercitazione si userà Azure Machine Learning R SDK (anteprima) per creare un modello di regressione logistica che prevede la probabilità di un incidente d'auto mortale. Si osserverà il modo in cui le risorse cloud di Azure Machine Learning funzionano con R per offrire un ambiente scalabile per il training e la distribuzione di un modello.  
 
 In questa esercitazione si eseguono le seguenti attività:
 > [!div class="checklist"]
@@ -73,7 +73,7 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
 1. Viene visualizzato un elenco di cartelle che mostra ogni utente che accede all'area di lavoro.  Selezionare la propria cartella per clonare la cartella **vignettes** al suo interno.
 
-## <a name="a-nameopenopen-rstudio"></a><a name="open">Aprire RStudio
+## <a name="open-rstudio"></a><a name="open"></a>Aprire RStudio
 
 Per eseguire questa esercitazione, usare RStudio in un'istanza di calcolo o in una macchina virtuale con notebook.  
 

@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 41b6fb38798e9aa7264000676d81101db1c83236
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e10e5050912788732128a8b765716c22fe9e576e
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656527"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517464"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Per distribuire la pipeline, è necessario prima convertire la pipeline di train
 
 1. Sopra il canvas della pipeline selezionare **Create inference pipeline** > **Real-time inference pipeline** (Crea pipeline di inferenza > Pipeline di inferenza in tempo reale).
 
-    ![Screenshot che mostra dove trovare il pulsante per creare la pipeline](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Screenshot che mostra dove trovare il pulsante per creare la pipeline":::
 
     La pipeline dovrebbe ora avere un aspetto simile al seguente: 
 
@@ -72,14 +72,14 @@ Nella finestra di dialogo visualizzata è possibile selezionare uno dei cluster 
 1. Sulla barra multifunzione di spostamento selezionare **Inference Clusters** >  **+ New** (Cluster di inferenza > Nuovo).
 
     ![Screenshot che mostra come passare al riquadro del nuovo cluster di inferenza](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
-
+   
 1. Nel riquadro del cluster di inferenza configurare un nuovo servizio Kubernetes.
 
 1. Immettere *aks-compute* in **Compute name** (Nome del calcolo).
     
 1. Selezionare un'area vicina disponibile per **Region** (Area).
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
     > [!NOTE]
     > La creazione di un nuovo servizio Azure Kubernetes richiede circa 15 minuti. È possibile controllare lo stato del provisioning nella pagina **Inference Clusters** (Cluster di inferenza)
@@ -96,8 +96,8 @@ Al termine del provisioning del servizio Azure Kubernetes, tornare alla pipeline
 1. Selezionare il cluster del servizio Azure Kubernetes creato.
 
 1. Selezionare **Distribuisci**.
-
-    ![Screenshot che mostra come configurare un nuovo endpoint in tempo reale](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot che mostra come configurare un nuovo endpoint in tempo reale":::
 
     Al termine della distribuzione verrà visualizzata una notifica di esito positivo sopra il canvas. L'operazione potrebbe richiedere qualche minuto.
 
