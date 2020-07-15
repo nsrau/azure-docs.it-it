@@ -1,19 +1,19 @@
 ---
 title: Elenco di definizioni di criteri predefiniti per Azure Arc per server
-description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Arc per server. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/23/2020
+description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Arc per server. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 07/10/2020
 ms.topic: sample
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 ms.custom: subject-policy-samples
-ms.openlocfilehash: d4ae07ad44028d847ff43da955460bd11a6b7a6b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6cbbfcd16ee0c256833cd600db91e26a3c68e618
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85316172"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275657"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-for-servers"></a>Definizioni predefinite di Criteri di Azure per Azure Arc per server
 

@@ -1,15 +1,15 @@
 ---
 title: Elenco di definizioni di criteri predefiniti
 description: Elenco di definizioni di criteri predefiniti per Criteri di Azure. Le categorie includono Tag, Conformità alle normative, Key Vault, Kubernetes, Configurazione guest e altro ancora.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 94f69754ab51728a18da10b45e05770f1271760b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1db053744a68e34fc3995916605be75a49887f01
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313519"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277159"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definizioni di criteri predefiniti di Criteri di Azure
 
@@ -164,6 +164,10 @@ Il nome di ogni criterio predefinito include un collegamento all'origine della d
 ## <a name="tags"></a>Tag
 
 [!INCLUDE [azure-policy-samples-policies-tags](../../../../includes/policy/samples/bycat/policies-tags.md)]
+
+## <a name="vm-image-builder"></a>Generatore di immagini della macchina virtuale
+
+[!INCLUDE [azure-policy-samples-policies-vm-image-builder](../../../../includes/policy/samples/bycat/policies-vm-image-builder.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,15 +1,15 @@
 ---
 title: Definizioni di criteri predefiniti per Azure Batch
-description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Batch. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/23/2020
+description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Batch. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 855c04c84ae55574dab9bd4e46d10aacdbde67a5
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 499dc52fec9055638677f5ac35d86d3f5a17c990
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318989"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276083"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-batch"></a>Definizioni predefinite di Criteri di Azure per Azure Batch
 

@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Controllo degli accessi in base al ruolo Azure
-description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Controllo degli accessi in base al ruolo Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/23/2020
+description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Controllo degli accessi in base al ruolo Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 07/10/2020
 ms.topic: sample
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 448f382bcaba1ba37b64a6aa5722d98c0d1648ee
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 34dd945b539926a0c35d3f9e3642b8882b24db6f
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317264"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274383"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-rbac"></a>Definizioni predefinite di Criteri di Azure per Controllo degli accessi in base al ruolo Azure
 

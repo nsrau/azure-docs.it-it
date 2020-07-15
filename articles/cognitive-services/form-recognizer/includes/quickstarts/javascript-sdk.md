@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/08/2020
 ms.author: pafarley
-ms.openlocfilehash: f5bf8a0420614b69f4022891e76b5d959f5782f3
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2d8cdda28cc7176496457399fd1356634ddafddf
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035476"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86277804"
 ---
-[Documentazione di riferimento](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Esempi](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
+[Documentazione di riferimento](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Esempi](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -116,7 +116,7 @@ Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training 
 * Usare il metodo precedente per ottenere l'URL di un'immagine di una ricevuta, oppure usare l'URL dell'immagine di esempio specificata.
 
 > [!NOTE]
-> I frammenti di codice di questa guida usano i moduli remoti a cui si accede tramite URL. Se invece si vogliono elaborare i documenti del modulo locale, vedere i metodi correlati nella [documentazione di riferimento](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+> I frammenti di codice di questa guida usano i moduli remoti a cui si accede tramite URL. Se invece si vogliono elaborare i documenti del modulo locale, vedere i metodi correlati nella [documentazione di riferimento](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
 
 ```javascript

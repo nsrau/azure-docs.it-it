@@ -1,15 +1,15 @@
 ---
 title: Definizioni di criteri predefiniti per Hub eventi di Azure
-description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Hub eventi di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/23/2020
+description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Hub eventi di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 76acfda47f0c60b46181ffcd3d422af7b5fd2932
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 51c7a8d1c6659ccc17a848fc2608c205f66ee1bc
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85312564"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275997"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-hubs"></a>Definizioni predefinite di Criteri di Azure per Hub eventi di Azure
 

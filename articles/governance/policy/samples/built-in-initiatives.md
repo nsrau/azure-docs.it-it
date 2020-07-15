@@ -1,15 +1,15 @@
 ---
 title: Elenco di iniziative di criteri predefinite
 description: Elenco di iniziative di criteri predefinite per Criteri di Azure. Le categorie includono Conformità con le normative, Configurazione guest e altro ancora.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0efd8d2b77027aa3e800b9a5071cc4d77a97b7d3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 23286e136a5b74a922c25af2e83a5019b387d64a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85312763"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276865"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definizioni di iniziative predefinite di Criteri di Azure
 
@@ -24,6 +24,10 @@ Il nome di ogni iniziativa predefinita include un collegamento all'origine della
 ## <a name="guest-configuration"></a>Configurazione guest
 
 [!INCLUDE [azure-policy-samples-policysets-guest-configuration](../../../../includes/policy/samples/bycat/policysets-guest-configuration.md)]
+
+## <a name="kubernetes"></a>Kubernetes
+
+[!INCLUDE [azure-policy-samples-policysets-kubernetes](../../../../includes/policy/samples/bycat/policysets-kubernetes.md)]
 
 ## <a name="monitoring"></a>Monitoraggio
 

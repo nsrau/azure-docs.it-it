@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Centro sicurezza di Azure
-description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Centro sicurezza di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/23/2020
+description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Centro sicurezza di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 07/10/2020
 ms.topic: sample
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-samples
-ms.openlocfilehash: a43ecc5d3a2c1d6de7a95d854a8ad4c778f37b5d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 141d94eddf4b7c22ecdb28d1104f818e34fa9ed5
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320877"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276558"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definizioni predefinite di Criteri di Azure per Centro sicurezza di Azure
 

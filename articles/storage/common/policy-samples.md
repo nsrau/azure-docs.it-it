@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Archiviazione di Azure
-description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Archiviazione di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/23/2020
+description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Archiviazione di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 07/10/2020
 ms.topic: sample
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 3e2f4095d57fd224fb08228ca2ca904235f7ab0a
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 144c1960af353e3ff6e641ca5597436b00813e31
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85312440"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277026"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Definizioni predefinite di Criteri di Azure per Archiviazione di Azure
 

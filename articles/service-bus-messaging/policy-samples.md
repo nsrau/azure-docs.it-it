@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per la messaggistica del bus di servizio di Azure
-description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per la messaggistica del bus di servizio di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/23/2020
+description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per la messaggistica del bus di servizio di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 07/10/2020
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 7170a6ad7a69e54e34dfd15be1b4165d4e3b59ac
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: b487e8aa57bbad1e25fc244a9ab73dea06f5e321
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321282"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276508"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Definizioni predefinite di Criteri di Azure per la messaggistica del bus di servizio di Azure
 
