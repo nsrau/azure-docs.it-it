@@ -160,7 +160,7 @@ Questa app console usa il driver open source [Gremlin Node.js](https://www.npmjs
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Pannello delle chiavi" del portale di Azure":::
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Pannello delle chiavi del portale di Azure":::
 
 4. Immettere il nome del database e il nome del grafo (contenitore) per il valore di config.database e config.collection. 
 
