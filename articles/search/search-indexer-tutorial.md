@@ -1,23 +1,23 @@
 ---
 title: Esercitazione per C# sull'indicizzazione di dati di Azure SQL
 titleSuffix: Azure Cognitive Search
-description: In questa esercitazione per C# si eseguirà la connessione al database SQL di Azure, si estrarranno i dati ricercabili e si caricheranno in un indice di Ricerca cognitiva di Azure.
+description: In questa esercitazione per C# si eseguirà la connessione a Database SQL di Azure, quindi si estrarranno i dati ricercabili che verranno caricati in un indice di Ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: cf0c2c75b795fcca347439714e163d4022b79fa4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: a3a7657aa83a675982adc304de01ba0fcc26d193
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261019"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045451"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Esercitazione: Indicizzare i dati di Azure SQL con .NET SDK
 
-Configurare un [indicizzatore](search-indexer-overview.md) per estrarre i dati ricercabili dal database SQL di Azure e inviarli a un indice di ricerca in Ricerca cognitiva di Azure. 
+Configurare un [indicizzatore](search-indexer-overview.md) per estrarre i dati ricercabili da Database SQL di Azure e inviarli a un indice di ricerca in Ricerca cognitiva di Azure. 
 
 In questa esercitazione si usa C# e [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) per le attività seguenti:
 
@@ -144,7 +144,7 @@ Uno schema può includere anche altri elementi, tra cui l'assegnazione di punteg
 
 Il programma principale include la logica per la creazione di un client, un indice, un'origine dati e un indicizzatore. Il codice cerca ed elimina le risorse esistenti con lo stesso nome, presupponendo che sia possibile che il programma venga eseguito più volte.
 
-L'oggetto origine dati è configurato con le impostazioni specifiche per le risorse del database SQL di Azure, tra cui l'[indicizzazione parziale o incrementale](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) per sfruttare le [funzionalità di rilevamento delle modifiche](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) predefinite di Azure SQL. Il database degli hotel demo in SQL di Azure include una colonna di "eliminazione temporanea" denominata **IsDeleted**. Quando questa colonna è impostata su true nel database, l'indicizzatore rimuove il documento corrispondente dall'indice di Ricerca cognitiva di Azure.
+L'oggetto origine dati è configurato con le impostazioni specifiche per le risorse di Database SQL di Azure, tra cui l'[indicizzazione parziale o incrementale](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) per sfruttare le [funzionalità di rilevamento delle modifiche](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) predefinite di SQL di Azure. Il database degli hotel demo in SQL di Azure include una colonna di "eliminazione temporanea" denominata **IsDeleted**. Quando questa colonna è impostata su true nel database, l'indicizzatore rimuove il documento corrispondente dall'indice di Ricerca cognitiva di Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -253,4 +253,4 @@ Per trovare e gestire le risorse nel portale, usare il collegamento Tutte le ris
 Dopo aver acquisito familiarità con i concetti di base dell'indicizzazione del database SQL, si esaminerà in dettaglio la configurazione dell'indicizzatore.
 
 > [!div class="nextstepaction"]
-> [Configurare un indicizzatore per il database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Configurare un indicizzatore per il database SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

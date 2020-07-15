@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto Canada Federal PBMM
 description: Mapping dei controlli degli esempi di progetto Canada Federal PBMM. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005705"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085634"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Canada Federal PBMM
 
@@ -108,7 +108,7 @@ Questo progetto assegna definizioni di [Criteri di Azure](../../../policy/overvi
 
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - È consigliabile abilitare il controllo in SQL Server
-- Sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite
+- La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 
 ## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) Verifica, analisi e report di controllo | Verifica e analisi centralizzate
@@ -132,7 +132,7 @@ Questo progetto consente di assicurarsi che gli eventi di sistema vengano regist
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - È consigliabile abilitare il controllo in SQL Server
-- Sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite
+- La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - Distribuisci Sicurezza dei dati avanzata nei server SQL
 - Distribuisci il controllo nei server SQL
@@ -140,13 +140,13 @@ Questo progetto consente di assicurarsi che gli eventi di sistema vengano regist
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Funzionalità minima | Software autorizzato/elenco elementi consentiti
 
-Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni consente di creare elenchi di applicazioni approvate per le macchine virtuali. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali quando è consigliato un elenco elementi consentiti che però non è stato ancora configurato.
+Il controllo applicazione adattivo in Centro sicurezza di Azure è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni consente di creare elenchi di applicazioni approvate per le macchine virtuali. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali quando è consigliato un elenco elementi consentiti, che però non è stato ancora configurato.
 
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 Software installato dall'utente
 
-Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni consente di imporre e monitorare la conformità ai criteri di restrizione software. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali quando è consigliato un elenco elementi consentiti che però non è stato ancora configurato.
+Il controllo applicazione adattivo in Centro sicurezza di Azure è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni consente di imporre e monitorare la conformità ai criteri di restrizione software. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali quando è consigliato un elenco elementi consentiti, che però non è stato ancora configurato.
 
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
 
@@ -198,7 +198,7 @@ Questo progetto consente di limitare e controllare l'accesso con privilegi asseg
 
 Questo progetto consente di gestire le vulnerabilità dei sistemi informativi assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano le vulnerabilità del sistema operativo, nonché di SQL e delle macchine virtuali nel Centro sicurezza di Azure. Centro sicurezza di Azure fornisce funzionalità di report che consentono di ricevere informazioni dettagliate in tempo reale sullo stato di sicurezza delle risorse di Azure distribuite. Questo progetto assegna anche definizioni di criteri che controllano e impongono l'uso di Sicurezza dei dati avanzata nei server SQL. Sicurezza dei dati avanzata include le funzionalità Valutazione della vulnerabilità e Advanced Threat Protection che consentono di comprendere le vulnerabilità nelle risorse distribuite.
 
-- Sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite
+- La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - Distribuisci Sicurezza dei dati avanzata nei server SQL
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
@@ -249,7 +249,7 @@ Questo progetto consente di proteggere la riservatezza e l'integrità delle info
 
 Questo progetto consente di imporre i criteri sull'uso dei controlli crittografici per la protezione delle informazioni inattive assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che impongono controlli crittografici specifici e controllano l'uso di impostazioni di crittografia meno sicure. Identificando le risorse di Azure le cui configurazioni di crittografia potrebbero non essere ottimali, è possibile adottare azioni correttive per assicurarsi che le risorse siano configurate in conformità ai criteri di sicurezza delle informazioni. In particolare, le definizioni di criteri assegnate da questo progetto richiedono la crittografia per gli account Data Lake Storage, richiedono l'applicazione di Transparent Data Encryption per i database SQL e controllano se manca la crittografia in database SQL, dischi di macchine virtuali e variabili degli account di automazione.
 
-- Sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite
+- La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - Distribuisci Sicurezza dei dati avanzata nei server SQL
 - Distribuisci Transparent Data Encryption nel database SQL
@@ -293,7 +293,7 @@ Questo progetto consente di monitorare il sistema controllando e imponendo la re
 - \[Anteprima\]: Controlla area di lavoro Log Analytics per la macchina virtuale - Segnala mancata corrispondenza
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
-- Sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite
+- La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - Distribuisci Sicurezza dei dati avanzata nei server SQL
 - Distribuisci Advanced Threat Protection negli account di archiviazione

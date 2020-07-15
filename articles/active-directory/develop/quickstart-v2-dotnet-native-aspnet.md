@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 084083a704a007e6675234883c62350d1d9a0849
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 22bf7e85a48e0d138bfdbca82cf032287d982899
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536149"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339592"
 ---
-# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Guida introduttiva: Chiamare un'API Web ASP.NET protetta da Microsoft Identity Platform
+# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Avvio rapido: Chiamare un'API Web ASP.NET protetta da Microsoft Identity Platform
 
 In questo argomento di avvio rapido viene esposta e protetta un'API Web in modo che solo gli utenti autenticati possano accedervi. Questo esempio mostra come esporre un'API Web ASP.NET in modo che possa accettare token rilasciati sia da account personali (ad esempio outlook.com, live.com e altri) sia da account aziendali e di istituti di istruzione di qualsiasi organizzazione o azienda che abbia eseguito l'integrazione con Microsoft Identity Platform.
 
@@ -30,7 +30,7 @@ Per eseguire questo esempio, sono necessari:
 
 * Visual Studio 2017 o 2019.  Scaricare [Visual Studio gratuitamente](https://www.visualstudio.com/downloads/).
 
-* [Account Microsoft](https://www.outlook.com) o adesione al programma [Office 365 Developer Program](/office/developer-program/office-365-developer-program)
+* [Account Microsoft](https://www.outlook.com) o adesione al programma [Microsoft 365 Developer Program](/office/developer-program/office-365-developer-program)
 
 ## <a name="download-or-clone-this-sample"></a>Scaricare o clonare questo esempio
 

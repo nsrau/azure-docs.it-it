@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 5ad92fe9f243cf9884f29536cf6ebb66202338d5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d205f3ccc0adef7e2390274bb7f4511c6f994027
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299962"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038005"
 ---
 # <a name="azure-ea-pricing"></a>Prezzi di Azure EA
 
@@ -24,7 +24,7 @@ Questa sezione include informazioni dettagliate sul modo in cui viene calcolato 
 
 ### <a name="price-protection"></a>Protezione dei prezzi
 
-Ai clienti o partner di canale vengono garantiti prezzi corrispondenti o inferiori a quelli indicati nell'Elenco prezzi cliente (CPS) o il prezzo applicato alla data di validità dell'acquisto di Azure. Questo prezzo è chiamato prezzo di base. Per i servizi resi disponibili dopo l'acquisto di Azure, viene applicato il prezzo effettivo con lo sconto applicabile al momento in cui il servizio è stato reso disponibile per la prima volta. Questa protezione dei prezzi si applica per la durata del periodo di impegno, che può essere di uno o tre anni a seconda del Contratto Enterprise.
+Ai clienti o partner di canale vengono garantiti prezzi corrispondenti o inferiori a quelli indicati nell'Elenco prezzi cliente (CPS) o il prezzo applicato alla data di validità dell'acquisto di Azure. Questo prezzo è chiamato prezzo di base. Per i servizi resi disponibili dopo l'acquisto di Azure, viene applicato il prezzo effettivo con lo sconto applicabile al momento in cui il servizio è stato reso disponibile per la prima volta. Questa protezione dei prezzi si applica per la durata del periodo di pagamento anticipato, che può essere di uno o tre anni a seconda del contratto Enterprise.
 
 ### <a name="price-changes"></a>Modifiche ai prezzi
 

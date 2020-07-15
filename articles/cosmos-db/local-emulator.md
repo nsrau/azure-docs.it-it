@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 0a6a1bd5e56f94a97779a85eafd0d46473cc2d0c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262430"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028251"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usare l'emulatore Azure Cosmos per sviluppo e test locali
 
@@ -64,9 +64,11 @@ L'emulatore Azure Cosmos presenta i requisiti hardware e software seguenti:
 
 Per avviare l'emulatore Azure Cosmos, fare clic sul pulsante Start o premere WINDOWS sulla tastiera. Iniziare a digitare **Azure Cosmos Emulator** e selezionare l'emulatore dall'elenco di applicazioni.
 
-![Fare clic sul pulsante Start o premere WINDOWS sulla tastiera, iniziare a digitare **Azure Cosmos Emulator** e selezionare l'emulatore dall'elenco di applicazioni](./media/local-emulator/database-local-emulator-start.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="Fare clic sul pulsante Start o premere WINDOWS sulla tastiera, iniziare a digitare Azure Cosmos Emulator e selezionare l'emulatore dall'elenco di applicazioni":::
 
-Quando l'emulatore è in esecuzione, verrà visualizzata un'icona nell'area di notifica della barra delle applicazioni di Windows. ![Notifica della barra delle applicazioni dell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-taskbar.png)
+Quando l'emulatore è in esecuzione, verrà visualizzata un'icona nell'area di notifica della barra delle applicazioni di Windows. 
+
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Notifica della barra delle applicazioni dell'emulatore locale di Azure Cosmos DB":::
 
 Per impostazione predefinita, l'emulatore Azure Cosmos viene eseguito nel computer locale ("localhost") in ascolto sulla porta 8081.
 
@@ -222,7 +224,7 @@ I linguaggi e il runtime .NET usano l'archivio certificati Windows per connetter
 
 Per ottenere un certificato da usare con i linguaggi e i runtime che non si integrano con l'archivio certificati Windows, sarà necessario esportarlo usando Gestione certificati di Windows. Per avviarlo, è possibile eseguire certlm.msc o seguire le istruzioni dettagliate contenute in [Esportare i certificati dell'emulatore Azure Cosmos](./local-emulator-export-ssl-certificates.md). Quando Gestione certificati è in esecuzione, aprire i certificati personali, come illustrato sotto, ed esportare il certificato con il nome descrittivo "DocumentDBEmulatorCertificate" come file Codificato Base 64 X.509 (.CER).
 
-![Certificato TLS/SSL dell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-ssl_certificate.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-ssl_certificate.png" alt-text="Certificato TLS/SSL dell'emulatore locale di Azure Cosmos DB":::
 
 Per importare il certificato X.509 nell'archivio certificati Java, seguire le istruzioni disponibili in [Aggiunta di un certificato all'archivio certificati CA Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Dopo l'importazione del certificato nell'archivio certificati, i client per l'API SQL e l'API di Cosmos DB per MongoDB potranno connettersi all'emulatore Azure Cosmos.
 
@@ -233,7 +235,9 @@ Dal percorso di installazione è possibile usare la riga di comando per avviare 
 
 ### <a name="command-line-syntax"></a>Sintassi della riga di comando
 
-    Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```
 
 Per visualizzare l'elenco di opzioni, digitare `Microsoft.Azure.Cosmos.Emulator.exe /?` al prompt dei comandi.
 
@@ -418,7 +422,7 @@ Se si chiude la shell interattiva una volta avviato l'emulatore, il contenitore 
 
 Per aprire Esplora dati, passare all'URL seguente nel browser. L'endpoint dell'emulatore è specificato nel messaggio di risposta illustrato in precedenza.
 
-    https://<emulator endpoint provided in response>/_explorer/index.html
+**https\://** \<emulator endpoint provided in response> **/_explorer/index.html**
 
 Se un'applicazione client .NET è in esecuzione in un contenitore Docker Linux e se si esegue l'emulatore di Azure Cosmos in un computer host, vedere la sezione seguente per Linux per importare il certificato nel contenitore Docker Linux.
 
@@ -468,7 +472,7 @@ Se si usa Linux, .NET si basa su OpenSSL per eseguire la convalida:
    update-ca-certificates
    ```
 
-### <a name="mac-os"></a>Mac OS
+### <a name="macos"></a>macOS
 
 Se si usa Mac, seguire questa procedura:
 

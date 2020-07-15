@@ -9,26 +9,28 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/20/2020
-ms.openlocfilehash: 670cebe1c0f1c9002e33b729d0db9ee9f9a01283
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2579249cc088063d98bb101c7a5b5118e4b07722
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682539"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027053"
 ---
-# <a name="quickstart-deploy-cognitive-search-using-a-resource-manager-template"></a>Guida introduttiva: Distribuire Ricerca cognitiva con un modello di Resource Manager
+# <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>Avvio rapido: Distribuire Ricerca cognitiva con un modello di Resource Manager
 
-Questo articolo illustra la procedura per usare un modello di Resource Manager per distribuire una risorsa di Ricerca cognitiva di Azure nel portale di Azure.
+Questo articolo illustra la procedura per usare un modello di Azure Resource Manager per distribuire una risorsa di Ricerca cognitiva di Azure nel portale di Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-cognitive-search-service"></a>Creare un servizio Ricerca cognitiva
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
@@ -36,15 +38,15 @@ Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di
 
 La risorsa di Azure definita in questo modello:
 
-- [Microsoft.Search/searchServices](https://docs.microsoft.com/azure/templates/Microsoft.Search/2015-08-19/searchServices): creare un servizio Ricerca cognitiva di Azure
+- [Microsoft.Search/searchServices](/azure/templates/Microsoft.Search/searchServices): creare un servizio Ricerca cognitiva di Azure
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea una risorsa di Ricerca cognitiva di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
 
-Il portale visualizza un modulo che consente di fornire facilmente i valori dei parametri. Alcuni parametri sono precompilati con i valori predefiniti del modello. Sarà necessario specificare la sottoscrizione, il gruppo di risorse, la posizione e il nome del servizio. Se si vuole usare Servizi cognitivi in una pipeline di [arricchimento tramite intelligenza artificiale](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro), ad esempio per analizzare file di immagine binari per verificare la presenza di testo, scegliere una posizione che offra sia Ricerca cognitiva che Servizi cognitivi. È necessario che entrambi i servizi si trovino nella stessa area per i carichi di lavoro di arricchimento tramite intelligenza artificiale. Una volta completato il modulo, sarà necessario accettare i termini e le condizioni, quindi selezionare il pulsante Acquista per completare la distribuzione.
+Il portale visualizza un modulo che consente di fornire facilmente i valori dei parametri. Alcuni parametri sono precompilati con i valori predefiniti del modello. Sarà necessario specificare la sottoscrizione, il gruppo di risorse, la posizione e il nome del servizio. Se si vuole usare Servizi cognitivi in una pipeline di [arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md), ad esempio per analizzare file di immagine binari per verificare la presenza di testo, scegliere una posizione che offra sia Ricerca cognitiva che Servizi cognitivi. È necessario che entrambi i servizi si trovino nella stessa area per i carichi di lavoro di arricchimento tramite intelligenza artificiale. Una volta completato il modulo, sarà necessario accettare i termini e le condizioni, quindi selezionare il pulsante Acquista per completare la distribuzione.
 
 > [!div class="mx-imgBorder"]
 > ![Visualizzazione del modello nel portale di Azure](./media/search-get-started-arm/arm-portalscrnsht.png)
@@ -61,9 +63,7 @@ Altre guide di avvio rapido ed esercitazioni di Ricerca cognitiva si basano su q
 
 In questo argomento di avvio rapido è stato creato un servizio Ricerca cognitiva usando un modello di Azure Resource Manager ed è stata convalidata la distribuzione. Per altre informazioni su Ricerca cognitiva e Azure Resource Manager, continuare con gli articoli seguenti.
 
- - Leggere una [panoramica di Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-what-is-azure-search)
- - [Creare un indice](https://docs.microsoft.com/azure/search/search-get-started-portal) per il servizio di ricerca
- - [Creare un'app di ricerca](https://docs.microsoft.com/azure/search/search-create-app-portal) usando la procedura guidata del portale
- - [Creare un set di competenze](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob) per estrarre informazioni dai dati
-
-
+- Leggere una [panoramica di Ricerca cognitiva di Azure](search-what-is-azure-search.md).
+- [Creare un indice](search-get-started-portal.md) per il servizio di ricerca.
+- [Creare un'app demo](search-create-app-portal.md) usando la procedura guidata del portale.
+- [Creare un set di competenze](cognitive-search-quickstart-blob.md) per estrarre informazioni dai dati.

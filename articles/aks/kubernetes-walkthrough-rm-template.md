@@ -5,16 +5,16 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: bbe5d9ac21ae9e03d629a1667567a915c8653a8a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 447af1580f601c1f55690434b371aeeed2d335a0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81602643"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106340"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes usando un modello di Azure Resource Manager
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes con un modello di Resource Manager
 
-Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. In questo modulo dell'Avvio rapido verrà distribuito un cluster del servizio Azure Kubernetes usando un modello di Azure Resource Manager. Nel cluster verrà eseguita un'applicazione multi-contenitore che include un front-end Web e un'istanza di Redis.
+Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. In questo argomento di avvio rapido si distribuisce un cluster del servizio Azure Kubernetes usando un modello di Azure Resource Manager (modello ARM). Nel cluster verrà eseguita un'applicazione multi-contenitore che include un front-end Web e un'istanza di Redis.
 
 ![Immagine del passaggio ad Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
@@ -22,7 +22,9 @@ Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di d
 
 Questa guida introduttiva presuppone una comprensione di base dei concetti relativi a Kubernetes. Per altre informazioni, vedere [Concetti di base relativi a Kubernetes per il servizio Azure Kubernetes][kubernetes-concepts].
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -30,7 +32,9 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per creare un cluster del servizio Azure Kubernetes usando un modello di Resource Manager, è necessario specificare una chiave pubblica SSH e l'entità servizio di Azure Active Directory.  In alternativa, è possibile usare un'[identità gestita](use-managed-identity.md) anziché un'entità servizio per le autorizzazioni. Se è necessaria una di queste risorse, vedere la sezione successiva. In caso contrario passare direttamente alla sezione [Creare un cluster del servizio Azure Kubernetes](#create-an-aks-cluster).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+Per creare un cluster del servizio Azure Kubernetes usando un modello di Resource Manager, è necessario specificare una chiave pubblica SSH e l'entità servizio di Azure Active Directory. In alternativa, è possibile usare un'[identità gestita](use-managed-identity.md) anziché un'entità servizio per le autorizzazioni. Se è necessaria una di queste risorse, vedere la sezione successiva. In caso contrario, passare alla sezione [Esaminare il modello](#review-the-template).
 
 ### <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
 
@@ -68,9 +72,7 @@ L'output è simile all'esempio seguente:
 
 Prendere nota di *appId* e *password*. Questi valori vengono usati nei passaggi successivi.
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-aks/).
 
@@ -78,7 +80,7 @@ Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di
 
 Per altri esempi per il servizio Azure Kubernetes, vedere il sito dei [modelli di avvio rapido per il servizio Azure Kubernetes][aks-quickstart-templates].
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello.
 

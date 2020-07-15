@@ -7,18 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733943"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024860"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
-Per comunicare con il dominio gestito di Azure Active Directory Domain Services (Azure AD DS), viene usato il protocollo LDAP (Lightweight Directory Access Protocol). Per impostazione predefinita, il traffico LDAP non è crittografato, il che rappresenta un problema di sicurezza per molti ambienti. Con Azure AD DS, è possibile configurare il dominio gestito per l'uso del protocollo LDAP sicuro (LDAPS). Quando si usa LDAP sicuro, il traffico viene crittografato. LDAP sicuro è anche noto come LDAP su SSL (Secure Sockets Layer)/TLS (Transport Layer Security).
+Per comunicare con il dominio gestito di Azure Active Directory Domain Services (Azure AD DS), viene usato il protocollo LDAP (Lightweight Directory Access Protocol). Per impostazione predefinita, il traffico LDAP non è crittografato, il che rappresenta un problema di sicurezza per molti ambienti.
+
+Con Azure AD DS, è possibile configurare il dominio gestito per l'uso del protocollo LDAP sicuro (LDAPS). Quando si usa LDAP sicuro, il traffico viene crittografato. LDAP sicuro è anche noto come LDAP su SSL (Secure Sockets Layer)/TLS (Transport Layer Security).
 
 Questa esercitazione illustra come configurare LDAPS per un dominio gestito di Azure AD DS.
 
@@ -68,7 +70,11 @@ Il certificato richiesto o creato deve soddisfare i requisiti seguenti. Il domin
 * **Utilizzo di chiavi**: il certificato deve essere configurato per le *firme digitali* e la *crittografia a chiave*.
 * **Scopo del certificato**: il certificato deve essere valido per l'autenticazione server TLS.
 
-Sono disponibili diversi strumenti per creare un certificato autofirmato, ad esempio OpenSSL, Keytool, MakeCert, il cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate] e così via. In questa esercitazione verrà creato un certificato autofirmato per LDAP sicuro tramite il cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Aprire una finestra di PowerShell come **amministratore** e immettere i comandi seguenti. Sostituire la variabile *$dnsName* con il nome DNS usato dal dominio gestito, ad esempio *aaddscontoso.com*:
+Sono disponibili diversi strumenti per creare un certificato autofirmato, ad esempio OpenSSL, Keytool, MakeCert, il cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate] e così via.
+
+In questa esercitazione verrà creato un certificato autofirmato per LDAP sicuro tramite il cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate].
+
+Aprire una finestra di PowerShell come **amministratore** e immettere i comandi seguenti. Sostituire la variabile *$dnsName* con il nome DNS usato dal dominio gestito, ad esempio *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your managed domain
@@ -108,7 +114,9 @@ Per usare LDAP sicuro, il traffico di rete viene crittografato con l'infrastrutt
     * Questa chiave pubblica viene usata per *crittografare* il traffico LDAP sicuro. La chiave pubblica può essere distribuita ai computer client.
     * I certificati senza la chiave privata usano il formato di file *CER*.
 
-Queste due chiavi, *pubblica* e *privata*, assicurano che solo i computer appropriati possano comunicare correttamente tra loro. Se si usa una CA pubblica o una CA globale (enterprise), viene emesso un certificato che include la chiave privata e che può essere applicato a un dominio gestito. La chiave pubblica deve essere già nota e considerata attendibile dai computer client. In questa esercitazione è stato creato un certificato autofirmato con la chiave privata, quindi è necessario esportare i componenti pubblici e privati appropriati.
+Queste due chiavi, *pubblica* e *privata*, assicurano che solo i computer appropriati possano comunicare correttamente tra loro. Se si usa una CA pubblica o una CA globale (enterprise), viene emesso un certificato che include la chiave privata e che può essere applicato a un dominio gestito. La chiave pubblica deve essere già nota e considerata attendibile dai computer client.
+
+In questa esercitazione è stato creato un certificato autofirmato con la chiave privata, quindi è necessario esportare i componenti pubblici e privati appropriati.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Esportare un certificato per Azure AD DS
 
@@ -148,7 +156,9 @@ Per poter usare il certificato digitale creato nel passaggio precedente con il d
 
 ### <a name="export-a-certificate-for-client-computers"></a>Esportare un certificato per i computer client
 
-I computer client devono considerare attendibile l'autorità emittente del certificato LDAP sicuro per stabilire una connessione con il dominio gestito tramite LDAPS. I computer client necessitano di un certificato per crittografare correttamente i dati decrittografati da Azure AD DS. Se si usa una CA pubblica, il computer deve considerare automaticamente attendibili tali autorità di certificazione e avere un certificato corrispondente. In questa esercitazione viene usato un certificato autofirmato e viene generato un certificato che include la chiave privata del passaggio precedente. A questo punto esportare e quindi installare il certificato autofirmato nell'archivio certificati attendibili del computer client:
+I computer client devono considerare attendibile l'autorità emittente del certificato LDAP sicuro per stabilire una connessione con il dominio gestito tramite LDAPS. I computer client necessitano di un certificato per crittografare correttamente i dati decrittografati da Azure AD DS. Se si usa una CA pubblica, il computer deve considerare automaticamente attendibili tali autorità di certificazione e avere un certificato corrispondente.
+
+In questa esercitazione viene usato un certificato autofirmato e viene generato un certificato che include la chiave privata del passaggio precedente. A questo punto esportare e quindi installare il certificato autofirmato nell'archivio certificati attendibili del computer client:
 
 1. Tornare nella console MMC per l'archivio *Certificati (computer locale) > Personale > Certificati*. Viene visualizzato il certificato autofirmato creato nel passaggio precedente, ad esempio *aaddscontoso.com*. Fare clic con il pulsante destro del mouse su questo certificato, quindi scegliere **Tutte le attività > Esporta**.
 1. Nella **Esportazione guidata certificati** fare clic su **Avanti**.
@@ -186,7 +196,10 @@ Con un certificato digitale creato ed esportato che include la chiave privata e 
 
 1. Selezionare l'icona della cartella accanto a **File PFX con certificato LDAP sicuro**. Individuare il percorso del file *PFX*, quindi selezionare il certificato che include la chiave privata, creato in un passaggio precedente.
 
-    Come indicato nella sezione precedente sui requisiti dei certificati, non è possibile usare un certificato di una CA pubblica con il dominio predefinito *.onmicrosoft.com*. Microsoft è proprietaria del dominio *.onmicrosoft.com*, quindi una CA pubblica non emetterà un certificato. Assicurarsi che il certificato sia nel formato appropriato. In caso contrario, la piattaforma Azure genera errori di convalida del certificato quando si abilita LDAP sicuro.
+    > [!IMPORTANT]
+    > Come indicato nella sezione precedente sui requisiti dei certificati, non è possibile usare un certificato di una CA pubblica con il dominio predefinito *.onmicrosoft.com*. Microsoft è proprietaria del dominio *.onmicrosoft.com*, quindi una CA pubblica non emetterà un certificato.
+    >
+    > Assicurarsi che il certificato sia nel formato appropriato. In caso contrario, la piattaforma Azure genera errori di convalida del certificato quando si abilita LDAP sicuro.
 
 1. Immettere la **Password per decrittografare il file PFX** impostata in un passaggio precedente quando il certificato è stato esportato in un file *PFX*.
 1. Selezionare **Salva** per abilitare LDAP sicuro.
@@ -195,7 +208,9 @@ Con un certificato digitale creato ed esportato che include la chiave privata e 
 
 Viene visualizzata una notifica che informa che è in corso la configurazione di LDAP sicuro per il dominio gestito. Finché questa operazione non viene completata, non è possibile modificare altre impostazioni per il dominio gestito.
 
-Per abilitare LDAP sicuro per il dominio gestito sono necessari alcuni minuti. Se il certificato LDAP sicuro fornito non corrisponde ai criteri richiesti, l'azione per abilitare LDAP sicuro per il dominio gestito ha esito negativo. In genere l'errore si verifica se il nome di dominio non è corretto oppure se il certificato sta per scadere o è già scaduto. È possibile creare di nuovo il certificato con parametri validi, quindi abilitare LDAP sicuro usando questo certificato aggiornato.
+Per abilitare LDAP sicuro per il dominio gestito sono necessari alcuni minuti. Se il certificato LDAP sicuro fornito non corrisponde ai criteri richiesti, l'azione per abilitare LDAP sicuro per il dominio gestito ha esito negativo.
+
+In genere l'errore si verifica se il nome di dominio non è corretto oppure se il certificato sta per scadere o è già scaduto. È possibile creare di nuovo il certificato con parametri validi, quindi abilitare LDAP sicuro usando questo certificato aggiornato.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloccare l'accesso LDAP sicuro su Internet
 
@@ -230,7 +245,7 @@ Dopo aver abilitato l'accesso LDAP sicuro tramite Internet, aggiornare la zona D
 
 ![Visualizzare l'indirizzo IP esterno per LDAP sicuro per il dominio gestito nel portale di Azure](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Configurare il provider DNS esterno per creare un record host, ad esempio *ldaps*, da risolvere in questo indirizzo IP esterno. Per eseguire prima il test in locale nel computer, è possibile creare una voce nel file hosts di Windows. Per modificare correttamente il file hosts nel computer locale, aprire il *Blocco note* come amministratore, quindi aprire il file *C:\Windows\System32\drivers\etc*
+Configurare il provider DNS esterno per creare un record host, ad esempio *ldaps*, da risolvere in questo indirizzo IP esterno. Per eseguire prima il test in locale nel computer, è possibile creare una voce nel file hosts di Windows. Per modificare correttamente il file hosts nel computer locale, aprire il *Blocco note* come amministratore, quindi aprire il file *C:\Windows\System32\drivers\etc\hosts*
 
 La voce DNS di esempio seguente, con il provider DNS esterno o nel file hosts locale, risolve il traffico per *ldaps.aaddscontoso.com* nell'indirizzo IP esterno *168.62.205.103*:
 
@@ -269,7 +284,7 @@ Per eseguire direttamente una query su un contenitore specifico, nel menu **Visu
 Se è stata aggiunta una voce DNS al file hosts locale del computer per testare la connettività per questa esercitazione, rimuovere questa voce e aggiungere un record formale nella zona DNS. Per rimuovere la voce dal file hosts locale, completare i passaggi seguenti:
 
 1. Nel computer locale aprire il *Blocco note* come amministratore
-1. Individuare e aprire il file *C:\Windows\System32\drivers\etc*
+1. Individuare e aprire il file *C:\Windows\System32\drivers\etc\hosts*
 1. Eliminare la riga per il record aggiunto, ad esempio `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Passaggi successivi

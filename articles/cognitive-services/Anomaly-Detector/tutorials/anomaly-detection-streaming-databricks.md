@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b8263e0445f7997469ba9165decbaccfa9ed2d6e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918924"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027857"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Esercitazione: Rilevamento anomalie nei dati di streaming con Azure Databricks
 
@@ -41,7 +41,7 @@ Questa esercitazione illustra le attività seguenti:
 
 > [!Note]
 > * Questa esercitazione introduce un approccio all'implementazione dell'[architettura della soluzione](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) consigliata per l'API Rilevamento anomalie.
-> * Non è possibile completare questa esercitazione con una versione di valutazione gratuita dell'API Rilevamento anomalie i du Azure Databricks. 
+> * Non è possibile completare questa esercitazione con un sottoscrizione del livello gratuito (`F0`) dell'API Rilevamento anomalie o di Azure Databricks. 
 
 Creare una [sottoscrizione di Azure](https://azure.microsoft.com/free/), se non se ne possiede una.
 
@@ -76,7 +76,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il [
     |**Posizione**     | Selezionare **Stati Uniti orientali 2** o una delle altre aree disponibili. Per le aree disponibili, vedere [Servizi di Azure disponibili in base all'area](https://azure.microsoft.com/regions/services/).        |
     |**Piano tariffario**     |  Scegliere tra **Standard** e **Premium**. NON scegliere **Versione di valutazione**. Per altre informazioni su questi piani tariffari, vedere la [pagina dei prezzi di Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    Selezionare **Create** (Crea).
+    Selezionare **Crea**.
 
 4. La creazione dell'area di lavoro richiede alcuni minuti, 
 
@@ -134,7 +134,7 @@ In questa esercitazione verranno usate le API Twitter per inviare tweet a Hub ev
 
      ![Specifica delle coordinate di Maven](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Specifica delle coordinate di Maven")
 
-3. Selezionare **Create** (Crea).
+3. Selezionare **Crea**.
 
 4. Passare alla cartella in cui è stata aggiunta la libreria e selezionare il nome della libreria.
 
@@ -170,7 +170,7 @@ In questa esercitazione si useranno le [API Rilevamento anomalie di Servizi cogn
     |Resource group     | Specificare se si vuole creare un nuovo gruppo di risorse o selezionarne uno esistente.        |
 
 
-     Selezionare **Create** (Crea).
+     Selezionare **Crea**.
 
 5. Dopo aver creato la risorsa, nella scheda **Panoramica** copiare e salvare l'URL **Endpoint** come illustrato nello screenshot. Selezionare quindi **Mostra chiavi di accesso**.
 
@@ -195,7 +195,7 @@ In questa sezione vengono creati due notebook nell'area di lavoro di Databricks 
 
     ![Creare un notebook in Databricks](../media/tutorials/databricks-notebook-details.png "Creare un notebook in Databricks")
 
-    Selezionare **Create** (Crea).
+    Selezionare **Crea**.
 
 3. Ripetere la procedura per creare il notebook **AnalyzeTweetsFromEventHub**.
 

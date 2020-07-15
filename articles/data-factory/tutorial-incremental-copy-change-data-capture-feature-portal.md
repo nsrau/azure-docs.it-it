@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85249484"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085719"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Caricare dati in modo incrementale dall'istanza gestita di SQL di Azure in Archiviazione di Azure tramite la tecnologia Change Data Capture
 
@@ -113,7 +113,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
    Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialDataFactory, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+    *Il nome della data factory "ADFTutorialDataFactory" non è disponibile.*
 3. Selezionare **V2** per **version**.
 4. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 5. Per il **gruppo di risorse**, eseguire una di queste operazioni:
@@ -278,12 +278,12 @@ In questo passaggio verrà creata una pipeline che controlla prima di tutto il n
    2. Selezionare **Query** per **Use Query** (Usa query).
    3. In **Query** immettere quanto segue.
 
-    ```sql
-    DECLARE @from_lsn binary(10), @to_lsn binary(10); 
-    SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
-    SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
-    ```
+      ```sql
+      DECLARE @from_lsn binary(10), @to_lsn binary(10); 
+      SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
+      SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
+      SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+      ```
 
    ![Attività di copia: impostazioni origine](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-settings.png)
 

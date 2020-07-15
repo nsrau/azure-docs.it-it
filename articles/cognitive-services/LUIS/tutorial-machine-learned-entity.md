@@ -3,12 +3,12 @@ title: "Esercitazione: Estrarre dati strutturati con un'entità basata su Machin
 description: Estrarre dati strutturati da un'espressione usando l'entità basata su Machine Learning. Per aumentare l'accuratezza dell'estrazione, aggiungere sottoentità con funzionalità.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611017"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045604"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Esercitazione: Estrarre dati strutturati da un'espressione dell'utente con entità basate su Machine Learning in Language Understanding (LUIS)
 
@@ -108,7 +108,7 @@ L'aggiunta di un elenco di dimensioni note riconosciute dall'applicazione client
 
 1. Selezionare **Entities** (Entità) nel menu a sinistra e quindi selezionare **+ Create** (Crea).
 
-1. Impostare il nome dell'entità come `SizeListentity` in modo che sia facile da identificare rispetto all'entità `SizePhraselist` creata nella sezione precedente.
+1. Impostare il nome dell'entità su `SizeListentity` e il tipo su **List** in modo che sia facile da identificare rispetto all'entità `SizePhraselist` creata nella sezione precedente.
 
 1. Aggiungere le dimensioni previste dall'applicazione client, ovvero `Small`, `Medium`, `Large` e `XLarge` e quindi aggiungere sinonimi per ciascuna. I sinonimi devono essere i termini che un utente immette nel chatbot. L'entità viene estratta con un'entità elenco quando corrisponde esattamente al valore normalizzato oppure ai sinonimi.
 

@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 4721d8dbe5973baf2ac82124ff516a89398227cb
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: acb818cf2a892a3a71f2f59b0a44041767b846d0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298194"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044924"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -20,7 +20,7 @@ Questo articolo illustra in che modo clienti e partner EA possono visualizzare g
 
 ## <a name="azure-marketplace-for-ea-customers"></a>Azure Marketplace per i clienti con Contratto Enterprise
 
-Per i clienti diretti, gli addebiti per Azure Marketplace sono visibili in Azure Enterprise Portal. Tutti gli acquisti e l'utilizzo di Azure Marketplace vengono fatturati al di fuori dell'impegno monetario con cadenza trimestrale o mensile e in modo posticipato.
+Per i clienti diretti, gli addebiti per Azure Marketplace sono visibili in Azure Enterprise Portal. Tutti gli acquisti e l'utilizzo di Azure Marketplace vengono fatturati al di fuori del pagamento anticipato con cadenza trimestrale o mensile e in modo posticipato.
 
 Per i clienti indiretti, le sottoscrizioni di Azure Marketplace sono disponibili nella pagina **Gestisci sottoscrizioni** di Azure Enterprise Portal, ma i prezzi sono nascosti. I clienti devono contattare il proprio Licensing Solutions Provider (LSP) per informazioni sugli addebiti per Azure Marketplace.
 
@@ -28,7 +28,7 @@ I nuovi acquisti periodici in Azure Marketplace mensili o annuali vengono fattur
 
 Gli addebiti periodici mensili esistenti continueranno a essere rinnovati il primo giorno di ogni mese di calendario. Gli addebiti annuali verranno rinnovati alla ricorrenza annuale della data di acquisto.
 
-Alcuni servizi di rivenditori di terze parti disponibili in Azure Marketplace ora utilizzano il saldo dell'impegno monetario del Contratto Enterprise (EA). In precedenza questi servizi venivano addebitati al di fuori dell'impegno monetario EA e venivano fatturati separatamente. L'impegno monetario EA per questi servizi in Azure Marketplace semplifica la gestione degli acquisti e dei pagamenti dei clienti. Per un elenco completo dei servizi che ora utilizzano l'impegno monetario, vedere l'[aggiornamento del 6 marzo 2018 nel sito Web di Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+Alcuni servizi di rivenditori di terze parti disponibili in Azure Marketplace ora utilizzano il saldo del pagamento anticipato di Azure del contratto Enterprise (EA). In precedenza questi servizi venivano addebitati al di fuori del pagamento anticipato di Azure del contratto Enterprise e venivano fatturati separatamente. Il pagamento anticipato di Azure del contratto Enterprise per questi servizi in Azure Marketplace semplifica la gestione di acquisti e pagamenti dei clienti. Per un elenco completo dei servizi che ora utilizzano il pagamento anticipato di Azure, vedere l'[aggiornamento del 6 marzo 2018 nel sito Web di Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 ### <a name="partners"></a>Partner
 
@@ -75,41 +75,41 @@ Se si ha un Contratto Enterprise, l'addebito per Azure RemoteApp è basato sul l
 
 ## <a name="azure-marketplace-faq"></a>Domande frequenti su Azure Marketplace
 
-Questa sezione descrive in che modo l'impegno monetario di Azure potrebbe essere applicato ad alcuni servizi di rivenditori di terze parti in Azure Marketplace.
+Questa sezione descrive in che modo il pagamento anticipato di Azure potrebbe essere applicato ad alcuni servizi di rivenditori di terze parti in Azure Marketplace.
 
-### <a name="what-changed-with-azure-marketplace-services-and-ea-monetary-commitment"></a>Che cosa è cambiato nei servizi di Azure Marketplace e nell'impegno monetario del Contratto Enterprise?
+### <a name="what-changed-with-azure-marketplace-services-and-azure-ea-prepayment"></a>Che cosa è cambiato nei servizi di Azure Marketplace e nel pagamento anticipato di Azure del contratto Enterprise?
 
-A partire dal 1° marzo 2018 alcuni servizi di rivenditori di terze parti utilizzano l'impegno monetario (MC) del Contratto Enterprise. Ad eccezione delle istanze di macchine virtuali riservate (RI) di Azure, i servizi venivano conteggiati in precedenza al di fuori dell'impegno monetario del Contratto Enterprise e fatturati separatamente.
+A partire dal 1° marzo 2018 alcuni servizi di rivenditori di terze parti utilizzano il pagamento anticipato di Azure del contratto Enterprise. Ad eccezione delle istanze di macchine virtuali riservate di Azure, i servizi venivano in precedenza addebitati al di fuori del pagamento anticipato di Azure del contratto Enterprise e fatturati separatamente.
 
-L'uso dell'impegno monetario (MC) è stato esteso ad alcuni servizi di Azure Marketplace pubblicati di terze parti che vengano acquistati con maggiore frequenza. L'impegno monetario del Contratto Enterprise per questi servizi in Azure Marketplace semplifica la gestione degli acquisti e dei pagamenti.
+L'uso del pagamento anticipato di Azure è stato esteso ad alcuni servizi di Azure Marketplace pubblicati da terze parti che vengano acquistati con maggiore frequenza. Il pagamento anticipato di Azure del contratto Enterprise per questi servizi in Azure Marketplace semplifica la gestione di acquisti e pagamenti.
 
 ### <a name="why-did-we-make-this-change"></a>Perché è stata apportata questa modifica?
 
-I clienti cercano sempre altri modi per utilizzare il pagamento anticipato dell'impegno monetario. Questa modifica è stata richiesta spesso dai clienti e interessa una gran parte dei clienti di Azure Marketplace.
+I clienti sono alla continua ricerca di nuovi modi per sfruttare il pagamento anticipato di Azure. Questa modifica è stata richiesta spesso dai clienti e interessa una gran parte dei clienti di Azure Marketplace.
 
 ### <a name="how-do-you-benefit"></a>Quali sono i vantaggi?
 
-L'esperienza di fatturazione è più semplice ed è possibile utilizzare l'impegno monetario del Contratto Enterprise. Poiché questi servizi sono inclusi nell'impegno monetario prepagato, l'impegno monetario del Contratto Enterprise acquisisce maggior valore.
+L'esperienza di fatturazione è più semplice ed è possibile utilizzare il pagamento anticipato di Azure del contratto Enterprise. Poiché questi servizi sono inclusi nel pagamento anticipato di Azure del contratto Enterprise, tale programma acquisisce maggior valore.
 
-### <a name="what-azure-marketplace-services-use-ea-monetary-commitment-and-how-do-i-know"></a>Quali servizi di Azure Marketplace utilizzano l'impegno monetario del Contratto Enterprise e come viene informato il cliente?
+### <a name="what-azure-marketplace-services-use-azure-ea-prepayment-and-how-do-i-know"></a>Quali servizi di Azure Marketplace utilizzano il pagamento anticipato di Azure del contratto Enterprise e come viene informato il cliente?
 
-Quando si acquista un servizio che utilizza l'impegno monetario, Azure Marketplace visualizza una dichiarazione di non responsabilità. Sono supportati alcuni servizi pubblicati da Red Hat, SUSE, Autodesk e Oracle. Attualmente, i servizi con denominazione simile pubblicati da altre parti non vengono detratti dall'impegno monetario. Alla fine di queste domande frequenti è disponibile un elenco completo.
+Quando si acquista un servizio che utilizza il pagamento anticipato di Azure, in Azure Marketplace viene visualizzata una dichiarazione di non responsabilità. Sono supportati alcuni servizi pubblicati da Red Hat, SUSE, Autodesk e Oracle. Attualmente, i servizi con nomi simili pubblicati da altre parti non vengono detratti dal pagamento anticipato di Azure. Alla fine di queste domande frequenti è disponibile un elenco completo.
 
-### <a name="what-if-my-ea-monetary-commitment-runs-out"></a>Cosa accade se si esaurisce l'impegno monetario del Contratto Enterprise?
+### <a name="what-if-my-azure-ea-prepayment-runs-out"></a>Che cosa succede se si esaurisce il pagamento anticipato di Azure del contratto Enterprise?
 
-Se è stato utilizzato tutto l'impegno monetario e si è in condizione di eccedenza, gli addebiti relativi a questi servizi saranno inclusi nella successiva fattura per eccedenza insieme a eventuali altri servizi a consumo. Prima della modifica del 1° marzo 2018, questi addebiti venivano fatturati con gli altri servizi di Azure Marketplace.
+Se si utilizza tutto il pagamento anticipato di Azure si è in condizione di eccedenza, gli addebiti relativi a questi servizi saranno inclusi nella successiva fattura per eccedenza insieme a eventuali altri servizi a consumo. Prima della modifica del 1° marzo 2018, questi addebiti venivano fatturati con gli altri servizi di Azure Marketplace.
 
-### <a name="why-dont-all-azure-marketplaces-consume-ea-monetary-commitment"></a>Perché l'utilizzo dell'impegno monetario del Contratto Enterprise non viene abilitato per tutti i servizi di Azure Marketplace?
+### <a name="why-dont-all-azure-marketplaces-consume-azure-ea-prepayment"></a>Perché l'utilizzo del pagamento anticipato di Azure del contratto Enterprise non viene abilitato per tutti i servizi di Azure Marketplace?
 
-Stiamo lavorando spesso per offrire la miglior esperienza cliente correlata all'impegno monetario del Contratto Enterprise. Questa modifica riguarderà un numero elevato di clienti e una parte significativa della spesa totale in Azure Marketplace. In futuro potrebbero venire aggiunti altri servizi.
+Ci impegniamo per offrire ai clienti la migliore esperienza possibile per quanto riguarda il pagamento anticipato di Azure del contratto Enterprise. Questa modifica riguarderà un numero elevato di clienti e una parte significativa della spesa totale in Azure Marketplace. In futuro potrebbero venire aggiunti altri servizi.
 
 ### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>Quali saranno le differenze per la registrazione e i partner indiretti?
 
-Non ci sono variazioni per i partner o i clienti con registrazione indiretta. Questi servizi sono soggetti alle stesse possibilità di ricarico dei partner a cui sono sottoposti altri servizi a consumo. L'unico cambiamento è costituito dall'inserimento degli addebiti in una fattura diversa e dal pagamento degli addebiti attraverso l'impegno monetario del Contratto Enterprise del cliente.
+Non ci sono variazioni per i partner o i clienti con registrazione indiretta. Questi servizi sono soggetti alle stesse possibilità di ricarico dei partner a cui sono sottoposti altri servizi a consumo. L'unico cambiamento è costituito dall'inserimento degli addebiti in una fattura diversa e dal saldo degli stessi attraverso il pagamento anticipato di Azure del contratto Enterprise.
 
-### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-ea-monetary-commitment"></a>È disponibile un elenco dei servizi di Azure Marketplace che utilizzano l'impegno monetario del Contratto Enterprise?
+### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-azure-ea-prepayment"></a>È disponibile un elenco dei servizi di Azure Marketplace che utilizzano il pagamento anticipato di Azure del contratto Enterprise?
 
-Alcune offerte specifiche di Azure Marketplace possono usare i fondi dell'impegno monetario. Per un elenco completo dei prodotti che partecipano al programma, vedere i [servizi di terze parti che usano l'impegno monetario](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment).
+Alcune offerte specifiche di Azure Marketplace possono usare i fondi del pagamento anticipato di Azure. Per un elenco completo dei prodotti che partecipano al programma, vedere i [servizi di terze parti che usano il pagamento anticipato di Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

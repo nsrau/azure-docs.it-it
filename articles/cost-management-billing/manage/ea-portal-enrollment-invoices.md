@@ -3,16 +3,16 @@ title: Fatture per la registrazione ad Azure Enterprise
 description: Questo articolo illustra come gestire la fattura della registrazione EA di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 5276780d06671b8358f615b1fcb6447c8e1310f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807788"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044873"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione ad Azure Enterprise
 
@@ -46,14 +46,14 @@ Azure Enterprise Portal genera automaticamente un numero di ordine d'acquisto pr
 
 ## <a name="azure-enterprise-billing-frequency"></a>Frequenza di fatturazione di Azure Enterprise
 
-Microsoft addebita tutti gli acquisti di servizi di Microsoft Azure una volta all'anno in corrispondenza della data di entrata in vigore della registrazione. Per qualsiasi utilizzo in eccesso rispetto agli importi dell'impegno, Microsoft fattura in modo posticipato.
+Microsoft addebita tutti gli acquisti di servizi di Microsoft Azure con pagamento anticipato una volta all'anno alla data di entrata in vigore della registrazione. Per qualsiasi utilizzo in eccesso rispetto agli importi del pagamento anticipato, Microsoft fattura in modo posticipato.
 
-- I corrispettivi dell'impegno vengono suddivisi in base a una tariffa mensile e addebitati annualmente in anticipo.
+- I corrispettivi del pagamento anticipato vengono suddivisi in base a una tariffa mensile e addebitati annualmente in anticipo.
 - I corrispettivi dell'eccedenza vengono calcolati ogni mese e addebitati in via posticipata alla fine del periodo di fatturazione.
 
 ### <a name="billing-intervals"></a>Intervalli di fatturazione
 
-L'intervallo di fatturazione dipende dalla modalità scelta per effettuare gli acquisti degli impegni. L'impegno annuale coincide con una delle date seguenti:
+L'intervallo di fatturazione dipende dalla modalità scelta per effettuare gli acquisti con pagamento anticipato. Il pagamento anticipato coincide con una delle date seguenti:
 
 - Data di ricorrenza annuale della registrazione
 - Data di validità della sottoscrizione di modifica di un anno.
@@ -62,12 +62,12 @@ La data di ricezione della fattura per eccedenza dipende dalla data di inizio e 
 
 - **Registrazioni dirette con data di inizio precedente al 1° maggio 2018**:
   - Se si ha un Contratto Enterprise (EA) diretto, il periodo di fatturazione per i servizi di Azure è annuale e sono esclusi i servizi di Azure Marketplace. Il periodo di fatturazione è basato sulla data di ricorrenza annuale, ovvero la data in cui il contratto è diventato effettivo.
-  - Se si supera il 150% della soglia di impegno monetario (MC) del Contratto Enterprise, si passerà automaticamente a un periodo di fatturazione trimestrale basato sulla data di ricorrenza. Si riceverà anche una fattura per eccedenza dei servizi Azure.
-  - Se non si supera il 150% della soglia MC, la registrazione manterrà un periodo di fatturazione annuale. La fattura per eccedenza verrà ricevuta alla fine dell'anno di impegno.
+  - Se si supera il 150% della soglia del pagamento anticipato di Azure del contratto Enterprise, si passerà automaticamente a un periodo di fatturazione trimestrale basato sulla data di ricorrenza. Si riceverà anche una fattura per eccedenza dei servizi Azure.
+  - Se non si supera il 150% della soglia del pagamento anticipato di Azure, la registrazione manterrà un periodo di fatturazione annuale. La fattura per eccedenza verrà ricevuta alla fine dell'anno di pagamento anticipato.
 
 - **Registrazioni dirette con data di inizio successiva al 1° maggio 2018**:
   - Le fatture relative all'utilizzo di Azure e agli addebiti fatturati separatamente hanno un periodo di fatturazione mensile.
-  - Eventuali addebiti non coperti dall'impegno monetario sono dovuti come pagamenti per eccedenze.  
+  - Eventuali addebiti non coperti dal pagamento anticipato di Azure sono dovuti come pagamenti per eccedenze.  
 
 - **Registrazioni indirette con data di inizio precedente al 1° maggio 2018**:
 
@@ -77,21 +77,21 @@ La data di ricezione della fattura per eccedenza dipende dalla data di inizio e 
 
   Il periodo di fatturazione è mensile.  
 
-### <a name="increase-your-monetary-commitment"></a>Aumentare l'impegno monetario
+### <a name="increase-your-azure-prepayment"></a>Incrementare il pagamento anticipato di Azure
 
-È possibile aumentare l'impegno in qualsiasi momento. Verranno fatturati i mesi rimanenti del periodo di impegno annuale. Ad esempio, se si effettua la registrazione per una sottoscrizione di modifica di un anno e si aumenta l'impegno nel corso del sesto mese, verranno fatturati i restanti sei mesi del periodo di validità. Le quantità dell'impegno verranno quindi aggiornate per gli ultimi sei mesi del periodo di validità dell'impegno. Le nuove quantità verranno usate per determinare gli addebiti delle eventuali eccedenze.
+È possibile aumentare il pagamento anticipato di Azure in qualsiasi momento. Verranno fatturati i mesi rimanenti del periodo di pagamento anticipato di quell'anno. Ad esempio, se si effettua l'iscrizione a una sottoscrizione di modifica di un anno e si aumenta il pagamento anticipato nel corso del sesto mese, verranno fatturati i restanti sei mesi del periodo di validità. Le quantità del pagamento anticipato verranno quindi aggiornate per gli ultimi sei mesi del periodo di validità dell'impegno. Le nuove quantità verranno usate per determinare gli addebiti delle eventuali eccedenze.
 
 ### <a name="overage"></a>Eccedenza
 
-In caso di eccedenza, vengono fatturati l'utilizzo o le prenotazioni che hanno superato l'impegno durante il periodo di fatturazione. Per visualizzare una suddivisione del calcolo delle quantità in eccedenza per le singole voci, fare riferimento al report di riepilogo dell'utilizzo oppure contattare il partner di canale.
+In caso di eccedenza, vengono fatturati l'utilizzo o le prenotazioni che hanno superato il pagamento anticipato durante il periodo di fatturazione. Per visualizzare una suddivisione del calcolo delle quantità in eccedenza per le singole voci, fare riferimento al report di riepilogo dell'utilizzo oppure contattare il partner di canale.
 
 Per ogni voce in fattura verrà visualizzato quanto segue:
 
 - **Importo totale**: gli addebiti totali
-- **Utilizzo dell'impegno**: la quantità dell'impegno usata per coprire gli addebiti
-- **Importo netto**: gli addebiti che superano l'impegno
+- **Utilizzo del pagamento anticipato**: l'importo del pagamento anticipato usato per coprire gli addebiti
+- **Importo netto**: gli addebiti che superano il pagamento anticipato
 
-Le imposte applicabili vengono calcolate solo sull'importo netto in eccedenza rispetto all'impegno.
+Le imposte applicabili vengono calcolate solo sull'importo netto in eccedenza rispetto al pagamento anticipato.
 
 La fatturazione dell'eccedenza è automatizzata. La tempistica delle notifiche e delle fatture dipende dalla data di fine del periodo di fatturazione.
 
@@ -130,18 +130,18 @@ Per visualizzare i crediti:
 1. In [Azure Enterprise Portal](https://ea.azure.com) selezionare la sezione **Report**.
 1. Selezionare **Usage Summary** (Riepilogo utilizzo).
 1. Nell'angolo superiore destro cambiare visualizzazione passando da **M** a **C**.
-1. Estendere il campo di rettifica nella tabella Impegno del servizio di Azure.
+1. Estendere il campo di rettifica nella tabella Pagamento anticipato del servizio di Azure.
 1. Verranno visualizzati i crediti applicati alla registrazione e una breve descrizione. Ad esempio: Credito per contratto di servizio.
 
-## <a name="pay-your-overage-with-your-monetary-commitment"></a>Pagare l’eccedenza con l'impegno monetario
+## <a name="pay-your-overage-with-your-azure-prepayment"></a>Pagare l'eccedenza con il pagamento anticipato di Azure
 
-Per applicare l'impegno monetario alle eccedenze, è necessario soddisfare i criteri seguenti:
+Per applicare il pagamento anticipato di Azure alle eccedenze, è necessario soddisfare i criteri seguenti:
 
 - Sono stati sostenuti addebiti per eccedenze che non sono stati pagati e che rientrano entro un anno dalla data di fine del servizio fatturato.
-- L'importo dell'impegno monetario disponibile copre il numero totale di addebiti sostenuti, incluse tutte le fatture di Azure precedenti non pagate.
+- L'importo disponibile del pagamento anticipato di Azure copre il numero totale di addebiti sostenuti, incluse tutte le fatture di Azure precedenti non pagate.
 - Il periodo di fatturazione che si vuole completare deve essere completamente chiuso. La fatturazione viene chiusa completamente dopo il quinto giorno di ogni mese.
 - Il periodo di fatturazione che si vuole compensare deve essere completamente chiuso.
-- Lo Sconto per impegno in Azure è basato sul nuovo impegno effettivo meno gli eventuali fondi pianificati per il consumo precedente. Questo requisito si applica solo agli addebiti per eccedenza contratti. Poiché è valido solo per i servizi che utilizzano l'impegno monetario, non si applica agli addebiti per Azure Marketplace. Gli addebiti per Azure Marketplace vengono fatturati separatamente.
+- Lo sconto per il pagamento anticipato di Azure è basato sul nuovo pagamento anticipato effettivo meno gli eventuali fondi pianificati per il consumo precedente. Questo requisito si applica solo agli addebiti per eccedenza contratti. Poiché è valido solo per i servizi che utilizzano il pagamento anticipato di Azure, non si applica agli addebiti per Azure Marketplace. Gli addebiti per Azure Marketplace vengono fatturati separatamente.
 
 Per completare una compensazione dell'eccedenza, l'utente o il team degli account può aprire una richiesta di supporto. È necessaria un'approvazione tramite posta elettronica da parte dell'amministratore aziendale o del contatto fatturazione.
 
@@ -178,13 +178,13 @@ Come riferimento, la tabella seguente mostra le formule di Excel che è possibil
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversione tra il report relativo ai dettagli dell'utilizzo e la pagina di riepilogo dell'utilizzo
 
-Il report dei dati di utilizzo scaricati include l'utilizzo delle risorse non elaborato fino a sei posizioni decimali. Tuttavia, i dati di utilizzo visualizzati in Azure Enterprise Portal sono arrotondati a quattro posizioni decimali per le unità di impegno e troncati a zero decimali per le unità di eccedenza. I dati di utilizzo non elaborati vengono arrotondati a quattro cifre prima della conversione nelle unità usate in Azure Enterprise Portal. Le unità Enterprise convertite vengono quindi arrotondate di nuovo a quattro cifre. Le ore effettive utilizzate prima della conversione sono visibili solo nel report sull'utilizzo scaricato e non in Azure Enterprise Portal.
+Il report dei dati di utilizzo scaricati include l'utilizzo delle risorse non elaborato fino a sei posizioni decimali. Tuttavia, i dati di utilizzo visualizzati in Azure Enterprise Portal sono arrotondati a quattro posizioni decimali per le unità del pagamento anticipato e sono troncati a zero decimali per le unità di eccedenza. I dati di utilizzo non elaborati vengono arrotondati a quattro cifre prima della conversione nelle unità usate in Azure Enterprise Portal. Le unità Enterprise convertite vengono quindi arrotondate di nuovo a quattro cifre. Le ore effettive utilizzate prima della conversione sono visibili solo nel report sull'utilizzo scaricato e non in Azure Enterprise Portal.
 
 Ad esempio: Si supponga che il report relativo ai dettagli dell'utilizzo indichi 694,533404 ore di SQL Server effettive. Queste unità vengono convertite in 6,94533404 di 100 ore di calcolo e quindi arrotondate a 6,9453 e visualizzate in Azure Enterprise Portal.
 
-- Per determinare l'importo di fatturazione totale, le unità visualizzate vengono moltiplicate per il prezzo unitario dell'impegno e il risultato viene troncato a due decimali. Per lo yen giapponese (JPY) e il won coreano (KRW), l'importo totale viene arrotondato a zero decimali.
+- Per determinare l'importo di fatturazione totale, le unità visualizzate vengono moltiplicate per il prezzo unitario del pagamento anticipato e il risultato viene troncato a due decimali. Per lo yen giapponese (JPY) e il won coreano (KRW), l'importo totale viene arrotondato a zero decimali.
 - Per l'eccedenza, le unità di fatturazione vengono troncate a sei cifre e quindi moltiplicate per il prezzo unitario di eccedenza per determinare l'importo di fatturazione totale.
-- Per la fatturazione del provider di servizi gestiti (MSP), tutto l'utilizzo associato a un reparto contrassegnato come MSP viene troncato a zero decimali dopo la conversione nell'unità di misura del Contratto Enterprise. Di conseguenza, la somma di questo utilizzo potrebbe essere inferiore alla somma totale di tutti i dati di utilizzo visualizzati in Azure Enterprise Portal, a seconda che il provider di servizi gestiti rientri o meno nel saldo dell'impegno monetario o sia in eccedenza.
+- Per la fatturazione del provider di servizi gestiti (MSP), tutto l'utilizzo associato a un reparto contrassegnato come MSP viene troncato a zero decimali dopo la conversione nell'unità di misura del Contratto Enterprise. Di conseguenza, la somma di questo utilizzo potrebbe essere inferiore alla somma totale di tutti i dati di utilizzo visualizzati in Azure Enterprise Portal, a seconda che il provider di servizi gestiti rientri o meno nel saldo del pagamento anticipato di Azure o sia in eccedenza.
 
 ### <a name="graduated-pricing"></a>Prezzi progressivi
 
@@ -226,13 +226,13 @@ Per i servizi in cui la zona e l'area influiscono sui prezzi, vedere la tabella 
 
 Non sono previsti addebiti per i dati in uscita tra i servizi ospitati all'interno dello stesso data center. Ad esempio, Microsoft 365 e Azure.
 
-### <a name="monetary-commitment-and-unbilled-usage"></a>Impegno monetario e utilizzo non fatturato
+### <a name="azure-prepayment-and-unbilled-usage"></a>Pagamento anticipato di Azure e utilizzo non fatturato
 
-L'impegno monetario di Azure è un importo pagato in anticipo per i servizi di Azure. L'impegno monetario viene utilizzato man mano che si usano i servizi. I servizi proprietari di Azure vengono fatturati in base all'impegno monetario. Tuttavia, alcuni addebiti vengono fatturati separatamente, mentre i servizi di Azure Marketplace non utilizzano l'impegno monetario.
+Il pagamento anticipato di Azure è un importo pagato in anticipo per i servizi di Azure. Il pagamento anticipato di Azure viene consumato man mano che si usano i servizi. I servizi proprietari di Azure vengono fatturati in base al pagamento anticipato di Azure. Tuttavia, alcuni addebiti vengono fatturati separatamente, mentre i servizi di Azure Marketplace non utilizzano il pagamento anticipato di Azure.
 
 ### <a name="charges-billed-separately"></a>Addebiti fatturati separatamente
 
-Alcuni prodotti e servizi forniti da origini di terze parti non utilizzano l'impegno monetario di Azure. Questi elementi vengono fatturati separatamente come parte della fattura per eccedenza del periodo di fatturazione standard.
+Alcuni prodotti e servizi forniti da origini di terze parti non utilizzano il pagamento anticipato di Azure. Questi elementi vengono fatturati separatamente come parte della fattura per eccedenza del periodo di fatturazione standard.
 
 Tutti gli addebiti per Azure e Azure Marketplace sono stati riuniti in un'unica fattura allineata al periodo di fatturazione della registrazione. La fattura unica non si applica ai clienti in Australia, Giappone o Singapore.
 
@@ -265,7 +265,7 @@ Le fatture verranno rilasciate il mese successivo al termine del periodo di fatt
 
    | Titolo | Descrizione | Nome file |
    | --- | --- | --- |
-   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Elenca tutti i servizi attivi e include: <br>  <ul><li>categoria del servizio</li>   <li>nome descrittivo del servizio</li>   <li>nome dell'impegno e numero di parte</li> <li>nome del consumo e numero di parte</li>   <li>unità di misura</li>   <li>fattori di conversione tra utilizzo indicato nel report e utilizzo visualizzato in Azure Enterprise Portal</li></ul> | Friendly\_Service\_Names.xlsx |
+   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Elenca tutti i servizi attivi e include: <br>  <ul><li>categoria del servizio</li>   <li>nome descrittivo del servizio</li>   <li>nome del pagamento anticipato e numero di parte</li> <li>nome del consumo e numero di parte</li>   <li>unità di misura</li>   <li>fattori di conversione tra utilizzo indicato nel report e utilizzo visualizzato in Azure Enterprise Portal</li></ul> | Friendly\_Service\_Names.xlsx |
    | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Questo foglio di calcolo fornisce un elenco di tutte le possibili combinazioni dei campi relativi ai servizi nel report di download dell'utilizzo. | Service\_Download\_Fields.xlsx |
 
 - Per informazioni su come comprendere la fattura e gli addebiti, vedere [Informazioni sulla fattura del contratto Enterprise di Azure](../understand/review-enterprise-agreement-bill.md).

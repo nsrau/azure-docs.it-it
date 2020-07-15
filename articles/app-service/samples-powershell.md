@@ -4,14 +4,14 @@ description: Esempi di Azure PowerShell relativi ad alcuni degli scenari comuni 
 tags: azure-service-management
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
-ms.date: 03/08/2017
+ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 51693ad4d233ea180607bc7358a0847e23688099
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254481"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057909"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Esempi di PowerShell per Servizio app di Azure
 
@@ -25,6 +25,7 @@ La tabella seguente include i collegamenti agli script PowerShell compilati tram
 | [Creare un'app e distribuire il codice da FTP](./scripts/powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app del servizio app e carica i file da una directory locale tramite FTP. |
 | [Creare un'app e distribuire il codice da un archivio Git locale](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app del servizio app e configura il push del codice da un repository Git locale. |
 | [Creare un'app e distribuire il codice in un ambiente di gestione temporanea](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app del servizio app con uno slot di distribuzione per le modifiche al codice di gestione temporanea. |
+|  [Creare un'app ed esporla con un endpoint privato](./scripts/powershell-deploy-private-endpoint.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app del servizio app con un endpoint privato. |
 |**Configurare l'applicazione**||
 | [Eseguire il mapping di un dominio personalizzato a un'app](./scripts/powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app del servizio app ed esegue il mapping di un nome di dominio personalizzato a essa. |
 | [Associare un certificato TLS/SSL personalizzato a un'app](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app del servizio app e vi associa il certificato TLS/SSL di un nome di dominio personalizzato. |

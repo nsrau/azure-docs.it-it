@@ -1,6 +1,6 @@
 ---
-title: Panoramica del database SQL | Microsoft Docs
-description: Contenuto della Guida per la panoramica del database SQL nel portale di Azure
+title: Panoramica di Database SQL | Microsoft Docs
+description: Contenuto della Guida per la panoramica di Database SQL nel portale di Azure
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 04/09/2019
 ms.author: ninarn
-ms.openlocfilehash: 99f19971eafaa1ddad1f96b187e18b79810560a2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6d4f0c50f57661576f97ddd3772d78b9fa293153
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "61244460"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040521"
 ---
 # <a name="sql-database-documentation"></a>Documentazione sul database SQL
 
@@ -29,7 +29,7 @@ Il database SQL di Azure consente di eseguire facilmente attività di gestione d
 
 ## <a name="step-by-step-tutorials"></a>Esercitazioni dettagliate
 
-Informazioni su come creare e gestire i database ed eseguirne la migrazione tramite un database SQL.
+Informazioni su come creare e gestire i database ed eseguirne la migrazione tramite Database SQL.
 
 - Iniziare a usare [database singolo](/azure/sql-database/sql-database-single-database-quickstart-guide) con la guida di avvio rapido
 - Creare e progettare lo schema di un nuovo database singolo con [SSMS](/azure/sql-database/sql-database-design-first-database) o [.NET](/azure/sql-database/sql-database-design-first-database-csharp)

@@ -8,35 +8,37 @@ ms.service: analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 6f0d5f084c5cd48abf399e351c627d64951ce719
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4dd7906ed32faa630ba074cb29e7987a64205cb5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697439"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042102"
 ---
-# <a name="quickstart-create-a-server---azure-resource-manager-template"></a>Guida introduttiva: Creare un server - Modello di Azure Resource Manager
+# <a name="quickstart-create-a-server---arm-template"></a>Avvio rapido: Creare un server - Modello di Resource Manager
 
-Questo argomento di avvio rapido descrive come creare una risorsa server di Analysis Services nella sottoscrizione di Azure usando un modello di Resource Manager.
+Questo argomento di avvio rapido descrive come creare una risorsa server di Analysis Services nella sottoscrizione di Azure usando un modello di Azure Resource Manager (modello ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**: visitare la pagina [Versione di prova gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) per creare un account.
 * **Azure Active Directory**: la sottoscrizione deve essere associata a un tenant Azure Active Directory. Inoltre è necessario essere registrati ad Azure con un account nell'Azure Active Directory specifica. Per altre informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md).
 
-## <a name="create-a-server"></a>Creare un server
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-analysis-services-create/).
 
 :::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
 
-Nel modello viene definita una singola risorsa [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure/templates/microsoft.analysisservices/2017-08-01/servers) con una regola del firewall. 
+Nel modello viene definita una singola risorsa [Microsoft.AnalysisServices/servers](/azure/templates/microsoft.analysisservices/servers) con una regola del firewall.
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 1. Selezionare il collegamento Distribuisci in Azure seguente per accedere ad Azure e aprire un modello. Il modello viene usato per creare una risorsa server di Analysis Services e specificare le proprietà obbligatorie e facoltative.
 
@@ -101,7 +103,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stato usato un modello di Azure Resource Manager per creare un nuovo gruppo di risorse e una risorsa server di Azure Analysis Services. Dopo aver creato una risorsa server utilizzando il modello, tenere presente quanto segue:
+In questo argomento di avvio rapido è stato usato un modello di Resource Manager per creare un nuovo gruppo di risorse e una risorsa server di Azure Analysis Services. Dopo aver creato una risorsa server usando il modello, tenere presente quanto segue:
+
 - [Avvio rapido: Creare un server: PowerShell](analysis-services-create-powershell.md)
 - [Aggiungere un modello di esempio dal portale](analysis-services-create-sample-model.md)
 - [Configurare i ruoli amministratore e utente del server](tutorials/analysis-services-tutorial-roles.md)

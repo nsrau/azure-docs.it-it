@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253665"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077653"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Diramazione e concatenamento delle attività in una pipeline di Azure Data Factory con il portale di Azure
 
@@ -38,7 +38,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Avviare un'esecuzione della pipeline
 > * Monitorare le esecuzioni di pipeline e attività
 
-Questa esercitazione usa il portale di Azure. È possibile usare altri meccanismi per interagire con Azure Data Factory. Vedere "Guide di avvio rapido" nel sommario.
+Questa esercitazione usa il portale di Azure. È possibile usare altri meccanismi per interagire con Azure Data Factory. Vedere "Guide introduttive" nel sommario.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -139,7 +139,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
    Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialDataFactory, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *Il nome della data factory "ADFTutorialDataFactory" non è disponibile.*
+
 3. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 4. Per il **gruppo di risorse**, eseguire una di queste operazioni:
 
@@ -202,10 +203,11 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
    ![Nuovo servizio collegato di archiviazione di Azure](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Immettere `@pipeline().parameters.sourceBlobContainer` per la cartella e `emp.txt` per il nome file. Usare il parametro sourceBlobContainer della pipeline per configurare il percorso della cartella per il set di dati.
 
-   ![Impostazioni del set di dati di origine](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-13. Passare alla scheda **pipeline** oppure fare clic sulla visualizzazione albero. Assicurarsi che **SourceBlobDataset** sia selezionato per **Source Dataset** (Set di dati di origine).
+    ![Impostazioni del set di dati di origine](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 
-    ![Set di dati di origine](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+13. Passare alla scheda **pipeline** oppure fare clic sulla visualizzazione albero. Assicurarsi che **SourceBlobDataset** sia selezionato per **Source Dataset** (Set di dati di origine).
+      
+   ![Set di dati di origine](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 
 13. Nella finestra delle proprietà passare alla scheda **Sink** e fare clic su **+ Nuovo** per **Sink Dataset** (Set di dati sink). In questo passaggio viene creato un set di dati sink per l'attività di copia con una procedura simile a quella per il set di dati di origine.
 

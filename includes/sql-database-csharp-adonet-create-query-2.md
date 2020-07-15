@@ -4,12 +4,12 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
-ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7943ea13d93fa68b76d333bda5438fb5738f5cd1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67180225"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050278"
 ---
 ## <a name="c-program-example"></a>Esempio di programma C#
 

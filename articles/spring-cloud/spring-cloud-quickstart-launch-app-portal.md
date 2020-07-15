@@ -6,14 +6,14 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 9cd59fdf81e9b5d56872d20c76e8ea177b3c8577
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e4ea76a888ba51b3560139e9efc3df512c4fbadf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79470895"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120943"
 ---
-# <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Guida introduttiva: Avviare un'applicazione Azure Spring Cloud esistente con il portale di Azure
+# <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Avvio rapido: Avviare un'applicazione Azure Spring Cloud esistente con il portale di Azure
 
 Questo argomento di avvio rapido illustra come distribuire un'applicazione Spring Cloud esistente in Azure. Azure Spring Cloud consente di eseguire facilmente applicazioni di microservizi basate su Spring Cloud in Azure. 
 
@@ -134,7 +134,13 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-4. Creare l'applicazione `gateway` e distribuire il file JAR.
+4. Creare l'applicazione `gateway` e distribuire il file JAR.  Per la procedura seguente è necessaria l'estensione Spring Cloud. Se non è stata installata con i prerequisiti, eseguire il comando seguente:
+
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
+
+    Usando l'estensione Spring Cloud, creare l'app:
 
     ```azurecli
     az spring-cloud app create -n gateway

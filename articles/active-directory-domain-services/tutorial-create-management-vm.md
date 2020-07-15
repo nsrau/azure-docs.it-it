@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f0b6e66a0d3a78a62fe105a175a7a519d0b37ccd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: afeac24a5d3c21fce120512813d68c49a505c6c1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733416"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024605"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Creare una VM di gestione per configurare e amministrare un dominio gestito di Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) offre servizi di dominio gestiti, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM, completamente compatibili con Windows Server Active Directory. Il dominio gestito viene amministrato usando gli stessi Strumenti di amministrazione remota del server di un dominio di Active Directory Domain Services locale. Poiché Azure AD DS è un servizio gestito, alcune attività amministrative non possono essere eseguite, ad esempio l'uso del protocollo RDP (Remote Desktop Protocol) per connettersi ai controller di dominio.
 
-Questa esercitazione illustra come creare una VM Windows Server in Azure e installare gli strumenti necessari per amministrare un dominio gestito di Azure AD DS.
+Questa esercitazione illustra come configurare una VM Windows Server in Azure e installare gli strumenti necessari per amministrare un dominio gestito di Azure Active Directory Domain Services.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -97,7 +97,7 @@ Se necessario, consentire al Web browser di aprire finestre popup per la visuali
 
 ## <a name="install-active-directory-administrative-tools"></a>Installare gli strumenti di amministrazione di Active Directory
 
-I domini gestiti vengono gestiti con gli stessi strumenti di amministrazione degli ambienti AD DS locali, ad esempio il Centro di amministrazione di Active Directory o AD PowerShell. Questi strumenti possono essere installati come parte della funzionalità facoltativa Strumenti di amministrazione remota del server in Windows Server e nei computer client. I membri del gruppo *Amministratori di AAD DC* possono quindi amministrare i domini gestiti in remoto usando questi strumenti di amministrazione di AD in un computer client aggiunto al dominio gestito.
+Gli stessi strumenti di amministrazione vengono usati in un dominio gestito come ambienti AD DS locali, ad esempio il Centro di amministrazione di Active Directory o AD PowerShell. Questi strumenti possono essere installati come parte della funzionalità facoltativa Strumenti di amministrazione remota del server in Windows Server e nei computer client. I membri del gruppo *Amministratori di AAD DC* possono quindi amministrare i domini gestiti in remoto usando questi strumenti di amministrazione di AD in un computer client aggiunto al dominio gestito.
 
 Per installare gli strumenti di amministrazione di Active Directory in una VM aggiunta al dominio, seguire questa procedura:
 
@@ -125,7 +125,7 @@ Una volta installati gli strumenti di amministrazione, ecco come usarli per ammi
     ![Elenco di strumenti di amministrazione installati nel server](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Selezionare **Centro di amministrazione di Active Directory**.
-1. Per esplorare il dominio gestito, scegliere il nome di dominio nel riquadro sinistro, ad esempio *aaddscontoso.com*. All'inizio dell'elenco sono presenti due contenitori denominati *AADDC Computers* e *AADDC Users*.
+1. Per esplorare il dominio gestito, scegliere il nome di dominio nel riquadro sinistro, ad esempio *aaddscontoso*. All'inizio dell'elenco sono presenti due contenitori denominati *AADDC Computers* e *AADDC Users*.
 
     ![Visualizzare l'elenco dei contenitori disponibili appartenenti al dominio gestito](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
@@ -135,7 +135,7 @@ Una volta installati gli strumenti di amministrazione, ecco come usarli per ammi
 
     ![Visualizzare l'elenco degli utenti del dominio di Azure AD DS nel Centro di amministrazione di Active Directory](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
-1. Per visualizzare i computer aggiunti al dominio gestito, selezionare il contenitore **AADDC Computers**. Viene visualizzata una voce per la macchina virtuale corrente, ad esempio *myVM*. In questo contenitore *AADDC Computers* sono archiviati gli account di tutti i computer aggiunti al dominio gestito.
+1. Per visualizzare i computer aggiunti al dominio gestito, selezionare il contenitore **AADDC Computers**. Viene visualizzata una voce per la macchina virtuale corrente, ad esempio *myVM*. In questo contenitore *AADDC Computers* sono archiviati gli account computer di tutti i dispositivi aggiunti al dominio gestito.
 
 Sono disponibili azioni comuni del Centro di amministrazione di Active Directory, ad esempio la reimpostazione della password di un account utente o la gestione dell'appartenenza ai gruppi. Queste azioni funzionano solo per utenti e gruppi creati direttamente nel dominio gestito. Le informazioni di identità si sincronizzano solo *da* Azure AD ad Azure AD DS. Non viene eseguito il writeback da Azure AD DS ad Azure AD. Non è possibile modificare le password o l'appartenenza a gruppi gestiti per gli utenti sincronizzati da Azure AD e fare in modo che tali modifiche vengano sincronizzate.
 
@@ -150,7 +150,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > * Installare gli strumenti di amministrazione di Active Directory in una VM Windows Server
 > * Usare il Centro di amministrazione di Active Directory per eseguire attività comun
 
-Per interagire in sicurezza con il dominio gestito, abilitare il protocollo LDAP (Lightweight Directory Access Protocol) sicuro.
+Per interagire in sicurezza con il dominio gestito da altre applicazioni, abilitare il protocollo LDAP (Lightweight Directory Access Protocol) sicuro.
 
 > [!div class="nextstepaction"]
 > [Configurare LDAP sicuro per un dominio gestito](tutorial-configure-ldaps.md)

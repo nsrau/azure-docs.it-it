@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: ab31daafe496f1aaad2bbc8075b2514d9e57e997
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 12e1c79e610526dec11467cc08c753bf90daa095
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687175"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083458"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulatore Azure Cosmos - Note sulla versione e informazioni di download
 
@@ -26,7 +26,11 @@ Questo articolo include le note sulla versione dell'emulatore Azure Cosmos con u
 
 ## <a name="release-notes"></a>Note sulla versione
 
-### <a name="2111"></a>2.11.1
+### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+
+- Questa versione modifica la modalità di raccolta delle tracce ETL necessarie per la risoluzione dei problemi relativi all'emulatore Cosmos. Per impostazione predefinita, per l'acquisizione di tracce basate su ETL vengono ora usati gli strumenti WPR (Windows Performance Runtime), mentre l'acquisizione precedente, basata su LOGMAN, è stata deprecata. Questa modifica è necessaria in parte perché gli aggiornamenti della sicurezza di Windows più recenti hanno un effetto imprevisto sul funzionamento di LOGMAN quando viene eseguiti tramite l'emulatore di Cosmos.
+
+### <a name="2111-06102020"></a>2.11.1 (10/06/2020)
 
 - In questa versione sono stati corretti un paio di bug relativi a Esplora dati dell'emulatore. In alcuni casi, quando si usa Esplora dati dell'emulatore tramite un Web browser, non è possibile connettersi all'endpoint dell'emulatore Cosmos e a tutte le azioni correlate. Ad esempio la creazione di un database o di un contenitore restituirà un errore. Il secondo problema risolto è relativo alla creazione di un elemento da un file JSON usando l'azione di caricamento di Esplora dati.
 

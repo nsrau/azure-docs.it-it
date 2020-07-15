@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un modello di Azure Resource Manag
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 01f04d18ae54c3c512010dd005e9d820b914e536
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3112c3940f9d2668f4825de3c2e57a63af009d92
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714067"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118903"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Esercitazione: Distribuire un modello di Azure Resource Manager locale
 
@@ -33,7 +33,7 @@ Dopo aver installato Azure PowerShell o l'interfaccia della riga di comando di A
 
 ### <a name="editor-optional"></a>Editor (facoltativo)
 
-I modelli sono file JSON. Per controllare/modificare i modelli, è necessario un editor JSON valido. È consigliabile usare Visual Studio Code con l'estensione Strumenti di Resource Manager. Se è necessario installare questi strumenti, vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
+I modelli sono file JSON. Per controllare/modificare i modelli, è necessario un editor JSON valido. È consigliabile usare Visual Studio Code con l'estensione Strumenti di Resource Manager. Se è necessario installare questi strumenti, vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="review-template"></a>Rivedere il modello
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 906bcf97ad070eb8c2dfe3266bccf05db1598935
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e4b4b6f21d158a758c2ff77db6660bbb44696d90
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708893"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086688"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Avvio rapido: Creare un'istanza gestita di Istanza gestita di SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Selezionare **Azure SQL** nel menu a sinistra del portale di Azure. Se **Azure SQL** non è presente nell'elenco, selezionare **Tutti i servizi** e quindi immettere **Azure SQL** nella casella di ricerca.
-1. Selezionare **+Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive su un'istanza gestita di SQL di Azure selezionando **Mostra dettagli** nel riquadro **Istanza gestita di SQL**.
+1. Selezionare **+Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive su un'istanza gestita di SQL di Azure selezionando **Mostra dettagli** nel riquadro **Istanze gestite di SQL**.
 1. Selezionare **Crea**.
 
    ![Creare un'istanza gestita](./media/instance-create-quickstart/create-managed-instance.png)

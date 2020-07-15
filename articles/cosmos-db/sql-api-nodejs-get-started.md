@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
-ms.openlocfilehash: ef493b6b21eb0ba0ad6d22a21e4e205a9fecacb6
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5d41f467efafa42bd73fce258ca97e4412a7cf48
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858063"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026849"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Esercitazione: Compilare un'applicazione console Node.js con l'SDK JavaScript per gestire i dati API SQL di Azure Cosmos DB
 
@@ -90,7 +90,7 @@ Ora che l'applicazione esiste, è necessario assicurarsi che possa comunicare co
 
    I dettagli su endpoint e chiave sono disponibili nel riquadro **Chiavi** del [portale di Azure](https://portal.azure.com).
 
-   ![Screenshot di acquisizione delle chiavi dal portale di Azure][keys]
+   :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Screenshot di acquisizione delle chiavi dal portale di Azure":::
 
 In JavaScript SDK si usano i termini generici *contenitore* ed *elemento*. Un contenitore può essere una raccolta, un grafo o una tabella. Un elemento può essere un documento, un arco/vertice o una riga ed è il contenuto all'interno di un contenitore. Nel frammento di codice precedente il codice `module.exports = config;` consente di esportare l'oggetto config, in modo che sia possibile farvi riferimento all'interno del file *app.js*.
 
@@ -136,7 +136,7 @@ Azure Cosmos DB supporta l'esecuzione di query complesse sugli elementi JSON arc
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="QueryItems":::
 
-## <a name="create-an-item"></a><a id="CreateItem"></a>Creare un elemento
+## <a name="create-an-item"></a><a id="CreateItem"></a>Crea un elemento
 
 Per creare un elemento, è possibile usare la funzione create della classe `Items`. Quando si usa l'API SQL, gli elementi vengono proiettati come documenti, ovvero contenuti JSON definiti dall'utente (arbitrario). In questa esercitazione viene creato un nuovo elemento nel database Tasks.
 
@@ -223,4 +223,3 @@ Quando tali risorse non servono più, è possibile eliminare il gruppo di risors
 > [Monitorare un account Azure Cosmos DB](monitor-accounts.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account
-[keys]: media/sql-api-nodejs-get-started/node-js-tutorial-keys.png

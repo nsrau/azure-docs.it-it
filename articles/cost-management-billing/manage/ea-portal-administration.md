@@ -3,16 +3,16 @@ title: Amministrazione di Azure EA Portal
 description: Questo articolo illustra le attività comuni eseguite da un amministratore in Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: eefd4a9ddf2150728578a4e058686a3204e34930
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 6169a18148b251540d66bce6e34374a16f697015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456556"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044890"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -33,7 +33,7 @@ Gli amministratori dell'organizzazione possono associare account esistenti ai re
 
 ## <a name="department-spending-quotas"></a>Quote di spesa del reparto
 
-I clienti EA possono impostare o cambiare le quote di spesa per ogni reparto nell'ambito di una registrazione. L'importo delle quote di spesa è impostato per il periodo di impegno corrente. Alla fine del periodo di impegno corrente, il sistema estenderà la quota di spesa esistente al periodo di impegno successivo, a meno che i valori non vengano aggiornati.
+I clienti EA possono impostare o cambiare le quote di spesa per ogni reparto nell'ambito di una registrazione. L'importo delle quote di spesa è impostato per il periodo corrente di pagamento anticipato. Alla fine del periodo di corrente di pagamento anticipato, il sistema estenderà la quota di spesa esistente al periodo successivo, a meno che i valori non vengano aggiornati.
 
 L'amministratore del reparto può visualizzare la quota di spesa, ma l'importo della quota può essere aggiornato solo dall'amministratore dell'organizzazione. L'amministratore dell'organizzazione e l'amministratore del reparto riceveranno notifiche quando la quota raggiunge il 50%, il 75%, il 90% e il 100%.
 
@@ -48,9 +48,9 @@ L'amministratore del reparto può visualizzare la quota di spesa, ma l'importo d
     - In questa fase è anche possibile modificare il nome del reparto e il centro di costo.
  1. Selezionare **Salva**.
 
-La quota di spesa del reparto sarà ora visibile nella visualizzazione dell'elenco dei reparti nella scheda Reparto. Al termine dell'impegno corrente, Azure EA Portal manterrà le quote di spesa per il periodo di impegno successivo.
+La quota di spesa del reparto sarà ora visibile nella visualizzazione dell'elenco dei reparti nella scheda Reparto. Alla fine del pagamento anticipato corrente, Azure EA Portal manterrà le quote di spesa per il periodo successivo.
 
-L'importo della quota del reparto è indipendente dall'impegno monetario corrente e gli avvisi e l'importo della quota sono validi solo per l'utilizzo da parte del produttore. La quota di spesa del reparto è solo a scopo informativo e non impone limiti di spesa.
+L'importo della quota del reparto è indipendente dal pagamento anticipato corrente e gli avvisi e l'importo della quota sono validi solo per l'utilizzo da parte del produttore. La quota di spesa del reparto è solo a scopo informativo e non impone limiti di spesa.
 
 ### <a name="department-administrator-to-view-the-quota"></a>Per visualizzare la quota (amministratore del reparto):
 
@@ -174,7 +174,7 @@ Questo documento risponde alle domande frequenti relative alla proprietà delle 
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Quanti proprietari di account Azure possono esistere per ogni sottoscrizione?
 
-Per ogni sottoscrizione è consentito un solo proprietario di account.  È possibile aggiungere altri ruoli tramite l'accesso in base al ruolo o Controllo di accesso (IAM) nella scheda relativa alle sottoscrizioni nell'angolo superiore sinistro della pagina in [portal.azure.com] (https://portal.azure.com).
+Per ogni sottoscrizione è consentito un solo proprietario di account.  È possibile aggiungere altri ruoli tramite l'accesso in base al ruolo o Controllo di accesso (IAM) nella scheda relativa alle sottoscrizioni nell'angolo superiore sinistro della pagina del [portale di Azure](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Un proprietario di account di Azure può essere elencato in più reparti?
 

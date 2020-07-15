@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2b4b94c05b39dddcef83644638a105d5b6c75118
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 81574f25e2132a7079fa0242284fb67b0132a8af
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184980"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119328"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Esercitazione: Usare gli script di distribuzione per creare un certificato autofirmato (anteprima)
 
@@ -40,7 +40,7 @@ Questa esercitazione illustra le attività seguenti:
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Resource Manager**. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](./use-vs-code-to-create-template.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Resource Manager**. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **Identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione**. Questa identità viene usata per eseguire gli script di distribuzione. Per crearne una, vedere [Identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
 

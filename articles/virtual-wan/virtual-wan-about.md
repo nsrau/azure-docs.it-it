@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 05/14/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 8bdba64445212c564a3d4762bc8497be15f7d9a0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bae8fa97d075784bba1d2f75cc06cfa3f801c052
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657000"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027206"
 ---
 # <a name="about-azure-virtual-wan"></a>Informazioni sulla rete WAN virtuale di Azure
 
@@ -64,7 +64,7 @@ Per configurare una rete WAN virtuale completa, si creano le risorse seguenti:
 
 **Altre risorse della rete WAN virtuale**
 
-  * **Sito:** questa risorsa si usa solo per le connessioni da sito a sito. La risorsa sito è **vpnsite**. Rappresenta il dispositivo VPN locale e le relative impostazioni. Se si collabora con un partner di rete WAN virtuale, si avrà a disposizione una soluzione predefinita per esportare automaticamente queste informazioni in Azure.
+* **Sito:** questa risorsa si usa solo per le connessioni da sito a sito. La risorsa sito è **vpnsite**. Rappresenta il dispositivo VPN locale e le relative impostazioni. Se si collabora con un partner di rete WAN virtuale, si avrà a disposizione una soluzione predefinita per esportare automaticamente queste informazioni in Azure.
 
 ## <a name="types-of-connectivity"></a><a name="connectivity"></a>Tipi di connettività
 
@@ -72,21 +72,9 @@ La rete WAN virtuale consente i tipi di connettività seguenti: VPN da sito a si
 
 ### <a name="site-to-site-vpn-connections"></a><a name="s2s"></a>Connessioni VPN da sito a sito
 
-![Diagramma della rete WAN virtuale](./media/virtual-wan-about/virtualwan.png)
+È possibile connettersi alle risorse in Azure tramite una connessione IPsec/IKE (IKEv2) da sito a sito. Per altre informazioni, vedere [Creare una connessione da sito a sito con la rete WAN virtuale](virtual-wan-site-to-site-portal.md). 
 
-Per creare una connessione della rete WAN virtuale da sito a sito, è possibile collaborare con un partner disponibile. Se non si vuole coinvolgere un partner, è possibile configurare la connessione manualmente. Per altre informazioni, vedere [Creare una connessione da sito a sito con la rete WAN virtuale](virtual-wan-site-to-site-portal.md).
-
-#### <a name="virtual-wan-partner-workflow"></a><a name="s2spartner"></a>Flusso di lavoro del partner della rete WAN virtuale
-
-Se si collabora con un partner della rete WAN virtuale, il flusso di lavoro è il seguente:
-
-1. Il controller (VPN/SDWAN) del dispositivo della succursale viene autenticato per esportare le informazioni specifiche del sito in [Azure usando un'entità servizio di Azure](../active-directory/develop/howto-create-service-principal-portal.md).
-2. Il controller (VPN/SDWAN) del dispositivo della succursale ottiene la configurazione della connettività di Azure e aggiorna il dispositivo locale. Ciò consente di automatizzare il download della configurazione, la modifica e l'aggiornamento del dispositivo VPN locale.
-3. Quando il dispositivo ha la configurazione di Azure corretta, viene stabilita una connessione da sito a sito (due tunnel attivi) alla rete WAN di Azure. Azure supporta IKEv1 e IKEv2. BGP è facoltativo.
-
-#### <a name="partners-for-site-to-site-virtual-wan-connections"></a><a name="partners"></a>Partner per le connessioni di rete WAN virtuale da sito a sito
-
-Per un elenco di partner e località disponibili, vedere l'articolo [Partner e località della rete WAN virtuale](virtual-wan-locations-partners.md).
+Per questo tipo di connessione è necessario un dispositivo VPN o un dispositivo di un partner di rete WAN virtuale. I partner di reti WAN virtuali forniscono l'automazione per la connettività, ovvero la possibilità di esportare le informazioni sui dispositivi in Azure, scaricare la configurazione di Azure e stabilire la connettività con l'hub di rete WAN virtuale di Azure. Per un elenco di partner e località disponibili, vedere l'articolo [Partner e località della rete WAN virtuale](virtual-wan-locations-partners.md). Se il provider del dispositivo VPN/SD-WAN in uso non è elencato in questo articolo, seguire le istruzioni dettagliate in [Creare una connessione da sito a sito con la rete WAN virtuale di Azure](virtual-wan-site-to-site-portal.md) per configurare la connessione.
 
 ### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>Connessioni di VPN utente da punto a sito
 
@@ -95,9 +83,50 @@ Per un elenco di partner e località disponibili, vedere l'articolo [Partner e l
 ### <a name="expressroute-connections"></a><a name="er"></a>Connessioni ExpressRoute
 ExpressRoute consente di connettere la rete locale ad Azure tramite una connessione privata. Per creare la connessione, vedere [Creare una connessione ExpressRoute tramite la rete WAN virtuale](virtual-wan-expressroute-portal.md).
 
+### <a name="hub-to-vnet-connections"></a><a name="hub"></a>Connessioni da hub a rete virtuale
+
+È possibile connettere una rete virtuale di Azure a un hub virtuale. Per altre informazioni, vedere [Connettere la rete virtuale a un hub](virtual-wan-site-to-site-portal.md#vnet).
+
+### <a name="transit-connectivity"></a><a name="transit"></a>Connettività di transito
+
+#### <a name="transit-connectivity-between-vnets"></a><a name="transit-vnet"></a>Connettività di transito tra reti virtuali
+
+La rete WAN virtuale consente la connettività di transito tra reti virtuali. Le reti virtuali si connettono a un hub virtuale tramite una connessione di rete virtuale. La connettività di transito tra le reti virtuali nella **rete WAN virtuale Standard** è abilitata a causa della presenza di un router in ogni hub virtuale. Viene creata un'istanza di questo router quando l'hub virtuale viene creato per la prima volta.
+
+Il router può avere quattro stati di routing: Provisioning eseguito, Provisioning in corso, Errore o Nessuno. Lo **stato del routing** è indicato nella pagina Hub virtuale del portale di Azure.
+
+* Lo stato **Nessuno** indica che l'hub virtuale non ha effettuato il provisioning del router. Può succedere se la rete WAN virtuale è di tipo *Basic* o se l'hub virtuale è stato distribuito prima che il servizio fosse reso disponibile.
+* Lo stato **Errore** indica un errore durante la creazione dell'istanza. Per creare un'istanza del router o reimpostarlo, è possibile usare l'opzione **Reimposta router** nella pagina di panoramica dell'hub virtuale nel portale di Azure.
+
+Ogni router di hub virtuale supporta una velocità effettiva aggregata fino a 50 Gbps. La connettività tra le connessioni di rete virtuale presuppone un totale di 2000 carichi di lavoro di VM in tutte le reti virtuali in una rete WAN virtuale.
+
+#### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Connettività di transito tra VPN ed ExpressRoute
+
+La rete WAN virtuale consente la connettività di transito tra VPN ed ExpressRoute. Questo significa che i siti connessi alla VPN o gli utenti remoti possono comunicare con i siti connessi a ExpressRoute. Implica anche che il contrassegno di **connettività da ramo a ramo** è abilitato. Questo contrassegno si trova nelle impostazioni della rete WAN virtuale di Azure nel portale di Azure. La gestione delle route viene interamente fornita dal router dell'hub virtuale, che consente anche la connettività di transito tra le reti virtuali.
+
+### <a name="custom-routing"></a><a name="routing"></a>Routing personalizzato
+
+La rete WAN virtuale migliora il routing avanzato, aggiungendo la possibilità di configurare tabelle di route personalizzate, ottimizzare il routing di rete virtuale con l'associazione e la propagazione delle route, raggruppare logicamente le tabelle di route con etichette e semplificare numerosi scenari di routing di servizi condivisi o appliance virtuali di rete.
+
+### <a name="global-vnet-peering"></a><a name="global"></a>Peering reti virtuali globale
+
+Il peering reti virtuali globale fornisce un meccanismo che consente di connettere due reti virtuali in aree diverse. Nella rete WAN virtuale le connessioni di rete virtuale connettono le reti virtuali agli hub virtuali. L'utente non deve configurare in modo esplicito il peering reti virtuali globale. Per le reti virtuali connesse a un hub virtuale nella stessa area vengono addebitati i costi del peering reti virtuali. Per le reti virtuali connesse a un hub virtuale in un'area diversa vengono addebitati i costi del peering reti virtuali globale.
+
+### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>Crittografia del traffico ExpressRoute
+
+La rete WAN virtuale di Azure consente di crittografare il traffico ExpressRoute. La tecnica fornisce un transito crittografato tra le reti locali e le reti virtuali di Azure su ExpressRoute, senza passare attraverso la rete Internet pubblica o usare indirizzi IP pubblici. Per altre informazioni, vedere [IPSec su ExpressRoute per la rete WAN virtuale](vpn-over-expressroute.md).
+
 ## <a name="locations"></a><a name="locations"></a>Località
 
 Per informazioni sulle località, vedere l'articolo [Partner e località della rete WAN virtuale](virtual-wan-locations-partners.md).
+
+## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Tabelle di route nelle reti WAN virtuali Basic e Standard
+
+Le tabelle di route includono ora funzionalità per l'associazione e la propagazione. Le tabelle di route preesistenti non hanno queste funzionalità. Se si dispone di route preesistenti nel routing dell'hub e si vogliono usare le nuove funzionalità, considerare le opzioni seguenti:
+
+* **Utenti della rete WAN virtuale Standard con route preesistenti nell'hub virtuale**: per usare le nuove funzionalità della tabella di route, attendere fino alla settimana del 3 agosto che venga completata la distribuzione in Azure. Se nella sezione Routing per l'hub del portale di Azure sono presenti route preesistenti, è necessario eliminarle e quindi provare a creare nuove tabelle di route (disponibili nella sezione Tabelle di route per l'hub del portale di Azure).
+
+* **Utenti della rete WAN virtuale Basic con route preesistenti nell'hub virtuale**: per usare le nuove funzionalità della tabella di route, attendere fino alla settimana del 3 agosto che venga completata la distribuzione in Azure. Se nella sezione Routing per l'hub del portale di Azure sono presenti route preesistenti, è necessario eliminarle e quindi **aggiornare** la rete WAN virtuale Basic alla rete WAN virtuale Standard. Vedere [Aggiornare una rete WAN virtuale da Basic a Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>Domande frequenti
 

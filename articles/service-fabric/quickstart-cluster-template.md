@@ -7,26 +7,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1cb6dc56a5d4fa975f68c1dea08920a7c7db3904
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722457"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119498"
 ---
-# <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>Guida introduttiva: Creare un cluster di Service Fabric usando un modello di Resource Manager
+# <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Avvio rapido: Configurare un cluster di Service Fabric mediante un modello di Resource Manager
 
-Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la disposizione in pacchetti, la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. Un *cluster* di Service Fabric è un set di macchine virtuali connesse in rete, in cui vengono distribuiti e gestiti i microservizi.
+Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la disposizione in pacchetti, la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. Un *cluster* di Service Fabric è un set di macchine virtuali connesse in rete, in cui vengono distribuiti e gestiti i microservizi. Questo articolo descrive come distribuire un cluster di test di Service Fabric in Azure usando un modello di Resource Manager.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Questo articolo descrive come distribuire un cluster di test di Service Fabric Azure usando Resource Manager. Questo cluster Windows a cinque nodi è protetto tramite un certificato autofirmato ed è quindi è destinato solo a scopo didattico e non ai carichi di lavoro di produzione.
+Questo cluster Windows a cinque nodi è protetto tramite un certificato autofirmato ed è quindi è destinato solo a scopo didattico e non ai carichi di lavoro di produzione. Per distribuire il modello si userà Azure PowerShell. Oltre ad Azure PowerShell, è anche possibile usare il portale di Azure, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-portal.md).
 
-Per distribuire il modello si userà Azure PowerShell. Oltre ad Azure PowerShell, è anche possibile usare il portale di Azure, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-portal.md).
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
-Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ### <a name="install-service-fabric-sdk-and-powershell-modules"></a>Installare i moduli Service Fabric SDK e PowerShell
 
@@ -87,9 +89,7 @@ $certUrlValue = "<Certificate URL>"
 $certThumbprint = "<Certificate Thumbprint>"
 ```
 
-## <a name="create-a-service-fabric-cluster"></a>Creare un cluster di Service Fabric
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Il modello per questo articolo è troppo lungo per essere visualizzato qui. Per visualizzare il modello, vedere il file [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json).
 
@@ -144,7 +144,7 @@ Ad esempio:
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Archiviare i percorsi del modello di Resource Manager e dei file dei parametri nelle variabili e quindi distribuire il modello.
+Archiviare i percorsi del modello di Resource Manager e dei file dei parametri in variabili, quindi distribuire il modello.
 
 ```powershell
 $templateFilePath = "<full path to azuredeploy.json>"

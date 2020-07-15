@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: 7cdb58b45727c1a71b5c412046e07658ae8de314
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 18f72ff32b29ff5832c363601ed63280339079df
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559732"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083067"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Trasformare dati nella rete virtuale di Azure usando l'attività Hive in Azure Data Factory con il portale di Azure
 
@@ -83,7 +83,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
  
    Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio nomeutenteMyAzureSsisDataFactory, e riprovare. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+    *Il nome della data factory "MyAzureSsisDataFactory" non è disponibile*
 3. Selezionare la **sottoscrizione** di Azure in cui creare la data factory. 
 4. Per il **gruppo di risorse**, eseguire una di queste operazioni:
      

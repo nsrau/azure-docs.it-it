@@ -5,14 +5,14 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 75b6629ea924ec17888ec2f981ff85ed917434c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: d6acc16780179654975d63ab2c0b04caf141510c
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677616"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557049"
 ---
-# <a name="quickstart-deploy-unity-sample-to-hololens"></a>Guida introduttiva: Distribuire un esempio di Unity in HoloLens
+# <a name="quickstart-deploy-unity-sample-to-hololens"></a>Avvio rapido: Distribuire un esempio di Unity in HoloLens
 
 Questo argomento di avvio rapido illustra come distribuire ed eseguire l'app di esempio dell'avvio rapido per Unity in un HoloLens 2.
 
@@ -36,12 +36,14 @@ Assicurarsi che le credenziali vengano salvate correttamente con la scena e che 
 1. Impostare *Platform* (Piattaforma) su **Universal Windows Platform** (Piattaforma UWP)
 1. Impostare *Target Device* (Dispositivo di destinazione) su **HoloLens**
 1. Impostare *Architecture* (Architettura) su **ARM64**
-1. Impostare *Build Type* (Tipo di compilazione) su **D3D Project** ![Impostazioni di compilazione](./media/unity-build-settings.png)
+1. Impostare *Build Type* (Tipo di compilazione) su **D3D Project**\
+    ![Impostazioni di compilazione](./media/unity-build-settings.png)
 1. Selezionare **Switch to Platform** (Passa alla piattaforma)
 1. Quando si preme **Build** (Compila) o 'Build And Run' (Compila ed esegui), verrà richiesto di selezionare una cartella in cui archiviare la soluzione
 1. Aprire il file **Quickstart.sln** generato con Visual Studio
 1. Impostare la configurazione su **Release** e **ARM64**
-1. Impostare la modalità del debugger su **Remote Machine** (Computer remoto) ![Configurazione della soluzione](media/unity-deploy-config.png)
+1. Impostare la modalità del debugger su **Remote Machine**\ (Computer remoto)
+    ![Configurazione della soluzione](media/unity-deploy-config.png)
 1. Compilare la soluzione (F7)
 1. Per il progetto 'QuickStart' passare a *Properties > Debugging* (Proprietà > Debug)
     1. Assicurarsi che la configurazione *Release* sia attiva

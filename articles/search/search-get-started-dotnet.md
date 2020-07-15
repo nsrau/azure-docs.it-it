@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 5862a446b1522926f8241959d5e1cff66e4da06b
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 7172fe1f7eb81bbd00e7efa611111e04cc96abd3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079383"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083577"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>Avvio rapido: Creare un indice di ricerca in .NET
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Per eseguire le procedure descritte è necessario:
 
 + Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/).
 
-+ Un'istanza del servizio Ricerca cognitiva di Azure [Creare un servizio](search-create-service-portal.md) o [trovarne uno esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
++ Un'istanza del servizio Ricerca cognitiva di Azure. [Creare un servizio](search-create-service-portal.md) o [trovarne uno esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
 
@@ -567,3 +567,8 @@ Il codice di esempio e l'indice forniti sono versioni espanse rispetto a quelli 
 
 > [!div class="nextstepaction"]
 > [Come sviluppare in .NET](search-howto-dotnet-sdk.md)
+
+Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
+
+> [!div class="nextstepaction"]
+> [Per iniziare, analizzare i costi con Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

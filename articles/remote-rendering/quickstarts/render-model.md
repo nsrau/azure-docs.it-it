@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: ed533f571ada4cacf053157b397cca07cd65e6f8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300573"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565506"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Avvio rapido: Eseguire il rendering di un modello con Unity
 
 Questo argomento di avvio rapido illustra come eseguire un esempio di Unity che esegue il rendering di un modello predefinito in modalità remota usando il servizio Rendering remoto di Azure.
 
-Non verranno esaminati in dettaglio l'API stessa del servizio Rendering remoto di Azure o il modo in cui configurare un nuovo progetto Unity. Questi argomenti sono trattati nell'[Esercitazione: Configurazione di un progetto Unity da zero](../tutorials/unity/project-setup.md).
+Non verranno esaminati in dettaglio l'API stessa del servizio Rendering remoto di Azure o il modo in cui configurare un nuovo progetto Unity. Questi argomenti sono trattati nell'[Esercitazione: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto](../tutorials/unity/view-remote-models/view-remote-models.md).
 
 In questo argomento di avvio rapido si apprenderà come:
 > [!div class="checklist"]

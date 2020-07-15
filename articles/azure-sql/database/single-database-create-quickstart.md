@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 1ae3159365e63159b8ed62c09bc20441ba65d8aa
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 20f8a08cfe31534abe24c7af1055e0945e021643
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343847"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081588"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Avvio rapido: Crea un database SQL di Azure singolo
 
@@ -100,4 +100,8 @@ Remove-AzResourceGroup -Name <your resource group>
 > [Connettersi ed eseguire query usando SQL Server Management Studio](connect-query-ssms.md)
 >
 > [Connettersi ed eseguire query usando Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
- 
+
+Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
+
+> [!div class="nextstepaction"]
+> [Per iniziare, analizzare i costi con Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

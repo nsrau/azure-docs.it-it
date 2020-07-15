@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c25d5ee7ed730747317ea52286174968eb0e2fd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82024439"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103705"
 ---
 # <a name="what-is-a-device-identity"></a>Informazioni sulle identità dei dispositivi
 
@@ -45,7 +45,7 @@ Per inserire un dispositivo in Azure AD, sono disponibili più opzioni:
 - **Aggiunta ad Azure AD**
    - I dispositivi aggiunti ad Azure AD sono di proprietà di un'organizzazione e sono accessibili con un account Azure AD appartenente all'organizzazione. Sono presenti solo nel cloud.
       - Windows 10 
-      - Windows Server 2019 (Server Core non è supportato)
+      - [Macchine virtuali Windows Server 2019 in esecuzione in Azure] (./howto-vm-sign-in-azure-ad-windows.md) (Server Core non è supportato)
 - **Aggiunto a Azure AD in modalità ibrida**
    - I dispositivi aggiunti ad Azure AD in modalità ibrida sono di proprietà di un'organizzazione e sono accessibili con un account Azure AD appartenente all'organizzazione. Sono presenti nel cloud e nell'ambiente locale.
       - Windows 7, 8.1 o 10

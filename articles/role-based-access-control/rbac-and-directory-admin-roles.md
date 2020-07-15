@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 70baddf86207c490d3b85e0f584525592f8a7ad7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 64b4b0bd8c1e387229144e02293b573062ab196c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735810"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087827"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure AD
 
@@ -120,7 +120,7 @@ A livello generale, i ruoli di Azure controllano le autorizzazioni per gestire l
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>I ruoli di Azure e i ruoli di Azure AD si sovrappongono?
 
-Per impostazione predefinita, i ruoli di Azure e i ruoli di Azure AD non si estendono oltre Azure e Azure AD. Tuttavia, se un amministratore globale ne eleva l'accesso scegliendo l'opzione **Gli amministratori globali possono gestire le sottoscrizioni di Azure e i gruppi di gestione** nel portale di Azure, all'amministratore globale verrà assegnato il ruolo [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator) (un ruolo di Azure) in tutte le sottoscrizioni di un tenant specifico. Il ruolo Amministratore Accesso utenti consente all'utente di assegnare ad altri utenti l'accesso alle risorse di Azure. Questa opzione può essere utile per ottenere nuovamente l'accesso a una sottoscrizione. Per altre informazioni, vedere [Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure](elevate-access-global-admin.md).
+Per impostazione predefinita, i ruoli di Azure e i ruoli di Azure AD non si estendono oltre Azure e Azure AD. Tuttavia, se un amministratore globale ne eleva l'accesso scegliendo l'opzione **Gestione degli accessi per le risorse di Azure** nel portale di Azure, gli verrà assegnato il ruolo [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator) (un ruolo di Azure) in tutte le sottoscrizioni di un tenant specifico. Il ruolo Amministratore Accesso utenti consente all'utente di assegnare ad altri utenti l'accesso alle risorse di Azure. Questa opzione può essere utile per ottenere nuovamente l'accesso a una sottoscrizione. Per altre informazioni, vedere [Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure](elevate-access-global-admin.md).
 
 Diversi ruoli di Azure si applicano ad Azure AD e a Microsoft Office 365, ad esempio i ruoli di amministratore globale e di amministratore utenti. Ad esempio, se si è un membro del ruolo Amministratore globale, si dispone delle autorizzazioni di amministratore globale in Azure AD e Office 365, ad esempio per effettuare modifiche in Microsoft Exchange e Microsoft SharePoint. Tuttavia, per impostazione predefinita, l'amministratore globale non ha accesso alle risorse di Azure.
 

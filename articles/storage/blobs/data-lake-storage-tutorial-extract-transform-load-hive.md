@@ -8,23 +8,23 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014911"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045298"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure HDInsight
 
-In questa esercitazione viene eseguita un'operazione ETL (Extract, Transform, Load), ossia estrazione, trasformazione e caricamento dei dati. Un file di dati non elaborati in formato CSV verrà importato in un cluster Azure HDInsight, trasformato con Apache Hive e caricato in un database SQL di Azure con Apache Sqoop.
+In questa esercitazione viene eseguita un'operazione ETL (Extract, Transform, Load), ossia estrazione, trasformazione e caricamento dei dati. Un file di dati non elaborati in formato CSV verrà importato in un cluster Azure HDInsight, trasformato con Apache Hive e caricato nel database SQL di Azure con Apache Sqoop.
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Estrarre e caricare i dati in un cluster HDInsight.
 > * Trasformare i dati con Apache Hive.
-> * Caricare i dati in un database SQL di Azure con Sqoop.
+> * Caricare i dati nel database SQL di Azure con Sqoop.
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
     Vedere [Avvio rapido: Iniziare a usare Apache Hadoop e Apache Hive in Azure HDInsight con il portale di Azure](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Database SQL di Azure**: Come archivio dati di destinazione usare un database SQL di Azure. Se non si ha un database SQL, vedere [Creare un database SQL di Azure nel portale di Azure](../../sql-database/sql-database-get-started.md).
+* **Database SQL di Azure**: Come archivio dati di destinazione usare il database SQL di Azure. Se non è presente alcun database nel database SQL di Azure, vedere [Creare un database nel database SQL di Azure nel portale di Azure](../../sql-database/sql-database-get-started.md).
 
 * **Interfaccia della riga di comando di Azure**: Se l'interfaccia della riga di comando di Azure non è installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -224,7 +224,7 @@ Come parte del processo Apache Hive, importare i dati contenuti nel file con est
 
 ## <a name="create-a-sql-database-table"></a>Creare una tabella del database SQL
 
-Per eseguire questa operazione, è necessario il nome del server di database SQL. Completare questi passaggi per trovarlo.
+Per eseguire questa operazione, è necessario il nome del server del database SQL. Completare questi passaggi per trovarlo.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 

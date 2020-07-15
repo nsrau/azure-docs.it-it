@@ -4,14 +4,14 @@ description: Esempi dell'interfaccia della riga di comando di Azure relativi ad 
 tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 857d6cdc26e41f5ea7b1d66aaff6efb4056c47c4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: ce10c0e95d77103f386174c7bd0ffd56adff871b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254498"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054543"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Esempi dell'interfaccia della riga di comando per Servizio app di Azure
 
@@ -25,7 +25,8 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 | [Creare un'app con distribuzione continua da GitHub](./scripts/cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'app del servizio app con la pubblicazione continua da un repository GitHub di proprietà dell'utente. |
 | [Creare un'app e distribuire il codice da un archivio Git locale](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app del servizio app e configura il push del codice da un repository Git locale. |
 | [Creare un'app e distribuire il codice in un ambiente di gestione temporanea](./scripts/cli-deploy-staging-environment.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app del servizio app con uno slot di distribuzione per le modifiche al codice di gestione temporanea. |
-| [Creare un'app ASP.NET Core in un contenitore Docker](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'app del servizio app in Linux e carica un'immagine Docker da Docker Hub. |
+| [Creare un'app ASP.NET Core in un contenitore Docker](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app del servizio app in Linux e carica un'immagine Docker da Docker Hub. |
+| [Creare un'app ed esporla con un endpoint privato](./scripts/cli-deploy-privateendpoint.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app del servizio app e un endpoint privato. |
 |**Configurare l'applicazione**||
 | [Eseguire il mapping di un dominio personalizzato a un'app](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'app del servizio app ed esegue il mapping di un nome di dominio personalizzato a essa. |
 | [Associare un certificato TLS/SSL personalizzato a un'app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'app del servizio app e vi associa il certificato TLS/SSL di un nome di dominio personalizzato. |

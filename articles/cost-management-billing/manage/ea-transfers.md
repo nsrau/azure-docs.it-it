@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: a0846a07fd8107a87483753c8dbff1301fda4a0c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: ff10d9ec9b92b85d057e556a21c144b9e8f155cf
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299911"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043275"
 ---
 # <a name="azure-enterprise-transfers"></a>Trasferimenti di Azure Enterprise
 
@@ -49,7 +49,7 @@ Altri punti da tenere presenti prima del trasferimento di un account:
 
 Il trasferimento di una registrazione si prende in considerazione quando:
 
-- Il periodo di impegno di una registrazione corrente è terminato.
+- Il periodo di pagamento anticipato di una registrazione corrente è terminato.
 - Una registrazione è nello stato di scadenza/estensione e viene negoziato un nuovo contratto.
 - Si hanno più registrazioni e si vogliono combinare tutti gli account e la fatturazione in una singola registrazione.
 
@@ -60,7 +60,7 @@ Quando si richiede il trasferimento di un'intera registrazione EA in un'altra re
 - Tutti i servizi di Azure, le sottoscrizioni, gli account, i reparti e l'intera struttura di registrazione, inclusi tutti gli amministratori del reparto EA, vengono trasferiti in una nuova registrazione di destinazione.
 - Lo stato della registrazione viene impostato su _Trasferito_. La registrazione trasferita è disponibile solo per la creazione di report cronologici sull'utilizzo.
 - Non è possibile aggiungere ruoli o sottoscrizioni a una registrazione trasferita. Lo stato Trasferito impedisce ulteriori utilizzi per la registrazione.
-- Qualsiasi saldo dell'impegno monetario rimanente nel contratto viene perso, inclusi i periodi futuri.
+- Qualsiasi saldo del pagamento anticipato di Azure rimanente nel contratto va perso, inclusi i periodi futuri.
 -    Se la registrazione da cui si esegue il trasferimento prevede acquisti di istanze riservate, la tariffa di acquisto di istanze riservate verrà mantenuta nella registrazione di origine, tuttavia tutti i vantaggi relativi alle istanze riservate verranno trasferiti per essere usati nella nuova registrazione.
 -    La tariffa di costo di acquisto una tantum del Marketplace ed eventuali tariffe fisse mensili già addebitate nella registrazione precedente non verranno trasferite nella nuova registrazione. Verranno trasferiti gli addebiti per il Marketplace basati sul consumo.
 
@@ -68,7 +68,7 @@ Quando si richiede il trasferimento di un'intera registrazione EA in un'altra re
 
 La data di validità del trasferimento può essere una data corrispondente o successiva alla data di inizio della registrazione di destinazione.
 
-L'utilizzo della registrazione di origine viene addebitato in base all'impegno monetario o come eccedenza. L'utilizzo che ha luogo dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato di conseguenza.
+L'utilizzo della registrazione di origine viene addebitato in base al pagamento anticipato o come eccedenza. L'utilizzo che ha luogo dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato di conseguenza.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -84,9 +84,9 @@ Altri punti da tenere presenti prima del trasferimento di una registrazione:
 - Se il trasferimento di una registrazione non soddisfa le proprie esigenze, prendere in considerazione un trasferimento di account.
 - Lo stato della registrazione di origine verrà aggiornato a Trasferito e sarà disponibile solo per la creazione di report cronologici sull'utilizzo.
 
-### <a name="monetary-commitment"></a>Impegno monetario
+### <a name="azure-prepayment"></a>Pagamento anticipato di Azure
 
-L'impegno monetario non è trasferibile tra registrazioni. I saldi dell'impegno monetario sono legati contrattualmente alla registrazione in cui è stato ordinato. L'impegno monetario non viene trasferito come parte del processo di trasferimento dell'account o della registrazione.
+Il pagamento anticipato di Azure non è trasferibile tra registrazioni. I saldi del pagamento anticipato di Azure sono vincolati contrattualmente alla registrazione in cui è stato ordinato. Il pagamento anticipato di Azure non viene trasferito come parte del processo di trasferimento dell'account o della registrazione.
 
 ### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nessun servizio interessato dai trasferimenti di account e registrazioni
 

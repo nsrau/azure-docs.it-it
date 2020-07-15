@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e17bad915fd913f6e3894ed386e914e65aa46c01
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250333"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101886"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Esercitazione: Importare file BACPAC SQL con i modelli di Azure Resource Manager
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](./use-vs-code-to-create-template.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore del server. Di seguito è riportato un esempio che è possibile usare per generare una password:
 
     ```console
@@ -112,8 +112,8 @@ Il modello usato in questa esercitazione è archiviato in [GitHub](https://raw.g
 
     Nel modello sono definite due risorse:
 
-   * `Microsoft.Sql/servers`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL.servers/databases`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.Sql/servers`. Vedere le [informazioni di riferimento sul modello](/azure/templates/microsoft.sql/servers).
+   * `Microsoft.SQL.servers/databases`. Vedere le [informazioni di riferimento sul modello](/azure/templates/microsoft.sql/servers/databases).
 
         Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
 1. Selezionare **File** > **Salva con nome** per salvare una copia del file con il nome *azuredeploy.json* nel computer locale.
@@ -194,7 +194,7 @@ Il modello usato in questa esercitazione è archiviato in [GitHub](https://raw.g
 
         ![Modello con estensione Database SQL](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-        Per informazioni sulla definizione della risorsa, vedere le [informazioni di riferimento sulle estensioni di database SQL](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Di seguito sono illustrati alcuni elementi importanti.
+        Per informazioni sulla definizione della risorsa, vedere le [informazioni di riferimento sulle estensioni di database SQL](/azure/templates/microsoft.sql/servers/databases/extensions). Di seguito sono illustrati alcuni elementi importanti.
 
         * **dependsOn**: la risorsa di estensione deve essere creata dopo che è stato creato il database.
         * **storageKeyType**: specificare il tipo di chiave di archiviazione da usare. Il valore può essere `StorageAccessKey` o `SharedAccessKey`. In questa esercitazione usare `StorageAccessKey`.

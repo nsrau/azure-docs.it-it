@@ -7,19 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: 7075753049e6ba6f4804d23aa31796cbd5bc9141
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.date: 06/30/2020
+ms.openlocfilehash: 9d081dea8e4a59a7b872bde8626cbb8674eebd7e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263229"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554331"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Che cos'è la ricerca cognitiva di Azure?
 
-Ricerca cognitiva di Azure ([precedentemente nota come "Ricerca di Azure"](whats-new.md#new-service-name)) è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. Il codice o uno strumento richiama l'inserimento dei dati (indicizzazione) per creare e caricare un indice. Facoltativamente, è possibile aggiungere competenze cognitive per applicare i processi di intelligenza artificiale durante l'indicizzazione. In questo modo è possibile aggiungere nuove informazioni e strutture utili per la ricerca e altri scenari.
+Ricerca cognitiva di Azure ([precedentemente nota come "Ricerca di Azure"](whats-new.md#new-service-name)) è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. 
 
-Dall'altro lato del servizio, il codice dell'applicazione invia richieste di query e gestisce le risposte. L'esperienza di ricerca viene definita nel client tramite funzionalità di Ricerca cognitiva di Azure, con l'esecuzione di query su un indice persistente creato dall'utente, di sua proprietà e archiviato nel servizio.
+In una soluzione personalizzata un servizio di ricerca si colloca tra due carichi di lavoro primari: inserimento del contenuto e query. Il codice o uno strumento definisce uno schema e richiama l'inserimento dati (indicizzazione) per caricare un indice in Ricerca cognitiva di Azure. Facoltativamente, è possibile aggiungere competenze cognitive per applicare i processi di intelligenza artificiale durante l'indicizzazione. In questo modo è possibile aggiungere nuove informazioni e strutture utili per la ricerca e scenari di knowledge mining.
+
+Con un indice disponibile, il codice dell'applicazione invia richieste a un servizio di ricerca e gestisce le risposte. L'esperienza di ricerca viene definita nel client tramite funzionalità di Ricerca cognitiva di Azure, con l'esecuzione di query su un indice persistente creato dall'utente, di sua proprietà e archiviato nel servizio.
 
 ![Architettura di Ricerca cognitiva di Azure](media/search-what-is-azure-search/azure-search-diagram.svg "Architettura di Ricerca cognitiva di Azure")
 
@@ -31,7 +33,7 @@ Ricerca cognitiva di Azure è una soluzione particolarmente adatta agli scenari 
 
 + Consolidamento di tipi di contenuto eterogenei in un indice privato, singolo e in cui è possibile eseguire ricerche. Le query vengono eseguite sempre su un indice creato e caricato dall'utente con i documenti e l'indice risiede sempre nel cloud nel servizio Ricerca cognitiva di Azure dell'utente. È possibile popolare un indice con flussi di documenti JSON da qualsiasi origine o piattaforma. In alternativa, per i contenuti con origine in Azure, è possibile usare un *indicizzatore* per eseguire il pull dei dati in un indice. La definizione dell'indice e la relativa gestione/proprietà sono motivi importanti per usare Ricerca cognitiva di Azure.
 
-+ Il contenuto non elaborato è costituito da testo non differenziato, file di immagine o file applicazione di grandi dimensioni, ad esempio tipi di contenuto di Office in un'origine dati di Azure, ad esempio archiviazione BLOB di Azure o Cosmos DB. È possibile applicare competenze cognitive durante l'indicizzazione per aggiungere struttura o estrarre il significato dai file di immagine e applicazione.
++ Il contenuto non elaborato è costituito da testo non differenziato, file di immagine o file applicazione di grandi dimensioni, ad esempio tipi di contenuto di Office in un'origine dati di Azure, ad esempio archiviazione BLOB di Azure o Cosmos DB. È possibile applicare competenze cognitive durante l'indicizzazione per aggiungere struttura o estrarre testo ricercabile da file di immagini e applicazioni.
 
 + Facile implementazione delle funzionalità correlate alla ricerca. Le API di Ricerca cognitiva di Azure semplificano la costruzione di query, l'esplorazione in base a facet, i filtri (inclusa la ricerca geospaziale), il mapping dei sinonimi, le query con completamento automatico e l'ottimizzazione della pertinenza. Grazie alle funzionalità predefinite, è possibile soddisfare le aspettative degli utenti finali per un'esperienza di ricerca simile ai motori di ricerca Web commerciali.
 
@@ -53,8 +55,8 @@ Ricerca cognitiva di Azure è una soluzione particolarmente adatta agli scenari 
 
 | Arricchimenti di&nbsp;intelligenza artificiale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Funzionalità |
 |-------------------|----------|
-|Elaborazione di intelligenza artificiale durante l'indicizzazione | L'[**arricchimento tramite intelligenza artificiale**](cognitive-search-concept-intro.md) per l'analisi di testo e immagini può essere applicato a una pipeline di indicizzazione per estrarre informazioni di testo dal contenuto non elaborato. Alcuni esempi di [competenze predefinite](cognitive-search-predefined-skills.md) includono il riconoscimento ottico dei caratteri (che permette di eseguire ricerche nelle immagini JPEG digitalizzate), il riconoscimento di entità (identificazione di un'organizzazione, un nome o una località) e il riconoscimento di frasi chiave. È anche possibile [sviluppare competenze personalizzate](cognitive-search-create-custom-skill-example.md) da collegare alla pipeline. |
-| Archiviazione di contenuto arricchito per l'analisi e l'utilizzo in scenari non di ricerca | [**Knowledge store (anteprima)** ](knowledge-store-concept-intro.md) è un'estensione dell'indicizzazione basata su intelligenza artificiale. Con l'archiviazione di Azure come back-end, è possibile salvare gli arricchimenti creati durante l'indicizzazione. Questi artefatti possono essere usati per definire set di competenze più efficaci oppure per creare forme e strutture da dati amorfi o ambigui. È possibile creare proiezioni di queste strutture destinate a specifici carichi di lavoro o utenti. È anche possibile analizzare direttamente i dati estratti oppure caricarli in altre app.<br/><br/> |
+|Elaborazione di intelligenza artificiale durante l'indicizzazione | L'[**arricchimento tramite intelligenza artificiale**](cognitive-search-concept-intro.md) per l'analisi di testo e immagini può essere applicato a una pipeline di indicizzazione per estrarre informazioni di testo dal contenuto non elaborato. Alcuni esempi di [competenze predefinite](cognitive-search-predefined-skills.md) includono il riconoscimento ottico dei caratteri (che permette di eseguire ricerche nelle immagini JPEG digitalizzate), il riconoscimento di entità (identificazione di un'organizzazione, un nome o una località) e il riconoscimento di frasi chiave. È anche possibile [sviluppare competenze personalizzate](cognitive-search-create-custom-skill-example.md) da collegare alla pipeline. È anche possibile [integrare competenze create da Azure Machine Learning](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-aml-custom-skill). |
+| Archiviazione di contenuto arricchito per l'analisi e l'utilizzo in scenari non di ricerca | L'[**archivio conoscenze**](knowledge-store-concept-intro.md) è un'estensione dell'indicizzazione basata su intelligenza artificiale. Con Archiviazione di Azure come back-end, è possibile salvare gli arricchimenti creati durante l'indicizzazione. Questi artefatti possono essere usati per definire set di competenze più efficaci oppure per creare forme e strutture da dati amorfi o ambigui. È possibile creare proiezioni di queste strutture destinate a specifici carichi di lavoro o utenti. È anche possibile analizzare direttamente i dati estratti oppure caricarli in altre app.<br/><br/> |
 | Contenuto memorizzato nella cache | L'[**arricchimento incrementale (anteprima)** ](cognitive-search-incremental-indexing-conceptual.md) limita l'elaborazione ai soli documenti cambiati da modifiche specifiche della pipeline, usando il contenuto memorizzato nella cache per le parti della pipeline che non cambiano. |
 
 | Importazione/indicizzazione di&nbsp;dati | Funzionalità |
@@ -129,7 +131,7 @@ Sebbene sia possibile eseguire numerose attività nel portale, la Ricerca cognit
 
 |Piattaforma |Descrizione |
 |-----|------------|
-|[REST](/rest/api/searchservice/) | Comandi HTTP supportati da qualsiasi piattaforma e linguaggio di programmazione, inclusi Xamarin, Java e JavaScript|
+|[REST](/rest/api/searchservice/) | Comandi HTTP supportati da qualsiasi piattaforma e linguaggio di programmazione, inclusi Java, Python e JavaScript|
 |[.NET SDK](search-howto-dotnet-sdk.md) | Il wrapper .NET per l'API REST offre una codifica efficiente in C# e altri linguaggi di codice destinati a .NET Framework |
 
 ## <a name="free-trial"></a>Versione di prova gratuita

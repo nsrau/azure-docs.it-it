@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 40dd7f1b177fd1319b145036c8263ba2c6e30137
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733671"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024673"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Esercitazione: Creare un trust tra foreste in uscita per un dominio locale in Azure Active Directory Domain Services (anteprima)
 
@@ -45,7 +45,9 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
     * Se necessario, [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Assicurarsi di creare un dominio gestito usando una foresta di *risorse*. L'opzione predefinita crea una foresta di *utenti*. Solo le foreste di risorse possono creare trust per gli ambienti Active Directory Domain Services locali. Per il dominio gestito sarà inoltre necessario usare almeno uno SKU *Enterprise*. Se necessario, [cambiare lo SKU di un dominio gestito][howto-change-sku].
+    > Assicurarsi di creare un dominio gestito usando una foresta di *risorse*. L'opzione predefinita crea una foresta di *utenti*. Solo le foreste di risorse possono creare trust per gli ambienti Active Directory Domain Services locali.
+    >
+    > Per il dominio gestito sarà inoltre necessario usare almeno uno SKU *Enterprise*. Se necessario, [cambiare lo SKU di un dominio gestito][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -69,10 +71,10 @@ Prima di configurare un trust tra foreste in Azure AD Domain Services, assicurar
 
 ## <a name="configure-dns-in-the-on-premises-domain"></a>Configurare il DNS nel dominio locale
 
-Per risolvere correttamente il dominio gestito dall'ambiente locale, può essere necessario aggiungere server d'inoltro ai server DNS esistenti. Se l'ambiente locale non è stato configurato per comunicare con il dominio gestito, completare i passaggi seguenti da una workstation di gestione per il dominio di AD DS locale:
+Per risolvere correttamente il dominio gestito dall'ambiente locale, può essere necessario aggiungere server d'inoltro ai server DNS esistenti. Se l'ambiente locale non è stato configurato per comunicare con il dominio gestito, completare i passaggi seguenti da una workstation di gestione per il dominio di Active Directory Domain Services locale:
 
 1. Selezionare **Start | Strumenti di amministrazione | DNS**
-1. Fare clic con il pulsante destro del mouse sul server DNS, ad esempio *myAD01* e scegliere **Proprietà**
+1. Fare clic con il pulsante destro del mouse sul server DNS, ad esempio *myAD01* e quindi scegliere **Proprietà**
 1. Scegliere **Server d'inoltro**, quindi **Modifica** per aggiungere altri server d'inoltro.
 1. Aggiungere gli indirizzi IP del dominio gestito, ad esempio *10.0.2.4* e *10.0.2.5*.
 
@@ -83,9 +85,9 @@ Il dominio locale di AD DS richiede un trust tra foreste in ingresso per il domi
 Per configurare il trust in ingresso nel dominio Active Directory Domain Services locale, completare i passaggi seguenti da una workstation di gestione per il dominio di Active Directory Domain Services locale:
 
 1. Fare clic sul pulsante **Start | Strumenti di amministrazione | Domini e trust di Active Directory**
-1. Fare clic con il pulsante destro del mouse sul dominio, ad esempio *onprem.contoso.com* e scegliere **Proprietà**
+1. Fare clic con il pulsante destro del mouse sul dominio, ad esempio *onprem.contoso.com* e quindi scegliere **Proprietà**
 1. Scegliere la scheda **Trust**, quindi **Nuova relazione di trust**
-1. Immettere il nome del dominio Azure AD Domain Services, ad esempio *aaddscontoso.com*, quindi selezionare **Avanti**
+1. Immettere il nome per il dominio di Azure Active Directory Domain Services, ad esempio *aaddscontoso.com* e quindi selezionare **Avanti**
 1. Selezionare l'opzione per creare un **Trust tra foreste**, quindi creare un trust **Unidirezionale: in ingresso**.
 1. Scegliere di creare il trust per **Solo questo dominio**. Nel passaggio successivo si creerà il trust nel portale di Azure per il dominio gestito.
 1. Scegliere di usare l'**Autenticazione estesa a tutta la foresta**, quindi immettere e confermare una password del trust. Questa stessa password verrà anche immessa nel portale di Azure nella sezione successiva.
@@ -94,7 +96,7 @@ Per configurare il trust in ingresso nel dominio Active Directory Domain Service
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Creare un trust tra foreste in uscita in Azure AD Domain Services
 
-Dopo aver configurato il dominio locale di AD DS per risolvere il dominio gestito e un trust tra foreste in ingresso, si procederà alla creazione del trust tra foreste in uscita. Questo trust tra foreste in uscita completa la relazione di trust tra il dominio locale di Active Directory Domain Services e il dominio gestito.
+Dopo aver configurato il dominio locale di Active Directory Domain Services per risolvere il dominio gestito e un trust tra foreste in ingresso, si procederà alla creazione del trust tra foreste in uscita. Questo trust tra foreste in uscita completa la relazione di trust tra il dominio locale di Active Directory Domain Services e il dominio gestito.
 
 Per creare il trust in uscita per il dominio gestito nel portale di Azure, seguire questa procedura:
 
@@ -124,7 +126,7 @@ Gli scenari comuni seguenti consentono di verificare che il trust tra foreste es
 
 ### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>Autenticazione utente locale dalla foresta di risorse Azure AD Domain Services
 
-È necessario che la macchina virtuale Windows Server sia stata aggiunta al dominio delle risorse Azure AD Domain Services. Usare questa macchina virtuale per verificare che l'utente locale possa eseguire l'autenticazione in una macchina virtuale.
+È necessario che la macchina virtuale Windows Server sia stata aggiunta al dominio gestito. Usare questa macchina virtuale per verificare che l'utente locale possa eseguire l'autenticazione in una macchina virtuale. Se necessario, [creare una macchina virtuale Windows e aggiungerla al dominio gestito][join-windows-vm].
 
 1. Connettersi alla macchina virtuale Windows Server aggiunta alla foresta di risorse Azure AD Domain Services usando [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e le credenziali di amministratore di Azure AD Domain Services.
 1. Aprire un prompt dei comandi e usare il comando `whoami` per visualizzare il nome distinto dell'utente attualmente autenticato:
@@ -167,7 +169,7 @@ Usando la macchina virtuale Windows Server aggiunta alla foresta di risorse Azur
 1. Digitare *Utenti del dominio* nella casella **Immettere i nomi degli oggetti da selezionare**. Selezionare **Controlla nomi**, fornire le credenziali per l'istanza di Active Directory locale, quindi selezionare **OK**.
 
     > [!NOTE]
-    > È necessario fornire le credenziali perché la relazione di trust è unidirezionale. Questo significa che gli utenti di Azure AD Domain Services non possono accedere alle risorse o cercare utenti o gruppi nel dominio trusted (locale).
+    > È necessario fornire le credenziali perché la relazione di trust è unidirezionale. Questo significa che gli utenti del dominio gestito di Azure Active Directory Domain Services non possono accedere alle risorse o cercare utenti o gruppi nel dominio trusted (locale).
 
 1. Il gruppo **Utenti del dominio** dell'istanza di Active Directory locale deve essere membro del gruppo **FileServerAccess**. Selezionare **OK** per salvare il gruppo e chiudere la finestra.
 
@@ -216,3 +218,4 @@ Per informazioni più concettuali sui tipi di foresta in Azure AD Domain Service
 [howto-change-sku]: change-sku.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [expressroute]: ../expressroute/expressroute-introduction.md
+[join-windows-vm]: join-windows-vm.md

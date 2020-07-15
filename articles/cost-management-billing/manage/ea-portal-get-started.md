@@ -3,16 +3,16 @@ title: Introduzione ad Azure Enterprise Portal
 description: Questo articolo illustra come i clienti con un Contratto Enterprise di Azure (Azure EA, Azure Enterprise Agreement) usano Azure Enterprise Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/29/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2d4fbf90afa93f3dbde12a3bc5ce02f9a60b6c5d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560369"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044958"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introduzione ad Azure Enterprise Portal
 
@@ -372,7 +372,7 @@ Se il Contratto Enterprise non dispone di una sottoscrizione al supporto e si ag
 
 ## <a name="view-usage-summary-and-download-reports"></a>Visualizzare il riepilogo sull'utilizzo e scaricare i report
 
-Gli amministratori dell'organizzazione possono visualizzare un riepilogo dei dati di utilizzo, l'impegno monetario utilizzato e gli addebiti associati all'utilizzo aggiuntivo in Azure Enterprise Portal. Gli addebiti vengono presentati a livello di riepilogo in tutti gli account e le sottoscrizioni.
+Gli amministratori aziendali possono visualizzare un riepilogo dei dati di utilizzo, la quota utilizzata di Pagamento anticipato di Azure e gli addebiti associati all'utilizzo aggiuntivo in Azure Enterprise Portal. Gli addebiti vengono presentati a livello di riepilogo in tutti gli account e le sottoscrizioni.
 
 Per visualizzare informazioni dettagliate sull'utilizzo per account specifici, scaricare il report relativo ai dettagli dell'utilizzo:
 
@@ -390,7 +390,7 @@ Per visualizzare grafici e report di riepilogo sull'utilizzo:
 
 1. Accedere ad Azure Enterprise Portal.
 
-1. Selezionare un periodo di impegno.
+1. Selezionare un pagamento anticipato.
 
    Per modificare l'intervallo di date per **Riepilogo utilizzo** è possibile spostare l'interruttore da **M** (Mensile) a **C** (Custom, Personalizzato) nell'angolo superiore destro della pagina, quindi immettere date di inizio e fine personalizzate.
 
@@ -455,7 +455,7 @@ Azure Enterprise Portal esclude con un filtro la visualizzazione delle registraz
 - **Account**: unità organizzativa in Azure Enterprise Portal. Viene usato per l'amministrazione delle sottoscrizioni e la creazione di report.
 - **Proprietario dell'account**: persona che gestisce le sottoscrizioni e gli amministratori del servizio in Azure. Questa persona può visualizzare i dati di utilizzo per l'account e le sottoscrizioni associate.
 - **Sottoscrizione di rettifica**: sottoscrizione di un anno o contestuale nell'ambito della rettifica della registrazione.
-- **Impegno**: allocazione di un importo monetario annuale per i servizi Azure a una tariffa di impegno scontata per l'utilizzo a fronte di questo pagamento anticipato.
+- **Pagamento anticipato**: pagamento anticipato di un importo monetario annuale per i servizi Azure a una tariffa di pagamento anticipato scontata per l'utilizzo a fronte di questo pagamento anticipato.
 - **Amministratore del reparto**: persona che gestisce i reparti, crea nuovi account e proprietari di account, visualizza i dettagli di utilizzo per i reparti che gestisce e visualizza i costi (se dispone delle autorizzazioni necessarie).
 - **Numero di registrazione**: identificatore univoco reso disponibile da Microsoft per identificare la registrazione specifica associata a un Contratto Enterprise.
 - **Amministratore dell'organizzazione**: persona che gestisce i reparti, i proprietari di reparti, gli account e i proprietari di account in Azure. Questa persona ha la possibilità di gestire gli amministratori dell'organizzazione, nonché di visualizzare i dati di utilizzo, le quantità fatturate e gli addebiti non fatturati per tutti gli account e per tutte le sottoscrizioni associati all'iscrizione Enterprise.
@@ -478,7 +478,7 @@ Azure Enterprise Portal esclude con un filtro la visualizzazione delle registraz
 
    Prima che la registrazione del Contratto Enterprise di Azure raggiunga la data di fine del Contratto Enterprise, l'amministratore della registrazione deve scegliere tra le opzioni seguenti:
 
-  - Rinnovare la registrazione aggiungendo impegno monetario aggiuntivo.
+  - Rinnovare la registrazione aggiungendo un ulteriore pagamento anticipato di Azure.
   - Eseguire il trasferimento a una nuova registrazione.
   - Eseguire la migrazione al programma Microsoft Online Subscription Program (MOSP).
   - Confermare la disabilitazione di tutti i servizi associati alla registrazione.

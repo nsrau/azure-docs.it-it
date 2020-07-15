@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: d29f97bf421804fb234ce8d86c66c12b01854681
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 6dcfdc63946bcc2a9ffe4c5c767e81ca3b32107b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85113799"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025285"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Esercitazione: Creare un'applicazione Web Java con Azure Cosmos DB e l'API di SQL
 
@@ -90,7 +90,7 @@ Per creare l'applicazione JSP:
 
 1. Se nel passaggio 2 è stato impostato un runtime di destinazione, è possibile fare clic su **Project** (Progetto), quindi su **Run** (Esegui) per eseguire l'applicazione JSP in locale:
 
-  ![Esercitazione sull’applicazione Java - Hello World](./media/sql-api-java-application/image12.png)
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Esercitazione sull'applicazione Java - Hello World":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Installare Java SDK SQL
 

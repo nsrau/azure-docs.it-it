@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: f437205ae76feb36596b05ee0e320aaed0a37184
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e9ed36971e157e67ede6573b9fdf9ff1fc6e05a0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846666"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044278"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -47,7 +47,7 @@ Per garantire la protezione da questi problemi, Centro sicurezza offre gli strum
 
 ## <a name="architecture"></a>Architecture
 
-Poiché Centro sicurezza è nativo in Azure, i servizi PaaS di Azure, come Service Fabric, i database SQL e gli account di archiviazione, vengono monitorati e protetti da Centro sicurezza senza necessità di distribuzione.
+Poiché Centro sicurezza è nativo in Azure, i servizi PaaS di Azure, come Service Fabric, Database SQL, Istanza gestita di SQL e gli account di archiviazione, vengono monitorati e protetti da Centro sicurezza senza la necessità di una distribuzione.
 
 Il Centro sicurezza protegge inoltre i server e le macchine virtuali non di Azure nel cloud o in locale, sia per i server di Windows che per quelli di Linux, installando l'agente di Log Analytics nei server stessi. Le macchine virtuali di Azure sono sottoposte a provisioning automatico in Centro sicurezza.
 
@@ -111,7 +111,7 @@ La protezione dalle minacce di Centro sicurezza include un’analisi unificata d
 
 Centro sicurezza include l'integrazione nativa e automatica con Microsoft Defender Advanced Threat Protection. Quindi, senza alcuna configurazione, i computer Windows e Linux completamente integrati con le raccomandazioni e le valutazioni di Centro sicurezza.
 
-Inoltre, Centro sicurezza consente di automatizzare le policy di controllo delle applicazioni in ambienti server. I controlli adattivi delle applicazioni di Centro sicurezza consentono di inserire le app end-to-end in whitelist valide per i server Windows. Non è necessario creare le regole e verificare le violazioni, viene tutto effettuato automaticamente.
+Inoltre, Centro sicurezza consente di automatizzare le policy di controllo delle applicazioni in ambienti server. I controlli applicazioni adattivi di Centro sicurezza consentono di inserire le app end-to-end in elenchi di approvazione per i server Windows. Non è necessario creare le regole e verificare le violazioni, viene tutto effettuato automaticamente.
 
 ### <a name="protect-paas"></a>Protezione di PaaS
 
@@ -147,6 +147,6 @@ Raccolta di log estesi: i registri di Windows e Linux sono tutti sfruttati dal m
 
 - Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/free/).
 
-- Il piano tariffario gratuito del Centro sicurezza è abilitato per tutte le sottoscrizioni di Azure correnti quando si visita per la prima volta il dashboard del Centro sicurezza di Azure nel portale di Azure oppure viene abilitato a livello di codice tramite API. Per sfruttare i vantaggi della gestione della sicurezza avanzata e la funzionalità di rilevamento minacce, è necessario eseguire l'aggiornamento al piano tariffario Standard. È possibile provare gratuitamente il piano Standard per 30 giorni. Per altre informazioni, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+- Il piano tariffario gratuito di Centro sicurezza è abilitato per tutte le sottoscrizioni di Azure correnti quando si visita per la prima volta il dashboard di Centro sicurezza di Azure nel portale di Azure oppure viene abilitato a livello di codice tramite API. Per sfruttare i vantaggi della gestione della sicurezza avanzata e la funzionalità di rilevamento minacce, è necessario eseguire l'aggiornamento al piano tariffario Standard. È possibile provare gratuitamente il piano Standard per 30 giorni. Per altre informazioni, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
 - Per abilitare subito il Centro sicurezza del livello Standard, procedere come indicato in [Avvio rapido: Caricamento della sottoscrizione Azure in Centro sicurezza Standard](security-center-get-started.md).

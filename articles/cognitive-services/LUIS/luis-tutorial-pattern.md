@@ -2,13 +2,13 @@
 title: 'Esercitazione: Criteri - LUIS'
 description: In questa esercitazione vengono usati i criteri per migliorare le previsioni in termini di finalità ed entità fornendo poche espressioni di esempio. Il criterio viene fornito tramite un esempio di espressione modello, che include la sintassi per identificare le entità e il testo ignorabile.
 ms.topic: tutorial
-ms.date: 05/07/2020
-ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 07/06/2020
+ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592917"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039501"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Esercitazione: Aggiungere formati comuni di espressioni modello basati su criteri per migliorare le previsioni
 
@@ -39,12 +39,10 @@ Un criterio viene applicato come combinazione di corrispondenza di testo e Machi
 
 Eseguire la procedura descritta di seguito:
 
-1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
-1. Importare il file JSON in una nuova app nel [portale LUIS](https://www.luis.ai). Nella pagina **My Apps** (App personali) selezionare **+ New app for conversation** (Nuova app di conversazione), quindi **Import as JSON** (Importa come JSON). Selezionare il file scaricato nel passaggio precedente.
-
-1. Nella sezione **Manage** (Gestisci), nella scheda **Versions** (Versioni), selezionare la versione attiva, quindi selezionare **Clone** (Clona). Assegnare alla versione clonata il nome `patterns`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
+1. Importare il file JSON in una nuova app nel [portale LUIS](https://www.luis.ai). Nella pagina **My Apps** (App personali) selezionare **+ New app for conversation** (Nuova app di conversazione), quindi **Import as JSON** (Importa come JSON). Selezionare il file scaricato nel passaggio precedente e assegnare all'app il nome `Patterns tutorial`.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Creare nuove finalità ed espressioni
 
@@ -67,8 +65,6 @@ Le due finalità trovano il manager o i suoi dipendenti diretti, in base al test
     |`Who is John W. Smith's manager?`|
     |`Who does Jill Jones directly report to?`|
     |`Who is Jill Jones supervisor?`|
-
-    Non occorre preoccuparsi se l'entità keyPhrase è etichettata nelle espressioni della finalità invece che nell'entità employee. Entrambe sono stimate correttamente nel riquadro di Test e in corrispondenza dell'endpoint.
 
 1. Selezionare **Intents** (Finalità) nel pannello di navigazione a sinistra.
 
@@ -109,50 +105,50 @@ Le due finalità trovano il manager o i suoi dipendenti diretti, in base al test
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.313054234
+                    "score": 0.326605469
                 },
                 "OrgChart-Reports": {
-                    "score": 0.2462688
+                    "score": 0.127583548
                 },
                 "EmployeeFeedback": {
-                    "score": 0.0488328524
-                },
-                "GetJobInformation": {
-                    "score": 0.0156933
+                    "score": 0.0299124215
                 },
                 "MoveEmployee": {
-                    "score": 0.011265873
+                    "score": 0.01159851
                 },
-                "Utilities.StartOver": {
-                    "score": 0.003065792
-                },
-                "Utilities.Stop": {
-                    "score": 0.00300148362
-                },
-                "Utilities.Cancel": {
-                    "score": 0.00271081156
-                },
-                "None": {
-                    "score": 0.00212835032
+                "GetJobInformation": {
+                    "score": 0.0104600191
                 },
                 "ApplyForJob": {
-                    "score": 0.0020669254
+                    "score": 0.007508645
                 },
-                "Utilities.Confirm": {
-                    "score": 0.00200891262
+                "Utilities.StartOver": {
+                    "score": 0.00359402061
+                },
+                "Utilities.Stop": {
+                    "score": 0.00336530479
                 },
                 "FindForm": {
-                    "score": 0.00194145238
+                    "score": 0.002653719
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00263288687
+                },
+                "None": {
+                    "score": 0.00238638581
                 },
                 "Utilities.Help": {
-                    "score": 0.00182301877
+                    "score": 0.00226386427
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00211663754
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -171,9 +167,9 @@ Le due finalità trovano il manager o i suoi dipendenti diretti, in base al test
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -190,11 +186,7 @@ Le due finalità trovano il manager o i suoi dipendenti diretti, in base al test
     }
     ```
 
-I punteggi delle due prima finalità sono vicini, ma il punteggio più alto non è significativamente elevato (oltre il 60%) e non è sufficientemente maggiore del punteggio della finalità successiva.
-
-Poiché il training di LUIS non è esattamente lo stesso ogni volta (è presente una certa variazione), questi due punteggi potrebbero invertirsi al successivo ciclo di training. Il risultato è che potrebbe essere restituita la finalità non corretta.
-
-Usare i criteri per rendere il punteggio della finalità significativamente superiore in percentuale e a una distanza maggiore dal punteggio più alto successivo.
+È stata stimata la finalità principale corretta, ovvero `OrgChart-Manager`, ma il punteggio non è superiore al 70% e non è sufficientemente elevato rispetto alla successiva finalità più elevata. Usare i criteri per rendere il punteggio della finalità significativamente superiore in percentuale e a una distanza maggiore dal punteggio più alto successivo.
 
 Lasciare aperta la seconda finestra del browser. Verrà usata più avanti in questa esercitazione.
 
@@ -206,16 +198,16 @@ Data la natura del dominio di risorse umane, esistono alcuni modi comuni di porr
 |`Who does Jill Jones report to?`|
 |`Who reports to Jill Jones?`|
 
-Queste espressioni sono troppo simili per determinare l'univocità contestuale di ciascuna senza fornire molte espressioni di esempio. Aggiungendo un criterio per una finalità, LUIS apprende criteri di espressioni comuni per una finalità senza fornire molte espressioni di esempio.
+Queste espressioni sono troppo simili per determinare l'univocità contestuale di ciascuna senza fornire _molte_ espressioni di esempio. Aggiungendo un criterio per una finalità, LUIS apprende criteri di espressioni comuni per una finalità senza dover fornire molte altre espressioni di esempio.
 
 Gli esempi di espressioni modello per questa finalità includono:
 
 |Esempi di espressioni modello|significato della sintassi|
 |--|--|
-|`Who does {Employee} report to[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
-|`Who reports to {Employee}[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|interchangeable `{EmployeeListEntity}`<br>ignore `[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|interchangeable `{EmployeeListEntity}`<br>ignore `[?]`|
 
-La sintassi `{Employee}` contrassegna la posizione dell'entità nell'espressione modello e specifica di quale entità si tratta. La sintassi facoltativa `[?]` contrassegna le parole o la [punteggiatura](luis-reference-application-settings.md#punctuation-normalization) facoltativa. LUIS mette in corrispondenza le espressioni ignorando il testo facoltativo tra parentesi.
+La sintassi `{EmployeeListEntity}` contrassegna la posizione dell'entità nell'espressione modello e specifica di quale entità si tratta. La sintassi facoltativa `[?]` contrassegna le parole o la [punteggiatura](luis-reference-application-settings.md#punctuation-normalization) facoltativa. LUIS mette in corrispondenza le espressioni ignorando il testo facoltativo tra parentesi.
 
 Anche se la sintassi sembra un'espressione regolare, in realtà non lo è. Solo le sintassi della parentesi graffa, `{}`, e della parentesi quadra, `[]`, sono supportate. Possono essere nidificate fino a due livelli.
 
@@ -233,25 +225,25 @@ Affinché un criterio possa essere messo in corrispondenza con un'espressione, l
 
     |Espressioni modello|
     |:--|
-    |`Who is {Employee} the subordinate of[?]`|
-    |`Who does {Employee} report to[?]`|
-    |`Who is {Employee}['s] manager[?]`|
-    |`Who does {Employee} directly report to[?]`|
-    |`Who is {Employee}['s] supervisor[?]`|
-    |`Who is the boss of {Employee}[?]`|
+    |`Who is {EmployeeListEntity} the subordinate of[?]`|
+    |`Who does {EmployeeListEntity} report to[?]`|
+    |`Who is {EmployeeListEntity}['s] manager[?]`|
+    |`Who does {EmployeeListEntity} directly report to[?]`|
+    |`Who is {EmployeeListEntity}['s] supervisor[?]`|
+    |`Who is the boss of {EmployeeListEntity}[?]`|
 
-    Queste espressioni modello includono l'entità **Employee** con la notazione tra parentesi graffe.
+    Queste espressioni modello includono l'entità **EmployeeListEntity** con la notazione tra parentesi graffe.
 
 1. Sempre nella pagina Patterns (Criteri) selezionare la finalità **OrgChart-Reports** e quindi immettere le espressioni modello seguenti:
 
     |Espressioni modello|
     |:--|
-    |`Who are {Employee}['s] subordinates[?]`|
-    |`Who reports to {Employee}[?]`|
-    |`Who does {Employee} manage[?]`|
-    |`Who are {Employee} direct reports[?]`|
-    |`Who does {Employee} supervise[?]`|
-    |`Who does {Employee} boss[?]`|
+    |`Who are {EmployeeListEntity}['s] subordinates[?]`|
+    |`Who reports to {EmployeeListEntity}[?]`|
+    |`Who does {EmployeeListEntity} manage[?]`|
+    |`Who are {EmployeeListEntity} direct reports[?]`|
+    |`Who does {EmployeeListEntity} supervise[?]`|
+    |`Who does {EmployeeListEntity} boss[?]`|
 
 ### <a name="query-endpoint-when-patterns-are-used"></a>Eseguire query sull'endpoint quando vengono usati i criteri
 
@@ -261,7 +253,7 @@ Ora che sono stati aggiunti i criteri, eseguire il training dell'app, pubblicarl
 
 1. Al termine della pubblicazione, tornare nella scheda del browser dell'URL dell'endpoint.
 
-1. Passare alla fine dell'URL nella barra degli indirizzi e sostituire _YOUR_QUERY_HERE_ con `Who is the boss of Jill Jones?`
+1. Passare alla fine dell'URL nella barra degli indirizzi e verificare che la query sia ancora `Who is the boss of Jill Jones?` prima di inviare l'URL per una nuova stima.
 
     ```json
     {
@@ -270,50 +262,50 @@ Ora che sono stati aggiunti i criteri, eseguire il training dell'app, pubblicarl
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.999997854
+                    "score": 0.999999046
                 },
                 "OrgChart-Reports": {
-                    "score": 6.13748343E-05
+                    "score": 3.237443E-05
                 },
                 "EmployeeFeedback": {
-                    "score": 8.052567E-06
+                    "score": 4.364242E-06
                 },
                 "GetJobInformation": {
-                    "score": 1.18197136E-06
+                    "score": 1.616159E-06
                 },
                 "MoveEmployee": {
-                    "score": 7.65549657E-07
-                },
-                "None": {
-                    "score": 3.975E-09
-                },
-                "Utilities.StartOver": {
-                    "score": 1.53E-09
-                },
-                "Utilities.Confirm": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Help": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Stop": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Cancel": {
-                    "score": 1.25833333E-09
-                },
-                "FindForm": {
-                    "score": 1.15384613E-09
+                    "score": 7.575752E-07
                 },
                 "ApplyForJob": {
-                    "score": 5.26923061E-10
+                    "score": 5.234157E-07
+                },
+                "None": {
+                    "score": 3.3E-09
+                },
+                "Utilities.StartOver": {
+                    "score": 1.26E-09
+                },
+                "FindForm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Cancel": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Confirm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Help": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Stop": {
+                    "score": 1.13636367E-09
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -332,9 +324,9 @@ Ora che sono stati aggiunti i criteri, eseguire il training dell'app, pubblicarl
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -351,7 +343,7 @@ Ora che sono stati aggiunti i criteri, eseguire il training dell'app, pubblicarl
     }
     ```
 
-La previsione della finalità ha ora un livello di attendibilità significativamente più alto e il punteggio della finalità immediatamente successiva è significativamente più basso. Queste due finalità non verranno invertite durante il training.
+La stima della finalità ha ora un livello di attendibilità significativamente più alto e il punteggio della finalità immediatamente successiva è molto basso. Queste due finalità non verranno invertite durante il training.
 
 ### <a name="working-with-optional-text-and-prebuilt-entities"></a>Uso di testo facoltativo e di entità predefinite
 
@@ -372,8 +364,8 @@ Espressioni modello di esempio che consentono queste informazioni facoltative:
 
 |Finalità|Espressioni di esempio con testo facoltativo ed entità predefinite|
 |:--|:--|
-|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who is {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 
 L'uso della sintassi facoltativa con parentesi quadre `[]` semplifica l'aggiunta di questo testo facoltativo all'espressione modello, può essere annidata fino a un secondo livello, `[[]]`, e includere entità o testo.
@@ -383,9 +375,10 @@ L'uso della sintassi facoltativa con parentesi quadre `[]` semplifica l'aggiunta
 
 **Domanda: perché non è presente la parte del numero predefinita dell'espressione modello se March 3 è stimato sia come numero `3` sia come data `March 3`?** L'espressione modello usa contestualmente una data, letteralmente come in `March 3` o in modo astratto come `in a month`. Una data può contenere un numero, ma un numero può non necessariamente essere interpretato come data. Usare sempre l'entità che rappresenta al meglio il tipo che si vuole venga restituito nei risultati JSON della stima.
 
-**Domanda: che cosa succede in caso di espressioni formulate in modo inesatto come `Who will {Employee}['s] manager be on March 3?`.** Tempi verbali grammaticamente diversi come in questo esempio, in cui `will` e `be` sono separati, devono essere una nuova espressione modello. L'espressione modello esistente non verrà restituita come corrispondente a questo esempio. Anche se la finalità dell'espressione non è cambiata, è cambiata la posizione delle parole nell'espressione. Questa modifica influisce sulla stima in LUIS. È possibile [applicare la sintassi di raggruppamento e l'operatore OR](#use-the-or-operator-and-groups) ai tempi verbali per combinare queste espressioni.
+**Domanda: che cosa succede in caso di espressioni formulate in modo inesatto come `Who will {EmployeeListEntity}['s] manager be on March 3?`.** Tempi verbali grammaticamente diversi come in questo esempio, in cui `will` e `be` sono separati, devono essere una nuova espressione modello. L'espressione modello esistente non verrà restituita come corrispondente a questo esempio. Anche se la finalità dell'espressione non è cambiata, è cambiata la posizione delle parole nell'espressione. Questa modifica influisce sulla stima in LUIS. È possibile [applicare la sintassi di raggruppamento e l'operatore OR](#use-the-or-operator-and-groups) ai tempi verbali per combinare queste espressioni.
 
-**Ricordare che vengono trovate le entità per prime e quindi il criterio.**
+> [!CAUTION]
+> **Ricordare che vengono trovate le entità per prime e quindi il criterio.**
 
 ### <a name="add-new-pattern-template-utterances"></a>Aggiungere nuove espressioni modello di criterio
 
@@ -393,9 +386,9 @@ L'uso della sintassi facoltativa con parentesi quadre `[]` semplifica l'aggiunta
 
     |Finalità|Espressioni di esempio con testo facoltativo ed entità predefinite|
     |--|--|
-    |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 2. Selezionare **Train** (Esegui il training) sulla barra di spostamento per eseguire il training dell'app.
 
@@ -403,7 +396,7 @@ L'uso della sintassi facoltativa con parentesi quadre `[]` semplifica l'aggiunta
 
 4. Immettere diverse espressioni di test per verificare che venga trovata la corrispondenza con il criterio e che il punteggio della finalità sia significativamente alto.
 
-    Dopo aver immesso la prima espressione, selezionare **Ispeziona** sotto il risultato per poter visualizzare tutti i risultati delle stime. Ogni espressione deve avere la finalità **OrgChart-Manager** e deve estrarre i valori per le entità Employee e datetimeV2.
+    Dopo aver immesso la prima espressione, selezionare **Ispeziona** sotto il risultato per poter visualizzare tutti i risultati delle stime. Ogni espressione deve avere la finalità **OrgChart-Manager** e deve estrarre i valori per le entità `EmployeeListEntity` e `datetimeV2`.
 
     |Espressione|
     |--|
@@ -429,14 +422,17 @@ I due criteri seguenti possono essere combinati in un singolo criterio usando la
 
 |Finalità|Espressioni di esempio con testo facoltativo ed entità predefinite|
 |--|--|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 La nuova espressione modello sarà:
 
-`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 Nel modello vengono usati i caratteri di **raggruppamento** attorno al tempo verbale richiesto e le preposizioni facoltative `in` e `on` separate da un carattere pipe, **OR**.
+
+> [!NOTE]
+> Quando si usa il simbolo _OR_, `|` (barra verticale), assicurarsi di aggiungere uno spazio prima e dopo la barra verticale nel modello di esempio.
 
 1. Nella pagina **Patterns** (Criteri) selezionare il filtro **OrgChart-Manager**. Limitare l'elenco eseguendo la ricerca di `manager`.
 
@@ -444,7 +440,7 @@ Nel modello vengono usati i caratteri di **raggruppamento** attorno al tempo ver
 
 1. Modificare l'espressione modello nel modo seguente:
 
-    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
+    `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`
 
 2. Selezionare **Train** (Esegui il training) sulla barra di spostamento per eseguire il training dell'app.
 
@@ -493,7 +489,7 @@ L'entità Pattern.any estrae entità di lunghezza variabile. Funziona solo in un
 
 1. Selezionare **Entities** (Entità) nel riquadro di spostamento sinistro.
 
-1. Selezionare **+ Create** (Crea), immettere il nome `FormName` e selezionare **Pattern.any** come tipo. Selezionare **Create** (Crea).
+1. Selezionare **+ Create** (Crea), immettere il nome `FormName` e selezionare **Pattern.any** come tipo. Selezionare **Crea**.
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Aggiungere un criterio che usa Pattern.any
 

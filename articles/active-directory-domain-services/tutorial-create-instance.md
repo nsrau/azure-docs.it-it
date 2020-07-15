@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 2333ace1b1e9116acf85964fb180f44e0f66e6e7
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 28c56b7ece51e39d72c4ddff39d681eeb57d2252
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733491"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024724"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Creare e configurare un dominio gestito di Azure Active Directory Domain Services
 
@@ -87,16 +87,19 @@ Si applicano anche le seguenti restrizioni relative ai nomi DNS:
 Completare i campi della finestra *Informazioni di base* del portale di Azure per creare un dominio gestito:
 
 1. Immettere un **nome di dominio DNS** per il dominio gestito, prendendo in considerazione i punti precedenti.
-1. Scegliere la **Località** di Azure in cui deve essere creato il dominio gestito. Se si sceglie un'area che supporta le zone di disponibilità, le risorse di Azure AD DS vengono distribuite in più zone per garantire maggiore ridondanza.
+1. Scegliere la **Località** di Azure in cui deve essere creato il dominio gestito. Se si sceglie un'area che supporta le zone di disponibilità di Azure, le risorse di Azure Active Directory Domain Services vengono distribuite in più zone per garantire maggiore ridondanza.
 
-    Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza sono presenti almeno tre zone separate in tutte le aree abilitate.
-
-    Non è necessario eseguire alcuna operazione di configurazione per distribuire Azure AD DS in più zone. La piattaforma Azure gestisce automaticamente la distribuzione delle risorse nelle zone. Per altre informazioni e per consultare la disponibilità delle zone, vedere [Informazioni sulle zone di disponibilità di Azure][availability-zones].
+    > [!TIP]
+    > Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza sono presenti almeno tre zone separate in tutte le aree abilitate.
+    >
+    > Non è necessario eseguire alcuna operazione di configurazione per distribuire Azure AD DS in più zone. La piattaforma Azure gestisce automaticamente la distribuzione delle risorse nelle zone. Per altre informazioni e per consultare la disponibilità delle zone, vedere [Informazioni sulle zone di disponibilità di Azure][availability-zones].
 
 1. Lo **SKU** determina le prestazioni, la frequenza di backup e il numero massimo di trust tra foreste che è possibile creare. È possibile modificare lo SKU dopo che è stato creato il dominio gestito se le esigenze aziendali o i requisiti cambiano. Per altre informazioni, vedere [Concetti di base dello SKU di Azure AD DS][concepts-sku].
 
     Per questa esercitazione, selezionare lo SKU *Standard*.
-1. Una *foresta* è un costrutto logico usato da Active Directory Domain Services per raggruppare uno o più domini. Per impostazione predefinita, un dominio gestito viene creato come foresta *Utente*. Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Le foreste Risorsa sono attualmente disponibili in anteprima. Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].
+1. Una *foresta* è un costrutto logico usato da Active Directory Domain Services per raggruppare uno o più domini. Per impostazione predefinita, un dominio gestito viene creato come foresta *Utente*. Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale.
+
+    Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Le foreste Risorsa sono attualmente disponibili in anteprima. Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].
 
     Per questa esercitazione, scegliere di creare una foresta *Utente*.
 
@@ -128,11 +131,12 @@ Nella pagina **Riepilogo** della procedura guidata controllare le impostazioni d
 
     ![Stato di Domain Services dopo il provisioning](./media/tutorial-create-instance/successfully-provisioned.png)
 
-Il dominio gestito è associato al tenant di Azure AD. Durante il processo di provisioning, Azure AD DS crea due applicazioni aziendali denominate *Domain Controller Services* e *AzureActiveDirectoryDomainControllerServices* nel tenant di Azure AD. Queste applicazioni aziendali sono necessarie per gestire il dominio gestito Non eliminare queste applicazioni.
+> [!IMPORTANT]
+> Il dominio gestito è associato al tenant di Azure AD. Durante il processo di provisioning, Azure AD DS crea due applicazioni aziendali denominate *Domain Controller Services* e *AzureActiveDirectoryDomainControllerServices* nel tenant di Azure AD. Queste applicazioni aziendali sono necessarie per gestire il dominio gestito Non eliminare queste applicazioni.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Aggiornare le impostazioni DNS per la rete virtuale di Azure
 
-Con la distribuzione di Azure AD DS completata, è ora possibile configurare la rete virtuale in modo da consentire ad altre VM e applicazioni connesse di usare il dominio gestito. Per fornire questa connettività, aggiornare le impostazioni del server DNS per la rete virtuale in modo che puntino ai due indirizzi IP in cui è stato distribuito Azure AD DS.
+Con la distribuzione di Azure AD DS completata, è ora possibile configurare la rete virtuale in modo da consentire ad altre VM e applicazioni connesse di usare il dominio gestito. Per fornire questa connettività, aggiornare le impostazioni del server DNS per la rete virtuale in modo che puntino ai due indirizzi IP in cui è stato distribuito il dominio gestito.
 
 1. La scheda **Panoramica** per il dominio gestito mostra alcuni **passaggi di configurazione necessari**. Il primo passaggio di configurazione consiste nell'aggiornare le impostazioni del server DNS per la rete virtuale. Una volta configurate correttamente le impostazioni DNS, questo passaggio non viene più visualizzato.
 
@@ -150,9 +154,17 @@ Con la distribuzione di Azure AD DS completata, è ora possibile configurare la 
 Per autenticare gli utenti nel dominio gestito, Azure AD DS necessita dell'hash delle password in un formato idoneo per l'autenticazione NTLM (NT LAN Manager) e Kerberos. Azure AD non genera né archivia gli hash delle password nel formato necessario per l'autenticazione NTLM o Kerberos finché non si abilita Azure AD DS per il tenant. Per motivi di sicurezza, Azure AD non archivia nemmeno le credenziali di tipo password in un formato non crittografato. Azure AD quindi non può generare automaticamente questi hash delle password NTLM o Kerberos in base alle credenziali esistenti degli utenti.
 
 > [!NOTE]
-> Dopo la corretta configurazione, gli hash delle password utilizzabili vengono archiviati nel dominio gestito. Se si elimina il dominio gestito, verranno eliminati anche gli hash delle password archiviati in quel momento. Le informazioni sulle credenziali sincronizzate in Azure AD non possono essere riutilizzate se in un secondo momento si crea un dominio gestito. È necessario riconfigurare la sincronizzazione degli hash delle password per archiviarli di nuovo. Le VM o gli utenti precedentemente aggiunti al domino non saranno in grado di eseguire immediatamente l'autenticazione. Azure AD deve generare e archiviare gli hash delle password nel nuovo dominio gestito. Per altre informazioni, vedere [Processo di sincronizzazione degli hash delle password per Azure AD DS e Azure AD Connect][password-hash-sync-process].
+> Dopo la corretta configurazione, gli hash delle password utilizzabili vengono archiviati nel dominio gestito. Se si elimina il dominio gestito, verranno eliminati anche gli hash delle password archiviati in quel momento.
+>
+> Le informazioni sulle credenziali sincronizzate in Azure AD non possono essere riutilizzate se in un secondo momento si crea un dominio gestito. È necessario riconfigurare la sincronizzazione degli hash delle password per archiviarli di nuovo. Le VM o gli utenti precedentemente aggiunti al domino non saranno in grado di eseguire immediatamente l'autenticazione. Azure AD deve generare e archiviare gli hash delle password nel nuovo dominio gestito.
+>
+> Per altre informazioni, vedere [Processo di sincronizzazione degli hash delle password per Azure AD DS e Azure AD Connect][password-hash-sync-process].
 
-La procedura per generare e archiviare questi hash delle password è diversa per gli account utente solo cloud creati in Azure AD rispetto agli account utente sincronizzati dalla directory locale tramite Azure AD Connect. Un account utente solo cloud è un account creato nella directory di Azure AD tramite il portale di Azure o i cmdlet di Azure AD PowerShell. Questi account utente non vengono sincronizzati da una directory locale. In questa esercitazione verrà usato un account utente solo cloud di base. Per altre informazioni sui passaggi aggiuntivi necessari per usare Azure ad Connect, vedere [Sincronizzare gli hash delle password per gli account utente sincronizzati dall'istanza locale di AD con il dominio gestito][on-prem-sync].
+La procedura per generare e archiviare questi hash delle password è diversa per gli account utente solo cloud creati in Azure AD rispetto agli account utente sincronizzati dalla directory locale tramite Azure AD Connect.
+
+Un account utente solo cloud è un account creato nella directory di Azure AD tramite il portale di Azure o i cmdlet di Azure AD PowerShell. Questi account utente non vengono sincronizzati da una directory locale.
+
+> In questa esercitazione verrà usato un account utente solo cloud di base. Per altre informazioni sui passaggi aggiuntivi necessari per usare Azure ad Connect, vedere [Sincronizzare gli hash delle password per gli account utente sincronizzati dall'istanza locale di AD con il dominio gestito][on-prem-sync].
 
 > [!TIP]
 > Se il tenant di Azure AD include una combinazione di utenti solo cloud e utenti dell'istanza locale di AD, è necessario eseguire entrambe le serie di passaggi.
@@ -197,7 +209,7 @@ Prima di aggiungere a un dominio le macchine virtuali e distribuire le applicazi
 [create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
-[configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
+[configure-sspr]: ../active-directory/authentication/tutorial-enable-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [skus]: overview.md

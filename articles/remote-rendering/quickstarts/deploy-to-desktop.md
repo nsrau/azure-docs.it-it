@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: dc566d2702fb24ef551e4900bed7b828d2597383
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659917"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557070"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Avvio rapido: Distribuire un esempio di Unity sul desktop
 
@@ -38,7 +38,7 @@ Sul desktop sono attualmente supportate solo le app desktop flat, quindi è nece
 1. Selezionare **Player** (Lettore) a sinistra.
 1. Selezionare la scheda **Universal Windows Platform settings** (Impostazioni di Universal Windows Platform).
 1. Espandere **XR Settings** (Impostazioni XR).
-1. Disabilitare **Virtual Reality Supported** (Realtà virtuale supportata).
+1. Disabilitare **Virtual Reality Supported** (Realtà virtuale supportata).\
     ![impostazioni del lettore](./media/unity-disable-xr.png)
 1. Sopra *XR Settings* (Impostazioni XR) espandere **Publishing Settings** (Impostazioni di pubblicazione).
 1. In **Supported Device Families** (Famiglie di dispositivi supportate) assicurarsi che sia selezionato **Desktop**.
@@ -49,13 +49,13 @@ Sul desktop sono attualmente supportate solo le app desktop flat, quindi è nece
 1. Impostare *Piattaforma* su **Piattaforma UWP** (anche **PC autonomo** è supportato ma non viene usato qui, vedere [Limitazioni della piattaforma](../reference/limits.md#platform-limitations)).
 1. Impostare *Target Device* (Dispositivo di destinazione) su **PC** (Computer).
 1. Impostare *Architecture* (Architettura) su **x86**.
-1. Impostare *Build Type* (Tipo di compilazione) su **D3D Project**.
+1. Impostare *Build Type* (Tipo di compilazione) su **D3D Project**.\
   ![Impostazioni di compilazione](./media/unity-build-settings-pc.png)
 1. Selezionare **Switch to Platform** (Passa alla piattaforma).
 1. Quando si preme **Build** (Compila) o 'Build And Run' (Compila ed esegui), verrà richiesto di selezionare una cartella in cui archiviare la soluzione.
 1. Aprire il file **Quickstart.sln** generato con Visual Studio.
 1. Impostare la configurazione su **Release** e **x86**.
-1. Impostare la modalità del debugger su **Local Machine** (Computer locale).
+1. Impostare la modalità del debugger su **Local Machine** (Computer locale).\
   ![Configurazione della soluzione](./media/unity-deploy-config-pc.png)
 1. Compilare la soluzione (F7).
 

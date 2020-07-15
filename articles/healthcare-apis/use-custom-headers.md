@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: d274160cc2ed1102dfc8fd11df358b34e40d9923
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "84870300"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081844"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Aggiungere dati ai log di controllo usando intestazioni HTTP personalizzate
 
@@ -36,7 +36,7 @@ Ad esempio, quando l'utente dell'API viene autenticato da un sistema esterno, qu
 > [!IMPORTANT]
 > Tenere presente che le informazioni inviate nelle intestazioni personalizzate vengono archiviate in un sistema di registrazione interno Microsoft per 30 giorni dopo essere state rese disponibili in Monitoraggio log di Azure. È consigliabile crittografare tutte le informazioni prima di aggiungerle alle intestazioni personalizzate. Non è consigliabile passare informazioni personali tramite intestazioni personalizzate.
 
-Per le intestazioni HTTP, è necessario usare la convenzione di denominazione seguente: X-MS-AZUREFHIR-AUDIT-AUDIT-\<name>.
+Per le intestazioni HTTP, è necessario usare la convenzione di denominazione seguente: X-MS-AZUREFHIR-AUDIT-\<name>.
 
 Queste intestazioni HTTP sono incluse in un elenco di proprietà aggiunto al log. Ad esempio:
 
@@ -63,7 +63,7 @@ Quando vengono aggiunti al log, i valori vengono combinati con un elenco delimit
  
 È possibile aggiungere un massimo di 10 intestazioni univoche (le ripetizioni della stessa intestazione con valori diversi vengono conteggiate come una). La lunghezza massima totale del valore per qualsiasi intestazione è 2048 caratteri.
 
-Se si usa la libreria di API client C# Firely, il codice avrà un aspetto simile al seguente:
+Se si usa la libreria di API client Firefly C#, il codice sarà simile al seguente:
 
 ```C#
 FhirClient client;

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9006a70ae941abb700412a7c596627939c994028
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c45aae35c7c1cf2fbde436303a2ac000dfdd5ec
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587511"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339614"
 ---
 # <a name="compare-solutions-for-external-identities-in-azure-active-directory"></a>Confronto di soluzioni per identità esterne in Azure Active Directory
 
@@ -36,11 +36,11 @@ La tabella seguente offre un confronto dettagliato dei vari scenari in cui è po
 
 | Applicazioni multi-tenant  | Collaborazione con utenti esterni (B2B) | App per utenti o clienti (B2C)  |
 | ---- | --- | --- |
-| Scenario principale: SaaS (Software-as-a-service) aziendale | Scenario principale: collaborazione tramite applicazioni Microsoft (Office 365, Teams e così via) o tramite il proprio software di collaborazione.  | Scenario principale: applicazioni transazionali che usano applicazioni sviluppate personalizzate.   |
+| Scenario principale: SaaS (Software-as-a-service) aziendale | Scenario principale: collaborazione tramite applicazioni Microsoft (Microsoft 365, Teams e così via) o tramite il proprio software di collaborazione.  | Scenario principale: applicazioni transazionali che usano applicazioni sviluppate personalizzate.   |
 | Destinatari: organizzazioni che desiderano fornire software a molti clienti aziendali.    | Destinatari: organizzazioni che vogliono poter autenticare gli utenti di un'organizzazione partner, indipendentemente dal provider di identità.    | Destinatari: clienti delle app Web o per dispositivi mobili, sia che si tratti di singoli utenti, clienti istituzionali o aziendali, invitati in una directory di Azure AD distinta da quella della propria organizzazione. |
 | Identità supportate: dipendenti con account Azure AD. | Identità supportate: dipendenti con account aziendale o dell'istituto di istruzione, partner con account aziendale o dell'istituto di istruzione oppure qualsiasi indirizzo email. A breve sarà disponibile il supporto per la federazione diretta.      | Identità supportate: utenti consumer con account di applicazioni locali (qualsiasi indirizzo email o nome utente) o qualsiasi identità social supportata con federazione diretta.       |
 | Gli utenti esterni vengono gestiti nella loro directory, isolati dalla directory in cui è stata registrata l'applicazione.    | Gli utenti esterni vengono gestiti nella stessa directory dei dipendenti, ma con annotazioni speciali. Possono essere gestiti in modo analogo ai dipendenti, possono essere aggiunti agli stessi gruppi e così via.    | Gli utenti esterni vengono gestiti nella directory dell'applicazione. Vengono gestiti separatamente rispetto alla directory di dipendenti e partner dell'organizzazione (se disponibile).  |
-| Single Sign-on: è supportato l'accesso SSO a tutte le app connesse di Azure AD.          | Single Sign-on: è supportato l'accesso SSO a tutte le app connesse di Azure AD. È possibile ad esempio concedere l'accesso a Office 365 oppure ad app locali e ad altre app SaaS, ad esempio Salesforce o Workday.    | Single Sign-on: È supportato il SSO ad app di proprietà del cliente all'interno di tenant B2C di Azure AD. L'accesso SSO a Office 365 o ad altre app SaaS Microsoft non è supportato.    |
+| Single Sign-on: è supportato l'accesso SSO a tutte le app connesse di Azure AD.          | Single Sign-on: è supportato l'accesso SSO a tutte le app connesse di Azure AD. È possibile ad esempio concedere l'accesso a Microsoft 365 oppure ad app locali e ad altre app SaaS, ad esempio Salesforce o Workday.    | Single Sign-on: È supportato il SSO ad app di proprietà del cliente all'interno di tenant B2C di Azure AD. L'accesso SSO a Microsoft 365 o ad altre app SaaS Microsoft non è supportato.    |
 | Ciclo di vita per i clienti: gestito dall'organizzazione principale dell'utente.      | Ciclo di vita per i partner: gestito dall'organizzazione host (o che manda l'invito).    | Ciclo di vita per i clienti: in modalità self-service o gestito dall'applicazione.      |
 | Criteri di sicurezza e conformità: gestiti dall'organizzazione host (o che manda l'invito), ad esempio con [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access).           | Criteri di sicurezza e conformità: gestiti dall'organizzazione host (o che manda l'invito), ad esempio con [criteri di accesso condizionale](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access). | Criteri di sicurezza e conformità: gestito dall'applicazione.        |
 | Personalizzazione: viene usato il marchio dell'organizzazione host o che invia l'invito.   | Personalizzazione: viene usato il marchio dell'organizzazione host o che invia l'invito.    | Personalizzazione: gestito dall'applicazione. In genere viene eseguita una personalizzazione in base al prodotto, con l'organizzazione sullo sfondo.   |

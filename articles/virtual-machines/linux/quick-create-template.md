@@ -8,28 +8,28 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 7fc7e4d5d402bfb21a30798f64e31cbbef8ccdd0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 479e580ee8821f0a6de054c631714c5386927e4f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677951"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083917"
 ---
-# <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-a-resource-manager-template"></a>Avvio rapido: Creare una macchina virtuale Ubuntu Linux con un modello di Resource Manager
+# <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Avvio rapido: Creare una macchina virtuale Ubuntu Linux con un modello di Resource Manager
 
-Questo argomento di avvio rapido illustra come usare un modello di Resource Manager per distribuire una macchina virtuale (VM) Ubuntu Linux in Azure. 
+Questo argomento di avvio rapido illustra come usare un modello di Azure Resource Manager per distribuire una macchina virtuale (VM) Ubuntu Linux in Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-No.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-an-ubuntu-linux-virtual-machine"></a>Creare una macchina virtuale Ubuntu Linux
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
@@ -46,7 +46,7 @@ Nel modello sono definite diverse risorse:
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/Microsoft.Network/publicIPAddresses): per creare un indirizzo IP pubblico.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/Microsoft.Compute/virtualMachines): per creare una macchina virtuale.
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un insieme di credenziali delle chiavi e un segreto.
 

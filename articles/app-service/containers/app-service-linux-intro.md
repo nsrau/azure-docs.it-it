@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 27f085543869b1a77db9c97ca2e7ae7d3d3b7b88
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 891e0c18b3f95dca905fbc14b957af773135eeec
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80046411"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557891"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduzione al Servizio app di Azure in Linux
 
@@ -54,7 +54,7 @@ Controllare il [dashboard dello stato di Azure](https://azure.microsoft.com/stat
 
 Il portale di Azure mostra solo le funzionalità che possono essere usate attualmente per l'app Web per i contenitori. Man mano che verranno abilitate nuove funzionalità, queste diventeranno visibili sul portale.
 
-In Linux il servizio app è supportato solo nei piani di servizio app [Gratuito, Basic, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). In Linux non è possibile creare app Web in un piano di servizio app che ospita già app Web non Linux.  
+In Linux il servizio app è supportato solo nei piani di servizio app [Gratuito, Basic, Standard, Premium e Isolato](https://azure.microsoft.com/pricing/details/app-service/plans/) e non prevede un livello [Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). In Linux non è possibile creare app Web in un piano di servizio app che ospita già app Web non Linux.  
 
 In base a una limitazione corrente, non è possibile combinare app di Windows e Linux per lo stesso gruppo di risorse nella stessa area.
 

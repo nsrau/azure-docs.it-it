@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ac7af2f4500f6702dcacad546b0985e41159dc6e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 8123608cbf2c1a4cbe0dc51d81d42b288bf2a91d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734674"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024928"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Aggiungere una macchina virtuale Windows a un dominio gestito di Azure Active Directory Domain Services
 
@@ -110,7 +110,7 @@ Se si ha già una VM da aggiungere al dominio, passare alla sezione che descrive
 
 1. Per la creazione della subnet sono necessari alcuni secondi. Dopo aver creato la subnet, selezionare la *X* per chiudere la finestra.
 1. Tornare al riquadro **Rete** per creare una macchina virtuale e scegliere la subnet creata dal menu a discesa, ad esempio *management*. Anche in questo caso, assicurarsi di scegliere la subnet corretta e non distribuire la macchina virtuale nella stessa subnet del dominio gestito.
-1. Per **Indirizzo IP pubblico** selezionare *Nessuno* dal menu a discesa, in quanto per connettersi alla gestione verrà usato Azure Bastion e non è quindi necessario un indirizzo IP pubblico assegnato.
+1. Per **Indirizzo IP pubblico** selezionare *Nessuno* dal menu a discesa. Quando si usa Azure Bastion in questa esercitazione per connettersi alla gestione, non è necessario un indirizzo IP pubblico assegnato alla macchina virtuale.
 1. Lasciare invariati i valori predefiniti delle altre opzioni e quindi scegliere **Gestione**.
 1. Impostare **Diagnostica di avvio** su *Off*. Lasciare invariati i valori predefiniti delle altre opzioni e quindi scegliere **Rivedi e crea**.
 1. Rivedere le impostazioni della macchina virtuale e quindi selezionare **Crea**.
@@ -121,7 +121,7 @@ La creazione della macchina virtuale richiede alcuni minuti. Il portale di Azure
 
 ## <a name="connect-to-the-windows-server-vm"></a>Connettersi alla macchina virtuale Windows Server
 
-Per connettersi in modo sicuro alle macchine virtuali, usare un host Azure Bastion. Con Azure Bastion,viene distribuito nella rete virtuale un host gestito che fornisce connessioni RDP o SSH basate sul Web alle macchine virtuali. Per le macchine virtuali non sono necessari indirizzi IP pubblici e non è necessario aprire regole del gruppo di sicurezza di rete per il traffico remoto esterno. È possibile connettersi alle macchine virtuali usando il portale di Azure dal Web browser in uso.
+Per connettersi in modo sicuro alle macchine virtuali, usare un host Azure Bastion. Con Azure Bastion,viene distribuito nella rete virtuale un host gestito che fornisce connessioni RDP o SSH basate sul Web alle macchine virtuali. Per le macchine virtuali non sono necessari indirizzi IP pubblici e non è necessario aprire regole del gruppo di sicurezza di rete per il traffico remoto esterno. È possibile connettersi alle macchine virtuali usando il portale di Azure dal Web browser in uso. Se necessario, [creare un host Azure Bastion][azure-bastion].
 
 Per usare un host Bastion per connettersi alla macchina virtuale, seguire questa procedura:
 
@@ -152,7 +152,9 @@ Una volta creata la macchina virtuale e dopo aver stabilito una connessione RDP 
 
     ![Specificare il dominio gestito per l'aggiunta](./media/join-windows-vm/join-domain.png)
 
-1. Immettere le credenziali di dominio per l'aggiunta al dominio. Usare le credenziali di un utente che fa parte del dominio gestito. L'account deve far parte del dominio gestito o del tenant di Azure AD. Gli account di directory esterne associate al tenant di Azure AD non possono eseguire correttamente l'autenticazione durante il processo di aggiunta al dominio. Le credenziali dell'account possono essere specificate in uno dei modi seguenti:
+1. Immettere le credenziali di dominio per l'aggiunta al dominio. Fornire le credenziali di un utente che fa parte del dominio gestito. L'account deve far parte del dominio gestito o del tenant di Azure AD. Gli account di directory esterne associate al tenant di Azure AD non possono eseguire correttamente l'autenticazione durante il processo di aggiunta al dominio.
+
+    Le credenziali dell'account possono essere specificate in uno dei modi seguenti:
 
     * **Formato UPN** (consigliato): immettere il suffisso UPN (User Principal Name) per l'account utente, come configurato in Azure AD. Ad esempio, il suffisso UPN dell'utente *contosoadmin* sarà `contosoadmin@aaddscontoso.onmicrosoft.com`. Esistono un paio di casi d'uso comuni in cui il formato UPN può essere usato in modo affidabile per accedere al dominio in sostituzione del formato *SAMAccountName*:
         * Se il prefisso UPN di un utente è lungo, ad esempio *nomeutentetroppolungo*, è possibile che venga generato automaticamente il formato *SAMAccountName*.
@@ -180,7 +182,7 @@ Dopo il riavvio della macchina virtuale Windows Server, i criteri applicati nel 
 
 Nell'esercitazione successiva questa VM Windows Server verrà usata per installare gli strumenti di gestione che consentono di amministrare il dominio gestito. Se non si vuole proseguire con questa serie di esercitazioni, vedere la procedura di pulizia descritta di seguito per [eliminare la macchina virtuale](#delete-the-vm). In caso contrario, [continuare con l'esercitazione successiva](#next-steps).
 
-### <a name="un-join-the-vm-from-the-managed-domain"></a>Annullare l'aggiunta della VM al dominio gestito
+### <a name="unjoin-the-vm-from-the-managed-domain"></a>Annullare l'aggiunta della VM al dominio gestito
 
 Per rimuovere la VM dal dominio gestito, seguire di nuovo la procedura di [aggiunta al dominio](#join-the-vm-to-the-managed-domain). Invece di aggiungere il dominio gestito, scegliere di aggiungere un gruppo di lavoro, ad esempio il gruppo di lavoro predefinito *WORKGROUP*. Dopo il riavvio della macchina virtuale, l'oggetto computer viene rimosso dal dominio gestito.
 

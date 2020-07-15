@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare una risorsa Load Balancer - Modello di Azure'
+title: 'Avvio rapido: Creare una risorsa Load Balancer - Modello di Azure'
 titleSuffix: Azure Load Balancer
 description: Questa guida di avvio rapido mostra come creare un servizio di bilanciamento del carico usando il modello di Azure Resource Manager.
 services: load-balancer
@@ -15,30 +15,34 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 175c5a36c873d16d50d5192a489133a01018e335
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ebf2f926f5be86ffee5f3a3e30277962a6060762
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80474593"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479761"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Guida introduttiva: Creare una risorsa Load Balancer Standard per bilanciare il carico delle macchine virtuali con un modello di Azure Resource Manager
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Avvio rapido: Creare un servizio di bilanciamento del carico per le macchine virtuali tramite un modello di Resource Manager
 
-Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. Questo argomento di avvio rapido illustra come distribuire un modello di Azure Resource Manager che consente di creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali. Usando un modello di Resource Manager è necessario un numero di passaggi minore rispetto ad altri metodi di distribuzione.
+Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. Questo argomento di avvio rapido illustra come distribuire un modello di Azure Resource Manager che crea un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali. L'uso di un modello di Resource Manager richiede meno passaggi rispetto ad altri metodi di distribuzione.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-load-balancer-standard-create%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Prerequisiti
+
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-load-balancer"></a>Creare una risorsa Load Balancer
+## <a name="review-the-template"></a>Rivedere il modello
+
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-load-balancer-standard-create/).
 
 Gli SKU di Load Balancer e quelli degli indirizzi IP pubblici devono corrispondere. Quando si crea una risorsa Load Balancer Standard, è necessario creare anche un nuovo indirizzo IP pubblico Standard che viene configurato come front-end per Load Balancer Standard. Se si desidera creare una risorsa Load Balancer Basic, usare [questo modello](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). Microsoft consiglia di usare SKU Standard per i carichi di lavoro di produzione.
 
-### <a name="review-the-template"></a>Rivedere il modello
-
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json).
-
-:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json" range="1-324" highlight="58-122":::
+:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json" range="1-324" highlight="57-122":::
 
 Nel modello sono state definite più risorse di Azure.
 
@@ -46,13 +50,13 @@ Nel modello sono state definite più risorse di Azure.
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses): per Load Balancer e per ognuna delle tre macchine virtuali.
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 risorse di questo tipo)
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 risorse di questo tipo)
-- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 risorse di questo tipo): usare per configurare IIS e le pagine Web
+- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 risorse di questo tipo).
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 risorse di questo tipo).
+- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 risorse di questo tipo): da usare per configurare IIS e le pagine Web.
 
 Per altri modelli correlati ad Azure Load Balancer, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 1. Selezionare **Prova** per il blocco di codice seguente per aprire Azure Cloud Shell e seguire le istruzioni per la connessione ad Azure.
 
@@ -89,7 +93,7 @@ Per la distribuzione del modello sono necessari circa 10 minuti. Al termine, l'o
 
 Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShell, è anche possibile usare il portale di Azure, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-portal.md).
 
-## <a name="test-the-load-balancer"></a>Testare il servizio di bilanciamento del carico
+## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 

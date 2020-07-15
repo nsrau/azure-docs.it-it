@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: df185f8b75af6a845306fccc18d7d3cce74d0815
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85249172"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082659"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Caricare i dati in modo incrementale da Database SQL di Azure ad Archiviazione BLOB di Azure con il portale di Azure
 
@@ -161,7 +161,7 @@ END
 
    Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato un punto esclamativo rosso con l'errore seguente, modificare il nome della data factory, ad esempio nomeutenteADFIncCopyTutorialDF, e riprovare. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
 
-       `Data factory name "ADFIncCopyTutorialDF" is not available`
+    *Il nome della data factory "ADFIncCopyTutorialDF" non è disponibile*
 4. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 5. Per il **gruppo di risorse**, eseguire una di queste operazioni:
 

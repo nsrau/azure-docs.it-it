@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195583"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082778"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Esercitazione: Creare un tabellone punteggi cache-aside in ASP.NET
 
@@ -680,8 +680,8 @@ In questa sezione si effettuerà il provisioning di un nuovo database nel databa
 
     | Segnaposto | Valore consigliato |
     | --- | --- |
-    | *{your_username}* | Usare l'**accesso di amministratore server** per il server di database appena creato. |
-    | *{your_password}* | Usare la password per il server di database appena creato. |
+    | *{your_username}* | Usare l'**accesso di amministratore server** per il server appena creato. |
+    | *{your_password}* | Usare la password per il server appena creato. |
 
     Se vengono aggiunti come impostazioni applicazione, il nome utente e la password non vengono inclusi nel codice. Questo approccio consente di proteggere tali credenziali.
 
@@ -736,4 +736,4 @@ Al termine dell'uso dell'applicazione di esempio dell'esercitazione, è possibil
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Come dimensionare Cache Redis di Azure](./cache-how-to-scale.md)
+> [Come ridimensionare Cache Redis di Azure](./cache-how-to-scale.md)

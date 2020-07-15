@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488767"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083560"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Per eseguire le procedure descritte è necessario:
 
 + Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/).
 
-+ Un'istanza del servizio Ricerca cognitiva di Azure [Creare un servizio](search-create-service-portal.md) o [trovarne uno esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
++ Un'istanza del servizio Ricerca cognitiva di Azure. [Creare un servizio](search-create-service-portal.md) o [trovarne uno esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 
 ### <a name="check-for-space"></a>Verificare lo spazio
 
@@ -150,7 +150,7 @@ A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le qu
 
    ![Comando di Esplora ricerche](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. Nell'elenco a discesa **Indice** selezionare *hotels-sample-index*. Fare clic sull'elenco a discesa **Versione API** per visualizzare le API REST disponibili. Per le query seguenti, usare la versione disponibile a livello generale (2019-05-06).
+2. Nell'elenco a discesa **Indice** selezionare *hotels-sample-index*. Fare clic sull'elenco a discesa **Versione API** per visualizzare le API REST disponibili. Per le query seguenti, usare la versione disponibile a livello generale (2020-06-30).
 
    ![Comandi dell'indice e dell'API](media/search-get-started-portal/search-explorer-changeindex.png)
 
@@ -275,4 +275,9 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 Usare una procedura guidata del portale per generare un'app Web pronta per l'uso eseguita in un browser. È possibile provare questa procedura guidata con il piccolo indice appena creato oppure usare uno dei set di dati di esempio predefiniti per un'esperienza di ricerca più completa.
 
 > [!div class="nextstepaction"]
-> [Creare un'app di ricerca nel portale](search-create-app-portal.md)
+> [Creare un'app demo nel portale](search-create-app-portal.md)
+
+Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
+
+> [!div class="nextstepaction"]
+> [Per iniziare, analizzare i costi con Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

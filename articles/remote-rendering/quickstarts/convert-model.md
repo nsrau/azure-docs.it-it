@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7ba8d201c29b5e3835fec52d8c479a388ca07f71
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313001"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557184"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Avvio rapido: Convertire un modello per il rendering
 
@@ -113,7 +113,7 @@ Per semplificare la chiamata al servizio di conversione degli asset, viene forni
 In particolare, questo script
 
 1. carica tutti i file di una determinata directory dal disco locale al contenitore di archiviazione di input
-1. chiama [l'API REST per la conversione di asset](../how-tos/conversion/conversion-rest-api.md) che recupererà i dati dal contenitore di archiviazione di input e avvia una conversione che restituirà un ID conversione
+1. chiama [l'API REST per la conversione di asset](../how-tos/conversion/conversion-rest-api.md) che recupererà i dati dal contenitore di archiviazione di input e avvierà una conversione che restituirà un ID conversione
 1. esegue il polling dell'API di stato della conversione con l'ID conversione recuperato fino a quando il processo di conversione non termina con esito positivo o negativo
 1. recupera un collegamento all'asset convertito nell'archiviazione di output
 
@@ -157,7 +157,7 @@ Modificare **inputAssetPath** nel percorso del modello da convertire. Il percors
 
 Una volta convertito, il modello verrà scritto di nuovo nel contenitore di archiviazione fornito da **blobOutputContainerName**. È possibile specificare un sottopercorso fornendo il valore **outputFolderPath** facoltativo. Nell'esempio precedente l'oggetto "robot. arrAsset" risultante verrà copiato nel contenitore BLOB di output in "converted/robot".
 
-L'impostazione di configurazione **outputAssetFileName** determina il nome dell'asset convertito. Il parametro è facoltativo e in caso contrario il nome del file di output verrà dedotto dal nome del file di input. 
+L'impostazione di configurazione **outputAssetFileName** determina il nome dell'asset convertito. Il parametro è facoltativo e in caso contrario il nome del file di output verrà dedotto dal nome del file di input.
 
 Aprire una sessione di PowerShell, assicurarsi di aver installato *Azure PowerShell* come indicato nei [prerequisiti](#prerequisites). Accedere quindi alla sottoscrizione con il comando seguente e seguire le istruzioni visualizzate:
 
@@ -175,6 +175,8 @@ Passare alla directory `azure-remote-rendering\Scripts` ed eseguire lo script di
 ```
 
 Verrà visualizzata una schermata analoga alla seguente: ![Conversion.ps1](./media/successful-conversion.png)
+
+## <a name="insert-new-model-into-quickstart-sample-app"></a>Inserire un nuovo modello nell'app di esempio della guida di avvio rapido
 
 Lo script di conversione genera un URI di *firma di accesso condiviso* per il modello convertito. È ora possibile copiare questo URI come **Nome modello** nell'app di esempio dell'avvio rapido (vedere [Avvio rapido: Eseguire il rendering di un modello con Unity](render-model.md)).
 
@@ -198,4 +200,4 @@ Ora che si conoscono le nozioni di base, vedere le esercitazioni per ottenere un
 Per informazioni dettagliate sulla conversione dei modelli, vedere [Usare l'API REST per la conversione di modelli](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Configurazione di un progetto Unity da zero](../tutorials/unity/project-setup.md)
+> [Esercitazione: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto](../tutorials/unity/view-remote-models/view-remote-models.md)

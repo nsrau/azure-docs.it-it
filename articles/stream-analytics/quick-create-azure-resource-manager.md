@@ -10,18 +10,22 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 127a8550b7f4ca89b8b3a8e61880b295a806e5d0
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: b7217df7fe7ccedf2419480b1114fa1ef6c8e24a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449363"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043547"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-the-azure-resource-manager-template"></a>Avvio rapido: Creare un processo di Analisi di flusso di Azure con il modello di Azure Resource Manager
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>Avvio rapido: Creare un processo di Analisi di flusso di Azure con un modello di Resource Manager
 
 In questo argomento di avvio rapido si usa un modello di Azure Resource Manager per creare un processo di Analisi di flusso di Azure. Una volta creato il processo, è possibile convalidare la distribuzione.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-streamanalytics-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,9 +33,7 @@ Per completare questo articolo, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
 
-## <a name="create-an-azure-stream-analytics-job"></a>Creare un processo di Analisi di flusso di Azure
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
 
@@ -39,7 +41,7 @@ Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di
 
 La risorsa di Azure definita nel modello è [Microsoft.StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs): creare un processo di Analisi di flusso di Azure.
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 In questa sezione viene creato un processo di Analisi di flusso di Azure usando il modello di Azure Resource Manager.
 
@@ -111,4 +113,4 @@ Write-Host "Press [ENTER] to continue..."
 In questo argomento di avvio rapido è stato creato un processo di Analisi di flusso di Azure usando un modello di Azure Resource Manager ed è stata convalidata la distribuzione. Passare all'articolo successivo per informazioni su come esportare un modello di Azure Resource Manager per un processo esistente usando VS Code.
 
 > [!div class="nextstepaction"]
-> [Esportare un processo di Analisi di flusso di Azure con un modello di Azure Resource Manager](resource-manager-export.md)
+> [Esportare un modello di Resource Manager per un processo di Analisi di flusso di Azure ](resource-manager-export.md)

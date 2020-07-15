@@ -3,16 +3,16 @@ title: Contratti Azure EA e modifiche
 description: Questo articolo illustra l'impatto dei contratti Azure EA e delle relative modifiche su Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 50f7a1bab17b9a98b7ca282387def52b24d448c4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298143"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044907"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratti Azure EA e modifiche
 
@@ -20,7 +20,7 @@ Questo articolo descrive l'impatto che possono avere i contratti Azure EA e le r
 
 ## <a name="enrollment-provisioning-status"></a>Stato di provisioning della registrazione
 
-La data di inizio di un nuovo impegno monetario è definita dalla data in cui è stato elaborato dal centro operativo locale. Poiché gli ordini di impegno monetario tramite Azure EA Portal vengono elaborati nel fuso orario UTC, può verificarsi un ritardo se l'ordine di acquisto dell'impegno monetario è stato elaborato in un'area diversa. La data di inizio della copertura nell'ordine di acquisto in https://www.explore.ms indica l'inizio dell'impegno monetario. La data di inizio della copertura corrisponde a quella in cui l'impegno monetario viene visualizzato in Azure EA Portal.
+La data di inizio di un nuovo pagamento anticipato di Azure è definita dalla data in cui è stato elaborato dal centro operativo locale. Poiché gli ordini di pagamento anticipato di Azure tramite Azure EA Portal vengono elaborati nel fuso orario UTC, può verificarsi un ritardo se l'ordine di acquisto è stato elaborato in un'area diversa. La data di inizio della copertura nell'ordine di acquisto in https://www.explore.ms indica l'inizio del pagamento anticipato di Azure. La data di inizio della copertura corrisponde a quella in cui il pagamento anticipato di Azure viene visualizzato in Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Supporto per i clienti aziendali
 
@@ -36,7 +36,7 @@ A una registrazione possono essere associati uno dei valori di stato seguenti. O
 
 **Indefinite Extended Term** (Periodo di validità esteso a tempo indeterminato): questo stato si verifica al raggiungimento della data di fine del contratto Enterprise Agreement. Prima che la registrazione EA raggiunga la data di fine del contratto Enterprise Agreement, l'amministratore della registrazione deve decidere se:
 
-- Rinnovare la registrazione aggiungendo impegno monetario aggiuntivo
+- Rinnovare la registrazione aggiungendo un ulteriore pagamento anticipato di Azure
 - Trasferire la registrazione esistente a una nuova
 - Eseguire la migrazione al programma Microsoft Online Subscription Program
 - Confermare la disabilitazione di tutti i servizi associati alla registrazione
@@ -51,7 +51,7 @@ A partire dal 1° agosto 2019 i nuovi moduli di rifiuto esplicito non sono accet
 
 In Azure EA Portal la funzione Partner Price Markup (Ricarico prezzi partner) consente di ottimizzare la creazione di report sui costi per i clienti. Azure EA Portal mostra i prezzi e l'utilizzo configurati dai partner per i clienti.
 
-La funzionalità di ricarico consente agli amministratori dei partner di aggiungere una percentuale di ricarico ai Contratti Enterprise indiretti. La percentuale di ricarico si applica a tutte le informazioni relative ai servizi gestiti da Microsoft in Azure EA Portal, ad esempio tariffe dei contatori, impegni monetari e ordini. Dopo la pubblicazione del ricarico da parte del partner, il cliente potrà visualizzare i costi di Azure in Azure EA Portal, ad esempio riepilogo dell'utilizzo, elenchi prezzi e report sull'utilizzo scaricati.
+La funzionalità di ricarico consente agli amministratori dei partner di aggiungere una percentuale di ricarico ai Contratti Enterprise indiretti. La percentuale di ricarico si applica a tutte le informazioni relative ai servizi gestiti da Microsoft in Azure EA Portal, ad esempio tariffe dei contatori, pagamento anticipato di Azure e ordini. Dopo la pubblicazione del ricarico da parte del partner, il cliente potrà visualizzare i costi di Azure in Azure EA Portal, ad esempio riepilogo dell'utilizzo, elenchi prezzi e report sull'utilizzo scaricati.
 
 A partire da settembre 2019 i partner possono applicare il ricarico in qualsiasi momento durante un periodo di validità senza attendere la scadenza successiva del periodo di validità.
 
@@ -61,7 +61,7 @@ Microsoft non accederà né utilizzerà il ricarico specificato e i prezzi assoc
 
 Il Licensing Solution Provider (LSP) specifica un singolo valore percentuale in EA Portal.  Tutte le informazioni commerciali sul portale verranno incrementate in base alla percentuale specificata dall'LSP. Esempio:
 
-- Il cliente firma un Contratto Enterprise con un impegno monetario di 100.000 USD.
+- Il cliente firma un contratto Enterprise con pagamento anticipato di Azure di 100.000 USD.
 - La tariffa del contatore per il Servizio A è 10 USD all'ora.
 - L'LSP imposta una percentuale di ricarico del 10% in EA Portal.
 - L'esempio seguente mostra in che modo le informazioni commerciali saranno visibili al cliente:
@@ -72,10 +72,10 @@ Il Licensing Solution Provider (LSP) specifica un singolo valore percentuale in 
 
 ### <a name="when-to-use-a-markup"></a>Quando usare un ricarico
 
-Usare la funzionalità di ricarico se si imposta la stessa percentuale di ricarico per TUTTE le transazioni commerciali nell'ambito del Contratto Enterprise, ovvero se si applica il ricarico alle informazioni sull'impegno monetario, alle tariffe dei contatori, alle informazioni sugli ordini e così via.
+Usare la funzionalità di ricarico se si imposta la stessa percentuale di ricarico per TUTTE le transazioni commerciali nell'ambito del Contratto Enterprise, ovvero se si applica il ricarico alle informazioni sul pagamento anticipato di Azure, alle tariffe dei contatori, alle informazioni sugli ordini e così via.
 
 Non usare la funzionalità di ricarico nei casi seguenti:
-- Si applicano percentuali diverse per l'impegno monetario e le tariffe dei contatori.
+- Si applicano percentuali diverse per il pagamento anticipato di Azure e le tariffe dei contatori.
 - Si applicano percentuali diverse per i contatori.
 
 Se si applicano percentuali diverse per i contatori, è consigliabile sviluppare una soluzione personalizzata basata sulla chiave API, che può essere fornita dal cliente, per eseguire il pull dei dati sull'utilizzo e fornire report.
@@ -97,11 +97,11 @@ Assicurarsi di esaminare le informazioni commerciali, ovvero i dati sul saldo mo
 
 **Passaggio 2: Rivedere e convalidare**
 
-Rivedere il prezzo di ricarico in _Riepilogo utilizzo_ per il periodo di impegno nella visualizzazione del cliente. Il prezzo Microsoft rimarrà disponibile nella visualizzazione del partner. È possibile attivare o disattivare le visualizzazioni usando l'interruttore relativo alle "persone" per il ricarico del partner in alto a destra.
+Rivedere il prezzo di ricarico in _Riepilogo utilizzo_ per il periodo di pagamento anticipato nella visualizzazione del cliente. Il prezzo Microsoft rimarrà disponibile nella visualizzazione del partner. È possibile attivare o disattivare le visualizzazioni usando l'interruttore relativo alle "persone" per il ricarico del partner in alto a destra.
 
 1. Rivedere i prezzi nell'elenco.
 1. Prima di procedere alla pubblicazione è possibile apportare modifiche selezionando **Modifica** nella scheda _View Usage Summary > Customer View_ (Visualizza riepilogo utilizzo > Visualizzazione cliente).  
-  Ai prezzi dei servizi ai saldi dell'impegno verranno applicate le stesse percentuali di ricarico. Se si prevede di applicare percentuali diverse per il saldo monetario e le tariffe dei contatori oppure per servizi diversi, non usare questa funzionalità.
+  Ai prezzi dei servizi e ai saldi del pagamento anticipato verranno applicate le stesse percentuali di ricarico. Se si prevede di applicare percentuali diverse per il saldo monetario e le tariffe dei contatori oppure per servizi diversi, non usare questa funzionalità.
 
 **Passaggio 3: Pubblicare**
 
@@ -121,7 +121,7 @@ Dopo la pubblicazione del ricarico del partner, il cliente indiretto avrà acces
 I partner possono usare la funzionalità di ricarico (in Azure EA) dopo l'elaborazione di una modifica del partner di canale. Non è necessario attendere fino all'anniversario successivo.
 
 
-## <a name="resource-commitment-and-requesting-quota-increases"></a>Impegno delle risorse e richiesta di aumenti di quota
+## <a name="resource-prepayment-and-requesting-quota-increases"></a>Pagamento anticipato delle risorse e richiesta di aumenti di quota
 
 **Il sistema applica le seguenti quote predefinite per ogni sottoscrizione:**
 
@@ -135,11 +135,11 @@ I partner possono usare la funzionalità di ricarico (in Azure EA) dopo l'elabor
 | Controllo di accesso | 50 spazi dei nomi per account. 100 milioni di transazioni di Controllo di accesso al mese |   |
 | Bus di servizio | 50 spazi dei nomi per account. 40 connessioni del bus di servizio | I clienti che acquistano connessioni del bus di servizio tramite i pacchetti di connessione avranno quote uguali al punto medio tra il pacchetto di connessioni acquistato e la quantità del pacchetto di connessioni più alto successivo. I clienti che scelgono un pacchetto da 500 avranno una quota pari a 750. |
 
-## <a name="resource-commitment"></a>Impegno delle risorse
+## <a name="resource-prepayment"></a>Pagamento anticipato delle risorse
 
-Microsoft fornirà servizi almeno fino al livello dell'utilizzo associato incluso nell'impegno mensile acquistato (impegno di servizio), ma tutti gli altri incrementi in termini di livelli di utilizzo delle risorse dei servizi, come l'aumento del numero delle istanze di calcolo in esecuzione o della capacità di archiviazione in uso, sono soggetti alla disponibilità di tali risorse.
+Microsoft fornirà servizi almeno fino al livello dell'utilizzo associato incluso nel pagamento anticipato mensile acquistato (pagamento anticipato del servizio), ma tutti gli altri incrementi in termini di livelli di utilizzo delle risorse dei servizi, come l'aumento del numero delle istanze di calcolo in esecuzione o della capacità di archiviazione in uso, sono soggetti alla disponibilità di tali risorse.
 
-Qualsiasi quota sopra descritta non costituisce un impegno di servizio. Al fine di determinare il numero di istanze di calcolo piccole simultanee (o equivalenti) che verranno fornite da Microsoft come parte dell'impegno di servizio, il numero di ore di istanze di calcolo piccole impegnate, acquistate per un mese, verrà diviso per il numero di ore del mese più breve dell'anno, ovvero febbraio (672 ore).
+Qualsiasi quota sopra descritta non costituisce un pagamento anticipato del servizio. Al fine di determinare il numero di istanze di calcolo piccole simultanee (o equivalenti) che verranno fornite da Microsoft come parte del pagamento anticipato, il numero di ore di istanze di calcolo piccole impegnate, acquistate per un mese, verrà diviso per il numero di ore del mese più breve dell'anno, ovvero febbraio (672 ore).
 
 ## <a name="requesting-a-quota-increase"></a>Richiesta di un aumento di quota
 

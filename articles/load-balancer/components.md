@@ -11,16 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: b696cdf2d54c42d3967041c5d10b1bd9bb5a3065
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: a055216634775254867421854aa0b456fa90c709
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84448683"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85551031"
 ---
 # <a name="azure-load-balancer-components"></a>Componenti di Azure Load Balancer
 
-Azure Load Balancer è costituito da alcuni componenti chiave. Questi componenti possono essere configurati nella sottoscrizione tramite il portale di Azure, l'interfaccia della riga di comando di Azure, Azure PowerShell o i modelli.
+Azure Load Balancer include alcuni componenti chiave. Questi componenti possono essere configurati nella sottoscrizione tramite:
+
+* Portale di Azure
+* Interfaccia della riga di comando di Azure
+* Azure PowerShell
+* Modelli di Resource Manager
 
 ## <a name="frontend-ip-configuration"></a>Configurazione dell'indirizzo IP front-end <a name = "frontend-ip-configurations"></a>
 
@@ -51,7 +56,7 @@ Mentre si valuta come progettare il pool back-end, è consigliabile prevedere il
 
 ## <a name="health-probes"></a>Probe di integrità
 
-Un probe di integrità viene usato per determinare lo stato integrità delle istanze nel pool back-end. Durante la creazione di un Load Balancer, è necessario configurare un probe di integrità che il Load Balancer possa utilizzare per determinare se un'istanza è integra e instradare il traffico verso l'istanza.
+Un probe di integrità viene usato per determinare lo stato integrità delle istanze nel pool back-end. Durante la creazione del servizio di bilanciamento del carico, configurare un probe di integrità che verrà usato dal servizio  per determinare se un'istanza è integra e può ricevere traffico.
 
 È possibile definire la soglia di non integrità per i probe di integrità. Se un probe non risponde, Load Balancer interrompe l'invio di nuove connessioni alle istanze non integre. Un errore di probe non influisce sulle connessioni esistenti. La connessione continua fino a quando:
 
@@ -67,32 +72,55 @@ Il servizio Load Balancer Basic non supporta i probe HTTPS. Il servizio Load Bal
 
 Una regola di Load Balancer viene utilizzata per definire il modo in cui il traffico in ingresso viene distribuito a **tutte** le istanze nel pool back-end. Una regola di bilanciamento del carico esegue il mapping di una configurazione IP front-end e di una porta specifiche a più indirizzi IP e porte back-end.
 
-Ad esempio, se si desidera che il traffico sulla porta 80 (o un'altra porta) dell'indirizzo IP front-end venga indirizzato alla porta 80 di tutte le istanze di back-end, è necessario utilizzare una regola di bilanciamento del carico per ottenere questo risultato.
+Ad esempio, usare una regola di bilanciamento del carico per la porta 80 per instradare il traffico dall'IP front-end alla porta 80 delle istanze back-end.
 
-### <a name="high-availability-ports"></a>Porte a disponibilità elevata
+<p align="center">
+  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Regole di bilanciamento del carico">
+</p>
 
-Una regola di Load Balancer configurata con 'protocol - all e port - 0'. In questo modo è possibile specificare una singola regola per il bilanciamento del carico di tutti i flussi TCP e UDP in arrivo su tutte le porte di un'istanza interna di Load Balancer Standard. La decisione di bilanciamento del carico viene presa per ogni flusso Questa azione è basata sulla seguente connessione a cinque tuple: 
+*Figura: Regole di bilanciamento del carico*
+
+## <a name="high-availability-ports"></a>Porte a disponibilità elevata
+
+Una regola di bilanciamento del carico configurata con **'protocol - all e port - 0'** . 
+
+In questo modo è possibile specificare una singola regola per il bilanciamento del carico di tutti i flussi TCP e UDP in arrivo su tutte le porte di un'istanza interna di Load Balancer Standard. 
+
+La decisione di bilanciamento del carico viene presa per ogni flusso Questa azione è basata sulla seguente connessione a cinque tuple: 
+
 1. Indirizzo IP di origine
 2. Porta di origine
 3. Indirizzo IP di destinazione
 4. Porta di destinazione
 5. protocol
 
-Le regole di bilanciamento del carico per porte a disponibilità elevata permettono di gestire scenari critici, ad esempio la disponibilità elevata e la scalabilità per appliance di rete virtuali all'interno di reti virtuali. Questa funzionalità può essere utile anche quando è necessario eseguire il bilanciamento del carico di un numero elevato di porte.
+Le regole di bilanciamento del carico per porte a disponibilità elevata permettono di gestire scenari critici, ad esempio la disponibilità elevata e la scalabilità per appliance di rete virtuali all'interno di reti virtuali. Questa funzionalità può essere utile quando è necessario eseguire il bilanciamento del carico di un numero elevato di porte.
+
+<p align="center">
+  <img src="./media/load-balancer-components/harules.svg" width="512" title="Regole per le porte a disponibilità elevata">
+</p>
+
+*Figura: Regole per le porte a disponibilità elevata*
 
 Per altre informazioni, vedere [Porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
 
 ## <a name="inbound-nat-rules"></a>Regole NAT in ingresso
 
-Una regola NAT in ingresso inoltra il traffico in entrata inviato a una combinazione di indirizzo IP front-end e porta selezionata a un’istanza o macchina virtuale **specifica** nel pool back-end. Il port forwarding viene eseguito dalla stessa distribuzione basata su hash del bilanciamento del carico.
+Una regola NAT in ingresso inoltra il traffico in arrivo inviato alla combinazione di porta e indirizzo IP front-end. Il traffico viene inviato a una **specifica** macchina virtuale o istanza nel pool back-end. Il port forwarding viene eseguito dalla stessa distribuzione basata su hash del bilanciamento del carico.
 
 Ad esempio, se si desidera utilizzare le sessioni Remote Desktop Protocol (RDP) o Secure Shell (SSH) per separare le istanze delle macchine virtuali all'interno di un pool back-end. È possibile eseguire il mapping di più endpoint interni a porte sullo stesso indirizzo IP front-end. È possibile usare gli indirizzi IP front-end per gestire in modalità remota le macchine virtuali senza un sistema jump box.
 
-Le regole NAT in ingresso nel contesto dei set di scalabilità di macchine virtuali sono pool NAT in ingresso. Leggere altre informazioni sui [componenti di Load Balancer e i set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+<p align="center">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Regole NAT in ingresso">
+</p>
+
+*Figura: Regole NAT in ingresso*
+
+Le regole NAT in ingresso nel contesto dei set di scalabilità di macchine virtuali sono pool NAT in ingresso. Per altre informazioni, vedere [Componenti di Load Balancer e set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
 
 ## <a name="outbound-rules"></a>Regole in uscita
 
-Una regola in uscita configura il processo NAT (Network Address Translation) in uscita per tutte le macchine virtuali o le istanze identificate dal pool back-end. In questo modo, le istanze del back-end comunicano (in uscita) su Internet o altri endpoint.
+Una regola in uscita configura il processo NAT (Network Address Translation) in uscita per tutte le macchine virtuali o le istanze identificate dal pool back-end. In questo modo, le istanze del back-end comunicano (in uscita) con Internet o altri endpoint.
 
 Leggere altre informazioni su [connessioni e regole in uscita](load-balancer-outbound-connections.md).
 

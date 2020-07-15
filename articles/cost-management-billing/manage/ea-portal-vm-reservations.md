@@ -3,16 +3,16 @@ title: Istanze riservate di VM per Azure EA
 description: Questo articolo descrive come risparmiare sui costi della registrazione Enterprise con le prenotazioni di Azure di istanze riservate di VM.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b78abeaac3066839636918923636f4b7bdf9ee35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735422"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044856"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Istanze riservate di VM per Azure EA
 
@@ -83,9 +83,9 @@ Se non è stato usato il Vantaggio Azure Hybrid per l'acquisto di istanze di mac
 
 ### <a name="reserved-instance-billing"></a>Fatturazione di un'istanza riservata
 
-Per i clienti Enterprise, l'impegno monetario viene usato per acquistare le istanze di macchine virtuali riservate di Azure. Se la registrazione ha un saldo di impegno monetario sufficiente a coprire l'acquisto di un'istanza riservata, l'importo verrà sottratto dal saldo dell'impegno monetario personale e non si riceverà una fattura per l'acquisto.
+Per i clienti Enterprise, il pagamento anticipato di Azure si usa per acquistare istanze riservate di VM di Azure. Se la registrazione ha un saldo di pagamento anticipato di Azure sufficiente a coprire l'acquisto di un'istanza riservata, l'importo verrà sottratto da tale saldo e non si riceverà una fattura per l'acquisto.
 
-Negli scenari in cui i clienti EA hanno usato tutto il rispettivo impegno monetario, è comunque possibile acquistare istanze riservate e tali acquisti verranno fatturati nella fattura successiva per l'eccedenza. Eventuali eccedenze di istanze riservate saranno inserite nella normale fattura per l'eccedenza.
+Negli scenari in cui i clienti con contratto Enterprise di Azure hanno usato tutto l'importo del pagamento anticipato, è comunque possibile acquistare istanze riservate e tali acquisti verranno addebitati nella fattura successiva per l'eccedenza. Eventuali eccedenze di istanze riservate saranno inserite nella normale fattura per l'eccedenza.
 
 ### <a name="reserved-instance-expiration"></a>Scadenza di un'istanza riservata
 

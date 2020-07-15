@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 3/18/2020
-ms.openlocfilehash: d10d5b4885e826da9b6efd95dfc02940e1a9644a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8579f9294f55293cd32c8dfc1c13f9d4570aed67
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79529969"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110335"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Esempi dell'interfaccia della riga di comando di Azure per Database di Azure per MariaDB 
 La tabella seguente include collegamenti a esempi di script di interfaccia della riga di comando di Azure per Database di Azure per MariaDB.
 
-| |  |
+| Collegamento di esempio | Descrizione  |
 |---|---|
 |**Creare un server**||
 | [Creare una regola di firewall e server](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Script dell'interfaccia della riga di comando di Azure che consente di creare un singolo server Database di Azure per MariaDB e configura una regola del firewall a livello di server. |

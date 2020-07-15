@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7295bb2e87373a80c6b105ab7284a43e6f0804da
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 280fea29b79db58d0974aaba961db9c7a7df3dad
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020773"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045791"
 ---
 # <a name="sql-authentication"></a>Autenticazione SQL
 
@@ -45,7 +45,7 @@ Gli account **Amministratore del server** e **Amministratore di Azure Active Dir
 - Questi sono gli unici account che possono connettersi automaticamente a qualsiasi database SQL nel server. Per connettersi a un database utente, gli altri account devono essere il proprietario del database o avere un account utente nel database utente.
 - Questi account accedono ai database utente come utente `dbo` e hanno a disposizione tutte le autorizzazioni nei database utente. Anche il proprietario di un database utente accede al database come utente `dbo`.
 - Essi non accedono al database `master` come utente `dbo` e hanno autorizzazioni limitate nel database master.
-- Questi account **non** sono membri del ruolo predefinito di SQL Server `sysadmin`, che non è disponibile nel database SQL.  
+- Questi account **non** sono membri del ruolo predefinito del server `sysadmin` di SQL Server, che non è disponibile in Database SQL.  
 - Essi possono creare, modificare ed eliminare database, account di accesso, utenti nel database master e regole del firewall IP a livello di server.
 - Questi account possono aggiungere e rimuovere membri per i ruoli `dbmanager` e `loginmanager`.
 - Essi possono visualizzare la tabella di sistema `sys.sql_logins`.

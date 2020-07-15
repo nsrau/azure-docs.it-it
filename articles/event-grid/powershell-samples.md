@@ -1,34 +1,28 @@
 ---
 title: Esempi di Azure PowerShell - Griglia di eventi | Microsoft Docs
 description: Questo articolo include una tabella con collegamenti a esempi di script di Azure PowerShell per Griglia di eventi di Azure.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: c3dea89b609dadb4cac26537c6669f5c7806f94e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/07/2020
+ms.openlocfilehash: 89945d9fc3558b8e14303aebe9ef593fbd792761
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76717534"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108108"
 ---
 # <a name="azure-powershell-samples-for-event-grid"></a>Esempi di Azure PowerShell per Griglia di eventi
 
 La tabella seguente include collegamenti a esempi di Azure PowerShell per Griglia di eventi.
 
-| | |
-|-|-|
-|**Sottoscrizioni di Griglia di eventi**||
-| [Sottoscrivere una sottoscrizione di Azure](scripts/event-grid-powershell-azure-subscription.md)| Consente la sottoscrizione a eventi per una sottoscrizione di Azure. |
-| [Sottoscrivere un account di archiviazione BLOB](scripts/event-grid-powershell-blob.md)| Consente la sottoscrizione a eventi per un account di archiviazione BLOB. |
-| [Sottoscrivere un argomento personalizzato](scripts/event-grid-powershell-subscribe-custom-topic.md)| Consente la sottoscrizione a eventi per un argomento personalizzato. |
-| [Sottoscrivere un gruppo di risorse](scripts/event-grid-powershell-resource-group.md)| Consente di sottoscrivere eventi per un gruppo di risorse. |
-| [Sottoscrivere un gruppo di risorse e applicare un filtro per una risorsa](scripts/event-grid-powershell-resource-group-filter.md)| Consente la sottoscrizione di eventi per un gruppo di risorse e l'applicazione di un filtro agli eventi per una risorsa. |
-|**Argomenti di Griglia di eventi**||
-| [Creare un argomento personalizzato](scripts/event-grid-powershell-create-custom-topic.md) | Consente di creare un argomento personalizzato di tipo Griglia di eventi e ottenere l'endpoint e la chiave.  |
-| | |
+## <a name="event-grid-subscriptions"></a>Sottoscrizioni di Griglia di eventi
+
+- [Sottoscrivere una sottoscrizione di Azure](scripts/event-grid-powershell-azure-subscription.md): consente di sottoscrivere eventi per una sottoscrizione di Azure. 
+- [Sottoscrivere un account di archiviazione BLOB](scripts/event-grid-powershell-blob.md): consente di sottoscrivere eventi per un account di archiviazione BLOB.
+- [Sottoscrivere un argomento personalizzato](scripts/event-grid-powershell-subscribe-custom-topic.md): consente di sottoscrivere eventi per un argomento personalizzato. 
+- [Sottoscrivere un gruppo di risorse](scripts/event-grid-powershell-resource-group.md): consente di sottoscrivere eventi per un gruppo di risorse. 
+- [Sottoscrivere un gruppo di risorse e applicare un filtro per una risorsa](scripts/event-grid-powershell-resource-group-filter.md): consente di sottoscrivere gli eventi per un gruppo di risorse e di filtrare gli eventi per una risorsa. 
+
+## <a name="event-grid-topics"></a>Argomenti di Griglia di eventi
+
+- [Creare un argomento personalizzato](scripts/event-grid-powershell-create-custom-topic.md): consente di creare un argomento personalizzato di tipo Griglia di eventi e ottenere l'endpoint e la chiave.  
+

@@ -7,18 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 1e3b94208c3ead6e7ed4e15dac7c32b50025064a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733807"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024775"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare una rete virtuale per un dominio gestito di Azure Active Directory Domain Services
 
-Per fornire connettività a utenti e applicazioni, un dominio gestito di Azure Active Directory Domain Services (Azure AD DS) viene distribuito in una subnet di rete virtuale di Azure. Questa subnet di rete virtuale dovrà essere usata solo per le risorse del dominio gestito fornite dalla piattaforma Azure. Le VM e le applicazioni personalizzate che si creano non devono essere distribuite nella stessa subnet di rete virtuale. È invece necessario creare e distribuire le applicazioni in una subnet di rete virtuale distinta oppure in una rete virtuale distinta collegata in peering alla rete virtuale di Azure AD DS.
+Per fornire connettività a utenti e applicazioni, un dominio gestito di Azure Active Directory Domain Services (Azure AD DS) viene distribuito in una subnet di rete virtuale di Azure. Questa subnet di rete virtuale dovrà essere usata solo per le risorse del dominio gestito fornite dalla piattaforma Azure.
+
+Le VM e le applicazioni personalizzate create non devono essere distribuite nella stessa subnet di rete virtuale. È invece necessario creare e distribuire le applicazioni in una subnet di rete virtuale distinta oppure in una rete virtuale distinta collegata in peering alla rete virtuale di Azure AD DS.
 
 Questa esercitazione illustra come creare e configurare una subnet di rete virtuale dedicata oppure come collegare in peering una rete diversa alla rete virtuale di un dominio gestito di Azure AD DS.
 
@@ -39,7 +41,7 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
     * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
-* Per abilitare Azure AD DS, sono necessari privilegi di *amministratore globale* nel tenant di Azure AD.
+* Per configurare Azure Active Directory Domain Services, sono necessari privilegi di *amministratore globale* nel tenant di Azure AD.
 * Per creare le risorse di Azure AD DS richieste, sono necessari privilegi di *collaboratore* nella sottoscrizione di Azure.
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
     * Se necessario, seguire la prima esercitazione per [creare e configurare un dominio gestito di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
@@ -54,12 +56,16 @@ Nell'esercitazione precedente è stato creato un dominio gestito che usa alcune 
 
 Quando si creano ed eseguono le VM che devono usare il dominio gestito, è necessario fornire connettività di rete. Questa connettività di rete può essere fornita in uno dei modi seguenti:
 
-* Creare una subnet di rete virtuale aggiuntiva nella rete virtuale del dominio gestito predefinito. Questa subnet aggiuntiva è quella in cui si creano e si connettono le VM.
+* Creare una subnet di rete virtuale aggiuntiva nella rete virtuale del dominio gestito. Questa subnet aggiuntiva è quella in cui si creano e si connettono le VM.
     * Poiché le VM fanno parte della stessa rete virtuale, possono eseguire automaticamente la risoluzione dei nomi e comunicare con i controller di dominio di Azure AD DS.
 * Configurare il peering di reti virtuali di Azure dalla rete virtuale del dominio gestito a una o più reti virtuali separate. Queste reti virtuali separate sono quelle in cui si creano e si connettono le VM.
-    * Quando si configura il peering di reti virtuali, è necessario configurare anche le impostazioni DNS per usare la risoluzione dei nomi per i controller di dominio di Azure AD DS.
+    * Quando si configura il peering di reti virtuali, è necessario configurare anche le impostazioni DNS per usare la risoluzione dei nomi per i controller di dominio di Azure Active Directory Domain Services.
 
-In genere si usa solo una di queste opzioni di connettività di rete. La scelta dipende solitamente da come si vogliono gestire separatamente le risorse di Azure. Se si vogliono gestire Azure AD DS e le VM connesse come un unico gruppo di risorse, è possibile creare una subnet di rete virtuale aggiuntiva per le macchine virtuali. Se si vuole separare la gestione di Azure AD DS e delle VM connesse, è possibile usare il peering di reti virtuali. È anche possibile scegliere di usare il peering di reti virtuali per fornire connettività alle VM esistenti nell'ambiente di Azure che sono connesse a una rete virtuale esistente.
+In genere si usa solo una di queste opzioni di connettività di rete. La scelta dipende solitamente da come si vogliono gestire separatamente le risorse di Azure.
+
+* Se si vogliono gestire Azure AD DS e le VM connesse come un unico gruppo di risorse, è possibile creare una subnet di rete virtuale aggiuntiva per le macchine virtuali.
+* Se si vuole separare la gestione di Azure AD DS e delle VM connesse, è possibile usare il peering di reti virtuali.
+    * È anche possibile scegliere di usare il peering di reti virtuali per fornire connettività alle VM esistenti nell'ambiente di Azure che sono connesse a una rete virtuale esistente.
 
 In questa esercitazione è sufficiente configurare una di queste opzioni di connettività di reti virtuali.
 
@@ -95,7 +101,9 @@ Quando si crea una VM che deve usare il dominio gestito, assicurarsi di selezion
 
 È possibile che sia già presente una rete virtuale di Azure per le macchine virtuali o che si voglia lasciare separata la rete virtuale del dominio gestito. Per usare il dominio gestito, le VM di altre reti virtuali devono poter comunicare con i controller di dominio di Azure AD DS. Questa connettività può essere fornita tramite il peering di reti virtuali di Azure.
 
-Con il peering di reti virtuali di Azure, vengono connesse due reti virtuali tra loro, senza la necessità di un dispositivo VPN (Virtual Private Network). Il peering di reti consente di connettere rapidamente le reti virtuali e di definire i flussi del traffico nell'ambiente di Azure. Per altre informazioni sul peering, vedere la [panoramica sul peering di reti virtuali di Azure][peering-overview].
+Con il peering di reti virtuali di Azure, vengono connesse due reti virtuali tra loro, senza la necessità di un dispositivo VPN (Virtual Private Network). Il peering di reti consente di connettere rapidamente le reti virtuali e di definire i flussi del traffico nell'ambiente di Azure.
+
+Per altre informazioni sul peering, vedere la [panoramica sul peering di reti virtuali di Azure][peering-overview].
 
 Per collegare in peering una rete virtuale alla rete virtuale del dominio gestito, completare i passaggi seguenti:
 
@@ -121,7 +129,7 @@ Prima che le VM nella rete virtuale con peering possano usare il dominio gestito
 
 ### <a name="configure-dns-servers-in-the-peered-virtual-network"></a>Configurare i server DNS nella rete virtuale con peering
 
-Per consentire alle VM e alle applicazioni nella rete virtuale con peering di comunicare correttamente con il dominio gestito, è necessario aggiornare le impostazioni DNS. Gli indirizzi IP dei controller di dominio di Azure AD DS devono essere configurati come server DNS nella rete virtuale con peering. È possibile configurarli in due modi:
+Per consentire alle VM e alle applicazioni nella rete virtuale con peering di comunicare correttamente con il dominio gestito, è necessario aggiornare le impostazioni DNS. Gli indirizzi IP dei controller di dominio di Azure Active Directory Domain Services devono essere configurati come server DNS nella rete virtuale con peering. È possibile configurarli in due modi:
 
 * Configurare i server DNS della rete virtuale di Azure per l'uso dei controller di dominio di Azure AD DS.
 * Configurare il server DNS esistente in uso nella rete virtuale con peering per l'uso dell'inoltro DNS condizionale in modo da indirizzare le query al dominio gestito. Questa procedura varia a seconda del server DNS esistente in uso.
@@ -159,3 +167,4 @@ Per vedere il dominio gestito in azione, creare e aggiungere una macchina virtua
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [peering-overview]: ../virtual-network/virtual-network-peering-overview.md
+[network-considerations]: network-considerations.md

@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 0b5fbb49e2f60f101f16988538af86c2caf550eb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 16c14774b1b032132040ea3fdcf810a4f9de8f18
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202852"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077355"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importare e pubblicare la prima API
 
@@ -69,7 +69,7 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
    > [!NOTE]
    > Per pubblicare l'API in consumer API, è necessario associarla a un prodotto.
 
-2. Selezionare **Create** (Crea).
+2. Selezionare **Crea**.
 
 In caso di problemi durante l'importazione della definizione API, vedere l'[elenco delle restrizioni e dei problemi noti](api-management-api-import-restrictions.md).
 
@@ -97,3 +97,8 @@ Passare all'esercitazione successiva per imparare a creare e pubblicare un prodo
 
 > [!div class="nextstepaction"]
 > [Creare e pubblicare un prodotto](api-management-howto-add-products.md)
+
+Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
+
+> [!div class="nextstepaction"]
+> [Per iniziare, analizzare i costi con Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 06d948b44064f029e00a2ef089077e9b55246545
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fb99babfd53b26874bed62183871d13ae0ae4baf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184963"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120127"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Esercitazione: Distribuire estensioni di macchina virtuale con i modelli di Azure Resource Manager
 
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Di seguito è riportato un esempio della generazione di una password:
 
     ```console
@@ -102,7 +102,7 @@ Aggiungere una risorsa estensione di macchina virtuale al modello esistente con 
 }
 ```
 
-Per altre informazioni su questa definizione di risorsa, vedere il [materiale di riferimento dell'estensione](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Di seguito sono illustrati alcuni elementi importanti.
+Per altre informazioni su questa definizione di risorsa, vedere il [materiale di riferimento dell'estensione](/azure/templates/microsoft.compute/virtualmachines/extensions). Di seguito sono illustrati alcuni elementi importanti.
 
 * **name**: dato che la risorsa estensione è una risorsa figlio dell'oggetto macchina virtuale, il nome deve includere il nome della macchina virtuale come prefisso. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md).
 * **dependsOn**: creare la risorsa estensione dopo aver creato la macchina virtuale.

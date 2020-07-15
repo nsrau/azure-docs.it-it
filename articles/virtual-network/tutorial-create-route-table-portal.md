@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 854bf2d1ed2155290c2ecebd17695049fdd0c8bb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314295"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079650"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Esercitazione: Instradare il traffico di rete con una tabella di route usando il portale di Azure
 
@@ -136,7 +136,7 @@ Le appliance virtuali di rete (appliance virtuali) sono macchine virtuali utili 
 
     ![Crea tabella di route, portale di Azure](./media/tutorial-create-route-table-portal/create-route-table.png)
 
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 
 ## <a name="create-a-route"></a>Creare una route
 
@@ -359,3 +359,6 @@ Benché sia possibile distribuire molte risorse di Azure all'interno di una rete
 
 > [!div class="nextstepaction"]
 > [Limitare l'accesso alla rete alle risorse PaaS](tutorial-restrict-network-access-to-resources.md)
+
+> [!NOTE] 
+> I servizi di Azure comportano costi. Gestione costi di Azure consente di impostare budget e configurare avvisi per tenere sotto controllo la spesa. Analizzare, gestire e ottimizzare i costi di Azure con Gestione costi. Per altre informazioni, vedere l'argomento di [avvio rapido sull'analisi dei costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
