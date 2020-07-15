@@ -4,16 +4,16 @@ description: In questa esercitazione si apprenderà come usare PowerShell per di
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611663"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245042"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster di Service Fabric che esegue Windows in una rete virtuale di Azure
 
-Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster di Service Fabric di Azure che esegue Windows in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) e in un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) usando PowerShell e un modello. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni. Per creare un cluster Linux usando l'interfaccia della riga di comando di Azure, vedere l'articolo su come [creare un cluster Linux protetto in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster di Service Fabric di Azure che esegue Windows in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) e in un [gruppo di sicurezza di rete](../virtual-network/virtual-network-vnet-plan-design-arm.md) usando PowerShell e un modello. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni. Per creare un cluster Linux usando l'interfaccia della riga di comando di Azure, vedere l'articolo su come [creare un cluster Linux protetto in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 Questa esercitazione descrive uno scenario di produzione. Se si vuole creare un cluster di piccole dimensioni a scopo di test, vedere [Creare un cluster di Service Fabric](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
@@ -48,7 +48,7 @@ Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installare [Service Fabric SDK e il modulo PowerShell](service-fabric-get-started.md).
-* Installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Installare [Azure PowerShell](/powershell/azure/install-az-ps).
 * Esaminare i concetti chiave dei [cluster di Azure](service-fabric-azure-clusters-overview.md).
 * [Pianificare e preparare](service-fabric-cluster-azure-deployment-preparation.md) la distribuzione di un cluster di produzione.
 
@@ -111,7 +111,7 @@ Le regole per il traffico in ingresso seguenti vengono abilitate nella risorsa *
 Se sono necessarie altre porte dell'applicazione, si dovranno modificare le risorse **Microsoft.Network/loadBalancers** e **Microsoft.Network/networkSecurityGroups** in modo da consentire il traffico in ingresso.
 
 ### <a name="windows-defender"></a>Windows Defender
-Per impostazione predefinita, il programma [Windows Defender Antivirus](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) è installato e funzionante in Windows Server 2016. L'interfaccia utente viene installata per impostazione predefinita in alcuni SKU, ma non è obbligatoria. Per ogni tipo di nodo/set di scalabilità di macchina virtuale dichiarato nel modello, viene usata l'estensione [Azure VM Antimalware](/azure/virtual-machines/extensions/iaas-antimalware-windows) per escludere le directory e i processi di Service Fabric:
+Per impostazione predefinita, il programma [Windows Defender Antivirus](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) è installato e funzionante in Windows Server 2016. L'interfaccia utente viene installata per impostazione predefinita in alcuni SKU, ma non è obbligatoria. Per ogni tipo di nodo/set di scalabilità di macchina virtuale dichiarato nel modello, viene usata l'estensione [Azure VM Antimalware](../virtual-machines/extensions/iaas-antimalware-windows.md) per escludere le directory e i processi di Service Fabric:
 
 ```json
 {
@@ -145,8 +145,8 @@ Nel file dei parametri [azuredeploy.parameters.json][parameters] vengono dichiar
 
 **Parametro** | **Valore di esempio** | **Note** 
 |---|---|---|
-|adminUserName|vmadmin| Nome utente amministratore per le VM del cluster. [Requisiti dei nomi utente per le VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
-|adminPassword|Password#1234| Password amministratore per le VM del cluster. [Requisiti delle password per le VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUserName|vmadmin| Nome utente amministratore per le VM del cluster. [Requisiti dei nomi utente per le VM](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). |
+|adminPassword|Password#1234| Password amministratore per le VM del cluster. [Requisiti delle password per le VM](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| Nome del cluster. Può contenere solo lettere e numeri. La lunghezza deve essere compresa tra 3 e 23 caratteri.|
 |posizione|southcentralus| Località del cluster. |
 |certificateThumbprint|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore di identificazione personale SHA1 del certificato, ad esempio "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
@@ -703,7 +703,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Gli altri articoli di questa serie di esercitazioni usano il cluster che è stato creato. Se non si intende passare subito all'articolo successivo, è opportuno [eliminare il cluster](service-fabric-cluster-delete.md) per evitare di sostenere costi.
+Gli altri articoli di questa serie di esercitazioni usano il cluster che è stato creato. Se non si intende passare subito all'articolo successivo, è opportuno [eliminare il cluster](./service-fabric-tutorial-delete-cluster.md) per evitare di sostenere costi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f7cb3f75dcaaeb6e0304784941dfcfc81ae6d68f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75494928"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248391"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Esercitazione: Distribuire un'applicazione in Service Fabric Mesh usando un modello
 
@@ -171,7 +171,7 @@ L'output precedente conferma la presenza di `azure-mesh-todo-service:1.0-nanoser
 ## <a name="retrieve-credentials-for-the-registry"></a>Recuperare le credenziali per il registro
 
 > [!IMPORTANT]
-> Non è consigliabile abilitare l'utente amministratore in un'istanza di Registro Azure Container per scenari di produzione. In questo esempio ciò avviene per comodità. Per gli scenari di produzione, usare un'[entità servizio](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal) per l'autenticazione di utenti e del sistema negli scenari di produzione.
+> Non è consigliabile abilitare l'utente amministratore in un'istanza di Registro Azure Container per scenari di produzione. In questo esempio ciò avviene per comodità. Per gli scenari di produzione, usare un'[entità servizio](../container-registry/container-registry-auth-service-principal.md) per l'autenticazione di utenti e del sistema negli scenari di produzione.
 
 Per distribuire un'istanza del contenitore dal registro creato usando un modello, è necessario specificare le credenziali del registro durante la distribuzione. Abilitare prima di tutto l'utente amministratore nel registro con il comando seguente:
 
@@ -191,7 +191,7 @@ Usare il nome del server di accesso di Registro Azure Container, il nome utente 
 
 ## <a name="download-and-explore-the-template-and-parameters-files"></a>Scaricare ed esplorare i file del modello e dei parametri
 
-Un'applicazione Service Fabric Mesh è una risorsa di Azure che è possibile distribuire e gestire usando i modelli di Azure Resource Manager (RM). Per comprendere i concetti di distribuzione e gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) e [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates).
+Un'applicazione Service Fabric Mesh è una risorsa di Azure che è possibile distribuire e gestire usando i modelli di Azure Resource Manager (RM). Per comprendere i concetti di distribuzione e gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md) e [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 Questa esercitazione usa l'applicazione di esempio To Do List come esempio.  Invece di creare nuovi file per il modello e i parametri, scaricare il file del [modello di distribuzione mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e il file dei [parametri mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 

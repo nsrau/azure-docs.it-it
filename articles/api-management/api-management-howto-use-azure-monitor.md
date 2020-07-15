@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982051"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243240"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -43,7 +43,7 @@ Il video seguente illustra come monitorare Gestione API usando Monitoraggio di A
 
 ## <a name="view-metrics-of-your-apis"></a>Visualizzare le metriche delle API
 
-Gestione API genera le metriche ogni minuto in modo da ottenere una visibilità quasi in tempo reale dello stato e dell'integrità delle API. Di seguito sono riportate le due metriche usate più di frequente. Per un elenco di tutte le metriche disponibili, vedere [Metriche supportate](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
+Gestione API genera le metriche ogni minuto in modo da ottenere una visibilità quasi in tempo reale dello stato e dell'integrità delle API. Di seguito sono riportate le due metriche usate più di frequente. Per un elenco di tutte le metriche disponibili, vedere [Metriche supportate](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
 
 * Capacità: consente di decidere se eseguire l'aggiornamento o il downgrade dei servizi di Gestione API. La metrica viene emessa ogni minuto e riflette la capacità del gateway nel momento in cui viene eseguito il report. La metrica è compresa tra 0 e 100 e viene calcolata in base alle risorse gateway, come utilizzo della CPU e della memoria.
 * Richieste: consente di analizzare il traffico API tramite i servizi di Gestione API. La metrica viene emessa al minuto e segnala il numero di richieste del gateway con dimensioni, inclusi i codici di risposta, la posizione, il nome host e gli errori. 

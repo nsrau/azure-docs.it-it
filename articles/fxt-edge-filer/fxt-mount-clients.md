@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 43223db298e4ad170ea6d0687a342b3aee35500e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80130760"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231353"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Esercitazione: Montare il cluster
 
@@ -93,14 +93,14 @@ Per garantire un montaggio senza problemi del client, passare le impostazioni e 
 
 ``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Impostazioni obbligatorie | |
+| Impostazioni obbligatorie | Descrizione |
 --- | ---
 ``hard`` | Un montaggio debole per il cluster Azure FXT Edge Filer può provocare errori dell'applicazione e la possibile perdita di dati.
 ``proto=netid`` | Questa opzione supporta la gestione appropriata degli errori di rete NFS.
 ``mountproto=netid`` | Questa opzione supporta la gestione appropriata degli errori di rete per le operazioni di montaggio.
 ``retry=n`` | Impostare ``retry=30`` per evitare errori di montaggio temporanei (per i montaggi in primo piano è consigliato un valore diverso).
 
-| Impostazioni preferite  | |
+| Impostazioni preferite  | Descrizione |
 --- | ---
 ``nointr``            | Se i client usano kernel del sistema operativo meno recenti (prima di aprile 2008) che supportano questa opzione, usarla. L'opzione "intr" è quella predefinita.
 

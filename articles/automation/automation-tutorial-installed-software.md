@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: d4acecbc6d1a1d7f617b0da95da1b97dc5a3dd75
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cad92ef376a14805049772cd0bfdbac04309f6c4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743678"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185824"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>Individuare quale software è installato nelle VM
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 Per completare questa esercitazione, sono necessari:
 
 * Una sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un [account di Automazione](automation-offering-get-started.md) per contenere i runbook watcher e azione e l'attività watcher.
+* Un [account di Automazione](./index.yml) per contenere i runbook watcher e azione e l'attività watcher.
 * Una [macchina virtuale](../virtual-machines/windows/quick-create-portal.md) da abilitare per la funzionalità.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
@@ -48,7 +48,7 @@ Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento mod
 
 1. Passare all'account di Automazione e selezionare **Inventario** o **Rilevamento modifiche** in **Gestione della configurazione**.
 
-2. Scegliere l'area di lavoro [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json). Questa area di lavoro raccoglie i dati generati da funzionalità come Rilevamento modifiche e inventario. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
+2. Scegliere l'area di lavoro [Log Analytics](../azure-monitor/log-query/log-query-overview.md). Questa area di lavoro raccoglie i dati generati da funzionalità come Rilevamento modifiche e inventario. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

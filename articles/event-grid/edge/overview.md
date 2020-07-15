@@ -1,18 +1,14 @@
 ---
 title: Architetture basate su eventi in Edge - Griglia di eventi di Azure in IoT Edge
 description: Usare Griglia di eventi di Azure come modulo in IoT Edge per inoltrare eventi tra moduli, dispositivi Edge e il cloud.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: overview
-ms.date: 10/22/2019
-ms.author: femila
-ms.openlocfilehash: d569a4be6c9747dea4280d17ed2f888c3bed9936
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 07/08/2020
+ms.openlocfilehash: 82a68f6ab32d8ad18c3af506c810b01d12cf794d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561675"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171517"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Che cos'è Griglia di eventi di Azure in Azure IoT Edge?
 Griglia di eventi su IoT Edge consente di sfruttare la potenza e la flessibilità di Griglia di eventi di Azure in Edge. È possibile creare argomenti, pubblicare eventi e sottoscrivere più destinazioni, sia che si tratti di moduli nello stesso dispositivo, altri dispositivi Edge o servizi nel cloud.

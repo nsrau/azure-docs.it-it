@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8dd47d27f928cb33e5a2bbc3ba9a6ab2bc044852
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75613959"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245382"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Esercitazione: Distribuire un'applicazione in un cluster autonomo di Service Fabric
 
@@ -52,7 +52,7 @@ Ora che l'applicazione è stata scaricata, è possibile distribuirla in un clust
 
 4. Fare clic con il pulsante destro del mouse sul progetto di applicazione `Voting` in Esplora soluzioni e scegliere **Pubblica**
 
-5. Selezionare l'elenco a discesa per **Endpoint connessione** e immettere il nome DNS pubblico di uno dei nodi del cluster.  Ad esempio: `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Si noti che in Azure, un nome di dominio completo (FQDN) non viene fornito automaticamente, ma può facilmente [essere impostato nella pagina della panoramica delle macchine virtuali.](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)
+5. Selezionare l'elenco a discesa per **Endpoint connessione** e immettere il nome DNS pubblico di uno dei nodi del cluster.  Ad esempio: `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Si noti che in Azure, un nome di dominio completo (FQDN) non viene fornito automaticamente, ma può facilmente [essere impostato nella pagina della panoramica delle macchine virtuali.](../virtual-machines/linux/portal-create-fqdn.md)
 
 6. Aprire il browser preferito e digitare l'indirizzo del cluster (l'endpoint della connessione; l'app viene distribuita nella porta 8080, ad esempio ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

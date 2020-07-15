@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 3cd5db3736d5eda88e7cad7bda1966efb2b00977
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 53031efa831f788fe0fe58146496b427f4cfb4db
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744745"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185535"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Esercitazione: Creare un runbook grafico
 
@@ -30,7 +30,7 @@ In questa esercitazione verranno illustrate le procedure per:
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Account di Automazione](../automation-offering-get-started.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure. Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
+* [Account di Automazione](../index.yml) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure. Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
 * Macchina virtuale di Azure. Poiché la macchina virtuale viene arrestata e avviata, non deve essere una macchina virtuale di produzione.
 
 ## <a name="step-1---create-runbook"></a>Passaggio 1: Creare un runbook
@@ -146,7 +146,7 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 
 ## <a name="step-6---add-authentication"></a>Passaggio 6: Aggiungere l'autenticazione
 
-Dopo avere creato una variabile che contiene l'ID sottoscrizione, è possibile configurare il runbook per l'autenticazione con le credenziali RunAs per la sottoscrizione. A tale scopo, aggiungere la connessione RunAs di Azure come asset. È anche necessario aggiungere il cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) e il cmdlet [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) all'area di disegno.
+Dopo avere creato una variabile che contiene l'ID sottoscrizione, è possibile configurare il runbook per l'autenticazione con le credenziali RunAs per la sottoscrizione. A tale scopo, aggiungere la connessione RunAs di Azure come asset. È anche necessario aggiungere il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) e il cmdlet [Set-AzContext](/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) all'area di disegno.
 
 >[!NOTE]
 >Per i runbook PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` sono alias per `Connect-AzAccount`. Si noti che questi alias non sono disponibili per i runbook grafici. Un runbook grafico può usare solo `Connect-AzAccount`.
@@ -213,7 +213,7 @@ Dopo avere creato una variabile che contiene l'ID sottoscrizione, è possibile c
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Passaggio 7: Aggiungere l'attività per avviare una macchina virtuale
 
-A questo punto è necessario aggiungere un'attività `Start-AzVM` per avviare una macchina virtuale. È possibile selezionare una macchina virtuale qualsiasi nella sottoscrizione di Azure. Per ora il nome sarà hardcoded nel cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/az.compute/start-azvm?view=azps-3.5.0).
+A questo punto è necessario aggiungere un'attività `Start-AzVM` per avviare una macchina virtuale. È possibile selezionare una macchina virtuale qualsiasi nella sottoscrizione di Azure. Per ora il nome sarà hardcoded nel cmdlet [Start-AzVM](/powershell/module/az.compute/start-azvm?view=azps-3.5.0).
 
 1. Nel controllo Libreria digitare `Start-Az` nel campo di ricerca.
 
@@ -270,7 +270,7 @@ Il runbook avvia la macchina virtuale nel gruppo di risorse specificato nel cmdl
 
 ## <a name="step-9---create-a-conditional-link"></a>Passaggio 9: Creare un collegamento condizionale
 
-A questo punto sarà possibile modificare il runbook in modo che provi solo ad avviare la macchina virtuale, se non è già avviata. A tale scopo, aggiungere un cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) che recupera lo stato a livello dell'istanza della macchina virtuale. Verrà quindi aggiunto un modulo Codice del flusso di lavoro PowerShell denominato `Get Status` con un frammento di codice PowerShell per determinare se lo stato della macchina virtuale è in esecuzione o arrestato. Un collegamento condizionale dal modulo `Get Status` eseguirà `Start-AzVM` solo se lo stato di esecuzione corrente è arrestato. Al termine di questa procedura, il runbook usa il cmdlet `Write-Output` per restituire un messaggio che indica se la macchina virtuale è stata avviata correttamente.
+A questo punto sarà possibile modificare il runbook in modo che provi solo ad avviare la macchina virtuale, se non è già avviata. A tale scopo, aggiungere un cmdlet [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) che recupera lo stato a livello dell'istanza della macchina virtuale. Verrà quindi aggiunto un modulo Codice del flusso di lavoro PowerShell denominato `Get Status` con un frammento di codice PowerShell per determinare se lo stato della macchina virtuale è in esecuzione o arrestato. Un collegamento condizionale dal modulo `Get Status` eseguirà `Start-AzVM` solo se lo stato di esecuzione corrente è arrestato. Al termine di questa procedura, il runbook usa il cmdlet `Write-Output` per restituire un messaggio che indica se la macchina virtuale è stata avviata correttamente.
 
 1. Aprire **MyFirstRunbook-Graphical** (MyFirstRunbook-Grafico) nell'editor grafico.
 
@@ -354,5 +354,4 @@ A questo punto sarà possibile modificare il runbook in modo che provi solo ad a
 * Per altre informazioni sulla creazione grafica, vedere [Creare un runbook grafico in Automazione di Azure](../automation-graphical-authoring-intro.md).
 * Per iniziare a usare i runbook PowerShell, vedere [Creare un runbook PowerShell](automation-tutorial-runbook-textual-powershell.md).
 * Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Creare un runbook del flusso di lavoro PowerShell](automation-tutorial-runbook-textual.md).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

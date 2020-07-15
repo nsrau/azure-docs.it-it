@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 561c45bd13648f5f17273b478f320e9fd3d71331
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 87a4741ea8a64445c10c73bb1204aef1a2fcfaaf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857599"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248799"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Guida introduttiva: Creare ed eseguire il push di immagini del contenitore Java in Registro Azure Container
 
@@ -177,4 +177,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker) (Introduzione a Spring Boot in Docker)
 * [Spring Initializr](https://start.spring.io)
 * [Distribuire un'applicazione Spring Boot nel servizio app di Azure](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
-* [Uso di un'immagine Docker personalizzata per App Web di Azure in Linux](/azure/app-service-web/app-service-linux-using-custom-docker-image)
+* [Uso di un'immagine Docker personalizzata per App Web di Azure in Linux](../app-service/containers/tutorial-custom-docker-image.md)

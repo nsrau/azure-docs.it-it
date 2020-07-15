@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 4a8353cf38c63e2642c7f76d05b4b7a2764e0706
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2c02f6858711173a2ddd2217bbb9e241a5a2109d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117382"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201466"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Guida introduttiva: Usare Cache Redis di Azure con un'app .NET Core
 
@@ -315,6 +315,7 @@ In questa guida introduttiva si è visto come usare Cache Redis di Azure da un'a
 > [!div class="nextstepaction"]
 > [Creare un'app Web ASP.NET che usa Cache Redis di Azure.](./cache-web-app-howto.md)
 
+Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
 
-
-
+> [!div class="nextstepaction"]
+> [Per iniziare, analizzare i costi con Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

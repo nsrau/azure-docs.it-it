@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 048161ec13edbd0cf474fb6598fdd9ff981077ae
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 5cde4967e85dbdab0b2d7177f9c09836a2082db2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611680"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244962"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Esercitazione: Monitorare un cluster di Service Fabric in Azure
 
@@ -41,7 +41,7 @@ In questa serie di esercitazioni si apprenderà come:
 Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* Installare [Azure PowerShell](/powershell/azure/install-az-ps) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * Creare un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) sicuro 
 * Configurare la [raccolta di diagnostica](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) per il cluster
 * Abilitare il [servizio EventStore](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) nel cluster

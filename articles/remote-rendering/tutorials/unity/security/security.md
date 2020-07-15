@@ -1,16 +1,16 @@
 ---
 title: Protezione di Rendering remoto di Azure e dello spazio di archiviazione dei modelli
 description: Applicare la protezione avanzata a un'applicazione di Rendering remoto per la sicurezza del contenuto
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: fa9bc317203a28d8c4302c89ddf536507d747e82
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85566412"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207811"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Esercitazione: Protezione di Rendering remoto di Azure e dello spazio di archiviazione dei modelli
 

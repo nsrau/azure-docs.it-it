@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 013281db2821c99f6942edd1322f4978e100c144
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a4c873e7ec1867b6ce53cd9f4c3d5c54242a6f16
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81729858"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232339"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per Java
 
@@ -167,7 +167,7 @@ Questi frammenti di codice di esempio illustrano come eseguire le azioni seguent
 * [Ottenere la stringa di connessione](#get-the-connection-string)
 * [Creare una coda](#create-a-queue)
 * [Aggiungere messaggi a una coda](#add-messages-to-a-queue)
-* [Visualizzare in anteprima i messaggi in una coda](#peek-at-messages -in-a-queue)
+* [Visualizzare in anteprima i messaggi in una coda](#peek-at-messages-in-a-queue)
 * [Aggiornare un messaggio in una coda](#update-a-message-in-a-queue)
 * [Ricevere ed eliminare messaggi da una coda](#receive-and-delete-messages-from-a-queue)
 * [Eliminare una coda](#delete-a-queue)

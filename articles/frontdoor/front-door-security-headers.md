@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/22/2020
 ms.author: mebeatty
-ms.openlocfilehash: 4d698375488d4dac551f0028883fc4e18a10d8ef
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: d489186dc1c012fe8c181f17e00bcdb999e230dd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323504"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232135"
 ---
 # <a name="add-security-headers-with-rules-engine"></a>Aggiungere intestazioni di sicurezza con il motore regole
 
 Implementare le intestazioni di sicurezza per evitare vulnerabilità basate sul browser come HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy o X-Frame-Options. Gli attributi basati sulla sicurezza possono anche essere definiti con i cookie.
 
-L'esempio seguente illustra come aggiungere un'intestazione Content-Security-Policy a tutte le richieste in ingresso che corrispondono al percorso definito nella route a cui è associata la configurazione del motore regole. In questo caso, nell'applicazione è consentita l'esecuzione di script solo dal sito attendibile **https://apis.contoso.com** .
+L'esempio seguente illustra come aggiungere un'intestazione Content-Security-Policy a tutte le richieste in ingresso che corrispondono al percorso definito nella route a cui è associata la configurazione del motore regole. In questo caso, nell'applicazione è consentita l'esecuzione di script solo dal sito attendibile **https://apiphany.portal.azure-api.net** .
 
 ## <a name="add-a-content-security-policy-header-in-azure-portal"></a>Aggiungere un'intestazione Content-Security-Policy nel portale di Azure
 
@@ -33,7 +33,7 @@ L'esempio seguente illustra come aggiungere un'intestazione Content-Security-Pol
 
 3. Impostare l'operatore **Accoda** per aggiungere questa intestazione come risposta a tutte le richieste in ingresso a questa route.
 
-4. Aggiungere il nome dell'intestazione: **Content-Security-Policy** e definire i valori che verranno accettati da questa intestazione. Per questo scenario, si sceglierà *"script-src 'self' https://apis.contoso.com."*
+4. Aggiungere il nome dell'intestazione: **Content-Security-Policy** e definire i valori che verranno accettati da questa intestazione. Per questo scenario, si sceglierà *"script-src 'self' https://apiphany.portal.azure-api.net."*
 
 5. Dopo aver aggiunto tutte le regole desiderate alla configurazione, non dimenticare di passare alla route preferita e associare la configurazione del motore regole alla regola di route. Questo passaggio è obbligatorio per il funzionamento della regola. 
 

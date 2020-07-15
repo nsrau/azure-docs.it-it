@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b8ce3c795bc9ad212331ce1c1f413fe7fd6da909
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75351866"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246751"
 ---
 # <a name="tutorial-remove-azure-resources"></a>Esercitazione: Rimuovere le risorse di Azure
 
@@ -62,4 +62,4 @@ Ora che è stata completata la pubblicazione di un'applicazione Service Fabric M
 * Esplorare l'[app di esempio Voting](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp) per un altro esempio di comunicazione da servizio a servizio
 * Per altre informazioni sul modello di risorse di Service Fabric, vedere [Service Fabric Mesh Resource Model](service-fabric-mesh-service-fabric-resources.md) (Modello di risorsa mesh Service Fabric).
 * Per altre informazioni su mesh Service Fabric, leggere la [panoramica di mesh Service Fabric](service-fabric-mesh-overview.md).
-* Leggere l'articolo su [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+* Leggere l'articolo su [Cloud Shell](../cloud-shell/overview.md).

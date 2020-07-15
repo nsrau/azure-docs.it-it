@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: eeb279892f987ed1f26ced97ab267e8140ccb20e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a3a5211864c4cbadc03bbc77bfef2204f6c2ccf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614061"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244804"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando i log di Monitoraggio di Azure
 
@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione, è necessario:
 Nel caso in cui sia stato usato il [modello fornito](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) nella prima parte di questa esercitazione, è necessario aggiungere le modifiche seguenti a un modello generico di Azure Resource Manager di Service Fabric. Se si dispone di un cluster e si vuole configurarlo per monitorare i contenitori con i log di Monitoraggio di Azure:
 
 * Apportare le modifiche seguenti al modello di Resource Manager.
-* Distribuire il modello usando PowerShell per aggiornare il cluster tramite la [distribuzione del modello](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager viene informato dell'esistenza della risorsa e la distribuisce come aggiornamento.
+* Distribuire il modello usando PowerShell per aggiornare il cluster tramite la [distribuzione del modello](./service-fabric-cluster-creation-via-arm.md). Azure Resource Manager viene informato dell'esistenza della risorsa e la distribuisce come aggiornamento.
 
 ### <a name="adding-azure-monitor-logs-to-your-cluster-template"></a>Aggiunta dei log di Monitoraggio di Azure al modello di cluster
 
@@ -233,6 +233,6 @@ In questa esercitazione sono state illustrate le procedure per:
 Il monitoraggio dell'applicazione in contenitori è ora impostato ed è quindi possibile eseguire le operazioni seguenti:
 
 * Configurare i log di Monitoraggio di Azure per un cluster Linux seguendo una procedura simile a quella appena illustrata. Fare riferimento a [questo modello](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) per apportare le modifiche al modello di Resource Manager.
-* Configurare i log di Monitoraggio di Azure per impostare gli [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) per semplificare il rilevamento e la diagnostica.
+* Configurare i log di Monitoraggio di Azure per impostare gli [avvisi automatizzati](../azure-monitor/platform/alerts-overview.md) per semplificare il rilevamento e la diagnostica.
 * Esplorare l'elenco di [contatori delle prestazioni consigliati](service-fabric-diagnostics-event-generation-perf.md) in Service Fabric per configurare i cluster.
-* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) incluse nei log di Monitoraggio di Azure.
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../azure-monitor/log-query/log-query-overview.md) incluse nei log di Monitoraggio di Azure.
