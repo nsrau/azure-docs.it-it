@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: a9dab2ca844feb1c24dfffc48b4f29cd1a311314
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7967b58819523173fd66d45eeabeaddc8605a21d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76153192"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229466"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>Informazioni su Avere vFXT per Azure
 
@@ -66,7 +66,7 @@ Il cluster Avere vFXT memorizza i file nella cache quando vengono richiesti. In 
 
 Avere vFXT per Azure usa le risorse di Azure seguenti:
 
-|Componente di Azure|   |
+|Componente di Azure| Risorsa |
 |----------|-----------|
 |Macchine virtuali|3 o più E32_v3|
 |Archiviazione SSD Premium|200 GB di spazio del sistema operativo più 1-4 TB di spazio di memorizzazione nella cache per nodo |

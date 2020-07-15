@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ea625fbe28dad08ec2c3e2a64bada96460a04225
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c43906468ee0124187dc5ce6d6f1405e3b96b2e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415561"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231234"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Confrontare Azure Data Factory con Data Factory versione 1
 
@@ -130,14 +130,14 @@ Gli SDK aggiornati nella versione corrente non sono compatibili con i client ver
 
 ## <a name="authoring-experience"></a>Esperienza di creazione
 
-| &nbsp; | V2 | V1 |
+| | Versione 2 | Versione 1 |
 | ------ | -- | -- | 
-| Portale di Azure | [Sì](quickstart-create-data-factory-portal.md) | No |
-| Azure PowerShell | [Sì](quickstart-create-data-factory-powershell.md) | [Sì](data-factory-build-your-first-pipeline-using-powershell.md) |
-| .NET SDK | [Sì](quickstart-create-data-factory-dot-net.md) | [Sì](data-factory-build-your-first-pipeline-using-vs.md) |
-| API REST | [Sì](quickstart-create-data-factory-rest-api.md) | [Sì](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| Python SDK | [Sì](quickstart-create-data-factory-python.md) | No |
-| Modello di Resource Manager | [Sì](quickstart-create-data-factory-resource-manager-template.md) | [Sì](data-factory-build-your-first-pipeline-using-arm.md) | 
+| **Azure portal** | [Sì](quickstart-create-data-factory-portal.md) | No |
+| **Azure PowerShell** | [Sì](quickstart-create-data-factory-powershell.md) | [Sì](data-factory-build-your-first-pipeline-using-powershell.md) |
+| **.NET SDK** | [Sì](quickstart-create-data-factory-dot-net.md) | [Sì](data-factory-build-your-first-pipeline-using-vs.md) |
+| **REST API** | [Sì](quickstart-create-data-factory-rest-api.md) | [Sì](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| **Python SDK** | [Sì](quickstart-create-data-factory-python.md) | No |
+| **Modello di Resource Manager** | [Sì](quickstart-create-data-factory-resource-manager-template.md) | [Sì](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Ruoli e autorizzazioni
 

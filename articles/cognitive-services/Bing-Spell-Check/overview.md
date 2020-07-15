@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 5586704e098fc568c714e779c2eed44aa3d1df9c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 205d7991551ca48c3ea2e61baef53f5d06bdcbd2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383000"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200499"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Informazioni sull'API Controllo ortografico Bing
 
@@ -23,8 +23,7 @@ L'API Controllo ortografico Bing consente di eseguire il controllo grammaticale 
 
 ## <a name="features"></a>Funzionalità
 
-
-|  |  |
+| Funzionalità | Descrizione |
 |---------|---------|
 |Modalità multiple di controllo ortografico     | Le modalità multiple di controllo ortografico permettono di ottenere correzioni incentrate sulla grammatica e/o sull'ortografia. |
 |Riconoscimento di espressioni gergali e linguaggio informale     | Vengono riconosciuti le espressioni comuni e i termini informali usati nel testo.         |
@@ -43,6 +42,6 @@ L'API Controllo ortografico Bing può essere chiamata facilmente da qualsiasi li
 
 Provare prima di tutto la [demo interattiva](https://azure.microsoft.com/services/cognitive-services/spell-check/) dell'API Controllo ortografico Bing per scoprire come è possibile controllare rapidamente una vasta gamma di testi.
 
-Quando si è pronti per chiamare l'API, creare un [account API servizi cognitivi](../../cognitive-services/cognitive-services-apis-create-account.md). Se non si ha una sottoscrizione di Azure, è possibile [creare un account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuito.
+Quando si è pronti per chiamare l'API, creare un [account API servizi cognitivi](../../cognitive-services/cognitive-services-apis-create-account.md). Se non si ha una sottoscrizione di Azure, è possibile [creare un account](https://azure.microsoft.com/free/cognitive-services/) gratuito.
 
 Per esplorare le altre API disponibili, è anche possibile visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/search-the-web.md).

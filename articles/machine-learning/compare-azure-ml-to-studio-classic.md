@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
-ms.openlocfilehash: 065fd166fb2ce82a3338322d55ef1ee5886ac56b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 1d4896a2dd2115e5654baffe394618b30a294d5b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210372"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231744"
 ---
 # <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning e Machine Learning Studio (versione classica)
 
@@ -27,7 +27,7 @@ Azure Machine Learning fornisce Python SDK e R SDK **e** la finestra di progetta
 
 Nella tabella seguente sono riepilogate alcune delle differenze principali tra Azure Machine Learning e Studio (versione classica):
 
-| | Machine Learning Studio (versione classica) | Azure Machine Learning |
+| Funzionalità | Machine Learning Studio (versione classica) | Azure Machine Learning |
 |---| --- | --- |
 | Interfaccia per il trascinamento della selezione | Supportato | Supportato - [Finestra di progettazione di Azure Machine Learning (anteprima)](concept-designer.md) <br/>(Richiede l'area di lavoro Enterprise) | 
 | Esperimento | Scalabile (limite dei dati di training di 10 GB) | Ridimensionamento con destinazione di calcolo |

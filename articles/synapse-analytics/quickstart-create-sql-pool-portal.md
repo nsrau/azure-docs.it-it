@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 966ca099c44ba8b0f2d3241c391f4d7a101afb26
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 768b559ddaf7364726cb26a34d12f357d4126426
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955098"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274255"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>Guida introduttiva: creare un pool Synapse SQL (anteprima) con il portale di Azure
+# <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>Avvio rapido: creare un pool Synapse SQL (anteprima) con il portale di Azure
 
 Azure Synapse Analytics offre vari motori di analisi che consentono di inserire, trasformare, modellare e analizzare i dati. Un pool SQL offre funzionalità di calcolo e archiviazione basate su T-SQL. Dopo aver creato un pool SQL nell'area di lavoro di Synapse, è possibile caricare, modellare, elaborare e consegnare i dati per ottenere dati analitici in modo più rapido.
 
@@ -61,7 +61,7 @@ Accedere al [portale di Azure](https://portal.azure.com/)
 ![Flusso di creazione del pool SQL - Scheda Impostazioni aggiuntive.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
 5. Selezionare **Rivedi e crea**.
-6. Verificare che i dettagli siano corretti in base a quanto specificato in precedenza. Selezionare **Create** (Crea).
+6. Verificare che i dettagli siano corretti in base a quanto specificato in precedenza. Selezionare **Crea**.
 ![Flusso di creazione del pool SQL - Scheda Revisione impostazioni.](media/quickstart-create-sql-pool/create-sql-pool-portal-04.png)
 
 7. A questo punto, verrà avviato il flusso di provisioning delle risorse.

@@ -1,5 +1,5 @@
 ---
-title: Connettersi a Collegamento ad Azure Synapse per Azure Cosmos DB
+title: 'Avvio rapido: Connettersi a Collegamento ad Azure Synapse per Azure Cosmos DB'
 description: Come connettere un database Azure Cosmos DB a un'area di lavoro di Synapse con Collegamento a Synapse
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 81cc7745790c7a89576dc5d0ff925dbaff2b2334
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 56b018326e8673e6ac9e625a5732a08238f982fd
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700391"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274323"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Connettersi a Collegamento ad Azure Synapse per Azure Cosmos DB
 

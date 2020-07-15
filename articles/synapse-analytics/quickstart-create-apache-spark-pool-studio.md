@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva - Creare un pool di Apache Spark (anteprima) tramite Synapse Studio
+title: 'Avvio rapido: Creare un pool di Apache Spark (anteprima) tramite Synapse Studio'
 description: Creare un nuovo pool di Apache Spark tramite Synapse Studio seguendo i passaggi descritti in questa guida.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c945e56aa0b6f851f54cf7679276558190b4bc10
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 87fcbef5a3cedab3142fe9ad47c68752515fdd2e
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194960"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274340"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Guida introduttiva: Creare un pool di Apache Spark (anteprima) tramite Synapse Studio
+# <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Avvio rapido: Creare un pool di Apache Spark (anteprima) tramite Synapse Studio
 
 Azure Synapse Analytics offre vari motori di analisi che consentono di inserire, trasformare, modellare, analizzare e gestire i dati. Un pool di Apache Spark offre funzionalità di calcolo open source per i Big Data. Dopo aver creato un pool di Apache Spark nell'area di lavoro Synapse, è possibile caricare, modellare, elaborare e gestire i dati per ottenere informazioni dettagliate.  
 

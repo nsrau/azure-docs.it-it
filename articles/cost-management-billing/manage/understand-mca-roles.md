@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84702602"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207213"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per i contratti dei clienti Microsoft in Azure
 
@@ -141,12 +141,12 @@ Le tabelle seguenti indicano il ruolo necessario per completare le attività nel
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Gestire le autorizzazioni e le proprietà della sezione della fattura
 
-|Attività|Proprietario della sezione della fattura|Collaboratore per la sezione della fattura|Ruolo con autorizzazioni di lettura per la sezione della fattura|Autore di sottoscrizioni di Azure|Proprietario dell'account di fatturazione|Collaboratore per l'account di fatturazione|Lettore per l'account di fatturazione | |
-|---|---|---|---|---|---|---|---|---|
-|Visualizzare tutte le autorizzazioni per la sezione della fattura|✔|✔|✔|✔|✔|✔|✔| |
-|Concedere ad altri utenti le autorizzazioni per visualizzare e gestire la sezione della fattura|✔|✘|✘|✘|✘|✘|✘| |
-|Visualizzare le proprietà della sezione della fattura|✔|✔|✔|✔|✔|✔|✔| |
-|Aggiornare le proprietà della sezione della fattura|✔|✔|✘|✘|✘|✘|✘|✘|
+|Attività|Proprietario della sezione della fattura|Collaboratore per la sezione della fattura|Ruolo con autorizzazioni di lettura per la sezione della fattura|Autore di sottoscrizioni di Azure|Proprietario dell'account di fatturazione|Collaboratore per l'account di fatturazione|Lettore per l'account di fatturazione |
+|---|---|---|---|---|---|---|---|
+|Visualizzare tutte le autorizzazioni per la sezione della fattura|✔|✔|✔|✔|✔|✔|✔|
+|Concedere ad altri utenti le autorizzazioni per visualizzare e gestire la sezione della fattura|✔|✘|✘|✘|✘|✘|✘|
+|Visualizzare le proprietà della sezione della fattura|✔|✔|✔|✔|✔|✔|✔|
+|Aggiornare le proprietà della sezione della fattura|✔|✔|✘|✘|✘|✘|✘|
 
 ### <a name="manage-products-for-invoice-section"></a>Gestire i prodotti per la sezione della fattura
 

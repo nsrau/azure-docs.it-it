@@ -7,12 +7,12 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c66766b39ae104cf4a031c3fd73c173e81d47fb8
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b6dc5ba59aa563da6e7c19e6c821f4a9b697832f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563495"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206529"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 con Xamarin
 
@@ -26,7 +26,12 @@ Usare la libreria client di Archiviazione BLOB di Azure v12 con Xamarin per:
 * Scaricare il BLOB nel dispositivo
 * Eliminare un contenitore
 
-[Documentazione di riferimento dell'API](/dotnet/api/azure.storage.blobs) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Esempio](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+Collegamenti di riferimento:
+
+* [Documentazione di riferimento delle API](/dotnet/api/azure.storage.blobs)
+* [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+* [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [Esempio](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
