@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84690201"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254657"
 ---
 # <a name="about-api-management"></a>Informazioni su Gestione API
 
@@ -102,7 +102,7 @@ Per altre informazioni, vedere [Come creare o invitare sviluppatori][How to crea
 ## <a name="policies"></a><a name="policies"> </a> Criteri
 I criteri sono una funzionalità avanzata di Gestione API e consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare il numero di chiamate in ingresso da uno sviluppatore. Sono anche disponibili numerosi altri criteri.
 
-Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose](/azure/api-management/api-management-advanced-policies#choose) e [set variable](/azure/api-management/api-management-advanced-policies#set-variable), sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) ed [Espressioni di criteri](/azure/api-management/api-management-policy-expressions).
+Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose](./api-management-advanced-policies.md#choose) e [set variable](./api-management-advanced-policies.md#set-variable), sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati](./api-management-advanced-policies.md#AdvancedPolicies) ed [Espressioni di criteri](./api-management-policy-expressions.md).
 
 
 Per un elenco completo dei criteri di Gestione API, vedere [Riferimenti per i criteri][Policy reference]. Per altre informazioni sull'uso e la configurazione dei criteri, vedere [Criteri di Gestione API][API Management policies]. Per un'esercitazione sulla creazione di un prodotto con criteri per la limitazione della frequenza e per le quote, vedere [Come creare e configurare impostazioni di prodotto avanzate][How create and configure advanced product settings].
@@ -135,17 +135,13 @@ Completare la guida di avvio rapido seguente e iniziare a usare Gestione API:
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: api-management-howto-create-apis.md
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create APIs]: ./import-and-publish.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 [How create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
-[Policy reference]: api-management-policy-reference.md
+[Policy reference]: ./api-management-policies.md
 [API Management policies]: api-management-howto-policies.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-
-
-
-

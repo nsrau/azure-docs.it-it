@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 447af1580f601c1f55690434b371aeeed2d335a0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cc71603add2caeb277f8083d292832a374a95544
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106340"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251502"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes con un modello di Resource Manager
 
@@ -305,7 +305,7 @@ Per altre informazioni sul servizio Azure Container e l'analisi del codice compl
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 [aks-quickstart-templates]: https://azure.microsoft.com/resources/templates/?term=Azure+Kubernetes+Service
 
 <!-- LINKS - internal -->

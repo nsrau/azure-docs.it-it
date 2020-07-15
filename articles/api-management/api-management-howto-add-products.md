@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 686d6e2ff01fd4d8283350ab8097e1f73c914af0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d90b212286b555bf5b858990fd5dcb062348be8d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81260997"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254725"
 ---
 # <a name="create-and-publish-a-product"></a>Creare e pubblicare un prodotto  
 
@@ -85,7 +85,7 @@ Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodot
 4. Scegliere un'API e fare clic su **Seleziona**.
 
 > [!TIP]
-> È possibile creare o aggiornare la sottoscrizione dell'utente a un *Prodotto* con chiavi di sottoscrizione personalizzate [tramite l'API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate) o un comando PowerShell.
+> È possibile creare o aggiornare la sottoscrizione dell'utente a un *Prodotto* con chiavi di sottoscrizione personalizzate [tramite l'API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) o un comando PowerShell.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

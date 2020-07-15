@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/01/2020
 ms.author: apimpm
-ms.openlocfilehash: 9af20972a47e2d0ad20de62f1bb9d10e4d43563c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5814ff3909aa36ccfd9e14033f200fb4d3b8d32d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82702652"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252856"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>Esportare API da Gestione API di Azure a Power Platform 
 
@@ -29,7 +29,7 @@ Questo articolo illustra i passaggi per esportare le API da Gestione API a Power
 
 + Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 + Assicurarsi che nell'istanza di Gestione API sia presente un'API che si vuole esportare in Power Platform
-+ Assicurarsi di avere un [ambiente](https://docs.microsoft.com/powerapps/powerapps-overview#power-apps-for-admins) Power Apps o Power Automate 
++ Assicurarsi di avere un [ambiente](/powerapps/powerapps-overview#power-apps-for-admins) Power Apps o Power Automate 
 
 ## <a name="export-an-api"></a>Esportare un'API
 
@@ -47,4 +47,4 @@ Al termine dell'esportazione, passare all'ambiente Power App o Power Automate. L
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Altre informazioni su Power Platform](https://powerplatform.microsoft.com/)
-* [Informazioni sulle attività comuni eseguibili in Gestione API seguendo le esercitazioni](https://docs.microsoft.com/azure/api-management/import-and-publish)
+* [Informazioni sulle attività comuni eseguibili in Gestione API seguendo le esercitazioni](./import-and-publish.md)

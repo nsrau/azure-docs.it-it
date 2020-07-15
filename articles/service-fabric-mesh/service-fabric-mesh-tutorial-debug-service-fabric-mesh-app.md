@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 586641d721d0c29bcd6d7b42fc8ca9141df96c66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75494950"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261313"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Esercitazione: eseguire il debug di un'applicazione Azure Service Fabric Mesh in esecuzione nel cluster di sviluppo locale
 
@@ -77,7 +77,7 @@ Attualmente si verifica un problema a causa del quale la chiamata a `using (Http
 
 Se viene visualizzato l'errore **No Service Fabric local cluster is running** (Nessun cluster locale di Service Fabric è in esecuzione), assicurarsi che Service Fabric Local Cluster Manager (LCM) sia in esecuzione, fare clic con il pulsante destro del mouse sull'icona LCM sulla barra delle applicazioni e quindi fare clic su **Start Local Cluster** (Avvia cluster locale). Dopo l'avvio, tornare a Visual Studio e premere **F5**.
 
-Se viene visualizzato un errore **404** all'avvio dell'app, è possibile che le variabili di ambiente in **service.yaml** non siano corrette. Assicurarsi che `ApiHostPort` e `ToDoServiceName` siano impostati conformemente alle istruzioni della sezione [Creare le variabili di ambiente](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+Se viene visualizzato un errore **404** all'avvio dell'app, è possibile che le variabili di ambiente in **service.yaml** non siano corrette. Assicurarsi che `ApiHostPort` e `ToDoServiceName` siano impostati conformemente alle istruzioni della sezione [Creare le variabili di ambiente](./service-fabric-mesh-tutorial-create-dotnetcore.md#create-environment-variables).
 
 Se sono presenti errori di compilazione in **service.yaml**, assicurarsi che per impostare i rientri delle righe vengano usati gli spazi e non le tabulazioni. Inoltre, per il momento, è necessario compilare l'app usando le impostazioni locali inglese.
 

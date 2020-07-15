@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: d6522d417556104a1ece703c725f3fbeab49d683
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75458975"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257809"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Informazioni su Service Fabric Mesh
 
@@ -42,7 +42,7 @@ Con Service Fabric Mesh è possibile:
 
 - Distribuire e gestire le applicazioni senza dover effettuare il provisioning e gestire l'infrastruttura in modo esplicito.  Service Fabric Mesh esegue il provisioning, aggiorna, applica le patch e gestisce automaticamente l'infrastruttura sottostante.
 - Configurare l'integrazione continua, usando gli strumenti integrati per creare pacchetti delle applicazioni e distribuirle facilmente.
-- Sfruttare tutte le funzionalità delle risorse di Azure Resource Manager. Esempi di queste funzionalità sono l'audit trail e il [controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview). Tutte le risorse distribuite nel servizio Service Fabric Mesh in Azure sono risorse di Azure Resource Manager. Queste risorse includono applicazioni, servizi, segreti e così via.
+- Sfruttare tutte le funzionalità delle risorse di Azure Resource Manager. Esempi di queste funzionalità sono l'audit trail e il [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md). Tutte le risorse distribuite nel servizio Service Fabric Mesh in Azure sono risorse di Azure Resource Manager. Queste risorse includono applicazioni, servizi, segreti e così via.
 - Distribuire e gestire risorse usando il [portale di Azure](https://portal.azure.com), i modelli di Resource Manager o le librerie dell'interfaccia della riga di comando di Azure o di PowerShell.
 - Configurare il monitoraggio e gli avvisi di funzionamento usando [Application Insights](/azure/application-insights/) (o uno strumento a scelta) per acquisire le tracce operative e diagnostiche dalla piattaforma.
 - Accedere alle informazioni di diagnostica dell'applicazione generate dal modello dell'applicazione usando [Application Insights](/azure/application-insights/) o uno strumento a scelta.
@@ -50,14 +50,14 @@ Con Service Fabric Mesh è possibile:
 
 ## <a name="mission-critical-platform-capabilities"></a>Funzionalità strategiche della piattaforma
 
-Service Fabric Mesh crea una raccolta di cluster che si estendono oltre le [zone di disponibilità di Azure](/azure/availability-zones/az-overview) e/o i confini delle aree geopolitiche. Azure Service Fabric Mesh descrive le applicazioni usando un set di finalità, ad esempio la scalabilità, i requisiti hardware, i requisiti di durabilità e i criteri di sicurezza.  Durante la distribuzione dell'applicazione Service Fabric Mesh individua il punto ottimale in cui eseguirla.
+Service Fabric Mesh crea una raccolta di cluster che si estendono oltre le [zone di disponibilità di Azure](../availability-zones/az-overview.md) e/o i confini delle aree geopolitiche. Azure Service Fabric Mesh descrive le applicazioni usando un set di finalità, ad esempio la scalabilità, i requisiti hardware, i requisiti di durabilità e i criteri di sicurezza.  Durante la distribuzione dell'applicazione Service Fabric Mesh individua il punto ottimale in cui eseguirla.
 
 Con Service Fabric Mesh è possibile:
 
 - Sfruttare i vantaggi di disponibilità elevata, riduzione/aumento della scalabilità, individuabilità, orchestrazione, routing dei messaggi, messaggistica affidabile, aggiornamenti senza tempo di inattività, gestione di sicurezza/segreti, ripristino di emergenza, gestione dello stato, gestione della configurazione e transazioni distribuite.
 - Scegliere tra più modelli di applicazione durante la creazione di applicazioni.
 - Usare le funzionalità della piattaforma esposte tramite endpoint REST utilizzando binding specifici del linguaggio generati con Swagger.
-- Distribuire applicazioni nelle [zona di disponibilità](/azure/availability-zones/az-overview) e in più aree per l'affidabilità a livello geografico.
+- Distribuire applicazioni nelle [zona di disponibilità](../availability-zones/az-overview.md) e in più aree per l'affidabilità a livello geografico.
 - Usare tutte le funzionalità di sicurezza e conformità offerte da Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi

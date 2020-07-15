@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 29e1bb33b98b1fbc8fcfcd541d0014ca1bc75d8d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f2eead8dfd1f4d88d28de1f70134dcfcad8471d3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84114128"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259757"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Esercitazione: Configurare gli avvisi dei servizi
 
@@ -61,4 +61,4 @@ Per configurare avvisi del servizio:
 In questa esercitazione si è appreso come configurare e usare il servizio di integrità dei servizi di Azure per monitorare i problemi del servizio e gli avvisi sull'integrità per Desktop virtuale Windows. Per informazioni su come accedere a Desktop virtuale Windows, continuare con le procedure per connettersi a Desktop virtuale Windows.
 
 > [!div class="nextstepaction"]
-> [Connettersi al client di Desktop remoto in Windows 7 e Windows 10](../connect-windows-7-and-10.md)
+> [Connettersi al client di Desktop remoto in Windows 7 e Windows 10](connect-windows-7-10-2019.md)

@@ -11,12 +11,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: 2b45154a0198fe0845649167d0fa35aabfd0625e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c55e93e4fe8baf04504f1cff6e762dfcb5c46c18
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82207395"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251477"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure
 
@@ -67,7 +67,7 @@ L'output di esempio seguente mostra il gruppo di risorse creato correttamente:
 Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Viene inoltre abilitato Monitoraggio di Azure per i contenitori mediante il parametro *--enable-addons monitoring*.  Questa operazione richiede alcuni minuti.
 
 > [!NOTE]
-> Quando si crea un cluster del servizio Azure Kubernetes, viene creato automaticamente un secondo gruppo di risorse per archiviare le risorse del servizio Azure Kubernetes. Per altre informazioni, vedere [Perché vengono creati due gruppi di risorse con servizio Azure Kubernetes?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
+> Quando si crea un cluster del servizio Azure Kubernetes, viene creato automaticamente un secondo gruppo di risorse per archiviare le risorse del servizio Azure Kubernetes. Per altre informazioni, vedere [Perché vengono creati due gruppi di risorse con servizio Azure Kubernetes?](./faq.md#why-are-two-resource-groups-created-with-aks)
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -271,7 +271,7 @@ Per altre informazioni sul servizio Azure Container e l'analisi del codice compl
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md

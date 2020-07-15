@@ -4,12 +4,12 @@ description: Informazioni su come creare rapidamente un cluster Kubernetes, dist
 services: container-service
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 74a71bdc4c9aef9a6964f0c9120a902262a50526
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e786b64554b5fbaf5bb7051e09daca8fb1eaf049
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207142"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251459"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes tramite PowerShell
 
@@ -37,7 +37,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite. Quando si crea un gruppo di risorse, viene chiesto di specificare una posizione. Questo è il percorso in cui vengono archiviati i metadati del gruppo di risorse, ma anche quello in cui vengono eseguite le risorse in Azure se non si specifica un'altra area durante la creazione della risorsa. Creare un gruppo di risorse con il cmdlet [New-AzResourceGroup][new-azresourcegroup].
+Un [gruppo di risorse](../azure-resource-manager/management/overview.md) di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite. Quando si crea un gruppo di risorse, viene chiesto di specificare una posizione. Questo è il percorso in cui vengono archiviati i metadati del gruppo di risorse, ma anche quello in cui vengono eseguite le risorse in Azure se non si specifica un'altra area durante la creazione della risorsa. Creare un gruppo di risorse con il cmdlet [New-AzResourceGroup][new-azresourcegroup].
 
 L'esempio seguente crea un gruppo di risorse denominato **myResourceGroup** nell'area **eastus**.
 
@@ -57,12 +57,12 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## <a name="create-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Usare l'utilità della riga di comando `ssh-keygen` per generare una coppia di chiavi SSH. Per altre informazioni, vedere i [passaggi rapidi: Creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
+Usare l'utilità della riga di comando `ssh-keygen` per generare una coppia di chiavi SSH. Per altre informazioni, vedere i [passaggi rapidi: Creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 Usare il cmdlet [New-AzAks][new-azaks] per creare un cluster del servizio Azure Kubernetes. L'esempio seguente crea un cluster denominato **myAKSCluster** con un nodo. Anche Monitoraggio di Azure per i contenitori è abilitato per impostazione predefinita. Il completamento dell'operazione richiede alcuni minuti.
 
 > [!NOTE]
-> Quando si crea un cluster del servizio Azure Kubernetes, viene creato automaticamente un secondo gruppo di risorse per archiviare le risorse del servizio Azure Kubernetes. Per altre informazioni, vedere [Perché vengono creati due gruppi di risorse con servizio Azure Kubernetes?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
+> Quando si crea un cluster del servizio Azure Kubernetes, viene creato automaticamente un secondo gruppo di risorse per archiviare le risorse del servizio Azure Kubernetes. Per altre informazioni, vedere [Perché vengono creati due gruppi di risorse con servizio Azure Kubernetes?](./faq.md#why-are-two-resource-groups-created-with-aks)
 
 ```azurepowershell-interactive
 New-AzAks -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
@@ -266,7 +266,7 @@ Per altre informazioni sul servizio Azure Container e l'analisi del codice compl
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 

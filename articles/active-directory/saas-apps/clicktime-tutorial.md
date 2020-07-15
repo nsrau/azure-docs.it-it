@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27803187e06ee523ff7e6b773bd302eed7422111
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b0db29309c2f691a1c7811258fee59582643a6e6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608875"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256084"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Esercitazione: Integrazione di Azure Active Directory con ClickTime
 
@@ -110,10 +110,10 @@ Per configurare l'accesso Single Sign-On di Azure AD con ClickTime, seguire ques
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
     
-        ```https
-        https://app.clicktime.com/Login/
-        https://app.clicktime.com/App/Login/Consume.aspx
-        ```
+    ```http
+    https://app.clicktime.com/Login/
+    https://app.clicktime.com/App/Login/Consume.aspx
+    ```
 
 4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 

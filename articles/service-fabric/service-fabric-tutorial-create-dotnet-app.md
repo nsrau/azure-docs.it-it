@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come creare un'applicazione con un fr
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc
-ms.openlocfilehash: f7bad66d15cc2f9fb1885e440f95e76e12ea458a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: dc869dce536449a901826db3b0d964bf17abbbec
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214027"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257127"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 
@@ -41,7 +41,7 @@ Prima di iniziare questa esercitazione:
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Creare un servizio API Web ASP.NET come servizio Reliable
 
-Per prima cosa, creare il front-end Web dell'applicazione di voto usando ASP.NET Core. ASP.NET Core è un framework di sviluppo Web multipiattaforma leggero, che consente di creare un'interfaccia utente Web e API Web moderne. Per comprendere a fondo la modalità di integrazione di ASP.NET Core con Service Fabric, si consiglia di leggere l'articolo [ASP.NET Core in Reliable Services di Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Per il momento, è possibile seguire questa esercitazione per essere subito operativi. Per altre informazioni su ASP.NET Core, vedere la [documentazione di ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
+Per prima cosa, creare il front-end Web dell'applicazione di voto usando ASP.NET Core. ASP.NET Core è un framework di sviluppo Web multipiattaforma leggero, che consente di creare un'interfaccia utente Web e API Web moderne. Per comprendere a fondo la modalità di integrazione di ASP.NET Core con Service Fabric, si consiglia di leggere l'articolo [ASP.NET Core in Reliable Services di Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Per il momento, è possibile seguire questa esercitazione per essere subito operativi. Per altre informazioni su ASP.NET Core, vedere la [documentazione di ASP.NET Core](/aspnet/core/).
 
 1. Avviare Visual Studio come **amministratore**.
 

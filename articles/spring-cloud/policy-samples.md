@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Azure Spring Cloud
-description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Spring Cloud. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 06/23/2020
+description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Spring Cloud. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 07/10/2020
 ms.topic: sample
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 7988c78b651fb3c5db6df47e1793342440b0d724
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 527edc45b127de8825b3b0356d5074da7cd50a89
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321711"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274110"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-spring-cloud"></a>Definizioni predefinite di Criteri di Azure per Azure Spring Cloud
 

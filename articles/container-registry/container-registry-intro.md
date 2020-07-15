@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: fbb5117d0650c5a3768cab4057303f8b73a0685b
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 6951dfe3eecc8764dda9788393a7348e9267cef8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657659"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248867"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduzione ai registri per contenitori Docker privati in Azure
 
@@ -26,7 +26,7 @@ Per altre informazioni sui concetti di Docker e registro, vedere la [panoramica 
 Effettuare il pull di immagini da un Registro Azure Container a varie destinazioni di distribuzione:
 
 * **Sistemi di orchestrazione scalabili** che gestiscono applicazioni in contenitori fra più cluster host, quali [Kubernetes](https://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/) e [Docker Swarm](https://docs.docker.com/get-started/swarm-deploy/).
-* **Servizi di Azure** che supportano la creazione e l'esecuzione di applicazioni su vasta scala, inclusi il [servizio Azure Kubernetes](../aks/index.yml), il [servizio app](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) e altri.
+* **Servizi di Azure** che supportano la creazione e l'esecuzione di applicazioni su vasta scala, inclusi il [servizio Azure Kubernetes](../aks/index.yml), il [servizio app](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml) e altri.
 
 Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un registro contenitori da uno strumento di distribuzione e recapito continui, come [Azure Pipelines](/azure/devops/pipelines/ecosystems/containers/acr-template) o [Jenkins](https://jenkins.io/).
 

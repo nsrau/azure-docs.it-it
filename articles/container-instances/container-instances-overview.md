@@ -4,12 +4,12 @@ description: Il servizio Istanze di Azure Container rappresenta il modo più sem
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695285"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259499"
 ---
 # <a name="what-is-azure-container-instances"></a>Informazioni su Istanze di Azure Container
 
@@ -43,7 +43,7 @@ Per i processi a elevato utilizzo di calcolo, ad esempio l'apprendimento automat
 
 ## <a name="persistent-storage"></a>Archiviazione permanente
 
-Per recuperare e rendere persistente lo stato con Istanze di Azure Container, è disponibile il [montaggio diretto di condivisioni di File di Azure](container-instances-mounting-azure-files-volume.md), supportato da Archiviazione di Azure.
+Per recuperare e rendere persistente lo stato con Istanze di Azure Container, è disponibile il [montaggio diretto di condivisioni di File di Azure](./container-instances-volume-azure-files.md), supportato da Archiviazione di Azure.
 
 ## <a name="linux-and-windows-containers"></a>Contenitori Linux e Windows
 

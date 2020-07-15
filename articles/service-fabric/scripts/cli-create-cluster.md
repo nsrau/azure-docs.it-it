@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2ef8f322ff17eeb5d75d3cc8e4f8604f02d4ef0e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: b454ab7396b8185e344944d7ff526414540032e2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366547"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258922"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Creare un cluster Linux di Service Fabric protetto in Azure
 
@@ -45,7 +45,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest) | Crea un nuovo cluster di Service Fabric.  |
+| [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) | Crea un nuovo cluster di Service Fabric.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

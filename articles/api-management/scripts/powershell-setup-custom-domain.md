@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 08bd36ae1d8498d40d997ce03a9d8e4a3d5aef9e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed3cda35b416eb171b8bb7970fcce38a1f916f30
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70071909"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253031"
 ---
 # <a name="set-up-custom-domain"></a>Configurare un dominio personalizzato
 
@@ -45,6 +45,6 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/overview).
 
 Per altri esempi di Azure PowerShell per Gestione API di Azure, vedere gli [esempi di PowerShell](../powershell-samples.md).

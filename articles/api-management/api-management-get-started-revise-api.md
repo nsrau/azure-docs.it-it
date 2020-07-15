@@ -14,15 +14,15 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c91d42f3445bb2ffc02366e6cb9ae49ec2db1be4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a4655b20fabcc72e02037de05dd0ef7c4671e52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75442757"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254912"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Usare le revisioni per apportare modifiche non di rilievo in modo sicuro
-Quando l'API è pronta e inizia a essere usata dagli sviluppatori, è necessario apportare modifiche all'API e contemporaneamente evitare di interferire con i chiamanti dell'API. È anche utile far conoscere agli sviluppatori le modifiche apportate. A tal fine, in Gestione API di Azure sono disponibili le **revisioni**. Per altre informazioni, vedere [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) (Versioni e revisioni) e [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/) (Controllo delle versioni delle API con Gestione API di Azure).
+Quando l'API è pronta e inizia a essere usata dagli sviluppatori, è necessario apportare modifiche all'API e contemporaneamente evitare di interferire con i chiamanti dell'API. È anche utile far conoscere agli sviluppatori le modifiche apportate. A tal fine, in Gestione API di Azure sono disponibili le **revisioni**. Per altre informazioni, vedere [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/) (Versioni e revisioni) e [API Versioning with Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/) (Controllo delle versioni delle API con Gestione API di Azure).
 
 In questa esercitazione verranno illustrate le procedure per:
 

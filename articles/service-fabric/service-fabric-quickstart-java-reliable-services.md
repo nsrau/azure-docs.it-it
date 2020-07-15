@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: fc615149b092aebfdde767fb3b716fb897bfd551
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 833b8fff65de7e7fdfc36565e91d18a1644723d1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77121497"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254317"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Guida introduttiva:  Distribuire un'app Java in Azure Service Fabric in Linux
 
@@ -21,9 +21,9 @@ Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Ambiente Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) e [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-- [Eclipse Neon (4.6)+](https://www.eclipse.org/downloads/packages/) e [plug-in Eclipse per Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
-- [Service Fabric SDK e l'interfaccia della riga di comando](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Ambiente Java](./service-fabric-get-started-linux.md#set-up-java-development) e [Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Eclipse Neon (4.6)+](https://www.eclipse.org/downloads/packages/) e [plug-in Eclipse per Service Fabric](./service-fabric-get-started-linux.md#install-the-eclipse-plug-in-optional)
+- [Service Fabric SDK e l'interfaccia della riga di comando](./service-fabric-get-started-linux.md#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio

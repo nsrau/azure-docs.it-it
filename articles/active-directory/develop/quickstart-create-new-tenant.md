@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308490"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256697"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Avvio rapido: Configurare un tenant
 
@@ -34,7 +34,7 @@ Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e 
 * account aziendali, e dell'istituto di istruzione (account di Azure AD) o account Microsoft (ad esempio outlook.com e live.com).
 * Account di social e locali (Azure AD B2C)
 
-La guida introduttiva è suddivisa in due scenari a seconda del tipo di app che si vuole creare. Per altro supporto su come definire come target un tipo di identità, vedere [Microsoft Identity Platform](about-microsoft-identity-platform.md).
+La guida introduttiva è suddivisa in due scenari a seconda del tipo di app che si vuole creare.
 
 ## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>Account aziendali e dell'istituto di istruzione o account Microsoft personali
 
