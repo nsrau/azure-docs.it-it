@@ -3,16 +3,16 @@ title: Automatizzare le attività per l'integrazione aziendale
 description: Informazioni su come automatizzare i flussi di lavoro che integrano app, dati, servizi e sistemi con una quantità minima di codice per l'integrazione aziendale usando App per la logica di Azure.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 08b3863ac9a03cda2659cf4934b781eeb9330e17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659607"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563818"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Panoramica - Informazioni su App per la logica di Azure
 
@@ -32,7 +32,7 @@ Per creare soluzioni di integrazione aziendale con App per la logica di Azure, �
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-## <a name="how-does-logic-apps-work"></a>Come funziona App per la logica 
+## <a name="how-do-logic-apps-work"></a>Come funzionano le app per la logica 
 
 Ogni flusso di lavoro delle app per la logica inizia con un trigger, che viene attivato quando si verifica un evento specifico oppure quando nuovi dati disponibili soddisfano criteri specifici. Molti trigger forniti dai connettori in App per la logica includono funzionalità di pianificazione di base e consentono quindi di configurare la frequenza di esecuzione dei carichi di lavoro. Per una pianificazione più complessa o ricorrenze avanzate, è possibile usare un trigger di ricorrenza come primo passaggio dei flussi di lavoro. Per altre informazioni, vedere l'articolo sui [flussi di lavoro basati su pianificazione](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 

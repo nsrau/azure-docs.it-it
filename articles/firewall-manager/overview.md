@@ -1,24 +1,22 @@
 ---
-title: Che cos'è Anteprima di Gestione firewall di Azure?
+title: Che cos'è Gestione firewall di Azure?
 description: Informazioni su Anteprima di Gestione firewall di Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792159"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563741"
 ---
-# <a name="what-is-azure-firewall-manager-preview"></a>Che cos'è Anteprima di Gestione firewall di Azure?
+# <a name="what-is-azure-firewall-manager"></a>Che cos'è Gestione firewall di Azure?
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Anteprima di Gestione firewall di Azure è un servizio di gestione della sicurezza che fornisce funzionalità di gestione dei criteri di sicurezza e delle route per i perimetri di sicurezza basati sul cloud. 
+Gestione firewall di Azure è un servizio di gestione della sicurezza che fornisce funzionalità di gestione dei criteri di sicurezza e delle route centralizzate per i perimetri di sicurezza basati sul cloud. 
 
 Gestione firewall può garantire la gestione della sicurezza per due tipi di architettura di rete:
 
@@ -33,9 +31,9 @@ Per un confronto dettagliato delle architetture di tipo *hub virtuale protetto* 
 
 ![firewall-manager](media/overview/trusted-security-partners.png)
 
-## <a name="azure-firewall-manager-preview-features"></a>Funzionalità di Anteprima di Gestione firewall di Azure
+## <a name="azure-firewall-manager-features"></a>Funzionalità di Gestione firewall di Azure
 
-Anteprima di Gestione firewall di Azure offre le funzionalità seguenti:
+Gestione firewall di Azure offre le funzionalità seguenti:
 
 ### <a name="central-azure-firewall-deployment-and-configuration"></a>Distribuzione e configurazione centrali di Firewall di Azure
 
@@ -43,7 +41,7 @@ Anteprima di Gestione firewall di Azure offre le funzionalità seguenti:
 
 ### <a name="hierarchical-policies-global-and-local"></a>Criteri gerarchici (globali e locali)
 
-È possibile usare Anteprima di Gestione firewall di Azure per gestire in modo centralizzato i criteri di Firewall di Azure tra più hub virtuali protetti. I team IT centrali possono creare criteri firewall globali per applicare i criteri firewall dell'organizzazione a tutti i team. I criteri firewall creati localmente consentono un modello self-service DevOps per una maggiore agilità.
+È possibile usare Gestione firewall di Azure per gestire in modo centralizzato i criteri di Firewall di Azure tra più hub virtuali protetti. I team IT centrali possono creare criteri firewall globali per applicare i criteri firewall dell'organizzazione a tutti i team. I criteri firewall creati localmente consentono un modello self-service DevOps per una maggiore agilità.
 
 ### <a name="integrated-with-third-party-security-as-a-service-for-advanced-security"></a>Integrato con una soluzione di security come servizio di terze parti per una sicurezza avanzata
 
@@ -60,7 +58,7 @@ Questa funzionalità è disponibile solo con distribuzioni di tipo hub virtuale 
 
    Sfruttare la connettività di Azure e la distribuzione globale per aggiungere con facilità il filtro di terze parti per gli scenari da branch a Internet.
 
-Per altre informazioni su provider di sicurezza attendibili, vedere [Che cosa sono i partner di sicurezza attendibili di Gestione firewall di Azure (anteprima)?](trusted-security-partners.md)
+Per altre informazioni sui provider partner di sicurezza, vedere [Che cosa sono i provider partner di sicurezza di Gestione firewall di Azure?](trusted-security-partners.md)
 
 ### <a name="centralized-route-management"></a>Gestione centralizzata della route
 
@@ -76,20 +74,17 @@ I criteri firewall di Azure possono essere usati in tutte le aree. Ad esempio, �
 
 ## <a name="known-issues"></a>Problemi noti
 
-Anteprima di Gestione firewall di Azure presenta i problemi noti seguenti:
+Gestione firewall di Azure presenta i problemi noti seguenti:
 
 |Problema  |Descrizione  |Strategia di riduzione del rischio  |
 |---------|---------|---------|
-|Limitazioni relative al filtro di terze parti.|Il filtro del traffico V2I con provider di terze parti non è supportato con Firewall di Azure B2V e V2V.|Analisi in corso|
 |La suddivisione del traffico non è attualmente supportata.|Office 365 e la suddivisione del traffico PaaS pubblico di Azure non sono supportati al momento. Di conseguenza, se si seleziona un provider di terze parti per V2I o B2I, vengono inviati tramite il servizio partner anche tutti i PaaS pubblici di Azure e il traffico di Office 365.|È attualmente in corso l'analisi della suddivisione del traffico nell'hub.
 |Un unico hub virtuale protetto per area.|Non è possibile avere più hub virtuali protetti per area.|Creare più reti WAN virtuali in un'area.|
 |I criteri di base devono trovarsi nella stessa area dei criteri locali.|Creare tutti i criteri locali nella stessa area dei criteri di base. È comunque possibile applicare un criterio creato in un'area in un hub protetto di un'altra area.|Analisi in corso|
 |Comunicazione tra hub non funzionante con l'hub virtuale protetto|La comunicazione tra hub virtuali protetti non è ancora supportata.|Analisi in corso|
 |Tutti gli hub virtuali protetti che condividono la stessa rete WAN virtuale devono risiedere nello stesso gruppo di risorse.|Questo comportamento è attualmente allineato agli hub di rete WAN virtuale.|Creare più reti WAN virtuali per consentire la creazione di hub virtuali protetti in gruppi di risorse diversi.|
-|I gruppi IP non sono supportati nei criteri firewall.|I gruppi IP sono in anteprima pubblica e non sono attualmente supportati con regole del firewall tradizionali.|Correzione in corso.
-|Le sottoscrizioni Cloud Solution Provider (CSP) non sono supportate.|Le [sottoscrizioni CSP](https://azure.microsoft.com/offers/ms-azr-0145p/) non sono attualmente supportate.|Analisi in corso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare [Panoramica della distribuzione di Anteprima di Gestione firewall di Azure](deployment-overview.md)
+- Vedere [Panoramica della distribuzione di Gestione firewall di Azure](deployment-overview.md)
 - Informazioni sugli [hub virtuali protetti](secured-virtual-hub.md).

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 3613d190ef079d0e477d42b426a224d8e4dda7e6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f26f0ab6da398dcdee307f89b27cca780d08af85
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81400787"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85838814"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +34,9 @@ Creare un file denominato *quickstart.py* e incollare il codice Python seguente 
 
 ## <a name="build-and-run-app"></a>Compilare ed eseguire l'app
 
-A questo punto è possibile testare l'app e verificare la funzionalità di riconoscimento vocale con il servizio Voce.
+A questo punto è possibile testare il riconoscimento vocale con il servizio Voce. 
+
+Se si esegue il test in macOS e questa è la prima app Python creata che usa un microfono, probabilmente sarà necessario concedere l'accesso al terminale al microfono. Aprire **Impostazioni di sistema** e selezionare **Sicurezza e privacy**. Selezionare quindi **Privacy** e individuare **Microfono** nell'elenco. Infine, selezionare **Terminale** e salvare. 
 
 1. **Avviare l'app**: dalla riga di comando digitare:
     ```bash
@@ -45,4 +47,3 @@ A questo punto è possibile testare l'app e verificare la funzionalità di ricon
 ## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
-

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9135873b61abf5a5ebd0d9c4d7f52ae314ee12
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84675378"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026832"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Akamai
 
@@ -102,7 +102,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 #### <a name="important"></a>Importante
 
-Tutte le impostazioni elencate di seguito sono le stesse sia per **Scenario di integrazione 1** che per lo **Scenario di integrazione 2**. Per lo **Scenario di integrazione 2** è stato configurato un singolo IDP in Akamai EAA ed è necessario modificare la proprietà URL in modo che punti all'URL dell'applicazione.
+Tutte le impostazioni elencate di seguito sono le stesse sia per **Scenario di integrazione 1** che per lo **Scenario di integrazione 2**. Per lo **Scenario di integrazione 2** è necessario configurare un singolo IDP in Akamai EAA e modificare la proprietà URL in modo che punti all'URL dell'applicazione.
 
 ![Importante](./media/header-akamai-tutorial/important.png)
 
@@ -124,8 +124,8 @@ Configurare e testare l'accesso SSO di Azure AD con Akamai usando un utente di t
 Per configurare e testare l'accesso SSO di Azure AD con Akamai, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Akamai](#configure-akamai-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Configurazione dell'IDP](#setting-up-idp)**
     * **[Autenticazione basata su intestazione](#header-based-authentication)**
@@ -280,7 +280,7 @@ Autenticazione basata su intestazione di Akamai
 
     ![Configurazione di Akamai](./media/header-akamai-tutorial/configure08.png)
 
-#### <a name="authentication"></a>Autenticazione
+#### <a name="authentication"></a>Authentication
 
 1. Selezionare la scheda **Authentication** (Autenticazione).
 

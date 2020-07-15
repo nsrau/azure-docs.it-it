@@ -1,6 +1,6 @@
 ---
-title: Frontdoor di Azure | Microsoft Docs
-description: Questo articolo offre una panoramica di Azure Frontdoor. È possibile scoprire se è la scelta giusta per bilanciare il carico del traffico degli utenti per la propria applicazione.
+title: Frontdoor di Azure
+description: Questo articolo offre una panoramica della funzionalità Motore regole del servizio Frontdoor di Azure.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,27 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 19deb763c8e750490854892c90d0293d3e209c09
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ee981d08e53765003e88870d35b291a5802e6848
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515796"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322010"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>Che cos'è il motore regole per Frontdoor di Azure? 
 
 Il motore regole consente di personalizzare il modo in cui vengono gestite le richieste HTTP al perimetro e fornisce un maggior controllo sul comportamento delle applicazioni Web. Il motore regole per Frontdoor di Azure include diverse funzionalità chiave, tra cui:
 
-- Routing basato su intestazione: instrada le richieste in base ai modelli nel contenuto delle intestazioni, dei cookie e delle stringhe di query.
-- Routing basato su parametri: sfrutta una serie di condizioni di corrispondenza, tra cui argomenti POST, stringhe di query, cookie e metodi di richiesta, per instradare le richieste in base ai parametri delle richieste HTTP. 
-- Sostituzione delle configurazioni della route, che consente di: 
-    - Usare le funzionalità di reindirizzamento per restituire i codici 301/302/307/308 al client per il reindirizzamento a nuovi nomi host, percorsi e protocolli. 
-    - Usare le funzionalità di inoltro per riscrivere il percorso dell'URL della richiesta senza eseguire un tradizionale reindirizzamento e inoltrare la richiesta al back-end appropriato nel pool back-end configurato. 
-    - Personalizzare la configurazione della memorizzazione nella cache e cambiare dinamicamente una route dall'inoltro alla memorizzazione nella cache in base alle condizioni di corrispondenza. 
-
-> [!IMPORTANT]
-> L'anteprima pubblica viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+- Imporre HTTPS per assicurarsi che tutti gli utenti finali interagiscano con il contenuto tramite una connessione sicura.
+- Implementare le intestazioni di sicurezza per evitare vulnerabilità basate sul browser come HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, X-Frame-Options, nonché intestazioni Access-Control-Allow-Origin per gli scenari CORS (Condivisione di risorse tra le origini). Gli attributi basati sulla sicurezza possono anche essere definiti con i cookie.
+- Instradare le richieste alle versioni desktop o per dispositivi mobili dell'applicazione in base ai modelli nel contenuto delle intestazioni della richiesta, dei cookie o delle stringhe di query.
+- Usare le funzionalità di reindirizzamento per restituire i codici di reindirizzamento 301, 302, 307 e 308 al client per il reindirizzamento a nuovi nomi host, percorsi e protocolli.
+- Modificare dinamicamente la configurazione della memorizzazione nella cache della route in base alle richieste in ingresso.
+- Eseguire la riscrittura del percorso URL della richiesta e inoltrare la richiesta al back-end appropriato nel pool back-end configurato.
 
 ## <a name="architecture"></a>Architecture 
 
@@ -52,7 +48,7 @@ In entrambi questi esempi, quando nessuna delle condizioni di corrispondenza vie
 
 Con il motore regole del servizio Frontdoor di Azure, è possibile creare una serie di configurazioni, ognuna composta da un set di regole. Di seguito viene illustrata la terminologia utile durante la configurazione del motore regole. 
 
-- *Configurazione del motore regole*: un set di regole applicate a una singola regola di route. Ogni configurazione può essere composta da un massimo di 5 regole. È possibile creare fino a 10 configurazioni. 
+- *Configurazione del motore regole*: un set di regole applicate a una singola regola di route. Ogni configurazione può contenere un massimo di 25 regole. È possibile creare fino a 10 configurazioni. 
 - *Regola del motore regole*: una regola composta da un massimo di 10 condizioni di corrispondenza e 5 azioni.
 - *Condizione di corrispondenza*: esistono numerose condizioni di corrispondenza che è possibile usare per analizzare le risposte in ingresso. Una regola può contenere fino a 10 condizioni di corrispondenza. Le condizioni di corrispondenza vengono valutate con un operatore **AND**. L'elenco completo delle condizioni di corrispondenza è disponibile [qui](front-door-rules-engine-match-conditions.md). 
 - *Azione*: le azioni stabiliscono cosa succede alle richieste in ingresso. Le azioni delle intestazioni di richieste/risposte, l'inoltro, i reindirizzamenti e le riscritture sono già disponibili. Una regola può contenere fino a 5 azioni, ma solo una sostituzione delle configurazioni della route.  L'elenco completo di azioni è disponibile [qui](front-door-rules-engine-actions.md).

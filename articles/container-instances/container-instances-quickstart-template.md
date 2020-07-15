@@ -1,33 +1,33 @@
 ---
-title: 'Avvio rapido: Creare un registro con replica geografica - Modello di Resource Manager'
+title: "Avvio rapido: Creare un'istanza di contenitore - Modello di Azure Resource Manager"
 description: In questo argomento di avvio rapido viene usato un modello di Azure Resource Manager per distribuire rapidamente un'app Web in contenitori che viene eseguita in un'istanza di contenitore di Azure isolata.
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
-ms.openlocfilehash: 17f71d1c383c72fab748a9bdb789158095616f2d
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 64f86611e8a60cd3d1463cd2845c034551277bb2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779867"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118461"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-a-resource-manager-template"></a>Guida introduttiva: Distribuire un'istanza di contenitore in Azure con un modello di Resource Manager
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Avvio rapido: Distribuire un'istanza di contenitore in Azure con un modello di Resource Manager
 
-Istanze di Azure Container consente di eseguire i contenitori Docker serverless in Azure in modo semplice e rapido. Distribuire un'applicazione in un'istanza di contenitore su richiesta quando non è necessaria una piattaforma di orchestrazione di contenitori completa come il servizio Azure Kubernetes. In questo argomento di avvio rapido viene usato un modello di Azure Resource Manager per distribuire un contenitore Docker isolato e renderne disponibile l'applicazione Web con un indirizzo IP pubblico.
+Istanze di Azure Container consente di eseguire i contenitori Docker serverless in Azure in modo semplice e rapido. Distribuire un'applicazione in un'istanza di contenitore su richiesta quando non è necessaria una piattaforma di orchestrazione di contenitori completa come il servizio Azure Kubernetes. In questo argomento di avvio rapido viene usato un modello di Azure Resource Manager per distribuire un contenitore Docker isolato e renderne disponibile la relativa applicazione Web con un indirizzo IP pubblico.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aci-linuxcontainer-public-ip%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-No.
+Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="create-a-container-instance"></a>Creare un'istanza di contenitore
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
 
@@ -39,7 +39,7 @@ Nel modello è definita la risorsa di Azure seguente:
 
 Altri esempi di modelli di Istanze di Azure Container sono disponibili nella [raccolta di modelli di avvio rapido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
  1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un registro di sistema e una replica in un'altra località.
 
@@ -101,4 +101,4 @@ In questo argomento di avvio rapido è stata creata un'istanza di contenitore di
 Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Esercitazione: Creare e distribuire il primo modello di Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

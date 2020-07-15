@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un cluster Apache HBase usando un modello - Azure HDInsight'
+title: 'Avvio rapido: Creare un cluster Apache HBase usando un modello - Azure HDInsight'
 description: Questa guida di avvio rapido illustra come usare un modello di Resource Manager per creare un cluster Apache HBase in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,38 +8,41 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/12/2020
-ms.openlocfilehash: 395078b9a973b6255685feb6a858daed7667207a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c772345b9cf5d6e4fafdcd951f65bd8c796ab839
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605449"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082149"
 ---
-# <a name="quickstart-create-apache-hbase-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Guida introduttiva: Creare un cluster Apache HBase in Azure HDInsight con un modello di Resource Manager
+# <a name="quickstart-create-apache-hbase-cluster-in-azure-hdinsight-using-arm-template"></a>Avvio rapido: Creare un cluster Apache HBase in Azure HDInsight usando un modello di Resource Manager
 
-In questa guida di avvio rapido si userà un modello di Azure Resource Manager per creare un cluster [Apache HBase](./apache-hbase-overview.md) in Azure HDInsight. HBase è un database NoSQL open source basato su Apache Hadoop e modellato su [Google BigTable](https://cloud.google.com/bigtable/).
+Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager per creare un cluster [Apache HBase](./apache-hbase-overview.md) in Azure HDInsight. HBase è un database NoSQL open source basato su Apache Hadoop e modellato su [Google BigTable](https://cloud.google.com/bigtable/).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Prerequisiti
+
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-an-apache-hbase-cluster"></a>Creare un cluster Apache HBase
+## <a name="review-the-template"></a>Rivedere il modello
 
-### <a name="review-the-template"></a>Rivedere il modello
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux/).
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-linux).
-
-:::code language="json" source="~/quickstart-templates/101-hdinsight-hbase-linux/azuredeploy.json" range="1-145":::
-
+:::code language="json" source="~/quickstart-templates/101-hdinsight-hbase-linux/azuredeploy.json" range="1-199" highlight="103-136":::
 
 Nel modello sono definite due risorse di Azure:
 
-* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts) per creare un account di archiviazione di Azure.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): creare un cluster HDInsight.
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) per creare un account di archiviazione di Azure.
+* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): creare un cluster HDInsight.
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
-1. Selezionare il pulsante **Distribuisci in Azure** seguente per accedere ad Azure e aprire il modello di Resource Manager.
+1. Selezionare il pulsante **Distribuisci in Azure** sotto per accedere ad Azure e aprire il modello di Resource Manager.
 
     [![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json)
 
@@ -76,7 +79,7 @@ Nel portale di Azure passare al cluster e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come creare un cluster Apache HBase in HDInsight usando un modello di Resource Manager. L'articolo successivo illustra come eseguire query su HBase in HDInsight con la shell di HBase.
+In questa guida di avvio rapido è stato creato un cluster Apache HBase in HDInsight tramite un modello di Resource Manager. L'articolo successivo illustra come eseguire query su HBase in HDInsight con la shell di HBase.
 
 > [!div class="nextstepaction"]
 > [Eseguire query su Apache HBase in Azure HDInsight con la shell di HBase](./query-hbase-with-hbase-shell.md)

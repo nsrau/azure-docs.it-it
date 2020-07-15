@@ -1,6 +1,6 @@
 ---
-title: Frontdoor di Azure | Microsoft Docs
-description: Questo articolo offre una panoramica di Azure Frontdoor. È possibile scoprire se è la scelta giusta per bilanciare il carico del traffico degli utenti per la propria applicazione.
+title: Frontdoor di Azure
+description: Questo articolo fornisce un elenco delle azioni che è possibile eseguire con il motore regole del servizio Frontdoor di Azure.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 3e7c9606a17736ea45b09a4d6981b4d55fa6dee6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e11555e883a323bcb5b0be1c62b2825bce77524e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515806"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314001"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Azioni del motore regole di Frontdoor di Azure
 
 Nel [motore regole di Frontdoor di Azure](front-door-rules-engine.md) una regola è costituita da zero o più condizioni di corrispondenza e azioni. Questo articolo fornisce descrizioni dettagliate delle azioni che è possibile usare nel motore regole di Frontdoor di Azure.
 
-Un'azione definisce il comportamento applicato al tipo di richiesta identificata da una o più condizioni di corrispondenza. Nel motore regole di Frontdoor di Azure una regola può contenere fino a cinque azioni, solo una delle quali può essere un'azione di sostituzione della configurazione delle route (inoltro o reindirizzamento). 
+Un'azione definisce il comportamento applicato al tipo di richiesta identificata da una o più condizioni di corrispondenza. Nel motore regole di Frontdoor di Azure una regola può contenere fino a cinque azioni, solo una delle quali può essere un'azione di sostituzione della configurazione delle route (inoltro o reindirizzamento).
 
 Le azioni seguenti sono disponibili per l'uso nel motore regole di Frontdoor di Azure.  
 
@@ -69,7 +69,7 @@ Stringa di query | Definire la stringa di query usata nel reindirizzamento. Lasc
 Frammento di destinazione | Definire il frammento da usare nel reindirizzamento. Lasciare vuoto questo campo per mantenere il frammento in ingresso. 
 
 
-### <a name="route-type-forward"></a>Tipo di route: inoltro
+### <a name="route-type-forward"></a>Tipo di route: Avanti
 
 Usare questa azione per inoltrare i client a un nuovo URL. Questa azione contiene anche azioni secondarie per le riscritture di URL e la memorizzazione nella cache. 
 

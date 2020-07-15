@@ -1,30 +1,28 @@
 ---
 title: Inviare eventi di archiviazione BLOB a un endpoint Web - Modello
 description: Usare Griglia di eventi di Azure e un modello di Azure Resource Manager per creare un account di archiviazione BLOB e sottoscrivere i relativi eventi. Inviare eventi a un webhook.
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: subject-armqs
-ms.openlocfilehash: 0cf880411a5c2a8eefd592a01de40b5098f31cda
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 603d6bf11f2ec6988d52e69817bddf2fd3ccf3b3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424132"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103314"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Instradare gli eventi di archiviazione BLOB a un endpoint Web usando un modello di Azure Resource Manager
+# <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Instradare gli eventi di archiviazione BLOB a un endpoint Web usando un modello di Resource Manager
 
-La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. In questo articolo si usa un **modello di Azure Resource Manager** per creare un account di archiviazione BLOB, sottoscrivere i relativi eventi e attivare un evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
+La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo descrive come usare un modello di Azure Resource Manager per creare un account di archiviazione BLOB, sottoscrivere i relativi eventi e attivare un evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ### <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
 
@@ -39,21 +37,19 @@ Prima di sottoscrivere gli eventi per l'account di archiviazione BLOB, creare l'
 
    ![Visualizzare il nuovo sito](./media/blob-event-quickstart-portal/view-site.png)
 
-## <a name="create-a-storage-account-with-an-event-grid-subscription"></a>Creare un account di archiviazione con una sottoscrizione di Griglia di eventi
+## <a name="review-the-template"></a>Rivedere il modello
 
-### <a name="review-the-template"></a>Rivedere il modello
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
-
-[!code-json[<Azure Resource Manager template create Blob storage Event Grid subscription>](~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json" range="1-91" highlight="40-85":::
 
 Nel modello sono definite due risorse di Azure:
 
 * [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): crea un account di archiviazione di Azure.
-* [**Microsoft.EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics): crea un argomento di sistema con il nome specificato per l'account di archiviazione. 
+* [**Microsoft.EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics): crea un argomento di sistema con il nome specificato per l'account di archiviazione.
 * [**Microsoft.EventGrid/systemTopics/eventSubscriptions**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions): crea una sottoscrizione di Griglia di eventi di Azure per l'argomento di sistema.
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 1. Selezionare il collegamento seguente per accedere ad Azure e aprire un modello. Il modello crea un insieme di credenziali delle chiavi e un segreto.
 
@@ -65,7 +61,7 @@ Nel modello sono definite due risorse di Azure:
   In questo caso per distribuire il modello si usa il portale di Azure. È anche possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure e un'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-powershell.md).
 
 > [!NOTE]
-> È possibile trovare altri esempi di modelli di Griglia di eventi di Azure [qui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
+> È possibile trovare altri esempi di modelli di Griglia di eventi di Azure [qui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid&pageNumber=1&sort=Popular).
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 

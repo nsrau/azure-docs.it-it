@@ -3,13 +3,13 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: a204940c316304290f32417f7e5d3cb058992e1f
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.author: trbye
+ms.openlocfilehash: abd34ddf39bd8e64740d3edd4a2bf4f44851c07e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978970"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035529"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,7 +41,7 @@ Creare un nuovo file nella cartella denominato `index.html` e aprirlo con un edi
 Se si vuole ospitare la pagina Web in un server Web, facoltativamente è possibile specificare un'origine del token per l'applicazione demo.
 In questo modo la chiave di sottoscrizione non lascerà mai il server, consentendo agli utenti di usare le funzionalità di riconoscimento vocale senza dover immettere codici di autorizzazione.
 
-Creare un file denominato `token.php`. In questo esempio si presuppone che il server Web supporti il linguaggio di scripting PHP. Immettere il codice seguente:
+Creare un file denominato `token.php`. In questo esempio si presuppone che il server Web supporti il linguaggio di scripting PHP con curl abilitato. Immettere il codice seguente:
 
 ```php
 <?php
@@ -67,11 +67,11 @@ echo curl_exec($ch);
 
 ## <a name="build-and-run-the-sample-locally"></a>Compilare ed eseguire l'esempio in locale
 
-Per avviare l'app, fare doppio clic sul file index.html o aprirlo con il Web browser preferito. Presenterà una semplice interfaccia utente grafica, che consente di immettere la chiave di sottoscrizione e l'[area](../../../../regions.md) e di attivare la sintesi del testo di input.
+Per avviare l'app, fare doppio clic sul file index.html o aprirlo con il Web browser preferito. Presenterà una semplice interfaccia utente grafica che consente di immettere la chiave di sottoscrizione e l'[area](../../../../regions.md) e di attivare la trascrizione testuale della registrazione vocale di input.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Compilare ed eseguire l'esempio tramite un server Web
 
-Per avviare l'app, aprire il Web browser preferito e passare all'URL pubblico in cui è ospitata la cartella, immettere l'[area](../../../../regions.md) e attivare la sintesi del testo di input. Se il comportamento è configurato, verrà acquisito un token dall'origine del token.
+Per avviare l'app, aprire il Web browser preferito e passare all'URL pubblico in cui è ospitata la cartella, immettere l'[area](../../../../regions.md) e attivare la trascrizione testuale della registrazione vocale di input. Se il comportamento è configurato, verrà acquisito un token dall'origine del token.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

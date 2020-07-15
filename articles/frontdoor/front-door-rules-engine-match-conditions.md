@@ -1,6 +1,6 @@
 ---
-title: Frontdoor di Azure | Microsoft Docs
-description: Questo articolo offre una panoramica di Azure Frontdoor. È possibile scoprire se è la scelta giusta per bilanciare il carico del traffico degli utenti per la propria applicazione.
+title: Frontdoor di Azure
+description: Questo articolo fornisce un elenco delle condizioni di corrispondenza disponibili con il motore regole del servizio Frontdoor di Azure.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 77c0d68f507e09b315c912d1d91fdf9cf63db6fa
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: d42b6b56f0cdd1f6ef2ea45b21a027f1b4c56b1c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515766"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322000"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole di Frontdoor di Azure
 
-Nel [motore regole di Frontdoor di Azure](front-door-rules-engine.md) una regola è costituita da zero o più condizioni di corrispondenza e da un'azione. Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza che è possibile usare nel motore regole di Frontdoor di Azure. 
+Nel [motore regole di Frontdoor di Azure](front-door-rules-engine.md) una regola è costituita da zero o più condizioni di corrispondenza e da un'azione. Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza che è possibile usare nel motore regole di Frontdoor di Azure.
 
-La prima parte di una regola è costituita da una o più condizioni di corrispondenza. Una regola può contenere fino a 10 condizioni di corrispondenza. Una condizione di corrispondenza identifica specifici tipi di richieste per cui verranno eseguite le azioni definite. Se si usano più condizioni di corrispondenza, verranno raggruppate insieme tramite la logica AND. Per tutte le condizioni di corrispondenza che supportano più valori (come indicato di seguito come "delimitati da spazi"), viene usato l'operatore "OR". 
+La prima parte di una regola è costituita da una o più condizioni di corrispondenza. Una regola può contenere fino a 10 condizioni di corrispondenza. Una condizione di corrispondenza identifica specifici tipi di richieste per cui verranno eseguite le azioni definite. Se si usano più condizioni di corrispondenza, verranno raggruppate insieme tramite la logica AND. Per tutte le condizioni di corrispondenza che supportano più valori (come indicato di seguito come "delimitati da spazi"), viene usato l'operatore "OR".
 
 Ad esempio, è possibile usare una condizione di corrispondenza per:
 
@@ -142,7 +142,7 @@ Operatore | URL richiesta | Trasformazione maiuscole/minuscole
 
 #### <a name="key-information"></a>Informazioni chiave
 
-- Quando si usa questa condizione della regola, assicurarsi di includere le informazioni sul protocollo. Ad esempio *https://www.\<yourdomain\>.com* .
+- Quando si usa questa condizione della regola, assicurarsi di includere le informazioni sul protocollo. Ad esempio: *https://www.\<yourdomain\>.com*.
 
 ## <a name="request-file-extension"></a>Estensione file della richiesta
 

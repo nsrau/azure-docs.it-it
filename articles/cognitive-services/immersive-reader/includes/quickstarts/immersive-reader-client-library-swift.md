@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Liberia client dello strumento di lettura immersiva per Swift'
 titleSuffix: Azure Cognitive Services
-description: In questo argomento di avvio rapido si creerà da zero un'app Web a cui si aggiungerà la funzionalità dell'API dello strumento di lettura immersiva.
+description: In questo argomento di avvio rapido si creerà da zero un'app iOS a cui si aggiungerà la funzionalità dell'API dello strumento di lettura immersiva.
 services: cognitive-services
 author: pasta
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 191d802064d477babd8aa1f782ad15876b821d11
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3d0a8444312f37b1f59817d50bdc50d3aff22164
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268686"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038365"
 ---
 Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è uno strumento incluso che implementa tecniche comprovate per migliorare la comprensione della lettura.
 
@@ -573,4 +573,4 @@ Quando si fa clic sul pulsante **Strumento di lettura immersiva**, lo strumento 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggere le [informazioni di riferimento su Immersive Reader SDK](../../reference.md)
+* Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](../../reference.md)

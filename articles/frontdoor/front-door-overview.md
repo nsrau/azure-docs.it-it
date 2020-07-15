@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879123"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322285"
 ---
 # <a name="what-is-azure-front-door"></a>Che cos'è il servizio Frontdoor di Azure?
-Frontdoor di Azure consente di definire, gestire e monitorare il routing globale del traffico Web, offrendo prestazioni ottimali e failover globale immediato per una disponibilità elevata. Con Frontdoor è possibile trasformare applicazioni aziendali e consumer globali (multi-area) in affidabili applicazioni moderne personalizzate ad alte prestazioni, API e contenuto che grazie ad Azure raggiunge un pubblico globale.
+Il servizio Frontdoor di Azure consente di definire, gestire e monitorare il routing globale del traffico Web, offrendo prestazioni ottimali e failover globale rapido per una disponibilità elevata. Con Frontdoor è possibile trasformare applicazioni aziendali e consumer globali (multi-area) in affidabili applicazioni moderne personalizzate ad alte prestazioni, API e contenuto che grazie ad Azure raggiunge un pubblico globale.
 
 Il Frontdoor funziona a livello 7 o HTTP e usa il protocollo di anycast con split TCP e con la rete globale di Microsoft per migliorare connettività globale. Pertanto, per la selezione del metodo di routing nella configurazione, è possibile garantire che Frontdoor instradi le richieste del client nel back-end dell'applicazione più veloce e maggiormente disponibile. Il backend di un'applicazione può essere qualsiasi servizio internet ospitato all'interno o all'esterno di Azure. Frontdoor offre diversi [metodi di routing del traffico](front-door-routing-methods.md) e [opzioni di monitoraggio dell'integrità del back-end](front-door-health-probes.md) per soddisfare diverse esigenze delle applicazioni e i modelli di failover automatico. Simile a [Gestione traffico](../traffic-manager/traffic-manager-overview.md), Frontdoor è resiliente agli errori, compreso l'errore di un'intera area di Azure.
 
@@ -36,7 +36,7 @@ Usando il protocollo di anycast basato su split TCP, Frontdoor garantisce che gl
 
 ## <a name="increase-application-availability-with-smart-health-probes"></a>Aumentare la disponibilità dell'applicazione con probe di integrità intelligenti
 
-Frontdoor assicura disponibilità elevata per le applicazioni critiche usando i probe di integrità intelligenti, monitorando sia la latenza che la disponibilità dei back-end e offrono un failover automatico istantaneo quando si verifica l'arresto di un back-end. Pertanto, è possibile eseguire operazioni pianificate di manutenzione delle applicazioni senza tempi di inattività. Frontdoor dirige il traffico verso back-end alternativi durante il corso della manutenzione.
+Frontdoor assicura disponibilità elevata per le applicazioni critiche usando i probe di integrità intelligenti, monitorando sia la latenza che la disponibilità dei back-end e offrendo funzionalità di failover automatico istantaneo in caso di inattività di un back-end. Pertanto, è possibile eseguire operazioni pianificate di manutenzione delle applicazioni senza tempi di inattività. Frontdoor dirige il traffico verso back-end alternativi durante il corso della manutenzione.
 
 ## <a name="url-based-routing"></a>Routing basato su URL
 Il routing basato su percorso URL consente di instradare il traffico verso pool di back-end in base ai percorsi URL della richiesta. Uno degli scenari è l'instradamento delle richieste di tipi di contenuto diversi a pool di back-end diversi.

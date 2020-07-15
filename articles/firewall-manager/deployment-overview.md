@@ -1,24 +1,22 @@
 ---
-title: Panoramica della distribuzione dell'anteprima di Gestione firewall di Azure
-description: Informazioni sui passaggi di distribuzione generali necessari per l'anteprima di Gestione firewall di Azure
+title: Panoramica della distribuzione di Gestione firewall di Azure
+description: Informazioni sui passaggi di distribuzione generali necessari per Gestione firewall di Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77443126"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565795"
 ---
-# <a name="azure-firewall-manager-preview-deployment-overview"></a>Panoramica della distribuzione dell'anteprima di Gestione firewall di Azure
+# <a name="azure-firewall-manager-deployment-overview"></a>Panoramica della distribuzione di Gestione firewall di Azure
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Per distribuire l'anteprima di Gestione firewall di Azure è possibile procedere in più modi, ma è consigliabile eseguire il processo generale descritto di seguito.
+Per distribuire Gestione firewall di Azure è possibile procedere in più modi, ma è consigliabile attenersi al processo generale descritto di seguito.
 
 ## <a name="general-deployment-process"></a>Processo generale di distribuzione
 
@@ -70,4 +68,4 @@ Per distribuire l'anteprima di Gestione firewall di Azure è possibile procedere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Proteggere la rete cloud con l'anteprima di Gestione firewall di Azure usando il portale di Azure](secure-cloud-network.md)
+- [Esercitazione: Proteggere la rete cloud con Gestione firewall di Azure usando il portale di Azure](secure-cloud-network.md)

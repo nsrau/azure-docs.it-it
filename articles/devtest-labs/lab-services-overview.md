@@ -1,26 +1,16 @@
 ---
-title: Informazioni su Azure Lab Services | Microsoft Docs
-description: Informazioni su come Lab Services può semplificare la creazione, la gestione e la protezione di lab con macchine virtuali che possono essere usate da sviluppatori, tester, educatori, studenti e altri utenti.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Lab Services e Azure DevTest Labs
+description: Confrontare Azure DevTest Labs e Azure Lab Services.
 ms.topic: overview
-ms.date: 02/03/2020
-ms.author: spelluru
-ms.openlocfilehash: a1e42a415e99bfaec1c48204efdaacd178005705
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899371"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480083"
 ---
-# <a name="an-introduction-to-azure-lab-services"></a>Introduzione ad Azure Lab Services
+# <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Confrontare Azure DevTest Labs e Azure Lab Services
 In Azure sono disponibili due servizi che consentono di configurare gli ambienti lab nel cloud. 
 
 - **Azure DevTest Labs**: questo servizio consente di configurare rapidamente nel cloud un ambiente per il team, ad esempio un ambiente di sviluppo o un ambiente di test. Il proprietario di un lab crea un lab, esegue il provisioning delle macchine virtuali Windows o Linux, installa il software e gli strumenti necessari e li rende disponibili per gli utenti del lab. Gli utenti del lab si connettono alle macchine virtuali del lab e le usano per le attività giornaliere o per i progetti a breve termine. Quando gli utenti iniziano a usare le risorse nel lab, un amministratore del lab può analizzare il costo e l'utilizzo in più lab e impostare criteri omnicomprensivi per ottimizzare i costi del team o dell'organizzazione.

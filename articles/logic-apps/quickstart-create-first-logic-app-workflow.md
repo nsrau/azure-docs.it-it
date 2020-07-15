@@ -3,16 +3,16 @@ title: Creare il primo flusso di lavoro automatizzato
 description: 'Avvio rapido: creare il primo flusso di lavoro automatizzato usando App per la logica di Azure per soluzioni di integrazione di sistemi e soluzioni Enterprise Application Integration (EAI)'
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 555230499ebda106cbca616b779ae632d65349ab
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807863"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321579"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Avvio rapido: Creare il primo flusso di lavoro con App per la logica di Azure - Portale di Azure
 
@@ -74,13 +74,13 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    ![Selezionare il trigger "Quando viene pubblicato un elemento del feed"](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. Specificare queste informazioni per il trigger, come mostrato e descritto di seguito:
+1. Specificare le informazioni per il trigger come descritto nella tabella:
 
    ![Configurare un trigger con feed RSS, frequenza e intervallo](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
-   | **URL feed RSS** | `http://feeds.reuters.com/reuters/topNews` | Collegamento per il feed RSS che si vuole monitorare |
+   | **URL feed RSS** | <*RSS-feed-URL*> | Collegamento per il feed RSS che si vuole monitorare. In questo esempio viene utilizzato `http://feeds.reuters.com/reuters/topNews`. |
    | **Interval** | 1 | Numero di intervalli di attesa tra i controlli |
    | **Frequenza** | Minuto | Unità di tempo per ogni intervallo tra i controlli  |
    ||||

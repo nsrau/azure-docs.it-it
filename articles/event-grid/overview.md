@@ -1,20 +1,14 @@
 ---
 title: Informazioni su Griglia di eventi di Azure
 description: Informazioni su come inviare i dati degli eventi un'origine ai gestori con Griglia di eventi di Azure. Creare applicazioni basate su eventi e integrarle con i servizi di Azure.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: overview
-ms.date: 02/20/2020
-ms.author: femila
-ms.custom: seodec18
-ms.openlocfilehash: 38f0218a7dedd243cccfab4b0b5ecfb73d3a626a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 07/07/2020
+ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560299"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116132"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -103,7 +97,7 @@ Griglia di eventi connette le origini dati e i gestori di eventi. Usare, ad esem
 
 ![Automazione delle operazioni](./media/overview/Ops_automation.png)
 
-Griglia di eventi consente di velocizzare l'automazione e semplificare l'applicazione dei criteri. Usare, ad esempio, Griglia di eventi, per notificare ad Automazione di Azure la creazione di una macchina virtuale o un database SQL. Usare gli eventi per controllare automaticamente che le configurazioni dei servizi siano conformi, inserire i metadati negli strumenti per le operazioni, contrassegnare le macchine virtuali o archiviare gli elementi di lavoro.
+Griglia di eventi consente di velocizzare l'automazione e semplificare l'applicazione dei criteri. Usare, ad esempio, Griglia di eventi, per notificare ad Automazione di Azure la creazione di una macchina virtuale o un database in Azure SQL. Usare gli eventi per controllare automaticamente che le configurazioni dei servizi siano conformi, inserire i metadati negli strumenti per le operazioni, contrassegnare le macchine virtuali o archiviare gli elementi di lavoro.
 
 ### <a name="application-integration"></a>Integrazione di applicazioni
 

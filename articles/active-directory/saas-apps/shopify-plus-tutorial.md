@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebbb73b6fc4e2a934c7c4235cfcdc39b8fa81b60
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 18dc2e4393175751f5ac52d53e0c331c82fce7e8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85127191"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078151"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Shopify Plus
 
@@ -66,8 +66,8 @@ Configurare e testare l'accesso SSO di Azure AD con Shopify Plus usando un utent
 Per configurare e testare l'accesso SSO di Azure AD con Shopify Plus, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Shopify Plus](#configure-shopify-plus-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Shopify Plus](#create-shopify-plus-test-user)** : per avere una controparte di B.Simon in Shopify Plus collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -91,7 +91,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     Nella casella di testo **URL di accesso** digitare l'URL: `https://shopify.plus/login`
 
     > [!NOTE]
-    > Il valore di URL di risposta non è reale. Aggiornarlo con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Shopify Plus](mailto:plus-user-management@shopify.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Il valore di URL di risposta non è reale. è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Shopify Plus](mailto:plus-user-management@shopify.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. L'applicazione Shopify Plus prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
@@ -103,7 +103,8 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | ---------------| --------------- | --------- |
     | email | | user.mail |
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Modificare il formato di **Name ID** (ID nome) in **Persistente**. Selezionare l'opzione **Identificatore utente univoco (ID nome)** e quindi il formato **Identificatore nome**. Selezionare **Persistente** per questa opzione. Salvare le modifiche.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare il pulsante di copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -139,11 +140,31 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-shopify-plus-sso"></a>Configurare l'accesso Single Sign-On di Shopify Plus
 
-Per configurare l'accesso Single Sign-On in **Shopify Plus**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Shopify Plus](mailto:plus-user-management@shopify.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per la procedura completa, vedere la [documentazione di Shopify sulla configurazione delle integrazioni SAML](https://help.shopify.com/en/manual/shopify-plus/saml).
+
+Per configurare Single Sign-On sul lato **Shopify Plus**, copiare l'**URL dei metadati di federazione dell'app** da Azure Active Directory. Accedere quindi alla schermata di [amministrazione dell'organizzazione](https://shopify.plus) e passare a **Users** > **Security** (Utenti > Sicurezza). Selezionare **Set up configuration** (Imposta configurazione) e incollare l'URl dei metadati di federazione dell'app nella sezione **Identity provider metadata URL** (URL dei metadati del provider di identità). Per completare questo passaggio, selezionare **Add** (Aggiungi).
 
 ### <a name="create-shopify-plus-test-user"></a>Creare l'utente di test di Shopify Plus
 
-In questa sezione viene creato un utente di nome B.Simon in Shopify Plus. Collaborare con il [team di supporto di Shopify Plus](mailto:plus-user-management@shopify.com) per aggiungere gli utenti alla piattaforma Shopify Plus. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B.Simon in Shopify Plus. Tornare alla sezione **Users** (Utenti) e aggiungere un utente immettendo l'indirizzo di posta elettronica e le autorizzazioni. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+
+### <a name="enforce-saml-authentication"></a>Applicare l'autenticazione SAML
+
+> [!NOTE]
+> È consigliabile testare l'integrazione usando singoli utenti prima di applicarla a livello generale.
+
+Singoli utenti:
+1. Passare alla pagina di un singolo utente in Shopify Plus con un dominio di posta elettronica gestito da Azure AD e verificato in Shopify Plus.
+1. Nella sezione di autenticazione SAML selezionare **Edit** (Modifica), **Required** (Obbligatoria) e quindi **Save** (Salva).
+1. Verificare che l'utente possa accedere correttamente tramite i flussi avviati da IdP e SP.
+
+Per tutti gli utenti di un dominio di posta elettronica:
+1. Tornare alla pagina **Security** (Sicurezza).
+1. Selezionare **Required** (Obbligatoria) per l'impostazione di autenticazione SAML. In questo modo l'autenticazione SAML verrà applicata a tutti gli utenti con tale dominio di posta elettronica in Shopify Plus.
+1. Selezionare **Save** (Salva).
+
+> [!IMPORTANT]
+> L'abilitazione di SAML per tutti gli utenti in un dominio di posta elettronica ha effetto su tutti gli utenti che usano l'applicazione. Gli utenti non potranno accedere usando la normale pagina di accesso, ma potranno accedere all'app solo tramite Azure Active Directory. Shopify non fornisce un URL di accesso per il backup che gli utenti possono usare per accedere usando il nome utente e la password normali. Se necessario, è possibile contattare il supporto di Shopify per disattivare l'autenticazione SAML.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

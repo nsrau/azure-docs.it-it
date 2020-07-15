@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 2b6f4bb707d6c5c07dd6a1205ce7be542a220f17
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268670"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038358"
 ---
 Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è uno strumento incluso che implementa tecniche comprovate per migliorare la comprensione della lettura.
 
@@ -305,7 +305,8 @@ Quando si fa clic sul pulsante "Strumento di lettura immersiva", verrà avviato 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visualizzare l'[argomento di avvio rapido per Node.js](../../quickstart-nodejs.md) per scoprire quali altre attività è possibile eseguire con la libreria client dello strumento di lettura immersiva usando Node.js
+* Visualizzare l'[argomento di avvio rapido per Node.js](../../tutorial-nodejs.md) per scoprire quali altre attività è possibile eseguire con la libreria client dello strumento di lettura immersiva usando Node.js
+* Visualizzare l'[esercitazione per Android](../../tutorial-android.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Java o Kotlin per Android
+* Visualizzare l'[esercitazione per iOS](../../tutorial-ios.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Swift per iOS
 * Visualizzare l'[esercitazione per Python](../../tutorial-python.md) per scoprire quali altre attività è possibile eseguire con la libreria client dello strumento di lettura immersiva usando Python
-* Visualizzare l'[esercitazione per iOS](../../tutorial-ios-picture-immersive-reader.md) per scoprire quali altre attività è possibile eseguire con la libreria client dello strumento di lettura immersiva usando Swift
 * Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](../../reference.md)

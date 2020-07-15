@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: b6ab34019207ccbeec5448b848e501e063707d16
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85940413"
 ---
 La libreria client di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Python. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 
 Per vedere il codice subito, in GitHub sono disponibili esempi per le [librerie client di Ricerca Bing per Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 L'SDK di Ricerca Web Bing è compatibile con Python 2.7, 3.3, 3.4, 3.5 e 3.6. Per questa guida introduttiva è consigliabile usare un ambiente virtuale.
 
 * Python 2.7, 3.3, 3.4, 3.5 o 3.6
@@ -167,7 +167,7 @@ Se la risposta contiene pagine Web, immagini, notizie o video, viene stampato il
 
 1. Sostituire `SUBSCRIPTION_KEY` con una chiave di sottoscrizione valida.
 
-1. Sostituire `YOUR_ENDPOINT` con l'URL dell'endpoint nel portale.
+1. Sostituire `YOUR_ENDPOINT` con l'URL dell'endpoint nel portale e rimuovere la sezione "bing/v7.0" dall'endpoint.
 
 1. Eseguire il programma. Ad esempio: `python your_program.py`.
 

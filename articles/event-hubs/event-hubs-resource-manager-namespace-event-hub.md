@@ -1,30 +1,31 @@
 ---
-title: 'Guida introduttiva: Creare un hub eventi con gruppo di consumer - Hub eventi di Azure'
-description: "Guida introduttiva: Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando i modelli di Azure Resource Manager"
+title: 'Avvio rapido: Creare un hub eventi con gruppo di consumer - Hub eventi di Azure'
+description: "Avvio rapido: Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando i modelli di Azure Resource Manager"
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 06/23/2020
-ms.openlocfilehash: 6ddf17030da8b0ff50f10938221b9c1dba08084d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1aa1dc0a4be8c74651a764788184ae1eefe17e75
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964295"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038090"
 ---
-# <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Guida introduttiva: Creare un hub eventi usando un modello di Azure Resource Manager
+# <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>Avvio rapido: Creare un hub eventi con un modello di Resource Manager
 
-Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md). In questa guida di avvio rapido viene creato un hub eventi usando un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). Il modello di Azure Resource Manager viene distribuito per creare uno spazio dei nomi di tipo [Hub eventi](event-hubs-what-is-event-hubs.md) con un hub eventi.
+Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md). In questa guida di avvio rapido viene creato un hub eventi usando un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). Il modello di Resource Manager viene distribuito per creare uno spazio dei nomi di tipo [Hub eventi](event-hubs-what-is-event-hubs.md) con un hub eventi.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-eventhubs-create-namespace-and-eventhub%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-No.
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="create-an-event-hub"></a>Creare un hub eventi
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
 
@@ -37,7 +38,7 @@ Nel modello sono definite le risorse seguenti:
 
 Per altri esempi di modello, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 Per distribuire il modello:
 
@@ -60,9 +61,9 @@ Per distribuire il modello:
 1. Selezionare **Copia** per copiare lo script di PowerShell.
 1. Fare clic con il pulsante destro del mouse sulla console della shell e quindi scegliere **Incolla**.
 
-## <a name="verify-the-deployment"></a>Verificare la distribuzione
+## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 
-Per verificare la distribuzione, è possibile aprire il gruppo di risorse dal [portale di Azure](https://portal.azure.com) oppure usare lo script di Azure PowerShell riportato di seguito.  Se Cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima riga (Read-Host).
+Per verificare la distribuzione, è possibile aprire il gruppo di risorse dal [portale di Azure](https://portal.azure.com) oppure usare lo script di Azure PowerShell riportato di seguito. Se Cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima riga (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

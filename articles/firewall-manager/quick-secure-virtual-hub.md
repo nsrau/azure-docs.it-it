@@ -1,27 +1,27 @@
 ---
-title: "Avvio rapido: Proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima): modello di Resource Manager"
-description: Informazioni su come proteggere l’hub virtuale con Gestione firewall di Azure (anteprima).
+title: "Avvio rapido: Proteggere l'hub virtuale usando Gestione firewall di Azure - Modello di Resource Manager"
+description: Informazioni su come proteggere l'hub virtuale con Gestione firewall di Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167197"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563685"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Avvio rapido: Proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima): modello di Resource Manager
 
-In questo argomento di avvio rapido si userà un modello di Gestione risorse per proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima). Il firewall distribuito ha una regola dell'applicazione che consente le connessioni a `www.microsoft.com`. Per testare il firewall sono state distribuite due macchine virtuali Windows Server 2019. Per la connessione al server del carico di lavoro viene utilizzato un jump server. Dal server del carico di lavoro è possibile connettersi solo a `www.microsoft.com`.
+Questa guida di avvio rapido illustra come usare un modello di Resource Manager per proteggere l'hub virtuale usando Gestione firewall di Azure. Il firewall distribuito ha una regola dell'applicazione che consente le connessioni a `www.microsoft.com`. Per testare il firewall sono state distribuite due macchine virtuali Windows Server 2019. Per la connessione al server del carico di lavoro viene utilizzato un jump server. Dal server del carico di lavoro è possibile connettersi solo a `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Per altre informazioni su Gestione firewall di Azure (anteprima), vedere [Che cos'è Gestione firewall di Azure (anteprima)?](overview.md).
+Per altre informazioni su Gestione firewall di Azure, vedere [Che cos'è Gestione firewall di Azure?](overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ Per altre informazioni su Gestione firewall di Azure (anteprima), vedere [Che co
 
 ## <a name="create-a-secured-virtual-hub"></a>Creare un hub virtuale protetto
 
-Questo modello crea un hub virtuale protetto usando Gestione firewall di Azure (anteprima), insieme alle risorse necessarie per supportare lo scenario.
+Questo modello crea un hub virtuale protetto usando Gestione firewall di Azure, insieme alle risorse necessarie per supportare lo scenario.
 
 ### <a name="review-the-template"></a>Rivedere il modello
 
@@ -101,4 +101,4 @@ Remove-AzResourceGroup -Name "<your resource group name>"
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Vedere le informazioni sui partner di sicurezza affidabili](trusted-security-partners.md)
+> [Informazioni sui i provider partner di sicurezza](trusted-security-partners.md)

@@ -1,14 +1,14 @@
 ---
-title: Panoramica
+title: Panoramica di Gestione risorse di Microsoft Azure
 description: Viene descritto come utilizzare Gestione risorse di Azure per la distribuzione, la gestione e il controllo dell’accesso delle risorse in Azure.
 ms.topic: overview
 ms.date: 04/21/2020
-ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81870481"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087028"
 ---
 # <a name="what-is-azure-resource-manager"></a>Informazioni su Azure Resource Manager
 
@@ -68,7 +68,7 @@ Le impostazioni di gestione possono essere applicate a qualsiasi di questi livel
 
 Esistono alcuni fattori importanti da considerare quando si definisce il gruppo di risorse:
 
-* Tutte le risorse del gruppo devono condividere lo stesso ciclo di vita. Le risorse vengono distribuite, aggiornate ed eliminate insieme. Se una risorsa, ad esempio un server di database, deve esistere in un ciclo di distribuzione diverso deve essere inclusa in un altro gruppo di risorse.
+* Tutte le risorse del gruppo devono condividere lo stesso ciclo di vita. Le risorse vengono distribuite, aggiornate ed eliminate insieme. Se una risorsa, ad esempio un server, deve esistere in un ciclo di distribuzione diverso, deve essere inclusa in un altro gruppo di risorse.
 
 * Ogni risorsa può appartenere a un solo gruppo di risorse.
 

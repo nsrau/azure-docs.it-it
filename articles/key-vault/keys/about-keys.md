@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f96ec80b529c594a383be8d668fd28b77372cd80
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b9803726bf3a54eb31d3c2ebaddce11fb96472be
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900927"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413724"
 ---
 # <a name="about-azure-key-vault-keys"></a>Informazioni sulle chiavi di Azure Key Vault
 
@@ -30,10 +30,10 @@ Le chiavi crittografiche in Key Vault sono rappresentate come oggetti JSON Web K
 
 Le specifiche JWK/JWA di base vengono anche estese per abilitare tipi di chiave univoci per l'implementazione di Key Vault. Ad esempio, l'importazione di chiavi tramite la creazione di pacchetti HSM specifici del fornitore consente il trasporto sicuro delle chiavi, che possono essere usate solo nei moduli di protezione hardware di Key Vault. 
 
-Azure Key Vault supporta sia chiavi software che hardware:
+Azure Key Vault supporta chiavi protette tramite software e tramite modulo di protezione hardware:
 
-- **Chiavi "soft"** : chiave elaborata da Key Vault nel software, ma archiviata come crittografata quando inattiva tramite l'uso di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA o EC (Elliptic Curve) esistente oppure richiedere a Key Vault di generarne una.
-- **Chiavi "hard"** : chiave elaborata in un modulo di protezione hardware. Queste chiavi sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA o EC, in forma soft o tramite l'esportazione da un modulo di protezione hardware compatibile. I client possono anche richiedere a Key Vault di generare una chiave. Questo tipo di chiave aggiunge l'attributo key_hsm a JWK per riportare il materiale della chiave HSM.
+- **Chiavi protette tramite software**: chiave elaborata da Key Vault nel software, ma archiviata come crittografata quando inattiva tramite l'uso di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA o EC (Elliptic Curve) esistente oppure richiedere a Key Vault di generarne una.
+- **Chiavi protette tramite modulo di protezione hardware**: chiave elaborata in un modulo di protezione hardware. Queste chiavi sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA o EC protetta tramite software o mediante l'esportazione da un modulo di protezione hardware compatibile. I client possono anche richiedere a Key Vault di generare una chiave. Questo tipo di chiave aggiunge l'attributo key_hsm a JWK per riportare il materiale della chiave HSM.
 
 Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -41,9 +41,9 @@ Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione M
 
 Key Vault supporta solo chiavi RSA ed EC (Elliptic Curve). 
 
--   **EC**: chiave "soft" a curva ellittica.
+-   **EC**: chiave a curva ellittica protetta tramite software.
 -   **EC-HSM**: chiave "hard" a curva ellittica.
--   **RSA**: chiave "soft" RSA.
+-   **RSA**: chiave RSA protetta tramite software.
 -   **RSA-HSM**: chiave "hard" RSA.
 
 Key Vault supporta chiavi RSA di dimensioni pari a 2048, 3072 e 4096 e chiavi EC (Elliptic Curve) di tipo P-256, P-384, P-521 e P-256K (SECP256K1).

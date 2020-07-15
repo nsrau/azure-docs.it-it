@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un cluster Interactive Query usando un modello - Azure HDInsight'
+title: 'Avvio rapido: Creare un cluster Interactive Query usando un modello - Azure HDInsight'
 description: Questa guida di avvio rapido illustra come usare un modello di Resource Manager per creare un cluster Interactive Query in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,38 +8,41 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 74b1c25c8bab11c0b2a72510fd419df239e2c23a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d8d9ba6d3152435382d180fe32dd78e62e5fd63
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81603570"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087587"
 ---
-# <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Guida introduttiva: Creare un cluster Interactive Query in Azure HDInsight con un modello di Resource Manager
+# <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-arm-template"></a>Avvio rapido: Creare un cluster Interactive Query in Azure HDInsight con un modello di Resource Manager
 
-In questa guida di avvio rapido si userà un modello di Azure Resource Manager per creare un cluster [Interactive Query](./apache-interactive-query-get-started.md) in Azure HDInsight. Interactive Query (chiamato anche Apache Hive LLAP o [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) è un [tipo di cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type) di Azure HDInsight.
+Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager per creare un cluster [Interactive Query](./apache-interactive-query-get-started.md) in Azure HDInsight. Interactive Query (chiamato anche Apache Hive LLAP o [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) è un [tipo di cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type) di Azure HDInsight.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Prerequisiti
+
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-an-interactive-query-cluster"></a>Creare un cluster Interactive Query
+## <a name="review-the-template"></a>Rivedere il modello
 
-### <a name="review-the-template"></a>Rivedere il modello
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-interactive-hive/).
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-interactive-hive).
-
-:::code language="json" source="~/quickstart-templates/101-hdinsight-interactive-hive/azuredeploy.json" range="1-158":::
-
+:::code language="json" source="~/quickstart-templates/101-hdinsight-interactive-hive/azuredeploy.json" range="1-158" highlight="49-82":::
 
 Nel modello sono definite due risorse di Azure:
 
-* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts) per creare un account di archiviazione di Azure.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): creare un cluster HDInsight.
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) per creare un account di archiviazione di Azure.
+* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): creare un cluster HDInsight.
 
 ### <a name="deploy-the-template"></a>Distribuire il modello
 
-1. Selezionare il pulsante **Distribuisci in Azure** seguente per accedere ad Azure e aprire il modello di Resource Manager.
+1. Selezionare il pulsante **Distribuisci in Azure** sotto per accedere ad Azure e aprire il modello di Resource Manager.
 
     [![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json)
 
@@ -76,7 +79,7 @@ Nel portale di Azure passare al cluster e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come creare un cluster Interactive Query in HDInsight usando un modello di Resource Manager. L'articolo successivo illustra come usare Apache Zeppelin per eseguire query Apache Hive.
+In questa guida di avvio rapido è stato creato un cluster Interactive Query in HDInsight usando un modello di Resource Manager. L'articolo successivo illustra come usare Apache Zeppelin per eseguire query Apache Hive.
 
 > [!div class="nextstepaction"]
 > [Eseguire query Apache Hive in Azure HDInsight con Apache Zeppelin](./hdinsight-connect-hive-zeppelin.md)
