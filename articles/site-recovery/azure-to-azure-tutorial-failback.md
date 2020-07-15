@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74091352"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134451"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Eseguire il failback di una VM di Azure tra aree di Azure
 
@@ -28,7 +28,7 @@ Questa esercitazione illustra come eseguire il failback di una singola VM di Azu
 > 
 > [!NOTE]
 > 
-> Questa esercitazione illustra come eseguire il failover di alcune VM in un'area di destinazione e quindi il failback nell'area di origine con personalizzazioni minime. Per istruzioni più approfondite, vedere le [guide pratiche per le VM di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/).
+> Questa esercitazione illustra come eseguire il failover di alcune VM in un'area di destinazione e quindi il failback nell'area di origine con personalizzazioni minime. Per istruzioni più approfondite, vedere le [guide pratiche per le VM di Azure](../virtual-machines/windows/index.yml).
 
 ## <a name="before-you-start"></a>Prima di iniziare
 

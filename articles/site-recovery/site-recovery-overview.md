@@ -4,12 +4,12 @@ description: Panoramica del servizio Azure Site Recovery e riepilogo degli scena
 ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
-ms.openlocfilehash: ee387682e935522b37a5b4f9f32e53712bfb9150
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067548"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135230"
 ---
 # <a name="about-site-recovery"></a>Informazioni su Site Recovery
 
@@ -20,7 +20,7 @@ Le organizzazioni devono adottare una strategia di continuità aziendale e ripri
 Servizi di ripristino di Azure contribuisce a questa strategia:
 
 - **Servizio Site Recovery**: Site Recovery aiuta a garantire la continuità aziendale, mantenendo carichi di lavoro e app aziendali in esecuzione in caso di interruzioni. Site Recovery replica i carichi di lavoro in esecuzione su macchine fisiche e virtuali (VM) da un sito primario in una località secondaria. Quando si verifica un'interruzione nel sito primario, viene eseguito il failover nella località secondaria, da dove è possibile accedere alle app. Quando la località primaria è di nuovo disponibile, è possibile eseguire il failback.
-- **Servizio Backup**: Il servizio [Backup di Azure](/azure/backup/) mantiene i dati al sicuro e ripristinabili.
+- **Servizio Backup**: Il servizio [Backup di Azure](../backup/index.yml) mantiene i dati al sicuro e ripristinabili.
 
 Site Recovery può gestire la replica per:
 

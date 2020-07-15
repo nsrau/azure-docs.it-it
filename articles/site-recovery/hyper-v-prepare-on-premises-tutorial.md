@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84691102"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135652"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Predisporre i server Hyper-V locali per il ripristino di emergenza in Azure
 
@@ -56,12 +56,12 @@ Se gli host Hyper-V sono gestiti da VMM, è necessario preparare il server VMM l
 
 ### <a name="prepare-vmm-for-network-mapping"></a>Preparare VMM per il mapping di rete
 
-Se si usa VMM, il [mapping di rete](site-recovery-network-mapping.md) esegue il mapping tra reti di VM VMM locali e reti virtuali di Azure. Il mapping garantisce che le macchine virtuali di Azure siano connesse alla rete giusta quando vengono create dopo il failover.
+Se si usa VMM, il [mapping di rete](./hyper-v-vmm-network-mapping.md) esegue il mapping tra reti di VM VMM locali e reti virtuali di Azure. Il mapping garantisce che le macchine virtuali di Azure siano connesse alla rete giusta quando vengono create dopo il failover.
 
 Preparare VMM per il mapping di rete come segue:
 
-1. Assicurarsi di disporre di una [rete logica VMM](https://docs.microsoft.com/system-center/vmm/network-logical) associata al cloud in cui si trovano gli host Hyper-V.
-2. Assicurarsi di disporre di una [rete VM](https://docs.microsoft.com/system-center/vmm/network-virtual) collegata alla rete logica.
+1. Assicurarsi di disporre di una [rete logica VMM](/system-center/vmm/network-logical) associata al cloud in cui si trovano gli host Hyper-V.
+2. Assicurarsi di disporre di una [rete VM](/system-center/vmm/network-virtual) collegata alla rete logica.
 3. In VMM connettere le VM alla rete VM.
 
 ## <a name="verify-internet-access"></a>Verificare l'accesso a Internet
@@ -94,5 +94,5 @@ Dopo il failover, è possibile accedere alle macchine virtuali di Azure usando l
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Set up disaster recovery to Azure for Hyper-V VMs (Configurare il ripristino di emergenza in Azure per le VM Hyper-V)](tutorial-hyper-v-to-azure.md)
-> [Set up disaster recovery to Azure for Hyper-V VMs in VMM clouds (Configurare il ripristino di emergenza in Azure per le VM Hyper-V nei cloud VMM)](tutorial-hyper-v-vmm-to-azure.md)
+> [Set up disaster recovery to Azure for Hyper-V VMs (Configurare il ripristino di emergenza in Azure per le VM Hyper-V)](./hyper-v-azure-tutorial.md)
+> [Set up disaster recovery to Azure for Hyper-V VMs in VMM clouds (Configurare il ripristino di emergenza in Azure per le VM Hyper-V nei cloud VMM)](./hyper-v-vmm-azure-tutorial.md)

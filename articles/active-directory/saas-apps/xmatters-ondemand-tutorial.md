@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: e8ae31122d59238ac104d7d873cf56f32977c9af
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ada0977dafeba546e84b22c6c61efecce1511dc7
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086510"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170157"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Esercitazione: Integrazione di Azure Active Directory con xMatters OnDemand
 
@@ -107,24 +107,18 @@ Per configurare l'accesso Single Sign-On di Azure AD con xMatters OnDemand, segu
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
-    | |
-    |--|
-    | `https://<companyname>.au1.xmatters.com.au/`|
-    | `https://<companyname>.cs1.xmatters.com/`|
-    | `https://<companyname>.xmatters.com/`|
-    | `https://www.xmatters.com`|
-    | `https://<companyname>.xmatters.com.au/`|
-    | |
+    - `https://<companyname>.au1.xmatters.com.au/`
+    - `https://<companyname>.cs1.xmatters.com/`
+    - `https://<companyname>.xmatters.com/`
+    - `https://www.xmatters.com`
+    - `https://<companyname>.xmatters.com.au/`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
 
-    | |
-    |--|
-    | `https://<companyname>.au1.xmatters.com.au`|
-    | `https://<companyname>.xmatters.com/sp/<instancename>`|
-    | `https://<companyname>.cs1.xmatters.com/sp/<instancename>`|
-    | `https://<companyname>.au1.xmatters.com.au/<instancename>`|
-    | |
+    - `https://<companyname>.au1.xmatters.com.au`
+    - `https://<companyname>.xmatters.com/sp/<instancename>`
+    - `https://<companyname>.cs1.xmatters.com/sp/<instancename>`
+    - `https://<companyname>.au1.xmatters.com.au/<instancename>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di xMatters OnDemand](https://www.xmatters.com/company/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

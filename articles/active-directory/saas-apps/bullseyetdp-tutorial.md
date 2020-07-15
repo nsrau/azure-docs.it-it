@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66c07dbaf069ef804df21467354544676aeec5ba
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 9b7ac1538c02ab41a905f208f9485260423bc125
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101667"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169069"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bullseyetdp"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con BullseyeTDP
 
@@ -91,11 +91,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione BullseyeTDP prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
     
-    | Nome |  |  Attributo di origine|
-    | ---------------| --------------- | --------- |
-    | AccessToken | | < AccessTokenValue > |
-    | ApplicationKey | | < ApplicationKeyValue >|
-    | EmployeeID | | user.employeeid |
+    | Nome | Attributo di origine|
+    | ---- | --------------- |
+    | AccessToken | < AccessTokenValue > |
+    | ApplicationKey | < ApplicationKeyValue >|
+    | EmployeeID | user.employeeid |
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 

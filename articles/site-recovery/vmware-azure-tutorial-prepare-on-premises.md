@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b8fd34c8f1e3a32a8252074941a49d61aa540207
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704251"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134911"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparare i server VMware locali per il ripristino di emergenza in Azure
 
@@ -103,7 +103,7 @@ Per connettersi alle macchine virtuali Linux tramite SSH dopo il failover, esegu
 - Nel computer locale prima del failover verificare che il servizio Secure Shell sia impostato per essere avviato automaticamente all'avvio del sistema.
 - Controllare che le regole del firewall consentano una connessione SSH.
 - Nella macchina virtuale di Azure dopo il failover autorizzare le connessioni in entrata nella porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale in cui è stato eseguito il failover e per la subnet di Azure a cui è connessa.
-- [Aggiungere un indirizzo IP pubblico](site-recovery-monitoring-and-troubleshooting.md) per la macchina virtuale.
+- [Aggiungere un indirizzo IP pubblico](./site-recovery-monitor-and-troubleshoot.md) per la macchina virtuale.
 - È possibile selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale.
 
 

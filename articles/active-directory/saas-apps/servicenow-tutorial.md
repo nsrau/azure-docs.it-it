@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b860f4f75e142a8df09bb538ebee3f2eac6d3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 41f42b053181f4115770cd9973621706b248baab
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297478"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168304"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ServiceNow
 
@@ -101,10 +101,8 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     c. Per **URL di risposta**, immettere uno degli URL seguenti:
 
-    |||
-    |-|-|
-    | `https://instancename.service-now.com/navpage.do` |
-    | `https://instancename.service-now.com/customer.do` | 
+    - `https://instancename.service-now.com/navpage.do`
+    - `https://instancename.service-now.com/customer.do`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. La procedura è descritta più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -173,10 +171,8 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     c. Per **URL di risposta**, immettere uno degli URL seguenti:
 
-    |||
-    |-|-|
-    | `https://instancename.service-now.com/navpage.do` |
-    | `https://instancename.service-now.com/customer.do` |
+    - `https://instancename.service-now.com/navpage.do`
+    - `https://instancename.service-now.com/customer.do`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. La procedura è descritta più avanti nell'esercitazione. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

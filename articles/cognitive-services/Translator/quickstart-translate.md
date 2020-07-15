@@ -12,18 +12,18 @@ ms.date: 05/26/2020
 ms.author: erhopf
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: e4ee37c00778d239c8481392ce9231b2dda7c6e3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 363da0f528444ab45784beb43d3590b50c0cb71f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606529"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144305"
 ---
 # <a name="quickstart-use-the-translator-to-translate-text"></a>Avvio rapido: Usare Translator per tradurre testo
 
 Questo argomento di avvio rapido descrive come usare l'API REST Translator per tradurre una stringa di testo dall'inglese al tedesco, all'italiano, al giapponese e al thai.
 
-Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa di Translator. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa di Translator. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/translate-csharp.md)]

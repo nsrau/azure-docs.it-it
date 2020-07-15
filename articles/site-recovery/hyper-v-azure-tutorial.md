@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9a2bb636ba749cae50195cefeb8e7237d382fb99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: afa8375805ebc5d52ac716126adca86850147166
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82182345"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134084"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -30,7 +30,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Abilitare la replica per una macchina virtuale.
 
 > [!NOTE]
-> Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, esaminare gli articoli nella sezione **Guide pratiche** della [documentazione di Site Recovery](https://docs.microsoft.com/azure/site-recovery).
+> Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, esaminare gli articoli nella sezione **Guide pratiche** della [documentazione di Site Recovery](./index.yml).
 
 
 
@@ -39,7 +39,7 @@ In questa esercitazione verranno illustrate le procedure per:
 Questa è la terza esercitazione di una serie. Si presuppone che siano già state completate le attività delle esercitazioni precedenti:
 
 1. [Preparare Azure](tutorial-prepare-azure.md)
-2. [Preparare Hyper-V in locale](tutorial-prepare-on-premises-hyper-v.md)
+2. [Preparare Hyper-V in locale](./hyper-v-prepare-on-premises-tutorial.md)
 
 ## <a name="select-a-replication-goal"></a>Selezionare un obiettivo di replica
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d49915271580b5665981bf7e212f3d5712c86456
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d9b141f3722a722a57e5ec7c5662ded4b9a8c790
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76292980"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170429"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SuccessFactors
 
@@ -85,41 +85,35 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente:
 
-    | |
-    |--|
-    | `https://<companyname>.successfactors.com/<companyname>`|
-    | `https://<companyname>.sapsf.com/<companyname>`|
-    | `https://<companyname>.successfactors.eu/<companyname>`|
-    | `https://<companyname>.sapsf.eu`|
+    - `https://<companyname>.successfactors.com/<companyname>`
+    - `https://<companyname>.sapsf.com/<companyname>`
+    - `https://<companyname>.successfactors.eu/<companyname>`
+    - `https://<companyname>.sapsf.eu`
 
     b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
-    | |
-    |--|
-    | `https://www.successfactors.com/<companyname>`|
-    | `https://www.successfactors.com`|
-    | `https://<companyname>.successfactors.eu`|
-    | `https://www.successfactors.eu/<companyname>`|
-    | `https://<companyname>.sapsf.com`|
-    | `https://hcm4preview.sapsf.com/<companyname>`|
-    | `https://<companyname>.sapsf.eu`|
-    | `https://www.successfactors.cn`|
-    | `https://www.successfactors.cn/<companyname>`|
+    - `https://www.successfactors.com/<companyname>`
+    - `https://www.successfactors.com`
+    - `https://<companyname>.successfactors.eu`
+    - `https://www.successfactors.eu/<companyname>`
+    - `https://<companyname>.sapsf.com`
+    - `https://hcm4preview.sapsf.com/<companyname>`
+    - `https://<companyname>.sapsf.eu`
+    - `https://www.successfactors.cn`
+    - `https://www.successfactors.cn/<companyname>`
 
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
 
-    | |
-    |--|
-    | `https://<companyname>.successfactors.com/<companyname>`|
-    | `https://<companyname>.successfactors.com`|
-    | `https://<companyname>.sapsf.com/<companyname>`|
-    | `https://<companyname>.sapsf.com`|
-    | `https://<companyname>.successfactors.eu/<companyname>`|
-    | `https://<companyname>.successfactors.eu`|
-    | `https://<companyname>.sapsf.eu`|
-    | `https://<companyname>.sapsf.eu/<companyname>`|
-    | `https://<companyname>.sapsf.cn`|
-    | `https://<companyname>.sapsf.cn/<companyname>`|
+    - `https://<companyname>.successfactors.com/<companyname>`
+    - `https://<companyname>.successfactors.com`
+    - `https://<companyname>.sapsf.com/<companyname>`
+    - `https://<companyname>.sapsf.com`
+    - `https://<companyname>.successfactors.eu/<companyname>`
+    - `https://<companyname>.successfactors.eu`
+    - `https://<companyname>.sapsf.eu`
+    - `https://<companyname>.sapsf.eu/<companyname>`
+    - `https://<companyname>.sapsf.cn`
+    - `https://<companyname>.sapsf.cn/<companyname>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Contattare il [team di supporto clienti di SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html) per ottenere questi valori.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09a00d2c6a889f396e5c18da29530c94a624568b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303937"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134429"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisites
 
 - Verificare che le VM di Azure si trovino nell'area di Azure da cui si vuole eseguire lo spostamento.
-- Verificare che la [combinazione di area di origine-area di destinazione scelta sia supportata](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) e prendere una decisione basata su informazioni aggiornate in merito all'area di destinazione.
+- Verificare che la [combinazione di area di origine-area di destinazione scelta sia supportata](./azure-to-azure-support-matrix.md#region-support) e prendere una decisione basata su informazioni aggiornate in merito all'area di destinazione.
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
 - Rivedere le [limitazioni e i requisiti del supporto](azure-to-azure-support-matrix.md).
 - Verificare le autorizzazioni dell'account. Se si è creato un account Azure gratuito, si è amministratori della propria sottoscrizione. Se non si è l'amministratore della sottoscrizione, rivolgersi all'amministratore per l'assegnazione delle autorizzazioni necessarie. Per abilitare la replica per una VM ed essenzialmente copiare i dati con Azure Site Recovery, è necessario quanto segue:
@@ -70,10 +70,10 @@ In questa esercitazione si apprenderà come:
      > Azure Site Recovery individua e crea automaticamente una rete virtuale quando si abilita la replica per la VM di origine. È anche possibile creare preventivamente una rete e assegnarla alla VM nel flusso utente per l'abilitazione della replica. Tutte le altre risorse devono essere create manualmente nell'area di destinazione, come indicato più avanti.
 
     Per creare le risorse di rete usate più di frequente che sono pertinenti per il caso specifico in base alla configurazione della VM di origine, vedere la documentazione seguente:
-    - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
+    - [Gruppi di sicurezza di rete](../virtual-network/manage-network-security-group.md)
+    - [Servizi di bilanciamento del carico](../load-balancer/index.yml)
     -  [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
-    - Per qualsiasi altro componente di rete, vedere la [documentazione relativa alle reti](https://docs.microsoft.com/azure/?pivot=products&panel=network).
+    - Per qualsiasi altro componente di rete, vedere la [documentazione relativa alle reti](../index.yml?pivot=products&panel=network).
 
 
 
@@ -146,4 +146,3 @@ In questa esercitazione è stata spostata una VM di Azure in un'area diversa di 
 
 > [!div class="nextstepaction"]
 > [Configurare il ripristino di emergenza dopo la migrazione](azure-to-azure-quickstart.md)
-

@@ -4,12 +4,12 @@ description: Configurare rapidamente il ripristino di emergenza per macchine vir
 ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
-ms.openlocfilehash: e26c2a1f24a88dc979f4ec68de65afc618740c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371907"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135713"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Guida introduttiva: Configurare il ripristino di emergenza in un'area di Azure secondaria per una macchina virtuale di Azure
 
@@ -22,7 +22,7 @@ Questo argomento di avvio rapido descrive come configurare il ripristino di emer
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure e una macchina virtuale.
 
 - Se non si ha un account Azure con una sottoscrizione attiva, è possibile [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- È consigliabile usare una macchina virtuale con almeno 1 GB di RAM. [Altre informazioni](/azure/virtual-machines/windows/quick-create-portal) su come creare una macchina virtuale.
+- È consigliabile usare una macchina virtuale con almeno 1 GB di RAM. [Altre informazioni](../virtual-machines/windows/quick-create-portal.md) su come creare una macchina virtuale.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 

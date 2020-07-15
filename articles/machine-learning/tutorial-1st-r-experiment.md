@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Usare R per creare un modello di Machine Learning'
+title: 'Esercitazione: Usare R per creare un modello di Machine Learning (anteprima)'
 titleSuffix: Azure Machine Learning
 description: In questa esercitazione si userà Azure Machine Learning R SDK per creare un modello di regressione logistica che prevede la probabilità di un incidente d'auto mortale.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: cb4afac3b1e73a95fa3fe703fc5bd9d3f621f23a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483381"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134693"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Esercitazione: Usare R per creare un modello di Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

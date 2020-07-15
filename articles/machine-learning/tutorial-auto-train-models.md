@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: cf1732b88867074fe1f672e193ce404a4ef83e54
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 595440dc727f3faf1fa475266825a671f00d9153
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023483"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143615"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per stimare le tariffe dei taxi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -848,10 +848,7 @@ Il parametro `test_size` determina la percentuale di dati da allocare al test. I
 ```python
 from sklearn.model_selection import train_test_split
 
-y_df = final_df.pop("totalAmount")
-x_df = final_df
-
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 ```
 
 Lo scopo di questo passaggio consiste nell'usare punti dati per testare il modello finito che non sono stati usati per il training del modello, per misurare l'accuratezza.
@@ -899,8 +896,8 @@ from azureml.train.automl import AutoMLConfig
 
 automl_config = AutoMLConfig(task='regression',
                              debug_log='automated_ml_errors.log',
-                             X=x_train.values,
-                             y=y_train.values.flatten(),
+                             training_data=x_train,
+                             label_column_name="totalAmount",
                              **automl_settings)
 ```
 

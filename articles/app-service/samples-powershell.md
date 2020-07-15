@@ -6,18 +6,18 @@ ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 51693ad4d233ea180607bc7358a0847e23688099
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: a1577d42de9a4452467a448a0de5cd5f9575a55f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057909"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169426"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Esempi di PowerShell per Servizio app di Azure
 
 La tabella seguente include i collegamenti agli script PowerShell compilati tramite Azure PowerShell.
 
-| | |
+| Script | Descrizione |
 |-|-|
 |**Creare un'app**||
 | [Creare un'app con la distribuzione da GitHub](./scripts/powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app del servizio app che esegue il pull del codice da GitHub. |

@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di macchine vi
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 6eeff73bdcac214eb3836731fcbfd2f9410c6045
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5d697c2146144ca7f4b9a8739b6863ba31845f4e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102804"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165431"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Individuare e valutare le VM AWS (Amazon Web Services) ed eseguirne la migrazione ad Azure
 
@@ -77,9 +77,9 @@ Preparare Azure per la migrazione con lo strumento Azure Migrate: Migrazione del
 
 Assegnare il ruolo Collaboratore Macchina virtuale all'account Azure. Questo ruolo fornisce le autorizzazioni per:
 
-    - Creare una macchina virtuale nel gruppo di risorse selezionato.
-    - Creare una macchina virtuale nella rete virtuale selezionata.
-    - Scrivere in un disco gestito di Azure. 
+- Creare una macchina virtuale nel gruppo di risorse selezionato.
+- Creare una macchina virtuale nella rete virtuale selezionata.
+- Scrivere in un disco gestito di Azure. 
 
 ### <a name="create-an-azure-network"></a>Creare una rete di Azure
 

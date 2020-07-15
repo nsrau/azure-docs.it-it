@@ -4,12 +4,12 @@ description: Informazioni su come configurare il ripristino di emergenza in Azur
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
-ms.openlocfilehash: a391d8eb3cf7bc43b52883cbf2e76170338c44c6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f32103adce184a67cec9e5a778ac1d1e6f330f4d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067588"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130239"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurare il ripristino di emergenza in Azure di macchine virtuali Hyper-V locali di cloud VMM
 
@@ -25,7 +25,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Abilitare la replica per una macchina virtuale.
 
 > [!NOTE]
-> Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, esaminare gli articoli nella sezione **Guide pratiche** della [documentazione di Site Recovery](/azure/site-recovery/).
+> Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, esaminare gli articoli nella sezione **Guide pratiche** della [documentazione di Site Recovery](./index.yml).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

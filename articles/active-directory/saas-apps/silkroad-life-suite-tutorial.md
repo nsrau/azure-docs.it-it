@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 63165da69815c77afb8692e1e68c1710beb8df8c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ae0be30eb834ea5c01a719daca410fe0e0c90b4d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090829"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Esercitazione: Integrazione di Azure Active Directory con SilkRoad Life Suite
 
@@ -131,17 +131,13 @@ Per configurare Single Sign-On di Azure AD con SilkRoad Life Suite, eseguire i p
 
     b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
-    | |
-    |--|
-    | `https://<subdomain>.silkroad-eng.com/Authentication/SP`|
-    | `https://<subdomain>.silkroad.com/Authentication/SP`|
+    - `https://<subdomain>.silkroad-eng.com/Authentication/SP`
+    - `https://<subdomain>.silkroad.com/Authentication/SP`
 
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
 
-    | |
-    |--|
-    | `https://<subdomain>.silkroad-eng.com/Authentication/`|
-    | `https://<subdomain>.silkroad.com/Authentication/`|
+    - `https://<subdomain>.silkroad-eng.com/Authentication/`
+    - `https://<subdomain>.silkroad.com/Authentication/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di SilkRoad Life Suite](https://www.silkroad.com/locations/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

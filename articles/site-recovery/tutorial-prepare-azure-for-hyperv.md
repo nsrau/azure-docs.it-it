@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74084181"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130975"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparare le risorse di Azure per il ripristino di emergenza di Hyper-V
 
@@ -98,8 +98,8 @@ La creazione della rete virtuale richiede qualche secondo. La rete creata verrà
 ## <a name="useful-links"></a>Collegamenti utili
 
 Vengono fornite informazioni su:
-- [Reti di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [Dischi gestiti](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
+- [Reti di Azure](../virtual-network/virtual-networks-overview.md)
+- [Dischi gestiti](../virtual-machines/windows/managed-disks-overview.md)
 
 
 

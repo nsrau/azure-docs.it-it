@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: fcd12b0c47dc587153df51d4d30eb2abe4cc2657
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 03e6f52d764b72c423269fcdfdc966474978aa6e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74081948"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Esercitazione: Integrazione di Azure Active Directory con Reward Gateway
 
@@ -106,22 +106,18 @@ Per configurare l'accesso Single Sign-On di Azure AD con Reward Gateway, seguire
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Reward Gateway](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
-    
-    | |
-    |--|
-    | `https://<companyname>.rewardgateway.com`|
-    | `https://<companyname>.rewardgateway.co.uk/`|
-    | `https://<companyname>.rewardgateway.co.nz/`|
-    | `https://<companyname>.rewardgateway.com.au/`|
+
+    - `https://<companyname>.rewardgateway.com`
+    - `https://<companyname>.rewardgateway.co.uk/`
+    - `https://<companyname>.rewardgateway.co.nz/`
+    - `https://<companyname>.rewardgateway.com.au/`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
-    
-    | |
-    |--|
-    |  `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>`|
-    | `https://<companyname>.rewardgateway.co.uk/Authentication/EndLogin?idp=<Unique Id>`|
-    | `https://<companyname>.rewardgateway.co.nz/Authentication/EndLogin?idp=<Unique Id>`|
-    | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`|
+
+    - `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>`
+    - `https://<companyname>.rewardgateway.co.uk/Authentication/EndLogin?idp=<Unique Id>`
+    - `https://<companyname>.rewardgateway.co.nz/Authentication/EndLogin?idp=<Unique Id>`
+    - `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, configurare l'integrazione nel portale di gestione di Reward. Per informazioni dettagliate, vedere https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication

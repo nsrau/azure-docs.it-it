@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc37cb6fa05a2be56de7bf5536d7274190257d85
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 463bd290c304d9436316c9e08778f37ce8bd0b55
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303920"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135427"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Spostare le VM di Azure in un'altra area di Azure
 
@@ -35,7 +35,7 @@ Può essere opportuno spostare macchine virtuali dell'infrastruttura di Azure co
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Verificare che siano presenti macchine virtuali di Azure nell'area di Azure di origine *da* cui si vuole eseguire lo spostamento.
-- Verificare che la [combinazione di area di origine e area di destinazione sia supportata](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) e scegliere con attenzione l'area di destinazione.
+- Verificare che la [combinazione di area di origine e area di destinazione sia supportata](./azure-to-azure-support-matrix.md#region-support) e scegliere con attenzione l'area di destinazione.
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
 - Rivedere le [limitazioni e i requisiti del supporto](azure-to-azure-support-matrix.md).
 - Verificare le autorizzazioni dell'account. Se è appena stato creato l'account Azure gratuito, si è *amministratori* della propria sottoscrizione. In caso contrario, rivolgersi all'amministratore per ottenere le autorizzazioni necessarie:
@@ -66,13 +66,13 @@ Può essere opportuno spostare macchine virtuali dell'infrastruttura di Azure co
 
    Azure Site Recovery individua e crea automaticamente una rete virtuale e un account di archiviazione quando si abilita la replica per la macchina virtuale di origine. È anche possibile creare prima queste risorse e assegnarle alla macchina virtuale come parte del passaggio di abilitazione della replica, ma tutte le altre risorse devono essere create manualmente nell'area di destinazione. Per creare le risorse di rete usate più di frequente in base alla configurazione della macchina virtuale di origine, vedere i documenti seguenti:
 
-   - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
+   - [Gruppi di sicurezza di rete](../virtual-network/manage-network-security-group.md)
+   - [Servizi di bilanciamento del carico](../load-balancer/index.yml)
    - [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     
-   Per gli altri componenti di rete, vedere la [documentazione relativa alle reti di Azure](https://docs.microsoft.com/azure/?pivot=products&panel=network). 
+   Per gli altri componenti di rete, vedere la [documentazione relativa alle reti di Azure](../index.yml?pivot=products&panel=network). 
 
-4. Per testare la configurazione prima dello spostamento, [creare manualmente una rete non di produzione](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) nell'area di destinazione. Il test della configurazione crea un'interferenza minima con l'ambiente di produzione ed è consigliabile eseguirlo.
+4. Per testare la configurazione prima dello spostamento, [creare manualmente una rete non di produzione](../virtual-network/quick-create-portal.md) nell'area di destinazione. Il test della configurazione crea un'interferenza minima con l'ambiente di produzione ed è consigliabile eseguirlo.
     
 ## <a name="copy-data-to-the-target-region"></a>Copiare i dati nell'area di destinazione
 Nella procedura seguente viene usato Azure Site Recovery per copiare i dati nell'area di destinazione.
@@ -149,4 +149,3 @@ In questa esercitazione si è appreso come spostare le macchine virtuali di Azur
 
 > [!div class="nextstepaction"]
 > [Configurare il ripristino di emergenza dopo la migrazione](azure-to-azure-quickstart.md)
-

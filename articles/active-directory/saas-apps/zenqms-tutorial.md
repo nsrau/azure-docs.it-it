@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 2104768f8842910bf83239e86106d288d7ad9baf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 850923940c60212ad99729b8dbd002d8f9083a0b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086335"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Esercitazione: Integrazione di Azure Active Directory con ZenQMS
 
@@ -115,11 +115,8 @@ Per configurare l'accesso Single Sign-On di Azure AD con ZenQMS, seguire questa 
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente:
 
-    | |
-    |-|-|
-    | `https://<INSTANCE>.zenqms.com/<ID>`|
-    | `https://<INSTANCE>.zenqms.com/<EMAIL DOMAIN>/`|
-    | |
+    - `https://<INSTANCE>.zenqms.com/<ID>`
+    - `https://<INSTANCE>.zenqms.com/<EMAIL DOMAIN>/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di ZenQMS](mailto:help@zenqms.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

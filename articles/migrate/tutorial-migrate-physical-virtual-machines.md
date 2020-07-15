@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di computer fi
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: dbb7737d59f48cadc645be990634bb5cb0cda251
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 16145c5d8b2414750b6eff9669fa7cd61eb482f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116098"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165397"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Eseguire la migrazione di computer come server fisici in Azure
 
@@ -69,9 +69,9 @@ Preparare Azure per la migrazione con Migrazione server.
 
 Assegnare il ruolo Collaboratore Macchina virtuale all'account Azure. Questo ruolo fornisce le autorizzazioni per:
 
-    - Creare una macchina virtuale nel gruppo di risorse selezionato.
-    - Creare una macchina virtuale nella rete virtuale selezionata.
-    - Scrivere in un disco gestito di Azure. 
+- Creare una macchina virtuale nel gruppo di risorse selezionato.
+- Creare una macchina virtuale nella rete virtuale selezionata.
+- Scrivere in un disco gestito di Azure. 
 
 ### <a name="create-an-azure-network"></a>Creare una rete di Azure
 

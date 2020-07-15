@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75498167"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132465"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Effettuare il failover delle macchine virtuali Hyper-V in Azure
 
@@ -27,8 +27,8 @@ Questa esercitazione descrive come effettuare il failover delle macchine virtual
 Questa è la quinta esercitazione di una serie. Si presuppone che siano già state completate le attività delle esercitazioni precedenti.    
 
 1. [Preparare Azure](tutorial-prepare-azure.md)
-2. [Preparare Hyper-V in locale](tutorial-prepare-on-premises-hyper-v.md)
-3. Configurare il ripristino di emergenza per [macchine virtuali Hyper-V](tutorial-hyper-v-to-azure.md) o per [macchine virtuali Hyper-V gestite in cloud System Center VMM](tutorial-hyper-v-vmm-to-azure.md)
+2. [Preparare Hyper-V in locale](./hyper-v-prepare-on-premises-tutorial.md)
+3. Configurare il ripristino di emergenza per [macchine virtuali Hyper-V](./hyper-v-azure-tutorial.md) o per [macchine virtuali Hyper-V gestite in cloud System Center VMM](./hyper-v-vmm-azure-tutorial.md)
 4. [Eseguire un'esercitazione sul ripristino di emergenza](tutorial-dr-drill-azure.md)
 
 [Informazioni](failover-failback-overview.md#types-of-failover) sui vari tipi di failover. Per effettuare il failover di più macchine virtuali in un piano di ripristino, vedere [questo articolo](site-recovery-failover.md).

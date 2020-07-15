@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75498040"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130619"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Spostamento delle VM di Azure in un'altra area di Azure
 
@@ -51,11 +51,11 @@ Questa sezione illustra le architetture di distribuzione più comuni per un'appl
 
      ![Distribuzione di macchine virtuali a istanza singola tra i livelli](media/move-vm-overview/regular-deployment.png)
 
-* **VM di ogni livello distribuite in set di disponibilità**: Ogni VM di un livello è configurata in un set di disponibilità. I [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) assicurano che le in Azure le macchine virtuali vengano distribuite tra più nodi hardware isolati in un cluster. Questa operazione assicura che, se si verifica un errore hardware o software all'interno di Azure, solo un subset delle macchine virtuali viene interessato e che nel complesso la soluzione rimane disponibile e operativa.
+* **VM di ogni livello distribuite in set di disponibilità**: Ogni VM di un livello è configurata in un set di disponibilità. I [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) assicurano che le in Azure le macchine virtuali vengano distribuite tra più nodi hardware isolati in un cluster. Questa operazione assicura che, se si verifica un errore hardware o software all'interno di Azure, solo un subset delle macchine virtuali viene interessato e che nel complesso la soluzione rimane disponibile e operativa.
 
      ![Distribuzione di macchine virtuali nei set di disponibilità](media/move-vm-overview/avset.png)
 
-* **VM di ogni livello distribuite in zone di disponibilità**: Ogni VM di un livello è configurata in [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview). Una zona di disponibilità in un'area di Azure è una combinazione di un dominio di errore e un dominio di aggiornamento. Ad esempio, se si creano tre o più macchine virtuali in tre aree in un'area di Azure, le macchine virtuali vengono distribuite in modo efficace in tre domini di errore e tre domini di aggiornamento. La piattaforma di Azure riconosce questa distribuzione in domini di aggiornamento per assicurarsi che le macchine virtuali in diverse aree non vengano aggiornate contemporaneamente.
+* **VM di ogni livello distribuite in zone di disponibilità**: Ogni VM di un livello è configurata in [zone di disponibilità](../availability-zones/az-overview.md). Una zona di disponibilità in un'area di Azure è una combinazione di un dominio di errore e un dominio di aggiornamento. Ad esempio, se si creano tre o più macchine virtuali in tre aree in un'area di Azure, le macchine virtuali vengono distribuite in modo efficace in tre domini di errore e tre domini di aggiornamento. La piattaforma di Azure riconosce questa distribuzione in domini di aggiornamento per assicurarsi che le macchine virtuali in diverse aree non vengano aggiornate contemporaneamente.
 
      ![Distribuzione zone di disponibilità](media/move-vm-overview/zone.png)
 

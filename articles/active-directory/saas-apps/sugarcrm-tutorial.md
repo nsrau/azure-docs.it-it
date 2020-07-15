@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae7b80fd4d2fcec32bbef5e4cdf18e576412a86
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e3199509b03b058b71b609d276a8d95e8d225175
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74231970"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167760"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Sugar CRM
 
@@ -87,18 +87,14 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente:
 
-    | |
-    |--|
-    | `https://<companyname>.sugarondemand.com`|
-    | `https://<companyname>.trial.sugarcrm`|
+    - `https://<companyname>.sugarondemand.com`
+    - `https://<companyname>.trial.sugarcrm`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
 
-    | |
-    |--|
-    | `https://<companyname>.sugarondemand.com/<companyname>`|
-    | `https://<companyname>.trial.sugarcrm.com/<companyname>`|
-    | `https://<companyname>.trial.sugarcrm.eu/<companyname>`|
+    - `https://<companyname>.sugarondemand.com/<companyname>`
+    - `https://<companyname>.trial.sugarcrm.com/<companyname>`
+    - `https://<companyname>.trial.sugarcrm.eu/<companyname>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di accesso e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Sugar CRM](https://support.sugarcrm.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.

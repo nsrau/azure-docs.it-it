@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18dc2e4393175751f5ac52d53e0c331c82fce7e8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f3740415652407c834ec258730f89e46398a9f79
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078151"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170480"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Shopify Plus
 
@@ -99,9 +99,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Shopify Plus prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | Nome |  |  Attributo di origine|
-    | ---------------| --------------- | --------- |
-    | email | | user.mail |
+    | Nome | Attributo di origine|
+    | ---- | --------------- |
+    | email | user.mail |
 
 1. Modificare il formato di **Name ID** (ID nome) in **Persistente**. Selezionare l'opzione **Identificatore utente univoco (ID nome)** e quindi il formato **Identificatore nome**. Selezionare **Persistente** per questa opzione. Salvare le modifiche.
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare il pulsante di copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.

@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: e7f7535cf66da721e1738da6d0efbf335d97a6da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871498"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134501"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -31,8 +31,8 @@ Questa esercitazione illustra come configurare il ripristino di emergenza per le
 
 Per completare questa esercitazione:
 
-- Esaminare [l'architettura e i componenti dello scenario](concepts-azure-to-azure-architecture.md).
-- Prima di iniziare, verificare i [requisiti di supporto](site-recovery-support-matrix-azure-to-azure.md).
+- Esaminare [l'architettura e i componenti dello scenario](./azure-to-azure-architecture.md).
+- Prima di iniziare, verificare i [requisiti di supporto](./azure-to-azure-support-matrix.md).
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -137,7 +137,7 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
    | **Posizione di destinazione** | area di destinazione usata per il ripristino di emergenza.<br/><br/> È consigliabile che il percorso di destinazione corrisponda al percorso dell'insieme di credenziali di Site Recovery. |
    | **Gruppo di risorse di destinazione** | gruppo di risorse nell'area di destinazione in cui si trovano le macchine virtuali di Azure dopo il failover.<br/><br/> Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione con un suffisso `asr`. Il percorso del gruppo di risorse di destinazione può essere in qualsiasi area, ad eccezione di quella in cui sono ospitate le macchine virtuali di origine. |
    | **Rete virtuale di destinazione** | rete nell'area di destinazione in cui si trovano le macchine virtuali dopo il failover.<br/><br/> Per impostazione predefinita, Site Recovery crea una nuova rete virtuale (con le relative subnet) nell'area di destinazione con un suffisso `asr`. |
-   | **Account di archiviazione della cache** | Site Recovery usa un account di archiviazione nell'area di origine. Le modifiche apportate alle macchine virtuali di origine vengono inviate a questo account prima della replica nel percorso di destinazione.<br/><br/> Se si usa un account di archiviazione della cache con abilitazione per il firewall, assicurarsi di selezionare **Consenti servizi Microsoft attendibili**. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) Assicurarsi anche di consentire l'accesso ad almeno una subnet della rete virtuale di origine. |
+   | **Account di archiviazione della cache** | Site Recovery usa un account di archiviazione nell'area di origine. Le modifiche apportate alle macchine virtuali di origine vengono inviate a questo account prima della replica nel percorso di destinazione.<br/><br/> Se si usa un account di archiviazione della cache con abilitazione per il firewall, assicurarsi di selezionare **Consenti servizi Microsoft attendibili**. [Altre informazioni](../storage/common/storage-network-security.md#exceptions) Assicurarsi anche di consentire l'accesso ad almeno una subnet della rete virtuale di origine. |
    | **Account di archiviazione di destinazione (se la macchina virtuale di origine usa dischi non gestiti)** | per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione nell'area di destinazione per eseguire il mirroring dell'account di archiviazione della macchina virtuale di origine.<br/><br/> Abilitare **Consenti servizi Microsoft attendibili** se si usa un account di archiviazione della cache abilitato per il firewall. |
    | **Dischi gestiti di replica (se la macchina virtuale di origine usa dischi gestiti)** : | Per impostazione predefinita, Site Recovery crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della macchina virtuale di origine con lo stesso tipo di archiviazione (Standard o Premium) del disco gestito della macchina virtuale di origine. È possibile personalizzare solo Tipo di disco. |
    | **Set di disponibilità di destinazione** | Per impostazione predefinita, Azure Site Recovery crea nell'area di destinazione un nuovo set di disponibilità il cui nome include il suffisso `asr` per le macchine virtuali che fanno parte di un set di disponibilità nell'area di origine. Nel caso in cui il set di disponibilità creato da Azure Site Recovery esista già, verrà riutilizzato. |

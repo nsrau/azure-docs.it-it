@@ -1,22 +1,15 @@
 ---
 title: Esempio di script di Azure PowerShell - Sottoscrivere un gruppo di risorse | Microsoft Docs
 description: Questo articolo include un esempio di script di Azure PowerShell che illustra come sottoscrivere gli eventi di Griglia di eventi per un gruppo di risorse.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: e285f628d1ec3afce55dc8fe4efa50a361dab5ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/08/2020
+ms.openlocfilehash: 82f40b9971d89d96500887e2927a7b86246ce74d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76720810"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171194"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>Sottoscrivere eventi per un gruppo di risorse con PowerShell
 

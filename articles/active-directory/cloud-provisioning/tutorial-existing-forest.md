@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2612c765140d838ddf441894d7fd068b7d66ccfc
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d369395cc06902f31bdf17b427ecbb9f71f42001
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360640"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146830"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrare una foresta esistente e una nuova con un singolo tenant di Azure AD
 
@@ -105,13 +105,13 @@ Per verificare se l'agente è in esecuzione, seguire questa procedura:
 2.  Fare clic su **Azure Active Directory**
 3.  Fare clic su **Azure AD Connect**
 4.  Selezionare **Gestione del provisioning (anteprima)** 
-![](media/how-to-configure/manage1.png)
+![Screenshot che mostra il collegamento "Gestione del provisioning (anteprima)".](media/how-to-configure/manage1.png)
 5.  Fare clic su **Nuova configurazione**
-![](media/tutorial-single-forest/configure1.png)
+![Screenshot della schermata Provisioning di Azure AD (anteprima) con il collegamento "Nuova configurazione" evidenziato.](media/tutorial-single-forest/configure1.png)
 7.  Nella schermata di configurazione, immettere un valore per **Messaggio di posta elettronica di notifica**, spostare il selettore su **Abilita** e fare clic su **Salva**.
-![](media/tutorial-single-forest/configure2.png)
+![Screenshot della schermata di configurazione con il messaggio di posta elettronica di notifica compilato e l'opzione Abilita selezionata.](media/tutorial-single-forest/configure2.png)
 1.  Lo stato della configurazione dovrebbe ora essere **Integro**.
-![](media/how-to-configure/manage4.png)
+![Screenshot di Provisioning di Azure AD (anteprima) che mostra lo stato Integro.](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Verificare che gli utenti siano stati creati e che la sincronizzazione sia in esecuzione
 A questo punto verificare che gli utenti presenti nella directory locale siano stati sincronizzati e che ora siano inclusi nel tenant di Azure AD.  Per essere completata, questa operazione può richiedere alcune ore.  Per verificare che gli utenti siano sincronizzati, eseguire le operazioni seguenti.

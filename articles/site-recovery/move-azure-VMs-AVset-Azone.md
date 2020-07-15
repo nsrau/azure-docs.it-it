@@ -7,15 +7,15 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3efa8da87ac15495900dd264a9c37143f5e08181
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 7d92311dfa699247995c7ded3e3930e19a9a537a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84699720"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135460"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Spostare macchine virtuali di Azure nelle zone di disponibilità
-Le zone di disponibilità di Azure consentono di proteggere le applicazioni e i dati da eventuali guasti del data center. Ogni zona di disponibilità è costituita da uno o più data center dotati di impianti indipendenti per l'energia, il raffreddamento e la rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dai guasti del data center. Con le zone di disponibilità, Azure offre un Contratto di servizio con tempo di attività delle macchine virtuali del 99,99%. Le zone di disponibilità sono supportate in aree selezionate, come indicato in [Aree che supportano le zone di disponibilità in Azure](https://docs.microsoft.com/azure/availability-zones/az-region).
+Le zone di disponibilità di Azure consentono di proteggere le applicazioni e i dati da eventuali guasti del data center. Ogni zona di disponibilità è costituita da uno o più data center dotati di impianti indipendenti per l'energia, il raffreddamento e la rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dai guasti del data center. Con le zone di disponibilità, Azure offre un Contratto di servizio con tempo di attività delle macchine virtuali del 99,99%. Le zone di disponibilità sono supportate in aree selezionate, come indicato in [Aree che supportano le zone di disponibilità in Azure](../availability-zones/az-region.md).
 
 Se le macchine virtuali sono distribuite come *istanza singola* in un'area specifica e si vuole migliorare la disponibilità spostandole in una zona di disponibilità, è possibile eseguire questa operazione usando Azure Site Recovery. Questa operazione può essere ulteriormente classificata in:
 
@@ -23,11 +23,11 @@ Se le macchine virtuali sono distribuite come *istanza singola* in un'area speci
 - Spostare macchine virtuali in un set di disponibilità nelle zone di disponibilità in un'area di destinazione
 
 > [!IMPORTANT]
-> Attualmente Azure Site Recovery supporta lo spostamento delle macchine virtuali da un'area a un'altra. Supporta lo spostamento tra zone all'interno di un'area solo in alcune aree. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery)
+> Attualmente Azure Site Recovery supporta lo spostamento delle macchine virtuali da un'area a un'altra. Supporta lo spostamento tra zone all'interno di un'area solo in alcune aree. [Altre informazioni](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
 
 ## <a name="check-prerequisites"></a>Verificare i prerequisiti
 
-- Verificare se l'area di destinazione dispone del [supporto per le zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-region). Controllare che la [combinazione di area di origine e area di destinazione sia supportata](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Prendere una decisione consapevole riguardo all'area di destinazione.
+- Verificare se l'area di destinazione dispone del [supporto per le zone di disponibilità](../availability-zones/az-region.md). Controllare che la [combinazione di area di origine e area di destinazione sia supportata](./azure-to-azure-support-matrix.md#region-support). Prendere una decisione consapevole riguardo all'area di destinazione.
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
 - Rivedere le [limitazioni e i requisiti del supporto](azure-to-azure-support-matrix.md).
 - Controllare le autorizzazioni dell'account. Se è appena stato creato l'account Azure gratuito, si è amministratori della propria sottoscrizione. In caso contrario, rivolgersi all'amministratore per l'assegnazione delle autorizzazioni necessarie. Per abilitare la replica per una macchina virtuale e infine copiare i dati nella destinazione con Azure Site Recovery, è necessario avere quanto segue:
@@ -41,7 +41,7 @@ Se le macchine virtuali sono distribuite come *istanza singola* in un'area speci
 
 ## <a name="prepare-the-source-vms"></a>Preparare le VM di origine
 
-1. Le macchine virtuali devono usare dischi gestiti se si vuole spostarle in una zona di disponibilità usando Site Recovery. È possibile convertire le macchine virtuali Windows esistenti che usano dischi non gestiti in modo da usare quelli gestiti. Seguire la procedura descritta in [Convertire i dischi non gestiti di una VM Windows in dischi gestiti](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Assicurarsi che il set di disponibilità sia configurato come *gestito*.
+1. Le macchine virtuali devono usare dischi gestiti se si vuole spostarle in una zona di disponibilità usando Site Recovery. È possibile convertire le macchine virtuali Windows esistenti che usano dischi non gestiti in modo da usare quelli gestiti. Seguire la procedura descritta in [Convertire i dischi non gestiti di una VM Windows in dischi gestiti](../virtual-machines/windows/convert-unmanaged-to-managed-disks.md). Assicurarsi che il set di disponibilità sia configurato come *gestito*.
 2. Controllare che nelle VM di Azure da spostare siano presenti tutti i certificati radice più recenti. In caso contrario, non è possibile abilitare la copia dei dati nell'area di destinazione a causa dei vincoli di sicurezza.
 
 3. Per le macchine virtuali di Windows, installare tutti gli aggiornamenti di Windows più recenti nella macchina virtuale in modo che tutti i certificati radice trusted siano presenti nel computer. In un ambiente non connesso, seguire i processi di aggiornamento di Windows e di aggiornamento dei certificati standard per l'organizzazione.
@@ -66,16 +66,16 @@ Se le macchine virtuali sono distribuite come *istanza singola* in un'area speci
 
      Per informazioni su come creare le risorse di rete usate più di frequente che sono pertinenti per il caso specifico in base alla configurazione della macchina virtuale di origine, vedere i documenti seguenti.
 
-    - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
+    - [Gruppi di sicurezza di rete](../virtual-network/manage-network-security-group.md)
+    - [Servizi di bilanciamento del carico](../load-balancer/index.yml)
     - [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     
-   Per qualsiasi altro componente di rete, vedere la [documentazione](https://docs.microsoft.com/azure/?pivot=products&panel=network) relativa alle reti.
+   Per qualsiasi altro componente di rete, vedere la [documentazione](../index.yml?pivot=products&panel=network) relativa alle reti.
 
     > [!IMPORTANT]
-    > Assicurarsi di usare un servizio di bilanciamento del carico con ridondanza della zona nella destinazione. Per altre informazioni, vedere [Load Balancer Standard e zone di disponibilità](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+    > Assicurarsi di usare un servizio di bilanciamento del carico con ridondanza della zona nella destinazione. Per altre informazioni, vedere [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
 
-4. Se si vuole testare la configurazione prima di eseguire il cutover nell'area di destinazione, [creare manualmente una rete non di produzione](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) nell'area di destinazione. È consigliabile adottare questo approccio perché garantisce un'interferenza minima con l'ambiente di produzione.
+4. Se si vuole testare la configurazione prima di eseguire il cutover nell'area di destinazione, [creare manualmente una rete non di produzione](../virtual-network/quick-create-portal.md) nell'area di destinazione. È consigliabile adottare questo approccio perché garantisce un'interferenza minima con l'ambiente di produzione.
 
 ## <a name="enable-replication"></a>Abilitare la replica
 La procedura seguente illustra come usare Azure Site Recovery per abilitare la replica dei dati nell'area di destinazione prima di spostarli nelle zone di disponibilità.
@@ -85,7 +85,7 @@ La procedura seguente illustra come usare Azure Site Recovery per abilitare la r
 
 1. Nel portale di Azure selezionare **Macchine virtuali** e quindi la macchina virtuale che si vuole spostare nelle zone di disponibilità.
 2. In **Operazioni** selezionare **Ripristino di emergenza**.
-3. In **Configura ripristino di emergenza** > **Area di destinazione** selezionare l'area di destinazione in cui si eseguirà la replica. Assicurarsi che quest'area [supporti](https://docs.microsoft.com/azure/availability-zones/az-region) le zone di disponibilità.
+3. In **Configura ripristino di emergenza** > **Area di destinazione** selezionare l'area di destinazione in cui si eseguirà la replica. Assicurarsi che quest'area [supporti](../availability-zones/az-region.md) le zone di disponibilità.
 
     ![Selezione dell'area di destinazione](media/azure-vms-to-zones/enable-rep-1.PNG)
 
@@ -149,5 +149,3 @@ In questa esercitazione è stata aumentata la disponibilità di una macchina vir
 
 > [!div class="nextstepaction"]
 > [Configurare il ripristino di emergenza dopo la migrazione](azure-to-azure-quickstart.md)
-
-

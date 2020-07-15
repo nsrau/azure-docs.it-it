@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d99a5feb344f970b10925b596726520b9dba9464
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78298531"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134020"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Spostare le VM di Azure tra aree per enti pubblici e aree pubbliche 
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra come spostare VM di Azure tra aree per enti pubbli
 > * Rimuovere le risorse dall'area di origine
 
 > [!IMPORTANT]
-> Questa esercitazione illustra come spostare macchine virtuali di Azure tra aree per enti pubblici e aree pubbliche o tra coppie di aree che non sono supportate dalla normale soluzione per il ripristino di emergenza per le VM di Azure. Nel caso in cui le coppie di aree di origine e destinazione siano [supportate](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), consultare questo [documento](azure-to-azure-tutorial-migrate.md) per lo spostamento. Se il requisito è migliorare la disponibilità spostando le VM di un set di disponibilità nelle VM aggiunte a una zona in un'area diversa, vedere questa [esercitazione](move-azure-VMs-AVset-Azone.md).
+> Questa esercitazione illustra come spostare macchine virtuali di Azure tra aree per enti pubblici e aree pubbliche o tra coppie di aree che non sono supportate dalla normale soluzione per il ripristino di emergenza per le VM di Azure. Nel caso in cui le coppie di aree di origine e destinazione siano [supportate](./azure-to-azure-support-matrix.md#region-support), consultare questo [documento](azure-to-azure-tutorial-migrate.md) per lo spostamento. Se il requisito è migliorare la disponibilità spostando le VM di un set di disponibilità nelle VM aggiunte a una zona in un'area diversa, vedere questa [esercitazione](move-azure-VMs-AVset-Azone.md).
 
 > [!IMPORTANT]
 > Non è consigliabile usare questo metodo per configurare il ripristino di emergenza tra coppie di aree non supportate in quanto queste sono definite tenendo presente la latenza dei dati, di fondamentale importanza per uno scenario di ripristino di emergenza.
@@ -96,13 +96,13 @@ Il servizio Mobility deve essere installato in ogni server da replicare. Site Re
 
      Per creare le risorse di rete usate più di frequente che sono pertinenti per il caso specifico in base alla configurazione della VM di origine, vedere i documenti seguenti.
 
-    - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
+    - [Gruppi di sicurezza di rete](../virtual-network/manage-network-security-group.md)
+    - [Servizi di bilanciamento del carico](../load-balancer/index.yml)
     - [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     
-    Per qualsiasi altro componente di rete, vedere la [documentazione](https://docs.microsoft.com/azure/?pivot=products&panel=network) relativa alle reti.
+    Per qualsiasi altro componente di rete, vedere la [documentazione](../index.yml?pivot=products&panel=network) relativa alle reti.
 
-4. Se si vuole testare la configurazione prima di eseguire il cutover finale nell'area di destinazione, [creare manualmente una rete non di produzione](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) nell'area di destinazione. Questo passaggio creerà un'interferenza minima con l'ambiente di produzione ed è consigliato.
+4. Se si vuole testare la configurazione prima di eseguire il cutover finale nell'area di destinazione, [creare manualmente una rete non di produzione](../virtual-network/quick-create-portal.md) nell'area di destinazione. Questo passaggio creerà un'interferenza minima con l'ambiente di produzione ed è consigliato.
 
 ## <a name="copy-data-to-the-target-region"></a>Copiare i dati nell'area di destinazione
 La procedura seguente illustra come usare Azure Site Recovery per copiare i dati nell'area di destinazione.
@@ -136,7 +136,7 @@ Configurare il server di configurazione, registrarlo nell'insieme di credenziali
 Prima di iniziare procedere come segue: 
 
 #### <a name="verify-time-accuracy"></a>Verificare l'accuratezza dell'ora
-Nel server di configurazione verificare che il clock di sistema sia sincronizzato con un [server di riferimento ora](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Deve corrispondere. Se è avanti o indietro di 15 minuti, l'installazione potrebbe avere esito negativo.
+Nel server di configurazione verificare che il clock di sistema sia sincronizzato con un [server di riferimento ora](/windows-server/networking/windows-time-service/windows-time-service-top). Deve corrispondere. Se è avanti o indietro di 15 minuti, l'installazione potrebbe avere esito negativo.
 
 #### <a name="verify-connectivity"></a>Verificare la connettività
 Assicurarsi che la macchina possa accedere a questi URL in base all'ambiente: 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f26af813fcd4032aabce2305ac8845307d1fca65
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f081d6b01ffb0b4fc78c23a076c20ff93c483203
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76262130"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166961"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con uniFLOW Online
 
@@ -83,23 +83,19 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente:
 
-    | | |
-    |-|-|
-    | `https://<tenant_domain_name>.eu.uniflowonline.com`|
-    | `https://<tenant_domain_name>.us.uniflowonline.com`|
-    | `https://<tenant_domain_name>.sg.uniflowonline.com`|
-    | `https://<tenant_domain_name>.jp.uniflowonline.com`|
-    | `https://<tenant_domain_name>.au.uniflowonline.com`|
+    - `https://<tenant_domain_name>.eu.uniflowonline.com`
+    - `https://<tenant_domain_name>.us.uniflowonline.com`
+    - `https://<tenant_domain_name>.sg.uniflowonline.com`
+    - `https://<tenant_domain_name>.jp.uniflowonline.com`
+    - `https://<tenant_domain_name>.au.uniflowonline.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente:
 
-    | | |
-    |-|-|
-    | `https://<tenant_domain_name>.eu.uniflowonline.com`|
-    | `https://<tenant_domain_name>.us.uniflowonline.com`|
-    | `https://<tenant_domain_name>.sg.uniflowonline.com`|
-    | `https://<tenant_domain_name>.jp.uniflowonline.com`|
-    | `https://<tenant_domain_name>.au.uniflowonline.com`|
+    - `https://<tenant_domain_name>.eu.uniflowonline.com`
+    - `https://<tenant_domain_name>.us.uniflowonline.com`
+    - `https://<tenant_domain_name>.sg.uniflowonline.com`
+    - `https://<tenant_domain_name>.jp.uniflowonline.com`
+    - `https://<tenant_domain_name>.au.uniflowonline.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di uniFLOW Online](mailto:support@nt-ware.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure o all'URL di risposta visualizzato nel tenant di uniFLOW Online.

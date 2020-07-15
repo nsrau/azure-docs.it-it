@@ -12,18 +12,18 @@ ms.date: 05/26/2020
 ms.author: erhopf
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 07f66edc19a9be202ee2e73de02f814a1afde38a
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c3c3e2badfb9fe1678f09262e02809e9fa06560e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611104"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147178"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Avvio rapido: Cercare parole con il dizionario bilingue
 
 Questo argomento di avvio rapido descrive come usare Translator per ottenere traduzioni alternative per un termine, con alcuni esempi di tali traduzioni.
 
-Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa di Translator. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa di Translator.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/dictionary-csharp.md)]

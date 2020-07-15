@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c7a7a8fe0ef346cb26e3b0b4f14d3dae7211b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 654abe0900cd1cecd4964c344a01dafe40caeb85
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67372634"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166979"
 ---
 # <a name="tutorial-integrate-ungerboeck-software-with-azure-active-directory"></a>Esercitazione: Integrare Ungerboeck Software con Azure Active Directory
 
@@ -84,23 +84,17 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     1. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente:
     
-       **Per l'ambiente di produzione**:
+    *  **Per l'ambiente di produzione**:
 
-       | |
-       |-|
-       | `https://<SUBDOMAIN>.ungerboeck.com/prod` |
-       | `https://<SUBDOMAIN>.ungerboeck.net/prod` |
-       | `https://<SUBDOMAIN>.ungerboeck.io/prod` |
-       | |
+       - `https://<SUBDOMAIN>.ungerboeck.com/prod`
+       - `https://<SUBDOMAIN>.ungerboeck.net/prod`
+       - `https://<SUBDOMAIN>.ungerboeck.io/prod`
 
-        **Per l'ambiente di test**:
+   * **Per l'ambiente di test**:
 
-       | |
-       |-|
-       | `https://<SUBDOMAIN>.ungerboeck.com/test` |
-       | `https://<SUBDOMAIN>.ungerboeck.net/test` |
-       | `https://<SUBDOMAIN>.ungerboeck.io/test` |
-       | |
+     - `https://<SUBDOMAIN>.ungerboeck.com/test`
+     - `https://<SUBDOMAIN>.ungerboeck.net/test`
+     - `https://<SUBDOMAIN>.ungerboeck.io/test`
 
    > [!NOTE]
    > Poiché questi non sono i valori reali, aggiornarli con l'ID e l'URL di accesso effettivi, come spiegato più avanti nella sezione dell'esercitazione **Configurare l'accesso Single Sign-On per Ungerboeck Software**.

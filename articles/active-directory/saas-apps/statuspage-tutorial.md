@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: d947f610e6a753ce2ed349917640b07a55bbb735
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c1ad9d7afd215371b92c83445cfd1c8778bc0642
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67089868"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Esercitazione Integrazione di Azure Active Directory con StatusPage
 
@@ -106,18 +106,14 @@ Per configurare l'accesso Single Sign-On di Azure AD con StatusPage, seguire que
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di StatusPage](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
-    
-    | |
-    |--|
-    | `https://<subdomain>.statuspagestaging.com/`|
-    | `https://<subdomain>.statuspage.io/`|
+
+    - `https://<subdomain>.statuspagestaging.com/`
+    - `https://<subdomain>.statuspage.io/`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
-    
-    | |
-    |--|
-    | `https://<subdomain>.statuspagestaging.com/sso/saml/consume`|
-    | `https://<subdomain>.statuspage.io/sso/saml/consume`|
+
+    - `https://<subdomain>.statuspagestaging.com/sso/saml/consume`
+    - `https://<subdomain>.statuspage.io/sso/saml/consume`
 
     > [!NOTE]
     > Per richiedere i metadati necessari per configurare l'accesso Single Sign-On, contattare il team di supporto di StatusPage all'indirizzo [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io). 
