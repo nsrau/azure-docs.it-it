@@ -1,24 +1,24 @@
 ---
 title: Disponibilità geografica e valute supportate per il marketplace commerciale Microsoft
 description: Disponibilità geografica e valute supportate per le transazioni nel marketplace commerciale
+author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
 ms.date: 01/29/2020
-ms.openlocfilehash: 57d1564c155a553571499a47a5c1d83c80c074b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: dsindona
+ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120008"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657882"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilità geografica e valute supportate per il marketplace commerciale
 
 Le offerte nel marketplace commerciale possono essere acquistate in 141 aree geografiche, in base all'indirizzo di fatturazione del cliente, e possono essere completate in 17 valute. La tabella seguente contiene tutte le aree geografiche supportate, tramite il [codice alfa a due cifre ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), e la valuta assegnata.
 
-|   Nome paese/area               |   ISO-2   |   Valuta   |
+|   Nome paese/area geografica               |   ISO-2   |   Valuta   |
 |-------------------------------------|-----------|--------------|
 | Afghanistan                         | AF        | USD          |
 | Albania                             | AL        | USD          |

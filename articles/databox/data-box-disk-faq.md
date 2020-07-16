@@ -10,6 +10,7 @@ ms.date: 08/29/2019
 ms.author: alkohli
 ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
 ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83745787"
@@ -56,7 +57,7 @@ R.  Per visualizzare dove sono attualmente disponibili i dischi di Data Box, ved
 R. Azure Data Box Disk è supportato per tutte le aree degli Stati Uniti, del Canada, dell'Australia, dell'Europa occidentale e settentrionale, della Corea e del Giappone. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani.
 
 ### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>Q. Data Box Disk può essere spedito oltre i confini nazionali/regionali?
-R. Data Box Disk viene spedito all'interno dello stesso paese/regione e non può superare i confini internazionali. L'unica eccezione è data dagli ordini nell'Unione Europa (UE), in cui i dischi possono essere spediti da e verso i paesi/regioni dell'Unione Europa.
+R. Data Box Disk viene spedito all'interno dello stesso paese o area geografica e non può superare i confini internazionali. L'unica eccezione è data dagli ordini nell'Unione Europea (UE), in cui i dischi possono essere spediti da e verso i paesi dell'Unione Europea.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. A chi ci si può rivolgere in caso di problemi con i dischi di Data Box?
 R. Se si verificano problemi con i dischi di Data Box, [contattare il supporto tecnico Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).

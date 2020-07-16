@@ -16,6 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
 ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/12/2020
 ms.locfileid: "84728368"
@@ -117,7 +118,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | streetAddress |Qualsiasi valore di stringa o *null* |(user.streetAddress -eq "valore") |
 | surname |Qualsiasi valore di stringa o *null* |(user.surname -eq "valore") |
 | telephoneNumber |Qualsiasi valore di stringa o *null* |(user.telephoneNumber -eq "valore") |
-| usageLocation |Codice di paese/regione di due lettere |(user.usageLocation -eq "US") |
+| usageLocation |Codice di paese/area geografica di due lettere |(user.usageLocation -eq "US") |
 | userPrincipalName |Qualsiasi valore di stringa |(user.userPrincipalName -eq "alias@domain") |
 | userType |membro guest *null* |(user.userType -eq "Membro") |
 

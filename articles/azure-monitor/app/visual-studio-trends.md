@@ -9,6 +9,7 @@ ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
 ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83744126"
@@ -47,7 +48,7 @@ Per iniziare, scegliere una di cinque analisi comuni delle tendenze, ognuna dell
 Queste analisi predefinite sono accessibili successivamente dal pulsante **Visualizza tipi comuni di analisi dei dati di telemetria** nell'angolo superiore sinistro della finestra Tendenze.
 
 ## <a name="visualize-trends-in-your-application"></a>Visualizzare le tendenze nell'applicazione
-Tendenze di Application Insights crea una visualizzazione basata su serie temporale dei dati di telemetria dell'app. Ogni visualizzazione basata su serie temporale contiene un tipo di dati di telemetria, raggruppati in base a una proprietà di tali dati, in un determinato intervallo di tempo. È ad esempio possibile visualizzare le richieste server, raggruppate per paese/regione di provenienza, nelle ultime 24 ore. In questo esempio, ogni bolla nella visualizzazione rappresenterà un conteggio delle richieste server di un determinato paese/area geografica durante un'ora.
+Tendenze di Application Insights crea una visualizzazione basata su serie temporale dei dati di telemetria dell'app. Ogni visualizzazione basata su serie temporale contiene un tipo di dati di telemetria, raggruppati in base a una proprietà di tali dati, in un determinato intervallo di tempo. È ad esempio possibile visualizzare le richieste server, raggruppate per paese/area geografica di provenienza, nelle ultime 24 ore. In questo esempio, ogni bolla nella visualizzazione rappresenterà un conteggio delle richieste server di un determinato paese/area geografica durante un'ora.
 
 Usare i controlli nella parte superiore della finestra per modificare i tipi di dati di telemetria visualizzati. Prima di tutto, scegliere i tipi di dati di telemetria a cui si è interessati.
 

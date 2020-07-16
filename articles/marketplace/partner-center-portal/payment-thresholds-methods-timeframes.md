@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
 ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83745021"
@@ -74,7 +75,7 @@ Per tutti i marketplace di questi paesi e aree geografiche vengono usati i metod
 | Repubblica Democratica del Congo | Sì | Sì | Sì | No |
 | Repubblica del Congo | Sì | Sì | Sì | No |
 | Costa Rica | Sì | Sì | Sì | Sì |
-| Costa d'Avorio | Sì | Sì | Sì | No |
+| Côte d’Ivoire (Costa d'Avorio) | Sì | Sì | Sì | No |
 | Croazia | Sì | Sì | Sì | No |
 | Cipro | Sì | Sì | Sì | Sì |
 | Repubblica ceca | Sì | Sì | Sì | Sì |
