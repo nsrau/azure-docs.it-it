@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9ea2c20a7720cc80b36ff88595aa6ca5c57f6b9a
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026832"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232390"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Akamai
 
@@ -61,13 +61,13 @@ Akamai EAA è configurato come una singola applicazione in Azure AD. L'amministr
 
 **Vantaggi**:
 
-• È necessario configurare l'IDP una sola volta
+* È necessario configurare l'IDP una sola volta
 
 **Svantaggi**:
 
-• Gli utenti devono interagire con due portali di applicazioni
+* Gli utenti devono interagire con due portali di applicazioni
 
-• La copertura dei criteri della CA è unica e comune per tutte le applicazioni.
+* La copertura dei criteri della CA è unica e comune per tutte le applicazioni.
 
 ![Scenario di integrazione 1](./media/header-akamai-tutorial/scenario1.png)
 
@@ -77,13 +77,14 @@ L'applicazione Akamai EAA viene configurata singolarmente nel portale di Azure A
 
 **Vantaggi**:
 
-• È possibile definire singoli criteri della CA
+* È possibile definire singoli criteri della CA
 
-• Tutte le app sono rappresentate nel menu a cialda di O365 e nel pannello di myApps.microsoft.com.
+* Tutte le app sono rappresentate nel menu a cialda di O365 e nel pannello di myApps.microsoft.com.
+
 
 **Svantaggi**:
 
-• È necessario configurare più IDP.
+* È necessario configurare più IDP.
 
 ![Scenario di integrazione 2](./media/header-akamai-tutorial/scenario2.png)
 
@@ -450,7 +451,7 @@ Fare clic su Save and go to Deployment (Salva e passa a Distribuzione).
 
 ### <a name="kerberos-authentication"></a>Autenticazione Kerberos
 
-Nell'esempio seguente si pubblicherà un server Web interno [http://frp-app1.superdemo.live](http://frp-app1.superdemo.live/) e si abiliterà l'accesso SSO con la delega vincolata Kerberos
+Nell'esempio seguente si pubblicherà un server Web interno <code>http://frp-app1.superdemo.live</code> e si abiliterà l'accesso SSO con la delega vincolata Kerberos
 
 #### <a name="general-tab"></a>Scheda Generale
 

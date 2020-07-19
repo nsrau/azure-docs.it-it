@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b31bc86554998295bc97352d28fa3b3d4b330abe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202622"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Esercitazione: Integrazione di Azure Active Directory con SAML SSO for Jira by resolution GmbH
 
@@ -173,7 +173,7 @@ Per configurare l'accesso Single Sign-On con SAML SSO for Jira by resolution Gmb
  
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5b.png)
 
-12. Nella pagina **Import SAML IdP Metadata** (Importa metadati provider di identità SAML) eseguire la procedura seguente:
+12. Nella pagina **Import SAML IdP Metadata** (Importa metadati provider di identità SAML) seguire questa procedura:
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5c.png)
 
@@ -304,10 +304,12 @@ Per attivare il reindirizzamento SSO, eseguire le operazioni seguenti nell'**ist
 
 1. Accedere alla pagina di configurazione del plug-in SAML SSO in Jira.
 1. Fare clic su **Redirection** (Reindirizzamento) nel riquadro sinistro.
-![](./media/samlssojira-tutorial/ssore1.png)
+
+   ![Screenshot parziale della pagina di configurazione del plug-in SAML SSO in Jira che evidenzia il collegamento di reindirizzamento nel percorso di spostamento a sinistra.](./media/samlssojira-tutorial/ssore1.png)
 
 1. Contrassegnare con un segno di spunta **Enable SSO Redirect** (Abilita il reindirizzamento SSO).
-![](./media/samlssojira-tutorial/ssore2.png) 
+
+   ![Screenshot parziale della pagina di configurazione del plug-in SAML SSO in Jira in cui è evidenziata la casella di controllo "Enable SSO Redirect" selezionata.](./media/samlssojira-tutorial/ssore2.png) 
 
 1. Scegliere il pulsante **Save Settings** (Salva impostazioni) nell'angolo in alto a destra.
 
