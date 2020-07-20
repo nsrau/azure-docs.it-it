@@ -1,15 +1,15 @@
 ---
 title: Dettagli della conformità con le normative per CIS Microsoft Azure Foundations Benchmark
 description: Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 06/25/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 901740d2b3a4a5362fbfccf0f3b9942acf8e012a
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: c5a452ad00ff0126b3d768b4b3499dfbed0b33e1
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414539"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275462"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark
 
@@ -143,7 +143,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[I controlli applicazioni adattivi per l'inserimento delle applicazioni sicure nell'elenco elementi consentiti devono essere abilitati nei computer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |Abilita i controlli applicazioni per definire l'elenco delle applicazioni sicure note in esecuzione nei computer e avvisare l'utente quando vengono eseguite altre applicazioni. In questo modo si rafforza la protezione dei computer dal malware. Per semplificare il processo di configurazione e gestione delle regole, il Centro sicurezza usa Machine Learning per analizzare le applicazioni in esecuzione in ogni computer e suggerire l'elenco di applicazioni sicure note. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AppWhitelistMonitoring_Audit.json) |
+|[I controlli applicazioni adattivi per la definizione delle applicazioni sicure devono essere abilitati nei computer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |Abilita i controlli applicazioni per definire l'elenco delle applicazioni sicure note in esecuzione nei computer e avvisare l'utente quando vengono eseguite altre applicazioni. In questo modo si rafforza la protezione dei computer dal malware. Per semplificare il processo di configurazione e gestione delle regole, il Centro sicurezza usa Machine Learning per analizzare le applicazioni in esecuzione in ogni computer e suggerire l'elenco di applicazioni sicure note. |AuditIfNotExists, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora controllo SQL" non sia disabilitata
 
@@ -253,33 +253,6 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 |---|---|---|---|
 |[La soluzione Sicurezza dei dati avanzata deve essere abilitata nell'istanza gestita di SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) |Controlla ogni istanza gestita di SQL senza Sicurezza dei dati avanzata. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurity_Audit.json) |
 |[È consigliabile abilitare la sicurezza avanzata dei dati nei server SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Controlla server SQL senza Sicurezza dei dati avanzata |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
-
-### <a name="ensure-that-threat-detection-types-is-set-to-all"></a>Assicurarsi che "Tipi di rilevamento minacce" sia impostato su "Tutti"
-
-**ID**: CIS Azure 4.5 **Proprietà**: Customer
-
-|Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
-|[I tipi di protezione di Advanced Threat Protection devono essere impostati su 'Tutti' nelle impostazioni di Sicurezza dei dati avanzata dell'istanza gestita di SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbda18df3-5e41-4709-add9-2554ce68c966) |È consigliabile abilitare tutti i tipi di protezione di Advanced Threat Protection nell'istanza gestita di SQL. L'abilitazione di tutti i tipi abilita la protezione da attacchi SQL injection, vulnerabilità del database e qualsiasi altra attività anomala. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_EnsureThreatDetectionTypes_Audit.json) |
-|[I tipi di protezione di Advanced Threat Protection devono essere impostati su 'Tutti' nelle impostazioni di Sicurezza dei dati avanzata del server SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe756b945-1b1b-480b-8de8-9a0859d5f7ad) |È consigliabile abilitare tutti i tipi di protezione di Advanced Threat Protection nei server SQL. L'abilitazione di tutti i tipi abilita la protezione da attacchi SQL injection, vulnerabilità del database e qualsiasi altra attività anomala. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_EnsureThreatDetectionTypes_Audit.json) |
-
-### <a name="ensure-that-send-alerts-to-is-set"></a>Assicurarsi che "Invia avvisi a" sia impostato
-
-**ID**: CIS Azure 4.6 **Proprietà**: Customer
-
-|Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
-|[Le impostazioni di Sicurezza dei dati avanzata per l'istanza gestita di SQL devono contenere un indirizzo di posta elettronica per ricevere gli avvisi di sicurezza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3965c43d-b5f4-482e-b74a-d89ee0e0b3a8) |Assicura che venga specificato indirizzo di posta elettronica per il campo 'Invia avvisi a' nelle impostazioni di Sicurezza dei dati avanzata. Questo indirizzo di posta elettronica riceverà le notifiche degli avvisi quando vengono rilevate attività anomale nell'istanza gestita di SQL. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurityEmails_Audit.json) |
-|[Le impostazioni di Sicurezza dei dati avanzata per SQL Server devono contenere un indirizzo di posta elettronica per ricevere gli avvisi di sicurezza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9677b740-f641-4f3c-b9c5-466005c85278) |Assicurarsi di specificare un indirizzo di posta elettronica per il campo 'Invia avvisi a' nelle impostazioni del server di Sicurezza dei dati avanzata. Questo indirizzo di posta elettronica riceverà le notifiche di avviso quando vengono rilevate attività anomale nei server SQL. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurityEmails_Audit.json) |
-
-### <a name="ensure-that-email-service-and-co-administrators-is-enabled"></a>Assicurarsi che "Invio di un messaggio di posta elettronica al servizio e ai coamministratori" sia "Abilitato"
-
-**ID**: CIS Azure 4.7 **Proprietà**: Customer
-
-|Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
-|[Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata dell'istanza gestita di SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faeb23562-188d-47cb-80b8-551f16ef9fff) |Controlla che la 'notifica tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione' sia abilitata nelle impostazioni di Advanced Threat Protection dell'istanza gestita di SQL. Questa impostazione assicura che il rilevamento di qualsiasi attività anomala nell'istanza gestita di SQL venga segnalato quanto prima agli amministratori. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurityEmailAdmins_Audit.json) |
-|[Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata di SQL Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc8343d2f-fdc9-4a97-b76f-fc71d1163bfc) |Controlla che la 'notifica tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione' sia abilitata nelle impostazioni di Advanced Threat Protection di SQL Server al fine di garantire che qualsiasi rilevamento di attività anomale in SQL Server sia segnalato quanto prima agli amministratori. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurityEmailAdmins_Audit.json) |
 
 ### <a name="ensure-that-azure-active-directory-admin-is-configured"></a>Assicurarsi che l'amministratore di Azure Active Directory sia configurato
 
@@ -410,7 +383,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[I log di diagnostica in Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Controlla l'abilitazione dei log di diagnostica consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
+|[I log di diagnostica in Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Controlla l'abilitazione dei log di diagnostica consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Assicurarsi che esista un avviso del log attività per l'assegnazione di criteri di creazione
 

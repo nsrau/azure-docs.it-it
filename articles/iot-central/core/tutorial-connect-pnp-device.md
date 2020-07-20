@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6727a2c45187e0e6bb583bb65e176024067d81e2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80064426"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219989"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Esercitazione: Usare un modello di funzionalità di dispositivo per creare un dispositivo Plug and Play IoT (anteprima) e connetterlo all'applicazione IoT Central
 
@@ -86,7 +86,9 @@ Per connettere un dispositivo a un'applicazione Azure IoT Central, è necessaria
 
 1. Passare alla pagina **Amministrazione** e selezionare **Connessione del dispositivo**.
 
-1. Prendere nota dei valori di **Ambito ID** e **Chiave primaria** visualizzati quando si seleziona **Visualizza chiavi**. Questi valori vengono usati più avanti nell'esercitazione.
+1. Prendere nota dell'**Ambito ID**. Questo valore verrà usato più avanti nell'esercitazione.
+
+1. Selezionare il gruppo di registrazione **SAS-IoT-Devices**. Prendere nota della **Chiave primaria**. Questo valore verrà usato più avanti nell'esercitazione.
 
     ![Connessione del dispositivo](./media/tutorial-connect-pnp-device/device-connection.png)
 

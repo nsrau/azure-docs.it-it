@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Eseguire il training e la distribuzione di modelli: Visual Studio Code'
+title: 'Esercitazione: Eseguire il training e la distribuzione di modelli: VS Code (anteprima)'
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training e distribuire un modello di classificazione delle immagini con TensorFlow e l'estensione Azure Machine Learning per Visual Studio Code
 services: machine-learning
@@ -8,16 +8,16 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
+ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 05857641df22e03362eeee1590fef62fa3a45530
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857704"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203549"
 ---
-# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Eseguire il training e distribuire un modello di classificazione delle immagini TensorFlow usando l'estensione Azure Machine Learning per Visual Studio Code
+# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Eseguire il training e distribuire un modello di classificazione delle immagini TensorFlow usando l'estensione Azure Machine Learning per Visual Studio Code (anteprima)
 
 Informazioni su come eseguire il training e distribuire un modello di classificazione delle immagini per riconoscere i numeri scritti a mano usando TensorFlow e l'estensione Azure Machine Learning per Visual Studio Code.
 
@@ -91,7 +91,7 @@ Per creare una destinazione di calcolo:
 1. Selezionare l'icona **Azure** nella barra attività di Visual Studio Code. Verrà aperta la visualizzazione di Azure Machine Learning. 
 1. Espandere il nodo della sottoscrizione. 
 1. Espandere il nodo **TeamWorkspace**. 
-1. Sotto il nodo dell'area di lavoro fare clic con il pulsante destro del mouse sul nodo **Compute** (Calcolo) e scegliere **Create Compute** (Crea calcolo). 
+1. Sotto il nodo dell'area di lavoro fare clic con il pulsante destro del mouse sul nodo **Cluster di elaborazione** e scegliere **Create Compute** (Crea ambiente di calcolo). 
 
     > [!div class="mx-imgBorder"]
     > ![Creare una destinazione di calcolo](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
@@ -115,17 +115,8 @@ Per creare una destinazione di calcolo:
                 "scaleSettings": {
                     "maxNodeCount": 4,
                     "minNodeCount": 0,
-                    "nodeIdleTimeBeforeScaleDown": 120
-                },
-                "userAccountCredentials": {
-                    "adminUserName": "",
-                    "adminUserPassword": "",
-                    "adminUserSshPublicKey": ""
-                },
-                "subnetName": "",
-                "vnetName": "",
-                "vnetResourceGroupName": "",
-                "remoteLoginPortPublicAccess": ""
+                    "nodeIdleTimeBeforeScaleDown": "PT120S"
+                }
             }
         }
     }
@@ -138,7 +129,7 @@ Per creare una destinazione di calcolo:
     Azure ML: Save and Continue
     ```
 
-Dopo alcuni minuti, la nuova destinazione di calcolo viene visualizzata nel nodo *Calcolo* dell'area di lavoro.
+Dopo alcuni minuti, la nuova destinazione di calcolo viene visualizzata nel nodo *Cluster di elaborazione* dell'area di lavoro.
 
 ## <a name="create-a-run-configuration"></a>Creare una configurazione di esecuzione
 
@@ -148,7 +139,7 @@ Per creare una configurazione di esecuzione:
 
 1. Selezionare l'icona **Azure** nella barra attività di Visual Studio Code. Verrà aperta la visualizzazione di Azure Machine Learning. 
 1. Espandere il nodo della sottoscrizione. 
-1. Espandere il nodo **TeamWorkspace > Calcolo**. 
+1. Espandere il nodo **TeamWorkspace > Cluster di elaborazione**. 
 1. Nel nodo di calcolo fare clic con il pulsante destro del mouse sul nodo di calcolo **TeamWkspc-com** e scegliere **Crea configurazione di esecuzione**.
 
     > [!div class="mx-imgBorder"]
@@ -214,6 +205,7 @@ Per creare una configurazione di esecuzione:
     Azure ML: Save and Continue
     ```
 
+1. In questo esempio non viene usato un set di dati registrato in Azure Machine Learning. Viene invece caricato quando viene eseguito *train.py*. Quando viene richiesto di creare un riferimento ai dati per l'esecuzione del training, immettere "n" nel prompt e premere **INVIO**.
 1. Premere **INVIO** per esplorare il file script da eseguire nel nodo di calcolo. In questo caso, lo script per eseguire il training del modello è costituito dal file `train.py` all'interno della directory `vscode-tools-for-ai/mnist-vscode-docs-sample`.
 
     In VS Code viene visualizzato un file denominato `MNIST-rc.runconfig` con un contenuto simile a quello riportato di seguito:
@@ -221,6 +213,7 @@ Per creare una configurazione di esecuzione:
     ```json
     {
         "script": "train.py",
+        "arguments": [],
         "framework": "Python",
         "communicator": "None",
         "target": "TeamWkspc-com",

@@ -1,6 +1,6 @@
 ---
 title: Avvio rapido - Creare un budget con un modello di Azure Resource Manager
-description: Guida di avvio rapido che illustra come creare un budget con un modello di Azure Resource Manager.
+description: Argomento di avvio rapido che illustra come creare un budget con un modello di Azure Resource Manager.
 author: bandersmsft
 ms.author: banders
 tags: azure-resource-manager
@@ -8,22 +8,28 @@ ms.service: cost-management-billing
 ms.topic: quickstart
 ms.date: 06/10/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: dc37039d6777a77f9de247808329930f1621ee82
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 5bff8e6057475701a2e78835fb5a950dcb8c8fcb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686410"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252437"
 ---
-# <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Avvio rapido: Creare un budget con un modello di Azure Resource Manager
+# <a name="quickstart-create-a-budget-with-an-arm-template"></a>Avvio rapido: Creare un budget con un modello di Resource Manager
 
-I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate le notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi. Questa guida di avvio rapido descrive come creare un budget usando un modello di Azure Resource Manager.
+I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate le notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi. Questo argomento di avvio rapido descrive come creare un budget usando un modello di Azure Resource Manager (modello di Resource Manager).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Il modello di Azure Resource Manager supporta solo le sottoscrizioni di Azure per i contratti Enterprise (EA). Altri tipi di sottoscrizione non sono supportati dal modello.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+Il modello di Resource Manager supporta solo le sottoscrizioni di Azure per i contratti Enterprise (EA). Altri tipi di sottoscrizione non sono supportati dal modello.
 
 Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore. È possibile creare singoli budget per le sottoscrizioni EA e gruppi di risorse. Non è tuttavia possibile creare budget per gli account di fatturazione EA. Per le sottoscrizioni Azure EA è necessario avere accesso in lettura per visualizzare i budget.
 
@@ -39,9 +45,7 @@ Le autorizzazioni o gli ambiti di Azure riportati di seguito sono supportati per
 
 Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione costi, vedere [Assegnare l'accesso ai dati di Gestione costi](assign-access-acm-data.md).
 
-## <a name="create-a-budget"></a>Creare un budget
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/create-budget).
 
@@ -51,7 +55,7 @@ Nel modello è definita una risorsa di Azure:
 
 * [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): crea un budget di Azure.
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un budget.
 
@@ -136,7 +140,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stato creato un budget di Azure per la distribuzione. Per altre informazioni su Gestione costi e fatturazione di Azure e Azure Resource Manager, continuare con gli articoli seguenti.
+In questo argomento di avvio rapido è stato creato un budget di Azure per la distribuzione. Per altre informazioni su Gestione costi e fatturazione di Azure e Azure Resource Manager, continuare con gli articoli seguenti.
 
 - Vedere la panoramica di [Gestione costi e fatturazione](../cost-management-billing-overview.md)
 - [Creare budget](tutorial-acm-create-budgets.md) nel portale di Azure

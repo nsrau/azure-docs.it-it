@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Stimare i prezzi delle automobili con la finestra di progettazione'
+title: 'Esercitazione: Stimare i prezzi delle automobili con la finestra di progettazione (anteprima)'
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando un'interfaccia basata su trascinamento della selezione. Questa esercitazione è la prima parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
 author: peterclu
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 2922b5d3aa6cee0f1222c041a0e9728936754c21
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517642"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200038"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

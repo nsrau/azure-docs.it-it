@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025183"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146531"
 ---
-# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Creare un progetto di etichettatura dei dati (anteprima) ed esportare le etichette 
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -144,7 +144,7 @@ Per i rettangoli di selezione, le domande importanti sono:
 >[!NOTE]
 > Tenere presente che gli etichettatori potranno selezionare le prime 9 etichette usando i tasti numerici 1-9.
 
-## <a name="use-ml-assisted-labeling"></a>Usare l'etichettatura assistita da ML
+## <a name="use-ml-assisted-labeling-preview"></a>Usare l'etichettatura assistita da ML (anteprima)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 

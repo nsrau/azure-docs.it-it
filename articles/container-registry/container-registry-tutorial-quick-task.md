@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come compilare un'immagine del conten
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78398511"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259484"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Esercitazione: Compilare e distribuire immagini dei contenitori nel cloud con Attività del Registro Azure Container
 
@@ -176,7 +176,7 @@ In tutti gli scenari di produzione dovrebbero essere usate [entità servizio][se
 
 #### <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Se non si ha già un insieme di credenziali delle chiavi in [Azure Key Vault](/azure/key-vault/), crearne uno usando i comandi seguenti nell'interfaccia della riga di comando di Azure.
+Se non si ha già un insieme di credenziali delle chiavi in [Azure Key Vault](../key-vault/index.yml), crearne uno usando i comandi seguenti nell'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
 AKV_NAME=$ACR_NAME-vault

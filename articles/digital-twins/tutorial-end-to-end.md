@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: faad1f812fc5c2cde6847a5208ee4b385f28ab3e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391928"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206561"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Creare una soluzione end-to-end
 
@@ -205,8 +205,9 @@ Verrà visualizzata la pagina *Crea sottoscrizione di eventi*.
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Portale di Azure: Crea sottoscrizione di eventi":::
 
-Compilare i campi come indicato di seguito:
+Compilare i campi come indicato di seguito (i campi compilati per impostazione predefinita non sono indicati):
 * *DETTAGLI SOTTOSCRIZIONE EVENTO* > **Nome**: assegnare un nome alla sottoscrizione di eventi.
+* *DETTAGLI ARGOMENTO* > **Nome dell'argomento del sistema**: Specificare un nome da usare per l'argomento di sistema. 
 * *TIPI DI EVENTO* > **Filtra per tipi di evento**: selezionare *Messaggi di telemetria del dispositivo* nelle opzioni del menu.
 * *DETTAGLI ENDPOINT* > **Tipo di endpoint** : selezionare *Funzione di Azure* nelle opzioni del menu.
 * *DETTAGLI ENDPOINT* > **Endpoint**: scegliere il collegamento *Seleziona un endpoint*. Verrà aperta la finestra *Seleziona funzione di Azure*: :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Sottoscrizione di eventi nel portale di Azure: Seleziona funzione di Azure" border="false":::
@@ -361,11 +362,9 @@ Nel [portale di Azure](https://portal.azure.com/) passare all'argomento di Grigl
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Portale di Azure: Sottoscrizione di eventi di Griglia di eventi":::
 
-La procedura per creare questa sottoscrizione di eventi è simile a quella eseguita per sottoscrivere la prima funzione di Azure all'hub IoT in precedenza in questa esercitazione. La differenza è che questa volta non è necessario specificare *Messaggi di telemetria del dispositivo* come tipo di evento di cui restare in ascolto e ci si connetterà a una funzione di Azure diversa.
+La procedura per creare questa sottoscrizione di eventi è simile a quella eseguita per sottoscrivere la prima funzione di Azure all'hub IoT in precedenza in questa esercitazione. Questa volta non è necessario specificare *Messaggi di telemetria del dispositivo* come tipo di evento di cui restare in ascolto e ci si connetterà a una funzione di Azure diversa.
 
-Ecco di nuovo i passaggi per la sottoscrizione:
-
-Nella pagina *Crea sottoscrizione di eventi* compilare i campi come segue:
+Nella pagina *Crea sottoscrizione di eventi* compilare i campi come indicato di seguito (i campi compilati per impostazione predefinita non sono indicati):
 * *DETTAGLI SOTTOSCRIZIONE EVENTO* > **Nome**: assegnare un nome alla sottoscrizione di eventi.
 * *DETTAGLI ENDPOINT* > **Tipo di endpoint** : selezionare *Funzione di Azure* nelle opzioni del menu.
 * *DETTAGLI ENDPOINT* > **Endpoint**: scegliere il collegamento *Seleziona un endpoint*. Verrà aperta la finestra *Seleziona funzione di Azure*:

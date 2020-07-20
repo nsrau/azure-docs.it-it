@@ -1,5 +1,5 @@
 ---
-title: Pipeline e set di dati della finestra di progettazione di esempio
+title: Pipeline di esempio e set di dati per la finestra di progettazione (anteprima)
 titleSuffix: Azure Machine Learning
 description: Usare gli esempi nella finestra di progettazione di Azure Machine Learning per avviare rapidamente le pipeline di Machine Learning.
 services: machine-learning
@@ -10,14 +10,14 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: e40c49cdcaae6fa84a72c645f5fea4bac99ee03f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d2ed9a605b19287c2ea693187c445dc8a4b3b932
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654562"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206321"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Pipeline e set di dati di esempio per la finestra di progettazione di Azure Machine Learning
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Pipeline e set di dati di esempio per la finestra di progettazione di Azure Machine Learning (anteprima)
 
 Usare gli esempi incorporati nella finestra di progettazione di Azure Machine Learning per iniziare rapidamente a creare le proprie pipeline di Machine Learning. Il [repository GitHub](https://github.com/Azure/MachineLearningDesigner) della finestra di progettazione di Azure Machine Learning contiene la documentazione dettagliata per comprendere alcuni scenari comuni di Machine Learning.
 

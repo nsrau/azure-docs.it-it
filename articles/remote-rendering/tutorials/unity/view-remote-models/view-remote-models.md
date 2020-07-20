@@ -1,16 +1,16 @@
 ---
 title: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto
 description: L'esercitazione "Hello World" di Rendering remoto di Azure illustra come visualizzare un modello sottoposto a rendering remoto da Azure
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: f0b9bf1c7e085efd86f70f8246214d366265036a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bd9e9b6754c8626a8d858b9832a8e3547b72352d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85566789"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231906"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Esercitazione: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto
 
@@ -101,7 +101,7 @@ I passaggi seguenti consentono di verificare l'uso dell'ultima versione del pacc
 
 1. Impostare **Clear flags** (Flag di cancellazione) su *Solid Color* (Tinta unita)
 
-1. Impostare **Background** (Sfondo) su *Black* (Nero) (#000000), con alfa (A) completo (255)
+1. Impostare **Background** (Sfondo) su *Black* (Nero) (#000000), con alfa (A) completamente trasparente (0)
 
     ![Selettore colori](./media/color-wheel-black.png)
 

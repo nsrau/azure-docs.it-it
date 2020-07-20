@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione Java nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c71471d1a89188a065bafef2c5b6372aeff35851
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 5616e92d64854d145c30aa3fd32bf61d65ca4221
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80240529"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224316"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Creare uno spazio di sviluppo Kubernetes: Visual Studio Code e Java con Azure Dev Spaces
 
@@ -171,7 +171,7 @@ Esiste tuttavia un *metodo ancora più rapido* per lo sviluppo di codice, che ve
 
 In questa sezione si userà VS Code per eseguire direttamente il debug del contenitore in esecuzione in Azure. Si apprenderà anche come eseguire più rapidamente un ciclo modifica-esecuzione-test.
 
-![](media/common/edit-refresh-see.png)
+![Diagramma che mostra il ciclo di modifica codice, aggiornamento contenitore e visualizzazione aggiornamento.](media/common/edit-refresh-see.png)
 
 > [!Note]
 > **In caso di problemi** in qualsiasi momento, vedere la sezione [Risoluzione dei problemi](troubleshooting.md) o inserire un commento in questa pagina.
@@ -183,13 +183,13 @@ Aprire il **riquadro comandi** (usando il menu **Visualizza | Riquadro comandi**
 
 In questo modo viene aggiunta la configurazione di debug per Azure Dev Spaces nella cartella `.vscode`. Questo comando non deve essere confuso con il comando `azds prep` che configura il progetto per la distribuzione.
 
-![](media/common/command-palette.png)
+![Screenshot che mostra l'opzione Azure Dev Spaces nel riquadro comandi di VS Code](media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>Selezionare la configurazione di debug di AZDS
 1. Per aprire la visualizzazione Debug, fare clic sull'icona Debug nella **barra attività** sul lato di VS Code.
 1. Selezionare **Launch Java Program (AZDS)** (Avvia programma Java - AZDS) come configurazione di debug attiva.
 
-![](media/get-started-java/debug-configuration.png)
+![Screenshot della funzionalità di debug di VS Code con l'opzione Launch Java Program (Avvia programma Java) evidenziata in rosso.](media/get-started-java/debug-configuration.png)
 
 > [!Note]
 > Se nel riquadro comandi non vengono visualizzati comandi di Azure Dev Spaces, assicurarsi di aver installato l'estensione di VS Code per Azure Dev Spaces. Verificare che l'area di lavoro aperta in VS Code sia la cartella contenente `azds.yaml`.
@@ -202,7 +202,7 @@ Come con il comando `up`, il codice viene sincronizzato con lo spazio di svilupp
 > [!Tip]
 > La barra di stato di VS Code diventerà arancione, per indicare che il debugger è collegato. Viene inoltre visualizzato un URL selezionabile, che è possibile usare per aprire l'applicazione.
 
-![](media/common/vscode-status-bar-url.png)
+![Schermata della barra di stato di VS Code dopo che è diventata arancione.](media/common/vscode-status-bar-url.png)
 
 Impostare un punto di interruzione in un file di codice sul lato server, ad esempio all'interno della funzione `greeting()` nel file di origine `src/main/java/com/ms/sample/webfrontend/Application.java`. Aggiornando la pagina del browser si raggiunge il punto di interruzione.
 
@@ -220,7 +220,7 @@ public String greeting()
 
 Salvare il file e nel **riquadro delle azioni di debug** fare clic sul pulsante **Riavvia**.
 
-![](media/common/debug-action-refresh.png)
+![Screenshot del riquadro delle azioni di debug di VS Code con l'opzione di riavvio evidenziata in rosso.](media/common/debug-action-refresh.png)
 
 Invece di ricompilare e ridistribuire una nuova immagine del contenitore ogni volta che vengono apportate modifiche al codice, operazione che spesso richiede una notevole quantità di tempo, Azure Dev Spaces ricompilerà in modo incrementale il codice nel contenitore esistente in modo da velocizzare il ciclo di modifica/debug.
 

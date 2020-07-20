@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Configurare l'estensione di Visual Studio Code"
+title: "Esercitazione: Configurare l'estensione di Visual Studio Code (anteprima)"
 titleSuffix: Azure Machine Learning
 description: Informazioni su come configurare l'estensione Azure Machine Learning per Visual Studio Code.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
-ms.openlocfilehash: 731ab18346ac9f100862174312c2c9950026f1eb
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.date: 07/09/2020
+ms.openlocfilehash: 48fb2ce3672634af202500ccb256e7730933fff8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272917"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199756"
 ---
-# <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Configurare l'estensione Azure Machine Learning per Visual Studio Code
+# <a name="set-up-azure-machine-learning-visual-studio-code-extension-preview"></a>Configurare l'estensione Azure Machine Learning per Visual Studio Code (anteprima)
 
 Informazioni su come installare ed eseguire script usando l'estensione Azure Machine Learning per Visual Studio Code.
 
@@ -69,6 +69,9 @@ Ora che è stato effettuato l'accesso ad Azure con le credenziali dell'account, 
 
 1. Quando si espande il riquadro comandi, seguire le istruzioni.
 
+    > [!NOTE]
+    > Se è già stato effettuato il provisioning di risorse di Azure Machine Learning esistenti, vedere [come eseguire gli esperimenti nella Guida di VS Code](./how-to-manage-resources-vscode.md#run-experiment).
+
     1. Selezionare la sottoscrizione di Azure.
     1. Selezionare **File di dipendenze Conda** dall'elenco degli ambienti.
     1. Premere **INVIO** per esplorare il file di dipendenze Conda. Questo file contiene le dipendenze necessarie per eseguire lo script. In questo caso, il file di dipendenze è costituito dal file `env.yml` all'interno della directory `mnist-vscode-docs-sample`.
@@ -78,18 +81,18 @@ Ora che è stato effettuato l'accesso ad Azure con le credenziali dell'account, 
 
     ```json
     {
-        "workspace": "WS04131142",
-        "resourceGroup": "WS04131142-rg1",
+        "workspace": "WS06271500",
+        "resourceGroup": "WS06271500-rg2",
         "location": "South Central US",
-        "experiment": "WS04131142-exp1",
+        "experiment": "WS06271500-exp1",
         "compute": {
-            "name": "WS04131142-com1",
+            "name": "WS06271500-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS04131142-com1-rc1",
+            "filename": "WS06271500-com1-rc1",
             "environment": {
-                "name": "WS04131142-env1",
+                "name": "WS06271500-env1",
                 "conda_dependencies": [
                     "python=3.6.2",
                     "tensorflow=1.15.0",

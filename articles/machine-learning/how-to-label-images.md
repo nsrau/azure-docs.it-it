@@ -2,20 +2,20 @@
 title: Aggiungere tag alle immagini in un progetto di etichettatura
 title.suffix: Azure Machine Learning
 description: Informazioni su come usare gli strumenti di aggiunta dei tag ai dati in un progetto di etichettatura di Azure Machine Learning.
-author: lobrien
-ms.author: laobri
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 0421e5ad164c440c1b841cae66e7dafc5deadb81
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025132"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147018"
 ---
-# <a name="tag-images-in-a-labeling-project-preview"></a>Aggiungere tag alle immagini in un progetto di etichettatura (anteprima)
+# <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura 
 
 Dopo che l'amministratore di progetto ha [creato un progetto di etichettatura](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, è possibile usare lo strumento di etichettatura (anteprima pubblica) per preparare rapidamente i dati per un progetto di Machine Learning. L'articolo illustra:
 
@@ -64,7 +64,7 @@ Azure abilita il pulsante **Invia** solo dopo aver completato l'aggiunta dei tag
 
 Dopo aver inviato i tag per i dati a disposizione, Azure aggiornerà la pagina con un nuovo set di immagini dalla coda di lavoro.
 
-### <a name="assisted-machine-learning"></a>Machine Learning assistito 
+### <a name="assisted-machine-learning-preview"></a>Machine Learning assistito (anteprima) 
 
 Gli algoritmi di Machine Learning possono essere attivati. Se nel progetto sono abilitati questi algoritmi, è possibile che vengano visualizzati gli elementi seguenti:
 

@@ -11,16 +11,16 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 86b39beb2958194f7c86409c5d78992616234b05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769901"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252573"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Esercitazione: Eseguire il failover manuale per un hub IoT
 
-Il failover manuale è una funzionalità del servizio hub IoT che consente ai clienti di eseguire il [failover](https://en.wikipedia.org/wiki/Failover) delle attività dell'hub da un'area primaria all'area geografica associata di Azure corrispondente. Il failover manuale può essere eseguito in caso di emergenza a livello di area o in eseguito a un'interruzione del servizio estesa. È anche possibile eseguire un failover pianificato per testare le funzionalità di ripristino di emergenza, anche se è consigliabile usare un hub IoT di test, invece di uno in esecuzione nell'ambiente di produzione. La funzionalità di failover manuale viene offerta ai clienti senza costi aggiuntivi.
+Il failover manuale è una funzionalità del servizio hub IoT che consente ai clienti di eseguire il [failover](https://en.wikipedia.org/wiki/Failover) delle attività dell'hub da un'area primaria all'area geografica associata di Azure corrispondente. Il failover manuale può essere eseguito in caso di emergenza a livello di area o in eseguito a un'interruzione del servizio estesa. È anche possibile eseguire un failover pianificato per testare le funzionalità di ripristino di emergenza, anche se è consigliabile usare un hub IoT di test, invece di uno in esecuzione nell'ambiente di produzione. La funzionalità di failover manuale viene offerta ai clienti senza costi aggiuntivi per gli hub IoT creati dopo il 18 maggio 2017.
 
 In questa esercitazione si eseguono le seguenti attività:
 

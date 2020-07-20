@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ae6ddac61ecbcef41704f71ed5188fc547a996a3
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: f98df33b3efc697e349ddeae31439dd2fb701d91
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616584"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202024"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -229,7 +229,7 @@ Quando si elencano gli oggetti di un insieme di credenziali eliminato, viene ind
 
 Quando la protezione dall'eliminazione è attivata, un insieme di credenziali o un oggetto nello stato eliminato non può essere ripulito finché non ha superato il periodo di conservazione di 90 giorni. Tale insieme di credenziali o oggetto può essere comunque ripristinato. Questa funzionalità offre maggiore sicurezza che un oggetto o un insieme di credenziali non venga mai eliminato definitivamente prima che sia trascorso il periodo di conservazione.
 
-È possibile abilitare la protezione dall'eliminazionesolo se è abilitata anche l'eliminazione temporanea. 
+È possibile abilitare la protezione dall'eliminazione solo se è abilitata anche l'eliminazione temporanea. La disabilitazione della protezione dall'eliminazione non è supportata.
 
 Per attivare l'eliminazione temporanea e la protezione dall'eliminazione durante la creazione di un insieme di credenziali, usare il comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create):
 

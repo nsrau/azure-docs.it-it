@@ -4,12 +4,12 @@ description: Informazioni su come preparare i computer locali per la migrazione 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044159"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223619"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparare i computer locali per la migrazione ad Azure
 
@@ -122,7 +122,7 @@ Per altre versioni, preparare i computer come riepilogato nella tabella.
 --- | --- | ---
 **Installare Linux Integration Services per Hyper-V** | Ricompilare l'immagine iniziale di Linux affinché includa i driver Hyper-V necessari. L'inclusione dell'immagine iniziale garantisce che la macchina virtuale possa essere avviata in Azure. | Nella maggior parte delle nuove versioni delle distribuzioni di Linux è presente per impostazione predefinita.<br/><br/> Se non è inclusa, installarla manualmente per tutte le versioni ad eccezione di quelle indicate sopra.
 **Abilitare la registrazione della console seriale di Azure** | L'abilitazione della registrazione della console facilita la risoluzione dei problemi. Non è necessario riavviare la VM. La macchina virtuale di Azure verrà avviata usando l'immagine del disco. L'avvio tramite l'immagine del disco equivale a un riavvio per la nuova macchina virtuale.<br/><br/> Seguire [queste istruzioni](../virtual-machines/troubleshooting/serial-console-linux.md) per abilitare la registrazione.
-**Aggiornare il file di mappa dei dispositivi** | Aggiornare il file di mapping dei dispositivi contenente le associazioni tra nome del dispositivo e volume, per usare identificatori di dispositivo permanenti. | Installarlo manualmente per tutte le versioni ad eccezione di quelle indicate sopra.
+**Aggiornare il file di mappa dei dispositivi** | Aggiornare il file di mapping dei dispositivi contenente le associazioni tra nome del dispositivo e volume, per usare identificatori di dispositivo permanenti. | Installarlo manualmente per tutte le versioni ad eccezione di quelle indicate sopra. (Applicabile solo nello scenario VMware basato su agenti)
 **Aggiornare le voci fstab** |  Aggiornare le voci in modo da usare identificatori di volume permanenti.    | Aggiornare manualmente per tutte le versioni ad eccezione di quelle indicate sopra.
 **Rimuovere la regola di udev** | Rimuovere qualsiasi regola di udev che riservi i nomi di interfaccia in base all'indirizzo MAC e così via. | Rimuovere manualmente per tutte le versioni ad eccezione di quelle indicate sopra.
 **Aggiornare le interfacce di rete** | Aggiornare le interfacce di rete in modo che ricevano l'indirizzo IP in base a DHCP. | Aggiornare manualmente per tutte le versioni ad eccezione di quelle indicate sopra.
