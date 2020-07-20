@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 0631bc0e3e83564b2d77d4f67b418780d933215e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212905"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142846"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Web Application Firewall di Azure nel gateway applicazione di Azure
 
@@ -24,7 +24,7 @@ WAF in gateway applicazione basa sullo standard [CRS (Core Rule Set)](https://ow
 Tutte le funzionalità di WAF elencate di seguito sono disponibili all'interno di un criterio di WAF. È possibile creare più criteri, che possono essere associati a un gateway applicazione, a singoli listener o a regole di routing basate su percorso in un gateway applicazione. In questo modo, se necessario, è possibile avere criteri distinti per ogni sito dietro il gateway applicazione. Per altre informazioni sui criteri di WAF, vedere [Creare un criterio di WAF](create-waf-policy-ag.md).
 
    > [!NOTE]
-   > I criteri di WAF per sito e per URI sono disponibili in anteprima pubblica. Questa funzionalità è quindi soggetta alle condizioni per l'utilizzo supplementari di Microsoft. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > I criteri di WAF per URI sono disponibili in anteprima pubblica. Questa funzionalità è quindi soggetta alle condizioni per l'utilizzo supplementari di Microsoft. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagramma di WAF nel gateway applicazione](../media/ag-overview/waf1.png)
 

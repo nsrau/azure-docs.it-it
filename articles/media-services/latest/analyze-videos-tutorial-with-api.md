@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b7864d89cc14a1473fd43e94bfe74c368bcb391d
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2ab87990981f08164bb47cef9eaa1876514f1ad6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349490"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202835"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Esercitazione: Analizzare i video con Servizi multimediali v3
 
@@ -44,7 +44,7 @@ Questa esercitazione illustra come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se Visual Studio non è installato, scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Se Visual Studio non è installato, scaricare [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
 - Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](access-api-cli-how-to.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
 
@@ -148,7 +148,7 @@ La funzione seguente scarica i risultati del processo dall'[asset](https://docs.
 
 ### <a name="clean-up-resource-in-your-media-services-account"></a>Pulire le risorse nell'account di Servizi multimediali
 
-Normalmente è necessario pulire tutti gli oggetti tranne quelli che si prevede di riutilizzare. In genere si riutilizzano le trasformazioni e si salvano in modo permanente i localizzatori di streaming. Se dopo l'attività di sperimentazione si vuole pulire l'account, eliminare le risorse che non si prevede di riutilizzare. Il codice seguente, ad esempio, elimina gli oggetti Job:
+Normalmente è necessario pulire tutti gli oggetti tranne quelli che si prevede di riutilizzare. In genere si riutilizzano le trasformazioni e si salvano in modo permanente i localizzatori di streaming. Se dopo l'attività di sperimentazione si vuole pulire l'account, eliminare le risorse che non si prevede di riutilizzare. Il codice seguente, ad esempio, elimina il processo e l'asset di output:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 

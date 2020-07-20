@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513816"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245331"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Esercitazione: Creare e distribuire una competenza personalizzata con Azure Machine Learning 
 
@@ -29,6 +29,9 @@ Vengono forniti due set di dati. Se si vuole eseguire il training del modello au
 > * Eseguire il training di un modello e distribuirlo in un cluster di Azure Kubernetes
 > * Collegare una pipeline di arricchimento tramite intelligenza artificiale al modello distribuito
 > * Inserire l'output del modello distribuito come competenza personalizzata
+
+> [!IMPORTANT] 
+> Questa competenza è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Attualmente non è previsto alcun supporto per .NET SDK.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

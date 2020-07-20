@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 598df2f0a1e9badebbb1bf8e7ec0f93ff98d55ce
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 08f7554ed9648df8b225fe9f205ee13b0f693c44
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341786"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170565"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -67,7 +67,7 @@ I principali scenari in cui è possibile usare Load Balancer Standard includono:
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>Protezione per impostazione predefinita
 
 Alla base di Load Balancer Standard c'è il modello di sicurezza di rete Zero Trust. Load Balancer Standard è sicuro per impostazione predefinita ed è parte della rete virtuale. La rete virtuale è una rete privata e isolata.  Questo significa che le istanze di Load Balancer Standard e gli indirizzi IP pubblici standard sono chiusi ai flussi in ingresso, a meno che non vengano aperti da gruppi di sicurezza di rete. I gruppi di sicurezza di rete vengono usati per permettere esplicitamente il traffico consentito.  Se non si ha un gruppo di sicurezza di rete su una subnet o sulla scheda di rete della risorsa macchina virtuale, non è consentito al traffico di raggiungere questa risorsa. Per altre informazioni sui gruppi di sicurezza di rete e su come applicarli allo scenario, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
-Load Balancer Basic è aperto a Internet per impostazione predefinita.
+Load Balancer Basic è aperto a Internet per impostazione predefinita. Load Balancer, inoltre, non archivia i dati dei clienti.
 
 ## <a name="pricing-and-sla"></a>Prezzi e contratto di servizio
 

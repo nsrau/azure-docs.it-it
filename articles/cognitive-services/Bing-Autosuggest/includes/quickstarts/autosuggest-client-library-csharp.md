@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3793f57a6c3dff04f678e629b2903ab216611f75
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5d325ac8da43f020f4ab39244d2e6a7dc6ed72b7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82975039"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156648"
 ---
 Introduzione alla libreria client di Suggerimenti automatici Bing per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -31,7 +31,7 @@ Usare la libreria client di Suggerimenti automatici Bing per .NET per ottenere s
 ## <a name="create-environment-variables"></a>Creare variabili di ambiente
 
 >[!NOTE]
-> Gli endpoint per le risorse non di valutazione create dopo il 1° luglio 2019 usano il formato di sottodominio personalizzato riportato di seguito. Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Gli endpoint per le risorse create dopo il 1° luglio 2019 usano il formato di sottodominio personalizzato riportato di seguito. Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
 Usando la chiave e l'endpoint della risorsa creata, creare due variabili di ambiente per l'autenticazione:
 <!-- replace the below variable names with the names expected in the code sample.-->

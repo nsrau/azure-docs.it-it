@@ -4,28 +4,30 @@ description: Questa guida di avvio rapido illustra come usare un modello di Azur
 ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a05be04064df81373f856ea0e8ca59664078695f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969807"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252369"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare una query condivisa usando un modello di Azure Resource Manager
+# <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Avvio rapido: Creare una query condivisa usando un modello di Resource Manager
 
 Le query di Resource Graph possono essere salvate come _query private_ o _query condivise_. Una query privata viene salvata nel profilo del portale dei singoli utenti e non è visibile ad altri. Una query condivisa è un oggetto di Resource Manager che può essere condiviso con altri utenti tramite le autorizzazioni e l'accesso in base al ruolo. Una query condivisa fornisce un'esecuzione comune e coerente dell'individuazione delle risorse. Questa guida di avvio rapido usa un modello di Azure Resource Manager (modello ARM) per creare una query condivisa.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuire il modello ARM per la creazione di una query condivisa in Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="create-a-shared-query"></a>Creare una query condivisa
+## <a name="review-the-template"></a>Rivedere il modello
 
 In questa guida di avvio rapido verrà creata una query condivisa denominata _Conta macchine virtuali per sistema operativo_. Per provare questa query nell'SDK o nel portale con Resource Graph Explorer, vedere [Esempi - Contare le macchine virtuali per tipo di sistema operativo](./samples/starter.md#count-os).
-
-### <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
@@ -35,7 +37,7 @@ Nel modello è definita la risorsa seguente:
 
 - [Microsoft.ResourceGraph/queries](/azure/templates/microsoft.resourcegraph/queries)
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 > [!NOTE]
 > Il servizio Azure Resource Graph è gratuito. Per altre informazioni, vedere [Panoramica di Azure Resource Graph](./overview.md).

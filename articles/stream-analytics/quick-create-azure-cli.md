@@ -10,16 +10,16 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/01/2020
-ms.openlocfilehash: 8406c556ecaa0cea968fc1976d709b4f3c51c78b
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1613486880885a3b7838b1bf806c17f88e3be06d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852491"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231268"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Avvio rapido: Creare un processo di Analisi di flusso di Azure con l'interfaccia della riga di comando di Azure
 
-Questa guida di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per definire un processo di Analisi di flusso che filtra in tempo reale i messaggi del sensore contenenti letture della temperatura maggiori di 27. Il processo di Analisi di flusso leggerà i dati dall'hub IoT, li trasformerà e quindi li scriverà in un contenitore nell'archiviazione BLOB. I dati di input usati in questa guida introduttiva sono generati da un simulatore online Raspberry Pi.
+Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per definire un processo di Analisi di flusso che filtra in tempo reale i messaggi del sensore contenenti letture della temperatura maggiori di 27. Il processo di Analisi di flusso leggerà i dati dall'hub IoT, li trasformerà e quindi li scriverà in un contenitore nell'archiviazione BLOB. I dati di input usati in questo argomento di avvio rapido sono generati da un simulatore online Raspberry Pi.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -49,7 +49,7 @@ Questa guida di avvio rapido illustra come usare l'interfaccia della riga di com
     az extension add --name stream-analytics
     ```
 
-   Eseguire questo comando per installare l'[estensione per Azure IoT](/cli/azure/ext/azure-iot/azure-iot):
+   Eseguire questo comando per installare l'[estensione per Azure IoT](/cli/azure/ext/azure-iot):
 
     ```azurecli
     az extension add --name azure-iot
@@ -268,7 +268,7 @@ az stream-analytics job start
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming usate dal processo. Se si prevede di usare il processo in futuro, è possibile non eliminarlo e arrestarlo per il momento. Se non si intende continuare a usare il processo, eliminare tutte le risorse create con questa guida introduttiva eseguendo il cmdlet seguente:
+Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming usate dal processo. Se si prevede di usare il processo in futuro, è possibile non eliminarlo e arrestarlo per il momento. Se non si intende continuare a usare il processo, eliminare tutte le risorse create con questo avvio rapido eseguendo il cmdlet seguente:
 
 ```powershell
 az group delete \
@@ -278,7 +278,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stato distribuito un semplice processo di Analisi di flusso con l'interfaccia della riga di comando di Azure. È anche possibile distribuire processi di Analisi di flusso usando il [portale di Azure](stream-analytics-quick-create-portal.md) e [Visual Studio](stream-analytics-quick-create-vs.md).
+In questo argomento di avvio rapido è stato distribuito un semplice processo di Analisi di flusso con l'interfaccia della riga di comando di Azure. È anche possibile distribuire processi di Analisi di flusso usando il [portale di Azure](stream-analytics-quick-create-portal.md) e [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Per informazioni sulla configurazione di altre origini di input e sull'esecuzione del rilevamento in tempo reale, continuare con l'articolo seguente:
 

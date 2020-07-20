@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Creare un Firewall di Azure e i gruppi IP - Modello di Resource Manager'
-description: Informazioni su come usare un modello di Resource Manager per creare un Firewall di Azure e i gruppi IP.
+title: 'Avvio rapido: Creare un Firewall di Azure e i gruppi IP - Modello di Resource Manager'
+description: Informazioni su come usare un modello di Azure Resource Manager per creare un'istanza di Firewall di Azure e gruppi di indirizzi IP.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,28 +8,30 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 5ac1248ddcdf8c0eef68b7c32e322398fa01a6f2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680560"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260586"
 ---
-# <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Guida introduttiva: Creare un Firewall di Azure e i gruppi IP - Modello di Resource Manager
+# <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Avvio rapido: Creare un'istanza di Firewall di Azure e gruppi di indirizzi IP - Modello di Resource Manager
 
-In questo argomento di avvio rapido si usa un modello di Resource Manager per distribuire un Firewall di Azure con i gruppi IP di esempio usati in una regola di rete e in una regola dell'applicazione. Un gruppo IP è una risorsa di primo livello che consente di definire e raggruppare indirizzi IP, intervalli e subnet in un singolo oggetto. Questa opzione è utile per la gestione degli indirizzi IP nelle regole del Firewall di Azure. È possibile immettere manualmente gli indirizzi IP o importarli da un file.
+In questo argomento di avvio rapido si usa un modello di Azure Resource Manager per distribuire un'istanza di Firewall di Azure con gruppi di indirizzi IP di esempio usati in una regola di rete e in una regola dell'applicazione. Un gruppo IP è una risorsa di primo livello che consente di definire e raggruppare indirizzi IP, intervalli e subnet in un singolo oggetto. Questa opzione è utile per la gestione degli indirizzi IP nelle regole del Firewall di Azure. È possibile immettere manualmente gli indirizzi IP o importarli da un file.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-azure-firewall-and-ip-groups"></a>Creare un Firewall di Azure e i gruppi IP
+## <a name="review-the-template"></a>Rivedere il modello
 
 Questo modello crea un Firewall di Azure e i gruppi IP, insieme alle risorse necessarie per supportare il Firewall di Azure.
-
-### <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
@@ -47,7 +49,7 @@ Nel modello sono definite più risorse di Azure:
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 Distribuire il modello di Resource Manager in Azure:
 
@@ -76,7 +78,7 @@ Nel portale di Azure esaminare le risorse distribuite, in particolare le regole 
 
 :::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Regole di rete.":::
 
-Per informazioni sulla sintassi JSON e sulle proprietà di un firewall in un modello, vedere le [informazioni di riferimento sul modello Microsoft.Network azureFirewalls](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
+Per informazioni sulla sintassi JSON e sulle proprietà di un firewall in un modello, vedere le [informazioni di riferimento sul modello Microsoft.Network azureFirewalls](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

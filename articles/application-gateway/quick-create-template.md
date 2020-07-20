@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 963f728db55f587f7ae72aec702a099882cf401a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170495"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249360"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Avvio rapido: Indirizzare il traffico Web con il gateway applicazione di Azure - Modello di Resource Manager
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Modello di Resource Manager
 
-In questa guida di avvio rapido si userà un modello di Resource Manager per creare un gateway applicazione di Azure. Successivamente, verrà testato il gateway applicazione per verificare che funzioni correttamente.
+In questo argomento di avvio rapido si usa un modello di Azure Resource Manager per creare un gateway applicazione di Azure. Successivamente, verrà testato il gateway applicazione per verificare che funzioni correttamente.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,17 +26,19 @@ In questa guida di avvio rapido si userà un modello di Resource Manager per cre
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
+## <a name="review-the-template"></a>Rivedere il modello
 
 Per semplicità, questo modello crea una configurazione semplice con un indirizzo IP front-end pubblico, un listener di base per ospitare un singolo sito nel gateway applicazione, una regola di gestione delle richieste di base e due macchine virtuali nel pool back-end.
 
-### <a name="review-the-template"></a>Rivedere il modello
-
-Il modello usato in questo argomento di avvio rapido proviene dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-qs/azuredeploy.json)
+Il modello usato in questo argomento di avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 
 :::code language="json" source="~/quickstart-templates/ag-docs-qs/azuredeploy.json" range="001-343" highlight="197-297":::
 
@@ -50,8 +52,7 @@ Nel modello sono definite più risorse di Azure:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): due per le macchine virtuali
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions): per configurare IIS e le pagine Web
 
-
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 Distribuire il modello di Resource Manager in Azure:
 

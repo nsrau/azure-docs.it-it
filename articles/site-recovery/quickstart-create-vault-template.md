@@ -1,33 +1,31 @@
 ---
-title: Guida di avvio rapido per creare un insieme di credenziali di Servizi di ripristino di Azure con un modello di Azure Resource Manager.
-description: Questa guida di avvio rapido illustra come creare un insieme di credenziali di Servizi di ripristino con un modello di Azure Resource Manager.
+title: Avvio rapido per creare un insieme di credenziali di Servizi di ripristino di Azure con un modello di Azure Resource Manager.
+description: Questo argomento di avvio rapido illustra come creare un insieme di credenziali di Servizi di ripristino con un modello di Azure Resource Manager (modello di Resource Manager).
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
-author: davidsmatlak
-ms.author: v-dasmat
-ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 9112841f6f07808d80fa2b8b61e612d57d0ec20e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217293"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248826"
 ---
-# <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Avvio rapido: Creare un insieme di credenziali di Servizi di ripristino con un modello di Resource Manager
+# <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Avvio rapido: Creare un insieme di credenziali di Servizi di ripristino con un modello di Resource Manager
 
-Questa guida di avvio rapido descrive come configurare un insieme di credenziali di Servizi di ripristino con un modello di Azure Resource Manager. Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo online le applicazioni aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e ripristino.
+Questo argomento di avvio rapido descrive come configurare un insieme di credenziali di Servizi di ripristino con un modello di Azure Resource Manager (modello di Resource Manager). Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo online le applicazioni aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e ripristino.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se non si ha una sottoscrizione di Azure attiva, è possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-No.
+Se non si ha una sottoscrizione di Azure attiva, è possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
-
-### <a name="review-the-template"></a>Rivedere il modello
+## <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
@@ -42,7 +40,7 @@ Il modello include i parametri facoltativi per la configurazione di backup dell'
 
 Per altri modelli di Servizi di ripristino di Azure, vedere i [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 Per distribuire il modello, è necessario specificare i valori per **Sottoscrizione**, **Gruppo di risorse** e **Nome dell'insieme di credenziali**.
 
@@ -130,7 +128,7 @@ GeoRedundant
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di usare le nuove risorse, non è richiesto alcun intervento. In caso contrario, è possibile rimuovere il gruppo di risorse e l'insieme di credenziali creato in questa guida di avvio rapido. Per eliminare il gruppo di risorse e le risorse al suo interno, usare l'interfaccia della riga di comando di Azure oppure Azure PowerShell.
+Se si prevede di usare le nuove risorse, non è richiesto alcun intervento. In caso contrario, è possibile rimuovere il gruppo di risorse e l'insieme di credenziali creato in questo avvio rapido. Per eliminare il gruppo di risorse e le risorse al suo interno, usare l'interfaccia della riga di comando di Azure oppure Azure PowerShell.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -153,7 +151,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stato creato un insieme di credenziali di Servizi di ripristino. Per altre informazioni sul ripristino di emergenza, continuare con l'articolo avvio rapido successivo.
+In questo argomento di avvio rapido è stato creato un insieme di credenziali di Servizi di ripristino. Per altre informazioni sul ripristino di emergenza, continuare con l'articolo avvio rapido successivo.
 
 > [!div class="nextstepaction"]
 > [Configurare il ripristino di emergenza](azure-to-azure-quickstart.md)

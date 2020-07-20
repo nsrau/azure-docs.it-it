@@ -5,24 +5,24 @@ ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d765168ea2eddaf42715536b5da67f15bb8a8cee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75372687"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258553"
 ---
-# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Guida introduttiva: Distribuire contenitori Linux in Service Fabric
+# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Avvio rapido: Distribuire contenitori Linux in Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili.
 
-Questa guida introduttiva illustra come distribuire contenitori Linux in un cluster di Service Fabric in Azure. Al termine, si avrà un'applicazione di voto costituita da un front-end Web Python e un back-end Redis in esecuzione in un cluster di Service Fabric. Verrà anche illustrato come effettuare il failover di un'applicazione e come ridimensionare un'applicazione del cluster.
+Questo argomento di avvio rapido illustra come distribuire contenitori Linux in un cluster di Service Fabric in Azure. Al termine, si avrà un'applicazione di voto costituita da un front-end Web Python e un back-end Redis in esecuzione in un cluster di Service Fabric. Verrà anche illustrato come effettuare il failover di un'applicazione e come ridimensionare un'applicazione del cluster.
 
 ![Pagina Web dell'app Voting][quickstartpic]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida introduttiva:
+Per completare questo avvio rapido:
 
 1. Se non si ha una sottoscrizione di Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -88,7 +88,7 @@ Service Fabric fornisce numerosi strumenti che è possibile usare per gestire un
 - Interfaccia della riga di comando di Service Fabric, la cui esecuzione si basa sull'interfaccia della riga di comando di Azure. 
 - Comandi di PowerShell.
 
-In questa guida introduttiva si usano l'interfaccia della riga di comando di Service Fabric e Service Fabric Explorer, uno strumento basato sul Web. Per usare Service Fabric Explorer, è necessario importare il file PFX del certificato nel browser. Per impostazione predefinita il file PFX non prevede una password.
+In questo argomento di avvio rapido si usano l'interfaccia della riga di comando di Service Fabric e Service Fabric Explorer, uno strumento basato sul Web. Per usare Service Fabric Explorer, è necessario importare il file PFX del certificato nel browser. Per impostazione predefinita il file PFX non prevede una password.
 
 Mozilla Firefox è il browser predefinito in Ubuntu 16.04. Per importare il certificato in Firefox, fare clic sul pulsante di menu nell'angolo in alto a destra del browser, quindi fare clic su **Opzioni**. Nella pagina **Preferenze** usare la casella di ricerca per cercare "certificati". Fare clic su **Mostra certificati**, selezionare la scheda **Certificati personali**, fare clic su **Importa** e seguire i prompt per importare il certificato.
 
@@ -108,7 +108,7 @@ Mozilla Firefox è il browser predefinito in Ubuntu 16.04. Per importare il cert
     ./install.sh
     ```
 
-3. Aprire un Web browser e passare all'endpoint Service Fabric Explorer per il cluster. L'endpoint ha il formato seguente:  **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**, ad esempio `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
+3. Aprire un Web browser e passare all'endpoint Service Fabric Explorer per il cluster. Il formato dell'endpoint è il seguente: **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**, ad esempio `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. Espandere il nodo **Applicazioni**, in cui sarà ora presente una voce per il tipo dell'applicazione di voto e l'istanza creata.
 
@@ -179,13 +179,13 @@ az group delete --name $ResourceGroupName
 ```
 
 Se non è necessario eseguire altre operazioni con il cluster, è possibile rimuovere il certificato dall'archivio certificati. Ad esempio:
-- In Windows: usare lo [snap-in di MMC Certificati](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Assicurarsi di selezionare **My user account** (Account utente personale) quando si aggiunge lo snap-in. Passare a `Certificates - Current User\Personal\Certificates` e rimuovere il certificato.
-- In Mac: usare l'app Keychain.
+- In Windows: usare lo [snap-in di MMC Certificati](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Assicurarsi di selezionare **My user account** (Account utente personale) quando si aggiunge lo snap-in. Passare a `Certificates - Current User\Personal\Certificates` e rimuovere il certificato.
+- Su Mac: usare l'app Keychain.
 - In Ubuntu: seguire la procedura usata per visualizzare i certificati e rimuovere il certificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata distribuita un'applicazione contenitore Linux in un cluster di Service Fabric in Azure, è stato effettuato il failover nell'applicazione ed è stata ridimensionata l'applicazione nel cluster. Per altre informazioni sull'uso di contenitori Linux in Service Fabric, continuare con l'esercitazione sulle app contenitore Linux.
+In questo argomento di avvio rapido è stata distribuita un'applicazione contenitore Linux in un cluster di Service Fabric in Azure, è stato effettuato il failover nell'applicazione ed è stata ridimensionata l'applicazione nel cluster. Per altre informazioni sull'uso di contenitori Linux in Service Fabric, continuare con l'esercitazione sulle app contenitore Linux.
 
 > [!div class="nextstepaction"]
 > [Creare un'app contenitore Linux](./service-fabric-tutorial-create-container-images.md)

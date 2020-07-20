@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 28362a81461b63440ad752071f11b3603a979995
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d63e902a59411a549235c955a39d7dbc4be068ba
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86100356"
+ms.locfileid: "86156537"
 ---
 Usando la chiave e l'endpoint della risorsa creata, creare due variabili di ambiente per l'autenticazione:
 
@@ -23,7 +23,7 @@ Usando la chiave e l'endpoint della risorsa creata, creare due variabili di ambi
   * `https://<your-custom-subdomain>.cognitiveservices.azure.com`
 
 >[!NOTE]
-> Gli endpoint per le risorse non di valutazione create dopo il 1° luglio 2019 usano il formato di sottodominio personalizzato riportato di seguito. Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Gli endpoint per le risorse create dopo il 1° luglio 2019 usano il formato di sottodominio personalizzato riportato di seguito. Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
 Usare le istruzioni seguenti per impostare le variabili di ambiente nel sistema operativo.
 

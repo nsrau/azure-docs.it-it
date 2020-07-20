@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
-ms.date: 05/06/2020
+ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5f6c6970ad8bb697ceb118b6725b37e93ca80b5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f9aa0214712704c1a80f73ae3fd05929f7245eb3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213058"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274144"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Caricare i dati in modo sicuro tramite Synapse SQL
 
@@ -23,10 +23,10 @@ Questo articolo descrive i meccanismi di autenticazione sicura per l'[istruzione
 
 La matrice seguente descrive i metodi di autenticazione supportati per ogni tipo di file e di account di archiviazione. Si applica alla posizione di archiviazione di origine e al percorso del file di errore.
 
-|                      |                CSV                |              Parquet              |                ORC                |
-| :------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-|  Archivio BLOB di Azure  | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD |              FIRMA DI ACCESSO CONDIVISO/CHIAVE              |              FIRMA DI ACCESSO CONDIVISO/CHIAVE              |
-| Azure Data Lake Gen2 | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD |
+|                          |                CSV                |              Parquet              |                ORC                |
+| :----------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
+|  **Archiviazione BLOB di Azure**  | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD |              FIRMA DI ACCESSO CONDIVISO/CHIAVE              |              FIRMA DI ACCESSO CONDIVISO/CHIAVE              |
+| **Azure Data Lake Gen2** | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD | FIRMA DI ACCESSO CONDIVISO/IDENTITÀ DEL SERVIZIO GESTITA/ENTITÀ SERVIZIO/CHIAVE/AAD |
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>R. Chiave dell'account di archiviazione con LF come carattere di terminazione della riga (nuova riga in stile Unix)
 
@@ -93,6 +93,11 @@ L'autenticazione dell'identità gestita è obbligatoria quando l'account di arch
    > [!NOTE]
    > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti per le risorse di Azure, fare riferimento a questa [guida](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
+    > [!IMPORTANT]
+    > Specificare il ruolo Proprietario, collaboratore o lettore dei **dati dei BLOB** **di archiviazione** per il controllo degli accessi in base al ruolo. Questi ruoli sono diversi da quelli predefiniti di Azure di proprietario, collaboratore e lettore. 
+
+    ![Concessione dell'autorizzazione del controllo degli accessi in base al ruolo per il caricamento](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+
 4. È ora possibile eseguire l'istruzione COPY specificando "Identità gestita":
 
     ```sql
@@ -104,14 +109,15 @@ L'autenticazione dell'identità gestita è obbligatoria quando l'account di arch
     )
     ```
 
-> [!IMPORTANT]
->
-> - Specificare il ruolo Proprietario, collaboratore o lettore dei **dati dei BLOB** **di archiviazione** per il controllo degli accessi in base al ruolo. Questi ruoli sono diversi da quelli predefiniti di Azure di proprietario, collaboratore e lettore. 
-
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Autenticazione di Azure Active Directory (AAD)
 #### <a name="steps"></a>Passaggi
 
 1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo **Proprietario, collaboratore o lettore dei dati dei BLOB di archiviazione** per il controllo degli accessi in base al ruolo all'utente AAD. 
+
+    > [!IMPORTANT]
+    > Specificare il ruolo Proprietario, collaboratore o lettore dei **dati dei BLOB** **di archiviazione** per il controllo degli accessi in base al ruolo. Questi ruoli sono diversi da quelli predefiniti di Azure di proprietario, collaboratore e lettore.
+
+    ![Concessione dell'autorizzazione del controllo degli accessi in base al ruolo per il caricamento](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Configurare l'autenticazione di Azure AD tramite la [documentazione](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server) seguente. 
 
@@ -125,9 +131,6 @@ L'autenticazione dell'identità gestita è obbligatoria quando l'account di arch
     )
     ```
 
-> [!IMPORTANT]
->
-> - Specificare il ruolo Proprietario, collaboratore o lettore dei **dati dei BLOB** **di archiviazione** per il controllo degli accessi in base al ruolo. Questi ruoli sono diversi da quelli predefiniti di Azure di proprietario, collaboratore e lettore. 
 
 ## <a name="e-service-principal-authentication"></a>E. Autenticazione di un'entità servizio
 #### <a name="steps"></a>Passaggi

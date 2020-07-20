@@ -4,12 +4,12 @@ description: È possibile confrontare i servizi cloud Microsoft ottimizzati per 
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 40293056a73fd88e9ad6b3922aebfe0ba71f07dd
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 9d7531fac9610b357adb37d28f5d5e90a7e4b108
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878137"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169868"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Scegliere i servizi di integrazione e automazione appropriati in Azure
 
@@ -78,13 +78,13 @@ Basandosi su WebJobs SDK, Funzioni di Azure condivide molti degli stessi trigger
 
 |  | Funzioni | Processi Web con WebJobs SDK |
 | --- | --- | --- |
-|[Modello di app senza server](https://azure.microsoft.com/solutions/serverless/) con [ridimensionamento automatico](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
-|[Sviluppo e test nel browser](functions-create-first-azure-function.md) |✔||
-|[Pagamento a consumo](functions-scale.md#consumption-plan)|✔||
-|[Integrazione con App per la logica](functions-twitter-email.md)|✔||
-| Eventi di attivazione |[Timer](functions-bindings-timer.md)<br>[Code e BLOB di Archiviazione di Azure](functions-bindings-storage-blob.md)<br>[Code e argomenti del bus di servizio di Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hub eventi di Azure](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Griglia di eventi di Azure](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Code e BLOB di Archiviazione di Azure](functions-bindings-storage-blob.md)<br>[Code e argomenti del bus di servizio di Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hub eventi di Azure](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Lingue supportate  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
-|Gestione pacchetti|NPM e NuGet|NuGet<sup>2</sup>|
+|**[Modello di app serverless](https://azure.microsoft.com/solutions/serverless/) con [scalabilità automatica](functions-scale.md#how-the-consumption-and-premium-plans-work)**|✔||
+|**[Sviluppo e test nel browser](functions-create-first-azure-function.md)** |✔||
+|**[Pagamento a consumo](functions-scale.md#consumption-plan)**|✔||
+|**[Integrazione con App per la logica](functions-twitter-email.md)**|✔||
+| **Eventi trigger** |[Timer](functions-bindings-timer.md)<br>[Code e BLOB di Archiviazione di Azure](functions-bindings-storage-blob.md)<br>[Code e argomenti del bus di servizio di Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hub eventi di Azure](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Griglia di eventi di Azure](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Code e BLOB di Archiviazione di Azure](functions-bindings-storage-blob.md)<br>[Code e argomenti del bus di servizio di Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hub eventi di Azure](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| **Lingue supportate**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
+|**Gestione pacchetti**|NPM e NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> Processi Web (senza WebJobs SDK) supporta C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python e altro ancora. Questo elenco non è esaustivo. Un processo Web può eseguire qualsiasi programma o script eseguibile nella sandbox del servizio app.
 

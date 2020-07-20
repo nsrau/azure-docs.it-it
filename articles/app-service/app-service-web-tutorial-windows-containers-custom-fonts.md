@@ -4,18 +4,18 @@ description: Informazioni su come eseguire la migrazione di un contenitore Windo
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8e755c5b9a57eb66fc47364fb2fcdcbe30c2d09e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8f2f4f707300e3ebe31f059c65492247befe324a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205623"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169953"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Eseguire la migrazione di un'app ASP.NET in Servizio app di Azure usando un contenitore Windows (anteprima)
 
 Il [servizio app di Azure](overview.md) offre stack di applicazioni predefiniti in Windows, ad esempio ASP.NET o Node.js, eseguiti in IIS. L'ambiente Windows preconfigurato blocca il sistema operativo impedendo l'accesso amministrativo, le installazioni di software, le modifiche alla Global Assembly Cache e così via (vedere [Funzionalità del sistema operativo in Servizio app di Azure](operating-system-functionality.md)). Tuttavia, usando un contenitore Windows personalizzato nel servizio app è possibile apportare le modifiche del sistema operativo necessarie per l'app, per poter eseguire in modo semplice la migrazione di un'app locale che richiede una configurazione personalizzata di software e sistema operativo. Questa esercitazione illustra come eseguire la migrazione al servizio app di un'app ASP.NET che usa tipi di carattere personalizzati installati nella libreria dei tipi di carattere Windows. Si distribuisce un'immagine Windows configurata in modo personalizzato da Visual Studio a [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) e quindi la si esegue nel servizio app.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Mostra l'app Web in esecuzione in un contenitore di Windows.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -146,7 +146,7 @@ Nella scheda **Informazioni di base** configurare le impostazioni in base alla t
 
 La scheda **Informazioni di base** avrà un aspetto simile al seguente:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
+![Mostra la scheda Informazioni di base usata per configurare l'app Web.](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
 ### <a name="configure-windows-container"></a>Configurare il contenitore Windows
 
@@ -167,7 +167,7 @@ Fare clic su **Crea** e attendere che Azure crei le risorse necessarie.
 
 Al termine dell'operazione di Azure, verrà visualizzata una casella di notifica.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
+![Indica che l'operazione di Azure è stata completata.](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
 
 1. Fare clic su **Vai alla risorsa**.
 
@@ -175,11 +175,11 @@ Al termine dell'operazione di Azure, verrà visualizzata una casella di notifica
 
 Verrà aperta la nuova pagina del browser illustrata di seguito:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
+![Mostra la nuova pagina del browser per l'app Web.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
 
 Attendere alcuni minuti e riprovare, finché non viene visualizzata la pagina iniziale, con il carattere desiderato:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Mostra la home page con il tipo di carattere configurato.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 **Congratulazioni** È stata eseguita la migrazione di un'applicazione ASP.NET in Servizio app di Azure in un contenitore Windows.
 

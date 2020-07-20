@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: e36f98a20d1fc6392aef1aebf5fc86e18085cc10
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85204899"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247048"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Sincronizzare Apache Spark per le definizioni di tabella esterna di Azure Synapse in SQL su richiesta (anteprima)
 
@@ -34,19 +34,22 @@ Per le tabelle esterne Spark, eseguire una query destinata a una tabella esterna
 SELECT * FROM [db].dbo.[spark_table]
 ```
 
-## <a name="spark-data-types-to-sql-data-types-mapping"></a>Mapping tra tipi di dati Spark e tipi di dati SQL
+> [!NOTE]
+> L'aggiunta, l'eliminazione o la modifica della colonna della tabella esterna Spark non verrà applicata alla tabella esterna in SQL su richiesta.
+
+## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Mapping tra tipi di dati Apache Spark e tipi di dati SQL
 
 | Tipo di dati Spark | Tipo di dati SQL               |
 | --------------- | --------------------------- |
-| ByteType        | SMALLINT                    |
-| ShortType       | SMALLINT                    |
-| IntegerType     | INT                         |
+| ByteType        | smallint                    |
+| ShortType       | smallint                    |
+| IntegerType     | int                         |
 | LongType        | bigint                      |
 | FloatType       | real                        |
 | DoubleType      | float                       |
 | DecimalType     | decimal                     |
 | TimestampType   | datetime2                   |
-| DateType        | Data                        |
+| DateType        | date                        |
 | StringType      | varchar(max)*               |
 | BinaryType      | varbinary                   |
 | BooleanType     | bit                         |

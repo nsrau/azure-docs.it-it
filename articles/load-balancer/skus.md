@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: faf77411abca63516b00ac953bc7203da69f3ca9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d08d7a81fddfe70593c31ac3ebd2191679ea1220
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854097"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206356"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU di Azure Load Balancer
 
@@ -34,19 +34,19 @@ Le macchine virtuali autonome, i set di disponibilità e i set di scalabilità d
 
 | | Load Balancer Standard | Load Balancer di base |
 | --- | --- | --- |
-| [Dimensioni del pool back-end](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | Supporta fino a 1000 istanze. | Supporta fino a 300 istanze. |
-| Endpoint di pool back-end | Tutte le macchine virtuali o tutti i set di scalabilità di macchine virtuali in una singola rete virtuale. | Macchine virtuali in un singolo set di disponibilità o in un set di scalabilità di macchine virtuali. |
-| [Probe di integrità](./load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamento in caso di inattività dei probe](./load-balancer-custom-probe-overview.md#probedown) | Le connessioni TCP restano attive in caso di inattività di un probe dell'istanza __e__ di tutti i probe. | Le connessioni TCP restano attive in caso di inattività di un probe dell'istanza. Tutte le connessioni TCP terminano se sono inattivi tutti i probe. |
-| Zone di disponibilità | Front-end di zona e con ridondanza della zona per il traffico in ingresso e in uscita. | Non disponibile |
-| Diagnostica | [Metriche multidimensionali di Monitoraggio di Azure](./load-balancer-standard-diagnostics.md) | [Log di Monitoraggio di Azure](./load-balancer-monitor-log.md) |
-| Porte a disponibilità elevata | [Disponibile per il Load Balancer interno](./load-balancer-ha-ports-overview.md) | Non disponibile |
-| Protezione per impostazione predefinita | Chiuso nei flussi in ingresso, a meno che non sia consentito da un gruppo di sicurezza di rete. Si noti che il traffico interno dalla rete virtuale al servizio di bilanciamento del carico interno è consentito. | Aperto per impostazione predefinita. Gruppo di sicurezza di rete facoltativo. |
-| Regole in uscita | [Configurazione NAT in uscita dichiarativa](./load-balancer-outbound-rules-overview.md) | Non disponibile |
-| TCP Reset in caso di inattività | [Disponibile in tutte le regole](./load-balancer-tcp-reset.md) | Non disponibile |
-| [Più front-end](./load-balancer-multivip-overview.md) | In ingresso e [in uscita](./load-balancer-outbound-connections.md) | Solo in ingresso |
-| Operazioni di gestione | La maggior parte delle operazioni < 30 secondi | in genere 60-90+ secondi |
-| Contratto di servizio | [99,99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Non disponibile | 
+| **[Dimensioni del pool back-end](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Supporta fino a 1000 istanze. | Supporta fino a 300 istanze. |
+| **Endpoint del pool back-end** | Tutte le macchine virtuali o tutti i set di scalabilità di macchine virtuali in una singola rete virtuale. | Macchine virtuali in un singolo set di disponibilità o in un set di scalabilità di macchine virtuali. |
+| **[Probe di integrità](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Comportamento in caso di inattività dei probe](./load-balancer-custom-probe-overview.md#probedown)** | Le connessioni TCP restano attive in caso di inattività di un probe dell'istanza __e__ di tutti i probe. | Le connessioni TCP restano attive in caso di inattività di un probe dell'istanza. Tutte le connessioni TCP terminano se sono inattivi tutti i probe. |
+| **Zone di disponibilità** | Front-end di zona e con ridondanza della zona per il traffico in ingresso e in uscita. | Non disponibile |
+| **Diagnostica** | [Metriche multidimensionali di Monitoraggio di Azure](./load-balancer-standard-diagnostics.md) | [Log di Monitoraggio di Azure](./load-balancer-monitor-log.md) |
+| **Porte a disponibilità elevata** | [Disponibile per il Load Balancer interno](./load-balancer-ha-ports-overview.md) | Non disponibile |
+| **Sicurezza per impostazione predefinita** | Chiuso nei flussi in ingresso, a meno che non sia consentito da un gruppo di sicurezza di rete. Si noti che il traffico interno dalla rete virtuale al servizio di bilanciamento del carico interno è consentito. | Aperto per impostazione predefinita. Gruppo di sicurezza di rete facoltativo. |
+| **Regole in uscita** | [Configurazione NAT in uscita dichiarativa](./load-balancer-outbound-rules-overview.md) | Non disponibile |
+| **TCP Reset per inattività** | [Disponibile in tutte le regole](./load-balancer-tcp-reset.md) | Non disponibile |
+| **[Più front-end](./load-balancer-multivip-overview.md)** | In ingresso e [in uscita](./load-balancer-outbound-connections.md) | Solo in ingresso |
+| **Operazioni di gestione** | La maggior parte delle operazioni < 30 secondi | in genere 60-90+ secondi |
+| **Contratto di servizio** | [99,99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Non disponibile | 
 
 Per altre informazioni, vedere [Limiti di Load Balancer](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Per informazioni dettagliate su Load Balancer Standard, vedere [panoramica](load-balancer-standard-overview.md), [prezzi](https://aka.ms/lbpricing) e [contratto di servizio](https://aka.ms/lbsla).
 

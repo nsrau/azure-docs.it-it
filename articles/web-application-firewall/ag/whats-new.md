@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
-ms.openlocfilehash: 11212c931e38b1c6319c7c3554155d9d17a1080c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5033d19de2321e0dfd3b6d89d2da3306b1723bd0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745156"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146598"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Novità di Web Application Firewall di Azure
 
@@ -27,6 +27,7 @@ Web Application Firewall di Azure viene aggiornato regolarmente. Per stare al pa
 
 |Funzionalità  |Descrizione  |Data di aggiunta  |
 |---------|---------|---------|
+|Disponibilità generale dei criteri per sito| I criteri per sito sono ora disponibili a livello generale. | Luglio 2020 |
 |Set di regole di mitigazione dei bot (anteprima)|È possibile abilitare un set di regole di mitigazione dei bot, insieme al set di regole CRS scelto. | Novembre 2019 |
 |Integrazione di GeoDB (anteprima)|Ora è possibile creare regole personalizzate per limitare il traffico in base al paese/area geografica di origine. | Novembre 2019 |
 |Criteri di WAF per sito/per URI (anteprima)|WAF-v2 supporta ora l'applicazione di un criterio ai listener, nonché le regole basate sul percorso. Vedere [Creare criteri di WAF](create-waf-policy-ag.md). | Novembre 2019 |

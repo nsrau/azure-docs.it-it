@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 01/14/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: d826a40073d243193f87d90ab80333b491a203b2
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 9a9518eb4c8635275b9cbf0467f3091eca10f647
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734216"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223007"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Creare un dominio gestito di Azure Active Directory Domain Services usando un modello di Azure Resource Manager
 
 Azure Active Directory Domain Services (Azure AD DS) offre servizi di dominio gestiti, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM, completamente compatibili con Windows Server Active Directory. È possibile utilizzare questi servizi di dominio senza distribuire, gestire e applicare patch manualmente ai controller di dominio. Azure AD DS si integra con il tenant di Azure AD esistente. Questa integrazione consente agli utenti di accedere con le proprie credenziali aziendali ed è possibile usare i gruppi e gli account utente esistenti per proteggere l'accesso alle risorse.
 
-Questo articolo descrive come abilitare Azure AD Domain Services usando un modello di Azure Resource Manager. Le risorse di supporto vengono create con Azure PowerShell.
+Questo articolo descrive come creare un dominio gestito con un modello di Azure Resource Manager. Le risorse di supporto vengono create con Azure PowerShell.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -51,7 +51,7 @@ Quando si crea un dominio gestito di Azure AD DS, si specifica un nome DNS. Di s
 >
 > Potrebbe essere necessario creare alcuni record DNS aggiuntivi per altri servizi nell'ambiente in uso o server di inoltro DNS condizionali tra gli spazi dei nomi DNS esistenti nell'ambiente corrente. Ad esempio, se si esegue un server Web che ospita un sito con il nome DNS radice, possono essere presenti conflitti di denominazione che richiedono voci DNS aggiuntive.
 >
-> In queste esercitazioni e guide pratiche viene usato il dominio personalizzato *aadds.contoso.com* a titolo di esempio. In tutti i comandi specificare il proprio nome di dominio.
+> In questo esempio e in queste guide pratiche a titolo di esempio si usa il dominio personalizzato *aadds.contoso.com*. In tutti i comandi specificare il proprio nome di dominio.
 
 Si applicano anche le seguenti restrizioni relative ai nomi DNS:
 
@@ -88,7 +88,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Dopo aver creato il gruppo *AAD DC Administrators*, aggiungere un utente al gruppo usando il cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember]. È prima necessario ottenere l'ID oggetto del gruppo *AAD DC Administrators* usando il cmdlet [Get-AzureADGroup][Get-AzureADGroup], quindi l'ID oggetto dell'utente desiderato usando il cmdlet [Get-AzureADUser][Get-AzureADUser].
 
-Nell'esempio seguente, l'ID oggetto utente per l'account con nome dell'entità utente `admin@aaddscontoso.onmicrosoft.com`. Sostituire questo account utente con il nome dell'entità utente dell'utente che si vuole aggiungere al gruppo *AAD DC Administrators*:
+Nell'esempio seguente, l'ID oggetto utente per l'account con nome dell'entità utente `admin@contoso.onmicrosoft.com`. Sostituire questo account utente con il nome dell'entità utente dell'utente che si vuole aggiungere al gruppo *AAD DC Administrators*:
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -98,7 +98,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -124,9 +124,9 @@ Come parte della definizione della risorsa Resource Manager, sono necessari i pa
 | Parametro               | valore |
 |-------------------------|---------|
 | domainName              | Immettere un nome di dominio DNS per il dominio gestito, prendendo in considerazione i punti precedenti sui prefissi e sui conflitti di denominazione. |
-| filteredSync            | Azure AD DS consente di sincronizzare *tutti* gli utenti e i gruppi disponibili in Azure AD oppure di eseguire una sincronizzazione *con ambito* solo di gruppi specifici. Se si sceglie di sincronizzare tutti gli utenti e i gruppi, non sarà più possibile scegliere di eseguire solo una sincronizzazione con ambito in un secondo momento.<br /> Per altre informazioni sulla sincronizzazione con ambito, vedere [Sincronizzazione con ambito in Azure AD Domain Services][scoped-sync].|
-| notificationSettings    | Se sono stati generati avvisi nel dominio gestito, è possibile inviare notifiche tramite posta elettronica. <br />Gli *amministratori globali* del tenant di Azure e i membri del gruppo *AAD DC Administrators* possono essere *Abilitati* per queste notifiche.<br /> Se si desidera, è possibile aggiungere altri destinatari per le notifiche quando sono presenti avvisi che richiedono attenzione.|
-| domainConfigurationType | Per impostazione predefinita, un dominio gestito viene creato come foresta *Utente*. Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Non è necessario specificare un valore per *domainConfiguration* per creare una foresta di utenti.<br /> Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Le foreste Risorsa sono attualmente disponibili in anteprima. Impostare il valore su *ResourceTrusting* per creare una foresta di risorse.<br />Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].|
+| filteredSync            | Azure AD DS consente di sincronizzare *tutti* gli utenti e i gruppi disponibili in Azure AD oppure di eseguire una sincronizzazione *con ambito* solo di gruppi specifici.<br /><br /> Per altre informazioni sulla sincronizzazione con ambito, vedere [Sincronizzazione con ambito in Azure AD Domain Services][scoped-sync].|
+| notificationSettings    | Se sono stati generati avvisi nel dominio gestito, è possibile inviare notifiche tramite posta elettronica. <br /><br />Gli *amministratori globali* del tenant di Azure e i membri del gruppo *AAD DC Administrators* possono essere *Abilitati* per queste notifiche.<br /><br /> Se si desidera, è possibile aggiungere altri destinatari per le notifiche quando sono presenti avvisi che richiedono attenzione.|
+| domainConfigurationType | Per impostazione predefinita, un dominio gestito viene creato come foresta *Utente*. Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Non è necessario specificare un valore per *domainConfiguration* per creare una foresta di utenti.<br /><br /> Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Le foreste Risorsa sono attualmente disponibili in anteprima. Impostare il valore su *ResourceTrusting* per creare una foresta di risorse.<br /><br />Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].|
 
 La definizione dei parametri condensati seguente mostra come vengono dichiarati questi valori. Viene creata una foresta utente denominata *aaddscontoso.com* con tutti gli utenti di Azure AD sincronizzati con il dominio gestito:
 
@@ -331,7 +331,7 @@ Quando il portale di Azure indica che il provisioning del dominio gestito è sta
 
 * Aggiornare le impostazioni DNS per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio.
     * Per configurare il DNS, selezionare il dominio gestito nel portale. Nella finestra **Panoramica** viene richiesto di configurare automaticamente queste impostazioni DNS.
-* [Abilitare la sincronizzazione password in Azure Active Directory Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds), affinché gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
+* [Abilitare la sincronizzazione password in Azure Active Directory Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in modo che gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

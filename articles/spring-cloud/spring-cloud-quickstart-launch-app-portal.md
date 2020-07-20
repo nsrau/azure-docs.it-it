@@ -1,17 +1,17 @@
 ---
 title: "Avvio rapido: Avviare un'applicazione Azure Spring Cloud esistente con il portale di Azure"
-description: In questa guida di avvio rapido verrà distribuita un'applicazione in Azure Spring Cloud usando il portale di Azure.
+description: In questo argomento di avvio rapido verrà distribuita un'applicazione in Azure Spring Cloud usando il portale di Azure.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: e4ea76a888ba51b3560139e9efc3df512c4fbadf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 118e1e49393a797a065f1e9968a83a6d4464868e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120943"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171041"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Avvio rapido: Avviare un'applicazione Azure Spring Cloud esistente con il portale di Azure
 
@@ -36,21 +36,13 @@ Seguendo questo argomento di avvio rapido, si apprenderà come:
 >[!TIP]
 > Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo.  Include i comuni strumenti di Azure preinstallati, tra cui le ultime versioni di Git, JDK, Maven e dell'interfaccia della riga di comando di Azure. Se è stato eseguito l'accesso alla sottoscrizione di Azure, avviare [Azure Cloud Shell](https://shell.azure.com) da shell.azure.com.  Per altre informazioni su Azure Cloud Shell, [leggere la documentazione](../cloud-shell/overview.md)
 
-Per completare questa guida introduttiva:
+Per completare questo avvio rapido:
 
 1. [Installare Git](https://git-scm.com/)
 2. [Installare JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Installare Maven 3.0 o versione successiva](https://maven.apache.org/download.cgi)
 4. [Installare l'interfaccia della riga di comando di Azure versione 2.0.67 o successiva](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Iscriversi per ottenere una sottoscrizione di Azure](https://azure.microsoft.com/free/)
-
-## <a name="install-the-azure-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando di Azure
-
-Installare l'estensione Azure Spring Cloud per l'interfaccia della riga di comando di Azure usando il comando seguente
-
-```azurecli
-az extension add --name spring-cloud
-```
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Effettuare il provisioning di un'istanza del servizio nel portale di Azure
 
@@ -112,7 +104,7 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
 
 ## <a name="build-and-deploy-microservice-applications"></a>Creare e distribuire applicazioni di microservizi
 
-1. Aprire un'istanza di [Azure Cloud Shell](https://shell.azure.com) e clonare il repository dell'app di esempio nel computer locale.  Qui viene prima di tutto creata una directory temporanea denominata `source-code` prima di clonare l'app.
+1. Aprire una sessione di [Azure Cloud Shell](https://shell.azure.com) o la shell locale con l'interfaccia della riga di comando di Azure installata. Qui viene prima di tutto creata una directory temporanea denominata `source-code` prima di clonare l'app di esempio.
 
     ```console
     mkdir source-code
@@ -127,18 +119,20 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
     mvn clean package -DskipTests
     ```
 
-3. Assegnare i nomi al gruppo di risorse e al servizio. Assicurarsi di sostituire i segnaposto con il nome del gruppo di risorse e il nome del servizio di cui è stato effettuato il provisioning in precedenza in questa esercitazione.
+3. Installare l'estensione Azure Spring Cloud per l'interfaccia della riga di comando di Azure usando il comando seguente
+
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
+
+4. Assegnare i nomi al gruppo di risorse e al servizio. Assicurarsi di sostituire i segnaposto con il nome del gruppo di risorse e il nome del servizio di cui è stato effettuato il provisioning in precedenza in questa esercitazione.
 
     ```azurecli
     az configure --defaults group=<resource group name>
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-4. Creare l'applicazione `gateway` e distribuire il file JAR.  Per la procedura seguente è necessaria l'estensione Spring Cloud. Se non è stata installata con i prerequisiti, eseguire il comando seguente:
-
-    ```azurecli
-    az extension add --name spring-cloud
-    ```
+5. Creare l'applicazione `gateway` e distribuire il file JAR.
 
     Usando l'estensione Spring Cloud, creare l'app:
 
@@ -147,7 +141,7 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-5. Seguendo lo stesso modello, creare le applicazioni `account-service` e `auth-service` e distribuire i rispettivi file JAR.
+6. Seguendo lo stesso modello, creare le applicazioni `account-service` e `auth-service` e distribuire i rispettivi file JAR.
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -156,7 +150,7 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
     az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-6. Per completare la distribuzione delle applicazioni, sono necessari alcuni minuti. Per verificare se sono state distribuite, passare al pannello **App** nel portale di Azure. Dovrebbe essere visualizzata una riga per ognuna delle tre applicazioni.
+7. Per completare la distribuzione delle applicazioni, sono necessari alcuni minuti. Per verificare se sono state distribuite, passare al pannello **App** nel portale di Azure. Dovrebbe essere visualizzata una riga per ognuna delle tre applicazioni.
 
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
@@ -180,7 +174,7 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come:
+In questo argomento di avvio rapido si è appreso come:
 
 > [!div class="checklist"]
 > * Effettuare il provisioning di un'istanza del servizio

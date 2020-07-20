@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 51b00119a5cb7e49a04f02978613678a5144f8b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113973"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273762"
 ---
 # <a name="backend-pool-management"></a>Gestione del pool back-end
 Il pool back-end è un componente cruciale del servizio di bilanciamento del carico. Definisce il gruppo di risorse che gestirà il traffico per una specifica regola di bilanciamento del carico.
@@ -22,9 +22,9 @@ Il pool back-end è un componente cruciale del servizio di bilanciamento del car
 * Scheda di interfaccia di rete
 * Combinazione di indirizzo IP e ID risorsa di rete virtuale
 
-Configurare il pool back-end tramite una scheda di interfaccia di rete quando si usano macchine virtuali e set di scalabilità di macchine virtuali. Questo metodo crea il collegamento più diretto tra la risorsa e il pool back-end. 
+Configurare il pool back-end tramite una scheda di interfaccia di rete quando si usano macchine virtuali e set di scalabilità di macchine virtuali esistenti. Questo metodo crea il collegamento più diretto tra la risorsa e il pool back-end. 
 
-Negli scenari in cui non sono disponibili schede di interfaccia di rete, ad esempio container o pod Kubernetes, configurare il pool back-end tramite una combinazione di indirizzo IP e ID di rete virtuale.
+Quando si prealloca il pool back-end con un intervallo di indirizzi IP che si prevede di usare per creare macchine virtuali e set di scalabilità di macchine virtuali in un secondo momento, configurare il pool back-end in base alla combinazione di indirizzo IP e ID rete virtuale.
 
 Le sezioni di questo articolo sulla configurazione useranno:
 
@@ -249,7 +249,7 @@ Corpo della richiesta JSON:
 Seguire questo [argomento di avvio rapido sul modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) per distribuire un servizio di bilanciamento del carico e le macchine virtuali, quindi aggiungere le macchine virtuali al pool back-end tramite l'interfaccia di rete.
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Configurare il pool back-end tramite indirizzo IP e rete virtuale
-Negli scenari con contenitori o con un pool back-end già popolato con indirizzi IP, usare l'indirizzo IP e la rete virtuale.
+Negli scenari con pool back-end già popolati, usare l'indirizzo IP e la rete virtuale.
 
 Tutte le operazioni di gestione dei pool back-end vengono eseguite direttamente nell'oggetto pool back-end, come evidenziato negli esempi seguenti.
 

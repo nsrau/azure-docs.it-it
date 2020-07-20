@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ff57a67d5e6d617d6d51c924161f586f90f92c3c
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214327"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231540"
 ---
 ::: zone target="docs"
 
@@ -273,7 +273,7 @@ Dopo aver completato la copia dei dati, è possibile passare alla convalida dei 
 
 Se non si è usato lo strumento di divisione della copia per copiare i dati, sarà necessario convalidare i dati. Seguire questa procedura per verificare i dati.
 
-1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *DataBoxDiskImport* dell'unità.
+1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *DataBoxDiskImport* dell'unità. Questo comando è disponibile solo per l'ambiente Windows. Gli utenti Linux devono verificare che i dati di origine copiati nel disco soddisfino i [prerequisiti](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
     
     ![Output dello strumento di convalida di Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

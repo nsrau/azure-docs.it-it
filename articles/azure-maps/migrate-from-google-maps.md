@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 7b73923b7fc32ae83bfc8405d074835c02031a63
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2422204a809e0b13f4e337d49b851a0338681853
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77913702"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249207"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Eseguire la migrazione da Google Maps a Mappe di Azure
 
@@ -92,7 +92,7 @@ Ecco un elenco di risorse tecniche utili per Mappe di Azure.
 - Blog: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - Blog tecnico: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
 - Feedback su Mappe di Azure (UserVoice): [https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
-- [Jupyter Notebook - Mappe di Azure] [https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook ]
+- [Jupyter Notebook - Mappe di Azure](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)
 
 ## <a name="migration-support"></a>Supporto per la migrazione
 

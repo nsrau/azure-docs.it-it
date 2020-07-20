@@ -7,18 +7,22 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 78b38f5059d50d56158e31c65299e5f747c8c073
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: fd560658a20a5b58d582332a88bf031d0e56ac91
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323604"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134110"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Avvio rapido: Usare un modello di Resource Manager per creare un server di Database di Azure per MariaDB
 
-Database di Azure per MariaDB è un servizio gestito che consente di eseguire, gestire e ridimensionare database MariaDB a disponibilità elevata nel cloud. In questo argomento di Avvio rapido si userà un modello di Resource Manager per creare un server di Database di Azure per MariaDB nel portale di Azure, in PowerShell o nell'interfaccia della riga di comando di Azure.
+Database di Azure per MariaDB è un servizio gestito che consente di eseguire, gestire e ridimensionare database MariaDB a disponibilità elevata nel cloud. In questo argomento di avvio rapido si userà un modello di Azure Resource Manager (modello di Resource Manager) per creare un server di Database di Azure per MariaDB nel portale di Azure, in PowerShell o nell'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mariadb-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,11 +42,9 @@ Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratui
 
 ---
 
-## <a name="create-an-azure-database-for-mariadb-server"></a>Creare un database di Azure per un server MariaDB
+## <a name="review-the-template"></a>Rivedere il modello
 
 Si crea un server di Database di Azure per MariaDB con un set definito di risorse di calcolo e di archiviazione. Per altre informazioni, vedere [Piani tariffari di Database di Azure per MariaDB](concepts-pricing-tiers.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md).
-
-### <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
 
@@ -58,7 +60,7 @@ Il modello definisce cinque risorse di Azure:
 
 Altri modelli campione di Database di Azure per MariaDB sono disponibili in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -207,7 +209,7 @@ read -p "Press [ENTER] to continue: "
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere:
+Per un'esercitazione dettagliata che illustra il processo di creazione di un modello di Resource Manager, vedere:
 
 > [!div class="nextstepaction"]
-> [ Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [ Esercitazione: Creare e distribuire il primo modello di Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

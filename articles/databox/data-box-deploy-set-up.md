@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 850144e4835b43e219fa059bbc1c92bb3ef412f4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c74b5ba5101dae9165898aeb4f265d449988ecab
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200508"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205233"
 ---
 ::: zone target="docs"
 
@@ -38,21 +38,23 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Cablare il Data Box
 > * Connettersi al Data Box
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che:
 
-1. Sia stata completata l'[Esercitazione: Ordinare Azure Data Box](data-box-deploy-ordered.md).
-2. Sia stato ricevuto il Data Box e lo stato dell'ordine nel portale sia **Recapitato**. 
+1. Sia stato inserito l'ordine per Azure Data Box.
+    - Per un ordine di importazione, vedere [Esercitazione: Ordinare Azure Data Box](data-box-deploy-ordered.md).
+    - Per un ordine di esportazione, vedere [Esercitazione: Ordinare Azure Data Box](data-box-deploy-export-ordered.md)
+1. Sia stato ricevuto il Data Box e lo stato dell'ordine nel portale sia **Recapitato**. 
     - L'involucro trasparente fissato al dispositivo sotto l'attuale etichetta contenga un'etichetta di spedizione. Tenere al sicuro quest'etichetta perché servirà per la spedizione di restituzione.
     - In alcune aree in Europa, il dispositivo potrebbe arrivare confezionato in una scatola. Assicurarsi di disimballare il dispositivo e di conservare la scatola per la spedizione di ritorno.
-3. Siano state esaminate le [linee guida per la sicurezza del Data Box](data-box-safety.md).
-4. Si sia ricevuto un cavo di alimentazione a terra da usare con il dispositivo di archiviazione da 100 TB.
-5. Sia disponibile un computer host con i dati da copiare nel Data Box. Il computer host deve:
+1. Siano state esaminate le [linee guida per la sicurezza del Data Box](data-box-safety.md).
+1. Si sia ricevuto un cavo di alimentazione a terra da usare con il dispositivo di archiviazione da 100 TB.
+1. Si disponga di un computer host in cui copiare i dati (ordine di importazione) o da cui copiare i dati (ordine di esportazione) dal dispositivo Data Box. Il computer host deve:
     - Eseguire un [sistema operativo supportato](data-box-system-requirements.md).
     - Essere connesso a una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà. 
-6. Si abbia accesso a una superficie piana su cui posizionare il Data Box. Per posizionare il dispositivo su uno scaffale standard, è necessario uno slot 7U nel rack del data center. È possibile posizionare il dispositivo in piano o in verticale nel rack.
-7. Si disponga dei cavi seguenti per collegare il Data Box al computer host.
+1. Si abbia accesso a una superficie piana su cui posizionare il Data Box. Per posizionare il dispositivo su uno scaffale standard, è necessario uno slot 7U nel rack del data center. È possibile posizionare il dispositivo in piano o in verticale nel rack.
+1. Si disponga dei cavi seguenti per collegare il Data Box al computer host.
     - Uno o più cavi in rame SFP+ Twinax o in fibra ottica SFP+ a 10 GbE (da usare con interfacce di rete DATA 1 e DATA 2). Data Box include schede Mellanox ConnectX®-3 Pro EN 10GBASE-T a due porte con interfaccia di rete PCI Express 3.0, quindi i cavi compatibili con questa interfaccia dovrebbero funzionare. Per i test interni, ad esempio, è stato usato un cavo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M. Per altre informazioni, vedere l'[elenco dei cavi e dei commutatori supportati di Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Un cavo di rete RJ-45 CAT 6 (da usare con l'interfaccia di rete MGMT)
     - Un cavo di rete RJ-45 CAT 6A oppure RJ-45 CAT 6 (da usare con l'interfaccia di rete DATA 3 configurata rispettivamente come 10 Gbps o 1 Gbps)
@@ -135,7 +137,7 @@ Eseguire la procedura seguente per configurare il dispositivo usando l'interfacc
 
 Dopo la configurazione delle interfacce di rete per i dati, è anche possibile usare l'indirizzo IP di una qualsiasi delle interfacce, da DATA 1 a DATA 3, per accedere all'interfaccia utente Web locale all'indirizzo `https://<IP address of a data network interface>`. 
 
-Dopo il completamento della configurazione del dispositivo, è possibile connettersi alle condivisioni del dispositivo stesso e copiarvi i dati dal computer. 
+Dopo il completamento della configurazione del dispositivo, è possibile connettersi alle condivisioni del dispositivo stesso e copiarvi i dati. 
 
 ::: zone-end
 
@@ -161,10 +163,15 @@ In questa esercitazione sono stati presentati argomenti relativi ad Azure Data B
 > * Cablare il Data Box
 > * Connettersi al Data Box
 
-Passare all'esercitazione successiva per informazioni su come copiare i dati sul Data Box.
+Passare all'esercitazione successiva per informazioni su come copiare i dati.
 
 > [!div class="nextstepaction"]
-> [Copiare i dati in Azure Data Box](./data-box-deploy-copy-data.md)
+> [Copiare i dati in Azure Data Box per l'ordine di importazione](./data-box-deploy-copy-data.md)
+
+Oppure
+
+> [!div class="nextstepaction"]
+> [Copiare i dati da Azure Data Box per l'ordine di esportazione](./data-box-deploy-export-copy-data.md)
 
 ::: zone-end
 

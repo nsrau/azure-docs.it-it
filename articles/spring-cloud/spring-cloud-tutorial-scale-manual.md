@@ -1,19 +1,19 @@
 ---
 title: "Esercitazione: Ridimensionare un'applicazione in Azure Spring Cloud | Microsoft Docs"
-description: In questa esercitazione si apprenderà come ridimensionare un'applicazione con Azure Spring Cloud nel portale di Azure
+description: Informazioni su come ridimensionare un'applicazione con Azure Spring Cloud nel portale di Azure
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: ca889e48510ec20b4823c6ec5e4e0149d5aaaa62
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792065"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141884"
 ---
-# <a name="scale-an-application-in-azure-spring-cloud"></a>Ridimensionare un'applicazione in Azure Spring Cloud
+# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Esercitazione: Ridimensionare un'applicazione in Azure Spring Cloud
 
 Questa esercitazione illustra come ridimensionare qualsiasi applicazione di microservizi usando il dashboard di Azure Spring cloud nel portale di Azure.
 
@@ -23,10 +23,10 @@ Al termine, si saprà come apportare rapide modifiche manuali a ogni applicazion
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, sono necessari:
+Per seguire queste procedure occorre:
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
-* Istanza del servizio Azure Spring Cloud distribuita.  Per iniziare, seguire la guida di [avvio rapido sulla distribuzione di un'app tramite l'interfaccia della riga di comando di Azure](spring-cloud-quickstart-launch-app-cli.md).
+* Istanza del servizio Azure Spring Cloud distribuita.  Per iniziare, seguire la [guida di avvio rapido sulla distribuzione di un'app tramite l'interfaccia della riga di comando di Azure](spring-cloud-quickstart-launch-app-cli.md).
 * Almeno un'applicazione già creata nell'istanza del servizio.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Passare alla pagina Piano nel portale di Azure
@@ -64,7 +64,7 @@ Se il piano corrente è il livello Basic ed è vincolato da uno o più di questi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come ridimensionare manualmente le applicazioni Azure Spring Cloud. Per informazioni su come monitorare l'applicazione, proseguire con l'esercitazione successiva.
+In questa esercitazione è stato illustrato come ridimensionare manualmente un'applicazione Azure Spring Cloud. Per informazioni su come monitorare un'applicazione tramite la configurazione di avvisi, proseguire con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Come monitorare un'applicazione](spring-cloud-tutorial-distributed-tracing.md)
+> [Informazioni su come configurare gli avvisi](spring-cloud-tutorial-alerts-action-groups.md)

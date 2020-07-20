@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 4b53c4d1a26d8e4b8d784087dcb9b9feba9c7ded
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2b6c61c5c144923ece80fddf8a1412d68f35ad52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191759"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242875"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
@@ -164,6 +164,14 @@ Per altre informazioni sul servizio di geolocalizzazione indirizzo IP nell'API R
 Il servizio Mappe di Azure è progettato per la mobilità e può supportare applicazioni multipiattaforma. Usa un modello di programmazione indipendente dal linguaggio e supporta l'output JSON tramite [API REST](https://docs.microsoft.com/rest/api/maps/).
 
 Mappe di Azure offre inoltre un pratico [controllo mappa JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control) con un semplice modello di programmazione. Lo sviluppo è semplice e rapido sia per le applicazioni web che per quelle per dispositivi mobili.
+
+## <a name="power-bi-visual"></a>Oggetto visivo di Power BI
+
+L'oggetto visivo Mappe di Azure per Power BI offre un set completo di visualizzazioni dei dati spaziali su una mappa. Si stima che oltre l'80% dei dati aziendali abbia un contesto di posizione. L'oggetto visivo Mappe di Azure offre una soluzione senza codice per acquisire informazioni approfondite sulla relazione di questo contesto di posizione con i dati aziendali e sugli effetti che produce.
+
+![Power BI Desktop con l'oggetto visivo Mappe di Azure per la visualizzazione di dati aziendali](media/power-bi-visual/azure-maps-visual-hero.png)
+
+Per altre informazioni, vedere la documentazione introduttiva sull'[oggetto visivo Mappe di Azure di Power BI](power-bi-visual-getting-started.md).
 
 ## <a name="usage"></a>Uso
 

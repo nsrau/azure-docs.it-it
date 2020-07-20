@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/22/2019
+ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 4e40d26e392219fb751328bc54855d87e80bae19
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 3c75c5074e8c75a7b2d5b7f141d5104c5cb59726
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346002"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207570"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Esercitazione: Caricare, codificare ed eseguire lo streaming di video con Servizi multimediali v3
 
@@ -42,7 +42,7 @@ Questa esercitazione illustra come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
 - Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](access-api-cli-how-to.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
 
@@ -164,7 +164,7 @@ Ora che è stato creato il [localizzatore di streaming](https://docs.microsoft.c
 
 ### <a name="clean-up-resources-in-your-media-services-account"></a>Pulire le risorse nell'account di Servizi multimediali
 
-Normalmente è necessario pulire tutti gli oggetti tranne quelli che si prevede di riutilizzare. In genere si riutilizzano gli oggetti Transform e si salvano in modo permanente oggetti come StreamingLocator. Se dopo l'attività di sperimentazione si vuole pulire il proprio account, eliminare le risorse che non si prevede di riutilizzare. Il codice seguente, ad esempio, elimina gli oggetti Job:
+Normalmente è necessario pulire tutti gli oggetti tranne quelli che si prevede di riutilizzare. In genere si riutilizzano gli oggetti Transform e si salvano in modo permanente oggetti come StreamingLocator. Se dopo l'attività di sperimentazione si vuole pulire il proprio account, eliminare le risorse che non si prevede di riutilizzare. Ad esempio, il codice seguente elimina il processo, gli asset creati e i criteri di chiave simmetrica:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
 

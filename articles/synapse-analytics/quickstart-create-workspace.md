@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e5896d1eabaf43afcbab7513d7abb0b1de4efe51
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: a069ee40c2db99b05e9620cf83c06c49cc9e29fc
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656698"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274238"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Avvio rapido: Creare un'area di lavoro di Synapse
 

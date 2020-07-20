@@ -8,30 +8,32 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1917bed7727b97de27e560a0f2d8032a8ae08996
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563685"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242016"
 ---
-# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Avvio rapido: Proteggere l'hub virtuale usando Gestione firewall di Azure (anteprima): modello di Resource Manager
+# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Avvio rapido: Proteggere l'hub virtuale con Gestione firewall di Azure - Modello di Resource Manager
 
-Questa guida di avvio rapido illustra come usare un modello di Resource Manager per proteggere l'hub virtuale usando Gestione firewall di Azure. Il firewall distribuito ha una regola dell'applicazione che consente le connessioni a `www.microsoft.com`. Per testare il firewall sono state distribuite due macchine virtuali Windows Server 2019. Per la connessione al server del carico di lavoro viene utilizzato un jump server. Dal server del carico di lavoro è possibile connettersi solo a `www.microsoft.com`.
+Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager per proteggere l'hub virtuale usando Gestione firewall di Azure. Il firewall distribuito ha una regola dell'applicazione che consente le connessioni a `www.microsoft.com`. Per testare il firewall sono state distribuite due macchine virtuali Windows Server 2019. Per la connessione al server del carico di lavoro viene utilizzato un jump server. Dal server del carico di lavoro è possibile connettersi solo a `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Per altre informazioni su Gestione firewall di Azure, vedere [Che cos'è Gestione firewall di Azure?](overview.md).
 
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-secured-virtual-hub"></a>Creare un hub virtuale protetto
+## <a name="review-the-template"></a>Rivedere il modello
 
 Questo modello crea un hub virtuale protetto usando Gestione firewall di Azure, insieme alle risorse necessarie per supportare lo scenario.
-
-### <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
@@ -51,7 +53,7 @@ Nel modello sono definite più risorse di Azure:
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 Distribuire il modello di Resource Manager in Azure:
 
@@ -86,7 +88,7 @@ A questo punto testare le regole del firewall per verificare che tutto funzioni 
 
 A questo punto si è verificato che le regole del firewall funzionano:
 
-* È possibile passare al nome di dominio completo consentito ma non agli altri.
+- È possibile passare al nome di dominio completo consentito ma non agli altri.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

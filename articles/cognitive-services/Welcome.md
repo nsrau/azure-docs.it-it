@@ -10,16 +10,18 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 2906734a37fbb5516596d456386929c11c8dc1e4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6272d050e6a71032f32c72be696d8c3918fc3d61
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588293"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223755"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Informazioni su Servizi cognitivi di Azure
 
 Servizi cognitivi di Azure sono API, SDK e servizi che consentono agli sviluppatori di creare applicazioni intelligenti senza la necessità di competenze o conoscenze dirette di intelligenza artificiale e data science. I Servizi cognitivi di Azure consentono agli sviluppatori di aggiungere facilmente funzionalità cognitive alle proprie applicazioni. L'obiettivo di Servizi cognitivi di Azure è aiutare gli sviluppatori a creare applicazioni che possano vedere, sentire, parlare, comprendere e persino iniziare a ragionare. Il catalogo di servizi all'interno di Servizi cognitivi di Azure può essere suddiviso in cinque categorie principali: Visione, Voce, Linguaggio, Ricerca Web e Decisione.
+
+Per informazioni su novità e aggiornamenti di Servizi cognitivi, vedere [Novità nella documentazione di Servizi cognitivi](whats-new-docs.md).
 
 ## <a name="vision-apis"></a>API Visione
 
@@ -78,17 +80,13 @@ Servizi cognitivi di Azure sono API, SDK e servizi che consentono agli sviluppat
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator fornisce il monitoraggio per l'individuazione di contenuto potenzialmente offensivo, indesiderato e rischioso.|
 |[Personalizza esperienze](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizza esperienze")|Personalizza esperienze consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.|
 
-## <a name="use-free-trials"></a>Usare le versioni di prova gratuite
-
-[La registrazione per ottenere versioni di prova gratuite](https://azure.microsoft.com/try/cognitive-services/ "Guida alla registrazione") richiede soltanto un indirizzo di posta elettronica e il completamento di pochi semplici passaggi. È necessario un account Microsoft. Si riceverà una coppia di chiavi univoca per ogni API richiesta. La seconda è semplicemente di riserva. Non condividere le chiavi private con nessuno. Le versioni di valutazione hanno sia un limite di frequenza, ovvero transazioni al secondo o al minuto, sia un limite di utilizzo mensile. Una transazione è semplicemente una chiamata API. È possibile eseguire l'aggiornamento ai livelli a pagamento per sbloccare le restrizioni.
-
 ## <a name="subscription-management"></a>Gestione sottoscrizioni
 
 Dopo aver eseguito l'accesso con l'account Microsoft, sarà possibile accedere a [Sottoscrizioni personali](https://www.microsoft.com/cognitive-services/subscriptions "Sottoscrizioni personali") per visualizzare i prodotti usati e la quota rimanente, nonché aggiungere altri prodotti alla sottoscrizione.
 
 ## <a name="upgrade-to-unlock-limits"></a>Eseguire l'aggiornamento per sbloccare i limiti
 
-Tutte le API prevedono un piano di valutazione gratuito con limiti di utilizzo e velocità effettiva.  È possibile aumentare questi limiti usando un'offerta a pagamento e selezionando l'opzione del piano tariffario appropriata quando si distribuisce il servizio nel portale di Azure. [Altre informazioni sulle offerte e i prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/ "Offerte e prezzi"). Sarà necessario configurare un account sottoscrittore di Azure con una carta di credito e un numero di telefono. Se si hanno particolari requisiti o si vuole semplicemente comunicare con gli addetti alle vendite, fare clic sul pulsante "Contattaci" nella parte superiore della pagina dei prezzi.
+Tutte le API prevedono un livello gratuito con limiti di utilizzo e velocità effettiva.  È possibile aumentare questi limiti usando un'offerta a pagamento e selezionando l'opzione del piano tariffario appropriata quando si distribuisce il servizio nel portale di Azure. [Altre informazioni sulle offerte e i prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/ "Offerte e prezzi"). Sarà necessario configurare un account sottoscrittore di Azure con una carta di credito e un numero di telefono. Se si hanno particolari requisiti o si vuole semplicemente comunicare con gli addetti alle vendite, fare clic sul pulsante "Contattaci" nella parte superiore della pagina dei prezzi.
 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 

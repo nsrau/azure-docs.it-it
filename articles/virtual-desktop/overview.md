@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/07/2020
+ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125805"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248612"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -87,47 +87,7 @@ Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere
 >[!NOTE]
 >Se è necessaria una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita di un mese](https://azure.microsoft.com/free/). Se si usa la versione di valutazione gratuita di Azure, è necessario usare Azure AD Domain Services per mantenere Windows Server Active Directory sincronizzato con Azure Active Directory.
 
-Le macchine virtuali di Azure create per Desktop virtuale Windows devono avere l'accesso agli URL seguenti:
-
-|Indirizzo|Porta TCP in uscita|Scopo|Tag del servizio|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|Traffico del servizio|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|Aggiornamenti dello stack dell'agente e di SXS|AzureCloud|
-|*.core.windows.net|443|Traffico dell'agente|AzureCloud|
-|*.servicebus.windows.net|443|Traffico dell'agente|AzureCloud|
-|prod.warmpath.msftcloudes.com|443|Traffico dell'agente|AzureCloud|
-|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
-|kms.core.windows.net|1688|Attivazione di Windows|Internet|
-|wvdportalstorageblob.blob.core.windows.net|443|Supporto del portale di Azure|AzureCloud|
-
->[!IMPORTANT]
->Desktop virtuale Windows supporta ora il tag FQDN. Per altre informazioni, vedere [Usare Firewall di Azure per proteggere le distribuzioni di Desktop virtuale Windows](../firewall/protect-windows-virtual-desktop.md).
->
->Per evitare problemi del servizio, è consigliabile usare tag FQDN o del servizio invece degli URL. Gli URL e i tag elencati corrispondono solo a risorse e siti di Desktop virtuale Windows. Gli URL di altri servizi, come Azure Active Directory, non sono inclusi.
-
-La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtuali di Azure:
-
-|Indirizzo|Porta TCP in uscita|Scopo|Tag del servizio|
-|---|---|---|---|
-|*.microsoftonline.com|443|Autenticazione a Microsoft Online Services|nessuno|
-|*.events.data.microsoft.com|443|Servizio di telemetria|nessuno|
-|www.msftconnecttest.com|443|Rileva se il sistema operativo è connesso a Internet|nessuno|
-|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|nessuno|
-|login.windows.net|443|Accedere a Microsoft Online Services, Microsoft 365|nessuno|
-|*.sfx.ms|443|Aggiornamenti per il software client di OneDrive|nessuno|
-|*.digicert.com|443|Verifica della revoca del certificato|nessuno|
-
-
->[!NOTE]
->Attualmente per Desktop virtuale Windows non è disponibile un elenco di intervalli di indirizzi IP che è possibile includere in un elenco di elementi consentiti per autorizzare il traffico di rete. Al momento è supportata solo l'aggiunta di URL specifici.
->
->Per un elenco degli URL correlati a Office, inclusi gli URL obbligatori correlati ad Azure Active Directory, vedere [URL e intervalli di indirizzi IP di Office 365](/office365/enterprise/urls-and-ip-address-ranges).
->
->È necessario usare il carattere jolly (*) per gli URL che coinvolgono il traffico del servizio. Se si preferisce non usare * per il traffico correlato ad agenti, ecco come trovare gli URL senza caratteri jolly:
->
->1. Registrare le macchine virtuali nel pool di host di Desktop virtuale Windows.
->2. Aprire **Visualizzatore eventi**, passare a **Registri di Windows** > **Applicazione** > **WVD-Agent** e cercare l'ID evento 3702.
->3. Inserire nell'elenco elementi consentiti gli URL trovati nell'evento con ID 3702. Gli URL nell'evento con ID 3702 sono specifici dell'area. È necessario ripetere il processo di inserimento nell'elenco elementi consentiti con gli URL pertinenti per ogni area in cui si vogliono distribuire le macchine virtuali.
+Per un elenco degli URL che è necessario sbloccare per la corretta distribuzione di Desktop virtuale Windows, vedere l'[elenco di URL sicuri](safe-url-list.md).
 
 Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli utenti e la soluzione di gestione ospitata come servizio in Azure da Microsoft. I desktop e le app possono essere distribuiti in macchine virtuali (VM) in qualsiasi area di Azure e la soluzione di gestione e i dati per queste macchine virtuali risiederanno negli Stati Uniti. Questo potrebbe comportare il trasferimento dei dati negli Stati Uniti.
 
@@ -141,7 +101,7 @@ Per prestazioni ottimali, assicurarsi che la rete soddisfi i requisiti seguenti:
 
 I seguenti client Desktop remoto supportano Desktop virtuale Windows:
 
-* [Desktop di Windows](connect-windows-7-and-10.md)
+* [Desktop di Windows](connect-windows-7-10.md)
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
@@ -153,20 +113,7 @@ I seguenti client Desktop remoto supportano Desktop virtuale Windows:
 > [!IMPORTANT]
 > Desktop virtuale Windows non supporta attualmente il client Desktop remoto di Windows Store. Il supporto per questo client verrà aggiunto in una versione futura.
 
-I client Desktop remoto devono avere accesso agli URL seguenti:
-
-|Indirizzo|Porta TCP in uscita|Scopo|Client|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|Traffico del servizio|Tutti|
-|*.servicebus.windows.net|443|Dati per la risoluzione dei problemi|Tutti|
-|go.microsoft.com|443|FWLink Microsoft|Tutti|
-|aka.ms|443|Abbreviazione URL Microsoft|Tutti|
-|docs.microsoft.com|443|Documentazione|Tutti|
-|privacy.microsoft.com|443|Informativa sulla privacy|Tutti|
-|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|
-
->[!IMPORTANT]
->L'apertura di questi URL è essenziale per un'esperienza client affidabile. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse del client e non includono gli URL di altri servizi come Azure Active Directory.
+Per altre informazioni sugli URL che è necessario sbloccare per usare i client remoti, vedere l'[elenco di URL sicuri](safe-url-list.md).
 
 ## <a name="supported-virtual-machine-os-images"></a>Immagini di sistema operativo supportate per le macchine virtuali
 

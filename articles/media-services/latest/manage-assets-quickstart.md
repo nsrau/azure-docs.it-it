@@ -3,12 +3,12 @@ title: Usare il portale per il caricamento, la codifica e lo streaming di conten
 description: Questa esercitazione illustra come usare il portale per il caricamento, la codifica e lo streaming di contenuto con Servizi multimediali di Azure.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: b023a4ed68aa7cfa41661e986dcd4ad6819b810d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988788"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232475"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Avvio rapido: Caricamento, codifica e streaming di contenuto con il portale
 

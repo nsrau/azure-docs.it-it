@@ -11,18 +11,18 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 835eb66444dd9f4c4da7689196c759621cfef999
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360759"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146808"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Creare un progetto pilota per il provisioning cloud di una foresta di AD sincronizzata esistente 
 
 Questa esercitazione illustra come creare un progetto pilota di provisioning cloud per una foresta di Active Directory di test già sincronizzata tramite il servizio di sincronizzazione di Azure Active Directory (Azure AD) Connect.
 
-![Create](media/tutorial-migrate-aadc-aadccp/diagram.png)
+![Creazione](media/tutorial-migrate-aadc-aadccp/diagram.png)
 
 ## <a name="considerations"></a>Considerazioni
 Prima di provare questa esercitazione, considerare quanto segue:
@@ -165,18 +165,18 @@ Per configurare il provisioning, seguire questa procedura:
  2. Fare clic su **Azure Active Directory**
  3. Fare clic su **Azure AD Connect**
  4. Selezionare **Gestione del provisioning (anteprima)** 
- ![](media/how-to-configure/manage1.png)</br>
+ ![Screenshot che mostra il collegamento "Gestione del provisioning (anteprima)".](media/how-to-configure/manage1.png)</br>
  5.  Fare clic su **Nuova configurazione**
- ![](media/tutorial-single-forest/configure1.png)</br>
+ ![Screenshot della schermata Provisioning di Azure AD (anteprima) con il collegamento "Nuova configurazione" evidenziato.](media/tutorial-single-forest/configure1.png)</br>
  6.  Nella schermata di configurazione, immettere un valore per **Messaggio di posta elettronica di notifica**, spostare il selettore su **Abilita** e fare clic su **Salva**.
- ![](media/tutorial-single-forest/configure2.png)</br>
+ ![Screenshot della schermata di configurazione con il messaggio di posta elettronica di notifica compilato e l'opzione Abilita selezionata.](media/tutorial-single-forest/configure2.png)</br>
  7. In **Configura** selezionare **Tutti gli utenti** per cambiare l'ambito della regola di configurazione.
- ![](media/how-to-configure/scope2.png)</br>
+ ![Screenshot della schermata di configurazione con l'opzione "Tutti gli utenti" evidenziata accanto a "Definisci l'ambito per gli utenti".](media/how-to-configure/scope2.png)</br>
  8. A destra cambiare l'ambito per includere la specifica unità organizzativa creata, "OU=CPUsers,DC=contoso,DC=com".
- ![](media/tutorial-existing-forest/scope2.png)</br>
+ ![Screenshot della schermata Definisci l'ambito per gli utenti in cui è evidenziato l'ambito modificato e impostato sull'unità organizzativa creata.](media/tutorial-existing-forest/scope2.png)</br>
  9.  Fare clic su **Fine** e su **Salva**.
  10. L'ambito dovrebbe ora essere impostato su una unità organizzativa. 
- ![](media/tutorial-existing-forest/scope3.png)</br>
+ ![Screenshot della schermata di configurazione con l'opzione "1 unità organizzativa" evidenziata accanto a "Definisci l'ambito per gli utenti".](media/tutorial-existing-forest/scope3.png)</br>
  
 
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>Verificare che il provisioning cloud venga applicato agli utenti

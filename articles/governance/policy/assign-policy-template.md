@@ -4,29 +4,31 @@ description: In questo argomento di avvio rapido viene usato un modello di Azure
 ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c3a37e9086744fb45c8d1e4ebe3bd16da7a83770
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f4cb4cb1fc56d06ab1e061b2d0e9a031e0e511dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971148"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242050"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi con un modello di Azure Resource Manager
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
-Questa guida introduttiva illustra il processo di creazione di un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti. Alla fine di questo processo, verranno identificate le macchine virtuali che non usano dischi gestiti e che sono quindi _non conformi_ all'assegnazione di criteri.
+Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager per creare un'assegnazione di criteri e identificare le macchine virtuali che non usano dischi gestiti. Alla fine di questo processo, verranno identificate le macchine virtuali che non usano dischi gestiti e che sono quindi _non conformi_ all'assegnazione di criteri.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuire il modello di Resource Manager per l'assegnazione di criteri di Azure ad Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="create-a-policy-assignment"></a>Creare un'assegnazione di criteri
+## <a name="review-the-template"></a>Rivedere il modello
 
 In questo argomento di avvio rapido si crea un'assegnazione di criteri e si assegna una definizione di criteri predefinita denominata _Controlla macchine virtuali che non usano dischi gestiti_. Per un elenco parziale di tutti i criteri predefiniti disponibili, vedere [Esempi di Criteri di Azure](./samples/index.md).
-
-### <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
@@ -36,7 +38,7 @@ Nel modello è definita la risorsa seguente:
 
 - [Microsoft.Authorization/policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 > [!NOTE]
 > Il servizio Criteri di Azure è gratuito. Per altre informazioni, vedere [Panoramica di Criteri di Azure](./overview.md).
@@ -63,7 +65,7 @@ Alcune risorse aggiuntive:
 
 - Per altri modelli di esempio, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Per informazioni di riferimento sul modello, vedere [Informazioni di riferimento sui modelli di Azure](/azure/templates/microsoft.authorization/allversions).
-- Per informazioni su come sviluppare modelli di Resource Manager (modelli ARM), vedere la [documentazione di Resource Manager](../../azure-resource-manager/management/overview.md).
+- Per informazioni su come sviluppare modelli di Resource Manager, vedere la [documentazione di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 - Per informazioni sulla distribuzione a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione

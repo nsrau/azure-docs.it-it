@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: creare un pool Apache Spark (anteprima) con il portale di Azure'
+title: 'Avvio rapido: Creare un pool di Apache Spark (anteprima) con il portale di Azure'
 description: Per creare un nuovo pool Apache Spark con il portale di Azure, seguire i passaggi descritti in questa guida.
 services: synapse-analytics
 author: julieMSFT
@@ -9,18 +9,18 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2b199848e6c84370bd9d8711eed25dbf6c3f4dfa
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194931"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274357"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Guida introduttiva: Creare un pool di Apache Spark con il portale di Azure
+# <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Avvio rapido: Creare un pool di Apache Spark con il portale di Azure
 
 Azure Synapse Analytics offre vari motori di analisi che consentono di inserire, trasformare, modellare, analizzare e distribuire i dati. Un pool di Apache Spark offre funzionalità di calcolo open source per i Big Data. Dopo aver creato un pool Apache Spark nell'area di lavoro di Synapse, è possibile caricare, modellare, elaborare e distribuire i dati per ottenere dati analitici in modo più rapido.
 
-Questa guida di avvio rapido illustra come usare il portale di Azure per creare un pool di Apache Spark in un'area di lavoro Synapse.
+Questo argomento di avvio rapido illustra come usare il portale di Azure per creare un pool di Apache Spark in un'area di lavoro Synapse.
 
 > [!IMPORTANT]
 > La fatturazione delle istanze di Spark viene calcolata con ripartizione proporzionale al minuto, indipendentemente dal fatto che siano in uso o meno. Assicurarsi di arrestare l'istanza di Spark dopo averla usata oppure impostare un timeout breve. Per altre informazioni, vedere la sezione **Pulire le risorse** di questo articolo.
@@ -36,10 +36,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito prima di i
 
 Accedere al [portale di Azure](https://portal.azure.com/)
 
-## <a name="navigate-to-the-synapse-workspace"></a>Accedere all'area di lavoro Synapse 
-1. Passare all'area di lavoro Synapse in cui verrà creato il pool Apache Spark digitando il nome del servizio (o direttamente il nome della risorsa) nella barra di ricerca.
-![Barra di ricerca del portale di Azure con le aree di lavoro di Synapse immesse](media/quickstart-create-sql-pool/create-sql-pool-00a.png).
-1. Dall'elenco delle aree di lavoro, digitare il nome (o parte del nome) dell'area di lavoro da aprire. Per questo esempio verrà usata un'area di lavoro denominata **contosoanalytics**.
+## <a name="navigate-to-the-synapse-workspace"></a>Accedere all'area di lavoro di Synapse 
+1. Passare all'area di lavoro di Synapse in cui verrà creato il pool di Apache Spark digitando il nome del servizio (o direttamente il nome della risorsa) nella barra di ricerca.
+![Barra di ricerca del portale di Azure con le aree di lavoro di Synapse immesse.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
+1. Nell'elenco delle aree di lavoro digitare il nome (o parte del nome) dell'area di lavoro da aprire. Per questo esempio verrà usata un'area di lavoro denominata **contosoanalytics**.
 ![Elenco delle aree di lavoro Synapse filtrate per mostrare quelle che contengono il nome Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
@@ -52,7 +52,7 @@ Accedere al [portale di Azure](https://portal.azure.com/)
     |Impostazione | Valore consigliato | Descrizione |
     | :------ | :-------------- | :---------- |
     | **Nome del pool di Apache Spark** | Un nome di pool valido | Si tratta del nome che avrà il pool di Apache Spark. |
-    | **Dimensioni nodo** | Piccole (4 vCPU/32 GB) | Per questa guida di avvio rapido, impostare questa opzione sulle dimensioni minime per ridurre i costi |
+    | **Dimensioni nodo** | Piccole (4 vCPU/32 GB) | Per questo argomento di avvio rapido, impostare questa opzione sulle dimensioni minime per ridurre i costi |
     | **Autoscale** | Disabled | La scalabilità automatica non è necessaria per questo argomento di avvio rapido |
     | **Numero di nodi** | 5 | Usare dimensioni ridotte per limitare i costi per questo argomento di avvio rapido |
 
@@ -99,4 +99,4 @@ Per eliminare il pool di Apache Spark, procedere come segue:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere [Avvio rapido: Creare un notebook Apache Spark](quickstart-apache-spark-notebook.md).
-- Vedere [Avvio rapido: Creare un pool SQL Synapse con il portale di Azure](quickstart-create-sql-pool-portal.md).
+- Vedere [Avvio rapido: Creare un pool Synapse SQL con il portale di Azure](quickstart-create-sql-pool-portal.md).

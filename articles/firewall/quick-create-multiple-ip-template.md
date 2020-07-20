@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: Creare un'istanza di Firewall di Azure con più indirizzi IP pubblici - Modello di Resource Manager"
-description: Informazioni su come usare un modello di Resource Manager per creare un'istanza di Firewall di Azure con più indirizzi IP pubblici.
+title: "Avvio rapido: Creare un'istanza di Firewall di Azure con più indirizzi IP pubblici - Modello di Resource Manager"
+description: Informazioni su come usare un modello di Azure Resource Manager per creare un'istanza di Firewall di Azure con più indirizzi IP pubblici.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,30 +8,32 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: b81362f191e6317aa7ffa974a6d432b0c7514d8f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7e89188e7ebc979c403b86ee26c876e8c40aa208
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680543"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260553"
 ---
-# <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>Guida introduttiva: Creare un'istanza di Firewall di Azure con più indirizzi IP pubblici - Modello di Resource Manager
+# <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Avvio rapido: Creare un'istanza di Firewall di Azure con più indirizzi IP pubblici - Modello di Resource Manager
 
-In questa guida di avvio rapido si usa un modello di Resource Manager per distribuire un'istanza di Firewall di Azure con più indirizzi IP pubblici. Il firewall distribuito include regole della raccolta regole NAT che consentono connessioni RDP a due macchine virtuali Windows Server 2019.
+In questa guida di avvio rapido si usa un modello di Azure Resource Manager per distribuire un'istanza di Firewall di Azure con più indirizzi IP pubblici. Il firewall distribuito include regole della raccolta regole NAT che consentono connessioni RDP a due macchine virtuali Windows Server 2019.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Per altre informazioni su Firewall di Azure con più indirizzi IP pubblici, vedere [Distribuire un Firewall di Azure con più indirizzi IP pubblici usando Azure PowerShell](deploy-multi-public-ip-powershell.md).
 
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-azure-firewall"></a>Creare un'istanza di Firewall di Azure
+## <a name="review-the-template"></a>Rivedere il modello
 
 Questo modello crea un'istanza di Firewall di Azure con due indirizzi IP pubblici, unitamente alle risorse necessarie per supportare Firewall di Azure.
-
-### <a name="review-the-template"></a>Rivedere il modello
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
@@ -48,7 +50,7 @@ Nel modello sono definite più risorse di Azure:
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 Distribuire il modello di Resource Manager in Azure:
 

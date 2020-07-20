@@ -1,6 +1,6 @@
 ---
-title: Usare Synapse Studio (anteprima)
-description: In questa guida di avvio rapido verrà illustrato come è facile eseguire query su diversi tipi di file con Synapse Studio.
+title: 'Avvio rapido: Usare Synapse Studio'
+description: In questo argomento di avvio rapido verrà illustrato come è facile eseguire query su diversi tipi di file con Synapse Studio.
 services: synapse-analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 182c6a20af51508c357079b9542b2bda695fdae4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 271fd77e519ce9d78e2fa4e4837004a77cf73522
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658546"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276057"
 ---
-# <a name="quickstart-use-synapse-studio-preview"></a>Guida introduttiva: Usare Synapse Studio (anteprima)
+# <a name="quickstart-use-synapse-studio-preview"></a>Avvio rapido: Usare Synapse Studio (anteprima)
 
-In questa guida di avvio rapido verrà illustrato come eseguire query sui file con Synapse Studio.
+In questo argomento di avvio rapido verrà illustrato come eseguire query sui file con Synapse Studio.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva per Microsoft Azure Data Box | Microsoft Docs
+title: Avvio rapido per Microsoft Azure Data Box | Microsoft Docs
 description: Informazioni su come distribuire rapidamente Azure Data Box nel portale di Azure
 services: databox
 author: alkohli
@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dd429dadcbe67f0ac91da19d6606626b39f34ef5
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313774"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201093"
 ---
-# <a name="get-started-with-azure-data-box"></a>Introduzione ad Azure Data Box 
+# <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Iniziare a usare Azure Data Box per importare dati in Azure
 
 ::: zone target="docs"
 
-Questa guida introduttiva descrive come distribuire Azure Data Box tramite il portale di Azure. I passaggi includono come cablare, configurare e copiare i dati in Data Box per il caricamento in Azure. La guida introduttiva viene eseguita nel portale di Azure e nell'interfaccia utente Web locale del dispositivo.
+Questo argomento di avvio rapido descrive come distribuire Azure Data Box usando il portale di Azure per un'ordine di importazione. I passaggi includono come cablare, configurare e copiare i dati in Data Box per il caricamento in Azure. I passaggi dell'avvio rapido vengono eseguiti nel portale di Azure e nell'interfaccia utente Web locale del dispositivo.
 
 Per istruzioni dettagliate sulla distribuzione e sul monitoraggio, vedere [Esercitazione: Ordinare Azure Data Box](data-box-deploy-ordered.md)
 
@@ -28,7 +28,7 @@ Per istruzioni dettagliate sulla distribuzione e sul monitoraggio, vedere [Eserc
 
 ::: zone target="chromeless"
 
-Questa guida descrive come distribuire Azure Data Box tramite il portale di Azure. I passaggi includono la verifica dei prerequisiti, oltre al cablaggio, alla connessione e alla copia dei dati del dispositivo in modo che vengano caricati in Azure.
+Questa guida descrive come distribuire Azure Data Box per l'importazione usando il portale di Azure. I passaggi includono la verifica dei prerequisiti, oltre al cablaggio, alla connessione e alla copia dei dati del dispositivo in modo che vengano caricati in Azure.
 
 ::: zone-end
 
@@ -164,7 +164,7 @@ Il completamento di questo passaggio richiede 2-3 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato illustrato come distribuire Azure Data Box per facilitare l'importazione dei dati in Azure. Per altre informazioni sulla gestione di Azure Data Box, passare all'esercitazione seguente: 
+In questo argomento di avvio rapido è stato illustrato come distribuire Azure Data Box per facilitare l'importazione dei dati in Azure. Per altre informazioni sulla gestione di Azure Data Box, passare all'esercitazione seguente: 
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box](data-box-portal-admin.md) (Usare il portale di Azure per gestire Data Box)

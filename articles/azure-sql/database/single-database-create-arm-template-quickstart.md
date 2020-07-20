@@ -1,6 +1,6 @@
 ---
 title: 'Azure Resource Manager: Creare un database singolo'
-description: Creare un database singolo nel database SQL di Azure usando il modello di Azure Resource Manager.
+description: Creare un database singolo in Database SQL di Azure usando un modello di Azure Resource Manager.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,20 +11,20 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/24/2020
-ms.openlocfilehash: 2975b98306b7019022799d5ba69b9d7af5797a2b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: a766d61c49fe23645c232432198eb4aa0eedb98b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368040"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135632"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Avvio rapido: Creare un database singolo nel database SQL di Azure usando il modello di Azure Resource Manager
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Avvio rapido: Creare un database singolo in Database SQL di Azure usando un modello di Resource Manager
 
-La creazione di un [database singolo](single-database-overview.md) è l'opzione più semplice e rapida per la creazione di database nel database SQL di Azure. Questo argomento di avvio rapido descrive come creare un database singolo usando il modello di Azure Resource Manager.
+La creazione di un [database singolo](single-database-overview.md) è l'opzione più semplice e rapida per la creazione di database nel database SQL di Azure. Questo argomento di avvio rapido illustra come creare un database singolo usando un modello di Azure Resource Manager.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante Distribuisci in Azure. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
 
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Un database singolo include un set definito di risorse di calcolo, memoria, I/O e archiviazione basate su uno dei due [modelli di acquisto](purchasing-models.md). Quando si crea un database singolo, si definisce anche un [server](logical-servers.md) per gestirlo e lo si colloca all'interno di un [gruppo di risorse di Azure](../../active-directory-b2c/overview.md) in un'area specificata.
 
-Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-sql-logical-server/).
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-sql-database/).
 
 :::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json" range="1-67" highlight="41-65":::
 

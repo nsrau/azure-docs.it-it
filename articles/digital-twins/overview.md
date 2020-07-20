@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 1d86749a4e6071213ba5e229765bb6391affb199
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737122"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257981"
 ---
 # <a name="what-is-azure-digital-twins"></a>Cos'è il servizio Gemelli digitali di Azure?
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 **Gemelli digitali di Azure** è una piattaforma IoT che consente la creazione di modelli digitali completi di interi ambienti. Questi ambienti possono essere edifici, fabbriche, fattorie, reti energetiche, ferrovie, stadi e altro ancora, persino intere città. Questi modelli digitali possono essere usati per ottenere informazioni che consentono di migliorare i prodotti, ottimizzare le operazioni, ridurre i costi e rivoluzionare l'esperienza dei clienti.
 
@@ -46,6 +43,12 @@ DTDL viene usato per i modelli di dati in tutti gli altri servizi IoT di Azure, 
 ### <a name="live-execution-environment"></a>Ambiente di esecuzione live
 
 I modelli digitali in Gemelli digitali di Azure sono rappresentazioni live aggiornate del mondo reale. Usando le relazioni nei modelli DTDL personalizzati, è possibile connettere i gemelli in un **grafo live** che rappresenta l'ambiente.
+
+È possibile aprire una visualizzazione del grafo di Gemelli digitali di Azure tramite un'applicazione di esempio, [**Azure Digital Twins explorer**](https://github.com/Azure-Samples/digital-twins-explorer).
+
+Ecco un esempio di questa visualizzazione:
+
+:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="Screenshot dell'applicazione di esempio Azure Digital Twins explorer, che mostra un grafo dei nodi che rappresentano i gemelli digitali" lightbox="media/includes/azure-digital-twins-explorer.png":::
 
 Gemelli digitali di Azure fornisce un **sistema di eventi** completo per mantenere aggiornato il grafo con l'elaborazione dati e la logica di business. È possibile connettere risorse di calcolo esterne, ad esempio [Funzioni di Azure](../azure-functions/functions-overview.md), per gestire l'elaborazione dati in modo flessibile e personalizzato.
 

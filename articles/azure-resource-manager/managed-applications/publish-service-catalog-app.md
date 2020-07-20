@@ -3,16 +3,17 @@ title: Pubblicare un'app gestita del catalogo di servizi
 description: Questo articolo descrive come creare un'applicazione gestita di Azure studiata per i membri della propria organizzazione.
 author: tfitzmac
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d0a3e2a435be679a2a35941dfa24978ae77291b0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609358"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249037"
 ---
-# <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Guida introduttiva: Creare e pubblicare una definizione di applicazione gestita
+# <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Avvio rapido: Creare e pubblicare una definizione di applicazione gestita
 
 Questo argomento di avvio rapido fornisce un'introduzione all'uso delle [applicazioni gestite di Azure](overview.md). È possibile creare e pubblicare un'applicazione gestita studiata per i membri della propria organizzazione.
 
@@ -20,15 +21,15 @@ Per pubblicare un'applicazione gestita per il catalogo di servizi, è necessario
 
 * Creare un modello che definisce le risorse da distribuire con l'applicazione gestita.
 * Definire gli elementi dell'interfaccia utente per il portale quando si distribuisce l'applicazione gestita.
-* Creare un pacchetto con estensione zip contenente i file modello necessari.
+* Creare un pacchetto con estensione _zip_ contenente i file modello necessari.
 * Decidere quali utenti, gruppi o applicazioni devono accedere al gruppo di risorse nella sottoscrizione dell'utente.
-* Creare la definizione di applicazione gestita che punta al pacchetto con estensione zip e richiede l'accesso per l'identità.
+* Creare la definizione di applicazione gestita che punta al pacchetto con estensione _zip_ e richiede l'accesso per l'identità.
 
 ## <a name="create-the-arm-template"></a>Creare il modello di Azure Resource Manager
 
-Ogni definizione di applicazione gestita include un file denominato **mainTemplate.json**, in cui si definiscono le risorse di Azure da distribuire. Il modello non è diverso da un modello standard di Azure Resource Manager.
+Ogni definizione di applicazione gestita include un file denominato _mainTemplate.json_, in cui si definiscono le risorse di Azure da distribuire. Il modello non è diverso da un modello standard di Resource Manager.
 
-Creare un file denominato **mainTemplate.json**. Per il nome è rilevante la distinzione tra maiuscole e minuscole.
+Creare un file denominato _mainTemplate.json_. Per il nome è rilevante la distinzione tra maiuscole e minuscole.
 
 Aggiungere il codice JSON seguente al file. Definisce i parametri per la creazione di un account di archiviazione e specifica le proprietà per l'account di archiviazione.
 
@@ -73,13 +74,13 @@ Aggiungere il codice JSON seguente al file. Definisce i parametri per la creazio
 }
 ```
 
-Salvare il file mainTemplate.json.
+Salvare il file _mainTemplate.json_.
 
 ## <a name="define-your-create-experience"></a>Definire l'esperienza di creazione
 
-Un editore definisce l'esperienza del portale per la creazione dell'applicazione gestita. Il file **createUiDefinition.json** genera l'interfaccia del portale. È possibile definire il modo in cui gli utenti specificheranno l'input per ogni parametro usando [elementi di controllo](create-uidefinition-elements.md), ad esempio elenchi a discesa, caselle di testo e caselle per password.
+Un editore definisce l'esperienza del portale per la creazione dell'applicazione gestita. Il file _createUiDefinition.json_ genera l'interfaccia del portale. È possibile definire il modo in cui gli utenti specificheranno l'input per ogni parametro usando [elementi di controllo](create-uidefinition-elements.md), ad esempio elenchi a discesa, caselle di testo e caselle per password.
 
-Creare un file denominato **createUiDefinition.json**. Per il nome viene fatta distinzione tra maiuscole e minuscole.
+Creare un file denominato _createUiDefinition.json_. Per il nome viene fatta distinzione tra maiuscole e minuscole.
 
 Aggiungere il codice JSON di base seguente e salvare il file.
 
@@ -136,7 +137,7 @@ Per altre informazioni, vedere [Introduzione a CreateUiDefinition](create-uidefi
 
 ## <a name="package-the-files"></a>Creare il pacchetto dei file
 
-Aggiungere i due file a un file ZIP denominato app.zip. I due file devono essere a livello di radice nel file con estensione zip. Se li si inserisce in una cartella, durante la creazione della definizione di applicazione gestita viene visualizzato un errore che indica che i file necessari non sono presenti.
+Aggiungere i due file a un file con estensione _zip_ denominato _app.zip_. I due file devono trovarsi al livello radice del file con estensione _zip_. Se li si inserisce in una cartella, durante la creazione della definizione di applicazione gestita viene visualizzato un errore che indica che i file necessari non sono presenti.
 
 Caricare il pacchetto in una posizione accessibile da dove può essere usato. È necessario specificare un nome univoco per l'account di archiviazione.
 
@@ -291,14 +292,14 @@ Ecco alcuni parametri usati nell'esempio precedente:
 * **Gruppo di risorse**: nome del gruppo di risorse in cui viene creata la definizione di applicazione gestita.
 * **Livello di blocco**: tipo di blocco inserito nel gruppo di risorse gestito. Impedisce al cliente di eseguire operazioni indesiderate su questo gruppo di risorse. ReadOnly è attualmente il solo livello di blocco supportato. Quando ReadOnly è specificato, il cliente può solo leggere le risorse presenti nel gruppo di risorse gestito. Le identità degli autori a cui è concesso l'accesso al gruppo di risorse gestito sono esenti dal blocco.
 * **authorizations**: indica l'ID dell'entità di sicurezza e l'ID di definizione del ruolo usati per concedere l'autorizzazione al gruppo di risorse gestito. Viene specificato nel formato `<principalId>:<roleDefinitionId>`. Se sono necessari più valori, specificarli nel formato `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. I valori sono separati da una virgola.
-* **URI del file del pacchetto**: percorso di un pacchetto con estensione zip che include i file necessari.
+* **URI del file del pacchetto**: la posizione di un pacchetto con estensione _zip_ che include i file necessari.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Usare la propria risorsa di archiviazione per la definizione di applicazione gestita
 
 È possibile scegliere di archiviare la definizione di applicazione gestita all'interno di un account di archiviazione fornito durante la creazione, in modo che la posizione e l'accesso possano essere completamente gestiti dall'utente per le proprie esigenze normative.
 
 > [!NOTE]
-> La funzionalità Bring Your Own Storage è supportata solo con le distribuzioni di modelli ARM o API REST della definizione di applicazione gestita.
+> La funzionalità Bring Your Own Storage è supportata solo con le distribuzioni di modelli di Resource Manager o API REST della definizione di applicazione gestita.
 
 ### <a name="select-your-storage-account"></a>Selezionare l'account di archiviazione
 
@@ -317,9 +318,9 @@ Prima che la definizione di applicazione gestita possa essere distribuita nell'a
 1. In **Seleziona** cercare il ruolo **Provider di risorse di Appliance** e selezionarlo.
 1. Salvare l'assegnazione di ruolo.
 
-### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Distribuire la definizione di applicazione gestita con un modello ARM 
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Distribuire la definizione di applicazione gestita con un modello di Resource Manager
 
-Usare il modello ARM seguente per distribuire l'applicazione gestita compressa come nuova definizione di applicazione gestita nel catalogo di servizi i cui file di definizione vengono archiviati e gestiti nel proprio account di archiviazione:
+Usare il modello di Resource Manager seguente per distribuire l'applicazione gestita compressa come nuova definizione di applicazione gestita nel catalogo di servizi i cui file di definizione vengono archiviati e mantenuti nel proprio account di archiviazione:
    
 ```json
     {
@@ -391,9 +392,9 @@ Usare il modello ARM seguente per distribuire l'applicazione gestita compressa c
 }
 ```
 
-È stata aggiunta una nuova proprietà denominata **storageAccountId** alle proprietà di applicationDefintion e la possibilità di specificare l'ID account di archiviazione in cui si vuole archiviare la definizione come valore.
+È stata aggiunta una nuova proprietà denominata `storageAccountId` alle proprietà di `applicationDefinitions` e la possibilità di specificare l'ID account di archiviazione in cui archiviare la definizione come valore:
 
-È possibile verificare che i file di definizione dell'applicazione vengano salvati nell'account di archiviazione specificato in un contenitore denominato **applicationdefinitions**.
+È possibile verificare che i file di definizione dell'applicazione vengano salvati nell'account di archiviazione specificato in un contenitore denominato `applicationDefinitions`.
 
 > [!NOTE]
 > Per una maggiore sicurezza, è possibile creare una definizione di applicazione gestita e archiviarla in un [BLOB dell'account di archiviazione di Azure in cui è abilitata la crittografia](../../storage/common/storage-service-encryption.md). Il contenuto della definizione viene crittografato tramite le opzioni di crittografia dell'account di archiviazione. Solo gli utenti con autorizzazioni per il file possono visualizzare la definizione nel catalogo di servizi.

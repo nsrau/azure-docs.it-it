@@ -5,28 +5,28 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 07/18/2019
+ms.date: 07/10/2020
 ms.author: lbosq
-ms.openlocfilehash: 0eb778d1fc2dca522bef675709b5241f214e2b86
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 18f8be607516857d1631f43d3bef9e2ae233c995
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118118"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248647"
 ---
-# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introduzione ad Azure Cosmos DB: API Gremlin
+# <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introduzione all'API Gremlin in Azure Cosmos DB
 
-[Azure Cosmos DB](introduction.md)  è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni mission-critical. Si tratta di un database multimodello che supporta modelli di dati basati su documenti, coppie chiave-valore, grafi e famiglie di colonne. L'API Gremlin di Azure Cosmos DB consente di archiviare e utilizzare dati di grafi in un servizio di database completamente gestito progettato per qualsiasi scala.  
+[Azure Cosmos DB](introduction.md)  è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni mission-critical. Si tratta di un database multimodello che supporta modelli di dati basati su documenti, coppie chiave-valore, grafi e famiglie di colonne. "Azure Cosmos DB offre un servizio di database a grafo tramite l'API Gremlin in un servizio di database completamente gestito progettato per qualsiasi scala.  
 
 :::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Architettura di grafi di Azure Cosmos DB" border="false":::
 
-Questo articolo offre una panoramica dell'API Gremlin di Azure Cosmos DB e spiega come usarla per archiviare grafi di grandi dimensioni con miliardi di vertici e bordi. È possibile eseguire query nei grafi con una latenza di un millisecondo ed evolvere facilmente la struttura del grafo. L'API Gremlin di Azure Cosmos DB si basa sullo standard per database a grafo [Apache TinkerPop](https://tinkerpop.apache.org) e usa il linguaggio di query Gremlin. 
+Questo articolo offre una panoramica dell'API Gremlin di Azure Cosmos DB e descrive come usarla per archiviare grafi di grandi dimensioni con miliardi di vertici e archi. È possibile eseguire query nei grafi con una latenza di un millisecondo ed evolvere facilmente la struttura del grafo. L'API Gremlin di Azure Cosmos DB è basata su [Apache TinkerPop](https://tinkerpop.apache.org), un framework di elaborazione dei grafi. L'API Gremlin di Azure Cosmos DB usa il linguaggio di query Gremlin.
 
-L'API Gremlin di Azure Cosmos DB combina le potenzialità degli algoritmi per database a grafo con un'infrastruttura gestita a scalabilità elevata per offrire una soluzione univoca e flessibile per i problemi relativi ai dati più comuni associati alla mancanza di flessibilità e agli approcci relazionali. 
+L'API Gremlin di Azure Cosmos DB combina le potenzialità degli algoritmi per database a grafo con un'infrastruttura gestita a scalabilità elevata per offrire una soluzione univoca e flessibile per i problemi relativi ai dati più comuni associati alla mancanza di flessibilità e agli approcci relazionali.
 
-## <a name="features-of-azure-cosmos-db-graph-database"></a>Funzionalità del database di grafi Azure Cosmos DB
+## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Funzionalità dell'API Gremlin di Azure Cosmos DB
  
-Azure Cosmos DB è un database di grafi completamente gestito che consente distribuzione globale, scalabilità elastica in termini di archiviazione e velocità effettiva, query e indicizzazione automatica, livelli di coerenza regolabili e supporto per lo standard TinkerPop. 
+Azure Cosmos DB è un database di grafi completamente gestito che consente distribuzione globale, scalabilità elastica in termini di archiviazione e velocità effettiva, query e indicizzazione automatica, livelli di coerenza regolabili e supporto per lo standard TinkerPop.
 
 Di seguito vengono descritte le varie funzionalità offerte dall'API Gremlin di Azure Cosmos DB:
 
@@ -36,11 +36,11 @@ Di seguito vengono descritte le varie funzionalità offerte dall'API Gremlin di 
 
 * **Replica in più aree**
 
-  Azure Cosmos DB può replicare automaticamente i dati dei grafi in qualsiasi area di Azure in tutto il mondo. La replica globale semplifica lo sviluppo delle applicazioni che richiedono l'accesso globale ai dati. Oltre a ridurre al minimo la latenza di lettura e scrittura in tutto il mondo, Azure Cosmos DB offre un meccanismo di failover automatico dell'area in grado di assicurare la continuità dell'applicazione nella rara eventualità di un'interruzione del servizio in un'area. 
+  Azure Cosmos DB può replicare automaticamente i dati dei grafi in qualsiasi area di Azure in tutto il mondo. La replica globale semplifica lo sviluppo delle applicazioni che richiedono l'accesso globale ai dati. Oltre a ridurre al minimo la latenza di lettura e scrittura in tutto il mondo, Azure Cosmos DB offre un meccanismo di failover automatico dell'area in grado di assicurare la continuità dell'applicazione nella rara eventualità di un'interruzione del servizio in un'area.
 
 * **Query e attraversamenti rapidi con lo standard per query su grafo più diffuso**
 
-  Archiviare vertici e archi eterogenei ed eseguire query su di essi usando una sintassi Gremlin già nota. Gremlin è un linguaggio di query imperativo e funzionale che offre un'interfaccia avanzata per implementare gli algoritmi per i grafi comuni. 
+  Archiviare vertici e archi eterogenei ed eseguire query su di essi usando una sintassi Gremlin già nota. Gremlin è un linguaggio di query imperativo e funzionale che offre un'interfaccia avanzata per implementare gli algoritmi per i grafi comuni.
   
   Azure Cosmos DB permette l'esecuzione di query e attraversamenti avanzati in tempo reale, senza dovere specificare hint di schema, indici secondari o viste. Per altre informazioni, vedere [Eseguire query sui grafi usando Gremlin](gremlin-support.md).
 
@@ -52,17 +52,18 @@ Di seguito vengono descritte le varie funzionalità offerte dall'API Gremlin di 
 
 * **Indicizzazione automatica**
 
-  Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le proprietà all'interno di nodi e bordi nel grafo e non prevede né richiede schemi o la creazione di indici secondari. Altre informazioni sull'[indicizzazione in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview). 
+  Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le proprietà all'interno di nodi (anche detti vertici) e archi nel grafo e non prevede né richiede schemi o la creazione di indici secondari. Altre informazioni sull'[indicizzazione in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview).
 
 * **Compatibilità con Apache TinkerPop**
 
-  Azure Cosmos DB supporta lo [standard open source Apache TinkerPop](https://tinkerpop.apache.org/). Lo standard Tinkerpop include un ampio ecosistema di applicazioni e librerie che possono essere facilmente integrate con l'API Gremlin di Azure Cosmos DB. 
+  Azure Cosmos DB supporta lo [standard open source Apache TinkerPop](https://tinkerpop.apache.org/). Lo standard Tinkerpop include un ampio ecosistema di applicazioni e librerie che possono essere facilmente integrate con l'API Gremlin di Azure Cosmos DB.
 
 * **Livelli di coerenza regolabili**
 
   Azure Cosmos DB consente di scegliere tra cinque livelli di coerenza ben definiti, per ottenere il giusto compromesso tra coerenza e prestazioni dell'applicazione. Per query e operazioni di lettura, Azure Cosmos DB offre cinque livelli di coerenza distinti, ovvero avanzata, con decadimento ristretto, sessione, prefisso coerente e futura. Questi livelli di coerenza granulari e ben definiti permettono di ottenere un compromesso ottimale tra coerenza, disponibilità e latenza. Per altre informazioni, vedere [Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB](consistency-levels.md).
 
-## <a name="scenarios-that-can-use-gremlin-api"></a>Scenari in cui è possibile usare l'API Gremlin
+## <a name="scenarios-that-use-gremlin-api"></a>Scenari in cui è si usa l'API Gremlin
+
 Ecco alcuni scenari in cui il supporto di Graph di Azure Cosmos DB può risultare utile:
 
 * **Social network/Customer 365**
@@ -82,6 +83,7 @@ Ecco alcuni scenari in cui il supporto di Graph di Azure Cosmos DB può risultar
   Con la rete e le connessioni tra dispositivi IoT modellati come grafo, è possibile comprendere meglio lo stato dei dispositivi e degli asset e come le modifiche apportate in una parte della rete possono potenzialmente influire su un'altra parte.
 
 ## <a name="introduction-to-graph-databases"></a>Introduzione ai database a grafo
+
 I dati presenti nel mondo reale vengono connessi in modo naturale. La modellazione dei dati tradizionale è incentrata sulla definizione di entità separatamente e sul calcolo delle rispettive relazioni in fase di esecuzione. Anche se questo modello presenta dei vantaggi, la gestione dei vincoli posti da dati molto connessi può risultare complessa.  
 
 L'approccio con database a grafo si basa invece su relazioni persistenti nel livello archiviazione, con conseguente efficienza elevata delle operazioni di recupero del grafo. L'API Gremlin di Azure Cosmos DB supporta il [modello di grafo di proprietà](https://tinkerpop.apache.org/docs/current/reference/#intro).
@@ -90,34 +92,39 @@ L'approccio con database a grafo si basa invece su relazioni persistenti nel liv
 
 Un [grafo](http://mathworld.wolfram.com/Graph.html) di proprietà è una struttura composta da [vertici](http://mathworld.wolfram.com/GraphVertex.html) e [archi](http://mathworld.wolfram.com/GraphEdge.html). Entrambi gli oggetti possono avere un numero arbitrario di coppie chiave-valore come proprietà. 
 
-* **Vertici** - I vertici identificano entità discrete, ad esempio una persona, un luogo o un evento.
+* **Vertici/nodi** - I vertici identificano entità discrete, ad esempio una persona, un luogo o un evento.
 
-* **Archi** - Gli archi indicano le relazioni tra i vertici. Ad esempio, una persona potrebbe conoscere un'altra persona, essere coinvolta in un evento e recentemente essersi trovata in una determinata posizione. 
+* **Archi/relazioni** - Gli archi indicano le relazioni tra i vertici. Ad esempio, una persona potrebbe conoscere un'altra persona, essere coinvolta in un evento e recentemente essersi trovata in una determinata posizione.
 
-* **Proprietà** - Le proprietà forniscono informazioni su vertici e archi. Può esistere un numero qualsiasi di proprietà nei vertici o negli archi ed è possibile usarle per descrivere e filtrare gli oggetti in una query. Sono esempi di proprietà un vertice con nome ed età o un arco con un timestamp e/o un peso. 
+* **Proprietà** - Le proprietà forniscono informazioni su vertici e archi. Può esistere un numero qualsiasi di proprietà nei vertici o negli archi ed è possibile usarle per descrivere e filtrare gli oggetti in una query. Sono esempi di proprietà un vertice con nome ed età o un arco con un timestamp e/o un peso.
 
-I database a grafo sono spesso inclusi all'interno di NoSQL, ovvero la categoria di database non relazionali, perché non esiste alcuna dipendenza da uno schema o un modello di dati vincolato. Questa mancanza dello schema consente la modellazione e l'archiviazione di strutture collegate in modo naturale ed efficiente. 
+* **Etichetta** - Un'etichetta è un nome o l'identificatore di un vertice o di un arco. Le etichette possono raggruppare più vertici o archi in modo che tutti quelli di un gruppo abbiano una specifica etichetta. Ad esempio, un grafo può includere più vertici con il tipo di etichetta "persona".
 
-### <a name="gremlin-by-example"></a>Esempio di Gremlin
+I database a grafo sono spesso inclusi all'interno di NoSQL, ovvero la categoria di database non relazionali, perché non esiste alcuna dipendenza da uno schema o un modello di dati vincolato. Questa mancanza dello schema consente la modellazione e l'archiviazione di strutture collegate in modo naturale ed efficiente.
+
+### <a name="graph-database-by-example"></a>Database a grafo di esempio
+
 Verrà ora usato un grafo di esempio per comprendere come le query possono essere espresse in Gremlin. La figura seguente illustra un'applicazione aziendale che gestisce i dati su utenti, interessi e dispositivi sotto forma di grafo.  
 
 :::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Database di esempio che mostra persone, dispositivi e interessi" border="false"::: 
 
-Questo grafo presenta i tipi di *vertice* seguenti (corrispondenti all'etichetta in Gremlin):
+Questo grafo presenta i tipi di *vertice* seguenti (anche detti "etichetta" in Gremlin):
 
-- **Persone**: il grafo include tre persone, Robin, Thomas e Ben
-- **Interessi**: i loro interessi, in questo esempio, sono rappresentati dal gioco del football
-- **Dispositivi**: i dispositivi usati dalle persone
-- **Sistemi operativi**: i sistemi operativi eseguiti nei dispositivi
+* **Persone**: il grafo include tre persone, Robin, Thomas e Ben
+* **Interessi**: i loro interessi, in questo esempio, sono rappresentati dal gioco del football
+* **Dispositivi**: i dispositivi usati dalle persone
+* **Sistemi operativi**: i sistemi operativi eseguiti nei dispositivi
+* **Posizione**: le posizioni da cui si accede ai dispositivi
 
-Pr rappresentare le relazioni tra queste entità si usano i tipi o le etichette di *archi* seguenti:
+Per rappresentare le relazioni tra queste entità si usano i tipi di *archi* seguenti:
 
-- **Conosce**: ad esempio, "Thomas conosce Robin"
-- **Interessato**: per rappresentare gli interessi delle persone nel nostro grafo, ad esempio, "Ben è interessato al football"
-- **RunsOS**: il portatile esegue il sistema operativo Windows
-- **Usa**: per rappresentare quale dispositivo viene usato da una persona. Ad esempio, Robin usa un telefono Motorola con numero di serie 77
+* **Conosce**: ad esempio, "Thomas conosce Robin"
+* **Interessato**: per rappresentare gli interessi delle persone nel nostro grafo, ad esempio, "Ben è interessato al football"
+* **RunsOS**: il portatile esegue il sistema operativo Windows
+* **Usa**: per rappresentare quale dispositivo viene usato da una persona. Ad esempio, Robin usa un telefono Motorola con numero di serie 77
+* **Posizionato**: per rappresentare la posizione da cui si accede ai dispositivi
 
-Verranno ora eseguite alcune operazioni su questo grafo tramite la [console Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console). È anche possibile eseguire queste operazioni usando i driver Gremlin nella piattaforma di propria scelta (Java, Node.js, Python o .NET).  Prima di esaminare cosa è supportato in Azure Cosmos DB, verranno esaminati alcuni esempi per acquisire familiarità con la sintassi.
+La console Gremlin è un terminale interattivo offerto da Apache TinkerPop, che viene usato per interagire con i dati del grafo. Per altre informazioni, vedere la documentazione di avvio rapido su [come usare la console Gremlin](create-graph-gremlin-console.md). È anche possibile eseguire queste operazioni usando i driver Gremlin nella piattaforma di propria scelta (Java, Node.js, Python o .NET). Gli esempi seguenti illustrano come eseguire query sui dati di questo grafo usando la console Gremlin.
 
 Verrà dapprima esaminato CRUD. L'istruzione Gremlin seguente inserisce il vertice "Thomas" nel grafo:
 
@@ -132,6 +139,7 @@ Successivamente, l'istruzione Gremlin seguente inserisce un arco "conosce" tra T
 ```
 
 La query seguente restituisce i vertici "persona" secondo l'ordine decrescente dei relativi nomi:
+
 ```java
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
@@ -143,6 +151,7 @@ I grafi sono eccellenti quando è necessario rispondere a domande come "Quali si
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sul supporto di Graph in Azure Cosmos DB, vedere:
 
 * Introduzione all'[esercitazione sui grafi di Azure Cosmos DB](create-graph-dotnet.md).

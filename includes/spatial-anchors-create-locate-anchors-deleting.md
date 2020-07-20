@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 9e50caeac5c52b9f2309448e2bb0b760f533fb6c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ec78ffd1fbc1f77a7b1e1467df1c2303e7d5daf1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67179864"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156495"
 ---
 ## <a name="delete-anchors"></a>Eliminare gli ancoraggi
 
-Per eliminare un ancoraggio nello spazio cloud, si usa il metodo `DeleteAnchor()`. L'eliminazione di ancoraggi che non vengono più usati è una procedura consigliata da includere nelle prime fasi del processo di sviluppo e delle procedure perché consente di pulire le risorse. Anche se è possibile usare gratuitamente gli ancoraggi nello spazio di Azure, i prezzi potrebbero cambiare in futuro. È possibile trovare i dettagli sui prezzi durante l'anteprima nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/spatial-anchors/).
+Per eliminare un ancoraggio nello spazio cloud, si usa il metodo `DeleteAnchor()`. L'eliminazione di ancoraggi quando non sono più in uso è una prassi valida da includere nelle prime fasi del processo e delle procedure di sviluppo, per mantenere pulite le risorse di Azure. 

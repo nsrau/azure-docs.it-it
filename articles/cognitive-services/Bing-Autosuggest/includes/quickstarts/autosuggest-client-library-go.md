@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 25b45f2731e94fc6a7a4bedd9c8d44b10125c273
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ee897a22ceda4378ea9dba4579d5108a2ddf0b0d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82975035"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156695"
 ---
 Introduzione alla libreria client di Suggerimenti automatici Bing per Go. Seguire questa procedura per installare la libreria e provare gli esempi di attività di base. 
 
@@ -33,7 +33,7 @@ Iniziare a usare la libreria client di Suggerimenti automatici Bing creando una 
 ## <a name="create-environment-variables"></a>Creare variabili di ambiente
 
 >[!NOTE]
-> Gli endpoint per le risorse non di valutazione create dopo il 1° luglio 2019 usano il formato di sottodominio personalizzato riportato di seguito. Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Gli endpoint per le risorse create dopo il 1° luglio 2019 usano il formato di sottodominio personalizzato riportato di seguito. Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
 Usando la chiave e l'endpoint della risorsa creata, creare due variabili di ambiente per l'autenticazione:
 <!-- replace the below variable names with the names expected in the code sample.-->
