@@ -4,11 +4,12 @@ description: Eseguire il monitoraggio e l'aggiornamento in blocco utilizzando la
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: 3c3ac27f04aa516fbef1bfff30e3392659b58919
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502490"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518063"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Correzione rapida per Advisor
 La **correzione rapida** consente un modo più semplice e rapido per la correzione per consigli su più risorse. Offre funzionalità di monitoraggio e aggiornamento bulk per le risorse e consente di ottimizzare le sottoscrizioni più velocemente con la correzione su larga scala per le risorse.
@@ -49,4 +50,4 @@ Per altre informazioni sui consigli di Advisor, vedere:
 * [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 * [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
-* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST Advisor](/rest/api/advisor/)

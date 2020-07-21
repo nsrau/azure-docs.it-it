@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sull'accesso condizionale
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Richiedere l'accettazione delle condizioni per l'utilizzo
       href: require-tou.md
@@ -47,8 +47,6 @@
       href: controls.md
     - name: Migrazioni dei criteri classici
       href: policy-migration.md
-    - name: Criteri di protezione di base
-      href: concept-baseline-protection.md
 - name: Guide pratiche
   expanded: true
   items:

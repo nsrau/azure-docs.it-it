@@ -13,12 +13,12 @@ ms.date: 06/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 453efd7735c6843ccdaf8dfd86b18d0b2ef8b06d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ff8ced1723a3cdc969b4a951c31ea1da2d3093
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604625"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518298"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Oggetti applicazione e oggetti entità servizio in Azure Active Directory
 
@@ -47,7 +47,7 @@ Un'entità servizio è la rappresentazione locale o l'istanza dell'applicazione 
 
 Quando a un'applicazione viene concesso di accedere alle risorse in un tenant (al momento della registrazione o del [consenso](developer-glossary.md#consent)), viene creato un oggetto entità servizio. È anche possibile creare un oggetto entità servizio in un tenant usando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), l'interfaccia della riga di comando di Azure, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), il [portale di Azure][AZURE-Portal]e altri strumenti.  Quando si usa il portale, un'entità servizio viene creata automaticamente quando si registra un'applicazione.
 
-Il pannello **applicazioni aziendali** nel portale viene usato per elencare e gestire le entità servizio in un tenant. È possibile visualizzare le autorizzazioni di un'entità servizio, le autorizzazioni concesse dall'utente, gli utenti che hanno eseguito tale consenso, le informazioni di accesso e altro ancora.
+Il pannello **applicazioni aziendali** nel portale viene usato per elencare e gestire le entità servizio in un tenant. È possibile visualizzare le autorizzazioni dell'entità servizio, le autorizzazioni concesse dall'utente, gli utenti che hanno eseguito tale consenso, le informazioni di accesso e altro ancora.
 
 L' [entità Microsoft Graph ServicePrincipal][MS-Graph-Sp-Entity] definisce lo schema per le proprietà di un oggetto entità servizio.
 

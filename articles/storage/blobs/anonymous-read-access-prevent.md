@@ -1,34 +1,34 @@
 ---
 title: Impedisci l'accesso in lettura pubblico anonimo a contenitori e BLOB
 titleSuffix: Azure Storage
-description: ''
+description: Informazioni su come analizzare le richieste anonime in un account di archiviazione e come impedire l'accesso anonimo per l'intero account di archiviazione o per un singolo contenitore.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 90d7cd65bbc07524391f34fe0efce2b044664cef
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209647"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518725"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedisci l'accesso in lettura pubblico anonimo a contenitori e BLOB
 
-L'accesso in lettura pubblico anonimo a contenitori e BLOB in archiviazione di Azure è un modo pratico per condividere i dati, ma può anche presentare un rischio per la sicurezza. È importante abilitare l'accesso anonimo in modo oculato e comprendere come valutare l'accesso anonimo ai dati. La complessità operativa, gli errori umani o gli attacchi dannosi contro i dati accessibili pubblicamente possono comportare violazioni dei dati costose. Microsoft consiglia di abilitare l'accesso anonimo solo quando necessario per lo scenario dell'applicazione.
+L'accesso in lettura pubblico anonimo a contenitori e BLOB in archiviazione di Azure è un modo pratico per condividere i dati, ma può anche presentare un rischio per la sicurezza. È importante gestire l'accesso anonimo in modo oculato e comprendere come valutare l'accesso anonimo ai dati. La complessità operativa, gli errori umani o gli attacchi dannosi contro i dati accessibili pubblicamente possono comportare violazioni dei dati costose. Microsoft consiglia di abilitare l'accesso anonimo solo quando necessario per lo scenario dell'applicazione.
 
-Per impostazione predefinita, un account di archiviazione consente a un utente con le autorizzazioni appropriate di configurare l'accesso pubblico a contenitori e BLOB. È possibile disabilitare questa funzionalità a livello dell'account di archiviazione, in modo che i contenitori e i BLOB nell'account non possano essere configurati per l'accesso pubblico.
+Per impostazione predefinita, un utente con le autorizzazioni appropriate può configurare l'accesso pubblico a contenitori e BLOB. È possibile impedire l'accesso pubblico a livello dell'account di archiviazione. Quando si impedisce l'accesso al BLOB pubblico per l'account di archiviazione, i contenitori nell'account non possono essere configurati per l'accesso pubblico. Tutti i contenitori già configurati per l'accesso pubblico non accettano più richieste anonime. Per altre informazioni, vedere [configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB](anonymous-read-access-configure.md).
 
 Questo articolo descrive come analizzare le richieste anonime in un account di archiviazione e come impedire l'accesso anonimo per l'intero account di archiviazione o per un singolo contenitore.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Rilevare richieste anonime da applicazioni client
 
-Quando si disabilita l'accesso in lettura pubblico per un account di archiviazione, si rischia di rifiutare le richieste a contenitori e BLOB attualmente configurati per l'accesso pubblico. La disabilitazione dell'accesso pubblico per un account di archiviazione sostituisce le impostazioni di accesso pubblico per tutti i contenitori nell'account di archiviazione. Quando l'accesso pubblico è disabilitato per l'account di archiviazione, eventuali richieste anonime future a tale account avranno esito negativo.
+Quando si impedisce l'accesso in lettura pubblico per un account di archiviazione, si rischia di rifiutare le richieste a contenitori e BLOB attualmente configurati per l'accesso pubblico. Non consentire l'accesso pubblico per un account di archiviazione sostituisce le impostazioni di accesso pubblico per tutti i contenitori nell'account di archiviazione. Quando l'accesso pubblico non è consentito per l'account di archiviazione, eventuali richieste anonime future a tale account avranno esito negativo.
 
-Per comprendere in che modo la disabilitazione dell'accesso pubblico può influire sulle applicazioni client, Microsoft consiglia di abilitare la registrazione e le metriche per tale account e analizzare i modelli di richieste anonime in un intervallo di tempo. Usare le metriche per determinare il numero di richieste anonime per l'account di archiviazione e usare i log per determinare a quali contenitori viene eseguito l'accesso in modo anonimo.
+Per comprendere in che modo la disattivazione dell'accesso pubblico può influire sulle applicazioni client, Microsoft consiglia di abilitare la registrazione e le metriche per tale account e analizzare i modelli di richieste anonime in un intervallo di tempo. Usare le metriche per determinare il numero di richieste anonime per l'account di archiviazione e usare i log per determinare a quali contenitori viene eseguito l'accesso in modo anonimo.
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Monitorare le richieste anonime con Esplora metriche
 
@@ -92,7 +92,7 @@ Per informazioni di riferimento sui campi disponibili nei log di archiviazione d
 
 I log di archiviazione di Azure in monitoraggio di Azure includono il tipo di autorizzazione usata per effettuare una richiesta a un account di archiviazione. Nella query di log filtrare sulla proprietà **AuthenticationType** per visualizzare le richieste anonime.
 
-Per recuperare i log degli ultimi 7 giorni per le richieste anonime nell'archivio BLOB, aprire l'area di lavoro Log Analytics. Incollare quindi la query seguente in una nuova query di log ed eseguirla. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
+Per recuperare i log degli ultimi 7 giorni per le richieste anonime nell'archivio BLOB, aprire l'area di lavoro Log Analytics. Incollare quindi la query seguente in una nuova query di log ed eseguirla:
 
 ```kusto
 StorageBlobLogs
@@ -106,13 +106,13 @@ StorageBlobLogs
 
 Dopo aver valutato le richieste anonime a contenitori e BLOB nell'account di archiviazione, è possibile intervenire per limitare o impedire l'accesso pubblico. Se è possibile che alcuni contenitori nell'account di archiviazione debbano essere disponibili per l'accesso pubblico, è possibile configurare l'impostazione di accesso pubblico per ogni contenitore nell'account di archiviazione. Questa opzione consente di controllare in modo più granulare l'accesso pubblico. Per altre informazioni, vedere [impostare il livello di accesso pubblico per un contenitore](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-Per una maggiore sicurezza, è possibile disabilitare l'accesso pubblico per un intero account di archiviazione. L'impostazione di accesso pubblico per un account di archiviazione sostituisce le singole impostazioni per i contenitori nell'account. Quando si disabilita l'accesso pubblico per un account di archiviazione, qualsiasi contenitore configurato per consentire l'accesso pubblico non è più accessibile in modo anonimo. Per altre informazioni, vedere [abilitare o disabilitare l'accesso in lettura pubblico per un account di archiviazione](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account).
+Per una maggiore sicurezza, è possibile impedire l'accesso pubblico per l'intero account di archiviazione. L'impostazione di accesso pubblico per un account di archiviazione sostituisce le singole impostazioni per i contenitori nell'account. Quando si impedisce l'accesso pubblico per un account di archiviazione, qualsiasi contenitore configurato per consentire l'accesso pubblico non sarà più accessibile in modo anonimo. Per altre informazioni, vedere [consentire o impedire l'accesso in lettura pubblico per un account di archiviazione](anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
-Se lo scenario richiede che determinati contenitori siano disponibili per l'accesso pubblico, potrebbe essere consigliabile spostare tali contenitori e i relativi BLOB in account di archiviazione riservati per l'accesso pubblico. È quindi possibile disabilitare l'accesso pubblico per qualsiasi altro account di archiviazione.
+Se lo scenario richiede che determinati contenitori debbano essere disponibili per l'accesso pubblico, potrebbe essere consigliabile spostare tali contenitori e i relativi BLOB in account di archiviazione riservati per l'accesso pubblico. È quindi possibile impedire l'accesso pubblico per qualsiasi altro account di archiviazione.
 
 ### <a name="verify-that-public-access-to-a-blob-is-not-permitted"></a>Verificare che l'accesso pubblico a un BLOB non sia consentito
 
-Per verificare che l'accesso pubblico a un blob specifico venga negato, è possibile provare a scaricare il BLOB tramite l'URL. Se il download ha esito positivo, il BLOB è ancora disponibile pubblicamente. Se il BLOB non è accessibile pubblicamente perché l'accesso pubblico è stato disabilitato per l'account di archiviazione, verrà visualizzato un messaggio di errore che indica che l'accesso pubblico non è consentito in questo account di archiviazione.
+Per verificare che l'accesso pubblico a un blob specifico non sia consentito, è possibile provare a scaricare il BLOB tramite l'URL. Se il download ha esito positivo, il BLOB è ancora disponibile pubblicamente. Se il BLOB non è accessibile pubblicamente perché l'accesso pubblico non è consentito per l'account di archiviazione, verrà visualizzato un messaggio di errore che indica che l'accesso pubblico non è consentito in questo account di archiviazione.
 
 L'esempio seguente illustra come usare PowerShell per provare a scaricare un BLOB tramite il relativo URL. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
@@ -124,7 +124,7 @@ Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
 
 ### <a name="verify-that-modifying-the-containers-public-access-setting-is-not-permitted"></a>Verificare che la modifica dell'impostazione di accesso pubblico del contenitore non sia consentita
 
-Per verificare che non sia possibile modificare l'impostazione di accesso pubblico di un contenitore dopo che l'accesso pubblico è stato disabilitato per l'account di archiviazione, è possibile tentare di modificare l'impostazione. La modifica dell'impostazione di accesso pubblico del contenitore avrà esito negativo se l'accesso pubblico è disabilitato per l'account di archiviazione.
+Per verificare che non sia possibile modificare l'impostazione di accesso pubblico di un contenitore dopo che l'accesso pubblico non è consentito per l'account di archiviazione, è possibile tentare di modificare l'impostazione. La modifica dell'impostazione di accesso pubblico del contenitore avrà esito negativo se l'accesso pubblico non è consentito per l'account di archiviazione.
 
 L'esempio seguente illustra come usare PowerShell per tentare di modificare l'impostazione di accesso pubblico di un contenitore. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
@@ -141,10 +141,10 @@ Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Bl
 
 ### <a name="verify-that-creating-a-container-with-public-access-enabled-is-not-permitted"></a>Verificare che la creazione di un contenitore con accesso pubblico abilitato non sia consentita
 
-Se l'accesso pubblico è disabilitato per l'account di archiviazione, non sarà possibile creare un nuovo contenitore con accesso pubblico abilitato. Per verificare, è possibile provare a creare un contenitore con accesso pubblico abilitato.
+Se l'accesso pubblico non è consentito per l'account di archiviazione, non sarà possibile creare un nuovo contenitore con accesso pubblico abilitato. Per verificare, è possibile provare a creare un contenitore con accesso pubblico abilitato.
 
 L'esempio seguente illustra come usare PowerShell per tentare di creare un contenitore con accesso pubblico abilitato. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
- 
+
 ```powershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"

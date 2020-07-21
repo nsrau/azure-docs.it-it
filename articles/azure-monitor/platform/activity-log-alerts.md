@@ -4,12 +4,12 @@ description: Ricevere una notifica tramite SMS, webhook, posta elettronica e alt
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137706"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516125"
 ---
 # <a name="alerts-on-activity-log"></a>Avvisi sul log attività
 
@@ -25,11 +25,11 @@ In genere, si creano avvisi del log attività per ricevere notifiche quando:
 * Vengono effettuate operazioni specifiche nelle risorse nella sottoscrizione di Azure. Questi avvisi sono spesso limitati a risorse o gruppi di risorse specifici. Potrebbe ad esempio essere utile ricevere una notifica quando viene eliminata una macchina virtuale in myProductionResourceGroup o se vengono assegnati nuovi ruoli a un utente nella sottoscrizione.
 * Si verifica un evento di integrità del servizio. Gli eventi di integrità del servizio includono la notifica di eventi imprevisti e di manutenzione che si applicano alle risorse nella sottoscrizione.
 
-Una semplice analogia per comprendere le condizioni in cui è possibile creare regole di avviso nel log attività, consiste nell'esplorare o filtrare gli eventi tramite [log attività in portale di Azure](activity-log-view.md#azure-portal). In monitoraggio di Azure-log attività, è possibile filtrare o trovare un evento necessario, quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività** .
+Una semplice analogia per comprendere le condizioni in cui è possibile creare regole di avviso nel log attività, consiste nell'esplorare o filtrare gli eventi tramite [log attività in portale di Azure](./activity-log.md#view-the-activity-log). In monitoraggio di Azure-log attività, è possibile filtrare o trovare un evento necessario, quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività** .
 
 In ogni caso, un avviso del log attività monitora solo degli eventi nella sottoscrizione in cui è stato creato l'evento.
 
-È possibile configurare un avviso del log attività in base a qualsiasi proprietà di primo livello nell'oggetto JSON per un evento del log attività. Per altre informazioni, vedere [categorie nel log attività](activity-log-view.md#categories-in-the-activity-log). Per altre informazioni sugli eventi di integrità del servizio, vedere [Ricevere gli avvisi del log attività sulle notifiche del servizio](alerts-activity-log-service-notifications.md). 
+È possibile configurare un avviso del log attività in base a qualsiasi proprietà di primo livello nell'oggetto JSON per un evento del log attività. Per altre informazioni, vedere [categorie nel log attività](./activity-log.md#view-the-activity-log). Per altre informazioni sugli eventi di integrità del servizio, vedere [Ricevere gli avvisi del log attività sulle notifiche del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md). 
 
 Gli avvisi del log attività hanno alcune opzioni comuni:
 
@@ -61,4 +61,4 @@ Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di 
 - Ottenere una [Panoramica degli avvisi](alerts-overview.md).
 - Altre informazioni sulla [creazione e modifica degli avvisi del log attività](alerts-activity-log.md).
 - Esaminare lo [schema webhook degli avvisi del log attività](activity-log-alerts-webhook.md).
-- Informazioni sulle [notifiche per l'integrità del servizio](service-notifications.md).
+- Informazioni sulle [notifiche per l'integrità del servizio](../../service-health/service-notifications.md).

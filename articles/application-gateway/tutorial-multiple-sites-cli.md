@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0a559ec7f9138810611841eed4a035f30662bc39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79a239148647467185e407e1e07fdea658a7be40
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806260"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517902"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure
 
@@ -30,7 +30,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Creare set di scalabilità di macchine virtuali con i pool back-end
 > * Creare un record CNAME nel dominio
 
-![Esempio di routing multisito](./media/tutorial-multiple-sites-cli/scenario.png)
+:::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Gateway applicazione multisito":::
 
 Se si preferisce, è possibile completare questa procedura usando [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
@@ -119,9 +119,13 @@ az network application-gateway address-pool create \
   --name fabrikamPool
 ```
 
-### <a name="add-backend-listeners"></a>Aggiungere i listener back-end
+### <a name="add-listeners"></a>Aggiungere i listener
 
-Aggiungere i listener back-end necessari per instradare il traffico usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+Aggiungere i listener necessari per instradare il traffico usando [AZ Network Application-Gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+
+>[!NOTE]
+> Con il gateway applicazione o lo SKU WAF V2, è anche possibile configurare fino a 5 nomi host per listener ed è possibile usare caratteri jolly nel nome host. Per ulteriori informazioni, vedere [nomi host con caratteri jolly nel listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
+>Per usare più nomi host e caratteri jolly in un listener usando l'interfaccia della riga di comando di Azure, è necessario usare `--host-names` anziché `--host-name` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole. Ad esempio: `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \

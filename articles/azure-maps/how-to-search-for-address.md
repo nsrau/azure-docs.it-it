@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d8c7ce62f7c592c396fa1ea7a7f5e7dc7df2dc1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335437"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517587"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Cercare un percorso usando i servizi di ricerca di Azure Maps
 
@@ -29,7 +29,7 @@ In questo articolo si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare i passaggi descritti in questo articolo, è necessario creare prima di tutto un account Azure Maps e ottenere la chiave di sottoscrizione dell'account Maps. Per ottenere la chiave primaria per l'account, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Azure Maps e seguire i passaggi in [ottenere](quick-demo-map-app.md#get-the-primary-key-for-your-account) la chiave primaria. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
+Per completare i passaggi descritti in questo articolo, è necessario creare prima di tutto un account Azure Maps e ottenere la chiave di sottoscrizione dell'account Maps. Per ottenere la chiave primaria per l'account, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-azure-maps-account) per creare una sottoscrizione dell'account Azure Maps e seguire i passaggi in [ottenere](quick-demo-map-app.md#get-the-primary-key-for-your-account) la chiave primaria. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
 Questo articolo usa l'[app Postman](https://www.getpostman.com/apps) per compilare le chiamate REST. È possibile usare qualsiasi ambiente di sviluppo API preferito.
 
@@ -55,7 +55,7 @@ Se è presente un set di indirizzi per la geocodifica, è possibile usare l' [AP
 
 ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_params.png) 
 
-| Chiave | Valore | 
+| Chiave | valore | 
 |------------------|-------------------------| 
 | api-version | 1.0 | 
 | subscription-key | \<your Azure Maps key\> | 
@@ -73,7 +73,7 @@ In questo caso, è stata specificata una query di indirizzo completo ed è stato
 
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**: 
 
-| Chiave | Valore | 
+| Chiave | valore | 
 |-----|------------| 
 | typeahead | true | 
 
@@ -105,7 +105,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<your Azure Maps key\> |
@@ -119,7 +119,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |------------------|-------------------------|
     | countrySet | US |
   
@@ -131,7 +131,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Chiave | Valore |
+    | Chiave | valore |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -159,7 +159,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
   
     ![Parametri di ricerca di indirizzi inversa](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Chiave | Valore |
+    | Chiave | valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<your Azure Maps key\> |
@@ -171,7 +171,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
   
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |-----|------------|
     | d'acquisto | true |
 
@@ -179,7 +179,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
   
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -187,7 +187,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
 
 7. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -195,7 +195,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
 
 8. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |-----|------------|
     | roadUse | true |
 
@@ -217,7 +217,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
   
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
   
-    | Chiave | Valore |
+    | Chiave | valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<your Azure Maps key\> |

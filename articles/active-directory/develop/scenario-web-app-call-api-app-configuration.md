@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 3a6f92022a4e26c84efc2d5f68c3aad8b4685d30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 662520b9e31b4fe9a0925683fd0e661ce179e5b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558798"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518148"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>App Web che chiama le API Web: Configurazione del codice
 
@@ -32,7 +33,7 @@ Le librerie seguenti in Microsoft Authentication Library (MSAL) supportano il fl
 
 | Libreria MSAL | Descrizione |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supporto per le piattaforme .NET Framework e .NET Core. Non sono supportate le piattaforme UWP (Universal Windows Platform), Xamarin.iOS e Xamarin.Android perché usate per creare applicazioni client pubbliche. Per le app Web e le API Web ASP.NET Core, MSAL.NET è incapsulato in una libreria di livello più alto denominata Microsoft.Identity.Web|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supporto per le piattaforme .NET Framework e .NET Core. Non sono supportate le piattaforme UWP (Universal Windows Platform), Xamarin.iOS e Xamarin.Android perché usate per creare applicazioni client pubbliche. Per ASP.NET Core app Web e le API Web, MSAL.NET è incapsulato in una libreria di livello superiore denominata [Microsoft. Identity. Web](https://aka.ms/ms-identity-web)|
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL per Python | Supporto per le applicazioni Web Python. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL per Java | Supporto per le applicazioni Web Java. |
 
@@ -48,8 +49,8 @@ public void ConfigureServices(IServiceCollection services)
 {
     // more code here
 
-    services.AddSignIn(Configuration, "AzureAd")
-            .AddWebAppCallsProtectedWebApi(Configuration,
+    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
+            .AddMicrosoftWebAppCallsdWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddInMemoryTokenCaches();
 
@@ -90,7 +91,7 @@ L'esempio consente attualmente a MSAL.Python di produrre l'URL del codice di aut
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Microsoft.Identity.Web semplifica il codice specificando le impostazioni corrette di OpenID Connect, sottoscrivendo l'evento di ricezione del codice e riscattando il codice. Non è necessario alcun codice aggiuntivo per riscattare il codice di autorizzazione.
+Microsoft.Identity.Web semplifica il codice specificando le impostazioni corrette di OpenID Connect, sottoscrivendo l'evento di ricezione del codice e riscattando il codice. Non è necessario alcun codice aggiuntivo per riscattare il codice di autorizzazione. Per informazioni dettagliate sul funzionamento, vedere il [codice sorgente Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L140) .
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -271,8 +272,8 @@ L'esercitazione di ASP.NET Core usa l'inserimento delle dipendenze per consentir
 
 ```csharp
 // Use a distributed token cache by adding:
-    services.AddSignIn(Configuration, "AzureAd")
-            .AddWebAppCallsProtectedWebApi(Configuration,
+    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
+            .AddMicrosoftWebAppCallsWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddDistributedTokenCaches();
 
@@ -296,7 +297,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-Per informazioni dettagliate sui provider di cache di token, vedere anche la fase dell'esercitazione [Esercitazioni dell'app Web ASP.NET Core | Cache di token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
+Per informazioni dettagliate sui provider di cache di token, vedere anche l'articolo relativo alla [serializzazione della cache dei token](https://aka.ms/ms-id-web/token-cache-serialization) di Microsoft. Identity. Web, nonché le [esercitazioni sulle app Web ASP.NET Core | ](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)Fase della cache dei token dell'esercitazione sulle app Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: f198e4aac08039eb7aed8468e6adb45b5b0d67b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b3d489477a0ee0cc201d4383b5ed960de515c7d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464573"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517111"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -114,7 +115,7 @@ Le opzioni di configurazione disponibili sono
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Invio di dati di telemetria al portale di Azure
 
-Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Tra queste sono incluse:
+Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Queste includono:
 
 - **Eccezioni non rilevate** nell'app, incluse informazioni su
     - Analisi dello stack
@@ -185,14 +186,14 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 | isBeaconApiDisabled | true | Se false, l'SDK invierà tutti i dati di telemetria usando l' [API Beacon](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | false | Valore predefinito false. Quando la scheda è chiusa, l'SDK invierà tutti i dati di telemetria rimanenti usando l' [API Beacon](https://www.w3.org/TR/beacon) |
 | sdkExtension | Null | Imposta il nome dell'estensione SDK. Sono consentiti solo caratteri alfabetici. Il nome dell'estensione viene aggiunto come prefisso al tag ' ai. Internal. sdkVersion ' (ad esempio,' ext_javascript: 2.0.0'). Il valore predefinito è Null. |
-| isBrowserLinkTrackingEnabled | false | L'impostazione predefinita è false. Se true, l'SDK tiene traccia di tutte le richieste di [browser link](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
+| isBrowserLinkTrackingEnabled | false | L'impostazione predefinita è false. Se true, l'SDK tiene traccia di tutte le richieste di [browser link](/aspnet/core/client-side/using-browserlink) . |
 | appId | Null | AppId viene utilizzato per la correlazione tra le dipendenze AJAX che si verificano sul lato client con le richieste lato server. Quando l'API Beacon è abilitata, non può essere usata automaticamente, ma può essere impostata manualmente nella configurazione. Il valore predefinito è null |
 | enableCorsCorrelation | false | Se true, l'SDK aggiungerà due intestazioni (' Request-ID ' è request-context ') a tutte le richieste CORS per correlare le dipendenze AJAX in uscita con le richieste corrispondenti sul lato server. Il valore predefinito è false. |
 | namePrefix | Non definito | Valore facoltativo che verrà usato come nome suffisso per localStorage e il nome del cookie.
 | enableAutoRouteTracking | false | Rilevare automaticamente le modifiche del route nelle applicazioni a pagina singola (SPA). Se true, ogni modifica della route invierà una nuova visualizzazione a Application Insights. Anche le modifiche della route hash ( `example.com/foo#bar` ) vengono registrate come nuove visualizzazioni di pagina.
 | enableRequestHeaderTracking | false | Se true, vengono rilevate le intestazioni della richiesta di recupero & AJAX, il valore predefinito è false.
 | enableResponseHeaderTracking | false | Se true, vengono rilevate le intestazioni di risposta della richiesta di recupero & AJAX, il valore predefinito è false.
-| distributedTracingMode | `DistributedTracingModes.AI` | Imposta la modalità di traccia distribuita. Se è impostata la modalità AI_AND_W3C o W3C, le intestazioni del contesto di traccia W3C (traceparent/tracestate) verranno generate e incluse in tutte le richieste in uscita. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi Application Insights instrumentati. Vedere l'esempio [qui](https://docs.microsoft.com/azure/azure-monitor/app/correlation#enable-w3c-distributed-tracing-support-for-web-apps).
+| distributedTracingMode | `DistributedTracingModes.AI` | Imposta la modalità di traccia distribuita. Se è impostata la modalità AI_AND_W3C o W3C, le intestazioni del contesto di traccia W3C (traceparent/tracestate) verranno generate e incluse in tutte le richieste in uscita. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi Application Insights instrumentati. Vedere l'esempio [qui](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | false | Valore predefinito false. Se true, includere il testo dei dati degli errori di risposta nell'evento di dipendenza per le richieste AJAX non riuscite.
 | enableAjaxPerfTracking | false | Valore predefinito false. Flag per abilitare la ricerca e l'inclusione della finestra del browser aggiuntiva. intervalli di prestazioni nelle metriche segnalate di AJAX (XHR e fetch).
 | maxAjaxPerfLookupAttempts | 3 | Il valore predefinito è 3. Il numero massimo di volte in cui cercare la finestra. tempistiche delle prestazioni (se disponibili), questa operazione è necessaria perché non tutti i browser popolano la finestra. prestazioni prima di segnalare la fine della richiesta XHR e per le richieste di recupero questo viene aggiunto dopo il completamento.
@@ -210,7 +211,7 @@ Attualmente si offre un plug-in [React](#react-extensions)separato, che può ess
 
 ## <a name="configuration-autotrackpagevisittime"></a>Configurazione: autoTrackPageVisitTime
 
-Impostando `autoTrackPageVisitTime: true` , viene tenuta traccia del tempo impiegato da un utente in ogni pagina. In ogni nuova pagina di visualizzazione, la durata dell'utente nella pagina *precedente* viene inviata come [metrica personalizzata](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) denominata `PageVisitTime` . Questa metrica personalizzata è visualizzabile nel [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) come "metrica basata su log".
+Impostando `autoTrackPageVisitTime: true` , viene tenuta traccia del tempo impiegato da un utente in ogni pagina. In ogni nuova pagina di visualizzazione, la durata dell'utente nella pagina *precedente* viene inviata come [metrica personalizzata](../platform/metrics-custom-overview.md) denominata `PageVisitTime` . Questa metrica personalizzata è visualizzabile nel [Esplora metriche](../platform/metrics-getting-started.md) come "metrica basata su log".
 
 ## <a name="react-extensions"></a>Estensioni React
 
@@ -223,21 +224,21 @@ Impostando `autoTrackPageVisitTime: true` , viene tenuta traccia del tempo impie
 
 Per visualizzare i dati del browser/lato client, passare a **metriche** e aggiungere singole metriche a cui si è interessati:
 
-![](./media/javascript/page-view-load-time.png)
+![Screenshot della pagina metrica in Application Insights che mostra la visualizzazione grafica dei dati di metrica per un'applicazione Web.](./media/javascript/page-view-load-time.png)
 
 È anche possibile visualizzare i dati da JavaScript SDK tramite l'esperienza del browser nel portale.
 
 Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
-![](./media/javascript/browser.png)
+![Screenshot della pagina del browser in Application Insights che illustra come aggiungere errori del browser o prestazioni del browser alle metriche che è possibile visualizzare per l'applicazione Web.](./media/javascript/browser.png)
 
 ### <a name="performance"></a>Prestazioni
 
-![](./media/javascript/performance-operations.png)
+![Screenshot della pagina prestazioni in Application Insights che mostra la visualizzazione grafica delle metriche operative per un'applicazione Web.](./media/javascript/performance-operations.png)
 
-### <a name="dependencies"></a>Dependencies
+### <a name="dependencies"></a>Dipendenze
 
-![](./media/javascript/performance-dependencies.png)
+![Screenshot della pagina prestazioni in Application Insights che mostra la visualizzazione grafica delle metriche delle dipendenze per un'applicazione Web.](./media/javascript/performance-dependencies.png)
 
 ### <a name="analytics"></a>Analytics
 
@@ -270,7 +271,7 @@ Il minimizzati stack dei dati di telemetria delle eccezioni può essere unminifi
 
 1. Selezionare un elemento di telemetria delle eccezioni nel portale di Azure per visualizzare i relativi dettagli della transazione end-to-end.
 2. Identificare i mapping di origine corrispondenti a questo stack di chiamate. La mappa di origine deve corrispondere al file di origine di un stack frame, ma con suffisso`.map`
-3. Trascinare e rilasciare i mapping di origine nello stack di chiamate nel portale di Azure![](https://i.imgur.com/Efue9nU.gif)
+3. Trascinare e rilasciare i mapping di origine nello stack di chiamate nella portale di Azure ![ un'immagine animata che Mostra come trascinare i file della mappa di origine da una cartella di compilazione nella finestra stack di chiamate della portale di Azure.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web Basic
 

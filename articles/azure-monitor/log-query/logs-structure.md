@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196279"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516193"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struttura dei log di Monitoraggio di Azure
 La possibilità di ottenere rapidamente informazioni dettagliate sui dati usando una [query di log](log-query-overview.md) è una funzionalità potente di Monitoraggio di Azure. Per creare query efficienti e utili, è necessario comprendere alcuni concetti di base, ad esempio la posizione dei dati desiderati e il modo in cui sono strutturati. Questo articolo illustra i concetti di base necessari per iniziare.
@@ -28,7 +29,7 @@ Nell'immagine seguente vengono illustrati esempi di origini dati che scrivono in
 ![Tabelle](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Area di lavoro Log Analytics
-Tutti i dati raccolti dai log di Monitoraggio di Azure vengono archiviati in un'[area di lavoro Log Analytics](../platform/manage-access.md), ad eccezione di Application Insights. È possibile creare una o più aree di lavoro in base a requisiti specifici. [Le origini dati](../platform/data-sources.md) come log attività e log risorse delle risorse di Azure, agenti su macchine virtuali e dati da soluzioni di monitoraggio e informazioni dettagliate scrivono i dati in una o più aree di lavoro configurate come parte dell'onboarding. Anche altri servizi, ad esempio [Centro sicurezza di Azure](/azure/security-center/) e [Azure Sentinel](/azure/sentinel/) usano un'area di lavoro Log Analytics per archiviare i dati in modo che possano essere analizzati usando le query di log insieme a dati di monitoraggio provenienti da altre origini.
+Tutti i dati raccolti dai log di Monitoraggio di Azure vengono archiviati in un'[area di lavoro Log Analytics](../platform/manage-access.md), ad eccezione di Application Insights. È possibile creare una o più aree di lavoro in base a requisiti specifici. [Le origini dati](../platform/data-sources.md) come log attività e log risorse delle risorse di Azure, agenti su macchine virtuali e dati da soluzioni di monitoraggio e informazioni dettagliate scrivono i dati in una o più aree di lavoro configurate come parte dell'onboarding. Anche altri servizi, ad esempio [Centro sicurezza di Azure](../../security-center/index.yml) e [Azure Sentinel](../../sentinel/index.yml) usano un'area di lavoro Log Analytics per archiviare i dati in modo che possano essere analizzati usando le query di log insieme a dati di monitoraggio provenienti da altre origini.
 
 Diversi tipi di dati vengono archiviati in tabelle diverse dell'area di lavoro e ogni tabella dispone di un set di proprietà univoco. Un set standard di tabelle viene aggiunto a un'area di lavoro al momento della creazione e durante l'onboarding vengono aggiunte nuove tabelle per diverse origini dati, soluzioni e servizi. È anche possibile creare tabelle personalizzate usando l'[API dell'Agente di raccolta dati](../platform/data-collector-api.md).
 
@@ -44,7 +45,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-Per informazioni dettagliate sulle tabelle create, vedere la documentazione per ogni origine dati. Gli esempi includono articoli per [origini dati degli agenti](../platform/agent-data-sources.md), [log risorse](../platform/diagnostic-logs-schema.md) e [soluzioni di monitoraggio](../insights/solutions-inventory.md).
+Per informazioni dettagliate sulle tabelle create, vedere la documentazione per ogni origine dati. Gli esempi includono articoli per [origini dati degli agenti](../platform/agent-data-sources.md), [log risorse](../platform/resource-logs-schema.md) e [soluzioni di monitoraggio](../monitor-reference.md).
 
 ### <a name="workspace-permissions"></a>Autorizzazioni dell'area di lavoro
 Vedere [Progettazione di una distribuzione dei log di Monitoraggio di Azure](../platform/design-logs-deployment.md) per comprendere la strategia di controllo degli accessi e le raccomandazioni per offrire l'accesso ai dati in un'area di lavoro. Oltre a concedere l'accesso all'area di lavoro stessa, è possibile limitare l'accesso a singole tabelle usando [Controllo degli accessi in base al ruolo a livello di tabella](../platform/manage-access.md#table-level-rbac).
@@ -87,5 +88,5 @@ Anche se ogni tabella nei log di Monitoraggio di Azure ha un proprio schema, son
 | _BilledSize   |            | Specifica le dimensioni in byte dei dati che verranno fatturati. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come usare [Log Analytics per creare e modificare le ricerche nei log](../log-query/portals.md).
+- Informazioni su come usare [Log Analytics per creare e modificare le ricerche nei log](./log-query-overview.md).
 - Vedere un'[esercitazione sulla scrittura di query](../log-query/get-started-queries.md) con il nuovo linguaggio di query.

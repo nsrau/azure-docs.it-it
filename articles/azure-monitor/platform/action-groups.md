@@ -3,14 +3,15 @@ title: Creare e gestire gruppi di azione nel portale di Azure
 description: Informazioni su come creare e gestire gruppi di azione nel portale di Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 6/5/2020
+ms.date: 07/15/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e88d51e014244892fc3ac9e2cca242dacdfd9997
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465253"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516176"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -69,7 +70,7 @@ Dopo aver creato un gruppo di azioni, è possibile visualizzare **Gruppi di azio
 ## <a name="action-specific-information"></a>Informazioni specifiche delle azioni
 
 > [!NOTE]
-> Vedere [Limiti del servizio di sottoscrizione per il monitoraggio](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) per i limiti numerici per ognuno degli elementi seguenti.  
+> Vedere [Limiti del servizio di sottoscrizione per il monitoraggio](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits) per i limiti numerici per ognuno degli elementi seguenti.  
 
 ### <a name="automation-runbook"></a>Runbook di Automazione
 Vedere i [Limiti del servizio per la sottoscrizione di Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) per i limiti sui payload di Runbook.
@@ -106,21 +107,21 @@ Un Gruppo di azioni può contenere un numero limitato di azioni di gestione dei 
 Un Gruppo di azioni può contenere un numero limitato di azioni dell'app per la logica.
 
 ### <a name="secure-webhook"></a>Webhook protetto
-L'azione Webhook dei gruppi di azione consente di sfruttare Azure Active Directory per proteggere la connessione tra il gruppo di azioni e l'API Web protetta (endpoint webhook). Di seguito è descritto il flusso di lavoro generale per sfruttare questa funzionalità. Per una panoramica delle applicazioni Azure AD e delle entità servizio, vedere [Panoramica di Microsoft Identity Platform (v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+L'azione Webhook dei gruppi di azione consente di sfruttare Azure Active Directory per proteggere la connessione tra il gruppo di azioni e l'API Web protetta (endpoint webhook). Di seguito è descritto il flusso di lavoro generale per sfruttare questa funzionalità. Per una panoramica delle applicazioni Azure AD e delle entità servizio, vedere [Panoramica di Microsoft Identity Platform (v 2.0)](../../active-directory/develop/v2-overview.md).
 
-1. Creare un'applicazione Azure AD per l'API Web protetta. Vedere https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
-    - Configurare l'API protetta affinché venga chiamata da un'app daemon.
+1. Creare un'applicazione Azure AD per l'API Web protetta. Vedere [API Web protetta: registrazione dell'app](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration).
+    - Configurare l'API protetta affinché venga [chiamata da un'app daemon](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app).
     
-1. Abilitare i gruppi di azioni per l'uso dell'applicazione Azure AD.
+2. Abilitare i gruppi di azioni per l'uso dell'applicazione Azure AD.
 
     > [!NOTE]
-    > Per eseguire questo script, è necessario essere un membro del [ruolo di amministratore dell'applicazione Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles).
+    > Per eseguire questo script, è necessario essere un membro del [ruolo di amministratore dell'applicazione Azure AD](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
     
     - Modificare la chiamata a Connect-AzureAD dello script di PowerShell per usare l'ID tenant di Azure AD.
     - Modificare la variabile dello script di PowerShell $myAzureADApplicationObjectId per usare l'ID oggetto dell'applicazione Azure AD.
     - Eseguire lo script modificato.
     
-1. Configurare l'azione del Webhook protetto del Gruppo di azioni.
+3. Configurare l'azione del Webhook protetto del Gruppo di azioni.
     - Copiare il valore $myApp.ObjectId dallo script e immetterlo nel campo ID oggetto applicazione nella definizione dell'azione Webhook.
     
     ![Usare l'azione Webhook](./media/action-groups/action-groups-secure-webhook.png)
@@ -252,4 +253,4 @@ Un Gruppo di azioni può contenere un numero limitato di azioni di tipo Webhook.
 * Altre informazioni sul [connettore ITSM](../../azure-monitor/platform/itsmc-overview.md).
 * Altre informazioni sulla [limitazione della frequenza](../../azure-monitor/platform/alerts-rate-limiting.md) degli avvisi.
 * Leggere una [panoramica degli avvisi del log attività](../../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.  
-* Informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica sull'integrità del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+* Informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).

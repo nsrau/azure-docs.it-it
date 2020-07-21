@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 8da05da1b4aa9966b7743bc38b09d1c4b34c8cc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6573237cbba8951bdd45c5b32c572b9af772ee5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555716"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519259"
 ---
 # <a name="connect-windows-security-events"></a>Connettere gli eventi di sicurezza di Windows 
 
@@ -79,7 +79,7 @@ Per raccogliere gli eventi di sicurezza di Windows in Sentinel di Azure:
 
 1. Selezionare il set di eventi ([tutti, comune o minimo](#event-sets)) che si desidera trasmettere in streaming.
 
-1. Fare clic su **Update**.
+1. Fare clic su **Aggiorna**.
 
 1. Per utilizzare lo schema pertinente in Log Analytics per gli eventi di sicurezza di Windows, digitare `SecurityEvent` nella finestra query.
 
@@ -87,7 +87,29 @@ Per raccogliere gli eventi di sicurezza di Windows in Sentinel di Azure:
 
 Potrebbero essere necessari circa 20 minuti prima che i log inizino a essere visualizzati in Log Analytics. 
 
+### <a name="configure-the-security-events-connector-for-anomalous-rdp-login-detection"></a>Configurare il connettore degli eventi di sicurezza per il rilevamento anomalo degli accessi RDP
 
+> [!IMPORTANT]
+> Il rilevamento anomalo degli accessi RDP è attualmente disponibile in anteprima pubblica.
+> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Sentinel può applicare Machine Learning (ML) ai dati degli eventi di sicurezza per identificare le attività di accesso anomale del Remote Desktop Protocol (RDP). Gli scenari includono:
+
+- **IP insolito** : l'indirizzo IP è stato raramente o mai osservato negli ultimi 30 giorni
+
+- **Posizione geografica insolita** : l'indirizzo IP, la città, il paese e l'ASN sono raramente o mai stati osservati negli ultimi 30 giorni
+
+- **Nuovo utente** : un nuovo utente accede da un indirizzo IP e da una posizione geografica, entrambi o uno dei quali non dovrebbe essere visualizzato in base ai dati dei 30 giorni precedenti.
+
+**Istruzioni di configurazione**
+
+1. È necessario raccogliere i dati di accesso RDP (ID evento 4624) tramite il connettore di dati **degli eventi di sicurezza** . Assicurarsi di aver selezionato un [set di eventi](#event-sets) oltre a "None" per eseguire lo streaming in Sentinel di Azure.
+
+1. Dal portale di Azure Sentinel fare clic su **Analytics**, quindi fare clic sulla scheda **modelli di regole** . scegliere la regola di **Rilevamento anomalie di accesso RDP (anteprima)** e spostare il dispositivo di scorrimento **stato** su **abilitato**.
+
+    > [!NOTE]
+    > Poiché l'algoritmo di machine learning richiede i dati di 30 giorni per la creazione di un profilo di base del comportamento dell'utente, è necessario consentire la raccolta di 30 giorni di dati degli eventi di sicurezza prima di poter rilevare eventuali eventi imprevisti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere gli eventi di sicurezza di Windows ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:

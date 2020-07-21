@@ -8,11 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 6829efa007e9e67866bdc0efbca4d095155c35e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82889693"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517876"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Log di diagnostica e integrità back-end per il gateway applicazione
 
@@ -155,7 +156,9 @@ Azure genera il log attività per impostazione predefinita. I log vengono conser
 
 ### <a name="access-log"></a>Log di accesso
 
-Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente per V1:
+Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato di seguito. 
+
+#### <a name="for-application-gateway-standard-and-waf-sku-v1"></a>Per lo SKU standard e WAF del gateway applicazione (V1)
 
 |valore  |Descrizione  |
 |---------|---------|
@@ -199,7 +202,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
     }
 }
 ```
-Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
+#### <a name="for-application-gateway-and-waf-v2-sku"></a>Per il gateway applicazione e lo SKU WAF V2
 
 |valore  |Descrizione  |
 |---------|---------|
@@ -220,7 +223,10 @@ Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 |serverRouted| Il server back-end a cui il gateway applicazione instrada la richiesta.|
 |serverStatus| Codice di stato HTTP del server back-end.|
 |serverResponseLatency| Latenza della risposta dal server back-end.|
-|host| Indirizzo elencato nell'intestazione host della richiesta.|
+|host| Indirizzo elencato nell'intestazione host della richiesta. Se riscritto, questo campo contiene il nome host aggiornato|
+|originalRequestUriWithArgs| Questo campo contiene l'URL della richiesta originale |
+|requestUri| Questo campo contiene l'URL dopo l'operazione di riscrittura sul gateway applicazione |
+|originalHost| Questo campo contiene il nome host della richiesta originale
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -261,7 +267,7 @@ Il log delle prestazioni viene generato solo se è stato abilitato in ogni istan
 |healthyHostCount     | Numero di host integri nel pool back-end.        |
 |unHealthyHostCount     | Numero di host non integri nel pool back-end.        |
 |requestCount     | Numero di richieste gestite.        |
-|latency | Latenza media in millisecondi delle richieste dall'istanza al back-end che gestisce le richieste. |
+|latenza | Latenza media in millisecondi delle richieste dall'istanza al back-end che gestisce le richieste. |
 |failedRequestCount| Numero di richieste non riuscite.|
 |throughput| Velocità effettiva media dall'ultimo log, misurata in byte al secondo.|
 
@@ -302,7 +308,7 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 |ruleSetVersion     | Versione del set di regole usata. I valori disponibili sono 2.2.9 e 3.0.     |
 |ruleId     | ID regola dell'evento di attivazione.        |
 |message     | Messaggio descrittivo dell'evento di attivazione. Altre informazioni sono disponibili nella sezione dei dettagli.        |
-|action     |  Azione eseguita sulla richiesta. I valori disponibili vengono abbinati e bloccati.      |
+|azione     |  Azione eseguita sulla richiesta. I valori disponibili vengono abbinati e bloccati.      |
 |site     | Sito per cui è stato generato il log. Attualmente viene visualizzato solo Global poiché le regole sono globali.|
 |dettagli     | Dettagli dell'evento di attivazione.        |
 |details.message     | Descrizione della regola.        |

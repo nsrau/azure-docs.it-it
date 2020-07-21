@@ -9,11 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513388"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518590"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -78,7 +79,7 @@ Per una guida interattiva alla risoluzione dei problemi end-to-end in applicazio
 ## <a name="introduction"></a><a name="introduction"></a>Introduzione
 Questa guida spiega come usare funzionalità quali l'analisi dell'archiviazione di Azure, la registrazione lato client nella libreria client di archiviazione di Azure e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati al servizio di archiviazione di Azure.
 
-![][1]
+![Diagramma che mostra il flusso di informazioni tra le applicazioni client e i servizi di archiviazione di Azure.][1]
 
 La guida è destinata in particolare agli sviluppatori dei servizi online che usano i servizi di archiviazione di Azure e ai professionisti IT responsabili della gestione di tali servizi online. Gli obiettivi della guida sono:
 
@@ -117,7 +118,7 @@ Nel portale di Azure sono visualizzate metriche come la disponibilità, le richi
 
 I grafici della figura seguente illustrano in che modo il calcolo della media delle metriche orarie può nascondere picchi di attività. Le metriche orarie sembrano indicare una frequenza costante delle richieste, mentre le metriche al minuto rivelano le fluttuazioni che si verificano effettivamente.
 
-![][3]
+![Grafici che mostrano come la media delle metriche orarie può nascondere i picchi di attività.][3]
 
 La parte rimanente di questa sezione descrive le metriche che è necessario monitorare e perché.
 
@@ -347,7 +348,7 @@ Il problema riguarda la disponibilità di uno dei servizi di archiviazione?
 ### <a name="metrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Le metriche indicano un valore AverageE2ELatency alto e un valore AverageServerLatency basso
 L'illustrazione dello strumento di monitoraggio del [portale di Azure](https://portal.azure.com) mostra un esempio in cui il valore **AverageE2ELatency** è notevolmente superiore al valore **AverageServerLatency**.
 
-![][4]
+![Illustrazione del portale di Azure che mostra un esempio in cui AverageE2ELatency è significativamente superiore rispetto a valore averageserverlatency.][4]
 
 Il servizio di archiviazione calcola solo la metrica **AverageE2ELatency** per le richieste eseguite correttamente e, a differenza di **AverageServerLatency**, include il tempo impiegato dal client per inviare i dati e ricevere una conferma dal servizio di archiviazione. Di conseguenza, una differenza tra **AverageE2ELatency** e **AverageServerLatency** potrebbe essere dovuta al fatto che l'applicazione è lenta a rispondere oppure alle condizioni della rete.
 
@@ -726,7 +727,7 @@ Dopo l'avvio, Fiddler inizia ad acquisire il traffico HTTP e HTTPS sul computer 
 
 Per limitare il volume del traffico acquisito da Fiddler, utilizzare i filtri configurabili nella scheda **Filters** . La schermata che segue mostra un esempio di filtro che acquisisce solo il traffico inviato all'endpoint di archiviazione **contosoemaildist.table.core.windows.net** :
 
-![][5]
+![Screenshot che mostra un filtro che acquisisce solo il traffico inviato all'endpoint di archiviazione contosoemaildist.table.core.windows.net.][5]
 
 ### <a name="appendix-2-using-wireshark-to-capture-network-traffic"></a><a name="appendix-2"></a>Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete
 [Wireshark](https://www.wireshark.org/) è uno strumento di analisi dei protocolli di rete che consente di visualizzare informazioni dettagliate sui pacchetti per un'ampia gamma di protocolli di rete.
@@ -738,18 +739,18 @@ La procedura che segue indica come acquisire informazioni dettagliate sui pacche
 3. Fare clic su **Capture Options**.
 4. Aggiungere un filtro nella casella di testo **Capture Filter** . Ad esempio, **host contosoemaildist.table.core.windows.net** configura Wireshark per acquisire solo i pacchetti inviati o ricevuti dall'endpoint del servizio tabelle nell'account di archiviazione **contosoemaildist**. Vedere l' [elenco completo dei filtri di acquisizione](https://wiki.wireshark.org/CaptureFilters).
 
-   ![][6]
+   ![Screenshot che illustra come aggiungere un filtro alla casella di testo del filtro di acquisizione.][6]
 5. Fare clic su **Avvia**. Wireshark acquisirà tutti i pacchetti inviati a o dall'endpoint del servizio tabelle non appena l'applicazione client viene utilizzata sul computer locale.
 6. Al termine, fare clic su **Capture** nel menu principale e su **Stop**.
 7. Per salvare i dati acquisiti in un file di acquisizione di Wireshark, fare clic su **File** nel menu principale e scegliere **Save**.
 
 WireShark evidenzia tutti gli errori presenti nella finestra **packetlist** . È possibile anche usare la finestra **Expert Info** (fare clic su **Analyze** e su **Expert Info**) per visualizzare un riepilogo di errori e avvisi.
 
-![][7]
+![Screenshot che mostra la finestra informazioni di esperti in cui è possibile visualizzare un riepilogo degli errori e degli avvisi.][7]
 
 È anche possibile scegliere di visualizzare i dati TCP nello stesso modo in cui vengono visualizzati dal livello dell'applicazione, facendo clic con il pulsante destro del mouse sui dati TCP e selezionando **Follow TCP Stream** (Segui flusso TCP). Ciò è utile se si acquisisce il dump senza un filtro di acquisizione. Per altre informazioni, vedere [Seguire i flussi TCP](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
-![][8]
+![Screenshot che illustra come visualizzare i dati TCP come il livello dell'applicazione lo vede.][8]
 
 > [!NOTE]
 > Per ulteriori informazioni sull'uso di Wireshark, vedere la [guida dell'utente di Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
@@ -782,11 +783,11 @@ Oltre a usare la traccia **Web Proxy** di Microsoft Message Analyzer per acquisi
 
 La schermata seguente illustra un esempio della traccia **Local Link Layer** con alcuni messaggi **informativi** nella colonna **DiagnosisTypes**. Facendo clic su un'icona nella colonna **DiagnosisTypes** verranno visualizzati i dettagli del messaggio. In questo esempio, il server ha ritrasmesso il messaggio #305 perché non riceveva una conferma dal client:
 
-![][9]
+![Screenshot che mostra un esempio di traccia del livello di collegamento locale con alcuni messaggi informativi nella colonna DiagnosisTypes][9]
 
 Quando si crea la sessione di traccia in Microsoft Message Analyzer, è possibile specificare dei filtri per ridurre la quantità di disturbi nella traccia. Nella pagina **Capture / Trace** in cui si definisce la traccia, fare clic sul collegamento **Configure** accanto a **Microsoft-Windows-NDIS-PacketCapture**. La schermata che segue mostra una configurazione in cui il traffico TCP viene filtrato per gli indirizzi IP di tre servizi di archiviazione:
 
-![][10]
+![Screenshot che mostra una configurazione che filtra il traffico TCP per gli indirizzi IP di tre servizi di archiviazione.][10]
 
 Per altre informazioni sulla traccia di Local Link Layer di Microsoft Message Analyzer, vedere [Microsoft-PEF-NDIS-PacketCapture Provider](https://technet.microsoft.com/library/jj659264.aspx).
 

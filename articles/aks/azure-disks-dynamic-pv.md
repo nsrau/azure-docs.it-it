@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come creare dinamicamente un volume permanente con dischi di Azure in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: 0e7bc057d756215b1aa155f0e227c75c99c8737c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751363"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518012"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con i dischi di Azure nel servizio Azure Kubernetes
 
@@ -31,14 +31,14 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 Una classe di archiviazione viene usata per definire la creazione dinamica di un'unità di archiviazione con un volume permanente. Per altre informazioni sulle classi di archiviazione Kubernetes, vedere [Kubernetes Storage Classes][kubernetes-storage-classes] (Classi di archiviazione Kubernetes).
 
-Ogni cluster servizio Azure Kubernetes include due classi di archiviazione predefinite, entrambe configurate per l'uso con i dischi di Azure:
+Ogni cluster AKS include quattro classi di archiviazione create in precedenza, due delle quali sono configurate per l'uso con i dischi di Azure:
 
-* La classe di archiviazione *predefinita* esegue il provisioning di un disco di Azure standard.
-    * L'archiviazione standard è supportata da HDD e offre una soluzione di archiviazione economicamente conveniente mentre è ancora in fase di esecuzione. I dischi standard sono ideali per un carico di lavoro di sviluppo e test economicamente conveniente.
+* La classe di archiviazione *predefinita* effettua il provisioning di un disco di Azure SSD standard.
+    * L'archiviazione standard è supportata da SSD standard e offre una soluzione di archiviazione economicamente conveniente, garantendo allo stesso tempo prestazioni affidabili. 
 * La classe di archiviazione *gestita Premium* esegue il provisioning di un disco di Azure premium.
     * I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. Se i nodi del servizio Azure Container nel cluster usano l'archiviazione premium, selezionare la classe *gestita Premium*.
     
-Se si usa una delle classi di archiviazione predefinite, non è possibile aggiornare la dimensione del volume dopo la creazione della classe di archiviazione. Per poter aggiornare le dimensioni del volume dopo la creazione di una classe di archiviazione, aggiungere la riga `allowVolumeExpansion: true` a una delle classi di archiviazione predefinite oppure è possibile creare una classe di archiviazione personalizzata. È possibile modificare una classe di archiviazione esistente usando il `kubectl edit sc` comando. 
+Se si usa una delle classi di archiviazione predefinite, non è possibile aggiornare la dimensione del volume dopo la creazione della classe di archiviazione. Per poter aggiornare le dimensioni del volume dopo la creazione di una classe di archiviazione, aggiungere la riga `allowVolumeExpansion: true` a una delle classi di archiviazione predefinite oppure è possibile creare una classe di archiviazione personalizzata. Si noti che non è supportato per ridurre le dimensioni di un PVC (per evitare la perdita di dati). È possibile modificare una classe di archiviazione esistente usando il `kubectl edit sc` comando. 
 
 Se ad esempio si vuole usare un disco di dimensioni 4 TiB, è necessario creare una classe di archiviazione che definisce `cachingmode: None` perché la [memorizzazione nella cache del disco non è supportata per i dischi 4 TIB e superiori](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
 
@@ -151,6 +151,9 @@ Events:
   Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "pvc-faf0f176-8b8d-11e8-923b-deb28c58d242"
 [...]
 ```
+
+## <a name="use-ultra-disks"></a>Usare dischi ultra
+Per sfruttare il disco Ultra, vedere [usare dischi ultra in Azure Kubernetes Service (AKS)](use-ultra-disks.md).
 
 ## <a name="back-up-a-persistent-volume"></a>Eseguire il backup di un volume persistente
 
@@ -284,3 +287,11 @@ Altre informazioni sui volumi permanenti Kubernetes che usano i dischi di Azure.
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

@@ -3,12 +3,12 @@ title: Usare PowerShell per impostare gli avvisi in Application Insights | Micro
 description: Automatizzare la configurazione di Application Insights per ricevere messaggi di posta elettronica sulle modifiche delle metriche.
 ms.topic: conceptual
 ms.date: 10/31/2016
-ms.openlocfilehash: ea33ecfbc02bfed75a66e751ce1788474a6d0e8f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3a3d614ec57242a2ea4b29a86d6365a2efe56f94
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111304"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516958"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usare PowerShell per impostare gli avvisi in Application Insights
 
@@ -139,7 +139,7 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 È possibile [automatizzare la risposta a un avviso](../../azure-monitor/platform/alerts-webhooks.md). Azure richiamerà l'indirizzo Web specificato quando viene generato un avviso.
 
 ## <a name="see-also"></a>Vedere anche
-* [Script per configurare Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
+* [Script per configurare Application Insights](./create-new-resource.md#creating-a-resource-automatically)
 * [Creare risorse Application Insights e test web da modelli](powershell.md)
 * [Automatizzare l'accoppiamento tra Diagnostica di Microsoft Azure e Application Insights](powershell-azure-diagnostics.md)
 * [Automatizzare la risposta a un avviso](../../azure-monitor/platform/alerts-webhooks.md)

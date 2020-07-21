@@ -3,12 +3,12 @@ title: Risoluzione dei problemi relativi a dati non disponibili in Application I
 description: I dati non vengono visualizzati in Azure Application Insights Risposte ai problemi più comuni.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 3f1c4a741bf092ab89638fdca130a52d96318157
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 351ef145ab65fee8397034912f9a6ce295f1f909
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221035"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517169"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET/.NET Core
 
@@ -42,7 +42,7 @@ ms.locfileid: "86221035"
 *Quando si fa clic con il pulsante destro del mouse su un progetto esistente in Esplora soluzioni, non è presente alcuna opzione di Application Insights.*
 
 * Non tutti i tipi di progetto .NET sono supportati dagli strumenti. I progetti Web e WCF sono supportati. Per altri tipi di progetto, ad esempio applicazioni desktop o di servizio, è comunque possibile [aggiungere manualmente un SDK Application Insights al progetto](../../azure-monitor/app/windows-desktop.md).
-* Assicurarsi di disporre di [Visual Studio 2013 Update 3 o versioni successive](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). È preinstallata con Developer Analytics Tools che fornisce Application Insights SDK.
+* Assicurarsi di disporre di [Visual Studio 2013 Update 3 o versioni successive](/visualstudio/releasenotes/vs2013-update3-rtm-vs). È preinstallata con Developer Analytics Tools che fornisce Application Insights SDK.
 * Selezionare **Strumenti**, **Estensioni e aggiornamenti** e verificare l'installazione e l'abilitazione di **Developer Analytics Tools**. In tal caso, fare clic su **Aggiornamenti** per verificare se è disponibile un aggiornamento.
 * Aprire la finestra di dialogo Nuovo progetto e scegliere Applicazione Web ASP.NET. Se l'opzione Application Insights è presente, gli strumenti sono installati. In caso contrario, provare a disinstallare e reinstallare Developer Analytics Tools.
 
@@ -132,7 +132,7 @@ Correzione:
   * In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse e scegliere Application Insights, Configura. Reimpostare l'app per l'invio di dati di telemetria alla risorsa corretta.
   * Se le chiavi non corrispondono, assicurarsi di aver usato le stesse credenziali di accesso in Visual Studio e nel portale.
 * Nel [dashboard della schermata iniziale di Microsoft Azure](https://portal.azure.com)esaminare la mappa relativa all'integrità del servizio. Se ci sono indicazioni di avviso, attendere che tornino alla normalità, quindi chiudere e riaprire il pannello dell'applicazione di Application Insights.
-* Controllare anche il [blog sullo stato](https://blogs.msdn.microsoft.com/servicemap-status/).
+* Controllare anche il [blog sullo stato](https://techcommunity.microsoft.com/t5/azure-monitor-status/bg-p/AzureMonitorStatusBlog).
 * Potrebbe essere stato scritto un codice per l'[SDK lato server](../../azure-monitor/app/api-custom-events-metrics.md) che trasforma la chiave di strumentazione in istanze di `TelemetryClient` o in `TelemetryContext`. Potrebbe anche essere stata scritta una [configurazione del filtro o di campionamento](../../azure-monitor/app/api-filtering-sampling.md) che esclude troppi dati.
 * Se si è modificato ApplicationInsights.config, controllare attentamente la configurazione di [TelemetryInitializers e TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). Un tipo o un parametro denominato in modo non corretto può impedire a SDK l'invio dei dati.
 
@@ -154,7 +154,7 @@ I dati sulle prestazioni (CPU, velocità di IO e così via) sono disponibili per
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Dati del server non presenti dopo la pubblicazione dell'app nel server
 * Verificare di aver effettivamente copiato tutti i Microsoft. DLL ApplicationInsights al server, insieme a Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * Nel firewall potrebbe essere necessario [aprire alcune porte TCP](../../azure-monitor/app/ip-addresses.md).
-* Se è necessario usare un proxy per inviare all'esterno della rete aziendale, impostare [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
+* Se è necessario usare un proxy per inviare all'esterno della rete aziendale, impostare [defaultProxy](/previous-versions/dotnet/netframework-1.1/aa903360(v=vs.71)) in Web.config
 * Windows Server 2008: Assicurarsi di avere installato gli aggiornamenti seguenti: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Non vengono più visualizzati i dati disponibili in precedenza
@@ -170,7 +170,7 @@ Se l'applicazione invia una grande quantità di dati ed è in uso Application In
 Il 5 febbraio 2018 è stata annunciata la rimozione della registrazione dell'indirizzo IP del client. Questa operazione non influenza la posizione geografica.
 
 > [!NOTE]
-> Se si ha bisogno dei primi 3 ottetti dell'indirizzo IP è possibile usare un [inizializzatore di telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer) per aggiungere un attributo personalizzato.
+> Se si ha bisogno dei primi 3 ottetti dell'indirizzo IP è possibile usare un [inizializzatore di telemetria](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) per aggiungere un attributo personalizzato.
 > Questa operazione non influisce sui dati raccolti prima del 5 febbraio 2018.
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Dati geografici errati nella telemetria utente
@@ -206,9 +206,9 @@ Seguire queste istruzioni per acquisire i log di risoluzione dei problemi per il
 
 ### <a name="net-core"></a>.NET Core
 
-1. Installare il pacchetto [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) da NuGet. La versione installata deve corrispondere alla versione attualmente installata di `Microsoft.ApplicationInsights`
+1. Installare il [pacchetto NuGet di Application Insights SDK per ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) pacchetto da NuGet. La versione installata deve corrispondere alla versione corrente di `Microsoft.ApplicationInsights` .
 
-La versione più recente di Microsoft.ApplicationInsights.AspNetCore è 2.8.2 e fa riferimento a Microsoft.ApplicationInsights versione 2.11.2. È quindi necessario installare Microsoft.AspNet.ApplicationInsights.HostingStartup versione 2.11.2
+   La versione più recente di Microsoft. ApplicationInsights. AspNetCore è 2.14.0 e fa riferimento a Microsoft. ApplicationInsights versione 2.14.0. La versione di Microsoft. ApplicationInsights. AspNetCore da installare deve quindi essere 2.14.0.
 
 2. Modificare il metodo `ConfigureServices` nella classe `Startup.cs`:
 
@@ -249,7 +249,7 @@ Per altre informazioni,
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Raccogliere log con dotnet-trace
 
-Un metodo alternativo per la raccolta di log per la risoluzione dei problemi che può risultare particolarmente utile per gli ambienti basati su Linux è [`dotnet-trace`](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-trace)
+Un metodo alternativo per la raccolta di log per la risoluzione dei problemi che può risultare particolarmente utile per gli ambienti basati su Linux è [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
 
 ```bash
 dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
@@ -260,4 +260,4 @@ dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsight
 Per informazioni su come rimuovere Application Insights in Visual Studio, seguire i passaggi disponibili in questo [articolo](../../azure-monitor/app/remove-application-insights.md).
 
 ## <a name="still-not-working"></a>Non funzionante...
-* [Pagina delle domande e risposte Microsoft relativa ad Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+* [Pagina delle domande e risposte Microsoft relativa ad Application Insights](/answers/topics/azure-monitor.html)

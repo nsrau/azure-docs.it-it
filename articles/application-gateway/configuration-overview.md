@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254668"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517842"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -146,7 +146,7 @@ Quando si crea un nuovo listener, è possibile scegliere tra [le funzionalità d
 
 - Se si desidera che tutte le richieste (per qualsiasi dominio) vengano accettate e inviate ai pool back-end, scegliere Basic. Informazioni [su come creare un gateway applicazione con un listener di base](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Se si desidera inviare richieste a diversi pool back-end in base all'intestazione o al nome host *host* , scegliere listener multisito, in cui è necessario specificare anche un nome host corrispondente alla richiesta in ingresso. Questo perché il gateway applicazione si basa sulle intestazioni host HTTP 1,1 per ospitare più siti Web nello stesso indirizzo IP pubblico e porta.
+- Se si desidera inviare richieste a diversi pool back-end in base all'intestazione *host* o ai nomi host, scegliere listener multisito, in cui è necessario specificare anche un nome host corrispondente alla richiesta in ingresso. Questo perché il gateway applicazione si basa sulle intestazioni host HTTP 1,1 per ospitare più siti Web nello stesso indirizzo IP pubblico e porta. Per altre informazioni, vedere [hosting di più siti con il gateway applicazione](multiple-site-overview.md).
 
 #### <a name="order-of-processing-listeners"></a>Ordine dei listener di elaborazione
 
@@ -279,12 +279,16 @@ Per ulteriori informazioni sul reindirizzamento, vedere:
 - [Reindirizzare il traffico a un sito esterno tramite PowerShell](redirect-external-site-powershell.md)
 - [Reindirizzare il traffico a un sito esterno tramite l'interfaccia della riga di comando](redirect-external-site-cli.md)
 
-#### <a name="rewrite-the-http-header-setting"></a>Riscrivere l'impostazione dell'intestazione HTTP
+### <a name="rewrite-http-headers-and-url"></a>Riscrivere le intestazioni HTTP e l'URL
 
-Questa impostazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP mentre i pacchetti di richiesta e risposta vengono spostati tra il client e i pool back-end. Per altre informazioni, vedere:
+Con le regole di riscrittura è possibile aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP (S), nonché il percorso URL e i parametri della stringa di query, perché i pacchetti di richiesta e risposta passano tra il client e i pool back-end tramite il gateway applicazione.
 
- - [Panoramica delle intestazioni HTTP di riscrittura](rewrite-http-headers.md)
+I parametri Header e URL possono essere impostati su valori statici o ad altre intestazioni e variabili server. Questo consente di utilizzare casi di utilizzo importanti, ad esempio l'estrazione di indirizzi IP del client, la rimozione di informazioni riservate sul back-end, l'aggiunta di ulteriore sicurezza e così via.
+Per altre informazioni, vedere:
+
+ - [Panoramica delle intestazioni HTTP di riscrittura](rewrite-http-headers-url.md)
  - [Configurare la riscrittura dell'intestazione HTTP](rewrite-http-headers-portal.md)
+ - [Configurare la riscrittura URL](rewrite-url-portal.md)
 
 ## <a name="http-settings"></a>Impostazioni HTTP
 
@@ -357,7 +361,7 @@ Questa impostazione associa un [Probe personalizzato](application-gateway-probe-
 > [!NOTE]
 > Il probe personalizzato non monitora l'integrità del pool back-end, a meno che l'impostazione HTTP corrispondente non sia associata in modo esplicito a un listener.
 
-### <a name="pick-host-name-from-back-end-address"></a><a id="pick"/></a>Selezionare il nome host dall'indirizzo back-end
+### <a name="pick-host-name-from-back-end-address"></a><a name="pick"></a>Selezionare il nome host dall'indirizzo back-end
 
 Questa funzionalità imposta dinamicamente l'intestazione *host* nella richiesta sul nome host del pool back-end. Usa un indirizzo IP o un FQDN.
 

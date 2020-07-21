@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd19093034b4427d9e1b637a653a90e0568cddf
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 11d5c1bb133f0aea241fbc55f96ab5f8818e5ed6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223925"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518114"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo argomento descrive i prerequisiti e i requisiti hardware per Azure AD Connect.
@@ -34,7 +34,7 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
   * [Portale di Azure](https://portal.azure.com).
   * Il [portale di Office](https://portal.office.com).  
 * [Aggiungere e verificare il dominio](../active-directory-domains-add-azure-portal.md) che si prevede di usare in Azure AD. Ad esempio, se si prevede di usare contoso.com per gli utenti, assicurarsi che il dominio sia stato verificato e che non si usi solo il dominio predefinito contoso.onmicrosoft.com.
-* Per impostazione predefinita, in un tenant di Azure AD sono consentiti 50.000 oggetti. Quando si verifica il dominio, questo limite aumenta a 300.000 oggetti. Se sono necessari anche più oggetti in Azure AD, è necessario aprire un caso di supporto per aumentare ulteriormente il limite. Se sono necessari più di 500.000 oggetti, allora occorre una licenza, ad esempio Office 365, Azure AD Basic, Azure AD Premium o Enterprise Mobility and Security.
+* Per impostazione predefinita, in un tenant di Azure AD sono consentiti 50.000 oggetti. Quando si verifica il dominio, questo limite aumenta a 300.000 oggetti. Se sono necessari anche più oggetti in Azure AD, è necessario aprire un caso di supporto per aumentare ulteriormente il limite. Se sono necessari più di oggetti 500.000, è necessaria una licenza, ad esempio Office 365, Azure AD Premium o Enterprise Mobility and Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Preparare i dati locali
 * Usare [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) per identificare gli errori, ad esempio i duplicati e problemi di formattazione nella directory prima di eseguire la sincronizzazione con Azure AD e Office 365.
@@ -56,7 +56,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 
 #### <a name="installation-prerequisites"></a>Prerequisiti di installazione 
 
-- Azure AD Connect deve essere installato in un dominio Windows Server 2012 o versione successiva. Si consiglia vivamente di utilizzare questo server come controller di dominio. 
+- Azure AD Connect deve essere installato in un dominio Windows Server 2012 o versione successiva. 
 - Azure AD Connect non può essere installato su Small Business Server o Windows Server Essentials prima del 2019 (Windows Server Essentials 2019 è supportato). Il server deve utilizzare Windows Server Standard o versione successiva.  
 - Il server Azure AD Connect deve avere un'interfaccia utente grafica completa installata. Non è supportata l'installazione di Azure AD Connect in Windows Server Core. 
 - Se si usa Azure AD Connect procedura guidata per gestire la configurazione di ADFS, è necessario che nel server Azure AD Connect non sia abilitata la traCriteri di gruppo scrizione di PowerShell. Se si usa la procedura guidata di Azure AD Connect per gestire la configurazione della sincronizzazione, è possibile abilitare la trascrizione di PowerShell. 
@@ -130,7 +130,7 @@ Microsoft consiglia di applicare la protezione avanzata al server Azure AD Conne
 Per altre informazioni vedere MSDN sull'[elemento proxy predefinito](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i problemi di connettività](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altri
 * Facoltativo: un account utente di prova per verificare la sincronizzazione.
 
 ## <a name="component-prerequisites"></a>Prerequisiti dei componenti

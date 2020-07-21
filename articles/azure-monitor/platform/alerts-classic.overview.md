@@ -4,16 +4,17 @@ description: Gli avvisi classici sono in fase di deprecazione. Gli avvisi consen
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d120550d17dcac7410a259e131ad81feb0afdf9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114492"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515955"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
 > [!NOTE]
-> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [avvisi delle metriche near Real time più recenti e una nuova esperienza di avvisi](../../azure-monitor/platform/alerts-overview.md). Gli avvisi classici vengono [ritirati](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. 
+> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [avvisi delle metriche near Real time più recenti e una nuova esperienza di avvisi](../../azure-monitor/platform/alerts-overview.md). Gli avvisi classici vengono [ritirati](./monitoring-classic-retirement.md), anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. 
 >
 
 Gli avvisi consentono di configurare le condizioni sui dati e la notifica di quando le condizioni corrispondono ai dati di monitoraggio più recenti.
@@ -88,7 +89,7 @@ Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione 
 * Configurare gli [avvisi delle metriche classici tramite il portale di Azure](alerts-classic-portal.md)
 * Configurare gli [avvisi delle metriche classici per PowerShell](alerts-classic-portal.md)
 * Configurare gli [avvisi delle metriche classici per l'interfaccia della riga di comando](alerts-classic-portal.md)
-* Configurare gli [avvisi delle metriche classici per l'API REST del Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Configurare gli [avvisi delle metriche classici per l'API REST del Monitoraggio di Azure](/rest/api/monitor/alertrules)
 * Altre informazioni sul [log attività](platform-logs-overview.md)
 * Configurare [gli avvisi del log attività tramite il portale di Azure](activity-log-alerts.md)
 * Configurare [gli avvisi del log attività tramite Resource Manager](alerts-activity-log.md)

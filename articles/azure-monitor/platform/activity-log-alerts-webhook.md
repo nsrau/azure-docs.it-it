@@ -4,11 +4,12 @@ description: Informazioni sullo schema del formato JSON che viene pubblicato in 
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1db12f352ec79a3112eada68d82279c9e0343a04
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669047"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516159"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook per gli avvisi del log attività di Azure
 Nella definizione di un gruppo di azione è possibile configurare gli endpoint webhook in modo da ricevere le notifiche per gli avvisi del log attività. Con i webhook è possibile instradare queste notifiche ad altri sistemi per la post-elaborazione o azioni personalizzate. L'articolo illustra anche il modo in cui il payload per il protocollo HTTP POST viene percepito da un webhook.
@@ -56,7 +57,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
 }
 ```
 
-### <a name="administrative"></a>Administrative
+### <a name="administrative"></a>Amministrativo
 
 ```json
 {
@@ -213,7 +214,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
 }
 ```
 
-Per i dettagli su schemi specifici relativi agli avvisi del log attività per le notifiche sull'integrità del servizio, vedere [Notifiche sull'integrità del servizio](../../azure-monitor/platform/service-notifications.md). Informazioni su come [configurare notifiche webhook di integrità del servizio con le soluzioni di gestione dei problemi esistenti](../../service-health/service-health-alert-webhook-guide.md).
+Per i dettagli su schemi specifici relativi agli avvisi del log attività per le notifiche sull'integrità del servizio, vedere [Notifiche sull'integrità del servizio](../../service-health/service-notifications.md). Informazioni su come [configurare notifiche webhook di integrità del servizio con le soluzioni di gestione dei problemi esistenti](../../service-health/service-health-alert-webhook-guide.md).
 
 ### <a name="resourcehealth"></a>ResourceHealth
 
@@ -267,7 +268,7 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 | resourceId |ID della risorsa interessata. |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
 | properties |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
-| event |Elemento contenente i metadati relativi all'evento. |
+| evento |Elemento contenente i metadati relativi all'evento. |
 | authorization |Proprietà di controllo degli accessi in base al ruolo per l'evento. Queste proprietà includono in genere action, role e scope. |
 | category |Categoria dell'evento. I valori supportati includono Administrative, Alert, Security, ServiceHealth e Recommendation. |
 | caller |Indirizzo di posta elettronica dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. Può essere null per alcune chiamate di sistema. |
@@ -291,4 +292,3 @@ Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log att
 * [Usare un'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.
 * [Usare un'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.
 * [Usare un'app per la logica per inviare un messaggio a una coda di Azure da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.
-

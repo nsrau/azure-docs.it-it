@@ -4,12 +4,12 @@ description: Questo articolo descrive come configurare la visualizzazione in tem
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9d60836af350e9af99355db9a7cc140a949d1492
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337934"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516465"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
@@ -19,7 +19,7 @@ Questa funzionalità supporta i metodi seguenti per controllare l'accesso ai log
 
 - Servizio Azure Kubernetes senza autorizzazione del controllo degli accessi in base al ruolo di Kubernetes abilitata
 - Servizio Azure Kubernetes con autorizzazione del controllo degli accessi in base al ruolo di Kubernetes abilitata
-    - AKS configurato con l'associazione di ruoli del cluster ** [clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - AKS configurato con l'associazione di ruoli del cluster ** [clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
 - AKS abilitato con Single Sign-on basato su SAML di Azure Active Directory (AD)
 
 Queste istruzioni richiedono l'accesso amministrativo al cluster Kubernetes e, se si configura per l'uso di Azure Active Directory (AD) per l'autenticazione degli utenti, l'accesso amministrativo ai Azure AD.
@@ -108,7 +108,7 @@ Azure AD la registrazione client deve essere riconfigurata per consentire al por
 Per altre informazioni sulla configurazione della sicurezza avanzata in Kubernetes, vedere la [documentazione di Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Se si sta creando un nuovo cluster abilitato per il controllo degli accessi in base al ruolo, vedere [integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/azure-ad-integration.md) e seguire i passaggi per configurare l'autenticazione Azure ad. Durante i passaggi per creare l'applicazione client, una nota nella sezione evidenzia i due URL di reindirizzamento che è necessario creare per il monitoraggio di Azure per i contenitori corrispondenti a quelli specificati nel passaggio 3 riportato di seguito.
+>Se si sta creando un nuovo cluster abilitato per il controllo degli accessi in base al ruolo, vedere [integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/azure-ad-integration-cli.md) e seguire i passaggi per configurare l'autenticazione Azure ad. Durante i passaggi per creare l'applicazione client, una nota nella sezione evidenzia i due URL di reindirizzamento che è necessario creare per il monitoraggio di Azure per i contenitori corrispondenti a quelli specificati nel passaggio 3 riportato di seguito.
 
 ### <a name="client-registration-reconfiguration"></a>Riconfigurazione della registrazione client
 

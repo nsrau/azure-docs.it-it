@@ -3,11 +3,12 @@ title: Diagnosticare errori ed eccezioni con applicazione Azure Insights
 description: Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria della richiesta.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d298b3b8541590387995898b0b9f067e8130c3d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892343"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517213"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
 Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insights](../../azure-monitor/app/app-insights-overview.md). È possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.
@@ -18,7 +19,7 @@ Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insi
   * VM di Azure e set di scalabilità di macchine virtuali di Azure-App ospitate in IIS: aggiungere l' [estensione di monitoraggio delle applicazioni](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Installare [Application Insights SDK](../../azure-monitor/app/asp-net.md) nel codice dell'app, oppure
   * Server Web IIS: eseguire l'[Agente di Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md); o
-  * App Web Java: Abilita l' [agente Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+  * App Web Java: Abilita l' [agente Java](./java-in-process-agent.md)
 * Installare il [frammento di JavaScript](../../azure-monitor/app/javascript.md) nelle pagine Web per intercettare le eccezioni del browser.
 * In certi framework applicazione o con alcune impostazioni è necessario eseguire alcuni passaggi aggiuntivi per intercettare più eccezioni:
   * [Web Form](#web-forms)
@@ -27,7 +28,7 @@ Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insi
   * [API Web 2.*](#web-api-2x)
   * [WCF](#wcf)
 
-  Questo articolo è incentrato specificamente sulle app .NET Framework dal punto di vista di un esempio di codice. Alcuni dei metodi che funzionano per .NET Framework sono obsoleti nel .NET Core SDK. Vedere la [documentazione di .NET Core SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) se si dispone di un'app .NET Core.
+  Questo articolo è incentrato specificamente sulle app .NET Framework dal punto di vista di un esempio di codice. Alcuni dei metodi che funzionano per .NET Framework sono obsoleti nel .NET Core SDK. Vedere la [documentazione di .NET Core SDK](./asp-net-core.md) se si dispone di un'app .NET Core.
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnosticare le eccezioni con Visual Studio
 Aprire la soluzione dell'app in Visual Studio per facilitare il debug.
@@ -76,7 +77,7 @@ Sono disponibili diverse opzioni:
 
 Per visualizzare questi eventi, aprire [Cerca](../../azure-monitor/app/diagnostic-search.md) dal menu a sinistra, selezionare i **tipi di evento**del menu a discesa, quindi scegliere evento personalizzato, traccia o eccezione.
 
-![Drill through](./media/asp-net-exceptions/customevents.png)
+![Drill-through](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > Se l’app genera molti dati di telemetria, il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Gli eventi che fanno parte della stessa operazione verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento.](../../azure-monitor/app/sampling.md)
@@ -213,7 +214,7 @@ Le eccezioni non gestite provenienti da controller restituiscono in genera la ri
 ### <a name="prior-versions-support"></a>Supporto nelle versioni precedenti
 Se si usa MVC 4 (e versioni precedenti) di Application Insights Web SDK 2.5 (e versioni precedenti), vedere gli esempi seguenti per tenere traccia delle eccezioni.
 
-Se la configurazione di [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) è `Off`, le eccezioni potranno essere raccolte dal [modulo HTTP](https://msdn.microsoft.com/library/ms178468.aspx). Se tuttavia è `RemoteOnly` (impostazione predefinita) o `On`, l'eccezione verrà cancellata e non potrà essere raccolta automaticamente da Application Insights. È possibile risolvere questo problema eseguendo l'override della [classe System.Web.Mvc.HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx) e applicando la classe di cui è stato eseguito l'override, come illustrato per le diverse versioni MVC riportate di seguito ([origine github](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Se la configurazione di [CustomErrors](/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100)) è `Off`, le eccezioni potranno essere raccolte dal [modulo HTTP](/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85)). Se tuttavia è `RemoteOnly` (impostazione predefinita) o `On`, l'eccezione verrà cancellata e non potrà essere raccolta automaticamente da Application Insights. È possibile risolvere questo problema eseguendo l'override della [classe System.Web.Mvc.HandleErrorAttribute](/dotnet/api/system.web.mvc.handleerrorattribute?view=aspnet-mvc-5.2) e applicando la classe di cui è stato eseguito l'override, come illustrato per le diverse versioni MVC riportate di seguito ([origine github](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;

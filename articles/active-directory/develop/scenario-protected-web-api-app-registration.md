@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868836"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518275"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protetta: registrazione dell'app
 
@@ -28,15 +29,15 @@ Per i passaggi comuni per la registrazione di un'app, vedere [Guida introduttiva
 
 L'endpoint della piattaforma Microsoft Identity può emettere token v 1.0 e token v 2.0. Per altre informazioni su questi token, vedere [token di accesso](access-tokens.md).
 
-La versione del token accettata dipende dal valore dei **tipi di conto supportati** scelto durante la creazione dell'applicazione.
+La versione del token che l'API può accettare dipende dalla selezione dei **tipi di account supportati** quando si crea la registrazione dell'applicazione API web nel portale di Azure.
 
-- Se il valore dei **tipi di account supportati** è **account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**, la versione del token accettata è v 2.0.
-- In caso contrario, la versione del token accettata è v 1.0.
+- Se il valore dei **tipi di account supportati** è **account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**, la versione del token accettata deve essere v 2.0.
+- In caso contrario, la versione del token accettata può essere v 1.0.
 
 Dopo aver creato l'applicazione, è possibile determinare o modificare la versione del token accettato attenendosi alla seguente procedura:
 
 1. Nella portale di Azure selezionare l'app e quindi selezionare **manifesto**.
-1. Individuare la proprietà **accessTokenAcceptedVersion** nel manifesto. Il valore predefinito della proprietà è 2.
+1. Individuare la proprietà **accessTokenAcceptedVersion** nel manifesto.
 1. Il valore specifica di Azure Active Directory (Azure AD) la versione del token accettata dall'API Web.
     - Se il valore è 2, l'API Web accetta i token v 2.0.
     - Se il valore è **null**, l'API Web accetta i token v 1.0.
@@ -51,7 +52,7 @@ Le API Web non devono registrare un URI di reindirizzamento perché nessun utent
 
 ## <a name="exposed-api"></a>API esposta
 
-Altre impostazioni specifiche delle API Web sono l'API esposta e gli ambiti esposti.
+Altre impostazioni specifiche delle API Web sono l'API esposta e gli ambiti o i ruoli dell'app esposti.
 
 ### <a name="application-id-uri-and-scopes"></a>URI e ambiti dell'ID applicazione
 
@@ -63,7 +64,7 @@ Durante la registrazione dell'app, è necessario definire i parametri seguenti:
 - Uno o più ambiti
 - Uno o più ruoli dell'app
 
-Per impostazione predefinita, il portale di registrazione delle applicazioni consiglia di usare l'URI della risorsa `api://{clientId}` . Questo URI è univoco ma non leggibile. Se si modifica l'URI, verificare che il nuovo valore sia univoco.
+Per impostazione predefinita, il portale di registrazione delle applicazioni consiglia di usare l'URI della risorsa `api://{clientId}` . Questo URI è univoco ma non leggibile. Se si modifica l'URI, verificare che il nuovo valore sia univoco. Il portale di registrazione delle applicazioni assicurerà di usare un [dominio di pubblicazione configurato](howto-configure-publisher-domain.md)
 
 Per le applicazioni client, gli ambiti vengono visualizzati come autorizzazioni *delegate* e i ruoli app vengono visualizzati come *autorizzazioni dell'applicazione* per l'API Web.
 
@@ -71,6 +72,8 @@ Gli ambiti vengono visualizzati anche nella finestra di consenso presentata agli
 
 - Come osservato da un utente.
 - Come osservato da un amministratore del tenant, che può concedere il consenso dell'amministratore.
+
+I ruoli dell'app non possono essere consentiti da un utente (perché vengono usati da un'applicazione che chiama l'API Web per conto di se stesso). Un amministratore tenant deve fornire il consenso alle applicazioni client dell'API Web che espone i ruoli dell'app. Per informazioni dettagliate, vedere il [consenso dell'amministratore](v2-admin-consent.md)
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Esposizione delle autorizzazioni delegate (ambiti)
 

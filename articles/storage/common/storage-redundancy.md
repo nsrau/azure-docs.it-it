@@ -10,11 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 903560f5c0400a906918f0c17eafb2e1e09bdd30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213993"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518505"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -61,8 +62,8 @@ La tabella seguente illustra i tipi di account di archiviazione che supportano l
 |    Tipo di account di archiviazione    |    Aree supportate    |    Servizi supportati    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Utilizzo generico v2<sup>1</sup>    | Asia sudorientale<br /> Australia orientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Sudafrica settentrionale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2    |    BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Asia sudorientale<br /> Europa occidentale<br /> Stati Uniti orientali    |    Solo BLOB in blocchi    |
-|    FileStorage    | Asia sudorientale<br /> Europa occidentale<br /> Stati Uniti orientali    |    Solo File di Azure    |
+|    BlockBlobStorage<sup>1</sup>    | Asia sudorientale<br /> Australia orientale<br /> Europa occidentale<br /> Stati Uniti orientali    |    Solo BLOB in blocchi    |
+|    FileStorage    | Asia sudorientale<br /> Australia orientale<br /> Europa occidentale<br /> Stati Uniti orientali    |    Solo File di Azure    |
 
 <sup>1</sup> Il livello di archiviazione non è attualmente supportato per gli account ZRS.<br />
 <sup>2</sup> Gli account di archiviazione contenenti i dischi gestiti di Azure per le macchine virtuali usano sempre con l'archiviazione con ridondanza locale. I dischi non gestiti di Azure devono usare anche l'archiviazione con ridondanza locale. È possibile creare un account di archiviazione per i dischi non gestiti di Azure che usa l'archiviazione con ridondanza geografica, ma non è consigliabile a causa di possibili problemi di coerenza della replica geografica asincrona. Né i dischi gestiti e né quelli non gestiti supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [Prezzi per i dischi gestiti di Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -157,7 +158,7 @@ La tabella seguente descrive i principali parametri per ogni opzione di ridondan
 
 La tabella seguente indica se viene garantita la durabilità e la disponibilità dei dati in un determinato scenario, a seconda del tipo di ridondanza attivo per l'account di archiviazione:
 
-| Scenario di interruzione                                                                                                 | Archiviazione con ridondanza locale                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
+| Scenario di interruzione                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Un nodo all'interno di un data center non è più disponibile                                                                 | Sì                             | Sì                              | Sì                                  | Sì                                 |
 | Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                              | Sì                              | Sì<sup>1</sup>                                  | Sì                                  |

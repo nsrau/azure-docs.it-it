@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 48869140ba8cd1a9598562b0057b0005d8fcd9c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd694fd013069c33e4f3af2c81447e014d41b691
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758065"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519239"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
@@ -90,7 +91,7 @@ Selezionare **Visualizza** per ulteriori informazioni e opzioni, ad esempio:
 Il Centro sicurezza individua automaticamente le soluzioni di sicurezza in esecuzione in Azure ma non connesse al centro sicurezza e visualizza le soluzioni nella sezione **soluzioni individuate** . Queste soluzioni includono soluzioni di Azure, come [Azure ad Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)e soluzioni partner.
 
 > [!NOTE]
-> Il livello Standard del Centro sicurezza è necessario a livello di sottoscrizione per la funzionalità di soluzioni individuate. Per altre informazioni sui piani tariffari, vedere [prezzi](security-center-pricing.md) .
+> Il livello standard del Centro sicurezza è obbligatorio a livello di sottoscrizione per la funzionalità soluzioni individuate. Per altre informazioni sui piani tariffari, vedere [prezzi](security-center-pricing.md) .
 >
 
 Selezionare **Connetti** in una soluzione per l'integrazione con il Centro sicurezza e ricevere notifiche relative agli avvisi di sicurezza.

@@ -2,24 +2,20 @@
 title: Funzionalità tecniche di sicurezza in Azure-Microsoft Azure
 description: Introduzione ai servizi di sicurezza in Azure che consentono di proteggere i dati, le risorse e le applicazioni nel cloud.
 services: security
-documentationcenter: na
-author: UnifyCloud
-manager: barbkess
-editor: TomSh
+author: terrylanfear
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/31/2019
-ms.author: TomSh
-ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.author: terrylan
+ms.openlocfilehash: 29e6aa96ea1c435e4d734e80824e1cedcfe9a761
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76845351"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519321"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 Questo articolo fornisce un'introduzione ai servizi di sicurezza in Azure che consentono di proteggere i dati, le risorse e le applicazioni nel cloud e di soddisfare le esigenze di sicurezza dell'azienda.
@@ -56,7 +52,7 @@ Le soluzioni Microsoft per la gestione delle identità e degli accessi consenton
 
 I vantaggi della sicurezza di Azure Active Directory (AD) includono la possibilità di:
 
-- Creare e gestire una singola identità per ogni utente in un'azienda ibrida, mantenendo sincronizzati utenti, gruppi e dispositivi.
+- È possibile creare e gestire una singola identità per ogni utente in un'azienda ibrida, mantenendo sincronizzati utenti, gruppi e dispositivi.
 
 - Offrire l'accesso Single Sign-On alle applicazioni, incluse migliaia di app SaaS preintegrate.
 
@@ -70,9 +66,9 @@ Il [portale Azure Active Directory](https://aad.portal.azure.com/) è disponibil
 
 Di seguito sono riportate le principali funzionalità di gestione delle identità di Azure:
 
-- Single sign-on
+- Single Sign-On
 
-- Autenticazione a più fattori
+- Multi-Factor Authentication
 
 - Monitoraggio della sicurezza, avvisi e report basati su Machine Learning
 
@@ -84,7 +80,7 @@ Di seguito sono riportate le principali funzionalità di gestione delle identit�
 
 - Protezione dell'identità
 
-#### <a name="single-sign-on"></a>Single sign-on
+#### <a name="single-sign-on"></a>Single Sign-On
 
 [Single Sign-on (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) consente di accedere a tutte le applicazioni e risorse necessarie per le attività aziendali effettuando l'accesso una sola volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
 
@@ -94,7 +90,7 @@ Molte organizzazioni si basano su applicazioni SaaS (Software as a Service), ad 
 
 Non solo gli utenti non devono più gestire diversi set di nomi utente e password, ma è anche possibile eseguire il provisioning o deprovisioning automatico dell'accesso alle applicazioni in base ai gruppi aziendali e al relativo stato di dipendente. [Azure ad introduce controlli di governance di sicurezza e accesso](../../active-directory/active-directory-enterprise-apps-manage-sso.md) che consentono di gestire centralmente l'accesso degli utenti tra le applicazioni SaaS.
 
-#### <a name="multi-factor-authentication"></a>Autenticazione a più fattori
+#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 [Azure multi-factor authentication (](../../active-directory/authentication/multi-factor-authentication.md) multi-factor authentication) è un metodo di autenticazione che richiede l'uso di più di un metodo di verifica e aggiunge un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. L'autenticazione a più fattori [consente di proteggere](../../active-directory/authentication/concept-mfa-howitworks.md) l'accesso ai dati e alle applicazioni, garantendo al tempo stesso agli utenti una procedura di accesso semplice. Offre autenticazione avanzata tramite diverse opzioni di verifica, ad esempio una telefonata, un SMS, una notifica o un codice di verifica dell'app per dispositivi mobili e token OAuth di terze parti.
 
@@ -169,77 +165,11 @@ Usando il Controllo degli accessi in base al ruolo, è possibile separare i comp
 Uno degli aspetti fondamentali della protezione dei dati nel cloud consiste nel tenere conto dei possibili stati in cui possono trovarsi i dati e dei controlli disponibili per tale stato. In relazione alle procedure consigliate per la sicurezza e la crittografia dei dati in Azure, le raccomandazioni riguardano gli stati dei dati seguenti.
 
 - Inattivi: sono inclusi tutti gli oggetti, i contenitori e i tipi di archiviazione di informazioni esistenti in forma statica nei supporti fisici, siano essi dischi magnetici o dischi ottici.
-
 - In transito: quando i dati vengono trasferiti tra componenti, percorsi o programmi, ad esempio sulla rete, attraverso un bus di servizio (da locale a cloud e viceversa, incluse le connessioni ibride, ad esempio ExpressRoute) o durante un processo di input/output, è considerato come in movimento.
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
-Per ottenere la crittografia dei dati inattivi, sono disponibili le opzioni seguenti:
-
-Per crittografare i dati, supportare almeno uno dei modelli di crittografia consigliati illustrati in dettaglio nella tabella seguente.
-
-| Modelli di crittografia |  |  |  |
-| ----------------  | ----------------- | ----------------- | --------------- |
-| Crittografia server | Crittografia server | Crittografia server | Crittografia client
-| Crittografia lato server con chiavi gestite dal servizio | Crittografia lato server con chiavi gestite dal cliente in Azure Key Vault | Crittografia lato server con chiavi gestite dal cliente locale |
-| • I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia <br> •    Microsoft gestisce le chiavi <br>•    Funzionalità cloud complete | •    I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia<br>•  Il cliente controlla le chiavi tramite Azure Key Vault<br>• Funzionalità cloud complete | •    I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia <br>• Il cliente controlla le chiavi locali <br> •   Funzionalità cloud complete| • I servizi di Azure non possono visualizzare i dati decrittografati <br>•  I clienti mantengono le chiavi in locale o in altri archivi sicuri. Le chiavi non sono disponibili per i servizi di Azure <br>• Funzionalità cloud ridotte|
-
-### <a name="enabling-encryption-at-rest"></a>Abilitazione della crittografia dei dati inattivi
-
-**Identificare tutte le posizioni in cui sono archiviati i dati**
-
-L'obiettivo della crittografia dei dati inattivi è crittografare tutti i dati. In questo modo si elimina la possibilità di non includere dati importanti o tutte le posizioni permanenti. Enumerare tutti i dati archiviati dall'applicazione.
-
-> [!Note]
-> Non solo i "dati applicazione" o le "informazioni personali", ma tutti i dati correlati all'applicazione, inclusi i metadati degli account (mapping delle sottoscrizioni, informazioni relative al contratto, informazioni personali).
-
-Valutare quali risorse di archiviazione vengono usate per archiviare i dati, Ad esempio:
-
-- Risorsa di archiviazione esterna (ad esempio, SQL Azure, DocumentDB, HDInsight, Data Lake e così via)
-
-- Risorsa di archiviazione temporanea (qualsiasi cache locale contenente i dati dei tenant)
-
-- Cache in memoria (eventualmente inserita nel file di paging)
-
-### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Sfruttare il supporto della crittografia dei dati inattivi esistente in Azure
-
-Per ogni negozio usato, sfruttare il supporto per la crittografia dei dati inattivi esistente.
-
-- Archiviazione di Azure: vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../../storage/common/storage-service-encryption.md)
-
-- SQL Azure: vedere [Transparent Data Encryption (TDE) e SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
-
-- Archiviazione in disco locale o VM: vedere [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md)
-
-In caso di archiviazione in disco locale o VM usare Crittografia dischi di Azure, se supportato:
-
-#### <a name="iaas"></a>IaaS
-
-I servizi con VM IaaS (Windows o Linux) devono usare [Crittografia dischi di Azure](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) per crittografare i volumi contenenti i dati del cliente.
-
-#### <a name="paas-v2"></a>PaaS v2
-
-I servizi eseguiti in PaaS v2 usando Service Fabric possono usare Crittografia dischi di Azure per set di scalabilità di macchine virtuali per crittografare le VM PaaS v2.
-
-#### <a name="paas-v1"></a>PaaS v1
-
-Crittografia dischi di Azure non è attualmente supportato in PaaS v1. Di conseguenza, è necessario usare la crittografia a livello di applicazione per crittografare i dati inattivi salvati in modo permanente,  che includono, tra gli altri, dati applicazione, file temporanei, log e dump di arresto anomalo del sistema.
-
-La maggior parte dei servizi dovrà tentare di sfruttare la crittografia di un provider di risorse di archiviazione. Alcuni servizi devono eseguire la crittografia esplicita. Ad esempio, tutto il materiale delle chiavi salvato in modo permanente (certificati e chiavi radice/master) deve essere archiviato in Key Vault.
-
-Se si supporta la crittografia lato servizio con chiavi gestite dal cliente, deve essere possibile per il cliente trasmettere la chiave a Microsoft. A tale scopo, è supportata e consigliata l'integrazione con Azure Key Vault (AKV). In questo caso, i clienti possono aggiungere e gestire le proprie chiavi in Azure Key Vault. Per informazioni su come usare AKV, vedere [Introduzione a Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
-
-Per l'integrazione con Azure Key Vault, si aggiunge codice per richiedere una chiave da AKV quando è necessaria per la decrittografia.
-
-- Per informazioni su come eseguire l'integrazione con AKV, vedere [Azure Key Vault – Step by Step](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) (Azure Key Vault: istruzioni dettagliate).
-
-Se si supportano chiave gestite dal cliente, è necessario fornire un'esperienza utente che consenta al cliente di specificare l'istanza o l'URI di Key Vault da usare.
-
-Dato che la crittografia dei dati inattivi prevede la crittografia dei dati dell'host, dell'infrastruttura e dei tenant, la perdita delle chiavi a causa di un errore di sistema o di attività dannose potrebbe determinare la perdita di tutti i dati crittografati. È quindi essenziale che la soluzione di crittografia dei dati inattivi includa una strategia di ripristino di emergenza completa resiliente agli errori di sistema e alle attività dannose.
-
-I servizi che implementano la crittografia dei dati inattivi sono in genere ancora suscettibili alle chiavi di crittografia o ai dati lasciati non crittografati nell'unità host, ad esempio nel file di paging del sistema operativo host. È pertanto necessario che i servizi garantiscano la crittografia del volume host per i servizi. Per facilitare il compito, il team di calcolo ha abilitato la distribuzione della crittografia host, che usa la protezione di rete con chiave [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) ed estensioni dell'agente e del servizio DCM per crittografare il volume host.
-
-La maggior parte dei servizi viene implementata in VM di Azure standard. Tali servizi dovrebbero ottenere automaticamente la [crittografia host](../azure-security-disk-encryption-overview.md) quando viene abilitata dal team di calcolo. Per i servizi eseguiti in cluster gestiti dal team di calcolo, la crittografia host viene abilitata automaticamente con l'implementazione di Windows Server 2016.
+La crittografia dei dati inattivi viene descritta in dettaglio in [crittografia dei dati](encryption-atrest.md)inattivi di Azure.
 
 ### <a name="encryption-in-transit"></a>Crittografia dei dati in transito
 
@@ -512,7 +442,7 @@ Per altre informazioni sulla sicurezza, vedere alcuni degli approfondimenti sull
 
 - [Crittografia](https://www.microsoft.com/en-us/trustcenter/security/encryption)
 
-- [Gestione delle identità e dell'accesso](https://www.microsoft.com/en-us/trustcenter/security/identity)
+- [Gestione delle identità e degli accessi](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
 - [Sicurezza di rete](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 

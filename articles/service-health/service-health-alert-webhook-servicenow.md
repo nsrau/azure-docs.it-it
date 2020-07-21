@@ -3,12 +3,12 @@ title: Inviare avvisi di integrità dei servizi di Azure con ServiceNow
 description: Ricevere notifiche personalizzate sugli eventi di integrità dei servizi nell'istanza di ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 96c181991fc962b08e777a55d891b881fc1bdba3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260201"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519071"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con ServiceNow usando i webhook
 
@@ -147,7 +147,7 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Creare un avviso usando ServiceNow nel portale di Azure
 ### <a name="for-a-new-action-group"></a>Per un nuovo gruppo di azioni:
-1. Seguire i passaggi da 1 a 8 in [questo articolo](../azure-monitor/platform/alerts-activity-log-service-notifications.md) per creare un avviso con un nuovo gruppo di azioni.
+1. Seguire i passaggi da 1 a 8 in [questo articolo](./alerts-activity-log-service-notifications-portal.md) per creare un avviso con un nuovo gruppo di azioni.
 
 1. Definire l'elenco di **azioni**:
 
@@ -195,5 +195,5 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare le notifiche webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
 - Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Informazioni sulle [notifiche per l'integrità del servizio](../azure-monitor/platform/service-notifications.md).
+- Informazioni sulle [notifiche per l'integrità del servizio](./service-notifications.md).
 - Altre informazioni sui [gruppi di azione](../azure-monitor/platform/action-groups.md).

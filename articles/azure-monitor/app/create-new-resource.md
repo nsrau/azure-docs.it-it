@@ -3,11 +3,12 @@ title: Creare una nuova risorsa di Azure Application Insights | Microsoft Docs
 description: Impostare manualmente il monitoraggio di Application Insights per una nuova applicazione live.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb47453140c7659ca2f5e6da2e40d9d78405f8e7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200676"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517094"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
@@ -31,7 +32,7 @@ Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa App
    | **Modalità risorsa** | `Classic` o `Workspace-based` | Le risorse basate sull'area di lavoro sono attualmente in anteprima pubblica e consentono di inviare i dati di telemetria Application Insights a un'area di lavoro Log Analytics comune. Per altre informazioni, vedere l' [articolo sulle risorse basate sull'area di lavoro](create-workspace-resource.md).
 
 > [!NOTE]
-> Sebbene sia possibile usare lo stesso nome di risorsa in gruppi di risorse diversi, può essere utile usare un nome univoco globale. Questa operazione può essere utile se si prevede di [eseguire query tra risorse](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) perché semplifica la sintassi richiesta.
+> Sebbene sia possibile usare lo stesso nome di risorsa in gruppi di risorse diversi, può essere utile usare un nome univoco globale. Questa operazione può essere utile se si prevede di [eseguire query tra risorse](../log-query/cross-workspace-query.md#identifying-an-application) perché semplifica la sintassi richiesta.
 
 Immettere i valori appropriati nei campi obbligatori e quindi selezionare **Verifica + crea**.
 
@@ -92,7 +93,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-Per la documentazione completa di PowerShell per questo cmdlet e per informazioni su come recuperare la chiave di strumentazione, vedere la [documentazione Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+Per la documentazione completa di PowerShell per questo cmdlet e per informazioni su come recuperare la chiave di strumentazione, vedere la [documentazione Azure PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
 
 ### <a name="azure-cli-preview"></a>INTERFACCIA della riga di comando di Azure (anteprima)
 
@@ -149,12 +150,12 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-Per la documentazione completa dell'interfaccia della riga di comando di Azure per questo comando e per informazioni su come recuperare la chiave di strumentazione, vedere la [documentazione di Azure CLI](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Per la documentazione completa dell'interfaccia della riga di comando di Azure per questo comando e per informazioni su come recuperare la chiave di strumentazione, vedere la [documentazione di Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md)
 * [Esplorare le metriche](../../azure-monitor/platform/metrics-charts.md)
-* [Scrivere query di Analisi](../../azure-monitor/app/analytics.md)
+* [Scrivere query di Analisi](../log-query/log-query-overview.md)
 
 <!--Link references-->
 

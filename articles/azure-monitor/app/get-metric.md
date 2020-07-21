@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
-ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aacb951d449583c875c71f260957a9d3bc8c663
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82927905"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517145"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Raccolta di metriche personalizzate in .NET e .NET Core
 
@@ -21,7 +22,7 @@ Il monitoraggio di Azure Application Insights .NET e gli SDK di .NET Core hanno 
 
 `TrackMetric()`Invia dati di telemetria non elaborati che indicano una metrica. Non è efficiente inviare un singolo elemento di telemetria per ogni valore. `TrackMetric()`è anche inefficiente in termini di prestazioni, perché ogni `TrackMetric(item)` passa attraverso la pipeline SDK completa degli inizializzatori e dei processori di telemetria. A differenza `TrackMetric()` `GetMetric()` di, gestisce la pre-aggregazione locale per l'utente e quindi invia solo una metrica di riepilogo aggregata a un intervallo fisso di un minuto. Quindi, se è necessario monitorare attentamente alcune metriche personalizzate al secondo o anche al livello di millisecondo, è possibile eseguire questa operazione, mentre solo il costo del traffico di archiviazione e di rete è sufficiente per il monitoraggio ogni minuto. Questo consente anche di ridurre notevolmente il rischio di limitazione delle richieste poiché il numero totale di elementi di telemetria che devono essere inviati per una metrica aggregata è notevolmente ridotto.
 
-In Application Insights la metrica personalizzata raccolta tramite `TrackMetric()` e `GetMetric()` non è soggetta al [campionamento](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Il campionamento di metriche importanti può causare scenari in cui l'invio di avvisi potrebbe essere stato inaffidabile. Se non si campionano mai le metriche personalizzate, in genere è possibile essere certi che, quando vengono violate le soglie di avviso, viene generato un avviso.  Tuttavia, poiché le metriche personalizzate non vengono campionate, è possibile che si verifichino alcune problematiche.
+In Application Insights la metrica personalizzata raccolta tramite `TrackMetric()` e `GetMetric()` non è soggetta al [campionamento](./sampling.md). Il campionamento di metriche importanti può causare scenari in cui l'invio di avvisi potrebbe essere stato inaffidabile. Se non si campionano mai le metriche personalizzate, in genere è possibile essere certi che, quando vengono violate le soglie di avviso, viene generato un avviso.  Tuttavia, poiché le metriche personalizzate non vengono campionate, è possibile che si verifichino alcune problematiche.
 
 Se è necessario tenere traccia delle tendenze in una metrica ogni secondo o a un intervallo ancora più granulare, questo può causare:
 
@@ -29,16 +30,16 @@ Se è necessario tenere traccia delle tendenze in una metrica ogni secondo o a u
 - Aumento del traffico di rete/sovraccarico delle prestazioni. In alcuni scenari questo potrebbe avere un costo in termini di prestazioni in termini di valuta e di applicazione.
 - Rischio di limitazione dell'inserimento. Il servizio monitoraggio di Azure Elimina i punti dati ("limitazioni") quando l'app invia una frequenza molto elevata di dati di telemetria in un intervallo di tempo breve.
 
-La limitazione delle richieste è particolarmente importante in quanto, ad esempio, il campionamento, la limitazione può causare la mancata presenza di avvisi perché la condizione per attivare un avviso potrebbe verificarsi localmente e quindi essere eliminata in corrispondenza dell'endpoint di inserimento a causa di una quantità eccessiva di dati inviati. Per questo motivo, per .NET e .NET Core non è consigliabile usare, a meno che non sia `TrackMetric()` stata implementata la logica di aggregazione locale. Se si sta provando a tenere traccia di ogni istanza di un evento in un determinato periodo di tempo, è possibile trovare [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) una soluzione migliore. Si tenga tuttavia presente che, a differenza delle metriche personalizzate, gli eventi personalizzati sono soggetti al campionamento. Ovviamente, è ancora possibile usare `TrackMetric()` anche senza scrivere la pre-aggregazione locale, ma se si è consapevoli dei problemi.
+La limitazione delle richieste è particolarmente importante in quanto, ad esempio, il campionamento, la limitazione può causare la mancata presenza di avvisi perché la condizione per attivare un avviso potrebbe verificarsi localmente e quindi essere eliminata in corrispondenza dell'endpoint di inserimento a causa di una quantità eccessiva di dati inviati. Per questo motivo, per .NET e .NET Core non è consigliabile usare, a meno che non sia `TrackMetric()` stata implementata la logica di aggregazione locale. Se si sta provando a tenere traccia di ogni istanza di un evento in un determinato periodo di tempo, è possibile trovare [`TrackEvent()`](./api-custom-events-metrics.md#trackevent) una soluzione migliore. Si tenga tuttavia presente che, a differenza delle metriche personalizzate, gli eventi personalizzati sono soggetti al campionamento. Ovviamente, è ancora possibile usare `TrackMetric()` anche senza scrivere la pre-aggregazione locale, ma se si è consapevoli dei problemi.
 
 In sintesi `GetMetric()` , l'approccio consigliato è quello di pre-aggregazione, accumula i valori di tutte le chiamate Track () e invia un riepilogo/aggregazione una volta al minuto. Questo consente di ridurre significativamente il costo e il sovraccarico delle prestazioni inviando un minor numero di punti dati, raccogliendo comunque tutte le informazioni rilevanti.
 
 > [!NOTE]
-> Solo gli SDK .NET e .NET Core hanno un metodo getmetric (). Se si usa Java è possibile usare le [metriche del micrometro](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) o `TrackMetric()` . Per Python è possibile usare [OpenCensus. stats](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) per inviare metriche personalizzate. Per JavaScript e Node.js si usa ancora `TrackMetric()` , ma si tenga presente le avvertenze descritte nella sezione precedente.
+> Solo gli SDK .NET e .NET Core hanno un metodo getmetric (). Se si usa Java è possibile usare le [metriche del micrometro](./micrometer-java.md) o `TrackMetric()` . Per Python è possibile usare [OpenCensus. stats](./opencensus-python.md#metrics) per inviare metriche personalizzate. Per JavaScript e Node.js si usa ancora `TrackMetric()` , ma si tenga presente le avvertenze descritte nella sezione precedente.
 
 ## <a name="getting-started-with-getmetric"></a>Introduzione a getmetric
 
-Per gli esempi, verrà usata un'applicazione di servizio di base di .NET Core 3,1 Worker. Se si vuole replicare esattamente l'ambiente di test usato con questi esempi, seguire i passaggi 1-6 dell' [articolo monitoraggio del servizio Worker](https://docs.microsoft.com/azure/azure-monitor/app/worker-service#net-core-30-worker-service-application) per aggiungere Application Insights a un modello di progetto di servizio di lavoro di base. Questi concetti si applicano a qualsiasi applicazione generale in cui è possibile usare l'SDK, tra cui app Web e app console.
+Per gli esempi, verrà usata un'applicazione di servizio di base di .NET Core 3,1 Worker. Se si vuole replicare esattamente l'ambiente di test usato con questi esempi, seguire i passaggi 1-6 dell' [articolo monitoraggio del servizio Worker](./worker-service.md#net-core-30-worker-service-application) per aggiungere Application Insights a un modello di progetto di servizio di lavoro di base. Questi concetti si applicano a qualsiasi applicazione generale in cui è possibile usare l'SDK, tra cui app Web e app console.
 
 ### <a name="sending-metrics"></a>Invio di metriche
 
@@ -110,7 +111,7 @@ Se esaminiamo la risorsa Application Insights nell'esperienza log (Analytics), q
 > [!NOTE]
 > Mentre l'elemento di telemetria non elaborato non contiene una proprietà o un campo Sum esplicito dopo l'inserimento, ne viene creato uno. In questo caso, entrambe `value` le `valueSum` proprietà e rappresentano la stessa cosa.
 
-È anche possibile accedere ai dati di telemetria delle metriche personalizzati nella sezione [_metrica_](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) del portale. Sia come [metrica basata su log che come metrica personalizzata](pre-aggregated-metrics-log-metrics.md). Lo screenshot seguente è un esempio di basato su log. ![Visualizzazione Esplora metriche](./media/get-metric/metrics-explorer.png)
+È anche possibile accedere ai dati di telemetria delle metriche personalizzati nella sezione [_metrica_](../platform/metrics-charts.md) del portale. Sia come [metrica basata su log che come metrica personalizzata](pre-aggregated-metrics-log-metrics.md). Lo screenshot seguente è un esempio di basato su log. ![Visualizzazione Esplora metriche](./media/get-metric/metrics-explorer.png)
 
 ### <a name="caching-metric-reference-for-high-throughput-usage"></a>Riferimento alle metriche per la memorizzazione nella cache per l'utilizzo con velocità effettiva elevata
 
@@ -301,8 +302,8 @@ SeverityLevel.Error);
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre ](https://docs.microsoft.com/azure/azure-monitor/app/worker-service)informazioni sul monitoraggio delle applicazioni del servizio Worker.
-* Per altre informazioni sulle [metriche basate su log e pre-aggregate](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
-* [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+* [Altre ](./worker-service.md)informazioni sul monitoraggio delle applicazioni del servizio Worker.
+* Per altre informazioni sulle [metriche basate su log e pre-aggregate](./pre-aggregated-metrics-log-metrics.md).
+* [Esplora metriche](../platform/metrics-getting-started.md)
 * Come abilitare Application Insights per [le applicazioni ASP.NET Core](asp-net-core.md)
 * Come abilitare Application Insights per [le applicazioni ASP.NET](asp-net.md)

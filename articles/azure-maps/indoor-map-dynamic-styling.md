@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8c854a503e3c949be0165d9dda046e0169686c67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434150"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517298"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementare stili dinamici per le piante di interni
 
@@ -20,7 +21,7 @@ Il [servizio di stato della funzionalità](https://docs.microsoft.com/rest/api/m
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. [Creare un account di Mappe di Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Creare un account di Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione.
 3. [Creare una risorsa Creator](how-to-manage-creator.md)
 4. Scaricare il [pacchetto di disegno di esempio](https://github.com/Azure-Samples/am-creator-indoor-data-examples).

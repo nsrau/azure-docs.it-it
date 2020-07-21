@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583094"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518131"
 ---
 # <a name="supported-account-types"></a>Tipi di account supportati
 
@@ -45,7 +45,6 @@ Alcuni tipi di account non possono essere usati con determinati flussi di autent
 - Le applicazioni daemon possono essere usate solo con Azure AD organizzazioni. Non ha senso provare a usare le applicazioni daemon per modificare gli account personali di Microsoft. Il consenso dell'amministratore non verrà mai concesso.
 - È possibile usare il flusso di autenticazione integrata di Windows solo con account aziendali o dell'Istituto di istruzione (nell'organizzazione o in qualsiasi organizzazione). L'autenticazione integrata di Windows funziona con gli account di dominio e richiede che i computer siano aggiunti a un dominio o Azure AD Uniti in join. Questo flusso non ha senso per gli account Microsoft personali.
 - La [concessione delle credenziali password del proprietario della risorsa](./v2-oauth-ropc.md) (nome utente/password) non può essere usata con gli account Microsoft personali. Per gli account Microsoft personali è necessario che l'utente acconsente all'accesso alle risorse personali a ogni sessione di accesso. Questo è il motivo per cui questo comportamento non è compatibile con i flussi non interattivi.
-- Il flusso del codice del dispositivo non funziona con account Microsoft personali.
 
 ## <a name="account-types-in-national-clouds"></a>Tipi di conto nei cloud nazionali
 

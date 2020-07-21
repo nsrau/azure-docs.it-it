@@ -5,20 +5,22 @@ description: Informazioni su come creare e usare un indirizzo IP pubblico static
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: f7ea25c3348b96ec6d8818e8e1db4660b308dabc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205775"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517774"
 ---
-# <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Usare un indirizzo IP statico per il traffico in uscita nel servizio Azure Kubernetes
+# <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un indirizzo IP pubblico statico per il traffico in uscita con un servizio di bilanciamento del carico SKU *Basic* in Azure Kubernetes Service (AKS)
 
-Per impostazione predefinita, l'indirizzo IP in uscita da un cluster del servizio Azure Kubernetes viene assegnato in modo casuale. Questa configurazione non è ideale ad esempio quando è necessario identificare un indirizzo IP per l'accesso a servizi esterni. Al contrario, potrebbe essere necessario assegnare un indirizzo IP statico che può essere inserito nell'elenco elementi consentiti per l'accesso al servizio.
+Per impostazione predefinita, l'indirizzo IP in uscita da un cluster del servizio Azure Kubernetes viene assegnato in modo casuale. Questa configurazione non è ideale ad esempio quando è necessario identificare un indirizzo IP per l'accesso a servizi esterni. Potrebbe invece essere necessario assegnare un indirizzo IP statico da aggiungere a un elenco Consenti per l'accesso al servizio.
 
 Questo articolo illustra come creare e usare un indirizzo IP pubblico statico per il traffico in uscita in un cluster del servizio Azure Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
+
+Questo articolo presuppone che si stia usando il Load Balancer Basic di Azure.  È consigliabile usare il [Load Balancer standard di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)ed è possibile usare funzionalità più avanzate per [controllare il traffico in uscita da AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic).
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
@@ -105,7 +107,7 @@ Per verificare che si stia usando l'indirizzo IP pubblico statico, è possibile 
 Avviare e connettersi a un pod *Debian* di base:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
+kubectl run -it --rm aks-ip --image=debian
 ```
 
 Per accedere a un sito web dall'interno del contenitore, usare `apt-get` per installare `curl` nel contenitore.

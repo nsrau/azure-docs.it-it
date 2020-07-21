@@ -4,11 +4,12 @@ description: Ottenere un riepilogo periodico per le raccomandazioni attive
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
-ms.openlocfilehash: 98f1bfd42a486e005cd1e777a83f5b615a7c8304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502464"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518080"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Configura riepilogo periodico per le raccomandazioni
 
@@ -20,7 +21,7 @@ I **digest delle raccomandazioni** di Advisor forniscono un modo semplice e proa
 L'esperienza di creazione del **digest di raccomandazione** consente di configurare il riepilogo. È possibile selezionare i parametri seguenti per le configurazioni:
 1. Categoria: abbiamo categorie di raccomandazioni come costo, disponibilità elevata, prestazioni e eccellenza operativa. La funzionalità non è ancora disponibile per le raccomandazioni sulla sicurezza.
 2. Frequenza del digest: la frequenza per le notifiche di riepilogo può essere settimanale, quindicinale e mensile.
-3. Gruppo di azione: è possibile selezionare un gruppo di azioni esistente o creare un nuovo gruppo di azioni. Per altre informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+3. Gruppo di azione: è possibile selezionare un gruppo di azioni esistente o creare un nuovo gruppo di azioni. Per altre informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
 4. Lingua per il digest
 5. Nome del digest di Raccomandazione: è possibile usare una stringa intuitiva per tenere traccia e monitorare meglio i digest.
 
@@ -43,7 +44,7 @@ Ecco i passaggi per creare il **digest delle raccomandazioni:**
 
    ![Fornire le condizioni di input del digest di raccomandazione](./media/digest-2.png)
 
-* **Passaggio 5:** Nella sezione **gruppo di azione** selezionare il **gruppo di azioni** per il digest. Per altre informazioni, vedere [creare e gestire gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* **Passaggio 5:** Nella sezione **gruppo di azione** selezionare il **gruppo di azioni** per il digest. Per altre informazioni, vedere [creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md)
 
    ![Fornire il gruppo di azioni di input digest di raccomandazione](./media/digest-3.png)
 
@@ -59,4 +60,4 @@ Per altre informazioni sui consigli di Advisor, vedere:
 * [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 * [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
-* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST Advisor](/rest/api/advisor/)

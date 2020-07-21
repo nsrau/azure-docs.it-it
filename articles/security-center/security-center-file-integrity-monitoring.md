@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628297"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519338"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
@@ -45,7 +46,7 @@ Il monitoraggio dell'integrità dei file del Centro sicurezza convalida l'integr
 Il Centro sicurezza consiglia le entità da monitorare, in cui è possibile abilitare facilmente il monitoraggio dell'integrità dei file. È inoltre possibile definire i criteri di monitoraggio dell'integrità dei file o le entità da monitorare. Questa procedura dettagliata illustra come fare.
 
 > [!NOTE]
-> La funzionalità di monitoraggio dell'integrità dei file viene eseguita nelle macchine virtuali e nei computer Windows e Linux ed è disponibile nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md). Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+> La funzionalità di monitoraggio dell'integrità dei file (FIM) funziona per computer e macchine virtuali Windows e Linux ed è disponibile nel livello standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md). Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si ha una risorsa **rilevamento modifiche** di tipo **soluzione**. Per informazioni dettagliate sulla frequenza di raccolta dati, vedere [Informazioni dettagliate sulla raccolta dei dati di Rilevamento modifiche](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per Rilevamento modifiche di Azure.
 
@@ -107,7 +108,7 @@ Per ogni area di lavoro sono disponibili le informazioni seguenti:
 Per un'area di lavoro potrebbero essere visualizzati anche i pulsanti seguenti:
 
 - ![Icona Abilita][3] Indica che il monitoraggio dell'integrità dei file non è abilitato per l'area di lavoro. Selezionando l'area di lavoro è possibile abilitare il monitoraggio dell'integrità dei file in tutti i computer dell'area di lavoro.
-- ![Icona Piano di aggiornamento][4] Indica che l'area di lavoro o la sottoscrizione non viene eseguita nel livello Standard del Centro sicurezza. Per usare il monitoraggio dell'integrità dei file, la sottoscrizione deve essere eseguita nel livello Standard.  Per eseguire l'aggiornamento al livello Standard, è necessario selezionare l'area di lavoro. Per altre informazioni sul livello Standard e su come eseguire l'aggiornamento, vedere [Eseguire l'aggiornamento al livello Standard del Centro sicurezza per la sicurezza avanzata](security-center-pricing.md).
+- ![Icona del piano ][4] di aggiornamento indica che l'area di lavoro o la sottoscrizione non è in esecuzione nel livello standard del Centro sicurezza. Per usare il monitoraggio dell'integrità dei file, la sottoscrizione deve essere eseguita nel livello Standard.  Per eseguire l'aggiornamento al livello Standard, è necessario selezionare l'area di lavoro. Per altre informazioni sul livello standard e su come eseguire l'aggiornamento, vedere [eseguire l'aggiornamento al livello standard del Centro sicurezza per una maggiore sicurezza](security-center-pricing.md).
 - L'assenza di pulsanti indica che il monitoraggio dell'integrità dei file è già abilitato nell'area di lavoro.
 
 In **Monitoraggio dell'integrità dei file** è possibile selezionare un'area di lavoro per abilitare la funzionalità, visualizzare il dashboard Monitoraggio dell'integrità dei file per l'area di lavoro o [eseguire l'aggiornamento](security-center-pricing.md) dell'area di lavoro al livello Standard.

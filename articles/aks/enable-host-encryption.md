@@ -4,12 +4,12 @@ description: Informazioni su come configurare una crittografia basata su host in
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 7b9d930d62d0acea30af9b5e7e12e43fa8fcd5da
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d2b34d8c3090eb6ae3f1445ff1fc663d90367977
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244311"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517723"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Crittografia basata su host in Azure Kubernetes Service (AKS) (anteprima)
 
@@ -27,18 +27,18 @@ Questa funzionalità può essere impostata solo in fase di creazione del cluster
 
 - Assicurarsi che sia `aks-preview` installata l'estensione CLI v 0.4.55 o versione successiva
 - Assicurarsi che sia stato `EncryptionAtHost` abilitato il flag funzionalità `Microsoft.Compute` .
-- Assicurarsi che sia stato `EncryptionAtHost` abilitato il flag funzionalità `Microsoft.ContainerService` .
+- Assicurarsi che sia stato `EnableEncryptionAtHostPreview` abilitato il flag funzionalità `Microsoft.ContainerService` .
 
 ### <a name="register-encryptionathost--preview-features"></a>Registrare le `EncryptionAtHost` funzionalità di anteprima
 
-Per creare un cluster AKS che usa la crittografia basata su host, è necessario abilitare il `EncryptionAtHost` flag funzionalità per la sottoscrizione.
+Per creare un cluster AKS che usa la crittografia basata su host, è necessario abilitare `EnableEncryptionAtHostPreview` i `EncryptionAtHost` flag della funzionalità e nella sottoscrizione.
 
 Registrare il `EncryptionAtHost` flag feature usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
 
-az feature register --namespace "Microsoft.ContainerService"  --name "EncryptionAtHost"
+az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
@@ -46,7 +46,7 @@ Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibil
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
 
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EncryptionAtHost')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 Quando si è pronti, aggiornare la registrazione `Microsoft.ContainerService` dei `Microsoft.Compute` provider di risorse e usando il comando [AZ provider Register][az-provider-register] :
@@ -58,12 +58,12 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 > [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
+> Le funzionalità di anteprima di AKS sono il consenso esplicito self-service. Le anteprime vengono fornite "così come sono" e "come disponibili" e sono escluse dai contratti di servizio e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il massimo sforzo. Di conseguenza, queste funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, consultare gli articoli di supporto seguenti:
 >
 > - [Criteri di supporto del servizio Azure Kubernetes](support-policies.md)
 > - [Domande frequenti relative al supporto tecnico Azure](faq.md)
 
-### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
+### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando aks-preview
 
 Per creare un cluster AKS che esegue la crittografia basata su host, è necessaria la versione più recente dell'estensione dell'interfaccia della riga di comando *AKS-Preview* . Installare l'estensione dell'interfaccia della riga di comando di Azure *AKS-Preview* usando il comando [AZ Extension Add][az-extension-add] oppure verificare la disponibilità di eventuali aggiornamenti tramite il comando [AZ Extension Update][az-extension-update] :
 

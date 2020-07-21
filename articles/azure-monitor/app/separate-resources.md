@@ -3,12 +3,12 @@ title: 'Come progettare la distribuzione di Application Insights: una o più ris
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 53fe54d1e674a9d15cab5a3fac0c85f415e40260
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff301887aebf64d26d0fb391a8a16adefc8a3860
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107428"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516720"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quante risorse Application Insights è necessario distribuire
 
@@ -35,7 +35,7 @@ Ogni risorsa di Application Insights viene fornita con metriche disponibili. Se 
 
 ### <a name="other-things-to-keep-in-mind"></a>Altri aspetti da considerare
 
--   Potrebbe essere necessario aggiungere codice personalizzato per assicurarsi che vengano impostati valori significativi nell'attributo [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name). Senza valori significativi impostati per questo attributo, *NESSUNA* delle esperienze del portale funzionerà.
+-   Potrebbe essere necessario aggiungere codice personalizzato per assicurarsi che vengano impostati valori significativi nell'attributo [Cloud_RoleName](./app-map.md?tabs=net#set-cloud-role-name). Senza valori significativi impostati per questo attributo, *NESSUNA* delle esperienze del portale funzionerà.
 - Per le applicazioni Service Fabric e i servizi cloud classici, l'SDK legge automaticamente l'ambiente dei ruoli di Azure e procede all'impostazione. Per tutti gli altri tipi di app sarà probabilmente necessario definire queste impostazioni in modo esplicito.
 -   L'esperienza Metriche attive non supporta la suddivisione in base al nome del ruolo.
 
@@ -76,7 +76,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="create-additional-application-insights-resources"></a>Creare risorse di Application Insights aggiuntive
 
-Per creare una risorsa di Application Insights, seguire la [guida alla creazione di risorse](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+Per creare una risorsa di Application Insights, seguire la [guida alla creazione di risorse](./create-new-resource.md).
 
 ### <a name="getting-the-instrumentation-key"></a>Ottenere la chiave di strumentazione
 La chiave di strumentazione identifica la risorsa creata.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: c864a9cc5dd5658bcb3205ce2cbe4f6142cf45a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 70ffe0bb98e89babe2f5998ee66666dd5368f7f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255490"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518046"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Eseguire la migrazione ad Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ AKS è un servizio gestito che offre funzionalità esclusive con una riduzione d
 
 Si consiglia di usare i cluster AKS supportati dai [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/index.yml) e dal [Load Balancer standard di Azure](./load-balancer-standard.md) per assicurarsi di ottenere funzionalità come [pool di nodi multipli](./use-multiple-node-pools.md), [zone di disponibilità](../availability-zones/az-overview.md), [intervalli IP autorizzati](./api-server-authorized-ip-ranges.md), [scalabilità](./cluster-autoscaler.md)automatica del cluster, [criteri di Azure per AKS](../governance/policy/concepts/policy-for-kubernetes.md)e altre nuove funzionalità non appena vengono rilasciate.
 
-I cluster AKS supportati dai [set di disponibilità delle macchine virtuali](../virtual-machine-scale-sets/availability.md#availability-sets) non sono supportati per molte di queste funzionalità.
+I cluster AKS supportati dai [set di disponibilità delle macchine virtuali](../virtual-machines/availability.md#availability-sets) non sono supportati per molte di queste funzionalità.
 
 L'esempio seguente crea un cluster AKS con un pool a nodo singolo supportato da un set di scalabilità di macchine virtuali. Usa un servizio di bilanciamento del carico standard. Abilita anche il componente di scalabilità automatica del cluster nel pool di nodi per il cluster e imposta un minimo di *1* e un massimo di *3* nodi:
 

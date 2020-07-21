@@ -3,16 +3,17 @@ title: Monitorare un nuovo cluster Azure Kubernetes Service (AKS) | Microsoft Do
 description: Informazioni su come abilitare il monitoraggio per un nuovo cluster Azure Kubernetes Service (AKS) con monitoraggio di Azure per la sottoscrizione di contenitori.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: c731826f2780c45358730f9ce20d6a6151f6f259
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-terraform
+ms.openlocfilehash: 86ace49ea60bf1bd11633b5a883401f678ecaf8d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847205"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516635"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Abilitare il monitoraggio di un nuovo cluster Azure Kubernetes Service (AKS)
 
-Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare il cluster Kubernetes gestito ospitato nel [servizio Kubernetes di Azure](https://docs.microsoft.com/azure/aks/) che si sta preparando per la distribuzione nella sottoscrizione.
+Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare il cluster Kubernetes gestito ospitato nel [servizio Kubernetes di Azure](../../aks/index.yml) che si sta preparando per la distribuzione nella sottoscrizione.
 
 È possibile abilitare il monitoraggio di un cluster AKS usando uno dei metodi supportati:
 
@@ -24,7 +25,7 @@ Questo articolo descrive come configurare monitoraggio di Azure per i contenitor
 Per abilitare il monitoraggio di un nuovo cluster servizio Azure Kubernetes creato con l'interfaccia della riga di comando di Azure, seguire la procedura nell'articolo introduttivo nella sezione [Creare il cluster servizio Azure Kubernetes](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.74 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Se è stata installata l'estensione dell'interfaccia della riga di comando AKS-Preview versione 0.4.12 o successiva, rimuovere tutte le modifiche apportate per abilitare un'estensione di anteprima perché può sostituire il comportamento predefinito dell'interfaccia della riga di comando di Azure perché le funzionalità di anteprima di AKS non sono disponibili nel cloud DOD di Azure
+>Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.74 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se è stata installata l'estensione dell'interfaccia della riga di comando AKS-Preview versione 0.4.12 o successiva, rimuovere tutte le modifiche apportate per abilitare un'estensione di anteprima perché può sostituire il comportamento predefinito dell'interfaccia della riga di comando di Azure perché le funzionalità di anteprima di AKS non sono disponibili nel cloud DOD di Azure
 
 ## <a name="enable-using-terraform"></a>Abilitare con Terraform
 

@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223296"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518708"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Panoramica dei BLOB di pagine di Azure
 
@@ -33,6 +33,10 @@ I servizi forniti da Microsoft, ad esempio Azure Site Recovery e Backup di Azure
 * Gestione degli snapshot incrementali controllata dell'applicazione: le applicazioni possono sfruttare gli snapshot dei BLOB di pagine e le API REST per il salvataggio dei checkpoint dell'applicazione senza dover sostenere la costosa duplicazione dei dati. Archiviazione di Azure supporta gli snapshot locali per i BLOB di pagine, che non richiedono la copia dell'intero BLOB. Queste API snapshot pubbliche consentono anche l'accesso e la copia dei valori differenziali tra gli snapshot.
 * Migrazione in tempo reale dell'applicazione e dei dati dall'ambiente locale al cloud: copiare i dati locali e usare le API REST per scrivere direttamente in un BLOB di pagine di Azure mentre la macchina virtuale locale continua a essere eseguita. Dopo l'aggiornamento della destinazione, è possibile effettuare rapidamente il failover nella VM di Azure usando tali dati. In questo modo, è possibile eseguire la migrazione delle VM e dei dischi virtuali da locale a cloud con tempi di inattività minimi, perché la migrazione dei dati avviene in background mentre si continua a usare la VM e il tempo di inattività necessario per il failover sarà breve (in minuti).
 * Accesso condiviso [basato sulla firma di accesso condiviso](../common/storage-sas-overview.md), che consente scenari come quelli con più lettori e un singolo writer con il supporto per il controllo della concorrenza.
+
+## <a name="pricing"></a>Prezzi
+
+Entrambi i tipi di archiviazione offerti con i BLOB di pagine hanno un proprio modello di determinazione dei prezzi. I BLOB di pagine Premium seguono il modello di determinazione dei prezzi di Managed disks, mentre i BLOB di pagine standard vengono fatturati sulle dimensioni usate e ogni transazione. Per altre informazioni, vedere la [pagina dei prezzi di BLOB di pagine di Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 ## <a name="page-blob-features"></a>Funzionalità dei BLOB di pagine
 

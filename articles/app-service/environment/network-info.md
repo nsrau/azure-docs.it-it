@@ -4,15 +4,15 @@ description: Informazioni sul traffico di rete dell'ambiente del servizio app e 
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/29/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80477680"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517854"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -153,18 +153,20 @@ I gruppi di sicurezza di rete possono essere configurati tramite il portale di A
 Per il funzionamento di un ambiente del servizio app, è necessario che le voci richieste in un NSG consentano il traffico:
 
 **In ingresso**
-* dal tag del servizio IP AppServiceManagement sulle porte 454.455
-* dal servizio di bilanciamento del carico sulla porta 16001
+* TCP dal tag del servizio IP AppServiceManagement sulle porte 454.455
+* TCP dal servizio di bilanciamento del carico sulla porta 16001
 * dalla subnet dell'ambiente del servizio app alla subnet dell'ambiente del servizio app in tutte le porte
 
 **In uscita**
-* a tutti gli indirizzi IP sulla porta 123
-* a tutti gli IP sulle porte 80, 443
-* al tag del servizio IP AzureSQL sulle porte 1433
-* a tutti gli indirizzi IP sulla porta 12000
+* Da UDP a tutti gli indirizzi IP sulla porta 123
+* Da TCP a tutti gli IP sulle porte 80, 443
+* TCP al tag del servizio IP AzureSQL sulle porte 1433
+* Da TCP a tutti gli indirizzi IP sulla porta 12000
 * alla subnet dell'ambiente del servizio app in tutte le porte
 
-Non è necessario aggiungere la porta DNS perché il traffico verso DNS non è influenzato dalle regole NSG. Queste porte non includono le porte richieste dalle app per un uso corretto. Le porte di accesso alle app normali sono:
+Queste porte non includono le porte richieste dalle app per un uso corretto. Ad esempio, potrebbe essere necessario che l'app chiami un server MySQL sulla porta 3306 la porta DNS, la porta 53, non debba essere aggiunta perché il traffico verso DNS non è influenzato dalle regole NSG. Il protocollo NTP (Network Time Protocol) sulla porta 123 è il protocollo di sincronizzazione dell'ora usato dal sistema operativo. Gli endpoint NTP non sono specifici dei servizi app, possono variare in base al sistema operativo e non sono inclusi in un elenco di indirizzi ben definito. Per evitare problemi di sincronizzazione dell'ora, è necessario consentire il traffico UDP a tutti gli indirizzi sulla porta 123. Il traffico TCP in uscita per la porta 12000 è per il supporto del sistema e l'analisi. Gli endpoint sono dinamici e non si trovano in un set di indirizzi ben definito.
+
+Le porte di accesso alle app normali sono:
 
 | Uso | Porte |
 |----------|-------------|

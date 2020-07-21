@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5350e728ad9c30a6e9258ce9c7615baf020473a8
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6f1eae9cc067f8aa10ad49d70dfe0393f4bed6c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995123"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518420"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Accesso condizionale: Bloccare l'accesso in base alla località
 
@@ -42,17 +43,15 @@ Altre informazioni sulla condizione relativa alla posizione nell'accesso condizi
 1. Assegnare un nome al criterio. Per le organizzazioni è consigliabile creare uno standard significativo per i nomi dei propri criteri.
 1. In **Assegnazioni** selezionare **Utenti e gruppi**
    1. In **Includi** selezionare **Tutti gli utenti**.
-   1. Selezionare **Operazione completata**.
-1. In **Applicazioni cloud o azioni** > **Includi** selezionare **Tutte le app Cloud** e quindi **Chiudi**.
+1. In **app Cloud o azioni**  >  **includere**e selezionare **tutte le app Cloud**.
 1. In **Condizioni** > **Posizione**
    1. impostare **Configura** su **Sì**
-   1. e in **Includi** selezionare **Posizioni selezionate**
+   1. In **Includi**selezionare le **località selezionate**
    1. Selezionare la posizione bloccata creata per l'organizzazione.
-   1. Fare clic su **Seleziona** > **Chiudi** > **Chiudi**.
-1. In **Condizioni** > **App client (anteprima)** impostare **Configura** su **Sì** e selezionare **Chiudi**.
-1. In **Controlli di accesso** > **Blocco** e scegliere **Seleziona**.
-1. Confermare le impostazioni e impostare **Attiva criterio** su **Attivato**.
-1. Selezionare **Crea** per creare ed abilitare i criteri.
+   1. Fare clic su **Seleziona**.
+1. In **controlli di accesso** > selezionare **Blocca accesso**e selezionare **Seleziona**.
+1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
+1. Selezionare **Crea** per creare i criteri di accesso condizionale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,12 +4,12 @@ description: Creare avvisi del log attività usando il portale di Azure, un mode
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056260"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516057"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure  
 
@@ -20,7 +20,7 @@ Gli avvisi del log attività vengono attivati quando si verifica un nuovo evento
 Si tratta di avvisi per le risorse di Azure e possono essere creati usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In genere si creano avvisi del log attività per ricevere una notifica quando si verificano specifici cambiamenti nelle risorse presenti nella sottoscrizione di Azure. Gli avvisi sono spesso limitati a particolari risorse o gruppi di risorse. Potrebbe ad esempio essere utile ricevere una notifica quando viene eliminata una macchina virtuale nel gruppo di risorse di esempio **myProductionResourceGroup** o se vengono assegnati nuovi ruoli a un utente nella sottoscrizione.
 
 > [!IMPORTANT]
-> Non è possibile creare avvisi di notifica sull'integrità dei servizi tramite l'interfaccia per la creazione degli avvisi del log attività. Per altre informazioni sulla creazione e l'uso delle notifiche sull'integrità dei servizi, vedere [Creare gli avvisi del log attività per le notifiche del servizio](alerts-activity-log-service-notifications.md).
+> Non è possibile creare avvisi di notifica sull'integrità dei servizi tramite l'interfaccia per la creazione degli avvisi del log attività. Per altre informazioni sulla creazione e l'uso delle notifiche sull'integrità dei servizi, vedere [Creare gli avvisi del log attività per le notifiche del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Quando si creano le regole di avviso, verificare quanto segue:
 
@@ -28,6 +28,7 @@ Quando si creano le regole di avviso, verificare quanto segue:
 - I criteri devono essere livello, stato, chiamante, gruppo di risorse, ID risorsa, tipo di risorsa o categoria di eventi in cui è stato configurato l'avviso.
 - Nel codice JSON della configurazione dell'avviso non sono presenti condizioni "anyOf" o condizioni nidificate. In pratica, è consentito un solo "allOf" senza ulteriori condizioni "allOf" o "anyOf".
 - Se la categoria è impostata su "Administrative", nell'avviso è necessario specificare almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
+- Non è possibile creare avvisi per gli eventi nella categoria avvisi del log attività.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -101,7 +102,7 @@ Seguire la procedura indicata di seguito.
     È possibile abilitare, disabilitare, modificare o eliminare una regola. Leggere altre informazioni su come gestire le regole del log attività.
 
 
-Una semplice analogia per comprendere le condizioni in base a cui è possibile creare regole di avviso in un log attività è quella di esplorare o filtrare gli eventi tramite il [log attività nel portale di Azure](activity-log-view.md#azure-portal). Nella schermata **Monitoraggio di Azure - Log attività** è possibile filtrare o trovare l'evento necessario e quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività**. Seguire quindi i passaggi da 4 a 7 come illustrato in precedenza.
+Una semplice analogia per comprendere le condizioni in base a cui è possibile creare regole di avviso in un log attività è quella di esplorare o filtrare gli eventi tramite il [log attività nel portale di Azure](./activity-log.md#view-the-activity-log). Nella schermata **Monitoraggio di Azure - Log attività** è possibile filtrare o trovare l'evento necessario e quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività**. Seguire quindi i passaggi da 4 a 7 come illustrato in precedenza.
     
  ![Aggiungi avviso dal log attività](media/alerts-activity-log/add-activity-log.png)
     
@@ -243,7 +244,7 @@ Maggiori informazioni sui campi del log attività sono disponibili [qui](https:/
 > Possono essere necessari fino a 5 minuti prima che una nuova regola di avviso del log attività diventi attiva.
 
 ## <a name="rest-api"></a>API REST 
-L'[API Avvisi del log attività di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) è un'API REST. È completamente compatibile con l'API REST di Azure Resource Manager. Può essere usata con il cmdlet di Resource Manager tramite PowerShell o l'interfaccia della riga di comando di Azure.
+L'[API Avvisi del log attività di Monitoraggio di Azure](/rest/api/monitor/activitylogalerts) è un'API REST. È completamente compatibile con l'API REST di Azure Resource Manager. Può essere usata con il cmdlet di Resource Manager tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -262,29 +263,29 @@ dove sampleActivityLogAlert.parameters.json contiene i valori dei parametri nece
 
 Per gli avvisi del log attività sono disponibili cmdlet di PowerShell dedicati:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): crea un nuovo avviso del log attività o aggiorna un avviso del log attività esistente.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert): recupera una o più risorse di avviso del log attività.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): abilita un avviso del log attività esistente e ne imposta i tag.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): disabilita un avviso del log attività esistente e ne imposta i tag.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): rimuove un avviso del log attività.
+- [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert): crea un nuovo avviso del log attività o aggiorna un avviso del log attività esistente.
+- [Get-AzActivityLogAlert](/powershell/module/az.monitor/get-azactivitylogalert): recupera una o più risorse di avviso del log attività.
+- [Enable-AzActivityLogAlert](/powershell/module/az.monitor/enable-azactivitylogalert): abilita un avviso del log attività esistente e ne imposta i tag.
+- [Disable-AzActivityLogAlert](/powershell/module/az.monitor/disable-azactivitylogalert): disabilita un avviso del log attività esistente e ne imposta i tag.
+- [Remove-AzActivityLogAlert](/powershell/module/az.monitor/remove-azactivitylogalert): rimuove un avviso del log attività.
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per la gestione delle regole di avviso del log attività sono disponibili comandi dedicati dell'interfaccia della riga di comando di Azure nel set [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert).
+Per la gestione delle regole di avviso del log attività sono disponibili comandi dedicati dell'interfaccia della riga di comando di Azure nel set [az monitor activity-log alert](/cli/azure/monitor/activity-log/alert).
 
 Per creare una nuova regola di avviso del log attività, usare i comandi seguenti nell'ordine indicato:
 
-1. [az monitor activity-log alert create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): creare una nuova risorsa di regola di avviso del log attività.
-1. [az monitor activity-log alert scope](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): aggiungere l'ambito per la regola di avviso del log attività creata.
-1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): aggiungere un gruppo di azioni alla regola di avviso del log attività.
+1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): creare una nuova risorsa di regola di avviso del log attività.
+1. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): aggiungere l'ambito per la regola di avviso del log attività creata.
+1. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): aggiungere un gruppo di azioni alla regola di avviso del log attività.
 
-Per recuperare una risorsa di regola di avviso del log attività, usare il comando [az monitor activity-log alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-) dell'interfaccia della riga di comando di Azure. Per visualizzare tutte le risorse di regola di avviso del log attività in un gruppo di risorse, usare [az monitor activity-log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Le risorse di regola di avviso del log attività possono essere rimosse usando il comando [az monitor activity-log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) dell'interfaccia della riga di comando di Azure.
+Per recuperare una risorsa di regola di avviso del log attività, usare il comando [az monitor activity-log alert show](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+) dell'interfaccia della riga di comando di Azure. Per visualizzare tutte le risorse di regola di avviso del log attività in un gruppo di risorse, usare [az monitor activity-log alert list](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Le risorse di regola di avviso del log attività possono essere rimosse usando il comando [az monitor activity-log alert delete](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) dell'interfaccia della riga di comando di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sullo [schema dei webhook per i log attività](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Leggere una [panoramica dei log attività](../../azure-monitor/platform/activity-log-alerts.md).
 - Altre informazioni sui [gruppi di azione](../../azure-monitor/platform/action-groups.md).  
-- Informazioni sulle [notifiche per l'integrità del servizio](../../azure-monitor/platform/service-notifications.md).
+- Informazioni sulle [notifiche per l'integrità del servizio](../../service-health/service-notifications.md).

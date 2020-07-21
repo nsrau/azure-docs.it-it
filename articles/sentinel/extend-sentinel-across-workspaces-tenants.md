@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: yelevin
-ms.openlocfilehash: d76f8e2d750b8ab2d82e9424f929d8b8353ac25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816442"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519014"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estendere Azure Sentinel tra più aree di lavoro e tenant
 
@@ -110,6 +110,12 @@ Le cartelle di lavoro possono fornire query tra aree di lavoro in uno dei tre me
 | Modificare la cartella di lavoro in modo interattivo | Un utente avanzato che modifica una cartella di lavoro esistente può modificarvi le query, selezionando le aree di lavoro di destinazione usando il selettore dell'area di lavoro nell'editor. | Questa opzione consente a un utente Power di modificare facilmente le cartelle di lavoro esistenti in modo da usare più aree di lavoro. |
 |
 
+### <a name="cross-workspace-hunting"></a>Caccia tra aree di lavoro
+
+Azure Sentinel fornisce esempi di query precaricati progettati per iniziare e acquisire familiarità con le tabelle e il linguaggio di query. Queste query di caccia predefinite vengono sviluppate dai ricercatori della sicurezza Microsoft su base continuativa, sia l'aggiunta di nuove query che l'ottimizzazione delle query esistenti, per fornire un punto di ingresso per cercare nuovi rilevamenti e identificare i segnali di intrusione che potrebbero non essere stati rilevati dagli strumenti di sicurezza.  
+
+Le funzionalità di ricerca tra aree di lavoro consentono ai cacciatori di minacce di creare nuove query di ricerca o di adattare quelle esistenti per coprire più aree di lavoro, usando l'operatore Union e l'espressione Workspace (), come illustrato in precedenza.
+
 ## <a name="cross-workspace-management-using-automation"></a>Gestione tra aree di lavoro tramite automazione
 
 Per configurare e gestire più aree di lavoro di Sentinel di Azure, sarà necessario automatizzare l'uso dell'API di gestione di Sentinel di Azure. Per altre informazioni su come automatizzare la distribuzione delle risorse di Azure Sentinel, incluse le regole di avviso, la ricerca di query, cartelle di lavoro e PlayBook, vedere [estensione di Azure Sentinel: API, integrazione e automazione di gestione](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
@@ -122,8 +128,6 @@ Vedere anche [distribuzione e gestione di Azure Sentinel come codice](https://te
 Le funzionalità seguenti non sono supportate tra le aree di lavoro:
 
 - Una regola di avviso pianificata non può essere eseguita tra aree di lavoro usando una query tra aree di lavoro.
-
-- Le query di caccia non supportano le query tra aree di lavoro.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gestione delle aree di lavoro tra tenant con Azure Lighthouse
 
